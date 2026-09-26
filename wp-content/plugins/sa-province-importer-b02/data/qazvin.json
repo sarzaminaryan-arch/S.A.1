@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "qazvin",
+ "status": "stub",
+ "name_fa": "استان قزوین",
+ "name_en": "Qazvin Province",
+ "term_name": "قزوین",
+ "center_city": "قزوین",
+ "post": {
+  "title": "استان قزوین",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/qazvin.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 69816,
+  "alt": "تصویرسازی استان قزوین با بنایی گنبددار و کاشی‌کاری آبی، دروازه‌ی آجری تاریخی و انارهای رسیده",
+  "title": "استان قزوین — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان قزوین در یک نگاه: بنای گنبددار، دروازه‌ی آجری، انار — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان قزوین» در سرزمین آریان؛ تصویرسازی گرافیکی با بنای گنبددار، دروازه‌ی آجری، انار. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "303b179ef4fd55984adc008c8cd1357e5d9e9411"
+ }
+}

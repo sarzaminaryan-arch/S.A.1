@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "razavi-khorasan",
+ "status": "stub",
+ "name_fa": "استان خراسان رضوی",
+ "name_en": "Razavi Khorasan Province",
+ "term_name": "خراسان رضوی",
+ "center_city": "مشهد",
+ "post": {
+  "title": "استان خراسان رضوی",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/razavi-khorasan.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 131112,
+  "alt": "تصویرسازی استان خراسان رضوی با گنبد طلایی و مناره‌های فیروزه‌ای حرم، رواق کاشی‌کاری و تپه‌های شنی کویر",
+  "title": "استان خراسان رضوی — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان خراسان رضوی در یک نگاه: گنبد طلایی حرم، کاشی‌کاری، کویر — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان خراسان رضوی» در سرزمین آریان؛ تصویرسازی گرافیکی با گنبد طلایی حرم، کاشی‌کاری، کویر. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "2885068853928860e6ef1281f10ea06c4d9d8fac"
+ }
+}

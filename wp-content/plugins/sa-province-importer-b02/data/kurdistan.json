@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "kurdistan",
+ "status": "stub",
+ "name_fa": "استان کردستان",
+ "name_en": "Kurdistan Province",
+ "term_name": "کردستان",
+ "center_city": "سنندج",
+ "post": {
+  "title": "استان کردستان",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/kurdistan.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 200864,
+  "alt": "تصویرسازی استان کردستان با روستای پلکانی اورامان، کوه‌های برفی زاگرس، پارچه‌های رنگی کردی، شان عسل و گردو",
+  "title": "استان کردستان — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان کردستان در یک نگاه: روستای پلکانی، زاگرس، پارچه‌ی کردی، عسل، گردو — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان کردستان» در سرزمین آریان؛ تصویرسازی گرافیکی با روستای پلکانی، زاگرس، پارچه‌ی کردی، عسل، گردو. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "019f781f5cae7502739451695f2983ccf6fd47e4"
+ }
+}
