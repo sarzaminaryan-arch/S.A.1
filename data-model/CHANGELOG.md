@@ -3,6 +3,17 @@
 All notable changes to the data model are recorded here.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: `MAJOR.MINOR` (MAJOR = breaking change to an active entity/URL, MINOR = additive).
 
+## [1.1] — 2026-09-26
+
+### Added
+- **Attraction** fields `official_website` (url, nullable → JSON-LD `sameAs`) and `last_verified_date` (date, nullable; staleness > `stale_after_days` = 365 flags «needs review»). Requested by the owner so the agent can detect outdated hours / prices / access restrictions.
+- **Level 7** — `content_rules.minimums` per entity (FAQ, sources, internal links, coordinates), three new publish blockers (`missing_coordinates`, `missing_sources`, `missing_internal_links`), `uncertainty_markers` (`[نیازمند بررسی]`, `[منبع لازم]` — allowed, badged, counted) and `stale_after_days`.
+- Production prompts: `content-templates/province.md`, `city.md`, `attraction.md` (owner packages #1–#3).
+
+### Notes
+- Additive only (MINOR bump). No slug/URL/relation change. Child theme regenerates `inc/entities-config.php` from the YAML (`schema/build_child_config.py`).
+- Proposed for 1.2 (not applied, awaiting approval): `attraction.national_registration_number`, `attraction.national_registration_date`, `attraction.unesco_year`, `attraction.unesco_url`, `attraction.area_m2`, `attraction.elevation_m`; `last_verified_date` for all entities.
+
 ## [1.0] — 2026-09-26
 
 ### Added

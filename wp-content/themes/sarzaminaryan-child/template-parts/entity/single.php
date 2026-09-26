@@ -30,6 +30,8 @@ $sa_type = get_post_type();
 
 			<?php get_template_part( 'template-parts/entity/faq' ); ?>
 
+			<?php sa_sources_section( $sa_id ); ?>
+
 			<?php sa_facts_checked_note( $sa_id ); ?>
 		</div>
 

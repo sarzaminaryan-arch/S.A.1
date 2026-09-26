@@ -896,3 +896,55 @@
 		display: block;
 	}
 }
+
+
+/* ---------- v1.0.1: sources, uncertainty flags ---------- */
+.sa-sources {
+	margin-block: 2.5rem 1rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--color-border);
+}
+
+.sa-sources h2 {
+	font-size: 1.15rem;
+	margin-bottom: 0.75rem;
+}
+
+.sa-sources__list {
+	margin: 0;
+	padding-inline-start: 1.4rem;
+	font-size: 0.92rem;
+	color: var(--color-muted);
+	line-height: 1.9;
+}
+
+.sa-sources__list a {
+	color: var(--color-primary);
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+.sa-sources__org,
+.sa-sources__date {
+	color: var(--color-muted);
+}
+
+.sa-flag {
+	display: inline-block;
+	padding: 0 0.5em;
+	border-radius: 999px;
+	font-size: 0.78em;
+	font-weight: 600;
+	line-height: 1.8;
+	vertical-align: middle;
+	background: #fef3c7;
+	color: #92400e;
+	border: 1px solid #fcd34d;
+	cursor: help;
+}
+
+.sa-flag--stale {
+	background: #fff7ed;
+	color: #9a3412;
+	border-color: #fdba74;
+}

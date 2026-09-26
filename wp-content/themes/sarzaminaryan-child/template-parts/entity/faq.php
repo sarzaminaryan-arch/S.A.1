@@ -18,7 +18,7 @@ if ( ! $sa_faq ) {
 	<?php foreach ( $sa_faq as $sa_i => $sa_row ) : ?>
 		<details class="sa-faq-item" <?php echo 0 === $sa_i ? 'open' : ''; ?>>
 			<summary><?php echo esc_html( $sa_row['q'] ); ?></summary>
-			<div class="sa-faq-item__answer"><?php echo wp_kses_post( wpautop( sa_digits( $sa_row['a'] ) ) ); ?></div>
+			<div class="sa-faq-item__answer"><?php echo sa_render_markers( wp_kses_post( wpautop( sa_digits( $sa_row['a'] ) ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
 		</details>
 	<?php endforeach; ?>
 </section>

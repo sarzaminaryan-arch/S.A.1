@@ -89,6 +89,15 @@ function sa_render_fields_box( $post ) {
 			case 'time':
 				printf( '<input type="time" id="%1$s" name="%1$s" value="%2$s" class="widefat" dir="ltr">', $id, esc_attr( $value ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				break;
+			case 'date':
+				printf( '<input type="date" id="%1$s" name="%1$s" value="%2$s" class="widefat" dir="ltr" placeholder="YYYY-MM-DD">', $id, esc_attr( $value ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				if ( $value && strtotime( $value ) ) {
+					$age = (int) floor( ( time() - strtotime( $value ) ) / DAY_IN_SECONDS );
+					echo '<span class="description">' . esc_html( sa_jalali_date( 'j F Y', strtotime( $value ) ) ) . ' — ' . esc_html( sa_fa_digits( $age ) ) . ' روز پیش' . ( $age > sa_stale_after_days() ? ' · <strong class="sa-missing">نیازمند بازبینی</strong>' : '' ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				} elseif ( 'sa_last_verified_date' === $f['key'] ) {
+					echo '<span class="description">تاریخ میلادی؛ بعد از هر بار بررسی ساعات بازدید/قیمت/دسترسی به‌روز کنید.</span>';
+				}
+				break;
 			case 'reference':
 				sa_posts_dropdown( $f['key'], $f['target'], (array) $value, false );
 				break;
@@ -283,7 +292,9 @@ function sa_faq_row_html( $q, $a ) {
  */
 function sa_render_sources_box( $post ) {
 	sa_meta_nonce_field();
-	printf( '<textarea name="sa_sources" class="widefat" rows="3" dir="ltr" placeholder="https://… (هر منبع در یک خط)">%s</textarea>', esc_textarea( get_post_meta( $post->ID, 'sa_sources', true ) ) );
+	$min = sa_content_minimums( $post->post_type );
+	printf( '<textarea name="sa_sources" class="widefat" rows="6" dir="auto" placeholder="عنوان منبع | سازمان منتشرکننده | https://… | تاریخ دسترسی">%s</textarea>', esc_textarea( get_post_meta( $post->ID, 'sa_sources', true ) ) );
+	echo '<p class="description">هر منبع در یک خط با قالب <code>عنوان | سازمان | URL | تاریخ دسترسی</code>. حداقل برای انتشار: <strong>' . esc_html( sa_fa_digits( (int) $min['sources'] ) ) . '</strong> منبع دارای لینک. هرچه بعد از یک خط <code>---</code> بنویسید (مثلاً FACT CHECK REPORT ایجنت) خصوصی می‌ماند و در سایت نمایش داده نمی‌شود.</p>';
 	printf( '<p><label>تاریخ آخرین بازبینی اطلاعات (مثلاً قیمت‌ها و ساعات): <input type="date" name="sa_facts_checked" dir="ltr" value="%s"></label></p>', esc_attr( get_post_meta( $post->ID, 'sa_facts_checked', true ) ) );
 }
 
@@ -310,6 +321,9 @@ function sa_sanitize_field( $value, $type ) {
 			return empty( $value ) ? '' : '1';
 		case 'time':
 			return preg_match( '/^\d{2}:\d{2}$/', (string) $value ) ? $value : '';
+		case 'date':
+			$value = sa_en_digits( trim( (string) $value ) );
+			return preg_match( '/^\d{4}-\d{2}-\d{2}$/', $value ) && strtotime( $value ) ? $value : '';
 		case 'textarea':
 		case 'list':
 			return sanitize_textarea_field( (string) $value );

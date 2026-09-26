@@ -1,5 +1,13 @@
 # Changelog — sarzaminaryan-child
 
+## 1.0.1 — 2026-09-26
+
+- Data model **v1.1**: `attraction.official_website` (→ JSON-LD `sameAs`) and `attraction.last_verified_date`; new `date` field type (ISO input, Jalali hint, stale warning after `sa_stale_after_days()` = 365).
+- Publish gate reads per-entity minimums from the model (`sa_content_minimums()`): FAQ ≥ n, sources ≥ n (lines with a URL before the `---` separator), internal links ≥ n (same-site `<a href>` in content), coordinates required. New non-blocking warnings: uncertainty markers count, missing/stale verification date. Admin badge «بازبینی».
+- Visible **منابع** section on entity singles (`sa_sources_section()`), official domains followed, others `nofollow`; text after a `---` line stays private (editor FACT CHECK notes).
+- `[نیازمند بررسی]` / `[منبع لازم]` rendered as `<mark class="sa-flag">` badges in content and FAQ answers (Helpful Content: transparency over guessing).
+- `sa_transliterate_fa()` for Persian slugs on publish; number formatting drops `.0`; RTL stylesheet appended instead of replaced (parent).
+
 ## 1.0.0 — 2026-09-26
 
 First release. Everything the project needs lives in this child theme (no plugins).

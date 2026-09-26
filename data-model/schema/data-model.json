@@ -1,7 +1,7 @@
 {
   "model": {
     "name": "Iran Travel Knowledge Graph",
-    "version": "1.0",
+    "version": "1.1",
     "status_legend": {
       "active": "Built in v1.0. Must exist before launch.",
       "reserved": "Designed in v1.0, not built yet. Names/slugs/URLs/relation slots are locked."
@@ -307,6 +307,16 @@
         {
           "name": "featured_image",
           "type": "image"
+        },
+        {
+          "name": "official_website",
+          "type": "url",
+          "nullable": true
+        },
+        {
+          "name": "last_verified_date",
+          "type": "date",
+          "nullable": true
         }
       ],
       "relations": [
@@ -892,8 +902,60 @@
       "missing_seo_fields",
       "missing_faq",
       "missing_featured_image",
-      "missing_primary_taxonomy"
+      "missing_primary_taxonomy",
+      "missing_coordinates",
+      "missing_sources",
+      "missing_internal_links"
     ],
+    "minimums": {
+      "province": {
+        "faq": 10,
+        "sources": 5,
+        "internal_links": 20,
+        "coordinates": true
+      },
+      "city": {
+        "faq": 10,
+        "sources": 5,
+        "internal_links": 10,
+        "coordinates": true
+      },
+      "attraction": {
+        "faq": 10,
+        "sources": 5,
+        "internal_links": 10,
+        "coordinates": true
+      },
+      "travel_route": {
+        "faq": 3,
+        "sources": 2,
+        "internal_links": 5,
+        "coordinates": false
+      },
+      "local_food": {
+        "faq": 3,
+        "sources": 2,
+        "internal_links": 3,
+        "coordinates": false
+      },
+      "souvenir": {
+        "faq": 3,
+        "sources": 2,
+        "internal_links": 3,
+        "coordinates": false
+      },
+      "accommodation": {
+        "faq": 3,
+        "sources": 2,
+        "internal_links": 3,
+        "coordinates": true
+      }
+    },
+    "uncertainty_markers": [
+      "[نیازمند بررسی]",
+      "[منبع لازم]"
+    ],
+    "stale_after_days": 365,
     "accommodation_publish_blockers": {
       "status": "reserved",
       "items": [

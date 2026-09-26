@@ -1,7 +1,7 @@
 <?php
 /**
  * GENERATED FILE — do not edit by hand.
- * Source: data-model/schema/data-model.yaml (model v1.0) via build_child_config.py
+ * Source: data-model/schema/data-model.yaml (model v1.1) via build_child_config.py
  * Maps MASTER_DATA_MODEL Levels 1–5 onto WordPress: CPTs, meta keys, relations, taxonomies, SEO fields.
  *
  * @package Sarzaminaryan_Child
@@ -274,6 +274,18 @@ function sa_entities_config() {
 					'label' => 'مدت بازدید پیشنهادی',
 					'type' => 'text',
 					'key' => 'sa_visit_duration',
+				),
+				array(
+					'name' => 'official_website',
+					'label' => 'وب‌سایت رسمی',
+					'type' => 'url',
+					'key' => 'sa_official_website',
+				),
+				array(
+					'name' => 'last_verified_date',
+					'label' => 'تاریخ آخرین راستی‌آزمایی (ساعات/قیمت/دسترسی)',
+					'type' => 'date',
+					'key' => 'sa_last_verified_date',
 				),
 			),
 			'relations' => array(
@@ -862,5 +874,79 @@ function sa_publish_blockers() {
 		'missing_faq',
 		'missing_featured_image',
 		'missing_primary_taxonomy',
+		'missing_coordinates',
+		'missing_sources',
+		'missing_internal_links',
 	);
+}
+
+/**
+ * Level 7 (v1.1) — per-entity minimums enforced by the publish gate: faq, sources, internal_links, coordinates.
+ */
+function sa_content_minimums( $type = '' ) {
+	$all = array(
+		'province' => array(
+			'faq' => 10,
+			'sources' => 5,
+			'internal_links' => 20,
+			'coordinates' => true,
+		),
+		'city' => array(
+			'faq' => 10,
+			'sources' => 5,
+			'internal_links' => 10,
+			'coordinates' => true,
+		),
+		'attraction' => array(
+			'faq' => 10,
+			'sources' => 5,
+			'internal_links' => 10,
+			'coordinates' => true,
+		),
+		'travel_route' => array(
+			'faq' => 3,
+			'sources' => 2,
+			'internal_links' => 5,
+			'coordinates' => false,
+		),
+		'local_food' => array(
+			'faq' => 3,
+			'sources' => 2,
+			'internal_links' => 3,
+			'coordinates' => false,
+		),
+		'souvenir' => array(
+			'faq' => 3,
+			'sources' => 2,
+			'internal_links' => 3,
+			'coordinates' => false,
+		),
+		'accommodation' => array(
+			'faq' => 3,
+			'sources' => 2,
+			'internal_links' => 3,
+			'coordinates' => true,
+		),
+	);
+	if ( '' === $type ) {
+		return $all;
+	}
+	return isset( $all[ $type ] ) ? $all[ $type ] : array( 'faq' => 1, 'sources' => 0, 'internal_links' => 0, 'coordinates' => false );
+}
+
+/**
+ * Level 7 (v1.1) — uncertainty markers allowed in published text (rendered as a badge, counted, never removed).
+ */
+function sa_uncertainty_markers() {
+	return array(
+		'[نیازمند بررسی]',
+		'[منبع لازم]',
+	);
+}
+
+/**
+ * Level 7 (v1.1) — days after which attraction.last_verified_date is considered stale.
+ */
+function sa_stale_after_days() {
+	return 365;
 }

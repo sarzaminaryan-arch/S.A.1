@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -31,6 +31,12 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 5. لوگو، تصویر قهرمان، شبکه‌های اجتماعی و متن پابرگ را از «سفارشی‌سازی → سرزمین آریان» تنظیم کنید.
 
 == Changelog ==
+
+= 1.0.1 — 2026-09-26 =
+* مدل داده v1.1: فیلدهای «وب‌سایت رسمی» و «تاریخ آخرین راستی‌آزمایی» برای جاذبه؛ نوع فیلد تاریخ.
+* دروازه‌ی انتشار: حداقل FAQ/منابع/لینک داخلی و مختصات به‌ازای هر موجودیت (از مدل داده)؛ یادآوری‌های غیرمسدودکننده (برچسب‌های «نیازمند بررسی»، راستی‌آزمایی قدیمی).
+* بخش «منابع» در صفحه‌ی موجودیت‌ها (nofollow برای منابع غیررسمی؛ یادداشت‌های بعد از --- خصوصی می‌مانند).
+* نمایش برچسب‌های [نیازمند بررسی] و [منبع لازم] به‌صورت نشان زرد برای شفافیت.
 
 = 1.0.0 — 2026-09-26 =
 * انتشار اول. آزمایش زنده روی WordPress 7.1.2 / PHP 8.4 (همه‌ی نماها بدون هیچ اخطار PHP).

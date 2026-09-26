@@ -34,6 +34,7 @@ FIELD_LABELS = {
     'access_road': 'دسترسی جاده‌ای', 'google_map_url': 'لینک گوگل‌مپ',
     'latitude': 'عرض جغرافیایی', 'longitude': 'طول جغرافیایی', 'address': 'نشانی', 'opening_hours': 'ساعات بازدید',
     'ticket_price': 'قیمت بلیت', 'visit_duration': 'مدت بازدید پیشنهادی',
+    'official_website': 'وب‌سایت رسمی', 'last_verified_date': 'تاریخ آخرین راستی‌آزمایی (ساعات/قیمت/دسترسی)',
     'route_distance': 'مسافت مسیر (کیلومتر)',
     'main_ingredients': 'مواد اصلی (هر مورد در یک خط)', 'serving_method': 'نحوه سرو',
     'purchase_location': 'محل خرید',
@@ -62,7 +63,7 @@ TERM_LABELS = {
 }
 SKIP_SUFFIX = ('_name', '_slug', '_description', '_summary')
 UI_TYPE = {'string': 'text', 'text': 'textarea', 'integer': 'integer', 'number': 'number', 'float': 'float',
-           'url': 'url', 'list': 'list', 'reference': 'reference', 'boolean': 'boolean', 'time': 'time'}
+           'url': 'url', 'list': 'list', 'reference': 'reference', 'boolean': 'boolean', 'time': 'time', 'date': 'date'}
 
 
 def php(v, indent=0):
@@ -149,6 +150,9 @@ def main():
 
     seo_required = model['seo_fields']['required']
     blockers = model['content_rules']['publish_blockers']
+    minimums = model['content_rules'].get('minimums', {})
+    markers = model['content_rules'].get('uncertainty_markers', [])
+    stale_days = int(model['content_rules'].get('stale_after_days', 365))
     out = f"""<?php
 /**
  * GENERATED FILE — do not edit by hand.
@@ -193,6 +197,31 @@ function sa_seo_required_fields() {{
  */
 function sa_publish_blockers() {{
 	return {php(blockers, 1)};
+}}
+
+/**
+ * Level 7 (v1.1) — per-entity minimums enforced by the publish gate: faq, sources, internal_links, coordinates.
+ */
+function sa_content_minimums( $type = '' ) {{
+	$all = {php(minimums, 1)};
+	if ( '' === $type ) {{
+		return $all;
+	}}
+	return isset( $all[ $type ] ) ? $all[ $type ] : array( 'faq' => 1, 'sources' => 0, 'internal_links' => 0, 'coordinates' => false );
+}}
+
+/**
+ * Level 7 (v1.1) — uncertainty markers allowed in published text (rendered as a badge, counted, never removed).
+ */
+function sa_uncertainty_markers() {{
+	return {php(markers, 1)};
+}}
+
+/**
+ * Level 7 (v1.1) — days after which attraction.last_verified_date is considered stale.
+ */
+function sa_stale_after_days() {{
+	return {stale_days};
 }}
 """
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

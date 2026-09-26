@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '1.0.0' );
+define( 'SA_CHILD_VERSION', '1.0.1' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
-define( 'SA_MODEL_VERSION', '1.0' );
+define( 'SA_MODEL_VERSION', '1.1' );
 
 // Accommodation entity is RESERVED in the data model (v1.0). Flip to true when v1.1 activates it.
 if ( ! defined( 'SA_ENABLE_ACCOMMODATION' ) ) {

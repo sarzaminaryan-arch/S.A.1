@@ -68,7 +68,8 @@ function sa_entity_facts( $post_id ) {
 				if ( 'google_map_url' === $f['name'] ) {
 					break; // rendered as map button.
 				}
-				$rows[] = array( 'label' => $label, 'value' => '<a href="' . esc_url( $raw ) . '" rel="nofollow noopener" target="_blank">' . esc_html( wp_parse_url( $raw, PHP_URL_HOST ) ) . '</a>', 'html' => true );
+				$rel    = 'official_website' === $f['name'] ? 'noopener external' : sa_source_rel( $raw );
+				$rows[] = array( 'label' => $label, 'value' => '<a href="' . esc_url( $raw ) . '" rel="' . esc_attr( $rel ) . '" target="_blank">' . esc_html( wp_parse_url( $raw, PHP_URL_HOST ) ) . '</a>', 'html' => true );
 				break;
 			case 'list':
 				$rows[] = array( 'label' => $label, 'value' => esc_html( implode( '، ', sa_list( $raw ) ) ), 'html' => true );
@@ -81,6 +82,15 @@ function sa_entity_facts( $post_id ) {
 				break;
 			case 'boolean':
 				$rows[] = array( 'label' => $label, 'value' => '1' === $raw ? 'بله' : 'خیر', 'html' => false );
+				break;
+			case 'date':
+				if ( 'last_verified_date' === $f['name'] ) {
+					break; // shown by sa_facts_checked_note().
+				}
+				$ts = strtotime( $raw );
+				if ( $ts ) {
+					$rows[] = array( 'label' => $label, 'value' => '<time datetime="' . esc_attr( $raw ) . '">' . esc_html( wp_date( 'j F Y', $ts ) ) . '</time>', 'html' => true );
+				}
 				break;
 			default:
 				$rows[] = array( 'label' => $label, 'value' => sa_digits( $raw ), 'html' => false );
@@ -212,15 +222,168 @@ function sa_posted_on() {
  * @param int $post_id Post ID.
  */
 function sa_facts_checked_note( $post_id ) {
-	$date = get_post_meta( $post_id, 'sa_facts_checked', true );
-	if ( ! $date ) {
-		return;
-	}
-	$ts = strtotime( $date );
+	$parts = array();
+	$date  = get_post_meta( $post_id, 'sa_facts_checked', true );
+	$ts    = $date ? strtotime( $date ) : false;
 	if ( $ts ) {
-		echo '<p class="sa-facts-checked">آخرین بازبینی اطلاعات: <time datetime="' . esc_attr( $date ) . '">' . esc_html( wp_date( 'j F Y', $ts ) ) . '</time></p>';
+		$parts[] = 'آخرین بازبینی اطلاعات: <time datetime="' . esc_attr( $date ) . '">' . esc_html( wp_date( 'j F Y', $ts ) ) . '</time>';
+	}
+	$verified = get_post_meta( $post_id, 'sa_last_verified_date', true ); // v1.1 (attraction).
+	$vts      = $verified ? strtotime( $verified ) : false;
+	if ( $vts ) {
+		$stale   = ( time() - $vts ) > sa_stale_after_days() * DAY_IN_SECONDS;
+		$parts[] = 'آخرین راستی‌آزمایی ساعات بازدید، قیمت و دسترسی: <time datetime="' . esc_attr( $verified ) . '">' . esc_html( wp_date( 'j F Y', $vts ) ) . '</time>' . ( $stale ? ' <span class="sa-flag sa-flag--stale">ممکن است تغییر کرده باشد</span>' : '' );
+	}
+	if ( $parts ) {
+		echo '<p class="sa-facts-checked">' . implode( ' · ', $parts ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
+
+/**
+ * Parse the sources box: one source per line "title | organisation | URL | access date".
+ * Lines after a "---" separator are private editor notes (FACT CHECK REPORT) and are never output.
+ *
+ * @param int $post_id Post ID.
+ * @return array[] [ title, org, url, date ]
+ */
+function sa_get_sources( $post_id ) {
+	$raw = (string) get_post_meta( $post_id, 'sa_sources', true );
+	if ( '' === trim( $raw ) ) {
+		return array();
+	}
+	$public = preg_split( '/^\s*-{3,}.*$/mu', $raw, 2 );
+	$lines  = preg_split( '/\r\n|\r|\n/', $public[0] );
+	$out    = array();
+	foreach ( $lines as $line ) {
+		$line = trim( $line );
+		if ( '' === $line ) {
+			continue;
+		}
+		$cols = array_map( 'trim', explode( '|', $line ) );
+		$url  = '';
+		foreach ( $cols as $i => $c ) {
+			if ( preg_match( '#^https?://#i', $c ) ) {
+				$url = $c;
+				unset( $cols[ $i ] );
+				break;
+			}
+		}
+		if ( ! $url && preg_match( '#https?://\S+#i', $line, $m ) ) {
+			$url     = $m[0];
+			$cols[0] = trim( str_replace( $url, '', $cols[0] ) );
+		}
+		$cols  = array_values( $cols );
+		$out[] = array(
+			'title' => isset( $cols[0] ) ? $cols[0] : $url,
+			'org'   => isset( $cols[1] ) ? $cols[1] : '',
+			'url'   => $url,
+			'date'  => isset( $cols[2] ) ? $cols[2] : '',
+		);
+	}
+	return $out;
+}
+
+/**
+ * Number of public source lines that carry a URL (publish gate).
+ *
+ * @param string $raw Raw sources text.
+ * @return int
+ */
+function sa_count_sources( $raw ) {
+	$public = preg_split( '/^\s*-{3,}.*$/mu', (string) $raw, 2 );
+	return preg_match_all( '#https?://#i', $public[0] );
+}
+
+/**
+ * Official domains that get a followed link; everything else is nofollow.
+ *
+ * @param string $url URL.
+ * @return string rel attribute value
+ */
+function sa_source_rel( $url ) {
+	$host     = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+	$official = array( '.gov.ir', 'unesco.org', 'amar.org.ir', 'mcth.ir', 'doe.ir', 'moi.ir', 'ichto.ir', 'un.org', 'britannica.com', 'iranicaonline.org' );
+	foreach ( $official as $d ) {
+		if ( $host === ltrim( $d, '.' ) || substr( $host, -strlen( $d ) ) === $d ) {
+			return 'noopener external';
+		}
+	}
+	return 'nofollow noopener external';
+}
+
+/**
+ * Visible sources list (E-E-A-T).
+ *
+ * @param int $post_id Post ID.
+ */
+function sa_sources_section( $post_id ) {
+	$sources = sa_get_sources( $post_id );
+	if ( ! $sources ) {
+		return;
+	}
+	echo '<section class="sa-sources" id="sources"><h2>منابع</h2><ol class="sa-sources__list">';
+	foreach ( $sources as $src ) {
+		echo '<li>';
+		if ( $src['url'] ) {
+			echo '<a href="' . esc_url( $src['url'] ) . '" rel="' . esc_attr( sa_source_rel( $src['url'] ) ) . '" target="_blank">' . esc_html( $src['title'] ) . '</a>';
+		} else {
+			echo esc_html( $src['title'] );
+		}
+		if ( $src['org'] ) {
+			echo ' <span class="sa-sources__org">— ' . esc_html( $src['org'] ) . '</span>';
+		}
+		if ( $src['date'] ) {
+			echo ' <span class="sa-sources__date">(دسترسی: ' . esc_html( sa_digits( $src['date'] ) ) . ')</span>';
+		}
+		echo '</li>';
+	}
+	echo '</ol></section>';
+}
+
+/**
+ * Count uncertainty markers in a text (v1.1).
+ *
+ * @param string $text Text/HTML.
+ * @return int
+ */
+function sa_count_markers( $text ) {
+	$n = 0;
+	foreach ( sa_uncertainty_markers() as $m ) {
+		$n += substr_count( (string) $text, $m );
+	}
+	return $n;
+}
+
+/**
+ * Render uncertainty markers as visible badges (transparency instead of guessing).
+ *
+ * @param string $html Content.
+ * @return string
+ */
+function sa_render_markers( $html ) {
+	if ( false === strpos( $html, '[' ) ) {
+		return $html;
+	}
+	foreach ( sa_uncertainty_markers() as $m ) {
+		$label = trim( $m, '[]' );
+		$html  = str_replace( $m, '<mark class="sa-flag sa-flag--review" title="این داده هنوز با منبع معتبر تایید نشده است">' . esc_html( $label ) . '</mark>', $html );
+	}
+	return $html;
+}
+
+/**
+ * Apply marker rendering to post content on the front end.
+ *
+ * @param string $content Content.
+ * @return string
+ */
+function sa_content_markers_filter( $content ) {
+	if ( is_admin() || is_feed() ) {
+		return $content;
+	}
+	return sa_render_markers( $content );
+}
+add_filter( 'the_content', 'sa_content_markers_filter', 12 );
 
 /**
  * Social links from Customizer.

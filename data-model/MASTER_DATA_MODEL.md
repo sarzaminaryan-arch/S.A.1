@@ -3,7 +3,7 @@
 
 | | |
 |---|---|
-| **Version** | 1.0 |
+| **Version** | 1.1 |
 | **Status** | Active — single source of truth for content, schema and SEO architecture |
 | **Core entities** | 6 active + 1 reserved (`Accommodation`) |
 | **Machine-readable schema** | [`schema/data-model.yaml`](schema/data-model.yaml) · [`schema/data-model.json`](schema/data-model.json) |
@@ -119,6 +119,8 @@
 | `opening_hours` | string |
 | `ticket_price` | string |
 | `visit_duration` | string |
+| `official_website` | url, nullable — *v1.1* official site (→ schema `sameAs`) |
+| `last_verified_date` | date, nullable — *v1.1* last verification of hours / prices / access; older than `stale_after_days` (365) is flagged «needs review» |
 | `best_visit_season` | enum → `travel_season` |
 | `featured_image` | image |
 
@@ -408,6 +410,22 @@ Additional for Accommodation 🟡: `booking_url` must be output with `rel="spons
 - `booking_url` present without `affiliate_provider`
 
 ---
+
+**v1.1 additions (enforced by the theme publish gate, thresholds live in `schema/data-model.yaml → content_rules.minimums`):**
+
+| Entity | FAQ ≥ | Sources ≥ | Internal links ≥ | Coordinates required |
+|---|---|---|---|---|
+| Province | 10 | 5 | 20 | yes |
+| City | 10 | 5 | 10 | yes |
+| Attraction | 10 | 5 | 10 | yes |
+| TravelRoute | 3 | 2 | 5 | no |
+| LocalFood / Souvenir | 3 | 2 | 3 | no |
+| Accommodation 🟡 | 3 | 2 | 3 | yes |
+
+- New blockers: `missing_coordinates`, `missing_sources`, `missing_internal_links`.
+- **Uncertainty markers** `[نیازمند بررسی]` / `[منبع لازم]` are *allowed* in published text (Google Helpful Content: transparency over guessing). The theme renders them as a visible badge and counts them per post; they never block publishing and are never removed silently.
+- `attraction.last_verified_date` older than 365 days ⇒ «needs review» badge in the admin list (no block).
+- Production prompts per entity: `content-templates/province.md`, `city.md`, `attraction.md`.
 
 ## APPENDIX A — Accommodation activation plan
 

@@ -6,7 +6,7 @@
 
 model:
   name: Iran Travel Knowledge Graph
-  version: "1.0"
+  version: "1.1"
   status_legend:
     active: Built in v1.0. Must exist before launch.
     reserved: Designed in v1.0, not built yet. Names/slugs/URLs/relation slots are locked.
@@ -107,6 +107,8 @@ entities:
       - { name: visit_duration,     type: string }
       - { name: best_visit_season,  type: enum, taxonomy: travel_season }
       - { name: featured_image,     type: image }
+      - { name: official_website,   type: url,  nullable: true }   # v1.1 — official site of the attraction (schema sameAs)
+      - { name: last_verified_date, type: date, nullable: true }   # v1.1 — when hours / prices / access were last verified (staleness > 12 months is flagged)
     relations:
       - { type: belongs_to,   target: province,      status: active }
       - { type: belongs_to,   target: city,          status: active }
@@ -330,6 +332,21 @@ content_rules:
     - missing_faq
     - missing_featured_image
     - missing_primary_taxonomy
+    - missing_coordinates        # v1.1 — where minimums.<entity>.coordinates is true
+    - missing_sources            # v1.1 — fewer than minimums.<entity>.sources lines with a URL
+    - missing_internal_links     # v1.1 — fewer than minimums.<entity>.internal_links same-site links in the content
+  minimums:                      # v1.1 — per-entity thresholds enforced by the theme publish gate (content-templates/*.md PUBLISHING RULE)
+    province:     { faq: 10, sources: 5, internal_links: 20, coordinates: true }
+    city:         { faq: 10, sources: 5, internal_links: 10, coordinates: true }
+    attraction:   { faq: 10, sources: 5, internal_links: 10, coordinates: true }
+    travel_route: { faq: 3,  sources: 2, internal_links: 5,  coordinates: false }
+    local_food:   { faq: 3,  sources: 2, internal_links: 3,  coordinates: false }
+    souvenir:     { faq: 3,  sources: 2, internal_links: 3,  coordinates: false }
+    accommodation: { faq: 3, sources: 2, internal_links: 3,  coordinates: true }   # reserved
+  uncertainty_markers:           # v1.1 — allowed in published text; rendered as a visible badge and counted, never silently removed
+    - "[نیازمند بررسی]"
+    - "[منبع لازم]"
+  stale_after_days: 365          # v1.1 — attraction.last_verified_date older than this => "needs review" badge (does not block)
   accommodation_publish_blockers:
     status: reserved
     items:

@@ -220,6 +220,10 @@ function sa_schema_entity( $post ) {
 			if ( ! is_wp_error( $types ) && $types ) {
 				$node['touristType'] = $types;
 			}
+			$official = get_post_meta( $id, 'sa_official_website', true ); // v1.1
+			if ( $official ) {
+				$node['sameAs'] = array( esc_url_raw( $official ) );
+			}
 			break;
 
 		case 'travel_route':
