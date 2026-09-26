@@ -76,6 +76,7 @@ image_prompt: |
   style. Absolutely no text, letters, numbers, logos or watermark.
 overlay_text_fa: استان آذربایجان شرقی
 overlay_text_en: East Azerbaijan Province
+image_status: هنوز ساخته نشده — در بسته‌ی imagetool (14) (۱۴۰۵/۰۷/۰۴) تصویری برای این استان نبود؛ پس از ساخت، فایل به assets/featured/provinces/east-azerbaijan.webp اضافه و ALT از manifest.json برداشته می‌شود
 alt: نمایی از استان آذربایجان شرقی و نمادهای گردشگری آن؛ بازار تبریز، ارگ علیشاه، روستای کندوان، کوه سهند و قلعه‌ی بابک
 caption: نمادهای استان آذربایجان شرقی از طاق‌های بازار تبریز تا دامنه‌های سهند — تصویر: اینفوگرافیک سرزمین آریان
 symbols_used: [بازار تاریخی تبریز, ارگ علیشاه, روستای صخره‌ای کندوان, کوه سهند, قلعه‌ی بابک]

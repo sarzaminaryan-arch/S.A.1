@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "ardabil",
+ "status": "stub",
+ "name_fa": "استان اردبیل",
+ "name_en": "Ardabil Province",
+ "term_name": "اردبیل",
+ "center_city": "اردبیل",
+ "post": {
+  "title": "استان اردبیل",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/ardabil.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 71776,
+  "alt": "تصویرسازی استان اردبیل با قله‌ی برفی سبلان، گنبد و مناره‌های بقعه‌ی شیخ صفی‌الدین و شیشه‌ی عسل سبلان",
+  "title": "استان اردبیل — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان اردبیل در یک نگاه: سبلان، بقعه‌ی شیخ صفی‌الدین، عسل سبلان — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان اردبیل» در سرزمین آریان؛ تصویرسازی گرافیکی با سبلان، بقعه‌ی شیخ صفی‌الدین، عسل سبلان. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "d2cc822e79fe02ca0238920a71378eff9c91a361"
+ }
+}

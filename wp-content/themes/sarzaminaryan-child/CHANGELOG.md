@@ -1,5 +1,10 @@
 # Changelog — sarzaminaryan-child
 
+## 1.0.3 — 2026-09-26
+
+- `sa-hero` (1600×700) is now cropped with `array( 'center', 'top' )` and `.sa-entity__hero-media img` gets `object-position: center top`: the province featured posters (`assets/featured/provinces/*.webp`, 1600×900) carry their title in the upper band, so a centred crop cut it off. Run a thumbnail regeneration for images uploaded before this version.
+- Companion plugin `wp-content/plugins/sa-province-importer-b01` (batch 01 of the province drafts) writes the same `sa_*` meta keys, `sa_faq` JSON and `sa_sources` text this theme reads; no theme code path changed for it.
+
 ## 1.0.2 — 2026-09-26
 
 - **SEO-plugin coexistence** (`inc/schema.php`): with Rank Math / Yoast / AIOSEO / SEOPress / TSF active the theme no longer drops its whole JSON-LD graph. Site-level nodes (Organization, WebSite, BreadcrumbList, BlogPosting/WebPage, CollectionPage) are left to the plugin; the entity node (AdministrativeArea/TouristDestination/… from the meta fields) and FAQPage (from the FAQ box) are still printed, using the same `home_url( '/#organization' )` @id convention so references resolve. `add_filter( 'sa_schema_with_plugin', '__return_false' )` restores the old all-off behaviour. `inc/seo.php` keeps yielding titles/meta/OG to the plugin as before.

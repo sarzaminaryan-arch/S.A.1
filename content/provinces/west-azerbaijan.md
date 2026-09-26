@@ -76,6 +76,7 @@ image_prompt: |
   style. Absolutely no text, letters, numbers, logos or watermark.
 overlay_text_fa: استان آذربایجان غربی
 overlay_text_en: West Azerbaijan Province
+image_status: هنوز ساخته نشده — در بسته‌ی imagetool (14) (۱۴۰۵/۰۷/۰۴) تصویری برای این استان نبود؛ پس از ساخت، فایل به assets/featured/provinces/west-azerbaijan.webp اضافه و ALT از manifest.json برداشته می‌شود
 alt: نمایی از استان آذربایجان غربی و نمادهای گردشگری آن؛ دریاچه‌ی ارومیه، قره‌کلیسا، تخت سلیمان و باغ‌های سیب
 caption: نمادهای استان آذربایجان غربی از ساحل نمکی دریاچه‌ی ارومیه تا دریاچه‌ی تخت سلیمان — تصویر: اینفوگرافیک سرزمین آریان
 symbols_used: [دریاچه‌ی ارومیه, قره‌کلیسا (کلیسای تادئوس مقدس), تخت سلیمان, باغ‌های سیب ارومیه, کوه‌های مرزی]

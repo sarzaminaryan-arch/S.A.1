@@ -1,0 +1,33 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "ilam",
+ "status": "stub",
+ "name_fa": "استان ایلام",
+ "name_en": "Ilam Province",
+ "term_name": "ایلام",
+ "center_city": "ایلام",
+ "post": {
+  "title": "استان ایلام",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": null
+}

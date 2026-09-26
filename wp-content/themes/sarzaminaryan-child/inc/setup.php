@@ -16,7 +16,7 @@ function sa_child_setup() {
 	load_child_theme_textdomain( 'sarzaminaryan-child', SA_CHILD_DIR . 'languages' );
 
 	add_theme_support( 'post-thumbnails', array_merge( array( 'post', 'page' ), sa_entity_types() ) );
-	add_image_size( 'sa-hero', 1600, 700, true );
+	add_image_size( 'sa-hero', 1600, 700, array( 'center', 'top' ) ); // top-anchored: poster titles sit in the upper band (v1.0.3).
 	add_image_size( 'sa-square', 480, 480, true );
 
 	register_nav_menus(

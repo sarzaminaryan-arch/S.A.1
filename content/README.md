@@ -10,6 +10,8 @@
 
 ترتیب تولید استان‌ها: فهرست ثابت `wp-content/themes/sarzaminaryan-child/data/provinces.php` (تهران به‌عنوان نمونه‌ی طلایی زودتر تولید شد؛ از این پس به ترتیب فهرست: آذربایجان شرقی ✅ → آذربایجان غربی ✅ → اردبیل → اصفهان → البرز → ایلام → بوشهر → …).
 
+تصاویر شاخص: `assets/featured/provinces/` (۲۴ استان آماده، ۷ استان بدون تصویر — فهرست در `assets/featured/provinces/README.md`). انتقال به وردپرس: افزونه‌ی درون‌ریز دسته‌ی ۱ (`wp-content/plugins/sa-province-importer-b01`, استان‌های ۱ تا ۱۰) — پیش‌نویس‌ها را با متن، فیلدها، FAQ، منابع، سئو و تصویر شاخص می‌سازد؛ بسته‌های داده‌ی آن با `content-templates/tools/build_import_package.py --batch 1` از همین فایل‌ها ساخته می‌شوند و پس از هر مقاله‌ی جدید بازسازی و افزونه دوباره zip می‌شود.
+
 قرارداد نام‌گذاری: `provinces/{slug}.md` · `cities/{slug}.md` · `attractions/{slug}.md` · `foods/{slug}.md` · `souvenirs/{slug}.md` · `routes/{slug}.md` — نامک‌ها همان نامک‌های وردپرس‌اند.
 
 نحوه‌ی انتقال به وردپرس: جدول «نگاشت وردپرس» در بخش ۶ هر Production Prompt.
