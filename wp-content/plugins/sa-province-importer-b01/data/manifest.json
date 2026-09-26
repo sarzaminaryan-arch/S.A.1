@@ -2,7 +2,7 @@
  "batch": 1,
  "batch_id": "b01",
  "label": "دسته‌ی 1 — استان‌های 1 تا 10 فهرست ثابت",
- "data_version": "1.0.1",
+ "data_version": "1.0.2",
  "package_format": "1.0",
  "built": "2026-09-26",
  "provinces": [
@@ -49,17 +49,17 @@
    "slug": "ardabil",
    "name_fa": "استان اردبیل",
    "term_name": "اردبیل",
-   "status": "stub",
+   "status": "article",
    "has_image": true,
-   "word_count": 0,
-   "faq": 0,
-   "sources_lines": 0,
+   "word_count": 7576,
+   "faq": 12,
+   "sources_lines": 31,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 0,
-    "source_needed": 0,
+    "review": 102,
+    "source_needed": 3,
     "url_needed": 0,
-    "coming_soon": 0
+    "coming_soon": 88
    },
    "file": "ardabil.json"
   },
