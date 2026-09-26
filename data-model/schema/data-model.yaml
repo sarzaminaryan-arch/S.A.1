@@ -1,0 +1,351 @@
+# =====================================================================
+# Iran Travel Knowledge Graph — Master Data Model (machine-readable)
+# Source of truth: ../MASTER_DATA_MODEL.md
+# data-model.json is GENERATED from this file — do not edit JSON by hand.
+# =====================================================================
+
+model:
+  name: Iran Travel Knowledge Graph
+  version: "1.0"
+  status_legend:
+    active: Built in v1.0. Must exist before launch.
+    reserved: Designed in v1.0, not built yet. Names/slugs/URLs/relation slots are locked.
+
+# ---------------------------------------------------------------------
+# LEVEL 1 — CORE ENTITIES
+# ---------------------------------------------------------------------
+entities:
+
+  province:
+    label: Province
+    cpt: province
+    status: active
+    primary_key: province_slug
+    url_pattern: "/province/{province-slug}"
+    primary_taxonomy: province_tax
+    fields:
+      - { name: province_name,               type: string }
+      - { name: province_slug,               type: slug }
+      - { name: province_description,        type: text }
+      - { name: province_center_city,        type: reference, target: city }
+      - { name: province_population,         type: integer }
+      - { name: province_area,               type: number,  unit: km2 }
+      - { name: province_latitude,           type: float }
+      - { name: province_longitude,          type: float }
+      - { name: province_best_travel_season, type: enum,    taxonomy: travel_season }
+      - { name: province_climate,            type: string }
+      - { name: province_featured_image,     type: image }
+    relations:
+      - { type: has_many, target: city,          status: active }
+      - { type: has_many, target: attraction,    status: active }
+      - { type: has_many, target: local_food,    status: active }
+      - { type: has_many, target: souvenir,      status: active }
+      - { type: has_many, target: travel_route,  status: active }
+      - { type: has_many, target: accommodation, status: reserved }
+    internal_links:
+      - { to: cities,         status: active }
+      - { to: attractions,    status: active }
+      - { to: foods,          status: active }
+      - { to: souvenirs,      status: active }
+      - { to: routes,         status: active }
+      - { to: accommodations, status: reserved }
+
+  city:
+    label: City
+    cpt: city
+    status: active
+    primary_key: city_slug
+    url_pattern: "/city/{city-slug}"
+    primary_taxonomy: province_tax
+    fields:
+      - { name: city_name,          type: string }
+      - { name: city_slug,          type: slug }
+      - { name: city_description,   type: text }
+      - { name: city_population,    type: integer }
+      - { name: city_elevation,     type: integer, unit: m }
+      - { name: city_latitude,      type: float }
+      - { name: city_longitude,     type: float }
+      - { name: best_travel_season, type: enum, taxonomy: travel_season }
+      - { name: access_air,         type: text }
+      - { name: access_rail,        type: text }
+      - { name: access_road,        type: text }
+      - { name: google_map_url,     type: url }
+      - { name: featured_image,     type: image }
+    relations:
+      - { type: belongs_to,      target: province,      status: active }
+      - { type: has_many,        target: attraction,    status: active }
+      - { type: has_many,        target: local_food,    status: active }
+      - { type: has_many,        target: souvenir,      status: active }
+      - { type: belongs_to_many, target: travel_route,  status: active }
+      - { type: has_many,        target: accommodation, status: reserved }
+    internal_links:
+      - { to: province,       status: active }
+      - { to: attractions,    status: active }
+      - { to: foods,          status: active }
+      - { to: souvenirs,      status: active }
+      - { to: related_cities, status: active }
+      - { to: routes,         status: active }
+      - { to: accommodations, status: reserved, label: where to stay }
+
+  attraction:
+    label: Attraction
+    cpt: attraction
+    status: active
+    primary_key: attraction_slug
+    url_pattern: "/attraction/{attraction-slug}"
+    primary_taxonomy: attraction_type
+    fields:
+      - { name: attraction_name,    type: string }
+      - { name: attraction_slug,    type: slug }
+      - { name: attraction_summary, type: text }
+      - { name: attraction_type,    type: enum, taxonomy: attraction_type }
+      - { name: latitude,           type: float }
+      - { name: longitude,          type: float }
+      - { name: address,            type: string }
+      - { name: opening_hours,      type: string }
+      - { name: ticket_price,       type: string }
+      - { name: visit_duration,     type: string }
+      - { name: best_visit_season,  type: enum, taxonomy: travel_season }
+      - { name: featured_image,     type: image }
+    relations:
+      - { type: belongs_to,   target: province,      status: active }
+      - { type: belongs_to,   target: city,          status: active }
+      - { type: related_many, target: attraction,    status: active }
+      - { type: near_many,    target: accommodation, status: reserved, edge_attributes: [distance_km] }
+    internal_links:
+      - { to: city,                  status: active }
+      - { to: province,              status: active }
+      - { to: similar_attractions,   status: active }
+      - { to: nearby_accommodations, status: reserved }
+
+  travel_route:
+    label: TravelRoute
+    cpt: travel_route
+    status: active
+    primary_key: route_slug
+    url_pattern: "/route/{route-slug}"
+    primary_taxonomy: travel_duration
+    fields:
+      - { name: route_name,       type: string }
+      - { name: route_slug,       type: slug }
+      - { name: route_duration,   type: enum,   taxonomy: travel_duration }
+      - { name: route_distance,   type: number, unit: km }
+      - { name: best_season,      type: enum,   taxonomy: travel_season }
+      - { name: estimated_budget, type: enum,   taxonomy: travel_budget }
+      - { name: route_summary,    type: text }
+      - { name: featured_image,   type: image }
+    relations:
+      - { type: belongs_to_many, target: city,          status: active }
+      - { type: belongs_to_many, target: attraction,    status: active }
+      - { type: has_many,        target: accommodation, status: reserved, optional: true }
+    internal_links:
+      - { to: cities,         status: active }
+      - { to: attractions,    status: active }
+      - { to: province,       status: active }
+      - { to: accommodations, status: reserved }
+
+  local_food:
+    label: LocalFood
+    cpt: local_food
+    status: active
+    primary_key: food_slug
+    url_pattern: "/food/{food-slug}"
+    primary_taxonomy: province_tax
+    fields:
+      - { name: food_name,        type: string }
+      - { name: food_slug,        type: slug }
+      - { name: food_summary,     type: text }
+      - { name: main_ingredients, type: list }
+      - { name: serving_method,   type: text }
+      - { name: featured_image,   type: image }
+    relations:
+      - { type: belongs_to, target: city,     status: active }
+      - { type: belongs_to, target: province, status: active }
+    internal_links:
+      - { to: city,     status: active }
+      - { to: province, status: active }
+
+  souvenir:
+    label: Souvenir
+    cpt: souvenir
+    status: active
+    primary_key: souvenir_slug
+    url_pattern: "/souvenir/{souvenir-slug}"
+    primary_taxonomy: province_tax
+    fields:
+      - { name: souvenir_name,     type: string }
+      - { name: souvenir_slug,     type: slug }
+      - { name: souvenir_summary,  type: text }
+      - { name: purchase_location, type: text }
+      - { name: featured_image,    type: image }
+    relations:
+      - { type: belongs_to, target: city,     status: active }
+      - { type: belongs_to, target: province, status: active }
+    internal_links:
+      - { to: city,     status: active }
+      - { to: province, status: active }
+
+  accommodation:
+    label: Accommodation
+    cpt: accommodation
+    status: reserved
+    reserved_reason: >
+      Future monetisation (affiliate booking, hotel reservations, lodging ads,
+      "Where to stay?" pages) must not require an architecture redesign.
+    primary_key: accommodation_slug
+    url_pattern: "/accommodation/{accommodation-slug}"
+    primary_taxonomy: accommodation_type
+    fields:
+      - { name: accommodation_name,    type: string }
+      - { name: accommodation_slug,    type: slug }
+      - { name: accommodation_summary, type: text }
+      - { name: accommodation_type,    type: enum,    taxonomy: accommodation_type }
+      - { name: price_range,           type: enum,    taxonomy: travel_budget }
+      - { name: star_rating,           type: integer, min: 1, max: 5, nullable: true, note: hotels only }
+      - { name: price_per_night_min,   type: number,  nullable: true }
+      - { name: price_per_night_max,   type: number,  nullable: true }
+      - { name: address,               type: string }
+      - { name: latitude,              type: float }
+      - { name: longitude,             type: float }
+      - { name: phone,                 type: string }
+      - { name: website_url,           type: url }
+      - { name: booking_url,           type: url,     note: affiliate / reservation link, rel: sponsored nofollow }
+      - { name: affiliate_provider,    type: string }
+      - { name: is_sponsored,          type: boolean }
+      - { name: amenities,             type: list }
+      - { name: check_in_time,         type: time }
+      - { name: check_out_time,        type: time }
+      - { name: capacity,              type: integer }
+      - { name: google_map_url,        type: url }
+      - { name: featured_image,        type: image }
+    relations:
+      - { type: belongs_to,      target: city,          status: reserved, required: true }
+      - { type: belongs_to,      target: province,      status: reserved, note: denormalised from city }
+      - { type: near_many,       target: attraction,    status: reserved, edge_attributes: [distance_km] }
+      - { type: belongs_to_many, target: travel_route,  status: reserved, optional: true }
+      - { type: related_many,    target: accommodation, status: reserved }
+    internal_links:
+      - { to: city,                   status: reserved }
+      - { to: province,               status: reserved }
+      - { to: nearby_attractions,     status: reserved }
+      - { to: similar_accommodations, status: reserved }
+      - { to: routes,                 status: reserved }
+
+# ---------------------------------------------------------------------
+# LEVEL 2 — TAXONOMIES
+# ---------------------------------------------------------------------
+taxonomies:
+  province_tax:
+    status: active
+    terms: 31 provinces of Iran
+    applies_to: [province, city, attraction, travel_route, local_food, souvenir, accommodation]
+  attraction_type:
+    status: active
+    terms: [historical, cultural, religious, nature, mountain, forest, desert, beach, island, village, ecotourism, adventure]
+    applies_to: [attraction]
+  travel_season:
+    status: active
+    terms: [spring, summer, autumn, winter]
+    applies_to: [province, city, attraction, travel_route]
+  travel_budget:
+    status: active
+    terms: [economic, medium, luxury]
+    applies_to: [travel_route, accommodation]
+  travel_duration:
+    status: active
+    terms: [one_day, weekend, 3_to_5_days, more_than_5_days]
+    applies_to: [travel_route]
+  accommodation_type:
+    status: reserved
+    terms: [hotel, eco_lodge, guest_house, traditional_house, camping]
+    applies_to: [accommodation]
+
+# ---------------------------------------------------------------------
+# LEVEL 3 — RELATION INTEGRITY RULES
+# ---------------------------------------------------------------------
+relation_rules:
+  - id: R1
+    rule: belongs_to -> city implies belongs_to -> province of that city; they must never disagree.
+  - id: R2
+    rule: related_many, near_many and belongs_to_many are stored as explicit edges (no free-text lists).
+  - id: R3
+    rule: near_many edges carry distance_km.
+  - id: R4
+    rule: Deleting a City is blocked while any Attraction / LocalFood / Souvenir / Accommodation points to it.
+
+# ---------------------------------------------------------------------
+# LEVEL 4 — URL STRUCTURE
+# ---------------------------------------------------------------------
+urls:
+  entities:
+    province:      { pattern: "/province/{province-slug}",           status: active }
+    city:          { pattern: "/city/{city-slug}",                   status: active }
+    attraction:    { pattern: "/attraction/{attraction-slug}",       status: active }
+    local_food:    { pattern: "/food/{food-slug}",                   status: active }
+    souvenir:      { pattern: "/souvenir/{souvenir-slug}",           status: active }
+    travel_route:  { pattern: "/route/{route-slug}",                 status: active }
+    accommodation: { pattern: "/accommodation/{accommodation-slug}", status: reserved }
+  hub_pages:
+    where_to_stay: { pattern: "/city/{city-slug}/where-to-stay", status: reserved, lists: accommodation }
+  slug_rules:
+    - lowercase
+    - ascii
+    - hyphen-separated
+    - unique per CPT
+    - immutable after publish (change = 301 redirect)
+
+# ---------------------------------------------------------------------
+# LEVEL 5 — REQUIRED SEO FIELDS (every entity)
+# ---------------------------------------------------------------------
+seo_fields:
+  applies_to: all
+  required:
+    - seo_title
+    - seo_description
+    - focus_keyword
+    - og_title
+    - og_description
+    - faq_schema
+    - breadcrumb_schema
+    - canonical_url
+  accommodation_extra:
+    status: reserved
+    rules:
+      - booking_url must be output with rel="sponsored nofollow"
+      - is_sponsored = true requires a visible disclosure block
+
+# ---------------------------------------------------------------------
+# LEVEL 7 — AI CONTENT RULES
+# ---------------------------------------------------------------------
+content_rules:
+  required_sections:
+    - Introduction
+    - Structured Data
+    - FAQ
+    - Internal Links
+    - SEO Data
+  publish_blockers:
+    - missing_relation
+    - missing_seo_fields
+    - missing_faq
+    - missing_featured_image
+    - missing_primary_taxonomy
+  accommodation_publish_blockers:
+    status: reserved
+    items:
+      - missing belongs_to -> city
+      - missing accommodation_type
+      - is_sponsored = true without disclosure block
+      - booking_url present without affiliate_provider
+
+# ---------------------------------------------------------------------
+# GOVERNANCE
+# ---------------------------------------------------------------------
+governance:
+  source_of_truth: MASTER_DATA_MODEL.md
+  on_change:
+    - bump model.version
+    - add CHANGELOG.md entry
+    - update data-model.yaml
+    - regenerate data-model.json
+  naming_policy: Field and slug names are append-only — never rename or reuse; deprecate instead.

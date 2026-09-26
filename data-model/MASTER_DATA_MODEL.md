@@ -1,0 +1,439 @@
+# MASTER DATA MODEL
+# Iran Travel Knowledge Graph
+
+| | |
+|---|---|
+| **Version** | 1.0 |
+| **Status** | Active — single source of truth for content, schema and SEO architecture |
+| **Core entities** | 6 active + 1 reserved (`Accommodation`) |
+| **Machine-readable schema** | [`schema/data-model.yaml`](schema/data-model.yaml) · [`schema/data-model.json`](schema/data-model.json) |
+| **Original delivered text** | [`raw/master-data-model-v1.0.original.txt`](raw/master-data-model-v1.0.original.txt) |
+| **Change history** | [`CHANGELOG.md`](CHANGELOG.md) |
+
+**Status legend**
+
+| Tag | Meaning |
+|---|---|
+| 🟢 `ACTIVE` | Part of v1.0 build. Must exist before launch. |
+| 🟡 `RESERVED` | Designed in v1.0, **not built yet**. Names, slugs, URLs and relation slots are locked now so the entity can be switched on later *without* redesigning the architecture. |
+
+---
+
+## LEVEL 1 — CORE ENTITIES
+
+| # | Entity | CPT | Primary Key | Status |
+|---|---|---|---|---|
+| 1 | Province | `province` | `province_slug` | 🟢 ACTIVE |
+| 2 | City | `city` | `city_slug` | 🟢 ACTIVE |
+| 3 | Attraction | `attraction` | `attraction_slug` | 🟢 ACTIVE |
+| 4 | TravelRoute | `travel_route` | `route_slug` | 🟢 ACTIVE |
+| 5 | LocalFood | `local_food` | `food_slug` | 🟢 ACTIVE |
+| 6 | Souvenir | `souvenir` | `souvenir_slug` | 🟢 ACTIVE |
+| 7 | Accommodation | `accommodation` | `accommodation_slug` | 🟡 RESERVED |
+
+---
+
+### 1.1 Province 🟢
+
+**CPT:** `province`  **Primary Key:** `province_slug`
+
+**Fields**
+
+| Field | Type |
+|---|---|
+| `province_name` | string |
+| `province_slug` | slug (PK) |
+| `province_description` | text |
+| `province_center_city` | reference → City |
+| `province_population` | integer |
+| `province_area` | number (km²) |
+| `province_latitude` | float |
+| `province_longitude` | float |
+| `province_best_travel_season` | enum → `travel_season` |
+| `province_climate` | string |
+| `province_featured_image` | image |
+
+**Relations**
+
+| Relation | Target | Status |
+|---|---|---|
+| `has_many` | City | 🟢 |
+| `has_many` | Attraction | 🟢 |
+| `has_many` | LocalFood | 🟢 |
+| `has_many` | Souvenir | 🟢 |
+| `has_many` | TravelRoute | 🟢 |
+| `has_many` | Accommodation | 🟡 reserved slot |
+
+---
+
+### 1.2 City 🟢
+
+**CPT:** `city`  **Primary Key:** `city_slug`
+
+**Fields**
+
+| Field | Type |
+|---|---|
+| `city_name` | string |
+| `city_slug` | slug (PK) |
+| `city_description` | text |
+| `city_population` | integer |
+| `city_elevation` | integer (m) |
+| `city_latitude` | float |
+| `city_longitude` | float |
+| `best_travel_season` | enum → `travel_season` |
+| `access_air` | text |
+| `access_rail` | text |
+| `access_road` | text |
+| `google_map_url` | url |
+| `featured_image` | image |
+
+**Relations**
+
+| Relation | Target | Status |
+|---|---|---|
+| `belongs_to` | Province | 🟢 |
+| `has_many` | Attraction | 🟢 |
+| `has_many` | LocalFood | 🟢 |
+| `has_many` | Souvenir | 🟢 |
+| `belongs_to_many` | TravelRoute | 🟢 |
+| `has_many` | Accommodation | 🟡 reserved slot |
+
+---
+
+### 1.3 Attraction 🟢
+
+**CPT:** `attraction`  **Primary Key:** `attraction_slug`
+
+**Fields**
+
+| Field | Type |
+|---|---|
+| `attraction_name` | string |
+| `attraction_slug` | slug (PK) |
+| `attraction_summary` | text |
+| `attraction_type` | enum → `attraction_type` (primary taxonomy) |
+| `latitude` | float |
+| `longitude` | float |
+| `address` | string |
+| `opening_hours` | string |
+| `ticket_price` | string |
+| `visit_duration` | string |
+| `best_visit_season` | enum → `travel_season` |
+| `featured_image` | image |
+
+**Relations**
+
+| Relation | Target | Status |
+|---|---|---|
+| `belongs_to` | City | 🟢 |
+| `belongs_to` | Province | 🟢 |
+| `related_many` | Attraction | 🟢 |
+| `near_many` | Accommodation | 🟡 reserved slot |
+
+---
+
+### 1.4 TravelRoute 🟢
+
+**CPT:** `travel_route`  **Primary Key:** `route_slug`
+
+**Fields**
+
+| Field | Type |
+|---|---|
+| `route_name` | string |
+| `route_slug` | slug (PK) |
+| `route_duration` | enum → `travel_duration` |
+| `route_distance` | number (km) |
+| `best_season` | enum → `travel_season` |
+| `estimated_budget` | enum → `travel_budget` |
+| `route_summary` | text |
+| `featured_image` | image |
+
+**Relations**
+
+| Relation | Target | Status |
+|---|---|---|
+| `belongs_to_many` | City | 🟢 |
+| `belongs_to_many` | Attraction | 🟢 |
+| `has_many` | Accommodation | 🟡 reserved slot (optional: "where to stay along this route") |
+
+---
+
+### 1.5 LocalFood 🟢
+
+**CPT:** `local_food`  **Primary Key:** `food_slug`
+
+**Fields**
+
+| Field | Type |
+|---|---|
+| `food_name` | string |
+| `food_slug` | slug (PK) |
+| `food_summary` | text |
+| `main_ingredients` | list |
+| `serving_method` | text |
+| `featured_image` | image |
+
+**Relations**
+
+| Relation | Target | Status |
+|---|---|---|
+| `belongs_to` | City | 🟢 |
+| `belongs_to` | Province | 🟢 |
+
+---
+
+### 1.6 Souvenir 🟢
+
+**CPT:** `souvenir`  **Primary Key:** `souvenir_slug`
+
+**Fields**
+
+| Field | Type |
+|---|---|
+| `souvenir_name` | string |
+| `souvenir_slug` | slug (PK) |
+| `souvenir_summary` | text |
+| `purchase_location` | text |
+| `featured_image` | image |
+
+**Relations**
+
+| Relation | Target | Status |
+|---|---|---|
+| `belongs_to` | City | 🟢 |
+| `belongs_to` | Province | 🟢 |
+
+---
+
+### 1.7 Accommodation 🟡 RESERVED
+
+> **Why it exists now:** monetisation later (affiliate booking, hotel reservations, lodging ads, "Where to stay?" pages) must not force a redesign of the site architecture. Most Persian travel sites only model City + Attraction and bolt lodging on afterwards — this entity prevents that. See [Appendix A](#appendix-a--accommodation-activation-plan).
+
+**CPT:** `accommodation` (not registered yet)  **Primary Key:** `accommodation_slug`
+
+**Types** (→ taxonomy `accommodation_type`): `hotel` · `eco_lodge` · `guest_house` · `traditional_house` · `camping`
+
+**Fields** (locked names; may be trimmed at activation, never renamed)
+
+| Field | Type | Note |
+|---|---|---|
+| `accommodation_name` | string | |
+| `accommodation_slug` | slug (PK) | |
+| `accommodation_summary` | text | |
+| `accommodation_type` | enum → `accommodation_type` | primary taxonomy |
+| `price_range` | enum → `travel_budget` | reuses existing taxonomy |
+| `star_rating` | integer 1–5, nullable | hotels only |
+| `price_per_night_min` | number, nullable | |
+| `price_per_night_max` | number, nullable | |
+| `address` | string | |
+| `latitude` | float | |
+| `longitude` | float | |
+| `phone` | string | |
+| `website_url` | url | |
+| `booking_url` | url | affiliate / reservation link |
+| `affiliate_provider` | string | e.g. `direct`, or partner name |
+| `is_sponsored` | boolean | drives disclosure + `rel="sponsored"` |
+| `amenities` | list | |
+| `check_in_time` | time | |
+| `check_out_time` | time | |
+| `capacity` | integer | |
+| `google_map_url` | url | |
+| `featured_image` | image | |
+
+**Relations**
+
+| Relation | Target | Note |
+|---|---|---|
+| `belongs_to` | City | required (as specified) |
+| `belongs_to` | Province | denormalised from City — same pattern as Attraction / Food / Souvenir |
+| `near_many` | Attraction | as specified; edge attribute `distance_km` |
+| `belongs_to_many` | TravelRoute | optional |
+| `related_many` | Accommodation | "similar stays" |
+
+---
+
+## LEVEL 2 — TAXONOMIES
+
+| Taxonomy | Terms | Applies to | Status |
+|---|---|---|---|
+| `province_tax` | 31 provinces of Iran | all entities (primary for Province) | 🟢 |
+| `attraction_type` | `historical` `cultural` `religious` `nature` `mountain` `forest` `desert` `beach` `island` `village` `ecotourism` `adventure` | Attraction (primary) | 🟢 |
+| `travel_season` | `spring` `summer` `autumn` `winter` | Province, City, Attraction, TravelRoute | 🟢 |
+| `travel_budget` | `economic` `medium` `luxury` | TravelRoute, Accommodation (`price_range`) | 🟢 |
+| `travel_duration` | `one_day` `weekend` `3_to_5_days` `more_than_5_days` | TravelRoute | 🟢 |
+| `accommodation_type` | `hotel` `eco_lodge` `guest_house` `traditional_house` `camping` | Accommodation (primary) | 🟡 |
+
+**Primary taxonomy per entity** (required for publishing — see Level 7)
+
+| Entity | Primary taxonomy |
+|---|---|
+| Province | `province_tax` |
+| City | `province_tax` |
+| Attraction | `attraction_type` |
+| TravelRoute | `travel_duration` |
+| LocalFood | `province_tax` |
+| Souvenir | `province_tax` |
+| Accommodation 🟡 | `accommodation_type` |
+
+---
+
+## LEVEL 3 — RELATION RULES
+
+```
+Province
+    -> Cities
+    -> Attractions
+    -> Foods
+    -> Souvenirs
+    -> Routes
+    -> Accommodations          [reserved]
+
+City
+    -> Province
+    -> Attractions
+    -> Foods
+    -> Souvenirs
+    -> Routes
+    -> Accommodations          [reserved]
+
+Attraction
+    -> City
+    -> Province
+    -> Nearby Accommodations   [reserved]
+
+Food
+    -> City
+    -> Province
+
+Souvenir
+    -> City
+    -> Province
+
+Route
+    -> Cities
+    -> Attractions
+    -> Accommodations          [reserved, optional]
+
+Accommodation                  [reserved]
+    -> City
+    -> Province
+    -> Nearby Attractions
+```
+
+**Integrity rules**
+
+1. Every `belongs_to -> City` implies `belongs_to -> Province` of that city. The two must never disagree.
+2. `related_many`, `near_many` and `belongs_to_many` are stored as explicit edges (no free-text lists).
+3. `near_many` edges carry `distance_km`.
+4. Deleting a City is blocked while any Attraction / Food / Souvenir / Accommodation points to it.
+
+---
+
+## LEVEL 4 — URL STRUCTURE
+
+| Entity | URL pattern | Status |
+|---|---|---|
+| Province | `/province/{province-slug}` | 🟢 |
+| City | `/city/{city-slug}` | 🟢 |
+| Attraction | `/attraction/{attraction-slug}` | 🟢 |
+| LocalFood | `/food/{food-slug}` | 🟢 |
+| Souvenir | `/souvenir/{souvenir-slug}` | 🟢 |
+| TravelRoute | `/route/{route-slug}` | 🟢 |
+| Accommodation | `/accommodation/{accommodation-slug}` | 🟡 reserved — do not use this prefix for anything else |
+
+Reserved hub page (not an entity): `/city/{city-slug}/where-to-stay` → "کجا اقامت کنیم؟" landing page listing that city's accommodations. 🟡
+
+Slug rules: lowercase, ASCII, hyphen-separated, unique per CPT, immutable after publish (change = 301 redirect).
+
+---
+
+## LEVEL 5 — REQUIRED SEO FIELDS
+
+Required on **every** entity (all seven):
+
+| Field | Purpose |
+|---|---|
+| `seo_title` | `<title>` |
+| `seo_description` | meta description |
+| `focus_keyword` | primary target query |
+| `og_title` | Open Graph title |
+| `og_description` | Open Graph description |
+| `faq_schema` | JSON-LD `FAQPage` |
+| `breadcrumb_schema` | JSON-LD `BreadcrumbList` |
+| `canonical_url` | canonical |
+
+Additional for Accommodation 🟡: `booking_url` must be output with `rel="sponsored nofollow"`; `is_sponsored = true` requires a visible disclosure block.
+
+---
+
+## LEVEL 6 — INTERNAL LINK GRAPH
+
+| Entity | `link_to` |
+|---|---|
+| Province | cities · attractions · foods · souvenirs · routes · accommodations 🟡 |
+| City | province · attractions · foods · souvenirs · related_cities · routes · accommodations 🟡 ("where to stay") |
+| Attraction | city · province · similar_attractions · nearby_accommodations 🟡 |
+| Food | city · province |
+| Souvenir | city · province |
+| Route | cities · attractions · province · accommodations 🟡 |
+| Accommodation 🟡 | city · province · nearby_attractions · similar_accommodations · routes |
+
+---
+
+## LEVEL 7 — AI CONTENT RULES
+
+**Every entity must contain:**
+
+1. Introduction
+2. Structured Data
+3. FAQ
+4. Internal Links
+5. SEO Data
+
+**No entity may be published if:**
+
+- Missing relation
+- Missing SEO fields
+- Missing FAQ
+- Missing featured image
+- Missing primary taxonomy
+
+**Additional publish blockers for Accommodation** 🟡
+
+- Missing `belongs_to -> City`
+- Missing `accommodation_type`
+- `is_sponsored = true` without disclosure block
+- `booking_url` present without `affiliate_provider`
+
+---
+
+## APPENDIX A — Accommodation activation plan
+
+Activation must not change anything in Levels 1–6 for the six active entities beyond filling the reserved slots already listed above.
+
+| Step | Action |
+|---|---|
+| 1 | Register CPT `accommodation` and taxonomy `accommodation_type`. |
+| 2 | Add the reserved relation fields on Province / City / Attraction / TravelRoute (`has_many` / `near_many` → Accommodation). |
+| 3 | Enable URL `/accommodation/{accommodation-slug}` and the hub page `/city/{city-slug}/where-to-stay`. |
+| 4 | Add "Where to stay" blocks to the City and Attraction templates (Level 6 links). |
+| 5 | Apply Level 5 SEO fields + Level 7 rules, including the sponsored-link rules. |
+| 6 | Bump this model to **v1.1**, record it in `CHANGELOG.md`, regenerate `schema/`. |
+
+**Rationale (as delivered, Persian):**
+
+> برای آینده، یک موجودیت هفتم هم از ابتدا در دیتامدل پیش‌بینی کن، حتی اگر فعلاً نسازی: چون بعداً اگر بخواهی از همکاری در فروش، رزرو هتل، تبلیغات اقامتگاه یا صفحات «کجا اقامت کنیم؟» درآمد بگیری، مجبور نمی‌شوی کل معماری سایت را دوباره بازطراحی کنی. این یکی از رایج‌ترین اشتباهات سایت‌های گردشگری فارسی است که فقط روی شهر و جاذبه تمرکز می‌کنند و بخش اقامت را ساختاریافته طراحی نمی‌کنند.
+
+---
+
+## GOVERNANCE
+
+- This file is the **source of truth**. `schema/data-model.yaml` mirrors it; `schema/data-model.json` is generated from the YAML.
+- Any change → bump `version`, add a `CHANGELOG.md` entry, update YAML, regenerate JSON.
+- Field and slug names are **append-only**: never rename or reuse; deprecate instead.
+
+====================================================
+END OF MODEL
+====================================================

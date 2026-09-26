@@ -1,0 +1,424 @@
+Master Data Model v1.0
+(Original text as delivered — content verbatim, only blank-line spacing normalized)
+
+# MASTER DATA MODEL
+# Iran Travel Knowledge Graph
+
+====================================================
+LEVEL 1 - CORE ENTITIES
+====================================================
+
+ENTITY: Province
+ENTITY: City
+ENTITY: Attraction
+ENTITY: TravelRoute
+ENTITY: LocalFood
+ENTITY: Souvenir
+
+----------------------------------------------------
+Province
+----------------------------------------------------
+
+CPT:
+province
+
+Primary Key:
+province_slug
+
+Fields:
+
+province_name
+province_slug
+province_description
+province_center_city
+province_population
+province_area
+province_latitude
+province_longitude
+province_best_travel_season
+province_climate
+province_featured_image
+
+Relations:
+
+has_many -> City
+has_many -> Attraction
+has_many -> LocalFood
+has_many -> Souvenir
+has_many -> TravelRoute
+
+----------------------------------------------------
+City
+----------------------------------------------------
+
+CPT:
+city
+
+Primary Key:
+city_slug
+
+Fields:
+
+city_name
+city_slug
+city_description
+city_population
+city_elevation
+city_latitude
+city_longitude
+
+best_travel_season
+
+access_air
+access_rail
+access_road
+
+google_map_url
+
+featured_image
+
+Relations:
+
+belongs_to -> Province
+
+has_many -> Attraction
+has_many -> LocalFood
+has_many -> Souvenir
+
+belongs_to_many -> TravelRoute
+
+----------------------------------------------------
+Attraction
+----------------------------------------------------
+
+CPT:
+attraction
+
+Primary Key:
+attraction_slug
+
+Fields:
+
+attraction_name
+attraction_slug
+
+attraction_summary
+
+attraction_type
+
+latitude
+longitude
+
+address
+
+opening_hours
+
+ticket_price
+
+visit_duration
+
+best_visit_season
+
+featured_image
+
+Relations:
+
+belongs_to -> City
+belongs_to -> Province
+
+related_many -> Attraction
+
+----------------------------------------------------
+TravelRoute
+----------------------------------------------------
+
+CPT:
+travel_route
+
+Primary Key:
+route_slug
+
+Fields:
+
+route_name
+route_slug
+route_duration
+route_distance
+best_season
+estimated_budget
+route_summary
+featured_image
+
+Relations:
+
+belongs_to_many -> City
+belongs_to_many -> Attraction
+
+----------------------------------------------------
+LocalFood
+----------------------------------------------------
+
+CPT:
+local_food
+
+Primary Key:
+food_slug
+
+Fields:
+
+food_name
+food_slug
+food_summary
+main_ingredients
+serving_method
+featured_image
+
+Relations:
+
+belongs_to -> City
+belongs_to -> Province
+
+----------------------------------------------------
+Souvenir
+----------------------------------------------------
+
+CPT:
+souvenir
+
+Primary Key:
+souvenir_slug
+
+Fields:
+
+souvenir_name
+souvenir_slug
+souvenir_summary
+purchase_location
+featured_image
+
+Relations:
+
+belongs_to -> City
+belongs_to -> Province
+
+====================================================
+LEVEL 2 - TAXONOMIES
+====================================================
+
+Taxonomy:
+province_tax
+
+Terms:
+31 provinces
+
+----------------------------------------------------
+
+Taxonomy:
+attraction_type
+
+Terms:
+
+historical
+cultural
+religious
+nature
+mountain
+forest
+desert
+beach
+island
+village
+ecotourism
+adventure
+
+----------------------------------------------------
+
+Taxonomy:
+travel_season
+
+Terms:
+
+spring
+summer
+autumn
+winter
+
+----------------------------------------------------
+
+Taxonomy:
+travel_budget
+
+Terms:
+
+economic
+medium
+luxury
+
+----------------------------------------------------
+
+Taxonomy:
+travel_duration
+
+Terms:
+
+one_day
+weekend
+3_to_5_days
+more_than_5_days
+
+====================================================
+LEVEL 3 - RELATION RULES
+====================================================
+
+Province
+    -> Cities
+    -> Attractions
+    -> Foods
+    -> Souvenirs
+    -> Routes
+
+City
+    -> Province
+    -> Attractions
+    -> Foods
+    -> Souvenirs
+    -> Routes
+
+Attraction
+    -> City
+    -> Province
+
+Food
+    -> City
+    -> Province
+
+Souvenir
+    -> City
+    -> Province
+
+Route
+    -> Cities
+    -> Attractions
+
+====================================================
+LEVEL 4 - URL STRUCTURE
+====================================================
+
+/province/{province-slug}
+/city/{city-slug}
+/attraction/{attraction-slug}
+/food/{food-slug}
+/souvenir/{souvenir-slug}
+/route/{route-slug}
+
+====================================================
+LEVEL 5 - REQUIRED SEO FIELDS
+====================================================
+
+seo_title
+seo_description
+focus_keyword
+og_title
+og_description
+faq_schema
+breadcrumb_schema
+canonical_url
+
+====================================================
+LEVEL 6 - INTERNAL LINK GRAPH
+====================================================
+
+Province:
+
+link_to:
+cities
+attractions
+foods
+souvenirs
+routes
+
+City:
+
+link_to:
+province
+attractions
+foods
+souvenirs
+related_cities
+routes
+
+Attraction:
+
+link_to:
+city
+province
+similar_attractions
+
+Food:
+
+link_to:
+city
+province
+
+Souvenir:
+
+link_to:
+city
+province
+
+Route:
+
+link_to:
+cities
+attractions
+province
+
+====================================================
+LEVEL 7 - AI CONTENT RULES
+====================================================
+
+Every entity must contain:
+
+1. Introduction
+2. Structured Data
+3. FAQ
+4. Internal Links
+5. SEO Data
+
+No entity may be published if:
+
+- Missing relation
+- Missing SEO fields
+- Missing FAQ
+- Missing featured image
+- Missing primary taxonomy
+
+====================================================
+END OF MODEL
+====================================================
+
+----------------------------------------------------
+ADDENDUM (delivered with v1.0) — Reserved 7th entity
+----------------------------------------------------
+
+برای آینده، یک موجودیت هفتم هم از ابتدا در دیتامدل پیش‌بینی کن، حتی اگر فعلاً نسازی:
+
+چون بعداً اگر بخواهی از همکاری در فروش، رزرو هتل، تبلیغات اقامتگاه یا صفحات
+«کجا اقامت کنیم؟» درآمد بگیری، مجبور نمی‌شوی کل معماری سایت را دوباره بازطراحی کنی.
+این یکی از رایج‌ترین اشتباهات سایت‌های گردشگری فارسی است که فقط روی شهر و جاذبه
+تمرکز می‌کنند و بخش اقامت را ساختاریافته طراحی نمی‌کنند.
+
+ENTITY: Accommodation
+
+Types:
+
+Hotel
+EcoLodge
+GuestHouse
+TraditionalHouse
+Camping
+
+Relations:
+
+belongs_to -> City
+near -> Attraction
