@@ -7,6 +7,7 @@
 | بسته | موجودیت | فایل | نسخه |
 |---|---|---|---|
 | ۱ | استان — `province` — `/province/{slug}/` | [`province.md`](province.md) | **1.0** (ساختار مالک + «نام‌های کهن» و «اسطوره‌ها») |
+| ۱ (نسخه‌ی بیرونی) | استان — همان قرارداد، فشرده و خودبسنده برای اجرا در هر مدل هوش مصنوعی توسط مالک؛ خروجی آن با `seo_audit.py` فیلتر و تکمیل می‌شود | [`province-external-prompt.md`](province-external-prompt.md) | **1.0** |
 | ۲ | شهرستان / شهر — `city` — `/city/{slug}/` | [`city.md`](city.md) | **1.0** |
 | ۳ | جاذبه — `attraction` — `/attraction/{slug}/` | [`attraction.md`](attraction.md) | **1.0** (+ فیلدهای v1.1: `official_website`, `last_verified_date`) |
 | ۴ | مسیر سفر — `travel_route` | `route.md` | برنامه‌ریزی‌شده |
