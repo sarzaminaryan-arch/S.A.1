@@ -14,7 +14,7 @@ PROVINCES_PHP = os.path.join(ROOT, 'wp-content', 'themes', 'sarzaminaryan-child'
 
 GENERATED_JALALI = '۱۴۰۵/۰۷/۰۴'
 GENERATED_ISO = '2026-09-26'
-SOURCE_PACKAGE = 'imagetool (14).zip — commit a8a4fa1 روی main (۳۱ فایل JPG، ۲۴ تصویر یکتا)'
+SOURCE_PACKAGE = 'imagetool (14).zip — commit a8a4fa1 روی main (۳۱ فایل JPG، ۲۴ تصویر یکتا) + imagetool (15).zip — commit e48e84b روی main (۷ فایل JPG، ۷ استان باقی‌مانده)'
 CREDIT = 'تصویرسازی: سرزمین آریان'
 
 # slug -> (source file id, alt, symbols, watermark_fixed)
@@ -91,6 +91,28 @@ IMAGES = {
     'qom': ('1000099817',
         'تصویرسازی استان قم با گنبد طلایی حرم حضرت معصومه، فرش ابریشمی قم و حاشیه‌ی کویر',
         ['حرم حضرت معصومه', 'فرش قم', 'کویر'], False),
+    # ---- بسته‌ی دوم: imagetool (15).zip — هفت استان باقی‌مانده (بدون نشان دامنه؛ نشان به سبک بقیه افزوده شد) ----
+    'east-azerbaijan': ('1000099838',
+        'تصویرسازی استان آذربایجان شرقی با قله‌ی برفی سهند، کوشک میان دریاچه‌ی ائل‌گلی، جنگل و گنبد کاشی‌کاری مسجد کبود',
+        ['سهند', 'ائل‌گلی', 'مسجد کبود'], 'added'),
+    'west-azerbaijan': ('1000099831',
+        'تصویرسازی استان آذربایجان غربی با دریاچه‌ی صورتی ارومیه و فلامینگوها، قلعه‌ی سنگی کهن و خانه‌ی روستایی خشتی',
+        ['دریاچه‌ی ارومیه', 'فلامینگو', 'قلعه‌ی کهن', 'خانه‌ی خشتی'], 'added'),
+    'isfahan': ('1000099832',
+        'تصویرسازی استان اصفهان با گنبد فیروزه‌ای میدان نقش جهان، باغ چهارباغ با جوی‌های آب و سروها و پل تاریخی زاینده‌رود',
+        ['نقش جهان', 'چهارباغ', 'پل زاینده‌رود', 'سرو'], 'added'),
+    'alborz': ('1000099833',
+        'تصویرسازی استان البرز با دریاچه‌ی سد امیرکبیر کرج، قله‌های برفی رشته‌کوه البرز و شکوفه‌های بهاری',
+        ['سد امیرکبیر', 'رشته‌کوه البرز', 'شکوفه‌ی بهاری'], 'added'),
+    'ilam': ('1000099834',
+        'تصویرسازی استان ایلام با کوه‌های زاگرس، قلعه‌ی سنگی کهن، چادرهای عشایری و دشت گل‌های وحشی',
+        ['زاگرس', 'قلعه‌ی کهن', 'چادر عشایری', 'گل‌های وحشی'], 'added'),
+    'razavi-khorasan': ('1000099836',
+        'تصویرسازی استان خراسان رضوی با گنبد طلایی و مناره‌های فیروزه‌ای حرم، رواق کاشی‌کاری و تپه‌های شنی کویر',
+        ['گنبد طلایی حرم', 'کاشی‌کاری', 'کویر'], 'added'),
+    'south-khorasan': ('1000099839',
+        'تصویرسازی استان خراسان جنوبی با مزرعه‌ی زعفران، قلعه‌ی خشتی کهن، نخل‌های خرما و کوه‌های سرخ کویری',
+        ['زعفران', 'قلعه‌ی خشتی', 'نخل خرما', 'کوه‌های کویری'], 'added'),
 }
 
 # exact byte-duplicates inside the zip (md5): duplicate file -> kept file
@@ -102,6 +124,13 @@ DUPLICATES = {
 }
 
 NOTES = {
+    'east-azerbaijan': 'بسته‌ی دوم؛ نشان دامنه نداشت و به سبک بقیه (پیل آبی sarzaminaryan.ir) افزوده شد. کوه برفی مخروطی = سهند، کوشک دریاچه = ائل‌گلی، گنبد کاشی = مسجد کبود.',
+    'west-azerbaijan': 'بسته‌ی دوم؛ نشان دامنه افزوده شد. دریاچه‌ی صورتی ارومیه با فلامینگو — با متن مقاله (احیای دریاچه) هم‌خوان است.',
+    'isfahan': 'بسته‌ی دوم؛ نشان دامنه افزوده شد.',
+    'alborz': 'بسته‌ی دوم؛ نشان دامنه افزوده شد. دریاچه‌ی سد امیرکبیر (کرج) و شکوفه‌های بهاری.',
+    'ilam': 'بسته‌ی دوم؛ نشان دامنه افزوده شد.',
+    'razavi-khorasan': 'بسته‌ی دوم؛ نشان دامنه افزوده شد. گنبد طلایی/مناره‌های فیروزه‌ای اشاره به حرم رضوی است (تصویرسازی آزاد، نه عکس واقعی).',
+    'south-khorasan': 'بسته‌ی دوم؛ نشان دامنه افزوده شد. قاب کاغذ کهنه بخشی از طرح است؛ در برش هیرو ۱۶۰۰×۷۰۰ حاشیه‌ی کاغذ بالا/پایین می‌ماند.',
     'sistan-baluchestan': 'روی تصویر «SISTAN AND BALUCESTAN» نوشته شده (املای درست: BALUCHESTAN) — در بازتولید اصلاح شود.',
     'kohgiluyeh-boyer-ahmad': 'روی تصویر فقط «KOHGILUYEH» نوشته شده (بدون Boyer-Ahmad).',
     'chaharmahal-bakhtiari': 'روی تصویر فقط «CHAHARMAHAL» نوشته شده (بدون Bakhtiari).',
@@ -145,7 +174,9 @@ def main():
             'mime': 'image/webp',
             'source_file': src + '.jpg',
             'source_duplicates': sorted([d + '.jpg' for d, k in DUPLICATES.items() if k == src]),
-            'watermark_fixed': wm,
+            'watermark_fixed': wm is True,
+            'watermark': 'fixed' if wm is True else ('added' if wm == 'added' else 'original'),
+            'source_package': 'imagetool (15).zip' if int(src) >= 1000099831 else 'imagetool (14).zip',
             'alt': alt,
             'title': f'{name_fa} — تصویر شاخص راهنمای سفر سرزمین آریان',
             'caption': f'نمادهای {name_fa} در یک نگاه: {"، ".join(symbols)} — {CREDIT}',
@@ -175,16 +206,16 @@ def main():
     lines = []
     lines.append('# assets/featured/provinces — تصاویر شاخص استان‌ها\n')
     lines.append(f'منبع: `{SOURCE_PACKAGE}` · تولید manifest: {GENERATED_JALALI} · اسکریپت: `content-templates/tools/featured_manifest.py`\n')
-    lines.append('استاندارد خروجی: ۱۶:۹ · ۱۶۰۰×۹۰۰ · WEBP ≤ ۳۰۰ KB · بدون متادیتا (strip) · نام فایل = نامک وردپرس · ALT فارسی ≤ ۱۲۵ کاراکتر شامل نام استان (راهنمای تصویر گوگل).\n')
+    lines.append('استاندارد خروجی: ۱۶:۹ · ۱۶۰۰×۹۰۰ · WEBP ≤ ۳۰۰ KB (کیفیت ۸۲، method 6) · بدون متادیتا (strip) · نام فایل = نامک وردپرس · ALT فارسی ≤ ۱۲۵ کاراکتر شامل نام استان (راهنمای تصویر گوگل). هفت تصویر بسته‌ی دوم نشان دامنه نداشتند؛ نشان sarzaminaryan.ir به همان سبک (پیل آبی، پایین‌وسط) افزوده شد.\n')
     lines.append(f'**وضعیت: {fa(len(images))} استان دارای تصویر · {fa(len(missing))} استان بدون تصویر · {fa(len(DUPLICATES))} فایل تکراری در بسته (حذف شد).**\n')
-    lines.append('| # | استان | فایل | ابعاد | حجم | فایل مبدأ | نشان دامنه اصلاح شد | ALT |')
+    lines.append('| # | استان | فایل | ابعاد | حجم | فایل مبدأ | نشان دامنه | ALT |')
     lines.append('|---|---|---|---|---|---|---|---|')
     i = 0
     for slug, name, en, center in provinces:
         i += 1
         if slug in images:
             im = images[slug]
-            lines.append(f'| {fa(i)} | {name} | `{im["filename"]}` | {fa(im["width"])}×{fa(im["height"])} | {fa(im["kb"])} KB | `{im["source_file"]}` | {"✅" if im["watermark_fixed"] else "—"} | {im["alt"]} |')
+            lines.append(f'| {fa(i)} | {name} | `{im["filename"]}` | {fa(im["width"])}×{fa(im["height"])} | {fa(im["kb"])} KB | `{im["source_file"]}` | { {"fixed": "✅ املا اصلاح شد", "added": "➕ افزوده شد", "original": "— اصلی"}[im["watermark"]] } | {im["alt"]} |')
         else:
             lines.append(f'| {fa(i)} | {name} | — | — | — | — | — | **بدون تصویر — باید ساخته شود** |')
     lines.append('')
@@ -192,6 +223,8 @@ def main():
     for s in missing:
         n, en, c = names[s]
         lines.append(f'- {n} (`{s}`, {en}) — مرکز: {c}')
+    if not missing:
+        lines.append('- هیچ — هر ۳۱ استان تصویر شاخص دارند (بسته‌ی دوم هفت استان باقی‌مانده را کامل کرد).')
     lines.append('')
     lines.append('## فایل‌های تکراری داخل بسته (بایت‌به‌بایت یکسان، md5)\n')
     for d, k in sorted(DUPLICATES.items()):
