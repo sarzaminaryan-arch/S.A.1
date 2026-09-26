@@ -1,0 +1,18 @@
+/*
+Theme Name: Sarzamin Aryan
+Theme URI: https://sarzaminaryan.ir
+Author: محمدرضا لک
+Author URI: https://sarzaminaryan.ir
+Description: قالب والد سبک، راست‌چین و استاندارد برای «سرزمین آریان» — دانشنامه‌ی سفر ایران (استان‌ها، شهرها، جاذبه‌ها، مسیرها، غذاها و سوغات). نسخه‌ی بازبینی‌شده‌ی Quantum Pedia بر اساس استانداردهای وردپرس و گوگل. تمام امکانات پروژه در قالب فرزند sarzaminaryan-child پیاده می‌شود.
+Version: 1.1.0
+Requires at least: 6.4
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: sarzaminaryan
+Domain Path: /languages
+Tags: rtl-language-support, custom-menu, custom-logo, featured-images, threaded-comments, translation-ready, blog, news, accessibility-ready
+*/
+
+/* استایل‌های اصلی قالب در assets/css/main.css قرار دارند. هیچ @import در این فایل مجاز نیست. */

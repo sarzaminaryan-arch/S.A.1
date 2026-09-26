@@ -1,0 +1,130 @@
+# Persian translation for Sarzamin Aryan parent theme.
+msgid ""
+msgstr ""
+"Project-Id-Version: Sarzamin Aryan 1.1.0\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: skill-SA-agent msgfmt.py\n"
+
+msgid "All rights reserved."
+msgstr "تمامی حقوق محفوظ است."
+
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr "ویرایش <span class=\"screen-reader-text\">%s</span>"
+
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr "دیدگاه بگذارید<span class=\"screen-reader-text\"> درباره %s</span>"
+
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "آماده‌ی انتشار نخستین نوشته هستید؟ <a href=\"%1$s\">از اینجا شروع کنید</a>."
+
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] "%s دیدگاه"
+msgstr[1] "%s دیدگاه"
+
+msgid "Footer Menu"
+msgstr "منوی پابرگ"
+
+msgid "Open search"
+msgstr "باز کردن جست‌وجو"
+
+msgid "Primary Menu"
+msgstr "منوی اصلی"
+
+msgid "Sidebar"
+msgstr "نوار کناری"
+
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr "جست‌وجو…"
+
+msgid ", "
+msgstr "، "
+
+msgid "Add widgets here."
+msgstr "ابزارک‌ها را اینجا اضافه کنید."
+
+msgid "Featured"
+msgstr "ویژه"
+
+msgid "Footer Text"
+msgstr "متن پابرگ"
+
+msgid "Next post"
+msgstr "نوشته‌ی بعدی"
+
+msgid "Next"
+msgstr "بعدی"
+
+msgid "Pages:"
+msgstr "صفحه‌ها:"
+
+msgid "Posted in %1$s"
+msgstr "در دسته‌ی %1$s"
+
+msgid "Previous post"
+msgstr "نوشته‌ی قبلی"
+
+msgid "Previous"
+msgstr "قبلی"
+
+msgid "Search Results for: %s"
+msgstr "نتایج جست‌وجو برای: %s"
+
+msgid "Tagged %1$s"
+msgstr "برچسب‌ها: %1$s"
+
+msgid "Theme Options"
+msgstr "تنظیمات قالب"
+
+msgid "Comments are closed."
+msgstr "دیدگاه‌ها بسته شده‌اند."
+
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr "به نظر می‌رسد چیزی در این نشانی پیدا نشد. شاید جست‌وجو کمک کند؟"
+
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "چیزی که دنبالش هستید پیدا نشد. شاید جست‌وجو کمک کند."
+
+msgid "Menu"
+msgstr "منو"
+
+msgid "Nothing Found"
+msgstr "چیزی پیدا نشد"
+
+msgid "One comment"
+msgstr "یک دیدگاه"
+
+msgid "Oops! That page can&rsquo;t be found."
+msgstr "اوه! این صفحه پیدا نشد."
+
+msgid "Skip to content"
+msgstr "پرش به محتوا"
+
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "متأسفانه نتیجه‌ای با عبارت شما پیدا نشد. با کلیدواژه‌های دیگری دوباره تلاش کنید."
+
+msgctxt "list item separator"
+msgid ", "
+msgstr "، "
+
+msgctxt "post date"
+msgid "Posted on %s"
+msgstr "منتشرشده در %s"
+
+msgctxt "label"
+msgid "Search for:"
+msgstr "جست‌وجو برای:"
+
+msgctxt "submit button"
+msgid "Search"
+msgstr "جست‌وجو"
+
+msgctxt "post author"
+msgid "by %s"
+msgstr "به قلم %s"
+

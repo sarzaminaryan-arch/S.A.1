@@ -1,0 +1,17 @@
+/* Editor styles for Sarzamin Aryan */
+
+body {
+	font-family: 'Vazirmatn', 'Segoe UI', Tahoma, Arial, sans-serif;
+	font-size: 1rem;
+	line-height: 1.9;
+	color: #1f2933;
+}
+
+a {
+	color: #0e7490;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+	line-height: 1.35;
+}

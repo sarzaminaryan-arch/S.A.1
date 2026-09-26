@@ -1,0 +1,12 @@
+/* RTL overrides for Sarzamin Aryan.
+   main.css uses logical properties, so almost nothing is needed here.
+   (Removed from 1.0.0: flex-direction:row-reverse rules — they double-flipped the layout in RTL.) */
+
+html[dir="rtl"] .search-form .search-field {
+	text-align: right;
+}
+
+html[dir="rtl"] .pagination .nav-links .prev::before,
+html[dir="rtl"] .pagination .nav-links .next::after {
+	transform: scaleX(-1);
+}
