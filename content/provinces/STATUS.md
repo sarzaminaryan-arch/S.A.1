@@ -1,22 +1,5 @@
-# content/ — خروجی‌های تولیدشده‌ی ایجنت‌های محتوا
+# وضعیت تولید مقاله‌های استان‌ها
 
-هر فایل، خروجی کامل یکی از «Production Prompt»های پوشه‌ی `content-templates/` است (۹ بلوک: ENTITY&SEO · FEATURED IMAGE · ARTICLE · FAQ · SOURCES · SCHEMA DATA · QUALITY CHECK · FACT CHECK · PUBLISH STATUS).
-
-| مسیر | موجودیت | قالب | وضعیت |
-|---|---|---|---|
-| `provinces/tehran.md` | استان تهران | province.md v1.0 | DRAFT ONLY — منتظر انتشار موجودیت‌های لینک‌شده (پیوست الف) و تصویر شاخص |
-| `provinces/east-azerbaijan.md` | استان آذربایجان شرقی | province.md v1.0 + چک‌لیست Rank Math | DRAFT ONLY — منتظر انتشار موجودیت‌های لینک‌شده (پیوست الف)، تصویر شاخص و تطبیق داده‌ها با منابع رسمی داخل ایران |
-| `provinces/west-azerbaijan.md` | استان آذربایجان غربی | province.md v1.0 + چک‌لیست Rank Math (ارجاع‌های بالانویس در بدنه) | DRAFT ONLY — منتظر انتشار موجودیت‌های لینک‌شده (پیوست الف)، تصویر شاخص، به‌روزرسانی ارقام دریاچه‌ی ارومیه و تطبیق داده‌ها با منابع رسمی داخل ایران |
-
-ترتیب تولید استان‌ها: فهرست ثابت `wp-content/themes/sarzaminaryan-child/data/provinces.php` (تهران به‌عنوان نمونه‌ی طلایی زودتر تولید شد؛ از این پس به ترتیب فهرست: آذربایجان شرقی ✅ → آذربایجان غربی ✅ → اردبیل → اصفهان → البرز → ایلام → بوشهر → …).
-
-تصاویر شاخص: `assets/featured/provinces/` (۲۴ استان آماده، ۷ استان بدون تصویر — فهرست در `assets/featured/provinces/README.md`). انتقال به وردپرس: افزونه‌ی درون‌ریز دسته‌ی ۱ (`wp-content/plugins/sa-province-importer-b01`, استان‌های ۱ تا ۱۰) — پیش‌نویس‌ها را با متن، فیلدها، FAQ، منابع، سئو و تصویر شاخص می‌سازد؛ بسته‌های داده‌ی آن با `content-templates/tools/build_import_package.py --batch 1` از همین فایل‌ها ساخته می‌شوند و پس از هر مقاله‌ی جدید بازسازی و افزونه دوباره zip می‌شود.
-
-قرارداد نام‌گذاری: `provinces/{slug}.md` · `cities/{slug}.md` · `attractions/{slug}.md` · `foods/{slug}.md` · `souvenirs/{slug}.md` · `routes/{slug}.md` — نامک‌ها همان نامک‌های وردپرس‌اند.
-
-نحوه‌ی انتقال به وردپرس: جدول «نگاشت وردپرس» در بخش ۶ هر Production Prompt.
-
-<!-- PROVINCE-STATUS:START -->
 ## آمار مختصر ۳۱ استان
 
 _تولید خودکار با `python3 content-templates/tools/province_status.py` — ترتیب = فهرست ثابت `data/provinces.php` · ستون «واژه (متن)» = بلوک ۳ بدون جدول/ارجاع/نشان · «نشان بررسی» = [نیازمند بررسی] + [منبع لازم] در متن مقاله (بلوک ۳) · به‌روزرسانی: 2026-09-26_
@@ -56,4 +39,3 @@ _تولید خودکار با `python3 content-templates/tools/province_status.p
 | ۳۱ | یزد | `yazd` | — در نوبت | — | — | — | — | — | ✅ | b03: هنوز ساخته نشده |
 
 **جمع:** ۳ از ۳۱ استان نوشته شده (۲۱٬۹۶۷ واژه‌ی متن در مجموع، میانگین ۷٬۳۲۲ واژه) · تصویر شاخص آماده: ۲۴ از ۳۱ · بعدی در نوبت: **اردبیل** (`ardabil`)
-<!-- PROVINCE-STATUS:END -->

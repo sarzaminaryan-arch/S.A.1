@@ -26,6 +26,8 @@
 
 8. **تصویر شاخص و انتقال به وردپرس:** تصاویر شاخص استان‌ها در `assets/featured/provinces/{slug}.webp` (۱۶۰۰×۹۰۰، ≤ ۳۰۰ KB) و ALT/عنوان/زیرنویس هر کدام در `assets/featured/provinces/manifest.json` نگه‌داری می‌شود (ساخت با `python3 content-templates/tools/featured_manifest.py`). بلوک ۲ هر مقاله پس از آماده شدن تصویر با `image_file` و ALT نهایی به‌روز می‌شود. انتقال به سایت با افزونه‌های درون‌ریز (هر ده استان یک افزونه): `python3 content-templates/tools/build_import_package.py --batch N` بسته‌های JSON را از فایل‌های `.md` می‌سازد (Markdown → بلوک‌های گوتنبرگ، بلوک ۱/۴/۵ → فیلدهای `sa_*`، `sa_faq`، `sa_sources`) و افزونه‌ی `wp-content/plugins/sa-province-importer-bNN` آن‌ها را فقط به‌صورت **پیش‌نویس** در CPT استان می‌سازد.
 
+9. **آمار پایان هر تحویل:** پس از هر مقاله‌ی استان، `python3 content-templates/tools/province_status.py` اجرا می‌شود؛ جدول ۳۱ استان (کدام نوشته شده، واژه، H2، FAQ، منابع، نشان بررسی، تصویر، افزونه، بعدی) در `content/provinces/STATUS.md` و پایان `content/README.md` ذخیره و **در پایان پیام تحویل** آورده می‌شود.
+
 ## گردش کار پیشنهادی
 
 استان (پیش‌نویس با ساختار کامل) → شهرستان‌های آن استان → جاذبه‌های هر شهرستان → غذاها/سوغات → مسیرها → بازگشت به استان و تبدیل «(به‌زودی)»ها به لینک → انتشار استان.

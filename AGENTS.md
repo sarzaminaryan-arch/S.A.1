@@ -8,3 +8,6 @@
 4. Persian WordPress (fa_IR, RTL). Machine dates stay Gregorian. No external CDNs/plugins.
 5. Security: sanitize in, escape out, nonce + capability on writes.
 6. Use `skill-SA-agent/SKILL.md` as the operating procedure.
+7. **Province delivery report.** After every province article, run `python3 content-templates/tools/province_status.py`
+   (updates `content/provinces/STATUS.md` + the status block in `content/README.md`) and put the generated
+   31-province table (written / words / FAQ / sources / image / importer batch / next) at the END of the delivery message.
