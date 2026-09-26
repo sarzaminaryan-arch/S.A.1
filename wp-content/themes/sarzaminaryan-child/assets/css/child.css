@@ -948,3 +948,26 @@
 	color: #9a3412;
 	border-color: #fdba74;
 }
+
+
+/* ---------- v1.0.2: inline citations — <sup><a>[n]</a></sup> after a sourced fact ---------- */
+.entry-content sup {
+	font-size: 0.7em;
+	line-height: 0;
+	vertical-align: super;
+	margin-inline-start: 0.1em;
+}
+
+.entry-content sup a {
+	color: var(--color-primary);
+	text-decoration: none;
+	padding-inline: 0.15em;
+	border-radius: 3px;
+}
+
+.entry-content sup a:hover,
+.entry-content sup a:focus-visible {
+	background: var(--sa-surface-2);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}

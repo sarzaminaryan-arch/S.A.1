@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -31,6 +31,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 5. لوگو، تصویر قهرمان، شبکه‌های اجتماعی و متن پابرگ را از «سفارشی‌سازی → سرزمین آریان» تنظیم کنید.
 
 == Changelog ==
+
+= 1.0.2 — 2026-09-26 =
+* سازگاری با افزونه‌های سئو (Rank Math، Yoast، …): قالب دیگر کل JSON-LD خود را خاموش نمی‌کند؛ گره‌های سایت (Organization، WebSite، Breadcrumb، Article) به افزونه واگذار می‌شود و گره‌های موجودیت (Place/TouristDestination) و FAQPage همچنان از فیلدهای قالب ساخته می‌شوند (فیلتر sa_schema_with_plugin برای خاموش کردن کامل).
+* لینک‌های بیرونی داخل متن نوشته همان سیاست جعبه‌ی منابع را می‌گیرند: دامنه‌های رسمی دنبال‌شونده، بقیه nofollow، همه در برگه‌ی جدید (sa_content_external_links).
+* استایل ارجاع‌های بالانویس <sup>[n]</sup> داخل متن (شماره‌ی ردیف جعبه‌ی منابع).
 
 = 1.0.1 — 2026-09-26 =
 * مدل داده v1.1: فیلدهای «وب‌سایت رسمی» و «تاریخ آخرین راستی‌آزمایی» برای جاذبه؛ نوع فیلد تاریخ.

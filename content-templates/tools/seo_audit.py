@@ -7,7 +7,10 @@ Usage:
 If no keyword is given, focus_keyword and secondary_keywords are read from BLOCK 1.
 Reported: machine word count, exact focus-keyword count and density, keyword in the
 first 10%, headings that contain the keyword, paragraphs longer than 120 words,
-per-secondary-keyword counts inside the body. Exit code 1 if a hard check fails.
+per-secondary-keyword counts inside the body, internal/external links, and whether
+every inline citation <sup>[n](URL)</sup> points to the URL of row n in BLOCK 5
+(the theme prints BLOCK 5 as an <ol>, so n is what readers see). Exit code 1 if a
+hard check fails.
 See content-templates/seo-checklist-rankmath.md for the thresholds.
 """
 import re
@@ -15,6 +18,9 @@ import sys
 
 MAX_PARA_WORDS = 120
 DENSITY_MIN, DENSITY_MAX = 0.8, 1.5
+# Domains the theme links dofollow (mirror of sa_source_rel() in inc/template-tags.php).
+OFFICIAL = (".gov.ir", "unesco.org", "amar.org.ir", "mcth.ir", "doe.ir", "moi.ir", "ichto.ir", "un.org", "britannica.com", "iranicaonline.org")
+FA_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
 
 
 def read_blocks(path):
@@ -24,7 +30,24 @@ def read_blocks(path):
         body = rest.split("=== BLOCK 4", 1)[0]
     except ValueError:
         sys.exit("BLOCK 3 marker not found in %s" % path)
-    return head, body
+    return head, body, text
+
+
+def sources_by_row(text):
+    """Row number -> URL (or None) for the public part of BLOCK 5, as the theme's <ol> numbers them."""
+    m = re.search(r"=== BLOCK 5: SOURCES ===\s*```\s*\n(.*?)(?:\n---|```)", text, flags=re.S)
+    if not m:
+        return {}
+    rows = {}
+    for i, line in enumerate([l for l in m.group(1).split("\n") if l.strip()], start=1):
+        u = re.search(r"https?://\S+", line)
+        rows[i] = u.group(0) if u else None
+    return rows
+
+
+def is_official(url):
+    host = re.sub(r"^https?://", "", url).split("/")[0].lower()
+    return any(host == d.lstrip(".") or host.endswith(d) for d in OFFICIAL)
 
 
 def keywords_from_header(head):
@@ -45,7 +68,8 @@ def is_prose(block):
 def main():
     if len(sys.argv) < 2:
         sys.exit(__doc__)
-    head, body = read_blocks(sys.argv[1])
+    head, body, text = read_blocks(sys.argv[1])
+    rows = sources_by_row(text)
     focus, secs = keywords_from_header(head)
     if len(sys.argv) >= 3:
         focus = sys.argv[2]
@@ -90,9 +114,24 @@ def main():
         fails.append("long_paragraphs")
     links = re.findall(r"\]\((/[^)\s]*)\)", body)
     ext = re.findall(r"\]\((https?://[^)\s]*)\)", body)
-    print("internal links   : %d   external links in body: %d (must be 0 - sources live in BLOCK 5)" % (len(links), len(ext)))
-    if ext:
-        fails.append("external_links_in_body")
+    official = [u for u in ext if is_official(u)]
+    print("internal links   : %d   external links: %d (dofollow-eligible official: %d)" % (len(links), len(ext), len(official)))
+    if not ext or not official:
+        fails.append("external_links")
+    cites = re.findall(r"<sup>\[([۰-۹0-9]+)\]\((https?://[^)\s]*)\)</sup>", body)
+    bad_cites = []
+    for n, u in cites:
+        k = int(n.translate(FA_DIGITS))
+        if rows.get(k) != u:
+            bad_cites.append((k, u, rows.get(k)))
+    print("citations <sup>  : %d  (BLOCK 5 rows: %d, mismatched: %d)" % (len(cites), len(rows), len(bad_cites)))
+    for k, u, want in bad_cites:
+        print("   row %d cites %s but BLOCK 5 has %s" % (k, u, want))
+    if bad_cites:
+        fails.append("citation_numbers")
+    loose = [u for u in ext if u not in [c[1] for c in cites]]
+    if loose:
+        print("   external links outside <sup> citations:", len(loose))
     print("secondary keywords in body:")
     for s in secs:
         c = len(re.findall(re.escape(s), body))

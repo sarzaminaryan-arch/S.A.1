@@ -393,25 +393,40 @@ function sa_schema_breadcrumbs() {
 
 /**
  * Build and print the graph.
+ *
+ * With an SEO plugin active (Rank Math, Yoast, AIOSEO, SEOPress, TSF) the plugin owns the
+ * site-level nodes — Organization, WebSite, WebPage/Article, BreadcrumbList — so the theme
+ * prints only what no plugin can build from its meta boxes: the entity node
+ * (AdministrativeArea/TouristDestination/…) and FAQPage. Node @ids follow the same
+ * `home_url( '/#organization' )` convention as the plugins, so references resolve.
+ * `add_filter( 'sa_schema_with_plugin', '__return_false' )` switches the theme graph off
+ * completely when a plugin is active (v1.0.1 behaviour).
  */
 function sa_schema_output() {
-	if ( sa_seo_plugin_active() || is_admin() || is_feed() || is_404() ) {
+	if ( is_admin() || is_feed() || is_404() ) {
 		return;
 	}
-	$graph = array( sa_schema_organization(), sa_schema_website() );
-
-	$bc = sa_schema_breadcrumbs();
-	if ( $bc ) {
-		$graph[] = $bc;
+	$plugin = sa_seo_plugin_active();
+	if ( $plugin && ! apply_filters( 'sa_schema_with_plugin', true ) ) {
+		return;
+	}
+	$graph = array();
+	if ( ! $plugin ) {
+		$graph[] = sa_schema_organization();
+		$graph[] = sa_schema_website();
+		$bc      = sa_schema_breadcrumbs();
+		if ( $bc ) {
+			$graph[] = $bc;
+		}
 	}
 
 	if ( is_singular() ) {
 		$post = get_queried_object();
 		if ( sa_is_entity( $post ) ) {
 			$graph[] = sa_schema_entity( $post );
-		} elseif ( 'post' === $post->post_type ) {
+		} elseif ( ! $plugin && 'post' === $post->post_type ) {
 			$graph[] = sa_schema_article( $post );
-		} else {
+		} elseif ( ! $plugin ) {
 			$graph[] = array(
 				'@type'       => 'WebPage',
 				'@id'         => get_permalink( $post ) . '#webpage',
@@ -426,7 +441,7 @@ function sa_schema_output() {
 		if ( $faq ) {
 			$graph[] = $faq;
 		}
-	} elseif ( is_post_type_archive() || is_tax() || is_category() ) {
+	} elseif ( ! $plugin && ( is_post_type_archive() || is_tax() || is_category() ) ) {
 		$graph[] = array(
 			'@type'      => 'CollectionPage',
 			'url'        => sa_seo_canonical(),
@@ -436,9 +451,13 @@ function sa_schema_output() {
 		);
 	}
 
+	$graph = apply_filters( 'sa_schema_graph', $graph );
+	if ( ! $graph ) {
+		return;
+	}
 	$data = array(
 		'@context' => 'https://schema.org',
-		'@graph'   => apply_filters( 'sa_schema_graph', $graph ),
+		'@graph'   => $graph,
 	);
 	echo '<script type="application/ld+json">' . wp_json_encode( $data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . '</script>' . "\n";
 }
