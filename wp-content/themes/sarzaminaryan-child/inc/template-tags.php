@@ -386,6 +386,43 @@ function sa_content_markers_filter( $content ) {
 add_filter( 'the_content', 'sa_content_markers_filter', 12 );
 
 /**
+ * External links inside post content get the same rel policy as the sources box (v1.0.2):
+ * official domains followed, everything else `nofollow`; all open in a new tab. Existing
+ * rel/target attributes are respected. The production prompts write inline citations as
+ * `<sup>[n](URL)</sup>` (n = row in the sources box), which rely on this filter.
+ *
+ * @param string $content Content.
+ * @return string
+ */
+function sa_content_external_links( $content ) {
+	if ( is_admin() || is_feed() || false === stripos( $content, '<a ' ) ) {
+		return $content;
+	}
+	$home = strtolower( (string) wp_parse_url( home_url(), PHP_URL_HOST ) );
+	return preg_replace_callback(
+		'/<a\s+([^>]*?)href=(["\'])(https?:\/\/[^"\']+)\2([^>]*)>/i',
+		function ( $m ) use ( $home ) {
+			$url  = $m[3];
+			$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+			if ( ! $host || $host === $home || substr( $host, -strlen( '.' . $home ) ) === '.' . $home ) {
+				return $m[0];
+			}
+			$attrs = $m[1] . $m[4];
+			$tag   = '<a ' . trim( $m[1] . 'href=' . $m[2] . $url . $m[2] . $m[4] );
+			if ( false === stripos( $attrs, 'rel=' ) ) {
+				$tag .= ' rel="' . esc_attr( sa_source_rel( $url ) ) . '"';
+			}
+			if ( false === stripos( $attrs, 'target=' ) ) {
+				$tag .= ' target="_blank"';
+			}
+			return $tag . '>';
+		},
+		$content
+	);
+}
+add_filter( 'the_content', 'sa_content_external_links', 13 );
+
+/**
  * Social links from Customizer.
  *
  * @return array slug => [url,label]

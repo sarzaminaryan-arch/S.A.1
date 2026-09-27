@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "qom",
+ "status": "stub",
+ "name_fa": "استان قم",
+ "name_en": "Qom Province",
+ "term_name": "قم",
+ "center_city": "قم",
+ "post": {
+  "title": "استان قم",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/qom.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 103620,
+  "alt": "تصویرسازی استان قم با گنبد طلایی حرم حضرت معصومه، فرش ابریشمی قم و حاشیه‌ی کویر",
+  "title": "استان قم — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان قم در یک نگاه: حرم حضرت معصومه، فرش قم، کویر — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان قم» در سرزمین آریان؛ تصویرسازی گرافیکی با حرم حضرت معصومه، فرش قم، کویر. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "7e8546017b8770f738c851601212737e6e64e2ea"
+ }
+}

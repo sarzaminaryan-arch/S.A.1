@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "fars",
+ "status": "stub",
+ "name_fa": "استان فارس",
+ "name_en": "Fars Province",
+ "term_name": "فارس",
+ "center_city": "شیراز",
+ "post": {
+  "title": "استان فارس",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/fars.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 191740,
+  "alt": "تصویرسازی استان فارس با ستون‌های تخت جمشید، آرامگاه حافظ، آرامگاه کوروش، درختان نارنج و ظرف میوه روی قالی",
+  "title": "استان فارس — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان فارس در یک نگاه: تخت جمشید، آرامگاه حافظ، آرامگاه کوروش، نارنج، قالی — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان فارس» در سرزمین آریان؛ تصویرسازی گرافیکی با تخت جمشید، آرامگاه حافظ، آرامگاه کوروش، نارنج، قالی. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "4aa9b8a85c452f87d56c0ce1483b5d2fd694c9ee"
+ }
+}

@@ -1,0 +1,200 @@
+{
+ "batch": 1,
+ "batch_id": "b01",
+ "label": "دسته‌ی 1 — استان‌های 1 تا 10 فهرست ثابت",
+ "data_version": "1.0.5",
+ "package_format": "1.0",
+ "built": "2026-09-26",
+ "provinces": [
+  {
+   "order": 1,
+   "slug": "east-azerbaijan",
+   "name_fa": "استان آذربایجان شرقی",
+   "term_name": "آذربایجان شرقی",
+   "status": "article",
+   "has_image": true,
+   "word_count": 8464,
+   "faq": 13,
+   "sources_lines": 45,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 80,
+    "source_needed": 37,
+    "url_needed": 1,
+    "coming_soon": 108
+   },
+   "file": "east-azerbaijan.json"
+  },
+  {
+   "order": 2,
+   "slug": "west-azerbaijan",
+   "name_fa": "استان آذربایجان غربی",
+   "term_name": "آذربایجان غربی",
+   "status": "article",
+   "has_image": true,
+   "word_count": 8118,
+   "faq": 13,
+   "sources_lines": 47,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 103,
+    "source_needed": 38,
+    "url_needed": 0,
+    "coming_soon": 61
+   },
+   "file": "west-azerbaijan.json"
+  },
+  {
+   "order": 3,
+   "slug": "ardabil",
+   "name_fa": "استان اردبیل",
+   "term_name": "اردبیل",
+   "status": "article",
+   "has_image": true,
+   "word_count": 7576,
+   "faq": 12,
+   "sources_lines": 31,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 102,
+    "source_needed": 3,
+    "url_needed": 0,
+    "coming_soon": 88
+   },
+   "file": "ardabil.json"
+  },
+  {
+   "order": 4,
+   "slug": "isfahan",
+   "name_fa": "استان اصفهان",
+   "term_name": "اصفهان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 8104,
+   "faq": 12,
+   "sources_lines": 32,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 107,
+    "source_needed": 5,
+    "url_needed": 0,
+    "coming_soon": 114
+   },
+   "file": "isfahan.json"
+  },
+  {
+   "order": 5,
+   "slug": "alborz",
+   "name_fa": "استان البرز",
+   "term_name": "البرز",
+   "status": "stub",
+   "has_image": true,
+   "word_count": 0,
+   "faq": 0,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "alborz.json"
+  },
+  {
+   "order": 6,
+   "slug": "ilam",
+   "name_fa": "استان ایلام",
+   "term_name": "ایلام",
+   "status": "article",
+   "has_image": true,
+   "word_count": 5047,
+   "faq": 12,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 70,
+    "source_needed": 9,
+    "url_needed": 2,
+    "coming_soon": 43
+   },
+   "file": "ilam.json"
+  },
+  {
+   "order": 7,
+   "slug": "bushehr",
+   "name_fa": "استان بوشهر",
+   "term_name": "بوشهر",
+   "status": "article",
+   "has_image": true,
+   "word_count": 5623,
+   "faq": 12,
+   "sources_lines": 36,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 30,
+    "source_needed": 31,
+    "url_needed": 0,
+    "coming_soon": 92
+   },
+   "file": "bushehr.json"
+  },
+  {
+   "order": 8,
+   "slug": "tehran",
+   "name_fa": "استان تهران",
+   "term_name": "تهران",
+   "status": "article",
+   "has_image": true,
+   "word_count": 7904,
+   "faq": 12,
+   "sources_lines": 31,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 45,
+    "source_needed": 33,
+    "url_needed": 0,
+    "coming_soon": 120
+   },
+   "file": "tehran.json"
+  },
+  {
+   "order": 9,
+   "slug": "chaharmahal-bakhtiari",
+   "name_fa": "استان چهارمحال و بختیاری",
+   "term_name": "چهارمحال و بختیاری",
+   "status": "article",
+   "has_image": true,
+   "word_count": 7479,
+   "faq": 12,
+   "sources_lines": 27,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 111,
+    "source_needed": 7,
+    "url_needed": 0,
+    "coming_soon": 87
+   },
+   "file": "chaharmahal-bakhtiari.json"
+  },
+  {
+   "order": 10,
+   "slug": "south-khorasan",
+   "name_fa": "استان خراسان جنوبی",
+   "term_name": "خراسان جنوبی",
+   "status": "article",
+   "has_image": true,
+   "word_count": 4798,
+   "faq": 12,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 59,
+    "source_needed": 13,
+    "url_needed": 0,
+    "coming_soon": 42
+   },
+   "file": "south-khorasan.json"
+  }
+ ]
+}

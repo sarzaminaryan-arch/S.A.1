@@ -7,6 +7,7 @@
 | بسته | موجودیت | فایل | نسخه |
 |---|---|---|---|
 | ۱ | استان — `province` — `/province/{slug}/` | [`province.md`](province.md) | **1.0** (ساختار مالک + «نام‌های کهن» و «اسطوره‌ها») |
+| ۱ (نسخه‌ی بیرونی) | استان — همان قرارداد، فشرده و خودبسنده برای اجرا در هر مدل هوش مصنوعی توسط مالک؛ خروجی آن با `seo_audit.py` فیلتر و تکمیل می‌شود | [`province-external-prompt.md`](province-external-prompt.md) | **1.0** |
 | ۲ | شهرستان / شهر — `city` — `/city/{slug}/` | [`city.md`](city.md) | **1.0** |
 | ۳ | جاذبه — `attraction` — `/attraction/{slug}/` | [`attraction.md`](attraction.md) | **1.0** (+ فیلدهای v1.1: `official_website`, `last_verified_date`) |
 | ۴ | مسیر سفر — `travel_route` | `route.md` | برنامه‌ریزی‌شده |
@@ -22,6 +23,11 @@
 4. **دروازه‌ی انتشار قالب** = همان PUBLISHING RULE بسته‌ها: منابع ≥ ۵، مختصات، FAQ ≥ ۱۰، سئو، لینک داخلی (۲۰ استان / ۱۰ شهر / ۱۰ جاذبه)، تصویر شاخص، رابطه و طبقه‌بندی اجباری. حداقل‌ها در `data-model/schema/data-model.yaml → content_rules.minimums` نگه‌داری می‌شوند و از آنجا به قالب تولید می‌شوند.
 5. **خروجی ۹ بلوکی** (ENTITY & SEO → FEATURED IMAGE → ARTICLE → FAQ → SOURCES → SCHEMA DATA → QUALITY CHECK → FACT CHECK → PUBLISH STATUS) در هر سه بسته یکسان است تا اپراتور یک روال داشته باشد.
 6. **JSON-LD دستی نوشته نمی‌شود:** قالب اسکیمای هر موجودیت را از فیلدها می‌سازد؛ ایجنت فقط مقادیر (geo، sameAs، ثبت‌ها) را می‌دهد. این از اسکیمای تکراری/ناسازگار جلوگیری می‌کند.
+7. **سئوی درون‌صفحه‌ای برای Rank Math:** پیش از تحویل هر نوشته، چک‌لیست [`seo-checklist-rankmath.md`](seo-checklist-rankmath.md) اجرا و نتیجه زیر `[RANK MATH]` در BLOCK 7 ثبت می‌شود (چگالی کلمه‌ی کلیدی ۰٫۸–۱٫۵٪، کلمه‌ی کلیدی در ۳–۷ زیرعنوان H3، پاراگراف ≤ ۱۲۰ واژه، کلمات فرعی در متن). ممیزی ماشینی: `python3 content-templates/tools/seo_audit.py content/provinces/<slug>.md`. متن H2ها و نامک‌ها برای سئو تغییر نمی‌کنند. لینک‌های بیرونی (اصل ۱۰ هر بسته): فهرست کامل در بلوک منابع + ارجاع بالانویس کوچک `<sup>[n](URL)</sup>` بعد از هر داده‌ی منبع‌دار در متن، که n شماره‌ی ردیف بلوک منابع است؛ قالب (v1.0.2) دامنه‌های غیررسمی را خودکار `nofollow` می‌کند.
+
+8. **تصویر شاخص و انتقال به وردپرس:** تصاویر شاخص استان‌ها در `assets/featured/provinces/{slug}.webp` (۱۶۰۰×۹۰۰، ≤ ۳۰۰ KB) و ALT/عنوان/زیرنویس هر کدام در `assets/featured/provinces/manifest.json` نگه‌داری می‌شود (ساخت با `python3 content-templates/tools/featured_manifest.py`). بلوک ۲ هر مقاله پس از آماده شدن تصویر با `image_file` و ALT نهایی به‌روز می‌شود. انتقال به سایت با افزونه‌های درون‌ریز (هر ده استان یک افزونه): `python3 content-templates/tools/build_import_package.py --batch N` بسته‌های JSON را از فایل‌های `.md` می‌سازد (Markdown → بلوک‌های گوتنبرگ، بلوک ۱/۴/۵ → فیلدهای `sa_*`، `sa_faq`، `sa_sources`) و افزونه‌ی `wp-content/plugins/sa-province-importer-bNN` آن‌ها را فقط به‌صورت **پیش‌نویس** در CPT استان می‌سازد.
+
+9. **آمار پایان هر تحویل:** پس از هر مقاله‌ی استان، `python3 content-templates/tools/province_status.py` اجرا می‌شود؛ جدول ۳۱ استان (کدام نوشته شده، واژه، H2، FAQ، منابع، نشان بررسی، تصویر، افزونه، بعدی) در `content/provinces/STATUS.md` و پایان `content/README.md` ذخیره و **در پایان پیام تحویل** آورده می‌شود.
 
 ## گردش کار پیشنهادی
 
