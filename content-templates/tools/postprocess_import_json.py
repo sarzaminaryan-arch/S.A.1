@@ -17,12 +17,14 @@ import json
 import re
 import sys
 
-SUP_RE = re.compile(r'<sup>\[[^\]]*\]\([^)]*\)</sup>')
+SUP_RE = re.compile(r'<sup>(?:\[[^\]]*\]\([^)]*\))</sup>')
+SA_CITE_RE = re.compile(r'<sup class="sa-cite"><a href="[^"]*">[^<]*</a></sup>')
 MARKER_RE = re.compile(r'[ \t‌]*\[(?:نیازمند بررسی|منبع لازم|URL لازم)[^\]]*\]')
 TAG_RE = re.compile(r'<[^>]+>')
 
 
 def clean_text(s: str) -> str:
+    s = SA_CITE_RE.sub('', s)
     s = SUP_RE.sub('', s)
     s = MARKER_RE.sub('', s)
     s = re.sub(r'[ \t]{2,}', ' ', s)
@@ -56,7 +58,7 @@ def main(path: str) -> None:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write('\n')
 
-    left = SUP_RE.findall(data['post']['content_html']) + MARKER_RE.findall(data['post']['content_html'])
+    left = SUP_RE.findall(data['post']['content_html']) + SA_CITE_RE.findall(data['post']['content_html']) + MARKER_RE.findall(data['post']['content_html'])
     print(f"{path}: word_count={data['post']['word_count']} focus={data['seo']['sa_focus_keyword']} leftovers={len(left)}")
 
 
