@@ -319,6 +319,54 @@
       "slug": "hoveyzeh",
       "province": "khuzestan",
       "province_name": "خوزستان"
+    },
+    {
+      "title": "سمنان",
+      "slug": "semnan-city",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "شاهرود",
+      "slug": "shahrud",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "دامغان",
+      "slug": "damghan",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "گرمسار",
+      "slug": "garmsar",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "مهدی‌شهر",
+      "slug": "mehdishahr",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "سرخه",
+      "slug": "sorkheh",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "میامی",
+      "slug": "meyami",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "آرادان",
+      "slug": "aradan",
+      "province": "semnan",
+      "province_name": "سمنان"
     }
   ]
 }
