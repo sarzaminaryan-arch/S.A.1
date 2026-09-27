@@ -2,7 +2,7 @@
   "batch": 2,
   "batch_id": "b02",
   "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
-  "data_version": "1.0.8",
+  "data_version": "1.0.9",
   "package_format": "1.0",
   "built": "2026-09-27",
   "provinces": [
@@ -108,15 +108,15 @@
       "term_name": "سیستان و بلوچستان",
       "status": "article",
       "has_image": true,
-      "word_count": 3518,
-      "faq": 13,
-      "sources_lines": 28,
+      "word_count": 4761,
+      "faq": 14,
+      "sources_lines": 31,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 34,
-        "source_needed": 39,
+        "review": 62,
+        "source_needed": 58,
         "url_needed": 0,
-        "coming_soon": 33
+        "coming_soon": 37
       },
       "file": "sistan-baluchestan.json"
     },
@@ -127,15 +127,15 @@
       "term_name": "فارس",
       "status": "article",
       "has_image": true,
-      "word_count": 3562,
-      "faq": 13,
-      "sources_lines": 17,
+      "word_count": 4624,
+      "faq": 14,
+      "sources_lines": 21,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 47,
-        "source_needed": 54,
+        "review": 70,
+        "source_needed": 68,
         "url_needed": 0,
-        "coming_soon": 34
+        "coming_soon": 38
       },
       "file": "fars.json"
     },
@@ -146,15 +146,15 @@
       "term_name": "قزوین",
       "status": "article",
       "has_image": true,
-      "word_count": 2770,
-      "faq": 12,
-      "sources_lines": 16,
+      "word_count": 4244,
+      "faq": 14,
+      "sources_lines": 19,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 32,
-        "source_needed": 13,
+        "review": 61,
+        "source_needed": 29,
         "url_needed": 0,
-        "coming_soon": 48
+        "coming_soon": 51
       },
       "file": "qazvin.json"
     },
@@ -165,15 +165,15 @@
       "term_name": "قم",
       "status": "article",
       "has_image": true,
-      "word_count": 2087,
-      "faq": 12,
-      "sources_lines": 6,
+      "word_count": 4106,
+      "faq": 14,
+      "sources_lines": 9,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 10,
-        "source_needed": 12,
+        "review": 52,
+        "source_needed": 33,
         "url_needed": 0,
-        "coming_soon": 29
+        "coming_soon": 35
       },
       "file": "qom.json"
     },
