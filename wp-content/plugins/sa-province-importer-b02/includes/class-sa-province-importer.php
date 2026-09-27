@@ -40,6 +40,13 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		private $batches = array();
 
 		/**
+		 * Number of article-ready packages (for the dashboard widget).
+		 *
+		 * @var int
+		 */
+		private $dashboard_ready = 0;
+
+		/**
 		 * Singleton.
 		 *
 		 * @var SA_Province_Importer|null
@@ -65,6 +72,7 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 			add_action( 'admin_menu', array( $this, 'admin_menu' ), 30 );
 			add_action( 'admin_post_' . self::NONCE, array( $this, 'handle_post' ) );
 			add_action( 'admin_notices', array( $this, 'theme_notice' ) );
+			add_action( 'wp_dashboard_setup', array( $this, 'dashboard_widget' ) );
 			if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				WP_CLI::add_command( 'sa-province', array( $this, 'cli' ) );
 			}
@@ -529,15 +537,45 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		/* ------------------------------------------------------------------ admin */
 
 		/**
-		 * Menu: under «استان‌ها» when the CPT exists, otherwise under Tools.
+		 * Menu: top-level «درون‌ریزی استان‌ها» so it is always visible in the sidebar
+		 * (previously it was buried under the province CPT submenu and easy to miss).
 		 */
 		public function admin_menu() {
-			$title = 'درون‌ریزی پیش‌نویس استان‌ها';
-			if ( post_type_exists( self::CPT ) ) {
-				add_submenu_page( 'edit.php?post_type=' . self::CPT, $title, 'درون‌ریزی استان‌ها', self::CAP, self::PAGE_SLUG, array( $this, 'render_page' ) );
-			} else {
-				add_management_page( $title, 'درون‌ریزی استان‌ها', self::CAP, self::PAGE_SLUG, array( $this, 'render_page' ) );
+			add_menu_page( 'درون‌ریزی پیش‌نویس استان‌ها', 'درون‌ریزی استان‌ها', self::CAP, self::PAGE_SLUG, array( $this, 'render_page' ), 'dashicons-import', 30 );
+		}
+
+		/**
+		 * Dashboard widget: direct import button for site administrators.
+		 */
+		public function dashboard_widget() {
+			if ( ! current_user_can( self::CAP ) ) {
+				return;
 			}
+			$this->dashboard_ready = 0;
+			foreach ( $this->batches as $batch ) {
+				$rows = isset( $batch['manifest']['provinces'] ) ? (array) $batch['manifest']['provinces'] : array();
+				foreach ( $rows as $row ) {
+					if ( isset( $row['status'] ) && 'article' === $row['status'] ) {
+						$this->dashboard_ready++;
+					}
+				}
+			}
+			wp_add_dashboard_widget( 'sa_province_importer', 'سرزمین آریان — درون‌ریز استان‌ها', array( $this, 'render_dashboard_widget' ), null, null, 'top' );
+		}
+
+		/**
+		 * Render the dashboard widget.
+		 */
+		public function render_dashboard_widget() {
+			$url = $this->page_url();
+			if ( ! post_type_exists( self::CPT ) ) {
+				echo '<p class="sa-pi-widget-warn"><strong>توجه:</strong> نوع نوشته‌ی «استان» پیدا نشد؛ برای درون‌ریزی، قالب فرزند «سرزمین آریان» (حداقل ۱.۰.۳) باید فعال باشد.</p>';
+			} elseif ( $this->dashboard_ready > 0 ) {
+				echo '<p>' . $this->fa( $this->dashboard_ready ) . ' استان مقاله‌ی کامل دارند و آماده‌ی درون‌ریزی به‌صورت پیش‌نویس هستند. هیچ چیزی منتشر نمی‌شود؛ همه‌چیز پیش‌نویس می‌ماند.</p>';
+			} else {
+				echo '<p>هنوز بسته‌ی داده‌ای با مقاله‌ی کامل ثبت نشده است.</p>';
+			}
+			echo '<p><a class="button button-primary button-hero" href="' . esc_url( $url ) . '">درون‌ریزی استان‌ها</a></p>';
 		}
 
 		/**
@@ -560,8 +598,7 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		 * @return string
 		 */
 		private function page_url() {
-			$base = post_type_exists( self::CPT ) ? admin_url( 'edit.php?post_type=' . self::CPT ) : admin_url( 'tools.php' );
-			return add_query_arg( 'page', self::PAGE_SLUG, $base );
+			return add_query_arg( 'page', self::PAGE_SLUG, admin_url( 'admin.php' ) );
 		}
 
 		/**
