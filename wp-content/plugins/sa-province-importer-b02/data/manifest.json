@@ -2,7 +2,7 @@
   "batch": 2,
   "batch_id": "b02",
   "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
-  "data_version": "1.0.6",
+  "data_version": "1.0.7",
   "package_format": "1.0",
   "built": "2026-09-27",
   "provinces": [
@@ -125,17 +125,17 @@
       "slug": "fars",
       "name_fa": "استان فارس",
       "term_name": "فارس",
-      "status": "stub",
+      "status": "article",
       "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
+      "word_count": 3562,
+      "faq": 13,
+      "sources_lines": 17,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 0,
-        "source_needed": 0,
+        "review": 47,
+        "source_needed": 54,
         "url_needed": 0,
-        "coming_soon": 0
+        "coming_soon": 34
       },
       "file": "fars.json"
     },

@@ -481,6 +481,180 @@
       "slug": "hamun",
       "province": "sistan-baluchestan",
       "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "شیراز",
+      "slug": "shiraz",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "مرودشت",
+      "slug": "marvdasht",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "کازرون",
+      "slug": "kazerun",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "جهرم",
+      "slug": "jahrom",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "لارستان",
+      "slug": "larestan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "فسا",
+      "slug": "fasa",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "داراب",
+      "slug": "darab",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "فیروزآباد",
+      "slug": "firuzabad",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "ممسنی",
+      "slug": "mamasani",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "نی‌ریز",
+      "slug": "neyriz",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "آباده",
+      "slug": "abadeh",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "اقلید",
+      "slug": "eqlid",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "لامرد",
+      "slug": "lamerd",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "سپیدان",
+      "slug": "sepidan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "کوار",
+      "slug": "kavar",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "زرین‌دشت",
+      "slug": "zarrin-dasht",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "قیر و کارزین",
+      "slug": "qir-va-karzin",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "استهبان",
+      "slug": "estahban",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "مهر",
+      "slug": "mehr",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "خرامه",
+      "slug": "kharameh",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "گراش",
+      "slug": "gerash",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "خرم‌بید",
+      "slug": "khorrambid",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "بوانات",
+      "slug": "bavanat",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "فراشبند",
+      "slug": "farashband",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "رستم",
+      "slug": "rostam",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "ارسنجان",
+      "slug": "arsanjan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "خنج",
+      "slug": "khonj",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "سروستان",
+      "slug": "sarvestan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "پاسارگاد",
+      "slug": "pasargad",
+      "province": "fars",
+      "province_name": "فارس"
     }
   ]
 }
