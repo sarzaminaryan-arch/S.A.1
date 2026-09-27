@@ -820,7 +820,7 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 					echo '<input type="hidden" name="action" value="' . esc_attr( self::NONCE_COUNTIES ) . '">';
 					echo '<input type="hidden" name="batch" value="' . esc_attr( $batch['id'] ) . '">';
 					echo '<table class="widefat striped" style="max-width:900px"><thead><tr>';
-					echo '<td class="check-column" style="padding:8px 10px"><input type="checkbox" title="انتخاب همه" onclick="var ck=this.checked;this.closest(\\'table\\').querySelectorAll(\\'input[name=&quot;counties[]&quot;]\\').forEach(function(c){c.checked=ck;});"></td>';
+					echo '<td class="check-column" style="padding:8px 10px"><input type="checkbox" title="انتخاب همه" onclick="var ck=this.checked;this.closest(\'table\').querySelectorAll(\'input[name=&quot;counties[]&quot;]\').forEach(function(c){c.checked=ck;});"></td>';
 					echo '<th>#</th><th>شهرستان</th><th>اسلاگ</th><th>استان</th><th>وضعیت در سایت</th></tr></thead><tbody>';
 					$i = 0;
 					foreach ( $batch['counties'] as $c ) {
