@@ -245,6 +245,59 @@ def count_markers(text):
     }
 
 
+# --------------------------------------------------------------------------- copy cleaning
+# The site copy must be clean: no review markers, no inline citation numbers. The .md sources
+# keep markers/citations as the research trail; the importer packages drop them.
+
+SUP_CITE_RE = re.compile(r'<sup>\s*(?:\[[^\]]*\]\([^)]*\)|\[[^\]]*\])\s*</sup>')
+# markers start with these phrases and run to the first closing bracket, whatever the separator
+# after the phrase (":", "؛", "برای …" or nothing).
+MARKER_RE = re.compile(r'\[(?:نیازمند بررسی|منبع لازم)[^\]]*\]')
+
+
+def clean_copy(text):
+    """Strip inline <sup>[n](url)</sup> citation numbers and review markers from ship-to-site copy."""
+    t = SUP_CITE_RE.sub('', text)
+    t = MARKER_RE.sub('', t)
+    t = re.sub(r'[ \t]+([،؛.؟!…])', r'\1', t)  # no space left before punctuation
+    t = re.sub(r'[ \t]{2,}', ' ', t)
+    t = re.sub(r'[ \t]+\n', '\n', t)
+    t = re.sub(r'\n[ \t]+', '\n', t)
+    t = re.sub(r'\n{3,}', '\n\n', t)
+    return t
+
+
+# --------------------------------------------------------------------------- counties
+# County (شهرستان) entities are `city` CPT posts per the data model. Slugs come from each
+# article's appendix link map (type=city rows); alborz/zanjan (no appendix) use manual lists.
+
+MANUAL_COUNTIES = {
+    'alborz': [
+        ('کرج', 'karaj'), ('فردیس', 'ferdows'), ('ساوجبلاغ', 'sojablogh'), ('نظرآباد', 'nazarabad'),
+        ('چهارباغ', 'chaharbagh'), ('اشتهارد', 'eshtehard'), ('طالقان', 'talqan'),
+    ],
+    'zanjan': [
+        ('زنجان', 'zanjan-city'), ('خدابنده', 'khodabandeh'), ('ابهر', 'abhar'), ('خرمدره', 'kharadere'),
+        ('طارم', 'tarom'), ('ماهنشان', 'mahneshan'), ('ایجرود', 'ejrud'), ('سلطانیه', 'soltaniyeh'),
+    ],
+}
+
+CITY_ROW_RE = re.compile(r'^\|\s*[^|\n]*\|\s*([^|\n]+?)\s*\|\s*city\s*\|\s*([a-z0-9\-]+)\s*\|', re.M)
+
+
+def parse_counties(md_text):
+    out, seen = [], set()
+    for m in CITY_ROW_RE.finditer(md_text):
+        name = m.group(1).strip().strip('*').strip()
+        name = re.sub(r'\s*\(شهر\)\s*$', '', name).strip()
+        slug = m.group(2)
+        if not name or slug in seen:
+            continue
+        seen.add(slug)
+        out.append((name, slug))
+    return out
+
+
 def build_article_package(prov, md_path, images, built):
     text = open(md_path, encoding='utf-8').read()
     b1 = parse_block1(block(text, 1))
@@ -252,9 +305,19 @@ def build_article_package(prov, md_path, images, built):
     faq = parse_faq(block(text, 4))
     sources = parse_sources(block(text, 5))
     status9 = parse_block9(block(text, 9))
+    # markers are counted on the ORIGINAL text (research trail); ship-copy is cleaned.
+    markers = count_markers(body_md + ' ' + ' '.join(x['a'] for x in faq))
+    body_md = clean_copy(body_md)
+    faq = [{'q': clean_copy(q['q']), 'a': clean_copy(q['a'])} for q in faq]
     f = b1.get('fields', {})
     content_html = md_to_blocks(body_md)
     words = len(re.sub(r'<[^>]+>', ' ', content_html).split())
+    # two focus keywords per owner request: «استان X» + «X»
+    focus = b1.get('focus_keyword', '')
+    parts = [x.strip() for x in focus.split('،') if x.strip()]
+    if prov['name'] and prov['name'] not in parts:
+        parts.append(prov['name'])
+    focus = '، '.join(parts)
     pkg = {
         'package_format': PACKAGE_FORMAT,
         'built': built,
@@ -282,7 +345,7 @@ def build_article_package(prov, md_path, images, built):
         'seo': {
             'sa_seo_title': b1.get('seo_title', ''),
             'sa_seo_description': b1.get('meta_description', ''),
-            'sa_focus_keyword': b1.get('focus_keyword', ''),
+            'sa_focus_keyword': focus,
             'sa_og_title': b1.get('og_title', b1.get('seo_title', '')),
             'sa_og_description': b1.get('og_description', b1.get('meta_description', '')),
         },
@@ -292,7 +355,7 @@ def build_article_package(prov, md_path, images, built):
         'faq': faq,
         'sources': sources,
         'publish_status': status9,
-        'markers': count_markers(body_md + ' ' + ' '.join(x['a'] for x in faq)),
+        'markers': markers,
         'image': images.get(prov['slug']),
     }
     return pkg
@@ -384,6 +447,21 @@ def main():
     }
     with open(os.path.join(out_dir, 'manifest.json'), 'w', encoding='utf-8') as fh:
         json.dump(manifest, fh, ensure_ascii=False, indent=1)
+
+    # counties.json — title + slug lists for the importer's «create county drafts» feature.
+    counties = []
+    for prov in batch:
+        pairs = []
+        p_md = os.path.join(CONTENT_DIR, prov['slug'] + '.md')
+        if os.path.exists(p_md):
+            pairs = parse_counties(open(p_md, encoding='utf-8').read())
+        if not pairs:
+            pairs = MANUAL_COUNTIES.get(prov['slug'], [])
+        for name, slug in pairs:
+            counties.append({'title': name, 'slug': slug, 'province': prov['slug'], 'province_name': prov['name']})
+    with open(os.path.join(out_dir, 'counties.json'), 'w', encoding='utf-8') as fh:
+        json.dump({'format': '1.0', 'built': built, 'counties': counties}, fh, ensure_ascii=False, indent=1)
+    print('counties: %d written → counties.json' % len(counties))
     print('written →', os.path.relpath(out_dir, ROOT))
 
 

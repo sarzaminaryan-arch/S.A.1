@@ -4,8 +4,16 @@
 	--sa-radius-lg: 16px;
 	--sa-shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
 	--sa-shadow-hover: 0 12px 32px rgba(15, 23, 42, 0.14);
+	--sa-shadow-deep: 0 1px 2px rgba(15, 23, 42, 0.05), 0 14px 26px -12px rgba(15, 23, 42, 0.26), 0 34px 60px -30px rgba(15, 23, 42, 0.42);
 	--sa-surface-2: #eef6f8;
-	--sa-max-text: 72ch;
+	/* min(…,100%): روی صفحه‌های موبایل متن تمام‌عرض باشد (۷۲ch خام ستون خالی می‌ساخت) */
+	--sa-max-text: min(72ch, 100%);
+	--sa-green-700: #15803d;
+	--sa-green-600: #16a34a;
+	--sa-green-300: #86efac;
+	--sa-green-200: #bbf7d0;
+	--sa-green-100: #dcfce7;
+	--sa-green-50: #f0fdf4;
 }
 
 /* ---------- Header extras ---------- */
@@ -550,27 +558,90 @@
 	}
 }
 
-.sa-entity__lead {
-	font-size: 1.12rem;
-	line-height: 1.95;
-	color: #334155;
-	border-inline-start: 4px solid var(--color-primary);
-	padding-inline-start: 1rem;
-	margin: 0 0 1.5rem;
-}
+	.sa-entity__lead {
+		font-size: 1.12rem;
+		line-height: 1.95;
+		color: #334155;
+		background: #fff;
+		border: 1px solid var(--color-border);
+		border-inline-start: 4px solid var(--color-primary);
+		border-radius: var(--sa-radius-lg);
+		padding: 1rem 1.15rem;
+		margin: 0 0 1.5rem;
+		box-shadow: 0 2px 8px -3px rgba(15, 23, 42, 0.1), 0 16px 34px -22px rgba(15, 23, 42, 0.32);
+	}
 
 .sa-entity__main .entry-content {
 	max-width: var(--sa-max-text);
 }
 
-.sa-entity__main .entry-content h2 {
+/* Headings in a framed card with a soft deep shadow (3D feel) */
+.sa-entity__main .entry-content h2,
+.sa-faq-section > h2,
+.sa-sources > h2 {
 	font-size: 1.45rem;
-	margin-top: 2rem;
-	padding-top: 0.5rem;
+	margin: 2.6rem 0 1.3rem;
+	padding: 0.8rem 1.2rem;
+	background: linear-gradient(160deg, #ffffff 0%, #f4fbf7 55%, #e9f6ef 100%);
+	border: 1px solid var(--sa-green-200);
+	border-inline-start: 5px solid var(--sa-green-600);
+	border-radius: 14px;
+	box-shadow: var(--sa-shadow-deep);
 }
 
 .sa-entity__main .entry-content img {
 	border-radius: 12px;
+}
+
+/* Tables — green scheme: strong-green header, alternating light-green rows, soft shadow */
+.sa-entity__main .entry-content figure.wp-block-table {
+	margin: 1.5rem 0;
+	max-width: 100%;
+	overflow-x: auto;
+	border-radius: var(--sa-radius-lg);
+	box-shadow: var(--sa-shadow);
+}
+
+.sa-entity__main .entry-content table {
+	width: 100%;
+	min-width: 520px;
+	border-collapse: collapse;
+	border-radius: var(--sa-radius-lg);
+	overflow: hidden;
+}
+
+.sa-entity__main .entry-content table thead th {
+	background: var(--sa-green-700);
+	color: #fff;
+	font-weight: 700;
+	text-align: right;
+	padding: 0.8rem 1rem;
+	border: 0;
+}
+
+.sa-entity__main .entry-content table tbody td {
+	padding: 0.7rem 1rem;
+	border-bottom: 1px solid var(--sa-green-200);
+}
+
+.sa-entity__main .entry-content table tbody tr:nth-child(odd) {
+	background: var(--sa-green-50);
+}
+
+.sa-entity__main .entry-content table tbody tr:nth-child(even) {
+	background: var(--sa-green-100);
+}
+
+.sa-entity__main .entry-content table tbody tr:last-child td {
+	border-bottom: 0;
+}
+
+.sa-entity__main .entry-content table caption {
+	caption-side: top;
+	font-weight: 700;
+	color: var(--sa-green-700);
+	padding: 0 0 0.5rem;
+	text-align: right;
 }
 
 /* Facts */
@@ -579,6 +650,7 @@
 	border: 1px solid var(--color-border);
 	border-radius: var(--sa-radius-lg);
 	padding: 1.25rem 1.25rem 1.4rem;
+	box-shadow: var(--sa-shadow);
 }
 
 .sa-facts__title {
@@ -674,49 +746,87 @@
 	color: var(--color-secondary);
 }
 
-/* FAQ */
+/* FAQ — modern cards: soft shadow, rounded, circular +/− chip, tinted answer */
 .sa-faq-section {
-	margin: 2.5rem 0;
+	margin: 2.8rem 0;
 	max-width: var(--sa-max-text);
 }
 
 .sa-faq-item {
 	border: 1px solid var(--color-border);
-	border-radius: 12px;
-	margin-bottom: 0.6rem;
+	border-radius: 14px;
+	margin-bottom: 0.7rem;
 	background: #fff;
+	overflow: hidden;
+	box-shadow: 0 2px 8px -3px rgba(15, 23, 42, 0.1), 0 14px 30px -20px rgba(15, 23, 42, 0.28);
+	transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sa-faq-item:hover {
+	border-color: var(--sa-green-300);
+	box-shadow: var(--sa-shadow-hover);
+}
+
+.sa-faq-item[open] {
+	border-color: var(--sa-green-300);
+	box-shadow: 0 4px 14px -6px rgba(22, 101, 52, 0.22), 0 20px 44px -22px rgba(22, 101, 52, 0.34);
 }
 
 .sa-faq-item summary {
 	cursor: pointer;
-	padding: 0.9rem 1rem;
-	font-weight: 600;
+	padding: 1rem 1.15rem;
+	padding-inline-end: 3.4rem;
+	font-weight: 700;
+	font-size: 1.02rem;
+	line-height: 1.7;
 	list-style: none;
 	position: relative;
-	padding-inline-end: 2.5rem;
 }
 
 .sa-faq-item summary::-webkit-details-marker {
 	display: none;
 }
 
+.sa-faq-item summary:hover {
+	color: var(--sa-green-700);
+}
+
 .sa-faq-item summary::after {
 	content: '+';
 	position: absolute;
-	inset-inline-end: 1rem;
+	inset-inline-end: 1.1rem;
 	top: 50%;
 	transform: translateY(-50%);
-	font-size: 1.3rem;
-	color: var(--color-primary);
+	width: 1.9rem;
+	height: 1.9rem;
+	display: grid;
+	place-items: center;
+	border-radius: 50%;
+	background: var(--sa-green-50);
+	border: 1px solid var(--sa-green-200);
+	color: var(--sa-green-700);
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: 1;
+	transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
 .sa-faq-item[open] summary::after {
-	content: '−';
+	background: var(--sa-green-600);
+	border-color: var(--sa-green-600);
+	color: #fff;
+	transform: translateY(-50%) rotate(45deg);
 }
 
 .sa-faq-item__answer {
-	padding: 0 1rem 1rem;
+	padding: 0.9rem 1.15rem 1.1rem;
+	margin-inline: 1.15rem;
+	padding-inline: 0;
+	background: var(--sa-green-50);
+	border-top: 1px solid var(--sa-green-200);
+	border-radius: 0 0 10px 10px;
 	color: #334155;
+	line-height: 1.95;
 }
 
 .sa-faq-item__answer p:last-child {
@@ -901,14 +1011,25 @@
 
 /* ---------- v1.0.1: sources, uncertainty flags ---------- */
 .sa-sources {
-	margin-block: 2.5rem 1rem;
-	padding-top: 1.25rem;
-	border-top: 1px solid var(--color-border);
+	margin-block: 2.8rem 1rem;
+	padding: 1.4rem 1.25rem;
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: var(--sa-radius-lg);
+	box-shadow: var(--sa-shadow);
 }
 
+/* smaller framed box than content H2s, same 3D shadow language */
+.sa-sources > h2,
 .sa-sources h2 {
 	font-size: 1.15rem;
-	margin-bottom: 0.75rem;
+	margin: 0 0 0.9rem;
+	padding: 0.55rem 1rem;
+	background: linear-gradient(160deg, #ffffff 0%, #f4fbf7 60%, #e9f6ef 100%);
+	border: 1px solid var(--sa-green-200);
+	border-inline-start: 4px solid var(--sa-green-600);
+	border-radius: 12px;
+	box-shadow: var(--sa-shadow);
 }
 
 .sa-sources__list {

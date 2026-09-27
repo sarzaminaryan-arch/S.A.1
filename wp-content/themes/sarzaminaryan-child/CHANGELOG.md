@@ -1,5 +1,14 @@
 # Changelog — sarzaminaryan-child
 
+## 1.0.4 — 2026-09-27
+
+- **موبایل/ریسپانسیو صفحه‌ی تک استان**: `--sa-max-text` اکنون `min(72ch, 100%)` است؛ روی نمایشگرهای باریک دیگر ستون خالی در چپ متن نمی‌ماند و بدنه‌ی مقاله با مقدمه هم‌عرض می‌شود (۶ محل استفاده — مقدمه، بدنه، FAQ، itineraries و …).
+- **کادر ۳بعدی برای سربرگ‌های H2**: سربرگ‌های سطح ۲ داخل بدنه‌ی مقاله (و FAQ/منابع) در کادر قاب‌دار با گرادیان سبز کمرنگ، لبه‌ی داخلی سبز و سایه‌ی نرمِ چندلایه‌ی عمیق (`--sa-shadow-deep`) قرار می‌گیرند.
+- **جدول‌های سبز**: هدر سبز قوی (`--sa-green-700`)، ردیف‌های متناوب سبز خیلی‌کمرنگ/کمرنگ (`--sa-green-50`/`--sa-green-100`)، گوشه‌های گرد، سایه، و اسکرول افقی در موبایل (`overflow-x: auto` + `min-width` جدول).
+- **FAQ مدرن**: کارت‌های گرد با سایه‌ی نرم، چیپ دایره‌ای `+/−` که در حالت باز می‌چرخد و سبز می‌شود، پاسخ روی پس‌زمینه‌ی سبز خیلی‌کمرنگ با لبه‌ی نقطه‌چین، افکت hover.
+- **سایه برای جعبه‌ها**: «مشخصات کلی» (`.sa-facts`)، جعبه‌ی «منابع» (`.sa-sources` — حالا کادر کامل با سایه و هدر کوچک قاب‌دار) و مقدمه (`.sa-entity__lead` — کادر سفید با لبه‌ی درونی آبی) سایه‌ی یکدست می‌گیرند.
+- متغیرهای جدید رنگ سبز (`--sa-green-*`) و `--sa-shadow-deep` در `:root`.
+
 ## 1.0.3 — 2026-09-26
 
 - `sa-hero` (1600×700) is now cropped with `array( 'center', 'top' )` and `.sa-entity__hero-media img` gets `object-position: center top`: the province featured posters (`assets/featured/provinces/*.webp`, 1600×900) carry their title in the upper band, so a centred crop cut it off. Run a thumbnail regeneration for images uploaded before this version.

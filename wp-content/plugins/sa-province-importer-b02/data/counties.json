@@ -1,0 +1,162 @@
+{
+ "format": "1.0",
+ "built": "2026-09-27",
+ "counties": [
+  {
+   "title": "مشهد",
+   "slug": "mashhad",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "نیشابور",
+   "slug": "neyshabur",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "سبزوار",
+   "slug": "sabzevar",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "تربت حیدریه",
+   "slug": "torbat-heydarieh",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "تربت جام",
+   "slug": "torbat-jam",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "قوچان",
+   "slug": "quchan",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "کاشمر",
+   "slug": "kashmar",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "گناباد",
+   "slug": "gonabad",
+   "province": "razavi-khorasan",
+   "province_name": "خراسان رضوی"
+  },
+  {
+   "title": "بجنورد",
+   "slug": "bojnord",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "اسفراین",
+   "slug": "esfarayen",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "شیروان",
+   "slug": "shirvan",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "مانه (آشخانه)",
+   "slug": "maneh",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "جاجرم",
+   "slug": "jajarm",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "سملقان",
+   "slug": "samalqan",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "راز و جرگلان",
+   "slug": "raz-jargalan",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "فاروج",
+   "slug": "faruj",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "گرمه",
+   "slug": "garmeh",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "بام و صفی‌آباد",
+   "slug": "bam-safiabad",
+   "province": "north-khorasan",
+   "province_name": "خراسان شمالی"
+  },
+  {
+   "title": "زنجان",
+   "slug": "zanjan-city",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  },
+  {
+   "title": "خدابنده",
+   "slug": "khodabandeh",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  },
+  {
+   "title": "ابهر",
+   "slug": "abhar",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  },
+  {
+   "title": "خرمدره",
+   "slug": "kharadere",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  },
+  {
+   "title": "طارم",
+   "slug": "tarom",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  },
+  {
+   "title": "ماهنشان",
+   "slug": "mahneshan",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  },
+  {
+   "title": "ایجرود",
+   "slug": "ejrud",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  },
+  {
+   "title": "سلطانیه",
+   "slug": "soltaniyeh",
+   "province": "zanjan",
+   "province_name": "زنجان"
+  }
+ ]
+}
