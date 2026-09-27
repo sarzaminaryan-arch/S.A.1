@@ -2,7 +2,7 @@
   "batch": 2,
   "batch_id": "b02",
   "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
-  "data_version": "1.0.5",
+  "data_version": "1.0.6",
   "package_format": "1.0",
   "built": "2026-09-27",
   "provinces": [
@@ -89,13 +89,13 @@
       "term_name": "سمنان",
       "status": "article",
       "has_image": true,
-      "word_count": 4424,
+      "word_count": 4429,
       "faq": 13,
       "sources_lines": 27,
       "publish_status": "DRAFT ONLY",
       "markers": {
         "review": 47,
-        "source_needed": 37,
+        "source_needed": 38,
         "url_needed": 0,
         "coming_soon": 66
       },
@@ -106,17 +106,17 @@
       "slug": "sistan-baluchestan",
       "name_fa": "استان سیستان و بلوچستان",
       "term_name": "سیستان و بلوچستان",
-      "status": "stub",
+      "status": "article",
       "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
+      "word_count": 3591,
+      "faq": 13,
+      "sources_lines": 28,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 0,
-        "source_needed": 0,
+        "review": 34,
+        "source_needed": 39,
         "url_needed": 0,
-        "coming_soon": 0
+        "coming_soon": 33
       },
       "file": "sistan-baluchestan.json"
     },

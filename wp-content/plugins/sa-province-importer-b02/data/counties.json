@@ -367,6 +367,120 @@
       "slug": "aradan",
       "province": "semnan",
       "province_name": "سمنان"
+    },
+    {
+      "title": "زاهدان",
+      "slug": "zahedan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "چابهار",
+      "slug": "chabahar",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "ایرانشهر",
+      "slug": "iranshahr",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "سراوان",
+      "slug": "saravan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "سرباز",
+      "slug": "sarbaz",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "خاش",
+      "slug": "khash",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "زابل",
+      "slug": "zabol",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "نیک‌شهر",
+      "slug": "nik-shahr",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "کنارک",
+      "slug": "konarak",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "سیب و سوران",
+      "slug": "sib-va-suran",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "زهک",
+      "slug": "zehak",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "مهرستان",
+      "slug": "mehrestan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "دلگان",
+      "slug": "dalgan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "هیرمند",
+      "slug": "hirmand",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "قصرقند",
+      "slug": "qasr-e-qand",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "فنوج",
+      "slug": "fanuj",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "نیمروز",
+      "slug": "nimruz",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "میرجاوه",
+      "slug": "mirjaveh",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "هامون",
+      "slug": "hamun",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
     }
   ]
 }
