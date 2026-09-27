@@ -2,9 +2,9 @@
  "batch": 2,
  "batch_id": "b02",
  "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
- "data_version": "1.0.1",
+ "data_version": "1.0.2",
  "package_format": "1.0",
- "built": "2026-09-26",
+ "built": "2026-09-27",
  "provinces": [
   {
    "order": 11,
@@ -68,17 +68,17 @@
    "slug": "zanjan",
    "name_fa": "استان زنجان",
    "term_name": "زنجان",
-   "status": "stub",
+   "status": "article",
    "has_image": true,
-   "word_count": 0,
-   "faq": 0,
-   "sources_lines": 0,
+   "word_count": 4657,
+   "faq": 12,
+   "sources_lines": 40,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 0,
-    "source_needed": 0,
+    "review": 24,
+    "source_needed": 21,
     "url_needed": 0,
-    "coming_soon": 0
+    "coming_soon": 78
    },
    "file": "zanjan.json"
   },

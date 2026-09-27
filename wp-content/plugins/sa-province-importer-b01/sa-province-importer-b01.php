@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_PI_B01_VERSION', '1.0.5' );
+define( 'SA_PI_B01_VERSION', '1.0.6' );
 define( 'SA_PI_B01_FILE', __FILE__ );
 
 require_once __DIR__ . '/includes/class-sa-province-importer.php';
