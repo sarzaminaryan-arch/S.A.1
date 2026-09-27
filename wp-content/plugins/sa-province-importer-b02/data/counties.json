@@ -655,6 +655,60 @@
       "slug": "pasargad",
       "province": "fars",
       "province_name": "فارس"
+    },
+    {
+      "title": "قزوین",
+      "slug": "qazvin-city",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "تاکستان",
+      "slug": "takestan",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "البرز",
+      "slug": "alborz-qazvin",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "بوئین‌زهرا",
+      "slug": "buin-zahra",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "آبیک",
+      "slug": "abyek",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "آوج",
+      "slug": "avaj",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "قم",
+      "slug": "qom-city",
+      "province": "qom",
+      "province_name": "قم"
+    },
+    {
+      "title": "جعفرآباد",
+      "slug": "jafarabady",
+      "province": "qom",
+      "province_name": "قم"
+    },
+    {
+      "title": "کهک",
+      "slug": "kahak",
+      "province": "qom",
+      "province_name": "قم"
     }
   ]
 }

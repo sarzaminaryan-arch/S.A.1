@@ -2,7 +2,7 @@
   "batch": 2,
   "batch_id": "b02",
   "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
-  "data_version": "1.0.7",
+  "data_version": "1.0.8",
   "package_format": "1.0",
   "built": "2026-09-27",
   "provinces": [
@@ -144,17 +144,17 @@
       "slug": "qazvin",
       "name_fa": "استان قزوین",
       "term_name": "قزوین",
-      "status": "stub",
+      "status": "article",
       "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
+      "word_count": 2770,
+      "faq": 12,
+      "sources_lines": 16,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 0,
-        "source_needed": 0,
+        "review": 32,
+        "source_needed": 13,
         "url_needed": 0,
-        "coming_soon": 0
+        "coming_soon": 48
       },
       "file": "qazvin.json"
     },
@@ -163,17 +163,17 @@
       "slug": "qom",
       "name_fa": "استان قم",
       "term_name": "قم",
-      "status": "stub",
+      "status": "article",
       "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
+      "word_count": 2087,
+      "faq": 12,
+      "sources_lines": 6,
       "publish_status": "DRAFT ONLY",
       "markers": {
-        "review": 0,
-        "source_needed": 0,
+        "review": 10,
+        "source_needed": 12,
         "url_needed": 0,
-        "coming_soon": 0
+        "coming_soon": 29
       },
       "file": "qom.json"
     },
