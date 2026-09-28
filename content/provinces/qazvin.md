@@ -440,6 +440,8 @@ spec: 1600×900 (حداقل)، WEBP ≤ ۳۰۰ KB، حداکثر سه رنگ، �
 ```
 
 === BLOCK 5: SOURCES ===
+
+
 ```
 جمعیت/مساحت ژئومعنایی/تراکم/تاریخ تأسیس (۱۹۹۳) و پیش‌شماره‌ی قدیمی (مرکز آمار ایران) | City Population | https://www.citypopulation.de/en/iran/admin/26__qazvin/ | ۱۴۰۵/۰۷/۰۵
 جمعیت شهرهای استان (شهر قزوین ۴۰۲٬۷۴۸، الوند ۹۳٬۸۳۶، محمدیه ۹۰٬۵۱۳) | City Population | https://www.citypopulation.de/en/iran/qazvin/ | ۱۴۰۵/۰۷/۰۵
@@ -460,7 +462,7 @@ spec: 1600×900 (حداقل)، WEBP ≤ ۳۰۰ KB، حداکثر سه رنگ، �
 قزوین پایتخت صفوی (۹۵۵ ق/۱۵۴۸ م تا ۱۰۰۵ ق/۱۵۹۶–۹۷ م) و عمارت چهل‌ستون قزوین | دانشنامه‌ی ایرانیکا | https://www.iranicaonline.org/articles/cehel-sotun-qazvin-a-safavid-pavilion-that-stands-amid-gardens-in-the-central-meydan-square-of-the-old-city-and-in-w/ | ۱۴۰۵/۰۷/۰۵
 الموت: نام و موقعیت، قلعه‌های اسماعیلی و تاریخ منطقه | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%A7%D9%84%D9%85%D9%88%D8%AA | ۱۴۰۵/۰۷/۰۵
 سگزآباد: محوطه‌های باستانی دشت قزوین و کاوش‌های باستان‌شناسی | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B3%DA%AF%D8%B2%D8%A2%D8%A8%D8%A7%D8%AF | ۱۴۰۵/۰۷/۰۵
-
+```
 === BLOCK 6: SCHEMA DATA ===
 ```yaml
 sameAs:

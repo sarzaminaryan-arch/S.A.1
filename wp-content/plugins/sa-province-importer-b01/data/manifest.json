@@ -2,7 +2,7 @@
  "batch": 1,
  "batch_id": "b01",
  "label": "دسته‌ی 1 — استان‌های 1 تا 10 فهرست ثابت",
- "data_version": "1.1.0",
+ "data_version": "1.1.1",
  "package_format": "1.0",
  "built": "2026-09-28",
  "provinces": [
@@ -13,9 +13,9 @@
    "term_name": "آذربایجان شرقی",
    "status": "article",
    "has_image": true,
-   "word_count": 8009,
+   "word_count": 8010,
    "faq": 13,
-   "sources_lines": 0,
+   "sources_lines": 44,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -34,7 +34,7 @@
    "has_image": true,
    "word_count": 7769,
    "faq": 13,
-   "sources_lines": 0,
+   "sources_lines": 46,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -53,7 +53,7 @@
    "has_image": true,
    "word_count": 7179,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 30,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -72,7 +72,7 @@
    "has_image": true,
    "word_count": 7681,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 32,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -91,7 +91,7 @@
    "has_image": true,
    "word_count": 5060,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 49,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -110,7 +110,7 @@
    "has_image": true,
    "word_count": 4806,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 30,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -129,7 +129,7 @@
    "has_image": true,
    "word_count": 5374,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 36,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -148,7 +148,7 @@
    "has_image": true,
    "word_count": 7644,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 30,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -167,7 +167,7 @@
    "has_image": true,
    "word_count": 7012,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 25,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -186,7 +186,7 @@
    "has_image": true,
    "word_count": 4624,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 18,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,

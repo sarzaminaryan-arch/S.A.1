@@ -397,6 +397,8 @@ dimensions:
 ```
 
 === BLOCK 5: SOURCES ===
+
+
 ```
 ثبت جهانی «هگمتانه» در فهرست میراث جهانی یونسکو (اجلاس چهل‌وششم) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1716/ | 2024-07-27
 [غیررسمی] گزارش ثبت اکباتان (هگمتانه) به عنوان بیست‌وهشتمین اثر جهانی ایران | Tehran Times | https://www.tehrantimes.com/news/501623/Iran-s-Ecbatana-added-to-UNESCO-World-Heritage-list | 2024-07-27
@@ -449,7 +451,6 @@ dimensions:
 [نقشه] موقعیت کوه الوند و پیست اسکی تاریک‌دره | Google Maps | https://maps.google.com/?q=Alvand+Mountain+Hamedan | 2026-09-28
 [نقشه] موقعیت فرودگاه همدان | Google Maps | https://maps.google.com/?q=Hamedan+Airport | 2026-09-28
 ```
-
 === BLOCK 6: SCHEMA (JSON-LD) ===
 ```json
 {

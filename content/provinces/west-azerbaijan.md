@@ -503,6 +503,7 @@ spec_note: تصویر نهایی به‌جای سبک سه‌رنگِ پرامپ
 
 === BLOCK 5: SOURCES ===
 
+
 ```
 Takht-e Soleyman — World Heritage List (ثبت ۲۰۰۳) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1077/ | ۱۴۰۵/۰۷/۰۴
 Armenian Monastic Ensembles of Iran — World Heritage List (قره‌کلیسا و زورزور در آذربایجان غربی، ثبت ۲۰۰۸) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1262/ | ۱۴۰۵/۰۷/۰۴
@@ -550,6 +551,7 @@ Lake Urmia (ابعاد و وضعیت حفاظتی) — منبع غیررسمی |
 دانشگاه ارومیه (تاریخچه‌ی ۱۳۴۴، مدرسه‌ی کاکران ۱۲۵۷، ۱۱ دانشکده) — منبع غیررسمی | سازمان بین‌المللی دانشگاهیان (ISIC) | https://isic.ir/urmia/ | ۱۴۰۵/۰۷/۰۴
 آرامگاه شمس تبریزی (مناره‌ی ۱۵ متری سده‌ی ششم هجری) — منبع غیررسمی | یادآوران | https://yadavaran.net/آرامگاه-شمس-تبریزی/ | ۱۴۰۵/۰۷/۰۴
 Discovering Ancient Teppe Hasanlu — منبع غیررسمی | SURFIRAN | https://surfiran.com/mag/teppe-hasanlu/ | ۱۴۰۵/۰۷/۰۴
+```
 === BLOCK 6: SCHEMA DATA ===
 
 ```yaml

@@ -116,6 +116,9 @@ def parse_faq(text):
 
 def parse_sources(text):
     src = fenced(text).strip()
+    if not src:
+        # defensive: fence unclosed or closing marker glued to the last row → drop fence markers
+        src = '\n'.join(l for l in text.splitlines() if not l.strip().startswith('```')).strip()
     # the private editor note may mention markup literally; keep it readable once tags are stripped in WP
     return src.replace('<sup>[n]</sup>', '[n]').replace('<ol>', '«ol»')
 

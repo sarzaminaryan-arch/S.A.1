@@ -476,6 +476,8 @@ overlay_text_fa: استان گلستان
 ```
 
 === BLOCK 5: SOURCES ===
+
+
 ```
 The Persian Caravanserai — کاروانسرای قزلق و دیمه‌لو در محور استرآباد به خراسان | اداره کل میراث فرهنگی، گردشگری و صنایع دستی گلستان | https://golestan.mcth.ir/ | ۱۴۰۵/۰۷/۰۶
 Gonbad-e Qabus — برج آجری گنبد قابوس در فهرست میراث جهانی یونسکو (ردیف ۱۳۹۸) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1398 | ۱۴۰۵/۰۷/۰۶
@@ -548,7 +550,6 @@ ZĪYĀRIDS — تاریخ دودمان زیاریان، پایتختی جرجا�
 [غیررسمی] مرکز خرید وارکانا گرگان؛ سازه فولادی نوین و پلازای شهری | سیری در ایران | https://seeiran.ir/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AE%D8%B1%DB%8C%D8%AF-%D9%88%D8%A7%D8%B1%DA%A9%D8%A7%D9%86%D8%A7-%DA%AF%D8%B1%DA%AF%D8%A7%D9%86/ | ۱۴۰۵/۰۷/۰۶
 [غیررسمی] Golestan Province Q170041 — شناسه ویکی‌داده برای sameAs | Wikidata | https://www.wikidata.org/wiki/Q170041 | ۱۴۰۵/۰۷/۰۶
 ```
-
 === BLOCK 6: SCHEMA DATA ===
 ```yaml
 sameAs:

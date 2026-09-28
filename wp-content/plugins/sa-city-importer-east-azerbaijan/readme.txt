@@ -4,7 +4,7 @@ Tags: import, county, city, azerbaijan, directory
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,5 +49,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 1.0.1 — 2026-09-28 =
+* **اصلاحیهٔ پیوند داخلی (دروازهٔ انتشار سطح ۷)** — نوار ناوبری ۱۰ لینکی به شهرستان‌های دیگر استان در هر ۲۱ مقاله افزوده شد (۱۲–۱۳ لینک داخلی ≥ حداقل ۱۰).
 = 1.0.0 =
 * انتشار نخست: ۲۱ شهرستان استان آذربایجان شرقی، نسخه‌ی داده 1.0.0 (ساخته 2026-09-28).

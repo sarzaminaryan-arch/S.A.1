@@ -463,6 +463,7 @@ spec_note: تصویر نهایی به‌جای سبک سه‌رنگِ پرامپ
 
 === BLOCK 5: SOURCES ===
 
+
 ```
 Tang-e-Sayad & Sabzkuh — Man and the Biosphere Programme (ثبت ۲۰۱۵؛ ۵۳۲٬۸۷۸ هکتار؛ جمعیت ۵۸۴٬۳۳۰؛ بیش از ۴۵۰ گونه‌ی گیاهی؛ ۲۷ پستاندار؛ ۱۴۷ پرنده؛ ۲۴ ماهی؛ کاسی‌ها و عیلامیان؛ بقایای ۴۰ هزار ساله؛ طوایف لر، ترک، بختیاری و عرب) | UNESCO — MAB | https://www.unesco.org/en/mab/tang-e-sayad-sabzkuh | ۱۴۰۵/۰۷/۰۴
 Iran — Relief and Drainage (زاینده‌رود از زاگرس؛ سد کوهرنگ ۱۹۷۱ و انتقال آب از کارون) | Encyclopaedia Britannica | https://www.britannica.com/place/Iran/Relief | ۱۴۰۵/۰۷/۰۴
@@ -489,6 +490,7 @@ Chaharmahal and Bakhtiari Province — Q171702 (شناسه‌ی sameAs؛ پرس�
 زردکوه در کوهرنگ (کلونچین ۴٬۲۲۱ متر؛ قله‌ها؛ یخچال‌ها و دریاچه‌ها) — منبع غیررسمی | علاءالدین تراول | https://www.alaedin.travel/attractions/iran/kuhrang/zard-kuh/%D8%B2%D8%B1%D8%AF%DA%A9%D9%88%D9%87-%DA%A9%D9%88%D9%87%D8%B1%D9%86%DA%AF | ۱۴۰۵/۰۷/۰۴
 تاریخ چهارمحال بختیاری — مشاهیر (پژمان بختیاری زاده‌ی دشتک؛ داراب افسر؛ علی‌مردان‌خان؛ مشفق ضرغام؛ آصف قهفرخی) — منبع غیررسمی | سرزمین ما (وبگاه محلی) | http://sarzaminema.ir/%D8%AA%D8%A7%D8%B1%DB%8C%D8%AE-%D8%A7%D8%B3%D8%AA%D8%A7%D9%86/ | ۱۴۰۵/۰۷/۰۴
 شهرستان سامان کجاست (۲۲ کیلومتری شهرکرد؛ ۸۵ کیلومتری اصفهان؛ ترکی قشقایی؛ حدود دو میلیون گردشگر) — منبع غیررسمی | راسخون | https://rasekhoon.net/article/show/1639974 | ۱۴۰۵/۰۷/۰۴
+```
 === BLOCK 6: SCHEMA DATA ===
 
 ```yaml

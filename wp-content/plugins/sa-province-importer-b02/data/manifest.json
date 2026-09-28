@@ -2,7 +2,7 @@
  "batch": 2,
  "batch_id": "b02",
  "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
- "data_version": "1.1.5",
+ "data_version": "1.1.6",
  "package_format": "1.0",
  "built": "2026-09-28",
  "provinces": [
@@ -15,7 +15,7 @@
    "has_image": true,
    "word_count": 4753,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 10,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -34,7 +34,7 @@
    "has_image": true,
    "word_count": 6441,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 19,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -72,7 +72,7 @@
    "has_image": true,
    "word_count": 4526,
    "faq": 12,
-   "sources_lines": 0,
+   "sources_lines": 40,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -110,7 +110,7 @@
    "has_image": true,
    "word_count": 4948,
    "faq": 14,
-   "sources_lines": 0,
+   "sources_lines": 27,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -129,7 +129,7 @@
    "has_image": true,
    "word_count": 4762,
    "faq": 14,
-   "sources_lines": 0,
+   "sources_lines": 19,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -148,7 +148,7 @@
    "has_image": true,
    "word_count": 4498,
    "faq": 14,
-   "sources_lines": 0,
+   "sources_lines": 19,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -167,7 +167,7 @@
    "has_image": true,
    "word_count": 4232,
    "faq": 14,
-   "sources_lines": 0,
+   "sources_lines": 8,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,

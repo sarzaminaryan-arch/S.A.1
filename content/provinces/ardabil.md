@@ -469,6 +469,7 @@ spec_note: تصویر نهایی به‌جای سبک سه‌رنگِ پرامپ
 
 === BLOCK 5: SOURCES ===
 
+
 ```
 Sheikh Safi al-din Khānegāh and Shrine Ensemble in Ardabil — World Heritage List (ثبت ۲۰۱۰؛ اجزای مجموعه، هفت بخش و هشت دروازه) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1345/ | ۱۴۰۵/۰۷/۰۴
 SAFAVID DYNASTY (آغاز طریقت حدود ۱۳۰۰ م در اردبیل؛ تاج‌گذاری اسماعیل در تبریز ۱۵۰۱ در پانزده‌سالگی؛ رسمی شدن تشیع) | Encyclopaedia Iranica | https://www.iranicaonline.org/articles/safavids/ | ۱۴۰۵/۰۷/۰۴
@@ -500,6 +501,7 @@ The Ardabil Carpet (۹۴۶ ق؛ مقصود کاشانی؛ ۵٬۳۰۰ گره؛ ف
 Ardabil Province — Q134228 (شناسه‌ی sameAs؛ پرس‌وجوی زادگاه مشاهیر) | Wikidata | https://www.wikidata.org/wiki/Q134228 | ۱۴۰۵/۰۷/۰۴
 تولید سالانه دو میلیون مینی‌تیوبر سیب‌زمینی در اردبیل | خبرگزاری صداوسیما (مرکز اردبیل) | https://www.irib-news.ir/fa/news/5810089/ | ۱۴۰۵/۰۷/۰۴
 IRAN ii(2). Islamic period, page 4 (شیخ صفی‌الدین مرید و جانشین شیخ زاهد گیلانی؛ زیارتگاه شدن اردبیل) | Encyclopaedia Iranica | https://www.iranicaonline.org/articles/iran-ii2-islamic-period-page-4/ | ۱۴۰۵/۰۷/۰۴
+```
 === BLOCK 6: SCHEMA DATA ===
 
 ```yaml
