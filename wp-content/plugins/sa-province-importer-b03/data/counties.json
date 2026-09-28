@@ -1,888 +1,960 @@
 {
-  "format": "1.0",
-  "built": "2026-09-28",
-  "counties": [
-    {
-      "title": "کرمانشاه",
-      "slug": "kermanshah-city",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "اسلام‌آباد غرب",
-      "slug": "eslamabad-e-gharb",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "پاوه",
-      "slug": "paveh",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "ثلاث باباجانی",
-      "slug": "salas-e-babajani",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "جوانرود",
-      "slug": "javanrud",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "دالاهو",
-      "slug": "dalahu",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "روانسر",
-      "slug": "ravansar",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "سرپل ذهاب",
-      "slug": "sarpol-e-zahab",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "سنقر",
-      "slug": "sonqor",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "صحنه",
-      "slug": "sahneh",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "قصر شیرین",
-      "slug": "qasr-e-shirin",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "کنگاور",
-      "slug": "kangavar",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "گیلانغرب",
-      "slug": "gilan-e-gharb",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "هرسین",
-      "slug": "harsin",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "بویراحمد",
-      "slug": "boyer-ahmad",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "کهگیلویه",
-      "slug": "kohgiluyeh",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "گچساران",
-      "slug": "gachsaran",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "دنا",
-      "slug": "dena",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "بهمئی",
-      "slug": "bahmai",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "چرام",
-      "slug": "choram",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "باشت",
-      "slug": "basht",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "لنده",
-      "slug": "landeh",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "مارگون",
-      "slug": "margoun",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
-      "title": "گرگان",
-      "slug": "gorgan",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "گنبد کاووس",
-      "slug": "gonbad-e-qabus",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "علی‌آباد کتول",
-      "slug": "aliabad-e-katul",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "آق‌قلا",
-      "slug": "aqqala",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "کلاله",
-      "slug": "kalaleh",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "آزادشهر",
-      "slug": "azadshahr",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "رامیان",
-      "slug": "ramian",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "بندر ترکمن",
-      "slug": "bandar-e-torkaman",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "مینودشت",
-      "slug": "minudasht",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "کردکوی",
-      "slug": "kordkuy",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "گمیشان",
-      "slug": "gomishan",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "گالیکش",
-      "slug": "galikesh",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "مراوه‌تپه",
-      "slug": "maraveh-tapeh",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "بندر گز",
-      "slug": "bandar-e-gaz",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "رشت",
-      "slug": "rasht",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "تالش",
-      "slug": "talesh",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "لاهیجان",
-      "slug": "lahijan",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "رودسر",
-      "slug": "rudsar",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "لنگرود",
-      "slug": "langarud",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "بندر انزلی",
-      "slug": "bandar-e-anzali",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "صومعه‌سرا",
-      "slug": "someh-sara",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "آستانه اشرفیه",
-      "slug": "astaneh-ye-ashrafiyeh",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "رودبار",
-      "slug": "rudbar",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "فومن",
-      "slug": "fuman",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "آستارا",
-      "slug": "astara",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "رضوانشهر",
-      "slug": "rezvanshahr",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "خمام",
-      "slug": "khomam",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "ماسال",
-      "slug": "masal",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "شفت",
-      "slug": "shaft",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "سیاهکل",
-      "slug": "siahkal",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "املش",
-      "slug": "amlash",
-      "province": "gilan",
-      "province_name": "گیلان"
-    },
-    {
-      "title": "کرمان",
-      "slug": "kerman",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "سیرجان",
-      "slug": "sirjan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "رفسنجان",
-      "slug": "rafsanjan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "جیرفت",
-      "slug": "jiroft",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "بم",
-      "slug": "bam",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "زرند",
-      "slug": "zarand",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "شهربابک",
-      "slug": "shahr-e-babak",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "کهنوج",
-      "slug": "kahnoj",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "بافت",
-      "slug": "baft",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "عنبرآباد",
-      "slug": "anbarabad",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "بردسیر",
-      "slug": "bardsir",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "قلعه‌گنج",
-      "slug": "qaleh-ganj",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "فهرج",
-      "slug": "fahraj",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "منوجان",
-      "slug": "manujan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "ریگان",
-      "slug": "rigan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "رودبار جنوب",
-      "slug": "rudbar-e-jonub",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "نرماشیر",
-      "slug": "narmashir",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "راور",
-      "slug": "ravar",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "ارزوئیه",
-      "slug": "arzuiyeh",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "انار",
-      "slug": "anar",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "رابر",
-      "slug": "rabor",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "فاریاب",
-      "slug": "faryab",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "کوهبنان",
-      "slug": "kuhbanan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "جازموریان",
-      "slug": "jazmourian",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "گنبکی",
-      "slug": "gonbaki",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "خرم‌آباد",
-      "slug": "khorramabad",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "بروجرد",
-      "slug": "borujerd",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "دورود",
-      "slug": "dorud",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "کوهدشت",
-      "slug": "kuhdasht",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "دلفان",
-      "slug": "delfan",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "الیگودرز",
-      "slug": "aligudarz",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "سلسله",
-      "slug": "selseleh",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "ازنا",
-      "slug": "azna",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "پلدختر",
-      "slug": "pol-e-dokhtar",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "چگنی",
-      "slug": "chegeni",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "رومشکان",
-      "slug": "rumeshkan",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "معمولان",
-      "slug": "mamulan",
-      "province": "lorestan",
-      "province_name": "لرستان"
-    },
-    {
-      "title": "ساری",
-      "slug": "sari",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "بابل",
-      "slug": "babol",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "آمل",
-      "slug": "amol",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "قائم‌شهر",
-      "slug": "qaemshahr",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "بهشهر",
-      "slug": "behshahr",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "تنکابن",
-      "slug": "tonekabon",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "نوشهر",
-      "slug": "nowshahr",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "بابلسر",
-      "slug": "babolsar",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "نور",
-      "slug": "nur",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "نکا",
-      "slug": "neka",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "چالوس",
-      "slug": "chalus",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "محمودآباد",
-      "slug": "mahmudabad",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "جویبار",
-      "slug": "joybar",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "رامسر",
-      "slug": "ramsar",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "فریدون‌کنار",
-      "slug": "freydunkenar",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "میان‌دورود",
-      "slug": "miandorud",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "عباس‌آباد",
-      "slug": "abbasabad",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "سوادکوه",
-      "slug": "savadkuh",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "گلوگاه",
-      "slug": "gologah",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "سوادکوه شمالی",
-      "slug": "savadkuh-shomali",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "کلاردشت",
-      "slug": "kelardasht",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "سیمرغ",
-      "slug": "simorgh",
-      "province": "mazandaran",
-      "province_name": "مازندران"
-    },
-    {
-      "title": "اراک",
-      "slug": "arak",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "ساوه",
-      "slug": "saveh",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "شازند",
-      "slug": "shazand",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "خمین",
-      "slug": "khomeyn",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "زرندیه",
-      "slug": "zarandieh",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "محلات",
-      "slug": "mahallat",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "خنداب",
-      "slug": "khondab",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "دلیجان",
-      "slug": "delijan",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "کمیجان",
-      "slug": "komijan",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "فراهان",
-      "slug": "farahan",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "تفرش",
-      "slug": "tafresh",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "آشتیان",
-      "slug": "ashtian",
-      "province": "markazi",
-      "province_name": "مرکزی"
-    },
-    {
-      "title": "بندرعباس",
-      "slug": "bandar-abbas",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "بندر لنگه",
-      "slug": "bandar-lengeh",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "میناب",
-      "slug": "minab",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "قشم",
-      "slug": "qeshm",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "ابوموسی",
-      "slug": "abumusa",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "جاسک",
-      "slug": "jask",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "رودان",
-      "slug": "rudan",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "حاجی‌آباد",
-      "slug": "hajiabad",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "بستک",
-      "slug": "bastak",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "پارسیان",
-      "slug": "parsian",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "خمیر",
-      "slug": "khamir",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "سیریک",
-      "slug": "sirik",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "بشاگرد",
-      "slug": "bashagard",
-      "province": "hormozgan",
-      "province_name": "هرمزگان"
-    },
-    {
-      "title": "همدان",
-      "slug": "hamadan-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "ملایر",
-      "slug": "malayer-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "نهاوند",
-      "slug": "nahavand-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "تویسرکان",
-      "slug": "tuyserkan-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "کبودرآهنگ",
-      "slug": "kabudarahang-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "اسدآباد",
-      "slug": "asadabad-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "بهار",
-      "slug": "bahar-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "رزن",
-      "slug": "razan-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    },
-    {
-      "title": "فامنین",
-      "slug": "famenin-city",
-      "province": "hamadan",
-      "province_name": "همدان"
-    }
-  ]
+ "format": "1.0",
+ "built": "2026-09-28",
+ "counties": [
+  {
+   "title": "کرمانشاه",
+   "slug": "kermanshah-city",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "اسلام‌آباد غرب",
+   "slug": "eslamabad-e-gharb",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "پاوه",
+   "slug": "paveh",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "ثلاث باباجانی",
+   "slug": "salas-e-babajani",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "جوانرود",
+   "slug": "javanrud",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "دالاهو",
+   "slug": "dalahu",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "روانسر",
+   "slug": "ravansar",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "سرپل ذهاب",
+   "slug": "sarpol-e-zahab",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "سنقر",
+   "slug": "sonqor",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "صحنه",
+   "slug": "sahneh",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "قصر شیرین",
+   "slug": "qasr-e-shirin",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "کنگاور",
+   "slug": "kangavar",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "گیلانغرب",
+   "slug": "gilan-e-gharb",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "هرسین",
+   "slug": "harsin",
+   "province": "kermanshah",
+   "province_name": "کرمانشاه"
+  },
+  {
+   "title": "بویراحمد",
+   "slug": "boyer-ahmad",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "کهگیلویه",
+   "slug": "kohgiluyeh",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "گچساران",
+   "slug": "gachsaran",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "دنا",
+   "slug": "dena",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "بهمئی",
+   "slug": "bahmai",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "چرام",
+   "slug": "choram",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "باشت",
+   "slug": "basht",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "لنده",
+   "slug": "landeh",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "مارگون",
+   "slug": "margoun",
+   "province": "kohgiluyeh-boyer-ahmad",
+   "province_name": "کهگیلویه و بویراحمد"
+  },
+  {
+   "title": "گرگان",
+   "slug": "gorgan",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "گنبد کاووس",
+   "slug": "gonbad-e-qabus",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "علی‌آباد کتول",
+   "slug": "aliabad-e-katul",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "آق‌قلا",
+   "slug": "aqqala",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "کلاله",
+   "slug": "kalaleh",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "آزادشهر",
+   "slug": "azadshahr",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "رامیان",
+   "slug": "ramian",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "بندر ترکمن",
+   "slug": "bandar-e-torkaman",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "مینودشت",
+   "slug": "minudasht",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "کردکوی",
+   "slug": "kordkuy",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "گمیشان",
+   "slug": "gomishan",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "گالیکش",
+   "slug": "galikesh",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "مراوه‌تپه",
+   "slug": "maraveh-tapeh",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "بندر گز",
+   "slug": "bandar-e-gaz",
+   "province": "golestan",
+   "province_name": "گلستان"
+  },
+  {
+   "title": "رشت",
+   "slug": "rasht",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "تالش",
+   "slug": "talesh",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "لاهیجان",
+   "slug": "lahijan",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "رودسر",
+   "slug": "rudsar",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "لنگرود",
+   "slug": "langarud",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "بندر انزلی",
+   "slug": "bandar-e-anzali",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "صومعه‌سرا",
+   "slug": "someh-sara",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "آستانه اشرفیه",
+   "slug": "astaneh-ye-ashrafiyeh",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "رودبار",
+   "slug": "rudbar",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "فومن",
+   "slug": "fuman",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "آستارا",
+   "slug": "astara",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "رضوانشهر",
+   "slug": "rezvanshahr",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "خمام",
+   "slug": "khomam",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "ماسال",
+   "slug": "masal",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "شفت",
+   "slug": "shaft",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "سیاهکل",
+   "slug": "siahkal",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "املش",
+   "slug": "amlash",
+   "province": "gilan",
+   "province_name": "گیلان"
+  },
+  {
+   "title": "کرمان",
+   "slug": "kerman",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "سیرجان",
+   "slug": "sirjan",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "رفسنجان",
+   "slug": "rafsanjan",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "جیرفت",
+   "slug": "jiroft",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "بم",
+   "slug": "bam",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "زرند",
+   "slug": "zarand",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "شهربابک",
+   "slug": "shahr-e-babak",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "کهنوج",
+   "slug": "kahnoj",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "بافت",
+   "slug": "baft",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "عنبرآباد",
+   "slug": "anbarabad",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "بردسیر",
+   "slug": "bardsir",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "قلعه‌گنج",
+   "slug": "qaleh-ganj",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "فهرج",
+   "slug": "fahraj",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "منوجان",
+   "slug": "manujan",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "ریگان",
+   "slug": "rigan",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "رودبار جنوب",
+   "slug": "rudbar-e-jonub",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "نرماشیر",
+   "slug": "narmashir",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "راور",
+   "slug": "ravar",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "ارزوئیه",
+   "slug": "arzuiyeh",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "انار",
+   "slug": "anar",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "رابر",
+   "slug": "rabor",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "فاریاب",
+   "slug": "faryab",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "کوهبنان",
+   "slug": "kuhbanan",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "جازموریان",
+   "slug": "jazmourian",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "گنبکی",
+   "slug": "gonbaki",
+   "province": "kerman",
+   "province_name": "کرمان"
+  },
+  {
+   "title": "خرم‌آباد",
+   "slug": "khorramabad",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "بروجرد",
+   "slug": "borujerd",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "دورود",
+   "slug": "dorud",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "کوهدشت",
+   "slug": "kuhdasht",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "دلفان",
+   "slug": "delfan",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "الیگودرز",
+   "slug": "aligudarz",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "سلسله",
+   "slug": "selseleh",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "ازنا",
+   "slug": "azna",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "پلدختر",
+   "slug": "pol-e-dokhtar",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "چگنی",
+   "slug": "chegeni",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "رومشکان",
+   "slug": "rumeshkan",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "معمولان",
+   "slug": "mamulan",
+   "province": "lorestan",
+   "province_name": "لرستان"
+  },
+  {
+   "title": "ساری",
+   "slug": "sari",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "بابل",
+   "slug": "babol",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "آمل",
+   "slug": "amol",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "قائم‌شهر",
+   "slug": "qaemshahr",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "بهشهر",
+   "slug": "behshahr",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "تنکابن",
+   "slug": "tonekabon",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "نوشهر",
+   "slug": "nowshahr",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "بابلسر",
+   "slug": "babolsar",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "نور",
+   "slug": "nur",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "نکا",
+   "slug": "neka",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "چالوس",
+   "slug": "chalus",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "محمودآباد",
+   "slug": "mahmudabad",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "جویبار",
+   "slug": "joybar",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "رامسر",
+   "slug": "ramsar",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "فریدون‌کنار",
+   "slug": "freydunkenar",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "میان‌دورود",
+   "slug": "miandorud",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "عباس‌آباد",
+   "slug": "abbasabad",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "سوادکوه",
+   "slug": "savadkuh",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "گلوگاه",
+   "slug": "gologah",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "سوادکوه شمالی",
+   "slug": "savadkuh-shomali",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "کلاردشت",
+   "slug": "kelardasht",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "سیمرغ",
+   "slug": "simorgh",
+   "province": "mazandaran",
+   "province_name": "مازندران"
+  },
+  {
+   "title": "اراک",
+   "slug": "arak",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "ساوه",
+   "slug": "saveh",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "شازند",
+   "slug": "shazand",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "خمین",
+   "slug": "khomeyn",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "زرندیه",
+   "slug": "zarandieh",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "محلات",
+   "slug": "mahallat",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "خنداب",
+   "slug": "khondab",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "دلیجان",
+   "slug": "delijan",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "کمیجان",
+   "slug": "komijan",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "فراهان",
+   "slug": "farahan",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "تفرش",
+   "slug": "tafresh",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "آشتیان",
+   "slug": "ashtian",
+   "province": "markazi",
+   "province_name": "مرکزی"
+  },
+  {
+   "title": "بندرعباس",
+   "slug": "bandar-abbas",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "بندر لنگه",
+   "slug": "bandar-lengeh",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "میناب",
+   "slug": "minab",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "قشم",
+   "slug": "qeshm",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "ابوموسی",
+   "slug": "abumusa",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "جاسک",
+   "slug": "jask",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "رودان",
+   "slug": "rudan",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "حاجی‌آباد",
+   "slug": "hajiabad",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "بستک",
+   "slug": "bastak",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "پارسیان",
+   "slug": "parsian",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "خمیر",
+   "slug": "khamir",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "سیریک",
+   "slug": "sirik",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "بشاگرد",
+   "slug": "bashagard",
+   "province": "hormozgan",
+   "province_name": "هرمزگان"
+  },
+  {
+   "title": "همدان",
+   "slug": "hamadan-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "ملایر",
+   "slug": "malayer-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "نهاوند",
+   "slug": "nahavand-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "تویسرکان",
+   "slug": "tuyserkan-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "کبودرآهنگ",
+   "slug": "kabudarahang-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "اسدآباد",
+   "slug": "asadabad-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "بهار",
+   "slug": "bahar-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "رزن",
+   "slug": "razan-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "فامنین",
+   "slug": "famenin-city",
+   "province": "hamadan",
+   "province_name": "همدان"
+  },
+  {
+   "title": "یزد",
+   "slug": "yazd-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "میبد",
+   "slug": "meybod-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "اردکان",
+   "slug": "ardakan-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "مهریز",
+   "slug": "mehriz-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "ابرکوه",
+   "slug": "abarkuh-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "بافق",
+   "slug": "bafq-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "تفت",
+   "slug": "taft-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "خاتم",
+   "slug": "khatam-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "اشکذر",
+   "slug": "ashkezar-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "بهاباد",
+   "slug": "behabad-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "زارچ",
+   "slug": "zarch-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  },
+  {
+   "title": "مروست",
+   "slug": "marvast-city",
+   "province": "yazd",
+   "province_name": "یزد"
+  }
+ ]
 }
