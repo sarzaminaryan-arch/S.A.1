@@ -57,6 +57,21 @@ function sa_customize_register( $wp_customize ) {
 	$add( 'sa_home', 'sa_show_stats', 'نمایش آمار (تعداد استان/شهر/جاذبه…)', 'checkbox', true );
 	$add( 'sa_home', 'sa_home_sections', 'بخش‌های صفحه‌ی اول (به ترتیب، با ویرگول)', 'text', 'provinces,attractions,routes,foods,souvenirs,posts', array( 'description' => 'گزینه‌ها: provinces, cities, attractions, routes, foods, souvenirs, posts' ) );
 
+	// صفحه اصلی (طرح v2) — قالب برگه «صفحه اصلی سرزمین آریان (طرح v2)».
+	$wp_customize->add_section( 'sa_home_v2', array( 'title' => 'صفحه اصلی (طرح v2)', 'panel' => 'sa_panel', 'description' => 'تنظیمات دستی صفحه‌ی خانه (برگه‌ی «خانه» با قالب «صفحه اصلی سرزمین آریان (طرح v2)»). لوگو از بخش «هویت سایت → لوگو» قابل تغییر است؛ اگر لوگویی انتخاب نشود لوگوی اصلی سایت استفاده می‌شود.' ) );
+	$add( 'sa_home_v2', 'sa_home_slogan', 'شعار سایت (حماسی — زیر نام سایت، هدر و فوتر)', 'text', 'از البرز تا خلیج فارس؛ هر گوشه‌ی این خاک، یک آسمان است.' );
+	$add( 'sa_home_v2', 'sa_hero_text', 'متن معرفی زیر شعار', 'textarea', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و هزاران جاذبه.' );
+	$add( 'sa_home_v2', 'sa_search_placeholder', 'متن جایگزین جعبه‌ی جست‌وجو', 'text', 'استان، شهر، جاذبه، غذا یا سوغات…' );
+	$add( 'sa_home_v2', 'sa_stat1_num', 'آمار ۱ — عدد', 'text', '31' );
+	$add( 'sa_home_v2', 'sa_stat1_label', 'آمار ۱ — برچسب', 'text', 'استان' );
+	$add( 'sa_home_v2', 'sa_stat2_num', 'آمار ۲ — عدد (انگلیسی برای شمارنده)', 'text', '419' );
+	$add( 'sa_home_v2', 'sa_stat2_suffix', 'آمار ۲ — پسوند (+ یا خالی)', 'text', '+' );
+	$add( 'sa_home_v2', 'sa_stat2_label', 'آمار ۲ — برچسب', 'text', 'شهرستان' );
+	$add( 'sa_home_v2', 'sa_sec_prov_title', 'عنوان بخش استان‌ها', 'text', 'استان‌های ایران' );
+	$add( 'sa_home_v2', 'sa_sec_latest_title', 'عنوان بخش آخرین مقالات', 'text', 'آخرین مقالات' );
+	$add( 'sa_home_v2', 'sa_sec_pop_title', 'عنوان بخش پست‌های معروف', 'text', 'پست‌های معروف' );
+	$add( 'sa_home_v2', 'sa_pop_ids', 'شناسه‌ی «پست‌های معروف» (با کاما)', 'text', '', array( 'description' => 'خالی = نوشته‌های چسبانده‌شده (Sticky) نمایش داده می‌شوند. مثال: ۱۲,۳۴,۵۶ با اعداد انگلیسی.' ) );
+
 	// Footer.
 	$wp_customize->add_section( 'sa_footer', array( 'title' => 'پابرگ', 'panel' => 'sa_panel' ) );
 	$add( 'sa_footer', 'sa_footer_about', 'متن «درباره» در پابرگ', 'textarea', 'سرزمین آریان دانشنامه‌ی سفر ایران است؛ اطلاعات دقیق و به‌روز درباره‌ی استان‌ها، شهرها، جاذبه‌ها، مسیرهای سفر، غذاها و سوغات.' );
