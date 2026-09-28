@@ -1,200 +1,200 @@
 {
-  "batch": 2,
-  "batch_id": "b02",
-  "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
-  "data_version": "1.1.2",
-  "package_format": "1.0",
-  "built": "2026-09-28",
-  "provinces": [
-    {
-      "order": 11,
-      "slug": "razavi-khorasan",
-      "name_fa": "استان خراسان رضوی",
-      "term_name": "خراسان رضوی",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4783,
-      "faq": 12,
-      "sources_lines": 13,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 81,
-        "source_needed": 13,
-        "url_needed": 0,
-        "coming_soon": 33
-      },
-      "file": "razavi-khorasan.json"
-    },
-    {
-      "order": 12,
-      "slug": "north-khorasan",
-      "name_fa": "استان خراسان شمالی",
-      "term_name": "خراسان شمالی",
-      "status": "article",
-      "has_image": true,
-      "word_count": 6302,
-      "faq": 12,
-      "sources_lines": 22,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 117,
-        "source_needed": 3,
-        "url_needed": 0,
-        "coming_soon": 77
-      },
-      "file": "north-khorasan.json"
-    },
-    {
-      "order": 13,
-      "slug": "khuzestan",
-      "name_fa": "استان خوزستان",
-      "term_name": "خوزستان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4986,
-      "faq": 13,
-      "sources_lines": 33,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 65,
-        "source_needed": 34,
-        "url_needed": 1,
-        "coming_soon": 86
-      },
-      "file": "khuzestan.json"
-    },
-    {
-      "order": 14,
-      "slug": "zanjan",
-      "name_fa": "استان زنجان",
-      "term_name": "زنجان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4352,
-      "faq": 12,
-      "sources_lines": 40,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 24,
-        "source_needed": 21,
-        "url_needed": 0,
-        "coming_soon": 78
-      },
-      "file": "zanjan.json"
-    },
-    {
-      "order": 15,
-      "slug": "semnan",
-      "name_fa": "استان سمنان",
-      "term_name": "سمنان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4307,
-      "faq": 13,
-      "sources_lines": 27,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 47,
-        "source_needed": 38,
-        "url_needed": 0,
-        "coming_soon": 66
-      },
-      "file": "semnan.json"
-    },
-    {
-      "order": 16,
-      "slug": "sistan-baluchestan",
-      "name_fa": "استان سیستان و بلوچستان",
-      "term_name": "سیستان و بلوچستان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4761,
-      "faq": 14,
-      "sources_lines": 31,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 62,
-        "source_needed": 58,
-        "url_needed": 0,
-        "coming_soon": 37
-      },
-      "file": "sistan-baluchestan.json"
-    },
-    {
-      "order": 17,
-      "slug": "fars",
-      "name_fa": "استان فارس",
-      "term_name": "فارس",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4624,
-      "faq": 14,
-      "sources_lines": 21,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 70,
-        "source_needed": 68,
-        "url_needed": 0,
-        "coming_soon": 38
-      },
-      "file": "fars.json"
-    },
-    {
-      "order": 18,
-      "slug": "qazvin",
-      "name_fa": "استان قزوین",
-      "term_name": "قزوین",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4244,
-      "faq": 14,
-      "sources_lines": 19,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 61,
-        "source_needed": 29,
-        "url_needed": 0,
-        "coming_soon": 51
-      },
-      "file": "qazvin.json"
-    },
-    {
-      "order": 19,
-      "slug": "qom",
-      "name_fa": "استان قم",
-      "term_name": "قم",
-      "status": "article",
-      "has_image": true,
-      "word_count": 4106,
-      "faq": 14,
-      "sources_lines": 9,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 52,
-        "source_needed": 33,
-        "url_needed": 0,
-        "coming_soon": 35
-      },
-      "file": "qom.json"
-    },
-    {
-      "order": 20,
-      "slug": "kurdistan",
-      "name_fa": "استان کردستان",
-      "term_name": "کردستان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 7596,
-      "faq": 12,
-      "sources_lines": 71,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 11,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 151
-      },
-      "file": "kurdistan.json"
-    }
-  ]
+ "batch": 2,
+ "batch_id": "b02",
+ "label": "دسته‌ی 2 — استان‌های 11 تا 20 فهرست ثابت",
+ "data_version": "1.1.3",
+ "package_format": "1.0",
+ "built": "2026-09-28",
+ "provinces": [
+  {
+   "order": 11,
+   "slug": "razavi-khorasan",
+   "name_fa": "استان خراسان رضوی",
+   "term_name": "خراسان رضوی",
+   "status": "article",
+   "has_image": true,
+   "word_count": 5139,
+   "faq": 12,
+   "sources_lines": 13,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 81,
+    "source_needed": 13,
+    "url_needed": 0,
+    "coming_soon": 33
+   },
+   "file": "razavi-khorasan.json"
+  },
+  {
+   "order": 12,
+   "slug": "north-khorasan",
+   "name_fa": "استان خراسان شمالی",
+   "term_name": "خراسان شمالی",
+   "status": "article",
+   "has_image": true,
+   "word_count": 6920,
+   "faq": 12,
+   "sources_lines": 22,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 117,
+    "source_needed": 3,
+    "url_needed": 0,
+    "coming_soon": 77
+   },
+   "file": "north-khorasan.json"
+  },
+  {
+   "order": 13,
+   "slug": "khuzestan",
+   "name_fa": "استان خوزستان",
+   "term_name": "خوزستان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 5594,
+   "faq": 13,
+   "sources_lines": 33,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 65,
+    "source_needed": 34,
+    "url_needed": 1,
+    "coming_soon": 86
+   },
+   "file": "khuzestan.json"
+  },
+  {
+   "order": 14,
+   "slug": "zanjan",
+   "name_fa": "استان زنجان",
+   "term_name": "زنجان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 4657,
+   "faq": 12,
+   "sources_lines": 40,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 24,
+    "source_needed": 21,
+    "url_needed": 0,
+    "coming_soon": 78
+   },
+   "file": "zanjan.json"
+  },
+  {
+   "order": 15,
+   "slug": "semnan",
+   "name_fa": "استان سمنان",
+   "term_name": "سمنان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 5114,
+   "faq": 12,
+   "sources_lines": 31,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "semnan.json"
+  },
+  {
+   "order": 16,
+   "slug": "sistan-baluchestan",
+   "name_fa": "استان سیستان و بلوچستان",
+   "term_name": "سیستان و بلوچستان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 5374,
+   "faq": 14,
+   "sources_lines": 31,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 62,
+    "source_needed": 58,
+    "url_needed": 0,
+    "coming_soon": 37
+   },
+   "file": "sistan-baluchestan.json"
+  },
+  {
+   "order": 17,
+   "slug": "fars",
+   "name_fa": "استان فارس",
+   "term_name": "فارس",
+   "status": "article",
+   "has_image": true,
+   "word_count": 5222,
+   "faq": 14,
+   "sources_lines": 21,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 70,
+    "source_needed": 68,
+    "url_needed": 0,
+    "coming_soon": 38
+   },
+   "file": "fars.json"
+  },
+  {
+   "order": 18,
+   "slug": "qazvin",
+   "name_fa": "استان قزوین",
+   "term_name": "قزوین",
+   "status": "article",
+   "has_image": true,
+   "word_count": 4826,
+   "faq": 14,
+   "sources_lines": 19,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 61,
+    "source_needed": 29,
+    "url_needed": 0,
+    "coming_soon": 51
+   },
+   "file": "qazvin.json"
+  },
+  {
+   "order": 19,
+   "slug": "qom",
+   "name_fa": "استان قم",
+   "term_name": "قم",
+   "status": "article",
+   "has_image": true,
+   "word_count": 4501,
+   "faq": 14,
+   "sources_lines": 9,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 52,
+    "source_needed": 33,
+    "url_needed": 0,
+    "coming_soon": 35
+   },
+   "file": "qom.json"
+  },
+  {
+   "order": 20,
+   "slug": "kurdistan",
+   "name_fa": "استان کردستان",
+   "term_name": "کردستان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 8050,
+   "faq": 12,
+   "sources_lines": 71,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 11,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 151
+   },
+   "file": "kurdistan.json"
+  }
+ ]
 }
