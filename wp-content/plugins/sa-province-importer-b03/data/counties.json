@@ -223,6 +223,108 @@
       "slug": "bandar-e-gaz",
       "province": "golestan",
       "province_name": "گلستان"
+    },
+    {
+      "title": "رشت",
+      "slug": "rasht",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "تالش",
+      "slug": "talesh",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "لاهیجان",
+      "slug": "lahijan",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "رودسر",
+      "slug": "rudsar",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "لنگرود",
+      "slug": "langarud",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "بندر انزلی",
+      "slug": "bandar-e-anzali",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "صومعه‌سرا",
+      "slug": "someh-sara",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "آستانه اشرفیه",
+      "slug": "astaneh-ye-ashrafiyeh",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "رودبار",
+      "slug": "rudbar",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "فومن",
+      "slug": "fuman",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "آستارا",
+      "slug": "astara",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "رضوانشهر",
+      "slug": "rezvanshahr",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "خمام",
+      "slug": "khomam",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "ماسال",
+      "slug": "masal",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "شفت",
+      "slug": "shaft",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "سیاهکل",
+      "slug": "siahkal",
+      "province": "gilan",
+      "province_name": "گیلان"
+    },
+    {
+      "title": "املش",
+      "slug": "amlash",
+      "province": "gilan",
+      "province_name": "گیلان"
     }
   ]
 }
