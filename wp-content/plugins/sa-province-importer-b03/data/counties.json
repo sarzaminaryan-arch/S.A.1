@@ -475,6 +475,78 @@
       "slug": "gonbaki",
       "province": "kerman",
       "province_name": "کرمان"
+    },
+    {
+      "title": "خرم‌آباد",
+      "slug": "khorramabad",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "بروجرد",
+      "slug": "borujerd",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "دورود",
+      "slug": "dorud",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "کوهدشت",
+      "slug": "kuhdasht",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "دلفان",
+      "slug": "delfan",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "الیگودرز",
+      "slug": "aligudarz",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "سلسله",
+      "slug": "selseleh",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "ازنا",
+      "slug": "azna",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "پلدختر",
+      "slug": "pol-e-dokhtar",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "چگنی",
+      "slug": "chegeni",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "رومشکان",
+      "slug": "rumeshkan",
+      "province": "lorestan",
+      "province_name": "لرستان"
+    },
+    {
+      "title": "معمولان",
+      "slug": "mamulan",
+      "province": "lorestan",
+      "province_name": "لرستان"
     }
   ]
 }

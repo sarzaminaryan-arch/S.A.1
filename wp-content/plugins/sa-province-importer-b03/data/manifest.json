@@ -1,219 +1,219 @@
 {
-  "batch": 3,
-  "batch_id": "b03",
-  "label": "دسته‌ی 3 — استان‌های 21 تا 31 فهرست ثابت",
-  "data_version": "1.0.4",
-  "package_format": "1.0",
-  "built": "2026-09-28",
-  "provinces": [
-    {
-      "order": 21,
-      "slug": "kerman",
-      "name_fa": "استان کرمان",
-      "term_name": "کرمان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 6910,
-      "faq": 12,
-      "sources_lines": 71,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 1,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 2
-      },
-      "file": "kerman.json"
-    },
-    {
-      "order": 22,
-      "slug": "kermanshah",
-      "name_fa": "استان کرمانشاه",
-      "term_name": "کرمانشاه",
-      "status": "article",
-      "has_image": true,
-      "word_count": 8498,
-      "faq": 12,
-      "sources_lines": 90,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 12,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 142
-      },
-      "file": "kermanshah.json"
-    },
-    {
-      "order": 23,
-      "slug": "kohgiluyeh-boyer-ahmad",
-      "name_fa": "استان کهگیلویه و بویراحمد",
-      "term_name": "کهگیلویه و بویراحمد",
-      "status": "article",
-      "has_image": true,
-      "word_count": 7490,
-      "faq": 12,
-      "sources_lines": 71,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 1,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 73
-      },
-      "file": "kohgiluyeh-boyer-ahmad.json"
-    },
-    {
-      "order": 24,
-      "slug": "golestan",
-      "name_fa": "استان گلستان",
-      "term_name": "گلستان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 7152,
-      "faq": 12,
-      "sources_lines": 71,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 1,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 121
-      },
-      "file": "golestan.json"
-    },
-    {
-      "order": 25,
-      "slug": "gilan",
-      "name_fa": "استان گیلان",
-      "term_name": "گیلان",
-      "status": "article",
-      "has_image": true,
-      "word_count": 7747,
-      "faq": 12,
-      "sources_lines": 71,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 1,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 134
-      },
-      "file": "gilan.json"
-    },
-    {
-      "order": 26,
-      "slug": "lorestan",
-      "name_fa": "استان لرستان",
-      "term_name": "لرستان",
-      "status": "stub",
-      "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 0,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 0
-      },
-      "file": "lorestan.json"
-    },
-    {
-      "order": 27,
-      "slug": "mazandaran",
-      "name_fa": "استان مازندران",
-      "term_name": "مازندران",
-      "status": "stub",
-      "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 0,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 0
-      },
-      "file": "mazandaran.json"
-    },
-    {
-      "order": 28,
-      "slug": "markazi",
-      "name_fa": "استان مرکزی",
-      "term_name": "مرکزی",
-      "status": "stub",
-      "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 0,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 0
-      },
-      "file": "markazi.json"
-    },
-    {
-      "order": 29,
-      "slug": "hormozgan",
-      "name_fa": "استان هرمزگان",
-      "term_name": "هرمزگان",
-      "status": "stub",
-      "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 0,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 0
-      },
-      "file": "hormozgan.json"
-    },
-    {
-      "order": 30,
-      "slug": "hamadan",
-      "name_fa": "استان همدان",
-      "term_name": "همدان",
-      "status": "stub",
-      "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 0,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 0
-      },
-      "file": "hamadan.json"
-    },
-    {
-      "order": 31,
-      "slug": "yazd",
-      "name_fa": "استان یزد",
-      "term_name": "یزد",
-      "status": "stub",
-      "has_image": true,
-      "word_count": 0,
-      "faq": 0,
-      "sources_lines": 0,
-      "publish_status": "DRAFT ONLY",
-      "markers": {
-        "review": 0,
-        "source_needed": 0,
-        "url_needed": 0,
-        "coming_soon": 0
-      },
-      "file": "yazd.json"
-    }
-  ]
+ "batch": 3,
+ "batch_id": "b03",
+ "label": "دسته‌ی 3 — استان‌های 21 تا 31 فهرست ثابت",
+ "data_version": "1.0.5",
+ "package_format": "1.0",
+ "built": "2026-09-28",
+ "provinces": [
+  {
+   "order": 21,
+   "slug": "kerman",
+   "name_fa": "استان کرمان",
+   "term_name": "کرمان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 6910,
+   "faq": 12,
+   "sources_lines": 71,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 1,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 2
+   },
+   "file": "kerman.json"
+  },
+  {
+   "order": 22,
+   "slug": "kermanshah",
+   "name_fa": "استان کرمانشاه",
+   "term_name": "کرمانشاه",
+   "status": "article",
+   "has_image": true,
+   "word_count": 8498,
+   "faq": 12,
+   "sources_lines": 90,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 12,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 142
+   },
+   "file": "kermanshah.json"
+  },
+  {
+   "order": 23,
+   "slug": "kohgiluyeh-boyer-ahmad",
+   "name_fa": "استان کهگیلویه و بویراحمد",
+   "term_name": "کهگیلویه و بویراحمد",
+   "status": "article",
+   "has_image": true,
+   "word_count": 7490,
+   "faq": 12,
+   "sources_lines": 71,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 1,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 73
+   },
+   "file": "kohgiluyeh-boyer-ahmad.json"
+  },
+  {
+   "order": 24,
+   "slug": "golestan",
+   "name_fa": "استان گلستان",
+   "term_name": "گلستان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 7152,
+   "faq": 12,
+   "sources_lines": 71,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 1,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 121
+   },
+   "file": "golestan.json"
+  },
+  {
+   "order": 25,
+   "slug": "gilan",
+   "name_fa": "استان گیلان",
+   "term_name": "گیلان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 7747,
+   "faq": 12,
+   "sources_lines": 71,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 1,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 134
+   },
+   "file": "gilan.json"
+  },
+  {
+   "order": 26,
+   "slug": "lorestan",
+   "name_fa": "استان لرستان",
+   "term_name": "لرستان",
+   "status": "article",
+   "has_image": true,
+   "word_count": 6488,
+   "faq": 12,
+   "sources_lines": 71,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 1,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "lorestan.json"
+  },
+  {
+   "order": 27,
+   "slug": "mazandaran",
+   "name_fa": "استان مازندران",
+   "term_name": "مازندران",
+   "status": "stub",
+   "has_image": true,
+   "word_count": 0,
+   "faq": 0,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "mazandaran.json"
+  },
+  {
+   "order": 28,
+   "slug": "markazi",
+   "name_fa": "استان مرکزی",
+   "term_name": "مرکزی",
+   "status": "stub",
+   "has_image": true,
+   "word_count": 0,
+   "faq": 0,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "markazi.json"
+  },
+  {
+   "order": 29,
+   "slug": "hormozgan",
+   "name_fa": "استان هرمزگان",
+   "term_name": "هرمزگان",
+   "status": "stub",
+   "has_image": true,
+   "word_count": 0,
+   "faq": 0,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "hormozgan.json"
+  },
+  {
+   "order": 30,
+   "slug": "hamadan",
+   "name_fa": "استان همدان",
+   "term_name": "همدان",
+   "status": "stub",
+   "has_image": true,
+   "word_count": 0,
+   "faq": 0,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "hamadan.json"
+  },
+  {
+   "order": 31,
+   "slug": "yazd",
+   "name_fa": "استان یزد",
+   "term_name": "یزد",
+   "status": "stub",
+   "has_image": true,
+   "word_count": 0,
+   "faq": 0,
+   "sources_lines": 0,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "file": "yazd.json"
+  }
+ ]
 }
