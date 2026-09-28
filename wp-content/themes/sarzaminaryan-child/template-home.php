@@ -62,7 +62,7 @@ if ( has_custom_logo() ) {
 }
 
 /* ---- customizable texts (پیشخوان → سفارشی‌سازی → صفحه اصلی (طرح v2)) ---- */
-$sa_slogan    = get_theme_mod( 'sa_home_slogan', 'از البرز تا خلیج فارس؛ هر گوشه‌ی این خاک، یک آسمان است.' );
+$sa_slogan    = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
 $sa_hero_text = get_theme_mod( 'sa_hero_text', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و هزاران جاذبه.' );
 $sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر، جاذبه، غذا یا سوغات…' );
 $sa_stat1_num = get_theme_mod( 'sa_stat1_num', '31' );
@@ -82,13 +82,15 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-home *{box-sizing:border-box}
 .sa-wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 .sa-hero{position:relative;overflow:hidden;min-height:min(100vh,800px);display:flex;align-items:center;padding:64px 0 96px;background:radial-gradient(760px 480px at 18% 55%,rgba(47,107,255,.1),transparent 70%),linear-gradient(#fff,#f1f5fb)}
-.sa-names{position:absolute;inset:0;pointer-events:none;user-select:none}
-.sa-names span{position:absolute;white-space:nowrap;color:#3a5a99;opacity:.06;unicode-bidi:plaintext;animation:sat var(--t) ease-in-out var(--d) infinite}
-@keyframes sat{0%,100%{opacity:.05}50%{opacity:.5}}
+.sa-home .sa-hero::after{content:none!important}
+.sa-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(71,85,105,.20) 1.3px,transparent 1.4px);background-size:16px 16px;pointer-events:none}
+.sa-sparks{position:absolute;inset:0;pointer-events:none}
+.sa-sparks i{position:absolute;width:5px;height:5px;border-radius:50%;background:#9fb0c9;opacity:.25;transform:scale(.8);transition:opacity .7s,transform .7s,box-shadow .7s}
+.sa-sparks i.lit{opacity:1;transform:scale(1.5);background:#8fb4ff;box-shadow:0 0 14px 4px rgba(47,107,255,.75)}
 .sa-hw{position:relative;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
 .sa-brand{display:flex;align-items:center;gap:18px;margin-bottom:6px}
-.sa-logo{flex:none;width:96px;height:96px;border-radius:28px;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#1d2d50,var(--ink));box-shadow:0 28px 44px -16px rgba(11,20,36,.65)}
-.sa-logo img{width:70px;height:70px;display:block}
+.sa-logo{flex:none;width:136px;height:136px;display:grid;place-items:center;background:none;box-shadow:none}
+.sa-logo img{width:136px;height:136px;display:block;filter:drop-shadow(0 36px 36px rgba(11,20,36,.38)) drop-shadow(0 8px 14px rgba(11,20,36,.22))}
 .sa-hero h1{margin:0;font-size:clamp(34px,5.4vw,64px);line-height:1.25;font-weight:800;letter-spacing:-.5px}
 .sa-en{color:var(--blue);font-weight:700;letter-spacing:4px;font-size:13px;direction:ltr;text-align:right;margin:2px 0 14px}
 .sa-slogan{margin:0 0 10px;font-size:clamp(16px,2.2vw,21px);font-weight:700;color:#16326e}
@@ -146,13 +148,17 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-map{max-width:380px;margin:10px auto 0}.sa-posts{grid-template-columns:repeat(2,1fr)}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
-@media(max-width:640px){.sa-bars,.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:74px;height:74px;border-radius:22px}.sa-logo img{width:54px;height:54px}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-bar{height:62px}}
-@media(prefers-reduced-motion:reduce){.sa-names span{animation:none;opacity:.14}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+@media(max-width:640px){.sa-bars,.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:96px;height:96px}.sa-logo img{width:96px;height:96px}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-bar{height:62px}}
+@media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
 </style>
 
 <div class="sa-home" id="sa-home">
 	<section class="sa-hero">
-		<div class="sa-names" aria-hidden="true"></div>
+		<div class="sa-sparks" aria-hidden="true"><?php
+			for ( $sa_i = 0; $sa_i < 42; $sa_i++ ) {
+				echo '<i style="left:' . esc_attr( number_format( wp_rand( 2, 97 ), 1 ) ) . '%;top:' . esc_attr( number_format( wp_rand( 4, 92 ), 1 ) ) . '%"></i>';
+			}
+		?></div>
 		<div class="sa-wrap sa-hw">
 			<div>
 				<div class="sa-brand">
@@ -297,28 +303,12 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 var R=document.getElementById('sa-home');if(!R)return;R.classList.add('js');
 var rnd=Math.random;
 
-/* اسامی کمرنگ چشمک‌زن روی هیرو */
-var W=[];
-<?php /* نام استان‌ها + مرکزها از فهرست ثابت */ ?>
-<?php
-$sa_name_words = array();
-foreach ( $sa_map_points as $sa_p ) {
-	$sa_name_words[] = $sa_p[0];
-	$sa_name_words[] = ucwords( str_replace( '-', ' ', $sa_p[1] ) );
-}
-$sa_city_words = array( 'تبریز|Tabriz','ارومیه|Urmia','رشت|Rasht','ساری|Sari','گرگان|Gorgan','مشهد|Mashhad','بجنورد|Bojnurd','زنجان|Zanjan','قزوین|Qazvin','کرج|Karaj','قم|Qom','اراک|Arak','همدان|Hamedan','سنندج|Sanandaj','کرمانشاه|Kermanshah','خرم‌آباد|Khorramabad','اهواز|Ahvaz','شیراز|Shiraz','بندرعباس|Bandar Abbas','یزد|Yazd','کرمان|Kerman','بم|Bam','زاهدان|Zahedan','چابهار|Chabahar','بیرجند|Birjand','کاشان|Kashan','یاسوج|Yasuj','شهرکرد|Shahrekord','اردبیل|Ardabil','سمنان|Semnan','نیشابور|Neyshabur','آبادان|Abadan','دزفول|Dezful','کیش|Kish','قشم|Qeshm','چالوس|Chalus','انزلی|Anzali','مراغه|Maragheh','ملایر|Malayer','طبس|Tabas','ماسوله|Masuleh','میبد|Meybod' );
-foreach ( $sa_city_words as $sa_w ) {
-	$sa_pair = explode( '|', $sa_w );
-	$sa_name_words[] = $sa_pair[0];
-	$sa_name_words[] = $sa_pair[1];
-}
-echo 'var WORDS=' . wp_json_encode( $sa_name_words, JSON_UNESCAPED_UNICODE ) . ';';
-?>
-W=WORDS;
-W.sort(function(){return rnd()-.5});
-var N=R.querySelector('.sa-names'),m=innerWidth<700,cols=m?5:11,rows=m?15:9,i=0,r,c,s;
-for(r=0;r<rows;r++)for(c=0;c<cols;c++){s=document.createElement('span');s.textContent=W[i++%W.length];
-s.style.cssText='left:'+((c+rnd()*.6)/cols*100)+'%;top:'+((r+rnd()*.7)/rows*100)+'%;--t:'+(3+rnd()*7)+'s;--d:-'+(rnd()*10)+'s;font-size:'+(10+rnd()*3)+'px';N.appendChild(s)}
+/* هفت نقطه‌ی تصادفی روشن، هر سه ثانیه */
+var SP=R.querySelectorAll('.sa-sparks i');
+function lit7(){Array.prototype.forEach.call(SP,function(d){d.classList.remove('lit')});
+for(var k=0;k<7&&SP.length;k++){SP[Math.floor(rnd()*SP.length)].classList.add('lit')}}
+if(SP.length){lit7();if(!matchMedia('(prefers-reduced-motion:reduce)').matches)setInterval(lit7,3000)}
+
 
 /* نمایش با اسکرول و شمارنده */
 var fa=function(n){return n.toLocaleString('fa-IR')};

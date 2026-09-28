@@ -20,7 +20,7 @@ if ( has_custom_logo() ) {
 		$sa_logo_url = $sa_logo[0];
 	}
 }
-$sa_slogan = get_theme_mod( 'sa_home_slogan', 'از البرز تا خلیج فارس؛ هر گوشه‌ی این خاک، یک آسمان است.' );
+$sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
 
 /**
  * Link to one of the seeded pages (about/contact/privacy/policy/…), falling back

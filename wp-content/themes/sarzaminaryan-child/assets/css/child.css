@@ -1544,3 +1544,27 @@
 		display: none;
 	}
 }
+
+/* ============================================================
+   v2.0.1 — full-width responsive reading on tablets/laptops
+   (kills the reserved empty sidebar-sized column everywhere)
+   ============================================================ */
+@media (max-width: 1199px) {
+	:root {
+		--sa-max-text: 100%;
+	}
+
+	.sa-entity__layout,
+	body:not(.no-sidebar) .site-content {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.sa-entity__aside {
+		position: static;
+	}
+
+	.sa-archive__desc,
+	.sa-entity__main .entry-content {
+		max-width: 100%;
+	}
+}
