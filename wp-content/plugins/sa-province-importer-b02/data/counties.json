@@ -1,6 +1,6 @@
 {
   "format": "1.0",
-  "built": "2026-09-27",
+  "built": "2026-09-28",
   "counties": [
     {
       "title": "مشهد",
@@ -709,6 +709,66 @@
       "slug": "kahak",
       "province": "qom",
       "province_name": "قم"
+    },
+    {
+      "title": "سنندج",
+      "slug": "sanandaj",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "بانه",
+      "slug": "baneh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "بیجار",
+      "slug": "bijar",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "دهگلان",
+      "slug": "dehgolan",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "دیواندره",
+      "slug": "divandarreh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "سروآباد",
+      "slug": "sarvabad",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "سقز",
+      "slug": "saqqez",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "قروه",
+      "slug": "qorveh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "کامیاران",
+      "slug": "kamyaran",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "مریوان",
+      "slug": "marivan",
+      "province": "kurdistan",
+      "province_name": "کردستان"
     }
   ]
 }
