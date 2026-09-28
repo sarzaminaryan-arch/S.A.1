@@ -11,7 +11,12 @@ per-secondary-keyword counts inside the body, internal/external links, and wheth
 every inline citation <sup>[n](URL)</sup> points to the URL of row n in BLOCK 5
 (the theme prints BLOCK 5 as an <ol>, so n is what readers see). Exit code 1 if a
 hard check fails.
-See content-templates/seo-checklist-rankmath.md for the thresholds.
+Prompt v1.2 (2026-09-28) adds WARN-only lines (they never change PASS/FAIL): prose
+length of the history section and presence of its dynasty table, the fixed fifth H3 of
+the attractions section, hedge words without a citation or marker in the same sentence
+(the "no guessing" rule), and how many BLOCK 5 rows use the [نقشه]/[غیررسمی] prefixes.
+See content-templates/seo-checklist-rankmath.md for the thresholds and
+content-templates/province.md §2-ج for the v1.2 rules.
 """
 import re
 import sys
@@ -21,6 +26,15 @@ DENSITY_MIN, DENSITY_MAX = 0.8, 1.5
 # Domains the theme links dofollow (mirror of sa_source_rel() in inc/template-tags.php).
 OFFICIAL = (".gov.ir", "unesco.org", "amar.org.ir", "mcth.ir", "doe.ir", "moi.ir", "ichto.ir", "un.org", "britannica.com", "iranicaonline.org")
 FA_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
+# --- prompt v1.2 (province.md §2-ج) — WARN-only thresholds -------------------------
+HISTORY_H2 = "## تاریخچه استان"
+HISTORY_MIN, HISTORY_MAX = 700, 1200
+DYNASTY_TABLE_KEY = "سلسله"
+FIFTH_H3 = "### بازارها، مراکز خرید و بناهای شاخص امروزی"
+HEDGES = ("حدود", "تقریباً", "احتمالاً", "شاید", "گفته می‌شود", "گفته می شود", "به نظر می‌رسد", "به نظر می رسد", "ظاهراً")
+SOURCE_PREFIXES = ("[میراث]", "[محلی]", "[سفرنامه]", "[نقشه]", "[غیررسمی]")
+_FA_WORD = r"[\w\u0600-\u06FF\u200c]"
+HEDGE_RE = re.compile(r"(?<!%s)(?:%s)(?!%s)" % (_FA_WORD, "|".join(re.escape(h) for h in HEDGES), _FA_WORD))
 
 
 def read_blocks(path):
@@ -43,6 +57,62 @@ def sources_by_row(text):
         u = re.search(r"https?://\S+", line)
         rows[i] = u.group(0) if u else None
     return rows
+
+
+def source_lines(text):
+    """Raw public BLOCK 5 lines (same slice as sources_by_row)."""
+    m = re.search(r"=== BLOCK 5: SOURCES ===\s*```\s*\n(.*?)(?:\n---|```)", text, flags=re.S)
+    return [l for l in m.group(1).split("\n") if l.strip()] if m else []
+
+
+def section(body, h2):
+    """Text of one H2 section of BLOCK 3 (without the heading), or ''."""
+    m = re.search(r"^%s[^\n]*\n(.*?)(?=^## |\Z)" % re.escape(h2), body, flags=re.S | re.M)
+    return m.group(1) if m else ""
+
+
+def prose_words(text):
+    """Word count the way the templates mean it: no tables, headings, citations or markers."""
+    t = re.sub(r"<sup>.*?</sup>", "", text)
+    t = re.sub(r"\[[^\]]*\]", "", t)
+    lines = [l for l in t.split("\n") if l.strip() and not l.lstrip().startswith(("|", "#"))]
+    return len(" ".join(lines).split())
+
+
+def unsourced_hedges(body):
+    """Sentences of BLOCK 3 prose containing a hedge word but no citation/marker (v1.2 'no guessing')."""
+    hits = []
+    for line in body.split("\n"):
+        if not line.strip() or line.lstrip().startswith(("|", "#")):
+            continue
+        # a list item is one unit (its citation usually sits at the end of the item); prose is split into sentences
+        units = [line] if line.lstrip().startswith(("- ", "* ")) or re.match(r"^\s*\d+\. ", line) else re.split(r"(?<=[.؟!])\s+", line)
+        for sent in units:
+            if HEDGE_RE.search(sent) and "<sup>" not in sent and "[نیازمند بررسی" not in sent and "[منبع لازم" not in sent:
+                hits.append(sent.strip())
+    return hits
+
+
+def v12_report(body, text):
+    """Prompt v1.2 checks — informational WARN lines only."""
+    print("--- prompt v1.2 (WARN only) ---")
+    hist = section(body, HISTORY_H2)
+    hw = prose_words(hist) if hist else 0
+    has_table = any(l.lstrip().startswith("|") and DYNASTY_TABLE_KEY in l for l in hist.split("\n"))
+    status = "OK" if HISTORY_MIN <= hw <= HISTORY_MAX else "WARN"
+    print("history words    : %d  (target %d-%d)  %s" % (hw, HISTORY_MIN, HISTORY_MAX, status))
+    print("dynasty table    : %s" % ("present" if has_table else "WARN missing (جدول سلسله‌ها و دولت‌های حاکم بر پهنه‌ی استان)"))
+    print("fifth H3 (§23)   : %s" % ("present" if FIFTH_H3 in body else "WARN missing (%s)" % FIFTH_H3[4:]))
+    hedges = unsourced_hedges(body)
+    print("unsourced hedges : %d  %s" % (len(hedges), "" if not hedges else "WARN — حدس بی‌ارجاع؟ (حدود/احتمالاً/شاید/گفته می‌شود …)"))
+    for h in hedges[:5]:
+        print("   -", h[:110])
+    counts = {p: 0 for p in SOURCE_PREFIXES}
+    for l in source_lines(text):
+        for p in SOURCE_PREFIXES:
+            if l.lstrip().startswith(p):
+                counts[p] += 1
+    print("source prefixes  :", "  ".join("%s=%d" % (p, n) for p, n in counts.items()))
 
 
 def is_official(url):
@@ -140,6 +210,7 @@ def main():
             fails.append("secondary:" + s)
     print("markers          : [نیازمند بررسی]=%d  [منبع لازم]=%d  [URL لازم]=%d  (به‌زودی)=%d" % (
         body.count("[نیازمند بررسی"), body.count("[منبع لازم"), body.count("[URL لازم"), body.count("(به‌زودی)")))
+    v12_report(body, text)
     print("RESULT           :", "PASS" if not fails else "FAIL " + ", ".join(fails))
     sys.exit(1 if fails else 0)
 

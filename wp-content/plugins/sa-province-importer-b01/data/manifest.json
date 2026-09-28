@@ -2,9 +2,9 @@
  "batch": 1,
  "batch_id": "b01",
  "label": "دسته‌ی 1 — استان‌های 1 تا 10 فهرست ثابت",
- "data_version": "1.0.7",
+ "data_version": "1.0.9",
  "package_format": "1.0",
- "built": "2026-09-27",
+ "built": "2026-09-28",
  "provinces": [
   {
    "order": 1,
@@ -89,9 +89,9 @@
    "term_name": "البرز",
    "status": "article",
    "has_image": true,
-   "word_count": 4924,
-   "faq": 0,
-   "sources_lines": 0,
+   "word_count": 4925,
+   "faq": 12,
+   "sources_lines": 49,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 33,
