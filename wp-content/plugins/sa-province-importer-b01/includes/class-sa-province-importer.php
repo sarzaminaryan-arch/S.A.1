@@ -31,6 +31,8 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		const PAGE_SLUG    = 'sa-province-importer';
 		const CAP          = 'manage_options';
 		const NONCE        = 'sa_province_import';
+		const NONCE_COUNTIES = 'sa_province_import_counties';
+		const CITY_CPT     = 'city';
 
 		/**
 		 * Registered batches keyed by id.
@@ -38,6 +40,13 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		 * @var array
 		 */
 		private $batches = array();
+
+		/**
+		 * Number of article-ready packages (for the dashboard widget).
+		 *
+		 * @var int
+		 */
+		private $dashboard_ready = 0;
 
 		/**
 		 * Singleton.
@@ -64,7 +73,9 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		private function __construct() {
 			add_action( 'admin_menu', array( $this, 'admin_menu' ), 30 );
 			add_action( 'admin_post_' . self::NONCE, array( $this, 'handle_post' ) );
+			add_action( 'admin_post_' . self::NONCE_COUNTIES, array( $this, 'handle_counties' ) );
 			add_action( 'admin_notices', array( $this, 'theme_notice' ) );
+			add_action( 'wp_dashboard_setup', array( $this, 'dashboard_widget' ) );
 			if ( defined( 'WP_CLI' ) && WP_CLI ) {
 				WP_CLI::add_command( 'sa-province', array( $this, 'cli' ) );
 			}
@@ -83,9 +94,11 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 			if ( ! $manifest ) {
 				return;
 			}
+			$counties_file = $this->read_json( $dir . 'counties.json' );
 			$batch['dir']      = $dir;
 			$batch['manifest'] = $manifest;
 			$batch['label']    = isset( $manifest['label'] ) ? $manifest['label'] : $batch['id'];
+			$batch['counties'] = ( $counties_file && isset( $counties_file['counties'] ) ) ? (array) $counties_file['counties'] : array();
 			$this->batches[ $batch['id'] ] = $batch;
 			ksort( $this->batches );
 		}
@@ -131,15 +144,16 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		/* ------------------------------------------------------------------ lookup */
 
 		/**
-		 * Existing province post for a slug (any status).
+		 * Existing entity post for a slug (any status).
 		 *
-		 * @param string $slug Slug.
+		 * @param string      $slug      Slug.
+		 * @param string      $post_type CPT (default: province).
 		 * @return WP_Post|null
 		 */
-		public function find_existing( $slug ) {
+		public function find_existing( $slug, $post_type = self::CPT ) {
 			$posts = get_posts(
 				array(
-					'post_type'      => self::CPT,
+					'post_type'      => $post_type,
 					'name'           => $slug,
 					'post_status'    => array( 'publish', 'pending', 'draft', 'future', 'private' ),
 					'posts_per_page' => 1,
@@ -151,7 +165,7 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 			}
 			$posts = get_posts(
 				array(
-					'post_type'      => self::CPT,
+					'post_type'      => $post_type,
 					'post_status'    => array( 'publish', 'pending', 'draft', 'future', 'private' ),
 					'posts_per_page' => 1,
 					'no_found_rows'  => true,
@@ -385,10 +399,16 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		 */
 		private function write_rank_math( $post_id, $pkg ) {
 			$seo = isset( $pkg['seo'] ) ? $pkg['seo'] : array();
-			$map = array(
+			// Two focus keywords per owner request: «استان X» is the primary keyword,
+			// «X» goes to Rank Math's secondary keywords field.
+			$focus_parts = array_values( array_filter( array_map( 'trim', explode( '،', isset( $seo['sa_focus_keyword'] ) ? (string) $seo['sa_focus_keyword'] : '' ) ) ) );
+			$primary     = array_shift( $focus_parts );
+			$secondary   = implode( '، ', $focus_parts );
+			$map         = array(
 				'rank_math_title'                => isset( $seo['sa_seo_title'] ) ? $seo['sa_seo_title'] : '',
 				'rank_math_description'          => isset( $seo['sa_seo_description'] ) ? $seo['sa_seo_description'] : '',
-				'rank_math_focus_keyword'        => isset( $seo['sa_focus_keyword'] ) ? $seo['sa_focus_keyword'] : '',
+				'rank_math_focus_keyword'        => $primary,
+				'rank_math_secondary_keywords'   => $secondary,
 				'rank_math_facebook_title'       => isset( $seo['sa_og_title'] ) ? $seo['sa_og_title'] : '',
 				'rank_math_facebook_description' => isset( $seo['sa_og_description'] ) ? $seo['sa_og_description'] : '',
 				'rank_math_twitter_use_facebook' => 'on',
@@ -529,15 +549,45 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		/* ------------------------------------------------------------------ admin */
 
 		/**
-		 * Menu: under «استان‌ها» when the CPT exists, otherwise under Tools.
+		 * Menu: top-level «درون‌ریزی استان‌ها» so it is always visible in the sidebar
+		 * (previously it was buried under the province CPT submenu and easy to miss).
 		 */
 		public function admin_menu() {
-			$title = 'درون‌ریزی پیش‌نویس استان‌ها';
-			if ( post_type_exists( self::CPT ) ) {
-				add_submenu_page( 'edit.php?post_type=' . self::CPT, $title, 'درون‌ریزی استان‌ها', self::CAP, self::PAGE_SLUG, array( $this, 'render_page' ) );
-			} else {
-				add_management_page( $title, 'درون‌ریزی استان‌ها', self::CAP, self::PAGE_SLUG, array( $this, 'render_page' ) );
+			add_menu_page( 'درون‌ریزی پیش‌نویس استان‌ها', 'درون‌ریزی استان‌ها', self::CAP, self::PAGE_SLUG, array( $this, 'render_page' ), 'dashicons-import', 30 );
+		}
+
+		/**
+		 * Dashboard widget: direct import button for site administrators.
+		 */
+		public function dashboard_widget() {
+			if ( ! current_user_can( self::CAP ) ) {
+				return;
 			}
+			$this->dashboard_ready = 0;
+			foreach ( $this->batches as $batch ) {
+				$rows = isset( $batch['manifest']['provinces'] ) ? (array) $batch['manifest']['provinces'] : array();
+				foreach ( $rows as $row ) {
+					if ( isset( $row['status'] ) && 'article' === $row['status'] ) {
+						$this->dashboard_ready++;
+					}
+				}
+			}
+			wp_add_dashboard_widget( 'sa_province_importer', 'سرزمین آریان — درون‌ریز استان‌ها', array( $this, 'render_dashboard_widget' ), null, null, 'top' );
+		}
+
+		/**
+		 * Render the dashboard widget.
+		 */
+		public function render_dashboard_widget() {
+			$url = $this->page_url();
+			if ( ! post_type_exists( self::CPT ) ) {
+				echo '<p class="sa-pi-widget-warn"><strong>توجه:</strong> نوع نوشته‌ی «استان» پیدا نشد؛ برای درون‌ریزی، قالب فرزند «سرزمین آریان» (حداقل ۱.۰.۳) باید فعال باشد.</p>';
+			} elseif ( $this->dashboard_ready > 0 ) {
+				echo '<p>' . $this->fa( $this->dashboard_ready ) . ' استان مقاله‌ی کامل دارند و آماده‌ی درون‌ریزی به‌صورت پیش‌نویس هستند. هیچ چیزی منتشر نمی‌شود؛ همه‌چیز پیش‌نویس می‌ماند.</p>';
+			} else {
+				echo '<p>هنوز بسته‌ی داده‌ای با مقاله‌ی کامل ثبت نشده است.</p>';
+			}
+			echo '<p><a class="button button-primary button-hero" href="' . esc_url( $url ) . '">درون‌ریزی استان‌ها</a></p>';
 		}
 
 		/**
@@ -560,8 +610,7 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		 * @return string
 		 */
 		private function page_url() {
-			$base = post_type_exists( self::CPT ) ? admin_url( 'edit.php?post_type=' . self::CPT ) : admin_url( 'tools.php' );
-			return add_query_arg( 'page', self::PAGE_SLUG, $base );
+			return add_query_arg( 'page', self::PAGE_SLUG, admin_url( 'admin.php' ) );
 		}
 
 		/**
@@ -601,6 +650,77 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 		}
 
 		/**
+		 * Create county (city) draft posts: title + slug + province term, nothing else.
+		 *
+		 * @param string $batch_id Batch id.
+		 * @param array  $slugs    County slugs (empty = all of the batch).
+		 * @return array
+		 */
+		public function import_counties( $batch_id, $slugs = array() ) {
+			if ( ! post_type_exists( self::CITY_CPT ) ) {
+				return array( '_error' => 'نوع نوشته‌ی «شهر» ثبت نشده است — قالب فرزند سرزمین آریان باید فعال باشد.' );
+			}
+			if ( ! isset( $this->batches[ $batch_id ] ) || empty( $this->batches[ $batch_id ]['counties'] ) ) {
+				return array( '_error' => 'فهرست شهرستان برای این دسته درون بسته‌ی داده وجود ندارد.' );
+			}
+			$version = isset( $this->batches[ $batch_id ]['manifest']['data_version'] ) ? $this->batches[ $batch_id ]['manifest']['data_version'] : '';
+			$results = array();
+			foreach ( $this->batches[ $batch_id ]['counties'] as $c ) {
+				if ( ! isset( $c['slug'], $c['title'] ) ) {
+					continue;
+				}
+				if ( $slugs && ! in_array( $c['slug'], $slugs, true ) ) {
+					continue;
+				}
+				$slug = sanitize_title( $c['slug'] );
+				$existing = $this->find_existing( $slug, self::CITY_CPT );
+				if ( $existing ) {
+					$results[ $slug ] = array( 'action' => 'skipped', 'message' => 'قبلاً وجود دارد' );
+					continue;
+				}
+				$post_id = wp_insert_post(
+					array(
+						'post_type'   => self::CITY_CPT,
+						'post_status' => 'draft',
+						'post_title'  => sanitize_text_field( $c['title'] ),
+						'post_name'   => $slug,
+					),
+					true
+				);
+				if ( is_wp_error( $post_id ) ) {
+					$results[ $slug ] = array( 'action' => 'error', 'message' => $post_id->get_error_message() );
+					continue;
+				}
+				if ( ! empty( $c['province_name'] ) && term_exists( $c['province_name'], 'province_tax' ) ) {
+					wp_set_object_terms( $post_id, array( $c['province_name'] ), 'province_tax' );
+				}
+				update_post_meta( $post_id, '_sa_import_slug', $slug );
+				update_post_meta( $post_id, '_sa_import_version', $version );
+				$results[ $slug ] = array( 'action' => 'created', 'post_id' => (int) $post_id, 'message' => 'پیش‌نویس (تیتر + اسلاگ) ساخته شد' );
+			}
+			return $results;
+		}
+
+		/**
+		 * Handle the counties form (admin-post.php).
+		 */
+		public function handle_counties() {
+			if ( ! current_user_can( self::CAP ) ) {
+				wp_die( 'دسترسی ندارید.' );
+			}
+			check_admin_referer( self::NONCE_COUNTIES );
+			$batch_id = isset( $_POST['batch'] ) ? sanitize_key( wp_unslash( $_POST['batch'] ) ) : '';
+			$slugs    = isset( $_POST['counties[]'] ) ? array_map( 'sanitize_title', (array) wp_unslash( $_POST['counties[]'] ) ) : array();
+			$results  = $this->import_counties( $batch_id, $slugs );
+			if ( isset( $results['_error'] ) ) {
+				$results = array( '_error' => $results['_error'] );
+			}
+			set_transient( 'sa_pi_counties_' . get_current_user_id(), array( 'batch' => $batch_id, 'results' => $results ), 300 );
+			wp_safe_redirect( add_query_arg( 'done_counties', '1', $this->page_url() ) );
+			exit;
+		}
+
+		/**
 		 * Admin page.
 		 */
 		public function render_page() {
@@ -612,12 +732,21 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 				$results = get_transient( 'sa_pi_results_' . get_current_user_id() );
 				delete_transient( 'sa_pi_results_' . get_current_user_id() );
 			}
+			$counties_results = null;
+			if ( isset( $_GET['done_counties'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				$counties_results = get_transient( 'sa_pi_counties_' . get_current_user_id() );
+				delete_transient( 'sa_pi_counties_' . get_current_user_id() );
+			}
 			$defaults = $this->default_options();
 			echo '<div class="wrap" dir="rtl"><h1>درون‌ریزی پیش‌نویس استان‌ها</h1>';
 			echo '<p>هر دسته، ده استان از فهرست ثابت <code>data/provinces.php</code> را پوشش می‌دهد. درون‌ریزی فقط <strong>پیش‌نویس</strong> می‌سازد یا پیش‌نویس موجود را به‌روز می‌کند؛ انتشار همیشه دستی و از دروازه‌ی انتشار قالب می‌گذرد. اجرای دوباره بی‌خطر است (بر اساس نامک، تکراری نمی‌سازد).</p>';
 
 			if ( $results ) {
 				$this->render_results( $results );
+			}
+
+			if ( $counties_results ) {
+				$this->render_counties_results( $counties_results );
 			}
 
 			if ( ! $this->batches ) {
@@ -669,8 +798,89 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 				submit_button( 'درون‌ریزی موارد انتخاب‌شده به‌صورت پیش‌نویس', 'primary', 'submit', false );
 				echo '</form><hr>';
 			}
-			echo '<p class="description">پس از درون‌ریزی: هر پیش‌نویس را باز کنید، دروازه‌ی انتشار قالب (لینک داخلی ≥ ۲۰، FAQ ≥ ۱۰، منابع ≥ ۵، مختصات، تصویر شاخص) را ببینید و نشان‌های «نیازمند بررسی / منبع لازم» را پیش از انتشار برطرف کنید. WP-CLI: <code>wp sa-province import --batch=b01 --slugs=tehran,east-azerbaijan</code></p>';
+
+			// Counties (city CPT) — title + slug drafts so county internal links can be activated later.
+			$has_counties = false;
+			foreach ( $this->batches as $b ) {
+				if ( ! empty( $b['counties'] ) ) {
+					$has_counties = true;
+					break;
+				}
+			}
+			if ( $has_counties ) {
+				echo '<h2>شهرستان‌ها — ایجاد صفحه‌های شهر (پیش‌نویس)</h2>';
+				echo '<p>برای لینک‌های داخلی شهرستان‌ها، پیش‌نویس «شهر» با <strong>تیتر + اسلاگ</strong> (و طبقه‌بندی استان) ساخته می‌شود؛ تکمیل محتوا و انتشار بعداً انجام می‌شود. اجرای دوباره تکراری نمی‌سازد (نامک‌های موجود رد می‌شوند).</p>';
+				foreach ( $this->batches as $batch ) {
+					if ( empty( $batch['counties'] ) ) {
+						continue;
+					}
+					echo '<h3>دسته‌ی ' . esc_html( $this->fa( $batch['id'] ) ) . ' — ' . esc_html( $batch['label'] ) . '</h3>';
+					echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
+					wp_nonce_field( self::NONCE_COUNTIES );
+					echo '<input type="hidden" name="action" value="' . esc_attr( self::NONCE_COUNTIES ) . '">';
+					echo '<input type="hidden" name="batch" value="' . esc_attr( $batch['id'] ) . '">';
+					echo '<table class="widefat striped" style="max-width:900px"><thead><tr>';
+					echo '<td class="check-column" style="padding:8px 10px"><input type="checkbox" title="انتخاب همه" onclick="var ck=this.checked;this.closest(\'table\').querySelectorAll(\'input[name=&quot;counties[]&quot;]\').forEach(function(c){c.checked=ck;});"></td>';
+					echo '<th>#</th><th>شهرستان</th><th>اسلاگ</th><th>استان</th><th>وضعیت در سایت</th></tr></thead><tbody>';
+					$i = 0;
+					foreach ( $batch['counties'] as $c ) {
+						$i++;
+						$slug     = sanitize_title( $c['slug'] );
+						$existing = post_type_exists( self::CITY_CPT ) ? $this->find_existing( $slug, self::CITY_CPT ) : null;
+						echo '<tr>';
+						echo '<th class="check-column" style="padding:8px 10px"><input type="checkbox" name="counties[]" value="' . esc_attr( $slug ) . '"' . ( $existing ? '' : ' checked' ) . '></th>';
+						echo '<td>' . esc_html( $this->fa( $i ) ) . '</td>';
+						echo '<td><strong>' . esc_html( $c['title'] ) . '</strong></td>';
+						echo '<td><code>' . esc_html( $slug ) . '</code></td>';
+						echo '<td>' . esc_html( isset( $c['province_name'] ) ? $c['province_name'] : '' ) . '</td>';
+						if ( $existing ) {
+							$status_obj = get_post_status_object( $existing->post_status );
+							echo '<td><a href="' . esc_url( get_edit_post_link( $existing->ID ) ) . '">#' . esc_html( $this->fa( $existing->ID ) ) . '</a> — ' . esc_html( $status_obj ? $status_obj->label : $existing->post_status ) . '</td>';
+						} else {
+							echo '<td>— هنوز ساخته نشده</td>';
+						}
+						echo '</tr>';
+					}
+					echo '</tbody></table>';
+					submit_button( 'ایجاد پیش‌نویس شهرستان‌های انتخاب‌شده (تیتر + اسلاگ)', 'primary', 'submit', false );
+					echo '</form><hr>';
+				}
+			}
+
+			echo '<p class="description">پس از درون‌ریزی: هر پیش‌نویس را باز کنید، دروازه‌ی انتشار قالب (لینک داخلی ≥ ۲۰، FAQ ≥ ۱۰، منابع ≥ ۵، مختصات، تصویر شاخص) را ببینید و نشان‌های «نیازمند بررسی / منبع لازم» را پیش از انتشار برطرف کنید. WP-CLI: <code>wp sa-province import --batch=b01 --slugs=tehran,east-azerbaijan</code> · شهرستان‌ها: <code>wp sa-province counties --batch=b01</code></p>';
 			echo '</div>';
+		}
+
+		/**
+		 * Render the counties-creation results.
+		 *
+		 * @param array $data { batch, results }.
+		 */
+		private function render_counties_results( $data ) {
+			$results = isset( $data['results'] ) ? $data['results'] : array();
+			if ( isset( $results['_error'] ) ) {
+				echo '<div class="notice notice-error"><p>' . esc_html( $results['_error'] ) . '</p></div>';
+				return;
+			}
+			echo '<div class="notice notice-success"><p><strong>نتیجه‌ی ایجاد شهرستان‌ها</strong> (دسته‌ی ' . esc_html( $this->fa( isset( $data['batch'] ) ? $data['batch'] : '' ) ) . ')</p>';
+			echo '<table class="widefat" style="max-width:900px;margin-bottom:10px"><thead><tr><th>اسلاگ</th><th>نتیجه</th><th>نوشته</th></tr></thead><tbody>';
+			foreach ( $results as $slug => $r ) {
+				$action = isset( $r['action'] ) ? $r['action'] : '';
+				$labels = array(
+					'created' => '✅ ساخته شد',
+					'skipped' => '⏭ رد شد',
+					'error'   => '❌ خطا',
+				);
+				echo '<tr><td><code>' . esc_html( $slug ) . '</code></td>';
+				echo '<td>' . esc_html( ( isset( $labels[ $action ] ) ? $labels[ $action ] : $action ) . ( ! empty( $r['message'] ) ? ' — ' . $r['message'] : '' ) ) . '</td>';
+				if ( ! empty( $r['post_id'] ) ) {
+					echo '<td><a href="' . esc_url( get_edit_post_link( (int) $r['post_id'] ) ) . '">#' . esc_html( $this->fa( (int) $r['post_id'] ) ) . ' ویرایش</a></td>';
+				} else {
+					echo '<td>—</td>';
+				}
+				echo '</tr>';
+			}
+			echo '</tbody></table></div>';
 		}
 
 		/**
@@ -742,8 +952,23 @@ if ( ! class_exists( 'SA_Province_Importer' ) ) :
 				}
 				return;
 			}
+			if ( 'counties' === $sub ) {
+				$batch_id = isset( $assoc_args['batch'] ) ? sanitize_key( $assoc_args['batch'] ) : '';
+				if ( ! $batch_id && 1 === count( $this->batches ) ) {
+					$batch_id = key( $this->batches );
+				}
+				$slugs = isset( $assoc_args['slugs'] ) ? array_filter( array_map( 'sanitize_title', explode( ',', $assoc_args['slugs'] ) ) ) : array();
+				$results = $this->import_counties( $batch_id, $slugs );
+				if ( isset( $results['_error'] ) ) {
+					WP_CLI::error( $results['_error'] );
+				}
+				foreach ( $results as $slug => $r ) {
+					WP_CLI::line( sprintf( '%-24s %-8s %s %s', $slug, $r['action'], ! empty( $r['post_id'] ) ? '#' . $r['post_id'] : '', isset( $r['message'] ) ? $r['message'] : '' ) );
+				}
+				return;
+			}
 			if ( 'import' !== $sub ) {
-				WP_CLI::error( 'Unknown subcommand. Use: list | import' );
+				WP_CLI::error( 'Unknown subcommand. Use: list | import | counties' );
 			}
 			$batch_id = isset( $assoc_args['batch'] ) ? sanitize_key( $assoc_args['batch'] ) : '';
 			if ( ! $batch_id && 1 === count( $this->batches ) ) {
