@@ -547,6 +547,138 @@
       "slug": "mamulan",
       "province": "lorestan",
       "province_name": "لرستان"
+    },
+    {
+      "title": "ساری",
+      "slug": "sari",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "بابل",
+      "slug": "babol",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "آمل",
+      "slug": "amol",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "قائم‌شهر",
+      "slug": "qaemshahr",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "بهشهر",
+      "slug": "behshahr",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "تنکابن",
+      "slug": "tonekabon",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "نوشهر",
+      "slug": "nowshahr",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "بابلسر",
+      "slug": "babolsar",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "نور",
+      "slug": "nur",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "نکا",
+      "slug": "neka",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "چالوس",
+      "slug": "chalus",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "محمودآباد",
+      "slug": "mahmudabad",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "جویبار",
+      "slug": "joybar",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "رامسر",
+      "slug": "ramsar",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "فریدون‌کنار",
+      "slug": "freydunkenar",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "میان‌دورود",
+      "slug": "miandorud",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "عباس‌آباد",
+      "slug": "abbasabad",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "سوادکوه",
+      "slug": "savadkuh",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "گلوگاه",
+      "slug": "gologah",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "سوادکوه شمالی",
+      "slug": "savadkuh-shomali",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "کلاردشت",
+      "slug": "kelardasht",
+      "province": "mazandaran",
+      "province_name": "مازندران"
+    },
+    {
+      "title": "سیمرغ",
+      "slug": "simorgh",
+      "province": "mazandaran",
+      "province_name": "مازندران"
     }
   ]
 }
