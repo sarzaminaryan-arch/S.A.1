@@ -751,6 +751,84 @@
       "slug": "ashtian",
       "province": "markazi",
       "province_name": "مرکزی"
+    },
+    {
+      "title": "بندرعباس",
+      "slug": "bandar-abbas",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "بندر لنگه",
+      "slug": "bandar-lengeh",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "میناب",
+      "slug": "minab",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "قشم",
+      "slug": "qeshm",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "ابوموسی",
+      "slug": "abumusa",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "جاسک",
+      "slug": "jask",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "رودان",
+      "slug": "rudan",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "حاجی‌آباد",
+      "slug": "hajiabad",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "بستک",
+      "slug": "bastak",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "پارسیان",
+      "slug": "parsian",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "خمیر",
+      "slug": "khamir",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "سیریک",
+      "slug": "sirik",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
+    },
+    {
+      "title": "بشاگرد",
+      "slug": "bashagard",
+      "province": "hormozgan",
+      "province_name": "هرمزگان"
     }
   ]
 }
