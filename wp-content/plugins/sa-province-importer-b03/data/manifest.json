@@ -2,7 +2,7 @@
  "batch": 3,
  "batch_id": "b03",
  "label": "دسته‌ی 3 — استان‌های 21 تا 31 فهرست ثابت",
- "data_version": "1.0.10",
+ "data_version": "1.0.11",
  "package_format": "1.0",
  "built": "2026-09-28",
  "provinces": [
@@ -13,15 +13,15 @@
    "term_name": "کرمان",
    "status": "article",
    "has_image": true,
-   "word_count": 6910,
+   "word_count": 6993,
    "faq": 12,
-   "sources_lines": 71,
+   "sources_lines": 69,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
-    "coming_soon": 2
+    "coming_soon": 0
    },
    "file": "kerman.json"
   },
@@ -32,15 +32,15 @@
    "term_name": "کرمانشاه",
    "status": "article",
    "has_image": true,
-   "word_count": 8498,
+   "word_count": 8461,
    "faq": 12,
    "sources_lines": 90,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 12,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
-    "coming_soon": 142
+    "coming_soon": 0
    },
    "file": "kermanshah.json"
   },
@@ -51,15 +51,15 @@
    "term_name": "کهگیلویه و بویراحمد",
    "status": "article",
    "has_image": true,
-   "word_count": 7490,
+   "word_count": 7504,
    "faq": 12,
-   "sources_lines": 71,
+   "sources_lines": 70,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
-    "coming_soon": 73
+    "coming_soon": 0
    },
    "file": "kohgiluyeh-boyer-ahmad.json"
   },
@@ -70,15 +70,15 @@
    "term_name": "گلستان",
    "status": "article",
    "has_image": true,
-   "word_count": 7152,
+   "word_count": 7115,
    "faq": 12,
-   "sources_lines": 71,
+   "sources_lines": 70,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
-    "coming_soon": 121
+    "coming_soon": 0
    },
    "file": "golestan.json"
   },
@@ -89,15 +89,15 @@
    "term_name": "گیلان",
    "status": "article",
    "has_image": true,
-   "word_count": 7747,
+   "word_count": 7696,
    "faq": 12,
-   "sources_lines": 71,
+   "sources_lines": 70,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
-    "coming_soon": 134
+    "coming_soon": 0
    },
    "file": "gilan.json"
   },
@@ -108,12 +108,12 @@
    "term_name": "لرستان",
    "status": "article",
    "has_image": true,
-   "word_count": 6488,
+   "word_count": 6572,
    "faq": 12,
-   "sources_lines": 71,
+   "sources_lines": 69,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
@@ -127,12 +127,12 @@
    "term_name": "مازندران",
    "status": "article",
    "has_image": true,
-   "word_count": 6362,
+   "word_count": 6446,
    "faq": 12,
-   "sources_lines": 71,
+   "sources_lines": 69,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
@@ -146,12 +146,12 @@
    "term_name": "مرکزی",
    "status": "article",
    "has_image": true,
-   "word_count": 6055,
+   "word_count": 6139,
    "faq": 12,
-   "sources_lines": 73,
+   "sources_lines": 71,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
@@ -165,12 +165,12 @@
    "term_name": "هرمزگان",
    "status": "article",
    "has_image": true,
-   "word_count": 6190,
+   "word_count": 6276,
    "faq": 12,
-   "sources_lines": 70,
+   "sources_lines": 69,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 1,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
@@ -184,9 +184,9 @@
    "term_name": "همدان",
    "status": "article",
    "has_image": true,
-   "word_count": 5868,
+   "word_count": 5948,
    "faq": 12,
-   "sources_lines": 52,
+   "sources_lines": 50,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -203,12 +203,12 @@
    "term_name": "یزد",
    "status": "article",
    "has_image": true,
-   "word_count": 5487,
+   "word_count": 5559,
    "faq": 12,
-   "sources_lines": 44,
+   "sources_lines": 43,
    "publish_status": "DRAFT ONLY",
    "markers": {
-    "review": 4,
+    "review": 0,
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
