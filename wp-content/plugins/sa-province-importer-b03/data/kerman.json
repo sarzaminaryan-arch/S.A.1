@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-28",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "kerman",
+ "status": "stub",
+ "name_fa": "استان کرمان",
+ "name_en": "Kerman Province",
+ "term_name": "کرمان",
+ "center_city": "کرمان",
+ "post": {
+  "title": "استان کرمان",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/kerman.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 119276,
+  "alt": "تصویرسازی استان کرمان با کلوت‌های بیابان لوت، مسجدی با کاشی‌کاری فیروزه‌ای و پسته‌های تازه",
+  "title": "استان کرمان — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان کرمان در یک نگاه: کلوت‌های لوت، مسجد کاشی‌کاری، پسته — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان کرمان» در سرزمین آریان؛ تصویرسازی گرافیکی با کلوت‌های لوت، مسجد کاشی‌کاری، پسته. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "fc1351037f60b846be5d3bd0c1097a8f6e29a1d6"
+ }
+}

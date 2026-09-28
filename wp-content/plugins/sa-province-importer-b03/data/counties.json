@@ -1,0 +1,90 @@
+{
+  "format": "1.0",
+  "built": "2026-09-28",
+  "counties": [
+    {
+      "title": "کرمانشاه",
+      "slug": "kermanshah-city",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "اسلام‌آباد غرب",
+      "slug": "eslamabad-e-gharb",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "پاوه",
+      "slug": "paveh",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "ثلاث باباجانی",
+      "slug": "salas-e-babajani",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "جوانرود",
+      "slug": "javanrud",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "دالاهو",
+      "slug": "dalahu",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "روانسر",
+      "slug": "ravansar",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "سرپل ذهاب",
+      "slug": "sarpol-e-zahab",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "سنقر",
+      "slug": "sonqor",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "صحنه",
+      "slug": "sahneh",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "قصر شیرین",
+      "slug": "qasr-e-shirin",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "کنگاور",
+      "slug": "kangavar",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "گیلانغرب",
+      "slug": "gilan-e-gharb",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "هرسین",
+      "slug": "harsin",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    }
+  ]
+}

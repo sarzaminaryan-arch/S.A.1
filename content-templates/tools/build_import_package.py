@@ -328,6 +328,8 @@ def main():
     provinces = load_provinces()
     start = (args.batch - 1) * BATCH_SIZE
     batch = provinces[start:start + BATCH_SIZE]
+    if args.batch == 3:  # last batch takes the remainder (21–31)
+        batch = provinces[start:]
     if not batch:
         sys.exit('empty batch')
     out_dir = args.out or os.path.join(ROOT, 'wp-content', 'plugins', 'sa-province-importer-b%02d' % args.batch, 'data')

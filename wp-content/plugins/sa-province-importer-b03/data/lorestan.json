@@ -1,0 +1,44 @@
+{
+ "package_format": "1.0",
+ "built": "2026-09-28",
+ "source_file": null,
+ "source_sha1": null,
+ "slug": "lorestan",
+ "status": "stub",
+ "name_fa": "استان لرستان",
+ "name_en": "Lorestan Province",
+ "term_name": "لرستان",
+ "center_city": "خرم‌آباد",
+ "post": {
+  "title": "استان لرستان",
+  "excerpt": "",
+  "content_html": "",
+  "word_count": 0
+ },
+ "meta": {},
+ "seo": {},
+ "secondary_keywords": [],
+ "travel_season": [],
+ "google_map_url": "",
+ "faq": [],
+ "sources": "",
+ "publish_status": "DRAFT ONLY",
+ "markers": {
+  "review": 0,
+  "source_needed": 0,
+  "url_needed": 0,
+  "coming_soon": 0
+ },
+ "image": {
+  "file": "images/lorestan.webp",
+  "mime": "image/webp",
+  "width": 1600,
+  "height": 900,
+  "bytes": 237628,
+  "alt": "تصویرسازی استان لرستان با آبشار، قلعه‌ی فلک‌الافلاک، سیاه‌چادر عشایری، تاکستان و گلیم‌های لری در زاگرس",
+  "title": "استان لرستان — تصویر شاخص راهنمای سفر سرزمین آریان",
+  "caption": "نمادهای استان لرستان در یک نگاه: آبشار، قلعه‌ی فلک‌الافلاک، سیاه‌چادر، تاکستان، گلیم لری — تصویرسازی: سرزمین آریان",
+  "description": "تصویر شاخص مقاله‌ی «استان لرستان» در سرزمین آریان؛ تصویرسازی گرافیکی با آبشار، قلعه‌ی فلک‌الافلاک، سیاه‌چادر، تاکستان، گلیم لری. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+  "sha1": "e395a04615d042e4f3843a94f5ee9ede66ff08c0"
+ }
+}

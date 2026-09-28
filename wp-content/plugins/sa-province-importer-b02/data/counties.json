@@ -1,0 +1,774 @@
+{
+  "format": "1.0",
+  "built": "2026-09-28",
+  "counties": [
+    {
+      "title": "مشهد",
+      "slug": "mashhad",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "نیشابور",
+      "slug": "neyshabur",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "سبزوار",
+      "slug": "sabzevar",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "تربت حیدریه",
+      "slug": "torbat-heydarieh",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "تربت جام",
+      "slug": "torbat-jam",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "قوچان",
+      "slug": "quchan",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "کاشمر",
+      "slug": "kashmar",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "گناباد",
+      "slug": "gonabad",
+      "province": "razavi-khorasan",
+      "province_name": "خراسان رضوی"
+    },
+    {
+      "title": "بجنورد",
+      "slug": "bojnord",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "اسفراین",
+      "slug": "esfarayen",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "شیروان",
+      "slug": "shirvan",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "مانه (آشخانه)",
+      "slug": "maneh",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "جاجرم",
+      "slug": "jajarm",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "سملقان",
+      "slug": "samalqan",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "راز و جرگلان",
+      "slug": "raz-jargalan",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "فاروج",
+      "slug": "faruj",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "گرمه",
+      "slug": "garmeh",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "بام و صفی‌آباد",
+      "slug": "bam-safiabad",
+      "province": "north-khorasan",
+      "province_name": "خراسان شمالی"
+    },
+    {
+      "title": "زنجان",
+      "slug": "zanjan-city",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "خدابنده",
+      "slug": "khodabandeh",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "ابهر",
+      "slug": "abhar",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "خرمدره",
+      "slug": "kharadere",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "طارم",
+      "slug": "tarom",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "ماهنشان",
+      "slug": "mahneshan",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "ایجرود",
+      "slug": "ejrud",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "سلطانیه",
+      "slug": "soltaniyeh",
+      "province": "zanjan",
+      "province_name": "زنجان"
+    },
+    {
+      "title": "آبادان",
+      "slug": "abadan",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "آغاجاری",
+      "slug": "aghajari",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "اهواز",
+      "slug": "ahvaz-city",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "امیدیه",
+      "slug": "omidiyeh",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "اندیکا",
+      "slug": "andika",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "اندیمشک",
+      "slug": "andimeshk",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "ایذه",
+      "slug": "izeh",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "باغ‌ملک",
+      "slug": "bagh-e-malek",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "باوی",
+      "slug": "bavi",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "بندر ماهشهر",
+      "slug": "mahshahr",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "بهبهان",
+      "slug": "behbahan",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "حمیدیه",
+      "slug": "hamidiyeh",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "خرمشهر",
+      "slug": "khorramshahr",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "دزفول",
+      "slug": "dezful",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "دشت آزادگان",
+      "slug": "dasht-azadegan",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "رامشیر",
+      "slug": "ramshir",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "رامهرمز",
+      "slug": "ramhormoz",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "شادگان",
+      "slug": "shadegan",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "شوش",
+      "slug": "shush",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "شوشتر",
+      "slug": "shushtar",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "کارون",
+      "slug": "karun",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "گتوند",
+      "slug": "gotvand",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "لالی",
+      "slug": "lali",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "مسجدسلیمان",
+      "slug": "masjed-soleyman",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "هفتکل",
+      "slug": "haftkel",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "هندیجان",
+      "slug": "hendijan",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "هویزه",
+      "slug": "hoveyzeh",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "سمنان",
+      "slug": "semnan-city",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "شاهرود",
+      "slug": "shahrud",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "دامغان",
+      "slug": "damghan",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "گرمسار",
+      "slug": "garmsar",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "مهدی‌شهر",
+      "slug": "mehdishahr",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "سرخه",
+      "slug": "sorkheh",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "میامی",
+      "slug": "meyami",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "آرادان",
+      "slug": "aradan",
+      "province": "semnan",
+      "province_name": "سمنان"
+    },
+    {
+      "title": "زاهدان",
+      "slug": "zahedan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "چابهار",
+      "slug": "chabahar",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "ایرانشهر",
+      "slug": "iranshahr",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "سراوان",
+      "slug": "saravan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "سرباز",
+      "slug": "sarbaz",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "خاش",
+      "slug": "khash",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "زابل",
+      "slug": "zabol",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "نیک‌شهر",
+      "slug": "nik-shahr",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "کنارک",
+      "slug": "konarak",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "سیب و سوران",
+      "slug": "sib-va-suran",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "زهک",
+      "slug": "zehak",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "مهرستان",
+      "slug": "mehrestan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "دلگان",
+      "slug": "dalgan",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "هیرمند",
+      "slug": "hirmand",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "قصرقند",
+      "slug": "qasr-e-qand",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "فنوج",
+      "slug": "fanuj",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "نیمروز",
+      "slug": "nimruz",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "میرجاوه",
+      "slug": "mirjaveh",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "هامون",
+      "slug": "hamun",
+      "province": "sistan-baluchestan",
+      "province_name": "سیستان و بلوچستان"
+    },
+    {
+      "title": "شیراز",
+      "slug": "shiraz",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "مرودشت",
+      "slug": "marvdasht",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "کازرون",
+      "slug": "kazerun",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "جهرم",
+      "slug": "jahrom",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "لارستان",
+      "slug": "larestan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "فسا",
+      "slug": "fasa",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "داراب",
+      "slug": "darab",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "فیروزآباد",
+      "slug": "firuzabad",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "ممسنی",
+      "slug": "mamasani",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "نی‌ریز",
+      "slug": "neyriz",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "آباده",
+      "slug": "abadeh",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "اقلید",
+      "slug": "eqlid",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "لامرد",
+      "slug": "lamerd",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "سپیدان",
+      "slug": "sepidan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "کوار",
+      "slug": "kavar",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "زرین‌دشت",
+      "slug": "zarrin-dasht",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "قیر و کارزین",
+      "slug": "qir-va-karzin",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "استهبان",
+      "slug": "estahban",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "مهر",
+      "slug": "mehr",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "خرامه",
+      "slug": "kharameh",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "گراش",
+      "slug": "gerash",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "خرم‌بید",
+      "slug": "khorrambid",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "بوانات",
+      "slug": "bavanat",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "فراشبند",
+      "slug": "farashband",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "رستم",
+      "slug": "rostam",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "ارسنجان",
+      "slug": "arsanjan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "خنج",
+      "slug": "khonj",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "سروستان",
+      "slug": "sarvestan",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "پاسارگاد",
+      "slug": "pasargad",
+      "province": "fars",
+      "province_name": "فارس"
+    },
+    {
+      "title": "قزوین",
+      "slug": "qazvin-city",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "تاکستان",
+      "slug": "takestan",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "البرز",
+      "slug": "alborz-qazvin",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "بوئین‌زهرا",
+      "slug": "buin-zahra",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "آبیک",
+      "slug": "abyek",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "آوج",
+      "slug": "avaj",
+      "province": "qazvin",
+      "province_name": "قزوین"
+    },
+    {
+      "title": "قم",
+      "slug": "qom-city",
+      "province": "qom",
+      "province_name": "قم"
+    },
+    {
+      "title": "جعفرآباد",
+      "slug": "jafarabady",
+      "province": "qom",
+      "province_name": "قم"
+    },
+    {
+      "title": "کهک",
+      "slug": "kahak",
+      "province": "qom",
+      "province_name": "قم"
+    },
+    {
+      "title": "سنندج",
+      "slug": "sanandaj",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "بانه",
+      "slug": "baneh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "بیجار",
+      "slug": "bijar",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "دهگلان",
+      "slug": "dehgolan",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "دیواندره",
+      "slug": "divandarreh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "سروآباد",
+      "slug": "sarvabad",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "سقز",
+      "slug": "saqqez",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "قروه",
+      "slug": "qorveh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "کامیاران",
+      "slug": "kamyaran",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "مریوان",
+      "slug": "marivan",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    }
+  ]
+}
