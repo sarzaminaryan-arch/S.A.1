@@ -139,6 +139,90 @@
       "slug": "margoun",
       "province": "kohgiluyeh-boyer-ahmad",
       "province_name": "کهگیلویه و بویراحمد"
+    },
+    {
+      "title": "گرگان",
+      "slug": "gorgan",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "گنبد کاووس",
+      "slug": "gonbad-e-qabus",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "علی‌آباد کتول",
+      "slug": "aliabad-e-katul",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "آق‌قلا",
+      "slug": "aqqala",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "کلاله",
+      "slug": "kalaleh",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "آزادشهر",
+      "slug": "azadshahr",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "رامیان",
+      "slug": "ramian",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "بندر ترکمن",
+      "slug": "bandar-e-torkaman",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "مینودشت",
+      "slug": "minudasht",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "کردکوی",
+      "slug": "kordkuy",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "گمیشان",
+      "slug": "gomishan",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "گالیکش",
+      "slug": "galikesh",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "مراوه‌تپه",
+      "slug": "maraveh-tapeh",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "بندر گز",
+      "slug": "bandar-e-gaz",
+      "province": "golestan",
+      "province_name": "گلستان"
     }
   ]
 }
