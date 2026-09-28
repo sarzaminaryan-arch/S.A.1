@@ -1,10 +1,68 @@
 {
-  "format": "1.0",
-  "built": "2026-09-28",
   "counties": [
     {
+      "title": "سنندج",
+      "slug": "sanandaj",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "بانه",
+      "slug": "baneh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "بیجار",
+      "slug": "bijar",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "دهگلان",
+      "slug": "dehgolan",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "دیواندره",
+      "slug": "divandarreh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "سروآباد",
+      "slug": "sarvabad",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "سقز",
+      "slug": "saqqez",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "قروه",
+      "slug": "qorveh",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "کامیاران",
+      "slug": "kamyaran",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
+      "title": "مریوان",
+      "slug": "marivan",
+      "province": "kurdistan",
+      "province_name": "کردستان"
+    },
+    {
       "title": "کرمانشاه",
-      "slug": "kermanshah-city",
+      "slug": "kermanshah",
       "province": "kermanshah",
       "province_name": "کرمانشاه"
     },
@@ -21,20 +79,8 @@
       "province_name": "کرمانشاه"
     },
     {
-      "title": "ثلاث باباجانی",
-      "slug": "salas-e-babajani",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
       "title": "جوانرود",
       "slug": "javanrud",
-      "province": "kermanshah",
-      "province_name": "کرمانشاه"
-    },
-    {
-      "title": "دالاهو",
-      "slug": "dalahu",
       "province": "kermanshah",
       "province_name": "کرمانشاه"
     },
@@ -76,13 +122,25 @@
     },
     {
       "title": "گیلانغرب",
-      "slug": "gilan-e-gharb",
+      "slug": "gilangharb",
       "province": "kermanshah",
       "province_name": "کرمانشاه"
     },
     {
       "title": "هرسین",
       "slug": "harsin",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "ثلاث باباجانی",
+      "slug": "salasa-babajani",
+      "province": "kermanshah",
+      "province_name": "کرمانشاه"
+    },
+    {
+      "title": "دالاهو",
+      "slug": "dalahu",
       "province": "kermanshah",
       "province_name": "کرمانشاه"
     },
@@ -123,20 +181,20 @@
       "province_name": "کهگیلویه و بویراحمد"
     },
     {
-      "title": "باشت",
-      "slug": "basht",
-      "province": "kohgiluyeh-boyer-ahmad",
-      "province_name": "کهگیلویه و بویراحمد"
-    },
-    {
       "title": "لنده",
       "slug": "landeh",
       "province": "kohgiluyeh-boyer-ahmad",
       "province_name": "کهگیلویه و بویراحمد"
     },
     {
+      "title": "باشت",
+      "slug": "basht",
+      "province": "kohgiluyeh-boyer-ahmad",
+      "province_name": "کهگیلویه و بویراحمد"
+    },
+    {
       "title": "مارگون",
-      "slug": "margoun",
+      "slug": "margoon",
       "province": "kohgiluyeh-boyer-ahmad",
       "province_name": "کهگیلویه و بویراحمد"
     },
@@ -148,7 +206,7 @@
     },
     {
       "title": "گنبد کاووس",
-      "slug": "gonbad-e-qabus",
+      "slug": "gonbad-e-kavus",
       "province": "golestan",
       "province_name": "گلستان"
     },
@@ -159,14 +217,14 @@
       "province_name": "گلستان"
     },
     {
-      "title": "آق‌قلا",
-      "slug": "aqqala",
+      "title": "بندر ترکمن",
+      "slug": "bandar-e-torkaman",
       "province": "golestan",
       "province_name": "گلستان"
     },
     {
-      "title": "کلاله",
-      "slug": "kalaleh",
+      "title": "کردکوی",
+      "slug": "kordkuy",
       "province": "golestan",
       "province_name": "گلستان"
     },
@@ -183,26 +241,14 @@
       "province_name": "گلستان"
     },
     {
-      "title": "بندر ترکمن",
-      "slug": "bandar-e-torkaman",
+      "title": "کلاله",
+      "slug": "kalaleh",
       "province": "golestan",
       "province_name": "گلستان"
     },
     {
       "title": "مینودشت",
       "slug": "minudasht",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "کردکوی",
-      "slug": "kordkuy",
-      "province": "golestan",
-      "province_name": "گلستان"
-    },
-    {
-      "title": "گمیشان",
-      "slug": "gomishan",
       "province": "golestan",
       "province_name": "گلستان"
     },
@@ -214,7 +260,19 @@
     },
     {
       "title": "مراوه‌تپه",
-      "slug": "maraveh-tapeh",
+      "slug": "maraveh-tappeh",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "آق‌قلا",
+      "slug": "aq-qala",
+      "province": "golestan",
+      "province_name": "گلستان"
+    },
+    {
+      "title": "گمیشان",
+      "slug": "gomishan",
       "province": "golestan",
       "province_name": "گلستان"
     },
@@ -325,156 +383,8 @@
       "slug": "amlash",
       "province": "gilan",
       "province_name": "گیلان"
-    },
-    {
-      "title": "کرمان",
-      "slug": "kerman",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "سیرجان",
-      "slug": "sirjan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "رفسنجان",
-      "slug": "rafsanjan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "جیرفت",
-      "slug": "jiroft",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "بم",
-      "slug": "bam",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "زرند",
-      "slug": "zarand",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "شهربابک",
-      "slug": "shahr-e-babak",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "کهنوج",
-      "slug": "kahnoj",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "بافت",
-      "slug": "baft",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "عنبرآباد",
-      "slug": "anbarabad",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "بردسیر",
-      "slug": "bardsir",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "قلعه‌گنج",
-      "slug": "qaleh-ganj",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "فهرج",
-      "slug": "fahraj",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "منوجان",
-      "slug": "manujan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "ریگان",
-      "slug": "rigan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "رودبار جنوب",
-      "slug": "rudbar-e-jonub",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "نرماشیر",
-      "slug": "narmashir",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "راور",
-      "slug": "ravar",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "ارزوئیه",
-      "slug": "arzuiyeh",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "انار",
-      "slug": "anar",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "رابر",
-      "slug": "rabor",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "فاریاب",
-      "slug": "faryab",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "کوهبنان",
-      "slug": "kuhbanan",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "جازموریان",
-      "slug": "jazmourian",
-      "province": "kerman",
-      "province_name": "کرمان"
-    },
-    {
-      "title": "گنبکی",
-      "slug": "gonbaki",
-      "province": "kerman",
-      "province_name": "کرمان"
     }
-  ]
+  ],
+  "built": "2026-09-28",
+  "total": 64
 }
