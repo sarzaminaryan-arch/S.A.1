@@ -829,6 +829,60 @@
       "slug": "bashagard",
       "province": "hormozgan",
       "province_name": "هرمزگان"
+    },
+    {
+      "title": "همدان",
+      "slug": "hamadan-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "ملایر",
+      "slug": "malayer-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "نهاوند",
+      "slug": "nahavand-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "تویسرکان",
+      "slug": "tuyserkan-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "کبودرآهنگ",
+      "slug": "kabudarahang-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "اسدآباد",
+      "slug": "asadabad-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "بهار",
+      "slug": "bahar-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "رزن",
+      "slug": "razan-city",
+      "province": "hamadan",
+      "province_name": "همدان"
+    },
+    {
+      "title": "فامنین",
+      "slug": "famenin-city",
+      "province": "hamadan",
+      "province_name": "همدان"
     }
   ]
 }
