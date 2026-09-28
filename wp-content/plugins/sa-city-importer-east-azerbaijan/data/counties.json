@@ -1,0 +1,132 @@
+{
+ "format": "1.0",
+ "built": "2026-09-28",
+ "counties": [
+  {
+   "title": "تبریز",
+   "slug": "tabriz",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "مراغه",
+   "slug": "maragheh",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "مرند",
+   "slug": "marand",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "اسکو",
+   "slug": "osku",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "کلیبر",
+   "slug": "kaleybar",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "جلفا",
+   "slug": "jolfa",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "آذرشهر",
+   "slug": "azarshahr",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "اهر",
+   "slug": "ahar",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "بستان‌آباد",
+   "slug": "bostanabad",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "بناب",
+   "slug": "bonab",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "چاراویماق",
+   "slug": "charoymaq",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "خداآفرین",
+   "slug": "khoda-afarin",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "سراب",
+   "slug": "sarab",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "شبستر",
+   "slug": "shabestar",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "عجب‌شیر",
+   "slug": "ajabshir",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "ملکان",
+   "slug": "malekan",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "میانه",
+   "slug": "mianeh",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "ورزقان",
+   "slug": "varzaqan",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "هریس",
+   "slug": "heris",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "هشترود",
+   "slug": "hashtrud",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  },
+  {
+   "title": "هوراند",
+   "slug": "hurand",
+   "province": "east-azerbaijan",
+   "province_name": "آذربایجان شرقی"
+  }
+ ]
+}
