@@ -1,0 +1,337 @@
+{
+ "batch": "west-azerbaijan",
+ "batch_id": "west-azerbaijan",
+ "label": "درون‌ریز شهرستان‌های استان آذربایجان غربی",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-09-28",
+ "province": {
+  "slug": "west-azerbaijan",
+  "name_fa": "استان آذربایجان غربی",
+  "term_name": "آذربایجان غربی"
+ },
+ "file": "west-azerbaijan.json",
+ "counties_count": 20,
+ "counties": [
+  {
+   "slug": "urmia",
+   "title": "شهرستان ارومیه",
+   "status": "article",
+   "word_count": 1301,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "khoy",
+   "title": "شهرستان خوی",
+   "status": "article",
+   "word_count": 1255,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "mahabad",
+   "title": "شهرستان مهاباد",
+   "status": "article",
+   "word_count": 1171,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "takab",
+   "title": "شهرستان تکاب",
+   "status": "article",
+   "word_count": 1143,
+   "faq": 10,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "chaldoran",
+   "title": "شهرستان چالدران",
+   "status": "article",
+   "word_count": 1297,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "maku",
+   "title": "شهرستان ماکو",
+   "status": "article",
+   "word_count": 1179,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "oshnavieh",
+   "title": "شهرستان اشنویه",
+   "status": "article",
+   "word_count": 1046,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "baruq",
+   "title": "شهرستان باروق",
+   "status": "article",
+   "word_count": 1152,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": false
+  },
+  {
+   "slug": "bukan",
+   "title": "شهرستان بوکان",
+   "status": "article",
+   "word_count": 1220,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "poldasht",
+   "title": "شهرستان پلدشت",
+   "status": "article",
+   "word_count": 1174,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "piranshahr",
+   "title": "شهرستان پیرانشهر",
+   "status": "article",
+   "word_count": 1083,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "chaypareh",
+   "title": "شهرستان چایپاره",
+   "status": "article",
+   "word_count": 1177,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "chaharborj",
+   "title": "شهرستان چهاربرج",
+   "status": "article",
+   "word_count": 1054,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": false
+  },
+  {
+   "slug": "sardasht",
+   "title": "شهرستان سردشت",
+   "status": "article",
+   "word_count": 1180,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "salmas",
+   "title": "شهرستان سلماس",
+   "status": "article",
+   "word_count": 1178,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "shahin-dezh",
+   "title": "شهرستان شاهین‌دژ",
+   "status": "article",
+   "word_count": 1227,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "showt",
+   "title": "شهرستان شوط",
+   "status": "article",
+   "word_count": 1029,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "miandoab",
+   "title": "شهرستان میاندوآب",
+   "status": "article",
+   "word_count": 1100,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "naqadeh",
+   "title": "شهرستان نقده",
+   "status": "article",
+   "word_count": 1191,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "mirabad",
+   "title": "شهرستان میرآباد",
+   "status": "article",
+   "word_count": 1180,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": false
+  }
+ ]
+}

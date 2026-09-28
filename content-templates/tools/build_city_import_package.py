@@ -23,6 +23,7 @@ import sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 CITY_DIR = os.path.join(ROOT, 'content', 'cities')
 B01_COUNTIES = os.path.join(ROOT, 'wp-content', 'plugins', 'sa-province-importer-b01', 'data', 'counties.json')
+FEATURED_DIR = os.path.join(ROOT, 'assets', 'featured', 'counties')
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_import_package import (  # noqa: E402
@@ -119,7 +120,7 @@ def parse_schema_data(text):
     return out
 
 
-def build_county_package(md_path, province_row, built):
+def build_county_package(md_path, province_row, built, featured_path=None):
     text = open(md_path, encoding='utf-8').read()
     b1 = parse_city_block1(block(text, 1))
     body_md = block(text, 3).strip()
@@ -183,8 +184,17 @@ def build_county_package(md_path, province_row, built):
         'sources': sources,
         'publish_status': status9,
         'markers': count_markers(body_md + ' ' + ' '.join(x['a'] for x in faq)),
-        'image': None,
     }
+    if featured_path and os.path.exists(featured_path):
+        pkg['image'] = {
+            'file': 'assets/counties/%s.webp' % pkg['slug'],
+            'source': os.path.relpath(featured_path, ROOT).replace(os.sep, '/'),
+            'mime': 'image/webp',
+            'alt': pkg['seo']['sa_focus_keyword'] or pkg['title'],
+            'sha1': hashlib.sha1(open(featured_path, 'rb').read()).hexdigest(),
+        }
+    else:
+        pkg['image'] = None
     return pkg
 
 
@@ -217,7 +227,8 @@ def main():
         md_path = os.path.join(CITY_DIR, r['slug'] + '.md')
         if not os.path.exists(md_path):
             sys.exit('missing article: %s' % md_path)
-        pkg = build_county_package(md_path, province_row, built)
+        feat = os.path.join(FEATURED_DIR, args.province, r['slug'] + '.webp') if os.path.isdir(os.path.join(FEATURED_DIR, args.province)) else None
+        pkg = build_county_package(md_path, province_row, built, feat)
         if pkg['slug'] != r['slug'] or pkg['title'].replace('شهرستان ', '') != r['title']:
             print('WARN: title/slug drift %s: pkg=%r row=%r' % (r['slug'], pkg['title'], r['title']))
         packages.append(pkg)
@@ -226,8 +237,9 @@ def main():
             'word_count': pkg['post']['word_count'], 'faq': len(pkg['faq']),
             'sources_lines': len([l for l in pkg['sources'].split('---')[0].splitlines() if 'http' in l]) if pkg['sources'] else 0,
             'publish_status': pkg['publish_status'], 'markers': pkg['markers'],
+            'featured_image': bool(pkg['image']),
         })
-        print('%-16s words=%5d faq=%2d %s' % (pkg['slug'], pkg['post']['word_count'], len(pkg['faq']), pkg['publish_status']))
+        print('%-16s words=%5d faq=%2d img=%s %s' % (pkg['slug'], pkg['post']['word_count'], len(pkg['faq']), 'Y' if pkg['image'] else '-', pkg['publish_status']))
 
     data = {
         'batch': args.province,
