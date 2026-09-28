@@ -1,44 +1,46 @@
 {
- "package_format": "1.0",
- "built": "2026-09-28",
- "source_file": null,
- "source_sha1": null,
- "slug": "yazd",
- "status": "stub",
- "name_fa": "استان یزد",
- "name_en": "Yazd Province",
- "term_name": "یزد",
- "center_city": "یزد",
- "post": {
-  "title": "استان یزد",
-  "excerpt": "",
-  "content_html": "",
-  "word_count": 0
- },
- "meta": {},
- "seo": {},
- "secondary_keywords": [],
- "travel_season": [],
- "google_map_url": "",
- "faq": [],
- "sources": "",
- "publish_status": "DRAFT ONLY",
- "markers": {
-  "review": 0,
-  "source_needed": 0,
-  "url_needed": 0,
-  "coming_soon": 0
- },
- "image": {
-  "file": "images/yazd.webp",
-  "mime": "image/webp",
-  "width": 1600,
-  "height": 900,
-  "bytes": 111328,
-  "alt": "تصویرسازی استان یزد با بادگیرها و بافت تاریخی خشتی، مناره‌های مسجد جامع، تپه‌های شنی و شیرینی‌های سنتی یزدی",
-  "title": "استان یزد — تصویر شاخص راهنمای سفر سرزمین آریان",
-  "caption": "نمادهای استان یزد در یک نگاه: بادگیر، بافت خشتی، مسجد جامع یزد، تپه‌های شنی، شیرینی یزدی — تصویرسازی: سرزمین آریان",
-  "description": "تصویر شاخص مقاله‌ی «استان یزد» در سرزمین آریان؛ تصویرسازی گرافیکی با بادگیر، بافت خشتی، مسجد جامع یزد، تپه‌های شنی، شیرینی یزدی. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
-  "sha1": "12547545d0bdeba7ccfee611bdda1777765f047b"
- }
+  "package_format": "1.0",
+  "built": "2026-09-28",
+  "source_file": null,
+  "source_sha1": null,
+  "slug": "yazd",
+  "status": "stub",
+  "name_fa": "استان یزد",
+  "name_en": "Yazd Province",
+  "term_name": "یزد",
+  "center_city": "یزد",
+  "post": {
+    "title": "استان یزد",
+    "excerpt": "",
+    "content_html": "",
+    "word_count": 0
+  },
+  "meta": {},
+  "seo": {
+    "sa_focus_keyword": "استان یزد، یزد"
+  },
+  "secondary_keywords": [],
+  "travel_season": [],
+  "google_map_url": "",
+  "faq": [],
+  "sources": "",
+  "publish_status": "DRAFT ONLY",
+  "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+  },
+  "image": {
+    "file": "images/yazd.webp",
+    "mime": "image/webp",
+    "width": 1600,
+    "height": 900,
+    "bytes": 111328,
+    "alt": "تصویرسازی استان یزد با بادگیرها و بافت تاریخی خشتی، مناره‌های مسجد جامع، تپه‌های شنی و شیرینی‌های سنتی یزدی",
+    "title": "استان یزد — تصویر شاخص راهنمای سفر سرزمین آریان",
+    "caption": "نمادهای استان یزد در یک نگاه: بادگیر، بافت خشتی، مسجد جامع یزد، تپه‌های شنی، شیرینی یزدی — تصویرسازی: سرزمین آریان",
+    "description": "تصویر شاخص مقاله‌ی «استان یزد» در سرزمین آریان؛ تصویرسازی گرافیکی با بادگیر، بافت خشتی، مسجد جامع یزد، تپه‌های شنی، شیرینی یزدی. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+    "sha1": "12547545d0bdeba7ccfee611bdda1777765f047b"
+  }
 }

@@ -1,44 +1,46 @@
 {
- "package_format": "1.0",
- "built": "2026-09-28",
- "source_file": null,
- "source_sha1": null,
- "slug": "hormozgan",
- "status": "stub",
- "name_fa": "استان هرمزگان",
- "name_en": "Hormozgan Province",
- "term_name": "هرمزگان",
- "center_city": "بندرعباس",
- "post": {
-  "title": "استان هرمزگان",
-  "excerpt": "",
-  "content_html": "",
-  "word_count": 0
- },
- "meta": {},
- "seo": {},
- "secondary_keywords": [],
- "travel_season": [],
- "google_map_url": "",
- "faq": [],
- "sources": "",
- "publish_status": "DRAFT ONLY",
- "markers": {
-  "review": 0,
-  "source_needed": 0,
-  "url_needed": 0,
-  "coming_soon": 0
- },
- "image": {
-  "file": "images/hormozgan.webp",
-  "mime": "image/webp",
-  "width": 1600,
-  "height": 900,
-  "bytes": 76902,
-  "alt": "تصویرسازی استان هرمزگان با ستاره‌ی دریایی، رقص محلی بندری، دلفین‌های در حال پرش، لنج و نخل‌های خلیج فارس",
-  "title": "استان هرمزگان — تصویر شاخص راهنمای سفر سرزمین آریان",
-  "caption": "نمادهای استان هرمزگان در یک نگاه: ستاره‌ی دریایی، رقص بندری، دلفین، لنج، نخل — تصویرسازی: سرزمین آریان",
-  "description": "تصویر شاخص مقاله‌ی «استان هرمزگان» در سرزمین آریان؛ تصویرسازی گرافیکی با ستاره‌ی دریایی، رقص بندری، دلفین، لنج، نخل. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
-  "sha1": "f0ce09f4fc862b019a1075d9a9313dd5adb33625"
- }
+  "package_format": "1.0",
+  "built": "2026-09-28",
+  "source_file": null,
+  "source_sha1": null,
+  "slug": "hormozgan",
+  "status": "stub",
+  "name_fa": "استان هرمزگان",
+  "name_en": "Hormozgan Province",
+  "term_name": "هرمزگان",
+  "center_city": "بندرعباس",
+  "post": {
+    "title": "استان هرمزگان",
+    "excerpt": "",
+    "content_html": "",
+    "word_count": 0
+  },
+  "meta": {},
+  "seo": {
+    "sa_focus_keyword": "استان هرمزگان، هرمزگان"
+  },
+  "secondary_keywords": [],
+  "travel_season": [],
+  "google_map_url": "",
+  "faq": [],
+  "sources": "",
+  "publish_status": "DRAFT ONLY",
+  "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+  },
+  "image": {
+    "file": "images/hormozgan.webp",
+    "mime": "image/webp",
+    "width": 1600,
+    "height": 900,
+    "bytes": 76902,
+    "alt": "تصویرسازی استان هرمزگان با ستاره‌ی دریایی، رقص محلی بندری، دلفین‌های در حال پرش، لنج و نخل‌های خلیج فارس",
+    "title": "استان هرمزگان — تصویر شاخص راهنمای سفر سرزمین آریان",
+    "caption": "نمادهای استان هرمزگان در یک نگاه: ستاره‌ی دریایی، رقص بندری، دلفین، لنج، نخل — تصویرسازی: سرزمین آریان",
+    "description": "تصویر شاخص مقاله‌ی «استان هرمزگان» در سرزمین آریان؛ تصویرسازی گرافیکی با ستاره‌ی دریایی، رقص بندری، دلفین، لنج، نخل. نسبت ۱۶:۹، 1600×900 پیکسل، WEBP. تصویرسازی: سرزمین آریان؛ ویرایش و بهینه‌سازی: ۱۴۰۵/۰۷/۰۴.",
+    "sha1": "f0ce09f4fc862b019a1075d9a9313dd5adb33625"
+  }
 }

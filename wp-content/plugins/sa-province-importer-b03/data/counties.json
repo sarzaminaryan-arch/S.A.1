@@ -679,6 +679,78 @@
       "slug": "simorgh",
       "province": "mazandaran",
       "province_name": "مازندران"
+    },
+    {
+      "title": "اراک",
+      "slug": "arak",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "ساوه",
+      "slug": "saveh",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "شازند",
+      "slug": "shazand",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "خمین",
+      "slug": "khomeyn",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "زرندیه",
+      "slug": "zarandieh",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "محلات",
+      "slug": "mahallat",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "خنداب",
+      "slug": "khondab",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "دلیجان",
+      "slug": "delijan",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "کمیجان",
+      "slug": "komijan",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "فراهان",
+      "slug": "farahan",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "تفرش",
+      "slug": "tafresh",
+      "province": "markazi",
+      "province_name": "مرکزی"
+    },
+    {
+      "title": "آشتیان",
+      "slug": "ashtian",
+      "province": "markazi",
+      "province_name": "مرکزی"
     }
   ]
 }
