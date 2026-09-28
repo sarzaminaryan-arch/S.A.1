@@ -100,7 +100,7 @@ def fix(path):
         if 'reasons:' not in block:
             return block
         b5_ = doc[doc.find('=== BLOCK 5'):doc.find('=== BLOCK 6')]
-        rows_n = len([l for l in b5_.split('\n') if l.count('|') >= 2 and 'http' in l])
+        rows_n = len([l for l in b5_.split('\n') if 'http' in l])
         faq_n = len(re.findall(r'^- q: ', doc[doc.find('=== BLOCK 4'):doc.find('=== BLOCK 5')], re.M))
         new = ('reasons:\n'
                '  - منابع معتبر: %d ردیف با تاریخ دسترسی؛ نشانی\u200cها در بازبینی ۱۴۰۵/۰۷/۰۶ بازبینی و پالایش شدند.\n'
