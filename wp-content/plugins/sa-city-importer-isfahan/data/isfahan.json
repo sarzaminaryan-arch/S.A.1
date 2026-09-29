@@ -2,7 +2,7 @@
  "batch": "isfahan",
  "batch_id": "isfahan",
  "label": "درون‌ریز شهرستان‌های استان اصفهان",
- "data_version": "1.1.0",
+ "data_version": "1.1.1",
  "package_format": "1.0",
  "built": "2026-09-29",
  "province": {
@@ -364,7 +364,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/semirom.md",
-   "source_sha1": "033e23bb304ab050292c979f9d230bab9fe5cdc7",
+   "source_sha1": "c031a3085278d5e09c11ab673871b690d0a785d3",
    "slug": "semirom",
    "status": "article",
    "title": "شهرستان سمیرم",
@@ -474,14 +474,14 @@
     "source": "assets/featured/counties/isfahan/semirom.webp",
     "mime": "image/webp",
     "alt": "شهرستان سمیرم",
-    "sha1": "aacde8e5a37dcae52ae625e7c7b4693f5a592e16"
+    "sha1": "3a88a0381f4a629bdb9263b19b125fdc9f1f8a0c"
    }
   },
   {
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/nain.md",
-   "source_sha1": "2241237eb1437fded1db6cb0c6518dbc35867f81",
+   "source_sha1": "559c849ad1640e8d8048dcaa3ccb9a77c1f3e616",
    "slug": "nain",
    "status": "article",
    "title": "شهرستان نائین",
@@ -591,7 +591,7 @@
     "source": "assets/featured/counties/isfahan/nain.webp",
     "mime": "image/webp",
     "alt": "شهرستان نائین",
-    "sha1": "3e1f0de50f55f804c42d42247727225de6236505"
+    "sha1": "6d879799d71d3be87a63f8ee484f348adfdf56f6"
    }
   },
   {
@@ -2893,7 +2893,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/buin-miandasht.md",
-   "source_sha1": "c356499bc83fd6693c748a94653169a24fb7d57f",
+   "source_sha1": "b0b53df02a978e16a9f33fc9b0ee186f29210506",
    "slug": "buin-miandasht",
    "status": "article",
    "title": "شهرستان بوئین میاندشت",
@@ -2996,7 +2996,13 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/buin-miandasht.webp",
+    "source": "assets/featured/counties/isfahan/buin-miandasht.webp",
+    "mime": "image/webp",
+    "alt": "شهرستان بوئین میاندشت",
+    "sha1": "e77b0e79ffa43e0f2b2b6be2579f8d6fd2712f99"
+   }
   },
   {
    "package_format": "1.0",

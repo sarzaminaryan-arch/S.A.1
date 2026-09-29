@@ -2,7 +2,7 @@
  "batch": "isfahan",
  "batch_id": "isfahan",
  "label": "درون‌ریز شهرستان‌های استان اصفهان",
- "data_version": "1.1.0",
+ "data_version": "1.1.1",
  "package_format": "1.0",
  "built": "2026-09-29",
  "province": {
@@ -427,7 +427,7 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "featured_image": false
+   "featured_image": true
   },
   {
    "slug": "kuhpayeh",
