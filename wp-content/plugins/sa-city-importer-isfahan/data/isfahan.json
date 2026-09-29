@@ -2,7 +2,7 @@
  "batch": "isfahan",
  "batch_id": "isfahan",
  "label": "درون‌ریز شهرستان‌های استان اصفهان",
- "data_version": "1.0.0",
+ "data_version": "1.0.1",
  "package_format": "1.0",
  "built": "2026-09-29",
  "province": {
@@ -15,7 +15,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/isfahan-city.md",
-   "source_sha1": "8f52588fa5291697fab3d6ed1c2c4230ec1f7ae5",
+   "source_sha1": "40b41954a46049a41afc91841d235f1e842cc8cf",
    "slug": "isfahan-city",
    "status": "article",
    "title": "شهرستان اصفهان",
@@ -123,7 +123,10 @@
     "file": "assets/counties/isfahan-city.webp",
     "source": "assets/featured/counties/isfahan/isfahan-city.webp",
     "mime": "image/webp",
-    "alt": "شهرستان اصفهان",
+    "alt": "نمایی از میدان نقش جهان با مسجد شیخ لطف‌الله، حوض و فواره‌ها در غروب؛ تصویر شاخص شهرستان اصفهان",
+    "caption": "میدان نقش جهان، نگین شهرستان اصفهان در غروب.",
+    "title": "شهرستان اصفهان — سرزمین آریان",
+    "description": "نمایی از میدان نقش جهان با مسجد شیخ لطف‌الله، حوض و فواره‌ها در غروب؛ تصویر شاخص شهرستان اصفهان",
     "sha1": "6467c940c43adcda985abd9e4d6b170f16e0d2f5"
    }
   },
@@ -131,7 +134,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/kashan.md",
-   "source_sha1": "41b547dc90d33bd3e27a76128a837fa49e508f08",
+   "source_sha1": "185ffb74144fd3c0725906ed10aa793bcda4de06",
    "slug": "kashan",
    "status": "article",
    "title": "شهرستان کاشان",
@@ -239,7 +242,10 @@
     "file": "assets/counties/kashan.webp",
     "source": "assets/featured/counties/isfahan/kashan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان کاشان",
+    "alt": "خانهٔ تاریخی و باغ کاشان با گل‌های محمدی و حوض آب در دامنهٔ کوه؛ تصویر شاخص شهرستان کاشان",
+    "caption": "خانه‌های تاریخی، گلاب و باغ‌های شهرستان کاشان.",
+    "title": "شهرستان کاشان — سرزمین آریان",
+    "description": "خانهٔ تاریخی و باغ کاشان با گل‌های محمدی و حوض آب در دامنهٔ کوه؛ تصویر شاخص شهرستان کاشان",
     "sha1": "386f096233f2f941ec64aa597600cd6fe626e330"
    }
   },
@@ -247,7 +253,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/natanz.md",
-   "source_sha1": "9db6a2b59984c343230c79962f872a961312d710",
+   "source_sha1": "5283fe0ab44dae061e66dc7699dd81d48e5d96f1",
    "slug": "natanz",
    "status": "article",
    "title": "شهرستان نطنز",
@@ -356,7 +362,10 @@
     "file": "assets/counties/natanz.webp",
     "source": "assets/featured/counties/isfahan/natanz.webp",
     "mime": "image/webp",
-    "alt": "شهرستان نطنز",
+    "alt": "روستای پلکانی سرخ‌فام نطنز با شکوفه‌های گلابی و بادگیر در دامنهٔ کرکس؛ تصویر شاخص شهرستان نطنز",
+    "caption": "روستای سرخ‌فام و باغ‌های گلابی شهرستان نطنز.",
+    "title": "شهرستان نطنز — سرزمین آریان",
+    "description": "روستای پلکانی سرخ‌فام نطنز با شکوفه‌های گلابی و بادگیر در دامنهٔ کرکس؛ تصویر شاخص شهرستان نطنز",
     "sha1": "d8fb6a8aa619cc77f8193d1e6b85450a29b8c48e"
    }
   },
@@ -364,7 +373,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/semirom.md",
-   "source_sha1": "033e23bb304ab050292c979f9d230bab9fe5cdc7",
+   "source_sha1": "e23c49ae96542bfd8c9c0cbf1c869d9c07c24313",
    "slug": "semirom",
    "status": "article",
    "title": "شهرستان سمیرم",
@@ -473,7 +482,10 @@
     "file": "assets/counties/semirom.webp",
     "source": "assets/featured/counties/isfahan/semirom.webp",
     "mime": "image/webp",
-    "alt": "شهرستان سمیرم",
+    "alt": "ییلاق سمیرم با قلهٔ برفی زاگرس، رود کوهستانی و گله در سپیده‌دم؛ تصویر شاخص شهرستان سمیرم",
+    "caption": "ییلاق سرد زاگرس و چشمه‌های شهرستان سمیرم.",
+    "title": "شهرستان سمیرم — سرزمین آریان",
+    "description": "ییلاق سمیرم با قلهٔ برفی زاگرس، رود کوهستانی و گله در سپیده‌دم؛ تصویر شاخص شهرستان سمیرم",
     "sha1": "aacde8e5a37dcae52ae625e7c7b4693f5a592e16"
    }
   },
@@ -481,7 +493,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/nain.md",
-   "source_sha1": "2241237eb1437fded1db6cb0c6518dbc35867f81",
+   "source_sha1": "bac9dd846c8373127c67b0c1d84bf86023268da1",
    "slug": "nain",
    "status": "article",
    "title": "شهرستان نائین",
@@ -590,7 +602,10 @@
     "file": "assets/counties/nain.webp",
     "source": "assets/featured/counties/isfahan/nain.webp",
     "mime": "image/webp",
-    "alt": "شهرستان نائین",
+    "alt": "مسجد جامع نایین با مناره‌ها در غروب و فرش و گلیم دستباف در پیش‌زمینه؛ تصویر شاخص شهرستان نائین",
+    "caption": "مسجد جامع نایین و فرش و گلیم دستباف شهرستان نائین.",
+    "title": "شهرستان نائین — سرزمین آریان",
+    "description": "مسجد جامع نایین با مناره‌ها در غروب و فرش و گلیم دستباف در پیش‌زمینه؛ تصویر شاخص شهرستان نائین",
     "sha1": "3e1f0de50f55f804c42d42247727225de6236505"
    }
   },
@@ -598,7 +613,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/khur-biabanak.md",
-   "source_sha1": "7e90197a7766a2a13f77eb2697c933c44e569906",
+   "source_sha1": "adc3b89f8c45fd329d571963c434b079f18ccc1d",
    "slug": "khur-biabanak",
    "status": "article",
    "title": "شهرستان خور و بیابانک",
@@ -707,7 +722,10 @@
     "file": "assets/counties/khur-biabanak.webp",
     "source": "assets/featured/counties/isfahan/khur-biabanak.webp",
     "mime": "image/webp",
-    "alt": "شهرستان خور و بیابانک",
+    "alt": "کویر و تپه‌های ماسه‌ای خور و بیابانک زیر کهکشان راه شیری در غروب؛ تصویر شاخص شهرستان خور و بیابانک",
+    "caption": "دل کویر و آسمان پرستارهٔ شهرستان خور و بیابانک.",
+    "title": "شهرستان خور و بیابانک — سرزمین آریان",
+    "description": "کویر و تپه‌های ماسه‌ای خور و بیابانک زیر کهکشان راه شیری در غروب؛ تصویر شاخص شهرستان خور و بیابانک",
     "sha1": "88428c2a4cb6511dd79a235dc3c987e30ddd3aff"
    }
   },
@@ -715,7 +733,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/khomeyni-shahr.md",
-   "source_sha1": "592de3bfb04944558f29abab002773f900df5dfd",
+   "source_sha1": "b04f528fcaaaf065ec86460efb77b7f45db7a589",
    "slug": "khomeyni-shahr",
    "status": "article",
    "title": "شهرستان خمینی‌شهر",
@@ -823,7 +841,10 @@
     "file": "assets/counties/khomeyni-shahr.webp",
     "source": "assets/featured/counties/isfahan/khomeyni-shahr.webp",
     "mime": "image/webp",
-    "alt": "شهرستان خمینی‌شهر",
+    "alt": "بازار و خیابان پرجنب‌وجوش خمینی‌شهر با مزارع و کارخانه‌ها در افق؛ تصویر شاخص شهرستان خمینی‌شهر",
+    "caption": "شهر پرجنب‌وجوش صنعت و کشاورزی؛ شهرستان خمینی‌شهر.",
+    "title": "شهرستان خمینی‌شهر — سرزمین آریان",
+    "description": "بازار و خیابان پرجنب‌وجوش خمینی‌شهر با مزارع و کارخانه‌ها در افق؛ تصویر شاخص شهرستان خمینی‌شهر",
     "sha1": "d8d1302d4c7ba0e0668effd79d5f8cdc3f6475c1"
    }
   },
@@ -831,7 +852,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/najafabad.md",
-   "source_sha1": "18d5570cb7405b997d051b7ec0e704ce4bc21429",
+   "source_sha1": "af2dac56f7ac2c41049be3d38a612f0f760213d1",
    "slug": "najafabad",
    "status": "article",
    "title": "شهرستان نجف‌آباد",
@@ -939,7 +960,10 @@
     "file": "assets/counties/najafabad.webp",
     "source": "assets/featured/counties/isfahan/najafabad.webp",
     "mime": "image/webp",
-    "alt": "شهرستان نجف‌آباد",
+    "alt": "پل و مسجد تاریخی نجف‌آباد کنار رود با انار، انگور و چای در پیش‌زمینه؛ تصویر شاخص شهرستان نجف‌آباد",
+    "caption": "سرزمین باغ‌ها و کشاورزی سرسبز؛ شهرستان نجف‌آباد.",
+    "title": "شهرستان نجف‌آباد — سرزمین آریان",
+    "description": "پل و مسجد تاریخی نجف‌آباد کنار رود با انار، انگور و چای در پیش‌زمینه؛ تصویر شاخص شهرستان نجف‌آباد",
     "sha1": "8ef6c363f8ff346d55181e19d8c33e220ce489c4"
    }
   },
@@ -947,7 +971,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/lenjan.md",
-   "source_sha1": "2643b76bb037b34440c6fe851da65e4c722f9695",
+   "source_sha1": "03fa43d784767ea17a0055cf5e9553ca5bcfbbcf",
    "slug": "lenjan",
    "status": "article",
    "title": "شهرستان لنجان",
@@ -1056,7 +1080,10 @@
     "file": "assets/counties/lenjan.webp",
     "source": "assets/featured/counties/isfahan/lenjan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان لنجان",
+    "alt": "پل تاریخی بر زاینده‌رود در لنجان با باغ‌های میوه و آبشار کوچک؛ تصویر شاخص شهرستان لنجان",
+    "caption": "زاینده‌رود و باغ‌های شهرستان لنجان.",
+    "title": "شهرستان لنجان — سرزمین آریان",
+    "description": "پل تاریخی بر زاینده‌رود در لنجان با باغ‌های میوه و آبشار کوچک؛ تصویر شاخص شهرستان لنجان",
     "sha1": "ca2eac17116974c3b083495053c434a2f79fd8f1"
    }
   },
@@ -1064,7 +1091,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/falavarjan.md",
-   "source_sha1": "cbdab8f3f495bda3435ee1ee7c56e55a61627305",
+   "source_sha1": "54ab789885411af16b90b684e63b76b69f48c7b8",
    "slug": "falavarjan",
    "status": "article",
    "title": "شهرستان فلاورجان",
@@ -1172,7 +1199,10 @@
     "file": "assets/counties/falavarjan.webp",
     "source": "assets/featured/counties/isfahan/falavarjan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان فلاورجان",
+    "alt": "پل تاریخی و باغ‌های فلاورجان کنار زاینده‌رود با انار و شکوفه در پیش‌زمینه؛ تصویر شاخص شهرستان فلاورجان",
+    "caption": "پل تاریخی و باغ‌های حاصلخیز شهرستان فلاورجان.",
+    "title": "شهرستان فلاورجان — سرزمین آریان",
+    "description": "پل تاریخی و باغ‌های فلاورجان کنار زاینده‌رود با انار و شکوفه در پیش‌زمینه؛ تصویر شاخص شهرستان فلاورجان",
     "sha1": "9d5b14fa918571dfb8c20fd9fc5e2875da51a542"
    }
   },
@@ -1180,7 +1210,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/shahin-shahr-meymeh.md",
-   "source_sha1": "4adc23184c724110e34489aa0208eabf20005006",
+   "source_sha1": "363af1eab073b8c95bc285c9566320617a74e50a",
    "slug": "shahin-shahr-meymeh",
    "status": "article",
    "title": "شهرستان شاهین‌شهر و میمه",
@@ -1212,7 +1242,7 @@
    },
    "seo": {
     "sa_seo_title": "شهرستان شاهین‌شهر و میمه؛ از برخوار و میمه تا امروز",
-    "sa_seo_description": "راهنمای کامل شهرستان شاهین‌شهر و میمه؛ تأسیس ۲۱ تیر ۱۳۶۸ با نام برخوار و میمه، جمعیت ۲۳۴٬۶۶۷ (۱۳۹۵)، شش شهر و دو بخش.",
+    "sa_seo_description": "راهنمای کامل شهرستان شاهین‌شهر و میمه؛ تأسیس ۲۱ تیر ۱۳۶۸ با نام برخوار و میمه، جمعیت ۲۳۴٬۶۶۷ (۱۳۹۵)، شش شهر و دو بخش با نگاهی به شهرها، تقسیمات و آثار تاریخی.",
     "sa_focus_keyword": "شهرستان شاهین‌شهر و میمه",
     "sa_og_title": "شهرستان شاهین‌شهر و میمه — شش شهر، دو بخش",
     "sa_og_description": "هر آنچه پیش از سفر به شهرستان شاهین‌شهر و میمه باید بدانید؛ از تاریخ تقسیماتی تا تقسیمات کنونی."
@@ -1288,7 +1318,10 @@
     "file": "assets/counties/shahin-shahr-meymeh.webp",
     "source": "assets/featured/counties/isfahan/shahin-shahr-meymeh.webp",
     "mime": "image/webp",
-    "alt": "شهرستان شاهین‌شهر و میمه",
+    "alt": "مسجد و بادگیرهای تاریخی میمه با آسیاب آبی و باغ گل؛ تصویر شاخص شهرستان شاهین‌شهر و میمه",
+    "caption": "پیوند صنعت و سنت در شهرستان شاهین‌شهر و میمه.",
+    "title": "شهرستان شاهین‌شهر و میمه — سرزمین آریان",
+    "description": "مسجد و بادگیرهای تاریخی میمه با آسیاب آبی و باغ گل؛ تصویر شاخص شهرستان شاهین‌شهر و میمه",
     "sha1": "2f95d0e34dda90eeb1f463fd14ca389e2029a779"
    }
   },
@@ -1296,7 +1329,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/shahreza.md",
-   "source_sha1": "61837426fd82b81b35b3d9d49b6568d78192fee3",
+   "source_sha1": "df3be5950e375b285f9f587a7c6d766a140ce393",
    "slug": "shahreza",
    "status": "article",
    "title": "شهرستان شهرضا",
@@ -1404,7 +1437,10 @@
     "file": "assets/counties/shahreza.webp",
     "source": "assets/featured/counties/isfahan/shahreza.webp",
     "mime": "image/webp",
-    "alt": "شهرستان شهرضا",
+    "alt": "مسجد و کاروانسرای تاریخی شهرضا با پل آجری بر رود و باغ‌ها در غروب؛ تصویر شاخص شهرستان شهرضا",
+    "caption": "دروازهٔ جنوب اصفهان و باغ‌های شهرستان شهرضا.",
+    "title": "شهرستان شهرضا — سرزمین آریان",
+    "description": "مسجد و کاروانسرای تاریخی شهرضا با پل آجری بر رود و باغ‌ها در غروب؛ تصویر شاخص شهرستان شهرضا",
     "sha1": "ae5a513b4310c12c5532eb97cb34c2daad1d4622"
    }
   },
@@ -1412,7 +1448,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/mobarakeh.md",
-   "source_sha1": "fc734c42f4a92913817341607afdfb2b5747170a",
+   "source_sha1": "296cb698e8ed9fb2add89305c511c26d44d3b294",
    "slug": "mobarakeh",
    "status": "article",
    "title": "شهرستان مبارکه",
@@ -1444,7 +1480,7 @@
    },
    "seo": {
     "sa_seo_title": "شهرستان مبارکه؛ هفت شهر در جنوب غربی اصفهان",
-    "sa_seo_description": "راهنمای کامل شهرستان مبارکه؛ جمعیت ۱۵۰٬۴۱۱ (۱۳۹۵)، هفت شهر از مبارکه و دیزیچه تا زیباشهر و ده‌سرخ، دو بخش و پنج دهستان.",
+    "sa_seo_description": "راهنمای کامل شهرستان مبارکه؛ جمعیت ۱۵۰٬۴۱۱ (۱۳۹۵)، هفت شهر از مبارکه و دیزیچه تا زیباشهر و ده‌سرخ، دو بخش و پنج دهستان همراه با تقسیمات، جمعیت و جاذبه‌های شهر.",
     "sa_focus_keyword": "شهرستان مبارکه",
     "sa_og_title": "شهرستان مبارکه — هفت شهر، دو بخش",
     "sa_og_description": "هر آنچه پیش از سفر به شهرستان مبارکه باید بدانید؛ از تقسیمات و جمعیت تا همسایگی با چهارمحال."
@@ -1520,7 +1556,10 @@
     "file": "assets/counties/mobarakeh.webp",
     "source": "assets/featured/counties/isfahan/mobarakeh.webp",
     "mime": "image/webp",
-    "alt": "شهرستان مبارکه",
+    "alt": "کارخانهٔ فولاد مبارکه در دشت سرسبز کنار زاینده‌رود با کوه‌های زاگرس در پس‌زمینه؛ تصویر شاخص شهرستان مبارکه",
+    "caption": "قطب فولاد ایران در دشت سرسبز شهرستان مبارکه.",
+    "title": "شهرستان مبارکه — سرزمین آریان",
+    "description": "کارخانهٔ فولاد مبارکه در دشت سرسبز کنار زاینده‌رود با کوه‌های زاگرس در پس‌زمینه؛ تصویر شاخص شهرستان مبارکه",
     "sha1": "e82b2d5f3cbc5c6c23ce45b83d83faeb6e0a43f9"
    }
   },
@@ -1528,7 +1567,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/borkhar.md",
-   "source_sha1": "82ecd8cab153ca0605440144eb4b50450bf558b4",
+   "source_sha1": "70b56340f67a6009221cd583bc90f731ed5ffcdb",
    "slug": "borkhar",
    "status": "article",
    "title": "شهرستان برخوار",
@@ -1633,7 +1672,10 @@
     "file": "assets/counties/borkhar.webp",
     "source": "assets/featured/counties/isfahan/borkhar.webp",
     "mime": "image/webp",
-    "alt": "شهرستان برخوار",
+    "alt": "بافت تاریخی خشتی و کاروانسرای برخوار در دشت سرسبز شمال اصفهان؛ تصویر شاخص شهرستان برخوار",
+    "caption": "دشت‌های حاصلخیز شمال اصفهان؛ شهرستان برخوار.",
+    "title": "شهرستان برخوار — سرزمین آریان",
+    "description": "بافت تاریخی خشتی و کاروانسرای برخوار در دشت سرسبز شمال اصفهان؛ تصویر شاخص شهرستان برخوار",
     "sha1": "9acd7ae93cfa24fc465b2beb23baf42a5c07c38f"
    }
   },
@@ -1641,7 +1683,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/aran-bidgol.md",
-   "source_sha1": "b492c76e4bc2335d83b309cc4646e6da84ce5235",
+   "source_sha1": "e334e8668684fd7aa254f669910c29877c7d830f",
    "slug": "aran-bidgol",
    "status": "article",
    "title": "شهرستان آران و بیدگل",
@@ -1750,7 +1792,10 @@
     "file": "assets/counties/aran-bidgol.webp",
     "source": "assets/featured/counties/isfahan/aran-bidgol.webp",
     "mime": "image/webp",
-    "alt": "شهرستان آران و بیدگل",
+    "alt": "کاروانسرای خشتی و کاروان شتر در حاشیهٔ دریاچهٔ نمک و کویر آران و بیدگل؛ تصویر شاخص شهرستان آران و بیدگل",
+    "caption": "دروازهٔ کویر و آفتاب طلایی ماسه‌ها؛ شهرستان آران و بیدگل.",
+    "title": "شهرستان آران و بیدگل — سرزمین آریان",
+    "description": "کاروانسرای خشتی و کاروان شتر در حاشیهٔ دریاچهٔ نمک و کویر آران و بیدگل؛ تصویر شاخص شهرستان آران و بیدگل",
     "sha1": "15152bc8edbefc21c06de1d0d72103990ade4fb6"
    }
   },
@@ -1758,7 +1803,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/golpayegan.md",
-   "source_sha1": "caebf533f523490355c3007037cfc7b4ae798159",
+   "source_sha1": "ccfebfedcb43e95b433bc03bcba33a0af1c08415",
    "slug": "golpayegan",
    "status": "article",
    "title": "شهرستان گلپایگان",
@@ -1866,7 +1911,10 @@
     "file": "assets/counties/golpayegan.webp",
     "source": "assets/featured/counties/isfahan/golpayegan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان گلپایگان",
+    "alt": "برج آرامگاهی سلجوقی گلپایگان بر تپه با رود و دشت‌های سرسبز؛ تصویر شاخص شهرستان گلپایگان",
+    "caption": "میراث سلجوقی و دشت‌های سرسبز شهرستان گلپایگان.",
+    "title": "شهرستان گلپایگان — سرزمین آریان",
+    "description": "برج آرامگاهی سلجوقی گلپایگان بر تپه با رود و دشت‌های سرسبز؛ تصویر شاخص شهرستان گلپایگان",
     "sha1": "57641a98395af0cb1fce15e7f10e1179a94e518f"
    }
   },
@@ -1874,7 +1922,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/tiran-karvan.md",
-   "source_sha1": "1b5fad8b762793fc08502fa7e2efeaaca1d99df7",
+   "source_sha1": "2bd4345f6528be085b0d65de543855fae86bce14",
    "slug": "tiran-karvan",
    "status": "article",
    "title": "شهرستان تیران و کرون",
@@ -1982,7 +2030,10 @@
     "file": "assets/counties/tiran-karvan.webp",
     "source": "assets/featured/counties/isfahan/tiran-karvan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان تیران و کرون",
+    "alt": "روستای خشتی با گنبد و مناره در دامنهٔ کوه‌های تیران و کرون در غروب؛ تصویر شاخص شهرستان تیران و کرون",
+    "caption": "باغ‌ها و کوهپایه‌های غرب اصفهان؛ شهرستان تیران و کرون.",
+    "title": "شهرستان تیران و کرون — سرزمین آریان",
+    "description": "روستای خشتی با گنبد و مناره در دامنهٔ کوه‌های تیران و کرون در غروب؛ تصویر شاخص شهرستان تیران و کرون",
     "sha1": "a7e9f1b3d7c4c4603426ac61bc9fb767cd3ec64d"
    }
   },
@@ -1990,7 +2041,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/fereydan.md",
-   "source_sha1": "d56379bed3bbd614cc8cc61cb0875133280be92e",
+   "source_sha1": "0769c37bb255e82ed69a9dd7ad88d2741ed55500",
    "slug": "fereydan",
    "status": "article",
    "title": "شهرستان فریدن",
@@ -2097,7 +2148,10 @@
     "file": "assets/counties/fereydan.webp",
     "source": "assets/featured/counties/isfahan/fereydan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان فریدن",
+    "alt": "روستای سنگی گرجی‌نشین فریدن با کلیسا، پل سنگی و قله‌های برفی زاگرس؛ تصویر شاخص شهرستان فریدن",
+    "caption": "میراث گرجی‌نشینان و ییلاق‌های زاگرس؛ شهرستان فریدن.",
+    "title": "شهرستان فریدن — سرزمین آریان",
+    "description": "روستای سنگی گرجی‌نشین فریدن با کلیسا، پل سنگی و قله‌های برفی زاگرس؛ تصویر شاخص شهرستان فریدن",
     "sha1": "e9df28f801df8b5a0f0495333726159fc13173c0"
    }
   },
@@ -2105,7 +2159,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/ardestan.md",
-   "source_sha1": "ab2bf52930efab2cc7dedd027e127265984b2847",
+   "source_sha1": "a11ea7598e240f8458e9bf7eaedcfb1770ee77e3",
    "slug": "ardestan",
    "status": "article",
    "title": "شهرستان اردستان",
@@ -2213,7 +2267,10 @@
     "file": "assets/counties/ardestan.webp",
     "source": "assets/featured/counties/isfahan/ardestan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان اردستان",
+    "alt": "مسجد جامع سلجوقی اردستان با گنبد کاشی و مناره در حاشیهٔ کویر؛ تصویر شاخص شهرستان اردستان",
+    "caption": "میراث سلجوقی در حاشیهٔ کویر؛ شهرستان اردستان.",
+    "title": "شهرستان اردستان — سرزمین آریان",
+    "description": "مسجد جامع سلجوقی اردستان با گنبد کاشی و مناره در حاشیهٔ کویر؛ تصویر شاخص شهرستان اردستان",
     "sha1": "b31927cda2706f87e6c074818cc4673c55cf29da"
    }
   },
@@ -2221,7 +2278,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/jarqavieh.md",
-   "source_sha1": "cbfbc11efc20c1da157a1fdcd4be9ee07f7ac381",
+   "source_sha1": "f28a8daa2304f4306b81944eb432e831b0d96090",
    "slug": "jarqavieh",
    "status": "article",
    "title": "شهرستان جرقویه",
@@ -2329,7 +2386,10 @@
     "file": "assets/counties/jarqavieh.webp",
     "source": "assets/featured/counties/isfahan/jarqavieh.webp",
     "mime": "image/webp",
-    "alt": "شهرستان جرقویه",
+    "alt": "رود و مزارع سرسبز جرقویه با روستای خشتی و آسمان غروب؛ تصویر شاخص شهرستان جرقویه",
+    "caption": "خاک حاصلخیز و روستاهای دیرین شهرستان جرقویه.",
+    "title": "شهرستان جرقویه — سرزمین آریان",
+    "description": "رود و مزارع سرسبز جرقویه با روستای خشتی و آسمان غروب؛ تصویر شاخص شهرستان جرقویه",
     "sha1": "f44cb4ebcc4c4e76f6037c986e0b4f25e8ee06a3"
    }
   },
@@ -2337,7 +2397,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/fereydunshahr.md",
-   "source_sha1": "7df8b80d9b0481043fdfd0c0b848231b9ebfdb9a",
+   "source_sha1": "0a3171af9158f7ecf8cc552eb2a1e620b9b7e220",
    "slug": "fereydunshahr",
    "status": "article",
    "title": "شهرستان فریدون‌شهر",
@@ -2368,8 +2428,8 @@
     "sa_schema_contained_in": "isfahan"
    },
    "seo": {
-    "sa_seo_title": "شهرستان فریدون‌شهر؛ بلندترین شهر ایران و سرزمین گرجی‌های اصفهان",
-    "sa_seo_description": "راهنمای شهرستان فریدون‌شهر؛ شهرستان‌شدن در ۱۳۵۸، مرکز فریدون‌شهر در ارتفاع ۲٬۵۳۰ متری، مردم گرجی‌زبان، پیست اسکی، دشت لاله‌های واژگون، آبشارها و چشمه‌های زاگرس مرکزی.",
+    "sa_seo_title": "شهرستان فریدون‌شهر؛ بلندترین شهر ایران و خانهٔ گرجی‌ها",
+    "sa_seo_description": "راهنمای شهرستان فریدون‌شهر؛ شهرستان‌شدن در ۱۳۵۸، مرکز ۲٬۵۳۰ متری، مردم گرجی‌زبان، پیست اسکی، دشت لاله‌های واژگون، آبشارها و چشمه‌های زاگرس مرکزی.",
     "sa_focus_keyword": "شهرستان فریدون‌شهر",
     "sa_og_title": "شهرستان فریدون‌شهر — برف، لاله‌های واژگون و زبان گرجی",
     "sa_og_description": "از سُپِلی گرجی‌ها تا شاهان‌کوه و آبشار پونه‌زار؛ هرآنچه پیش از سفر به فریدون‌شهر باید بدانید."
@@ -2445,7 +2505,10 @@
     "file": "assets/counties/fereydunshahr.webp",
     "source": "assets/featured/counties/isfahan/fereydunshahr.webp",
     "mime": "image/webp",
-    "alt": "شهرستان فریدون‌شهر",
+    "alt": "قلهٔ برفی و رود کوهستانی فریدون‌شهر با شکوفه‌های بهاری و خانهٔ سنگی؛ تصویر شاخص شهرستان فریدون‌شهر",
+    "caption": "کوهستان بلند و طبیعت بکر شهرستان فریدون‌شهر.",
+    "title": "شهرستان فریدون‌شهر — سرزمین آریان",
+    "description": "قلهٔ برفی و رود کوهستانی فریدون‌شهر با شکوفه‌های بهاری و خانهٔ سنگی؛ تصویر شاخص شهرستان فریدون‌شهر",
     "sha1": "7e72de61dc0bb29d11d4f6e4edfa36026351d50e"
    }
   },
@@ -2453,7 +2516,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/dehaqan.md",
-   "source_sha1": "c33a30315b12757e32231e6cf59eecfd9d5d06b1",
+   "source_sha1": "de20efbd20386082b4a64c43b87e66d9723132b3",
    "slug": "dehaqan",
    "status": "article",
    "title": "شهرستان دهاقان",
@@ -2484,8 +2547,8 @@
     "sa_schema_contained_in": "isfahan"
    },
    "seo": {
-    "sa_seo_title": "شهرستان دهاقان؛ نگین سرسبز جنوب اصفهان و سرزمین لاله‌های واژگون",
-    "sa_seo_description": "راهنمای شهرستان دهاقان؛ شهرستان‌شدن در ۱۳۸۲ با نام سمیرم سفلی، مرکز دهاقان در ۹۶ کیلومتری اصفهان، گلخانه‌های صادراتی، منطقهٔ شکار ممنوع دشتک و دشت لاله‌های واژگون زردرنگ.",
+    "sa_seo_title": "شهرستان دهاقان؛ نگین سرسبز جنوب اصفهان و لاله‌های واژگون",
+    "sa_seo_description": "راهنمای شهرستان دهاقان؛ شهرستان‌شدن در ۱۳۸۲ با نام سمیرم سفلی، دهاقان در ۹۶ کیلومتری اصفهان، گلخانه‌های صادراتی، شکار ممنوع دشتک و لاله‌های واژگون زرد.",
     "sa_focus_keyword": "شهرستان دهاقان",
     "sa_og_title": "شهرستان دهاقان — گلخانه، لالهٔ واژگون و کوهستان قلاری",
     "sa_og_description": "از طاقون کهن تا مزارع گلخانه‌ای صادراتی و لاله‌های واژگون آستانه؛ هرآنچه پیش از سفر به دهاقان باید بدانید."
@@ -2561,7 +2624,10 @@
     "file": "assets/counties/dehaqan.webp",
     "source": "assets/featured/counties/isfahan/dehaqan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان دهاقان",
+    "alt": "مسجد جامع کاشی‌کاری کهن دهاقان با گل‌های محمدی و کوه در غروب؛ تصویر شاخص شهرستان دهاقان",
+    "caption": "شهر گلستان‌ها و مسجد جامع کهن؛ شهرستان دهاقان.",
+    "title": "شهرستان دهاقان — سرزمین آریان",
+    "description": "مسجد جامع کاشی‌کاری کهن دهاقان با گل‌های محمدی و کوه در غروب؛ تصویر شاخص شهرستان دهاقان",
     "sha1": "9802a65ee07b15d57f6ba214755511501744cc1f"
    }
   },
@@ -2569,7 +2635,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/khansar.md",
-   "source_sha1": "160f6690a5ceae2a03696f296ca12043b6d7b08d",
+   "source_sha1": "cad46410a7ab059fedb8aa39f4dbe43630570b61",
    "slug": "khansar",
    "status": "article",
    "title": "شهرستان خوانسار",
@@ -2600,8 +2666,8 @@
     "sa_schema_contained_in": "isfahan"
    },
    "seo": {
-    "sa_seo_title": "شهرستان خوانسار؛ شهر چشمه‌ها، گز و لاله‌های واژگون گلستان‌کوه",
-    "sa_seo_description": "راهنمای شهرستان خوانسار؛ شهرستان‌شدن در ۱۳۵۸، مرکز خوانسار در ۲٬۲۱۵ متری زاگرس، گویش کهن خوانساری، پارک سرچشمه، گلستان‌کوه، مسجد جامع ۱۱۰۱ قمری، گز و عسل.",
+    "sa_seo_title": "شهرستان خوانسار؛ شهر چشمه‌ها، گز و لاله‌های گلستان‌کوه",
+    "sa_seo_description": "راهنمای شهرستان خوانسار؛ شهرستان‌شدن در ۱۳۵۸، خوانسار در ۲٬۲۱۵ متری زاگرس، گویش کهن خوانساری، پارک سرچشمه، گلستان‌کوه، مسجد جامع ۱۱۰۱ قمری، گز و عسل.",
     "sa_focus_keyword": "شهرستان خوانسار",
     "sa_og_title": "شهرستان خوانسار — چشمه‌سار زاگرس با گویشی از روزگار ساسانی",
     "sa_og_description": "از تپهٔ آریایی‌ها و غار هیکل تا کوچه‌باغ‌ها و گز انگبین؛ هرآنچه پیش از سفر به خوانسار باید بدانید."
@@ -2677,7 +2743,10 @@
     "file": "assets/counties/khansar.webp",
     "source": "assets/featured/counties/isfahan/khansar.webp",
     "mime": "image/webp",
-    "alt": "شهرستان خوانسار",
+    "alt": "مسجد و مناره‌های خوانسار کنار چشمه و آبشار با کوچه‌باغ‌ها؛ تصویر شاخص شهرستان خوانسار",
+    "caption": "شهر چشمه‌ها و باغ‌ها؛ شهرستان خوانسار.",
+    "title": "شهرستان خوانسار — سرزمین آریان",
+    "description": "مسجد و مناره‌های خوانسار کنار چشمه و آبشار با کوچه‌باغ‌ها؛ تصویر شاخص شهرستان خوانسار",
     "sha1": "b50819d5f8bca6b932ec79555f067abce014a4d2"
    }
   },
@@ -2685,7 +2754,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/chadegan.md",
-   "source_sha1": "01f7bdd96637dbac93f7afd2e9e4f0227dc3eaef",
+   "source_sha1": "857f3ca0f987972e398505b00878cde1c3ceb00d",
    "slug": "chadegan",
    "status": "article",
    "title": "شهرستان چادگان",
@@ -2717,7 +2786,7 @@
    },
    "seo": {
     "sa_seo_title": "شهرستان چادگان؛ شهر ساحلی زاینده‌رود در دل فریدن",
-    "sa_seo_description": "راهنمای شهرستان چادگان؛ شهرستان‌شدن در ۱۳۸۱، مرکز چادگان در ساحل سد زاینده‌رود، نام باستانی پاراتاک، دالان‌کوه ۳٬۹۱۵ متری، اقلیم سرد با ۱۷۰ روز یخبندان و کشاورزی سیب و سیب‌زمینی.",
+    "sa_seo_description": "راهنمای شهرستان چادگان؛ شهرستان‌شدن در ۱۳۸۱، چادگان در ساحل سد زاینده‌رود، نام باستانی پاراتاک، دالان‌کوه ۳٬۹۱۵ متری، ۱۷۰ روز یخبندان و باغ‌های سیب.",
     "sa_focus_keyword": "شهرستان چادگان",
     "sa_og_title": "شهرستان چادگان — دریاچهٔ سد، دالان‌کوه و سرچشمه‌های زاینده‌رود",
     "sa_og_description": "از پاراتاک هخامنشی تا شهر ساحلی امروز؛ هرآنچه پیش از سفر به چادگان باید بدانید."
@@ -2793,7 +2862,10 @@
     "file": "assets/counties/chadegan.webp",
     "source": "assets/featured/counties/isfahan/chadegan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان چادگان",
+    "alt": "دریاچه و سد زاینده‌رود چادگان با کوه‌ها در غروب؛ تصویر شاخص شهرستان چادگان",
+    "caption": "سرچشمهٔ حیات زاینده‌رود؛ دریاچهٔ سد در شهرستان چادگان.",
+    "title": "شهرستان چادگان — سرزمین آریان",
+    "description": "دریاچه و سد زاینده‌رود چادگان با کوه‌ها در غروب؛ تصویر شاخص شهرستان چادگان",
     "sha1": "0f4ffbfe33df6786c63a424254b042fdf228f132"
    }
   },
@@ -2801,7 +2873,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/varzaneh.md",
-   "source_sha1": "fabe62debba3ebb91b4fd40ab28c5a0b9c816825",
+   "source_sha1": "132225a09043a14da0c206bc5414a582aeddedf4",
    "slug": "varzaneh",
    "status": "article",
    "title": "شهرستان ورزنه",
@@ -2832,8 +2904,8 @@
     "sa_schema_contained_in": "isfahan"
    },
    "seo": {
-    "sa_seo_title": "شهرستان ورزنه؛ شهر تالابی گاوخونی و کویر ماسه‌ای در پایان زاینده‌رود",
-    "sa_seo_description": "راهنمای شهرستان ورزنه؛ شهرستان‌شدن در ۱۴۰۰ با نام پیشین بن‌رود، مرکز ورزنه کنار تالاب بین‌المللی گاوخونی، زبان ولاتی، ارگ قورتان، کاروانسرای عباسی، تپه‌های ماسه‌ای و چادرهای سفید زنان.",
+    "sa_seo_title": "شهرستان ورزنه؛ شهر تالابی گاوخونی و کویر ماسه‌ای",
+    "sa_seo_description": "راهنمای شهرستان ورزنه؛ شهرستان‌شدن در ۱۴۰۰ با نام پیشین بن‌رود، ورزنه کنار تالاب گاوخونی، زبان ولاتی، ارگ قورتان، کاروانسرای عباسی و چادرهای سفید زنان.",
     "sa_focus_keyword": "شهرستان ورزنه",
     "sa_og_title": "شهرستان ورزنه — گاوخونی، کویر و شهر فرشتگان سفیدپوش",
     "sa_og_description": "از مسجد جامعی بر ویرانهٔ آتشکده تا تپه‌های ماسه‌ای و ساحل زاینده‌رود؛ هرآنچه پیش از سفر به ورزنه باید بدانید."
@@ -2909,7 +2981,10 @@
     "file": "assets/counties/varzaneh.webp",
     "source": "assets/featured/counties/isfahan/varzaneh.webp",
     "mime": "image/webp",
-    "alt": "شهرستان ورزنه",
+    "alt": "کویر ورزنه با تپه‌های ماسه‌ای، چادر عشایری، آتش و کاروان شتر زیر آسمان پرستاره؛ تصویر شاخص شهرستان ورزنه",
+    "caption": "قطب گردشگری کویر و شب‌های پرستارهٔ شهرستان ورزنه.",
+    "title": "شهرستان ورزنه — سرزمین آریان",
+    "description": "کویر ورزنه با تپه‌های ماسه‌ای، چادر عشایری، آتش و کاروان شتر زیر آسمان پرستاره؛ تصویر شاخص شهرستان ورزنه",
     "sha1": "1d687ae71fc67a521226aeff0c32e0d7deede966"
    }
   },
@@ -2917,7 +2992,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/buin-miandasht.md",
-   "source_sha1": "47650885395d251e6b62671ff647c6d3993a63bb",
+   "source_sha1": "dc041d98a1fb7ca955d08af588f72e973241fe53",
    "slug": "buin-miandasht",
    "status": "article",
    "title": "شهرستان بوئین میاندشت",
@@ -2949,7 +3024,7 @@
    },
    "seo": {
     "sa_seo_title": "شهرستان بوئین میاندشت؛ شهر پنج قوم در بلندای فریدن",
-    "sa_seo_description": "راهنمای شهرستان بوئین میاندشت؛ شهرستان‌شدن در ۱۳۹۲، مرکز بوئین میاندشت در ارتفاع ۲٬۴۱۰ متری، زبان گرجی و ارمنی در کنار فارسی، افوس نخستین آبادی گرجیان فریدن، بخش کرچمبو و اقتصاد بادام و عسل.",
+    "sa_seo_description": "راهنمای شهرستان بوئین میاندشت؛ شهرستان‌شدن در ۱۳۹۲، مرکز در ارتفاع ۲٬۴۱۰ متری، زبان گرجی و ارمنی کنار فارسی، افوس نخستین آبادی گرجیان و اقتصاد بادام و عسل.",
     "sa_focus_keyword": "شهرستان بوئین میاندشت",
     "sa_og_title": "شهرستان بوئین میاندشت — تُرِل بوینی گرجی‌ها در دل زاگرس",
     "sa_og_description": "از کوچ گرجیان روزگار شاه عباس تا المان اتحاد پنج قوم؛ هرآنچه پیش از سفر به بوئین میاندشت باید بدانید."
@@ -3025,7 +3100,10 @@
     "file": "assets/counties/buin-miandasht.webp",
     "source": "assets/featured/counties/isfahan/buin-miandasht.webp",
     "mime": "image/webp",
-    "alt": "شهرستان بوئین میاندشت",
+    "alt": "ییلاق سرسبز بوئین میاندشت با رود، گله و روستای سنگی در دامنهٔ زاگرس؛ تصویر شاخص شهرستان بوئین میاندشت",
+    "caption": "ییلاق سرسبز زاگرس؛ شهرستان بوئین میاندشت.",
+    "title": "شهرستان بوئین میاندشت — سرزمین آریان",
+    "description": "ییلاق سرسبز بوئین میاندشت با رود، گله و روستای سنگی در دامنهٔ زاگرس؛ تصویر شاخص شهرستان بوئین میاندشت",
     "sha1": "3991295126f0735a75f92cd338a3a90984e5a8d5"
    }
   },
@@ -3033,7 +3111,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/kuhpayeh.md",
-   "source_sha1": "03a70e0349430e3e84ea5afa289b5f52601b8e10",
+   "source_sha1": "9de89610ccdc85ec8062ce6773ffbe3e5f8b9caa",
    "slug": "kuhpayeh",
    "status": "article",
    "title": "شهرستان کوهپایه",
@@ -3064,8 +3142,8 @@
     "sa_schema_contained_in": "isfahan"
    },
    "seo": {
-    "sa_seo_title": "شهرستان کوهپایه؛ کاروانسرای شاه‌عباسی و مسجدی بر آتشکده در حاشیهٔ کویر",
-    "sa_seo_description": "راهنمای شهرستان کوهپایه؛ شهرستان‌شدن در ۱۴۰۰، مرکز کوهپایه در ۶۵ کیلومتری شرق اصفهان بر جادهٔ بندرعباس، نام‌های کهن ویر و قهپایه، گویش کوپایی، کوه مارشنان ۳٬۳۳۰ متری، کاروانسراها و مسجد جامع سلجوقی.",
+    "sa_seo_title": "شهرستان کوهپایه؛ کاروانسرای عباسی و مسجدی بر آتشکده",
+    "sa_seo_description": "راهنمای شهرستان کوهپایه؛ شهرستان‌شدن در ۱۴۰۰، کوهپایه در ۶۵ کیلومتری شرق اصفهان، نام‌های کهن ویر و قهپایه، گویش کوپایی، کوه مارشنان و مسجد جامع سلجوقی.",
     "sa_focus_keyword": "شهرستان کوهپایه",
     "sa_og_title": "شهرستان کوهپایه — از قهپایهٔ کهن تا سجزی و تودشک",
     "sa_og_description": "از مسجد جامعی با گنبد ساسانی تا قلعهٔ یکلنگی و چشمهٔ آبگرم ورتون؛ هرآنچه پیش از سفر به کوهپایه باید بدانید."
@@ -3141,7 +3219,10 @@
     "file": "assets/counties/kuhpayeh.webp",
     "source": "assets/featured/counties/isfahan/kuhpayeh.webp",
     "mime": "image/webp",
-    "alt": "شهرستان کوهپایه",
+    "alt": "روستای خشتی کوهپایه در دامنهٔ کوه برفی با درختان شکوفا و جویبار؛ تصویر شاخص شهرستان کوهپایه",
+    "caption": "دامنه‌های خنک، روستای دیرین و باغ‌های شهرستان کوهپایه.",
+    "title": "شهرستان کوهپایه — سرزمین آریان",
+    "description": "روستای خشتی کوهپایه در دامنهٔ کوه برفی با درختان شکوفا و جویبار؛ تصویر شاخص شهرستان کوهپایه",
     "sha1": "8343f8743930ad637f533f3d37c468ae1c73e2e6"
    }
   },
@@ -3149,7 +3230,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/harand.md",
-   "source_sha1": "2d69bee3fcc32a06af2d274a5590da4ac030217a",
+   "source_sha1": "61760f1c202aa6c32ed47c1c9e4fb232d2a09e23",
    "slug": "harand",
    "status": "article",
    "title": "شهرستان هرند",
@@ -3181,7 +3262,7 @@
    },
    "seo": {
     "sa_seo_title": "شهرستان هرند؛ شهر دانش و نیایش در شرق اصفهان",
-    "sa_seo_description": "راهنمای شهرستان هرند؛ شهرستان‌شدن در ۲۷ تیر ۱۴۰۰، مرکز هرند در ۲۸ کیلومتری ورزنه، زبان ولاتی، بخش‌های مرکزی و اژیه، شهرک صنعتی ۵۰ هکتاری، آب‌انبار بزرگ، بادگیرها و یخچال قدیمی.",
+    "sa_seo_description": "راهنمای شهرستان هرند؛ شهرستان‌شدن در ۲۷ تیر ۱۴۰۰، هرند در ۲۸ کیلومتری ورزنه، زبان ولاتی، بخش‌های مرکزی و اژیه، شهرک صنعتی، آب‌انبار بزرگ و بادگیرها.",
     "sa_focus_keyword": "شهرستان هرند",
     "sa_og_title": "شهرستان هرند — از هفده رشته قنات تا شهرک صنعتی",
     "sa_og_description": "از محله‌های تاریخی جول‌آباد و دربه تا امامزاده اسحاق و آب‌انبار بزرگ؛ هرآنچه پیش از سفر به هرند باید بدانید."
@@ -3257,7 +3338,10 @@
     "file": "assets/counties/harand.webp",
     "source": "assets/featured/counties/isfahan/harand.webp",
     "mime": "image/webp",
-    "alt": "شهرستان هرند",
+    "alt": "بافت روستایی هرند با گنبد و بادگیر در حاشیهٔ کویر و سفرهٔ چای در ایوان؛ تصویر شاخص شهرستان هرند",
+    "caption": "بافت روستایی و کویر حاشیهٔ هرند؛ آرامش روستا در آغوش کویر.",
+    "title": "شهرستان هرند — سرزمین آریان",
+    "description": "بافت روستایی هرند با گنبد و بادگیر در حاشیهٔ کویر و سفرهٔ چای در ایوان؛ تصویر شاخص شهرستان هرند",
     "sha1": "16b44e04dabca3f0ea1ab4e2f0a500276f4c9f0c"
    }
   },
@@ -3265,7 +3349,7 @@
    "package_format": "1.0",
    "built": "2026-09-29",
    "source_file": "content/cities/meymeh-vazvan.md",
-   "source_sha1": "721da5b1d8051bb42ae6a1ae290b5ca31a5c3740",
+   "source_sha1": "a0cce8c1248d53037d83882199ce4d58373a1adc",
    "slug": "meymeh-vazvan",
    "status": "article",
    "title": "شهرستان میمه و وزوان",
@@ -3296,8 +3380,8 @@
     "sa_schema_contained_in": "isfahan"
    },
    "seo": {
-    "sa_seo_title": "شهرستان میمه و وزوان؛ تازه‌ترین شهرستان اصفهان با قنات‌های ۲۵۰۰ ساله",
-    "sa_seo_description": "راهنمای شهرستان میمه و وزوان؛ بیست‌ونهمین شهرستان اصفهان با مصوبهٔ ۲۷ تیر ۱۴۰۳ و ابلاغ ۲۲ مرداد، در ۷۰ کیلومتری شمال اصفهان، قنات مزدآباد ۱۸ کیلومتری، فرش دستباف میمه، گویش راجی، حمام صفوی و کاروانسرای عباسی وزوان.",
+    "sa_seo_title": "شهرستان میمه و وزوان؛ تازه‌ترین شهرستان اصفهان با قنات کهن",
+    "sa_seo_description": "راهنمای شهرستان میمه و وزوان؛ بیست‌ونهمین شهرستان اصفهان (مصوبهٔ ۱۴۰۳)، در ۷۰ کیلومتری شمال اصفهان، قنات مزدآباد ۱۸ کیلومتری، فرش میمه و گویش راجی.",
     "sa_focus_keyword": "شهرستان میمه و وزوان",
     "sa_og_title": "شهرستان میمه و وزوان — دشت‌های شمالی اصفهان و قنات‌های کهن",
     "sa_og_description": "از انگور و فرش میمه تا برج میل و قلعهٔ حنبل وزوان؛ هرآنچه پیش از سفر به تازه‌ترین شهرستان اصفهان باید بدانید."
@@ -3373,7 +3457,10 @@
     "file": "assets/counties/meymeh-vazvan.webp",
     "source": "assets/featured/counties/isfahan/meymeh-vazvan.webp",
     "mime": "image/webp",
-    "alt": "شهرستان میمه و وزوان",
+    "alt": "دشت سرسبز میمه و وزوان با گله، روستای خشتی و کوه‌ها در غروب؛ تصویر شاخص شهرستان میمه و وزوان",
+    "caption": "دشت‌ها و بافت‌های روستایی شهرستان میمه و وزوان.",
+    "title": "شهرستان میمه و وزوان — سرزمین آریان",
+    "description": "دشت سرسبز میمه و وزوان با گله، روستای خشتی و کوه‌ها در غروب؛ تصویر شاخص شهرستان میمه و وزوان",
     "sha1": "7056da107d6c7a1a2673db781cf2078e215d3a9e"
    }
   }

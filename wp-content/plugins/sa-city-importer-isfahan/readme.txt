@@ -4,7 +4,7 @@ Tags: import, county, city, directory
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,10 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 با گزینه‌ی «به‌روزرسانی پیش‌نویس‌های موجود» همان پیش‌نویس به‌روزرسانی می‌شود.
 
 == Changelog ==
+
+= 1.0.1 — 2026-09-29 =
+* تصاویر شاخص: ALT توصیفی، زیرنویس (caption)، عنوان و توضیح هر ۲۹ تصویر از بلوک ۲ مقاله‌ها همراه بسته می‌آید و درون‌ریز آن‌ها را روی پیوست رسانه می‌نویسد (پیش‌تر فقط کلیدواژهٔ کانونی به‌عنوان ALT نوشته می‌شد). فهرست ALTها: `assets/featured/counties/isfahan/manifest.json`.
+* سئو رنک‌مث: عنوان سئو (≤ ۶۰ کاراکتر)، توضیح متا (۱۲۰–۱۶۰ کاراکتر)، کلیدواژهٔ کانونی «شهرستان …» در آغاز عنوان و داخل توضیح، و عنوان/توضیح اوپن‌گراف برای هر ۲۹ شهرستان بازبینی و اصلاح شد (rank_math_title، rank_math_description، rank_math_focus_keyword، rank_math_facebook_title/description).
 
 = 1.0.0 — 2026-09-29 =
 * انتشار نخست: ۲۹ شهرستان استان اصفهان، نسخه‌ی داده 1.0.0 (ساخته 2026-09-29) با ۲۹ تصویر شاخص وب‌پی همراه بسته (۲۹/۲۹). شهرستان «میمه و وزوان» بر پایهٔ تصویب‌نامهٔ ۷۹۲۴۰ (ابلاغ ۲۲ مرداد ۱۴۰۳) گنجانده شده است.

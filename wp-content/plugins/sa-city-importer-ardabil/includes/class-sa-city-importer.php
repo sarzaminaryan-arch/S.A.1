@@ -383,6 +383,13 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 			}
 			$title = isset( $pkg['title'] ) ? (string) $pkg['title'] : $slug;
 			$alt   = isset( $pkg['seo']['sa_focus_keyword'] ) && '' !== (string) $pkg['seo']['sa_focus_keyword'] ? (string) $pkg['seo']['sa_focus_keyword'] : $title;
+			// Package format 1.0+: descriptive ALT / caption / title / description written by the content agent (BLOCK 2).
+			if ( ! empty( $pkg['image']['alt'] ) ) {
+				$alt = (string) $pkg['image']['alt'];
+			}
+			$img_title   = ! empty( $pkg['image']['title'] ) ? (string) $pkg['image']['title'] : $title;
+			$img_caption = ! empty( $pkg['image']['caption'] ) ? (string) $pkg['image']['caption'] : $alt;
+			$img_desc    = ! empty( $pkg['image']['description'] ) ? (string) $pkg['image']['description'] : '';
 			$upload = wp_upload_bits( $slug . '.webp', null, $bits );
 			if ( ! empty( $upload['error'] ) ) {
 				return 'error:upload';
@@ -391,9 +398,9 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 			$att_id   = wp_insert_attachment(
 				array(
 					'post_mime_type' => empty( $filetype['type'] ) ? 'image/webp' : $filetype['type'],
-					'post_title'     => sanitize_text_field( $title ),
-					'post_content'   => '',
-					'post_excerpt'   => sanitize_text_field( $alt ),
+					'post_title'     => sanitize_text_field( $img_title ),
+					'post_content'   => sanitize_textarea_field( $img_desc ),
+					'post_excerpt'   => sanitize_text_field( $img_caption ),
 					'post_status'    => 'inherit',
 				),
 				$upload['file'],

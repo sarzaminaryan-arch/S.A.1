@@ -186,11 +186,17 @@ def build_county_package(md_path, province_row, built, featured_path=None):
         'markers': count_markers(body_md + ' ' + ' '.join(x['a'] for x in faq)),
     }
     if featured_path and os.path.exists(featured_path):
+        b2 = parse_city_block1(block(text, 2))  # BLOCK 2 uses the same flat key: value subset
+        img_alt = (b2.get('alt') or '').strip() or (pkg['seo']['sa_focus_keyword'] or pkg['title'])
+        img_caption = (b2.get('caption') or '').strip()
         pkg['image'] = {
             'file': 'assets/counties/%s.webp' % pkg['slug'],
             'source': os.path.relpath(featured_path, ROOT).replace(os.sep, '/'),
             'mime': 'image/webp',
-            'alt': pkg['seo']['sa_focus_keyword'] or pkg['title'],
+            'alt': img_alt,
+            'caption': img_caption,
+            'title': '%s — سرزمین آریان' % pkg['title'],
+            'description': img_alt,
             'sha1': hashlib.sha1(open(featured_path, 'rb').read()).hexdigest(),
         }
     else:
