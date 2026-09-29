@@ -1,0 +1,481 @@
+{
+ "batch": "isfahan",
+ "batch_id": "isfahan",
+ "label": "درون‌ریز شهرستان‌های استان اصفهان",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-09-29",
+ "province": {
+  "slug": "isfahan",
+  "name_fa": "استان اصفهان",
+  "term_name": "اصفهان"
+ },
+ "file": "isfahan.json",
+ "counties_count": 29,
+ "counties": [
+  {
+   "slug": "isfahan-city",
+   "title": "شهرستان اصفهان",
+   "status": "article",
+   "word_count": 1022,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "kashan",
+   "title": "شهرستان کاشان",
+   "status": "article",
+   "word_count": 1220,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "natanz",
+   "title": "شهرستان نطنز",
+   "status": "article",
+   "word_count": 1210,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "semirom",
+   "title": "شهرستان سمیرم",
+   "status": "article",
+   "word_count": 1269,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "nain",
+   "title": "شهرستان نائین",
+   "status": "article",
+   "word_count": 1109,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "khur-biabanak",
+   "title": "شهرستان خور و بیابانک",
+   "status": "article",
+   "word_count": 1165,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "khomeyni-shahr",
+   "title": "شهرستان خمینی‌شهر",
+   "status": "article",
+   "word_count": 804,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "najafabad",
+   "title": "شهرستان نجف‌آباد",
+   "status": "article",
+   "word_count": 805,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "lenjan",
+   "title": "شهرستان لنجان",
+   "status": "article",
+   "word_count": 876,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "falavarjan",
+   "title": "شهرستان فلاورجان",
+   "status": "article",
+   "word_count": 996,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "shahin-shahr-meymeh",
+   "title": "شهرستان شاهین‌شهر و میمه",
+   "status": "article",
+   "word_count": 801,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "shahreza",
+   "title": "شهرستان شهرضا",
+   "status": "article",
+   "word_count": 794,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "mobarakeh",
+   "title": "شهرستان مبارکه",
+   "status": "article",
+   "word_count": 771,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "borkhar",
+   "title": "شهرستان برخوار",
+   "status": "article",
+   "word_count": 805,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "aran-bidgol",
+   "title": "شهرستان آران و بیدگل",
+   "status": "article",
+   "word_count": 1182,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "golpayegan",
+   "title": "شهرستان گلپایگان",
+   "status": "article",
+   "word_count": 1140,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "tiran-karvan",
+   "title": "شهرستان تیران و کرون",
+   "status": "article",
+   "word_count": 895,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "fereydan",
+   "title": "شهرستان فریدن",
+   "status": "article",
+   "word_count": 809,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "ardestan",
+   "title": "شهرستان اردستان",
+   "status": "article",
+   "word_count": 807,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "jarqavieh",
+   "title": "شهرستان جرقویه",
+   "status": "article",
+   "word_count": 1108,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "fereydunshahr",
+   "title": "شهرستان فریدون‌شهر",
+   "status": "article",
+   "word_count": 1497,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "dehaqan",
+   "title": "شهرستان دهاقان",
+   "status": "article",
+   "word_count": 1556,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "khansar",
+   "title": "شهرستان خوانسار",
+   "status": "article",
+   "word_count": 1422,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "chadegan",
+   "title": "شهرستان چادگان",
+   "status": "article",
+   "word_count": 1350,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "varzaneh",
+   "title": "شهرستان ورزنه",
+   "status": "article",
+   "word_count": 1144,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "buin-miandasht",
+   "title": "شهرستان بوئین میاندشت",
+   "status": "article",
+   "word_count": 1291,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "kuhpayeh",
+   "title": "شهرستان کوهپایه",
+   "status": "article",
+   "word_count": 1057,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "harand",
+   "title": "شهرستان هرند",
+   "status": "article",
+   "word_count": 1076,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "meymeh-vazvan",
+   "title": "شهرستان میمه و وزوان",
+   "status": "article",
+   "word_count": 1461,
+   "faq": 11,
+   "sources_lines": 7,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  }
+ ]
+}
