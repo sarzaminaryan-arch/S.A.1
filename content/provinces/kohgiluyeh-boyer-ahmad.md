@@ -450,8 +450,6 @@ overlay_text_fa: استان کهگیلویه و بویراحمد
 ```
 
 === BLOCK 5: SOURCES ===
-
-
 ```
 The Persian Caravanserai — کاروانسرای دهدشت در فهرست میراث جهانی (ردیف ۱۶۶۸-۰۳۹) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1668/ | ۱۴۰۵/۰۷/۰۶
 Dena Biosphere Reserve — ثبت ذخیره‌گاه زیست‌کره دنا در سال ۲۰۱۰ در برنامه انسان و زیست‌کره | UNESCO Man and the Biosphere Programme | https://www.unesco.org/en/mab/dena | ۱۴۰۵/۰۷/۰۶
@@ -524,6 +522,7 @@ FĀRS iii. History in the Islamic Period — تقسیمات تاریخی فار�
 [غیررسمی] Dena — رشته‌کوه دنا، قله قاش‌مستان و تنوع اقلیمی زاگرس | Wikipedia (en) — فقط برای مقایسه | https://en.wikipedia.org/wiki/Dena | ۱۴۰۵/۰۷/۰۶
 [غیررسمی] Kohgiluyeh and Boyer-Ahmad Province Q180068 — شناسه ویکی‌داده برای sameAs | Wikidata | https://www.wikidata.org/wiki/Q180068 | ۱۴۰۵/۰۷/۰۶
 ```
+
 === BLOCK 6: SCHEMA DATA ===
 ```yaml
 sameAs:

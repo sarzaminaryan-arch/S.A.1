@@ -314,8 +314,6 @@ spec: 1600×900، WEBP ≤ ۳۰۰ KB، حداکثر سه رنگ
 ```
 
 === BLOCK 5: SOURCES ===
-
-
 ```
 سالنامه آماری ثبت احوال ایلام (اداره کل ثبت احوال استان ایلام) | اداره کل ثبت احوال استان ایلام | https://iranopendata.org/res/get/datasets/Sources/iod475.pdf | ۱۴۰۵/۰۷/۰۴
 دانشنامه کوچک ایران (Foundation for Iranian Studies) | Foundation for Iranian Studies | https://fis-iran.org/fa/ebook/concise-encyclopedia-of-iran/ | ۱۴۰۵/۰۷/۰۴
@@ -347,7 +345,6 @@ spec: 1600×900، WEBP ≤ ۳۰۰ KB، حداکثر سه رنگ
 آثار باستانی دره‌شهر (وبلاگ محلی منجل ایلام) — منبع غیررسمی | وبلاگ محلی | https://manjal-ilam.blogfa.com/post/60 | ۱۴۰۵/۰۷/۰۴
 یادداشت‌های محلی درباره‌ی ایلام (وبلاگ حکیم‌زاده) — منبع غیررسمی | وبلاگ محلی | https://hakimzadeh.blogfa.com/1390/06 | ۱۴۰۵/۰۷/۰۴
 استان ایلام (مساحت ۲۰٬۱۳۳؛ کم‌جمعیت‌ترین استان؛ ۴۲۵ کیلومتر مرز با عراق؛ پیش‌شماره ۰۸۴) — منبع غیررسمی | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%DB%8C%D9%84%D8%A7%D9%85 | ۱۴۰۵/۰۷/۰۴```
-```
 === BLOCK 6: SCHEMA DATA ===
 ```yaml
 sameAs:

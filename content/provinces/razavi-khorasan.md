@@ -439,8 +439,6 @@ spec: 1600×900 (حداقل)، WEBP ≤ ۳۰۰ KB، حداکثر سه رنگ، �
 ```
 
 === BLOCK 5: SOURCES ===
-
-
 ```
 مرکز آمار ایران – نتایج سرشماری عمومی نفوس و مسکن ۱۳۹۵ (جمعیت و مساحت استان و شهرستان‌ها) | مرکز آمار ایران | https://web.archive.org/web/20170319022834if_/https://www.amar.org.ir/portals/0/census/1395/results/g_sarshomari-95.pdf | ۱۴۰۵/۰۷/۰۴
 City Population – Khorāsān-e Razavi Province | City Population | https://www.citypopulation.de/en/iran/admin/09__khor%C4%81s%C4%81n_e_razavi/ | ۱۴۰۵/۰۷/۰۴
@@ -452,7 +450,6 @@ UNESCO – Persian Caravanserai | UNESCO | https://whc.unesco.org/en/list/1668 |
 اتاق بازرگانی خراسان رضوی – جغرافیای استان | MCCIMA | https://www.mccima.com/khorasan/geography.htm | ۱۴۰۵/۰۷/۰۴
 ویکی‌پدیا فارسی – فهرست شهرستان‌های استان خراسان رضوی | ویکی‌پدیا | https://fa.wikipedia.org/wiki/%D9%81%D9%87%D8%B1%D8%B3%D8%AA_%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86%E2%80%8C%D9%87%D8%A7%DB%8C_%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86_%D8%B1%D8%B6%D9%88%DB%8C | ۱۴۰۵/۰۷/۰۴
 Music of the Bakhshis of Khorasan — Representative List (ثبت ۲۰۱۰؛ دوتار؛ مقام‌ها؛ نقش اجتماعی بخشی‌ها) | UNESCO Intangible Cultural Heritage | https://ich.unesco.org/en/RL/music-of-the-bakhshis-of-khorasan-00381 | ۱۴۰۵/۰۷/۰۴
-```
 === BLOCK 6: SCHEMA DATA ===
 ```yaml
 sameAs:

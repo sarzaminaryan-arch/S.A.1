@@ -426,8 +426,6 @@ spec: 1600×900 (حداقل)، WEBP ≤ ۳۰۰ KB، حداکثر سه رنگ، �
 ```
 
 === BLOCK 5: SOURCES ===
-
-
 ```
 The Persian Caravanserai — ثبت جهانی ۲۰۲۳؛ شامل کاروانسرای ینگه‌امام (ساوجبلاغ) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1668 | ۱۴۰۵/۰۷/۰۴
 فهرست میراث جهانی ایران (باغ ایرانی، قنات ایرانی، کاروانسرای ایرانی) | UNESCO World Heritage Centre | https://whc.unesco.org/en/statesparties/ir/ | ۱۴۰۵/۰۷/۰۴
@@ -478,7 +476,6 @@ Amir Kabir Dam — مشخصات فنی سد | Wikipedia (en) — منبع غیر
 فهرست ایستگاه‌های متروی کرج — خط ۵ (گرمدره، اتمسفر، کرج، محمدشهر، گلشهر، هشتگرد) | ویکی‌پدیای فارسی — منبع غیررسمی (فقط برای مقایسه) | https://fa.wikipedia.org/wiki/%D9%81%D9%87%D8%B1%D8%B3%D8%AA_%D8%A7%DB%8C%D8%B3%D8%AA%DA%AF%D8%A7%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C_%D9%85%D8%AA%D8%B1%D9%88%DB%8C_%DA%A9%D8%B1%D8%AC | ۱۴۰۵/۰۷/۰۴
 محمدعلی معلم: ارتفاع آب سد امیرکبیر حدود ۴۶ متر زیر تراز نرمال (مرداد ۱۴۰۴)؛ حجم اولیه ۲۰۵ میلیون متر مکعب | خبرگزاری مهر به نقل از مدیر سد امیرکبیر | https://www.mehrnews.com/news/6542143/%D9%85%D8%AD%D9%85%D8%AF%D8%B9%D9%84%DB%8C-%D9%85%D8%B9%D9%84%D9%85-%D8%A7%D9%85%D8%B3%D8%A7%D9%84-%D8%A7%D8%B1%D8%AA%D9%81%D8%A7%D8%B9-%D8%A2%D8%A8-%D8%AD%D8%AF%D9%88%D8%AF-%DB%B4%DB%B6-%D9%85%D8%AA%D8%B1-%D8%A7%D8%B2-%D8%AA%D8%B1%D8%A7%D8%B2-%D9%86%D8%B1%D9%85%D8%A7%D9%84-%D9%BE%D8%A7%DB%8C%DB%8C%D9%86 | ۱۴۰۵/۰۷/۰۴
 باغ فرهنگ کمیسیون ملی یونسکو–ایران در کرج افتتاح شد — عنوان شهری متفاوت با میراث جهانی | عصر ایران | https://www.asriran.com/fa/news/786252/%D8%A8%D8%A7%D8%BA-%D9%81%D8%B1%D9%87%D9%86%DA%AF-%DA%A9%D9%85%DB%8C%D8%B3%DB%8C%D9%88%D9%86-%D9%85%D9%84%DB%8C-%DB%8C%D9%88%D9%86%D8%B3%DA%A9%D9%88-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-%D8%A7%D9%81%D8%AA%D8%AA%D8%A7%D8%AD-%D8%B4%D8%AF | ۱۴۰۵/۰۷/۰۴
-```
 === BLOCK 6: SCHEMA DATA ===
 
 ```yaml

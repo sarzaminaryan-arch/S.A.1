@@ -394,8 +394,6 @@ dimensions:
 ```
 
 === BLOCK 5: SOURCES ===
-
-
 ```
 ثبت «شهر تاریخی یزد» در فهرست میراث جهانی یونسکو (نشست چهل‌ویکم، ۲۰۱۷؛ کد ۱۵۴۴) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1544/ | 2017-07-09
 [غیررسمی] گزارش ثبت شهر تاریخی یزد به عنوان بیست‌ودومین اثر جهانی ایران؛ هسته ۲۰۰ هکتاری از بافت ۲٬۲۷۰ هکتاری و حریم ۶۶۵٫۹۳ هکتاری | Financial Tribune | https://financialtribune.com/articles/travel/67964/irans-yazd-city-inscribed-on-world-heritage-list | 2017-07-09
@@ -441,6 +439,7 @@ dimensions:
 [نقشه] موقعیت کوه شیرکوه در شهرستان تفت | Google Maps | https://maps.google.com/?q=Shir+Kuh+Yazd | 2026-09-28
 [نقشه] موقعیت نارین قلعه میبد | Google Maps | https://maps.google.com/?q=Narin+Castle+Meybod | 2026-09-28
 ```
+
 === BLOCK 6: SCHEMA (JSON-LD) ===
 ```json
 {

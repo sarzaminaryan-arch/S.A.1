@@ -418,8 +418,6 @@ dimensions:
 ```
 
 === BLOCK 5: SOURCES ===
-
-
 ```
 زیگورات چغازنبیل (دوراونتاش)؛ شهر مقدس پادشاهی عیلام، بنیان اونتاش‌نپیریشا حدود ۱۲۵۰ پیش از میلاد؛ بزرگ‌ترین و سالم‌مانده‌ترین زیگورات بیرون از بین‌النهرین | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/113/ | 2026-09-28
 سازه‌های آبی تاریخی شوشتر؛ مهندسی آبی از روزگار داریوش بزرگ سده پنجم پیش از میلاد، کانال گرگر، قلعه سالاسل و دشت میاناب چهل‌هزار هکتاری | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1315/ | 2026-09-28
@@ -451,6 +449,7 @@ dimensions:
 [نقشه] موقعیت زیگورات چغازنبیل در نزدیکی شوش | Google Maps | https://maps.google.com/?q=Chogha+Zanbil | 2026-09-28
 [نقشه] موقعیت تالاب شادگان در جنوب خوزستان | Google Maps | https://maps.google.com/?q=Shadegan+Wetland | 2026-09-28
 ```
+
 === BLOCK 6: SCHEMA (JSON-LD) ===
 ```json
 {

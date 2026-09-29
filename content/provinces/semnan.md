@@ -389,8 +389,6 @@ dimensions:
 ```
 
 === BLOCK 5: SOURCES ===
-
-
 ```
 ثبت جنگل‌های هیرکانی ایران در فهرست میراث طبیعی جهانی یونسکو (۲۰۱۹؛ کد ۱۵۸۵) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1585/ | 2019-07-28
 جمعیت شهرستان‌ها و شهرهای استان سمنان بر پایه سرشماری ۱۳۹۵ مرکز آمار ایران | City Population (به نقل از مرکز آمار ایران) | https://www.citypopulation.de/en/iran/admin/20__semn%C4%81n/ | 2026-09-28
@@ -423,6 +421,7 @@ dimensions:
 معرفی فرودگاه‌های ایران؛ فرودگاه سمنان، شاهرود و گرمسار و وضعیت پروازهای محدود استان | رسپینا ۲۴ | https://respina24.ir/mag/airports-in-iran/ | 2024-01-17
 مرکز خرید الماس شرق شاهرود در محله مصلی و مجاورت هتل نادر و هتل رویال | نقشه بلد | https://balad.ir/p/%D9%85%D8%B1%DA%A9%D8%B2-%D8%AE%D8%B1%DB%8C%D8%AF-%D8%A7%D9%84%D9%85%D8%A7%D8%B3-%D8%B4%D8%B1%D9%82-shahroud_shopping-mall-6UknugIdZ03D75 | 2026-09-28
 ```
+
 === BLOCK 6: SCHEMA (JSON-LD) ===
 ```json
 {
