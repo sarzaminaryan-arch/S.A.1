@@ -1,0 +1,180 @@
+{
+ "format": "1.0",
+ "built": "2026-09-29",
+ "counties": [
+  {
+   "title": "اصفهان",
+   "slug": "isfahan-city",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "کاشان",
+   "slug": "kashan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "نطنز",
+   "slug": "natanz",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "سمیرم",
+   "slug": "semirom",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "نایین",
+   "slug": "nain",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "خور و بیابانک",
+   "slug": "khur-biabanak",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "خمینی‌شهر",
+   "slug": "khomeyni-shahr",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "نجف‌آباد",
+   "slug": "najafabad",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "لنجان (زرین‌شهر)",
+   "slug": "lenjan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "فلاورجان",
+   "slug": "falavarjan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "شاهین‌شهر و میمه",
+   "slug": "shahin-shahr-meymeh",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "شهرضا",
+   "slug": "shahreza",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "مبارکه",
+   "slug": "mobarakeh",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "برخوار",
+   "slug": "borkhar",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "آران و بیدگل",
+   "slug": "aran-bidgol",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "گلپایگان",
+   "slug": "golpayegan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "تیران و کرون",
+   "slug": "tiran-karvan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "فریدن",
+   "slug": "fereydan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "اردستان",
+   "slug": "ardestan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "جرقویه",
+   "slug": "jarqavieh",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "فریدون‌شهر",
+   "slug": "fereydunshahr",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "دهاقان",
+   "slug": "dehaqan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "خوانسار",
+   "slug": "khansar",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "چادگان",
+   "slug": "chadegan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "ورزنه",
+   "slug": "varzaneh",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "بوئین میاندشت",
+   "slug": "buin-miandasht",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "کوهپایه",
+   "slug": "kuhpayeh",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "هرند",
+   "slug": "harand",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  },
+  {
+   "title": "میمه و وزوان (پس از ابلاغ)",
+   "slug": "meymeh-vazvan",
+   "province": "isfahan",
+   "province_name": "اصفهان"
+  }
+ ]
+}

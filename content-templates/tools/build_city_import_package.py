@@ -204,6 +204,8 @@ def main():
     ap.add_argument('--label', required=True, help='province Persian term name, e.g. آذربایجان شرقی')
     ap.add_argument('--out', default=None, help='data/ directory of the importer plugin')
     ap.add_argument('--version', default='1.0.0', help='data version written to manifest')
+    ap.add_argument('--skip-missing', action='store_true',
+                    help='skip counties whose article md is not written yet (partial provinces) instead of aborting')
     args = ap.parse_args()
 
     rows = json.load(open(B01_COUNTIES, encoding='utf-8'))['counties']
@@ -223,9 +225,13 @@ def main():
     }
 
     packages, summary = [], []
+    skipped = []
     for r in mine:
         md_path = os.path.join(CITY_DIR, r['slug'] + '.md')
         if not os.path.exists(md_path):
+            if args.skip_missing:
+                skipped.append(r['slug'])
+                continue
             sys.exit('missing article: %s' % md_path)
         feat = os.path.join(FEATURED_DIR, args.province, r['slug'] + '.webp') if os.path.isdir(os.path.join(FEATURED_DIR, args.province)) else None
         pkg = build_county_package(md_path, province_row, built, feat)
@@ -240,6 +246,9 @@ def main():
             'featured_image': bool(pkg['image']),
         })
         print('%-16s words=%5d faq=%2d img=%s %s' % (pkg['slug'], pkg['post']['word_count'], len(pkg['faq']), 'Y' if pkg['image'] else '-', pkg['publish_status']))
+
+    if skipped:
+        print('skipped (no article yet): %s' % ', '.join(skipped))
 
     data = {
         'batch': args.province,
