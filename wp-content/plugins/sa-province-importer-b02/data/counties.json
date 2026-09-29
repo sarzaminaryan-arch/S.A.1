@@ -171,14 +171,14 @@
       "province_name": "خوزستان"
     },
     {
-      "title": "اهواز",
-      "slug": "ahvaz-city",
+      "title": "امیدیه",
+      "slug": "omidiyeh",
       "province": "khuzestan",
       "province_name": "خوزستان"
     },
     {
-      "title": "امیدیه",
-      "slug": "omidiyeh",
+      "title": "اندیمشک",
+      "slug": "andimeshk",
       "province": "khuzestan",
       "province_name": "خوزستان"
     },
@@ -189,8 +189,8 @@
       "province_name": "خوزستان"
     },
     {
-      "title": "اندیمشک",
-      "slug": "andimeshk",
+      "title": "اهواز",
+      "slug": "ahvaz-city",
       "province": "khuzestan",
       "province_name": "خوزستان"
     },
@@ -243,6 +243,12 @@
       "province_name": "خوزستان"
     },
     {
+      "title": "دزپارت",
+      "slug": "dezpart",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
       "title": "دشت آزادگان",
       "slug": "dasht-azadegan",
       "province": "khuzestan",
@@ -279,18 +285,6 @@
       "province_name": "خوزستان"
     },
     {
-      "title": "کارون",
-      "slug": "karun",
-      "province": "khuzestan",
-      "province_name": "خوزستان"
-    },
-    {
-      "title": "گتوند",
-      "slug": "gotvand",
-      "province": "khuzestan",
-      "province_name": "خوزستان"
-    },
-    {
       "title": "لالی",
       "slug": "lali",
       "province": "khuzestan",
@@ -317,6 +311,12 @@
     {
       "title": "هویزه",
       "slug": "hoveyzeh",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "کارون",
+      "slug": "karun",
       "province": "khuzestan",
       "province_name": "خوزستان"
     },
@@ -769,6 +769,18 @@
       "slug": "marivan",
       "province": "kurdistan",
       "province_name": "کردستان"
+    },
+    {
+      "title": "کرخه",
+      "slug": "karkheh",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
+    },
+    {
+      "title": "گتوند",
+      "slug": "gotvand",
+      "province": "khuzestan",
+      "province_name": "خوزستان"
     }
   ]
 }

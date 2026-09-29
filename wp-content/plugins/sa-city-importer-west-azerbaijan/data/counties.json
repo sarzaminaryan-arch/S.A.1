@@ -1,0 +1,126 @@
+{
+ "format": "1.0",
+ "built": "2026-09-28",
+ "counties": [
+  {
+   "title": "ارومیه",
+   "slug": "urmia",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "خوی",
+   "slug": "khoy",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "مهاباد",
+   "slug": "mahabad",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "تکاب",
+   "slug": "takab",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "چالدران",
+   "slug": "chaldoran",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "ماکو",
+   "slug": "maku",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "اشنویه",
+   "slug": "oshnavieh",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "باروق",
+   "slug": "baruq",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "بوکان",
+   "slug": "bukan",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "پلدشت",
+   "slug": "poldasht",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "پیرانشهر",
+   "slug": "piranshahr",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "چایپاره",
+   "slug": "chaypareh",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "چهاربرج",
+   "slug": "chaharborj",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "سردشت",
+   "slug": "sardasht",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "سلماس",
+   "slug": "salmas",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "شاهین‌دژ",
+   "slug": "shahin-dezh",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "شوط",
+   "slug": "showt",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "میاندوآب",
+   "slug": "miandoab",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "نقده",
+   "slug": "naqadeh",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  },
+  {
+   "title": "میرآباد",
+   "slug": "mirabad",
+   "province": "west-azerbaijan",
+   "province_name": "آذربایجان غربی"
+  }
+ ]
+}

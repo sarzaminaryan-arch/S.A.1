@@ -49,6 +49,8 @@ add_action( 'init', 'sa_maybe_run_setup', 99 );
 function sa_maybe_upgrade() {
 	if ( get_option( 'sa_child_version' ) !== SA_CHILD_VERSION ) {
 		sa_seed_terms();
+		sa_create_default_pages(); // برگه‌های از دست رفته (از جمله حریم خصوصی) را می‌سازد و قالب v2 را به «خانه» می‌بندد.
+		sa_home_v2_setup();
 		update_option( 'sa_child_version', SA_CHILD_VERSION, false );
 		update_option( 'sa_flush_rewrite', 1, false );
 	}
@@ -68,6 +70,7 @@ function sa_create_default_pages() {
 		'blog'    => array( 'title' => 'وبلاگ', 'status' => 'publish', 'content' => '' ),
 		'about'   => array( 'title' => 'درباره ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سرزمین آریان دانشنامه‌ی سفر ایران است. این متن را با معرفی واقعی تیم، هدف سایت و سیاست تحریریه جایگزین کنید (برای E-E-A-T مهم است).</p>\n<!-- /wp:paragraph -->" ),
 		'contact' => array( 'title' => 'تماس با ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>ایمیل و راه‌های تماس را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
+		'privacy' => array( 'title' => 'حریم خصوصی', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سیاست حفظ حریم خصوصی سایت (کوکی‌ها، آمار، اطلاعات تماس) را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
 		'policy'  => array( 'title' => 'سیاست تحریریه و منابع', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>توضیح دهید اطلاعات (ساعات، قیمت‌ها، مسافت‌ها) از چه منابعی گردآوری و هر چند وقت یک‌بار بازبینی می‌شود.</p>\n<!-- /wp:paragraph -->" ),
 	);
 	$ids = get_option( 'sa_default_pages', array() );
@@ -95,10 +98,43 @@ function sa_create_default_pages() {
 	}
 	update_option( 'sa_default_pages', $ids, false );
 
+	// صفحه‌ی «خانه» با قالب v2 همیشه منتشر است (طراحی در قالب است، نه محتوای ویرایشگر).
+	if ( ! empty( $ids['home'] ) && get_post( $ids['home'] ) ) {
+		update_post_meta( (int) $ids['home'], '_wp_page_template', 'template-home.php' );
+		if ( 'publish' !== get_post_status( $ids['home'] ) ) {
+			wp_update_post(
+				array(
+					'ID'          => (int) $ids['home'],
+					'post_status' => 'publish',
+				)
+			);
+		}
+	}
+
 	if ( ! empty( $ids['home'] ) && ! empty( $ids['blog'] ) && 'page' !== get_option( 'show_on_front' ) ) {
 		update_option( 'show_on_front', 'page' );
 		update_option( 'page_on_front', $ids['home'] );
 		update_option( 'page_for_posts', $ids['blog'] );
+	}
+}
+
+/**
+ * Home v2 setup (runs on version bump): make the seeded «خانه» page the static
+ * front page even if the site previously showed another front page, and make
+ * sure the v2 template is attached. Idempotent.
+ */
+function sa_home_v2_setup() {
+	$ids = get_option( 'sa_default_pages', array() );
+	if ( empty( $ids['home'] ) || ! get_post( $ids['home'] ) ) {
+		return;
+	}
+	update_post_meta( (int) $ids['home'], '_wp_page_template', 'template-home.php' );
+	if ( 'page' !== get_option( 'show_on_front' ) || (int) get_option( 'page_on_front' ) !== (int) $ids['home'] ) {
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', (int) $ids['home'] );
+	}
+	if ( ! empty( $ids['blog'] ) && get_post( $ids['blog'] ) && ! (int) get_option( 'page_for_posts' ) ) {
+		update_option( 'page_for_posts', (int) $ids['blog'] );
 	}
 }
 

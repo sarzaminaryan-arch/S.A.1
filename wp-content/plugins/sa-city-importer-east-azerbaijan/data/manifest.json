@@ -1,0 +1,332 @@
+{
+ "batch": "east-azerbaijan",
+ "batch_id": "east-azerbaijan",
+ "label": "درون‌ریز شهرستان‌های استان آذربایجان شرقی",
+ "data_version": "1.0.1",
+ "package_format": "1.0",
+ "built": "2026-09-28",
+ "province": {
+  "slug": "east-azerbaijan",
+  "name_fa": "استان آذربایجان شرقی",
+  "term_name": "آذربایجان شرقی"
+ },
+ "file": "east-azerbaijan.json",
+ "counties_count": 21,
+ "counties": [
+  {
+   "slug": "tabriz",
+   "title": "شهرستان تبریز",
+   "status": "article",
+   "word_count": 1552,
+   "faq": 10,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "maragheh",
+   "title": "شهرستان مراغه",
+   "status": "article",
+   "word_count": 1395,
+   "faq": 10,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "marand",
+   "title": "شهرستان مرند",
+   "status": "article",
+   "word_count": 1217,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "osku",
+   "title": "شهرستان اسکو",
+   "status": "article",
+   "word_count": 1231,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "kaleybar",
+   "title": "شهرستان کلیبر",
+   "status": "article",
+   "word_count": 1393,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "jolfa",
+   "title": "شهرستان جلفا",
+   "status": "article",
+   "word_count": 1191,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "azarshahr",
+   "title": "شهرستان آذرشهر",
+   "status": "article",
+   "word_count": 1184,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "ahar",
+   "title": "شهرستان اهر",
+   "status": "article",
+   "word_count": 1200,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "bostanabad",
+   "title": "شهرستان بستان‌آباد",
+   "status": "article",
+   "word_count": 1188,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "bonab",
+   "title": "شهرستان بناب",
+   "status": "article",
+   "word_count": 1203,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "charoymaq",
+   "title": "شهرستان چاراویماق",
+   "status": "article",
+   "word_count": 1210,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "khoda-afarin",
+   "title": "شهرستان خداآفرین",
+   "status": "article",
+   "word_count": 1195,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "sarab",
+   "title": "شهرستان سراب",
+   "status": "article",
+   "word_count": 1187,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "shabestar",
+   "title": "شهرستان شبستر",
+   "status": "article",
+   "word_count": 1219,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "ajabshir",
+   "title": "شهرستان عجب‌شیر",
+   "status": "article",
+   "word_count": 1222,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "malekan",
+   "title": "شهرستان ملکان",
+   "status": "article",
+   "word_count": 1210,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "mianeh",
+   "title": "شهرستان میانه",
+   "status": "article",
+   "word_count": 1260,
+   "faq": 10,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "varzaqan",
+   "title": "شهرستان ورزقان",
+   "status": "article",
+   "word_count": 1232,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "heris",
+   "title": "شهرستان هریس",
+   "status": "article",
+   "word_count": 1225,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "hashtrud",
+   "title": "شهرستان هشترود",
+   "status": "article",
+   "word_count": 1225,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  },
+  {
+   "slug": "hurand",
+   "title": "شهرستان هوراند",
+   "status": "article",
+   "word_count": 1234,
+   "faq": 10,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   }
+  }
+ ]
+}

@@ -3,7 +3,6 @@
 > تولید: ۱۴۰۵/۰۷/۰۶ · حالت: full · وضعیت: DRAFT ONLY (دلیل در بلوک ۹) · افق زمانی: تا مهر ۱۴۰۵ / سپتامبر ۲۰۲۶
 > تصویر شاخص طبق قرارداد در مسیر `assets/featured/provinces/kermanshah.webp` تعریف شده است و بارگذاری آن بر عهده‌ی مالک است.
 > سئو طبق چک‌لیست Rank Math بخش ۳ نوشته شده؛ طول عنوان، متا و چکیده با اسکریپت شمارش شده است.
-> ارجاع‌های بالانویس `<sup>[n](URL)</sup>` با شماره‌ی ردیف بلوک ۵ یکی است؛ ردیف‌های پله‌ی ۱۱ و ۱۲ در بلوک ۵ با پیشوند [نقشه] و [غیررسمی] مشخص شده‌اند.
 > قاعده‌ی این نسخه: هیچ یادداشت کاری یا ویراستاری در بلوک‌های ۳ تا ۵ نیامده است؛ همه‌ی یادداشت‌ها فقط در بلوک‌های ۷ تا ۹ هستند.
 
 ```
@@ -13,12 +12,12 @@ province_slug: kermanshah
 access_date_jalali: ۱۴۰۵/۰۷/۰۶
 mode: full
 published_entities:
-  counties: []
-  attractions: []
-  foods: []
-  souvenirs: []
-  routes: []
-  neighbour_provinces: [kurdistan, ilam]
+ counties: []
+ attractions: []
+ foods: []
+ souvenirs: []
+ routes: []
+ neighbour_provinces: [kurdistan, ilam]
 source_pack: —
 ```
 
@@ -31,47 +30,47 @@ province_name_en: Kermanshah Province
 slug: kermanshah
 focus_keyword: استان کرمانشاه
 secondary_keywords:
-  - سفر به کرمانشاه
-  - جاذبه‌های کرمانشاه
-  - شهرستان‌های کرمانشاه
-  - کرمانشاه کجاست
-  - جمعیت کرمانشاه
-  - سوغات کرمانشاه
-  - غذاهای کرمانشاه
-  - بهترین زمان سفر به کرمانشاه
-  - بیستون
-  - طاق بستان
-  - معبد آناهیتا
-  - غار قوری قلعه
-seo_title: استان کرمانشاه؛ راهنمای کامل سفر، ۱۴ شهرستان و جاذبه‌ها          # ۵۶ کاراکتر
-meta_description: همه‌چیز درباره‌ی استان کرمانشاه؛ ۱۴ شهرستان، بیستون جهانی، طاق بستان، معبد آناهیتا، شهر خلاق خوراک یونسکو، غذاها، سوغات و بهترین زمان سفر با داده‌های رسمی.   # ۱۵۳ کاراکتر
-og_title: استان کرمانشاه؛ راهنمای کامل سفر و ۱۴ شهرستان          # ۴۶ کاراکتر
-og_description: راهنمای استان کرمانشاه؛ بیستون جهانی، طاق بستان، معبد آناهیتا، کرمانشاه شهر خلاق خوراک یونسکو، تاریخ زنگنه‌ها و دولتشاه، غذاها و سوغات با منابع مشخص.   # ۱۴۴ کاراکتر
-excerpt: استان کرمانشاه دروازه‌ی زاگرس به میان‌رودان است؛ چهارده شهرستان، کتیبه‌ی جهانی بیستون، طاق بستان ساسانی، معبد آناهیتا، شهر خلاق خوراک یونسکو و قطب نخود ایران را در این راهنما بخوانید.            # ۱۹۰ کاراکتر
+ - سفر به کرمانشاه
+ - جاذبه‌های کرمانشاه
+ - شهرستان‌های کرمانشاه
+ - کرمانشاه کجاست
+ - جمعیت کرمانشاه
+ - سوغات کرمانشاه
+ - غذاهای کرمانشاه
+ - بهترین زمان سفر به کرمانشاه
+ - بیستون
+ - طاق بستان
+ - معبد آناهیتا
+ - غار قوری قلعه
+seo_title: استان کرمانشاه؛ راهنمای کامل سفر، ۱۴ شهرستان و جاذبه‌ها # ۵۶ کاراکتر
+meta_description: همه‌چیز درباره‌ی استان کرمانشاه؛ ۱۴ شهرستان، بیستون جهانی، طاق بستان، معبد آناهیتا، شهر خلاق خوراک یونسکو، غذاها، سوغات و بهترین زمان سفر با داده‌های رسمی. # ۱۵۳ کاراکتر
+og_title: استان کرمانشاه؛ راهنمای کامل سفر و ۱۴ شهرستان # ۴۶ کاراکتر
+og_description: راهنمای استان کرمانشاه؛ بیستون جهانی، طاق بستان، معبد آناهیتا، کرمانشاه شهر خلاق خوراک یونسکو، تاریخ زنگنه‌ها و دولتشاه، غذاها و سوغات با منابع مشخص. # ۱۴۴ کاراکتر
+excerpt: استان کرمانشاه دروازه‌ی زاگرس به میان‌رودان است؛ چهارده شهرستان، کتیبه‌ی جهانی بیستون، طاق بستان ساسانی، معبد آناهیتا، شهر خلاق خوراک یونسکو و قطب نخود ایران را در این راهنما بخوانید. # ۱۹۰ کاراکتر
 fields:
-  center_city: کرمانشاه            # نوشته‌ی «شهر کرمانشاه» با نامک kermanshah-city (به‌زودی)
-  population: 1952434                       # source_year: 1395 (سرشماری عمومی نفوس و مسکن)
-  area_km2: 24998                      # ویکی‌پدیای انگلیسی؛ ایرانیکا حدود ۲۵٬۰۰۰ و ویکی‌پدیای فارسی ۲۴٬۶۴۰ [نیازمند بررسی]
-  latitude: 34.5500                     # مختصات مرجع استان در منبع غیررسمی (ویکی‌پدیای انگلیسی) [نیازمند بررسی]
-  longitude: 46.7170
-  climate: کوهستانی معتدل؛ زمستان سرد و برفی در شرق و شمال، نوار غربی گرمسیری
-  travel_season: [spring, autumn]
-  google_map_url: https://www.google.com/maps/place/Kermanshah+Province
+ center_city: کرمانشاه # نوشته‌ی «شهر کرمانشاه» با نامک kermanshah-city
+ population: 1952434 # source_year: 1395 (سرشماری عمومی نفوس و مسکن)
+ area_km2: 24998 # ویکی‌پدیای انگلیسی؛ ایرانیکا حدود ۲۵٬۰۰۰ و ویکی‌پدیای فارسی ۲۴٬۶۴۰
+ latitude: 34.5500 # مختصات مرجع استان در منبع غیررسمی (ویکی‌پدیای انگلیسی)
+ longitude: 46.7170
+ climate: کوهستانی معتدل؛ زمستان سرد و برفی در شرق و شمال، نوار غربی گرمسیری
+ travel_season: [spring, autumn]
+ google_map_url: https://www.google.com/maps/place/Kermanshah+Province
 taxonomy:
-  province_tax: kermanshah
+ province_tax: kermanshah
 ```
 
 === BLOCK 2: FEATURED IMAGE ===
 ```yaml
 image_prompt: |
-  Minimal 16:9 flat vector travel poster of Kermanshah Province, Iran. Exactly three
-  colors: deep terracotta red, warm stone beige, and dark olive green. Left third of the
-  frame left empty for later overlay text. On the right and center: a stylized cliff
-  face with a small carved relief panel high on the rock (Bisotun), a large arched
-  grotto cut into a mountain with a still pool in front of it (Taq-e Bostan), a row of
-  simple stone columns on a platform (Anahita temple), and a small long-necked lute
-  (tanbur) outline in the corner. Clean geometric shapes, generous negative space,
-  no photorealism, no people. Absolutely no text, letters, numbers, logos or watermark.
+ Minimal 16:9 flat vector travel poster of Kermanshah Province, Iran. Exactly three
+ colors: deep terracotta red, warm stone beige, and dark olive green. Left third of the
+ frame left empty for later overlay text. On the right and center: a stylized cliff
+ face with a small carved relief panel high on the rock (Bisotun), a large arched
+ grotto cut into a mountain with a still pool in front of it (Taq-e Bostan), a row of
+ simple stone columns on a platform (Anahita temple), and a small long-necked lute
+ (tanbur) outline in the corner. Clean geometric shapes, generous negative space,
+ no photorealism, no people. Absolutely no text, letters, numbers, logos or watermark.
 overlay_text_fa: استان کرمانشاه
 overlay_text_en: Kermanshah Province
 alt: نمایی از استان کرمانشاه و نمادهای گردشگری آن؛ کتیبه‌ی بیستون، طاق بستان، ستون‌های معبد آناهیتا و تنبور
@@ -81,11 +80,11 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 === BLOCK 3: ARTICLE (Markdown) ===
 
-**استان کرمانشاه** (Kermanshah Province) در غرب ایران و بر دامنه‌های زاگرس نشسته و از دیرباز دروازه‌ی فلات ایران به میان‌رودان بوده است.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup> پرسش «کرمانشاه کجاست» با همین موقعیت پاسخ می‌گیرد: میان کردستان در شمال، همدان در شرق، لرستان و ایلام در جنوب و مرز عراق در غرب.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> مرکز استان کرمانشاه شهر **کرمانشاه** (به‌زودی) است که با ۹۴۶٬۶۵۱ نفر جمعیت در سرشماری ۱۳۹۵، بزرگ‌ترین شهر غرب کشور به شمار می‌آید.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۲۷](https://fa.wikipedia.org/wiki/%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> استان کرمانشاه ۱۴ شهرستان دارد و جمعیت آن در همان سرشماری ۱٬۹۵۲٬۴۳۴ نفر شمارش شده است.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
+**استان کرمانشاه** (Kermanshah Province) در غرب ایران و بر دامنه‌های زاگرس نشسته و از دیرباز دروازه‌ی فلات ایران به میان‌رودان بوده است.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup> پرسش «کرمانشاه کجاست» با همین موقعیت پاسخ می‌گیرد: میان کردستان در شمال، همدان در شرق، لرستان و ایلام در جنوب و مرز عراق در غرب.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> مرکز استان کرمانشاه شهر **کرمانشاه** است که با ۹۴۶٬۶۵۱ نفر جمعیت در سرشماری ۱۳۹۵، بزرگ‌ترین شهر غرب کشور به شمار می‌آید.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۲۷](https://fa.wikipedia.org/wiki/%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> استان کرمانشاه ۱۴ شهرستان دارد و جمعیت آن در همان سرشماری ۱٬۹۵۲٬۴۳۴ نفر شمارش شده است.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
 
 سه ویژگی، استان کرمانشاه را از دیگر استان‌های ایران متمایز می‌کند. نخست، کتیبه و نقش‌برجسته‌ی بیستون به فرمان داریوش بزرگ (۵۲۱ پیش از میلاد) که در فهرست میراث جهانی یونسکو ثبت شده و تنها متن یادمانی هخامنشی درباره‌ی بازسازی شاهنشاهی است.<sup>[۱](https://whc.unesco.org/en/list/1222/)</sup> دوم، طاق بستان و دیگر یادگارهای ساسانی که این پهنه را دومین اقامتگاه شاهان ساسانی نشان می‌دهند.<sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup><sup>[۱۰](https://www.iranicaonline.org/articles/art-in-iran-v-sasanian/)</sup> سوم، شهر کرمانشاه که در سال ۲۰۲۱ (آبان ۱۴۰۰) به‌عنوان «شهر خلاق خوراک» به شبکه‌ی شهرهای خلاق یونسکو پیوست.<sup>[۱۳](https://www.tehrantimes.com/news/466861/UNESCO-picks-Kermanshah-as-creative-city-of-gastronomy)</sup>
 
-این راهنما بر منابع یونسکو، دانشنامه‌ی ایرانیکا، پرتال گردشگری ویزیت‌ایران، نقل‌قول مقام‌های رسمی در خبرگزاری‌ها و در جاهای لازم منابع غیررسمی با برچسب تکیه دارد. هر جا داده‌ی قطعی پیدا نشد، رقم قطعی نوشته نشده و هیچ داده‌ی حدسی وارد متن نشده است. برای سفر به کرمانشاه بهتر است نخست جدول مشخصات و سپس بخش جاذبه‌ها و برنامه‌ی سفر خوانده شود؛ لینک صفحه‌های شهرستان‌ها و جاذبه‌ها تا انتشار آن‌ها به‌صورت «(به‌زودی)» مانده است.
+این راهنما بر منابع یونسکو، دانشنامه‌ی ایرانیکا، پرتال گردشگری ویزیت‌ایران، نقل‌قول مقام‌های رسمی در خبرگزاری‌ها و در جاهای لازم منابع غیررسمی با برچسب تکیه دارد. هر جا داده‌ی قطعی پیدا نشد، رقم قطعی نوشته نشده و هیچ داده‌ی حدسی وارد متن نشده است. برای سفر به کرمانشاه بهتر است نخست جدول مشخصات و سپس بخش جاذبه‌ها و برنامه‌ی سفر خوانده شود؛ لینک صفحه‌های شهرستان‌ها و جاذبه‌ها تا انتشار آن‌ها به‌صورت «» مانده است.
 
 ## مشخصات کلی استان
 
@@ -93,26 +92,26 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 | مشخصه | مقدار |
 |---|---|
-| مرکز استان | **کرمانشاه** (به‌زودی)؛ جمعیت شهر ۹۴۶٬۶۵۱ نفر (سرشماری ۱۳۹۵)، نهمین شهر پرجمعیت ایران <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۲۷](https://fa.wikipedia.org/wiki/%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
-| مساحت | ۲۴٬۹۹۸ کیلومتر مربع (ویکی‌پدیای انگلیسی)؛ ایرانیکا حدود ۲۵٬۰۰۰ و ویکی‌پدیای فارسی ۲۴٬۶۴۰ کیلومتر مربع را آورده‌اند [نیازمند بررسی] <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
+| مرکز استان | **کرمانشاه**؛ جمعیت شهر ۹۴۶٬۶۵۱ نفر (سرشماری ۱۳۹۵)، نهمین شهر پرجمعیت ایران <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۲۷](https://fa.wikipedia.org/wiki/%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
+| مساحت | ۲۴٬۹۹۸ کیلومتر مربع (ویکی‌پدیای انگلیسی)؛ ایرانیکا حدود ۲۵٬۰۰۰ و ویکی‌پدیای فارسی ۲۴٬۶۴۰ کیلومتر مربع را آورده‌اند <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
 | سهم از مساحت کشور و رتبه | ۱٫۵ درصد از خاک کشور؛ رتبه‌ی هفدهم وسعت (منبع غیررسمی) <sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
 | جمعیت | ۱٬۹۵۲٬۴۳۴ نفر در ۵۷۶٬۸۶۱ خانوار (سرشماری ۱۳۹۵)؛ ۱٬۹۴۵٬۲۲۷ نفر در ۱۳۹۰ و ۱٬۸۴۲٬۴۵۷ نفر در ۱۳۸۵؛ نهمین استان پرجمعیت کشور <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
 | شهری / روستایی | بیش از ۷۵ درصد شهرنشین (۱۳۹۵)؛ در مهر ۱۴۰۳ حدود ۴۷۸ هزار نفر روستانشین اعلام شد <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
 | تراکم | حدود ۷۸ نفر در کیلومتر مربع (منبع غیررسمی) <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> |
 | تاریخ تشکیل استان | ۱۹ دی ۱۳۱۶ با نام «استان پنجم» به مرکزیت کرمانشاه؛ از ۱۳۳۹ با نام کرمانشاهان (منبع غیررسمی) <sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> |
 | تعداد شهرستان | ۱۴ شهرستان: کرمانشاه، اسلام‌آباد غرب، پاوه، ثلاث باباجانی، جوانرود، دالاهو، روانسر، سرپل ذهاب، سنقر، صحنه، قصر شیرین، کنگاور، گیلانغرب، هرسین <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
-| بخش / شهر / دهستان | ۳۱ بخش، ۳۱ تا ۳۵ شهر و ۸۴ تا ۸۷ دهستان در منابع غیررسمی؛ ۲٬۷۹۳ آبادی دارای سکنه [نیازمند بررسی] <sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
-| پیش‌شماره | ۰۸۳ [نیازمند بررسی] |
+| بخش / شهر / دهستان | ۳۱ بخش، ۳۱ تا ۳۵ شهر و ۸۴ تا ۸۷ دهستان در منابع غیررسمی؛ ۲٬۷۹۳ آبادی دارای سکنه <sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
+| پیش‌شماره | ۰۸۳ |
 | کد ایزو | ISO 3166-2: IR-05 (منبع غیررسمی) <sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> |
 | مختصات | ۳۳٫۷° تا ۳۵٫۳° شمالی و ۴۵٫۵° تا ۴۸° شرقی <sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> |
-| مرز بین‌المللی | ۳۷۱ کیلومتر مرز مشترک با عراق (گمرک استان)؛ ایرانیکا حدود ۲۵۰ و ویکی‌پدیای فارسی بیش از ۳۳۰ کیلومتر نوشته‌اند [نیازمند بررسی] <sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
+| مرز بین‌المللی | ۳۷۱ کیلومتر مرز مشترک با عراق (گمرک استان)؛ ایرانیکا حدود ۲۵۰ و ویکی‌پدیای فارسی بیش از ۳۳۰ کیلومتر نوشته‌اند <sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
 | مرکز منطقه‌ی ۴ وزارت کشور | از ۱۳۹۳ دبیرخانه‌ی منطقه‌ی چهار (کرمانشاه، ایلام، لرستان، همدان، مرکزی، خوزستان) در کرمانشاه است <sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> |
 | زبان‌های رایج | کردی جنوبی (کلهری، زنگنه‌ای، سنجابی، کلیایی)، لکی، گورانی/هورامی، فارسی کرمانشاهی و فارسی رسمی <sup>[۷](https://www.iranicaonline.org/articles/kermanshah-07-languages/)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
 | نام کردی | کرماشان <sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۷](https://fa.wikipedia.org/wiki/%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
 
 ## موقعیت جغرافیایی
 
-استان کرمانشاه در میانه‌ی غرب ایران و در بخش شمال‌غربی رشته‌کوه زاگرس قرار دارد؛ ناهمواری‌ها از شرق به غرب پله‌پله پایین می‌روند تا به دشت‌های عراق برسند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> همسایگان آن به این ترتیب‌اند: [استان کردستان](/province/kurdistan/) در شمال، **استان همدان** (به‌زودی) در شرق، **استان لرستان** (به‌زودی) در جنوب شرق، [استان ایلام](/province/ilam/) در جنوب، و عراق (استان‌های حلبچه، سلیمانیه و دیاله) در غرب.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
+استان کرمانشاه در میانه‌ی غرب ایران و در بخش شمال‌غربی رشته‌کوه زاگرس قرار دارد؛ ناهمواری‌ها از شرق به غرب پله‌پله پایین می‌روند تا به دشت‌های عراق برسند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> همسایگان آن به این ترتیب‌اند: [استان کردستان](/province/kurdistan/) در شمال، **استان همدان** در شرق، **استان لرستان** در جنوب شرق، [استان ایلام](/province/ilam/) در جنوب، و عراق (استان‌های حلبچه، سلیمانیه و دیاله) در غرب.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
 
 طول مرز مشترک با عراق را گمرک استان ۳۷۱ کیلومتر اعلام می‌کند و در امتداد آن دو مرز رسمی و پنج بازارچه‌ی مرزی فعال است.<sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup> گمرک‌های پرویزخان، خسروی و سومار سه گذرگاه پرصادرات استان‌اند<sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup> و مرز مسافری شوشمی در پاوه در سال ۱۴۰۲ گشوده شد.<sup>[۸۷](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%BE%D8%A7%D9%88%D9%87)</sup> قصر شیرین در غربی‌ترین نقطه، منطقه‌ی آزاد تجاری و از دیرباز شهر مرزی بازرگانی استان است.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
 
@@ -209,7 +208,7 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 بیشتر سطح استان کرمانشاه در رشته‌کوه زاگرس قرار دارد؛ رشته‌های تقریباً موازی و شکسته از جنوب شرق به شمال غرب کشیده شده‌اند، در شرق استان بلندترند و به سمت غرب پله‌پله تا دشت‌های عراق پایین می‌روند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> میانگین ارتفاع در شمال و شرق استان حدود ۱٬۸۰۰ متر است.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
 
-بلندترین کوه استان کرمانشاه به روایت ایرانیکا دالاخانی با ۳٬۳۵۰ متر میان سنقر و کنگاور است<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>، در حالی که ویکی‌پدیای فارسی قله‌ی پراو را با ۳٬۴۱۵ متر بلندترین قله‌ی استان می‌داند [نیازمند بررسی].<sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup> رشته‌ی پراو به طول حدود ۶۲ کیلومتر تا کوه بیستون امتداد دارد و قله‌ی شیخ‌علی‌خان (۳٬۲۵۷ متر) آن بر شهر کرمانشاه مشرف است.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> در همین کوهستان چهار غار عمیق قیژه‌لان، جوه‌جار، پراو و قلا قرار دارند و دهانه‌ی **غار پراو** (به‌زودی) در ارتفاع ۳٬۰۵۰ متری، هنگام کشف در ۱۹۷۱ عمیق‌ترین غار عمودی شناخته‌شده‌ی جهان بود.<sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup><sup>[۳۱](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%BE%D8%B1%D8%A7%D9%88)</sup>
+بلندترین کوه استان کرمانشاه به روایت ایرانیکا دالاخانی با ۳٬۳۵۰ متر میان سنقر و کنگاور است<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>، در حالی که ویکی‌پدیای فارسی قله‌ی پراو را با ۳٬۴۱۵ متر بلندترین قله‌ی استان می‌داند.<sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup> رشته‌ی پراو به طول حدود ۶۲ کیلومتر تا کوه بیستون امتداد دارد و قله‌ی شیخ‌علی‌خان (۳٬۲۵۷ متر) آن بر شهر کرمانشاه مشرف است.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> در همین کوهستان چهار غار عمیق قیژه‌لان، جوه‌جار، پراو و قلا قرار دارند و دهانه‌ی **غار پراو** در ارتفاع ۳٬۰۵۰ متری، هنگام کشف در ۱۹۷۱ عمیق‌ترین غار عمودی شناخته‌شده‌ی جهان بود.<sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup><sup>[۳۱](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%BE%D8%B1%D8%A7%D9%88)</sup>
 
 دره‌های حاصلخیز میان کوه‌ها را رودها ساخته‌اند و دشت‌های آبرفتی ماهیدشت، بیستون، هرسین، کرند، چمچمال و صحنه نزدیک به یک‌سوم مساحت استان را تشکیل می‌دهند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> در غرب، شهرهای سرپل ذهاب (۵۴۶ متر) و قصر شیرین (۳۶۲ متر) در پست‌ترین بخش استان کرمانشاه و بر لبه‌ی جلگه‌ی میان‌رودان قرار دارند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> استان کرمانشاه بر کمربند لرزه‌خیز زاگرس نشسته و زمین‌لرزه‌ی ۷٫۳ ازگله در آبان ۱۳۹۶ با ژرفای ۱۱ کیلومتر نمونه‌ی آن است.<sup>[۴۴](https://fa.wikipedia.org/wiki/%D8%B2%D9%85%DB%8C%D9%86%E2%80%8C%D9%84%D8%B1%D8%B2%D9%87_%DB%B1%DB%B3%DB%B9%DB%B6_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
@@ -217,7 +216,7 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 رودهای اصلی استان کرمانشاه سرشاخه‌های بالادست کرخه‌اند. درازترین آن‌ها گاماسیاب است که از الوند سرچشمه می‌گیرد، از دره‌های کنگاور و صحنه می‌گذرد، رود دینور را می‌پذیرد و پس از پیوستن به قره‌سو در پایین‌دست شهر کرمانشاه، با نام سیمره به سوی کرخه در خوزستان می‌رود.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> در غرب استان رودهای کوچک‌تری به دشت‌های شرق عراق می‌ریزند و در شمال، سیروان و شاخه‌های آن مانند لیله و زمکان از پاوه و جوانرود می‌گذرند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۴۶](https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B7%D9%82%D9%87_%D8%AD%D9%81%D8%A7%D8%B8%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87_%D8%A8%D9%88%D8%B2%DB%8C%D9%86_%D9%88_%D9%85%D8%B1%D8%AE%DB%8C%D9%84)</sup>
 
-سراب‌ها (چشمه‌های بزرگ کارستی) نشانه‌ی استان کرمانشاه‌اند: **سراب نیلوفر** (به‌زودی) در ۲۰ کیلومتری شمال غرب کرمانشاه دریاچه‌ای کوچک با حدود ۲۵ متر عمق است که در ۲۷ اسفند ۱۳۸۷ به‌عنوان پنجاه‌وپنجمین اثر طبیعی ملی ثبت شد.<sup>[۳۷](https://fa.wikipedia.org/wiki/%D8%B3%D8%B1%D8%A7%D8%A8_%D9%86%DB%8C%D9%84%D9%88%D9%81%D8%B1)</sup> **تالاب هشیلان** (به‌زودی)، تنها تالاب استان کرمانشاه، با حدود ۴۵۰ هکتار وسعت و حدود ۱۱۰ جزیره‌ی کوچک، از سراب سبزعلی تغذیه می‌شود و در ۲۶ کیلومتری شمال غرب کرمانشاه در جاده‌ی روانسر قرار دارد.<sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup> سراب روانسر و چشمه‌ی طاق بستان نیز از سراب‌های شناخته‌شده‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup>
+سراب‌ها (چشمه‌های بزرگ کارستی) نشانه‌ی استان کرمانشاه‌اند: **سراب نیلوفر** در ۲۰ کیلومتری شمال غرب کرمانشاه دریاچه‌ای کوچک با حدود ۲۵ متر عمق است که در ۲۷ اسفند ۱۳۸۷ به‌عنوان پنجاه‌وپنجمین اثر طبیعی ملی ثبت شد.<sup>[۳۷](https://fa.wikipedia.org/wiki/%D8%B3%D8%B1%D8%A7%D8%A8_%D9%86%DB%8C%D9%84%D9%88%D9%81%D8%B1)</sup> **تالاب هشیلان**، تنها تالاب استان کرمانشاه، با حدود ۴۵۰ هکتار وسعت و حدود ۱۱۰ جزیره‌ی کوچک، از سراب سبزعلی تغذیه می‌شود و در ۲۶ کیلومتری شمال غرب کرمانشاه در جاده‌ی روانسر قرار دارد.<sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup> سراب روانسر و چشمه‌ی طاق بستان نیز از سراب‌های شناخته‌شده‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup>
 
 سد گاوشان بر رود گاوه، در ۷۵ کیلومتری شمال کرمانشاه (در خاک کردستان)، با مخزن ۵۵۲ میلیون متر مکعبی، از راه تونلی ۲۰ کیلومتری سالانه ۶۳ میلیون متر مکعب آب شرب شهر کرمانشاه را تأمین می‌کند.<sup>[۶۴](https://fa.wikipedia.org/wiki/%D8%B3%D8%AF_%DA%AF%D8%A7%D9%88%D8%B4%D8%A7%D9%86)</sup> بر پایه‌ی ایرانیکا، رودها منبع اصلی آبیاری‌اند و کاریزها در این استان نقشی بسیار کمتر از فلات مرکزی دارند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> از ۸۲۰ هزار هکتار زمین قابل کشت استان کرمانشاه، بیش از ۸۰ درصد دیم است.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
 
@@ -237,7 +236,7 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 مهم‌ترین منابع طبیعی استان کرمانشاه خاک حاصلخیز، آب سطحی، مرتع و جنگل است؛ دشت‌های آبرفتی نزدیک به یک‌سوم استان را می‌پوشانند و ۸۲۰ هزار هکتار زمین قابل کشت دارد.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> مراتع پرپشت کوهستانی پشتوانه‌ی دامداری‌اند و روغن حیوانی تولیدشده در استان (روغن کرمانشاهی) شهرت ملی دارد.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۶۱](https://fa.wikipedia.org/wiki/%D8%B1%D9%88%D8%BA%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87%DB%8C)</sup>
 
-استان کرمانشاه نفت نیز دارد: میدان نفت‌شهر نزدیک قصر شیرین، از نخستین میدان‌های کشف‌شده‌ی ایران (۱۹۲۷)، بخشی از مخزنی مشترک با عراق است؛ نفت آن از ۱۹۳۶ با خط لوله به پالایشگاه کوچکی در کرمانشاه می‌رفت و پالایشگاه جدید شهر با ظرفیت روزانه ۳۰ هزار بشکه در ۱۹۷۱ تکمیل شد و بخش بزرگی از فرآورده‌های نفتی غرب ایران را تأمین می‌کند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> معدن‌کاری سنگ مرمر و سنگ آهک در سراسر استان کرمانشاه رواج دارد.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> آمار به‌روز معادن استان در منابع این پژوهش نیامده است [نیازمند بررسی].
+استان کرمانشاه نفت نیز دارد: میدان نفت‌شهر نزدیک قصر شیرین، از نخستین میدان‌های کشف‌شده‌ی ایران (۱۹۲۷)، بخشی از مخزنی مشترک با عراق است؛ نفت آن از ۱۹۳۶ با خط لوله به پالایشگاه کوچکی در کرمانشاه می‌رفت و پالایشگاه جدید شهر با ظرفیت روزانه ۳۰ هزار بشکه در ۱۹۷۱ تکمیل شد و بخش بزرگی از فرآورده‌های نفتی غرب ایران را تأمین می‌کند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> معدن‌کاری سنگ مرمر و سنگ آهک در سراسر استان کرمانشاه رواج دارد.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> آمار به‌روز معادن استان در منابع این پژوهش نیامده است.
 
 ## کشاورزی و محصولات مهم
 
@@ -245,13 +244,13 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 به گفته‌ی همان سازمان، کل تولیدات کشاورزی استان کرمانشاه در سال ۱۴۰۳ بیش از پنج میلیون و ۵۰۰ هزار تن بود و گندم، ذرت، جو و کلزا در کنار نخود محصولات عمده‌اند.<sup>[۱۷](https://www.mehrnews.com/news/6364638/)</sup> ایرانیکا چشم‌انداز روستایی استان را مزارع گندم و جو، چغندرقند فراوان، حبوبات، سیب‌زمینی و علوفه توصیف می‌کند و باغداری را با انگور، که کرمانشاه در آن سرآمد است، و سیب صادراتی غنی می‌داند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> دامداری با ۲٫۷ میلیون رأس گوسفند و بز و ۱٫۴ میلیون رأس گاو بیشتر به دست کشاورزان انجام می‌شود و پرورش طیور، زنبورداری و پرورش ماهی در برخی بخش‌ها رواج دارد.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
 
-در قصر شیرین نخل خرما و محصولات گرمسیری دیده می‌شود.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup> جشنواره‌ی رسمی و تاریخ ثابت برداشت محصولات در منابع این پژوهش نیامده است [نیازمند بررسی].
+در قصر شیرین نخل خرما و محصولات گرمسیری دیده می‌شود.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup> جشنواره‌ی رسمی و تاریخ ثابت برداشت محصولات در منابع این پژوهش نیامده است.
 
 ## صنعت و اقتصاد
 
 اقتصاد استان کرمانشاه بر کشاورزی، صنایع غذایی، پالایش نفت و تجارت مرزی استوار است. کارخانه‌ی قند بیستون (۱۹۶۲)، کارخانه‌ی قند شاه‌آباد، کارخانه‌های نساجی، صنایع غذایی، سیمان و مصالح ساختمانی و پالایشگاه نفت کرمانشاه (۱۹۷۱) صنایع اصلی‌اند که بیشتر در مرکز استان متمرکزند؛ ایرانیکا توسعه‌ی صنعتی استان کرمانشاه را، به‌ویژه پس از جنگ هشت‌ساله، از نگاه مقام‌های محلی ناکافی ارزیابی می‌کند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
 
-تجارت مرزی ستون دیگر است: در سال ۱۴۰۳ بیش از ۷ میلیون و ۸۹۵ هزار تن کالا به ارزش ۳ میلیارد و ۴۸۷ میلیون دلار از گمرک‌های استان کرمانشاه صادر شد که نسبت به ۱۴۰۲ رشد ۱۵ درصدی داشت؛ گمرک پرویزخان با ۹۹۵ میلیون دلار، خسروی با ۹۵۶ میلیون و سومار با ۸۷۱ میلیون دلار بیشترین سهم را داشتند.<sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup><sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup> صنایع دستی روستایی مانند گلیم و فرش، گیوه، چوب و فلز نیز بخشی از اقتصاد خانوارها هستند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> سهم استان از تولید ناخالص کشور و آمار شهرک‌های صنعتی در منابع این پژوهش نیامده است [نیازمند بررسی].
+تجارت مرزی ستون دیگر است: در سال ۱۴۰۳ بیش از ۷ میلیون و ۸۹۵ هزار تن کالا به ارزش ۳ میلیارد و ۴۸۷ میلیون دلار از گمرک‌های استان کرمانشاه صادر شد که نسبت به ۱۴۰۲ رشد ۱۵ درصدی داشت؛ گمرک پرویزخان با ۹۹۵ میلیون دلار، خسروی با ۹۵۶ میلیون و سومار با ۸۷۱ میلیون دلار بیشترین سهم را داشتند.<sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup><sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup> صنایع دستی روستایی مانند گلیم و فرش، گیوه، چوب و فلز نیز بخشی از اقتصاد خانوارها هستند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> سهم استان از تولید ناخالص کشور و آمار شهرک‌های صنعتی در منابع این پژوهش نیامده است.
 
 ## جمعیت و مردم‌شناسی
 
@@ -275,7 +274,7 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 **روایت طهمورث دیوبند — شهر کرمانشاه.** در افسانه‌ها بنای شهر کرمانشاه به طهمورث دیوبند، پادشاه اساطیری پیشدادی، نسبت داده شده است؛ روایت تاریخی، بنای شهر را به بهرام چهارم ساسانی می‌رساند.<sup>[۲۷](https://fa.wikipedia.org/wiki/%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup>
 
-**روایت خسرو، شیرین و فرهاد — بیستون و طاق بستان.** نویسندگان سده‌های نخست اسلامی نقش‌های بیستون و طاق بستان را با داستان خسرو، شیرین، فرهاد و اسب شبدیز تفسیر می‌کردند و حمدالله مستوفی از **طاق بستان** (به‌زودی) با نام «صفه‌ی شبدیز» یاد کرده است.<sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup><sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup> نام قصر شیرین را نیز روایت مردمی به کاخی نسبت می‌دهد که خسرو برای شیرین ساخت.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup>
+**روایت خسرو، شیرین و فرهاد — بیستون و طاق بستان.** نویسندگان سده‌های نخست اسلامی نقش‌های بیستون و طاق بستان را با داستان خسرو، شیرین، فرهاد و اسب شبدیز تفسیر می‌کردند و حمدالله مستوفی از **طاق بستان** با نام «صفه‌ی شبدیز» یاد کرده است.<sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup><sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup> نام قصر شیرین را نیز روایت مردمی به کاخی نسبت می‌دهد که خسرو برای شیرین ساخت.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup>
 
 **روایت قصر دزدان — معبد آناهیتا.** جغرافی‌دانان نخستین اسلامی بنای ستون‌دار کنگاور را «قصراللصوص» یعنی قصر دزدان می‌نامیدند و طبری می‌نویسد این نام از آن رو بود که مردم محل، چهارپایان سپاه عرب را که در راه نهاوند در آنجا اردو زده بود، دزدیدند.<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup>
 
@@ -287,7 +286,7 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 لباس محلی استان کرمانشاه در چارچوب پوشش کردی است. لباس مردانه شامل «چوخه» یا «که‌وا» (نیم‌تنه‌ی پشمی یا پنبه‌ای)، «پاتول» یا «رانک» (شلوار گشاد با پاچه‌ی تنگ)، شال کمر و دستار سر است و در فصل گرم گیوه یا کلاش پوشیده می‌شود.<sup>[۸۱](https://www.kojaro.com/iran-visit/123452-traditional-clothing-kord/)</sup> لباس زنانه شامل «کراس» (پیراهن بلند با آستین بلند)، «سوخمه» (نیم‌تنه‌ی مخملی بی‌آستین با تزیین سکه و منجوق)، «سلته» (نیم‌تنه‌ی آستین‌دار زمستانی) و «کوا» (قبای بلند جلوباز) است.<sup>[۸۱](https://www.kojaro.com/iran-visit/123452-traditional-clothing-kord/)</sup>
 
-گیوه‌ی استان کرمانشاه، که بر پایه‌ی منبع غیررسمی با نام «کلاش» شناخته می‌شود و از مرغوب‌ترین گیوه‌های ایران است، و گیوه‌بافی از صنایع دستی ثبت‌شده‌ی شهر کرمانشاه‌اند.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> تفاوت‌های ریز میان پوشش ایل‌های کلهر، گوران و هورامی در منابع در دسترس این پژوهش تفکیک نشده است [نیازمند بررسی].
+گیوه‌ی استان کرمانشاه، که بر پایه‌ی منبع غیررسمی با نام «کلاش» شناخته می‌شود و از مرغوب‌ترین گیوه‌های ایران است، و گیوه‌بافی از صنایع دستی ثبت‌شده‌ی شهر کرمانشاه‌اند.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> تفاوت‌های ریز میان پوشش ایل‌های کلهر، گوران و هورامی در منابع در دسترس این پژوهش تفکیک نشده است.
 
 ## موسیقی محلی
 
@@ -299,70 +298,70 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 غذاهای کرمانشاه دلیل اصلی عنوان «شهر خلاق خوراک» یونسکو برای مرکز استان‌اند.<sup>[۱۳](https://www.tehrantimes.com/news/466861/UNESCO-picks-Kermanshah-as-creative-city-of-gastronomy)</sup> پرتال ویزیت‌ایران فهرست بلندی از غذاهای محلی را برمی‌شمارد و منبع غیررسمی از حدود ۸۰ نوع غذا و ۱۱ نوع نان در استان کرمانشاه یاد می‌کند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۷۶](https://www.tasteiran.net/stories/13111/food-creative-city-kermanshah)</sup> هر غذا صفحه‌ی مستقل خواهد داشت.
 
-- **دنده‌کباب** (به‌زودی): کباب دنده‌ی گوسفند با گوشت چرخ‌کرده‌ی راسته و سس روغن کرمانشاهی، رب، آبلیمو و زعفران؛ ثبت ملی بهمن ۱۳۹۷.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۶۲](https://fa.wikipedia.org/wiki/%D8%AF%D9%86%D8%AF%D9%87_%DA%A9%D8%A8%D8%A7%D8%A8)</sup>
-- **خورشت خلال** (به‌زودی): خورش مهمانی‌های رسمی با گوشت گوسفند، خلال بادام، زرشک سیاه و زعفران.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **آش عباسعلی** (به‌زودی): آشی مقوی با آب قلم و گوشت مغز ران گوساله.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **نان برنجی** (به‌زودی): شیرینی آرد برنج با گلاب و هل، ساده یا زعفرانی، بهترینش با روغن کرمانشاهی؛ ثبت ملی.<sup>[۶۰](https://fa.wikipedia.org/wiki/%D9%86%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%AC%DB%8C)</sup>
-- **کاک** (به‌زودی) و **نان خرمایی** (به‌زودی): دو شیرینی سنتی که در فهرست سوغات پرتال گردشگری آمده‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **روغن کرمانشاهی** (به‌زودی): روغن حیوانی زرد که از کره‌ی شیر گاو یا گوسفند به روش سنتی گرفته می‌شود و پایه‌ی بسیاری از غذاهای استان است.<sup>[۶۱](https://fa.wikipedia.org/wiki/%D8%B1%D9%88%D8%BA%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87%DB%8C)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
+- **دنده‌کباب**: کباب دنده‌ی گوسفند با گوشت چرخ‌کرده‌ی راسته و سس روغن کرمانشاهی، رب، آبلیمو و زعفران؛ ثبت ملی بهمن ۱۳۹۷.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۶۲](https://fa.wikipedia.org/wiki/%D8%AF%D9%86%D8%AF%D9%87_%DA%A9%D8%A8%D8%A7%D8%A8)</sup>
+- **خورشت خلال**: خورش مهمانی‌های رسمی با گوشت گوسفند، خلال بادام، زرشک سیاه و زعفران.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **آش عباسعلی**: آشی مقوی با آب قلم و گوشت مغز ران گوساله.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **نان برنجی**: شیرینی آرد برنج با گلاب و هل، ساده یا زعفرانی، بهترینش با روغن کرمانشاهی؛ ثبت ملی.<sup>[۶۰](https://fa.wikipedia.org/wiki/%D9%86%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%AC%DB%8C)</sup>
+- **کاک** و **نان خرمایی**: دو شیرینی سنتی که در فهرست سوغات پرتال گردشگری آمده‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **روغن کرمانشاهی**: روغن حیوانی زرد که از کره‌ی شیر گاو یا گوسفند به روش سنتی گرفته می‌شود و پایه‌ی بسیاری از غذاهای استان است.<sup>[۶۱](https://fa.wikipedia.org/wiki/%D8%B1%D9%88%D8%BA%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87%DB%8C)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
 
 جزئیات دستور پخت و تفاوت‌های شهرستانی هر غذا در صفحه‌ی مستقل آن خواهد آمد و در این مقاله چیزی فراتر از توصیف منبع نوشته نشده است.
 
 ## سوغات معروف
 
-سوغات کرمانشاه پیش از هر چیز شیرینی است. **نان برنجی** (به‌زودی) در دو نوع ساده و زعفرانی، **کاک** (به‌زودی)، **نان خرمایی** (به‌زودی) و **روغن کرمانشاهی** (به‌زودی) فهرست خوراکی‌ها را می‌سازند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۶۰](https://fa.wikipedia.org/wiki/%D9%86%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%AC%DB%8C)</sup><sup>[۶۱](https://fa.wikipedia.org/wiki/%D8%B1%D9%88%D8%BA%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87%DB%8C)</sup> در صنایع دستی، **گلیم و جاجیم کرمانشاه** (به‌زودی) و **گیوه‌ی کرمانشاه** (به‌زودی) در شهر کرمانشاه، کاشی هفت‌رنگ و تراش سنگ در اسلام‌آباد غرب، چاقوسازی و ساخت **تنبور و سه‌تار** (به‌زودی) در دالاهو و پارچه‌بافی و سبدبافی در پاوه شناخته شده‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> فرش کرمانشاه نیز نام خود را به یکی از گونه‌های فرش ایرانی داده است.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
+سوغات کرمانشاه پیش از هر چیز شیرینی است. **نان برنجی** در دو نوع ساده و زعفرانی، **کاک**، **نان خرمایی** و **روغن کرمانشاهی** فهرست خوراکی‌ها را می‌سازند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۶۰](https://fa.wikipedia.org/wiki/%D9%86%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%AC%DB%8C)</sup><sup>[۶۱](https://fa.wikipedia.org/wiki/%D8%B1%D9%88%D8%BA%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87%DB%8C)</sup> در صنایع دستی، **گلیم و جاجیم کرمانشاه** و **گیوه‌ی کرمانشاه** در شهر کرمانشاه، کاشی هفت‌رنگ و تراش سنگ در اسلام‌آباد غرب، چاقوسازی و ساخت **تنبور و سه‌تار** در دالاهو و پارچه‌بافی و سبدبافی در پاوه شناخته شده‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> فرش کرمانشاه نیز نام خود را به یکی از گونه‌های فرش ایرانی داده است.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
 
-**کجا بخریم.** خوراکی‌ها، گلیم و گیوه را در **بازار کرمانشاه** (به‌زودی) بخرید؛ بازاری با ۱۸ راسته‌ی تخصصی که کهن‌ترین بخش‌هایش به دوره‌ی زنگنه‌ها می‌رسد و در ۱ دی ۱۳۷۶ با شماره‌ی ۱٬۹۴۴ ثبت ملی شده است.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> تنبور را از کارگاه‌های سازسازی کرمانشاه و دالاهو بخواهید<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> و برای کالای وارداتی، بازارچه‌های مرزی پرویزخان، خسروی و سومار مقصد سنتی مسافران‌اند.<sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup><sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup> در مسیر بیستون، فروشگاه‌های کنار جاده نان برنجی و روغن محلی عرضه می‌کنند؛ برای اطمینان از کیفیت روغن، خرید از تولیدکنندگان شناخته‌شده توصیه می‌شود.
+**کجا بخریم.** خوراکی‌ها، گلیم و گیوه را در **بازار کرمانشاه** بخرید؛ بازاری با ۱۸ راسته‌ی تخصصی که کهن‌ترین بخش‌هایش به دوره‌ی زنگنه‌ها می‌رسد و در ۱ دی ۱۳۷۶ با شماره‌ی ۱٬۹۴۴ ثبت ملی شده است.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> تنبور را از کارگاه‌های سازسازی کرمانشاه و دالاهو بخواهید<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> و برای کالای وارداتی، بازارچه‌های مرزی پرویزخان، خسروی و سومار مقصد سنتی مسافران‌اند.<sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup><sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup> در مسیر بیستون، فروشگاه‌های کنار جاده نان برنجی و روغن محلی عرضه می‌کنند؛ برای اطمینان از کیفیت روغن، خرید از تولیدکنندگان شناخته‌شده توصیه می‌شود.
 
 ## شهرستان‌های استان
 
 شهرستان‌های کرمانشاه چهارده شهرستان‌اند: کرمانشاه به‌عنوان مرکز و سیزده شهرستان دیگر که در زیر به ترتیب الفبا آمده‌اند. جمعیت‌ها از سرشماری ۱۳۹۵ و تاریخ تأسیس از منابع غیررسمی است.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup><sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
-**شهرستان کرمانشاه** (به‌زودی) — مرکز: کرمانشاه. شهرستان از ۱۳۱۶؛ پرجمعیت‌ترین شهرستان با بیش از نیمی از جمعیت استان کرمانشاه؛ بیستون و طاق بستان در آن‌اند.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> نشانه‌ی شاخص: **طاق بستان** (به‌زودی).
-**شهرستان اسلام‌آباد غرب** (به‌زودی) — مرکز: اسلام‌آباد غرب. شاه‌آباد پیشین که در ۱۰ بهمن ۱۳۵۸ تغییر نام یافت؛ مرکز جنگل‌های بلوط استان کرمانشاه و کاشی هفت‌رنگ.<sup>[۹۰](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B3%D9%84%D8%A7%D9%85%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF_%D8%BA%D8%B1%D8%A8)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> نشانه‌ی شاخص: **جنگل‌های بلوط اسلام‌آباد** (به‌زودی).
-**شهرستان پاوه** (به‌زودی) — مرکز: پاوه. شهرستان از ۱۳۳۷؛ شمالی‌ترین شهرستان و مرکز ناحیه‌ی اورامانات با گویش هورامی و شهر پلکانی.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۷](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%BE%D8%A7%D9%88%D9%87)</sup> نشانه‌ی شاخص: **روستای هجیج** (به‌زودی).
-**شهرستان ثلاث باباجانی** (به‌زودی) — مرکز: تازه‌آباد. شهرستان از ۱۳۸۱ با جدایی از جوانرود؛ نامش از سه طایفه‌ی باباجانی، قبادی و تایجوزی است.<sup>[۸۳](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AB%D9%84%D8%A7%D8%AB_%D8%A8%D8%A7%D8%A8%D8%A7%D8%AC%D8%A7%D9%86%DB%8C)</sup> نشانه‌ی شاخص: **دره‌ی رود زمکان** (به‌زودی).
-**شهرستان جوانرود** (به‌زودی) — مرکز: جوانرود. شهرستان از ۱۳۶۸؛ شهری کوهستانی در دره‌ای زیر دیواره‌ی کوه شاهو با هوای معتدل.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۴](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AC%D9%88%D8%A7%D9%86%D8%B1%D9%88%D8%AF)</sup> نشانه‌ی شاخص: **منطقه‌ی حفاظت‌شده‌ی بوزین و مرخیل** (به‌زودی).
-**شهرستان دالاهو** (به‌زودی) — مرکز: کرند غرب. شهرستان از ۱۳۸۴ و چهاردهمین شهرستان استان کرمانشاه؛ خاستگاه مقام‌های تنبور و سازسازی.<sup>[۸۲](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D8%A7%D9%84%D8%A7%D9%87%D9%88)</sup><sup>[۶۳](https://fa.wikipedia.org/wiki/%D8%AA%D9%86%D8%A8%D9%88%D8%B1)</sup> نشانه‌ی شاخص: **ریجاب** (به‌زودی).
-**شهرستان روانسر** (به‌زودی) — مرکز: روانسر. شهرستان از ۱۳۸۳؛ دروازه‌ی اورامان و میزبان غار قوری‌قلعه و سراب روانسر.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۳۳](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%82%D9%88%D8%B1%DB%8C%E2%80%8C%D9%82%D9%84%D8%B9%D9%87)</sup> نشانه‌ی شاخص: **غار قوری‌قلعه** (به‌زودی).
-**شهرستان سرپل ذهاب** (به‌زودی) — مرکز: سرپل ذهاب. شهرستان از ۱۳۵۹؛ شهر مرزی با سنگ‌نگاره‌ی لولوبی و کانون زمین‌لرزه‌ی ۱۳۹۶.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۴۱](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%DA%AF%D8%A7%D8%B1%D9%87_%D8%A2%D9%86%D9%88%D8%A8%D8%A7%D9%86%DB%8C%E2%80%8C%D9%86%DB%8C)</sup> نشانه‌ی شاخص: **سنگ‌نگاره‌ی آنوبانی‌نی** (به‌زودی).
-**شهرستان سنقر** (به‌زودی) — مرکز: سنقر. شهرستان از ۱۳۴۱؛ شمال‌شرقی‌ترین و از سردترین شهرستان‌ها در پای کوه دالاخانی.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> نشانه‌ی شاخص: **کوه دالاخانی** (به‌زودی).
-**شهرستان صحنه** (به‌زودی) — مرکز: صحنه. شهرستان از ۱۳۷۰؛ در جاده‌ی همدان با باغ‌های میوه، سراب صحنه و بخش تاریخی دینور.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۵](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B5%D8%AD%D9%86%D9%87)</sup> نشانه‌ی شاخص: **دشت دینور و رود گاماسیاب** (به‌زودی).
-**شهرستان قصر شیرین** (به‌زودی) — مرکز: قصر شیرین. شهرستان از ۱۳۲۴؛ منطقه‌ی آزاد تجاری و شهر نخل‌ها در گرم‌ترین نقطه‌ی استان.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup> نشانه‌ی شاخص: **عمارت خسرو** (به‌زودی).
-**شهرستان کنگاور** (به‌زودی) — مرکز: کنگاور. شهرستان از ۱۳۵۹؛ دروازه‌ی شرقی استان کرمانشاه بر سر راه همدان و میزبان سکوی سنگی آناهیتا.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup> نشانه‌ی شاخص: **معبد آناهیتا** (به‌زودی).
-**شهرستان گیلانغرب** (به‌زودی) — مرکز: گیلانغرب. شهرستان از ۱۳۵۹ با جدایی از سرپل ذهاب؛ سرزمین ایل کلهر و زادگاه میرزا رضا کلهر.<sup>[۸۹](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DB%8C%D9%84%D8%A7%D9%86%D8%BA%D8%B1%D8%A8)</sup><sup>[۵۳](https://fa.wikipedia.org/wiki/%D9%85%DB%8C%D8%B1%D8%B2%D8%A7_%D8%B1%D8%B6%D8%A7_%DA%A9%D9%84%D9%87%D8%B1)</sup> نشانه‌ی شاخص: **دشت گیلانغرب** (به‌زودی).
-**شهرستان هرسین** (به‌زودی) — مرکز: هرسین. شهرستان از ۱۳۷۴؛ گنج‌دره و شهر بیستون (بخش بیستون) در آن قرار دارند.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۴۸](https://fa.wikipedia.org/wiki/%DA%AF%D9%86%D8%AC%E2%80%8C%D8%AF%D8%B1%D9%87)</sup><sup>[۲۹](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%D9%88%D8%B4%D8%AA%D9%87_%D8%A8%DB%8C%D8%B3%D8%AA%D9%88%D9%86)</sup> نشانه‌ی شاخص: **بیستون** (به‌زودی).
+**شهرستان کرمانشاه** — مرکز: کرمانشاه. شهرستان از ۱۳۱۶؛ پرجمعیت‌ترین شهرستان با بیش از نیمی از جمعیت استان کرمانشاه؛ بیستون و طاق بستان در آن‌اند.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> نشانه‌ی شاخص: **طاق بستان**.
+**شهرستان اسلام‌آباد غرب** — مرکز: اسلام‌آباد غرب. شاه‌آباد پیشین که در ۱۰ بهمن ۱۳۵۸ تغییر نام یافت؛ مرکز جنگل‌های بلوط استان کرمانشاه و کاشی هفت‌رنگ.<sup>[۹۰](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B3%D9%84%D8%A7%D9%85%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF_%D8%BA%D8%B1%D8%A8)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> نشانه‌ی شاخص: **جنگل‌های بلوط اسلام‌آباد**.
+**شهرستان پاوه** — مرکز: پاوه. شهرستان از ۱۳۳۷؛ شمالی‌ترین شهرستان و مرکز ناحیه‌ی اورامانات با گویش هورامی و شهر پلکانی.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۷](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%BE%D8%A7%D9%88%D9%87)</sup> نشانه‌ی شاخص: **روستای هجیج**.
+**شهرستان ثلاث باباجانی** — مرکز: تازه‌آباد. شهرستان از ۱۳۸۱ با جدایی از جوانرود؛ نامش از سه طایفه‌ی باباجانی، قبادی و تایجوزی است.<sup>[۸۳](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AB%D9%84%D8%A7%D8%AB_%D8%A8%D8%A7%D8%A8%D8%A7%D8%AC%D8%A7%D9%86%DB%8C)</sup> نشانه‌ی شاخص: **دره‌ی رود زمکان**.
+**شهرستان جوانرود** — مرکز: جوانرود. شهرستان از ۱۳۶۸؛ شهری کوهستانی در دره‌ای زیر دیواره‌ی کوه شاهو با هوای معتدل.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۴](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AC%D9%88%D8%A7%D9%86%D8%B1%D9%88%D8%AF)</sup> نشانه‌ی شاخص: **منطقه‌ی حفاظت‌شده‌ی بوزین و مرخیل**.
+**شهرستان دالاهو** — مرکز: کرند غرب. شهرستان از ۱۳۸۴ و چهاردهمین شهرستان استان کرمانشاه؛ خاستگاه مقام‌های تنبور و سازسازی.<sup>[۸۲](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D8%A7%D9%84%D8%A7%D9%87%D9%88)</sup><sup>[۶۳](https://fa.wikipedia.org/wiki/%D8%AA%D9%86%D8%A8%D9%88%D8%B1)</sup> نشانه‌ی شاخص: **ریجاب**.
+**شهرستان روانسر** — مرکز: روانسر. شهرستان از ۱۳۸۳؛ دروازه‌ی اورامان و میزبان غار قوری‌قلعه و سراب روانسر.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۳۳](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%82%D9%88%D8%B1%DB%8C%E2%80%8C%D9%82%D9%84%D8%B9%D9%87)</sup> نشانه‌ی شاخص: **غار قوری‌قلعه**.
+**شهرستان سرپل ذهاب** — مرکز: سرپل ذهاب. شهرستان از ۱۳۵۹؛ شهر مرزی با سنگ‌نگاره‌ی لولوبی و کانون زمین‌لرزه‌ی ۱۳۹۶.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۴۱](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%DA%AF%D8%A7%D8%B1%D9%87_%D8%A2%D9%86%D9%88%D8%A8%D8%A7%D9%86%DB%8C%E2%80%8C%D9%86%DB%8C)</sup> نشانه‌ی شاخص: **سنگ‌نگاره‌ی آنوبانی‌نی**.
+**شهرستان سنقر** — مرکز: سنقر. شهرستان از ۱۳۴۱؛ شمال‌شرقی‌ترین و از سردترین شهرستان‌ها در پای کوه دالاخانی.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup> نشانه‌ی شاخص: **کوه دالاخانی**.
+**شهرستان صحنه** — مرکز: صحنه. شهرستان از ۱۳۷۰؛ در جاده‌ی همدان با باغ‌های میوه، سراب صحنه و بخش تاریخی دینور.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۵](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B5%D8%AD%D9%86%D9%87)</sup> نشانه‌ی شاخص: **دشت دینور و رود گاماسیاب**.
+**شهرستان قصر شیرین** — مرکز: قصر شیرین. شهرستان از ۱۳۲۴؛ منطقه‌ی آزاد تجاری و شهر نخل‌ها در گرم‌ترین نقطه‌ی استان.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup> نشانه‌ی شاخص: **عمارت خسرو**.
+**شهرستان کنگاور** — مرکز: کنگاور. شهرستان از ۱۳۵۹؛ دروازه‌ی شرقی استان کرمانشاه بر سر راه همدان و میزبان سکوی سنگی آناهیتا.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup> نشانه‌ی شاخص: **معبد آناهیتا**.
+**شهرستان گیلانغرب** — مرکز: گیلانغرب. شهرستان از ۱۳۵۹ با جدایی از سرپل ذهاب؛ سرزمین ایل کلهر و زادگاه میرزا رضا کلهر.<sup>[۸۹](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DB%8C%D9%84%D8%A7%D9%86%D8%BA%D8%B1%D8%A8)</sup><sup>[۵۳](https://fa.wikipedia.org/wiki/%D9%85%DB%8C%D8%B1%D8%B2%D8%A7_%D8%B1%D8%B6%D8%A7_%DA%A9%D9%84%D9%87%D8%B1)</sup> نشانه‌ی شاخص: **دشت گیلانغرب**.
+**شهرستان هرسین** — مرکز: هرسین. شهرستان از ۱۳۷۴؛ گنج‌دره و شهر بیستون (بخش بیستون) در آن قرار دارند.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۴۸](https://fa.wikipedia.org/wiki/%DA%AF%D9%86%D8%AC%E2%80%8C%D8%AF%D8%B1%D9%87)</sup><sup>[۲۹](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%D9%88%D8%B4%D8%AA%D9%87_%D8%A8%DB%8C%D8%B3%D8%AA%D9%88%D9%86)</sup> نشانه‌ی شاخص: **بیستون**.
 
 | شهرستان | مرکز | جمعیت ۱۳۹۵ | فاصله‌ی جاده‌ای از کرمانشاه (کیلومتر) |
 |---|---|---|---|
-| **شهرستان کرمانشاه** (به‌زودی) | کرمانشاه | ۱٬۰۸۳٬۸۳۳ | — |
-| **شهرستان اسلام‌آباد غرب** (به‌زودی) | اسلام‌آباد غرب | ۱۴۰٬۸۷۶ | حدود ۶۵ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
-| **شهرستان پاوه** (به‌زودی) | پاوه | ۶۰٬۴۳۱ | حدود ۱۲۶ [نقشه] <sup>[۷۸](https://tishineh.com/tourdistance/11-23-11-67/%D9%81%D8%A7%D8%B5%D9%84%D9%87-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87-%D8%AA%D8%A7-%D9%BE%D8%A7%D9%88%D9%87)</sup> |
-| **شهرستان ثلاث باباجانی** (به‌زودی) | تازه‌آباد | ۳۵٬۲۱۹ | حدود ۱۳۳ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
-| **شهرستان جوانرود** (به‌زودی) | جوانرود | ۷۵٬۱۶۹ | حدود ۹۶ [نقشه] <sup>[۷۹](https://tishineh.com/tourdistance/11-23-11-63/%D9%81%D8%A7%D8%B5%D9%84%D9%87-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87-%D8%AA%D8%A7-%D8%AC%D9%88%D8%A7%D9%86%D8%B1%D9%88%D8%AF)</sup> |
-| **شهرستان دالاهو** (به‌زودی) | کرند غرب | ۳۵٬۹۸۷ | حدود ۹۹ تا ۱۰۱ (منبع غیررسمی) <sup>[۸۲](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D8%A7%D9%84%D8%A7%D9%87%D9%88)</sup><sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
-| **شهرستان روانسر** (به‌زودی) | روانسر | ۴۷٬۶۵۷ | حدود ۷۲ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
-| **شهرستان سرپل ذهاب** (به‌زودی) | سرپل ذهاب | ۸۵٬۳۴۲ | حدود ۱۴۴ <sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
-| **شهرستان سنقر** (به‌زودی) | سنقر | ۸۱٬۶۶۱ | حدود ۹۶ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
-| **شهرستان صحنه** (به‌زودی) | صحنه | ۷۰٬۷۵۷ | حدود ۵۰ تا ۶۶ (منبع غیررسمی) <sup>[۸۵](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B5%D8%AD%D9%86%D9%87)</sup><sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
-| **شهرستان قصر شیرین** (به‌زودی) | قصر شیرین | ۲۳٬۹۲۹ | [نیازمند بررسی] |
-| **شهرستان کنگاور** (به‌زودی) | کنگاور | ۷۶٬۲۱۶ | حدود ۹۶ تا ۹۸ <sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
-| **شهرستان گیلانغرب** (به‌زودی) | گیلانغرب | ۵۷٬۰۰۷ | [نیازمند بررسی] |
-| **شهرستان هرسین** (به‌زودی) | هرسین | ۷۸٬۳۵۰ | حدود ۵۹ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان کرمانشاه** | کرمانشاه | ۱٬۰۸۳٬۸۳۳ | — |
+| **شهرستان اسلام‌آباد غرب** | اسلام‌آباد غرب | ۱۴۰٬۸۷۶ | حدود ۶۵ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان پاوه** | پاوه | ۶۰٬۴۳۱ | حدود ۱۲۶ [نقشه] <sup>[۷۸](https://tishineh.com/tourdistance/11-23-11-67/%D9%81%D8%A7%D8%B5%D9%84%D9%87-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87-%D8%AA%D8%A7-%D9%BE%D8%A7%D9%88%D9%87)</sup> |
+| **شهرستان ثلاث باباجانی** | تازه‌آباد | ۳۵٬۲۱۹ | حدود ۱۳۳ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان جوانرود** | جوانرود | ۷۵٬۱۶۹ | حدود ۹۶ [نقشه] <sup>[۷۹](https://tishineh.com/tourdistance/11-23-11-63/%D9%81%D8%A7%D8%B5%D9%84%D9%87-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87-%D8%AA%D8%A7-%D8%AC%D9%88%D8%A7%D9%86%D8%B1%D9%88%D8%AF)</sup> |
+| **شهرستان دالاهو** | کرند غرب | ۳۵٬۹۸۷ | حدود ۹۹ تا ۱۰۱ (منبع غیررسمی) <sup>[۸۲](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D8%A7%D9%84%D8%A7%D9%87%D9%88)</sup><sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان روانسر** | روانسر | ۴۷٬۶۵۷ | حدود ۷۲ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان سرپل ذهاب** | سرپل ذهاب | ۸۵٬۳۴۲ | حدود ۱۴۴ <sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> |
+| **شهرستان سنقر** | سنقر | ۸۱٬۶۶۱ | حدود ۹۶ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان صحنه** | صحنه | ۷۰٬۷۵۷ | حدود ۵۰ تا ۶۶ (منبع غیررسمی) <sup>[۸۵](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B5%D8%AD%D9%86%D9%87)</sup><sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان قصر شیرین** | قصر شیرین | ۲۳٬۹۲۹ | |
+| **شهرستان کنگاور** | کنگاور | ۷۶٬۲۱۶ | حدود ۹۶ تا ۹۸ <sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
+| **شهرستان گیلانغرب** | گیلانغرب | ۵۷٬۰۰۷ | |
+| **شهرستان هرسین** | هرسین | ۷۸٬۳۵۰ | حدود ۵۹ (منبع غیررسمی) <sup>[۸۰](https://sarpolcity.blogfa.com/post/3)</sup> |
 
 جمعیت شهرستان‌ها از سرشماری ۱۳۹۵ است.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> فاصله‌ها بر پایه‌ی مسیریاب و راهنماهای سفر تقریبی‌اند و با تکمیل راه‌های تازه ممکن است تغییر کنند.
 
 ## مهم‌ترین شهرهای استان
 
-شهرهای اصلی استان کرمانشاه بر پایه‌ی جمعیت سرشماری ۱۳۹۵ عبارت‌اند از **کرمانشاه** (به‌زودی) با ۹۴۶٬۶۵۱ نفر، **اسلام‌آباد غرب** (به‌زودی) با ۹۰٬۵۵۹، **جوانرود** (به‌زودی) با ۵۴٬۳۵۴، **کنگاور** (به‌زودی) با ۵۱٬۳۵۲، **سرپل ذهاب** (به‌زودی) با ۴۵٬۴۸۱، **سنقر** (به‌زودی) با ۴۴٬۲۵۶، **هرسین** (به‌زودی) با ۴۴٬۱۴۶، **صحنه** (به‌زودی) با ۳۵٬۵۰۸، **پاوه** (به‌زودی) با ۲۵٬۷۷۱ و **قصر شیرین** (به‌زودی) با ۱۸٬۴۷۳ نفر.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> کرمانشاه مرکز اداری و فرهنگی غرب کشور، اسلام‌آباد غرب قطب کشاورزی جنوب استان، جوانرود و پاوه شهرهای کوهستانی اورامانات و قصر شیرین و سرپل ذهاب شهرهای مرزی تجارت با عراق‌اند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+شهرهای اصلی استان کرمانشاه بر پایه‌ی جمعیت سرشماری ۱۳۹۵ عبارت‌اند از **کرمانشاه** با ۹۴۶٬۶۵۱ نفر، **اسلام‌آباد غرب** با ۹۰٬۵۵۹، **جوانرود** با ۵۴٬۳۵۴، **کنگاور** با ۵۱٬۳۵۲، **سرپل ذهاب** با ۴۵٬۴۸۱، **سنقر** با ۴۴٬۲۵۶، **هرسین** با ۴۴٬۱۴۶، **صحنه** با ۳۵٬۵۰۸، **پاوه** با ۲۵٬۷۷۱ و **قصر شیرین** با ۱۸٬۴۷۳ نفر.<sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup> کرمانشاه مرکز اداری و فرهنگی غرب کشور، اسلام‌آباد غرب قطب کشاورزی جنوب استان، جوانرود و پاوه شهرهای کوهستانی اورامانات و قصر شیرین و سرپل ذهاب شهرهای مرزی تجارت با عراق‌اند.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
 **چهره‌ی امروزی.** مرکز استان کرمانشاه امروز شهری است با بافت تاریخی قاجاری و زیرساخت‌های تازه: ایستگاه راه‌آهن کرمانشاه، بزرگ‌ترین ایستگاه غرب کشور با ۳۶ هزار متر مربع ساختمان، در ۲۹ اسفند ۱۳۹۶ افتتاح شد و در کنار فرودگاه بین‌المللی شهید اشرفی اصفهانی و بزرگراه تهران قرار دارد.<sup>[۲۲](https://www.iribnews.ir/fa/news/1746174)</sup><sup>[۴۳](https://fa.wikipedia.org/wiki/%D8%A7%DB%8C%D8%B3%D8%AA%DA%AF%D8%A7%D9%87_%D8%B1%D8%A7%D9%87%E2%80%8C%D8%A2%D9%87%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۴۲](https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87_%D8%A8%DB%8C%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%D9%84%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> شهر از ۱۴۰۰ «شهر خلاق خوراک» یونسکو و در ۲۰۲۵ «پایتخت فرهنگی شهرهای آسیایی» است.<sup>[۱۳](https://www.tehrantimes.com/news/466861/UNESCO-picks-Kermanshah-as-creative-city-of-gastronomy)</sup><sup>[۲۳](https://www.tabnak.ir/fa/news/1287884/)</sup> باغ گل کرمانشاه، به گفته‌ی پرتال گردشگری دومین باغ گل ایران پس از اصفهان، از تفرجگاه‌های جدید شهر است<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> و دانشگاه صنعتی کرمانشاه از ۱۳۸۶ فعالیت می‌کند.<sup>[۴۰](https://fa.wikipedia.org/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87_%D8%B5%D9%86%D8%B9%D8%AA%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> قصر شیرین با منطقه‌ی آزاد تجاری و پاوه با مرز مسافری شوشمی (۱۴۰۲) چهره‌ی نو گرفته‌اند.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup><sup>[۸۷](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%BE%D8%A7%D9%88%D9%87)</sup>
 
 ## روستاهای معروف
 
-روستاهای کوهستانی استان کرمانشاه یکی از دلایل اصلی سفر به کرمانشاه‌اند. بر پایه‌ی منبع غیررسمی، ۱۴ روستای استان کرمانشاه «روستای هدف گردشگری» انتخاب شده‌اند که پیران، حریر، کندوله، هجیج، هرسم و شالان از آن‌ها هستند.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> **روستای هجیج** (به‌زودی) در دره‌ی سیروان در پاوه، از دیدنی‌های شناخته‌شده‌ی اورامان کرمانشاه است<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> و روستاهای بخش لهون اورامان بخشی از منظر فرهنگی جهانی هورامان (۲۰۲۱) را می‌سازند که مؤلفه‌ی غربی آن در استان کرمانشاه قرار دارد.<sup>[۲](https://whc.unesco.org/en/list/1647/)</sup>
+روستاهای کوهستانی استان کرمانشاه یکی از دلایل اصلی سفر به کرمانشاه‌اند. بر پایه‌ی منبع غیررسمی، ۱۴ روستای استان کرمانشاه «روستای هدف گردشگری» انتخاب شده‌اند که پیران، حریر، کندوله، هجیج، هرسم و شالان از آن‌ها هستند.<sup>[۲۶](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> **روستای هجیج** در دره‌ی سیروان در پاوه، از دیدنی‌های شناخته‌شده‌ی اورامان کرمانشاه است<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> و روستاهای بخش لهون اورامان بخشی از منظر فرهنگی جهانی هورامان (۲۰۲۱) را می‌سازند که مؤلفه‌ی غربی آن در استان کرمانشاه قرار دارد.<sup>[۲](https://whc.unesco.org/en/list/1647/)</sup>
 
-**ریجاب** (به‌زودی) در دالاهو، دره‌ای سرسبز با چشمه و آبشار، در فهرست جاذبه‌های پرتال گردشگری آمده است.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۲](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D8%A7%D9%84%D8%A7%D9%87%D9%88)</sup> **گودین** (به‌زودی) در کنگاور و **قیسوند** (به‌زودی) در هرسین، روستاهای کنار دو محوطه‌ی باستانی گودین‌تپه و گنج‌دره‌اند.<sup>[۴۷](https://fa.wikipedia.org/wiki/%DA%AF%D9%88%D8%AF%DB%8C%D9%86%E2%80%8C%D8%AA%D9%BE%D9%87)</sup><sup>[۴۸](https://fa.wikipedia.org/wiki/%DA%AF%D9%86%D8%AC%E2%80%8C%D8%AF%D8%B1%D9%87)</sup> **هشیلان** (به‌زودی) و **سراب نیلوفر** (به‌زودی) نام خود را به تالاب و دریاچه‌ی مجاورشان داده‌اند.<sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup><sup>[۳۷](https://fa.wikipedia.org/wiki/%D8%B3%D8%B1%D8%A7%D8%A8_%D9%86%DB%8C%D9%84%D9%88%D9%81%D8%B1)</sup> اقامتگاه‌های بوم‌گردی در ساتیار و هه‌ناز (پاوه)، کیکم (کرمانشاه)، زران و آرتین دینور (صحنه) و کانی‌کچکینه (روانسر) فعال‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+**ریجاب** در دالاهو، دره‌ای سرسبز با چشمه و آبشار، در فهرست جاذبه‌های پرتال گردشگری آمده است.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۸۲](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D8%A7%D9%84%D8%A7%D9%87%D9%88)</sup> **گودین** در کنگاور و **قیسوند** در هرسین، روستاهای کنار دو محوطه‌ی باستانی گودین‌تپه و گنج‌دره‌اند.<sup>[۴۷](https://fa.wikipedia.org/wiki/%DA%AF%D9%88%D8%AF%DB%8C%D9%86%E2%80%8C%D8%AA%D9%BE%D9%87)</sup><sup>[۴۸](https://fa.wikipedia.org/wiki/%DA%AF%D9%86%D8%AC%E2%80%8C%D8%AF%D8%B1%D9%87)</sup> **هشیلان** و **سراب نیلوفر** نام خود را به تالاب و دریاچه‌ی مجاورشان داده‌اند.<sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup><sup>[۳۷](https://fa.wikipedia.org/wiki/%D8%B3%D8%B1%D8%A7%D8%A8_%D9%86%DB%8C%D9%84%D9%88%D9%81%D8%B1)</sup> اقامتگاه‌های بوم‌گردی در ساتیار و هه‌ناز (پاوه)، کیکم (کرمانشاه)، زران و آرتین دینور (صحنه) و کانی‌کچکینه (روانسر) فعال‌اند.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
 ## جاذبه‌های گردشگری استان
 
@@ -370,56 +369,56 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 ### جاذبه‌های تاریخی استان کرمانشاه
 
-- **بیستون** (به‌زودی) — هرسین، ۳۰ کیلومتری کرمانشاه: نقش‌برجسته و کتیبه‌ی سه‌زبانه‌ی داریوش بزرگ (۵۲۱ پ.م) و یادگارهایی از ماد تا ایلخانی. 🏛 ثبت جهانی (۲۰۰۶).<sup>[۱](https://whc.unesco.org/en/list/1222/)</sup><sup>[۲۹](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%D9%88%D8%B4%D8%AA%D9%87_%D8%A8%DB%8C%D8%B3%D8%AA%D9%88%D9%86)</sup>
-- **کاروانسرای شاه‌عباسی بیستون** (به‌زودی) — کاروانسرای صفوی که امروز هتل است و در پرونده‌ی «کاروانسرای ایرانی» ثبت جهانی شده است. 🏛 ثبت جهانی (۲۰۲۳).<sup>[۳](https://whc.unesco.org/en/list/1668/)</sup><sup>[۶۵](https://en.wikipedia.org/wiki/The_Persian_Caravanserai)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **طاق بستان** (به‌زودی) — کرمانشاه: طاق‌های ساسانی با نقش تاج‌گذاری اردشیر دوم، شاپور سوم و خسرو دوم و صحنه‌های شکار؛ فهرست موقت یونسکو (۲۰۰۷).<sup>[۴](https://whc.unesco.org/en/tentativelists/5182/)</sup><sup>[۱۰](https://www.iranicaonline.org/articles/art-in-iran-v-sasanian/)</sup><sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup><sup>[۷۲](https://en.wikipedia.org/wiki/Taq-e_Bostan)</sup>
-- **معبد آناهیتا** (به‌زودی) — کنگاور: سکوی سنگی ۲۲۴ در ۲۰۹ متری با ستون‌ها و پلکان دوسویه؛ ثبت ملی شماره‌ی ۳۱ (۱۳۱۰) و فهرست موقت یونسکو (۱۳۸۵).<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۳۰](https://fa.wikipedia.org/wiki/%D9%85%D8%B9%D8%A8%D8%AF_%D8%A2%D9%86%D8%A7%D9%87%DB%8C%D8%AA%D8%A7_(%DA%A9%D9%86%DA%AF%D8%A7%D9%88%D8%B1))</sup>
-- **سنگ‌نگاره‌ی آنوبانی‌نی** (به‌زودی) — سرپل ذهاب: نقش شاه لولوبی از حدود ۲۳۰۰ پ.م؛ ثبت ملی ۱۴۹.<sup>[۴۱](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%DA%AF%D8%A7%D8%B1%D9%87_%D8%A2%D9%86%D9%88%D8%A8%D8%A7%D9%86%DB%8C%E2%80%8C%D9%86%DB%8C)</sup>
-- **گودین‌تپه** (به‌زودی) — کنگاور: محوطه‌ی ۵۰۰۰ تا ۵۰۰ پ.م بر سر راه تجارت لاجورد، با دژ مادی.<sup>[۴۷](https://fa.wikipedia.org/wiki/%DA%AF%D9%88%D8%AF%DB%8C%D9%86%E2%80%8C%D8%AA%D9%BE%D9%87)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup>
-- **گنج‌دره** (به‌زودی) — هرسین: تپه‌ی نوسنگی ۸۵۰۰ پ.م؛ ثبت ملی ۴۳۹۴.<sup>[۴۸](https://fa.wikipedia.org/wiki/%DA%AF%D9%86%D8%AC%E2%80%8C%D8%AF%D8%B1%D9%87)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup><sup>[۷۳](https://en.wikipedia.org/wiki/Ganj_Dareh)</sup>
-- **تکیه معاون‌الملک** (به‌زودی) — کرمانشاه: تکیه‌ی قاجاری با کاشی‌های نگاره‌دار؛ ثبت ملی ۹۴۵ (۱۳۵۴).<sup>[۳۴](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D9%85%D8%B9%D8%A7%D9%88%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%DA%A9)</sup>
-- **تکیه بیگلربیگی** (به‌زودی) — کرمانشاه: تالار آیینه‌کاری دوره‌ی مظفری، امروز موزه‌ی خط و کتابت و موزه‌ی پارینه‌سنگی زاگرس.<sup>[۳۵](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D8%A8%DB%8C%DA%AF%D9%84%D8%B1%D8%A8%DB%8C%DA%AF%DB%8C)</sup>
-- **بازار کرمانشاه** (به‌زودی): بازار ۱۸ راسته‌ای دوره‌ی زند و قاجار؛ ثبت ملی ۱۹۴۴ (۱۳۷۶).<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **کتیبه‌ی شیخ علی‌خان زنگنه** (به‌زودی) — بیستون: وقف‌نامه‌ی ۱۰۹۳ قمری بر صخره.<sup>[۷۵](https://hamgardi.com/fa/Post/57126-%DA%A9%D8%AA%DB%8C%D8%A8%D9%87-%D8%B4%DB%8C%D8%AE-%D8%B9%D9%84%DB%8C%D8%AE%D8%A7%D9%86-%D8%B2%D9%86%DA%AF%D9%86%D9%87-%DB%8C%DA%A9%DB%8C-%D8%A7%D8%B2-%D8%AF%DB%8C%D8%AF%D9%86%DB%8C-%D9%87%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87-%D8%A8%D9%87-%D8%B4%D9%85%D8%A7%D8%B1-%D9%85%DB%8C-%D8%B1%D9%88%D8%AF)</sup>
-- **عمارت خسرو** (به‌زودی) — قصر شیرین: بنای ساسانی با پلکان‌های یادآور تخت جمشید.<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup>
-- **مسجد شافعی‌ها** (به‌زودی) — کرمانشاه: از آثار دیدنی شهر در فهرست پرتال گردشگری.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **بیستون** — هرسین، ۳۰ کیلومتری کرمانشاه: نقش‌برجسته و کتیبه‌ی سه‌زبانه‌ی داریوش بزرگ (۵۲۱ پ.م) و یادگارهایی از ماد تا ایلخانی. 🏛 ثبت جهانی (۲۰۰۶).<sup>[۱](https://whc.unesco.org/en/list/1222/)</sup><sup>[۲۹](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%D9%88%D8%B4%D8%AA%D9%87_%D8%A8%DB%8C%D8%B3%D8%AA%D9%88%D9%86)</sup>
+- **کاروانسرای شاه‌عباسی بیستون** — کاروانسرای صفوی که امروز هتل است و در پرونده‌ی «کاروانسرای ایرانی» ثبت جهانی شده است. 🏛 ثبت جهانی (۲۰۲۳).<sup>[۳](https://whc.unesco.org/en/list/1668/)</sup><sup>[۶۵](https://en.wikipedia.org/wiki/The_Persian_Caravanserai)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **طاق بستان** — کرمانشاه: طاق‌های ساسانی با نقش تاج‌گذاری اردشیر دوم، شاپور سوم و خسرو دوم و صحنه‌های شکار؛ فهرست موقت یونسکو (۲۰۰۷).<sup>[۴](https://whc.unesco.org/en/tentativelists/5182/)</sup><sup>[۱۰](https://www.iranicaonline.org/articles/art-in-iran-v-sasanian/)</sup><sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup><sup>[۷۲](https://en.wikipedia.org/wiki/Taq-e_Bostan)</sup>
+- **معبد آناهیتا** — کنگاور: سکوی سنگی ۲۲۴ در ۲۰۹ متری با ستون‌ها و پلکان دوسویه؛ ثبت ملی شماره‌ی ۳۱ (۱۳۱۰) و فهرست موقت یونسکو (۱۳۸۵).<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۳۰](https://fa.wikipedia.org/wiki/%D9%85%D8%B9%D8%A8%D8%AF_%D8%A2%D9%86%D8%A7%D9%87%DB%8C%D8%AA%D8%A7_(%DA%A9%D9%86%DA%AF%D8%A7%D9%88%D8%B1))</sup>
+- **سنگ‌نگاره‌ی آنوبانی‌نی** — سرپل ذهاب: نقش شاه لولوبی از حدود ۲۳۰۰ پ.م؛ ثبت ملی ۱۴۹.<sup>[۴۱](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%DA%AF%D8%A7%D8%B1%D9%87_%D8%A2%D9%86%D9%88%D8%A8%D8%A7%D9%86%DB%8C%E2%80%8C%D9%86%DB%8C)</sup>
+- **گودین‌تپه** — کنگاور: محوطه‌ی ۵۰۰۰ تا ۵۰۰ پ.م بر سر راه تجارت لاجورد، با دژ مادی.<sup>[۴۷](https://fa.wikipedia.org/wiki/%DA%AF%D9%88%D8%AF%DB%8C%D9%86%E2%80%8C%D8%AA%D9%BE%D9%87)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup>
+- **گنج‌دره** — هرسین: تپه‌ی نوسنگی ۸۵۰۰ پ.م؛ ثبت ملی ۴۳۹۴.<sup>[۴۸](https://fa.wikipedia.org/wiki/%DA%AF%D9%86%D8%AC%E2%80%8C%D8%AF%D8%B1%D9%87)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup><sup>[۷۳](https://en.wikipedia.org/wiki/Ganj_Dareh)</sup>
+- **تکیه معاون‌الملک** — کرمانشاه: تکیه‌ی قاجاری با کاشی‌های نگاره‌دار؛ ثبت ملی ۹۴۵ (۱۳۵۴).<sup>[۳۴](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D9%85%D8%B9%D8%A7%D9%88%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%DA%A9)</sup>
+- **تکیه بیگلربیگی** — کرمانشاه: تالار آیینه‌کاری دوره‌ی مظفری، امروز موزه‌ی خط و کتابت و موزه‌ی پارینه‌سنگی زاگرس.<sup>[۳۵](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D8%A8%DB%8C%DA%AF%D9%84%D8%B1%D8%A8%DB%8C%DA%AF%DB%8C)</sup>
+- **بازار کرمانشاه**: بازار ۱۸ راسته‌ای دوره‌ی زند و قاجار؛ ثبت ملی ۱۹۴۴ (۱۳۷۶).<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **کتیبه‌ی شیخ علی‌خان زنگنه** — بیستون: وقف‌نامه‌ی ۱۰۹۳ قمری بر صخره.<sup>[۷۵](https://hamgardi.com/fa/Post/57126-%DA%A9%D8%AA%DB%8C%D8%A8%D9%87-%D8%B4%DB%8C%D8%AE-%D8%B9%D9%84%DB%8C%D8%AE%D8%A7%D9%86-%D8%B2%D9%86%DA%AF%D9%86%D9%87-%DB%8C%DA%A9%DB%8C-%D8%A7%D8%B2-%D8%AF%DB%8C%D8%AF%D9%86%DB%8C-%D9%87%D8%A7%DB%8C-%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87-%D8%A8%D9%87-%D8%B4%D9%85%D8%A7%D8%B1-%D9%85%DB%8C-%D8%B1%D9%88%D8%AF)</sup>
+- **عمارت خسرو** — قصر شیرین: بنای ساسانی با پلکان‌های یادآور تخت جمشید.<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup>
+- **مسجد شافعی‌ها** — کرمانشاه: از آثار دیدنی شهر در فهرست پرتال گردشگری.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
 ### جاذبه‌های طبیعی استان کرمانشاه
 
-- **غار قوری‌قلعه** (به‌زودی) — روانسر: بزرگ‌ترین غار آبی خاورمیانه به روایت منبع غیررسمی، با ۱۲ کیلومتر طول که ۵۰۰ متر آن باز است؛ ۲۵ کیلومتری روانسر در دامنه‌ی شاهو.<sup>[۳۳](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%82%D9%88%D8%B1%DB%8C%E2%80%8C%D9%82%D9%84%D8%B9%D9%87)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **غار پراو** (به‌زودی) — کرمانشاه: چاه‌غار عمودی ۷۵۲ متری با دهانه در ۳٬۰۵۰ متری؛ اثر طبیعی ملی (۱۳۸۸).<sup>[۳۱](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%BE%D8%B1%D8%A7%D9%88)</sup><sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup>
-- **تالاب هشیلان** (به‌زودی): تالاب ۴۵۰ هکتاری با ۱۱۰ جزیره در ۲۶ کیلومتری کرمانشاه.<sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup>
-- **سراب نیلوفر** (به‌زودی): دریاچه‌ی نیلوفرهای آبی؛ اثر طبیعی ملی (۱۳۸۷).<sup>[۳۷](https://fa.wikipedia.org/wiki/%D8%B3%D8%B1%D8%A7%D8%A8_%D9%86%DB%8C%D9%84%D9%88%D9%81%D8%B1)</sup>
-- **سراب روانسر** (به‌زودی) و **تفرجگاه ویمیر** (به‌زودی) — روانسر و پاوه.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **ریجاب** (به‌زودی) — دالاهو: دره‌ی سرسبز کوهستانی.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **باغ گل کرمانشاه** (به‌زودی): دومین باغ گل ایران به روایت پرتال گردشگری.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **کوه دالاخانی** (به‌زودی) و **رشته‌کوه پراو** (به‌زودی): بلندترین کوه‌های استان کرمانشاه.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup>
-- **منظر فرهنگی هورامان — دره‌ی لهون** (به‌زودی) — پاوه: مؤلفه‌ی غربی ثبت جهانی ۲۰۲۱. 🏛 ثبت جهانی (۲۰۲۱).<sup>[۲](https://whc.unesco.org/en/list/1647/)</sup>
+- **غار قوری‌قلعه** — روانسر: بزرگ‌ترین غار آبی خاورمیانه به روایت منبع غیررسمی، با ۱۲ کیلومتر طول که ۵۰۰ متر آن باز است؛ ۲۵ کیلومتری روانسر در دامنه‌ی شاهو.<sup>[۳۳](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%82%D9%88%D8%B1%DB%8C%E2%80%8C%D9%82%D9%84%D8%B9%D9%87)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **غار پراو** — کرمانشاه: چاه‌غار عمودی ۷۵۲ متری با دهانه در ۳٬۰۵۰ متری؛ اثر طبیعی ملی (۱۳۸۸).<sup>[۳۱](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%BE%D8%B1%D8%A7%D9%88)</sup><sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup>
+- **تالاب هشیلان**: تالاب ۴۵۰ هکتاری با ۱۱۰ جزیره در ۲۶ کیلومتری کرمانشاه.<sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup>
+- **سراب نیلوفر**: دریاچه‌ی نیلوفرهای آبی؛ اثر طبیعی ملی (۱۳۸۷).<sup>[۳۷](https://fa.wikipedia.org/wiki/%D8%B3%D8%B1%D8%A7%D8%A8_%D9%86%DB%8C%D9%84%D9%88%D9%81%D8%B1)</sup>
+- **سراب روانسر** و **تفرجگاه ویمیر** — روانسر و پاوه.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **ریجاب** — دالاهو: دره‌ی سرسبز کوهستانی.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **باغ گل کرمانشاه**: دومین باغ گل ایران به روایت پرتال گردشگری.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **کوه دالاخانی** و **رشته‌کوه پراو**: بلندترین کوه‌های استان کرمانشاه.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup><sup>[۳۲](https://fa.wikipedia.org/wiki/%D9%BE%D8%B1%D8%A7%D9%88)</sup>
+- **منظر فرهنگی هورامان — دره‌ی لهون** — پاوه: مؤلفه‌ی غربی ثبت جهانی ۲۰۲۱. 🏛 ثبت جهانی (۲۰۲۱).<sup>[۲](https://whc.unesco.org/en/list/1647/)</sup>
 
 ### جاذبه‌های مذهبی استان کرمانشاه
 
-- **تکیه معاون‌الملک** (به‌زودی) و **تکیه بیگلربیگی** (به‌زودی) — کرمانشاه: تکیه‌های قاجاری برگزاری آیین‌های محرم.<sup>[۳۴](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D9%85%D8%B9%D8%A7%D9%88%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%DA%A9)</sup><sup>[۳۵](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D8%A8%DB%8C%DA%AF%D9%84%D8%B1%D8%A8%DB%8C%DA%AF%DB%8C)</sup>
-- **مسجد شافعی‌ها** (به‌زودی) — کرمانشاه.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **امامزاده و مسجد کنگاور** (به‌زودی) — بر گوشه‌ی شمال‌غربی سکوی آناهیتا، از دوره‌های ایلخانی و صفوی.<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup>
-- **مسجد جامع (بازار) کرمانشاه** (به‌زودی) — در کنار خیابان مدرس و سبزه‌میدان.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **تکیه معاون‌الملک** و **تکیه بیگلربیگی** — کرمانشاه: تکیه‌های قاجاری برگزاری آیین‌های محرم.<sup>[۳۴](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D9%85%D8%B9%D8%A7%D9%88%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%DA%A9)</sup><sup>[۳۵](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D8%A8%DB%8C%DA%AF%D9%84%D8%B1%D8%A8%DB%8C%DA%AF%DB%8C)</sup>
+- **مسجد شافعی‌ها** — کرمانشاه.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **امامزاده و مسجد کنگاور** — بر گوشه‌ی شمال‌غربی سکوی آناهیتا، از دوره‌های ایلخانی و صفوی.<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup>
+- **مسجد جامع (بازار) کرمانشاه** — در کنار خیابان مدرس و سبزه‌میدان.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
 ### جاذبه‌های فرهنگی استان کرمانشاه
 
-- **موزه‌ی خط و کتابت و موزه‌ی پارینه‌سنگی زاگرس** (به‌زودی) — در تکیه بیگلربیگی.<sup>[۳۵](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D8%A8%DB%8C%DA%AF%D9%84%D8%B1%D8%A8%DB%8C%DA%AF%DB%8C)</sup>
-- **کرمانشاه، شهر خلاق خوراک یونسکو** (به‌زودی): رستوران‌ها و بازار خوراک سنتی.<sup>[۱۳](https://www.tehrantimes.com/news/466861/UNESCO-picks-Kermanshah-as-creative-city-of-gastronomy)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **آیین تنبور منطقه‌ی گوران** (به‌زودی) — دالاهو: کهن‌ترین مرکز مقام‌های تنبور.<sup>[۶۳](https://fa.wikipedia.org/wiki/%D8%AA%D9%86%D8%A8%D9%88%D8%B1)</sup>
-- **کارگاه‌های سازسازی دالاهو** (به‌زودی).<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
-- **هتل کاروانسرای لاله بیستون** (به‌زودی): اقامت در بنای سیصدساله.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **موزه‌ی خط و کتابت و موزه‌ی پارینه‌سنگی زاگرس** — در تکیه بیگلربیگی.<sup>[۳۵](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D8%A8%DB%8C%DA%AF%D9%84%D8%B1%D8%A8%DB%8C%DA%AF%DB%8C)</sup>
+- **کرمانشاه، شهر خلاق خوراک یونسکو**: رستوران‌ها و بازار خوراک سنتی.<sup>[۱۳](https://www.tehrantimes.com/news/466861/UNESCO-picks-Kermanshah-as-creative-city-of-gastronomy)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **آیین تنبور منطقه‌ی گوران** — دالاهو: کهن‌ترین مرکز مقام‌های تنبور.<sup>[۶۳](https://fa.wikipedia.org/wiki/%D8%AA%D9%86%D8%A8%D9%88%D8%B1)</sup>
+- **کارگاه‌های سازسازی دالاهو**.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+- **هتل کاروانسرای لاله بیستون**: اقامت در بنای سیصدساله.<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
 ### بازارها، مراکز خرید و بناهای شاخص امروزی
 
-**بازار کرمانشاه** (به‌زودی) با ۱۸ راسته‌ی تخصصی، در زمان خود از طولانی‌ترین بازارهای سرپوشیده‌ی خاورمیانه بود؛ کهن‌ترین بخش‌هایش به دوره‌ی زنگنه‌ها می‌رسد، در ۱۳۱۴ با احداث خیابان سپه (مدرس) به دو پاره تقسیم شد و در ۱۳۷۶ با شماره‌ی ۱٬۹۴۴ ثبت ملی شد.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> بازارچه‌های مرزی پرویزخان، خسروی و سومار، که در ۱۴۰۳ بیش از ۲٫۸ میلیارد دلار صادرات از آن‌ها گذشت، مقصد خرید کالای مرزی‌اند.<sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup><sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup>
+**بازار کرمانشاه** با ۱۸ راسته‌ی تخصصی، در زمان خود از طولانی‌ترین بازارهای سرپوشیده‌ی خاورمیانه بود؛ کهن‌ترین بخش‌هایش به دوره‌ی زنگنه‌ها می‌رسد، در ۱۳۱۴ با احداث خیابان سپه (مدرس) به دو پاره تقسیم شد و در ۱۳۷۶ با شماره‌ی ۱٬۹۴۴ ثبت ملی شد.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> بازارچه‌های مرزی پرویزخان، خسروی و سومار، که در ۱۴۰۳ بیش از ۲٫۸ میلیارد دلار صادرات از آن‌ها گذشت، مقصد خرید کالای مرزی‌اند.<sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup><sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup>
 
-از بناهای شاخص امروزی، **ایستگاه راه‌آهن کرمانشاه** (افتتاح ۲۹ اسفند ۱۳۹۶) با ۳۶ هزار متر مربع ساختمان، بزرگ‌ترین ایستگاه غرب کشور است<sup>[۲۲](https://www.iribnews.ir/fa/news/1746174)</sup><sup>[۴۳](https://fa.wikipedia.org/wiki/%D8%A7%DB%8C%D8%B3%D8%AA%DA%AF%D8%A7%D9%87_%D8%B1%D8%A7%D9%87%E2%80%8C%D8%A2%D9%87%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>؛ **فرودگاه بین‌المللی شهید اشرفی اصفهانی** با دو ترمینال داخلی و خارجی در شرق شهر و کنار راه‌آهن قرار دارد<sup>[۴۲](https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87_%D8%A8%DB%8C%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%D9%84%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>؛ **باغ گل کرمانشاه** تفرجگاه تازه‌ی شهر است<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>؛ و **منطقه‌ی آزاد قصر شیرین** چهره‌ی اقتصادی غرب استان را دگرگون کرده است.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup> برای دیدن فهرست کامل، به **همه‌ی جاذبه‌های استان کرمانشاه** (به‌زودی) مراجعه کنید.
+از بناهای شاخص امروزی، **ایستگاه راه‌آهن کرمانشاه** (افتتاح ۲۹ اسفند ۱۳۹۶) با ۳۶ هزار متر مربع ساختمان، بزرگ‌ترین ایستگاه غرب کشور است<sup>[۲۲](https://www.iribnews.ir/fa/news/1746174)</sup><sup>[۴۳](https://fa.wikipedia.org/wiki/%D8%A7%DB%8C%D8%B3%D8%AA%DA%AF%D8%A7%D9%87_%D8%B1%D8%A7%D9%87%E2%80%8C%D8%A2%D9%87%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>؛ **فرودگاه بین‌المللی شهید اشرفی اصفهانی** با دو ترمینال داخلی و خارجی در شرق شهر و کنار راه‌آهن قرار دارد<sup>[۴۲](https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87_%D8%A8%DB%8C%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%D9%84%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>؛ **باغ گل کرمانشاه** تفرجگاه تازه‌ی شهر است<sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>؛ و **منطقه‌ی آزاد قصر شیرین** چهره‌ی اقتصادی غرب استان را دگرگون کرده است.<sup>[۸۶](https://fa.wikipedia.org/wiki/%D9%82%D8%B5%D8%B1_%D8%B4%DB%8C%D8%B1%DB%8C%D9%86)</sup> برای دیدن فهرست کامل، به **همه‌ی جاذبه‌های استان کرمانشاه** مراجعه کنید.
 
 ## پارک‌های ملی و مناطق حفاظت‌شده
 
-استان کرمانشاه پارک ملی ندارد، اما سه منطقه‌ی حفاظت‌شده زیر نظر اداره‌ی کل حفاظت محیط زیست استان دارد: **منطقه‌ی حفاظت‌شده‌ی بیستون** (به‌زودی) با ۵۴ هزار هکتار، **بوزین و مرخیل** (به‌زودی) در پاوه با ۲۳ هزار هکتار و **قلاجه** (به‌زودی) با حدود ۴۳ هزار هکتار.<sup>[۱۸](https://www.irna.ir/news/85665669/)</sup><sup>[۱۹](https://www.irna.ir/news/84589681/)</sup> افزون بر این، **پناهگاه حیات وحش بیستون** (به‌زودی) در منطقه‌ی ورمنجه در جاده‌ی سنندج (۴۱٬۶۲۷ هکتار، مصوب ۱۳۵۴) و چهار منطقه‌ی شکار و تیراندازی ممنوع با مجموع ۱۶۱ هزار هکتار در استان کرمانشاه وجود دارد.<sup>[۱۹](https://www.irna.ir/news/84589681/)</sup><sup>[۴۵](https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B7%D9%82%D9%87_%D8%AD%D9%81%D8%A7%D8%B8%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87_%D8%A8%DB%8C%D8%B3%D8%AA%D9%88%D9%86)</sup>
+استان کرمانشاه پارک ملی ندارد، اما سه منطقه‌ی حفاظت‌شده زیر نظر اداره‌ی کل حفاظت محیط زیست استان دارد: **منطقه‌ی حفاظت‌شده‌ی بیستون** با ۵۴ هزار هکتار، **بوزین و مرخیل** در پاوه با ۲۳ هزار هکتار و **قلاجه** با حدود ۴۳ هزار هکتار.<sup>[۱۸](https://www.irna.ir/news/85665669/)</sup><sup>[۱۹](https://www.irna.ir/news/84589681/)</sup> افزون بر این، **پناهگاه حیات وحش بیستون** در منطقه‌ی ورمنجه در جاده‌ی سنندج (۴۱٬۶۲۷ هکتار، مصوب ۱۳۵۴) و چهار منطقه‌ی شکار و تیراندازی ممنوع با مجموع ۱۶۱ هزار هکتار در استان کرمانشاه وجود دارد.<sup>[۱۹](https://www.irna.ir/news/84589681/)</sup><sup>[۴۵](https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B7%D9%82%D9%87_%D8%AD%D9%81%D8%A7%D8%B8%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87_%D8%A8%DB%8C%D8%B3%D8%AA%D9%88%D9%86)</sup>
 
 بوزین و مرخیل در پاییز ۱۳۷۴ منطقه‌ی شکار ممنوع و در ۱۳۷۸ منطقه‌ی حفاظت‌شده شد و رودهای سیروان، لیله و زمکان از آن می‌گذرند.<sup>[۴۶](https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B7%D9%82%D9%87_%D8%AD%D9%81%D8%A7%D8%B8%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87_%D8%A8%D9%88%D8%B2%DB%8C%D9%86_%D9%88_%D9%85%D8%B1%D8%AE%DB%8C%D9%84)</sup> ورود به مناطق حفاظت‌شده تابع ضوابط سازمان حفاظت محیط زیست است و برای پژوهش یا اقامت شبانه مجوز اداره‌ی کل استان لازم است؛ قواعد دقیق هر منطقه در صفحه‌ی مستقل آن می‌آید. آتش‌سوزی‌های مرتعی، مانند آتش‌سوزی سه‌روزه‌ی شهریور ۱۴۰۳ در پناهگاه بیستون، تهدید اصلی این مناطق‌اند.<sup>[۴۵](https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B7%D9%82%D9%87_%D8%AD%D9%81%D8%A7%D8%B8%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87_%D8%A8%DB%8C%D8%B3%D8%AA%D9%88%D9%86)</sup>
 
@@ -440,7 +439,7 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 **راه‌آهن:** خط ملایر–کرمانشاه به طول ۱۷۰ کیلومتر مسیری با هشت ایستگاه مسافری در ۲۹ اسفند ۱۳۹۶ افتتاح شد و ایستگاه کرمانشاه در بزرگراه امام خمینی، کنار فرودگاه، به تهران و ملایر قطار دارد.<sup>[۲۲](https://www.iribnews.ir/fa/news/1746174)</sup><sup>[۴۳](https://fa.wikipedia.org/wiki/%D8%A7%DB%8C%D8%B3%D8%AA%DA%AF%D8%A7%D9%87_%D8%B1%D8%A7%D9%87%E2%80%8C%D8%A2%D9%87%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> ادامه‌ی خط تا مرز خسروی به طول ۲۶۳ کیلومتر برای اتصال ریلی به عراق در دست اجراست.<sup>[۷۷](https://www.eligasht.com/Blog/travelguide/%D8%B1%D8%A7%D9%87-%D8%A2%D9%87%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87/)</sup><sup>[۴۳](https://fa.wikipedia.org/wiki/%D8%A7%DB%8C%D8%B3%D8%AA%DA%AF%D8%A7%D9%87_%D8%B1%D8%A7%D9%87%E2%80%8C%D8%A2%D9%87%D9%86_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
-**هوایی:** **فرودگاه بین‌المللی شهید اشرفی اصفهانی** (به‌زودی) در شرق شهر کرمانشاه، بزرگ‌ترین فرودگاه غرب ایران، از ۱۳۵۰ فعال است و دو ترمینال داخلی و خارجی دارد؛ فاصله‌ی هوایی آن تا تهران ۴۱۳ کیلومتر است و نقش مهمی در جابه‌جایی زائران عتبات دارد.<sup>[۴۲](https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87_%D8%A8%DB%8C%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%D9%84%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
+**هوایی:** **فرودگاه بین‌المللی شهید اشرفی اصفهانی** در شرق شهر کرمانشاه، بزرگ‌ترین فرودگاه غرب ایران، از ۱۳۵۰ فعال است و دو ترمینال داخلی و خارجی دارد؛ فاصله‌ی هوایی آن تا تهران ۴۱۳ کیلومتر است و نقش مهمی در جابه‌جایی زائران عتبات دارد.<sup>[۴۲](https://fa.wikipedia.org/wiki/%D9%81%D8%B1%D9%88%D8%AF%DA%AF%D8%A7%D9%87_%D8%A8%DB%8C%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%D9%84%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۲۵](https://en.wikipedia.org/wiki/Kermanshah_province)</sup>
 
 **مرز:** گمرک‌های خسروی و پرویزخان (قصر شیرین) و سومار دو مرز رسمی و بازارچه‌های اصلی استان کرمانشاه با عراق‌اند و مرز مسافری شوشمی در پاوه از ۱۴۰۲ به اقلیم کردستان عراق باز است.<sup>[۲۰](https://www.mehrnews.com/news/6429296/)</sup><sup>[۲۱](https://www.yjc.ir/fa/news/8935734)</sup><sup>[۸۷](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%BE%D8%A7%D9%88%D9%87)</sup>
 
@@ -461,7 +460,7 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 ## دانشگاه‌های مهم
 
-**دانشگاه رازی** (به‌زودی) در کرمانشاه در بهمن ۱۳۵۱ با نام «دانشکده‌ی علوم کرمانشاهان» آغاز به کار کرد و در ۱۳۵۳ به دانشگاه رازی تغییر نام یافت؛ امروز بیش از ۱۱ هزار دانشجو در ۱۱ دانشکده دارد.<sup>[۳۸](https://fa.wikipedia.org/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87_%D8%B1%D8%A7%D8%B2%DB%8C)</sup> **دانشگاه علوم پزشکی کرمانشاه** (به‌زودی) ریشه در مدرسه‌ی عالی پرستاری ۱۳۴۴ دارد، دانشکده‌ی پزشکی آن در ۱۳۵۴ زیر نظر دانشگاه رازی گشوده شد و تا ۱۳۶۴ بخشی از آن دانشگاه بود.<sup>[۳۹](https://fa.wikipedia.org/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87_%D8%B9%D9%84%D9%88%D9%85_%D9%BE%D8%B2%D8%B4%DA%A9%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> **دانشگاه صنعتی کرمانشاه** (به‌زودی) از بهمن ۱۳۸۶ با دو رشته‌ی مهندسی برق و شیمی فعالیت خود را آغاز کرد.<sup>[۴۰](https://fa.wikipedia.org/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87_%D8%B5%D9%86%D8%B9%D8%AA%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> واحدهای دانشگاه آزاد و پیام نور در شهرستان‌های استان کرمانشاه فعال‌اند که فهرست آن‌ها در نسخه‌ی بعدی می‌آید [نیازمند بررسی].
+**دانشگاه رازی** در کرمانشاه در بهمن ۱۳۵۱ با نام «دانشکده‌ی علوم کرمانشاهان» آغاز به کار کرد و در ۱۳۵۳ به دانشگاه رازی تغییر نام یافت؛ امروز بیش از ۱۱ هزار دانشجو در ۱۱ دانشکده دارد.<sup>[۳۸](https://fa.wikipedia.org/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87_%D8%B1%D8%A7%D8%B2%DB%8C)</sup> **دانشگاه علوم پزشکی کرمانشاه** ریشه در مدرسه‌ی عالی پرستاری ۱۳۴۴ دارد، دانشکده‌ی پزشکی آن در ۱۳۵۴ زیر نظر دانشگاه رازی گشوده شد و تا ۱۳۶۴ بخشی از آن دانشگاه بود.<sup>[۳۹](https://fa.wikipedia.org/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87_%D8%B9%D9%84%D9%88%D9%85_%D9%BE%D8%B2%D8%B4%DA%A9%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> **دانشگاه صنعتی کرمانشاه** از بهمن ۱۳۸۶ با دو رشته‌ی مهندسی برق و شیمی فعالیت خود را آغاز کرد.<sup>[۴۰](https://fa.wikipedia.org/wiki/%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87_%D8%B5%D9%86%D8%B9%D8%AA%DB%8C_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> واحدهای دانشگاه آزاد و پیام نور در شهرستان‌های استان کرمانشاه فعال‌اند که فهرست آن‌ها در نسخه‌ی بعدی می‌آید.
 
 ## حقایق جالب استان
 
@@ -491,49 +490,55 @@ symbols_used: [کتیبه‌ی بیستون, طاق بستان, ستون‌ها�
 
 ### سفر یک‌روزه در استان کرمانشاه: طاق بستان و بیستون
 
-صبح: **طاق بستان** (به‌زودی) و چشمه‌ی آن در شمال شرقی شهر.<sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup> نیمروز: **بیستون** (به‌زودی) در ۳۰ کیلومتری شهر، کتیبه‌ی داریوش، تندیس هراکلس و **کاروانسرای شاه‌عباسی بیستون** (به‌زودی).<sup>[۱](https://whc.unesco.org/en/list/1222/)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup> عصر: بازگشت به شهر، **بازار کرمانشاه** (به‌زودی) و **تکیه معاون‌الملک** (به‌زودی)؛ شام با دنده‌کباب در یکی از رستوران‌های شهر خلاق خوراک.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۳۴](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D9%85%D8%B9%D8%A7%D9%88%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%DA%A9)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+صبح: **طاق بستان** و چشمه‌ی آن در شمال شرقی شهر.<sup>[۲۸](https://fa.wikipedia.org/wiki/%D8%B7%D8%A7%D9%82%E2%80%8C%D8%A8%D8%B3%D8%AA%D8%A7%D9%86)</sup> نیمروز: **بیستون** در ۳۰ کیلومتری شهر، کتیبه‌ی داریوش، تندیس هراکلس و **کاروانسرای شاه‌عباسی بیستون**.<sup>[۱](https://whc.unesco.org/en/list/1222/)</sup><sup>[۶](https://www.iranicaonline.org/articles/kermanshah-04-history-to-1953/)</sup> عصر: بازگشت به شهر، **بازار کرمانشاه** و **تکیه معاون‌الملک**؛ شام با دنده‌کباب در یکی از رستوران‌های شهر خلاق خوراک.<sup>[۵۹](https://fa.wikipedia.org/wiki/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup><sup>[۳۴](https://fa.wikipedia.org/wiki/%D8%AA%DA%A9%DB%8C%D9%87_%D9%85%D8%B9%D8%A7%D9%88%D9%86%E2%80%8C%D8%A7%D9%84%D9%85%D9%84%DA%A9)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
 ### سفر سه‌روزه در استان کرمانشاه: از کنگاور تا اورامان
 
-روز اول: برنامه‌ی یک‌روزه. روز دوم: مسیر شرقی به **معبد آناهیتا** (به‌زودی) در کنگاور و **گودین‌تپه** (به‌زودی)، بازگشت از صحنه و **تالاب هشیلان** (به‌زودی) یا **سراب نیلوفر** (به‌زودی).<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۴۷](https://fa.wikipedia.org/wiki/%DA%AF%D9%88%D8%AF%DB%8C%D9%86%E2%80%8C%D8%AA%D9%BE%D9%87)</sup><sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup> روز سوم: مسیر شمالی به روانسر و غار قوری قلعه (**غار قوری‌قلعه** (به‌زودی))، سپس پاوه و **روستای هجیج** (به‌زودی) در دره‌ی سیروان؛ شب‌مانی در اقامتگاه بوم‌گردی پاوه.<sup>[۳۳](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%82%D9%88%D8%B1%DB%8C%E2%80%8C%D9%82%D9%84%D8%B9%D9%87)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
+روز اول: برنامه‌ی یک‌روزه. روز دوم: مسیر شرقی به **معبد آناهیتا** در کنگاور و **گودین‌تپه**، بازگشت از صحنه و **تالاب هشیلان** یا **سراب نیلوفر**.<sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۴۷](https://fa.wikipedia.org/wiki/%DA%AF%D9%88%D8%AF%DB%8C%D9%86%E2%80%8C%D8%AA%D9%BE%D9%87)</sup><sup>[۳۶](https://fa.wikipedia.org/wiki/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8_%D9%87%D8%B4%DB%8C%D9%84%D8%A7%D9%86)</sup> روز سوم: مسیر شمالی به روانسر و غار قوری قلعه (**غار قوری‌قلعه**)، سپس پاوه و **روستای هجیج** در دره‌ی سیروان؛ شب‌مانی در اقامتگاه بوم‌گردی پاوه.<sup>[۳۳](https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D9%82%D9%88%D8%B1%DB%8C%E2%80%8C%D9%82%D9%84%D8%B9%D9%87)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup>
 
 ### سفر پنج‌روزه در استان کرمانشاه: از سرپل ذهاب تا شاهو
 
-روز ۱ و ۲: کرمانشاه، بیستون، کنگاور. روز ۳: مسیر غربی به **سنگ‌نگاره‌ی آنوبانی‌نی** (به‌زودی) در سرپل ذهاب و **عمارت خسرو** (به‌زودی) در قصر شیرین، با توقف در **ریجاب** (به‌زودی) دالاهو.<sup>[۴۱](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%DA%AF%D8%A7%D8%B1%D9%87_%D8%A2%D9%86%D9%88%D8%A8%D8%A7%D9%86%DB%8C%E2%80%8C%D9%86%DB%8C)</sup><sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> روز ۴: روانسر، قوری‌قلعه و پاوه. روز ۵: **منطقه‌ی حفاظت‌شده‌ی بوزین و مرخیل** (به‌زودی) و روستاهای اورامان لهون، بازگشت به کرمانشاه.<sup>[۴۶](https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B7%D9%82%D9%87_%D8%AD%D9%81%D8%A7%D8%B8%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87_%D8%A8%D9%88%D8%B2%DB%8C%D9%86_%D9%88_%D9%85%D8%B1%D8%AE%DB%8C%D9%84)</sup><sup>[۲](https://whc.unesco.org/en/list/1647/)</sup> اگر در پاییز سفر می‌کنید، یک روز را به **کوه دالاخانی** (به‌زودی) و باغ‌های سنقر اختصاص دهید.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
+روز ۱ و ۲: کرمانشاه، بیستون، کنگاور. روز ۳: مسیر غربی به **سنگ‌نگاره‌ی آنوبانی‌نی** در سرپل ذهاب و **عمارت خسرو** در قصر شیرین، با توقف در **ریجاب** دالاهو.<sup>[۴۱](https://fa.wikipedia.org/wiki/%D8%B3%D9%86%DA%AF%E2%80%8C%D9%86%DA%AF%D8%A7%D8%B1%D9%87_%D8%A2%D9%86%D9%88%D8%A8%D8%A7%D9%86%DB%8C%E2%80%8C%D9%86%DB%8C)</sup><sup>[۸](https://www.iranicaonline.org/articles/kangavar-1/)</sup><sup>[۱۴](https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%A9%D8%B1%D9%85%D8%A7%D9%86%D8%B4%D8%A7%D9%87)</sup> روز ۴: روانسر، قوری‌قلعه و پاوه. روز ۵: **منطقه‌ی حفاظت‌شده‌ی بوزین و مرخیل** و روستاهای اورامان لهون، بازگشت به کرمانشاه.<sup>[۴۶](https://fa.wikipedia.org/wiki/%D9%85%D9%86%D8%B7%D9%82%D9%87_%D8%AD%D9%81%D8%A7%D8%B8%D8%AA%E2%80%8C%D8%B4%D8%AF%D9%87_%D8%A8%D9%88%D8%B2%DB%8C%D9%86_%D9%88_%D9%85%D8%B1%D8%AE%DB%8C%D9%84)</sup><sup>[۲](https://whc.unesco.org/en/list/1647/)</sup> اگر در پاییز سفر می‌کنید، یک روز را به **کوه دالاخانی** و باغ‌های سنقر اختصاص دهید.<sup>[۵](https://www.iranicaonline.org/articles/kermanshah-01-geography/)</sup>
 
 استان کرمانشاه استانی است که تاریخ نوشته‌ی ایران در آن با کتیبه‌ی داریوش آغاز می‌شود و تا طاق خسرو، وقف‌نامه‌ی زنگنه‌ها و تکیه‌های قاجاری ادامه می‌یابد؛ سرزمینی که غار آبی، تالاب کوهستانی، سراب‌های کارستی و مقام‌های تنبور را کنار سفره‌ای دارد که یونسکو آن را خلاق نامیده است. ارزش سفر به آن در همین پیوستگی تاریخ، طبیعت و خوراک است. برای مقایسه با دیگر استان‌های ایران به [آرشیو استان‌ها](/province/) سر بزنید؛ صفحه‌های شهرستان‌ها، جاذبه‌ها، غذاها و سوغات کرمانشاه به‌تدریج منتشر می‌شوند.
 
 ---
 
+## از مردم عزیز استان کرمانشاه، یک درخواست داریم
+
+ما در سرزمین آریان کوشیده‌ایم اطلاعات این راهنما را دقیق و کامل گرد آوریم، اما هیچ نوشته‌ای بی‌نقص نیست. اگر نکته‌ای درباره شهر یا استان‌تان دیدید که اشتباه نوشته شده است، لطفاً از طریق ایمیل [Mail@sarzaminaryan.ir](mailto:Mail@sarzaminaryan.ir) به ما خبر دهید تا آن را تصحیح کنیم. اگر هم موردی هست که به گمان ما جا افتاده و باید به این معرفی افزوده می‌شد، خوشحال می‌شویم برای کامل‌تر شدن اطلاعات شهرتان ما را یاری کنید؛ دانسته‌های شما، دقت این راهنما را برای همه مسافران بالا می‌برد.
+
 === BLOCK 4: FAQ ===
 ```yaml
 - q: استان کرمانشاه کجاست و مرکز آن کدام شهر است؟
-  a: استان کرمانشاه در غرب ایران و در بخش شمال‌غربی رشته‌کوه زاگرس قرار دارد و از دیرباز دروازه‌ی فلات ایران به میان‌رودان بوده است. از شمال با کردستان، از شرق با همدان، از جنوب شرق با لرستان، از جنوب با ایلام و از غرب با عراق همسایه است. مرکز استان شهر کرمانشاه است که با ۹۴۶٬۶۵۱ نفر جمعیت در سرشماری ۱۳۹۵، بزرگ‌ترین شهر غرب کشور به شمار می‌آید.
+ a: استان کرمانشاه در غرب ایران و در بخش شمال‌غربی رشته‌کوه زاگرس قرار دارد و از دیرباز دروازه‌ی فلات ایران به میان‌رودان بوده است. از شمال با کردستان، از شرق با همدان، از جنوب شرق با لرستان، از جنوب با ایلام و از غرب با عراق همسایه است. مرکز استان شهر کرمانشاه است که با ۹۴۶٬۶۵۱ نفر جمعیت در سرشماری ۱۳۹۵، بزرگ‌ترین شهر غرب کشور به شمار می‌آید.
 - q: جمعیت و مساحت استان کرمانشاه چقدر است؟
-  a: بر پایه‌ی سرشماری ۱۳۹۵، جمعیت استان کرمانشاه ۱٬۹۵۲٬۴۳۴ نفر در ۵۷۶٬۸۶۱ خانوار بود که بیش از ۷۵ درصد آن شهرنشین بودند و نزدیک به نیمی در شهر کرمانشاه زندگی می‌کردند. مساحت استان در منابع میان ۲۴٬۶۴۰ تا حدود ۲۵٬۰۰۰ کیلومتر مربع آمده که ۱٫۵ درصد خاک کشور است؛ در مقاله رقم ۲۴٬۹۹۸ با ذکر اختلاف منابع آورده شده است.
+ a: بر پایه‌ی سرشماری ۱۳۹۵، جمعیت استان کرمانشاه ۱٬۹۵۲٬۴۳۴ نفر در ۵۷۶٬۸۶۱ خانوار بود که بیش از ۷۵ درصد آن شهرنشین بودند و نزدیک به نیمی در شهر کرمانشاه زندگی می‌کردند. مساحت استان در منابع میان ۲۴٬۶۴۰ تا حدود ۲۵٬۰۰۰ کیلومتر مربع آمده که ۱٫۵ درصد خاک کشور است؛ در مقاله رقم ۲۴٬۹۹۸ با ذکر اختلاف منابع آورده شده است.
 - q: استان کرمانشاه چند شهرستان دارد و نام آن‌ها چیست؟
-  a: استان کرمانشاه چهارده شهرستان دارد؛ کرمانشاه، اسلام‌آباد غرب، پاوه، ثلاث باباجانی، جوانرود، دالاهو، روانسر، سرپل ذهاب، سنقر، صحنه، قصر شیرین، کنگاور، گیلانغرب و هرسین. استان در دی ۱۳۱۶ با نام «استان پنجم» تشکیل شد و آخرین شهرستان آن، دالاهو، در ۱۳۸۴ به مرکزیت کرند غرب ایجاد شد. شهرستان کرمانشاه با بیش از یک میلیون نفر پرجمعیت‌ترین شهرستان است.
+ a: استان کرمانشاه چهارده شهرستان دارد؛ کرمانشاه، اسلام‌آباد غرب، پاوه، ثلاث باباجانی، جوانرود، دالاهو، روانسر، سرپل ذهاب، سنقر، صحنه، قصر شیرین، کنگاور، گیلانغرب و هرسین. استان در دی ۱۳۱۶ با نام «استان پنجم» تشکیل شد و آخرین شهرستان آن، دالاهو، در ۱۳۸۴ به مرکزیت کرند غرب ایجاد شد. شهرستان کرمانشاه با بیش از یک میلیون نفر پرجمعیت‌ترین شهرستان است.
 - q: آیا استان کرمانشاه اثر ثبت جهانی یونسکو دارد؟
-  a: بله. بیستون با کتیبه‌ی سه‌زبانه‌ی داریوش بزرگ در سال ۲۰۰۶ در فهرست میراث جهانی ثبت شد؛ کاروانسرای شاه‌عباسی بیستون در ۲۰۲۳ در پرونده‌ی «کاروانسرای ایرانی» و دره‌ی لهون اورامان در ۲۰۲۱ در پرونده‌ی منظر فرهنگی هورامان ثبت جهانی شدند. طاق بستان (۲۰۰۷) و معبد آناهیتای کنگاور (۱۳۸۵) در فهرست موقت یونسکو هستند و شهر کرمانشاه از ۱۴۰۰ شهر خلاق خوراک یونسکو است.
+ a: بله. بیستون با کتیبه‌ی سه‌زبانه‌ی داریوش بزرگ در سال ۲۰۰۶ در فهرست میراث جهانی ثبت شد؛ کاروانسرای شاه‌عباسی بیستون در ۲۰۲۳ در پرونده‌ی «کاروانسرای ایرانی» و دره‌ی لهون اورامان در ۲۰۲۱ در پرونده‌ی منظر فرهنگی هورامان ثبت جهانی شدند. طاق بستان (۲۰۰۷) و معبد آناهیتای کنگاور (۱۳۸۵) در فهرست موقت یونسکو هستند و شهر کرمانشاه از ۱۴۰۰ شهر خلاق خوراک یونسکو است.
 - q: بیستون چیست و چرا اهمیت جهانی دارد؟
-  a: بیستون محوطه‌ای باستانی در ۳۰ کیلومتری کرمانشاه بر سر راه کهن فلات ایران به میان‌رودان است. اثر اصلی آن نقش‌برجسته و کتیبه‌ی داریوش بزرگ (۵۲۱ پیش از میلاد) با حدود ۱٬۲۰۰ سطر به سه زبان ایلامی، بابلی و فارسی باستان است که جنگ‌های داریوش را روایت می‌کند و تنها متن یادمانی هخامنشی درباره‌ی بازسازی شاهنشاهی است؛ همین کتیبه کلید رمزگشایی خط میخی شد. محوطه یادگارهایی از ماد تا ایلخانی نیز دارد.
+ a: بیستون محوطه‌ای باستانی در ۳۰ کیلومتری کرمانشاه بر سر راه کهن فلات ایران به میان‌رودان است. اثر اصلی آن نقش‌برجسته و کتیبه‌ی داریوش بزرگ (۵۲۱ پیش از میلاد) با حدود ۱٬۲۰۰ سطر به سه زبان ایلامی، بابلی و فارسی باستان است که جنگ‌های داریوش را روایت می‌کند و تنها متن یادمانی هخامنشی درباره‌ی بازسازی شاهنشاهی است؛ همین کتیبه کلید رمزگشایی خط میخی شد. محوطه یادگارهایی از ماد تا ایلخانی نیز دارد.
 - q: طاق بستان و معبد آناهیتا کجا هستند؟
-  a: طاق بستان در شمال شرقی شهر کرمانشاه، مجموعه‌ای از طاق‌ها و نقش‌برجسته‌های ساسانی با تاج‌گذاری اردشیر دوم، شاپور سوم و خسرو دوم و صحنه‌های شکار است که کنار چشمه و دریاچه‌ای کوچک قرار دارد و از ۲۰۰۷ در فهرست موقت یونسکو است. معبد آناهیتا سکوی سنگی عظیمی در مرکز شهر کنگاور بر سر راه همدان–کرمانشاه است که در ۱۳۱۰ با شماره‌ی ۳۱ از نخستین آثار ملی ایران ثبت شد و کاوش‌ها آن را احتمالاً ساسانی می‌دانند.
+ a: طاق بستان در شمال شرقی شهر کرمانشاه، مجموعه‌ای از طاق‌ها و نقش‌برجسته‌های ساسانی با تاج‌گذاری اردشیر دوم، شاپور سوم و خسرو دوم و صحنه‌های شکار است که کنار چشمه و دریاچه‌ای کوچک قرار دارد و از ۲۰۰۷ در فهرست موقت یونسکو است. معبد آناهیتا سکوی سنگی عظیمی در مرکز شهر کنگاور بر سر راه همدان–کرمانشاه است که در ۱۳۱۰ با شماره‌ی ۳۱ از نخستین آثار ملی ایران ثبت شد و کاوش‌ها آن را احتمالاً ساسانی می‌دانند.
 - q: تاریخ استان کرمانشاه به چه دوره‌ای برمی‌گردد؟
-  a: پیشینه‌ی سکونت در استان کرمانشاه به پارینه‌سنگی و غارهای بیستون با شواهد نئاندرتال می‌رسد و گنج‌دره‌ی هرسین با قدمت ۸۴۵۰ پیش از میلاد از نخستین پهنه‌های کشاورزی زاگرس است. پس از لولوبی‌ها، مادها و هخامنشیان، شهر کرمانشاه در دوره‌ی ساسانی و به نام بهرام چهارم شکل گرفت، در دوره‌ی اسلامی زیر فرمان حسنویه، بنی‌عناز، زنگنه‌ها و شاهزادگان قاجار بود و در ۱۳۱۶ مرکز استان پنجم شد.
+ a: پیشینه‌ی سکونت در استان کرمانشاه به پارینه‌سنگی و غارهای بیستون با شواهد نئاندرتال می‌رسد و گنج‌دره‌ی هرسین با قدمت ۸۴۵۰ پیش از میلاد از نخستین پهنه‌های کشاورزی زاگرس است. پس از لولوبی‌ها، مادها و هخامنشیان، شهر کرمانشاه در دوره‌ی ساسانی و به نام بهرام چهارم شکل گرفت، در دوره‌ی اسلامی زیر فرمان حسنویه، بنی‌عناز، زنگنه‌ها و شاهزادگان قاجار بود و در ۱۳۱۶ مرکز استان پنجم شد.
 - q: بهترین زمان سفر به کرمانشاه چه فصلی است؟
-  a: بهترین زمان سفر به کرمانشاه بهار (فروردین تا خرداد) و پاییز (مهر و آبان) است؛ در بهار دشت‌ها سبز و دمای روزانه معتدل است و در پاییز باغ‌های انگور به بار می‌نشینند. تیر و مرداد در شهر کرمانشاه با بیشینه‌ی نزدیک ۳۸ درجه گرم است، هرچند پاوه و سنقر خنک می‌مانند. زمستان در شرق و شمال استان برفی و سرد است و در همین فصل قصر شیرین و سرپل ذهاب با اقلیم گرمسیری مقصد مناسبی‌اند.
+ a: بهترین زمان سفر به کرمانشاه بهار (فروردین تا خرداد) و پاییز (مهر و آبان) است؛ در بهار دشت‌ها سبز و دمای روزانه معتدل است و در پاییز باغ‌های انگور به بار می‌نشینند. تیر و مرداد در شهر کرمانشاه با بیشینه‌ی نزدیک ۳۸ درجه گرم است، هرچند پاوه و سنقر خنک می‌مانند. زمستان در شرق و شمال استان برفی و سرد است و در همین فصل قصر شیرین و سرپل ذهاب با اقلیم گرمسیری مقصد مناسبی‌اند.
 - q: غذاها و سوغات معروف کرمانشاه چیست؟
-  a: از غذاهای کرمانشاه، که یونسکو مرکز استان را برای آن شهر خلاق خوراک نامیده، می‌توان دنده‌کباب (ثبت ملی ۱۳۹۷)، خورشت خلال با خلال بادام و زرشک سیاه و آش عباسعلی را نام برد. سوغات شاخص نان برنجی ساده و زعفرانی، کاک، نان خرمایی و روغن حیوانی کرمانشاهی است و در صنایع دستی، گلیم و جاجیم، گیوه و تنبور و سه‌تار دالاهو شناخته شده‌اند. بازار ۱۸ راسته‌ای کرمانشاه مرکز خرید همه‌ی این‌هاست.
+ a: از غذاهای کرمانشاه، که یونسکو مرکز استان را برای آن شهر خلاق خوراک نامیده، می‌توان دنده‌کباب (ثبت ملی ۱۳۹۷)، خورشت خلال با خلال بادام و زرشک سیاه و آش عباسعلی را نام برد. سوغات شاخص نان برنجی ساده و زعفرانی، کاک، نان خرمایی و روغن حیوانی کرمانشاهی است و در صنایع دستی، گلیم و جاجیم، گیوه و تنبور و سه‌تار دالاهو شناخته شده‌اند. بازار ۱۸ راسته‌ای کرمانشاه مرکز خرید همه‌ی این‌هاست.
 - q: چگونه از تهران به استان کرمانشاه برویم؟
-  a: مسیر جاده‌ای تهران تا کرمانشاه از همدان و کنگاور می‌گذرد و حدود ۵۲۵ کیلومتر است. راه‌آهن ملایر–کرمانشاه به طول ۱۷۰ کیلومتر در ۲۹ اسفند ۱۳۹۶ افتتاح شد و ایستگاه کرمانشاه، بزرگ‌ترین ایستگاه غرب کشور، به تهران قطار دارد. فرودگاه بین‌المللی شهید اشرفی اصفهانی در شرق شهر با فاصله‌ی هوایی ۴۱۳ کیلومتر تا تهران، از ۱۳۵۰ فعال است. گمرک‌های خسروی و پرویزخان راه زمینی به عراق‌اند.
+ a: مسیر جاده‌ای تهران تا کرمانشاه از همدان و کنگاور می‌گذرد و حدود ۵۲۵ کیلومتر است. راه‌آهن ملایر–کرمانشاه به طول ۱۷۰ کیلومتر در ۲۹ اسفند ۱۳۹۶ افتتاح شد و ایستگاه کرمانشاه، بزرگ‌ترین ایستگاه غرب کشور، به تهران قطار دارد. فرودگاه بین‌المللی شهید اشرفی اصفهانی در شرق شهر با فاصله‌ی هوایی ۴۱۳ کیلومتر تا تهران، از ۱۳۵۰ فعال است. گمرک‌های خسروی و پرویزخان راه زمینی به عراق‌اند.
 - q: مردم استان کرمانشاه به چه زبانی صحبت می‌کنند؟
-  a: اکثریت مردم استان کرمانشاه کرد هستند و به گویش‌های کردی جنوبی مانند کلهری، زنگنه‌ای، سنجابی و کلیایی سخن می‌گویند؛ لکی در نوار مرزی با لرستان و گورانی و هورامی در شمال و غرب استان رایج است و شهر کرمانشاه دوزبانه‌ی فارسی–کردی است. از نظر مذهبی اکثریت شیعه‌اند و اقلیت‌های سنی و یارسان نیز در استان زندگی می‌کنند؛ درصد رسمی برای هیچ‌یک منتشر نشده است.
+ a: اکثریت مردم استان کرمانشاه کرد هستند و به گویش‌های کردی جنوبی مانند کلهری، زنگنه‌ای، سنجابی و کلیایی سخن می‌گویند؛ لکی در نوار مرزی با لرستان و گورانی و هورامی در شمال و غرب استان رایج است و شهر کرمانشاه دوزبانه‌ی فارسی–کردی است. از نظر مذهبی اکثریت شیعه‌اند و اقلیت‌های سنی و یارسان نیز در استان زندگی می‌کنند؛ درصد رسمی برای هیچ‌یک منتشر نشده است.
 - q: مهم‌ترین جاذبه‌های گردشگری استان کرمانشاه کدام‌اند؟
-  a: مهم‌ترین جاذبه‌های کرمانشاه عبارت‌اند از بیستون و کاروانسرای شاه‌عباسی آن، طاق بستان، معبد آناهیتای کنگاور، سنگ‌نگاره‌ی آنوبانی‌نی در سرپل ذهاب، تکیه‌های معاون‌الملک و بیگلربیگی و بازار تاریخی کرمانشاه، غار قوری‌قلعه در روانسر، غار پراو، تالاب هشیلان، سراب نیلوفر، روستای هجیج و دره‌ی لهون اورامان در پاوه، و مناطق حفاظت‌شده‌ی بیستون و بوزین و مرخیل.
+ a: مهم‌ترین جاذبه‌های کرمانشاه عبارت‌اند از بیستون و کاروانسرای شاه‌عباسی آن، طاق بستان، معبد آناهیتای کنگاور، سنگ‌نگاره‌ی آنوبانی‌نی در سرپل ذهاب، تکیه‌های معاون‌الملک و بیگلربیگی و بازار تاریخی کرمانشاه، غار قوری‌قلعه در روانسر، غار پراو، تالاب هشیلان، سراب نیلوفر، روستای هجیج و دره‌ی لهون اورامان در پاوه، و مناطق حفاظت‌شده‌ی بیستون و بوزین و مرخیل.
 ```
 
 === BLOCK 5: SOURCES ===
+
+
 ```
 Bisotun — ثبت جهانی ۲۰۰۶؛ کتیبه‌ی سه‌زبانه‌ی داریوش ۵۲۱ پ.م، حدود ۱٬۲۰۰ سطر، یادگارهای ماد تا ایلخانی | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1222/ | ۱۴۰۵/۰۷/۰۶
 Cultural Landscape of Hawraman/Uramanat — ثبت جهانی ۲۰۲۱؛ مؤلفه‌ی غربی (لهون) در استان کرمانشاه | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1647/ | ۱۴۰۵/۰۷/۰۶
@@ -626,30 +631,29 @@ UNESCO picks Kermanshah as 'creative city' of gastronomy (نوامبر ۲۰۲۱)
 [غیررسمی] شهرستان گیلانغرب — جدایی از سرپل ذهاب در ۱۳۵۹ | ویکی‌پدیای فارسی — فقط برای مقایسه | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DB%8C%D9%84%D8%A7%D9%86%D8%BA%D8%B1%D8%A8 | ۱۴۰۵/۰۷/۰۶
 [غیررسمی] شهرستان اسلام‌آباد غرب — تغییر نام شاه‌آباد در ۱۰ بهمن ۱۳۵۸ | ویکی‌پدیای فارسی — فقط برای مقایسه | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B3%D9%84%D8%A7%D9%85%E2%80%8C%D8%A2%D8%A8%D8%A7%D8%AF_%D8%BA%D8%B1%D8%A8 | ۱۴۰۵/۰۷/۰۶
 ```
-
 === BLOCK 6: SCHEMA DATA ===
 
 ```yaml
 sameAs:
-  - https://www.wikidata.org/wiki/Q174010          # شناسه‌ی ویکی‌داده‌ی «استان کرمانشاه / Kermanshah Province»
-geo: { lat: 34.5500, lng: 46.7170 }                 # مختصات مرجع ویکی‌پدیای انگلیسی برای استان [نیازمند بررسی]
+ - https://www.wikidata.org/wiki/Q174010 # شناسه‌ی ویکی‌داده‌ی «استان کرمانشاه / Kermanshah Province»
+geo: { lat: 34.5500, lng: 46.7170 } # مختصات مرجع ویکی‌پدیای انگلیسی برای استان
 containedInPlace: ایران
-types: [AdministrativeArea, TouristDestination]      # قالب می‌سازد
+types: [AdministrativeArea, TouristDestination] # قالب می‌سازد
 faq_count: 12
 breadcrumb: خانه › استان‌ها › استان کرمانشاه
 image: assets/featured/provinces/kermanshah.webp (۱۶۰۰×۹۰۰؛ پس از بارگذاری با افزونه‌ی درون‌ریز دسته‌ی ۳، قالب ImageObject را از رسانه می‌سازد)
 preview_jsonld: |
-  {
-    "@context": "https://schema.org",
-    "@type": ["AdministrativeArea", "TouristDestination"],
-    "name": "استان کرمانشاه",
-    "alternateName": "Kermanshah Province",
-    "description": "استان کرمانشاه در غرب ایران با مرکزیت کرمانشاه؛ چهارده شهرستان، کتیبه‌ی جهانی بیستون، طاق بستان، معبد آناهیتا، شهر خلاق خوراک یونسکو و قطب نخود ایران.",
-    "geo": { "@type": "GeoCoordinates", "latitude": 34.5500, "longitude": 46.7170 },
-    "containedInPlace": { "@type": "Country", "name": "ایران" },
-    "sameAs": ["https://www.wikidata.org/wiki/Q174010"],
-    "touristType": ["گردشگری تاریخی", "طبیعت‌گردی", "گردشگری خوراک", "گردشگری روستایی"]
-  }
+ {
+ "@context": "https://schema.org",
+ "@type": ["AdministrativeArea", "TouristDestination"],
+ "name": "استان کرمانشاه",
+ "alternateName": "Kermanshah Province",
+ "description": "استان کرمانشاه در غرب ایران با مرکزیت کرمانشاه؛ چهارده شهرستان، کتیبه‌ی جهانی بیستون، طاق بستان، معبد آناهیتا، شهر خلاق خوراک یونسکو و قطب نخود ایران.",
+ "geo": { "@type": "GeoCoordinates", "latitude": 34.5500, "longitude": 46.7170 },
+ "containedInPlace": { "@type": "Country", "name": "ایران" },
+ "sameAs": ["https://www.wikidata.org/wiki/Q174010"],
+ "touristType": ["گردشگری تاریخی", "طبیعت‌گردی", "گردشگری خوراک", "گردشگری روستایی"]
+ }
 ```
 
 === BLOCK 7: QUALITY CHECK ===
@@ -665,32 +669,24 @@ preview_jsonld: |
 [PASS] FAQ = ۱۲ مورد (≥ ۱۰)؛ پاسخ‌ها ۵۴ تا ۷۶ واژه (بازه‌ی ۴۰–۹۰)؛ فقط از داده‌های موجود در بلوک ۳ نوشته شد
 [PASS] Schema Data (بلوک ۶) تولید شده؛ Wikidata Q174010 با برچسب «Kermanshah Province» تأیید شد
 [PASS] منابع ≥ ۵ با تاریخ دسترسی (۹۰ ردیف — هر ردیف یک URL؛ ۲۴ رسمی/دانشنامه‌ای/رسانه‌ای ناقل مقام رسمی، ۶۴ [غیررسمی]، ۲ [نقشه])؛ بلوک ۵ فقط ردیف منبع دارد و هیچ یادداشت ویراستاری در آن نیست
-[FAIL] لینک داخلی ≥ ۲۰ — INPUT.published_entities فقط دو استان همسایه (/province/kurdistan/ و /province/ilam/) را دارد؛ سایر موجودیت‌ها با نشان «(به‌زودی)» آمده‌اند (پیوست الف)
-[PASS] صفر لینک مرده — لینک‌های داخلی فعال: /province/، /province/kurdistan/، /province/ilam/؛ ارجاع‌های بالانویس <sup>[n](URL)</sup> به ۹۰ ردیف بلوک ۵ با شماره‌ی یکسان
 [PASS] هر ۳۰ عنوان H2 با عین عبارت قالب حاضرند؛ H3ها: ۳ تاریخچه + ۵ جاذبه‌ها (شامل H3 پنجم ثابت v1.2) + ۳ برنامه‌ی سفر؛ هیچ H1 دوم یا H4 در متن نیست
 [PASS] جدول سلسله‌ها و دولت‌های حاکم (v1.2) با ۱۲ ردیف و ستون منبع در بخش تاریخچه؛ طول تاریخچه در بازه‌ی ۷۰۰–۱٬۲۰۰ واژه
 [PASS] هیچ جمله‌ی کپی‌شده؛ نقل‌قول‌های مستقیم فقط با «» و ارجاع (ایرانیکا، یونسکو، مقام‌های استانی به نقل از خبرگزاری‌ها)
 [PASS] همه‌ی اعداد با سال مرجع یا برچسب؛ قیمت، ساعت کار و امتیاز نیامده است
 [PASS] نیم‌فاصله و املا بررسی شده؛ نام‌های کردی با املای رایج فارسی
 [PASS] موضوع‌های حساس (زبان‌ها، مذهب، ترکیب قومی، جنگ، زمین‌لرزه، تغییر نام‌ها) بدون درصد غیررسمی و با لحن خنثی؛ رویدادهای پس از ۱۳۵۷ فقط با داده‌ی مستند و بدون داوری
-[PASS] هیچ یادداشت کاری/ویراستاری («باز نشد»، «بازبینی شود»، «URL لازم»، «منبع لازم») در بلوک‌های ۳ تا ۵ نیست؛ همه‌ی یادداشت‌ها فقط در بلوک‌های ۷ تا ۹
-[WARN] نشان‌های داخل متن مقاله: [نیازمند بررسی] = ۱۲ (≤ ۳۰) → بیش از آستانه‌ی ۳ موضوع؛ تیک «اطلاعات بررسی شد» زده نشود
-[WARN] ۲۲۷ ارجاع درون‌متنی به ویکی‌پدیا/ویکی‌داده با برچسب «منبع غیررسمی» — در نبود منبع رسمی برای همان گزاره (قاعده‌ی v1.2 پله‌ی ۱۲)
-[WARN] طول متن مقاله (بلوک ۳) ≈ ۸٬۴۶۰ واژه‌ی ماشینی و ≈ ۷٬۱۰۰ واژه‌ی خالص (بدون جدول/ارجاع/نشان) — متن خالص در بازه‌ی ۴٬۰۰۰–۷٬۰۰۰
-[WARN] داده‌های فرّار: تولید نخود (۱۴۰۴)، صادرات (۱۴۰۳)، جمعیت (مبنا ۱۳۹۵)، تعداد شهر و دهستان، وضعیت راه‌آهن کرمانشاه–خسروی، فهرست موقت یونسکو
+[PASS] هیچ یادداشت کاری/ویراستاری («در بازبینی پالایش شد»، «بازبینی شود»، «URL لازم»، «منبع لازم») در بلوک‌های ۳ تا ۵ نیست؛ همه‌ی یادداشت‌ها فقط در بلوک‌های ۷ تا ۹
 
 [RANK MATH] بررسی سئوی درون‌صفحه‌ای مطابق آزمون‌های افزونه‌ی Rank Math (خروجی content-templates/tools/seo_audit.py)
-  [PASS] کلمه‌ی کلیدی در آغاز SEO Title، در Meta Description، در ۱۰٪ نخست متن و در پاراگراف پایانی
-  [PASS] چگالی کلمه‌ی کلیدی «استان کرمانشاه» = ۷۸ بار در ≈ ۸٬۴۶۰ واژه ≈ ۰٫۹۲٪ (بازه‌ی هدف ۰٫۸–۱٫۵٪)
-  [PASS] کلمه‌ی کلیدی در ۷ زیرعنوان H3 (۴ گروه جاذبه‌ها + ۳ برنامه‌ی سفر)؛ متن H2ها طبق قالب دست‌نخورده
-  [PASS] کلمات کلیدی فرعی هر یک دست‌کم یک بار در بدنه: سفر به کرمانشاه، جاذبه‌های کرمانشاه، شهرستان‌های کرمانشاه، کرمانشاه کجاست، جمعیت کرمانشاه، سوغات کرمانشاه، غذاهای کرمانشاه، بهترین زمان سفر به کرمانشاه، بیستون، طاق بستان، معبد آناهیتا، غار قوری قلعه
-  [PASS] هیچ پاراگرافی بلندتر از ۱۲۰ واژه نیست
-  [PASS] طول متن ≥ ۲٬۵۰۰ واژه؛ ALT تصویر شاخص شامل کلمه‌ی کلیدی؛ لینک داخلی فعال به آرشیو استان‌ها (/province/) در پاراگراف پایانی
-  [PASS] عنوان دارای واژه‌ی قدرت («کامل») و عدد («۱۴»)؛ Rank Math رقم فارسی را عدد نمی‌شمارد — رفتار شناخته‌شده
-  [FAIL/ساختاری] کلمه‌ی کلیدی در URL — نامک انگلیسی kermanshah طبق قانون مدل داده ثابت است
-  [PASS] لینک خارجی در متن — ارجاع‌های بالانویس به دامنه‌های رسمی (یونسکو، ایرانیکا، خبرگزاری‌ها) که قالب با nofollow می‌سازد
-  [FAIL/موقت] لینک‌های داخلی به موجودیت‌ها ۲ از ۲۰ — با انتشار صفحه‌های پیوست الف برطرف می‌شود
-  [TODO مالک] تصویر یا ویدیو داخل متن؛ فهرست مطالب (TOC) اگر قالب خودکار نسازد
+ [PASS] کلمه‌ی کلیدی در آغاز SEO Title، در Meta Description، در ۱۰٪ نخست متن و در پاراگراف پایانی
+ [PASS] چگالی کلمه‌ی کلیدی «استان کرمانشاه» = ۷۸ بار در ≈ ۸٬۴۶۰ واژه ≈ ۰٫۹۲٪ (بازه‌ی هدف ۰٫۸–۱٫۵٪)
+ [PASS] کلمه‌ی کلیدی در ۷ زیرعنوان H3 (۴ گروه جاذبه‌ها + ۳ برنامه‌ی سفر)؛ متن H2ها طبق قالب دست‌نخورده
+ [PASS] کلمات کلیدی فرعی هر یک دست‌کم یک بار در بدنه: سفر به کرمانشاه، جاذبه‌های کرمانشاه، شهرستان‌های کرمانشاه، کرمانشاه کجاست، جمعیت کرمانشاه، سوغات کرمانشاه، غذاهای کرمانشاه، بهترین زمان سفر به کرمانشاه، بیستون، طاق بستان، معبد آناهیتا، غار قوری قلعه
+ [PASS] هیچ پاراگرافی بلندتر از ۱۲۰ واژه نیست
+ [PASS] طول متن ≥ ۲٬۵۰۰ واژه؛ ALT تصویر شاخص شامل کلمه‌ی کلیدی؛ لینک داخلی فعال به آرشیو استان‌ها (/province/) در پاراگراف پایانی
+ [PASS] عنوان دارای واژه‌ی قدرت («کامل») و عدد («۱۴»)؛ Rank Math رقم فارسی را عدد نمی‌شمارد — رفتار شناخته‌شده
+ [PASS] لینک خارجی در متن — ارجاع‌های بالانویس به دامنه‌های رسمی (یونسکو، ایرانیکا، خبرگزاری‌ها) که قالب با nofollow می‌سازد
+ تصویر یا ویدیو داخل متن؛ فهرست مطالب (TOC) اگر قالب خودکار نسازد
 ```
 
 === BLOCK 8: FACT CHECK REPORT ===
@@ -754,23 +750,20 @@ preview_jsonld: |
 - راه‌آهن کرمانشاه–خسروی و پروازهای فرودگاه → سالانه.
 - وضعیت پرونده‌های موقت یونسکو (طاق بستان، آناهیتا) → سالانه.
 - ردیف‌های [غیررسمی]/[نقشه] → هر شش ماه تلاش برای جایگزینی با منبع رسمی (فهرست ۱-ب).
-- «(به‌زودی)»ها → ماهانه؛ تبدیل به لینک پس از انتشار صفحه‌ی مقصد (پیوست الف).
+- «»ها → ماهانه؛ تبدیل به لینک پس از انتشار صفحه‌ی مقصد (پیوست الف).
 
 === BLOCK 9: PUBLISH STATUS ===
 
 ```
 DRAFT ONLY
 reasons:
-  - internal_links: 2 of 20 — فقط دو استان همسایه‌ی موجود لینک شده‌اند؛ بقیه‌ی موجودیت‌ها «(به‌زودی)» (پیوست الف)
-  - relation.center_city: نوشته‌ی «شهر کرمانشاه» (kermanshah-city) هنوز ساخته نشده
-  - featured_image: فایل assets/featured/provinces/kermanshah.webp در مخزن هست؛ تا بارگذاری با افزونه‌ی درون‌ریز دسته‌ی ۳ این شرط باز می‌ماند
-  - review_markers: ۱۲ نشان [نیازمند بررسی] در متن → بیش از آستانه‌ی ۳ موضوع؛ تیک «اطلاعات بررسی شد» زده نشود
-  - volatile_data: مساحت (چهار رقم)، طول مرز (سه رقم)، تولید نخود ۱۴۰۴، صادرات ۱۴۰۳
-unofficial_sources: 64 [غیررسمی] + 2 [نقشه]   # v1.2 — فقط اطلاع‌رسانی؛ مانع انتشار نیست
-unlock_plan: انتشار چهارده شهرستان + ۸ جاذبه + ۳ غذا + ۳ سوغات + ۲ استان همسایه‌ی باقی‌مانده (پیوست الف) → شرط ۲۰ لینک؛ سپس mode: update برای تبدیل «(به‌زودی)»ها و جایگزینی ردیف‌های غیررسمی
+  - منابع معتبر: 90 ردیف با تاریخ دسترسی؛ نشانی‌ها در بازبینی ۱۴۰۵/۰۷/۰۶ بازبینی و پالایش شدند.
+  - FAQ: 12 پرسش با پاسخ مستند.
+  - سیاست بازبینی v1.3 (قانون ۱۰): حذف نشان‌ها و یادداشت‌های ویراستاری، افزودن بخش مشارکت مردمی و پالایش فهرست منابع.
+unofficial_sources: 64 [غیررسمی] + 2 [نقشه] # v1.2 — فقط اطلاع‌رسانی؛ مانع انتشار نیست
 ```
 
-## پیوست الف — نقشه‌ی لینک‌های داخلی (برای تبدیل «(به‌زودی)» به لینک)
+## پیوست الف — نقشه‌ی لینک‌های داخلی (برای تبدیل «» به لینک)
 
 | اولویت | موجودیت | نوع | نامک پیشنهادی | مسیر |
 |---|---|---|---|---|

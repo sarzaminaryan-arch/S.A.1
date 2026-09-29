@@ -31,3 +31,14 @@
    guessing (hedges without a citation, generalising from a similar province, unsourced dynasty attributions) — see
    `content-templates/province.md` §2-ج. `seo_audit.py` prints v1.2 WARN lines (history length, dynasty table, fifth H3,
    unsourced hedges); the 13 pre-v1.2 articles get their history sections expanded in a later `mode: update` pass.
+10. **Province content-review policy v1.3 (2026-09-28) — binding for every new article and every review pass.**
+   (a) Humanize: the article body must read natural and human; strip all machine/editorial markers — «(به‌زودی)»,
+   «[نیازمند بررسی]», «[منبع لازم]», «[URL لازم]», stray «؟» inside names, and v1.0 problem narratives.
+   (b) No problem/unreliable-source reports in the article: BLOCK 8 lists verified rows only (no «اختلاف منابع/غیررسمی»
+   theatre), BLOCK 9 carries no unofficial-source tag counts; drop tags instead of debating them.
+   (c) Community-feedback closing section: every article ends with an H2 inviting locals of that province to report
+   mistakes and missing info via [Mail@sarzaminaryan.ir](mailto:Mail@sarzaminaryan.ir); texts fixed by readers after
+   publish — this replaces strict pre-publish gatekeeping on descriptive content (official stats stay official-only).
+   (d) BLOCK 5 hygiene: every source row must carry a real, opened URL — delete rows without links; verify every URL
+   answers HTTP 200 (no 404) before shipping (curl -sI loop or fetch check); every row is cited at least once in text.
+   (e) Purpose: reviews stay fast and correct — research → humanize → link-check → audit → status → build.
