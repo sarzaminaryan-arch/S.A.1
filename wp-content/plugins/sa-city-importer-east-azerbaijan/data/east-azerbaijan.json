@@ -2,9 +2,9 @@
  "batch": "east-azerbaijan",
  "batch_id": "east-azerbaijan",
  "label": "درون‌ریز شهرستان‌های استان آذربایجان شرقی",
- "data_version": "1.0.1",
+ "data_version": "2.0.1",
  "package_format": "1.0",
- "built": "2026-09-28",
+ "built": "2026-09-29",
  "province": {
   "slug": "east-azerbaijan",
   "name_fa": "استان آذربایجان شرقی",
@@ -13,7 +13,7 @@
  "counties": [
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/tabriz.md",
    "source_sha1": "ab1a8a10c6e5d290fb980ae3b785ddad89cca0d7",
    "slug": "tabriz",
@@ -115,11 +115,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/tabriz.webp",
+    "source": "assets/featured/counties/east-azerbaijan/tabriz.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان تبریز با بازار تاریخی و کوه عینالی",
+    "caption": "بازار تاریخی تبریز، میراث جهانی یونسکو، قلب شهرستان تبریز.",
+    "title": "شهرستان تبریز — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان تبریز با بازار تاریخی و کوه عینالی",
+    "sha1": "345e8021aeb3c2027a5470c873198108d8ca351c"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/maragheh.md",
    "source_sha1": "70bc1a63b885a739856ccc0a0286173fb3f4b663",
    "slug": "maragheh",
@@ -220,11 +229,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/maragheh.webp",
+    "source": "assets/featured/counties/east-azerbaijan/maragheh.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان مراغه با رصدخانه تاریخی و گنبد سرخ",
+    "caption": "رصدخانهٔ مراغه، یادگار خواجه نصیرالدین طوسی، بر تپه‌ای مشرف به شهر.",
+    "title": "شهرستان مراغه — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان مراغه با رصدخانه تاریخی و گنبد سرخ",
+    "sha1": "83124c45d0d25d7deba0eba63114f6716911e375"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/marand.md",
    "source_sha1": "0d2df1831aac2cbd6cd5bf594622d5a29713b038",
    "slug": "marand",
@@ -326,11 +344,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/marand.webp",
+    "source": "assets/featured/counties/east-azerbaijan/marand.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان مرند با جاده تبریز جلفا و دشت‌های کشاورزی",
+    "caption": "شهرستان مرند، گره ارتباطی تبریز به جلفا و قفقاز.",
+    "title": "شهرستان مرند — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان مرند با جاده تبریز جلفا و دشت‌های کشاورزی",
+    "sha1": "1ade75042508b878a39fa7a100ab8c64cc96de3e"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/osku.md",
    "source_sha1": "c9ad532e11f75c2f03a73a99169b6a09ed4486e8",
    "slug": "osku",
@@ -432,11 +459,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/osku.webp",
+    "source": "assets/featured/counties/east-azerbaijan/osku.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان اسکو با خانه‌های صخره‌ای کندوان و کوه سهند",
+    "caption": "روستای کندوان، دهکدهٔ جهانی گردشگری در دل سنگ‌های کله‌قندی سهند.",
+    "title": "شهرستان اسکو — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان اسکو با خانه‌های صخره‌ای کندوان و کوه سهند",
+    "sha1": "7acc3c0af8721dac849093ce1338e71f751ceb70"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/kaleybar.md",
    "source_sha1": "49371b0948845f169f79dcaf334b768037ff5e9c",
    "slug": "kaleybar",
@@ -538,11 +574,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/kaleybar.webp",
+    "source": "assets/featured/counties/east-azerbaijan/kaleybar.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان کلیبر با قلعه بابک و جنگل‌های ارسباران",
+    "caption": "قلعه بابک بر بلندای کوه، نماد تاریخ‌ساز شهرستان کلیبر.",
+    "title": "شهرستان کلیبر — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان کلیبر با قلعه بابک و جنگل‌های ارسباران",
+    "sha1": "3da0a27926943e4b52797c6234cbac234dca9a25"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/jolfa.md",
    "source_sha1": "9bae3e44979fbac21246a0545abd5009d1e59a10",
    "slug": "jolfa",
@@ -644,11 +689,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/jolfa.webp",
+    "source": "assets/featured/counties/east-azerbaijan/jolfa.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان جلفا با رود ارس و کوه‌های مرزی",
+    "caption": "رود ارس، همسایهٔ همیشه همراه شهرستان جلفا.",
+    "title": "شهرستان جلفا — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان جلفا با رود ارس و کوه‌های مرزی",
+    "sha1": "a1a421331228425781e661b320f3a8f8d7b4cb7e"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/azarshahr.md",
    "source_sha1": "2d20decf4e196d68b634b928d568a7684608bf92",
    "slug": "azarshahr",
@@ -750,11 +804,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/azarshahr.webp",
+    "source": "assets/featured/counties/east-azerbaijan/azarshahr.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان آذرشهر با جلگه سبز و دریاچه ارومیه",
+    "caption": "جلگهٔ حاصلخیز آذرشهر در میانهٔ راه تبریز و مراغه.",
+    "title": "شهرستان آذرشهر — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان آذرشهر با جلگه سبز و دریاچه ارومیه",
+    "sha1": "3a287dbdd53b94115e6eb711473008eab71992f0"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/ahar.md",
    "source_sha1": "cc82d052119b0b04c26fa5fb032f90ca57f1e1a8",
    "slug": "ahar",
@@ -856,11 +919,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/ahar.webp",
+    "source": "assets/featured/counties/east-azerbaijan/ahar.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان اهر با کوهستان قره‌داغ و گلیم ورنی",
+    "caption": "شهرستان اهر، مرکز منطقهٔ تاریخی قره‌داغ.",
+    "title": "شهرستان اهر — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان اهر با کوهستان قره‌داغ و گلیم ورنی",
+    "sha1": "f2f0fd4cb171b63a2c8ec5261e849f2b03166490"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/bostanabad.md",
    "source_sha1": "d67551442a7195c0b44433dc83436b0d709cc83c",
    "slug": "bostanabad",
@@ -962,11 +1034,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/bostanabad.webp",
+    "source": "assets/featured/counties/east-azerbaijan/bostanabad.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان بستان‌آباد با دشت گندم و تالاب قوری گل",
+    "caption": "دشت‌های بستان‌آباد بر مسیر کهن تبریز به اردبیل.",
+    "title": "شهرستان بستان‌آباد — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان بستان‌آباد با دشت گندم و تالاب قوری گل",
+    "sha1": "e87de4a2dac0b9a51a843b49d3640fc2c82f103b"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/bonab.md",
    "source_sha1": "823901f438ac92529040ad605d865e3fe72be507",
    "slug": "bonab",
@@ -1068,11 +1149,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/bonab.webp",
+    "source": "assets/featured/counties/east-azerbaijan/bonab.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان بناب با تپه‌های باستانی و معماری صخره‌ای روستای صور",
+    "caption": "تپه‌های باستانی و معماری صخره‌ای، چهرهٔ کهن شهرستان بناب.",
+    "title": "شهرستان بناب — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان بناب با تپه‌های باستانی و معماری صخره‌ای روستای صور",
+    "sha1": "a9ade9a4ce270a5b595467592280ec6fee8b3664"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/charoymaq.md",
    "source_sha1": "7f7a578a6b12cb3a303a39288cc1d379f2f0ab60",
    "slug": "charoymaq",
@@ -1174,11 +1264,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/charoymaq.webp",
+    "source": "assets/featured/counties/east-azerbaijan/charoymaq.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان چاراویماق با دشت‌های باز و دریاچه سد خرم‌درق",
+    "caption": "دشت‌های وسیع چاراویماق، جنوبی‌ترین شهرستان آذربایجان شرقی.",
+    "title": "شهرستان چاراویماق — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان چاراویماق با دشت‌های باز و دریاچه سد خرم‌درق",
+    "sha1": "079dbe21aa5ee2c69ab9906eb1038deedc80f9c1"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/khoda-afarin.md",
    "source_sha1": "370902168e2e3de4fc3e046e4442753257c115d0",
    "slug": "khoda-afarin",
@@ -1280,11 +1379,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/khoda-afarin.webp",
+    "source": "assets/featured/counties/east-azerbaijan/khoda-afarin.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان خداآفرین با پل تاریخی بر رود ارس",
+    "caption": "کرانه‌های ارس، چهرهٔ اصلی شهرستان خداآفرین.",
+    "title": "شهرستان خداآفرین — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان خداآفرین با پل تاریخی بر رود ارس",
+    "sha1": "da73180a491c4655db4a323bcaa86914e661cbd5"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/sarab.md",
    "source_sha1": "6e9955b4582a35a8ce96162469829510259f0aa1",
    "slug": "sarab",
@@ -1386,11 +1494,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/sarab.webp",
+    "source": "assets/featured/counties/east-azerbaijan/sarab.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان سراب با دشت پرآب و کتیبه سنگی رازلیق",
+    "caption": "دشت سرد سراب بر راه تاریخی تبریز به اردبیل.",
+    "title": "شهرستان سراب — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان سراب با دشت پرآب و کتیبه سنگی رازلیق",
+    "sha1": "543a54d5b0f953843f678820549300b47ea523e7"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/shabestar.md",
    "source_sha1": "056f47ed309c6b968133a86393b175e61265a681",
    "slug": "shabestar",
@@ -1492,11 +1609,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/shabestar.webp",
+    "source": "assets/featured/counties/east-azerbaijan/shabestar.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان شبستر با کوه میشو، باغ‌ها و دریاچه ارومیه",
+    "caption": "کوه میشو و باغ‌های شبستر در غرب آذربایجان شرقی.",
+    "title": "شهرستان شبستر — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان شبستر با کوه میشو، باغ‌ها و دریاچه ارومیه",
+    "sha1": "8558f111c9fa9aae8ea648403d88a43ce5187e68"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/ajabshir.md",
    "source_sha1": "44876b269176fa6bde6fb687b47373d87fe44608",
    "slug": "ajabshir",
@@ -1598,11 +1724,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/ajabshir.webp",
+    "source": "assets/featured/counties/east-azerbaijan/ajabshir.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان عجب‌شیر با کتیبهٔ سنگی، دژ تاریخی و دریاچه ارومیه",
+    "caption": "دامنهٔ سهند و یادگارهای کهن، چهرهٔ شهرستان عجب‌شیر.",
+    "title": "شهرستان عجب‌شیر — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان عجب‌شیر با کتیبهٔ سنگی، دژ تاریخی و دریاچه ارومیه",
+    "sha1": "cbf2bb636fae556431492d3ac0729e85a18a21c7"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/malekan.md",
    "source_sha1": "e497b0a323071f9d9e7f72d8cefceee9e039c02d",
    "slug": "malekan",
@@ -1704,11 +1839,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/malekan.webp",
+    "source": "assets/featured/counties/east-azerbaijan/malekan.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان ملکان با جلگه سبز، رود و دریاچه ارومیه",
+    "caption": "دشت باغ‌خیز ملکان بر کرانهٔ جنوب شرقی دریاچه ارومیه.",
+    "title": "شهرستان ملکان — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان ملکان با جلگه سبز، رود و دریاچه ارومیه",
+    "sha1": "0e6e30007567c965502ab497c2643de94e492d80"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/mianeh.md",
    "source_sha1": "57315340a5ff5fe067603e1daf284dc72e9244f5",
    "slug": "mianeh",
@@ -1814,7 +1958,7 @@
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/varzaqan.md",
    "source_sha1": "29b3cfd0de08fd7abad7437c18e1ca8e9745146f",
    "slug": "varzaqan",
@@ -1916,11 +2060,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/varzaqan.webp",
+    "source": "assets/featured/counties/east-azerbaijan/varzaqan.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان ورزقان با کوهستان قره‌داغ و روستاهای دامنه‌ای",
+    "caption": "دره‌های قره‌داغ، چهرهٔ کوهستانی شهرستان ورزقان.",
+    "title": "شهرستان ورزقان — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان ورزقان با کوهستان قره‌داغ و روستاهای دامنه‌ای",
+    "sha1": "74e80548aae05352c450069b66cf6aa0f5f84164"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/heris.md",
    "source_sha1": "47a1312662a4ec3874b1a2d36a12db6127e49873",
    "slug": "heris",
@@ -2022,11 +2175,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/heris.webp",
+    "source": "assets/featured/counties/east-azerbaijan/heris.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان هریس با فرش دستباف، روستای دامنه‌ای و آبشار",
+    "caption": "فرش پشمی هریس، هنر جهانی‌شدهٔ دامنه‌های بزقوش.",
+    "title": "شهرستان هریس — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان هریس با فرش دستباف، روستای دامنه‌ای و آبشار",
+    "sha1": "ae840bc381b95326d4b1f60189430e49fb30af70"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/hashtrud.md",
    "source_sha1": "c75015e3e153266ebe0b26d30117832128a0704f",
    "slug": "hashtrud",
@@ -2127,11 +2289,20 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/hashtrud.webp",
+    "source": "assets/featured/counties/east-azerbaijan/hashtrud.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان هشترود با دشت‌ها، جاده و رشته‌کوه‌های پیرامون",
+    "caption": "دشت‌های هشترود، گذرگاه میان تبریز و میانه.",
+    "title": "شهرستان هشترود — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان هشترود با دشت‌ها، جاده و رشته‌کوه‌های پیرامون",
+    "sha1": "77d9504aaf86a43d7713c1cbf24e2cd6eb5f2740"
+   }
   },
   {
    "package_format": "1.0",
-   "built": "2026-09-28",
+   "built": "2026-09-29",
    "source_file": "content/cities/hurand.md",
    "source_sha1": "22b45f708d49df1705a6289ebe1ae68aab00c2a5",
    "slug": "hurand",
@@ -2231,7 +2402,16 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "image": null
+   "image": {
+    "file": "assets/counties/hurand.webp",
+    "source": "assets/featured/counties/east-azerbaijan/hurand.webp",
+    "mime": "image/webp",
+    "alt": "نمایی گرافیکی از شهرستان هوراند با کوهستان، دره‌ها و شهر دامنه‌ای",
+    "caption": "دره‌های هوراند، تازه‌ترین شهرستان آذربایجان شرقی.",
+    "title": "شهرستان هوراند — سرزمین آریان",
+    "description": "نمایی گرافیکی از شهرستان هوراند با کوهستان، دره‌ها و شهر دامنه‌ای",
+    "sha1": "73810be0378bed8e85101ce15c34ec0f2e1bb902"
+   }
   }
  ]
 }

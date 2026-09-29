@@ -2,9 +2,9 @@
  "batch": "east-azerbaijan",
  "batch_id": "east-azerbaijan",
  "label": "درون‌ریز شهرستان‌های استان آذربایجان شرقی",
- "data_version": "1.0.1",
+ "data_version": "2.0.1",
  "package_format": "1.0",
- "built": "2026-09-28",
+ "built": "2026-09-29",
  "province": {
   "slug": "east-azerbaijan",
   "name_fa": "استان آذربایجان شرقی",
@@ -26,7 +26,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "maragheh",
@@ -41,7 +42,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "marand",
@@ -56,7 +58,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "osku",
@@ -71,7 +74,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "kaleybar",
@@ -86,7 +90,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "jolfa",
@@ -101,7 +106,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "azarshahr",
@@ -116,7 +122,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "ahar",
@@ -131,7 +138,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "bostanabad",
@@ -146,7 +154,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "bonab",
@@ -161,7 +170,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "charoymaq",
@@ -176,7 +186,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "khoda-afarin",
@@ -191,7 +202,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "sarab",
@@ -206,7 +218,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "shabestar",
@@ -221,7 +234,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "ajabshir",
@@ -236,7 +250,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "malekan",
@@ -251,7 +266,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "mianeh",
@@ -266,7 +282,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": false
   },
   {
    "slug": "varzaqan",
@@ -281,7 +298,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "heris",
@@ -296,7 +314,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "hashtrud",
@@ -311,7 +330,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   },
   {
    "slug": "hurand",
@@ -326,7 +346,8 @@
     "source_needed": 0,
     "url_needed": 0,
     "coming_soon": 0
-   }
+   },
+   "featured_image": true
   }
  ]
 }

@@ -31,7 +31,7 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 	 */
 	class SA_City_Province_Importer {
 
-		const CORE_VERSION = '1.0.0';
+		const CORE_VERSION = '1.1.0';
 		const CPT          = 'city';
 		const CAP          = 'manage_options';
 		const NONCE        = 'sa_city_import';
@@ -137,6 +137,8 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 				'update_drafts'       => true,
 				'overwrite_published' => false,
 				'rank_math'           => true,
+				'featured_images'     => true,
+				'overwrite_featured'  => false,
 			);
 		}
 
@@ -315,17 +317,105 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 			}
 			clean_post_cache( $post_id );
 
+			// Featured image (bundled webp) — uploaded together with the page.
+			$img = $this->set_featured_image( $post_id, $slug, $pkg, $batch, $opts );
+			update_post_meta( $post_id, '_sa_import_featured', $img );
+
 			$result = array(
 				'action'  => $existing ? 'updated' : 'created',
 				'post_id' => (int) $post_id,
 				'status'  => get_post_status( $post_id ),
 				'message' => $existing ? 'پیش‌نویس شهرستان به‌روزرسانی شد' : 'پیش‌نویس شهرستان ساخته شد',
+				'image'   => $img,
 			);
 			if ( function_exists( 'sa_gate_missing' ) ) {
 				$result['gate_missing']  = (array) sa_gate_missing( $post_id, self::CPT, null );
 				$result['gate_warnings'] = function_exists( 'sa_gate_warnings' ) ? (array) sa_gate_warnings( $post_id, self::CPT, null ) : array();
 			}
 			return $result;
+		}
+
+		/**
+		 * Set the featured image for a county post from the plugin's bundled webp.
+		 *
+		 * Looks for {plugin}/assets/counties/{slug}.webp, sideloads it into the
+		 * media library and sets it as the post thumbnail. Idempotent: re-imports
+		 * keep the existing thumbnail unless the bundled file changed (sha1 check)
+		 * or the overwrite option is on.
+		 *
+		 * @param int    $post_id Post ID.
+		 * @param string $slug    County slug.
+		 * @param array  $pkg     Package.
+		 * @param array  $batch   Batch.
+		 * @param array  $opts    Options.
+		 * @return string set|kept|refreshed|none|off|error:...
+		 */
+		private function set_featured_image( $post_id, $slug, $pkg, $batch, $opts ) {
+			if ( empty( $opts['featured_images'] ) ) {
+				return 'off';
+			}
+			$file = dirname( $batch['dir'] ) . '/assets/counties/' . $slug . '.webp';
+			if ( ! file_exists( $file ) ) {
+				return 'none';
+			}
+			$bits = file_get_contents( $file ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			if ( false === $bits ) {
+				return 'error:read';
+			}
+			$sha1 = sha1( $bits );
+			$thumb_id = (int) get_post_thumbnail_id( $post_id );
+			if ( $thumb_id && empty( $opts['overwrite_featured'] ) ) {
+				if ( get_post_meta( $thumb_id, '_sa_featured_sha1', true ) === $sha1 ) {
+					return 'kept';
+				}
+				if ( get_post_meta( $post_id, '_sa_import_featured_sha1', true ) === $sha1 ) {
+					return 'kept';
+				}
+			}
+			if ( ! function_exists( 'wp_handle_upload' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/file.php';
+			}
+			if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/image.php';
+			}
+			if ( ! function_exists( 'media_handle_sideload' ) ) {
+				require_once ABSPATH . 'wp-admin/includes/media.php';
+			}
+			$title = isset( $pkg['title'] ) ? (string) $pkg['title'] : $slug;
+			$alt   = isset( $pkg['seo']['sa_focus_keyword'] ) && '' !== (string) $pkg['seo']['sa_focus_keyword'] ? (string) $pkg['seo']['sa_focus_keyword'] : $title;
+			// Package format 1.0+: descriptive ALT / caption / title / description written by the content agent (BLOCK 2).
+			if ( ! empty( $pkg['image']['alt'] ) ) {
+				$alt = (string) $pkg['image']['alt'];
+			}
+			$img_title   = ! empty( $pkg['image']['title'] ) ? (string) $pkg['image']['title'] : $title;
+			$img_caption = ! empty( $pkg['image']['caption'] ) ? (string) $pkg['image']['caption'] : $alt;
+			$img_desc    = ! empty( $pkg['image']['description'] ) ? (string) $pkg['image']['description'] : '';
+			$upload = wp_upload_bits( $slug . '.webp', null, $bits );
+			if ( ! empty( $upload['error'] ) ) {
+				return 'error:upload';
+			}
+			$filetype = wp_check_filetype( $upload['file'] );
+			$att_id   = wp_insert_attachment(
+				array(
+					'post_mime_type' => empty( $filetype['type'] ) ? 'image/webp' : $filetype['type'],
+					'post_title'     => sanitize_text_field( $img_title ),
+					'post_content'   => sanitize_textarea_field( $img_desc ),
+					'post_excerpt'   => sanitize_text_field( $img_caption ),
+					'post_status'    => 'inherit',
+				),
+				$upload['file'],
+				$post_id
+			);
+			if ( is_wp_error( $att_id ) || ! $att_id ) {
+				return 'error:attachment';
+			}
+			wp_update_attachment_metadata( $att_id, wp_generate_attachment_metadata( $att_id, $upload['file'] ) );
+			update_post_meta( $att_id, '_wp_attachment_image_alt', sanitize_text_field( $alt ) );
+			update_post_meta( $att_id, '_sa_featured_sha1', $sha1 );
+			update_post_meta( $att_id, '_sa_featured_source', $batch['id'] . '/assets/counties/' . $slug . '.webp' );
+			set_post_thumbnail( $post_id, (int) $att_id );
+			update_post_meta( $post_id, '_sa_import_featured_sha1', $sha1 );
+			return $thumb_id ? 'refreshed' : 'set';
 		}
 
 		/**
@@ -578,6 +668,8 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 				'update_drafts'       => ! empty( $_POST['opt_update_drafts'] ),
 				'overwrite_published' => ! empty( $_POST['opt_overwrite_published'] ),
 				'rank_math'           => ! empty( $_POST['opt_rank_math'] ),
+				'featured_images'     => ! empty( $_POST['opt_featured_images'] ),
+				'overwrite_featured'  => ! empty( $_POST['opt_overwrite_featured'] ),
 			);
 			$results  = $slugs ? $this->import( $batch_id, $slugs, $opts ) : array( '_error' => 'هیچ شهرستانی انتخاب نشده بود.' );
 			set_transient( 'sa_ci_results_' . get_current_user_id(), array( 'batch' => $batch_id, 'results' => $results ), 300 );
@@ -639,7 +731,9 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 				<p>
 					<label><input type="checkbox" name="opt_update_drafts" value="1" checked="checked" /> به‌روزرسانی پیش‌نویس‌های موجود</label><br />
 					<label><input type="checkbox" name="opt_overwrite_published" value="1" /> بازنویسی نوشته‌های منتشرشده (پیش‌فرض: خاموش — منتشرشده‌ها دست نمی‌خورند)</label><br />
-					<label><input type="checkbox" name="opt_rank_math" value="1" checked="checked" /> نوشتن فیلدهای Rank Math (اگر افزونه فعال باشد)</label>
+					<label><input type="checkbox" name="opt_rank_math" value="1" checked="checked" /> نوشتن فیلدهای Rank Math (اگر افزونه فعال باشد)</label><br />
+					<label><input type="checkbox" name="opt_featured_images" value="1" checked="checked" /> آپلود تصویر شاخص وب‌پی همراه صفحه (از پوشهٔ assets/counties افزونه)</label><br />
+					<label><input type="checkbox" name="opt_overwrite_featured" value="1" /> بازنویسی تصویر شاخص موجود (پیش‌فرض: خاموش — تصویر فعلی دست نمی‌خورد)</label>
 				</p>
 				<?php submit_button( 'درون‌ریزی پیش‌نویس شهرستان‌های انتخاب‌شده' ); ?>
 			</form>
