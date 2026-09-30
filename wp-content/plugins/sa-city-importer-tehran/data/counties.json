@@ -1,0 +1,102 @@
+{
+ "format": "1.0",
+ "built": "2026-09-30",
+ "counties": [
+  {
+   "title": "تهران",
+   "slug": "tehran-city",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "ری",
+   "slug": "rey",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "شمیرانات",
+   "slug": "shemiranat",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "دماوند",
+   "slug": "damavand",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "فیروزکوه",
+   "slug": "firuzkuh",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "ورامین",
+   "slug": "varamin",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "اسلامشهر",
+   "slug": "eslamshahr",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "بهارستان",
+   "slug": "baharestan",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "پاکدشت",
+   "slug": "pakdasht",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "پردیس",
+   "slug": "pardis",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "پیشوا",
+   "slug": "pishva",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "رباط‌کریم",
+   "slug": "robat-karim",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "شهریار",
+   "slug": "shahriar",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "قدس",
+   "slug": "qods",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "قرچک",
+   "slug": "qarchak",
+   "province": "tehran",
+   "province_name": "تهران"
+  },
+  {
+   "title": "ملارد",
+   "slug": "malard",
+   "province": "tehran",
+   "province_name": "تهران"
+  }
+ ]
+}
