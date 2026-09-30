@@ -187,7 +187,7 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "featured_image": false
+   "featured_image": true
   },
   {
    "slug": "sirvan",
@@ -203,7 +203,7 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "featured_image": false
+   "featured_image": true
   }
  ]
 }
