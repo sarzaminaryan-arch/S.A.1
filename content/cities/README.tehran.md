@@ -47,3 +47,11 @@
 | ۸ | تهران | ۱۶ | ✅ کامل (متن ✅ · تصویر ۱۶/۱۶ ✅ · افزونه و zip ✅) |
 | ۹ | چهارمحال و بختیاری | ۱۲ | در انتظار |
 | ۱۰ | خراسان جنوبی | ۱۲ | در انتظار |
+
+## لینک دانلود (روش ثابت)
+
+مخزن خصوصی است؛ بنابراین قالب ثابت لینک خام که با حساب مالک همیشه کار می‌کند و دانلود می‌شود:
+
+`https://github.com/sarzaminaryan-arch/S.A.1/raw/arena/01a0eb9b-s-a-1/downloads/<file>.zip`
+
+- تهران: https://github.com/sarzaminaryan-arch/S.A.1/raw/arena/01a0eb9b-s-a-1/downloads/sa-city-importer-tehran-v1.0.0.zip
