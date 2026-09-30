@@ -1,23 +1,23 @@
 {
- "batch": "bushehr",
- "batch_id": "bushehr",
- "label": "درون‌ریز شهرستان‌های استان بوشهر",
+ "batch": "ilam",
+ "batch_id": "ilam",
+ "label": "درون‌ریز شهرستان‌های استان ایلام",
  "data_version": "1.0.0",
  "package_format": "1.0",
  "built": "2026-09-30",
  "province": {
-  "slug": "bushehr",
-  "name_fa": "استان بوشهر",
-  "term_name": "بوشهر"
+  "slug": "ilam",
+  "name_fa": "استان ایلام",
+  "term_name": "ایلام"
  },
- "file": "bushehr.json",
+ "file": "ilam.json",
  "counties_count": 12,
  "counties": [
   {
-   "slug": "bushehr-city",
-   "title": "شهر بوشهر",
+   "slug": "ilam-city",
+   "title": "شهرستان ایلام",
    "status": "article",
-   "word_count": 988,
+   "word_count": 877,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -30,10 +30,10 @@
    "featured_image": true
   },
   {
-   "slug": "borazjan",
-   "title": "شهر برازجان",
+   "slug": "mehran",
+   "title": "شهرستان مهران",
    "status": "article",
-   "word_count": 873,
+   "word_count": 848,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -46,24 +46,8 @@
    "featured_image": true
   },
   {
-   "slug": "ganaveh",
-   "title": "بندر گناوه",
-   "status": "article",
-   "word_count": 973,
-   "faq": 11,
-   "sources_lines": 5,
-   "publish_status": "DRAFT ONLY",
-   "markers": {
-    "review": 0,
-    "source_needed": 0,
-    "url_needed": 0,
-    "coming_soon": 0
-   },
-   "featured_image": true
-  },
-  {
-   "slug": "khormoj",
-   "title": "شهر خورموج",
+   "slug": "dehloran",
+   "title": "شهرستان دهلران",
    "status": "article",
    "word_count": 801,
    "faq": 11,
@@ -78,10 +62,10 @@
    "featured_image": true
   },
   {
-   "slug": "kangan",
-   "title": "بندر کنگان",
+   "slug": "eyvan",
+   "title": "شهرستان ایوان",
    "status": "article",
-   "word_count": 838,
+   "word_count": 802,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -94,10 +78,10 @@
    "featured_image": true
   },
   {
-   "slug": "asaluyeh",
-   "title": "بندر عسلویه",
+   "slug": "abdanan",
+   "title": "شهرستان آبدانان",
    "status": "article",
-   "word_count": 922,
+   "word_count": 806,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -110,26 +94,10 @@
    "featured_image": true
   },
   {
-   "slug": "jam",
-   "title": "شهر جم",
+   "slug": "darreh-shahr",
+   "title": "شهرستان دره‌شهر",
    "status": "article",
-   "word_count": 823,
-   "faq": 11,
-   "sources_lines": 6,
-   "publish_status": "DRAFT ONLY",
-   "markers": {
-    "review": 0,
-    "source_needed": 0,
-    "url_needed": 0,
-    "coming_soon": 0
-   },
-   "featured_image": true
-  },
-  {
-   "slug": "ahram",
-   "title": "شهر اهرم",
-   "status": "article",
-   "word_count": 847,
+   "word_count": 832,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -142,10 +110,10 @@
    "featured_image": true
   },
   {
-   "slug": "deyr",
-   "title": "بندر دیر",
+   "slug": "chardavol",
+   "title": "شهرستان چرداول",
    "status": "article",
-   "word_count": 820,
+   "word_count": 817,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -158,10 +126,10 @@
    "featured_image": true
   },
   {
-   "slug": "deylam",
-   "title": "بندر دیلم",
+   "slug": "badreh",
+   "title": "شهرستان بدره",
    "status": "article",
-   "word_count": 865,
+   "word_count": 822,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -174,10 +142,10 @@
    "featured_image": true
   },
   {
-   "slug": "bushehr-county",
-   "title": "شهرستان بوشهر",
+   "slug": "malekshahi",
+   "title": "شهرستان ملکشاهی",
    "status": "article",
-   "word_count": 830,
+   "word_count": 815,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -190,10 +158,42 @@
    "featured_image": true
   },
   {
-   "slug": "dashtestan",
-   "title": "شهرستان دشتستان",
+   "slug": "chavar",
+   "title": "شهرستان چوار",
    "status": "article",
-   "word_count": 823,
+   "word_count": 814,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "halilan",
+   "title": "شهرستان هلیلان",
+   "status": "article",
+   "word_count": 810,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "sirvan",
+   "title": "شهرستان سیروان",
+   "status": "article",
+   "word_count": 808,
    "faq": 11,
    "sources_lines": 6,
    "publish_status": "DRAFT ONLY",

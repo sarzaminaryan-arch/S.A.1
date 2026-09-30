@@ -31,7 +31,7 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 	 */
 	class SA_City_Province_Importer {
 
-		const CORE_VERSION = '1.1.0';
+		const CORE_VERSION = '1.1.1';
 		const CPT          = 'city';
 		const CAP          = 'manage_options';
 		const NONCE        = 'sa_city_import';
@@ -354,7 +354,13 @@ if ( ! class_exists( 'SA_City_Province_Importer' ) ) :
 			if ( empty( $opts['featured_images'] ) ) {
 				return 'off';
 			}
-			$file = dirname( $batch['dir'] ) . '/assets/counties/' . $slug . '.webp';
+			// 1.1.1: assets live next to the plugin's main file (works both for a flat
+			// province package and for a combined package with data/<province>/ subdirs).
+			$asset_root = ! empty( $batch['plugin_file'] ) ? dirname( $batch['plugin_file'] ) : dirname( $batch['dir'] );
+			$file       = $asset_root . '/assets/counties/' . $slug . '.webp';
+			if ( ! file_exists( $file ) ) {
+				$file = dirname( $batch['dir'] ) . '/assets/counties/' . $slug . '.webp';
+			}
 			if ( ! file_exists( $file ) ) {
 				return 'none';
 			}
