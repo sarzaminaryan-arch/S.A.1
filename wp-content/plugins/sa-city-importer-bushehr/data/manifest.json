@@ -1,0 +1,209 @@
+{
+ "batch": "bushehr",
+ "batch_id": "bushehr",
+ "label": "درون‌ریز شهرستان‌های استان بوشهر",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-09-30",
+ "province": {
+  "slug": "bushehr",
+  "name_fa": "استان بوشهر",
+  "term_name": "بوشهر"
+ },
+ "file": "bushehr.json",
+ "counties_count": 12,
+ "counties": [
+  {
+   "slug": "bushehr-city",
+   "title": "شهر بوشهر",
+   "status": "article",
+   "word_count": 988,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "borazjan",
+   "title": "شهر برازجان",
+   "status": "article",
+   "word_count": 873,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "ganaveh",
+   "title": "بندر گناوه",
+   "status": "article",
+   "word_count": 973,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "khormoj",
+   "title": "شهر خورموج",
+   "status": "article",
+   "word_count": 801,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "kangan",
+   "title": "بندر کنگان",
+   "status": "article",
+   "word_count": 838,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "asaluyeh",
+   "title": "بندر عسلویه",
+   "status": "article",
+   "word_count": 922,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "jam",
+   "title": "شهر جم",
+   "status": "article",
+   "word_count": 823,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "ahram",
+   "title": "شهر اهرم",
+   "status": "article",
+   "word_count": 847,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "deyr",
+   "title": "بندر دیر",
+   "status": "article",
+   "word_count": 820,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "deylam",
+   "title": "بندر دیلم",
+   "status": "article",
+   "word_count": 865,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "bushehr-county",
+   "title": "شهرستان بوشهر",
+   "status": "article",
+   "word_count": 830,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": false
+  },
+  {
+   "slug": "dashtestan",
+   "title": "شهرستان دشتستان",
+   "status": "article",
+   "word_count": 823,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": false
+  }
+ ]
+}
