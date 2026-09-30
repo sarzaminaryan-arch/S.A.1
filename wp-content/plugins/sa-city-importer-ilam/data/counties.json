@@ -1,0 +1,78 @@
+{
+ "format": "1.0",
+ "built": "2026-09-30",
+ "counties": [
+  {
+   "title": "ایلام",
+   "slug": "ilam-city",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "مهران",
+   "slug": "mehran",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "دهلران",
+   "slug": "dehloran",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "ایوان",
+   "slug": "eyvan",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "آبدانان",
+   "slug": "abdanan",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "دره‌شهر",
+   "slug": "darreh-shahr",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "چرداول",
+   "slug": "chardavol",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "بدره",
+   "slug": "badreh",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "ملکشاهی",
+   "slug": "malekshahi",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "چوار",
+   "slug": "chavar",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "هلیلان",
+   "slug": "halilan",
+   "province": "ilam",
+   "province_name": "ایلام"
+  },
+  {
+   "title": "سیروان",
+   "slug": "sirvan",
+   "province": "ilam",
+   "province_name": "ایلام"
+  }
+ ]
+}
