@@ -6,22 +6,23 @@
 
 ## وضعیت
 
-- **۰ از ۷ شهرستان نوشته شده — در صف شروع تولید** (پیش از آن: استان‌های ۱، ۲، ۳ و ۴ کامل شده‌اند: ۲۱ + ۲۰ + ۱۲ + ۲۹ = ۸۲ شهرستان).
+- **۷ از ۷ شهرستان نوشته شده — همه DRAFT ONLY (۱۴۰۵/۰۷/۰۸)، آمادهٔ بازبینی v1.3** (پیش از آن: استان‌های ۱، ۲، ۳ و ۴ کامل شده‌اند: ۲۱ + ۲۰ + ۱۲ + ۲۹ = ۸۲ شهرستان).
+- بازبینی خودکار: هفت فایل با `seo_audit.py` و `review_pass.py` سنجیده و PASS شده‌اند (۸۱۸ تا ۱٬۱۷۴ واژه؛ FAQ ۱۱ پرسش؛ ۵ تا ۷ ردیف منبع با تاریخ دسترسی؛ بدون نشان کارگاهی).
 - تصاویر شاخص: پوشهٔ `assets/featured/counties/alborz/` هنوز ساخته نشده — **۰ از ۷**.
-- افزونهٔ درون‌ریز: `sa-city-importer-alborz` هنوز ساخته نشده (پس از تکمیل ۷ از ۷).
+- افزونهٔ درون‌ریز: `sa-city-importer-alborz` هنوز ساخته نشده (پس از بازبینی v1.3 دستهٔ ۱ و ۲ و رسیدن تصاویر شاخص).
 - نقشهٔ تولید: دستهٔ اول ۵ مقاله → دستهٔ دوم ۲ مقاله (چرخهٔ ۵تایی، بازبینی v1.3 و ۴۰۴-چک پیش از هر تحویل).
 
 ## فهرست ۷ شهرستان استان البرز
 
 | # | شهرستان | مرکز | نامک (`slug`) | صفحهٔ آماده | تصویر شاخص مورد انتظار | وضعیت |
 |---|---|---|---|---|---|---|
-| ۱ | کرج | کرج | `karaj` | `/city/karaj/` | `assets/featured/counties/alborz/karaj.webp` | — نوشته‌نشده |
-| ۲ | فردیس | فردیس | `ferdows` ⚠️ | `/city/ferdows/` | `alborz/ferdows.webp` | — نوشته‌نشده |
-| ۳ | ساوجبلاغ | هشتگرد | `sojablogh` ⚠️ | `/city/sojablogh/` | `alborz/sojablogh.webp` | — نوشته‌نشده |
-| ۴ | نظرآباد | نظرآباد | `nazarabad` | `/city/nazarabad/` | `alborz/nazarabad.webp` | — نوشته‌نشده |
-| ۵ | چهارباغ | چهارباغ | `chaharbagh` | `/city/chaharbagh/` | `alborz/chaharbagh.webp` | — نوشته‌نشده |
-| ۶ | اشتهارد | اشتهارد | `eshtehard` | `/city/eshtehard/` | `alborz/eshtehard.webp` | — نوشته‌نشده |
-| ۷ | طالقان | طالقان | `talqan` ⚠️ | `/city/talqan/` | `alborz/talqan.webp` | — نوشته‌نشده |
+| ۱ | کرج | کرج | `karaj` | `/city/karaj/` | `assets/featured/counties/alborz/karaj.webp` | ✅ DRAFT ONLY (۱۴۰۵/۰۷/۰۸) |
+| ۲ | فردیس | فردیس | `ferdows` ⚠️ | `/city/ferdows/` | `alborz/ferdows.webp` | ✅ DRAFT ONLY (۱۴۰۵/۰۷/۰۸) |
+| ۳ | ساوجبلاغ | هشتگرد | `sojablogh` ⚠️ | `/city/sojablogh/` | `alborz/sojablogh.webp` | ✅ DRAFT ONLY (۱۴۰۵/۰۷/۰۸) |
+| ۴ | نظرآباد | نظرآباد | `nazarabad` | `/city/nazarabad/` | `alborz/nazarabad.webp` | ✅ DRAFT ONLY (۱۴۰۵/۰۷/۰۸) |
+| ۵ | چهارباغ | چهارباغ | `chaharbagh` | `/city/chaharbagh/` | `alborz/chaharbagh.webp` | ✅ DRAFT ONLY (۱۴۰۵/۰۷/۰۸) |
+| ۶ | اشتهارد | اشتهارد | `eshtehard` | `/city/eshtehard/` | `alborz/eshtehard.webp` | ✅ DRAFT ONLY (۱۴۰۵/۰۷/۰۸) |
+| ۷ | طالقان | طالقان | `talqan` ⚠️ | `/city/talqan/` | `alborz/talqan.webp` | ✅ DRAFT ONLY (۱۴۰۵/۰۷/۰۸) |
 
 نامک‌ها همان چیزی است که امروز در `counties.json` بستهٔ ۱ و در `docs/site-url-structure.md` ثبت شده است (۷ ردیف، همه بدون صفحهٔ موجود در وردپرس).
 
