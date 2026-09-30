@@ -111,7 +111,7 @@ symbols_used: [شهر, باغ, دشت]
 
 شهرستان شهریار در غرب استان تهران و در پیوستگی با بافت شهری پایتخت گسترده است؛ آزادراه تهران–ساوه و جادهٔ مخصوص کرج راه‌های اصلی آن‌اند. برای مسیریابی، [نقشهٔ شهرستان شهریار در گوگل‌مپ](https://maps.google.com/?q=Shahriar+County+Iran) را باز کنید.<sup>[۴](https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%DB%8C%D8%A7%D8%B1_(%D8%AA%D9%87%D8%B1%D8%A7%D9%86))</sup>
 
-برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/) و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
+برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/)<sup>[۵](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%AA%D9%87%D8%B1%D8%A7%D9%86)</sup> و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
 
 ## حقایق جالب
 

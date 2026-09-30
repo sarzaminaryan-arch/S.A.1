@@ -110,7 +110,7 @@ symbols_used: [کوه, دره, روستا]
 
 شهرستان شمیرانات در شمال استان تهران و بر دامنه‌های البرز مرکزی گسترده است؛ برای رسیدن به بخش‌های کوهستانی آن باید از جاده‌های شمال تهران گذشت. برای مسیریابی، [نقشهٔ شهرستان شمیرانات در گوگل‌مپ](https://maps.google.com/?q=Shemiranat+County+Iran) را باز کنید.<sup>[۴](https://fa.wikipedia.org/wiki/%D8%AA%D8%AC%D8%B1%DB%8C%D8%B4)</sup>
 
-برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/) و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
+برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/)<sup>[۵](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%AA%D9%87%D8%B1%D8%A7%D9%86)</sup> و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
 
 ## حقایق جالب
 

@@ -109,7 +109,7 @@ symbols_used: [کاروانسرا, باغ, جاده]
 
 شهرستان رباط‌کریم در غرب استان تهران و بر محور تاریخی ساوه–تهران گسترده است؛ آزادراه تهران–ساوه راه اصلی رسیدن به آن است. برای مسیریابی، [نقشهٔ شهرستان رباط‌کریم در گوگل‌مپ](https://maps.google.com/?q=Robat+Karim+County+Iran) را باز کنید.<sup>[۴](https://fa.wikipedia.org/wiki/%D8%B1%D8%A8%D8%A7%D8%B7%E2%80%8C%DA%A9%D8%B1%DB%8C%D9%85)</sup>
 
-برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/) و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
+برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/)<sup>[۵](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%AA%D9%87%D8%B1%D8%A7%D9%86)</sup> و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
 
 ## حقایق جالب
 

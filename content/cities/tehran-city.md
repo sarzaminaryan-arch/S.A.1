@@ -110,7 +110,7 @@ symbols_used: [برج, کوه, کلان‌شهر]
 
 این شهرستان در مرکز استان و در دامنه‌های جنوبی البرز گسترده است؛ بخش بزرگی از آن را بافت شهری پایتخت پوشانده است. برای مسیریابی، [نقشهٔ این پهنه در گوگل‌مپ](https://maps.google.com/?q=Tehran+County+Iran) را باز کنید.<sup>[۴](https://fa.wikipedia.org/wiki/%D8%AA%D9%87%D8%B1%D8%A7%D9%86)</sup>
 
-برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/) و شهرستان‌های دیگر آن در دسترس‌اند: [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
+برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/)<sup>[۵](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%AA%D9%87%D8%B1%D8%A7%D9%86)</sup> و شهرستان‌های دیگر آن در دسترس‌اند: [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
 
 ## حقایق جالب
 

@@ -107,7 +107,7 @@ symbols_used: [کارخانه, دشت, باغ]
 
 شهرستان اسلامشهر در غرب استان تهران و در پیوستگی با بافت شهری پایتخت گسترده است؛ جادهٔ قدیم ساوه و آزادراه تهران–ساوه راه‌های اصلی آن‌اند. برای مسیریابی، [نقشهٔ شهرستان اسلامشهر در گوگل‌مپ](https://maps.google.com/?q=Eslamshahr+County+Iran) را باز کنید.<sup>[۴](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D9%84%D8%A7%D9%85%D8%B4%D9%87%D8%B1)</sup>
 
-برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/) و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
+برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/)<sup>[۵](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%AA%D9%87%D8%B1%D8%A7%D9%86)</sup> و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [بهارستان](/city/baharestan/)، [پاکدشت](/city/pakdasht/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
 
 ## حقایق جالب
 

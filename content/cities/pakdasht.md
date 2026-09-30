@@ -109,7 +109,7 @@ symbols_used: [گل, گلخانه, دشت]
 
 شهرستان پاکدشت در جنوب‌شرق استان تهران و در دشتی هموار گسترده است؛ آزادراه تهران–مشهد از نزدیکی آن می‌گذرد. برای مسیریابی، [نقشهٔ شهرستان پاکدشت در گوگل‌مپ](https://maps.google.com/?q=Pakdasht+County+Iran) را باز کنید.<sup>[۴](https://fa.wikipedia.org/wiki/%D9%BE%D8%A7%DA%A9%D8%AF%D8%B4%D8%AA)</sup>
 
-برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/) و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
+برای ادامهٔ سفر در استان، [راهنمای استان تهران](/province/tehran/)<sup>[۵](https://fa.wikipedia.org/wiki/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D8%AA%D9%87%D8%B1%D8%A7%D9%86)</sup> و شهرستان‌های دیگر آن در دسترس‌اند: [تهران](/city/tehran-city/)، [ری](/city/rey/)، [شمیرانات](/city/shemiranat/)، [دماوند](/city/damavand/)، [فیروزکوه](/city/firuzkuh/)، [ورامین](/city/varamin/)، [اسلامشهر](/city/eslamshahr/)، [بهارستان](/city/baharestan/)، [پردیس](/city/pardis/)، [پیشوا](/city/pishva/)، [رباط‌کریم](/city/robat-karim/)، [شهریار](/city/shahriar/)، [قدس](/city/qods/)، [قرچک](/city/qarchak/)، [ملارد](/city/malard/).
 
 ## حقایق جالب
 

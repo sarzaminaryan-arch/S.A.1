@@ -17,7 +17,7 @@
    "slug": "tehran-city",
    "title": "شهرستان تهران",
    "status": "article",
-   "word_count": 863,
+   "word_count": 864,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -33,7 +33,7 @@
    "slug": "rey",
    "title": "شهرستان ری",
    "status": "article",
-   "word_count": 849,
+   "word_count": 850,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -49,7 +49,7 @@
    "slug": "shemiranat",
    "title": "شهرستان شمیرانات",
    "status": "article",
-   "word_count": 848,
+   "word_count": 849,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -65,7 +65,7 @@
    "slug": "damavand",
    "title": "شهرستان دماوند",
    "status": "article",
-   "word_count": 841,
+   "word_count": 842,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -81,7 +81,7 @@
    "slug": "firuzkuh",
    "title": "شهرستان فیروزکوه",
    "status": "article",
-   "word_count": 823,
+   "word_count": 824,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -97,7 +97,7 @@
    "slug": "varamin",
    "title": "شهرستان ورامین",
    "status": "article",
-   "word_count": 819,
+   "word_count": 820,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -113,7 +113,7 @@
    "slug": "eslamshahr",
    "title": "شهرستان اسلامشهر",
    "status": "article",
-   "word_count": 833,
+   "word_count": 834,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -129,7 +129,7 @@
    "slug": "baharestan",
    "title": "شهرستان بهارستان",
    "status": "article",
-   "word_count": 826,
+   "word_count": 828,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -145,7 +145,7 @@
    "slug": "pakdasht",
    "title": "شهرستان پاکدشت",
    "status": "article",
-   "word_count": 828,
+   "word_count": 829,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -161,7 +161,7 @@
    "slug": "pardis",
    "title": "شهرستان پردیس",
    "status": "article",
-   "word_count": 823,
+   "word_count": 824,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -177,7 +177,7 @@
    "slug": "pishva",
    "title": "شهرستان پیشوا",
    "status": "article",
-   "word_count": 818,
+   "word_count": 819,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -187,59 +187,11 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "featured_image": false
+   "featured_image": true
   },
   {
    "slug": "robat-karim",
    "title": "شهرستان رباط‌کریم",
-   "status": "article",
-   "word_count": 828,
-   "faq": 11,
-   "sources_lines": 5,
-   "publish_status": "DRAFT ONLY",
-   "markers": {
-    "review": 0,
-    "source_needed": 0,
-    "url_needed": 0,
-    "coming_soon": 0
-   },
-   "featured_image": false
-  },
-  {
-   "slug": "shahriar",
-   "title": "شهرستان شهریار",
-   "status": "article",
-   "word_count": 823,
-   "faq": 11,
-   "sources_lines": 5,
-   "publish_status": "DRAFT ONLY",
-   "markers": {
-    "review": 0,
-    "source_needed": 0,
-    "url_needed": 0,
-    "coming_soon": 0
-   },
-   "featured_image": false
-  },
-  {
-   "slug": "qods",
-   "title": "شهرستان قدس",
-   "status": "article",
-   "word_count": 820,
-   "faq": 11,
-   "sources_lines": 5,
-   "publish_status": "DRAFT ONLY",
-   "markers": {
-    "review": 0,
-    "source_needed": 0,
-    "url_needed": 0,
-    "coming_soon": 0
-   },
-   "featured_image": false
-  },
-  {
-   "slug": "qarchak",
-   "title": "شهرستان قرچک",
    "status": "article",
    "word_count": 829,
    "faq": 11,
@@ -251,13 +203,13 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "featured_image": false
+   "featured_image": true
   },
   {
-   "slug": "malard",
-   "title": "شهرستان ملارد",
+   "slug": "shahriar",
+   "title": "شهرستان شهریار",
    "status": "article",
-   "word_count": 820,
+   "word_count": 824,
    "faq": 11,
    "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
@@ -267,7 +219,55 @@
     "url_needed": 0,
     "coming_soon": 0
    },
-   "featured_image": false
+   "featured_image": true
+  },
+  {
+   "slug": "qods",
+   "title": "شهرستان قدس",
+   "status": "article",
+   "word_count": 821,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "qarchak",
+   "title": "شهرستان قرچک",
+   "status": "article",
+   "word_count": 830,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "malard",
+   "title": "شهرستان ملارد",
+   "status": "article",
+   "word_count": 821,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
   }
  ]
 }
