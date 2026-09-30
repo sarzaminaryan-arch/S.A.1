@@ -1,0 +1,129 @@
+{
+ "batch": "alborz",
+ "batch_id": "alborz",
+ "label": "درون‌ریز شهرستان‌های استان البرز",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-09-30",
+ "province": {
+  "slug": "alborz",
+  "name_fa": "استان البرز",
+  "term_name": "البرز"
+ },
+ "file": "alborz.json",
+ "counties_count": 7,
+ "counties": [
+  {
+   "slug": "karaj",
+   "title": "شهرستان کرج",
+   "status": "article",
+   "word_count": 1095,
+   "faq": 11,
+   "sources_lines": 7,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "ferdows",
+   "title": "شهرستان فردیس",
+   "status": "article",
+   "word_count": 801,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "sojablogh",
+   "title": "شهرستان ساوجبلاغ",
+   "status": "article",
+   "word_count": 1055,
+   "faq": 11,
+   "sources_lines": 7,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "nazarabad",
+   "title": "شهرستان نظرآباد",
+   "status": "article",
+   "word_count": 1176,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "chaharbagh",
+   "title": "شهرستان چهارباغ",
+   "status": "article",
+   "word_count": 871,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "eshtehard",
+   "title": "شهرستان اشتهارد",
+   "status": "article",
+   "word_count": 814,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "talqan",
+   "title": "شهرستان طالقان",
+   "status": "article",
+   "word_count": 1017,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  }
+ ]
+}

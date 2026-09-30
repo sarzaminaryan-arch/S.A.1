@@ -1,0 +1,48 @@
+{
+ "format": "1.0",
+ "built": "2026-09-30",
+ "counties": [
+  {
+   "title": "کرج",
+   "slug": "karaj",
+   "province": "alborz",
+   "province_name": "البرز"
+  },
+  {
+   "title": "فردیس",
+   "slug": "ferdows",
+   "province": "alborz",
+   "province_name": "البرز"
+  },
+  {
+   "title": "ساوجبلاغ",
+   "slug": "sojablogh",
+   "province": "alborz",
+   "province_name": "البرز"
+  },
+  {
+   "title": "نظرآباد",
+   "slug": "nazarabad",
+   "province": "alborz",
+   "province_name": "البرز"
+  },
+  {
+   "title": "چهارباغ",
+   "slug": "chaharbagh",
+   "province": "alborz",
+   "province_name": "البرز"
+  },
+  {
+   "title": "اشتهارد",
+   "slug": "eshtehard",
+   "province": "alborz",
+   "province_name": "البرز"
+  },
+  {
+   "title": "طالقان",
+   "slug": "talqan",
+   "province": "alborz",
+   "province_name": "البرز"
+  }
+ ]
+}

@@ -59,6 +59,8 @@ def parse_sources_fb(text):
 
 
 def parse_list_value(v):
+    if isinstance(v, list):          # block-style YAML list already collected below
+        return v
     v = v.strip()
     if v.startswith('[') and v.endswith(']'):
         return [x.strip() for x in v[1:-1].split(',') if x.strip()]
@@ -85,7 +87,13 @@ def parse_city_block1(text):
             else:
                 out[k] = v
         else:
-            if line.startswith('- ') and lst:
+            if line.startswith('- '):
+                # block-style YAML list under a top-level key (e.g. secondary_keywords:)
+                if sub is not None:
+                    if isinstance(out.get(sub), dict):
+                        out[sub] = []
+                    out[sub].append(re.sub(r'\s+#\s.*$', '', line[2:].strip()).strip())
+            elif line.startswith('- ') and lst:
                 out[lst].append(line[2:].strip())
             elif sub and ':' in line:
                 k, _, v = line.partition(':')

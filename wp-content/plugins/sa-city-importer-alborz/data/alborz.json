@@ -1,0 +1,853 @@
+{
+ "batch": "alborz",
+ "batch_id": "alborz",
+ "label": "درون‌ریز شهرستان‌های استان البرز",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-09-30",
+ "province": {
+  "slug": "alborz",
+  "name_fa": "استان البرز",
+  "term_name": "البرز"
+ },
+ "counties": [
+  {
+   "package_format": "1.0",
+   "built": "2026-09-30",
+   "source_file": "content/cities/karaj.md",
+   "source_sha1": "6b1b25f9d95102c87242dc51b830102196d03702",
+   "slug": "karaj",
+   "status": "article",
+   "title": "شهرستان کرج",
+   "name_fa": "شهرستان کرج",
+   "name_en": "Karaj County",
+   "province": {
+    "slug": "alborz",
+    "name_fa": "استان البرز",
+    "term_name": "البرز"
+   },
+   "post": {
+    "title": "شهرستان کرج",
+    "excerpt": "شهرستان کرج پرجمعیت‌ترین شهرستان استان البرز است؛ کانون صنعت و دروازهٔ ورود به دره کرج، سد امیرکبیر و جادهٔ چالوس.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان کرج؛ پرجمعیت‌ترین شهرستان استان البرز</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان کرج</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان کرج</strong> در شرق <a href=\"/province/alborz/\">استان البرز</a> جای دارد و مرکز آن، کلان‌شهر کرج است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> امتیازهای ویژهٔ این شهرستان را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>پرجمعیت‌ترین شهرستان استان</strong>؛ جمعیت آن در سرشماری ۱۳۹۵ برابر ۱٬۹۷۳٬۴۷۰ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>نخستین حلقهٔ کلان‌شهری غرب تهران</strong>؛ کرج شهری در دامنهٔ البرز و در حدود ۳۲ کیلومتری غرب تهران است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>کانون صنعت</strong>؛ فولاد، خودرو، ماشین‌سازی، نساجی، کاغذ و صنایع غذایی از تولیدات شناخته‌شدهٔ این شهر به‌شمار می‌روند.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دو بخش مرکزی و آسارا</strong>؛ بخش آسارا شهرستان را به ییلاق‌های جادهٔ چالوس پیوند می‌دهد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>چند زبانی</strong>؛ فارسی، گویش کرجی، گویش قصرانی و گویش ولاترویی در پهنهٔ استان شنیده می‌شوند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>این شهرستان امروز از دشت حاصلخیز جنوبی تا ارتفاعات بخش آسارا کشیده شده است؛ سفری که هم گشت شهری است و هم ورود به دره کرج و کنارهٔ سد امیرکبیر.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup><sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۱٬۹۷۳٬۴۷۰ نفر</td><td>۱۳۹۵، سرشماری عمومی نفوس و مسکن<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></td></tr><tr><td>جمعیت به روایت اینفوباکس</td><td>۱٬۹۵۶٬۲۶۷ نفر</td><td>۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></td></tr><tr><td>جمعیت ۱۴۰۳</td><td>۲٬۲۶۶٬۸۰۰ نفر</td><td>جدول جمعیت تاریخی مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش · ۶ دهستان · ۶ شهر</td><td>بخش‌های مرکزی و آسارا<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۲۶</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></td></tr><tr><td>مختصات مرکز</td><td>حدود ۳۵٫۸۴ شمالی و ۵۰٫۹۴ شرقی</td><td>به روایت نقشه<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Karaj+County+Iran\">۴</a></sup></td></tr><tr><td>مساحت و ارتفاع از سطح دریا</td><td>در منابع دیده‌شده نیامده</td><td>—</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>کلان‌شهر کرج به‌تنهایی بیش از ۱٫۵ میلیون نفر جمعیت دارد و ماهدشت، کمال‌شهر، محمدشهر و گرمدره دیگر شهرهای بخش مرکزی‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> دشت حاصلخیز جنوب شهر، پایهٔ کشاورزی این پهنه است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>کرج در شرق استان البرز واقع شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> از سمت غرب، شهرستان ساوجبلاغ با آن هم‌مرز است؛ همان شهرستانی که در سال ۱۳۶۸ از کرج جدا شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۲</a></sup> در سال ۱۳۹۱ نیز بخش اشتهارد از این شهرستان جدا شد و شهرستان <a href=\"/city/eshtehard/\">اشتهارد</a> شکل گرفت؛ <a href=\"/city/ferdows/\">فردیس</a> هم در خرداد ۱۳۹۲ به شهرستان مستقل تبدیل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه/پهنه</th><th>جهت</th><th>توضیح</th></tr></thead><tbody><tr><td>ساوجبلاغ</td><td>غرب</td><td>جدا‌شده از کرج در ۱۳۶۸<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۲</a></sup></td></tr><tr><td>اشتهارد</td><td>جنوب‌غرب</td><td>بخش پیشین کرج؛ شهرستان از ۱۳۹۱<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></td></tr><tr><td>فردیس</td><td>درون‌شهرستانی (پیشین)</td><td>شهرستان مستقل از خرداد ۱۳۹۲<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></td></tr><tr><td>دشت جنوبی</td><td>جنوب</td><td>پهنهٔ کشاورزی حاصلخیز<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>محدودهٔ اولیهٔ کرج برابر با استان البرز کنونی بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> در سال ۱۳۶۸ شهرستان ساوجبلاغ از آن جدا شد؛ قلمرو نخستین ساوجبلاغ افزون بر محدودهٔ کنونی‌اش، دو شهرستان <a href=\"/city/nazarabad/\">نظرآباد</a> و <a href=\"/city/talqan/\">طالقان</a> را نیز در بر می‌گرفت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>در ۱۳۸۸ شهر آسارا از ادغام سه روستا تشکیل شد و در ۱۳۸۹ شهرستان کرج از استان تهران جدا و به استان تازه‌تأسیس البرز پیوست.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> جدایی اشتهارد (۱۳۹۱) و بخش‌هایی از شهرستان، از جمله شهر مشکین‌دشت و محلهٔ فردیس (۱۳۹۲)، شکل کنونی این شهرستان را ساخت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> در سال ۱۳۹۹ هم <a href=\"/city/chaharbagh/\">چهارباغ</a> با انتزاع از ساوجبلاغ مستقل شد و اکنون حلقه‌ای دیگر میان کرج و ساوجبلاغ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>در دهه‌های گذشته، شهر کرج از توقفگاهی در مسیر کاروان‌های البرز به کانون صنعتی تبدیل شد؛ معدن و کارخانه و سپس صنایع خودرو و فولاد چهرهٔ شهر را تغییر داد.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان کرج شامل دو بخش است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>بخش مرکزی</strong> با ۳ دهستان و ۵ شهر.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرها: کرج، ماهدشت، کمال‌شهر، محمدشهر و گرمدره.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دهستان‌ها: گرمدره، محمدآباد و کمال‌آباد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>بخش آسارا</strong> با ۳ دهستان و ۱ شهر.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر: آسارا.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Asara+Alborz+Iran\">۵</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دهستان‌ها: آدران، آسارا و نسا.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>از آبادی‌های بخش آسارا در منبع دیده‌شده می‌توان به ارنگه، چاران، جورآب، خوزنکلا، کلوان، کندر، کوشک بالا، لیلستان، نشترود و اویزر اشاره کرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت و مردم‌شناسی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>جمعیت شهرستان کرج در سرشماری ۱۳۹۵ برابر ۱٬۹۷۳٬۴۷۰ نفر بود؛ جدول جمعیت تاریخی مقاله ارقام ۱٬۷۳۲٬۷۲۵ نفر (۱۳۸۵)، ۲٬۰۲۴٬۷۶۵ نفر (۱۳۹۰)، ۱٬۹۷۳٬۴۷۰ نفر (۱۳۹۵) و ۲٬۲۶۶٬۸۰۰ نفر (۱۴۰۳) را ثبت کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> در متن مقاله نیز جمعیت ۱۳۸۵ برابر ۱٬۷۰۹٬۴۸۱ نفر آمده که با جدول اختلاف دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> پرجمعیت‌ترین بخش شهرستان، بخش مرکزی است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>در نظرسنجی سال ۱۳۸۹ شورای فرهنگ عمومی، ترکیب اقوام نمونه‌گیری‌شده در کرج چنین بود: فارس و تات ۵۳٪، آذری ۳۰٪، لر ۷٫۲٪، طبری و گیلک ۵٪، کرد ۴٫۱٪، عرب ۰٫۹٪ و سایر ۰٫۳٪.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>زبان‌های رایج کرج در مقالهٔ مبنا چهار دسته‌اند: فارسی، گویش کرجی (از خانوادهٔ گویش‌های فارسی–مازندرانی)، گویش قصرانی (مازندرانی) در نواحی شمالی مانند شهرستانک، لانیز و شلنک، و گویش ولاترویی از ولایت‌رود تا گچسر.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> گویش کرجی در محلاتی چون حصار، سرجوب، بیلقان، سرحدآباد، کلاک، سیاکلان، آتشگاه، دروان و گوهردشت شنیده می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">آب و هوا</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مقالهٔ مبنای کرج نمودار اقلیمی ماهانه دارد و داده‌های آن را به ناسا نسبت می‌دهد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup> افزون بر آن، بخش آسارا با ارتفاع بیشتر، آب و هوای خنک‌تر و زمستان‌های سردتری دارد و همین ویژگی آن را به مقصد تابستانی شهروندان کرج و تهران بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Asara+Alborz+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جاذبه‌های گردشگری</h2><!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\">جاذبه‌های طبیعی شهرستان کرج</h3><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>دره کرج</strong>: درهٔ رودخانهٔ کرج در مسیر جادهٔ چالوس، از جاذبه‌های محبوب گردشگری کرج شمرده می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup><sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Karaj+Chalus+Road\">۷</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>سد امیرکبیر</strong>: درهٔ کرج و سد امیرکبیر در منبع دیده‌شده به‌عنوان جاذبه‌های گردشگری محبوب این شهرستان معرفی شده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup><sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Amirkabir+Dam+Karaj\">۶</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>ییلاق‌های بخش آسارا</strong>: آبادی‌های کوهستانی آدران، ارنگه، چاران، کندر، کلوان و نشترود در همین بخش جای دارند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>پایان گشت در جاذبه‌های شهرستان کرج؛ برای ادامهٔ سفر، شهرستان‌های دیگر البرز را ببینید: <a href=\"/city/ferdows/\">فردیس</a>، <a href=\"/city/sojablogh/\">ساوجبلاغ</a>، <a href=\"/city/nazarabad/\">نظرآباد</a>، <a href=\"/city/chaharbagh/\">چهارباغ</a>، <a href=\"/city/eshtehard/\">اشتهارد</a>، <a href=\"/city/talqan/\">طالقان</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان کرج در شرق استان البرز و در دامنهٔ جنوبی رشته‌کوه البرز گسترده است؛ برای مسیریابی، <a href=\"https://maps.google.com/?q=Karaj+County+Iran\">نقشهٔ شهرستان کرج در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Karaj+County+Iran\">۴</a></sup> آبادی‌های بخش آسارا روی همین محور کوهستانی و پیش از گردنه‌های جادهٔ چالوس قرار دارند.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Asara+Alborz+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>شهرستان کرج در سال ۱۳۶۸ ساوجبلاغ را از دست داد و در ۱۳۸۹ از استان تهران جدا شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر آسارا در سال ۱۳۸۸ از ادغام سه روستا پدید آمد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بخش اشتهارد در ۱۳۹۱ و فردیس در خرداد ۱۳۹۲ از شهرستان کرج جدا شدند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵، ۱٬۹۷۳٬۴۷۰ نفر ثبت شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت ۱۴۰۳ در جدول مقاله ۲٬۲۶۶٬۸۰۰ نفر آمده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش‌شمارهٔ تلفن شهرستان ۰۲۶ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>گویش کرجی از خانوادهٔ گویش‌های فارسی–مازندرانی است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر کرج در حدود ۳۲ کیلومتری غرب تهران جای دارد.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کرج پیش از رونق صنعتی، توقفگاهی در مسیر کاروان‌های البرز بود.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دشت حاصلخیز جنوب کرج، پهنهٔ کشاورزی این شهرستان است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بخش آسارا سه دهستان و تنها یک شهر دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان کرج، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ما در <strong>سرزمین آریان</strong> هر روز روی کامل‌تر کردن راهنمای «شهرستان کرج» کار می‌کنیم؛ اما مردم کرج خود بهترین روایتگر این سرزمین‌اند. اگر از محله‌های قدیمی، گویش کرجی یا خاطرات دره کرج چیزی می‌دانید، یا اگر در داده‌های این مقاله نکته‌ای برای اصلاح می‌بینید، برایمان بنویسید: <strong>Mail@sarzaminaryan.ir</strong>. نام شما در تکمیل این صفحهٔ مرجع ماندگار خواهد شد. برای ادامهٔ سفر، <a href=\"/province/alborz/\">راهنمای استان البرز</a> را ببینید.</p><!-- /wp:paragraph -->",
+    "word_count": 1095
+   },
+   "meta": {
+    "sa_city_slug": "karaj",
+    "sa_city_population": "1973470",
+    "sa_city_latitude": "35.8399",
+    "sa_city_longitude": "50.9391",
+    "sa_access_air": "نزدیک‌ترین فرودگاه بین‌المللی، فرودگاه مهرآباد تهران در شرق و فرودگاه بین‌المللی امام خمینی در جنوب‌غربی است.",
+    "sa_access_rail": "ایستگاه راه‌آهن کرج روی مسیر تهران–تبریز.",
+    "sa_access_road": "آزادراه تهران–کرج، آزادراه کرج–قزوین و جادهٔ چالوس (کرج–چالوس) محورهای اصلی شهرستان‌اند.",
+    "sa_google_map_url": "https://maps.google.com/?q=Karaj+County+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\"]",
+    "sa_schema_contained_in": "alborz"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان کرج؛ پرجمعیت‌ترین شهرستان استان البرز",
+    "sa_seo_description": "راهنمای شهرستان کرج در استان البرز؛ دو بخش مرکزی و آسارا، جمعیت ۱٬۹۷۳٬۴۷۰ (۱۳۹۵)، شهرهای ماهدشت، کمال‌شهر، محمدشهر، گرمدره و آسارا، دره کرج و سد امیرکبیر.",
+    "sa_focus_keyword": "شهرستان کرج",
+    "sa_og_title": "شهرستان کرج — قلب استان البرز",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان کرج باید بدانید؛ از تقسیمات کنونی تا جاذبه‌های طبیعی بخش آسارا."
+   },
+   "secondary_keywords": [
+    "کرج",
+    "آسارا",
+    "ماهدشت",
+    "کمال‌شهر",
+    "محمدشهر",
+    "گرمدره",
+    "گویش کرجی",
+    "سد امیرکبیر",
+    "دره کرج"
+   ],
+   "travel_season": [
+    "spring",
+    "summer",
+    "autumn"
+   ],
+   "google_map_url": "https://maps.google.com/?q=Karaj+County+Iran",
+   "faq": [
+    {
+     "q": "شهرستان کرج کجاست؟",
+     "a": "در شرق استان البرز و در دامنهٔ جنوبی رشته‌کوه البرز؛ مرکز آن کلان‌شهر کرج است."
+    },
+    {
+     "q": "جمعیت شهرستان کرج چقدر است؟",
+     "a": "در سرشماری ۱۳۹۵ برابر ۱٬۹۷۳٬۴۷۰ نفر؛ اینفوباکس مقاله رقم ۱٬۹۵۶٬۲۶۷ را هم برای همان سال آورده است."
+    },
+    {
+     "q": "شهرستان کرج چند بخش دارد؟",
+     "a": "دو بخش؛ بخش مرکزی با ۳ دهستان و ۵ شهر و بخش آسارا با ۳ دهستان و ۱ شهر."
+    },
+    {
+     "q": "شهرهای شهرستان کرج کدام‌اند؟",
+     "a": "کرج، ماهدشت، کمال‌شهر، محمدشهر و گرمدره در بخش مرکزی و آسارا در بخش آسارا."
+    },
+    {
+     "q": "کرج چه زمانی به استان البرز پیوست؟",
+     "a": "در سال ۱۳۸۹ شهرستان کرج از استان تهران جدا شد و به استان تازه‌تأسیس البرز پیوست."
+    },
+    {
+     "q": "کدام شهرستان‌ها از کرج جدا شده‌اند؟",
+     "a": "ساوجبلاغ در ۱۳۶۸، اشتهارد در ۱۳۹۱، فردیس در خرداد ۱۳۹۲ و چهارباغ در ۱۳۹۹ با انتزاع از ساوجبلاغ."
+    },
+    {
+     "q": "جاذبه‌های طبیعی شهرستان کرج چیست؟",
+     "a": "دره کرج و سد امیرکبیر در جادهٔ چالوس و ییلاق‌های بخش آسارا از شناخته‌شده‌ترین جاذبه‌های این شهرستان‌اند."
+    },
+    {
+     "q": "گویش مردم کرج چیست؟",
+     "a": "فارسی زبان رایج شهرستان است؛ گویش کرجی، گویش قصرانی و گویش ولاترویی نیز در پهنهٔ شهرستان کرج رایج‌اند."
+    },
+    {
+     "q": "بهترین فصل سفر به شهرستان کرج چه زمانی است؟",
+     "a": "بهار و پاییز برای گشت شهری و تابستان برای ییلاق‌های بخش آسارا مناسب‌تر است."
+    },
+    {
+     "q": "مساحت شهرستان کرج چقدر است؟",
+     "a": "رقم مساحت در منابع دیده‌شدهٔ این نوبت نیامده و در مقاله نوشته نشده است."
+    },
+    {
+     "q": "چرا مقالهٔ شهرستان کرج بخش کشاورزی و صنعت جداگانه ندارد؟",
+     "a": "داده‌های این دو بخش در منابع دیده‌شده فقط در حد اشارهٔ کلی بود و طبق اصلاحیهٔ کارفرما بخش بدون دادهٔ مستند نوشته نمی‌شود."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان کرج؛ تقسیمات، جمعیت، مردم‌شناسی و زبان‌ها | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC | 2026-09-30\n2. مقالهٔ شهرستان ساوجبلاغ؛ همسایگی غربی و تاریخ جدایی از کرج | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA | 2026-09-30\n3. Karaj (شهر کرج؛ فاصله از تهران، صنایع، دشت حاصلخیز) | Encyclopaedia Britannica | https://www.britannica.com/place/Karaj | 2026-09-30\n4. [نقشه] موقعیت شهرستان کرج | Google Maps | https://maps.google.com/?q=Karaj+County+Iran | 2026-09-30\n5. [نقشه] موقعیت شهر آسارا | Google Maps | https://maps.google.com/?q=Asara+Alborz+Iran | 2026-09-30\n6. [نقشه] موقعیت سد امیرکبیر | Google Maps | https://maps.google.com/?q=Amirkabir+Dam+Karaj | 2026-09-30\n7. [نقشه] مسیر دره کرج (جادهٔ چالوس) | Google Maps | https://maps.google.com/?q=Karaj+Chalus+Road | 2026-09-30\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/karaj.webp",
+    "source": "assets/featured/counties/alborz/karaj.webp",
+    "mime": "image/webp",
+    "alt": "نمایی از کلان‌شهر کرج با درهٔ رودخانه و سد امیرکبیر در دامنهٔ البرز؛ تصویر شاخص شهرستان کرج",
+    "caption": "از دشت صنعتی تا درهٔ سبز آسارا؛ شهرستان کرج.",
+    "title": "شهرستان کرج — سرزمین آریان",
+    "description": "نمایی از کلان‌شهر کرج با درهٔ رودخانه و سد امیرکبیر در دامنهٔ البرز؛ تصویر شاخص شهرستان کرج",
+    "sha1": "00c4ca2ecfaebaf7095c53eee933d6e7565e3661"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-09-30",
+   "source_file": "content/cities/ferdows.md",
+   "source_sha1": "1b801733a72df50c873e7ab9cda7f57c5c67e606",
+   "slug": "ferdows",
+   "status": "article",
+   "title": "شهرستان فردیس",
+   "name_fa": "شهرستان فردیس",
+   "name_en": "Fardis County",
+   "province": {
+    "slug": "alborz",
+    "name_fa": "استان البرز",
+    "term_name": "البرز"
+   },
+   "post": {
+    "title": "شهرستان فردیس",
+    "excerpt": "شهرستان فردیس در خرداد ۱۳۹۲ از کرج جدا شد؛ شهرستانی کوچک با تراکم جمعیتی بالا در جنوب کلان‌شهر کرج.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان فردیس؛ همسایهٔ کوچک و پرتراکم کرج</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان فردیس</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان فردیس</strong> یکی از شهرستان‌های <a href=\"/province/alborz/\">استان البرز</a> است و مرکز آن، شهر فردیس است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup> امتیازهای ویژهٔ این شهرستان را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>جوان‌ترین شهرستان‌های استان</strong>؛ در ۲۹ خرداد ۱۳۹۲ از شهرستان کرج جدا شد و مستقل گردید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>تراکم جمعیتی بالا</strong>؛ ۲۷۱٬۸۲۹ نفر در پهنه‌ای ۸۸ کیلومتر مربعی، یعنی حدود ۳٬۰۸۹ نفر در هر کیلومتر مربع.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دو بخش و دو شهر</strong>؛ بخش مرکزی و بخش مشکین‌دشت چهرهٔ شهری و شهرکیِ شهرستان را می‌سازند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>همسایگی چندگانه با کرج</strong>؛ از شرق، شمال و غرب به شهرستان <a href=\"/city/karaj/\">کرج</a> محدود می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>حوزهٔ انتخابیهٔ مشترک</strong>؛ این شهرستان همراه کرج و <a href=\"/city/eshtehard/\">اشتهارد</a> یک حوزهٔ انتخابیه دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>شهرستان فردیس با شهرک‌ها و محله‌های به‌هم‌پیوسته‌اش عملاً ادامهٔ بافت شهری کرج است؛ سفری کوتاه به این شهرستان، آشنایی با زندگی روزمرهٔ حلقهٔ جنوبی کرج بزرگ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۲۷۱٬۸۲۹ نفر</td><td>۱۳۹۵، سرشماری عمومی نفوس و مسکن<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۳٬۰۸۹ نفر بر کیلومتر مربع</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۸۸ کیلومتر مربع</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۹۲</td><td>خرداد ۱۳۹۲، جدا‌شده از کرج<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش · ۴ دهستان · ۲ شهر</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۲۶</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>مختصات مرکز</td><td>حدود ۳۵٫۷۲ شمالی و ۵۰٫۹۹ شرقی</td><td>به روایت نقشه<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Fardis+Alborz+Iran\">۴</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان فردیس از شرق، شمال و غرب با شهرستان کرج، از جنوب‌شرقی با شهرستان شهریار و از جنوب با شهرستان ملارد در استان تهران همسایه است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup> همین موقعیت، فردیس را به گلوگاه شهری میان کرج و دشت‌های جنوبی بدل کرده است؛ شهرستانی کوچک که از هر سو در میان بافت‌های شهری و کشاورزی جای گرفته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup> کرج، همسایهٔ بزرگ این شهرستان، به روایت دانشنامهٔ بریتانیکا از حومه‌های بزرگ تهران و از کانون‌های صناعت، فولاد، خودرو، ماشین‌آلات، نساجی، کاغذ و صنایع غذایی ایران است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>شهرستان کرج</td><td>شرق، شمال و غرب<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>شهرستان شهریار (تهران)</td><td>جنوب‌شرقی<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>شهرستان ملارد (تهران)</td><td>جنوب<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان فردیس در تاریخ ۲۹ خرداد ۱۳۹۲ از شهرستان کرج جدا شد و مستقل گردید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۲</a></sup> این جدایی در ادامهٔ زنجیرهٔ تفکیک‌های شهرستانی کرج رخ داد؛ پیش از آن بخش اشتهارد در ۱۳۹۱ و پس از آن چهارباغ در ۱۳۹۹ از پیکرهٔ شهرستان‌های استان جدا شدند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۲</a></sup> پیش از استقلال، محلهٔ فردیس و شهر مشکین‌دشت از محله‌ها و شهرهای شناخته‌شدهٔ کرج بودند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>این شهرستان دارای ۲ بخش، ۴ دهستان و ۲ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th><th>شهر</th></tr></thead><tbody><tr><td>مرکزی</td><td>فردیس</td><td>۱۸۸٬۱۲۹ نفر</td><td>وحدت (مرکز: شهرک وحدت، ۳٬۶۱۷ نفر) و فردیس (مرکز: شهرک ناز، ۳٬۳۳۸ نفر)</td><td>فردیس (۱۸۱٬۱۷۴ نفر)<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></td></tr><tr><td>مشکین‌دشت</td><td>مشکین‌دشت</td><td>۸۳٬۷۰۰ نفر</td><td>مشکین‌آباد (مرکز: شهرک مهندسی زراعی، ۱۶٬۲۸۸ نفر) و فرخ‌آباد (مرکز: فرخ‌آباد، ۵٬۴۰۷ نفر)</td><td>مشکین‌دشت (۶۲٬۰۰۵ نفر)<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Meshkin+Dasht+Alborz+Iran\">۵</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>در محدودهٔ دهستان فردیس، آبادی‌ها و شهرک‌هایی چون سپیددشت، شهرک ناز، شهرک ۱۱۰، شهرک دهکده، شهرک سپاه، شهرک رزکان، شهرک نیروی هوایی، شهرک شقایق، شهرک صنعتی اسکویی و مجتمع بنیاد مسکن در منبع دیده‌شده آمده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup> شهرک وحدت نیز مرکز دهستان وحدت است.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Shahrak+Vahdat+Fardis+Iran\">۶</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت این شهرستان برابر ۲۷۱٬۸۲۹ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup> بیشتر این جمعیت در بخش مرکزی ساکن است؛ شهری با ۱۸۸٬۱۲۹ نفر که شهر فردیس به‌تنهایی ۱۸۱٬۱۷۴ نفر آن را در خود جای داده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup> بخش مشکین‌دشت با ۸۳٬۷۰۰ نفر، حلقهٔ کوچک‌تر و روستایی‌ترِ شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup> به بیان دیگر، بیش از دوسوم جمعیت شهرستان در شهر فردیس ساکن است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان فردیس در جنوب کلان‌شهر کرج و در میانهٔ محور تهران–کرج گسترده است؛ برای مسیریابی، <a href=\"https://maps.google.com/?q=Fardis+Alborz+Iran\">نقشهٔ شهرستان فردیس در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Fardis+Alborz+Iran\">۴</a></sup> شهر مشکین‌دشت در بخش جنوبی همین محدوده جای دارد.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Meshkin+Dasht+Alborz+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای گسترش سفر در استان، <a href=\"/province/alborz/\">راهنمای استان البرز</a> و شهرستان‌های دیگر آن نیز در دسترس‌اند: <a href=\"/city/sojablogh/\">ساوجبلاغ</a>، <a href=\"/city/nazarabad/\">نظرآباد</a>، <a href=\"/city/chaharbagh/\">چهارباغ</a>، <a href=\"/city/eshtehard/\">اشتهارد</a>، <a href=\"/city/talqan/\">طالقان</a> و <a href=\"/city/karaj/\">کرج</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>شهرستان فردیس در ۲۹ خرداد ۱۳۹۲ از کرج جدا شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵، ۲۷۱٬۸۲۹ نفر بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۸۸ کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تراکم جمعیت حدود ۳٬۰۸۹ نفر در هر کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان دو بخش مرکزی و مشکین‌دشت دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر فردیس با ۱۸۱٬۱۷۴ نفر پرجمعیت‌ترین شهر شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مشکین‌دشت دومین شهر شهرستان با ۶۲٬۰۰۵ نفر است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دهستان وحدت به مرکزیت شهرک وحدت ۳٬۶۱۷ نفر جمعیت دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش‌شمارهٔ تلفن شهرستان ۰۲۶ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>حوزهٔ انتخابیهٔ استان، کرج، اشتهارد و فردیس را یک‌جا در بر می‌گیرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان فردیس، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ما در <strong>سرزمین آریان</strong> هر روز روی کامل‌تر کردن راهنمای «شهرستان فردیس» کار می‌کنیم؛ اما مردم فردیس خود بهترین روایتگر این سرزمین‌اند. اگر از شکل‌گیری شهرک‌ها، محله‌های قدیمی یا زندگی روزمرهٔ این شهرستان چیزی می‌دانید، یا اگر در داده‌های این مقاله نکته‌ای برای اصلاح می‌بینید، برایمان بنویسید: <strong>Mail@sarzaminaryan.ir</strong>. نام شما در تکمیل این صفحهٔ مرجع ماندگار خواهد شد. برای ادامهٔ سفر، <a href=\"/province/alborz/\">راهنمای استان البرز</a> را ببینید.</p><!-- /wp:paragraph -->",
+    "word_count": 801
+   },
+   "meta": {
+    "sa_city_slug": "ferdows",
+    "sa_city_population": "271829",
+    "sa_city_latitude": "35.7244",
+    "sa_city_longitude": "50.9883",
+    "sa_access_air": "نزدیک‌ترین فرودگاه بین‌المللی، فرودگاه مهرآباد تهران است.",
+    "sa_access_rail": "مسیر ریلی تهران–کرج–تبریز از کنار شهرستان می‌گذرد.",
+    "sa_access_road": "آزادراه و جادهٔ قدیم کرج–تهران و محورهای اتصال به شهریار و ملارد.",
+    "sa_google_map_url": "https://maps.google.com/?q=Fardis+Alborz+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3\"]",
+    "sa_schema_contained_in": "alborz"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان فردیس؛ جوان‌ترین شهرستان شهرنشین البرز",
+    "sa_seo_description": "راهنمای شهرستان فردیس در استان البرز؛ جداشده از کرج در ۲۹ خرداد ۱۳۹۲، جمعیت ۲۷۱٬۸۲۹ (۱۳۹۵)، مساحت ۸۸ کیلومتر مربع و دو بخش مرکزی و مشکین‌دشت.",
+    "sa_focus_keyword": "شهرستان فردیس",
+    "sa_og_title": "شهرستان فردیس — شهرستانی در دل کرج بزرگ",
+    "sa_og_description": "هر آنچه پیش از سفر یا آشنایی با شهرستان فردیس باید بدانید؛ از تقسیمات دو بخشی تا جمعیت و شهرک‌هایش."
+   },
+   "secondary_keywords": [
+    "فردیس",
+    "مشکین‌دشت",
+    "مشکین‌آباد",
+    "فرخ‌آباد",
+    "شهرک وحدت",
+    "کرج"
+   ],
+   "travel_season": [
+    "spring",
+    "autumn"
+   ],
+   "google_map_url": "https://maps.google.com/?q=Fardis+Alborz+Iran",
+   "faq": [
+    {
+     "q": "شهرستان فردیس کجاست؟",
+     "a": "در استان البرز و در جنوب کلان‌شهر کرج؛ از شرق، شمال و غرب به کرج و از جنوب به ملارد و شهریار محدود می‌شود."
+    },
+    {
+     "q": "شهرستان فردیس چه زمانی تأسیس شد؟",
+     "a": "در ۲۹ خرداد ۱۳۹۲ از شهرستان کرج جدا شد و مستقل گردید."
+    },
+    {
+     "q": "جمعیت شهرستان فردیس چقدر است؟",
+     "a": "در سرشماری ۱۳۹۵ برابر ۲۷۱٬۸۲۹ نفر با تراکم حدود ۳٬۰۸۹ نفر در هر کیلومتر مربع."
+    },
+    {
+     "q": "مساحت شهرستان فردیس چقدر است؟",
+     "a": "۸۸ کیلومتر مربع؛ شهرستانی کوچک با جمعیت شهری متراکم."
+    },
+    {
+     "q": "شهرستان فردیس چند بخش و چند شهر دارد؟",
+     "a": "دو بخش مرکزی و مشکین‌دشت، چهار دهستان و دو شهر فردیس و مشکین‌دشت."
+    },
+    {
+     "q": "پرجمعیت‌ترین شهر شهرستان کدام است؟",
+     "a": "شهر فردیس با ۱۸۱٬۱۷۴ نفر (۱۳۹۵)؛ پس از آن مشکین‌دشت با ۶۲٬۰۰۵ نفر."
+    },
+    {
+     "q": "دهستان‌های شهرستان کدام‌اند؟",
+     "a": "وحدت و فردیس در بخش مرکزی، و مشکین‌آباد و فرخ‌آباد در بخش مشکین‌دشت."
+    },
+    {
+     "q": "چرا شهرستان فردیس جاذبهٔ تاریخی فهرست‌شده ندارد؟",
+     "a": "مقالهٔ مبنای این صفحه بخش جاذبه ندارد و طبق اصلاحیهٔ کارفرما از منبع دیگر چیزی به آن افزوده نشده است."
+    },
+    {
+     "q": "بهترین زمان سفر به شهرستان فردیس چه زمانی است؟",
+     "a": "بهار و پاییز برای گشت‌های کوتاه شهری و بازدید از حاشیهٔ کشاورزی شهرستان مناسب‌ترند."
+    },
+    {
+     "q": "دسترسی به شهرستان فردیس چگونه است؟",
+     "a": "از طریق آزادراه و جادهٔ قدیم کرج–تهران و محورهای منتهی به شهریار و ملارد."
+    },
+    {
+     "q": "فردیس پیش از استقلال چه وضعیتی داشت؟",
+     "a": "محلهٔ فردیس و شهر مشکین‌دشت از محله‌ها و شهرهای شهرستان کرج بودند و در ۱۳۹۲ به شهرستان مستقل تبدیل شدند."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان فردیس؛ تأسیس ۱۳۹۲، تقسیمات، جمعیت و همسایگی | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%81%D8%B1%D8%AF%DB%8C%D8%B3 | 2026-09-30\n2. مقالهٔ شهرستان کرج؛ پیشینهٔ محلهٔ فردیس و مشکین‌دشت و جدایی ۱۳۹۲ | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D8%B1%D8%AC | 2026-09-30\n3. Karaj (کرج؛ مرکز استان البرز، حومهٔ بزرگ تهران و کانون صناعت) | Encyclopaedia Britannica | https://www.britannica.com/place/Karaj | 2026-09-30\n4. [نقشه] موقعیت شهرستان فردیس | Google Maps | https://maps.google.com/?q=Fardis+Alborz+Iran | 2026-09-30\n5. [نقشه] موقعیت شهر مشکین‌دشت | Google Maps | https://maps.google.com/?q=Meshkin+Dasht+Alborz+Iran | 2026-09-30\n6. [نقشه] موقعیت شهرک وحدت | Google Maps | https://maps.google.com/?q=Shahrak+Vahdat+Fardis+Iran | 2026-09-30\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/ferdows.webp",
+    "source": "assets/featured/counties/alborz/ferdows.webp",
+    "mime": "image/webp",
+    "alt": "بافت شهری و شهرک‌های مسکونی شهرستان فردیس با خط آسمان کرج در پس‌زمینه؛ تصویر شاخص شهرستان فردیس",
+    "caption": "شهرکی‌های پیوسته به کرج بزرگ؛ شهرستان فردیس.",
+    "title": "شهرستان فردیس — سرزمین آریان",
+    "description": "بافت شهری و شهرک‌های مسکونی شهرستان فردیس با خط آسمان کرج در پس‌زمینه؛ تصویر شاخص شهرستان فردیس",
+    "sha1": "b5d65b85153d2915606990ec6f63fb5772427140"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-09-30",
+   "source_file": "content/cities/sojablogh.md",
+   "source_sha1": "9519b561f0948d1797cfb6a8658c5540def17af4",
+   "slug": "sojablogh",
+   "status": "article",
+   "title": "شهرستان ساوجبلاغ",
+   "name_fa": "شهرستان ساوجبلاغ",
+   "name_en": "Savojbolagh County",
+   "province": {
+    "slug": "alborz",
+    "name_fa": "استان البرز",
+    "term_name": "البرز"
+   },
+   "post": {
+    "title": "شهرستان ساوجبلاغ",
+    "excerpt": "شهرستان ساوجبلاغ با دشت وسیع، کوه‌های بلند و روستاهای ییلاقی، پهنهٔ مرکزی استان البرز است؛ هشتگرد مرکز آن و مهستان شهر جدید آن است.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان ساوجبلاغ؛ سرزمین دشت و کوهستان در استان البرز</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان ساوجبلاغ</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان ساوجبلاغ</strong> در غرب <a href=\"/province/alborz/\">استان البرز</a> جای دارد و مرکز آن شهر هشتگرد است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> امتیازهای ویژهٔ این شهرستان را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>از دشت تا قله</strong>؛ پهنهٔ شهرستان از ارتفاع ۱٬۱۶۰ متر در جنوب‌غرب تا ۳٬۷۰۰ متر (قلهٔ سیاه‌بند) در شمال‌شرق کشیده شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>نامی به معنای چشمهٔ آب سرد</strong>؛ «ساوجبلاغ» واژه‌ای ترکی و به معنای سرزمین چشمه‌های آب سرد است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>میوه‌های نام‌دار</strong>؛ آلوی شابلون رامجین، گیلاس فشند و آردهه و توت ولیان در منبع دیده‌شده پرآوازه‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>پیشینهٔ هفت‌هزارساله</strong>؛ در منبع، از تاریخ و مدنیت هفت هزار سالهٔ این سرزمین سخن رفته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>روستای کهن ینگی امام</strong>؛ آبادی‌ای با امامزادهٔ ثبت‌شده در آثار ملی، کاروانسرا و تپهٔ تاریخی.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DB%8C%D9%86%DA%AF%DB%8C_%D8%A7%D9%85%D8%A7%D9%85\">۲</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>شهرستان ساوجبلاغ با دشت وسیع پیرامون هشتگرد، شهر جدید <a href=\"https://maps.google.com/?q=Mehshahr+New+Town+Alborz+Iran\">مهستان</a> و دره‌های بخش چندار، پهنه‌ای متنوع برای سفرهای یک‌روزه از کرج و تهران است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۲۵۹٬۹۷۳ نفر</td><td>۱۳۹۵، سرشماری عمومی نفوس و مسکن<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۱٬۱۵۸ کیلومتر مربع</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۶۸</td><td>مصوبهٔ هیئت وزیران، ۱۳۶۸/۰۴/۲۱<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>ارتفاع</td><td>۱٬۱۶۰ تا ۳٬۷۰۰ متر</td><td>جنوب‌غرب تا قلهٔ سیاه‌بند در شمال‌شرق<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>مرکز</td><td>هشتگرد</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۲۶</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>مختصات مرکز</td><td>حدود ۳۵٫۹۶ شمالی و ۵۰٫۶۸ شرقی</td><td>به روایت نقشه<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Savojbolagh+Alborz+Iran\">۴</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان ساوجبلاغ از شرق با شهرستان <a href=\"/city/karaj/\">کرج</a>، از جنوب با <a href=\"/city/eshtehard/\">اشتهارد</a>، از غرب با شهرستان آبیک و <a href=\"/city/nazarabad/\">نظرآباد</a> و از شمال با <a href=\"/city/talqan/\">طالقان</a> هم‌جوار است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> در میانهٔ این پهنه، دشتی نسبتاً وسیع و زمین‌های تپه‌ماهوری و کوه‌های مرتفع با دره‌های عمیق قرار گرفته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> بخش عمدهٔ بخش چندار کوهستانی است و بخش مرکزی در دشت و تپه‌ماهور جای دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>کرج</td><td>شرق<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>اشتهارد</td><td>جنوب<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>آبیک و نظرآباد</td><td>غرب<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>طالقان</td><td>شمال<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پیشینهٔ نام</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>نام ساوجبلاغ ترکی و به معنای «چشمهٔ آب سرد» است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> در همین پهنه، روستاهای بسیاری جای دارند و باغ‌های میوه‌شان نام‌آور است؛ آلوی شابلون روستای رامجین، گیلاس فشند و آردهه و توت ولیان در منبع دیده‌شده کیفیت بالایی دارند و باغ‌های گلابی، هلو و شلیل عباس‌آباد بزرگ در سهیلیه نیز شناخته‌شده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تأسیس و پیشینه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ساوجبلاغ ابتدا یکی از بخش‌های شهرستان کرج بود و با تصویب هیئت وزیران در سال ۱۳۶۸ به شهرستان تبدیل شد؛ شماره و تاریخ مصوبه ۱۳۶۸/۰۴/۲۱ (ابلاغ ۱۳۶۸/۰۵/۱۴) ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> این شهرستان در آغاز از دو بخش مرکزی و طالقان تشکیل شده بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> در منبع دیده‌شده، ساوجبلاغ سرزمینی با تاریخ و مدنیت هفت هزار ساله و خاستگاه خاندان‌های علمی و مذهبی معرفی شده است و حدود پنجاه امامزاده در محدودهٔ آن برشمرده می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>حمدالله مستوفی در نزهةالقلوب از ولایت ساوجبلاغ یاد کرده است: ولایتی که در آغاز عهد سلاجقه مال به ری می‌داده، بیشتر آبش از قنوات بوده و میوه و غلهٔ بسیار داشته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> در سال ۱۳۹۹ هم بخش‌هایی از این شهرستان با تشکیل <a href=\"/city/chaharbagh/\">چهارباغ</a> از آن جدا شد؛ سنقرآباد که در مقالهٔ ساوجبلاغ محل امامزاده بی‌بی سکینه خاتون دانسته شده، امروز مرکز دهستان چهاردانگه در شهرستان چهارباغ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان ساوجبلاغ دو بخش دارد:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>بخش مرکزی</strong> به مرکزیت هشتگرد، با دهستان‌های سعیدآباد و هیو و شهرهای هشتگرد، شهر جدید مهستان و گلسار (با نام قدیمی سیف‌آباد).<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>بخش چندار</strong> به مرکزیت کوهسار، با دهستان‌های برغان، چندار و قاسم‌آباد بزرگ.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>در جدول اینفوباکس مقاله، بخش رامجین هم در شمار بخش‌های ساوجبلاغ آمده است؛ حال آن‌که در متن همان مقاله فقط دو بخش مرکزی و چندار برشمرده می‌شود و رامجین امروز بخشی از شهرستان چهارباغ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">زبان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اهالی بومی شهرستان ساوجبلاغ به فارسی، گویش کرجی و ترکی با گویش ساوجبلاغی سخن می‌گویند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> گویش کرجی در هشتگرد و آبادی‌هایی چون سیرود، سپیدداران، برغان، ولیان، آغشت، فشند، آردهه، ینگی امام، شنده و طالیان رایج است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup> در روستای ینگی امام نیز مردم به ترکی ساوجبلاغی و فارسی کرجی سخن می‌گویند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DB%8C%D9%86%DA%AF%DB%8C_%D8%A7%D9%85%D8%A7%D9%85\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جاذبه‌ها و آبادی‌های شاخص</h2><!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\">جاذبه‌های مذهبی و تاریخی</h3><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>روستای ینگی امام</strong>: آبادی‌ای کهن در این شهرستان با امامزاده، کاروانسرا و تپهٔ تاریخی؛ بنای امامزاده از دورهٔ صفویه تا قاجار است و در خرداد ۱۳۸۱ در فهرست آثار ملی ثبت شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DB%8C%D9%86%DA%AF%DB%8C_%D8%A7%D9%85%D8%A7%D9%85\">۲</a></sup> امروز ینگی امام به شهر هشتگرد پیوسته و در ابتدای شهر از سمت جادهٔ قدیم کرج به قزوین است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DB%8C%D9%86%DA%AF%DB%8C_%D8%A7%D9%85%D8%A7%D9%85\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>امامزاده عبدالقهار</strong>: در منبع دیده‌شده، از این امامزاده در روستای ورده و برغان یاد شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>مسجد و روستای تاریخی سیرود</strong> و <strong>محوطه‌های باستانی شهرستان ساوجبلاغ</strong> از دیگر آثار نام‌برده‌شده در منبع‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>کاروانسراهای ایرانی</strong>: پروندهٔ میراث جهانی «کاروانسرای ایرانی» که در فهرست یونسکو ثبت شده، ۵۴ کاروانسرا را در سراسر ایران در بر می‌گیرد.<sup class=\"sa-cite\"><a href=\"https://whc.unesco.org/en/list/1668\">۳</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\">آبادی‌ها و ییلاق‌ها</h3><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>روستاهای بخش چندار مانند برغان و کوهسار در منبع به‌عنوان آبادی‌های کوهستانی همین پهنه آمده‌اند.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Baraghan+Alborz+Iran\">۵</a></sup><sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Kuhsar+Chandor+Alborz+Iran\">۶</a></sup> شهر جدید مهستان نیز در بخش مرکزی و در امتداد محور هشتگرد جای گرفته است.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Mehshahr+New+Town+Alborz+Iran\">۷</a></sup> پایان گشت در جاذبه‌های شهرستان ساوجبلاغ؛ برای ادامهٔ سفر به شهرستان‌های دیگر البرز سری بزنید: <a href=\"/city/nazarabad/\">نظرآباد</a>، <a href=\"/city/chaharbagh/\">چهارباغ</a>، <a href=\"/city/eshtehard/\">اشتهارد</a>، <a href=\"/city/talqan/\">طالقان</a>، <a href=\"/city/karaj/\">کرج</a> و <a href=\"/city/ferdows/\">فردیس</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان ساوجبلاغ در غرب استان البرز و در میان دشت هشتگرد گسترده است؛ برای مسیریابی، <a href=\"https://maps.google.com/?q=Savojbolagh+Alborz+Iran\">نقشهٔ شهرستان ساوجبلاغ در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Savojbolagh+Alborz+Iran\">۴</a></sup> شهر جدید مهستان، برغان و کوهسار روی همین نقشه در بخش‌های مرکزی و چندار جای دارند.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Baraghan+Alborz+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>شهرستان ساوجبلاغ در سال ۱۳۶۸ از کرج جدا شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵، ۲۵۹٬۹۷۳ نفر بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۱٬۱۵۸ کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بلندترین نقطهٔ پهنه، قلهٔ سیاه‌بند با ارتفاع ۳٬۷۰۰ متر است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>نام ساوجبلاغ به معنای چشمهٔ آب سرد است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>در بخش مرکزی سه شهر هشتگرد، مهستان و گلسار قرار دارند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بخش چندار به مرکزیت کوهسار اداره می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>در روستای ینگی امام، امامزاده، کاروانسرا و تپهٔ تاریخی در یک جا گرد آمده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DB%8C%D9%86%DA%AF%DB%8C_%D8%A7%D9%85%D8%A7%D9%85\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بنای امامزادهٔ ینگی امام در خرداد ۱۳۸۱ در فهرست آثار ملی ثبت شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DB%8C%D9%86%DA%AF%DB%8C_%D8%A7%D9%85%D8%A7%D9%85\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پروندهٔ میراث جهانی «کاروانسرای ایرانی» ۵۴ کاروانسرا را در بر می‌گیرد.<sup class=\"sa-cite\"><a href=\"https://whc.unesco.org/en/list/1668\">۳</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش‌شمارهٔ تلفن شهرستان ۰۲۶ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان ساوجبلاغ، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ما در <strong>سرزمین آریان</strong> هر روز روی کامل‌تر کردن راهنمای «شهرستان ساوجبلاغ» کار می‌کنیم؛ اما مردم ساوجبلاغ خود بهترین روایتگر این سرزمین‌اند. اگر از خاندان‌های علمی، باغ‌های قدیمی یا روستاهای ییلاقی این دیار چیزی می‌دانید، یا اگر در داده‌های این مقاله نکته‌ای برای اصلاح می‌بینید، برایمان بنویسید: <strong>Mail@sarzaminaryan.ir</strong>. نام شما در تکمیل این صفحهٔ مرجع ماندگار خواهد شد. برای ادامهٔ سفر، <a href=\"/province/alborz/\">راهنمای استان البرز</a> را ببینید.</p><!-- /wp:paragraph -->",
+    "word_count": 1055
+   },
+   "meta": {
+    "sa_city_slug": "sojablogh",
+    "sa_city_population": "259973",
+    "sa_city_latitude": "35.9619",
+    "sa_city_longitude": "50.6803",
+    "sa_access_air": "نزدیک‌ترین فرودگاه بین‌المللی، فرودگاه مهرآباد تهران است.",
+    "sa_access_rail": "مسیر ریلی تهران–تبریز از این پهنه می‌گذرد.",
+    "sa_access_road": "آزادراه کرج–قزوین و جادهٔ قدیم کرج–هشتگرد–قزوین محورهای اصلی‌اند.",
+    "sa_google_map_url": "https://maps.google.com/?q=Savojbolagh+Alborz+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\"]",
+    "sa_schema_contained_in": "alborz"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان ساوجبلاغ؛ سرزمین دشت و کوهستان در استان البرز",
+    "sa_seo_description": "راهنمای شهرستان ساوجبلاغ در استان البرز؛ تأسیس ۱۳۶۸، مساحت ۱٬۱۵۸ کیلومتر مربع، جمعیت ۲۵۹٬۹۷۳ (۱۳۹۵)، هشتگرد، شهر جدید مهستان، کوهسار و دره‌های چندار.",
+    "sa_focus_keyword": "شهرستان ساوجبلاغ",
+    "sa_og_title": "شهرستان ساوجبلاغ — چشمه‌های آب سرد البرز",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان ساوجبلاغ باید بدانید؛ از وجه تسمیهٔ نام تا روستاهای ییلاقی بخش چندار."
+   },
+   "secondary_keywords": [
+    "ساوجبلاغ",
+    "هشتگرد",
+    "مهستان",
+    "کوهسار",
+    "برغان",
+    "گویش کرجی"
+   ],
+   "travel_season": [
+    "spring",
+    "summer",
+    "autumn"
+   ],
+   "google_map_url": "https://maps.google.com/?q=Savojbolagh+Alborz+Iran",
+   "faq": [
+    {
+     "q": "شهرستان ساوجبلاغ کجاست؟",
+     "a": "در غرب استان البرز؛ از شرق به کرج، از جنوب به اشتهارد، از غرب به آبیک و نظرآباد و از شمال به طالقان محدود می‌شود."
+    },
+    {
+     "q": "مرکز شهرستان ساوجبلاغ کدام شهر است؟",
+     "a": "هشتگرد؛ و شهر جدید مهستان و گلسار نیز در بخش مرکزی همین شهرستان‌اند."
+    },
+    {
+     "q": "جمعیت شهرستان ساوجبلاغ چقدر است؟",
+     "a": "در سرشماری ۱۳۹۵ برابر ۲۵۹٬۹۷۳ نفر."
+    },
+    {
+     "q": "ساوجبلاغ چه زمانی شهرستان شد؟",
+     "a": "در سال ۱۳۶۸ با تصویب هیئت وزیران (مصوبهٔ ۱۳۶۸/۰۴/۲۱) و پیش از آن بخشی از شهرستان کرج بود."
+    },
+    {
+     "q": "مساحت شهرستان چقدر است؟",
+     "a": "۱٬۱۵۸ کیلومتر مربع؛ پهنه‌ای که از ارتفاع ۱٬۱۶۰ متر تا قلهٔ ۳٬۷۰۰ متری سیاه‌بند کشیده شده است."
+    },
+    {
+     "q": "معنای نام ساوجبلاغ چیست؟",
+     "a": "واژه‌ای ترکی به معنای «چشمهٔ آب سرد»."
+    },
+    {
+     "q": "شهرستان ساوجبلاغ چند بخش دارد؟",
+     "a": "دو بخش؛ مرکزی به مرکزیت هشتگرد و چندار به مرکزیت کوهسار. جدول اینفوباکس، بخش رامجین را هم آورده که امروز در شهرستان چهارباغ است."
+    },
+    {
+     "q": "مردم ساوجبلاغ به چه زبانی سخن می‌گویند؟",
+     "a": "فارسی، گویش کرجی و ترکی با گویش ساوجبلاغی."
+    },
+    {
+     "q": "مهم‌ترین آبادی تاریخی شهرستان کدام است؟",
+     "a": "ینگی امام با امامزادهٔ ثبت‌شده در آثار ملی، کاروانسرا و تپهٔ تاریخی که امروز به شهر هشتگرد پیوسته است."
+    },
+    {
+     "q": "میوه‌های نام‌دار ساوجبلاغ کدام‌اند؟",
+     "a": "آلوی شابلون رامجین، گیلاس فشند و آردهه و توت ولیان در منبع دیده‌شده پرآوازه‌اند."
+    },
+    {
+     "q": "بهترین زمان سفر به شهرستان ساوجبلاغ چه زمانی است؟",
+     "a": "بهار برای دشت و باغ‌ها و تابستان برای دره‌ها و آبادی‌های ییلاقی بخش چندار مناسب‌تر است."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان ساوجبلاغ؛ تأسیس ۱۳۶۸، تقسیمات، جمعیت، زبان و جاذبه‌ها | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA | 2026-09-30\n2. مقالهٔ ینگی امام؛ امامزاده، کاروانسرا و تپهٔ تاریخی روستا | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%DB%8C%D9%86%DA%AF%DB%8C_%D8%A7%D9%85%D8%A7%D9%85 | 2026-09-30\n3. The Persian Caravanserai (۵۴ کاروانسرای ثبت‌شدهٔ ایران) | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1668 | 2026-09-30\n4. [نقشه] موقعیت شهرستان ساوجبلاغ | Google Maps | https://maps.google.com/?q=Savojbolagh+Alborz+Iran | 2026-09-30\n5. [نقشه] موقعیت روستای برغان | Google Maps | https://maps.google.com/?q=Baraghan+Alborz+Iran | 2026-09-30\n6. [نقشه] موقعیت شهر کوهسار (چندار) | Google Maps | https://maps.google.com/?q=Kuhsar+Chandor+Alborz+Iran | 2026-09-30\n7. [نقشه] موقعیت شهر جدید مهستان | Google Maps | https://maps.google.com/?q=Mehshahr+New+Town+Alborz+Iran | 2026-09-30\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/sojablogh.webp",
+    "source": "assets/featured/counties/alborz/sojablogh.webp",
+    "mime": "image/webp",
+    "alt": "دشت‌ها و باغ‌های شهرستان ساوجبلاغ با کوه‌های بخش چندار در پس‌زمینه؛ تصویر شاخص شهرستان ساوجبلاغ",
+    "caption": "دشت هشتگرد و ارتفاعات چندار؛ شهرستان ساوجبلاغ.",
+    "title": "شهرستان ساوجبلاغ — سرزمین آریان",
+    "description": "دشت‌ها و باغ‌های شهرستان ساوجبلاغ با کوه‌های بخش چندار در پس‌زمینه؛ تصویر شاخص شهرستان ساوجبلاغ",
+    "sha1": "9ed94b5e8bda9b97830f67dc132215ef1a475bcc"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-09-30",
+   "source_file": "content/cities/nazarabad.md",
+   "source_sha1": "5949313137c2da21161a7b39748d7cb6df6256a7",
+   "slug": "nazarabad",
+   "status": "article",
+   "title": "شهرستان نظرآباد",
+   "name_fa": "شهرستان نظرآباد",
+   "name_en": "Nazarabad County",
+   "province": {
+    "slug": "alborz",
+    "name_fa": "استان البرز",
+    "term_name": "البرز"
+   },
+   "post": {
+    "title": "شهرستان نظرآباد",
+    "excerpt": "شهرستان نظرآباد در غرب استان البرز جای دارد؛ دشتی کشاورزی که محوطهٔ باستانی ازبکی و خاندان دانشمند نجم‌آبادی را در خود پرورده است.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان نظرآباد؛ دشت کهن البرز و خاستگاه خاندان‌های دانش</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان نظرآباد</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان نظرآباد</strong> یکی از شهرستان‌های <a href=\"/province/alborz/\">استان البرز</a> است و مرکز آن، شهر نظرآباد است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> امتیازهای ویژهٔ این شهرستان را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>از بخش‌های پیشین ساوجبلاغ</strong>؛ تا سال ۱۳۸۱ یکی از بخش‌های شهرستان ساوجبلاغ بود و سپس مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>محوطهٔ باستانی ازبکی</strong>؛ دژی مادی و محوطه‌ای نُه‌هزارساله که نخستین خشت دست‌ساز بشر در آن کشف شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%AF%DA%98_%D9%85%D8%A7%D8%AF%D9%87%D8%A7\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>خاستگاه خاندان نجم‌آبادی</strong>؛ روستای نجم‌آباد زادگاه خاندانی از فقیهان، پزشکان و پژوهشگران است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دشت کشاورزی حاصلخیز</strong>؛ خاک سبک و آب فراوان این دشت، زراعت و دامپروری را در آن رونق داده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>مسیر ترانزیتی غرب استان</strong>؛ همسایگی با آزادراه و راه‌آهن تهران–تبریز، توسعهٔ پنجاه سال گذشتهٔ آن را رقم زده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>شهر نظرآباد مرکز شهرستان نظرآباد و شهر تنکمان دیگر شهر آن است؛ پهنه‌ای که در نزدیکی <a href=\"/city/sojablogh/\">ساوجبلاغ</a> و در دامنهٔ غربی استان البرز جای گرفته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۱۵۲٬۴۳۷ نفر</td><td>بر پایهٔ ارجاع اینفوباکس به سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></td></tr><tr><td>جمعیت پیشین</td><td>۱۴۱٬۱۶۰ نفر (۹٫۵٪ استان)</td><td>سرشماری ۱۳۹۰ به روایت متن مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۲۹۰ نفر بر کیلومتر مربع</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۵۸۷ کیلومتر مربع</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۸۱</td><td>جدا‌شده از ساوجبلاغ<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۲۶</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></td></tr><tr><td>مختصات مرکز</td><td>حدود ۳۵٫۹۵ شمالی و ۵۰٫۶۱ شرقی</td><td>به روایت نقشه<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Nazarabad+Alborz+Iran\">۴</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی و پیشینهٔ شهر</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان نظرآباد در نزدیکی شهرستان ساوجبلاغ و در مسیر ترانزیتی تهران–تبریز جای دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> استقرار آن در کنار آزادراه و راه‌آهن تهران–تبریز موجب توسعهٔ آن در پنجاه سال اخیر شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> نقطهٔ عطف آبادانی آن، راه‌اندازی کارخانهٔ نساجی مقدم در سال ۱۳۳۷ به کوشش میرزا بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> کرج، شهرستان همسایه در شرق این پهنه، به روایت دانشنامهٔ بریتانیکا از حومه‌های بزرگ تهران و کانون‌های صناعت ایران است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>این شهرستان دارای ۲ بخش، ۴ دهستان و ۲ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>بخش مرکزی</strong> به مرکزیت نظرآباد، با دهستان‌های احمدآباد و نجم‌آباد؛ شهرک سید جمال و شهر نظرآباد در همین بخش‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> شهر صنعتی سپهر در جنوب شهر و شهر صنعتی نظرآباد در شرق شهر صنعتی سپهر واقع شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>بخش تنکمان</strong> به مرکزیت تنکمان، با دهستان‌های تنکمان جنوبی و تنکمان شمالی (مرکز: روستای بختیار) و شهر تنکمان.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>در تغییرات تقسیماتی سال ۱۳۸۶، دهستان تنکمان شمالی به مرکزیت روستای بختیار ایجاد شد و دهستان تنکمان پیشین به تنکمان جنوبی تغییر نام داد؛ دهستان نجم‌آباد نیز از بخش تنکمان منتزع و به بخش مرکزی ملحق شد و روستای تنکمان به شهر ارتقا یافت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">ازبکی؛ دژ مادها و نخستین خشت بشر</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>منطقهٔ باستان‌شناسی ازبکی در روستای ازبکی، از آبادی‌های دهستان احمدآباد مصدق در بخش مرکزی شهرستان نظرآباد و در حدود ۸۰ کیلومتری غرب تهران واقع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> بخش‌هایی از این محوطهٔ نُه‌هزارساله در سال ۱۳۴۸ شناسایی شد و در ۸ مهر ۱۳۵۲ با شمارهٔ ۹۵۵ در فهرست آثار ملی ایران ثبت گردید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%AF%DA%98_%D9%85%D8%A7%D8%AF%D9%87%D8%A7\">۲</a></sup> این محوطهٔ گستردهٔ صد هکتاری، ده تپهٔ ارزشمند را در بر می‌گیرد که شش تپهٔ آن در سال‌های ۱۳۷۷ تا ۱۳۸۴ به سرپرستی یوسف مجیدزاده حفاری شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>کشف کهن‌ترین خشت‌های دست‌ساز بشر با قدمت نُه هزار ساله، دستیابی ساکنان پیش از تاریخ به سیمان، سند همکاری تجاری اهالی ازبکی و شوش باستان در اواسط هزارهٔ چهارم پیش از میلاد، بناهای آریایی‌های اولیه، شهر و دژ بزرگ مادی و نخستین پیکرهٔ سنگی مادی از ویژگی‌های این محوطه شمرده شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> نمونهٔ نخستین خشت دست‌ساز بشر که در سازمان ملل متحد نگهداری می‌شود، به نشانهٔ گفت‌وگوی تمدن‌ها از این منطقه به سازمان ملل هدیه شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> در نزدیکی همین محوطه، ردیف نقشه را ببینید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Ozbaki+Tepe+Nazarabad+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نجم‌آباد؛ خاستگاه خاندان دانشمندان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>روستای تاریخی نجم‌آباد خاستگاه خاندان علمی نجم‌آبادی است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> نیای این روستازادگان دانشمند، استاد باقر آهنگر بود که در سال‌های آغازین حکومت قاجار در نجم‌آباد به آهنگری اشتغال داشت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> ملا ابراهیم نجم‌آبادی (درگذشت ۱۲۴۵ ه‍.ق) از مدرسان حکمت صدرایی و آیت‌الله حاج ملامهدی نجم‌آبادی (درگذشت ۱۲۷۱ ه‍.ق) از مجتهدان دورهٔ قاجار، فرزندان او بودند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> میرزا عبدالکریم نجم‌آبادی ساوجبلاغی که در حکومت فتحعلی‌شاه قاجار به رتبهٔ وزارت رسید، به دستور ویژهٔ شاه، مسجد و مدرسه‌ای برای ملا ابراهیم در روستای نجم‌آباد ساخت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">زبان و مردم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>«ترکی ساوجبلاغی» یکی از شاخه‌های ترکی آذربایجانی، زبان بومی و غالب اهالی این شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> حضور لهجه‌های دیگر ترکی و نیز فارسی و کُردی در شهرستان نظرآباد، از نتایج مهاجرپذیری آن دانسته شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> غیر از اقلیت ارمنی‌ها، غالب اهالی مسلمان و شیعهٔ دوازده‌امامی‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> خاک سبک و آب فراوان دشت نظرآباد برای کشاورزی بسیار مناسب است و دامپروری در کنار زراعت، از عمده منابع درآمد روستاییان به شمار می‌رود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">چهره‌های ماندگار</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در فهرست چهره‌های ماندگار شهرستان نظرآباد، نام دکتر محمد مصدق سیاستمدار و نخست‌وزیر ایران در سال‌های ۱۳۳۰ تا ۱۳۳۲ به چشم می‌خورد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> آیت‌الله ملا علی قارپوزآبادی (درگذشت ۱۲۹۰ ه‍.ق) از فقیهان قرن سیزدهم هجری قمری و مؤسس حوزهٔ علمیهٔ زنجان است که نوزده اثر از او ثبت شده و علیه نظام ارباب–رعیتی فتوا داده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> محمد نمازی (درگذشت ۱۳۵۱ ه‍.ش) سرمایه‌دار و نیکوکار ایرانی و بنیان‌گذار کارخانهٔ نساجی فخرایران در همین شهرستان بود و مصطفی بازرگان (درگذشت ۱۳۸۹ ه‍.ش) در توسعهٔ شهر نظرآباد نقش داشت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup> نام ناصر نجمی (درگذشت ۱۳۸۲ ه‍.ش)، تاریخ‌پژوه، و افسانه نجم‌آبادی، استاد تاریخ و مطالعات زنان دانشگاه هاروارد، نیز در میان نام‌آوران این پهنه آمده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان نظرآباد در غرب استان البرز و در دشت میان کوه و شهرهای صناعی گسترده است؛ برای مسیریابی، <a href=\"https://maps.google.com/?q=Nazarabad+Alborz+Iran\">نقشهٔ شهرستان نظرآباد در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Nazarabad+Alborz+Iran\">۴</a></sup> شهر تنکمان در بخش جنوبی این پهنه جای دارد.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Tankaman+Alborz+Iran\">۶</a></sup> محوطهٔ باستانی ازبکی نیز در بخش مرکزی و در نزدیکی نظرآباد است.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Ozbaki+Tepe+Nazarabad+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ سفر در استان، <a href=\"/province/alborz/\">راهنمای استان البرز</a> و شهرستان‌های دیگر آن در دسترس‌اند: <a href=\"/city/sojablogh/\">ساوجبلاغ</a>، <a href=\"/city/chaharbagh/\">چهارباغ</a>، <a href=\"/city/karaj/\">کرج</a>، <a href=\"/city/ferdows/\">فردیس</a>، <a href=\"/city/eshtehard/\">اشتهارد</a> و <a href=\"/city/talqan/\">طالقان</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>شهرستان نظرآباد تا سال ۱۳۸۱ بخشی از ساوجبلاغ بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت آن در اینفوباکس ۱۵۲٬۴۳۷ نفر و در سرشماری ۱۳۹۰ برابر ۱۴۱٬۱۶۰ نفر یعنی ۹٫۵٪ جمعیت استان ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۵۸۷ کیلومتر مربع و تراکم جمعیت ۲۹۰ نفر در هر کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>محوطهٔ ازبکی صد هکتار وسعت دارد و ده تپهٔ ارزشمند را در بر می‌گیرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تپهٔ ازبکی در ۷ کیلومتری نظرآباد جای دارد و در ۸ مهر ۱۳۵۲ ثبت ملی شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%AF%DA%98_%D9%85%D8%A7%D8%AF%D9%87%D8%A7\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>حفاری‌های ازبکی در سال‌های ۱۳۷۷ تا ۱۳۸۴ به سرپرستی یوسف مجیدزاده انجام شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>روستای نجم‌آباد زادگاه خاندان فقیهان و پزشکان نجم‌آبادی است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>زبان غالب مردم، «ترکی ساوجبلاغی» است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بخش‌های شهرستان دو تا و شهرهای آن دو تا هستند: نظرآباد و تنکمان.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کارخانهٔ نساجی مقدم در سال ۱۳۳۷ نقطهٔ عطف آبادانی این شهرستان شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش‌شمارهٔ تلفن شهرستان ۰۲۶ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان نظرآباد، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ما در <strong>سرزمین آریان</strong> هر روز روی کامل‌تر کردن راهنمای «شهرستان نظرآباد» کار می‌کنیم؛ اما مردم نظرآباد خود بهترین روایتگر این سرزمین‌اند. اگر از خاندان‌های نجم‌آبادی، خاطرات دشت و باغ‌ها یا یافته‌های محوطهٔ ازبکی چیزی می‌دانید، یا اگر در داده‌های این مقاله نکته‌ای برای اصلاح می‌بینید، برایمان بنویسید: <strong>Mail@sarzaminaryan.ir</strong>. نام شما در تکمیل این صفحهٔ مرجع ماندگار خواهد شد. برای ادامهٔ سفر، <a href=\"/province/alborz/\">راهنمای استان البرز</a> را ببینید.</p><!-- /wp:paragraph -->",
+    "word_count": 1176
+   },
+   "meta": {
+    "sa_city_slug": "nazarabad",
+    "sa_city_population": "152437",
+    "sa_city_latitude": "35.9522",
+    "sa_city_longitude": "50.6072",
+    "sa_access_air": "نزدیک‌ترین فرودگاه بین‌المللی، فرودگاه مهرآباد تهران است.",
+    "sa_access_rail": "راه‌آهن تهران–تبریز از این پهنه می‌گذرد.",
+    "sa_access_road": "آزادراه و جادهٔ ترانزیتی تهران–تبریز محور اصلی دسترسی است.",
+    "sa_google_map_url": "https://maps.google.com/?q=Nazarabad+Alborz+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF\"]",
+    "sa_schema_contained_in": "alborz"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان نظرآباد؛ دشت کهن البرز و خاستگاه خاندان‌های دانش",
+    "sa_seo_description": "راهنمای شهرستان نظرآباد در استان البرز؛ تأسیس ۱۳۸۱، مساحت ۵۸۷ کیلومتر مربع، جمعیت ۱۵۲٬۴۳۷ نفر و محوطهٔ باستانی ازبکی با نخستین خشت دست‌ساز بشر.",
+    "sa_focus_keyword": "شهرستان نظرآباد",
+    "sa_og_title": "شهرستان نظرآباد — دشتی به وسعت تاریخ",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان نظرآباد باید بدانید؛ از محوطهٔ نُه‌هزارسالهٔ ازبکی تا روستای نجم‌آباد و خاندان‌های علمی آن."
+   },
+   "secondary_keywords": [
+    "نظرآباد",
+    "ازبکی",
+    "نجم‌آباد",
+    "تنکمان",
+    "دژ مادها",
+    "ساوجبلاغ"
+   ],
+   "travel_season": [
+    "spring",
+    "autumn"
+   ],
+   "google_map_url": "https://maps.google.com/?q=Nazarabad+Alborz+Iran",
+   "faq": [
+    {
+     "q": "شهرستان نظرآباد کجاست؟",
+     "a": "در استان البرز و در همسایگی شهرستان ساوجبلاغ؛ در مسیر ترانزیتی و ریلی تهران–تبریز."
+    },
+    {
+     "q": "شهرستان نظرآباد چه زمانی تأسیس شد؟",
+     "a": "در سال ۱۳۸۱؛ پیش از آن یکی از بخش‌های شهرستان ساوجبلاغ بود."
+    },
+    {
+     "q": "جمعیت شهرستان نظرآباد چقدر است؟",
+     "a": "در اینفوباکس ۱۵۲٬۴۳۷ نفر (با ارجاع به سرشماری ۱۳۹۵) و در متن مقاله برای سرشماری ۱۳۹۰ عدد ۱۴۱٬۱۶۰ نفر ثبت شده است."
+    },
+    {
+     "q": "مساحت و تراکم جمعیت شهرستان چقدر است؟",
+     "a": "۵۸۷ کیلومتر مربع و تراکم ۲۹۰ نفر در هر کیلومتر مربع."
+    },
+    {
+     "q": "شهرستان نظرآباد چند بخش و چند شهر دارد؟",
+     "a": "دو بخش مرکزی و تنکمان و دو شهر نظرآباد و تنکمان."
+    },
+    {
+     "q": "دهستان‌های شهرستان کدام‌اند؟",
+     "a": "بخش مرکزی دهستان‌های احمدآباد و نجم‌آباد، و بخش تنکمان دهستان‌های تنکمان جنوبی و تنکمان شمالی را دارد."
+    },
+    {
+     "q": "محوطهٔ باستانی ازبکی چه ویژگی‌ای دارد؟",
+     "a": "محوطه‌ای نُه‌هزارساله با دژ مادی، صد هکتار وسعت، ده تپه و کشف کهن‌ترین خشت‌های دست‌ساز بشر که در ۸ مهر ۱۳۵۲ ثبت ملی شد."
+    },
+    {
+     "q": "روستای نجم‌آباد چه اهمیتی دارد؟",
+     "a": "زادگاه خاندان علمی نجم‌آبادی؛ خاندانی از فقیهان، مدرسان حکمت، پزشکان و پژوهشگران."
+    },
+    {
+     "q": "زبان مردم شهرستان چیست؟",
+     "a": "«ترکی ساوجبلاغی» زبان بومی و غالب است؛ فارسی و کُردی نیز در پی مهاجرت‌ها رایج شده است."
+    },
+    {
+     "q": "شهرهای صنعتی شهرستان کجا قرار دارند؟",
+     "a": "شهر صنعتی سپهر در جنوب شهر نظرآباد و شهر صنعتی نظرآباد در شرق شهر صنعتی سپهر است."
+    },
+    {
+     "q": "بهترین زمان سفر به شهرستان نظرآباد چه زمانی است؟",
+     "a": "بهار و پاییز برای گشت در دشت و محوطهٔ باستانی مناسب‌ترند."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان نظرآباد؛ تأسیس، تقسیمات، جمعیت، ازبکی، نجم‌آباد و چهره‌ها | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%86%D8%B8%D8%B1%D8%A2%D8%A8%D8%A7%D8%AF | 2026-09-30\n2. مقالهٔ دژ مادها (تپهٔ ازبکی)؛ ثبت ملی ۱۳۵۲ و قدمت محوطه | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%AF%DA%98_%D9%85%D8%A7%D8%AF%D9%87%D8%A7 | 2026-09-30\n3. Karaj (کرج؛ مرکز استان البرز، حومهٔ بزرگ تهران و کانون صناعت) | Encyclopaedia Britannica | https://www.britannica.com/place/Karaj | 2026-09-30\n4. [نقشه] موقعیت شهرستان نظرآباد | Google Maps | https://maps.google.com/?q=Nazarabad+Alborz+Iran | 2026-09-30\n5. [نقشه] موقعیت تپهٔ ازبکی | Google Maps | https://maps.google.com/?q=Ozbaki+Tepe+Nazarabad+Iran | 2026-09-30\n6. [نقشه] موقعیت شهر تنکمان | Google Maps | https://maps.google.com/?q=Tankaman+Alborz+Iran | 2026-09-30\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/nazarabad.webp",
+    "source": "assets/featured/counties/alborz/nazarabad.webp",
+    "mime": "image/webp",
+    "alt": "دشت‌های کشاورزی شهرستان نظرآباد با تپهٔ باستانی ازبکی و کوه‌های البرز در پس‌زمینه؛ تصویر شاخص شهرستان نظرآباد",
+    "caption": "دشت نظرآباد و تپهٔ کهن ازبکی؛ نگین باستان‌شناسی استان البرز.",
+    "title": "شهرستان نظرآباد — سرزمین آریان",
+    "description": "دشت‌های کشاورزی شهرستان نظرآباد با تپهٔ باستانی ازبکی و کوه‌های البرز در پس‌زمینه؛ تصویر شاخص شهرستان نظرآباد",
+    "sha1": "95d6dd9629e7b259199f3981e53a9fc5115fe8cc"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-09-30",
+   "source_file": "content/cities/chaharbagh.md",
+   "source_sha1": "14626cb6afe67243bf37f46bb35bdabdbb15f8d0",
+   "slug": "chaharbagh",
+   "status": "article",
+   "title": "شهرستان چهارباغ",
+   "name_fa": "شهرستان چهارباغ",
+   "name_en": "Chaharbagh County",
+   "province": {
+    "slug": "alborz",
+    "name_fa": "استان البرز",
+    "term_name": "البرز"
+   },
+   "post": {
+    "title": "شهرستان چهارباغ",
+    "excerpt": "شهرستان چهارباغ تازه‌ترین شهرستان استان البرز است؛ دشتی سرسبز با باغ‌های میوه، گلخانه‌های گل و گیاه و پیوندی تنگاتنگ با کرج بزرگ.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان چهارباغ؛ نگین گل و گیاه استان البرز</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان چهارباغ</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان چهارباغ</strong> تازه‌ترین شهرستان <a href=\"/province/alborz/\">استان البرز</a> است و مرکز آن، شهر چهارباغ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup> امتیازهای ویژهٔ این شهرستان را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>تازه‌ترین شهرستان استان</strong>؛ در ۱۶ آذر ۱۳۹۹ با تصویب دولت شکل گرفت و از ساوجبلاغ جدا شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>قطب گل و گیاه استان</strong>؛ مزرعه‌ها و گلخانه‌های آن، البرز را به یکی از قطب‌های گل و گیاه کشور بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>باغ‌های رامجین</strong>؛ آلوی شابلون رامجین در منابع، از میوه‌های نام‌آور این سرزمین شمرده شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۴</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>همسایگی با کرج بزرگ</strong>؛ شهر چهارباغ چنان به کمال‌شهر می‌پیوندد که مرز شهری آن با کرج محسوس نیست.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>یک شهر و دو بخش</strong>؛ شهرستان چهارباغ دو بخش مرکزی و رامجین دارد و تنها یک شهر در آن جای گرفته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>شهرستان چهارباغ بر دوش دشت حاصلخیز میان کرج و هشتگرد نشسته و کشاورزی، باغداری و گل‌کاری، جانِ اقتصاد آن است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت</td><td>۷۷٬۴۰۹ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>برآورد جمعیت</td><td>۸۲٬۲۰۰ نفر (۱۴۰۰) · ۸۵٬۵۰۰ نفر (۱۴۰۳)</td><td>جدول جمعیت تاریخی منبع<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۹۹</td><td>تصویب دولت، ۱۶ آذر ۱۳۹۹<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش · ۴ دهستان · ۱ شهر</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۲۶</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></td></tr><tr><td>مختصات مرکز</td><td>حدود ۳۵٫۸۴ شمالی و ۵۰٫۸۵ شرقی</td><td>به روایت نقشه<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Chaharbagh+Alborz+Iran\">۵</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چهارباغ در دشت میان کلان‌شهر <a href=\"/city/karaj/\">کرج</a> و <a href=\"/city/savojbolagh/\">ساوجبلاغ</a> گسترده است و آزادراه کرج–قزوین بر لبهٔ شمالی آن می‌گذرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup> محدودهٔ شهر چهارباغ را از شمال آزادراه کرج–قزوین، از شمال‌شرق خیابان صنعت‌کاران و کمال‌شهر، از جنوب‌شرق قزل‌حصار و از جنوب‌غرب آبادی قوهه در بر می‌گیرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup> این شهر از طریق جادهٔ قدیم کرج–هشتگرد و راه‌های محلی به شهرستان‌های همسایه می‌پیوندد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>موقعیت</th><th>جهت</th></tr></thead><tbody><tr><td>آزادراه کرج–قزوین</td><td>شمال<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></td></tr><tr><td>کمال‌شهر (کرج)</td><td>شمال‌شرق<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></td></tr><tr><td>قزل‌حصار</td><td>جنوب‌شرق<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></td></tr><tr><td>قوهه</td><td>جنوب‌غرب<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تأسیس و پیشینه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چهارباغ در تاریخ ۱۶ آذر ۱۳۹۹ به تصویب دولت رسید و با انتزاع از شهرستان ساوجبلاغ، هفتمین شهرستان استان البرز شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup> ریشهٔ آبادی‌های این پهنه اما کهن‌تر است؛ شهر چهارباغ خود از ارتقای روستای چهاردانگه در نیمهٔ نخست دههٔ ۱۳۸۰ پدید آمد و در تیر ۱۳۸۶ دو روستای قائمیه و حافظیه به آن الحاق شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup> شهرداری این شهر از ۲۳ مرداد ۱۳۸۴ آغاز به کار کرده و قدمت بافت آن را بیش از دویست سال دانسته‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>پیش از استقلال، رامجین یکی از آبادی‌های شناخته‌شدهٔ ساوجبلاغ بود و باغ‌های آلوی آن در منابع نام‌آور شمرده می‌شد؛ با تشکیل شهرستان چهارباغ، این پهنهٔ کشاورزی به شهرستانی مستقل بدل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA\">۴</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چهارباغ دارای ۲ بخش، ۴ دهستان و ۱ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th><th>شهر</th></tr></thead><tbody><tr><td>مرکزی</td><td>چهارباغ</td><td>۵۵٬۸۳۸ نفر</td><td>چهاردانگه (مرکز: سنقرآباد، ۳٬۸۱۸ نفر) و عرب‌آباد افشار (مرکز: عرب‌آباد خسروی، ۳٬۱۹۲ نفر)<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></td><td>چهارباغ (۴۸٬۸۲۸ نفر)</td></tr><tr><td>رامجین</td><td>رامجین</td><td>۲۱٬۵۷۱ نفر</td><td>رامجین (مرکز: رامجین، ۱۴٬۴۰۶ نفر) و اغلان تپه (مرکز: اغلان تپه، ۷٬۱۶۵ نفر)<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Ramejin+Alborz+Iran\">۶</a></sup></td><td>—</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>شهر چهارباغ نواحی ملک‌آباد و مهدی‌آباد را نیز در بر می‌گیرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">کشاورزی، گل و گیاه و صنعت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>دشت چهارباغ از دیرباز کشاورزی بوده است؛ پرورش صیفی‌جات در سطحی افزون بر ۱٬۵۰۰ هکتار، باغ‌های میوه و گلخانه‌های گل و گیاه، ستون اقتصاد این شهرستان را می‌سازند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup> در منابع، از این پهنه به‌عنوان قطب گل و گیاه استان البرز و «مهد پرورش گل‌های پامچال» یاد شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup> در کنار کشاورزی، شهرک صنعتی چهارباغ با طرحی هشتصد هکتاری از سال ۱۳۸۶ در همین پهنه طراحی شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>باغ پرندگان چهارباغ نیز از جاذبه‌های تفریحی این محدوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup> کرج، همسایهٔ شرقی این شهرستان، به روایت دانشنامهٔ بریتانیکا حومهٔ بزرگ تهران و مرکز صنایع فولاد، خودرو، ماشین‌آلات، نساجی و صنایع غذایی است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۳</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چهارباغ در میانهٔ محور کرج–هشتگرد جای دارد؛ برای مسیریابی، <a href=\"https://maps.google.com/?q=Chaharbagh+Alborz+Iran\">نقشهٔ شهرستان چهارباغ در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Chaharbagh+Alborz+Iran\">۵</a></sup> بخش رامجین در بخش جنوبی این پهنه قرار گرفته و باغ‌های آلوی آن شهرت دارد.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Ramejin+Alborz+Iran\">۶</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ سفر در استان، <a href=\"/province/alborz/\">راهنمای استان البرز</a> و دیگر شهرستان‌های آن در دسترس‌اند: <a href=\"/city/sojablogh/\">ساوجبلاغ</a>، <a href=\"/city/nazarabad/\">نظرآباد</a>، <a href=\"/city/karaj/\">کرج</a>، <a href=\"/city/ferdows/\">فردیس</a>، <a href=\"/city/eshtehard/\">اشتهارد</a> و <a href=\"/city/talqan/\">طالقان</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>این شهرستان در ۱۶ آذر ۱۳۹۹ به تصویب دولت رسید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت آن در سرشماری ۱۳۹۵ برابر ۷۷٬۴۰۹ نفر و در برآورد ۱۴۰۳ حدود ۸۵٬۵۰۰ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تنها شهر شهرستان، چهارباغ است و بخش رامجین شهری ندارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر چهارباغ در ۲۳ مرداد ۱۳۸۴ صاحب شهرداری شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>ارتفاع شهر چهارباغ از دریا ۱٬۲۳۱ متر است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>در شهر چهارباغ افزون بر کشاورزی، اداره‌های اداری و خدمات شهری فعال‌اند و همین آن را به کانون اداری دهستان‌های پیرامون بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دهستان چهاردانگه به مرکزیت سنقرآباد و دهستان عرب‌آباد افشار به مرکزیت عرب‌آباد خسروی شناخته می‌شوند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>اغلان تپه و رامجین دو دهستان بخش جنوبی شهرستان‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش‌شمارهٔ تلفن چهارباغ ۰۲۶ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر چهارباغ از شمال به آزادراه کرج–قزوین می‌رسد و از جنوب‌غرب به قوهه محدود می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29\">۲</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان چهارباغ، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ما در <strong>سرزمین آریان</strong> هر روز روی کامل‌تر کردن راهنمای «شهرستان چهارباغ» کار می‌کنیم؛ اما مردم چهارباغ خود بهترین روایتگر این سرزمین‌اند. اگر از باغ‌های قدیم، گلخانه‌ها یا تبدیل شدن چهاردانگه به شهر چیزی می‌دانید، یا اگر در داده‌های این مقاله نکته‌ای برای اصلاح می‌بینید، برایمان بنویسید: <strong>Mail@sarzaminaryan.ir</strong>. نام شما در تکمیل این صفحهٔ مرجع ماندگار خواهد شد. برای ادامهٔ سفر، <a href=\"/province/alborz/\">راهنمای استان البرز</a> را ببینید.</p><!-- /wp:paragraph -->",
+    "word_count": 871
+   },
+   "meta": {
+    "sa_city_slug": "chaharbagh",
+    "sa_city_population": "77409",
+    "sa_city_latitude": "35.8389",
+    "sa_city_longitude": "50.8481",
+    "sa_access_air": "نزدیک‌ترین فرودگاه بین‌المللی، فرودگاه مهرآباد تهران است.",
+    "sa_access_rail": "مسیر ریلی تهران–کرج–تبریز از کنار این پهنه می‌گذرد.",
+    "sa_access_road": "آزادراه کرج–قزوین در شمال شهرستان و جادهٔ قدیم کرج–هشتگرد در میانهٔ آن.",
+    "sa_google_map_url": "https://maps.google.com/?q=Chaharbagh+Alborz+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA\"]",
+    "sa_schema_contained_in": "alborz"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان چهارباغ؛ نگین گل و گیاه استان البرز",
+    "sa_seo_description": "راهنمای شهرستان چهارباغ در استان البرز؛ تأسیس ۱۳۹۹، جمعیت ۷۷٬۴۰۹ (۱۳۹۵) و ۸۵٬۵۰۰ (۱۴۰۳)، دو بخش مرکزی و رامجین، شهر چهارباغ و باغ‌های گل و گیاه.",
+    "sa_focus_keyword": "شهرستان چهارباغ",
+    "sa_og_title": "شهرستان چهارباغ — تازه‌ترین شهرستان استان البرز",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان چهارباغ باید بدانید؛ از رامجین و باغ‌های آلوی آن تا شهرک صنعتی و مزرعه‌های گل."
+   },
+   "secondary_keywords": [
+    "چهارباغ",
+    "رامجین",
+    "سنقرآباد",
+    "اغلان تپه",
+    "گل و گیاه",
+    "قزل‌حصار"
+   ],
+   "travel_season": [
+    "spring",
+    "summer"
+   ],
+   "google_map_url": "https://maps.google.com/?q=Chaharbagh+Alborz+Iran",
+   "faq": [
+    {
+     "q": "شهرستان چهارباغ کجاست؟",
+     "a": "در استان البرز، در دشت میان کرج و ساوجبلاغ؛ آزادراه کرج–قزوین از شمال آن می‌گذرد."
+    },
+    {
+     "q": "شهرستان چهارباغ چه زمانی تأسیس شد؟",
+     "a": "در ۱۶ آذر ۱۳۹۹ با تصویب دولت و با انتزاع از شهرستان ساوجبلاغ؛ هفتمین شهرستان استان البرز."
+    },
+    {
+     "q": "جمعیت شهرستان چهارباغ چقدر است؟",
+     "a": "۷۷٬۴۰۹ نفر در سرشماری ۱۳۹۵ و حدود ۸۵٬۵۰۰ نفر در برآورد ۱۴۰۳."
+    },
+    {
+     "q": "شهرستان چهارباغ چند بخش و چند شهر دارد؟",
+     "a": "دو بخش مرکزی و رامجین، چهار دهستان و تنها یک شهر به نام چهارباغ."
+    },
+    {
+     "q": "مرکز شهرستان چهارباغ چه پیشینه‌ای دارد؟",
+     "a": "از ارتقای روستای چهاردانگه شکل گرفت؛ شهرداری آن از ۲۳ مرداد ۱۳۸۴ آغاز به کار کرد و در تیر ۱۳۸۶ قائمیه و حافظیه به آن الحاق شد."
+    },
+    {
+     "q": "شهرستان چهارباغ به چه چیزی شهرت دارد؟",
+     "a": "به کشاورزی و گل و گیاه؛ در منابع آن را قطب گل و گیاه استان البرز و مهد پرورش گل‌های پامچال خوانده‌اند."
+    },
+    {
+     "q": "بخش رامجین چه ویژگی‌ای دارد؟",
+     "a": "بخش جنوبی شهرستان با مرکزیت رامجین و دو دهستان رامجین و اغلان تپه؛ باغ‌های آلوی آن نام‌آور است."
+    },
+    {
+     "q": "دهستان‌های بخش مرکزی کدام‌اند؟",
+     "a": "چهاردانگه به مرکزیت سنقرآباد و عرب‌آباد افشار به مرکزیت عرب‌آباد خسروی."
+    },
+    {
+     "q": "شهرک صنعتی چهارباغ چه وضعیتی دارد؟",
+     "a": "طرحی هشتصد هکتاری که از سال ۱۳۸۶ در این پهنه طراحی شده است."
+    },
+    {
+     "q": "جاذبه‌های تفریحی شهرستان چیست؟",
+     "a": "در منابع دیده‌شده باغ پرندگان چهارباغ و باغ‌های میوه و گلخانه‌های بخش رامجین برجسته‌اند."
+    },
+    {
+     "q": "بهترین زمان سفر به شهرستان چهارباغ چه زمانی است؟",
+     "a": "بهار و اوایل تابستان؛ هنگام گل‌دهی گلخانه‌ها و باغ‌ها."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان چهارباغ؛ تصویب ۱۳۹۹، تقسیمات، جمعیت و واحدها | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA | 2026-09-30\n2. مقالهٔ چهارباغ (البرز)؛ شهرداری ۱۳۸۴، گل و گیاه، شهرک صنعتی و محدودهٔ شهر | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%DA%86%D9%87%D8%A7%D8%B1%D8%A8%D8%A7%D8%BA_%28%D8%A7%D9%84%D8%A8%D8%B1%D8%B2%29 | 2026-09-30\n3. Karaj (کرج؛ مرکز استان البرز، حومهٔ بزرگ تهران و کانون صناعت) | Encyclopaedia Britannica | https://www.britannica.com/place/Karaj | 2026-09-30\n4. مقالهٔ شهرستان ساوجبلاغ؛ نام‌آوری آلوی شابلون رامجین | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B3%D8%A7%D9%88%D8%AC%D8%A8%D9%84%D8%A7%D8%BA | 2026-09-30\n5. [نقشه] موقعیت شهرستان چهارباغ | Google Maps | https://maps.google.com/?q=Chaharbagh+Alborz+Iran | 2026-09-30\n6. [نقشه] موقعیت بخش رامجین | Google Maps | https://maps.google.com/?q=Ramejin+Alborz+Iran | 2026-09-30\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/chaharbagh.webp",
+    "source": "assets/featured/counties/alborz/chaharbagh.webp",
+    "mime": "image/webp",
+    "alt": "گلخانه‌ها و باغ‌های گل شهرستان چهارباغ با دشت سبز و کوه‌های البرز؛ تصویر شاخص شهرستان چهارباغ",
+    "caption": "مزرعه‌های گل و باغ‌های میوه در دشت چهارباغ؛ تازه‌ترین شهرستان استان البرز.",
+    "title": "شهرستان چهارباغ — سرزمین آریان",
+    "description": "گلخانه‌ها و باغ‌های گل شهرستان چهارباغ با دشت سبز و کوه‌های البرز؛ تصویر شاخص شهرستان چهارباغ",
+    "sha1": "33ee026f684bce207cb2904ec4a4a5fe91252e1e"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-09-30",
+   "source_file": "content/cities/eshtehard.md",
+   "source_sha1": "ec67dda9b75705e965ae4e27fd28f25a6283d047",
+   "slug": "eshtehard",
+   "status": "article",
+   "title": "شهرستان اشتهارد",
+   "name_fa": "شهرستان اشتهارد",
+   "name_en": "Eshtehard County",
+   "province": {
+    "slug": "alborz",
+    "name_fa": "استان البرز",
+    "term_name": "البرز"
+   },
+   "post": {
+    "title": "شهرستان اشتهارد",
+    "excerpt": "شهرستان اشتهارد در جنوب البرز جای دارد؛ دشتی گرم و خشک که باغ‌های پسته و کارگاه‌های صنعتی، چهرهٔ آن را ساخته‌اند.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان اشتهارد؛ سرزمین پسته و صنعت استان البرز</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان اشتهارد</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان اشتهارد</strong> با مرکزیت شهر اشتهارد یکی از شهرستان‌های <a href=\"/province/alborz/\">استان البرز</a> است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> امتیازهای ویژهٔ این شهرستان را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>دروازهٔ جنوبی استان</strong>؛ پهنه‌ای که از یک سو به دامنه‌های البرز و از سوی دیگر به حاشیهٔ خشک‌ترین بیابان‌های ایران می‌رسد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>قطب پسته</strong>؛ ارقام احمدآقایی، اکبری و کله‌قوچی در باغ‌های پستهٔ این دشت کشت می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>شهرک صنعتی بزرگ</strong>؛ در منبع، از اشتهارد به‌عنوان دارندهٔ بزرگ‌ترین شهرک صنعتی ایران یاد شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دو شهر</strong>؛ اشتهارد و پلنگ‌آباد دو شهر این شهرستان‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>زبان تاتی</strong>؛ تات‌ها و ترک‌ها اکثریت ساکنان را می‌سازند و به تاتی و ترکی سخن می‌گویند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>شهرستان اشتهارد از خرداد ۱۳۹۱ با ارتقای یکی از بخش‌های شهرستان <a href=\"/city/karaj/\">کرج</a> شکل گرفت و امروز پسته، پنبه و صنعت، سه ستون اقتصاد آن‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت</td><td>۳۷٬۸۷۶ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></td></tr><tr><td>جمعیت پیشین و برآورد</td><td>۲۳٬۵۰۰ نفر (۱۳۹۰) · ۴۶٬۸۷۶ نفر (۱۴۰۳)</td><td>جدول جمعیت تاریخی منبع<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۹۱</td><td>خرداد ۱۳۹۱، ارتقا از بخش کرج<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></td></tr><tr><td>بارش سالانه</td><td>۱۸۰ میلی‌متر</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش · ۴ دهستان · ۲ شهر</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></td></tr><tr><td>مختصات مرکز</td><td>حدود ۳۵٫۷۳ شمالی و ۵۰٫۳۶ شرقی</td><td>به روایت نقشه<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Eshtehard+Alborz+Iran\">۳</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت و آب‌وهوا</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>استان البرز با سلسله‌کوه‌های خود زمستان‌های سرد و تابستان‌های معتدل دارد؛ اما جنوب استان به دلیل مجاورت با دشت، آب و هوایی بسیار خشک یافته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> شهرستان اشتهارد نیز در همین پهنهٔ خشک جنوبی جای دارد و بارش سالانهٔ آن ۱۸۰ میلی‌متر ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> کرج، کلانشهر مجاور، به روایت دانشنامهٔ بریتانیکا در دامنه‌های جنوبی البرز و در حومهٔ بزرگ تهران جای دارد و کانون صنایع فولاد، خودرو، ماشین‌آلات و نساجی است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه و تأسیس</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرداری شهر اشتهارد در سال ۱۳۳۱ تأسیس شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> این شهرستان تا خرداد ۱۳۹۱ یکی از بخش‌های شهرستان کرج بود و در این تاریخ به شهرستان ارتقا یافت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> خبر ارتقای آن در ۲۱ خرداد ۱۳۹۱ در پایگاه اطلاع‌رسانی دولت منتشر شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> در سال‌های بعد، همراه با جدایی <a href=\"/city/ferdows/\">فردیس</a> در ۱۳۹۲، چهرهٔ تقسیمات جنوب البرز دگرگون شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان اشتهارد شامل دو بخش، چهار دهستان و دو شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>بخش مرکزی</strong> با دهستان‌های ایپک و صحت‌آباد و شهر اشتهارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>بخش پلنگ‌آباد</strong> با دهستان‌های پلنگ‌آباد و جارو و شهر پلنگ‌آباد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>شهر پلنگ‌آباد در بخش جنوبی همین پهنه جای دارد.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Palangabad+Eshtehard+Alborz+Iran\">۴</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">صنعت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در منبع دیده‌شده، اشتهارد دارندهٔ بزرگ‌ترین شهرک صنعتی ایران دانسته شده و وجود مجتمع‌های صنعتی خرمدشت، حیدریه، لیا، آراسنج و دانسفهان و چند کارخانهٔ بزرگ، به صنعت و اشتغال منطقه رونق داده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> همجواری شهرک صنعتی بزرگ اشتهارد با شهر بوئین‌زهرا نیز در همین منبع برجسته شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> موقعیت این شهرک صنعتی را روی نقشه ببینید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Eshtehard+Industrial+Estate+Alborz+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">کشاورزی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>پسته یکی از محصولات کشاورزی شاخص این شهرستان است و رقم‌های احمدآقایی، اکبری و کله‌قوچی در آن کشت می‌شود؛ اقلیم اشتهارد برای کشت پسته مناسب دانسته شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> پنبه نیز در مزارع این شهرستان به دست می‌آید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> در اطلاعات به‌دست‌آمده، این شهرستان مهاجرنشینی بالایی دارد و جمعیتش در دههٔ گذشته رشدی چشمگیر را تجربه کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">زبان و مردم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اکثریت ساکنان این شهرستان را تات‌ها و ترک‌ها تشکیل می‌دهند که به زبان تاتی و ترکی صحبت می‌کنند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> گویش‌های تاتی جنوبی در پژوهش‌های زبان‌شناسی، از جمله در اثر احسان یارشاطر، بررسی شده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup> آبادی‌های بخش مرکزی مانند صحت‌آباد و ایپک، از کانون‌های همین گویش‌ها به شمار می‌آیند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان اشتهارد در جنوب استان البرز و در مسیر تهران–بوئین‌زهرا گسترده است؛ برای مسیریابی، <a href=\"https://maps.google.com/?q=Eshtehard+Alborz+Iran\">نقشهٔ شهرستان اشتهارد در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Eshtehard+Alborz+Iran\">۳</a></sup> شهر پلنگ‌آباد و شهرک صنعتی در همین محدوده جای دارند.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Palangabad+Eshtehard+Alborz+Iran\">۴</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ سفر در استان، <a href=\"/province/alborz/\">راهنمای استان البرز</a> و شهرستان‌های دیگر آن در دسترس‌اند: <a href=\"/city/karaj/\">کرج</a>، <a href=\"/city/ferdows/\">فردیس</a>، <a href=\"/city/sojablogh/\">ساوجبلاغ</a>، <a href=\"/city/nazarabad/\">نظرآباد</a>، <a href=\"/city/chaharbagh/\">چهارباغ</a> و <a href=\"/city/talqan/\">طالقان</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>شهرستان اشتهارد در خرداد ۱۳۹۱ به شهرستان ارتقا یافت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرداری شهر اشتهارد از سال ۱۳۳۱ فعالیت دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان از ۲۳٬۵۰۰ نفر (۱۳۹۰) به ۳۷٬۸۷۶ نفر (۱۳۹۵) رسید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بارش سالانهٔ آن ۱۸۰ میلی‌متر ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دو بخش مرکزی و پلنگ‌آباد و دو شهر اشتهارد و پلنگ‌آباد دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>در منابع، از آن با عنوان دارندهٔ بزرگ‌ترین شهرک صنعتی ایران یاد شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کشت پسته در ارقام احمدآقایی، اکبری و کله‌قوچی در آن رایج است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پنبه نیز از محصولات کشاورزی آن است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تات‌ها و ترک‌ها اکثریت مردم را می‌سازند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دهستان‌های شهرستان ایپک، صحت‌آباد، پلنگ‌آباد و جارو هستند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان اشتهارد، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ما در <strong>سرزمین آریان</strong> هر روز روی کامل‌تر کردن راهنمای «شهرستان اشتهارد» کار می‌کنیم؛ اما مردم اشتهارد خود بهترین روایتگر این سرزمین‌اند. اگر از باغ‌های پسته، گویش تاتی یا خاطرات کار در شهرک صنعتی چیزی می‌دانید، یا اگر در داده‌های این مقاله نکته‌ای برای اصلاح می‌بینید، برایمان بنویسید: <strong>Mail@sarzaminaryan.ir</strong>. نام شما در تکمیل این صفحهٔ مرجع ماندگار خواهد شد. برای ادامهٔ سفر، <a href=\"/province/alborz/\">راهنمای استان البرز</a> را ببینید.</p><!-- /wp:paragraph -->",
+    "word_count": 814
+   },
+   "meta": {
+    "sa_city_slug": "eshtehard",
+    "sa_city_population": "37876",
+    "sa_city_latitude": "35.7256",
+    "sa_city_longitude": "50.3639",
+    "sa_access_air": "نزدیک‌ترین فرودگاه بین‌المللی، فرودگاه مهرآباد تهران است.",
+    "sa_access_rail": "راه‌آهن تهران–تبریز از حاشیهٔ این پهنه می‌گذرد.",
+    "sa_access_road": "آزادراه تهران–تبریز و جادهٔ قدیم کرج–اشتهارد–بوئین‌زهرا.",
+    "sa_google_map_url": "https://maps.google.com/?q=Eshtehard+Alborz+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF\"]",
+    "sa_schema_contained_in": "alborz"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان اشتهارد؛ سرزمین پسته و صنعت استان البرز",
+    "sa_seo_description": "راهنمای شهرستان اشتهارد در استان البرز؛ تأسیس ۱۳۹۱، جمعیت ۳۷٬۸۷۶ (۱۳۹۵)، پسته و پنبه، بزرگ‌ترین شهرک صنعتی و زبان تاتی.",
+    "sa_focus_keyword": "شهرستان اشتهارد",
+    "sa_og_title": "شهرستان اشتهارد — دشت پسته و کارگاه‌های صنعت",
+    "sa_og_description": "هر آنچه پیش از سفر یا آشنایی با شهرستان اشتهارد باید بدانید؛ از باغ‌های پسته تا مجتمع‌های صنعتی و دهستان‌های ایپک و صحت‌آباد."
+   },
+   "secondary_keywords": [
+    "اشتهارد",
+    "پلنگ‌آباد",
+    "شهرک صنعتی",
+    "پسته",
+    "تاتی",
+    "صحت‌آباد"
+   ],
+   "travel_season": [
+    "spring",
+    "autumn"
+   ],
+   "google_map_url": "https://maps.google.com/?q=Eshtehard+Alborz+Iran",
+   "faq": [
+    {
+     "q": "شهرستان اشتهارد کجاست؟",
+     "a": "در جنوب استان البرز، در دشت میان کرج و بوئین‌زهرا و در حاشیهٔ پهنهٔ خشک جنوبی استان."
+    },
+    {
+     "q": "شهرستان اشتهارد چه زمانی تأسیس شد؟",
+     "a": "در خرداد ۱۳۹۱؛ پیش از آن یکی از بخش‌های شهرستان کرج بود."
+    },
+    {
+     "q": "جمعیت شهرستان اشتهارد چقدر است؟",
+     "a": "۳۷٬۸۷۶ نفر در سرشماری ۱۳۹۵؛ در ۱۳۹۰ حدود ۲۳٬۵۰۰ نفر و در برآورد ۱۴۰۳ حدود ۴۶٬۸۷۶ نفر."
+    },
+    {
+     "q": "شهرهای شهرستان کدام‌اند؟",
+     "a": "اشتهارد و پلنگ‌آباد."
+    },
+    {
+     "q": "بخش‌ها و دهستان‌های شهرستان کدام‌اند؟",
+     "a": "بخش مرکزی با دهستان‌های ایپک و صحت‌آباد، و بخش پلنگ‌آباد با دهستان‌های پلنگ‌آباد و جارو."
+    },
+    {
+     "q": "مهم‌ترین محصول کشاورزی اشتهارد چیست؟",
+     "a": "پسته؛ با ارقام احمدآقایی، اکبری و کله‌قوچی. پنبه نیز در آن کشت می‌شود."
+    },
+    {
+     "q": "شهرک صنعتی اشتهارد چه جایگاهی دارد؟",
+     "a": "در منبع دیده‌شده، اشتهارد دارندهٔ بزرگ‌ترین شهرک صنعتی ایران دانسته شده است."
+    },
+    {
+     "q": "زبان مردم اشتهارد چیست؟",
+     "a": "تاتی و ترکی؛ تات‌ها و ترک‌ها اکثریت ساکنان را تشکیل می‌دهند."
+    },
+    {
+     "q": "آب‌وهوای اشتهارد چگونه است؟",
+     "a": "گرم و خشک با بارش سالانهٔ ۱۸۰ میلی‌متر؛ در حالی که ارتفاعات البرز زمستان‌های سرد دارند."
+    },
+    {
+     "q": "شهرداری اشتهارد از چه سالی فعال است؟",
+     "a": "از سال ۱۳۳۱."
+    },
+    {
+     "q": "بهترین زمان سفر به شهرستان اشتهارد چه زمانی است؟",
+     "a": "بهار و پاییز؛ تابستان‌های دشت خشک آن گرم است."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان اشتهارد؛ تأسیس ۱۳۹۱، تقسیمات، جمعیت، پسته، پنبه و صنعت | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A7%D8%B4%D8%AA%D9%87%D8%A7%D8%B1%D8%AF | 2026-09-30\n2. Karaj (کرج؛ دامنه‌های البرز، حومهٔ تهران و کانون صناعت) | Encyclopaedia Britannica | https://www.britannica.com/place/Karaj | 2026-09-30\n3. [نقشه] موقعیت شهرستان اشتهارد | Google Maps | https://maps.google.com/?q=Eshtehard+Alborz+Iran | 2026-09-30\n4. [نقشه] موقعیت شهر پلنگ‌آباد | Google Maps | https://maps.google.com/?q=Palangabad+Eshtehard+Alborz+Iran | 2026-09-30\n5. [نقشه] موقعیت شهرک صنعتی اشتهارد | Google Maps | https://maps.google.com/?q=Eshtehard+Industrial+Estate+Alborz+Iran | 2026-09-30\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/eshtehard.webp",
+    "source": "assets/featured/counties/alborz/eshtehard.webp",
+    "mime": "image/webp",
+    "alt": "باغ‌های پسته و شهرک صنعتی شهرستان اشتهارد در دشت جنوبی البرز؛ تصویر شاخص شهرستان اشتهارد",
+    "caption": "از باغ‌های پسته تا سوله‌های صنعتی؛ چهرهٔ دوگانهٔ اشتهارد.",
+    "title": "شهرستان اشتهارد — سرزمین آریان",
+    "description": "باغ‌های پسته و شهرک صنعتی شهرستان اشتهارد در دشت جنوبی البرز؛ تصویر شاخص شهرستان اشتهارد",
+    "sha1": "0f1fa3aede45834d1e5d616ceb0d03c1560d43d7"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-09-30",
+   "source_file": "content/cities/talqan.md",
+   "source_sha1": "2f52f9fb5587c9528915fa359c6acb12675e5d56",
+   "slug": "talqan",
+   "status": "article",
+   "title": "شهرستان طالقان",
+   "name_fa": "شهرستان طالقان",
+   "name_en": "Taleghan County",
+   "province": {
+    "slug": "alborz",
+    "name_fa": "استان البرز",
+    "term_name": "البرز"
+   },
+   "post": {
+    "title": "شهرستان طالقان",
+    "excerpt": "شهرستان طالقان کوهستانی‌ترین شهرستان استان البرز است؛ سرزمین رود شاه‌رود، دریاچهٔ سد، روستاهای کهن و زیستگاه پلنگ ایرانی.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان طالقان؛ سرزمین کوهستان و چشمه‌های البرز</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان طالقان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان طالقان</strong> به مرکزیت شهر طالقان یکی از شهرستان‌های <a href=\"/province/alborz/\">استان البرز</a> است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> امتیازهای ویژهٔ این شهرستان را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>کوهستانی‌ترین شهرستان استان</strong>؛ منطقه‌ای با کوه‌های بلند، یخچال‌های طبیعی و چشمه‌سارها.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>رود شاه‌رود</strong>؛ رگ حیاتی منطقه با طولی نزدیک به ۱۰۵ کیلومتر که بیش از ۱۵ رودخانهٔ کوچک و بزرگ را با خود می‌برد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دریاچهٔ سد طالقان</strong>؛ سد مخزنی افتتاح‌شده در شهریور ۱۳۸۵ با ظرفیت ۴۲۰ میلیون متر مکعب.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>زیستگاه پلنگ ایرانی</strong>؛ محیط‌بانان از دو پلنگ ایرانی نر و ماده در کوه‌های طالقان تصویربرداری کرده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>حدود ۸۶ روستا</strong>؛ سرزمینی پرروستا با معماری پلکانی و بافت کهن.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>شهرستان طالقان با مرکزیت طالقان و شهر جوستان، در ۹۰ کیلومتری کرج و ۱۳۳ کیلومتری تهران جای گرفته و در دامنه‌های سرسبز البرز نفس می‌کشد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت</td><td>۱۶٬۸۱۵ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>جمعیت پیشین</td><td>۲۵٬۷۸۱ نفر (۱۳۸۵) · ۲۶٬۹۷۶ نفر (۱۳۹۰)</td><td>به روایت متن منبع<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>مساحت</td><td>حدود ۱٬۲۰۰ کیلومتر مربع</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۸۹</td><td>هم‌زمان با تشکیل استان البرز<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>شمار آبادی‌ها</td><td>حدود ۸۶ روستا</td><td><sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>مختصات</td><td>حدود ۳۶٫۲۰ شمالی و ۵۰٫۷۸ شرقی</td><td>به روایت نقشه<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Taleghan+Alborz+Iran\">۳</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان طالقان از شمال با استان مازندران، از شمال‌غربی با منطقهٔ الموت، از جنوب با <a href=\"/city/sojablogh/\">ساوجبلاغ</a> و از جنوب‌غربی با شهرستان آبیک هم‌جوار است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> این ناحیه پیش از تشکیل استان البرز جزئی از استان تهران بود و فاصلهٔ آن با تهران ۱۳۳ کیلومتر است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> کرج، کلانشهر نزدیک به طالقان، به روایت دانشنامهٔ بریتانیکا شهری در دامنه‌های البرز و از حومه‌های بزرگ تهران است.<sup class=\"sa-cite\"><a href=\"https://www.britannica.com/place/Karaj\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان طالقان از دو بخش مرکزی و بالا طالقان و چهار دهستان جوستان، کنارود، پایین طالقان و میان طالقان تشکیل شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> شهرهای آن طالقان و جوستان‌اند؛ جوستان در بخش شمالی پهنه جای دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup><sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Jovestan+Alborz+Iran\">۴</a></sup> همین پراکندگی روستاهاست که طالقان را به سرزمینی با حدود ۸۶ آبادی بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">عوارض طبیعی</h2><!-- /wp:heading -->\n\n<!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\">شاه‌رود و آبشارها</h3><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شاه‌رود از کوهپایه‌های شرقی آغاز می‌شود و با طولی نزدیک به ۱۰۵ کیلومتر به سمت غرب می‌رود؛ این شریان آبی بیش از ۱۵ رودخانهٔ کوچک و بزرگ را همراه خود تا سپیدرود می‌برد تا با آب‌های قزل‌اوزن آمیخته و راهی دریای خزر شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> دو آبشار در روستاهای اوچان و جوستان و آبشارهایی در اورازان، کرکبود، آسکان و عسلک جریان دارند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> دو چشمهٔ آب معدنی در عسلک و لمبران («سه کوچ») و یک چشمهٔ آب معدنی شرب در جوستان، از نقاط تفرجی طالقان به شمار می‌آیند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading {\"level\":3} --><h3 class=\"wp-block-heading\">کوه‌ها و گسل</h3><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شاه‌البرز رشته‌کوه و قله‌ای به ارتفاع حدود ۴٬۲۰۰ متر است که مرز طبیعی استان‌های البرز و قزوین را می‌سازد؛ دامنهٔ جنوبی آن به طالقان و دامنهٔ شمالی آن به درهٔ الموت مشرف است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> علم‌کوه با ارتفاع ۴٬۸۵۰ متر، دومین قلهٔ مرتفع ایران، از جبههٔ جنوبی به شهرستان طالقان مشرف است و نزدیک‌ترین روستای طالقان به آن، پراچان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> گسل طالقان در بخش جنوبی البرز مرکزی، طولی نزدیک به ۷۰ کیلومتر دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> زمین‌لرزهٔ ویرانگر ۷٫۷ ریشتری سال ۹۵۸ میلادی که به ویرانی گستردهٔ ری و طالقان انجامید، به همین گسل نسبت داده شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">سد و دریاچهٔ طالقان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>سد مخزنی طالقان در پنجم شهریور ۱۳۸۵ افتتاح شد؛ این سد با ظرفیت ۴۲۰ میلیون متر مکعب روی شاه‌رود ساخته شده و دریاچهٔ آن چهرهٔ تازه‌ای به منطقه بخشیده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> نزدیک به ۹۰۰ لیتر بر ثانیه آب شرب شهر کرج از طریق انتقال ثقلی آب این سد به تصفیه‌خانهٔ محمودآباد کرج می‌رسد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> در این سد ۱۰۰ میلیون متر مکعب حجم مرده ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> چهرهٔ دریاچه و پیرامون آن را روی نقشه ببینید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Taleghan+Dam+Lake+Alborz+Iran\">۵</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مردم، دین و زبان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>جمعیت این شهرستان در سرشماری ۱۳۹۵ برابر ۱۶٬۸۱۵ نفر ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> آیین مردم طالقان تا قرن سوم هجری زرتشتی بود؛ سپس پیرو زیدیه شدند و از دورهٔ صفویه بیشترشان شیعهٔ دوازده‌امامی گشتند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> طالقانی‌ها به زبان مازندرانی و فارسی به‌عنوان زبان دوم سخن می‌گویند و مردم روستای میناوند به ترکی آذری؛ در منابع، گویش‌های طبری و تاتی طالقانی نیز بررسی شده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> ریشهٔ نام را دهخدا «تالکان» دانسته و آن را معرب شمرده است: نام ولایتی در حوالی قزوین که سنگ «تلک» سفید و براق در آن یافته می‌شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حیات وحش</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در منطقهٔ طالقان گونه‌هایی چون کل و بز وحشی، گربهٔ وحشی، خرس، گراز و گرگ و انواع پرندگان زندگی می‌کنند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> محیط‌بانان موفق به مشاهده، عکس‌برداری و فیلم‌برداری از دو پلنگ ایرانی نر و ماده در کوه‌های طالقان شده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup> همین زیستگاه‌ها، ارزش‌های تفرجگاهی و طبیعی طالقان را دوچندان کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان طالقان در شمال‌غربی استان البرز جای دارد؛ برای مسیریابی، <a href=\"https://maps.google.com/?q=Taleghan+Alborz+Iran\">نقشهٔ شهرستان طالقان در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Taleghan+Alborz+Iran\">۳</a></sup> روستای پراچان، نزدیک‌ترین آبادی طالقان به علم‌کوه، در همین نقشه دیده می‌شود.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Parachan+Taleghan+Alborz+Iran\">۶</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ سفر در استان، <a href=\"/province/alborz/\">راهنمای استان البرز</a> و شهرستان‌های دیگر آن در دسترس‌اند: <a href=\"/city/sojablogh/\">ساوجبلاغ</a>، <a href=\"/city/karaj/\">کرج</a>، <a href=\"/city/nazarabad/\">نظرآباد</a>، <a href=\"/city/chaharbagh/\">چهارباغ</a>، <a href=\"/city/ferdows/\">فردیس</a> و <a href=\"/city/eshtehard/\">اشتهارد</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>شهرستان طالقان با تشکیل استان البرز در سال ۱۳۸۹ شکل گرفت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت آن حدود ۱٬۲۰۰ کیلومتر مربع و شمار آبادی‌هایش نزدیک به ۸۶ روستا است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دو شهر دارد: طالقان و جوستان.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>سد طالقان ۴۲۰ میلیون متر مکعب ظرفیت دارد و در شهریور ۱۳۸۵ افتتاح شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شاه‌رود با ۱۰۵ کیلومتر طول، بیش از ۱۵ رودخانهٔ منطقه را با خود می‌برد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شاه‌البرز با ارتفاع حدود ۴٬۲۰۰ متر مرز البرز و قزوین است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>علم‌کوه با ۴٬۸۵۰ متر، دومین قلهٔ بلند ایران، از طالقان دیده می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>گسل طالقان نزدیک به ۷۰ کیلومتر طول دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تا قرن سوم هجری، آیین مردم طالقان زرتشتی بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دو پلنگ ایرانی در کوه‌های طالقان مشاهده و ثبت تصویری شده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دهستان‌های آن جوستان، کنارود، پایین طالقان و میان طالقان‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان طالقان، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>ما در <strong>سرزمین آریان</strong> هر روز روی کامل‌تر کردن راهنمای «شهرستان طالقان» کار می‌کنیم؛ اما مردم طالقان خود بهترین روایتگر این سرزمین‌اند. اگر از روستاهای پلکانی، گویش طالقانی، خاطرات کوچ یا چشمه‌های کوهستان چیزی می‌دانید، یا اگر در داده‌های این مقاله نکته‌ای برای اصلاح می‌بینید، برایمان بنویسید: <strong>Mail@sarzaminaryan.ir</strong>. نام شما در تکمیل این صفحهٔ مرجع ماندگار خواهد شد. برای ادامهٔ سفر، <a href=\"/province/alborz/\">راهنمای استان البرز</a> را ببینید.</p><!-- /wp:paragraph -->",
+    "word_count": 1017
+   },
+   "meta": {
+    "sa_city_slug": "talqan",
+    "sa_city_population": "16815",
+    "sa_city_latitude": "36.2000",
+    "sa_city_longitude": "50.7833",
+    "sa_access_air": "نزدیک‌ترین فرودگاه بین‌المللی، فرودگاه مهرآباد تهران است.",
+    "sa_access_rail": "راه‌آهن تهران–تبریز در آبیک و قزوین، نزدیک‌ترین ایستگاه‌ها را دارد.",
+    "sa_access_road": "دو مسیر از آزادراه تهران–کرج منشعب می‌شود؛ مسیر کردان–طالقان نیز در دست ساخت است.",
+    "sa_google_map_url": "https://maps.google.com/?q=Taleghan+Alborz+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86\"]",
+    "sa_schema_contained_in": "alborz"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان طالقان؛ سرزمین کوهستان و چشمه‌های البرز",
+    "sa_seo_description": "راهنمای شهرستان طالقان در استان البرز؛ تأسیس ۱۳۸۹، جمعیت ۱۶٬۸۱۵ (۱۳۹۵)، شاه‌رود، سد طالقان، شاه‌البرز و حیات وحش البرز.",
+    "sa_focus_keyword": "شهرستان طالقان",
+    "sa_og_title": "شهرستان طالقان — کوهستان چشمه‌ها",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان طالقان باید بدانید؛ از دریاچهٔ سد و رود شاه‌رود تا روستاهای کهن و حیات وحش البرز."
+   },
+   "secondary_keywords": [
+    "طالقان",
+    "جوستان",
+    "شاه‌رود",
+    "شاه‌البرز",
+    "گسل طالقان",
+    "پلنگ ایرانی"
+   ],
+   "travel_season": [
+    "summer",
+    "autumn"
+   ],
+   "google_map_url": "https://maps.google.com/?q=Taleghan+Alborz+Iran",
+   "faq": [
+    {
+     "q": "شهرستان طالقان کجاست؟",
+     "a": "در شمال‌غربی استان البرز؛ از شمال به مازندران، از شمال‌غربی به الموت، از جنوب به ساوجبلاغ و از جنوب‌غربی به آبیک محدود می‌شود."
+    },
+    {
+     "q": "شهرستان طالقان چه زمانی تأسیس شد؟",
+     "a": "در سال ۱۳۸۹ هم‌زمان با تشکیل استان البرز؛ پیش از آن جزئی از استان تهران بود."
+    },
+    {
+     "q": "جمعیت شهرستان طالقان چقدر است؟",
+     "a": "۱۶٬۸۱۵ نفر در سرشماری ۱۳۹۵؛ منبع، جمعیت ۱۳۸۵ را ۲۵٬۷۸۱ نفر و ۱۳۹۰ را ۲۶٬۹۷۶ نفر ثبت کرده است."
+    },
+    {
+     "q": "شهرهای شهرستان طالقان کدام‌اند؟",
+     "a": "طالقان و جوستان."
+    },
+    {
+     "q": "بخش‌ها و دهستان‌های طالقان کدام‌اند؟",
+     "a": "دو بخش مرکزی و بالا طالقان، و چهار دهستان جوستان، کنارود، پایین طالقان و میان طالقان."
+    },
+    {
+     "q": "شاه‌رود چه ویژگی‌ای دارد؟",
+     "a": "رودی با طول نزدیک به ۱۰۵ کیلومتر که بیش از ۱۵ رودخانهٔ منطقه را همراه می‌برد و به سپیدرود و قزل‌اوزن می‌پیوندد."
+    },
+    {
+     "q": "سد طالقان چه مشخصاتی دارد؟",
+     "a": "سد مخزنی روی شاه‌رود با ظرفیت ۴۲۰ میلیون متر مکعب که در ۵ شهریور ۱۳۸۵ افتتاح شد."
+    },
+    {
+     "q": "بلندترین ارتفاعات طالقان کدام‌اند؟",
+     "a": "شاه‌البرز با حدود ۴٬۲۰۰ متر و علم‌کوه با ۴٬۸۵۰ متر که از جبههٔ جنوبی به طالقان مشرف است."
+    },
+    {
+     "q": "مردم طالقان به چه زبانی سخن می‌گویند؟",
+     "a": "مازندرانی و فارسی به‌عنوان زبان دوم؛ مردم روستای میناوند به ترکی آذری سخن می‌گویند."
+    },
+    {
+     "q": "حیات وحش طالقان چگونه است؟",
+     "a": "زیستگاه کل و بز وحشی، گربهٔ وحشی، خرس، گراز، گرگ و پرندگان؛ محیط‌بانان از دو پلنگ ایرانی نیز تصویربرداری کرده‌اند."
+    },
+    {
+     "q": "بهترین زمان سفر به شهرستان طالقان چه زمانی است؟",
+     "a": "تابستان و پاییز؛ فصل‌هایی که جاده‌های کوهستانی و دریاچهٔ سد برای گشت مناسب‌ترند."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان طالقان؛ تأسیس ۱۳۸۹، تقسیمات، شاه‌رود، سد، مردم و حیات وحش | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%B7%D8%A7%D9%84%D9%82%D8%A7%D9%86 | 2026-09-30\n2. Karaj (کرج؛ دامنه‌های البرز، حومهٔ تهران) | Encyclopaedia Britannica | https://www.britannica.com/place/Karaj | 2026-09-30\n3. [نقشه] موقعیت شهرستان طالقان | Google Maps | https://maps.google.com/?q=Taleghan+Alborz+Iran | 2026-09-30\n4. [نقشه] موقعیت شهر جوستان | Google Maps | https://maps.google.com/?q=Jovestan+Alborz+Iran | 2026-09-30\n5. [نقشه] دریاچهٔ سد طالقان | Google Maps | https://maps.google.com/?q=Taleghan+Dam+Lake+Alborz+Iran | 2026-09-30\n6. [نقشه] موقعیت روستای پراچان | Google Maps | https://maps.google.com/?q=Parachan+Taleghan+Alborz+Iran | 2026-09-30\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/talqan.webp",
+    "source": "assets/featured/counties/alborz/talqan.webp",
+    "mime": "image/webp",
+    "alt": "دریاچهٔ سد طالقان و کوه‌های شاه‌البرز با روستاهای دامنه؛ تصویر شاخص شهرستان طالقان",
+    "caption": "دریاچه، روستاهای پلکانی و قله‌های البرز؛ سیمای شهرستان طالقان.",
+    "title": "شهرستان طالقان — سرزمین آریان",
+    "description": "دریاچهٔ سد طالقان و کوه‌های شاه‌البرز با روستاهای دامنه؛ تصویر شاخص شهرستان طالقان",
+    "sha1": "ead1a42ee147d80d22c592511325c6605ff9d6ec"
+   }
+  }
+ ]
+}
