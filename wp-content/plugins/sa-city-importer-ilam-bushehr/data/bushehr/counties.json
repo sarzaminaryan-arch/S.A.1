@@ -1,0 +1,78 @@
+{
+ "format": "1.0",
+ "built": "2026-09-30",
+ "counties": [
+  {
+   "title": "بوشهر (مرکز استان)",
+   "slug": "bushehr-city",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "برازجان",
+   "slug": "borazjan",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "بندر گناوه",
+   "slug": "ganaveh",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "خورموج",
+   "slug": "khormoj",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "بندر کنگان",
+   "slug": "kangan",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "عسلویه",
+   "slug": "asaluyeh",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "جم",
+   "slug": "jam",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "اهرم",
+   "slug": "ahram",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "بندر دیر",
+   "slug": "deyr",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "بندر دیلم",
+   "slug": "deylam",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "شهرستان بوشهر",
+   "slug": "bushehr-county",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  },
+  {
+   "title": "شهرستان دشتستان",
+   "slug": "dashtestan",
+   "province": "bushehr",
+   "province_name": "بوشهر"
+  }
+ ]
+}
