@@ -1,19 +1,36 @@
 /* Sarzamin Aryan Child — layout for the travel encyclopedia. Logical properties only (RTL-safe). */
 
 :root {
+	/* v2.4 visual system: one navy family, with light blue only for soft surfaces/search. */
+	--sa-navy-950: #071a30;
+	--sa-navy-900: #0b2a4a;
+	--sa-navy-800: #123f73;
+	--sa-navy-700: #18558f;
+	--sa-navy-600: #246da8;
+	--sa-navy-300: #8eb9e3;
+	--sa-navy-200: #bdd8f1;
+	--sa-navy-100: #dcecff;
+	--sa-navy-50: #f0f7ff;
+	--sa-light-blue: #d9edff;
 	--sa-radius-lg: 16px;
-	--sa-shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
-	--sa-shadow-hover: 0 12px 32px rgba(15, 23, 42, 0.14);
-	--sa-shadow-deep: 0 1px 2px rgba(15, 23, 42, 0.05), 0 14px 26px -12px rgba(15, 23, 42, 0.26), 0 34px 60px -30px rgba(15, 23, 42, 0.42);
-	--sa-surface-2: #eef6f8;
+	--sa-shadow: 0 8px 24px rgba(11, 42, 74, 0.12);
+	--sa-shadow-hover: 0 16px 36px rgba(11, 42, 74, 0.2);
+	--sa-shadow-deep: 0 2px 0 rgba(255, 255, 255, 0.95) inset, 0 2px 0 rgba(11, 42, 74, 0.2), 0 14px 24px -10px rgba(11, 42, 74, 0.34), 0 34px 58px -28px rgba(7, 26, 48, 0.5);
+	--sa-surface-2: #edf5ff;
+	/* Override the parent turquoise/terracotta palette across the front end. */
+	--color-primary: var(--sa-navy-800);
+	--color-primary-dark: var(--sa-navy-950);
+	--color-accent: var(--sa-navy-600);
+	--color-secondary: #49627a;
+	--color-bg: #ffffff;
+	--color-surface: #f5f9ff;
+	--color-text: #102a43;
+	--color-link: var(--sa-navy-800);
+	--color-link-hover: var(--sa-navy-950);
+	--color-border: #c9daea;
+	--focus-ring: 0 0 0 3px rgba(36, 109, 168, 0.32);
 	/* min(…,100%): روی صفحه‌های موبایل متن تمام‌عرض باشد (۷۲ch خام ستون خالی می‌ساخت) */
 	--sa-max-text: min(72ch, 100%);
-	--sa-green-700: #15803d;
-	--sa-green-600: #16a34a;
-	--sa-green-300: #86efac;
-	--sa-green-200: #bbf7d0;
-	--sa-green-100: #dcfce7;
-	--sa-green-50: #f0fdf4;
 }
 
 /* ---------- Header extras ---------- */
@@ -104,7 +121,7 @@
 
 .sa-hero {
 	position: relative;
-	background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #2a9db8 100%);
+	background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 60%, #246da8 100%);
 	color: #fff;
 	padding: clamp(3rem, 8vw, 6rem) 0 clamp(3rem, 7vw, 5rem);
 	overflow: hidden;
@@ -127,7 +144,7 @@
 	content: '';
 	position: absolute;
 	inset: 0;
-	background: linear-gradient(180deg, rgba(21, 94, 117, 0.75), rgba(21, 94, 117, 0.9));
+	background: linear-gradient(180deg, rgba(18, 63, 115, 0.78), rgba(7, 26, 48, 0.92));
 }
 
 .sa-hero__inner {
@@ -582,9 +599,9 @@
 	font-size: 1.45rem;
 	margin: 2.6rem 0 1.3rem;
 	padding: 0.8rem 1.2rem;
-	background: linear-gradient(160deg, #ffffff 0%, #f4fbf7 55%, #e9f6ef 100%);
-	border: 1px solid var(--sa-green-200);
-	border-inline-start: 5px solid var(--sa-green-600);
+	background: linear-gradient(160deg, #ffffff 0%, #edf6ff 55%, #dcecff 100%);
+	border: 1px solid var(--sa-navy-200);
+	border-inline-start: 5px solid var(--sa-navy-600);
 	border-radius: 14px;
 	box-shadow: var(--sa-shadow-deep);
 }
@@ -593,7 +610,7 @@
 	border-radius: 12px;
 }
 
-/* Tables — green scheme: strong-green header, alternating light-green rows, soft shadow */
+/* Tables — navy scheme: strong-navy header, alternating light-blue rows, soft shadow */
 .sa-entity__main .entry-content figure.wp-block-table {
 	margin: 1.5rem 0;
 	max-width: 100%;
@@ -611,7 +628,7 @@
 }
 
 .sa-entity__main .entry-content table thead th {
-	background: var(--sa-green-700);
+	background: var(--sa-navy-700);
 	color: #fff;
 	font-weight: 700;
 	text-align: right;
@@ -621,15 +638,15 @@
 
 .sa-entity__main .entry-content table tbody td {
 	padding: 0.7rem 1rem;
-	border-bottom: 1px solid var(--sa-green-200);
+	border-bottom: 1px solid var(--sa-navy-200);
 }
 
 .sa-entity__main .entry-content table tbody tr:nth-child(odd) {
-	background: var(--sa-green-50);
+	background: var(--sa-navy-50);
 }
 
 .sa-entity__main .entry-content table tbody tr:nth-child(even) {
-	background: var(--sa-green-100);
+	background: var(--sa-navy-100);
 }
 
 .sa-entity__main .entry-content table tbody tr:last-child td {
@@ -639,7 +656,7 @@
 .sa-entity__main .entry-content table caption {
 	caption-side: top;
 	font-weight: 700;
-	color: var(--sa-green-700);
+	color: var(--sa-navy-700);
 	padding: 0 0 0.5rem;
 	text-align: right;
 }
@@ -763,13 +780,13 @@
 }
 
 .sa-faq-item:hover {
-	border-color: var(--sa-green-300);
+	border-color: var(--sa-navy-300);
 	box-shadow: var(--sa-shadow-hover);
 }
 
 .sa-faq-item[open] {
-	border-color: var(--sa-green-300);
-	box-shadow: 0 4px 14px -6px rgba(22, 101, 52, 0.22), 0 20px 44px -22px rgba(22, 101, 52, 0.34);
+	border-color: var(--sa-navy-300);
+	box-shadow: 0 4px 14px -6px rgba(18, 63, 115, 0.24), 0 20px 44px -22px rgba(11, 42, 74, 0.38);
 }
 
 .sa-faq-item summary {
@@ -788,7 +805,7 @@
 }
 
 .sa-faq-item summary:hover {
-	color: var(--sa-green-700);
+	color: var(--sa-navy-700);
 }
 
 .sa-faq-item summary::after {
@@ -802,9 +819,9 @@
 	display: grid;
 	place-items: center;
 	border-radius: 50%;
-	background: var(--sa-green-50);
-	border: 1px solid var(--sa-green-200);
-	color: var(--sa-green-700);
+	background: var(--sa-navy-50);
+	border: 1px solid var(--sa-navy-200);
+	color: var(--sa-navy-700);
 	font-size: 1.2rem;
 	font-weight: 700;
 	line-height: 1;
@@ -812,8 +829,8 @@
 }
 
 .sa-faq-item[open] summary::after {
-	background: var(--sa-green-600);
-	border-color: var(--sa-green-600);
+	background: var(--sa-navy-600);
+	border-color: var(--sa-navy-600);
 	color: #fff;
 	transform: translateY(-50%) rotate(45deg);
 }
@@ -822,8 +839,8 @@
 	padding: 0.9rem 1.15rem 1.1rem;
 	margin-inline: 1.15rem;
 	padding-inline: 0;
-	background: var(--sa-green-50);
-	border-top: 1px solid var(--sa-green-200);
+	background: var(--sa-navy-50);
+	border-top: 1px solid var(--sa-navy-200);
 	border-radius: 0 0 10px 10px;
 	color: #334155;
 	line-height: 1.95;
@@ -883,15 +900,15 @@
 
 /* ---------- Footer ---------- */
 .sa-footer {
-	background: #0f2f3a;
-	color: #cfe3e9;
+	background: #071a30;
+	color: #dcecff;
 	border-top: 0;
 	margin-top: 4rem;
 	padding: 3rem 0 1.5rem;
 }
 
 .sa-footer a {
-	color: #e6f4f8;
+	color: #edf6ff;
 }
 
 .sa-footer a:hover {
@@ -959,7 +976,7 @@
 	gap: 0.5rem;
 	padding-top: 1.25rem;
 	font-size: 0.82rem;
-	color: #9fc3cd;
+	color: #a9c6e3;
 }
 
 .sa-footer__bottom p {
@@ -1025,9 +1042,9 @@
 	font-size: 1.15rem;
 	margin: 0 0 0.9rem;
 	padding: 0.55rem 1rem;
-	background: linear-gradient(160deg, #ffffff 0%, #f4fbf7 60%, #e9f6ef 100%);
-	border: 1px solid var(--sa-green-200);
-	border-inline-start: 4px solid var(--sa-green-600);
+	background: linear-gradient(160deg, #ffffff 0%, #edf6ff 60%, #dcecff 100%);
+	border: 1px solid var(--sa-navy-200);
+	border-inline-start: 4px solid var(--sa-navy-600);
 	border-radius: 12px;
 	box-shadow: var(--sa-shadow);
 }
@@ -1096,13 +1113,13 @@
 
 /* ============================================================
    v2 header & footer — dark navy design matching sarzamin-home-v2
-   (ink #0b1424 · blue #2f6bff · radius 20–28px · Vazirmatn)
+   (ink #071a30 · blue #18558f · radius 20–28px · Vazirmatn)
    ============================================================ */
 :root {
-	--sa-ink: #0b1424;
-	--sa-ink-2: #14213b;
-	--sa-blue: #2f6bff;
-	--sa-blue-soft: #4d86ff;
+	--sa-ink: #071a30;
+	--sa-ink-2: #0b2a4a;
+	--sa-blue: #18558f;
+	--sa-blue-soft: #246da8;
 	--sa-mut: #8ea3c7;
 }
 
@@ -1145,9 +1162,9 @@
 	border-radius: 16px;
 	display: grid;
 	place-items: center;
-	background: radial-gradient(circle at 30% 20%, #1d2d50, var(--sa-ink));
+	background: radial-gradient(circle at 30% 20%, #123f73, var(--sa-ink));
 	border: 1px solid rgba(255, 255, 255, .08);
-	box-shadow: 0 14px 24px -12px rgba(47, 107, 255, .55);
+	box-shadow: 0 14px 24px -12px rgba(36, 109, 168, .55);
 	overflow: hidden;
 }
 
@@ -1211,7 +1228,7 @@
 .sa-hf-head .main-navigation a:focus-visible,
 .sa-hf-head .main-navigation .current-menu-item > a,
 .sa-hf-head .main-navigation .current_page_item > a {
-	background: rgba(47, 107, 255, .18);
+	background: rgba(36, 109, 168, .18);
 	color: #fff;
 }
 
@@ -1300,7 +1317,7 @@
 	padding: 0 28px;
 	border: 0;
 	border-radius: 12px;
-	background: linear-gradient(135deg, #4d86ff, #2457e6);
+	background: linear-gradient(135deg, #246da8, #123f73);
 	color: #fff;
 	font-weight: 700;
 	cursor: pointer;
@@ -1405,7 +1422,7 @@
 .sa-hf-foot {
 	margin-top: 0;
 	color: #dbe6fb;
-	background: radial-gradient(700px 320px at 85% 0, rgba(47, 107, 255, .22), transparent 70%), var(--sa-ink);
+	background: radial-gradient(700px 320px at 85% 0, rgba(36, 109, 168, .22), transparent 70%), var(--sa-ink);
 	border-radius: 44px 44px 0 0;
 }
 
@@ -1582,13 +1599,13 @@
 }
 .sa-ref a {
 	text-decoration: none;
-	color: var(--sa-green-700, #2f6bff);
+	color: var(--sa-navy-700, #18558f);
 	padding-inline: .15em;
 	border-radius: 3px;
 }
 .sa-ref a:hover,
 .sa-ref a:focus-visible {
-	background: var(--sa-green-100, #e8f2ff);
+	background: var(--sa-navy-100, #e8f2ff);
 	outline: 0;
 }
 
@@ -1618,7 +1635,7 @@
 	scroll-margin-top: 90px;
 }
 .sa-footnotes__item:target {
-	background: var(--sa-green-50, #f0f7ff);
+	background: var(--sa-navy-50, #f0f7ff);
 	border-radius: 6px;
 	padding: .3rem .5rem;
 	margin-inline: -.5rem;
@@ -1640,8 +1657,8 @@
 	margin-block-start: 2rem;
 	padding: 1.25rem 1.4rem;
 	border-radius: 1rem;
-	background: var(--sa-green-50, #f2f6fc);
-	border: 1px solid rgba(47, 107, 255, .14);
+	background: var(--sa-navy-50, #f2f6fc);
+	border: 1px solid rgba(36, 109, 168, .14);
 }
 .sa-community > h2 {
 	font-size: 1.1rem;
@@ -1685,8 +1702,8 @@
 
 /* شهرستانی که صفحه‌اش منتشر شده */
 .sa-cmap__on path {
-	fill: var(--sa-green-100, #dbe9ff);
-	stroke: var(--sa-green-700, #2f6bff);
+	fill: var(--sa-navy-100, #dbe9ff);
+	stroke: var(--sa-navy-700, #18558f);
 	stroke-width: .5;
 	stroke-linejoin: round;
 	cursor: pointer;
@@ -1694,7 +1711,7 @@
 }
 .sa-cmap__on:hover path,
 .sa-cmap__on:focus-visible path {
-	fill: var(--sa-green-300, #8fb4ff);
+	fill: var(--sa-navy-300, #8fb4ff);
 	outline: 0;
 }
 
@@ -1881,4 +1898,186 @@ h1, h2, h3,
 .sa-entity__title {
 	text-wrap: balance;
 	overflow-wrap: anywhere;
+}
+
+/* ==========================================================================
+   v2.4.0 — unified navy UI, light-blue search and three-dimensional headings
+   ========================================================================== */
+body {
+	color: var(--color-text);
+}
+
+body :where(.entry-content, .entry-summary, .sa-card__body, .sa-facts, .sa-community) {
+	color: var(--color-text);
+}
+
+body :where(.entry-content, .entry-summary) a:not(.sa-btn) {
+	color: var(--sa-navy-800);
+	text-decoration-color: rgba(18, 63, 115, .38);
+}
+
+body :where(.entry-content, .entry-summary) a:not(.sa-btn):hover,
+body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
+	color: var(--sa-navy-950);
+	text-decoration-color: currentColor;
+}
+
+/* Search surfaces are intentionally light blue; actions remain high-contrast navy. */
+.sa-hero__search .search-form,
+.sa-hf-head .header-search,
+.sa-search__form,
+.sa-empty .search-form,
+.sa-404 .search-form {
+	background: linear-gradient(145deg, #f2f8ff 0%, var(--sa-light-blue) 100%);
+	border: 1px solid var(--sa-navy-200);
+	box-shadow: 0 2px 0 rgba(255, 255, 255, .95) inset, 0 16px 34px -20px rgba(11, 42, 74, .45);
+}
+
+.sa-hf-head .header-search {
+	border-top-color: var(--sa-navy-200);
+	border-bottom: 1px solid var(--sa-navy-200);
+}
+
+.sa-hf-head .header-search .search-form {
+	max-width: 760px;
+	margin-inline: auto;
+	padding: 8px;
+	border-radius: 16px;
+	background: rgba(255, 255, 255, .62);
+}
+
+.sa-hf-head .header-search input[type="search"],
+.sa-hero__search .search-field,
+.sa-search__form .search-field,
+.sa-empty .search-field,
+.sa-404 .search-field {
+	background: #fff;
+	color: var(--sa-navy-950);
+	border: 1px solid var(--sa-navy-200);
+	box-shadow: 0 3px 10px rgba(11, 42, 74, .08) inset;
+}
+
+.sa-hf-head .header-search input[type="search"]::placeholder,
+.sa-hero__search .search-field::placeholder,
+.sa-search__form .search-field::placeholder {
+	color: #58718a;
+}
+
+.sa-hf-head .header-search button[type="submit"],
+.sa-hero__search .search-submit,
+.sa-search__form .search-submit,
+.sa-empty .search-submit,
+.sa-404 .search-submit {
+	background: linear-gradient(145deg, var(--sa-navy-700), var(--sa-navy-950));
+	color: #fff;
+	border: 1px solid var(--sa-navy-950);
+	box-shadow: 0 10px 20px -12px rgba(7, 26, 48, .8);
+}
+
+/* A shared 3D title-card language for archives, articles and generated sections. */
+.sa-archive__head,
+.sa-article > .entry-header,
+.sa-section__head {
+	position: relative;
+	padding: clamp(.9rem, 2vw, 1.25rem) clamp(1rem, 2.5vw, 1.45rem);
+	background: linear-gradient(155deg, #ffffff 0%, #edf6ff 55%, #dcecff 100%);
+	border: 1px solid var(--sa-navy-200);
+	border-inline-start: 6px solid var(--sa-navy-800);
+	border-radius: 16px;
+	box-shadow: var(--sa-shadow-deep);
+}
+
+.sa-archive__head::after,
+.sa-article > .entry-header::after,
+.sa-section__head::after {
+	content: '';
+	position: absolute;
+	inset: 4px;
+	border: 1px solid rgba(255, 255, 255, .72);
+	border-radius: 12px;
+	pointer-events: none;
+}
+
+.sa-archive__title,
+.sa-article > .entry-header .entry-title,
+.sa-section__title {
+	position: relative;
+	z-index: 1;
+	color: var(--sa-navy-900);
+	text-shadow: 0 1px 0 #fff, 0 7px 18px rgba(11, 42, 74, .14);
+}
+
+.sa-entity__main .entry-content h2,
+.sa-article .entry-content h2,
+.sa-faq-section > h2,
+.sa-sources > h2,
+.sa-sources h2,
+.sa-community > h2,
+.sa-footnotes > h2,
+.sa-cmap > h2,
+.sa-facts__title,
+.sa-section > .sa-section__title,
+.sa-entity__aside .widget-title,
+.sa-404 .page-title,
+.sa-empty > h2 {
+	position: relative;
+	padding: .8rem 1.2rem;
+	color: var(--sa-navy-900);
+	background: linear-gradient(155deg, #ffffff 0%, #edf6ff 55%, #dcecff 100%);
+	border: 1px solid var(--sa-navy-200);
+	border-inline-start: 5px solid var(--sa-navy-800);
+	border-radius: 14px;
+	box-shadow: var(--sa-shadow-deep);
+	text-shadow: 0 1px 0 #fff;
+}
+
+.sa-community,
+.sa-facts,
+.sa-sources,
+.sa-cmap__frame,
+.sa-faq-item {
+	border-color: var(--sa-navy-200);
+	box-shadow: var(--sa-shadow);
+}
+
+.sa-facts__title {
+	padding: .65rem .85rem;
+	margin: 0 0 1rem;
+}
+
+.sa-article .entry-content h2 {
+	font-size: 1.45rem;
+	margin: 2.6rem 0 1.3rem;
+}
+
+.sa-entity__main .entry-content h3,
+.sa-article .entry-content h3 {
+	color: var(--sa-navy-800);
+	border-inline-start: 3px solid var(--sa-navy-300);
+	padding-inline-start: .75rem;
+}
+
+/* Preserve white headings only when they sit on a verified dark/image surface. */
+.sa-entity__hero .sa-entity__title,
+.sa-hf-head .site-title,
+.sa-hf-foot .site-title,
+.sa-hf-foot .widget-title {
+	color: #fff;
+}
+
+/* Replace legacy turquoise footer surface even on templates using the old footer class. */
+.sa-footer {
+	background: var(--sa-navy-950);
+	color: #dcecff;
+}
+.sa-footer a { color: #edf6ff; }
+.sa-footer__bottom { color: #a9c6e3; }
+
+@media (max-width: 640px) {
+	.sa-archive__head,
+	.sa-article > .entry-header,
+	.sa-section__head {
+		border-inline-start-width: 4px;
+		border-radius: 13px;
+	}
 }

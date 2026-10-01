@@ -2,7 +2,7 @@
 /**
  * Header — Sarzamin Aryan Child (v2 dark design).
  *
- * Dark navy bar matching the v2 home design (ink #0b1424, blue #2f6bff),
+ * Dark navy bar matching the unified v2.4 palette (navy #0b2a4a, blue #18558f),
  * official logo, site name and the patriotic slogan under it.
  *
  * @package Sarzaminaryan_Child

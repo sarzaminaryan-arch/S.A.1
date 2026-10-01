@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.3.1
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.4.0 — 2026-10-01 =
+* پالت یکپارچه‌ی ناوی برای متن‌ها، لینک‌ها، هایلایت‌ها، جدول‌ها، FAQ، منابع و نقشه‌ها.
+* جست‌وجوی آبی روشن با متن/دکمه‌ی ناوی پُرکنتراست در خانه، هدر و صفحات داخلی.
+* رفع عنوان سفید صفحه‌ی خانه، کادرهای عنوان سه‌بعدی و لوگوی دسکتاپ بزرگ‌تر با سایه‌ی عمیق.
 
 = 2.3.1 — 2026-10-01 =
 * به‌روزرسان خودکار انتشارهای گیت‌هاب برای مخزن خصوصی، صفحه‌ی تنظیم توکن و بررسی دستی نسخه.
