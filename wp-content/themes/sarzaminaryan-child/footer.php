@@ -35,10 +35,12 @@ function sa_seeded_page_link( $slug ) {
 		return get_permalink( (int) $sa_ids[ $slug ] );
 	}
 	$sa_page = get_page_by_path( $slug );
-	if ( $sa_page instanceof WP_Post ) {
+	if ( $sa_page instanceof WP_Post && 'publish' === $sa_page->post_status ) {
 		return get_permalink( $sa_page );
 	}
-	return home_url( '/' . $slug . '/' );
+	// v2.3.0 — قبلاً اینجا یک نشانی حدسی برمی‌گشت، حتی وقتی برگه وجود نداشت؛
+	// یعنی فوتر هر صفحه‌ی سایت به یک ۴۰۴ لینک می‌داد. حالا لینک ساخته نمی‌شود.
+	return '';
 }
 ?>
 
@@ -76,7 +78,7 @@ function sa_seeded_page_link( $slug ) {
 				<?php else : ?>
 					<h2 class="widget-title">کاوش در ایران</h2>
 					<ul class="sa-hf-foot__links">
-						<?php foreach ( sa_entity_types() as $sa_type ) : ?>
+						<?php foreach ( sa_nav_entity_types() as $sa_type ) : ?>
 							<li><a href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>"><?php echo esc_html( sa_entity_label( $sa_type, true ) ); ?></a></li>
 						<?php endforeach; ?>
 						<?php if ( (int) get_option( 'page_for_posts' ) ) : ?>
@@ -90,10 +92,15 @@ function sa_seeded_page_link( $slug ) {
 				<h2 class="widget-title">برگه‌های سایت</h2>
 				<ul class="sa-hf-foot__links">
 					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>">صفحه اصلی</a></li>
-					<li><a href="<?php echo esc_url( sa_seeded_page_link( 'about' ) ); ?>">درباره ما</a></li>
-					<li><a href="<?php echo esc_url( sa_seeded_page_link( 'contact' ) ); ?>">تماس با ما</a></li>
-					<li><a href="<?php echo esc_url( sa_seeded_page_link( 'privacy' ) ); ?>">حریم خصوصی</a></li>
-					<li><a href="<?php echo esc_url( sa_seeded_page_link( 'policy' ) ); ?>">سیاست تحریریه</a></li>
+					<?php
+					foreach ( array( 'about' => 'درباره ما', 'contact' => 'تماس با ما', 'privacy' => 'حریم خصوصی', 'policy' => 'سیاست تحریریه' ) as $sa_slug => $sa_label ) :
+						$sa_url = sa_seeded_page_link( $sa_slug );
+						if ( ! $sa_url ) :
+							continue; // برگه ساخته نشده — لینک مرده نمی‌سازیم.
+						endif;
+						?>
+						<li><a href="<?php echo esc_url( $sa_url ); ?>"><?php echo esc_html( $sa_label ); ?></a></li>
+					<?php endforeach; ?>
 				</ul>
 			</div>
 

@@ -243,7 +243,7 @@ function sa_seo_head() {
 		echo '<meta property="article:published_time" content="' . esc_attr( get_the_date( 'c' ) ) . '">' . "\n";
 		echo '<meta property="article:modified_time" content="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . "\n";
 	}
-	echo '<meta name="theme-color" content="#0e7490">' . "\n";
+	echo '<meta name="theme-color" content="#0b2a4a">' . "\n";
 }
 add_action( 'wp_head', 'sa_seo_head', 2 );
 
