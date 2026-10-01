@@ -2081,3 +2081,274 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 		border-radius: 13px;
 	}
 }
+
+/* ==========================================================================
+   v2.5.0 — boxed layout, compact inner spacing and Persian justification
+   ========================================================================== */
+:root {
+	--sa-box-width: 1240px;
+	--sa-box-inline-space: 24px;
+	--sa-box-padding: 10px;
+}
+
+body {
+	background: linear-gradient(180deg, #edf4fb 0%, #f7faff 45%, #e9f2fb 100%);
+}
+
+/* Every major site region is visibly bounded instead of floating edge-to-edge. */
+.sa-hf-head,
+.sa-hf-foot,
+.sa-home,
+.sa-main--entity,
+main.site-main.container,
+.container.site-content {
+	width: calc(100% - var(--sa-box-inline-space));
+	max-width: var(--sa-box-width);
+	margin-inline: auto;
+	box-sizing: border-box;
+}
+
+.sa-hf-head {
+	top: 8px;
+	margin-block-start: 8px;
+	border: 1px solid rgba(142, 185, 227, .28);
+	border-radius: 20px;
+	box-shadow: 0 14px 38px -22px rgba(7, 26, 48, .78);
+	background-clip: padding-box;
+}
+
+.sa-hf-head .sa-hf-bar {
+	border-radius: 20px 20px 0 0;
+}
+
+.sa-hf-head + .container {
+	width: calc(100% - var(--sa-box-inline-space));
+	max-width: var(--sa-box-width);
+	margin: 12px auto 0;
+	padding: 4px var(--sa-box-padding);
+	background: rgba(255, 255, 255, .9);
+	border: 1px solid var(--sa-navy-200);
+	border-radius: 10px;
+	box-shadow: 0 8px 22px -18px rgba(7, 26, 48, .55);
+}
+
+.sa-hf-foot {
+	margin-block: 16px 8px;
+	border: 1px solid rgba(142, 185, 227, .22);
+	border-radius: 26px;
+	overflow: hidden;
+}
+
+.sa-home,
+.sa-main--entity,
+main.site-main.container,
+.container.site-content {
+	margin-block: 16px;
+	background: #fff;
+	border: 1px solid var(--sa-navy-200);
+	border-radius: 24px;
+	box-shadow: 0 2px 0 rgba(255, 255, 255, .95) inset, 0 18px 42px -28px rgba(7, 26, 48, .62);
+}
+
+main.site-main.container,
+.container.site-content {
+	padding: var(--sa-box-padding);
+}
+
+.container.site-content > .site-main {
+	min-width: 0;
+	padding: 0;
+}
+
+.sa-main--entity {
+	padding: 0;
+}
+
+.sa-main--entity .sa-entity__hero {
+	margin-top: 0;
+	border-radius: 23px 23px 0 0;
+}
+
+.sa-entity__hero-text,
+.sa-entity__layout {
+	padding-inline: var(--sa-box-padding);
+}
+
+.sa-entity__layout {
+	gap: 14px;
+	margin-top: 10px;
+	padding-bottom: var(--sa-box-padding);
+}
+
+/* Minimal distance between copy and the walls of every content box. */
+.sa-archive__head,
+.sa-article > .entry-header,
+.sa-section__head {
+	padding: 10px 12px;
+}
+
+.sa-entity__main .entry-content h2,
+.sa-article .entry-content h2,
+.sa-faq-section > h2,
+.sa-sources > h2,
+.sa-sources h2,
+.sa-community > h2,
+.sa-footnotes > h2,
+.sa-cmap > h2,
+.sa-facts__title,
+.sa-section > .sa-section__title,
+.sa-entity__aside .widget-title,
+.sa-404 .page-title,
+.sa-empty > h2 {
+	padding: 8px 10px;
+}
+
+.sa-card__body,
+.sa-facts,
+.sa-sources,
+.sa-community,
+.sa-cmap__frame,
+.sa-entity__lead {
+	padding: 10px;
+}
+
+.sa-provinces a,
+.sa-itinerary__list li,
+.sa-stats ul {
+	padding: 8px 10px;
+}
+
+.sa-entity__main .entry-content table thead th,
+.sa-entity__main .entry-content table tbody td {
+	padding: 7px 8px;
+}
+
+.sa-hf-head .container,
+.sa-hf-foot > .container {
+	padding-inline: 10px;
+}
+
+.sa-hf-foot__grid {
+	gap: 18px;
+	padding: 18px 0 14px;
+}
+
+.sa-hf-foot .sa-footer__about {
+	margin-block: 8px;
+}
+
+.sa-hf-foot__bottom {
+	padding: 10px 0;
+}
+
+.sa-faq-item summary {
+	padding-block: 9px;
+	padding-inline-start: 10px;
+	padding-inline-end: 46px;
+}
+
+.sa-faq-item__answer {
+	margin-inline: 10px;
+	padding-block: 8px 10px;
+}
+
+/* Persian body copy: straight right/left edges without splitting normal words. */
+.entry-content,
+.entry-summary,
+.sa-entity__lead,
+.sa-archive__desc,
+.sa-faq-item__answer,
+.sa-community,
+.sa-sources__list,
+.sa-footnotes__item,
+.sa-card__excerpt,
+.sa-home .sa-intro,
+.sa-home .sa-pb p,
+.sa-footer__about {
+	text-align: justify;
+	text-justify: inter-word;
+	word-spacing: .045em;
+	word-break: normal;
+	overflow-wrap: normal;
+	-webkit-hyphens: none;
+	hyphens: none;
+	white-space: normal;
+	font-kerning: normal;
+	orphans: 3;
+	widows: 3;
+}
+
+.entry-content :is(h1, h2, h3, h4, h5, h6, table, pre, code, kbd, samp, .wp-block-buttons),
+.entry-summary :is(h1, h2, h3, h4, h5, h6) {
+	text-align: start;
+	word-spacing: normal;
+}
+
+/* On mobile the header search control belongs at the far left, not mid-header. */
+@media (max-width: 920px) {
+	.sa-hf-head .site-header__actions {
+		margin-inline-start: auto;
+		margin-inline-end: 0;
+	}
+
+	.sa-hf-head .search-toggle {
+		margin-inline: 0;
+	}
+}
+
+@media (max-width: 640px) {
+	:root {
+		--sa-box-inline-space: 8px;
+		--sa-box-padding: 7px;
+	}
+
+	.sa-hf-head {
+		top: 3px;
+		margin-block-start: 3px;
+		border-radius: 14px;
+	}
+
+	.sa-hf-head .sa-hf-bar {
+		border-radius: 14px 14px 0 0;
+	}
+
+	.sa-hf-foot,
+	.sa-home,
+	.sa-main--entity,
+	main.site-main.container,
+	.container.site-content {
+		margin-block: 8px;
+		border-radius: 16px;
+	}
+
+	.sa-main--entity .sa-entity__hero {
+		border-radius: 15px 15px 0 0;
+	}
+
+	.sa-archive__head,
+	.sa-article > .entry-header,
+	.sa-section__head,
+	.sa-card__body,
+	.sa-facts,
+	.sa-sources,
+	.sa-community,
+	.sa-cmap__frame,
+	.sa-entity__lead {
+		padding: 7px 8px;
+	}
+
+	.entry-content,
+	.entry-summary,
+	.sa-entity__lead,
+	.sa-archive__desc,
+	.sa-faq-item__answer,
+	.sa-community,
+	.sa-sources__list,
+	.sa-footnotes__item,
+	.sa-card__excerpt,
+	.sa-home .sa-intro,
+	.sa-home .sa-pb p,
+	.sa-footer__about {
+		word-spacing: .025em;
+	}
+}
