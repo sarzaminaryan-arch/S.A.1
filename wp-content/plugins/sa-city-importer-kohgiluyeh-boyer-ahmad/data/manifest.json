@@ -1,0 +1,161 @@
+{
+ "batch": "kohgiluyeh-boyer-ahmad",
+ "batch_id": "kohgiluyeh-boyer-ahmad",
+ "label": "درون‌ریز شهرستان‌های استان کهگیلویه و بویراحمد",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-10-01",
+ "province": {
+  "slug": "kohgiluyeh-boyer-ahmad",
+  "name_fa": "استان کهگیلویه و بویراحمد",
+  "term_name": "کهگیلویه و بویراحمد"
+ },
+ "file": "kohgiluyeh-boyer-ahmad.json",
+ "counties_count": 9,
+ "counties": [
+  {
+   "slug": "boyer-ahmad",
+   "title": "شهرستان بویراحمد",
+   "status": "article",
+   "word_count": 799,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "kohgiluyeh",
+   "title": "شهرستان کهگیلویه",
+   "status": "article",
+   "word_count": 733,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "gachsaran",
+   "title": "شهرستان گچساران",
+   "status": "article",
+   "word_count": 921,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "dena",
+   "title": "شهرستان دنا",
+   "status": "article",
+   "word_count": 899,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "bahmai",
+   "title": "شهرستان بهمئی",
+   "status": "article",
+   "word_count": 787,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "choram",
+   "title": "شهرستان چرام",
+   "status": "article",
+   "word_count": 808,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "basht",
+   "title": "شهرستان باشت",
+   "status": "article",
+   "word_count": 816,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "landeh",
+   "title": "شهرستان لنده",
+   "status": "article",
+   "word_count": 876,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "margoun",
+   "title": "شهرستان مارگون",
+   "status": "article",
+   "word_count": 806,
+   "faq": 11,
+   "sources_lines": 5,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  }
+ ]
+}

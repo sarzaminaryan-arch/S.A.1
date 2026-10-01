@@ -65,3 +65,11 @@ loanwords where a common Persian word exists; ZWNJ (نیم‌فاصله) in «م
 1. 31 provinces (hub pages) → 2. 2–4 cities per province (~90) → 3. 3–6 attractions per city
 (~300) → 4. 1–2 foods + 1–2 souvenirs per city → 5. 10 routes (weekend/3–5 days) → posts.
 Publish in that order so Level 6 links always have targets.
+
+## Featured image rule for counties (v1.0 — 1405/07/07)
+
+Every county article needs a 16:9 WEBP hero built **only** with the standard prompt in
+`content-templates/county-featured-image-prompt.md` → `assets/featured/counties/{province}/{county}.webp`
+(1672x941, <= 300 KB, Persian title + subtitle + "SARZAMIN ARYAN" watermark, four signature elements taken
+from the sourced article text, no invented landmarks, no people/cars/billboards). alt + caption come from
+BLOCK 2 and are recorded in the folder `manifest.json`; missing image => DRAFT ONLY.

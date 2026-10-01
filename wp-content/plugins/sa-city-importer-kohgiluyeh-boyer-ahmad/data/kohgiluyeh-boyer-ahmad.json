@@ -1,0 +1,1062 @@
+{
+ "batch": "kohgiluyeh-boyer-ahmad",
+ "batch_id": "kohgiluyeh-boyer-ahmad",
+ "label": "درون‌ریز شهرستان‌های استان کهگیلویه و بویراحمد",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-10-01",
+ "province": {
+  "slug": "kohgiluyeh-boyer-ahmad",
+  "name_fa": "استان کهگیلویه و بویراحمد",
+  "term_name": "کهگیلویه و بویراحمد"
+ },
+ "counties": [
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/boyer-ahmad.md",
+   "source_sha1": "d6548e03472044a9143c312e3a35dba9d7a93862",
+   "slug": "boyer-ahmad",
+   "status": "article",
+   "title": "شهرستان بویراحمد",
+   "name_fa": "شهرستان بویراحمد",
+   "name_en": "Boyer-Ahmad County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان بویراحمد",
+    "excerpt": "شهرستان بویراحمد؛ پرجمعیت‌ترین شهرستان استان کهگیلویه و بویراحمد با مرکزیت یاسوج.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان بویراحمد؛ یاسوج در قلب زاگرس</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان بویراحمد</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر یاسوج است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>پرجمعیت‌ترین شهرستان استان</strong>؛ ۲۸۰٬۰۰۹ نفر در سرشماری ۱۳۹۵.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>میزبان مرکز استان</strong>؛ شهر یاسوج با ۲۰۸٬۱۵۰ نفر جمعیت (۱۳۹۵) مرکز این شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>۳٬۲۳۹ کیلومتر مربع</strong> پهنه با تراکم ۸۶ نفر در کیلومتر مربع.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>بارش سالانهٔ پرباران زاگرسی</strong>؛ حدود ۷۰۰ واحد بارش به روایت اینفوباکس مقاله.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>زادگاه ایل بویراحمد</strong>؛ مردمانی لرتبار با گویش بویراحمدی.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان بویراحمد، گشتی است در دشت‌های مرتفع زاگرس، دهستان‌های سررود و کاکان، بخش‌های کوهستانی کبگیان، سپیدار و لوداب؛ در ادامه موقعیت، مردم، تقسیمات و جمعیت این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۲۸۰٬۰۰۹ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۳٬۲۳۹ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۸۶ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر یاسوج (۲۰۸٬۱۵۰ نفر در ۱۳۹۵)</td><td>مرکز استان نیز هست<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>سایر شهرها</td><td>سپیدار، چیتاب، گراب سفلی</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۴ بخش، ۱۰ دهستان و ۵ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۲۲ تیر ۱۳۴۲ خورشیدی</td><td>با جدایی از استان فارس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>بارش سالانه</td><td>۷۰۰ (به روایت اینفوباکس)</td><td>واحد در منبع «میلی‌لیتر» ثبت شده است<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۷۴</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr><tr><td>حوزهٔ انتخابیه</td><td>بویراحمد، دنا و مارگون</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بویراحمد از شمال با شهرستان‌های دنا و مارگون، از شمال شرقی با شهرستان سمیرم استان اصفهان، از غرب با شهرستان کهگیلویه، از جنوب غربی با شهرستان چرام، از جنوب با شهرستان‌های رستم و ممسنی استان فارس و از شرق با شهرستان سپیدان استان فارس همسایه است؛ همین موقعیت، آن را به چهارراه ارتباطی استان با فارس و اصفهان بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>دنا و مارگون</td><td>شمال</td></tr><tr><td>سمیرم (استان اصفهان)</td><td>شمال شرقی</td></tr><tr><td>کهگیلویه</td><td>غرب</td></tr><tr><td>چرام</td><td>جنوب غربی</td></tr><tr><td>رستم و ممسنی (استان فارس)</td><td>جنوب</td></tr><tr><td>سپیدان (استان فارس)</td><td>شرق</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بویراحمد در تاریخ ۲۲ تیر ۱۳۴۲ از استان فارس جدا شد و به شهرستانی مستقل تبدیل گردید؛ همین رویداد، سنگ‌بنای شکل‌گیری استان کنونی کهگیلویه و بویراحمد و برآمدن یاسوج به‌عنوان کانون اداری منطقه بود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرهنگ و مردم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مردم شهرستان بویراحمد از اقوام لر هستند؛ سازمان اجتماعی سنتی منطقه بر پایهٔ ایل بویراحمد شکل گرفته و زندگی ایلی و کوچ میان سردسیر و گرمسیر، بنیان فرهنگ مردم این دیار بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">زبان و گویش</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>زبان مردم شهرستان بویراحمد، زبان لری با گویش بویراحمدی است؛ این گویش در شهر یاسوج و روستاهای سررود، کاکان، کبگیان و لوداب رواج دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان بویراحمد برابر با ۲۸۰٬۰۰۹ نفر بوده است؛ بیشترین سهم از آن بخش مرکزی با ۲۶۰٬۸۴۰ نفر و در صدر آن شهر یاسوج با ۲۰۸٬۱۵۰ نفر است، و پس از آن بخش‌های لوداب (۱۱٬۲۹۵ نفر)، سپیدار (۷٬۸۰۳ نفر) و کبگیان (۷٬۷۴۱ نفر) قرار می‌گیرند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بویراحمد دارای ۴ بخش، ۱۰ دهستان و ۵ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>یاسوج</td><td>۲۶۰٬۸۴۰ نفر</td><td>سررود جنوبی، سررود شمالی، دشت روم، کاکان</td></tr><tr><td>لوداب</td><td>گراب سفلی</td><td>۱۱٬۲۹۵ نفر</td><td>لوداب، چین</td></tr><tr><td>سپیدار</td><td>سپیدار</td><td>۷٬۸۰۳ نفر</td><td>سپیدار، سیوکی</td></tr><tr><td>کبگیان</td><td>چیتاب</td><td>۷٬۷۴۱ نفر</td><td>کبگیان، چنار</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>، <a href=\"/city/gachsaran/\">گچساران</a>، <a href=\"/city/dena/\">دنا</a>، <a href=\"/city/bahmai/\">بهمئی</a>، <a href=\"/city/choram/\">چرام</a>، <a href=\"/city/basht/\">باشت</a>، <a href=\"/city/landeh/\">لنده</a>، <a href=\"/city/margoun/\">مارگون</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بویراحمد در میانهٔ استان کهگیلویه و بویراحمد و بر دامنه‌های زاگرس قرار دارد و مرکز آن شهر یاسوج است. برای مسیریابی، <a href=\"https://maps.google.com/?q=Yasuj+Iran\">نقشهٔ شهرستان بویراحمد در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Yasuj+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>بویراحمد در ۲۲ تیر ۱۳۴۲ از استان فارس جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر یاسوج، هم مرکز این شهرستان و هم مرکز استان کهگیلویه و بویراحمد است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵ برابر ۲۸۰٬۰۰۹ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تراکم جمعیت شهرستان ۸۶ نفر در کیلومتر مربع گزارش شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان با ۳٬۲۳۹ کیلومتر مربع، چهار بخش و ده دهستان دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرهای شهرستان عبارت‌اند از یاسوج، سپیدار، چیتاب و گراب سفلی.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کوچک‌ترین شهر شهرستان، گراب سفلی با ۵۴۵ نفر (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کم‌جمعیت‌ترین دهستان شهرستان، کاکان با ۱٬۷۰۸ نفر (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مردم شهرستان لرتبارند و به لری با گویش بویراحمدی سخن می‌گویند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بویراحمد با شش شهرستان از سه استان (خودِ استان، فارس و اصفهان) هم‌مرز است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>حوزهٔ انتخابیه این شهرستان، «بویراحمد، دنا و مارگون» است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان بویراحمد، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان بویراحمد زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 799
+   },
+   "meta": {
+    "sa_city_slug": "boyer-ahmad",
+    "sa_city_population": "280009",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Yasuj+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان بویراحمد؛ پایتخت استان و دیار ایل بویراحمد — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان بویراحمد؛ مرکز آن یاسوج، تأسیس ۲۲ تیر ۱۳۴۲، ۲۸۰٬۰۰۹ نفر جمعیت (۱۳۹۵)، ۳٬۲۳۹ کیلومتر مربع، چهار بخش و ده دهستان در قلب زاگرس.",
+    "sa_focus_keyword": "شهرستان بویراحمد",
+    "sa_og_title": "شهرستان بویراحمد — یاسوج و دیار ایل بویراحمد",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان بویراحمد باید بدانید؛ از یاسوج و کبگیان تا لوداب و دشت روم."
+   },
+   "secondary_keywords": [
+    "یاسوج",
+    "ایل بویراحمد",
+    "گویش بویراحمدی",
+    "کبگیان",
+    "لوداب",
+    "سپیدار",
+    "دشت روم"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Yasuj+Iran",
+   "faq": [
+    {
+     "q": "شهرستان بویراحمد کجاست؟",
+     "a": "در استان کهگیلویه و بویراحمد؛ هم‌مرز با دنا، مارگون، کهگیلویه، چرام و شهرستان‌های سمیرم، رستم، ممسنی و سپیدان."
+    },
+    {
+     "q": "مرکز شهرستان بویراحمد کدام شهر است؟",
+     "a": "شهر یاسوج که مرکز استان نیز هست و در ۱۳۹۵ جمعیت آن ۲۰۸٬۱۵۰ نفر بوده است."
+    },
+    {
+     "q": "جمعیت شهرستان بویراحمد چقدر است؟",
+     "a": "۲۸۰٬۰۰۹ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "شهرستان بویراحمد چه زمانی تشکیل شد؟",
+     "a": "در ۲۲ تیر ۱۳۴۲ با جدایی از استان فارس."
+    },
+    {
+     "q": "مساحت شهرستان بویراحمد چقدر است؟",
+     "a": "۳٬۲۳۹ کیلومتر مربع با تراکم ۸۶ نفر در کیلومتر مربع."
+    },
+    {
+     "q": "بخش‌های شهرستان بویراحمد کدام‌اند؟",
+     "a": "مرکزی، کبگیان، سپیدار و لوداب؛ در مجموع ۱۰ دهستان و ۵ شهر."
+    },
+    {
+     "q": "شهرهای شهرستان بویراحمد کدام‌اند؟",
+     "a": "یاسوج، سپیدار، چیتاب و گراب سفلی."
+    },
+    {
+     "q": "مردم بویراحمد به چه زبانی سخن می‌گویند؟",
+     "a": "لری با گویش بویراحمدی."
+    },
+    {
+     "q": "پرجمعیت‌ترین بخش شهرستان کدام است؟",
+     "a": "بخش مرکزی با ۲۶۰٬۸۴۰ نفر در سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "پیش‌شمارهٔ تلفن شهرستان بویراحمد چیست؟",
+     "a": "۰۷۴."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان و نوار پیوندهای شهرستان‌ها در همین صفحه."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان بویراحمد؛ موقعیت، مردم‌شناسی، تقسیمات و جمعیت | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%88%DB%8C%D8%B1%D8%A7%D8%AD%D9%85%D8%AF | 2026-10-01\n2. [نقشه] موقعیت شهر یاسوج (مرکز شهرستان بویراحمد) | Google Maps | https://maps.google.com/?q=Yasuj+Iran | 2026-10-01\n3. [نقشه] موقعیت شهر سپیدار | Google Maps | https://maps.google.com/?q=Sepidar+Boyer-Ahmad | 2026-10-01\n4. [نقشه] موقعیت شهر چیتاب | Google Maps | https://maps.google.com/?q=Chitab+Iran | 2026-10-01\n5. [نقشه] موقعیت شهر گراب سفلی | Google Maps | https://maps.google.com/?q=Gerab+Sofla+Iran | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/boyer-ahmad.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/boyer-ahmad.webp",
+    "mime": "image/webp",
+    "alt": "دشت یاسوج و کوه‌های زاگرس در غروب؛ تصویر شاخص شهرستان بویراحمد",
+    "caption": "دشت مرتفع یاسوج در میان کوه‌های زاگرس، مرکز شهرستان بویراحمد.",
+    "title": "شهرستان بویراحمد — سرزمین آریان",
+    "description": "دشت یاسوج و کوه‌های زاگرس در غروب؛ تصویر شاخص شهرستان بویراحمد",
+    "sha1": "469bc15fb98f6dd07107091dd97eb144d597ac2e"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/kohgiluyeh.md",
+   "source_sha1": "3a68fd657ec47397fa5732270cd260ac5de451b7",
+   "slug": "kohgiluyeh",
+   "status": "article",
+   "title": "شهرستان کهگیلویه",
+   "name_fa": "شهرستان کهگیلویه",
+   "name_en": "Kohgiluyeh County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان کهگیلویه",
+    "excerpt": "شهرستان کهگیلویه؛ کهن‌ترین شهرستان استان با مرکزیت دهدشت.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان کهگیلویه؛ دهدشت در غرب زاگرس</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان کهگیلویه</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر دهدشت است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>کهن‌ترین شهرستان استان</strong>؛ در ۲۳ دی ۱۳۳۷ از شهرستان بهبهان جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>نام‌بخشِ استان</strong>؛ نیمی از نام «کهگیلویه و بویراحمد» از همین شهرستان آمده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>۱۳۱٬۳۵۱ نفر جمعیت</strong> در سرشماری ۱۳۹۵ و ۲٬۸۰۵ کیلومتر مربع پهنه.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>چهار شهر</strong>؛ دهدشت، سوق، دیشموک و قلعه رئیسی.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>چهارراه چهار استان</strong>؛ هم‌مرزی با شهرستان‌هایی از خوزستان و چهارمحال و بختیاری.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان کهگیلویه، گشتی است در دهدشتِ تاریخی، دهستان‌های طیبی و دشمن‌زیاری و کوهستان‌های دیشموک و چاروسا؛ در ادامه موقعیت، تقسیمات و جمعیت این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۱۳۱٬۳۵۱ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۲٬۸۰۵ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۴۷ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر دهدشت (۵۷٬۰۳۶ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>سایر شهرها</td><td>سوق، دیشموک، قلعه رئیسی</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۴ بخش، ۱۰ دهستان و ۴ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۲۳ دی ۱۳۳۷ خورشیدی</td><td>با جدایی از شهرستان بهبهان<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۷۴</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr><tr><td>حوزهٔ انتخابیه</td><td>کهگیلویه، بهمئی، چرام و لنده</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان کهگیلویه از شمال با شهرستان لردگان استان چهارمحال و بختیاری، از شمال شرقی با شهرستان مارگون، از شمال غربی با شهرستان‌های دزپارت و باغملک استان خوزستان، از غرب با شهرستان‌های لنده و بهمئی، از شرق با شهرستان بویراحمد، از جنوب شرقی با شهرستان چرام، از جنوب با شهرستان گچساران و از جنوب غربی با شهرستان بهبهان استان خوزستان همسایه است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>لردگان (چهارمحال و بختیاری)</td><td>شمال</td></tr><tr><td>مارگون</td><td>شمال شرقی</td></tr><tr><td>دزپارت و باغملک (خوزستان)</td><td>شمال غربی</td></tr><tr><td>لنده و بهمئی</td><td>غرب</td></tr><tr><td>بویراحمد</td><td>شرق</td></tr><tr><td>چرام</td><td>جنوب شرقی</td></tr><tr><td>گچساران</td><td>جنوب</td></tr><tr><td>بهبهان (خوزستان)</td><td>جنوب غربی</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان کهگیلویه در ۲۳ دی ۱۳۳۷ با مصوبهٔ «انتزاع بخش کهگیلویه از شهرستان بهبهان و تبدیل شدن آن به یک شهرستان» از شهرستان بهبهان جدا و مستقل شد؛ این مصوبه در سامانهٔ ملی قوانین و مقررات جمهوری اسلامی ایران ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان کهگیلویه برابر با ۱۳۱٬۳۵۱ نفر بوده است؛ بخش مرکزی با ۸۲٬۱۶۸ نفر پرجمعیت‌ترین بخش و پس از آن دیشموک با ۲۰٬۷۴۶ نفر، چاروسا با ۱۶٬۵۵۳ نفر و سوق با ۱۱٬۶۵۵ نفر قرار دارند. در میان شهرها، دهدشت با ۵۷٬۰۳۶ نفر، سوق با ۶٬۴۳۸ نفر، دیشموک با ۵٬۷۹۱ نفر و قلعه رئیسی با ۳٬۲۶۹ نفر ثبت شده‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان کهگیلویه دارای ۴ بخش، ۱۰ دهستان و ۴ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>دهدشت</td><td>۸۲٬۱۶۸ نفر</td><td>دهدشت شرقی، دهدشت غربی، دشمن‌زیاری</td></tr><tr><td>دیشموک</td><td>دیشموک</td><td>۲۰٬۷۴۶ نفر</td><td>بهمئی سرحدی شرقی، بهمئی سرحدی غربی، آجم</td></tr><tr><td>چاروسا</td><td>قلعه رئیسی</td><td>۱۶٬۵۵۳ نفر</td><td>طیبی سرحدی غربی، طیبی سرحدی شرقی</td></tr><tr><td>سوق</td><td>سوق</td><td>۱۱٬۶۵۵ نفر</td><td>راک، طیبی گرمسیری جنوبی</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/gachsaran/\">گچساران</a>، <a href=\"/city/dena/\">دنا</a>، <a href=\"/city/bahmai/\">بهمئی</a>، <a href=\"/city/choram/\">چرام</a>، <a href=\"/city/basht/\">باشت</a>، <a href=\"/city/landeh/\">لنده</a>، <a href=\"/city/margoun/\">مارگون</a>، <a href=\"/city/boyer-ahmad/\">بویراحمد</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان کهگیلویه در غرب استان کهگیلویه و بویراحمد و در همسایگی خوزستان قرار دارد و مرکز آن شهر دهدشت است. برای مسیریابی، <a href=\"https://maps.google.com/?q=Dehdasht+Iran\">نقشهٔ شهرستان کهگیلویه در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Dehdasht+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>کهگیلویه در ۲۳ دی ۱۳۳۷ از شهرستان بهبهان جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مرکز شهرستان، شهر دهدشت با ۵۷٬۰۳۶ نفر جمعیت (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵ برابر ۱۳۱٬۳۵۱ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۲٬۸۰۵ کیلومتر مربع و تراکم آن ۴۷ نفر در کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان چهار بخش دارد: مرکزی، دیشموک، چاروسا و سوق.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>نام چهار دهستان شهرستان با نام ایل طیبی و بهمئی گره خورده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کم‌جمعیت‌ترین دهستان شهرستان، آجم با ۴۰۱ نفر (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان با هشت شهرستان از سه استان هم‌مرز است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>حوزهٔ انتخابیهٔ آن «کهگیلویه، بهمئی، چرام و لنده» است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پیش‌شمارهٔ تلفن شهرستان ۰۷۴ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان کهگیلویه، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان کهگیلویه زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 733
+   },
+   "meta": {
+    "sa_city_slug": "kohgiluyeh",
+    "sa_city_population": "131351",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Dehdasht+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان کهگیلویه؛ دهدشت و سرزمین طیبی — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان کهگیلویه؛ مرکز آن دهدشت، جدایی از بهبهان در ۲۳ دی ۱۳۳۷، ۱۳۱٬۳۵۱ نفر جمعیت (۱۳۹۵)، ۲٬۸۰۵ کیلومتر مربع، چهار بخش و ده دهستان.",
+    "sa_focus_keyword": "شهرستان کهگیلویه",
+    "sa_og_title": "شهرستان کهگیلویه — دهدشت و سرزمین طیبی",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان کهگیلویه باید بدانید؛ از دهدشت و سوق تا دیشموک و قلعه رئیسی."
+   },
+   "secondary_keywords": [
+    "دهدشت",
+    "سوق",
+    "دیشموک",
+    "قلعه رئیسی",
+    "چاروسا",
+    "طیبی",
+    "دشمن‌زیاری"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Dehdasht+Iran",
+   "faq": [
+    {
+     "q": "شهرستان کهگیلویه کجاست؟",
+     "a": "در غرب استان کهگیلویه و بویراحمد؛ هم‌مرز با لردگان، مارگون، دزپارت، باغملک، لنده، بهمئی، بویراحمد، چرام، گچساران و بهبهان."
+    },
+    {
+     "q": "مرکز شهرستان کهگیلویه کدام شهر است؟",
+     "a": "شهر دهدشت با ۵۷٬۰۳۶ نفر جمعیت در سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "جمعیت شهرستان کهگیلویه چقدر است؟",
+     "a": "۱۳۱٬۳۵۱ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "شهرستان کهگیلویه چه زمانی تشکیل شد؟",
+     "a": "در ۲۳ دی ۱۳۳۷ با جدایی از شهرستان بهبهان."
+    },
+    {
+     "q": "مساحت شهرستان کهگیلویه چقدر است؟",
+     "a": "۲٬۸۰۵ کیلومتر مربع با تراکم ۴۷ نفر در کیلومتر مربع."
+    },
+    {
+     "q": "بخش‌های شهرستان کهگیلویه کدام‌اند؟",
+     "a": "مرکزی، دیشموک، چاروسا و سوق؛ در مجموع ۱۰ دهستان و ۴ شهر."
+    },
+    {
+     "q": "شهرهای شهرستان کهگیلویه کدام‌اند؟",
+     "a": "دهدشت، سوق، دیشموک و قلعه رئیسی."
+    },
+    {
+     "q": "پرجمعیت‌ترین بخش شهرستان کدام است؟",
+     "a": "بخش مرکزی با ۸۲٬۱۶۸ نفر در سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "مرکز بخش چاروسا کجاست؟",
+     "a": "شهر قلعه رئیسی با ۳٬۲۶۹ نفر جمعیت (۱۳۹۵)."
+    },
+    {
+     "q": "حوزهٔ انتخابیهٔ شهرستان کهگیلویه چیست؟",
+     "a": "حوزهٔ «کهگیلویه، بهمئی، چرام و لنده»."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان کهگیلویه؛ موقعیت، تقسیمات و جمعیت | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%A9%D9%87%DA%AF%DB%8C%D9%84%D9%88%DB%8C%D9%87 | 2026-10-01\n2. [نقشه] موقعیت شهر دهدشت (مرکز شهرستان کهگیلویه) | Google Maps | https://maps.google.com/?q=Dehdasht+Iran | 2026-10-01\n3. [نقشه] موقعیت شهر سوق | Google Maps | https://maps.google.com/?q=Sooq+Kohgiluyeh | 2026-10-01\n4. [نقشه] موقعیت شهر دیشموک | Google Maps | https://maps.google.com/?q=Dishmook+Iran | 2026-10-01\n5. [نقشه] موقعیت شهر قلعه رئیسی | Google Maps | https://maps.google.com/?q=Qaleh+Raisi+Iran | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/kohgiluyeh.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/kohgiluyeh.webp",
+    "mime": "image/webp",
+    "alt": "دشت دهدشت و تپه‌های زاگرس در نور گرم؛ تصویر شاخص شهرستان کهگیلویه",
+    "caption": "دهدشت، مرکز شهرستان کهگیلویه در غرب استان.",
+    "title": "شهرستان کهگیلویه — سرزمین آریان",
+    "description": "دشت دهدشت و تپه‌های زاگرس در نور گرم؛ تصویر شاخص شهرستان کهگیلویه",
+    "sha1": "d56046f10fe11084c101bc0a1c3efeccf0d4ac73"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/gachsaran.md",
+   "source_sha1": "8f1b36c92bff7f84c7440fe5968aed34e5bc4551",
+   "slug": "gachsaran",
+   "status": "article",
+   "title": "شهرستان گچساران",
+   "name_fa": "شهرستان گچساران",
+   "name_en": "Gachsaran County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان گچساران",
+    "excerpt": "شهرستان گچساران؛ وسیع‌ترین شهرستان جنوب غربی استان و قطب نفت و گاز منطقه.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان گچساران؛ دوگنبدان در جنوب غربی زاگرس</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان گچساران</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر دوگنبدان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>وسیع‌ترین پهنه در این سو</strong>؛ حدود ۴٬۶۸۳ کیلومتر مربع در جنوب غربی استان.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>قطب نفت و گاز</strong>؛ توسعهٔ صنعت نفت و گاز، موتور رشد شهری دوگنبدان بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>۱۲۳٬۳۷۰ نفر جمعیت</strong> که ۹۶٬۷۲۸ نفر آنان در شهر دوگنبدان ساکن‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>اقلیم گرم و کم‌یخبندان</strong>؛ میانگین دمای سالانه ۲۲٫۷ درجهٔ سانتی‌گراد و تنها ۵ روز یخبندان در سال.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>بافت جمعیتی متنوع</strong>؛ طوایف لر، طوایف قشقایی و مهاجران صنعت نفت.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان گچساران، گشتی است در دشت‌های گرم جنوب غربی زاگرس، دهستان‌های امامزاده جعفر، لیشتر، بویراحمد گرمسیری و بی‌بی حکیمه؛ در ادامه موقعیت، مردم‌شناسی، جمعیت و تقسیمات این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۱۲۳٬۳۷۰ نفر</td><td>به روایت مقاله بر پایهٔ آخرین سرشماری رسمی<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>جمعیت مرکز</td><td>۹۶٬۷۲۸ نفر در شهر دوگنبدان</td><td>۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>مساحت</td><td>حدود ۴٬۶۸۳ کیلومتر مربع</td><td>به روایت مقاله و اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>ارتفاع از سطح دریا</td><td>۷۲۶ متر</td><td>به روایت اینفوباکس (ادارهٔ کل هواشناسی استان)<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>میانگین دمای سالانه</td><td>۲۲٫۷ درجهٔ سانتی‌گراد</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>بارش سالانه</td><td>۴۳۲٫۵ میلی‌متر</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>روزهای یخبندان سالانه</td><td>۵ روز</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۱ بخش، ۴ دهستان و ۱ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۵۳</td><td>بانک اطلاعات تقسیمات کشوری وزارت کشور<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۷۴</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان گچساران حدود ۴٬۶۸۳ کیلومتر مربع وسعت دارد و در جنوب غربی استان کهگیلویه و بویراحمد جای گرفته است؛ این شهرستان از شمال به شهرستان چرام، از شمال غرب به شهرستان کهگیلویه، از جنوب به شهرستان گناوه در استان بوشهر، از شرق و شمال شرقی به شهرستان ممسنی در استان فارس و از غرب به شهرستان بهبهان در استان خوزستان محدود می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>چرام</td><td>شمال</td></tr><tr><td>کهگیلویه</td><td>شمال غرب</td></tr><tr><td>گناوه (استان بوشهر)</td><td>جنوب</td></tr><tr><td>ممسنی (استان فارس)</td><td>شرق و شمال شرقی</td></tr><tr><td>بهبهان (استان خوزستان)</td><td>غرب</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرهنگ و مردم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>گچساران از نظر تاریخی منطقه‌ای با ساختار جمعیتی متنوع بوده است؛ طوایف و جوامع لر و نیز مهاجرانی از مناطق هم‌جوار در شکل‌گیری بافت جمعیتی آن نقش داشته‌اند و این تنوع تا امروز، به‌ویژه در شهر دوگنبدان، دیده می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>اکثریت مردم گچساران از قوم لر هستند و جمعیت تاریخی منطقه را طوایف لر تشکیل می‌دهند؛ در بخش شمال‌شرقی شهرستان، به‌ویژه در محدودهٔ دهستان امامزاده جعفر، حضور طوایف لر باوی پیشینه‌ای طولانی دارد و نام و هویت باوی در تاریخ اجتماعی و سیاسی منطقه جایگاه مهمی داشته است. طوایفی از بویراحمد نیز از گذشته با نواحی گرمسیری گچساران ارتباط داشته‌اند و دهستان‌های بویراحمد گرمسیری و لیشتر از مناطقی هستند که سابقهٔ حضور، کوچ فصلی و استقرار این طوایف در آن‌ها مورد توجه منابع و روایت‌های محلی است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>در کنار طوایف لر، برخی طوایف ایل قشقایی نیز از اواسط دورهٔ قاجار وارد بخش‌هایی از گچساران، به‌ویژه نواحی جنوبی آن، شدند؛ بر پایهٔ روایت‌ها، پس از سرکوب شورش طوایف ممسنی در دوران محمدشاه قاجار و تضعیف آنان، حکومت مرکزی از ورود طوایف قشقایی به ناحیهٔ ماهور و میلاتی و بی‌بی حکیمه حمایت کرد. امروز دو طایفهٔ قشقایی دره‌شوری و کشکولی در این محدوده حضور دارند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">صنایع مهم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در دورهٔ معاصر، توسعهٔ صنعت نفت و گاز موجب مهاجرت گروه‌هایی از خوزستان، دیگر مناطق کهگیلویه و بویراحمد و استان‌های هم‌جوار به گچساران شد؛ شهر دوگنبدان به‌عنوان مرکز اداری و نفتی شهرستان، مهم‌ترین محل جذب این مهاجران بوده و رشد جمعیتی و شهری آن تا حد زیادی با توسعهٔ فعالیت‌های نفت و گاز ارتباط داشته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ آخرین سرشماری رسمی، جمعیت شهرستان گچساران ۱۲۳٬۳۷۰ نفر بوده است که از این شمار ۹۶٬۷۲۸ نفر در شهر دوگنبدان، مرکز شهرستان، ساکن‌اند؛ پس از مرکز، دهستان امامزاده جعفر با ۱۳٬۳۳۹ نفر و دهستان لیشتر با ۸٬۵۴۳ نفر پرجمعیت‌ترین پهنه‌های روستایی شهرستان‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان گچساران دارای ۱ بخش، ۴ دهستان و ۱ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>دوگنبدان</td><td>۱۲۳٬۳۷۰ نفر</td><td>امامزاده جعفر، لیشتر، بویراحمد گرمسیری، بی‌بی حکیمه</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/dena/\">دنا</a>، <a href=\"/city/bahmai/\">بهمئی</a>، <a href=\"/city/choram/\">چرام</a>، <a href=\"/city/basht/\">باشت</a>، <a href=\"/city/landeh/\">لنده</a>، <a href=\"/city/margoun/\">مارگون</a>، <a href=\"/city/boyer-ahmad/\">بویراحمد</a>، <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان گچساران در جنوب غربی استان کهگیلویه و بویراحمد و بر مرز سه استان بوشهر، فارس و خوزستان قرار دارد و مرکز آن شهر دوگنبدان است. برای مسیریابی، <a href=\"https://maps.google.com/?q=Dogonbadan+Iran\">نقشهٔ شهرستان گچساران در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Dogonbadan+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>مرکز شهرستان گچساران، شهر دوگنبدان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>۹۶٬۷۲۸ نفر از ۱۲۳٬۳۷۰ نفر جمعیت شهرستان در خود دوگنبدان ساکن‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان حدود ۴٬۶۸۳ کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>ارتفاع شهرستان از سطح دریا ۷۲۶ متر گزارش شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>میانگین دمای سالانهٔ شهرستان ۲۲٫۷ درجهٔ سانتی‌گراد است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بارش سالانهٔ آن ۴۳۲٫۵ میلی‌متر ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان تنها ۵ روز یخبندان در سال دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>سال تأسیس شهرستان بر پایهٔ بانک اطلاعات تقسیمات کشوری ۱۳۵۳ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>گچساران تنها یک بخش (مرکزی) و یک شهر دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دو طایفهٔ قشقایی دره‌شوری و کشکولی در محدودهٔ جنوبی شهرستان حضور دارند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>طوایف لر باوی در محدودهٔ دهستان امامزاده جعفر پیشینه‌ای طولانی دارند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان گچساران، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان گچساران زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 921
+   },
+   "meta": {
+    "sa_city_slug": "gachsaran",
+    "sa_city_population": "123370",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Dogonbadan+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان گچساران؛ دوگنبدان و قطب نفت و گاز استان — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان گچساران؛ مرکز آن دوگنبدان، تأسیس ۱۳۵۳، ۱۲۳٬۳۷۰ نفر جمعیت، ۴٬۶۸۳ کیلومتر مربع، ارتفاع ۷۲۶ متر و میانگین دمای ۲۲٫۷ درجه.",
+    "sa_focus_keyword": "شهرستان گچساران",
+    "sa_og_title": "شهرستان گچساران — دوگنبدان و سرزمین نفت",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان گچساران باید بدانید؛ از دوگنبدان و لیشتر تا بی‌بی حکیمه و امامزاده جعفر."
+   },
+   "secondary_keywords": [
+    "دوگنبدان",
+    "نفت و گاز",
+    "بی‌بی حکیمه",
+    "لیشتر",
+    "امامزاده جعفر",
+    "ایل باوی"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Dogonbadan+Iran",
+   "faq": [
+    {
+     "q": "شهرستان گچساران کجاست؟",
+     "a": "در جنوب غربی استان کهگیلویه و بویراحمد؛ هم‌مرز با چرام، کهگیلویه، گناوه، ممسنی و بهبهان."
+    },
+    {
+     "q": "مرکز شهرستان گچساران کدام شهر است؟",
+     "a": "شهر دوگنبدان با ۹۶٬۷۲۸ نفر جمعیت (۱۳۹۵)."
+    },
+    {
+     "q": "جمعیت شهرستان گچساران چقدر است؟",
+     "a": "۱۲۳٬۳۷۰ نفر بر پایهٔ آخرین سرشماری رسمی به روایت مقاله."
+    },
+    {
+     "q": "مساحت شهرستان گچساران چقدر است؟",
+     "a": "حدود ۴٬۶۸۳ کیلومتر مربع."
+    },
+    {
+     "q": "آب‌وهوای گچساران چگونه است؟",
+     "a": "گرم؛ میانگین دمای سالانه ۲۲٫۷ درجه، بارش ۴۳۲٫۵ میلی‌متر و تنها ۵ روز یخبندان در سال."
+    },
+    {
+     "q": "ارتفاع گچساران از سطح دریا چقدر است؟",
+     "a": "۷۲۶ متر به روایت ادارهٔ کل هواشناسی استان."
+    },
+    {
+     "q": "تقسیمات شهرستان گچساران چگونه است؟",
+     "a": "یک بخش مرکزی، چهار دهستان (امامزاده جعفر، لیشتر، بویراحمد گرمسیری و بی‌بی حکیمه) و یک شهر."
+    },
+    {
+     "q": "مردم گچساران چه کسانی‌اند؟",
+     "a": "اکثریت از قوم لر؛ همراه با طوایف قشقایی دره‌شوری و کشکولی و مهاجران دورهٔ نفت."
+    },
+    {
+     "q": "چرا دوگنبدان رشد کرده است؟",
+     "a": "به‌دلیل توسعهٔ صنعت نفت و گاز و مهاجرت نیروی کار از خوزستان و استان‌های هم‌جوار."
+    },
+    {
+     "q": "شهرستان گچساران چه سالی تشکیل شد؟",
+     "a": "سال ۱۳۵۳ بر پایهٔ بانک اطلاعات تقسیمات کشوری وزارت کشور."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان گچساران؛ موقعیت، مردم‌شناسی، جمعیت و تقسیمات | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%AF%DA%86%D8%B3%D8%A7%D8%B1%D8%A7%D9%86 | 2026-10-01\n2. [نقشه] موقعیت شهر دوگنبدان (مرکز شهرستان گچساران) | Google Maps | https://maps.google.com/?q=Dogonbadan+Iran | 2026-10-01\n3. [نقشه] موقعیت دهستان امامزاده جعفر | Google Maps | https://maps.google.com/?q=Emamzadeh+Jafar+Gachsaran | 2026-10-01\n4. [نقشه] موقعیت اسلام‌آباد لیشتر | Google Maps | https://maps.google.com/?q=Lishtar+Gachsaran | 2026-10-01\n5. [نقشه] موقعیت باباکلان (بی‌بی حکیمه) | Google Maps | https://maps.google.com/?q=Babakalan+Gachsaran | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/gachsaran.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/gachsaran.webp",
+    "mime": "image/webp",
+    "alt": "دشت گرم دوگنبدان و کوه‌های زاگرس؛ تصویر شاخص شهرستان گچساران",
+    "caption": "دوگنبدان، مرکز شهرستان گچساران در جنوب غربی استان.",
+    "title": "شهرستان گچساران — سرزمین آریان",
+    "description": "دشت گرم دوگنبدان و کوه‌های زاگرس؛ تصویر شاخص شهرستان گچساران",
+    "sha1": "a61f05e008798da5bc3a19ba03d6d25da5d597ea"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/dena.md",
+   "source_sha1": "c31804059acd68370629b7136a3d532a4b4827cb",
+   "slug": "dena",
+   "status": "article",
+   "title": "شهرستان دنا",
+   "name_fa": "شهرستان دنا",
+   "name_en": "Dena County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان دنا",
+    "excerpt": "شهرستان دنا؛ بام استان با قلهٔ ۴٬۴۰۹ متری و مرکزیت سی‌سخت.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان دنا؛ سی‌سخت در پای بلندترین بام استان</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان دنا</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر سی‌سخت است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>نهمین قلهٔ مرتفع ایران</strong>؛ قلهٔ دنا (دینار) با ۴٬۴۰۹ متر ارتفاع در این شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>مقصد کوهنوردان جهان</strong>؛ هر سال کوهنوردان بسیاری از سراسر کشور و جهان برای فتح دنا به سی‌سخت می‌آیند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>نگین حفاظت‌شده</strong>؛ منطقهٔ حفاظت‌شدهٔ دنا و دریاچهٔ کوه گل در قلمرو این شهرستان‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>روستای ماسوله‌ایِ کَریَک</strong>؛ نمونه‌ای از معماری پلکانی ایران.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>گنجینهٔ آب</strong>؛ سرچشمه‌های کبگیان و خرسان و آبشارهای میمند، منج و بهرام‌بیگی.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان دنا، گشتی است در ارتفاعات زاگرس، چشمه‌ها و آبشارهای کوهستانی، روستاهای پلکانی و یادگارهای تاریخی مانند پل پاتاوه و قلعه کره؛ در ادامه موقعیت، منابع آبی، ارتفاعات، تقسیمات و جاذبه‌های این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۴۲٬۵۳۹ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۱٬۱۰۱ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۳۹ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر سی‌سخت (۷٬۸۵۵ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>سایر شهرها</td><td>پاتاوه (۲٬۲۸۴ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>بلندترین قله</td><td>دنا (دینار) با ۴٬۴۰۹ متر؛ نهمین قلهٔ مرتفع ایران</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش، ۴ دهستان و ۲ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۷۹ خورشیدی</td><td>با جدایی از شهرستان بویراحمد<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr><tr><td>نام پیشین</td><td>دروهان</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان دنا در شمال استان کهگیلویه و بویراحمد واقع شده است؛ این شهرستان از شمال با شهرستان لردگان استان چهارمحال و بختیاری، از شرق با شهرستان سمیرم استان اصفهان، از جنوب و جنوب غربی با شهرستان بویراحمد و از غرب با شهرستان مارگون همسایه است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>لردگان (چهارمحال و بختیاری)</td><td>شمال</td></tr><tr><td>سمیرم (استان اصفهان)</td><td>شرق</td></tr><tr><td>بویراحمد</td><td>جنوب و جنوب غربی</td></tr><tr><td>مارگون</td><td>غرب</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان دنا در سال ۱۳۷۹ از شهرستان بویراحمد جدا و مستقل شد؛ نام پیشین این پهنه به روایت اینفوباکس مقاله «دروهان» بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">ارتفاعات شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مهم‌ترین بلندی این شهرستان، قلهٔ دنا یا دینار با ارتفاع ۴٬۴۰۹ متر است که نهمین قلهٔ مرتفع ایران به‌شمار می‌رود و هر سال شمار زیادی کوهنورد از سراسر کشور و دیگر نقاط جهان برای فتح آن و قله‌های هم‌جوار وارد شهر سی‌سخت می‌شوند؛ از دیگر ارتفاعات مهم شهرستان می‌توان به شوروم، کوه سیوک و سیاه‌کوه اشاره کرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">منابع آبی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>عمده‌ترین منابع آبی شهرستان دنا عبارت‌اند از کبگیان، خرسان، تنگ پوتک، دیاشم کره، بهرام بیگی و شبلیز؛ همچنین آبشارهای فصلی و دائمی چون میمند، بهرام بیگی، منج، دودراک کره، دره ناری و توف شاه در این شهرستان جریان دارند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان دنا برابر با ۴۲٬۵۳۹ نفر بوده است؛ بخش پاتاوه با ۲۵٬۰۶۴ نفر پرجمعیت‌تر از بخش مرکزی با ۱۷٬۴۷۳ نفر ثبت شده و در میان شهرها، سی‌سخت ۷٬۸۵۵ نفر و پاتاوه ۲٬۲۸۴ نفر جمعیت داشته‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان دنا دارای ۲ بخش، ۴ دهستان و ۲ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>سی‌سخت</td><td>۱۷٬۴۷۳ نفر</td><td>توت‌نده (۴٬۹۴۲ نفر)، دنا (۴٬۷۷۶ نفر)</td></tr><tr><td>پاتاوه</td><td>پاتاوه</td><td>۲۵٬۰۶۴ نفر</td><td>پاتاوه (۱۲٬۶۲۴ نفر)، سادات محمودی (۱۰٬۱۵۶ نفر)</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جاذبه‌های گردشگری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>از مهم‌ترین آثار تاریخی باقی‌مانده در شهرستان دنا می‌توان به ویرانه‌های شهر سی‌سخت (پیش از اسلام)، ویرانه‌های شهر دینار (ده نار)، کوشک میمند (خرنده)، پل پاتاوه و قلعه کره اشاره کرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>زیارتگاه‌ها و اماکن تفریحی مهم شهرستان نیز عبارت‌اند از امامزاده عبدالله، امامزاده بی‌بی زهرا خاتون در روستای کره، امامزاده سید نجم‌الدین مشهور به محمود طیار در روستای درب کلات، کوه گل و دریاچه‌های این منطقه، بن رود، دشتک، منطقهٔ حفاظت‌شدهٔ دنا، چشمه میشی، غار دنا و غار کیخسرو.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>منطقهٔ تفریحی دیگر شهرستان در روستای توت نده قرار دارد — «پر توت نده» و ساحل رودخانهٔ بشار — و از روستاهای گردشگری شهرستان می‌توان به روستای کَریَک اشاره کرد که در ادبیات معماری ایران این دسته از روستاها را «روستاهای ماسوله‌ای» می‌نامند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/bahmai/\">بهمئی</a>، <a href=\"/city/choram/\">چرام</a>، <a href=\"/city/basht/\">باشت</a>، <a href=\"/city/landeh/\">لنده</a>، <a href=\"/city/margoun/\">مارگون</a>، <a href=\"/city/boyer-ahmad/\">بویراحمد</a>، <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>، <a href=\"/city/gachsaran/\">گچساران</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان دنا در شمال استان کهگیلویه و بویراحمد و در دامنهٔ رشته‌کوه دنا قرار دارد و مرکز آن شهر سی‌سخت است. برای مسیریابی، <a href=\"https://maps.google.com/?q=Sisakht+Iran\">نقشهٔ شهرستان دنا در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Sisakht+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>قلهٔ دنا با ۴٬۴۰۹ متر، نهمین قلهٔ مرتفع ایران است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان دنا در سال ۱۳۷۹ از شهرستان بویراحمد جدا شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>نام پیشین این شهرستان «دروهان» بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مرکز شهرستان، شهر سی‌سخت با ۷٬۸۵۵ نفر جمعیت (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در ۱۳۹۵ برابر ۴۲٬۵۳۹ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بخش پاتاوه پرجمعیت‌تر از بخش مرکزی شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>روستای کَریَک از روستاهای پلکانی یا «ماسوله‌ای» ایران است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>پل پاتاوه و قلعه کره از آثار تاریخی شهرستان‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>غار دنا و غار کیخسرو از جاذبه‌های طبیعی این شهرستان‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دریاچه و منطقهٔ کوه گل از مقصدهای تفریحی شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>رودخانهٔ بشار از کنار روستای توت نده می‌گذرد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان دنا، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان دنا زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 899
+   },
+   "meta": {
+    "sa_city_slug": "dena",
+    "sa_city_population": "42539",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Sisakht+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان دنا؛ سی‌سخت و بام بلند زاگرس — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان دنا؛ مرکز آن سی‌سخت، جدایی از بویراحمد در ۱۳۷۹، ۴۲٬۵۳۹ نفر جمعیت (۱۳۹۵)، ۱٬۱۰۱ کیلومتر مربع و قلهٔ ۴٬۴۰۹ متری دنا.",
+    "sa_focus_keyword": "شهرستان دنا",
+    "sa_og_title": "شهرستان دنا — سی‌سخت و قلهٔ دنا",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان دنا باید بدانید؛ از قلهٔ دنا و کوه گل تا پل پاتاوه و روستای کریک."
+   },
+   "secondary_keywords": [
+    "سی‌سخت",
+    "قله دنا",
+    "پاتاوه",
+    "کوه گل",
+    "کریک",
+    "توت نده",
+    "منطقه حفاظت‌شده دنا"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Sisakht+Iran",
+   "faq": [
+    {
+     "q": "شهرستان دنا کجاست؟",
+     "a": "در شمال استان کهگیلویه و بویراحمد؛ هم‌مرز با لردگان، سمیرم، بویراحمد و مارگون."
+    },
+    {
+     "q": "مرکز شهرستان دنا کدام شهر است؟",
+     "a": "شهر سی‌سخت با ۷٬۸۵۵ نفر جمعیت (۱۳۹۵)."
+    },
+    {
+     "q": "بلندترین قلهٔ شهرستان دنا کدام است؟",
+     "a": "قلهٔ دنا یا دینار با ۴٬۴۰۹ متر، نهمین قلهٔ مرتفع ایران."
+    },
+    {
+     "q": "جمعیت شهرستان دنا چقدر است؟",
+     "a": "۴۲٬۵۳۹ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "شهرستان دنا چه زمانی تشکیل شد؟",
+     "a": "سال ۱۳۷۹ با جدایی از شهرستان بویراحمد."
+    },
+    {
+     "q": "جاذبه‌های تاریخی دنا کدام‌اند؟",
+     "a": "ویرانه‌های شهر سی‌سخت و شهر دینار، کوشک میمند، پل پاتاوه و قلعه کره."
+    },
+    {
+     "q": "جاذبه‌های طبیعی دنا کدام‌اند؟",
+     "a": "کوه گل و دریاچه‌های آن، منطقهٔ حفاظت‌شدهٔ دنا، چشمه میشی، غار دنا و غار کیخسرو."
+    },
+    {
+     "q": "کدام روستای دنا پلکانی است؟",
+     "a": "روستای کَریَک که از «روستاهای ماسوله‌ای» ایران به‌شمار می‌رود."
+    },
+    {
+     "q": "رودها و آبشارهای دنا کدام‌اند؟",
+     "a": "کبگیان، خرسان، تنگ پوتک، دیاشم کره، بهرام بیگی و شبلیز؛ آبشارهای میمند، منج، دودراک کره، دره ناری و توف شاه."
+    },
+    {
+     "q": "تقسیمات شهرستان دنا چگونه است؟",
+     "a": "دو بخش مرکزی و پاتاوه، چهار دهستان و دو شهر سی‌سخت و پاتاوه."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان دنا؛ موقعیت، منابع آبی، ارتفاعات، تقسیمات و جاذبه‌ها | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%AF%D9%86%D8%A7 | 2026-10-01\n2. [نقشه] موقعیت شهر سی‌سخت (مرکز شهرستان دنا) | Google Maps | https://maps.google.com/?q=Sisakht+Iran | 2026-10-01\n3. [نقشه] موقعیت شهر پاتاوه | Google Maps | https://maps.google.com/?q=Pataveh+Iran | 2026-10-01\n4. [نقشه] موقعیت قلهٔ دنا | Google Maps | https://maps.google.com/?q=Dena+Mountain+Iran | 2026-10-01\n5. [نقشه] موقعیت کوه گل سی‌سخت | Google Maps | https://maps.google.com/?q=Kuh+Gol+Sisakht | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/dena.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/dena.webp",
+    "mime": "image/webp",
+    "alt": "قلهٔ برفی دنا و دریاچهٔ کوه گل در سپیده‌دم؛ تصویر شاخص شهرستان دنا",
+    "caption": "قلهٔ دنا و ییلاق‌های سی‌سخت، بام استان کهگیلویه و بویراحمد.",
+    "title": "شهرستان دنا — سرزمین آریان",
+    "description": "قلهٔ برفی دنا و دریاچهٔ کوه گل در سپیده‌دم؛ تصویر شاخص شهرستان دنا",
+    "sha1": "71e27adb9e67a476ae524eb7ad54827bf460d39c"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/bahmai.md",
+   "source_sha1": "f2ed7c01b388bdcccc3fa7e58aa0174506d77f50",
+   "slug": "bahmai",
+   "status": "article",
+   "title": "شهرستان بهمئی",
+   "name_fa": "شهرستان بهمئی",
+   "name_en": "Bahmai County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان بهمئی",
+    "excerpt": "شهرستان بهمئی؛ دیار ایل بهمئی در غرب استان با مرکزیت لیکک.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان بهمئی؛ لیکک در غرب استان</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان بهمئی</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر لیکک است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>دیار ایل بهمئی</strong>؛ مردمانی لرتبار با گویش بهمئی.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>ارتفاع ۱٬۵۰۰ متری</strong> و بارش سالانهٔ ۸۰۰ میلی‌متر؛ از پربارش‌ترین پهنه‌های استان به روایت اینفوباکس.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>اقلیم معتدل</strong>؛ میانگین دمای سالانه ۱۵ درجهٔ سانتی‌گراد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>سه بخش و سه شهر</strong> در ۱٬۳۱۷ کیلومتر مربع.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دروازهٔ غربی استان</strong>؛ هم‌مرز با پنج شهرستان خوزستان.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان بهمئی، گشتی است در دامنه‌های غربی زاگرس، از لیکک و کفشکنان تا قلعه ممبی، رودتلخ، سرآسیاب یوسفی و آب‌الوان؛ در ادامه موقعیت، تقسیمات، مردم و جمعیت این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۳۸٬۱۳۶ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۱٬۳۱۷ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۲۹ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر لیکک (۱۹٬۸۵۷ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>سایر شهرها</td><td>سرآسیاب یوسفی و قلعه ممبی</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>ارتفاع از سطح دریا</td><td>۱٬۵۰۰ متر</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>میانگین دمای سالانه</td><td>۱۵ درجهٔ سانتی‌گراد</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>بارش سالانه</td><td>۸۰۰ میلی‌متر</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>فاصله تا مرکز استان</td><td>۲۳۰ کیلومتر تا یاسوج</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۳ بخش، ۶ دهستان و ۳ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱ آذر ۱۳۸۳ خورشیدی</td><td>با جدایی از شهرستان کهگیلویه<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بهمئی در قسمت غرب و جنوب غرب استان کهگیلویه و بویراحمد قرار دارد و مرکز آن، شهر لیکک، در فاصلهٔ ۲۳۰ کیلومتری یاسوج (مرکز استان) واقع شده است؛ این شهرستان از شمال با شهرستان‌های صیدون و باغملک استان خوزستان، از غرب با شهرستان رامهرمز، از جنوب غرب با شهرستان‌های امیدیه و آغاجاری استان خوزستان، از شرق با شهرستان لنده و از شمال شرق و جنوب شرق با شهرستان کهگیلویه همسایه است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>صیدون و باغملک (خوزستان)</td><td>شمال</td></tr><tr><td>رامهرمز (خوزستان)</td><td>غرب</td></tr><tr><td>امیدیه و آغاجاری (خوزستان)</td><td>جنوب غرب</td></tr><tr><td>لنده</td><td>شرق</td></tr><tr><td>کهگیلویه</td><td>شمال شرق و جنوب شرق</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بهمئی در تاریخ ۱ آذر ۱۳۸۳ از شهرستان کهگیلویه جدا شد و به شهرستانی مستقل تبدیل گردید؛ مرکز آن شهر لیکک تعیین شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرهنگ و مردم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مردم شهرستان بهمئی لرتبار و از ایل بهمئی هستند؛ همین پیوند ایلی، نام شهرستان و نام دهستان‌های گرمسیری آن را نیز شکل داده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">زبان و گویش</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مردم این شهرستان به زبان لری با گویش بهمئی سخن می‌گویند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان بهمئی برابر با ۳۸٬۱۳۶ نفر بوده است؛ بخش مرکزی با ۲۸٬۳۲۴ نفر پرجمعیت‌ترین بخش و پس از آن ممبی با ۶٬۱۵۰ نفر و سرآسیاب یوسفی با ۳٬۲۵۲ نفر قرار دارند. در میان شهرها، لیکک ۱۹٬۸۵۷ نفر، سرآسیاب یوسفی ۹۸۴ نفر و قلعه ممبی ۶۸۸ نفر جمعیت داشته‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بهمئی دارای ۳ بخش، ۶ دهستان و ۳ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>لیکک</td><td>۲۸٬۳۲۴ نفر</td><td>بهمئی گرمسیری جنوبی (۷٬۰۸۳ نفر)، کفشکنان (۱٬۳۸۴ نفر)</td></tr><tr><td>ممبی</td><td>قلعه ممبی</td><td>۶٬۱۵۰ نفر</td><td>بهمئی گرمسیری شمالی (۳٬۵۳۱ نفر)، رودتلخ (۱٬۹۳۱ نفر)</td></tr><tr><td>سرآسیاب یوسفی</td><td>سرآسیاب یوسفی</td><td>۳٬۲۵۲ نفر</td><td>سرآسیاب یوسفی (۱٬۳۴۵ نفر)، آب‌الوان (۹۲۳ نفر)</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/choram/\">چرام</a>، <a href=\"/city/basht/\">باشت</a>، <a href=\"/city/landeh/\">لنده</a>، <a href=\"/city/margoun/\">مارگون</a>، <a href=\"/city/boyer-ahmad/\">بویراحمد</a>، <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>، <a href=\"/city/gachsaran/\">گچساران</a>، <a href=\"/city/dena/\">دنا</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان بهمئی در غرب و جنوب غرب استان کهگیلویه و بویراحمد و در همسایگی خوزستان قرار دارد و مرکز آن شهر لیکک است. برای مسیریابی، <a href=\"https://maps.google.com/?q=Likak+Iran\">نقشهٔ شهرستان بهمئی در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Likak+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>بهمئی در ۱ آذر ۱۳۸۳ از شهرستان کهگیلویه جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مرکز شهرستان، شهر لیکک با ۱۹٬۸۵۷ نفر جمعیت (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>لیکک در ۲۳۰ کیلومتری یاسوج، مرکز استان، قرار دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵ برابر ۳۸٬۱۳۶ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۱٬۳۱۷ کیلومتر مربع و تراکم آن ۲۹ نفر در کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>ارتفاع شهرستان از سطح دریا ۱٬۵۰۰ متر گزارش شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بارش سالانهٔ شهرستان ۸۰۰ میلی‌متر و میانگین دما ۱۵ درجه است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مردم شهرستان از ایل بهمئی‌اند و به گویش بهمئی سخن می‌گویند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان سه بخش مرکزی، ممبی و سرآسیاب یوسفی دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کم‌جمعیت‌ترین شهر شهرستان، قلعه ممبی با ۶۸۸ نفر (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>بهمئی با پنج شهرستان استان خوزستان هم‌مرز است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان بهمئی، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان بهمئی زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 787
+   },
+   "meta": {
+    "sa_city_slug": "bahmai",
+    "sa_city_population": "38136",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Likak+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان بهمئی؛ لیکک و دیار ایل بهمئی — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان بهمئی؛ مرکز آن لیکک، جدایی از کهگیلویه در ۱ آذر ۱۳۸۳، ۳۸٬۱۳۶ نفر جمعیت (۱۳۹۵)، ۱٬۳۱۷ کیلومتر مربع، ارتفاع ۱٬۵۰۰ متر و بارش ۸۰۰ میلی‌متر.",
+    "sa_focus_keyword": "شهرستان بهمئی",
+    "sa_og_title": "شهرستان بهمئی — لیکک و دیار ایل بهمئی",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان بهمئی باید بدانید؛ از لیکک و قلعه ممبی تا سرآسیاب یوسفی و آب‌الوان."
+   },
+   "secondary_keywords": [
+    "لیکک",
+    "ایل بهمئی",
+    "گویش بهمئی",
+    "قلعه ممبی",
+    "سرآسیاب یوسفی",
+    "آب‌الوان"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Likak+Iran",
+   "faq": [
+    {
+     "q": "شهرستان بهمئی کجاست؟",
+     "a": "در غرب و جنوب غرب استان کهگیلویه و بویراحمد؛ هم‌مرز با صیدون، باغملک، رامهرمز، امیدیه، آغاجاری، لنده و کهگیلویه."
+    },
+    {
+     "q": "مرکز شهرستان بهمئی کدام شهر است؟",
+     "a": "شهر لیکک با ۱۹٬۸۵۷ نفر جمعیت (۱۳۹۵)."
+    },
+    {
+     "q": "فاصلهٔ لیکک تا یاسوج چقدر است؟",
+     "a": "حدود ۲۳۰ کیلومتر."
+    },
+    {
+     "q": "جمعیت شهرستان بهمئی چقدر است؟",
+     "a": "۳۸٬۱۳۶ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "شهرستان بهمئی چه زمانی تشکیل شد؟",
+     "a": "در ۱ آذر ۱۳۸۳ با جدایی از شهرستان کهگیلویه."
+    },
+    {
+     "q": "آب‌وهوای بهمئی چگونه است؟",
+     "a": "معتدل کوهستانی؛ ارتفاع ۱٬۵۰۰ متر، میانگین دمای سالانه ۱۵ درجه و بارش ۸۰۰ میلی‌متر."
+    },
+    {
+     "q": "بخش‌های شهرستان بهمئی کدام‌اند؟",
+     "a": "مرکزی، ممبی و سرآسیاب یوسفی؛ در مجموع ۶ دهستان و ۳ شهر."
+    },
+    {
+     "q": "شهرهای شهرستان بهمئی کدام‌اند؟",
+     "a": "لیکک، سرآسیاب یوسفی و قلعه ممبی."
+    },
+    {
+     "q": "مردم بهمئی به چه زبانی سخن می‌گویند؟",
+     "a": "لری با گویش بهمئی؛ آنان از ایل بهمئی‌اند."
+    },
+    {
+     "q": "مساحت شهرستان بهمئی چقدر است؟",
+     "a": "۱٬۳۱۷ کیلومتر مربع با تراکم ۲۹ نفر در کیلومتر مربع."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان بهمئی؛ موقعیت، تقسیمات، مردم‌شناسی و جمعیت | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D9%87%D9%85%D8%A6%DB%8C | 2026-10-01\n2. [نقشه] موقعیت شهر لیکک (مرکز شهرستان بهمئی) | Google Maps | https://maps.google.com/?q=Likak+Iran | 2026-10-01\n3. [نقشه] موقعیت شهر قلعه ممبی | Google Maps | https://maps.google.com/?q=Qaleh+Mombi+Iran | 2026-10-01\n4. [نقشه] موقعیت شهر سرآسیاب یوسفی | Google Maps | https://maps.google.com/?q=Sarasiab+Yousefi+Iran | 2026-10-01\n5. [نقشه] موقعیت دهستان آب‌الوان | Google Maps | https://maps.google.com/?q=Ab+Alvan+Bahmai | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/bahmai.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/bahmai.webp",
+    "mime": "image/webp",
+    "alt": "تپه‌های بلوط‌پوش و دشت لیکک در بهار؛ تصویر شاخص شهرستان بهمئی",
+    "caption": "لیکک، مرکز شهرستان بهمئی در غرب استان کهگیلویه و بویراحمد.",
+    "title": "شهرستان بهمئی — سرزمین آریان",
+    "description": "تپه‌های بلوط‌پوش و دشت لیکک در بهار؛ تصویر شاخص شهرستان بهمئی",
+    "sha1": "ee2da9546e9af5fb6b010ad7b90cc0a930109f34"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/choram.md",
+   "source_sha1": "25d932cd75eb9d0da38353112d99c80c24225cb4",
+   "slug": "choram",
+   "status": "article",
+   "title": "شهرستان چرام",
+   "name_fa": "شهرستان چرام",
+   "name_en": "Choram County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان چرام",
+    "excerpt": "شهرستان چرام؛ شهرستانی میانی در استان کهگیلویه و بویراحمد با مرکزیت شهر چرام.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان چرام؛ میانهٔ راه کهگیلویه و بویراحمد</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان چرام</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر چرام است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>پیوندگاه پنج شهرستان</strong>؛ همسایگی با بویراحمد، رستم، باشت، گچساران و کهگیلویه.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>۳۳٬۵۴۳ نفر جمعیت</strong> در سرشماری ۱۳۹۵ و ۱٬۲۹۵ کیلومتر مربع پهنه.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دو بخش و دو شهر</strong>؛ مرکزی با مرکزیت چرام و سرفاریاب با مرکزیت شهر سرفاریاب.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>شهر چرام</strong>؛ پرجمعیت‌ترین نقطهٔ شهرستان با ۱۵٬۲۱۸ نفر (۱۳۹۵).<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>شهرستانی جوان</strong>؛ در سال ۱۳۸۹ از شهرستان کهگیلویه جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان چرام، گشتی است در دشت‌های میان‌کوهی زاگرس و دهستان‌های چرام، القچین، سرفاریاب و پشته زیلایی؛ در ادامه موقعیت، تقسیمات و جمعیت این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۳۳٬۵۴۳ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۱٬۲۹۵ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۲۶ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر چرام (۱۵٬۲۱۸ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>سایر شهرها</td><td>سرفاریاب (۱٬۹۹۵ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش، ۴ دهستان و ۲ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۳۸۹ خورشیدی</td><td>با جدایی از شهرستان کهگیلویه<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۷۴</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr><tr><td>حوزهٔ انتخابیه</td><td>کهگیلویه، بهمئی، چرام و لنده</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چرام از شمال تا شرق با شهرستان بویراحمد، از جنوب شرق با شهرستان رستم استان فارس، از جنوب با شهرستان باشت، از جنوب غرب با شهرستان گچساران و از غرب با شهرستان کهگیلویه همسایه است؛ همین جایگاه، آن را به حلقهٔ پیوند شهرستان‌های مرکزی و جنوبی استان بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>بویراحمد</td><td>شمال تا شرق</td></tr><tr><td>رستم (استان فارس)</td><td>جنوب شرق</td></tr><tr><td>باشت</td><td>جنوب</td></tr><tr><td>گچساران</td><td>جنوب غرب</td></tr><tr><td>کهگیلویه</td><td>غرب</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چرام در سال ۱۳۸۹ از شهرستان کهگیلویه جدا شد و به شهرستانی مستقل تبدیل گردید؛ مرکز آن شهر چرام تعیین شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان چرام برابر با ۳۳٬۵۴۳ نفر بوده است؛ بخش مرکزی با ۲۵٬۹۶۷ نفر و بخش سرفاریاب با ۷٬۵۷۶ نفر ثبت شده‌اند و در میان دهستان‌ها، چرام با ۵٬۵۳۴ نفر، القچین با ۵٬۲۱۵ نفر، سرفاریاب با ۳٬۱۶۵ نفر و پشته زیلایی با ۲٬۴۱۶ نفر جمعیت داشته‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">دهستان‌ها و مراکز آن‌ها</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>چهار دهستان شهرستان چرام عبارت‌اند از دهستان چرام به مرکزیت روستای کره شهبازی، دهستان القچین به مرکزیت القچین علیا، دهستان سرفاریاب به مرکزیت شهر سرفاریاب و دهستان پشته زیلایی به مرکزیت روستای سواری؛ دو دهستان نخست در بخش مرکزی و دو دهستان دیگر در بخش سرفاریاب جای گرفته‌اند و همین آرایش، تعادل جمعیتی نسبی میان دو بخش شهرستان را نشان می‌دهد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پیوند با شهرستان‌های همسایه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>چرام از شمال تا شرق به بویراحمد، از جنوب شرق به رستم، از جنوب به باشت، از جنوب غرب به گچساران و از غرب به کهگیلویه می‌رسد؛ به این ترتیب این شهرستان با پنج شهرستان از دو استان هم‌مرز است و در نقشهٔ استان، حلقهٔ واسط میان پهنهٔ کوهستانی شمال و پهنهٔ گرمسیری جنوب به‌شمار می‌رود. بخشی از حوزهٔ انتخابیهٔ مشترک «کهگیلویه، بهمئی، چرام و لنده» نیز همین پیوند اداری و منطقه‌ای را بازتاب می‌دهد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چرام دارای ۲ بخش، ۴ دهستان و ۲ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>چرام</td><td>۲۵٬۹۶۷ نفر</td><td>چرام (مرکز: کره شهبازی، ۵٬۵۳۴ نفر)، القچین (مرکز: القچین علیا، ۵٬۲۱۵ نفر)</td></tr><tr><td>سرفاریاب</td><td>سرفاریاب</td><td>۷٬۵۷۶ نفر</td><td>سرفاریاب (۳٬۱۶۵ نفر)، پشته زیلایی (مرکز: سواری، ۲٬۴۱۶ نفر)</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/basht/\">باشت</a>، <a href=\"/city/landeh/\">لنده</a>، <a href=\"/city/margoun/\">مارگون</a>، <a href=\"/city/boyer-ahmad/\">بویراحمد</a>، <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>، <a href=\"/city/gachsaran/\">گچساران</a>، <a href=\"/city/dena/\">دنا</a>، <a href=\"/city/bahmai/\">بهمئی</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان چرام در میانهٔ استان کهگیلویه و بویراحمد و بر محور ارتباطی شهرستان‌های مرکزی و جنوبی استان قرار دارد. برای مسیریابی، <a href=\"https://maps.google.com/?q=Choram+Iran\">نقشهٔ شهرستان چرام در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Choram+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>چرام در سال ۱۳۸۹ از شهرستان کهگیلویه جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵ برابر ۳۳٬۵۴۳ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۱٬۲۹۵ کیلومتر مربع و تراکم آن ۲۶ نفر در کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر چرام با ۱۵٬۲۱۸ نفر (۱۳۹۵) پرجمعیت‌ترین نقطهٔ شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر سرفاریاب در ۱۳۹۵ جمعیت ۱٬۹۹۵ نفر داشته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان دو بخش مرکزی و سرفاریاب دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مرکز دهستان چرام، روستای کره شهبازی است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>کم‌جمعیت‌ترین دهستان شهرستان، پشته زیلایی با ۲٬۴۱۶ نفر است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>چرام با پنج شهرستان از دو استان هم‌مرز است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>حوزهٔ انتخابیهٔ آن «کهگیلویه، بهمئی، چرام و لنده» است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان چرام، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان چرام زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 808
+   },
+   "meta": {
+    "sa_city_slug": "choram",
+    "sa_city_population": "33543",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Choram+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان چرام؛ میانهٔ راه کهگیلویه و بویراحمد — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان چرام؛ مرکز آن شهر چرام، جدایی از کهگیلویه در ۱۳۸۹، ۳۳٬۵۴۳ نفر جمعیت (۱۳۹۵)، ۱٬۲۹۵ کیلومتر مربع، دو بخش مرکزی و سرفاریاب.",
+    "sa_focus_keyword": "شهرستان چرام",
+    "sa_og_title": "شهرستان چرام — میانهٔ راه استان",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان چرام باید بدانید؛ از شهر چرام و سرفاریاب تا القچین و پشته زیلایی."
+   },
+   "secondary_keywords": [
+    "چرام",
+    "سرفاریاب",
+    "القچین",
+    "پشته زیلایی",
+    "کره شهبازی"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Choram+Iran",
+   "faq": [
+    {
+     "q": "شهرستان چرام کجاست؟",
+     "a": "در میانهٔ استان کهگیلویه و بویراحمد؛ هم‌مرز با بویراحمد، رستم، باشت، گچساران و کهگیلویه."
+    },
+    {
+     "q": "مرکز شهرستان چرام کدام شهر است؟",
+     "a": "شهر چرام با ۱۵٬۲۱۸ نفر جمعیت (۱۳۹۵)."
+    },
+    {
+     "q": "جمعیت شهرستان چرام چقدر است؟",
+     "a": "۳۳٬۵۴۳ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "شهرستان چرام چه زمانی تشکیل شد؟",
+     "a": "سال ۱۳۸۹ با جدایی از شهرستان کهگیلویه."
+    },
+    {
+     "q": "مساحت شهرستان چرام چقدر است؟",
+     "a": "۱٬۲۹۵ کیلومتر مربع با تراکم ۲۶ نفر در کیلومتر مربع."
+    },
+    {
+     "q": "بخش‌های شهرستان چرام کدام‌اند؟",
+     "a": "مرکزی و سرفاریاب؛ در مجموع ۴ دهستان و ۲ شهر."
+    },
+    {
+     "q": "دهستان‌های شهرستان چرام کدام‌اند؟",
+     "a": "چرام، القچین، سرفاریاب و پشته زیلایی."
+    },
+    {
+     "q": "شهر دوم شهرستان چرام کدام است؟",
+     "a": "سرفاریاب با ۱٬۹۹۵ نفر جمعیت (۱۳۹۵)."
+    },
+    {
+     "q": "پرجمعیت‌ترین بخش شهرستان کدام است؟",
+     "a": "بخش مرکزی با ۲۵٬۹۶۷ نفر (۱۳۹۵)."
+    },
+    {
+     "q": "پیش‌شمارهٔ تلفن شهرستان چرام چیست؟",
+     "a": "۰۷۴."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان چرام؛ موقعیت، تقسیمات و جمعیت | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%DA%86%D8%B1%D8%A7%D9%85 | 2026-10-01\n2. [نقشه] موقعیت شهر چرام (مرکز شهرستان) | Google Maps | https://maps.google.com/?q=Choram+Iran | 2026-10-01\n3. [نقشه] موقعیت شهر سرفاریاب | Google Maps | https://maps.google.com/?q=Sarfaryab+Iran | 2026-10-01\n4. [نقشه] موقعیت القچین علیا | Google Maps | https://maps.google.com/?q=Alqachin+Choram | 2026-10-01\n5. [نقشه] موقعیت کره شهبازی | Google Maps | https://maps.google.com/?q=Korreh+Shahbazi+Choram | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/choram.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/choram.webp",
+    "mime": "image/webp",
+    "alt": "دشت میان‌کوهی چرام و کوه‌های زاگرس؛ تصویر شاخص شهرستان چرام",
+    "caption": "دشت‌های میان‌کوهی شهرستان چرام در میانهٔ استان.",
+    "title": "شهرستان چرام — سرزمین آریان",
+    "description": "دشت میان‌کوهی چرام و کوه‌های زاگرس؛ تصویر شاخص شهرستان چرام",
+    "sha1": "5793ebdaf9eb53a1207f2882112070fd4998d8da"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/basht.md",
+   "source_sha1": "9d1820f4b820a89e2673f1086da85549db11f749",
+   "slug": "basht",
+   "status": "article",
+   "title": "شهرستان باشت",
+   "name_fa": "شهرستان باشت",
+   "name_en": "Basht County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان باشت",
+    "excerpt": "شهرستان باشت؛ شهرستانی کم‌تراکم در جنوب شرقی استان با مرکزیت شهر باشت.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان باشت؛ دروازهٔ جنوب شرقی استان</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان باشت</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر باشت است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>همسایهٔ فارس</strong>؛ هم‌مرزی با شهرستان‌های ممسنی و رستم استان فارس.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>۱٬۰۵۵ کیلومتر مربع</strong> پهنه با تراکم کم ۲۱ نفر در کیلومتر مربع.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>ارتفاع ۷۶۳ متری</strong> و اقلیم گرم جنوبی.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دو بخش مرکزی و بوستان</strong> با چهار دهستان.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>شهرستانی جوان</strong>؛ در ۱۶ خرداد ۱۳۸۹ از شهرستان گچساران جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان باشت، گشتی است در دشت‌های گرم جنوب شرقی استان و دهستان‌های سراب‌بیز، کوهمره خامی، بابویی و تلخاب؛ در ادامه موقعیت، مردم، تقسیمات و جمعیت این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۲۱٬۶۹۰ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۱٬۰۵۵ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۲۱ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر باشت</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>سایر شهرها</td><td>بوستان (۱٬۲۴۸ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>ارتفاع از سطح دریا</td><td>۷۶۳ متر</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش، ۴ دهستان و ۲ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۱۶ خرداد ۱۳۸۹ خورشیدی</td><td>مصوبهٔ تغییرات تقسیماتی استان<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۷۴</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr><tr><td>حوزهٔ انتخابیه</td><td>گچساران و باشت</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان باشت از شمال به شهرستان چرام، از جنوب به شهرستان ممسنی استان فارس، از شرق با شهرستان رستم استان فارس و از غرب با شهرستان گچساران همسایه است؛ این جایگاه، باشت را به یکی از دروازه‌های ارتباطی استان با فارس بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>چرام</td><td>شمال</td></tr><tr><td>ممسنی (استان فارس)</td><td>جنوب</td></tr><tr><td>رستم (استان فارس)</td><td>شرق</td></tr><tr><td>گچساران</td><td>غرب</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان باشت در تاریخ ۱۶ خرداد ۱۳۸۹ از شهرستان گچساران جدا شد و مستقل گردید؛ این تغییر در مصوبهٔ «تغییرات و اصلاحات تقسیماتی در استان کهگیلویه و بویراحمد» ثبت شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرهنگ و مردم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مردم شهرستان باشت لر هستند و به زبان لری سخن می‌گویند؛ منطقه از دیرباز از گذرگاه‌های ایلات و عشایر کوچ‌رو بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان باشت برابر با ۲۱٬۶۹۰ نفر بوده است؛ در میان پهنه‌های روستایی، دهستان بابویی با ۳٬۱۴۳ نفر و دهستان تلخاب با ۱٬۶۰۰ نفر ثبت شده‌اند و شهر بوستان ۱٬۲۴۸ نفر جمعیت داشته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">دهستان‌ها و شهرها</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان باشت از دو بخش تشکیل شده است: بخش مرکزی با دهستان‌های سراب‌بیز و کوهمره خامی، و بخش بوستان با دهستان‌های بابویی — به مرکزیت شهر بوستان — و تلخاب به مرکزیت روستای چاه تلخ. در سرشماری ۱۳۹۵ دهستان بابویی ۳٬۱۴۳ نفر و دهستان تلخاب ۱٬۶۰۰ نفر جمعیت داشته‌اند و شهر بوستان با ۱٬۲۴۸ نفر، دومین نقطهٔ شهری شهرستان پس از مرکز آن یعنی شهر باشت است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پیوند با شهرستان‌های همسایه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>باشت در جنوب شرقی استان جای گرفته و از شمال به چرام، از غرب به گچساران و از جنوب و شرق به شهرستان‌های ممسنی و رستم استان فارس می‌رسد؛ این هم‌مرزی، شهرستان را به یکی از دروازه‌های ارتباطی استان کهگیلویه و بویراحمد با فارس بدل کرده است. در تقسیم‌بندی سیاسی نیز باشت همراه با گچساران یک حوزهٔ انتخابیهٔ مشترک را تشکیل می‌دهد؛ پیوندی که ریشه در جدایی این شهرستان از گچساران در سال ۱۳۸۹ دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان باشت دارای ۲ بخش، ۴ دهستان و ۲ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>باشت</td><td>—</td><td>سراب‌بیز، کوهمره خامی</td></tr><tr><td>بوستان</td><td>بوستان</td><td>—</td><td>بابویی (۳٬۱۴۳ نفر)، تلخاب (مرکز: چاه تلخ، ۱٬۶۰۰ نفر)</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/landeh/\">لنده</a>، <a href=\"/city/margoun/\">مارگون</a>، <a href=\"/city/boyer-ahmad/\">بویراحمد</a>، <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>، <a href=\"/city/gachsaran/\">گچساران</a>، <a href=\"/city/dena/\">دنا</a>، <a href=\"/city/bahmai/\">بهمئی</a>، <a href=\"/city/choram/\">چرام</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان باشت در جنوب شرقی استان کهگیلویه و بویراحمد و در همسایگی استان فارس قرار دارد و مرکز آن شهر باشت است. برای مسیریابی، <a href=\"https://maps.google.com/?q=Basht+Iran\">نقشهٔ شهرستان باشت در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Basht+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>باشت در ۱۶ خرداد ۱۳۸۹ از شهرستان گچساران جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵ برابر ۲۱٬۶۹۰ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۱٬۰۵۵ کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تراکم جمعیت شهرستان تنها ۲۱ نفر در کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>ارتفاع شهرستان از سطح دریا ۷۶۳ متر گزارش شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان دو بخش مرکزی و بوستان دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>دهستان‌های شهرستان: سراب‌بیز، کوهمره خامی، بابویی و تلخاب.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر دوم شهرستان، بوستان با ۱٬۲۴۸ نفر (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مرکز دهستان تلخاب، روستای چاه تلخ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مردم شهرستان لر هستند و به زبان لری سخن می‌گویند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>حوزهٔ انتخابیهٔ شهرستان «گچساران و باشت» است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان باشت، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان باشت زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 816
+   },
+   "meta": {
+    "sa_city_slug": "basht",
+    "sa_city_population": "21690",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Basht+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان باشت؛ دروازهٔ جنوب شرقی استان — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان باشت؛ مرکز آن شهر باشت، جدایی از گچساران در ۱۶ خرداد ۱۳۸۹، ۲۱٬۶۹۰ نفر جمعیت (۱۳۹۵)، ۱٬۰۵۵ کیلومتر مربع و ارتفاع ۷۶۳ متر.",
+    "sa_focus_keyword": "شهرستان باشت",
+    "sa_og_title": "شهرستان باشت — دروازهٔ جنوب شرقی استان",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان باشت باید بدانید؛ از شهر باشت و بوستان تا سراب‌بیز و کوهمره خامی."
+   },
+   "secondary_keywords": [
+    "باشت",
+    "بوستان",
+    "سراب‌بیز",
+    "کوهمره خامی",
+    "بابویی",
+    "تلخاب"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Basht+Iran",
+   "faq": [
+    {
+     "q": "شهرستان باشت کجاست؟",
+     "a": "در جنوب شرقی استان کهگیلویه و بویراحمد؛ هم‌مرز با چرام، ممسنی، رستم و گچساران."
+    },
+    {
+     "q": "مرکز شهرستان باشت کدام شهر است؟",
+     "a": "شهر باشت."
+    },
+    {
+     "q": "جمعیت شهرستان باشت چقدر است؟",
+     "a": "۲۱٬۶۹۰ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "شهرستان باشت چه زمانی تشکیل شد؟",
+     "a": "در ۱۶ خرداد ۱۳۸۹ با جدایی از شهرستان گچساران."
+    },
+    {
+     "q": "مساحت شهرستان باشت چقدر است؟",
+     "a": "۱٬۰۵۵ کیلومتر مربع با تراکم ۲۱ نفر در کیلومتر مربع."
+    },
+    {
+     "q": "ارتفاع باشت از سطح دریا چقدر است؟",
+     "a": "۷۶۳ متر."
+    },
+    {
+     "q": "بخش‌های شهرستان باشت کدام‌اند؟",
+     "a": "مرکزی و بوستان؛ در مجموع ۴ دهستان و ۲ شهر."
+    },
+    {
+     "q": "دهستان‌های شهرستان باشت کدام‌اند؟",
+     "a": "سراب‌بیز، کوهمره خامی، بابویی و تلخاب."
+    },
+    {
+     "q": "مردم باشت به چه زبانی سخن می‌گویند؟",
+     "a": "لری؛ مردم شهرستان لر هستند."
+    },
+    {
+     "q": "حوزهٔ انتخابیهٔ شهرستان باشت چیست؟",
+     "a": "حوزهٔ «گچساران و باشت»."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان باشت؛ موقعیت، مردم‌شناسی، تقسیمات و جمعیت | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D8%A8%D8%A7%D8%B4%D8%AA | 2026-10-01\n2. [نقشه] موقعیت شهر باشت (مرکز شهرستان) | Google Maps | https://maps.google.com/?q=Basht+Iran | 2026-10-01\n3. [نقشه] موقعیت شهر بوستان | Google Maps | https://maps.google.com/?q=Boostan+Basht | 2026-10-01\n4. [نقشه] موقعیت سراب‌بیز | Google Maps | https://maps.google.com/?q=Sarab+Biz+Basht | 2026-10-01\n5. [نقشه] موقعیت چاه تلخ (دهستان تلخاب) | Google Maps | https://maps.google.com/?q=Chah+Talkh+Basht | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/basht.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/basht.webp",
+    "mime": "image/webp",
+    "alt": "دشت کم‌ارتفاع باشت و تپه‌های زاگرس؛ تصویر شاخص شهرستان باشت",
+    "caption": "شهر باشت و دشت‌های پیرامون آن در جنوب شرقی استان.",
+    "title": "شهرستان باشت — سرزمین آریان",
+    "description": "دشت کم‌ارتفاع باشت و تپه‌های زاگرس؛ تصویر شاخص شهرستان باشت",
+    "sha1": "33a8d1c114dc0fe957cf34978247266e10f88655"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/landeh.md",
+   "source_sha1": "77c075933f056b43302547588769c406d1ee6dd6",
+   "slug": "landeh",
+   "status": "article",
+   "title": "شهرستان لنده",
+   "name_fa": "شهرستان لنده",
+   "name_en": "Landeh County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان لنده",
+    "excerpt": "شهرستان لنده؛ کوچک‌ترین پهنهٔ استان با پیشینه‌ای کهن به نام «بخش ثلاث».",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان لنده؛ درهٔ گودِ دیار طیبی</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان لنده</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر لنده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>از قدیمی‌ترین مراکز استان</strong>؛ در سال ۱۳۰۵ با نام «بخش ثلاث» زیر نظر فرمانداری کل بهبهان اداره می‌شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>معنای نام</strong>؛ «لنده» در فرهنگ عمومی به معنای مکان گود و عمیق است، چون ارتفاع آن از مناطق پیرامون کمتر است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دیار ایل طیبی</strong>؛ مردمانی لر با گویش کهگیلویه‌ای.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>نقش برجستهٔ شتر</strong> در کوه شیتاب، از منظره‌های دیدنی لنده.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>رودهای پرآب</strong>؛ موگرمون و مارون ایدنک در کنار منطقهٔ سردسیر کوه سیاه و سفید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان لنده، گشتی است در دره‌های گود زاگرس، کنار رودهای خروشان، بقایای قلعهٔ خوانین و روستاهایی چون مونه و شیتاب؛ در ادامه پیشینه، موقعیت، مردم، تقسیمات و جاذبه‌های این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۲۱٬۸۱۲ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۵۴۴ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۴۰ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر لنده (۱۲٬۷۷۲ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>میانگین دمای سالانه</td><td>۲۹ درجهٔ سانتی‌گراد</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>نام پیشین</td><td>بخش ثلاث (از ۱۳۰۵)</td><td>زیر نظر فرمانداری کل بهبهان<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش، ۴ دهستان و ۱ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۲۹ آذر ۱۳۹۱ خورشیدی</td><td>با جدایی از شهرستان کهگیلویه<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۷۴</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr><tr><td>حوزهٔ انتخابیه</td><td>کهگیلویه، بهمئی، چرام و لنده</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان لنده از شمال تا شرق با شهرستان کهگیلویه و از غرب تا جنوب با شهرستان بهمئی همسایه است؛ شهر لنده نسبت به مناطق پیرامونش ارتفاع کمتری دارد و همین ویژگی در نام آن بازتاب یافته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>کهگیلویه</td><td>شمال تا شرق</td></tr><tr><td>بهمئی</td><td>غرب تا جنوب</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان لنده از قدیمی‌ترین مراکز استان کهگیلویه و بویراحمد است؛ در سال ۱۳۰۵ با نام «بخش ثلاث» و زیر نظر فرمانداری کل بهبهان اداره می‌شد و تا پیش از پیروزی انقلاب ۱۳۵۷ ایران، لنده توسط خوانین ایل طیبی اداره می‌گردید. سرانجام در ۲۹ آذر ۱۳۹۱ با مصوبهٔ «انجام تقسیمات کشوری در استان کهگیلویه و بویراحمد» از شهرستان کهگیلویه جدا شد و شهرستانی مستقل گردید.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">وجه تسمیه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>در فرهنگ عمومی، از معنای «لنده» به‌عنوان مکان گود و عمیق نام برده می‌شود؛ این معنا به پایین‌بودن ارتفاع این شهر نسبت به مناطق پیرامونش بازمی‌گردد و در تصاویر منطقه نیز به‌روشنی دیده می‌شود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">فرهنگ و مردم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مردم شهرستان لنده از قوم لر و ایل طیبی هستند و به زبان لری با گویش کهگیلویه‌ای سخن می‌گویند؛ پیوند دیرینهٔ این مردم با ایل طیبی در نام دهستان‌های «طیبی گرمسیری شمالی» و «عالی طیب» نیز بازتاب یافته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان لنده برابر با ۲۱٬۸۱۲ نفر بوده است؛ بخش مرکزی با ۱۸٬۹۵۱ نفر و بخش موگرمون با ۲٬۸۶۱ نفر ثبت شده و شهر لنده به‌تنهایی ۱۲٬۷۷۲ نفر جمعیت داشته است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان لنده دارای ۲ بخش، ۴ دهستان و ۱ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>لنده</td><td>۱۸٬۹۵۱ نفر</td><td>طیبی گرمسیری شمالی (۳٬۹۹۰ نفر)، عالی طیب (مرکز: چهارراه عالی طیب، ۲٬۱۸۹ نفر)</td></tr><tr><td>موگرمون</td><td>شیتاب</td><td>۲٬۸۶۱ نفر</td><td>شیتاب (۱٬۹۹۷ نفر)، وحدت (مرکز: وحدت‌آباد، ۸۶۴ نفر)</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جاذبه‌های گردشگری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بقایای قلعهٔ حکومت خوانین در بخش ثلاث — نام پیشین شهر لنده — از آثار تاریخی این شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>نقش برجستهٔ شتر، واقع در کوه شیتاب در کنار لنده، از منظره‌های دیدنی این شهرستان به‌شمار می‌رود.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>روستای مونه با بقعهٔ متبرکهٔ امامزاده عمادالدین ولی، رودخانه‌های خروشان و پرآب موگرمون و مارون ایدنک از دیگر جاذبه‌های شهرستان‌اند؛ همچنین منطقهٔ سردسیر سرحد کوه سیاه و سفید به‌دلیل پهنه‌های بکر و سرسبز و زمستان برفی بسیار جذاب است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/margoun/\">مارگون</a>، <a href=\"/city/boyer-ahmad/\">بویراحمد</a>، <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>، <a href=\"/city/gachsaran/\">گچساران</a>، <a href=\"/city/dena/\">دنا</a>، <a href=\"/city/bahmai/\">بهمئی</a>، <a href=\"/city/choram/\">چرام</a>، <a href=\"/city/basht/\">باشت</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان لنده در غرب استان کهگیلویه و بویراحمد و میان شهرستان‌های کهگیلویه و بهمئی قرار دارد. برای مسیریابی، <a href=\"https://maps.google.com/?q=Landeh+Iran\">نقشهٔ شهرستان لنده در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Landeh+Iran\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>لنده در سال ۱۳۰۵ با نام «بخش ثلاث» زیر نظر فرمانداری کل بهبهان اداره می‌شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>نام «لنده» به معنای مکان گود و عمیق دانسته شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان لنده در ۲۹ آذر ۱۳۹۱ از شهرستان کهگیلویه جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تا پیش از انقلاب ۱۳۵۷، لنده توسط خوانین ایل طیبی اداره می‌شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵ برابر ۲۱٬۸۱۲ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان تنها ۵۴۴ کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>میانگین دمای سالانهٔ شهرستان ۲۹ درجهٔ سانتی‌گراد گزارش شده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>نقش برجستهٔ شتر در کوه شیتاب از دیدنی‌های شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>رودخانه‌های موگرمون و مارون ایدنک از پرآب‌ترین رودهای منطقه‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مردم شهرستان از ایل طیبی و گویش آنان لری کهگیلویه‌ای است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر لنده تنها شهر این شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان لنده، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان لنده زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 876
+   },
+   "meta": {
+    "sa_city_slug": "landeh",
+    "sa_city_population": "21812",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Landeh+Iran",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان لنده؛ بخش ثلاث کهن و دیار ایل طیبی — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان لنده؛ مرکز آن شهر لنده، جدایی از کهگیلویه در ۲۹ آذر ۱۳۹۱، ۲۱٬۸۱۲ نفر جمعیت (۱۳۹۵)، ۵۴۴ کیلومتر مربع و پیشینهٔ «بخش ثلاث» از ۱۳۰۵.",
+    "sa_focus_keyword": "شهرستان لنده",
+    "sa_og_title": "شهرستان لنده — بخش ثلاث و دیار ایل طیبی",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان لنده باید بدانید؛ از قلعهٔ خوانین و نقش برجستهٔ شتر تا رودخانهٔ موگرمون و روستای مونه."
+   },
+   "secondary_keywords": [
+    "لنده",
+    "بخش ثلاث",
+    "ایل طیبی",
+    "موگرمون",
+    "شیتاب",
+    "ایدنک",
+    "نقش برجسته شتر"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Landeh+Iran",
+   "faq": [
+    {
+     "q": "شهرستان لنده کجاست؟",
+     "a": "در غرب استان کهگیلویه و بویراحمد؛ از شمال تا شرق هم‌مرز با کهگیلویه و از غرب تا جنوب با بهمئی."
+    },
+    {
+     "q": "نام لنده به چه معناست؟",
+     "a": "در فرهنگ عمومی به معنای مکان گود و عمیق، چون ارتفاع شهر از مناطق پیرامونش کمتر است."
+    },
+    {
+     "q": "شهرستان لنده چه زمانی تشکیل شد؟",
+     "a": "در ۲۹ آذر ۱۳۹۱ با جدایی از شهرستان کهگیلویه."
+    },
+    {
+     "q": "نام پیشین لنده چه بود؟",
+     "a": "«بخش ثلاث»؛ در سال ۱۳۰۵ زیر نظر فرمانداری کل بهبهان اداره می‌شد."
+    },
+    {
+     "q": "جمعیت شهرستان لنده چقدر است؟",
+     "a": "۲۱٬۸۱۲ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "مساحت شهرستان لنده چقدر است؟",
+     "a": "۵۴۴ کیلومتر مربع با تراکم ۴۰ نفر در کیلومتر مربع."
+    },
+    {
+     "q": "جاذبه‌های شهرستان لنده کدام‌اند؟",
+     "a": "بقایای قلعهٔ خوانین، نقش برجستهٔ شتر در کوه شیتاب، روستای مونه و امامزاده عمادالدین ولی، رودهای موگرمون و مارون ایدنک و سرحد کوه سیاه و سفید."
+    },
+    {
+     "q": "مردم لنده از کدام ایل‌اند؟",
+     "a": "از قوم لر و ایل طیبی؛ به لری با گویش کهگیلویه‌ای سخن می‌گویند."
+    },
+    {
+     "q": "بخش‌های شهرستان لنده کدام‌اند؟",
+     "a": "مرکزی و موگرمون؛ در مجموع ۴ دهستان و ۱ شهر."
+    },
+    {
+     "q": "آب‌وهوای لنده چگونه است؟",
+     "a": "گرم؛ میانگین دمای سالانه ۲۹ درجهٔ سانتی‌گراد به روایت اینفوباکس."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان لنده؛ پیشینه، موقعیت، مردم‌شناسی، تقسیمات و جاذبه‌ها | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D9%86%D8%AF%D9%87 | 2026-10-01\n2. [نقشه] موقعیت شهر لنده (مرکز شهرستان) | Google Maps | https://maps.google.com/?q=Landeh+Iran | 2026-10-01\n3. [نقشه] موقعیت شیتاب (مرکز بخش موگرمون) | Google Maps | https://maps.google.com/?q=Shitab+Landeh | 2026-10-01\n4. [نقشه] موقعیت ایدنک | Google Maps | https://maps.google.com/?q=Idanak+Landeh | 2026-10-01\n5. [نقشه] موقعیت چهارراه عالی طیب | Google Maps | https://maps.google.com/?q=Ali+Tayyeb+Landeh | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/landeh.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/landeh.webp",
+    "mime": "image/webp",
+    "alt": "درهٔ گود لنده با رودخانهٔ خروشان و قلعهٔ کهن؛ تصویر شاخص شهرستان لنده",
+    "caption": "درهٔ گود لنده، پایین‌تر از سرزمین‌های پیرامون خود.",
+    "title": "شهرستان لنده — سرزمین آریان",
+    "description": "درهٔ گود لنده با رودخانهٔ خروشان و قلعهٔ کهن؛ تصویر شاخص شهرستان لنده",
+    "sha1": "3e651f5bd63400cb4a2b96d38d115a8a023c1806"
+   }
+  },
+  {
+   "package_format": "1.0",
+   "built": "2026-10-01",
+   "source_file": "content/cities/margoun.md",
+   "source_sha1": "dfbcc58c8defb79908ce17f6f564fd5d1fafd91c",
+   "slug": "margoun",
+   "status": "article",
+   "title": "شهرستان مارگون",
+   "name_fa": "شهرستان مارگون",
+   "name_en": "Margoun County",
+   "province": {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name_fa": "استان کهگیلویه و بویراحمد",
+    "term_name": "کهگیلویه و بویراحمد"
+   },
+   "post": {
+    "title": "شهرستان مارگون",
+    "excerpt": "شهرستان مارگون؛ جوان‌ترین شهرستان استان کهگیلویه و بویراحمد در شمال آن.",
+    "content_html": "<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">شهرستان مارگون؛ جوان‌ترین شهرستان استان</h1><!-- /wp:heading -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">معرفی شهرستان</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p><strong>شهرستان مارگون</strong> یکی از شهرستان‌های <a href=\"/province/kohgiluyeh-boyer-ahmad/\">استان کهگیلویه و بویراحمد</a> است و مرکز آن، شهر مارگون است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup> امتیازهای ویژهٔ این سرزمین را نخست ببینید:</p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li><strong>جوان‌ترین شهرستان استان</strong>؛ در ۸ دی ۱۳۹۸ از شهرستان بویراحمد جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>میان سه شهرستان و یک استان</strong>؛ همسایگی با لردگان، کهگیلویه، بویراحمد و دنا.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>۱٬۰۱۸ کیلومتر مربع</strong> پهنهٔ کوهستانی با تراکم کم ۲۰ نفر در کیلومتر مربع.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>دو بخش مرکزی و زیلایی</strong> با چهار دهستان.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li><strong>شهر مارگون</strong>؛ تنها شهر شهرستان با ۳٬۱۳۵ نفر جمعیت (۱۳۹۵).<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:paragraph --><p>سفر به شهرستان مارگون، گشتی است در دره‌ها و کوهستان‌های شمال استان و دهستان‌های مارگون، دالون، زیلایی و شورم؛ در ادامه موقعیت، تقسیمات و جمعیت این شهرستان را مرور می‌کنیم.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مشخصات کلی</h2><!-- /wp:heading -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>شاخص</th><th>مقدار</th><th>سال مرجع / توضیح</th></tr></thead><tbody><tr><td>جمعیت شهرستان</td><td>۱۹٬۸۷۶ نفر</td><td>سرشماری ۱۳۹۵<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr><tr><td>مساحت</td><td>۱٬۰۱۸ کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr><tr><td>تراکم جمعیت</td><td>۲۰ نفر بر کیلومتر مربع</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr><tr><td>مرکز شهرستان</td><td>شهر مارگون (۳٬۱۳۵ نفر در ۱۳۹۵)</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr><tr><td>تقسیمات</td><td>۲ بخش، ۴ دهستان و ۱ شهر</td><td>به روایت مقاله<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr><tr><td>سال تأسیس</td><td>۸ دی ۱۳۹۸ خورشیدی</td><td>با جدایی از شهرستان بویراحمد<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr><tr><td>پیش‌شمارهٔ تلفن</td><td>۰۷۴</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr><tr><td>حوزهٔ انتخابیه</td><td>بویراحمد، دنا و مارگون</td><td>به روایت اینفوباکس<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">موقعیت جغرافیایی</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان مارگون از شمال با شهرستان لردگان استان چهارمحال و بختیاری، از جنوب تا جنوب غربی با شهرستان بویراحمد، از غرب با شهرستان کهگیلویه و از شرق با شهرستان دنا همسایه است؛ این پهنهٔ کوهستانی، حلقهٔ پیوند شمال استان با چهارمحال و بختیاری است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>همسایه</th><th>جهت</th></tr></thead><tbody><tr><td>لردگان (چهارمحال و بختیاری)</td><td>شمال</td></tr><tr><td>بویراحمد</td><td>جنوب تا جنوب غربی</td></tr><tr><td>کهگیلویه</td><td>غرب</td></tr><tr><td>دنا</td><td>شرق</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخچه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان مارگون در تاریخ ۸ دی ۱۳۹۸ از شهرستان بویراحمد جدا شد و به شهرستانی مستقل تبدیل گردید؛ این تغییر در تصویب‌نامهٔ تقسیمات کشوری شهرستان بویراحمد استان کهگیلویه و بویراحمد ثبت شده است و مارگون را به تازه‌ترین شهرستان استان بدل کرده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">جمعیت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>بر پایهٔ سرشماری عمومی نفوس و مسکن سال ۱۳۹۵، جمعیت شهرستان مارگون برابر با ۱۹٬۸۷۶ نفر بوده است؛ بخش مرکزی با ۱۱٬۷۰۲ نفر و بخش زیلایی با ۸٬۱۷۴ نفر ثبت شده‌اند و در میان دهستان‌ها، مارگون با ۴٬۹۴۶ نفر، زیلایی با ۴٬۸۱۱ نفر، دالون با ۳٬۶۲۱ نفر و شورم با ۳٬۳۶۳ نفر جمعیت داشته‌اند.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">دهستان‌ها و مراکز آن‌ها</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>چهار دهستان شهرستان مارگون عبارت‌اند از دهستان مارگون و دهستان دالون به مرکزیت روستای جوکار در بخش مرکزی، و دهستان زیلایی به مرکزیت موشمی سفلی و دهستان شورم به مرکزیت روستای پوله در بخش زیلایی؛ در سرشماری ۱۳۹۵ این چهار دهستان به‌ترتیب ۴٬۹۴۶، ۳٬۶۲۱، ۴٬۸۱۱ و ۳٬۳۶۳ نفر جمعیت داشته‌اند که نشان‌دهندهٔ توزیع نسبتاً یکنواخت جمعیت روستایی در پهنهٔ کوهستانی شهرستان است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">پیوند با شهرستان‌های همسایه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مارگون در شمال استان و میان چهار همسایه جای گرفته است: لردگان از استان چهارمحال و بختیاری در شمال، بویراحمد در جنوب تا جنوب غربی، کهگیلویه در غرب و دنا در شرق؛ از این رو شهرستان، حلقهٔ پیوند شمال استان با چهارمحال و بختیاری به‌شمار می‌رود. در تقسیم‌بندی سیاسی نیز مارگون همراه با بویراحمد و دنا یک حوزهٔ انتخابیهٔ مشترک را تشکیل می‌دهد؛ پیوندی که یادگار جدایی این شهرستان از بویراحمد در سال ۱۳۹۸ است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تقسیمات کشوری</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان مارگون دارای ۲ بخش، ۴ دهستان و ۱ شهر است:<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:table --><figure class=\"wp-block-table\"><table><thead><tr><th>بخش</th><th>مرکز بخش</th><th>جمعیت بخش (۱۳۹۵)</th><th>دهستان‌ها</th></tr></thead><tbody><tr><td>مرکزی</td><td>مارگون</td><td>۱۱٬۷۰۲ نفر</td><td>مارگون (۴٬۹۴۶ نفر)، دالون (مرکز: جوکار، ۳٬۶۲۱ نفر)</td></tr><tr><td>زیلایی</td><td>موشمی سفلی</td><td>۸٬۱۷۴ نفر</td><td>زیلایی (۴٬۸۱۱ نفر)، شورم (مرکز: پوله، ۳٬۳۶۳ نفر)</td></tr></tbody></table></figure><!-- /wp:table -->\n\n<!-- wp:paragraph --><p>برای ادامهٔ گشت در استان، <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> و دیگر شهرستان‌های آن نیز در دسترس‌اند: <a href=\"/city/boyer-ahmad/\">بویراحمد</a>، <a href=\"/city/kohgiluyeh/\">کهگیلویه</a>، <a href=\"/city/gachsaran/\">گچساران</a>، <a href=\"/city/dena/\">دنا</a>، <a href=\"/city/bahmai/\">بهمئی</a>، <a href=\"/city/choram/\">چرام</a>، <a href=\"/city/basht/\">باشت</a>، <a href=\"/city/landeh/\">لنده</a>.</p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">نقشه و لوکیشن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>شهرستان مارگون در شمال استان کهگیلویه و بویراحمد و میان شهرستان‌های دنا، بویراحمد، کهگیلویه و لردگان قرار دارد. برای مسیریابی، <a href=\"https://maps.google.com/?q=Margoon+Kohgiluyeh+Boyer+Ahmad\">نقشهٔ شهرستان مارگون در گوگل‌مپ</a> را باز کنید.<sup class=\"sa-cite\"><a href=\"https://maps.google.com/?q=Margoon+Kohgiluyeh+Boyer+Ahmad\">۲</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">حقایق جالب</h2><!-- /wp:heading -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>مارگون در ۸ دی ۱۳۹۸ از شهرستان بویراحمد جدا و مستقل شد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مارگون جوان‌ترین شهرستان استان کهگیلویه و بویراحمد است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>جمعیت شهرستان در سرشماری ۱۳۹۵ برابر ۱۹٬۸۷۶ نفر بوده است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مساحت شهرستان ۱٬۰۱۸ کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>تراکم جمعیت شهرستان ۲۰ نفر در کیلومتر مربع است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهر مارگون تنها شهر این شهرستان با ۳٬۱۳۵ نفر (۱۳۹۵) است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>شهرستان دو بخش مرکزی و زیلایی دارد.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مرکز بخش زیلایی، روستای موشمی سفلی است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مرکز دهستان شورم، روستای پوله است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>مارگون با سه شهرستان استان و شهرستان لردگان چهارمحال و بختیاری هم‌مرز است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --><!-- wp:list-item --><li>حوزهٔ انتخابیهٔ شهرستان «بویراحمد، دنا و مارگون» است.<sup class=\"sa-cite\"><a href=\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\">۱</a></sup></li><!-- /wp:list-item --></ul><!-- /wp:list -->\n\n<!-- wp:heading --><h2 class=\"wp-block-heading\">از مردم عزیز شهرستان مارگون، یک درخواست داریم</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اگر در شهرستان مارگون زندگی می‌کنید یا به این دیار دلبسته‌اید، دانستهٔ محلی شما — از نام درست مکان‌ها و آیین‌ها تا عکس‌های تازه — این راهنما را کامل‌تر می‌کند. اصلاح‌ها و پیشنهادهایتان را به `Mail@sarzaminaryan.ir` بفرستید؛ برای دیدن دیگر صفحه‌های منطقه هم <a href=\"/province/kohgiluyeh-boyer-ahmad/\">راهنمای استان کهگیلویه و بویراحمد</a> در دسترس است.</p><!-- /wp:paragraph -->",
+    "word_count": 806
+   },
+   "meta": {
+    "sa_city_slug": "margoun",
+    "sa_city_population": "19876",
+    "sa_city_latitude": "",
+    "sa_city_longitude": "",
+    "sa_access_air": "",
+    "sa_access_rail": "",
+    "sa_access_road": "",
+    "sa_google_map_url": "https://maps.google.com/?q=Margoon+Kohgiluyeh+Boyer+Ahmad",
+    "sa_city_schema_type": "City + TouristDestination",
+    "sa_schema_sameas": "[\"https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86\"]",
+    "sa_schema_contained_in": "kohgiluyeh-boyer-ahmad"
+   },
+   "seo": {
+    "sa_seo_title": "شهرستان مارگون؛ جوان‌ترین شهرستان استان — راهنمای کامل",
+    "sa_seo_description": "راهنمای کامل شهرستان مارگون؛ مرکز آن شهر مارگون، جدایی از بویراحمد در ۸ دی ۱۳۹۸، ۱۹٬۸۷۶ نفر جمعیت (۱۳۹۵)، ۱٬۰۱۸ کیلومتر مربع، دو بخش مرکزی و زیلایی.",
+    "sa_focus_keyword": "شهرستان مارگون",
+    "sa_og_title": "شهرستان مارگون — جوان‌ترین شهرستان استان",
+    "sa_og_description": "هر آنچه پیش از سفر به شهرستان مارگون باید بدانید؛ از شهر مارگون و بخش زیلایی تا دهستان‌های شورم و دالون."
+   },
+   "secondary_keywords": [
+    "مارگون",
+    "زیلایی",
+    "شورم",
+    "دالون",
+    "موشمی سفلی",
+    "پوله"
+   ],
+   "travel_season": [],
+   "google_map_url": "https://maps.google.com/?q=Margoon+Kohgiluyeh+Boyer+Ahmad",
+   "faq": [
+    {
+     "q": "شهرستان مارگون کجاست؟",
+     "a": "در شمال استان کهگیلویه و بویراحمد؛ هم‌مرز با لردگان، بویراحمد، کهگیلویه و دنا."
+    },
+    {
+     "q": "شهرستان مارگون چه زمانی تشکیل شد؟",
+     "a": "در ۸ دی ۱۳۹۸ با جدایی از شهرستان بویراحمد."
+    },
+    {
+     "q": "مرکز شهرستان مارگون کدام شهر است؟",
+     "a": "شهر مارگون با ۳٬۱۳۵ نفر جمعیت (۱۳۹۵)."
+    },
+    {
+     "q": "جمعیت شهرستان مارگون چقدر است؟",
+     "a": "۱۹٬۸۷۶ نفر بر پایهٔ سرشماری ۱۳۹۵."
+    },
+    {
+     "q": "مساحت شهرستان مارگون چقدر است؟",
+     "a": "۱٬۰۱۸ کیلومتر مربع با تراکم ۲۰ نفر در کیلومتر مربع."
+    },
+    {
+     "q": "بخش‌های شهرستان مارگون کدام‌اند؟",
+     "a": "مرکزی و زیلایی؛ در مجموع ۴ دهستان و ۱ شهر."
+    },
+    {
+     "q": "دهستان‌های شهرستان مارگون کدام‌اند؟",
+     "a": "مارگون، دالون، زیلایی و شورم."
+    },
+    {
+     "q": "مرکز بخش زیلایی کجاست؟",
+     "a": "روستای موشمی سفلی."
+    },
+    {
+     "q": "جوان‌ترین شهرستان استان کدام است؟",
+     "a": "شهرستان مارگون با تأسیس ۱۳۹۸."
+    },
+    {
+     "q": "حوزهٔ انتخابیهٔ شهرستان مارگون چیست؟",
+     "a": "حوزهٔ «بویراحمد، دنا و مارگون»."
+    },
+    {
+     "q": "برای دیدن دیگر شهرستان‌های استان به کجا مراجعه کنیم؟",
+     "a": "صفحهٔ راهنمای استان کهگیلویه و بویراحمد در سرزمین آریان."
+    }
+   ],
+   "sources": "1. مقالهٔ شهرستان مارگون؛ موقعیت، تقسیمات و جمعیت | ویکی‌پدیای فارسی | https://fa.wikipedia.org/wiki/%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86_%D9%85%D8%A7%D8%B1%DA%AF%D9%88%D9%86 | 2026-10-01\n2. [نقشه] موقعیت شهر مارگون (مرکز شهرستان) | Google Maps | https://maps.google.com/?q=Margoon+Kohgiluyeh+Boyer+Ahmad | 2026-10-01\n3. [نقشه] موقعیت موشمی سفلی (مرکز بخش زیلایی) | Google Maps | https://maps.google.com/?q=Mushami+Sofla+Margoon | 2026-10-01\n4. [نقشه] موقعیت جوکار (مرکز دهستان دالون) | Google Maps | https://maps.google.com/?q=Jowkar+Margoon | 2026-10-01\n5. [نقشه] موقعیت پوله (مرکز دهستان شورم) | Google Maps | https://maps.google.com/?q=Pouleh+Margoon | 2026-10-01\n\n--- FACT CHECK ---",
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "image": {
+    "file": "assets/counties/margoun.webp",
+    "source": "assets/featured/counties/kohgiluyeh-boyer-ahmad/margoun.webp",
+    "mime": "image/webp",
+    "alt": "دره‌های جنگلی و کوه‌های زاگرس در مارگون؛ تصویر شاخص شهرستان مارگون",
+    "caption": "دره‌های جنگلی شهرستان مارگون در شمال استان.",
+    "title": "شهرستان مارگون — سرزمین آریان",
+    "description": "دره‌های جنگلی و کوه‌های زاگرس در مارگون؛ تصویر شاخص شهرستان مارگون",
+    "sha1": "2c316ac896021cf700a736ec2231ec5906e5e0a7"
+   }
+  }
+ ]
+}
