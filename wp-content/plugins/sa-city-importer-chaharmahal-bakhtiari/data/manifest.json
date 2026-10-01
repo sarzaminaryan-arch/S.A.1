@@ -2,7 +2,7 @@
  "batch": "chaharmahal-bakhtiari",
  "batch_id": "chaharmahal-bakhtiari",
  "label": "درون‌ریز شهرستان‌های استان چهارمحال و بختیاری",
- "data_version": "1.0.0",
+ "data_version": "1.1.0",
  "package_format": "1.0",
  "built": "2026-10-01",
  "province": {
@@ -11,15 +11,15 @@
   "term_name": "چهارمحال و بختیاری"
  },
  "file": "chaharmahal-bakhtiari.json",
- "counties_count": 10,
+ "counties_count": 12,
  "counties": [
   {
    "slug": "shahrekord",
    "title": "شهرستان شهرکرد",
    "status": "article",
-   "word_count": 823,
+   "word_count": 1021,
    "faq": 11,
-   "sources_lines": 2,
+   "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -33,9 +33,9 @@
    "slug": "kuhrang",
    "title": "شهرستان کوهرنگ",
    "status": "article",
-   "word_count": 813,
+   "word_count": 953,
    "faq": 11,
-   "sources_lines": 3,
+   "sources_lines": 6,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -49,9 +49,9 @@
    "slug": "saman",
    "title": "شهرستان سامان",
    "status": "article",
-   "word_count": 815,
+   "word_count": 856,
    "faq": 11,
-   "sources_lines": 4,
+   "sources_lines": 7,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -65,9 +65,9 @@
    "slug": "borujen",
    "title": "شهرستان بروجن",
    "status": "article",
-   "word_count": 817,
+   "word_count": 970,
    "faq": 11,
-   "sources_lines": 2,
+   "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -81,9 +81,9 @@
    "slug": "lordegan",
    "title": "شهرستان لردگان",
    "status": "article",
-   "word_count": 805,
+   "word_count": 899,
    "faq": 11,
-   "sources_lines": 4,
+   "sources_lines": 7,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -97,9 +97,9 @@
    "slug": "farsan",
    "title": "شهرستان فارسان",
    "status": "article",
-   "word_count": 833,
+   "word_count": 894,
    "faq": 11,
-   "sources_lines": 3,
+   "sources_lines": 6,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -113,9 +113,9 @@
    "slug": "ardal",
    "title": "شهرستان اردل",
    "status": "article",
-   "word_count": 803,
+   "word_count": 841,
    "faq": 11,
-   "sources_lines": 2,
+   "sources_lines": 5,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -129,9 +129,9 @@
    "slug": "kiar",
    "title": "شهرستان کیار",
    "status": "article",
-   "word_count": 830,
+   "word_count": 823,
    "faq": 11,
-   "sources_lines": 4,
+   "sources_lines": 7,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -145,9 +145,9 @@
    "slug": "khanmirza",
    "title": "شهرستان خانمیرزا",
    "status": "article",
-   "word_count": 834,
+   "word_count": 830,
    "faq": 11,
-   "sources_lines": 4,
+   "sources_lines": 7,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -161,9 +161,9 @@
    "slug": "ben",
    "title": "شهرستان بن",
    "status": "article",
-   "word_count": 814,
+   "word_count": 850,
    "faq": 11,
-   "sources_lines": 4,
+   "sources_lines": 7,
    "publish_status": "DRAFT ONLY",
    "markers": {
     "review": 0,
@@ -172,6 +172,38 @@
     "coming_soon": 0
    },
    "featured_image": true
+  },
+  {
+   "slug": "farrokhshahr",
+   "title": "شهرستان فرخ‌شهر",
+   "status": "article",
+   "word_count": 853,
+   "faq": 11,
+   "sources_lines": 6,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": false
+  },
+  {
+   "slug": "falard",
+   "title": "شهرستان فلارد",
+   "status": "article",
+   "word_count": 908,
+   "faq": 11,
+   "sources_lines": 7,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": false
   }
  ]
 }

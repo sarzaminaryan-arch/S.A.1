@@ -3,7 +3,7 @@ Contributors: sarzaminaryan
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 از نسخه‌ی ۱.۰.۳ قالب فرزند، برش هیرو از بالا لنگر می‌شود تا نوار عنوان پوسترها حفظ شود. اگر تصویر پیش از آن نسخه بارگذاری شده، «Regenerate Thumbnails» لازم است.
 
 == Changelog ==
+
+= 1.1.4 — 2026-10-01 =
+* استان چهارمحال و بختیاری: ۳۷ لینک داخلی (افزودن فرخ‌شهر و فلارد)؛ بازسازی داده 1.1.4.
 
 = 1.1.3 — 2026-10-01 =
 * لینک‌سازی استان چهارمحال و بختیاری: ۳۲ لینک داخلی به ۱۰ صفحه‌ی شهرستان (پیش‌نویس دسته‌ی CHB) در جدول شهرستان‌ها، بخش شهرها و متن؛ بازسازی داده‌ها با نسخه‌ی 1.1.3. سایر استان‌ها بدون تغییر.
