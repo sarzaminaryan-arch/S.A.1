@@ -1568,3 +1568,317 @@
 		max-width: 100%;
 	}
 }
+
+/* ==========================================================================
+   v2.1.0 — پانویس‌ها، بلوک انجمنی، حالت «به‌زودی»
+   ========================================================================== */
+
+/* ارجاع درون متن: لنگر داخلی، نه لینک بیرونی */
+.sa-ref {
+	font-size: .72em;
+	line-height: 0;
+	vertical-align: super;
+	white-space: nowrap;
+}
+.sa-ref a {
+	text-decoration: none;
+	color: var(--sa-green-700, #2f6bff);
+	padding-inline: .15em;
+	border-radius: 3px;
+}
+.sa-ref a:hover,
+.sa-ref a:focus-visible {
+	background: var(--sa-green-100, #e8f2ff);
+	outline: 0;
+}
+
+/* فهرست پانویس‌ها */
+.sa-footnotes {
+	margin-block-start: 2.5rem;
+	padding-block-start: 1rem;
+	border-top: 1px solid rgba(11, 20, 36, .12);
+	font-size: .92em;
+}
+.sa-footnotes > h2 {
+	font-size: 1.15rem;
+	margin-block-end: .75rem;
+}
+.sa-footnotes__list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	gap: .45rem;
+}
+.sa-footnotes__item {
+	display: flex;
+	flex-wrap: wrap;
+	gap: .4em;
+	align-items: baseline;
+	scroll-margin-top: 90px;
+}
+.sa-footnotes__item:target {
+	background: var(--sa-green-50, #f0f7ff);
+	border-radius: 6px;
+	padding: .3rem .5rem;
+	margin-inline: -.5rem;
+}
+.sa-footnotes__n {
+	min-width: 1.8em;
+	color: #5b6b80;
+	font-variant-numeric: tabular-nums;
+}
+.sa-footnotes__host {
+	color: #8b97a8;
+	font-size: .85em;
+	direction: ltr;
+	unicode-bidi: isolate;
+}
+
+/* بلوک دعوت به مشارکت — مبلمان سایت، نه متن مقاله */
+.sa-community {
+	margin-block-start: 2rem;
+	padding: 1.25rem 1.4rem;
+	border-radius: 1rem;
+	background: var(--sa-green-50, #f2f6fc);
+	border: 1px solid rgba(47, 107, 255, .14);
+}
+.sa-community > h2 {
+	font-size: 1.1rem;
+	margin: 0 0 .6rem;
+}
+.sa-community p:last-child {
+	margin-bottom: 0;
+}
+
+/* موجودیت منتشرنشده */
+.sa-soon,
+.sa-bar--soon {
+	opacity: .45;
+	cursor: default;
+	pointer-events: none;
+}
+
+/* ==========================================================================
+   v2.2.0 — نقشه‌ی کلیک‌پذیر شهرستان‌ها
+   ========================================================================== */
+
+.sa-cmap {
+	margin-block-start: 2.5rem;
+}
+.sa-cmap > h2 {
+	margin-block-end: .9rem;
+}
+.sa-cmap__frame {
+	max-width: 560px;
+	margin-inline: auto;
+	padding: 1rem;
+	border-radius: 1rem;
+	background: linear-gradient(180deg, #fbfdff, #f2f6fc);
+	border: 1px solid rgba(11, 20, 36, .08);
+}
+.sa-cmap__svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+/* شهرستانی که صفحه‌اش منتشر شده */
+.sa-cmap__on path {
+	fill: var(--sa-green-100, #dbe9ff);
+	stroke: var(--sa-green-700, #2f6bff);
+	stroke-width: .5;
+	stroke-linejoin: round;
+	cursor: pointer;
+	transition: fill .18s ease;
+}
+.sa-cmap__on:hover path,
+.sa-cmap__on:focus-visible path {
+	fill: var(--sa-green-300, #8fb4ff);
+	outline: 0;
+}
+
+/* شهرستانی که هنوز صفحه ندارد */
+.sa-cmap__off path {
+	fill: #eceff3;
+	stroke: #c6ccd6;
+	stroke-width: .4;
+	stroke-linejoin: round;
+	pointer-events: none;
+}
+
+.sa-cmap__cap {
+	margin-block-start: .7rem;
+	text-align: center;
+	font-size: .9rem;
+	color: #5b6b80;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-cmap__on path { transition: none; }
+}
+
+/* ==========================================================================
+   v2.3.0 — هدر، فوتر و ریسپانسیو موبایل
+   ==========================================================================
+   سه مشکل واقعی:
+   ۱. هیچ محافظی در برابر سرریز افقی نبود. یک عنصرِ کمی پهن‌تر از صفحه،
+      کل سند را پهن می‌کند و آن‌وقت *همه‌چیز* — از جمله کادر جستجو — به نظر
+      می‌رسد از قاب بیرون زده. علاج ریشه‌ای: overflow-x: clip روی html/body.
+      (clip و نه hidden، چون hidden هدر sticky را می‌شکند.)
+   ۲. کادر جستجوی هیرو حداقلِ عرض داشت: آیکن + ورودی + دکمه در یک ردیف.
+      زیر ۴۳۰ پیکسل جا نمی‌شد. حالا دکمه به ردیف دوم می‌رود.
+   ۳. روی موبایل اصلاً دکمه‌ی جستجو در هدر نبود (display:none زیر ۹۲۰px)،
+      یعنی کاربر موبایل هیچ راهی برای جست‌وجو نداشت.
+   ========================================================================== */
+
+/* ---------- ۱) محافظ سرریز افقی + پرش لنگرها زیر هدر چسبان ---------- */
+html {
+	overflow-x: clip;
+	/* هدر sticky ارتفاع ~۷۴px دارد؛ بدون این، پرش به #footnotes یا #faq
+	   زیر هدر پنهان می‌شود. */
+	scroll-padding-top: 92px;
+}
+body {
+	max-width: 100%;
+	overflow-x: clip;
+}
+/* هیچ عنصری حق ندارد از عرض صفحه بزند بیرون */
+img, svg, video, iframe, table, pre {
+	max-width: 100%;
+}
+
+/* ---------- ۲) هدر: اجازه‌ی جمع‌شدن ---------- */
+.sa-hf-brand {
+	/* قبلاً flex:none بود؛ یعنی برند هرگز جمع نمی‌شد و روی صفحه‌های باریک
+	   کل هدر را پهن‌تر از ویوپورت می‌کرد. */
+	flex: 0 1 auto;
+	min-width: 0;
+}
+.sa-hf-text {
+	min-width: 0;
+}
+.sa-hf-text .site-title {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.sa-hf-in {
+	flex-wrap: nowrap;
+}
+
+/* دکمه‌ی جست‌وجو در موبایل هم دیده شود */
+@media (max-width: 920px) {
+	.sa-hf-head .search-toggle {
+		display: inline-grid;
+		place-items: center;
+		width: 42px;
+		height: 42px;
+		margin-inline-start: 8px;
+		background: rgba(255, 255, 255, .05);
+		border: 1px solid rgba(255, 255, 255, .12);
+		border-radius: 12px;
+		color: #fff;
+		cursor: pointer;
+	}
+	.sa-hf-head .menu-toggle {
+		margin-inline-start: auto;
+	}
+	.sa-hf-head .site-header__actions {
+		order: 3;
+		flex: none;
+	}
+	/* پنل جست‌وجو روی پنل منو بیفتد، نه زیرش */
+	.sa-hf-head .header-search {
+		position: absolute;
+		inset-inline: 0;
+		top: 100%;
+		z-index: 2;
+		background: var(--sa-ink-2);
+		border-top: 1px solid rgba(255, 255, 255, .08);
+		box-shadow: 0 34px 44px -22px rgba(0, 0, 0, .75);
+		padding-block: 14px;
+	}
+}
+
+/* اسلوگان زودتر برود کنار — قبلاً تا ۶۴۰px می‌ماند و ۳۲۰px عرض می‌گرفت */
+@media (max-width: 860px) {
+	.sa-hf-text .sa-hf-slogan {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.sa-hf-in {
+		min-height: 62px;
+		gap: 10px;
+	}
+	.sa-hf-logo {
+		width: 42px;
+		height: 42px;
+		border-radius: 13px;
+	}
+	.sa-hf-logo img {
+		width: 34px;
+		height: 34px;
+	}
+	.sa-hf-text .site-title {
+		font-size: 16px;
+	}
+	html {
+		scroll-padding-top: 76px;
+	}
+}
+
+/* ---------- ۳) فوتر: مرتب‌تر و جمع‌تر ---------- */
+.sa-hf-foot__links a,
+.sa-social__link {
+	/* هدف لمس ۴۴ پیکسلی */
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+}
+
+@media (max-width: 640px) {
+	.sa-hf-foot {
+		border-radius: 24px 24px 0 0;
+	}
+	.sa-hf-foot__grid {
+		gap: 26px;
+		padding: 34px 0 24px;
+	}
+	/* فهرست‌های فوتر دو ستونه تا ستون بلندِ تک‌ستونه نشود */
+	.sa-hf-foot__links {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2px 16px;
+	}
+	.sa-hf-foot__brand .sa-hf-brand {
+		gap: 10px;
+	}
+	.sa-footer__about {
+		font-size: 13.5px;
+		line-height: 1.9;
+	}
+	.sa-hf-foot__bottom,
+	.sa-footer__bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 8px;
+		text-align: start;
+	}
+}
+
+@media (max-width: 380px) {
+	.sa-hf-foot__links {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---------- ۴) تایپوگرافی: سرصفحه‌های متوازن ---------- */
+h1, h2, h3,
+.sa-hero h1,
+.sa-entity__title {
+	text-wrap: balance;
+	overflow-wrap: anywhere;
+}

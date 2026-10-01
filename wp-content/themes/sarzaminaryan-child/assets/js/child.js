@@ -30,6 +30,49 @@
 	style.textContent = '.main-navigation li.is-open > .sub-menu{display:flex;position:static;box-shadow:none;border:0;padding-inline-start:1rem}';
 	document.head.appendChild( style );
 
+	/**
+	 * v2.3.0 — روی موبایل پنل منو و پنل جست‌وجو هر دو از زیر هدر باز می‌شوند.
+	 * اگر هم‌زمان باز باشند روی هم می‌افتند، پس هرکدام باز شد، دیگری بسته شود.
+	 */
+	( function () {
+		var nav    = document.getElementById( 'site-navigation' );
+		var navBtn = document.querySelector( '.menu-toggle' );
+		var srch   = document.getElementById( 'header-search' );
+		var srchBtn = document.querySelector( '.search-toggle' );
+		if ( ! nav || ! srch ) {
+			return;
+		}
+		function closeSearch() {
+			if ( ! srch.hidden ) {
+				srch.hidden = true;
+				if ( srchBtn ) {
+					srchBtn.setAttribute( 'aria-expanded', 'false' );
+				}
+			}
+		}
+		function closeNav() {
+			if ( nav.classList.contains( 'is-open' ) ) {
+				nav.classList.remove( 'is-open' );
+				if ( navBtn ) {
+					navBtn.setAttribute( 'aria-expanded', 'false' );
+				}
+			}
+		}
+		if ( navBtn ) {
+			navBtn.addEventListener( 'click', closeSearch );
+		}
+		if ( srchBtn ) {
+			srchBtn.addEventListener( 'click', closeNav );
+		}
+		// کلیک بیرون، هر دو را می‌بندد.
+		document.addEventListener( 'click', function ( e ) {
+			if ( ! e.target.closest( '.sa-hf-head' ) ) {
+				closeNav();
+				closeSearch();
+			}
+		} );
+	}() );
+
 	// Reduced motion: disable smooth scrolling set by parent CSS.
 	if ( window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches ) {
 		document.documentElement.style.scrollBehavior = 'auto';

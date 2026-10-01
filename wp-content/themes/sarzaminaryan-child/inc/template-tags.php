@@ -449,10 +449,44 @@ function sa_social_links() {
 /**
  * Fallback menu: entity archives (used when no menu is assigned).
  */
+/**
+ * v2.3.0 — فقط نوع‌هایی که واقعاً محتوای منتشرشده دارند.
+ *
+ * چهار موجودیت (جاذبه، غذا، سوغات، مسیر سفر) هنوز صفر صفحه دارند. لینک‌دادن
+ * به آرشیو خالی در هدر و فوتر *هر* صفحه، همان اشتباه لینک ۴۰۴ صفحه‌ی اصلی است
+ * با شکل دیگر: خزنده و کاربر به بن‌بست می‌رسند. با انتشار اولین محتوای هر نوع،
+ * خودبه‌خود به منو برمی‌گردد.
+ *
+ * @return string[]
+ */
+function sa_nav_entity_types() {
+	$cached = get_transient( 'sa_nav_types' );
+	if ( is_array( $cached ) ) {
+		return $cached;
+	}
+	$out = array();
+	foreach ( sa_entity_types() as $type ) {
+		$c = wp_count_posts( $type );
+		if ( isset( $c->publish ) && (int) $c->publish > 0 ) {
+			$out[] = $type;
+		}
+	}
+	/**
+	 * نوع‌های قابل نمایش در ناوبری.
+	 *
+	 * @param string[] $out نوع‌ها.
+	 */
+	$out = (array) apply_filters( 'sa_nav_entity_types', $out );
+	set_transient( 'sa_nav_types', $out, 6 * HOUR_IN_SECONDS );
+	return $out;
+}
+add_action( 'transition_post_status', function () { delete_transient( 'sa_nav_types' ); } );
+add_action( 'deleted_post', function () { delete_transient( 'sa_nav_types' ); } );
+
 function sa_fallback_menu() {
 	echo '<ul id="primary-menu" class="menu">';
 	echo '<li class="menu-item' . ( is_front_page() ? ' current-menu-item' : '' ) . '"><a href="' . esc_url( home_url( '/' ) ) . '">خانه</a></li>';
-	foreach ( sa_entity_types() as $type ) {
+	foreach ( sa_nav_entity_types() as $type ) {
 		$current = is_post_type_archive( $type ) || is_singular( $type ) ? ' current-menu-item' : '';
 		echo '<li class="menu-item' . esc_attr( $current ) . '"><a href="' . esc_url( sa_archive_url( $type ) ) . '">' . esc_html( sa_entity_label( $type, true ) ) . '</a></li>';
 	}

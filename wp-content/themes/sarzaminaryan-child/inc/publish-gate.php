@@ -244,6 +244,48 @@ function sa_gate_mode() {
 }
 
 /**
+ * v2.1.0 — تفکیک «مانع انتشار» از «هشدار».
+ *
+ * نسخه‌ی قبل هر کمبودی را مانع انتشار می‌دانست. چون حداقل لینک داخلیِ «استان»
+ * ۲۰ بود و یک استان تا ساخته‌شدن صفحه‌های شهرستانش به ۲۰ لینک نمی‌رسد،
+ * ۲۷ استانِ نوشته‌شده (~۱۵۱٬۰۰۰ واژه) در draft قفل شده بودند و سایت هیچ
+ * بازخوردی از موتور جست‌وجو نمی‌گرفت.
+ *
+ * قاعده‌ی تازه: فقط چیزی مانع انتشار است که یک نویسنده بتواند همین حالا و
+ * تنها روی همین صفحه درستش کند — تصویر شاخص، فیلدهای سئو، رابطه‌ی والد و
+ * طبقه‌بندی اصلی. تعداد FAQ، تعداد لینک داخلی و مختصات به بازخورد یا به
+ * صفحه‌های دیگر وابسته‌اند، پس هشدار می‌شوند نه قفل.
+ *
+ * @param string[] $missing فهرست کمبودها از sa_gate_missing().
+ * @return array{0:string[],1:string[]} [مانع‌ها، هشدارها]
+ */
+function sa_gate_split( $missing ) {
+	$advisory_re = '/^(سوالات متداول|لینک داخلی|مختصات)/u';
+	$blocking    = array();
+	$advisory    = array();
+	foreach ( (array) $missing as $row ) {
+		$row = (string) $row;
+		if ( preg_match( $advisory_re, $row ) ) {
+			$advisory[] = $row . ' — مانع انتشار نیست';
+			continue;
+		}
+		$blocking[] = $row;
+	}
+
+	/**
+	 * فهرست نهایی مانع‌های انتشار.
+	 *
+	 * برای انتشار بی‌قیدوشرط: add_filter( 'sa_gate_blocking', '__return_empty_array' );
+	 *
+	 * @param string[] $blocking مانع‌ها.
+	 * @param string[] $missing  همه‌ی کمبودها.
+	 */
+	$blocking = (array) apply_filters( 'sa_gate_blocking', $blocking, $missing );
+
+	return array( $blocking, $advisory );
+}
+
+/**
  * Enforce on publish (edit screen only — quick edit / REST / CLI evaluate stored meta).
  *
  * @param array $data    Slashed data.
@@ -268,17 +310,31 @@ function sa_gate_filter( $data, $postarr ) {
 
 	$warnings = sa_gate_warnings( $post_id, $data['post_type'], $from_form ? wp_unslash( $_POST ) : null ); // phpcs:ignore WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 
-	if ( empty( $missing ) ) {
-		if ( $warnings ) {
-			set_transient( 'sa_gate_' . get_current_user_id(), array( 'post' => $post_id, 'missing' => array(), 'warnings' => $warnings, 'mode' => 'info' ), 120 );
-		}
-		return $data;
+	// v2.1.0 — کمبودها به دو دسته تقسیم می‌شوند.
+	list( $blocking, $advisory ) = sa_gate_split( $missing );
+	$warnings = array_merge( $warnings, $advisory );
+
+	// حالت soft قالب همچنان کار می‌کند: هیچ‌چیز مانع انتشار نمی‌شود.
+	if ( 'soft' === sa_gate_mode() && $blocking ) {
+		$warnings = array_merge( $warnings, $blocking );
+		$blocking = array();
 	}
 
 	$user = get_current_user_id();
-	set_transient( 'sa_gate_' . $user, array( 'post' => $post_id, 'missing' => $missing, 'warnings' => $warnings, 'mode' => sa_gate_mode() ), 120 );
+	if ( $blocking || $warnings ) {
+		set_transient(
+			'sa_gate_' . $user,
+			array(
+				'post'     => $post_id,
+				'missing'  => $blocking,
+				'warnings' => $warnings,
+				'mode'     => $blocking ? 'hard' : 'info',
+			),
+			120
+		);
+	}
 
-	if ( 'hard' === sa_gate_mode() ) {
+	if ( $blocking ) {
 		$data['post_status'] = 'draft';
 	}
 	return $data;
@@ -339,9 +395,14 @@ function sa_gate_badge( $post_id ) {
 	$type     = get_post_type( $post_id );
 	$missing  = sa_gate_missing( $post_id, $type, null );
 	$warnings = sa_gate_warnings( $post_id, $type, null );
-	$extra    = $warnings ? ' <span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $warnings ) ) . '">بازبینی</span>' : '';
-	if ( empty( $missing ) ) {
-		return '<span class="sa-badge sa-badge--ok" title="همه‌ی الزامات سطح ۷ کامل است">کامل ✓</span>' . $extra;
+
+	// v2.1.0 — فقط مانع‌ها قرمزند؛ بقیه «قابل بهبود».
+	list( $blocking, $advisory ) = sa_gate_split( $missing );
+	$warnings = array_merge( $warnings, $advisory );
+
+	$extra = $warnings ? ' <span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $warnings ) ) . '">قابل بهبود</span>' : '';
+	if ( empty( $blocking ) ) {
+		return '<span class="sa-badge sa-badge--ok" title="آماده‌ی انتشار است">قابل انتشار ✓</span>' . $extra;
 	}
-	return '<span class="sa-badge sa-badge--warn" title="' . esc_attr( implode( ' · ', $missing ) ) . '">' . esc_html( sa_fa_digits( count( $missing ) ) ) . ' مورد ناقص</span>' . $extra;
+	return '<span class="sa-badge sa-badge--warn" title="' . esc_attr( implode( ' · ', $blocking ) ) . '">' . esc_html( sa_fa_digits( count( $blocking ) ) ) . ' مانع انتشار</span>' . $extra;
 }

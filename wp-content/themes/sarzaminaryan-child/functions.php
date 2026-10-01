@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.0.1' );
+define( 'SA_CHILD_VERSION', '2.3.1' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.1' );
@@ -35,6 +35,8 @@ $sa_child_includes = array(
 	'inc/publish-gate.php',
 	'inc/jalali.php',
 	'inc/seo.php',
+	'inc/citations.php',
+	'inc/region-map.php',
 	'inc/schema.php',
 	'inc/breadcrumbs.php',
 	'inc/template-tags.php',
@@ -42,6 +44,8 @@ $sa_child_includes = array(
 	'inc/performance.php',
 	'inc/customizer.php',
 	'inc/admin.php',
+	'inc/content-health.php',
+	'inc/github-updater.php',
 	'inc/activation.php',
 );
 

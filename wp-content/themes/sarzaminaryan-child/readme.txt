@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.3
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -30,7 +30,18 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 4. اگر صفحه‌ای ۴۰۴ داد: تنظیمات → پیوندهای یکتا → ذخیره.
 5. لوگو، تصویر قهرمان، شبکه‌های اجتماعی و متن پابرگ را از «سفارشی‌سازی → سرزمین آریان» تنظیم کنید.
 
+== GitHub Updates ==
+
+1. چون مخزن خصوصی است، از «نمایش → به‌روزرسان گیت‌هاب» یک Fine-grained GitHub token فقط‌خواندنی ثبت کنید؛ روش امن‌تر تعریف `SA_GITHUB_TOKEN` در `wp-config.php` است.
+2. دکمه‌ی «بررسی هم‌اکنون» را بزنید. نسخه‌های تازه در «پیشخوان → به‌روزرسانی‌ها» ظاهر می‌شوند.
+3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
+
 == Changelog ==
+
+= 2.3.1 — 2026-10-01 =
+* به‌روزرسان خودکار انتشارهای گیت‌هاب برای مخزن خصوصی، صفحه‌ی تنظیم توکن و بررسی دستی نسخه.
+* دانلود احرازشده بدون افشای توکن و بررسی ZIP/SHA-256 پیش از نصب.
+* Update URI اختصاصی و فرایند انتشار خودکار بسته‌ی استاندارد.
 
 = 1.0.3 — 2026-09-26 =
 * برش تصویر هیرو (sa-hero، ۱۶۰۰×۷۰۰) از بالا لنگر می‌شود و CSS هیرو object-position: center top دارد تا نوار عنوان تصاویر شاخص استان‌ها (assets/featured/provinces) بریده نشود. پس از به‌روزرسانی، برای تصاویر قدیمی «Regenerate Thumbnails» لازم است.

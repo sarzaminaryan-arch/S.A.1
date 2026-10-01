@@ -51,6 +51,47 @@ $sa_map_points = array(
 );
 $sa_colors = array( '#2f6bff', '#0ea5a4', '#f59e0b', '#7c5cff', '#0ea5e9', '#d946ef', '#4f46e5', '#f97316' );
 
+/* ---- v2.1.0: فقط استان‌هایی که واقعاً منتشر شده‌اند لینک می‌شوند ----
+   پیش از این، هر ۳۱ استان از آرایه‌ی بالا لینک می‌شدند؛ چون ۴ استان منتشر بود،
+   صفحه‌ی اصلی ۵۴ لینک به صفحه‌های ۴۰۴ می‌داد (۲۷ نقطه‌ی نقشه + ۲۷ نوار).
+   این بدترین جای ممکن برای لینک مرده است: گوگل صفحه‌ی اصلی را بیش از هر
+   صفحه‌ی دیگری می‌خزد. با انتشار هر استان، لینکش خودبه‌خود برمی‌گردد. */
+if ( ! function_exists( 'sa_home_province_url' ) ) {
+	/**
+	 * نشانی استان اگر منتشر شده باشد، وگرنه رشته‌ی خالی.
+	 *
+	 * کش داخلی static است، نه متغیر سراسری: فایل‌های قالب داخل load_template()
+	 * بارگذاری می‌شوند، پس متغیرهای سطح فایل global نیستند.
+	 *
+	 * @param string $slug نامک استان.
+	 * @return string
+	 */
+	function sa_home_province_url( $slug ) {
+		static $map = null;
+		if ( null === $map ) {
+			$map = array();
+			$ids = get_posts(
+				array(
+					'post_type'              => 'province',
+					'post_status'            => 'publish',
+					'posts_per_page'         => 40,
+					'fields'                 => 'ids',
+					'no_found_rows'          => true,
+					'update_post_meta_cache' => false,
+					'update_post_term_cache' => false,
+				)
+			);
+			foreach ( $ids as $id ) {
+				$name = get_post_field( 'post_name', $id );
+				if ( $name ) {
+					$map[ $name ] = get_permalink( $id );
+				}
+			}
+		}
+		return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
+	}
+}
+
 /* ---- logo: custom logo if set, otherwise the bundled official one ---- */
 $sa_logo_url = SA_CHILD_URI . 'assets/img/logo.webp';
 if ( has_custom_logo() ) {
@@ -65,10 +106,15 @@ if ( has_custom_logo() ) {
 $sa_slogan    = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
 $sa_hero_text = get_theme_mod( 'sa_hero_text', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و هزاران جاذبه.' );
 $sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر، جاذبه، غذا یا سوغات…' );
-$sa_stat1_num = get_theme_mod( 'sa_stat1_num', '31' );
+/* v2.1.0: پیش‌فرض شمارنده‌ها = تعداد واقعی منتشرشده (sa_entity_counts با کش
+   یک‌ساعته در inc/performance.php). ادعای «۴۴۸+ شهرستان» روی سایتی که ۸۲
+   شهرستان دارد، تناقضی است که هم کاربر و هم ارزیاب کیفیت می‌بیند.
+   اگر در سفارشی‌سازی عدد دستی گذاشته باشید، همان اولویت دارد. */
+$sa_counts    = function_exists( 'sa_entity_counts' ) ? (array) sa_entity_counts() : array();
+$sa_stat1_num = get_theme_mod( 'sa_stat1_num', isset( $sa_counts['province'] ) ? (string) (int) $sa_counts['province'] : '31' );
 $sa_stat1_lb  = get_theme_mod( 'sa_stat1_label', 'استان' );
-$sa_stat2_num = get_theme_mod( 'sa_stat2_num', '419' );
-$sa_stat2_suf = get_theme_mod( 'sa_stat2_suffix', '+' );
+$sa_stat2_num = get_theme_mod( 'sa_stat2_num', isset( $sa_counts['city'] ) ? (string) (int) $sa_counts['city'] : '0' );
+$sa_stat2_suf = get_theme_mod( 'sa_stat2_suffix', '' );
 $sa_stat2_lb  = get_theme_mod( 'sa_stat2_label', 'شهرستان' );
 $sa_prov_h2   = get_theme_mod( 'sa_sec_prov_title', 'استان‌های ایران' );
 $sa_latest_h2 = get_theme_mod( 'sa_sec_latest_title', 'آخرین مقالات' );
@@ -77,7 +123,9 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 ?>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap');
+/* فونت Vazirmatn به‌صورت محلی در قالب مادر بارگذاری و preload می‌شود
+   (assets/css/fonts.css + wp_head). درخواست به fonts.googleapis.com از داخل
+   ایران معمولاً برنمی‌گردد و چون @import بود، رندر را هم بلوک می‌کرد. */
 .sa-home{--ink:#0b1424;--mut:#5b6b80;--blue:#2f6bff;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#f7f9fc;line-height:1.8;overflow:hidden}
 .sa-home *{box-sizing:border-box}
 .sa-wrap{max-width:1180px;margin:0 auto;padding:0 20px}
@@ -88,17 +136,18 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-sparks i{position:absolute;width:5px;height:5px;border-radius:50%;background:#9fb0c9;opacity:.25;transform:scale(.8);transition:opacity .7s,transform .7s,box-shadow .7s}
 .sa-sparks i.lit{opacity:1;transform:scale(1.5);background:#8fb4ff;box-shadow:0 0 14px 4px rgba(47,107,255,.75)}
 .sa-hw{position:relative;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
-.sa-brand{display:flex;align-items:center;gap:18px;margin-bottom:6px}
+.sa-hw>*{min-width:0}
+.sa-brand{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-bottom:6px;min-width:0}
 .sa-logo{flex:none;width:136px;height:136px;display:grid;place-items:center;background:none;box-shadow:none}
 .sa-logo img{width:136px;height:136px;display:block;filter:drop-shadow(0 36px 36px rgba(11,20,36,.38)) drop-shadow(0 8px 14px rgba(11,20,36,.22))}
-.sa-hero h1{margin:0;font-size:clamp(34px,5.4vw,64px);line-height:1.25;font-weight:800;letter-spacing:-.5px}
+.sa-hero h1{margin:0;font-size:clamp(28px,5.4vw,64px);line-height:1.25;font-weight:700;letter-spacing:-.5px;min-width:0;overflow-wrap:anywhere}
 .sa-en{color:var(--blue);font-weight:700;letter-spacing:4px;font-size:13px;direction:ltr;text-align:right;margin:2px 0 14px}
 .sa-slogan{margin:0 0 10px;font-size:clamp(16px,2.2vw,21px);font-weight:700;color:#16326e}
 .sa-hero .sa-intro{margin:0 0 28px;color:var(--mut);font-size:17px;max-width:520px}
-.sa-search{display:flex;align-items:center;gap:12px;height:74px;padding:0 14px 0 10px;border-radius:26px;background:linear-gradient(180deg,#14213b,var(--ink));box-shadow:0 44px 70px -28px rgba(47,107,255,.7),0 14px 26px -8px rgba(11,20,36,.5);transition:box-shadow .3s}
+.sa-search{display:flex;align-items:center;flex-wrap:wrap;gap:12px;max-width:100%;height:74px;padding:0 14px 0 10px;border-radius:26px;background:linear-gradient(180deg,#14213b,var(--ink));box-shadow:0 44px 70px -28px rgba(47,107,255,.7),0 14px 26px -8px rgba(11,20,36,.5);transition:box-shadow .3s}
 .sa-search:focus-within{box-shadow:0 44px 70px -24px rgba(47,107,255,.9),0 0 0 2px var(--blue)}
 .sa-search svg{flex:none;margin-right:10px}
-.sa-search input{flex:1;min-width:0;border:0;outline:0;background:none;color:#fff;font:inherit;font-size:17px}
+.sa-search input{flex:1 1 0;width:0;min-width:0;border:0;outline:0;background:none;color:#fff;font:inherit;font-size:16px}
 .sa-search input::placeholder{color:#8ea3c7}
 .sa-search button{flex:none;border:0;cursor:pointer;font:inherit;font-weight:700;font-size:16px;color:#fff;height:54px;padding:0 32px;border-radius:18px;background:linear-gradient(135deg,#4d86ff,#2457e6);box-shadow:0 14px 26px -10px rgba(47,107,255,.9);transition:transform .25s}
 .sa-search button:hover{transform:translateY(-2px)}
@@ -111,6 +160,9 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-map .h{fill:transparent}
 .sa-map .d{fill:#b7d2ff;filter:drop-shadow(0 0 5px #2f6bff);animation:sab var(--t) ease-in-out var(--d) infinite;transition:r .2s}
 .sa-map a:hover .d{r:5.2}
+.sa-map .sa-dot--soon{opacity:.35;pointer-events:none}
+.sa-bar--soon{opacity:.45;cursor:default;pointer-events:none}
+.sa-bar--soon em{font-style:normal}
 @keyframes sab{0%,100%{opacity:.15}50%{opacity:1}}
 .sa-scroll{position:absolute;bottom:24px;left:50%;margin-left:-13px;width:26px;height:42px;border:2px solid rgba(11,20,36,.28);border-radius:14px}
 .sa-scroll i{position:absolute;top:8px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--blue);animation:saw 1.8s infinite}
@@ -118,11 +170,11 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-off *{animation-play-state:paused!important}
 .sa-stats .sa-wrap{position:relative;max-width:760px;margin-top:-36px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .sa-st{text-align:center;padding:26px 16px;background:#fff;border-radius:28px;box-shadow:0 40px 64px -28px color-mix(in srgb,var(--c) 75%,transparent),0 2px 8px rgba(11,20,36,.05)}
-.sa-st b{display:block;font-size:clamp(40px,6vw,58px);line-height:1.3;font-weight:800;color:var(--c)}
+.sa-st b{display:block;font-size:clamp(40px,6vw,58px);line-height:1.3;font-weight:700;color:var(--c)}
 .sa-st span{color:var(--mut);font-weight:500}
 .sa-sec{padding-top:96px;content-visibility:auto;contain-intrinsic-size:auto 900px}
 .sa-head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:30px}
-.sa-head h2{margin:0;font-size:clamp(26px,3.6vw,38px);font-weight:800}
+.sa-head h2{margin:0;font-size:clamp(26px,3.6vw,38px);font-weight:700}
 .sa-head a{color:var(--blue);font-weight:600;text-decoration:none;white-space:nowrap}
 .sa-bars{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px}
 .sa-bar{display:flex;align-items:center;gap:14px;height:68px;padding:0 22px;border-radius:20px;background:#fff;border:1px solid rgba(11,20,36,.05);color:var(--ink);text-decoration:none;box-shadow:0 22px 38px -18px color-mix(in srgb,var(--c) 80%,transparent),0 2px 6px rgba(11,20,36,.04);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
@@ -149,6 +201,9 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-map{max-width:380px;margin:10px auto 0}.sa-posts{grid-template-columns:repeat(2,1fr)}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
 @media(max-width:640px){.sa-bars,.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:96px;height:96px}.sa-logo img{width:96px;height:96px}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-bar{height:62px}}
+@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo,.sa-logo img{width:76px;height:76px}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{margin-top:-24px;gap:12px}.sa-st{padding:18px 10px;border-radius:20px}}
+/* zir-e 430px, dokme be radif-e dovom miravad */
+@media(max-width:430px){.sa-search{height:auto;padding:12px;border-radius:22px;row-gap:10px}.sa-search input{flex:1 1 auto;font-size:16px}.sa-search button{flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
 </style>
 
@@ -174,7 +229,7 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 					<button type="submit">جستجو</button>
 				</form>
 				<div class="sa-chips">
-					<?php foreach ( sa_entity_types() as $sa_type ) : ?>
+					<?php foreach ( sa_nav_entity_types() as $sa_type ) : ?>
 						<a href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>"><?php echo esc_html( sa_entity_label( $sa_type, true ) ); ?></a>
 					<?php endforeach; ?>
 				</div>
@@ -189,8 +244,16 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 					<use href="#sam" fill="url(#sag)" stroke="#2f4a86" stroke-width="2" stroke-linejoin="round"/>
 					<use href="#sam" fill="url(#sad)"/>
 					<g id="sa-dots">
-						<?php foreach ( $sa_map_points as $sa_p ) : ?>
-							<a href="<?php echo esc_url( home_url( '/province/' . $sa_p[1] . '/' ) ); ?>" aria-label="<?php echo esc_attr( $sa_p[0] ); ?>" transform="translate(<?php echo esc_attr( $sa_p[2] . ' ' . $sa_p[3] ); ?>)"><title><?php echo esc_html( $sa_p[0] ); ?></title><circle class="h" r="10"/><circle class="d" r="3.2" style="--t:<?php echo esc_attr( number_format( 2 + wp_rand( 0, 40 ) / 10, 1 ) ); ?>s;--d:-<?php echo esc_attr( number_format( wp_rand( 0, 60 ) / 10, 1 ) ); ?>s"/></a>
+						<?php
+						foreach ( $sa_map_points as $sa_p ) :
+							$sa_url  = sa_home_province_url( $sa_p[1] );
+							$sa_anim = 'style="--t:' . esc_attr( number_format( 2 + wp_rand( 0, 40 ) / 10, 1 ) ) . 's;--d:-' . esc_attr( number_format( wp_rand( 0, 60 ) / 10, 1 ) ) . 's"';
+							?>
+							<?php if ( $sa_url ) : ?>
+								<a href="<?php echo esc_url( $sa_url ); ?>" aria-label="<?php echo esc_attr( $sa_p[0] ); ?>" transform="translate(<?php echo esc_attr( $sa_p[2] . ' ' . $sa_p[3] ); ?>)"><title><?php echo esc_html( $sa_p[0] ); ?></title><circle class="h" r="10"/><circle class="d" r="3.2" <?php echo $sa_anim; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>/></a>
+							<?php else : ?>
+								<g class="sa-dot--soon" aria-hidden="true" transform="translate(<?php echo esc_attr( $sa_p[2] . ' ' . $sa_p[3] ); ?>)"><title><?php echo esc_html( $sa_p[0] . ' — به‌زودی' ); ?></title><circle class="h" r="10"/><circle class="d" r="3.2" <?php echo $sa_anim; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>/></g>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					</g>
 				</svg>
@@ -210,8 +273,16 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 		<div class="sa-wrap">
 			<div class="sa-head"><h2><?php echo esc_html( $sa_prov_h2 ); ?></h2><a href="<?php echo esc_url( get_post_type_archive_link( 'province' ) ); ?>">همه‌ی استان‌ها</a></div>
 			<div class="sa-bars" id="sa-bars">
-				<?php foreach ( $sa_map_points as $sa_i => $sa_p ) : ?>
-					<a class="sa-bar" href="<?php echo esc_url( home_url( '/province/' . $sa_p[1] . '/' ) ); ?>" style="--c:<?php echo esc_attr( $sa_colors[ $sa_i % 8 ] ); ?>"><b><?php echo esc_html( $sa_p[0] ); ?></b><em><?php echo esc_html( ucwords( str_replace( '-', ' ', $sa_p[1] ) ) ); ?></em></a>
+				<?php
+				foreach ( $sa_map_points as $sa_i => $sa_p ) :
+					$sa_url = sa_home_province_url( $sa_p[1] );
+					$sa_en  = ucwords( str_replace( '-', ' ', $sa_p[1] ) );
+					?>
+					<?php if ( $sa_url ) : ?>
+						<a class="sa-bar" href="<?php echo esc_url( $sa_url ); ?>" style="--c:<?php echo esc_attr( $sa_colors[ $sa_i % 8 ] ); ?>"><b><?php echo esc_html( $sa_p[0] ); ?></b><em><?php echo esc_html( $sa_en ); ?></em></a>
+					<?php else : ?>
+						<span class="sa-bar sa-bar--soon" style="--c:<?php echo esc_attr( $sa_colors[ $sa_i % 8 ] ); ?>"><b><?php echo esc_html( $sa_p[0] ); ?></b><em>به‌زودی</em></span>
+					<?php endif; ?>
 				<?php endforeach; ?>
 			</div>
 		</div>
