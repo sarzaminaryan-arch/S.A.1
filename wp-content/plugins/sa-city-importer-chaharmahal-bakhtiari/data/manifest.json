@@ -1,0 +1,177 @@
+{
+ "batch": "chaharmahal-bakhtiari",
+ "batch_id": "chaharmahal-bakhtiari",
+ "label": "درون‌ریز شهرستان‌های استان چهارمحال و بختیاری",
+ "data_version": "1.0.0",
+ "package_format": "1.0",
+ "built": "2026-10-01",
+ "province": {
+  "slug": "chaharmahal-bakhtiari",
+  "name_fa": "استان چهارمحال و بختیاری",
+  "term_name": "چهارمحال و بختیاری"
+ },
+ "file": "chaharmahal-bakhtiari.json",
+ "counties_count": 10,
+ "counties": [
+  {
+   "slug": "shahrekord",
+   "title": "شهرستان شهرکرد",
+   "status": "article",
+   "word_count": 823,
+   "faq": 11,
+   "sources_lines": 2,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "kuhrang",
+   "title": "شهرستان کوهرنگ",
+   "status": "article",
+   "word_count": 813,
+   "faq": 11,
+   "sources_lines": 3,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "saman",
+   "title": "شهرستان سامان",
+   "status": "article",
+   "word_count": 815,
+   "faq": 11,
+   "sources_lines": 4,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "borujen",
+   "title": "شهرستان بروجن",
+   "status": "article",
+   "word_count": 817,
+   "faq": 11,
+   "sources_lines": 2,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "lordegan",
+   "title": "شهرستان لردگان",
+   "status": "article",
+   "word_count": 805,
+   "faq": 11,
+   "sources_lines": 4,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "farsan",
+   "title": "شهرستان فارسان",
+   "status": "article",
+   "word_count": 833,
+   "faq": 11,
+   "sources_lines": 3,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "ardal",
+   "title": "شهرستان اردل",
+   "status": "article",
+   "word_count": 803,
+   "faq": 11,
+   "sources_lines": 2,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "kiar",
+   "title": "شهرستان کیار",
+   "status": "article",
+   "word_count": 830,
+   "faq": 11,
+   "sources_lines": 4,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "khanmirza",
+   "title": "شهرستان خانمیرزا",
+   "status": "article",
+   "word_count": 834,
+   "faq": 11,
+   "sources_lines": 4,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  },
+  {
+   "slug": "ben",
+   "title": "شهرستان بن",
+   "status": "article",
+   "word_count": 814,
+   "faq": 11,
+   "sources_lines": 4,
+   "publish_status": "DRAFT ONLY",
+   "markers": {
+    "review": 0,
+    "source_needed": 0,
+    "url_needed": 0,
+    "coming_soon": 0
+   },
+   "featured_image": true
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "format": "1.0",
+ "built": "2026-10-01",
+ "counties": [
+  {
+   "title": "شهرکرد",
+   "slug": "shahrekord",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "کوهرنگ (چلگرد)",
+   "slug": "kuhrang",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "سامان",
+   "slug": "saman",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "بروجن",
+   "slug": "borujen",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "لردگان",
+   "slug": "lordegan",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "فارسان",
+   "slug": "farsan",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "اردل",
+   "slug": "ardal",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "کیار (شلمزار)",
+   "slug": "kiar",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "خانمیرزا (آلونی)",
+   "slug": "khanmirza",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "بن",
+   "slug": "ben",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "فرخ‌شهر",
+   "slug": "farrokhshahr",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  },
+  {
+   "title": "فلارد (مال‌خلیفه)",
+   "slug": "falard",
+   "province": "chaharmahal-bakhtiari",
+   "province_name": "چهارمحال و بختیاری"
+  }
+ ]
+}
