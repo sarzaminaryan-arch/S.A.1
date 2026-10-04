@@ -118,6 +118,7 @@ return array(
 			'sarab'                  => array( 'name' => 'سراب', 'lat' => 37.9683, 'lng' => 47.5558 ),
 			'shabestar'              => array( 'name' => 'شبستر', 'lat' => 38.1925, 'lng' => 45.4249 ),
 			'tabriz'                 => array( 'name' => 'تبریز', 'lat' => 37.9742, 'lng' => 46.3671 ),
+			'torkamanchay'           => array( 'name' => 'ترکمانچای', 'lat' => 37.5853, 'lng' => 47.3897 ),
 			'varzaqan'               => array( 'name' => 'ورزقان', 'lat' => 38.5700, 'lng' => 46.5934 ),
 		),
 		'fars' => array(
@@ -421,6 +422,9 @@ return array(
 			'garmeh'                 => array( 'name' => 'گرمه', 'lat' => 37.1215, 'lng' => 56.2017 ),
 			'jajrom'                 => array( 'name' => 'جاجرم', 'lat' => 36.9766, 'lng' => 56.6122 ),
 			'maneh-and-samalqan'     => array( 'name' => 'مانه و سملقان', 'lat' => 37.6762, 'lng' => 56.5333 ),
+			'samalqan'               => array( 'name' => 'سملقان', 'lat' => 37.5614, 'lng' => 56.9211 ),
+			'maneh'                  => array( 'name' => 'مانه', 'lat' => 37.6519, 'lng' => 57.0019 ),
+			'bam-and-safiabad'       => array( 'name' => 'بام و صفی‌آباد', 'lat' => 36.6961, 'lng' => 57.9300 ),
 			'raz-and-jargalan'       => array( 'name' => 'راز و جرگلان', 'lat' => 38.0322, 'lng' => 57.0875 ),
 			'shirwan'                => array( 'name' => 'شیروان', 'lat' => 37.5630, 'lng' => 57.9537 ),
 		),
