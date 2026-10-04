@@ -61,9 +61,9 @@ caption: شهرستان فارسان، یکی از شهرستان‌های اس�
 credit: بایگانی تصویری سرزمین آریان
 license: CC BY-SA 4.0
 recommended_dimensions:
- width: 1600
- height: 900
- aspect_ratio: "16:9"
+ width: 1200
+ height: 600
+ aspect_ratio: "2:1"
 ```
 
 === BLOCK 3: ARTICLE (Markdown) ===
