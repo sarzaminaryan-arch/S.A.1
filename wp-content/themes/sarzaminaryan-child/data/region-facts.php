@@ -273,6 +273,8 @@ return array(
 			'bardsir'                => array( 'name' => 'بردسیر', 'lat' => 29.7314, 'lng' => 56.7471 ),
 			'fahraj'                 => array( 'name' => 'فهرج', 'lat' => 29.0981, 'lng' => 59.2200 ),
 			'faryab'                 => array( 'name' => 'فاریاب', 'lat' => 28.1454, 'lng' => 57.2150 ),
+			'gonbaki'                => array( 'name' => 'گنبکی', 'lat' => 28.5242, 'lng' => 58.7575 ),
+			'jazmurian'             => array( 'name' => 'جازموریان', 'lat' => 27.8170, 'lng' => 58.6000 ),
 			'jiroft'                 => array( 'name' => 'جیرفت', 'lat' => 28.7887, 'lng' => 57.5241 ),
 			'kahnuj'                 => array( 'name' => 'کهنوج', 'lat' => 27.8974, 'lng' => 57.6319 ),
 			'kerman'                 => array( 'name' => 'کرمان', 'lat' => 30.3963, 'lng' => 58.3705 ),
