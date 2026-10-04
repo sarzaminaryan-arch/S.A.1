@@ -48,6 +48,7 @@ add_action( 'init', 'sa_maybe_run_setup', 99 );
  */
 function sa_maybe_upgrade() {
 	if ( get_option( 'sa_child_version' ) !== SA_CHILD_VERSION ) {
+		delete_transient( 'sa_nav_types' );
 		sa_seed_terms();
 		sa_create_default_pages(); // برگه‌های از دست رفته (از جمله حریم خصوصی) را می‌سازد و قالب v2 را به «خانه» می‌بندد.
 		sa_home_v2_setup();
@@ -152,6 +153,9 @@ function sa_create_default_menu() {
 	}
 	$items = array( array( 'title' => 'خانه', 'url' => home_url( '/' ), 'type' => 'custom' ) );
 	foreach ( sa_entity_types() as $type ) {
+		if ( function_exists( 'sa_nav_hidden_entity_types' ) && in_array( $type, sa_nav_hidden_entity_types(), true ) ) {
+			continue;
+		}
 		$items[] = array( 'title' => sa_entity_label( $type, true ), 'type' => 'post_type_archive', 'object' => $type );
 	}
 	$pages = get_option( 'sa_default_pages', array() );

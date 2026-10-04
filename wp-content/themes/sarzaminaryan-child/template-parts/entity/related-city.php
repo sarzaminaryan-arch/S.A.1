@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 $sa_id = get_the_ID();
-sa_cards_section( sa_get_children( $sa_id, 'attraction' ), 'جاذبه‌های ' . get_the_title(), '', 'attractions' );
+sa_cards_section( sa_get_children( $sa_id, 'attraction' ), 'نمای برتر ' . get_the_title(), '', 'attractions' );
 sa_cards_section( sa_get_children( $sa_id, 'local_food' ), 'غذاهای محلی ' . get_the_title(), '', 'foods' );
 sa_cards_section( sa_get_children( $sa_id, 'souvenir' ), 'سوغات ' . get_the_title(), '', 'souvenirs' );
 sa_cards_section( sa_get_children( $sa_id, 'travel_route' ), 'مسیرهای سفری که از این شهر می‌گذرند', '', 'routes' );

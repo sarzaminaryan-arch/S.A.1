@@ -104,7 +104,7 @@ function sa_seo_description() {
 		if ( $custom ) {
 			return $custom;
 		}
-		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها، جاذبه‌های گردشگری، مسیرهای پیشنهادی، غذاهای محلی و سوغات هر منطقه با اطلاعات دقیق و به‌روز.' );
+		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و نمای برتر طبیعت‌های بکر و دیدنی‌های ایران با اطلاعات دقیق و به‌روز.' );
 	}
 	if ( is_singular() ) {
 		$id     = get_queried_object_id();
@@ -120,7 +120,7 @@ function sa_seo_description() {
 		return $text ? $text : 'تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ ' . get_bloginfo( 'name' ) . '.';
 	}
 	if ( is_front_page() ) {
-		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها، جاذبه‌های گردشگری، مسیرهای پیشنهادی، غذاهای محلی و سوغات هر منطقه با اطلاعات دقیق و به‌روز.' );
+		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و نمای برتر طبیعت‌های بکر و دیدنی‌های ایران با اطلاعات دقیق و به‌روز.' );
 	}
 	if ( is_tax() || is_category() || is_tag() ) {
 		$term = get_queried_object();
@@ -128,7 +128,7 @@ function sa_seo_description() {
 			return wp_trim_words( wp_strip_all_tags( $term->description ), 28, '…' );
 		}
 		if ( is_tax( 'province_tax' ) ) {
-			return sprintf( 'همه‌چیز درباره‌ی سفر به استان %s: شهرها، جاذبه‌ها، غذاها، سوغات و مسیرهای پیشنهادی.', $term->name );
+			return sprintf( 'همه‌چیز درباره‌ی سفر به استان %s: شهرها، نمای برتر، تصاویر و راهنمای به‌روز.', $term->name );
 		}
 	}
 	if ( is_post_type_archive() ) {

@@ -17,4 +17,4 @@ if ( $sa_cities ) {
 	}
 	echo '</ol></section>';
 }
-sa_cards_section( sa_get_related( $sa_id, 'sa_attraction_ids' ), 'جاذبه‌های این مسیر', '', 'attractions' );
+sa_cards_section( sa_get_related( $sa_id, 'sa_attraction_ids' ), 'نمای برتر این مسیر', '', 'attractions' );

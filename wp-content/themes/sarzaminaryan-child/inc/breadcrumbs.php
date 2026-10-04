@@ -1,7 +1,7 @@
 <?php
 /**
  * Breadcrumbs (visible + feeds BreadcrumbList schema) following the Level 6 hierarchy:
- * خانه › استان‌ها › {استان} › {شهر} › {جاذبه}
+ * خانه › استان‌ها › {استان} › {شهر} › {نمای برتر}
  *
  * @package Sarzaminaryan_Child
  */
@@ -68,7 +68,7 @@ function sa_get_breadcrumb_items() {
 		$term = get_queried_object();
 		$tax  = get_taxonomy( $term->taxonomy );
 		if ( is_tax( 'attraction_type' ) ) {
-			$items[] = array( 'name' => 'جاذبه‌ها', 'url' => sa_archive_url( 'attraction' ) );
+			$items[] = array( 'name' => 'نمای برتر', 'url' => sa_archive_url( 'attraction' ) );
 		} elseif ( $tax && is_category() ) {
 			$blog = (int) get_option( 'page_for_posts' );
 			if ( $blog ) {

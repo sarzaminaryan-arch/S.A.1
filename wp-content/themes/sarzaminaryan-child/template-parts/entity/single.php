@@ -41,7 +41,6 @@ $sa_type = get_post_type();
 
 		<?php get_template_part( 'template-parts/entity/county-siblings' ); ?>
 
-		<?php get_template_part( 'template-parts/entity/province-counties' ); ?>
 
 		<?php get_template_part( 'template-parts/entity/gallery' ); ?>
 

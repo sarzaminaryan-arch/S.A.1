@@ -38,6 +38,7 @@ class CC_UI {
   echo '<label>نوع مشارکت<select name="type"><option value="place">معرفی مکان یا غذا</option><option value="correction">پیشنهاد اصلاح</option><option value="report">گزارش خطا یا تعطیلی</option><option value="tip">نکته محلی</option></select></label>';
   echo '<label>توضیح<textarea name="text" minlength="30" maxlength="2500" required placeholder="حداقل ۳۰ نویسه…"></textarea></label>';
   echo '<label>تصویر (اختیاری، حداکثر ۵ مگابایت)<input type="file" name="image" accept="image/jpeg,image/png,image/webp"></label>';
+  echo '<label class="cc-consent"><input type="checkbox" name="rights_confirm" value="1" required> تأیید می‌کنم متن/تصویر را خودم تولید کرده‌ام یا اجازهٔ انتشار آن را دارم و برای نمایش در سرزمین آریان ارسال می‌کنم.</label>';
   echo '<input class="cc-hp" name="website" tabindex="-1" autocomplete="off">';
   echo '<button type="submit" class="cc-btn cc-btn--primary">ارسال برای بررسی</button> <button type="button" class="cc-btn cc-btn--ghost" data-cc-close>انصراف</button>';
   echo '<p data-cc-message role="status"></p></form>';

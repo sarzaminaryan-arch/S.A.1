@@ -2776,17 +2776,6 @@ main.site-main.container,
 	}
 }
 
-/* ---- ۵. بلوک شهرستان‌های استان (v2.8.2) ---- */
-.sa-province-counties {
-	margin-block: 32px;
-}
-
-.sa-county__hint {
-	margin: 0 0 10px;
-	font-size: .92rem;
-	opacity: .8;
-}
-
 
 /* ==========================================================================
    v2.11.6 — province city pills, true featured-image rendering, logo contrast

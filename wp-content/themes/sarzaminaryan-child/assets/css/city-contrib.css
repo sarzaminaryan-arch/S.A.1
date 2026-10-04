@@ -148,3 +148,22 @@
 .sa-contact__msg{padding:.8rem 1rem;border-radius:10px;font-weight:700}
 .sa-contact__msg--ok{background:#d9f2e0;color:#14683b;border:1px solid #a8dcc0}
 .sa-contact__msg--err{background:#fde2e2;color:#a02020;border:1px solid #f2b8b8}
+
+/* v2.11.8 — contribution rights confirmation */
+.cc-consent {
+	display: flex !important;
+	align-items: flex-start;
+	gap: 8px;
+	font-size: .9rem;
+	line-height: 1.8;
+	color: #31445c;
+	background: #f8fbff;
+	border: 1px solid #d6e0ec;
+	border-radius: 12px;
+	padding: 10px 12px;
+}
+
+.cc-consent input {
+	margin-top: .45em;
+	flex: 0 0 auto;
+}

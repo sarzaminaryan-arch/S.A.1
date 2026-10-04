@@ -539,12 +539,61 @@ function sa_social_links() {
  * Fallback menu: entity archives (used when no menu is assigned).
  */
 /**
+ * Entity types intentionally hidden from the public header navigation for now.
+ * They stay active in the CMS and URLs are not changed; only the top navigation
+ * waits until those sections are ready for editorial work.
+ *
+ * @return string[]
+ */
+function sa_nav_hidden_entity_types() {
+	return (array) apply_filters( 'sa_nav_hidden_entity_types', array( 'travel_route', 'local_food', 'souvenir' ) );
+}
+
+/**
+ * Rename old saved menu item titles and hide deferred archive items in header menus.
+ * Existing WordPress menus keep their stored labels after a theme update, so the
+ * filter makes old installs match the current IA without manual menu editing.
+ *
+ * @param WP_Post[] $items Menu items.
+ * @param stdClass  $args  Menu args.
+ * @return WP_Post[]
+ */
+function sa_filter_header_menu_items( $items, $args ) {
+	$location = isset( $args->theme_location ) ? (string) $args->theme_location : '';
+	if ( ! in_array( $location, array( 'primary', 'secondary' ), true ) ) {
+		return $items;
+	}
+
+	$hidden          = sa_nav_hidden_entity_types();
+	$hidden_urls      = array();
+	$attraction_url   = untrailingslashit( sa_archive_url( 'attraction' ) );
+	foreach ( $hidden as $hidden_type ) {
+		$hidden_urls[] = untrailingslashit( sa_archive_url( $hidden_type ) );
+	}
+
+	$out = array();
+	foreach ( $items as $item ) {
+		$object = isset( $item->object ) ? (string) $item->object : '';
+		$url    = isset( $item->url ) ? untrailingslashit( (string) $item->url ) : '';
+		if ( in_array( $object, $hidden, true ) || in_array( $url, $hidden_urls, true ) ) {
+			continue;
+		}
+		if ( 'attraction' === $object || $url === $attraction_url ) {
+			$item->title = 'نمای برتر';
+		}
+		$out[] = $item;
+	}
+
+	return $out;
+}
+add_filter( 'wp_nav_menu_objects', 'sa_filter_header_menu_items', 10, 2 );
+
+/**
  * v2.3.0 — فقط نوع‌هایی که واقعاً محتوای منتشرشده دارند.
  *
- * چهار موجودیت (جاذبه، غذا، سوغات، مسیر سفر) هنوز صفر صفحه دارند. لینک‌دادن
+ * سه موجودیت غذا، سوغات و مسیر سفر فعلاً از منوی عمومی پنهان‌اند؛ نمای برتر می‌ماند. لینک‌دادن
  * به آرشیو خالی در هدر و فوتر *هر* صفحه، همان اشتباه لینک ۴۰۴ صفحه‌ی اصلی است
- * با شکل دیگر: خزنده و کاربر به بن‌بست می‌رسند. با انتشار اولین محتوای هر نوع،
- * خودبه‌خود به منو برمی‌گردد.
+ * با شکل دیگر: خزنده و کاربر به بن‌بست می‌رسند. تا زمان تصمیم بعدی کاربر در منوی عمومی نمایش داده نمی‌شوند.
  *
  * @return string[]
  */
@@ -555,6 +604,9 @@ function sa_nav_entity_types() {
 	}
 	$out = array();
 	foreach ( sa_entity_types() as $type ) {
+		if ( in_array( $type, sa_nav_hidden_entity_types(), true ) ) {
+			continue;
+		}
 		$c = wp_count_posts( $type );
 		if ( isset( $c->publish ) && (int) $c->publish > 0 ) {
 			$out[] = $type;

@@ -104,8 +104,8 @@ if ( has_custom_logo() ) {
 
 /* ---- customizable texts (پیشخوان → سفارشی‌سازی → صفحه اصلی (طرح v2)) ---- */
 $sa_slogan    = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
-$sa_hero_text = get_theme_mod( 'sa_hero_text', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و هزاران جاذبه.' );
-$sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر، جاذبه، غذا یا سوغات…' );
+$sa_hero_text = get_theme_mod( 'sa_hero_text', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و نمای برتر طبیعت ایران.' );
+$sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر یا نمای برتر…' );
 /* v2.1.0: پیش‌فرض شمارنده‌ها = تعداد واقعی منتشرشده (sa_entity_counts با کش
    یک‌ساعته در inc/performance.php). ادعای «۴۴۸+ شهرستان» روی سایتی که ۸۲
    شهرستان دارد، تناقضی است که هم کاربر و هم ارزیاب کیفیت می‌بیند.

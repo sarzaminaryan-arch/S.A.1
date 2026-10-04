@@ -229,8 +229,8 @@ function sa_entities_config() {
 			'cpt' => 'attraction',
 			'status' => 'active',
 			'label' => 'Attraction',
-			'singular' => 'جاذبه',
-			'plural' => 'جاذبه‌ها',
+			'singular' => 'نمای برتر',
+			'plural' => 'نمای برتر',
 			'icon' => 'dashicons-camera-alt',
 			'menu_pos' => 3,
 			'url_base' => 'attraction',
@@ -666,8 +666,8 @@ function sa_taxonomies_config() {
 		),
 		'attraction_type' => array(
 			'status' => 'active',
-			'singular' => 'نوع جاذبه',
-			'plural' => 'انواع جاذبه',
+			'singular' => 'نوع نمای برتر',
+			'plural' => 'انواع نمای برتر',
 			'slug' => 'attraction-type',
 			'hierarchical' => true,
 			'applies_to' => array(
