@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.6
+Stable tag: 2.11.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,13 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.7 — 2026-10-04 =
+* گالری آلبومی استان‌ها: هر شهرستان یک آلبوم آماده داخل صفحه استان دارد.
+* ظاهر مینیمال سفید/آبی ناوی/طلایی، نوار مسیر آلبوم، نقطه چشمک‌زن و لایت‌باکس موبایل‌محور با سوایپ نرم.
+* نمایش همیشگی نام مکان و توضیح زیر تصویر، و دانلود نسخه نشان‌دار.
+* تبدیل خودکار JPG/PNG/WebP به WebP سبک، حذف فایل خام، حذف metadata و درج واترمارک سفید sarzaminaryan.
+* صفحه مدیریت «رسانه → گالری استان‌ها» برای آپلود گروهی؛ تصاویر شهروندان نیز ابتدا pending می‌شوند و بعد از تأیید وارد گالری عمومی می‌شوند.
 
 = 2.11.6 — 2026-10-04 =
 * لینک‌های دوطرفه استان/شهرستان در بالای صفحات استان و شهرستان.

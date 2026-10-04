@@ -43,6 +43,8 @@ $sa_type = get_post_type();
 
 		<?php get_template_part( 'template-parts/entity/province-counties' ); ?>
 
+		<?php get_template_part( 'template-parts/entity/gallery' ); ?>
+
 		<?php if ( 'city' === $sa_type && class_exists( 'CC_UI' ) ) : ?>
 			<?php CC_UI::contrib_block(); ?>
 		<?php endif; ?>
