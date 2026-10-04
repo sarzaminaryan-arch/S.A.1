@@ -573,6 +573,7 @@ return array(
 			'behabad'                => array( 'name' => 'بهاباد', 'lat' => 32.0210, 'lng' => 56.2270 ),
 			'khatam'                 => array( 'name' => 'خاتم', 'lat' => 29.8704, 'lng' => 54.3289 ),
 			'mehriz'                 => array( 'name' => 'مهریز', 'lat' => 31.3994, 'lng' => 54.6636 ),
+			'marvast'                => array( 'name' => 'مروست', 'lat' => 30.4783, 'lng' => 54.2117 ),
 			'meybod'                 => array( 'name' => 'میبد', 'lat' => 31.8788, 'lng' => 53.3131 ),
 			'taft'                   => array( 'name' => 'تفت', 'lat' => 31.4949, 'lng' => 53.8309 ),
 			'yazd'                   => array( 'name' => 'یزد', 'lat' => 31.8776, 'lng' => 54.4402 ),
