@@ -61,9 +61,9 @@ caption: شهرستان کوهرنگ، یکی از شهرستان‌های اس�
 credit: بایگانی تصویری سرزمین آریان
 license: CC BY-SA 4.0
 recommended_dimensions:
- width: 1200
- height: 800
- aspect_ratio: "3:2"
+ width: 1600
+ height: 900
+ aspect_ratio: "16:9"
 ```
 
 === BLOCK 3: ARTICLE (Markdown) ===
