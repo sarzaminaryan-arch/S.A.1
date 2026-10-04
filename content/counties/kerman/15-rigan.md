@@ -62,8 +62,8 @@ credit: بایگانی تصویری سرزمین آریان
 license: CC BY-SA 4.0
 recommended_dimensions:
  width: 1200
- height: 800
- aspect_ratio: "3:2"
+ height: 600
+ aspect_ratio: "2:1"
 ```
 
 === BLOCK 3: ARTICLE (Markdown) ===
