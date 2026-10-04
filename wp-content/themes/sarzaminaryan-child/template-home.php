@@ -168,7 +168,7 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-scroll i{position:absolute;top:8px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--blue);animation:saw 1.8s infinite}
 @keyframes saw{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
 .sa-off *{animation-play-state:paused!important}
-.sa-stats .sa-wrap{position:relative;max-width:760px;margin-top:-36px;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.sa-stats .sa-wrap{position:relative;max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .sa-st{text-align:center;padding:12px 10px;background:linear-gradient(155deg,#fff,#edf6ff);border:1px solid #bdd8f1;border-radius:28px;box-shadow:0 2px 0 #fff inset,0 40px 64px -28px color-mix(in srgb,var(--c) 72%,transparent),0 10px 22px -16px rgba(11,42,74,.35)}
 .sa-st b{display:block;font-size:clamp(40px,6vw,58px);line-height:1.3;font-weight:700;color:var(--c)}
 .sa-st span{color:var(--mut);font-weight:500}
@@ -201,7 +201,7 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-logo{width:136px;height:136px;padding:8px}.sa-logo img{width:100%;height:100%}.sa-map{max-width:380px;margin:10px auto 0}.sa-posts{grid-template-columns:repeat(2,1fr)}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
 @media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-bars,.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:108px;height:108px;padding:7px}.sa-logo img{width:100%;height:100%}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-bar{height:62px}.sa-bar b{font-size:clamp(12px,3.15vw,15px)}.sa-head{padding:7px 8px;border-inline-start-width:4px}}
-@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{margin-top:-24px;gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-bar{gap:8px;padding-inline:9px}.sa-bar b{font-size:clamp(10.8px,3.15vw,13.5px);letter-spacing:-.04em}.sa-bar em{display:none}}
+@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-bar{gap:8px;padding-inline:9px}.sa-bar b{font-size:clamp(10.8px,3.15vw,13.5px);letter-spacing:-.04em}.sa-bar em{display:none}}
 /* zir-e 430px, dokme be radif-e dovom miravad */
 @media(max-width:430px){.sa-search{height:auto;padding:8px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;font-size:16px}.sa-search svg{order:2;margin:0}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
@@ -261,6 +261,13 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 		</div>
 		<a class="sa-scroll" href="#sa-stats" aria-label="ادامه"><i></i></a>
 	</section>
+
+	<?php
+	/* ---- ۷ شهر برتر از نگاه مردم (v2.11.2؛ کادر جدا در بالای صفحه) ---- */
+	if ( class_exists( 'CC_UI' ) ) {
+		CC_UI::top_cities_block( 7 );
+	}
+	?>
 
 	<section class="sa-stats" id="sa-stats">
 		<div class="sa-wrap">

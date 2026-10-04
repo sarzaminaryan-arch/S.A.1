@@ -1,0 +1,150 @@
+/* ===== شهر من — مشارکت مردمی (داخل قالب فرزند) — رنگ سازمانی: آبی ناوی #123f73 ===== */
+.cc-block{direction:rtl;margin:2.2rem 0;padding:1.4rem 1.5rem;background:linear-gradient(160deg,#f4f8fd 0%,#edf6ff 100%);border:1px solid #dcecff;border-right:5px solid #123f73;border-radius:14px;box-shadow:0 2px 10px rgba(18,63,115,.06)}
+.cc-block__title{margin:0 0 .9rem;font-size:1.25rem;font-weight:800;color:#0b2a4a;display:flex;align-items:center;gap:.5rem}
+.cc-block__title::before{content:"";width:10px;height:10px;border-radius:3px;background:#123f73;box-shadow:3px 3px 0 #dcecff}
+
+/* امتیازدهی */
+.cc-rating__row{display:flex;flex-wrap:wrap;gap:.9rem 1.2rem;align-items:center;margin-bottom:.6rem}
+.cc-rating__avg{font-size:1.05rem;color:#0b2a4a;margin:0}
+.cc-rating__avg b{font-size:1.35rem;color:#123f73}
+.cc-rating__avg span{color:#5b7590;font-size:.9rem}
+.cc-rating__avg--empty{color:#5b7590}
+.cc-rating__rank{display:inline-block;background:#123f73;color:#fff;font-size:.85rem;font-weight:700;border-radius:999px;padding:.3rem .8rem;margin:0}
+.cc-rating__picker{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;background:#fff;border:1px solid #dcecff;border-radius:12px;padding:.9rem 1rem}
+.cc-rating__picker-label{width:100%;margin:0 0 .2rem;font-weight:700;color:#0b2a4a;font-size:.95rem}
+.cc-rating__stars{display:flex;gap:.35rem;flex-wrap:wrap}
+.cc-rating__stars button{display:flex;flex-direction:column;align-items:center;gap:.1rem;min-width:46px;border:1px solid #e2ecf7;border-radius:10px;background:#f8fbff;color:#c9d6e4;cursor:pointer;transition:all .15s;padding:.35rem .3rem .45rem}
+.cc-rating__stars button .cc-rating__num{font-size:.8rem;font-weight:800;color:#5b7590;line-height:1}
+.cc-rating__stars button .cc-rating__glyph{font-size:1.7rem;line-height:1}
+.cc-rating__stars button:hover{border-color:#f0b429;transform:translateY(-2px)}
+.cc-rating__stars button.is-on{color:#f0b429;background:#fff8e6;border-color:#f0b429}
+.cc-rating__stars button.is-on .cc-rating__num{color:#b45309}
+.cc-rating__stars button.is-on .cc-rating__glyph{text-shadow:0 1px 2px rgba(180,130,0,.35)}
+.cc-rating__stars button:disabled{cursor:default;transform:none}
+.cc-rating__submit{min-height:46px;padding:.6rem 1.6rem;font-size:1rem}
+.cc-rating__submit:disabled{opacity:.45;cursor:default}
+.cc-rating__status{margin:.9rem 0 0;font-size:.92rem;color:#41597a;padding:.65rem .9rem;border-radius:9px;background:#eef4fb}
+.cc-rating__status.cc-status--ok{background:#d9f2e0;color:#14683b;border:1px solid #a8dcc0;font-weight:700}
+.cc-stars{color:#f0b429;letter-spacing:2px;font-size:1.05rem}
+.cc-stars--empty{color:#c9d6e4}
+
+/* دکمه‌ها و فرم مشارکت */
+.cc-btn{min-height:44px;padding:.6rem 1.2rem;border:0;border-radius:10px;background:#e2ecf7;color:#123f73;font-weight:700;cursor:pointer;font-size:.95rem}
+.cc-btn--primary{background:#123f73;color:#fff}
+.cc-btn--primary:hover{background:#0b2a4a}
+.cc-btn--ghost{background:transparent;color:#5b7590;border:1px solid #c9d6e4}
+.cc-contrib__hint{color:#41597a;margin:.2rem 0 .8rem}
+.cc-contrib form label{display:block;margin:.8rem 0;color:#0b2a4a;font-weight:600}
+.cc-contrib textarea,.cc-contrib select{display:block;width:100%;min-height:44px;margin-top:.35rem;padding:.65rem;border:1px solid #b9cde3;border-radius:9px;background:#fff;font:inherit}
+.cc-contrib textarea{min-height:110px}
+.cc-contrib [data-cc-message]{color:#123f73;font-weight:700;margin-top:.6rem}
+.cc-hp{position:absolute;right:-9999px;width:1px;height:1px}
+
+/* اشتراک‌گذاری */
+.cc-share{margin-top:1.2rem;padding-top:1rem;border-top:1px dashed #b9cde3;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.cc-share__label{width:100%;font-weight:700;color:#0b2a4a;font-size:.95rem}
+.cc-share button,.cc-share a{min-height:42px;padding:.55rem .9rem;border:1px solid #b9cde3;border-radius:9px;background:#fff;text-decoration:none;color:#123f73;font-weight:600;display:inline-flex;align-items:center;font-size:.9rem}
+.cc-share button:hover,.cc-share a:hover{background:#edf6ff;border-color:#123f73}
+
+/* ورود سریع */
+.cc-auth{position:fixed;inset:0;z-index:9999;background:#071a30aa;display:grid;place-items:end center;padding:1rem}
+.cc-auth[hidden]{display:none}
+.cc-auth__box{direction:rtl;background:#fff;width:min(100%,420px);border-radius:16px 16px 0 0;padding:1.4rem;position:relative;border-top:4px solid #123f73}
+.cc-auth__box h2{color:#0b2a4a;margin:.2rem 0 .5rem}
+.cc-auth__box [data-cc-auth-close]{position:absolute;left:1rem;top:.8rem;border:0;background:transparent;font-size:1.5rem;cursor:pointer;color:#5b7590}
+.cc-auth__box input{box-sizing:border-box;width:100%;min-height:48px;padding:.7rem;border:1px solid #b9cde3;border-radius:9px;margin:.45rem 0;font:inherit}
+.cc-auth__box button:not([data-cc-auth-close]){min-height:44px;padding:.6rem 1.2rem;border:0;border-radius:9px;background:#123f73;color:#fff;font-weight:700;cursor:pointer}
+
+/* بلوک صفحهٔ اصلی: کادر «۷ اقلیم برتر سرزمین آریان» — بالای صفحه */
+.sa-topcities{padding:2.4rem 0 1rem}
+.cc-topbox{direction:rtl;background:#fff;border:1px solid #dcecff;border-radius:16px;box-shadow:0 24px 60px -18px rgba(7,26,48,.45),0 8px 22px -10px rgba(11,42,74,.28);overflow:hidden}
+.cc-topbox__head{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:1.1rem;background:linear-gradient(160deg,#0b2a4a,#123f73);padding:1.3rem 1.6rem}
+.cc-topbox__logo{width:84px;height:auto;border-radius:12px;background:#ffffff14;padding:6px}
+.cc-topbox__title{margin:0 0 .25rem;color:#f0b429;font-size:1.7rem;font-weight:900;line-height:1.4;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+.cc-topbox__desc{margin:0;color:#fff;font-size:1.05rem;font-weight:700;line-height:1.7}
+.cc-topbox__desc b{color:#f0b429}
+.cc-topbox__desc span{display:block;font-size:.8rem;font-weight:400;color:#bcd7f2}
+.cc-toptable{width:100%;border-collapse:separate;border-spacing:0;margin:0;font-size:.95rem}
+.cc-toptable thead th{background:#edf6ff;color:#0b2a4a;font-weight:800;padding:.7rem .9rem;text-align:right;border-bottom:2px solid #dcecff;font-size:.85rem}
+.cc-toptable thead th:first-child{border-start-start-radius:0}
+.cc-toptable tbody td{padding:.75rem .9rem;border-bottom:1px solid #eef4fb;vertical-align:middle}
+.cc-toptable tbody tr:last-child td{border-bottom:0}
+.cc-toptable__rank{display:flex;align-items:center;gap:.6rem}
+.cc-toplist__num{display:inline-flex;align-items:center;justify-content:center;min-width:30px;height:30px;border-radius:50%;background:#edf6ff;color:#123f73;font-weight:800;font-size:.95rem}
+.cc-toptable__city{color:#0b2a4a;font-weight:800;text-decoration:none}
+.cc-toptable__city:hover{color:#18558f;text-decoration:underline}
+.cc-toptable__score b{color:#123f73;font-size:1.15rem}
+.cc-toptable__score em{font-style:normal;color:#5b7590;font-size:.78rem;margin-inline-start:.35rem}
+/* ردیف‌های یک‌درمیان: هایلایت آبی ناوی ملایم */
+.cc-toptable tbody tr:nth-child(odd) td{background:#e8f0fb}
+.cc-toptable tbody tr:nth-child(odd) .cc-toplist__num{background:#123f73;color:#fff}
+.cc-toptable__note{color:#5b7590;font-size:.8rem;margin:.7rem 1rem 1rem;line-height:1.8}
+.sa-topcities__empty{color:#41597a;background:#edf6ff;border:1px dashed #b9cde3;border-radius:12px;padding:1.1rem 1.2rem;margin:1rem 1.4rem 1.3rem;font-size:.95rem;line-height:1.9}
+@media(max-width:760px){
+ .cc-topbox__head{grid-template-columns:1fr;justify-items:center;text-align:center;padding:1rem}
+ .cc-topbox__logo{width:64px}
+ .cc-topbox__title{font-size:1.35rem}
+ .cc-toptable{font-size:.85rem}
+ .cc-toptable thead th,.cc-toptable tbody td{padding:.6rem .5rem}
+ .cc-toptable th:nth-child(3),.cc-toptable td:nth-child(3){display:none}
+ .cc-toptable__score em{display:none}
+
+ .cc-rating__stars button{min-width:40px}
+ .cc-rating__stars button .cc-rating__glyph{font-size:1.4rem}
+}
+
+/* مشارکت‌های من و برترین‌ها */
+.cc-my-submissions li{padding:.7rem 0;border-bottom:1px solid #dcecff}
+.cc-my-submissions span{color:#123f73;font-weight:700}
+.cc-my-submissions small.cc-note{display:block;color:#8a5a00;margin:.4rem 0}
+.cc-my-submissions [data-cc-resubmit]{min-height:38px;padding:.45rem .8rem;border:0;border-radius:8px;background:#123f73;color:#fff;cursor:pointer}
+.cc-notice{direction:rtl;padding:1rem;border-radius:10px;background:#fff7e5;border:1px solid #f0d9a0}
+.cc-leaderboard ol{margin:.4rem 0 0;padding-right:1.2rem}
+.cc-leaderboard li{padding:.5rem 0;border-bottom:1px solid #dcecff}
+
+/* ===== پیشخوان ===== */
+.cc-dash__tabs{display:flex;gap:.5rem;margin:1rem 0;flex-wrap:wrap}
+.cc-dash__tab{padding:.55rem 1.1rem;border-radius:9px;text-decoration:none;background:#fff;border:1px solid #dcecff;color:#123f73;font-weight:700}
+.cc-dash__tab.is-active{background:#123f73;color:#fff;border-color:#123f73}
+.cc-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:.9rem;margin:1rem 0}
+.cc-card{background:#fff;border:1px solid #dcecff;border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:.2rem;align-items:flex-start}
+.cc-card .dashicons{color:#123f73;width:28px;height:28px;font-size:28px}
+.cc-card b{font-size:1.5rem;color:#0b2a4a}
+.cc-card span:last-child{color:#5b7590;font-size:.85rem}
+.cc-dash__cols{display:grid;grid-template-columns:2fr 1fr;gap:1rem;align-items:start}
+@media(max-width:960px){.cc-dash__cols{grid-template-columns:1fr}}
+.cc-panel{background:#fff;border:1px solid #dcecff;border-radius:12px;padding:1.1rem 1.2rem;margin:1rem 0}
+.cc-panel h2{margin-top:.2rem;color:#0b2a4a}
+.cc-dash__help li{margin:.5rem 0}
+.cc-chart__row{display:grid;grid-template-columns:150px 1fr 44px 60px;gap:.6rem;align-items:center;padding:.3rem 0;font-size:.9rem}
+.cc-chart__row a{color:#123f73;text-decoration:none;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cc-chart__bar{display:block;height:12px;background:#edf6ff;border-radius:99px;overflow:hidden}
+.cc-chart__bar i{display:block;height:100%;background:linear-gradient(90deg,#246da8,#123f73);border-radius:99px}
+.cc-chart__bar--mini{width:130px}
+.cc-rank-table td,.cc-subm-table td{vertical-align:middle}
+.cc-row--pending{background:#fff4e0 !important}
+.cc-row--pending td:first-child{box-shadow:inset 4px 0 0 #d97706}
+.cc-row--ok{background:#eefaf1 !important}
+.cc-chip{display:inline-block;border-radius:999px;padding:.15rem .65rem;font-size:.78rem;font-weight:700;background:#e2ecf7;color:#123f73}
+.cc-chip--warn{background:#fdeacc;color:#9a5b00}
+.cc-chip--ok{background:#d9f2e0;color:#14683b}
+.cc-chip--bad{background:#fde2e2;color:#a02020}
+.cc-chip--edit{background:#fff3cd;color:#7a5b00}
+.cc-chip--img{background:#dcecff;color:#0b2a4a}
+.cc-subm-text{max-width:340px}
+.cc-subm-actions form{margin:2px}
+
+/* ===== فرم تماس ===== */
+.sa-contact{direction:rtl;margin:2.4rem 0;padding:1.7rem 1.6rem;background:linear-gradient(160deg,#f4f8fd,#edf6ff);border:1px solid #dcecff;border-right:5px solid #123f73;border-radius:16px}
+.sa-contact__title{margin:0 0 .4rem;font-size:1.4rem;font-weight:800;color:#0b2a4a}
+.sa-contact__lead{color:#41597a;margin:.2rem 0 1rem}
+.sa-contact__lead b{color:#123f73}
+.sa-contact__form label{display:block;margin:.9rem 0;color:#0b2a4a;font-weight:700}
+.sa-contact__form input,.sa-contact__form select,.sa-contact__form textarea{display:block;width:100%;min-height:46px;margin-top:.35rem;padding:.7rem .8rem;border:1px solid #b9cde3;border-radius:10px;background:#fff;font:inherit;box-sizing:border-box}
+.sa-contact__form textarea{min-height:140px}
+.sa-contact__form input:focus,.sa-contact__form textarea:focus,.sa-contact__form select:focus{outline:2px solid #246da8;border-color:#246da8}
+.sa-contact__submit{margin-top:1.1rem;min-height:48px;padding:.7rem 2.2rem;border:0;border-radius:11px;background:#123f73;color:#fff;font-size:1.05rem;font-weight:800;cursor:pointer;box-shadow:0 3px 10px rgba(18,63,115,.3)}
+.sa-contact__submit:hover{background:#0b2a4a}
+.sa-contact__msg{padding:.8rem 1rem;border-radius:10px;font-weight:700}
+.sa-contact__msg--ok{background:#d9f2e0;color:#14683b;border:1px solid #a8dcc0}
+.sa-contact__msg--err{background:#fde2e2;color:#a02020;border:1px solid #f2b8b8}

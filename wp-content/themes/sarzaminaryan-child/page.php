@@ -1,6 +1,6 @@
 <?php
 /**
- * Static pages (full width, no sidebar).
+ * Page template (About, Contact, etc.).
  *
  * @package Sarzaminaryan_Child
  */
@@ -11,14 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
-<main id="primary" class="site-main container sa-page">
+<main id="primary" class="site-main container">
 	<?php
 	while ( have_posts() ) {
 		the_post();
-		get_template_part( 'template-parts/content', 'page' );
-		if ( comments_open() || get_comments_number() ) {
-			comments_template();
-		}
+		?>
+		<article id="post-<?php the_ID(); ?>" <?php post_class( 'sa-article' ); ?>>
+			<header class="entry-header">
+				<h1 class="entry-title"><?php the_title(); ?></h1>
+			</header>
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div>
+		</article>
+		<?php
 	}
 	?>
 </main>

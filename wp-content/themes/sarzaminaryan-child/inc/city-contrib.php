@@ -1,0 +1,35 @@
+<?php
+/**
+ * مشارکت مردمی «شهر من» — داخلیِ قالب فرزند (بدون نیاز به افزونه).
+ *
+ * این ماژول تمام قابلیت‌های مشارکت مردمی را مستقیم در قالب فرزند پیاده می‌کند:
+ * ورود بدون رمز با کد یک‌بارمصرف موبایل (OTP)، امتیازدهی ۷ ستارهٔ شهرها،
+ * فرم مشارکت متنی/تصویری با صف بررسی ناظر، نقش «ناظر شهر» با محدودهٔ شهری،
+ * امتیاز و نشان و جدول برترین‌ها، و دکمه‌های اشتراک‌گذاری.
+ *
+ * شورت‌کدها: [cc_leaderboard] و [cc_my_submissions]
+ * تنظیمات پیامک: پیشخوان → تنظیمات → مشارکت مردمی
+ *
+ * @package Sarzaminaryan_Child
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+// اگر روزی نسخهٔ افزونه‌ای جداگانه فعال باشد، ماژول قالب سکوت می‌کند تا تکراری پیش نیاید.
+if ( defined( 'CC_VERSION' ) ) {
+	return;
+}
+
+define( 'CC_VERSION', SA_CHILD_VERSION );
+define( 'CC_DIR', SA_CHILD_DIR . 'inc/city-contrib/' );
+define( 'CC_URL', SA_CHILD_URI );
+
+require_once CC_DIR . 'includes/class-cc-plugin.php';
+
+// قالب هوک فعال‌سازی ندارد؛ نصب جدول‌ها هنگام فعال‌شدن قالب و
+// به‌صورت خودبهرسانی در اولین بازدید پیشخوان (مثلاً پس از به‌روزرسانی) انجام می‌شود.
+CC_Plugin::boot();
+add_action( 'after_switch_theme', array( 'CC_Plugin', 'maybe_install' ) );
+add_action( 'admin_init', array( 'CC_Plugin', 'maybe_install' ) );

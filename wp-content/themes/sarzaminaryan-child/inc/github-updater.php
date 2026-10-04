@@ -335,7 +335,7 @@ final class SA_GitHub_Theme_Updater {
 				<div class="notice notice-success is-dismissible"><p><?php echo esc_html__( 'تنظیمات ذخیره شد و حافظهٔ بررسی نسخه پاک شد.', 'sarzaminaryan-child' ); ?></p></div>
 			<?php endif; ?>
 
-			<p><?php echo esc_html__( 'این قالب انتشارهای رسمی مخزن خصوصی S.A.1 را بررسی می‌کند و نسخهٔ جدید را در «پیشخوان ← به‌روزرسانی‌ها» نشان می‌دهد.', 'sarzaminaryan-child' ); ?></p>
+			<p><?php echo esc_html__( 'این قالب انتشارهای رسمی مخزن خصوصی قالب را بررسی می‌کند و نسخهٔ جدید را در «پیشخوان ← به‌روزرسانی‌ها» نشان می‌دهد.', 'sarzaminaryan-child' ); ?></p>
 
 			<table class="widefat striped" style="max-width: 900px">
 				<tbody>
@@ -345,7 +345,7 @@ final class SA_GitHub_Theme_Updater {
 					</tr>
 					<tr>
 						<th scope="row"><?php echo esc_html__( 'مخزن', 'sarzaminaryan-child' ); ?></th>
-						<td><a href="<?php echo esc_url( $this->repository_url() ); ?>" target="_blank" rel="noopener noreferrer"><code><?php echo esc_html( self::OWNER . '/' . self::REPOSITORY ); ?></code></a> — <?php echo esc_html__( 'خصوصی', 'sarzaminaryan-child' ); ?></td>
+						<td><a href="<?php echo esc_url( $this->repository_url() ); ?>" target="_blank" rel="noopener noreferrer"><code><?php echo esc_html( $this->owner() . '/' . $this->repository() ); ?></code></a> — <?php echo esc_html__( 'خصوصی', 'sarzaminaryan-child' ); ?></td>
 					</tr>
 					<tr>
 						<th scope="row"><?php echo esc_html__( 'توکن دسترسی', 'sarzaminaryan-child' ); ?></th>
@@ -488,7 +488,7 @@ final class SA_GitHub_Theme_Updater {
 			if ( 404 === $status_code && '' === $this->get_token() ) {
 				$message = esc_html__( 'این مخزن خصوصی است. برای بررسی نسخه‌ها، توکن فقط‌خواندنی گیت‌هاب را تنظیم کنید.', 'sarzaminaryan-child' );
 			} elseif ( in_array( $status_code, array( 401, 403, 404 ), true ) ) {
-				$message = esc_html__( 'گیت‌هاب دسترسی را نپذیرفت. اعتبار توکن و دسترسی آن به مخزن S.A.1 را بررسی کنید.', 'sarzaminaryan-child' );
+				$message = esc_html__( 'گیت‌هاب دسترسی را نپذیرفت. اعتبار توکن و دسترسی آن به همین مخزن را بررسی کنید.', 'sarzaminaryan-child' );
 			} else {
 				$message = sprintf(
 					/* translators: %d: HTTP status code. */
@@ -646,8 +646,9 @@ final class SA_GitHub_Theme_Updater {
 		$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
 		$path = (string) wp_parse_url( $url, PHP_URL_PATH );
 
-		return 'api.github.com' === $host &&
-			(bool) preg_match( '#^/repos/sarzaminaryan-arch/S\.A\.1/releases/assets/\d+$#', $path );
+		$expected = '#^/repos/' . preg_quote( $this->owner(), '#' ) . '/' . preg_quote( $this->repository(), '#' ) . '/releases/assets/\d+$#';
+
+		return 'api.github.com' === $host && (bool) preg_match( $expected, $path );
 	}
 
 	/**
@@ -727,6 +728,31 @@ final class SA_GitHub_Theme_Updater {
 		delete_site_transient( 'update_themes' );
 	}
 
+
+	/**
+	 * Repository owner. Override with SA_GITHUB_OWNER in wp-config.php or the
+	 * `sa_github_updater_owner` filter — releases moved repositories once already.
+	 *
+	 * @return string
+	 */
+	private function owner() {
+		$owner = defined( 'SA_GITHUB_OWNER' ) && SA_GITHUB_OWNER ? SA_GITHUB_OWNER : self::OWNER;
+
+		return (string) apply_filters( 'sa_github_updater_owner', $owner );
+	}
+
+	/**
+	 * Repository name. Override with SA_GITHUB_REPO in wp-config.php or the
+	 * `sa_github_updater_repository` filter.
+	 *
+	 * @return string
+	 */
+	private function repository() {
+		$repo = defined( 'SA_GITHUB_REPO' ) && SA_GITHUB_REPO ? SA_GITHUB_REPO : self::REPOSITORY;
+
+		return (string) apply_filters( 'sa_github_updater_repository', $repo );
+	}
+
 	/**
 	 * GitHub releases API URL.
 	 *
@@ -735,8 +761,8 @@ final class SA_GitHub_Theme_Updater {
 	private function releases_api_url() {
 		return sprintf(
 			'https://api.github.com/repos/%s/%s/releases?per_page=100',
-			rawurlencode( self::OWNER ),
-			rawurlencode( self::REPOSITORY )
+			rawurlencode( $this->owner() ),
+			rawurlencode( $this->repository() )
 		);
 	}
 
@@ -746,7 +772,7 @@ final class SA_GitHub_Theme_Updater {
 	 * @return string
 	 */
 	private function repository_url() {
-		return 'https://github.com/' . self::OWNER . '/' . self::REPOSITORY;
+		return 'https://github.com/' . $this->owner() . '/' . $this->repository();
 	}
 }
 

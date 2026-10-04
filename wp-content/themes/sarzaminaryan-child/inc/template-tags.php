@@ -96,7 +96,14 @@ function sa_entity_facts( $post_id ) {
 				$rows[] = array( 'label' => $label, 'value' => sa_digits( $raw ), 'html' => false );
 		}
 	}
-	return $rows;
+
+	/**
+	 * Filter the key-facts rows of an entity.
+	 *
+	 * @param array $rows    Rows ( label / value / html ).
+	 * @param int   $post_id Post ID.
+	 */
+	return (array) apply_filters( 'sa_entity_facts', $rows, $post_id );
 }
 
 /**
@@ -325,19 +332,101 @@ function sa_sources_section( $post_id ) {
 	foreach ( $sources as $src ) {
 		echo '<li>';
 		if ( $src['url'] ) {
-			echo '<a href="' . esc_url( $src['url'] ) . '" rel="' . esc_attr( sa_source_rel( $src['url'] ) ) . '" target="_blank">' . esc_html( $src['title'] ) . '</a>';
+			$host = strtolower( (string) wp_parse_url( $src['url'], PHP_URL_HOST ) );
+			$host = preg_replace( '/^www\./', '', $host );
+			echo '<a href="' . esc_url( $src['url'] ) . '" rel="' . esc_attr( sa_source_rel( $src['url'] ) ) . '" target="_blank">' . esc_html( $host ) . '</a>';
 		} else {
 			echo esc_html( $src['title'] );
-		}
-		if ( $src['org'] ) {
-			echo ' <span class="sa-sources__org">— ' . esc_html( $src['org'] ) . '</span>';
-		}
-		if ( $src['date'] ) {
-			echo ' <span class="sa-sources__date">(دسترسی: ' . esc_html( sa_digits( $src['date'] ) ) . ')</span>';
 		}
 		echo '</li>';
 	}
 	echo '</ol></section>';
+}
+
+/**
+ * Related articles from other provinces (Module 3).
+ * Shows 3 random entities of the same type from a different province (v2.7.1).
+ *
+ * @param int    $post_id   Current post ID.
+ * @param string $post_type Current post type.
+ */
+function sa_related_articles( $post_id, $post_type ) {
+	$entity = sa_entity( $post_type );
+	if ( ! $entity ) {
+		return;
+	}
+
+	$args = array(
+		'post_type'      => $post_type,
+		'post_status'    => 'publish',
+		'posts_per_page' => 3,
+		'orderby'        => 'rand',
+		'post__not_in'   => array( $post_id ),
+	);
+
+	if ( 'province' !== $post_type ) {
+		$province = sa_get_parent( $post_id, 'province' );
+		if ( $province ) {
+			$args['meta_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				array(
+					'key'     => 'sa_province_id',
+					'value'   => $province->ID,
+					'compare' => '!=',
+				),
+			);
+		}
+	}
+
+	$posts = get_posts( $args );
+	if ( ! $posts ) {
+		return;
+	}
+
+	$label = sa_entity_label( $post_type, true ) . ' پیشنهادی از استان‌های دیگر';
+	sa_cards_section( $posts, $label, '', 'related-articles' );
+}
+
+/**
+ * Previous / next entity navigation (Module 3).
+ * Navigates within the same province taxonomy term.
+ *
+ * @param int    $post_id   Current post ID.
+ * @param string $post_type Current post type.
+ */
+function sa_entity_navigation( $post_id, $post_type ) {
+	$entity = sa_entity( $post_type );
+	if ( ! $entity ) {
+		return;
+	}
+
+	$prev = get_previous_post( true, '', 'province_tax' );
+	$next = get_next_post( true, '', 'province_tax' );
+
+	if ( ! $prev && ! $next ) {
+		return;
+	}
+
+	echo '<nav class="sa-entity-nav" aria-label="ناوبری مقالات"><div class="sa-entity-nav__links">';
+
+	if ( $prev ) {
+		echo '<a class="sa-entity-nav__link sa-entity-nav__prev" href="' . esc_url( get_permalink( $prev ) ) . '">';
+		echo '<span class="sa-entity-nav__label">مقاله قبلی</span>';
+		echo '<span class="sa-entity-nav__title">' . esc_html( get_the_title( $prev ) ) . '</span>';
+		echo '</a>';
+	} else {
+		echo '<span class="sa-entity-nav__link sa-entity-nav__prev sa-entity-nav__empty"></span>';
+	}
+
+	if ( $next ) {
+		echo '<a class="sa-entity-nav__link sa-entity-nav__next" href="' . esc_url( get_permalink( $next ) ) . '">';
+		echo '<span class="sa-entity-nav__label">مقاله بعدی</span>';
+		echo '<span class="sa-entity-nav__title">' . esc_html( get_the_title( $next ) ) . '</span>';
+		echo '</a>';
+	} else {
+		echo '<span class="sa-entity-nav__link sa-entity-nav__next sa-entity-nav__empty"></span>';
+	}
+
+	echo '</div></nav>';
 }
 
 /**

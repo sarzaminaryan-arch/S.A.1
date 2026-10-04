@@ -219,7 +219,7 @@
 
 /* ---------- Stats ---------- */
 .sa-stats {
-	margin-top: -1.75rem;
+	margin: 1.6rem 0 2.6rem;
 	position: relative;
 	z-index: 2;
 }
@@ -558,20 +558,14 @@
 }
 
 .sa-entity__layout {
-	display: grid;
-	gap: 2rem;
+	display: block;
 	margin-top: 2rem;
 }
 
 @media (min-width: 992px) {
 	.sa-entity__layout {
-		grid-template-columns: minmax(0, 1fr) 340px;
-		align-items: start;
-	}
-
-	.sa-entity__aside {
-		position: sticky;
-		top: 1rem;
+		max-width: var(--sa-max-text);
+		margin-inline: auto;
 	}
 }
 
@@ -588,12 +582,12 @@
 		box-shadow: 0 2px 8px -3px rgba(15, 23, 42, 0.1), 0 16px 34px -22px rgba(15, 23, 42, 0.32);
 	}
 
-.sa-entity__main .entry-content {
+.sa-entity__layout .entry-content {
 	max-width: var(--sa-max-text);
 }
 
 /* Headings in a framed card with a soft deep shadow (3D feel) */
-.sa-entity__main .entry-content h2,
+.sa-entity__layout .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2 {
 	font-size: 1.45rem;
@@ -606,12 +600,12 @@
 	box-shadow: var(--sa-shadow-deep);
 }
 
-.sa-entity__main .entry-content img {
+.sa-entity__layout .entry-content img {
 	border-radius: 12px;
 }
 
 /* Tables — navy scheme: strong-navy header, alternating light-blue rows, soft shadow */
-.sa-entity__main .entry-content figure.wp-block-table {
+.sa-entity__layout .entry-content figure.wp-block-table {
 	margin: 1.5rem 0;
 	max-width: 100%;
 	overflow-x: auto;
@@ -619,7 +613,7 @@
 	box-shadow: var(--sa-shadow);
 }
 
-.sa-entity__main .entry-content table {
+.sa-entity__layout .entry-content table {
 	width: 100%;
 	min-width: 520px;
 	border-collapse: collapse;
@@ -627,7 +621,7 @@
 	overflow: hidden;
 }
 
-.sa-entity__main .entry-content table thead th {
+.sa-entity__layout .entry-content table thead th {
 	background: var(--sa-navy-700);
 	color: #fff;
 	font-weight: 700;
@@ -636,24 +630,24 @@
 	border: 0;
 }
 
-.sa-entity__main .entry-content table tbody td {
+.sa-entity__layout .entry-content table tbody td {
 	padding: 0.7rem 1rem;
 	border-bottom: 1px solid var(--sa-navy-200);
 }
 
-.sa-entity__main .entry-content table tbody tr:nth-child(odd) {
+.sa-entity__layout .entry-content table tbody tr:nth-child(odd) {
 	background: var(--sa-navy-50);
 }
 
-.sa-entity__main .entry-content table tbody tr:nth-child(even) {
+.sa-entity__layout .entry-content table tbody tr:nth-child(even) {
 	background: var(--sa-navy-100);
 }
 
-.sa-entity__main .entry-content table tbody tr:last-child td {
+.sa-entity__layout .entry-content table tbody tr:last-child td {
 	border-bottom: 0;
 }
 
-.sa-entity__main .entry-content table caption {
+.sa-entity__layout .entry-content table caption {
 	caption-side: top;
 	font-weight: 700;
 	color: var(--sa-navy-700);
@@ -1573,15 +1567,11 @@
 
 	.sa-entity__layout,
 	body:not(.no-sidebar) .site-content {
-		grid-template-columns: minmax(0, 1fr);
-	}
-
-	.sa-entity__aside {
-		position: static;
+		display: block;
 	}
 
 	.sa-archive__desc,
-	.sa-entity__main .entry-content {
+	.sa-entity__layout .entry-content {
 		max-width: 100%;
 	}
 }
@@ -2007,7 +1997,7 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 	text-shadow: 0 1px 0 #fff, 0 7px 18px rgba(11, 42, 74, .14);
 }
 
-.sa-entity__main .entry-content h2,
+.sa-entity__layout .entry-content h2,
 .sa-article .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2,
@@ -2017,7 +2007,6 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 .sa-cmap > h2,
 .sa-facts__title,
 .sa-section > .sa-section__title,
-.sa-entity__aside .widget-title,
 .sa-404 .page-title,
 .sa-empty > h2 {
 	position: relative;
@@ -2050,7 +2039,7 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 	margin: 2.6rem 0 1.3rem;
 }
 
-.sa-entity__main .entry-content h3,
+.sa-entity__layout .entry-content h3,
 .sa-article .entry-content h3 {
 	color: var(--sa-navy-800);
 	border-inline-start: 3px solid var(--sa-navy-300);
@@ -2187,7 +2176,7 @@ main.site-main.container,
 	padding: 10px 12px;
 }
 
-.sa-entity__main .entry-content h2,
+.sa-entity__layout .entry-content h2,
 .sa-article .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2,
@@ -2197,7 +2186,6 @@ main.site-main.container,
 .sa-cmap > h2,
 .sa-facts__title,
 .sa-section > .sa-section__title,
-.sa-entity__aside .widget-title,
 .sa-404 .page-title,
 .sa-empty > h2 {
 	padding: 8px 10px;
@@ -2218,8 +2206,8 @@ main.site-main.container,
 	padding: 8px 10px;
 }
 
-.sa-entity__main .entry-content table thead th,
-.sa-entity__main .entry-content table tbody td {
+.sa-entity__layout .entry-content table thead th,
+.sa-entity__layout .entry-content table tbody td {
 	padding: 7px 8px;
 }
 
@@ -2354,7 +2342,454 @@ main.site-main.container,
 }
 
 /* ==========================================================================
-   v2.6.0 — province city pills, true featured-image rendering, logo contrast
+   Module 3 — restructured entity layout: single-column, nav, sources
+   ========================================================================== */
+
+/* Entity layout is now single-column (no aside). */
+.sa-entity__layout {
+	display: block;
+	max-width: var(--sa-max-text);
+	margin-inline: auto;
+}
+
+/* Sources list: clean English domain names, no title/org/date clutter. */
+.sa-sources__list {
+	list-style: decimal;
+	padding-inline-start: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.sa-sources__list li {
+	margin-block: 0.3rem;
+	font-size: 0.9rem;
+	line-height: 1.7;
+}
+
+.sa-sources__list a {
+	color: var(--sa-navy-700);
+	text-decoration: underline;
+	text-decoration-color: rgba(24, 85, 143, 0.35);
+}
+
+.sa-sources__list a:hover,
+.sa-sources__list a:focus-visible {
+	color: var(--sa-navy-950);
+	text-decoration-color: currentColor;
+}
+
+/* Entity prev/next navigation. */
+.sa-entity-nav {
+	margin-block: 2.5rem;
+}
+
+.sa-entity-nav__links {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.sa-entity-nav__link {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 1rem 1.25rem;
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: var(--sa-radius-lg);
+	color: var(--color-text);
+	transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.sa-entity-nav__link:hover,
+.sa-entity-nav__link:focus-visible {
+	box-shadow: var(--sa-shadow-hover);
+	transform: translateY(-2px);
+	border-color: var(--color-primary);
+	text-decoration: none;
+}
+
+.sa-entity-nav__prev {
+	text-align: start;
+}
+
+.sa-entity-nav__next {
+	text-align: end;
+}
+
+.sa-entity-nav__empty {
+	border: 1px dashed var(--color-border);
+	background: transparent;
+	box-shadow: none;
+}
+
+.sa-entity-nav__label {
+	font-size: 0.8rem;
+	color: var(--color-secondary);
+	font-weight: 500;
+}
+
+.sa-entity-nav__title {
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--sa-navy-800);
+	line-height: 1.4;
+}
+
+/* Related articles section spacing. */
+#related-articles {
+	margin-block: 2.5rem;
+}
+
+@media (max-width: 640px) {
+	.sa-entity-nav__links {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-entity-nav__next {
+		text-align: start;
+	}
+
+	.sa-entity-nav__link {
+		padding: 0.75rem 1rem;
+	}
+}
+
+/* ==========================================================================
+   Module 4 (v2.7.0) — minimal two-column footer + breathing room above it
+   ========================================================================== */
+
+/* ---- ۱. فاصله‌ی تنفس میان بدنه‌ی صفحه و فوتر ----
+   آخرین بخش صفحه‌ی اصلی (بلوک آبی «پست‌های معروف») تا پیش از این دقیقاً به لبه‌ی
+   کادر سفید و از آنجا به خط فوتر می‌چسبید. حالا هم فاصله‌ی بیرونی بیشتر شده و هم
+   بلوک آبی گوشه‌ی پایین گرد گرفته تا داخل کادر «بنشیند». */
+.sa-home,
+.sa-main--entity,
+main.site-main.container,
+.container.site-content {
+	margin-block-end: 28px;
+}
+
+.sa-home {
+	padding-bottom: 14px;
+}
+
+.sa-home > section:last-child {
+	margin-bottom: 0;
+}
+
+.sa-home .sa-pop {
+	margin-top: 56px;
+	padding: 48px 0 44px;
+	border-radius: 24px;
+}
+
+.sa-hf-foot {
+	margin-block: 28px 10px;
+}
+
+/* ---- ۲. فوتر: نوار باریک سه‌ستونه (v2.7.1) ----
+   سه ستون در دسکتاپ (معرفی / لینک‌های کاربردی / ارتباط با ما) و دو ستون در
+   موبایل، با فونت کوچک و ارتفاع کم؛ لینک‌ها دیگر یک ستون بلند و روی‌هم‌افتاده
+   نیستند. */
+.sa-hf-foot--mini .sa-hf-foot__grid {
+	grid-template-columns: 1.6fr 1fr 1fr;
+	gap: 14px 20px;
+	padding: 14px 0 10px;
+	align-items: start;
+}
+
+.sa-hf-foot--mini .widget-title {
+	font-size: 12.5px;
+	font-weight: 700;
+	letter-spacing: .2px;
+	margin: 0 0 6px;
+	color: #e8f1ff;
+}
+
+/* ستون اول: لوگوی کوچک + یک خط معرفی */
+.sa-hf-foot--mini .sa-hf-brand--foot {
+	gap: 8px;
+	align-items: center;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo {
+	width: 30px;
+	height: 30px;
+	min-width: 30px;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo img {
+	width: 24px;
+	height: 24px;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-text .site-title {
+	font-size: 13.5px;
+	line-height: 1.4;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-slogan {
+	display: none;
+}
+
+.sa-hf-foot--mini .sa-footer__about {
+	font-size: 12px;
+	line-height: 1.75;
+	margin: 6px 0 0;
+	max-width: 42ch;
+	text-align: start;
+}
+
+.sa-hf-foot--mini .sa-social {
+	margin-top: 7px;
+	gap: 6px;
+}
+
+.sa-hf-foot--mini .sa-social__link {
+	padding: 2px 9px;
+	font-size: 11px;
+}
+
+/* ستون‌های لینک: فشرده، تک‌خطی و بدون تکرار */
+.sa-hf-foot--mini .sa-hf-foot__links {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__links a {
+	font-size: 12px;
+	line-height: 1.6;
+	white-space: nowrap;
+}
+
+.sa-hf-foot--mini .sa-footer__contact {
+	margin: 7px 0 0;
+	font-size: 12px;
+}
+
+.sa-hf-foot--mini .sa-footer__contact a {
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+/* نوار پایانی: یک خط باریک */
+.sa-hf-foot--mini .sa-hf-foot__bottom {
+	padding: 7px 0;
+}
+
+.sa-hf-foot--mini .sa-footer__copyright,
+.sa-hf-foot--mini .sa-footer__credit {
+	font-size: 11px;
+}
+
+@media (max-width: 760px) {
+	/* موبایل: معرفی در یک ردیف کامل، دو ستون لینک کنار هم */
+	.sa-hf-foot--mini .sa-hf-foot__grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 10px 16px;
+		padding: 12px 0 8px;
+	}
+
+	.sa-hf-foot--mini .sa-hf-foot__brand {
+		grid-column: 1 / -1;
+	}
+
+	.sa-hf-foot--mini .sa-footer__about {
+		max-width: none;
+	}
+
+	.sa-hf-foot {
+		margin-block: 18px 8px;
+	}
+
+	.sa-home {
+		padding-bottom: 10px;
+	}
+
+	.sa-home .sa-pop {
+		margin-top: 36px;
+		padding: 32px 0 30px;
+		border-radius: 16px;
+	}
+}
+
+/* ---- ۳. «مقالات مرتبط»: سه کارت در یک ردیف روی دسکتاپ ---- */
+#related-articles .sa-grid-cards {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+@media (max-width: 900px) {
+	#related-articles .sa-grid-cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	#related-articles .sa-grid-cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---- ۴. پروفایل ثابت شهرستان (v2.8.0) ---- */
+.sa-county {
+	margin-block: 28px;
+}
+
+.sa-county__title {
+	font-size: 1.25rem;
+	margin: 26px 0 12px;
+}
+
+.sa-county__sub {
+	font-size: 1.02rem;
+	margin: 16px 0 8px;
+}
+
+.sa-county__stats {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 10px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sa-county__stat {
+	background: var(--sa-surface, #f8fafc);
+	border: 1px solid var(--sa-border, #e5e7eb);
+	border-radius: 12px;
+	padding: 12px 8px;
+	text-align: center;
+}
+
+.sa-county__num {
+	display: block;
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.sa-county__cap {
+	display: block;
+	font-size: .85rem;
+	opacity: .75;
+}
+
+.sa-county__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sa-county__chip {
+	border: 1px solid var(--sa-border, #e5e7eb);
+	border-radius: 999px;
+	padding: 6px 14px;
+	font-size: .92rem;
+	background: #fff;
+}
+
+.sa-county__chip small {
+	opacity: .6;
+	margin-inline-start: 4px;
+}
+
+.sa-county__chip.is-current {
+	background: var(--sa-accent, #0f766e);
+	border-color: var(--sa-accent, #0f766e);
+	color: #fff;
+}
+
+.sa-county__chip .is-pending {
+	opacity: .45;
+}
+
+.sa-county__poi {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 10px;
+}
+
+.sa-county__poi li {
+	border-inline-start: 3px solid var(--sa-accent, #0f766e);
+	background: var(--sa-surface, #f8fafc);
+	border-radius: 0 10px 10px 0;
+	padding: 10px 14px;
+}
+
+.sa-county__poi p {
+	margin: 4px 0 0;
+	font-size: .93rem;
+	opacity: .85;
+}
+
+.sa-county__dist {
+	font-size: .82rem;
+	background: #fff;
+	border: 1px solid var(--sa-border, #e5e7eb);
+	border-radius: 999px;
+	padding: 2px 8px;
+	margin-inline-start: 6px;
+}
+
+.sa-county__row {
+	display: flex;
+	gap: 10px;
+	padding: 7px 0;
+	border-bottom: 1px dashed var(--sa-border, #e5e7eb);
+}
+
+.sa-county__row dt {
+	min-width: 150px;
+	font-weight: 600;
+}
+
+.sa-county__list {
+	margin: 0;
+}
+
+.sa-county-siblings {
+	margin-block: 30px;
+}
+
+.sa-county-group {
+	margin: 18px 0 6px;
+	border-bottom: 1px solid #dcdcde;
+	padding-bottom: 4px;
+}
+
+@media (max-width: 640px) {
+	.sa-county__stats {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.sa-county__row {
+		flex-direction: column;
+		gap: 2px;
+	}
+}
+
+/* ---- ۵. بلوک شهرستان‌های استان (v2.8.2) ---- */
+.sa-province-counties {
+	margin-block: 32px;
+}
+
+.sa-county__hint {
+	margin: 0 0 10px;
+	font-size: .92rem;
+	opacity: .8;
+}
+
+
+/* ==========================================================================
+   v2.11.6 — province city pills, true featured-image rendering, logo contrast
    ========================================================================== */
 
 /* Entity featured images are content, not dark cropped backgrounds. */
@@ -2400,7 +2835,6 @@ main.site-main.container,
 	justify-content: flex-end;
 }
 
-/* Province → city internal links: compact navy buttons directly below hero image. */
 .sa-province-city-pills {
 	position: relative;
 	z-index: 1;
@@ -2454,7 +2888,6 @@ main.site-main.container,
 	transform: translateY(-1px);
 }
 
-/* Header/footer logo must stay readable on dark surfaces: restore the white circle. */
 .sa-hf-logo {
 	border-radius: 50%;
 	background: #fff;
@@ -2469,7 +2902,6 @@ main.site-main.container,
 	filter: none;
 }
 
-/* Province index names: never split long province names into two mobile lines. */
 .sa-provinces a {
 	align-items: center;
 	text-align: center;
