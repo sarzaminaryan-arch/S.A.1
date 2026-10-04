@@ -95,6 +95,7 @@ return array(
 			'lordegan'               => array( 'name' => 'لردگان', 'lat' => 31.4216, 'lng' => 50.8375 ),
 			'saman'                  => array( 'name' => 'سامان', 'lat' => 32.5024, 'lng' => 50.9186 ),
 			'sharekurd'              => array( 'name' => 'شهرکرد', 'lat' => 32.2891, 'lng' => 50.8237 ),
+			'farrokhshahr'           => array( 'name' => 'فرخ‌شهر', 'lat' => 32.2717, 'lng' => 50.9801 ),
 		),
 		'east-azerbaijan' => array(
 			'ahar'                   => array( 'name' => 'اهر', 'lat' => 38.5132, 'lng' => 46.9879 ),
