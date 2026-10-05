@@ -82,8 +82,16 @@ jobs:
               exit 1
             fi
             if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-              echo "skip=true" >> "$GITHUB_OUTPUT"
-              echo "$TAG already contains these theme files; nothing to publish."
+              published="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets | length' 2>/dev/null || echo 0)"
+              if [[ "${published:-0}" -gt 0 ]]; then
+                echo "skip=true" >> "$GITHUB_OUTPUT"
+                echo "$TAG already contains these theme files; nothing to publish."
+              else
+                echo "skip=false" >> "$GITHUB_OUTPUT"
+                echo "tag_exists=true" >> "$GITHUB_OUTPUT"
+                echo "release_exists=true" >> "$GITHUB_OUTPUT"
+                echo "$TAG has a release record without assets; the package will be attached to it."
+              fi
             else
               echo "skip=false" >> "$GITHUB_OUTPUT"
               echo "tag_exists=true" >> "$GITHUB_OUTPUT"
@@ -131,8 +139,25 @@ jobs:
             --title "قالب فرزند سرزمین آریان — v$VERSION"
             --notes "انتشار خودکار قالب فرزند نسخهٔ $VERSION. فایل ZIP با ساختار استاندارد وردپرس بسته‌بندی و PHP آن بررسی شده است."
           )
-          if [[ "$TAG_EXISTS" == 'true' ]]; then
-            gh release create "${args[@]}" --verify-tag
-          else
-            gh release create "${args[@]}" --target "$GITHUB_SHA"
-          fi
+          publish() {
+            if [[ "$TAG_EXISTS" != 'true' ]]; then
+              gh release create "${args[@]}" --target "$GITHUB_SHA"
+            elif gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" "release/$ASSET" "release/$ASSET.sha256" --clobber --repo "$GITHUB_REPOSITORY"
+            else
+              gh release create "${args[@]}" --verify-tag
+            fi
+          }
+          for attempt in 1 2 3; do
+            if publish; then
+              break
+            fi
+            if [[ "$attempt" == '3' ]]; then
+              echo "Publishing $TAG failed after three attempts." >&2
+              exit 1
+            fi
+            echo "Publish attempt $attempt failed; retrying in 15s…" >&2
+            sleep 15
+          done
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets \
+            --jq '.assets[].name' | grep -Fx "$ASSET" >/dev/null
