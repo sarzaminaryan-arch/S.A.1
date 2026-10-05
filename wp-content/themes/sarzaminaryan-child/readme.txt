@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.13
+Stable tag: 2.11.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,10 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.14 — 2026-10-05 =
+* بسته نصب قالب دوباره منتشر شد و فرایند انتشار حالا وجود `style.css` در ریشه پوشه قالب داخل ZIP را صریحاً بررسی می‌کند.
+* یادآوری: برای نصب در وردپرس باید فایل asset با نام `sarzaminaryan-child-v...zip` دانلود شود، نه فایل‌های خودکار `Source code` گیت‌هاب.
 
 = 2.11.13 — 2026-10-05 =
 * بازطراحی کارت تصویری «نمای برتر» به مدل کادر سفید با آیکون رنگی گوشه‌ای و اطلاعات مرکزچین؛ مناسب تصویر شاخص و شناسنامه مقصد.
