@@ -2,10 +2,12 @@
 /**
  * «مقالات آمادهٔ نمای برتر» — data source for the in-theme import tool.
  *
- * The three articles below were delivered by the one-off importer plugins that
- * were removed from the repository during the 2026-10-05 lean-up.  Bodies, meta
- * fields, SEO values and FAQ rows are copied from the released v2.11.14 code so
- * the tool reproduces exactly the same drafts inside WordPress.
+ * The first three articles below were delivered by the one-off importer plugins
+ * that were removed from the repository during the 2026-10-05 lean-up.  Bodies,
+ * meta fields, SEO values and FAQ rows are copied from the released v2.11.14
+ * code so the tool reproduces exactly the same drafts inside WordPress.  The two
+ * Lorestan entries added in v2.11.16 (تالاب ازگن/قارون and آبشار ازنادر/دره اسپر)
+ * follow the same contract and were written from owner briefs plus cited sources.
  *
  * `{{GALLERY:<key>}}` placeholders are replaced by figures of matching media
  * attachments when they exist; otherwise the placeholder collapses to nothing.
