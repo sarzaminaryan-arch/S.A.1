@@ -27,3 +27,7 @@ outputs/
 docs/articles/
 docs/assets/
 tools/importers/
+
+# WordPress exports and duplicate root media/packages are delivery artifacts.
+/WordPress.*.xml
+/logo.webp
