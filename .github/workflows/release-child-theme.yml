@@ -162,3 +162,5 @@ jobs:
           done
           gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets \
             --jq '.assets[].name' | grep -Fx "$ASSET" >/dev/null
+
+# re-trigger after GitHub Actions runner incident (2026-10-05T20:24:36Z)
