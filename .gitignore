@@ -22,3 +22,8 @@ tmp/
 
 # Local generated previews from Arena/image tools
 outputs/
+
+# One-off delivery/source bundles are published as GitHub Release assets, not kept in git.
+docs/articles/
+docs/assets/
+tools/importers/

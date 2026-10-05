@@ -10,13 +10,13 @@
 - Release packaging: GitHub Actions workflow `.github/workflows/release-child-theme.yml`
 
 ## Active structure
-- `.github/` — release automation.
+- `.github/` — release automation for the active theme only.
 - `wp-content/themes/sarzaminaryan-child/` — active WordPress child theme and all runtime code.
-- `docs/` — small operational documentation.
+- `docs/` — small operational documentation only; generated article drafts/assets are not retained.
 - `data-model/` — canonical data model and schema source.
 - `skill-SA-agent/` — operating procedure and references.
 
 ## Repository policy
-- Do not commit generated ZIPs, release archives, raw image packs or temporary delivery files.
+- Do not commit generated ZIPs, release archives, raw image packs, temporary delivery files or one-off importer source trees after their releases are published.
 - Installable ZIPs must be published as GitHub Release assets.
 - Keep the tree source-first so Arena and GitHub operations stay light.
