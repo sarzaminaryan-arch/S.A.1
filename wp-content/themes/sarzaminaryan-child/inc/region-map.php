@@ -292,19 +292,12 @@ function sa_county_map_shortcode( $atts ) {
 add_shortcode( 'sa_county_map', 'sa_county_map_shortcode' );
 
 /**
- * نمایش خودکار نقشه در انتهای صفحه‌ی استان، درست پیش از بخش شهرستان‌ها.
+ * آیا ماژول نقشه شهرستان‌ها روی صفحه‌ی استان نمایش داده شود؟
+ * Module 3: نمایش خودکار نقشه شهرستان‌ها حذف شد.
+ * برای فعال‌سازی مجدد، فیلتر sa_county_map_auto_display را true کنید.
  *
- * @param string $content محتوا.
- * @return string
+ * @return bool
  */
-function sa_county_map_auto( $content ) {
-	if ( is_admin() || is_feed() || ! is_singular( 'province' ) || ! in_the_loop() || ! is_main_query() ) {
-		return $content;
-	}
-	if ( false !== strpos( $content, 'sa_county_map' ) || false !== strpos( $content, 'id="county-map"' ) ) {
-		return $content; // نویسنده خودش گذاشته.
-	}
-	$map = sa_county_map( (string) get_post_field( 'post_name', get_queried_object_id() ) );
-	return $map ? $content . $map : $content;
+function sa_county_map_auto_display() {
+	return (bool) apply_filters( 'sa_county_map_auto_display', false );
 }
-add_filter( 'the_content', 'sa_county_map_auto', 14 );

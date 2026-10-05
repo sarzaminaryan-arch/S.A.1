@@ -33,7 +33,7 @@ $sa_obj = get_post_type_object( $sa_type );
 	<?php if ( is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type' ) ) : ?>
 		<?php $sa_types = get_terms( array( 'taxonomy' => 'attraction_type', 'hide_empty' => true ) ); ?>
 		<?php if ( $sa_types && ! is_wp_error( $sa_types ) ) : ?>
-			<nav class="sa-filters" aria-label="فیلتر بر اساس نوع جاذبه">
+			<nav class="sa-filters" aria-label="فیلتر بر اساس نوع نمای برتر">
 				<a class="sa-chip<?php echo is_post_type_archive( 'attraction' ) ? ' is-active' : ''; ?>" href="<?php echo esc_url( sa_archive_url( 'attraction' ) ); ?>">همه</a>
 				<?php foreach ( $sa_types as $sa_t ) : ?>
 					<a class="sa-chip<?php echo is_tax( 'attraction_type', $sa_t->slug ) ? ' is-active' : ''; ?>" href="<?php echo esc_url( get_term_link( $sa_t ) ); ?>"><?php echo esc_html( $sa_t->name ); ?></a>

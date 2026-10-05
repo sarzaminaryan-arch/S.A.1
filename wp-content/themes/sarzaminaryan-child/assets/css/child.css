@@ -219,7 +219,7 @@
 
 /* ---------- Stats ---------- */
 .sa-stats {
-	margin-top: -1.75rem;
+	margin: 1.6rem 0 2.6rem;
 	position: relative;
 	z-index: 2;
 }
@@ -558,20 +558,14 @@
 }
 
 .sa-entity__layout {
-	display: grid;
-	gap: 2rem;
+	display: block;
 	margin-top: 2rem;
 }
 
 @media (min-width: 992px) {
 	.sa-entity__layout {
-		grid-template-columns: minmax(0, 1fr) 340px;
-		align-items: start;
-	}
-
-	.sa-entity__aside {
-		position: sticky;
-		top: 1rem;
+		max-width: var(--sa-max-text);
+		margin-inline: auto;
 	}
 }
 
@@ -588,12 +582,12 @@
 		box-shadow: 0 2px 8px -3px rgba(15, 23, 42, 0.1), 0 16px 34px -22px rgba(15, 23, 42, 0.32);
 	}
 
-.sa-entity__main .entry-content {
+.sa-entity__layout .entry-content {
 	max-width: var(--sa-max-text);
 }
 
 /* Headings in a framed card with a soft deep shadow (3D feel) */
-.sa-entity__main .entry-content h2,
+.sa-entity__layout .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2 {
 	font-size: 1.45rem;
@@ -606,12 +600,12 @@
 	box-shadow: var(--sa-shadow-deep);
 }
 
-.sa-entity__main .entry-content img {
+.sa-entity__layout .entry-content img {
 	border-radius: 12px;
 }
 
 /* Tables — navy scheme: strong-navy header, alternating light-blue rows, soft shadow */
-.sa-entity__main .entry-content figure.wp-block-table {
+.sa-entity__layout .entry-content figure.wp-block-table {
 	margin: 1.5rem 0;
 	max-width: 100%;
 	overflow-x: auto;
@@ -619,7 +613,7 @@
 	box-shadow: var(--sa-shadow);
 }
 
-.sa-entity__main .entry-content table {
+.sa-entity__layout .entry-content table {
 	width: 100%;
 	min-width: 520px;
 	border-collapse: collapse;
@@ -627,7 +621,7 @@
 	overflow: hidden;
 }
 
-.sa-entity__main .entry-content table thead th {
+.sa-entity__layout .entry-content table thead th {
 	background: var(--sa-navy-700);
 	color: #fff;
 	font-weight: 700;
@@ -636,24 +630,24 @@
 	border: 0;
 }
 
-.sa-entity__main .entry-content table tbody td {
+.sa-entity__layout .entry-content table tbody td {
 	padding: 0.7rem 1rem;
 	border-bottom: 1px solid var(--sa-navy-200);
 }
 
-.sa-entity__main .entry-content table tbody tr:nth-child(odd) {
+.sa-entity__layout .entry-content table tbody tr:nth-child(odd) {
 	background: var(--sa-navy-50);
 }
 
-.sa-entity__main .entry-content table tbody tr:nth-child(even) {
+.sa-entity__layout .entry-content table tbody tr:nth-child(even) {
 	background: var(--sa-navy-100);
 }
 
-.sa-entity__main .entry-content table tbody tr:last-child td {
+.sa-entity__layout .entry-content table tbody tr:last-child td {
 	border-bottom: 0;
 }
 
-.sa-entity__main .entry-content table caption {
+.sa-entity__layout .entry-content table caption {
 	caption-side: top;
 	font-weight: 700;
 	color: var(--sa-navy-700);
@@ -1573,15 +1567,11 @@
 
 	.sa-entity__layout,
 	body:not(.no-sidebar) .site-content {
-		grid-template-columns: minmax(0, 1fr);
-	}
-
-	.sa-entity__aside {
-		position: static;
+		display: block;
 	}
 
 	.sa-archive__desc,
-	.sa-entity__main .entry-content {
+	.sa-entity__layout .entry-content {
 		max-width: 100%;
 	}
 }
@@ -2007,7 +1997,7 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 	text-shadow: 0 1px 0 #fff, 0 7px 18px rgba(11, 42, 74, .14);
 }
 
-.sa-entity__main .entry-content h2,
+.sa-entity__layout .entry-content h2,
 .sa-article .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2,
@@ -2017,7 +2007,6 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 .sa-cmap > h2,
 .sa-facts__title,
 .sa-section > .sa-section__title,
-.sa-entity__aside .widget-title,
 .sa-404 .page-title,
 .sa-empty > h2 {
 	position: relative;
@@ -2050,7 +2039,7 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 	margin: 2.6rem 0 1.3rem;
 }
 
-.sa-entity__main .entry-content h3,
+.sa-entity__layout .entry-content h3,
 .sa-article .entry-content h3 {
 	color: var(--sa-navy-800);
 	border-inline-start: 3px solid var(--sa-navy-300);
@@ -2187,7 +2176,7 @@ main.site-main.container,
 	padding: 10px 12px;
 }
 
-.sa-entity__main .entry-content h2,
+.sa-entity__layout .entry-content h2,
 .sa-article .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2,
@@ -2197,7 +2186,6 @@ main.site-main.container,
 .sa-cmap > h2,
 .sa-facts__title,
 .sa-section > .sa-section__title,
-.sa-entity__aside .widget-title,
 .sa-404 .page-title,
 .sa-empty > h2 {
 	padding: 8px 10px;
@@ -2218,8 +2206,8 @@ main.site-main.container,
 	padding: 8px 10px;
 }
 
-.sa-entity__main .entry-content table thead th,
-.sa-entity__main .entry-content table tbody td {
+.sa-entity__layout .entry-content table thead th,
+.sa-entity__layout .entry-content table tbody td {
 	padding: 7px 8px;
 }
 
@@ -2350,5 +2338,1234 @@ main.site-main.container,
 	.sa-home .sa-pb p,
 	.sa-footer__about {
 		word-spacing: .025em;
+	}
+}
+
+/* ==========================================================================
+   Module 3 — restructured entity layout: single-column, nav, sources
+   ========================================================================== */
+
+/* Entity layout is now single-column (no aside). */
+.sa-entity__layout {
+	display: block;
+	max-width: var(--sa-max-text);
+	margin-inline: auto;
+}
+
+/* Sources list: clean English domain names, no title/org/date clutter. */
+.sa-sources__list {
+	list-style: decimal;
+	padding-inline-start: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.sa-sources__list li {
+	margin-block: 0.3rem;
+	font-size: 0.9rem;
+	line-height: 1.7;
+}
+
+.sa-sources__list a {
+	color: var(--sa-navy-700);
+	text-decoration: underline;
+	text-decoration-color: rgba(24, 85, 143, 0.35);
+}
+
+.sa-sources__list a:hover,
+.sa-sources__list a:focus-visible {
+	color: var(--sa-navy-950);
+	text-decoration-color: currentColor;
+}
+
+/* Entity prev/next navigation. */
+.sa-entity-nav {
+	margin-block: 2.5rem;
+}
+
+.sa-entity-nav__links {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+}
+
+.sa-entity-nav__link {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: 1rem 1.25rem;
+	background: #fff;
+	border: 1px solid var(--color-border);
+	border-radius: var(--sa-radius-lg);
+	color: var(--color-text);
+	transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+.sa-entity-nav__link:hover,
+.sa-entity-nav__link:focus-visible {
+	box-shadow: var(--sa-shadow-hover);
+	transform: translateY(-2px);
+	border-color: var(--color-primary);
+	text-decoration: none;
+}
+
+.sa-entity-nav__prev {
+	text-align: start;
+}
+
+.sa-entity-nav__next {
+	text-align: end;
+}
+
+.sa-entity-nav__empty {
+	border: 1px dashed var(--color-border);
+	background: transparent;
+	box-shadow: none;
+}
+
+.sa-entity-nav__label {
+	font-size: 0.8rem;
+	color: var(--color-secondary);
+	font-weight: 500;
+}
+
+.sa-entity-nav__title {
+	font-size: 1.05rem;
+	font-weight: 600;
+	color: var(--sa-navy-800);
+	line-height: 1.4;
+}
+
+/* Related articles section spacing. */
+#related-articles {
+	margin-block: 2.5rem;
+}
+
+@media (max-width: 640px) {
+	.sa-entity-nav__links {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-entity-nav__next {
+		text-align: start;
+	}
+
+	.sa-entity-nav__link {
+		padding: 0.75rem 1rem;
+	}
+}
+
+/* ==========================================================================
+   Module 4 (v2.7.0) — minimal two-column footer + breathing room above it
+   ========================================================================== */
+
+/* ---- ۱. فاصله‌ی تنفس میان بدنه‌ی صفحه و فوتر ----
+   آخرین بخش صفحه‌ی اصلی (بلوک آبی «پست‌های معروف») تا پیش از این دقیقاً به لبه‌ی
+   کادر سفید و از آنجا به خط فوتر می‌چسبید. حالا هم فاصله‌ی بیرونی بیشتر شده و هم
+   بلوک آبی گوشه‌ی پایین گرد گرفته تا داخل کادر «بنشیند». */
+.sa-home,
+.sa-main--entity,
+main.site-main.container,
+.container.site-content {
+	margin-block-end: 28px;
+}
+
+.sa-home {
+	padding-bottom: 14px;
+}
+
+.sa-home > section:last-child {
+	margin-bottom: 0;
+}
+
+.sa-home .sa-pop {
+	margin-top: 56px;
+	padding: 48px 0 44px;
+	border-radius: 24px;
+}
+
+.sa-hf-foot {
+	margin-block: 28px 10px;
+}
+
+/* ---- ۲. فوتر: نوار باریک سه‌ستونه (v2.7.1) ----
+   سه ستون در دسکتاپ (معرفی / لینک‌های کاربردی / ارتباط با ما) و دو ستون در
+   موبایل، با فونت کوچک و ارتفاع کم؛ لینک‌ها دیگر یک ستون بلند و روی‌هم‌افتاده
+   نیستند. */
+.sa-hf-foot--mini .sa-hf-foot__grid {
+	grid-template-columns: 1.6fr 1fr 1fr;
+	gap: 14px 20px;
+	padding: 14px 0 10px;
+	align-items: start;
+}
+
+.sa-hf-foot--mini .widget-title {
+	font-size: 12.5px;
+	font-weight: 700;
+	letter-spacing: .2px;
+	margin: 0 0 6px;
+	color: #e8f1ff;
+}
+
+/* ستون اول: لوگوی کوچک + یک خط معرفی */
+.sa-hf-foot--mini .sa-hf-brand--foot {
+	gap: 8px;
+	align-items: center;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo {
+	width: 30px;
+	height: 30px;
+	min-width: 30px;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo img {
+	width: 24px;
+	height: 24px;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-text .site-title {
+	font-size: 13.5px;
+	line-height: 1.4;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-slogan {
+	display: none;
+}
+
+.sa-hf-foot--mini .sa-footer__about {
+	font-size: 12px;
+	line-height: 1.75;
+	margin: 6px 0 0;
+	max-width: 42ch;
+	text-align: start;
+}
+
+.sa-hf-foot--mini .sa-social {
+	margin-top: 7px;
+	gap: 6px;
+}
+
+.sa-hf-foot--mini .sa-social__link {
+	padding: 2px 9px;
+	font-size: 11px;
+}
+
+/* ستون‌های لینک: فشرده، تک‌خطی و بدون تکرار */
+.sa-hf-foot--mini .sa-hf-foot__links {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.sa-hf-foot--mini .sa-hf-foot__links a {
+	font-size: 12px;
+	line-height: 1.6;
+	white-space: nowrap;
+}
+
+.sa-hf-foot--mini .sa-footer__contact {
+	margin: 7px 0 0;
+	font-size: 12px;
+}
+
+.sa-hf-foot--mini .sa-footer__contact a {
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+/* نوار پایانی: یک خط باریک */
+.sa-hf-foot--mini .sa-hf-foot__bottom {
+	padding: 7px 0;
+}
+
+.sa-hf-foot--mini .sa-footer__copyright,
+.sa-hf-foot--mini .sa-footer__credit {
+	font-size: 11px;
+}
+
+@media (max-width: 760px) {
+	/* موبایل: معرفی در یک ردیف کامل، دو ستون لینک کنار هم */
+	.sa-hf-foot--mini .sa-hf-foot__grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 10px 16px;
+		padding: 12px 0 8px;
+	}
+
+	.sa-hf-foot--mini .sa-hf-foot__brand {
+		grid-column: 1 / -1;
+	}
+
+	.sa-hf-foot--mini .sa-footer__about {
+		max-width: none;
+	}
+
+	.sa-hf-foot {
+		margin-block: 18px 8px;
+	}
+
+	.sa-home {
+		padding-bottom: 10px;
+	}
+
+	.sa-home .sa-pop {
+		margin-top: 36px;
+		padding: 32px 0 30px;
+		border-radius: 16px;
+	}
+}
+
+/* ---- ۳. «مقالات مرتبط»: سه کارت در یک ردیف روی دسکتاپ ---- */
+#related-articles .sa-grid-cards {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+@media (max-width: 900px) {
+	#related-articles .sa-grid-cards {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	#related-articles .sa-grid-cards {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ---- ۴. پروفایل ثابت شهرستان (v2.8.0) ---- */
+.sa-county {
+	margin-block: 28px;
+}
+
+.sa-county__title {
+	font-size: 1.25rem;
+	margin: 26px 0 12px;
+}
+
+.sa-county__sub {
+	font-size: 1.02rem;
+	margin: 16px 0 8px;
+}
+
+.sa-county__stats {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 10px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sa-county__stat {
+	background: var(--sa-surface, #f8fafc);
+	border: 1px solid var(--sa-border, #e5e7eb);
+	border-radius: 12px;
+	padding: 12px 8px;
+	text-align: center;
+}
+
+.sa-county__num {
+	display: block;
+	font-size: 1.4rem;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.sa-county__cap {
+	display: block;
+	font-size: .85rem;
+	opacity: .75;
+}
+
+.sa-county__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.sa-county__chip {
+	border: 1px solid var(--sa-border, #e5e7eb);
+	border-radius: 999px;
+	padding: 6px 14px;
+	font-size: .92rem;
+	background: #fff;
+}
+
+.sa-county__chip small {
+	opacity: .6;
+	margin-inline-start: 4px;
+}
+
+.sa-county__chip.is-current {
+	background: var(--sa-accent, #0f766e);
+	border-color: var(--sa-accent, #0f766e);
+	color: #fff;
+}
+
+.sa-county__chip .is-pending {
+	opacity: .45;
+}
+
+.sa-county__poi {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 10px;
+}
+
+.sa-county__poi li {
+	border-inline-start: 3px solid var(--sa-accent, #0f766e);
+	background: var(--sa-surface, #f8fafc);
+	border-radius: 0 10px 10px 0;
+	padding: 10px 14px;
+}
+
+.sa-county__poi p {
+	margin: 4px 0 0;
+	font-size: .93rem;
+	opacity: .85;
+}
+
+.sa-county__dist {
+	font-size: .82rem;
+	background: #fff;
+	border: 1px solid var(--sa-border, #e5e7eb);
+	border-radius: 999px;
+	padding: 2px 8px;
+	margin-inline-start: 6px;
+}
+
+.sa-county__row {
+	display: flex;
+	gap: 10px;
+	padding: 7px 0;
+	border-bottom: 1px dashed var(--sa-border, #e5e7eb);
+}
+
+.sa-county__row dt {
+	min-width: 150px;
+	font-weight: 600;
+}
+
+.sa-county__list {
+	margin: 0;
+}
+
+.sa-county-siblings {
+	margin-block: 30px;
+}
+
+.sa-county-group {
+	margin: 18px 0 6px;
+	border-bottom: 1px solid #dcdcde;
+	padding-bottom: 4px;
+}
+
+@media (max-width: 640px) {
+	.sa-county__stats {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.sa-county__row {
+		flex-direction: column;
+		gap: 2px;
+	}
+}
+
+
+/* ==========================================================================
+   v2.11.6 — province city pills, true featured-image rendering, logo contrast
+   ========================================================================== */
+
+/* Entity featured images are content, not dark cropped backgrounds. */
+.sa-entity__hero {
+	overflow: hidden;
+}
+
+.sa-entity__hero-media {
+	position: relative;
+	inset: auto;
+	margin: 0;
+	background: #fff;
+}
+
+.sa-entity__hero-media img {
+	display: block;
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	object-position: center center;
+	filter: none;
+	aspect-ratio: auto;
+}
+
+.sa-entity__hero.has-image::after {
+	content: none;
+	display: none;
+}
+
+.sa-entity__hero-text {
+	background: linear-gradient(145deg, var(--sa-navy-950), var(--sa-navy-900));
+	min-height: auto;
+	justify-content: center;
+	padding-block: clamp(1rem, 2.8vw, 1.8rem);
+}
+
+.sa-entity__hero.has-image .sa-entity__hero-text {
+	min-height: auto;
+}
+
+.sa-entity__hero:not(.has-image) .sa-entity__hero-text {
+	min-height: 220px;
+	justify-content: flex-end;
+}
+
+.sa-province-city-pills {
+	position: relative;
+	z-index: 1;
+	background: linear-gradient(145deg, #071a30, #0b2a4a);
+	border-top: 1px solid rgba(214, 166, 67, .34);
+	border-bottom: 1px solid rgba(255, 255, 255, .08);
+	padding-block: .52rem;
+}
+
+.sa-province-city-pills__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: .25rem .3rem;
+	padding-inline: var(--sa-box-padding, 10px);
+}
+
+.sa-province-city-pills__label {
+	margin-inline-end: .2rem;
+	color: #dcecff;
+	font-size: .82rem;
+	font-weight: 800;
+	white-space: nowrap;
+}
+
+.sa-province-city-pills__link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 32px;
+	padding: .28rem .56rem;
+	border-radius: 999px;
+	background: #0b2a4a;
+	border: 1px solid rgba(214, 166, 67, .55);
+	color: #d6a643;
+	font-size: .86rem;
+	font-weight: 800;
+	line-height: 1.35;
+	text-decoration: none;
+	box-shadow: 0 6px 16px -12px rgba(0, 0, 0, .85);
+	transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.sa-province-city-pills__link:hover,
+.sa-province-city-pills__link:focus-visible {
+	background: #123f73;
+	border-color: #d6a643;
+	color: #f0c45d;
+	text-decoration: none;
+	transform: translateY(-1px);
+}
+
+.sa-hf-logo {
+	border-radius: 50%;
+	background: #fff;
+	padding: 4px;
+	box-sizing: border-box;
+	border: 1px solid rgba(214, 166, 67, .5);
+	box-shadow: 0 12px 26px -14px rgba(0, 0, 0, .82), 0 0 0 2px rgba(255, 255, 255, .08);
+}
+
+.sa-hf-logo img {
+	border-radius: 50%;
+	filter: none;
+}
+
+.sa-provinces a {
+	align-items: center;
+	text-align: center;
+}
+
+.sa-provinces__name {
+	white-space: nowrap;
+	font-size: clamp(.72rem, 2.2vw, .98rem);
+	line-height: 1.25;
+	letter-spacing: -.02em;
+}
+
+@media (max-width: 640px) {
+	.sa-province-city-pills__inner {
+		justify-content: flex-start;
+		gap: .22rem;
+	}
+
+	.sa-province-city-pills__label {
+		flex-basis: 100%;
+		text-align: center;
+		margin: 0 0 .15rem;
+	}
+
+	.sa-province-city-pills__link {
+		min-height: 30px;
+		padding-inline: .48rem;
+		font-size: .8rem;
+	}
+
+	.sa-provinces__name {
+		font-size: clamp(.64rem, 3vw, .86rem);
+		letter-spacing: -.04em;
+	}
+}
+
+/* ==========================================================================
+   v2.11.9 — «نمای برتر» identity card and stable article imagery
+   ========================================================================== */
+.sa-attraction-id {
+	--sa-id-green: #0f5132;
+	--sa-id-green-2: #1f7a4d;
+	--sa-id-mint: #e8f6ee;
+	--sa-id-gold: #9b6a16;
+	--sa-id-navy: #011f3d;
+	padding: clamp(24px, 5vw, 54px) 0 clamp(18px, 4vw, 34px);
+	background:
+		radial-gradient(circle at 15% 20%, rgba(31, 122, 77, .18), transparent 34%),
+		linear-gradient(180deg, #f7fbf8 0%, #ffffff 78%);
+	direction: rtl;
+}
+
+.sa-attraction-id__card {
+	display: grid;
+	grid-template-columns: minmax(240px, 36%) 1fr;
+	gap: clamp(18px, 4vw, 34px);
+	align-items: stretch;
+	padding: clamp(14px, 3vw, 24px);
+	border: 1px solid rgba(15, 81, 50, .16);
+	border-radius: 30px;
+	background: linear-gradient(145deg, rgba(255,255,255,.96), rgba(232,246,238,.9));
+	box-shadow: 0 26px 70px rgba(1, 31, 61, .11), inset 0 1px 0 rgba(255,255,255,.75);
+}
+
+.sa-attraction-id__media {
+	position: relative;
+	overflow: hidden;
+	min-height: 300px;
+	border-radius: 24px;
+	background: linear-gradient(145deg, var(--sa-id-green), #08351f);
+	box-shadow: inset 0 0 0 1px rgba(255,255,255,.16), 0 18px 38px rgba(15,81,50,.18);
+}
+
+.sa-attraction-id__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.sa-attraction-id__placeholder {
+	display: grid;
+	place-items: center;
+	width: 100%;
+	height: 100%;
+	min-height: 300px;
+	color: rgba(255,255,255,.85);
+	font-weight: 900;
+}
+
+.sa-attraction-id__mark {
+	position: absolute;
+	left: 50%;
+	bottom: 14px;
+	transform: translateX(-50%);
+	padding: 6px 10px;
+	border-radius: 999px;
+	background: rgba(1, 31, 61, .36);
+	color: #fff;
+	font: 400 .72rem/1 Arial, sans-serif;
+	letter-spacing: .22em;
+	white-space: nowrap;
+	text-shadow: 0 1px 9px rgba(0,0,0,.55);
+}
+
+.sa-attraction-id__body {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	padding: clamp(6px, 1.5vw, 12px) 0;
+}
+
+.sa-attraction-id__eyebrow {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	width: fit-content;
+	margin: 0 0 10px;
+	padding: 7px 12px;
+	border-radius: 999px;
+	background: #fff;
+	color: var(--sa-id-green);
+	font-size: .85rem;
+	font-weight: 950;
+	box-shadow: 0 8px 22px rgba(15,81,50,.1);
+}
+
+.sa-attraction-id__eyebrow span {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--sa-id-gold);
+	box-shadow: 0 0 0 6px rgba(155,106,22,.12);
+}
+
+.sa-attraction-id__title {
+	margin: 0;
+	color: var(--sa-id-navy);
+	font-size: clamp(2rem, 4.6vw, 4rem);
+	line-height: 1.18;
+	font-weight: 950;
+	letter-spacing: -.03em;
+}
+
+.sa-attraction-id__latin {
+	margin: 8px 0 12px;
+	color: var(--sa-id-green-2);
+	font: 500 .92rem/1.4 Arial, sans-serif;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+}
+
+.sa-attraction-id__summary {
+	margin: 0 0 18px;
+	max-width: 760px;
+	color: #3e5568;
+	font-size: 1rem;
+	line-height: 2;
+}
+
+.sa-attraction-id__facts {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 10px;
+	margin-top: auto;
+}
+
+.sa-attraction-id__fact {
+	padding: 10px 12px;
+	border: 1px solid rgba(15,81,50,.14);
+	border-radius: 16px;
+	background: rgba(255,255,255,.72);
+}
+
+.sa-attraction-id__fact span {
+	display: block;
+	margin-bottom: 3px;
+	color: #6a7c74;
+	font-size: .78rem;
+	font-weight: 800;
+}
+
+.sa-attraction-id__fact strong {
+	display: block;
+	color: var(--sa-id-navy);
+	font-size: .95rem;
+	font-weight: 900;
+	line-height: 1.6;
+}
+
+.sa-attraction-id__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 16px;
+}
+
+.sa-attraction-id__btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 42px;
+	padding: 9px 16px;
+	border-radius: 999px;
+	background: var(--sa-id-green);
+	color: #fff;
+	font-weight: 900;
+	text-decoration: none;
+	box-shadow: 0 12px 28px rgba(15,81,50,.18);
+}
+
+.sa-attraction-id__btn--ghost {
+	background: #fff;
+	color: var(--sa-id-green);
+	border: 1px solid rgba(15,81,50,.22);
+}
+
+.sa-attraction-id__safety {
+	margin: 14px 0 0;
+	padding: 10px 12px;
+	border-inline-start: 4px solid var(--sa-id-gold);
+	border-radius: 14px;
+	background: rgba(155,106,22,.08);
+	color: #5c4824;
+	font-size: .92rem;
+	line-height: 1.8;
+}
+
+.single-attraction .entry-content {
+	font-size: 1.03rem;
+	line-height: 2.05;
+}
+
+.single-attraction .entry-content h2 {
+	margin-top: 2.2em;
+	padding: 10px 14px;
+	border-inline-start: 5px solid #1f7a4d;
+	border-radius: 16px;
+	background: linear-gradient(135deg, #f7fbf8, #e8f6ee);
+	color: #011f3d;
+}
+
+.single-attraction .entry-content figure,
+.single-attraction .entry-content .wp-block-image {
+	margin: 28px auto;
+	max-width: 920px;
+}
+
+.single-attraction .entry-content figure img,
+.single-attraction .entry-content .wp-block-image img {
+	display: block;
+	width: 100%;
+	max-height: 560px;
+	object-fit: cover;
+	border-radius: 22px;
+	box-shadow: 0 18px 44px rgba(1,31,61,.12);
+}
+
+.single-attraction .entry-content figcaption {
+	margin-top: 8px;
+	color: #607080;
+	font-size: .88rem;
+	line-height: 1.8;
+	text-align: center;
+}
+
+@media (max-width: 780px) {
+	.sa-attraction-id__card {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-attraction-id__media,
+	.sa-attraction-id__placeholder {
+		min-height: 220px;
+	}
+
+	.sa-attraction-id__facts {
+		grid-template-columns: 1fr;
+	}
+
+	.single-attraction .entry-content figure img,
+	.single-attraction .entry-content .wp-block-image img {
+		max-height: 360px;
+	}
+}
+
+/* ==========================================================================
+   v2.11.11 — «نمای برتر» white diagram card instead of large featured image
+   ========================================================================== */
+.sa-attraction-diagram {
+	direction: rtl;
+	display: grid;
+	grid-template-columns: 1.1fr .9fr;
+	gap: 10px;
+	align-items: center;
+	padding: 12px;
+	border: 1px solid rgba(15, 81, 50, .14);
+	border-radius: 22px;
+	background: #fff;
+	box-shadow: 0 18px 44px rgba(1,31,61,.10), inset 0 1px 0 rgba(255,255,255,.9);
+	color: #011f3d;
+}
+
+.sa-attraction-diagram__art {
+	min-width: 0;
+	border-radius: 18px;
+	background: linear-gradient(180deg, #f8fffb 0%, #eff8f3 100%);
+	overflow: hidden;
+}
+
+.sa-attraction-diagram svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.sa-attraction-diagram__sky {
+	fill: #ffffff;
+}
+
+.sa-attraction-diagram__mountain {
+	fill: #e9f6ee;
+	stroke: rgba(15,81,50,.22);
+	stroke-width: 1.2;
+}
+
+.sa-attraction-diagram__ridge {
+	fill: #d7eddf;
+	stroke: rgba(15,81,50,.20);
+	stroke-width: 1;
+}
+
+.sa-attraction-diagram__water {
+	fill: none;
+	stroke: #1397b8;
+	stroke-width: 5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	filter: drop-shadow(0 2px 2px rgba(19,151,184,.22));
+}
+
+.sa-attraction-diagram__water--main {
+	stroke: #0f6f95;
+	stroke-width: 7;
+}
+
+.sa-attraction-diagram__water--thin {
+	stroke-width: 3;
+	stroke: #56b6cf;
+}
+
+.sa-attraction-diagram__pool {
+	fill: rgba(19,151,184,.24);
+}
+
+.sa-attraction-diagram__contour {
+	fill: none;
+	stroke: rgba(155,106,22,.42);
+	stroke-width: 2;
+	stroke-linecap: round;
+}
+
+.sa-attraction-diagram__leaf {
+	fill: #1f7a4d;
+	opacity: .82;
+}
+
+.sa-attraction-diagram__copy {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+	text-align: right;
+}
+
+.sa-attraction-diagram__eyebrow {
+	width: fit-content;
+	padding: 4px 8px;
+	border-radius: 999px;
+	background: #e8f6ee;
+	color: #0f5132;
+	font-size: .72rem;
+	font-weight: 900;
+}
+
+.sa-attraction-diagram__copy strong {
+	color: #011f3d;
+	font-size: clamp(1.05rem, 2vw, 1.45rem);
+	font-weight: 950;
+	line-height: 1.35;
+}
+
+.sa-attraction-diagram__copy span:last-child {
+	color: #546879;
+	font-size: .82rem;
+	font-weight: 800;
+	line-height: 1.6;
+}
+
+.sa-attraction-id__card {
+	position: relative;
+	display: block;
+	min-height: 360px;
+	padding-left: clamp(275px, 32vw, 355px);
+}
+
+.sa-attraction-id__media,
+.sa-attraction-id__placeholder,
+.sa-attraction-id__mark {
+	display: none !important;
+}
+
+.sa-attraction-id .sa-attraction-diagram--identity {
+	position: absolute;
+	top: clamp(14px, 2.3vw, 24px);
+	left: clamp(14px, 2.3vw, 24px);
+	width: clamp(245px, 29vw, 315px);
+	min-height: 172px;
+	z-index: 2;
+}
+
+.sa-attraction-id__body {
+	position: relative;
+	z-index: 1;
+}
+
+.sa-card--attraction .sa-card__media {
+	background: linear-gradient(145deg, #f7fbf8, #fff);
+	padding: 10px;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card {
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+	padding: 8px;
+	border-radius: 18px;
+	box-shadow: none;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__art {
+	align-self: stretch;
+	display: grid;
+	place-items: center;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy {
+	gap: 4px;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy strong {
+	font-size: .98rem;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy span:last-child {
+	font-size: .72rem;
+}
+
+@media (max-width: 900px) {
+	.sa-attraction-id__card {
+		min-height: 0;
+		padding-left: clamp(14px, 3vw, 24px);
+	}
+
+	.sa-attraction-id .sa-attraction-diagram--identity {
+		position: static;
+		width: 100%;
+		max-width: 360px;
+		margin: 0 0 18px auto;
+	}
+}
+
+@media (max-width: 520px) {
+	.sa-attraction-diagram {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-card--attraction .sa-attraction-diagram--card {
+		grid-template-columns: 1.05fr .95fr;
+	}
+
+	.sa-attraction-id .sa-attraction-diagram--identity {
+		max-width: 100%;
+	}
+}
+
+/* ==========================================================================
+   v2.11.13 — colored corner icon + centered featured-view info card
+   ========================================================================== */
+.sa-attraction-diagram {
+	position: relative;
+	display: grid;
+	place-items: center;
+	isolation: isolate;
+	min-height: 184px;
+	padding: 22px 24px;
+	border: 1px solid rgba(15, 81, 50, .11);
+	border-radius: 24px;
+	background:
+		linear-gradient(135deg, rgba(205, 238, 228, .65) 0 12%, transparent 12.2%),
+		linear-gradient(315deg, rgba(42, 174, 208, .24) 0 13%, transparent 13.2%),
+		#fff;
+	overflow: hidden;
+	box-shadow: 0 18px 44px rgba(1,31,61,.10), inset 0 0 0 1px rgba(214,201,162,.38);
+	color: #006353;
+	text-align: center;
+}
+
+.sa-attraction-diagram::before,
+.sa-attraction-diagram::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	pointer-events: none;
+}
+
+.sa-attraction-diagram::before {
+	inset-inline-start: -18%;
+	inset-block-end: -34%;
+	width: 64%;
+	height: 46%;
+	border-radius: 50% 50% 0 0;
+	background: #075f4f;
+	transform: rotate(7deg);
+}
+
+.sa-attraction-diagram::after {
+	inset-inline-end: -18%;
+	inset-block-end: -28%;
+	width: 58%;
+	height: 40%;
+	border-radius: 52% 48% 0 0;
+	background: linear-gradient(135deg, rgba(183,239,228,.95), rgba(42,174,208,.95));
+	transform: rotate(-10deg);
+}
+
+.sa-attraction-diagram__art {
+	position: absolute;
+	inset-block-start: 12px;
+	inset-inline-end: 14px;
+	width: clamp(70px, 28%, 104px);
+	aspect-ratio: 1;
+	min-width: 0;
+	border-radius: 999px;
+	background: transparent;
+	overflow: visible;
+	filter: drop-shadow(0 10px 16px rgba(1,31,61,.12));
+}
+
+.sa-attraction-diagram__art svg {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.sa-attraction-diagram__copy {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+	width: min(100%, 82%);
+	min-width: 0;
+	margin: 0 auto;
+	padding-block: 8px;
+	text-align: center;
+}
+
+.sa-attraction-diagram__copy strong {
+	color: #006353;
+	font-size: clamp(1.7rem, 4.7vw, 3rem);
+	font-weight: 950;
+	line-height: 1.25;
+	letter-spacing: -.02em;
+}
+
+.sa-attraction-diagram__meta {
+	color: #006353;
+	font-size: clamp(.85rem, 2.1vw, 1.05rem);
+	font-weight: 900;
+	line-height: 1.8;
+}
+
+.sa-attraction-diagram__pin {
+	position: relative;
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: 1px 0 0;
+	border-radius: 50% 50% 50% 0;
+	background: #0f6b5b;
+	transform: rotate(-45deg);
+}
+
+.sa-attraction-diagram__pin::after {
+	content: "";
+	position: absolute;
+	inset: 5px;
+	border-radius: 50%;
+	background: #fff;
+}
+
+.sa-attraction-diagram__english {
+	color: #1f7e77;
+	font-size: clamp(.8rem, 1.8vw, .98rem);
+	font-weight: 700;
+	line-height: 1.5;
+	direction: ltr;
+	unicode-bidi: isolate;
+}
+
+.sa-attraction-diagram__eyebrow {
+	display: none;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card {
+	min-height: 160px;
+	padding: 16px 18px;
+	border-radius: 18px;
+	box-shadow: none;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__art {
+	inset-block-start: 9px;
+	inset-inline-end: 10px;
+	width: 62px;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy {
+	width: min(100%, 86%);
+	gap: 4px;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy strong {
+	font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__meta,
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__english {
+	font-size: .7rem;
+	line-height: 1.45;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__pin {
+	width: 13px;
+	height: 13px;
+}
+
+@media (max-width: 900px) {
+	.sa-attraction-id .sa-attraction-diagram--identity {
+		max-width: 390px;
+	}
+}
+
+@media (max-width: 520px) {
+	.sa-attraction-diagram {
+		min-height: 180px;
+		padding: 18px 14px;
+	}
+
+	.sa-attraction-diagram__art {
+		width: 64px;
+		inset-block-start: 10px;
+		inset-inline-end: 10px;
+	}
+
+	.sa-attraction-diagram__copy {
+		width: min(100%, 88%);
+		padding-block-start: 26px;
+	}
+
+	.sa-card--attraction .sa-attraction-diagram--card {
+		grid-template-columns: 1fr;
+		min-height: 150px;
 	}
 }

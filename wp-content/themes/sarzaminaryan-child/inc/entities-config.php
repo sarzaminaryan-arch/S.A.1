@@ -229,8 +229,8 @@ function sa_entities_config() {
 			'cpt' => 'attraction',
 			'status' => 'active',
 			'label' => 'Attraction',
-			'singular' => 'جاذبه',
-			'plural' => 'جاذبه‌ها',
+			'singular' => 'نمای برتر',
+			'plural' => 'نمای برتر',
 			'icon' => 'dashicons-camera-alt',
 			'menu_pos' => 3,
 			'url_base' => 'attraction',
@@ -239,6 +239,49 @@ function sa_entities_config() {
 			'summary_field' => 'attraction_summary',
 			'description_field' => null,
 			'fields' => array(
+				array(
+					'name' => 'english_name',
+					'label' => 'نام انگلیسی (برای شناسنامه)',
+					'type' => 'text',
+					'key' => 'sa_english_name',
+				),
+				array(
+					'name' => 'attraction_age',
+					'label' => 'قدمت یا سن زمین‌شناسی/تاریخی',
+					'type' => 'text',
+					'key' => 'sa_attraction_age',
+				),
+				array(
+					'name' => 'attraction_area',
+					'label' => 'مساحت یا گستره',
+					'type' => 'text',
+					'key' => 'sa_attraction_area',
+				),
+				array(
+					'name' => 'elevation',
+					'label' => 'ارتفاع تقریبی از سطح دریا (متر)',
+					'type' => 'number',
+					'key' => 'sa_elevation',
+					'unit' => 'm',
+				),
+				array(
+					'name' => 'access_level',
+					'label' => 'سطح دسترسی/درجه سختی',
+					'type' => 'text',
+					'key' => 'sa_access_level',
+				),
+				array(
+					'name' => 'trail_note',
+					'label' => 'مسیر پیاده‌روی/نیاز به راهنما',
+					'type' => 'text',
+					'key' => 'sa_trail_note',
+				),
+				array(
+					'name' => 'safety_note',
+					'label' => 'نکته ایمنی کوتاه',
+					'type' => 'textarea',
+					'key' => 'sa_safety_note',
+				),
 				array(
 					'name' => 'latitude',
 					'label' => 'عرض جغرافیایی',
@@ -666,8 +709,8 @@ function sa_taxonomies_config() {
 		),
 		'attraction_type' => array(
 			'status' => 'active',
-			'singular' => 'نوع جاذبه',
-			'plural' => 'انواع جاذبه',
+			'singular' => 'نوع نمای برتر',
+			'plural' => 'انواع نمای برتر',
 			'slug' => 'attraction-type',
 			'hierarchical' => true,
 			'applies_to' => array(
@@ -899,7 +942,8 @@ function sa_content_minimums( $type = '' ) {
 		),
 		'attraction' => array(
 			'faq' => 10,
-			'sources' => 5,
+			// v2.11.10: «نمای برتر» articles may be short, local and photo-led; sources stay recommended but no longer block publishing.
+			'sources' => 0,
 			'internal_links' => 10,
 			'coordinates' => true,
 		),

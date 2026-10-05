@@ -107,6 +107,8 @@ jobs:
             zip -X -q -r "../$ASSET" "$THEME_SLUG"
           )
           unzip -t "release/$ASSET"
+          test -f "release/package/$THEME_SLUG/style.css"
+          unzip -l "release/$ASSET" "$THEME_SLUG/style.css" >/dev/null
           printf '%s  %s\n' "$(sha256sum "release/$ASSET" | awk '{print $1}')" "$ASSET" \
             > "release/$ASSET.sha256"
 

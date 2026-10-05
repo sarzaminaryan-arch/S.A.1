@@ -2,31 +2,21 @@
 
 @AGENTS.md
 @data-model/MASTER_DATA_MODEL.md
+@skill-SA-agent/SKILL.md
 
 ## Commands
-- Lint PHP: `find wp-content/themes -name '*.php' -print0 | xargs -0 -n1 php -l`
-- Rebuild schema JSON: `python3 data-model/schema/build_json.py`
-- Build theme zips: see skill-SA-agent/references/06-agent-workflow.md §D
-- Local WP (optional): `npx @wp-env/cli start` with themes mapped, or WordPress Playground CLI
+- JS syntax: `node --check path/to/file.js`
+- PHP lint when PHP is available: `find wp-content/themes/sarzaminaryan-child -name '*.php' -print0 | xargs -0 -n1 php -l`
+- Release packaging: GitHub Actions workflow `.github/workflows/release-child-theme.yml`
 
-## Stack
-- WordPress 6.5+ (fa_IR, RTL), PHP 8.1+, MySQL 8 / MariaDB 10.6+
-- Parent theme `sarzaminaryan` (classic, no build), child `sarzaminaryan-child` (all features)
-- No plugins by policy; no external CDNs; fonts bundled (Vazirmatn OFL)
+## Active structure
+- `.github/` — release automation for the active theme only.
+- `wp-content/themes/sarzaminaryan-child/` — active WordPress child theme and all runtime code.
+- `docs/` — small operational documentation only; generated article drafts/assets are not retained.
+- `data-model/` — canonical data model and schema source.
+- `skill-SA-agent/` — operating procedure and references.
 
-## Project structure
-- `data-model/` source of truth · `skill-SA-agent/` operating skill · `wp-content/themes/` themes
-- `downloads/` release zips (GitHub is the only delivery channel)
-
-## Code style
-- WordPress Coding Standards (tabs, Yoda conditions, spaces inside parens), prefix `sa_` (child) / `sarzaminaryan_` (parent)
-- Every string i18n with text domain; every output escaped; every write nonce + capability
-
-## Rules
-- Never rename data-model fields/slugs; add + deprecate. Bump version + CHANGELOG.
-- Entities: classic editor + meta boxes; publish gate enforces Level 7.
-- Dates: DB/JSON-LD Gregorian; display Jalali via `sa_jalali_date()`.
-- Deliverables → commit → push → GitHub link. No other channel.
-
-## Git
-- Branch `main`; commits: conventional (`feat(child): …`); releases tagged `themes-vX.Y.Z`
+## Repository policy
+- Do not commit generated ZIPs, release archives, raw image packs, temporary delivery files or one-off importer source trees after their releases are published.
+- Installable ZIPs must be published as GitHub Release assets.
+- Keep the tree source-first so Arena and GitHub operations stay light.

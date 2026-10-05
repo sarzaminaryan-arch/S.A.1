@@ -10,4 +10,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $sa_id   = get_the_ID();
 $sa_city = sa_get_parent( $sa_id, 'city' );
-sa_cards_section( sa_get_similar_attractions( $sa_id, 6 ), 'جاذبه‌های مشابه', $sa_city ? get_permalink( $sa_city ) . '#attractions' : '', 'similar' );
+sa_cards_section( sa_get_similar_attractions( $sa_id, 6 ), 'نمای برتر مشابه', $sa_city ? get_permalink( $sa_city ) . '#attractions' : '', 'similar' );

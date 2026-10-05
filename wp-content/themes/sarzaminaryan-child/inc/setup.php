@@ -18,6 +18,10 @@ function sa_child_setup() {
 	add_theme_support( 'post-thumbnails', array_merge( array( 'post', 'page' ), sa_entity_types() ) );
 	add_image_size( 'sa-hero', 1600, 700, array( 'center', 'top' ) ); // top-anchored: poster titles sit in the upper band (v1.0.3).
 	add_image_size( 'sa-square', 480, 480, true );
+	add_image_size( 'sa-gallery-large', 1600, 1600, false );
+	add_image_size( 'sa-gallery-card', 720, 450, true );
+	add_image_size( 'sa-gallery-thumb', 360, 225, true );
+	add_image_size( 'sa-attraction-id', 520, 390, true );
 
 	register_nav_menus(
 		array(
@@ -48,7 +52,7 @@ function sa_child_widgets() {
 		array(
 			'name'          => 'کنار صفحه‌ی موجودیت‌ها',
 			'id'            => 'sidebar-entity',
-			'description'   => 'زیر جعبه‌ی اطلاعات کلیدی در صفحه‌ی استان/شهر/جاذبه/… نمایش داده می‌شود (مناسب تبلیغ یا بنر).',
+			'description'   => 'زیر جعبه‌ی اطلاعات کلیدی در صفحه‌ی استان/شهر/نمای برتر/… نمایش داده می‌شود (مناسب تبلیغ یا بنر).',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -77,6 +81,11 @@ add_action( 'widgets_init', 'sa_child_widgets', 11 );
 function sa_child_assets() {
 	wp_enqueue_style( 'sarzaminaryan-child', SA_CHILD_URI . 'assets/css/child.css', array( 'sarzaminaryan-style' ), SA_CHILD_VERSION );
 	wp_enqueue_script( 'sarzaminaryan-child', SA_CHILD_URI . 'assets/js/child.js', array( 'sarzaminaryan-main' ), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+
+	if ( is_singular( array( 'province', 'city' ) ) ) {
+		wp_enqueue_style( 'sarzaminaryan-gallery', SA_CHILD_URI . 'assets/css/gallery.css', array( 'sarzaminaryan-child' ), SA_CHILD_VERSION );
+		wp_enqueue_script( 'sarzaminaryan-gallery', SA_CHILD_URI . 'assets/js/gallery.js', array(), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'sa_child_assets', 20 );
 

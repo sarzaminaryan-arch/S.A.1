@@ -101,9 +101,13 @@ function sa_gate_missing( $post_id, $type, $form = null ) {
 	}
 
 	// missing_featured_image.
-	$thumb = null !== $form ? ( isset( $form['_thumbnail_id'] ) ? (int) $form['_thumbnail_id'] : 0 ) : (int) get_post_thumbnail_id( $post_id );
-	if ( $thumb <= 0 ) {
-		$missing[] = 'تصویر شاخص';
+	// v2.11.11: attraction/«نمای برتر» pages use a generated white diagram card
+	// instead of the old large featured-image model, so a thumbnail is optional.
+	if ( 'attraction' !== $type ) {
+		$thumb = null !== $form ? ( isset( $form['_thumbnail_id'] ) ? (int) $form['_thumbnail_id'] : 0 ) : (int) get_post_thumbnail_id( $post_id );
+		if ( $thumb <= 0 ) {
+			$missing[] = 'تصویر شاخص';
+		}
 	}
 
 	// missing_primary_taxonomy.

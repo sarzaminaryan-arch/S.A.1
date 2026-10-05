@@ -51,17 +51,17 @@ function sa_customize_register( $wp_customize ) {
 	// Home / hero.
 	$wp_customize->add_section( 'sa_home', array( 'title' => 'صفحه‌ی اول', 'panel' => 'sa_panel' ) );
 	$add( 'sa_home', 'sa_hero_title', 'عنوان بزرگ هیرو', 'text', 'ایران را استان به استان بشناسید' );
-	$add( 'sa_home', 'sa_hero_subtitle', 'زیرعنوان هیرو', 'textarea', '۳۱ استان، صدها شهر و هزاران جاذبه — با اطلاعات دقیق، مسیر سفر، غذاها و سوغات هر منطقه.' );
+	$add( 'sa_home', 'sa_hero_subtitle', 'زیرعنوان هیرو', 'textarea', '۳۱ استان، صدها شهر و نمای برتر طبیعت و دیدنی‌های ایران — با اطلاعات دقیق و به‌روز.' );
 	$add( 'sa_home', 'sa_hero_image', 'تصویر پس‌زمینه‌ی هیرو (اختیاری)', 'image' );
-	$add( 'sa_home', 'sa_home_description', 'توضیحات متای صفحه‌ی اول (۷۰ تا ۱۵۵ کاراکتر)', 'textarea', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها، جاذبه‌های گردشگری، مسیرهای پیشنهادی، غذاهای محلی و سوغات هر منطقه با اطلاعات دقیق و به‌روز.' );
-	$add( 'sa_home', 'sa_show_stats', 'نمایش آمار (تعداد استان/شهر/جاذبه…)', 'checkbox', true );
+	$add( 'sa_home', 'sa_home_description', 'توضیحات متای صفحه‌ی اول (۷۰ تا ۱۵۵ کاراکتر)', 'textarea', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و نمای برتر طبیعت‌های بکر و دیدنی‌های ایران با اطلاعات دقیق و به‌روز.' );
+	$add( 'sa_home', 'sa_show_stats', 'نمایش آمار (تعداد استان/شهر/نمای برتر…) ', 'checkbox', true );
 	$add( 'sa_home', 'sa_home_sections', 'بخش‌های صفحه‌ی اول (به ترتیب، با ویرگول)', 'text', 'provinces,attractions,routes,foods,souvenirs,posts', array( 'description' => 'گزینه‌ها: provinces, cities, attractions, routes, foods, souvenirs, posts' ) );
 
 	// صفحه اصلی (طرح v2) — قالب برگه «صفحه اصلی سرزمین آریان (طرح v2)».
 	$wp_customize->add_section( 'sa_home_v2', array( 'title' => 'صفحه اصلی (طرح v2)', 'panel' => 'sa_panel', 'description' => 'تنظیمات دستی صفحه‌ی خانه (برگه‌ی «خانه» با قالب «صفحه اصلی سرزمین آریان (طرح v2)»). لوگو از بخش «هویت سایت → لوگو» قابل تغییر است؛ اگر لوگویی انتخاب نشود لوگوی اصلی سایت استفاده می‌شود.' ) );
 	$add( 'sa_home_v2', 'sa_home_slogan', 'شعار سایت (حماسی — زیر نام سایت، هدر و فوتر)', 'text', 'چو ایران نباشد، تن من مباد' );
-	$add( 'sa_home_v2', 'sa_hero_text', 'متن معرفی زیر شعار', 'textarea', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و هزاران جاذبه.' );
-	$add( 'sa_home_v2', 'sa_search_placeholder', 'متن جایگزین جعبه‌ی جست‌وجو', 'text', 'استان، شهر، جاذبه، غذا یا سوغات…' );
+	$add( 'sa_home_v2', 'sa_hero_text', 'متن معرفی زیر شعار', 'textarea', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و نمای برتر طبیعت ایران.' );
+	$add( 'sa_home_v2', 'sa_search_placeholder', 'متن جایگزین جعبه‌ی جست‌وجو', 'text', 'استان، شهر یا نمای برتر…' );
 	$add( 'sa_home_v2', 'sa_stat1_num', 'آمار ۱ — عدد', 'text', '31' );
 	$add( 'sa_home_v2', 'sa_stat1_label', 'آمار ۱ — برچسب', 'text', 'استان' );
 	$add( 'sa_home_v2', 'sa_stat2_num', 'آمار ۲ — عدد (انگلیسی برای شمارنده)', 'text', '419' );
@@ -74,7 +74,7 @@ function sa_customize_register( $wp_customize ) {
 
 	// Footer.
 	$wp_customize->add_section( 'sa_footer', array( 'title' => 'پابرگ', 'panel' => 'sa_panel' ) );
-	$add( 'sa_footer', 'sa_footer_about', 'متن «درباره» در پابرگ', 'textarea', 'سرزمین آریان دانشنامه‌ی سفر ایران است؛ اطلاعات دقیق و به‌روز درباره‌ی استان‌ها، شهرها، جاذبه‌ها، مسیرهای سفر، غذاها و سوغات.' );
+	$add( 'sa_footer', 'sa_footer_about', 'متن «درباره» در پابرگ', 'textarea', 'سرزمین آریان دانشنامه‌ی سفر ایران است؛ اطلاعات دقیق و به‌روز درباره‌ی استان‌ها، شهرها و نمای برتر ایران.' );
 	$add( 'sa_footer', 'sa_footer_copyright', 'متن حق نشر (خالی = خودکار)', 'text', '' );
 	$add( 'sa_footer', 'sa_footer_credit', 'نمایش «طراحی و توسعه: محمدرضا لک»', 'checkbox', true );
 

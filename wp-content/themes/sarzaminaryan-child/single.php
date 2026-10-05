@@ -1,6 +1,6 @@
 <?php
 /**
- * Single: entities get the entity layout, posts get the article layout with sidebar.
+ * Single: entities only. Non-entity posts redirect to home.
  *
  * @package Sarzaminaryan_Child
  */
@@ -19,14 +19,9 @@ if ( sa_is_entity() ) {
 	}
 	echo '</main>';
 } else {
-	echo '<div class="container site-content"><main id="primary" class="site-main">';
-	while ( have_posts() ) {
-		the_post();
-		get_template_part( 'template-parts/content', 'single' );
-	}
+	echo '<main id="primary" class="site-main container sa-archive">';
+	get_template_part( 'template-parts/content', 'none' );
 	echo '</main>';
-	get_sidebar();
-	echo '</div>';
 }
 
 get_footer();

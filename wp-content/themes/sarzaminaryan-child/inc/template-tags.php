@@ -96,7 +96,14 @@ function sa_entity_facts( $post_id ) {
 				$rows[] = array( 'label' => $label, 'value' => sa_digits( $raw ), 'html' => false );
 		}
 	}
-	return $rows;
+
+	/**
+	 * Filter the key-facts rows of an entity.
+	 *
+	 * @param array $rows    Rows ( label / value / html ).
+	 * @param int   $post_id Post ID.
+	 */
+	return (array) apply_filters( 'sa_entity_facts', $rows, $post_id );
 }
 
 /**
@@ -325,19 +332,101 @@ function sa_sources_section( $post_id ) {
 	foreach ( $sources as $src ) {
 		echo '<li>';
 		if ( $src['url'] ) {
-			echo '<a href="' . esc_url( $src['url'] ) . '" rel="' . esc_attr( sa_source_rel( $src['url'] ) ) . '" target="_blank">' . esc_html( $src['title'] ) . '</a>';
+			$host = strtolower( (string) wp_parse_url( $src['url'], PHP_URL_HOST ) );
+			$host = preg_replace( '/^www\./', '', $host );
+			echo '<a href="' . esc_url( $src['url'] ) . '" rel="' . esc_attr( sa_source_rel( $src['url'] ) ) . '" target="_blank">' . esc_html( $host ) . '</a>';
 		} else {
 			echo esc_html( $src['title'] );
-		}
-		if ( $src['org'] ) {
-			echo ' <span class="sa-sources__org">— ' . esc_html( $src['org'] ) . '</span>';
-		}
-		if ( $src['date'] ) {
-			echo ' <span class="sa-sources__date">(دسترسی: ' . esc_html( sa_digits( $src['date'] ) ) . ')</span>';
 		}
 		echo '</li>';
 	}
 	echo '</ol></section>';
+}
+
+/**
+ * Related articles from other provinces (Module 3).
+ * Shows 3 random entities of the same type from a different province (v2.7.1).
+ *
+ * @param int    $post_id   Current post ID.
+ * @param string $post_type Current post type.
+ */
+function sa_related_articles( $post_id, $post_type ) {
+	$entity = sa_entity( $post_type );
+	if ( ! $entity ) {
+		return;
+	}
+
+	$args = array(
+		'post_type'      => $post_type,
+		'post_status'    => 'publish',
+		'posts_per_page' => 3,
+		'orderby'        => 'rand',
+		'post__not_in'   => array( $post_id ),
+	);
+
+	if ( 'province' !== $post_type ) {
+		$province = sa_get_parent( $post_id, 'province' );
+		if ( $province ) {
+			$args['meta_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				array(
+					'key'     => 'sa_province_id',
+					'value'   => $province->ID,
+					'compare' => '!=',
+				),
+			);
+		}
+	}
+
+	$posts = get_posts( $args );
+	if ( ! $posts ) {
+		return;
+	}
+
+	$label = sa_entity_label( $post_type, true ) . ' پیشنهادی از استان‌های دیگر';
+	sa_cards_section( $posts, $label, '', 'related-articles' );
+}
+
+/**
+ * Previous / next entity navigation (Module 3).
+ * Navigates within the same province taxonomy term.
+ *
+ * @param int    $post_id   Current post ID.
+ * @param string $post_type Current post type.
+ */
+function sa_entity_navigation( $post_id, $post_type ) {
+	$entity = sa_entity( $post_type );
+	if ( ! $entity ) {
+		return;
+	}
+
+	$prev = get_previous_post( true, '', 'province_tax' );
+	$next = get_next_post( true, '', 'province_tax' );
+
+	if ( ! $prev && ! $next ) {
+		return;
+	}
+
+	echo '<nav class="sa-entity-nav" aria-label="ناوبری مقالات"><div class="sa-entity-nav__links">';
+
+	if ( $prev ) {
+		echo '<a class="sa-entity-nav__link sa-entity-nav__prev" href="' . esc_url( get_permalink( $prev ) ) . '">';
+		echo '<span class="sa-entity-nav__label">مقاله قبلی</span>';
+		echo '<span class="sa-entity-nav__title">' . esc_html( get_the_title( $prev ) ) . '</span>';
+		echo '</a>';
+	} else {
+		echo '<span class="sa-entity-nav__link sa-entity-nav__prev sa-entity-nav__empty"></span>';
+	}
+
+	if ( $next ) {
+		echo '<a class="sa-entity-nav__link sa-entity-nav__next" href="' . esc_url( get_permalink( $next ) ) . '">';
+		echo '<span class="sa-entity-nav__label">مقاله بعدی</span>';
+		echo '<span class="sa-entity-nav__title">' . esc_html( get_the_title( $next ) ) . '</span>';
+		echo '</a>';
+	} else {
+		echo '<span class="sa-entity-nav__link sa-entity-nav__next sa-entity-nav__empty"></span>';
+	}
+
+	echo '</div></nav>';
 }
 
 /**
@@ -450,12 +539,61 @@ function sa_social_links() {
  * Fallback menu: entity archives (used when no menu is assigned).
  */
 /**
+ * Entity types intentionally hidden from the public header navigation for now.
+ * They stay active in the CMS and URLs are not changed; only the top navigation
+ * waits until those sections are ready for editorial work.
+ *
+ * @return string[]
+ */
+function sa_nav_hidden_entity_types() {
+	return (array) apply_filters( 'sa_nav_hidden_entity_types', array( 'travel_route', 'local_food', 'souvenir' ) );
+}
+
+/**
+ * Rename old saved menu item titles and hide deferred archive items in header menus.
+ * Existing WordPress menus keep their stored labels after a theme update, so the
+ * filter makes old installs match the current IA without manual menu editing.
+ *
+ * @param WP_Post[] $items Menu items.
+ * @param stdClass  $args  Menu args.
+ * @return WP_Post[]
+ */
+function sa_filter_header_menu_items( $items, $args ) {
+	$location = isset( $args->theme_location ) ? (string) $args->theme_location : '';
+	if ( ! in_array( $location, array( 'primary', 'secondary' ), true ) ) {
+		return $items;
+	}
+
+	$hidden          = sa_nav_hidden_entity_types();
+	$hidden_urls      = array();
+	$attraction_url   = untrailingslashit( sa_archive_url( 'attraction' ) );
+	foreach ( $hidden as $hidden_type ) {
+		$hidden_urls[] = untrailingslashit( sa_archive_url( $hidden_type ) );
+	}
+
+	$out = array();
+	foreach ( $items as $item ) {
+		$object = isset( $item->object ) ? (string) $item->object : '';
+		$url    = isset( $item->url ) ? untrailingslashit( (string) $item->url ) : '';
+		if ( in_array( $object, $hidden, true ) || in_array( $url, $hidden_urls, true ) ) {
+			continue;
+		}
+		if ( 'attraction' === $object || $url === $attraction_url ) {
+			$item->title = 'نمای برتر';
+		}
+		$out[] = $item;
+	}
+
+	return $out;
+}
+add_filter( 'wp_nav_menu_objects', 'sa_filter_header_menu_items', 10, 2 );
+
+/**
  * v2.3.0 — فقط نوع‌هایی که واقعاً محتوای منتشرشده دارند.
  *
- * چهار موجودیت (جاذبه، غذا، سوغات، مسیر سفر) هنوز صفر صفحه دارند. لینک‌دادن
+ * سه موجودیت غذا، سوغات و مسیر سفر فعلاً از منوی عمومی پنهان‌اند؛ نمای برتر می‌ماند. لینک‌دادن
  * به آرشیو خالی در هدر و فوتر *هر* صفحه، همان اشتباه لینک ۴۰۴ صفحه‌ی اصلی است
- * با شکل دیگر: خزنده و کاربر به بن‌بست می‌رسند. با انتشار اولین محتوای هر نوع،
- * خودبه‌خود به منو برمی‌گردد.
+ * با شکل دیگر: خزنده و کاربر به بن‌بست می‌رسند. تا زمان تصمیم بعدی کاربر در منوی عمومی نمایش داده نمی‌شوند.
  *
  * @return string[]
  */
@@ -466,6 +604,9 @@ function sa_nav_entity_types() {
 	}
 	$out = array();
 	foreach ( sa_entity_types() as $type ) {
+		if ( in_array( $type, sa_nav_hidden_entity_types(), true ) ) {
+			continue;
+		}
 		$c = wp_count_posts( $type );
 		if ( isset( $c->publish ) && (int) $c->publish > 0 ) {
 			$out[] = $type;
