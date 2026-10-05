@@ -19,3 +19,6 @@ release/
 tmp/
 *.log
 .DS_Store
+
+# Local generated previews from Arena/image tools
+outputs/
