@@ -11,12 +11,63 @@ class CC_Admin {
 				register_setting( 'cc_settings', 'cc_sms_endpoint', array( 'sanitize_callback' => 'esc_url_raw' ) );
 				register_setting( 'cc_settings', 'cc_sms_key', array( 'sanitize_callback' => 'sanitize_text_field' ) );
 				register_setting( 'cc_settings', 'cc_sms_sender', array( 'sanitize_callback' => 'sanitize_text_field' ) );
+				register_setting( 'cc_settings', 'cc_upload_requires_login', array( 'sanitize_callback' => array( __CLASS__, 'sanitize_bool' ), 'default' => 0 ) );
+				register_setting( 'cc_settings', 'cc_upload_max_files', array( 'sanitize_callback' => array( __CLASS__, 'sanitize_max_files' ), 'default' => 3 ) );
+				register_setting( 'cc_settings', 'cc_upload_max_mb', array( 'sanitize_callback' => array( __CLASS__, 'sanitize_max_mb' ), 'default' => 2 ) );
+				register_setting( 'cc_settings', 'cc_upload_daily_limit', array( 'sanitize_callback' => array( __CLASS__, 'sanitize_daily_limit' ), 'default' => 3 ) );
 			}
 		);
 		add_filter( 'manage_cc_submission_posts_columns', array( __CLASS__, 'columns' ) );
 		add_action( 'manage_cc_submission_posts_custom_column', array( __CLASS__, 'column' ), 10, 2 );
 		add_action( 'add_meta_boxes_cc_submission', array( __CLASS__, 'meta_box' ) );
 		add_action( 'save_post_cc_submission', array( __CLASS__, 'save_meta' ), 10, 2 );
+		add_filter( 'sa_gallery_max_upload_bytes', array( __CLASS__, 'gallery_max_upload_bytes' ), 10, 2 );
+	}
+
+	public static function gallery_max_upload_bytes( $bytes, $source = 'admin' ) {
+		return 'citizen' === $source ? self::upload_max_bytes() : $bytes;
+	}
+
+	public static function sanitize_bool( $value ) {
+		return '1' === (string) $value ? 1 : 0;
+	}
+
+	public static function sanitize_max_files( $value ) {
+		$value = absint( $value );
+		return max( 1, min( 20, $value ? $value : 3 ) );
+	}
+
+	public static function sanitize_max_mb( $value ) {
+		$value = (float) str_replace( ',', '.', (string) $value );
+		if ( $value <= 0 ) {
+			$value = 2;
+		}
+		return max( 0.5, min( 50, $value ) );
+	}
+
+	public static function sanitize_daily_limit( $value ) {
+		$value = absint( $value );
+		return max( 1, min( 100, $value ? $value : 3 ) );
+	}
+
+	public static function upload_requires_login() {
+		return (bool) get_option( 'cc_upload_requires_login', 0 );
+	}
+
+	public static function upload_max_files() {
+		return self::sanitize_max_files( get_option( 'cc_upload_max_files', 3 ) );
+	}
+
+	public static function upload_max_mb() {
+		return self::sanitize_max_mb( get_option( 'cc_upload_max_mb', 2 ) );
+	}
+
+	public static function upload_max_bytes() {
+		return (int) round( self::upload_max_mb() * MB_IN_BYTES );
+	}
+
+	public static function upload_daily_limit() {
+		return self::sanitize_daily_limit( get_option( 'cc_upload_daily_limit', 3 ) );
 	}
 
 	public static function columns( $cols ) {

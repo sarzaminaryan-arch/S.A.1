@@ -12,6 +12,17 @@ class CC_REST {
 		return is_user_logged_in() && wp_verify_nonce( isset( $_SERVER['HTTP_X_WP_NONCE'] ) ? $_SERVER['HTTP_X_WP_NONCE'] : '', 'wp_rest' );
 	}
 
+	public static function has_submission_permission() {
+		$nonce_ok = wp_verify_nonce( isset( $_SERVER['HTTP_X_WP_NONCE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ) : '', 'wp_rest' );
+		if ( ! $nonce_ok ) {
+			return false;
+		}
+		if ( class_exists( 'CC_Admin' ) && CC_Admin::upload_requires_login() ) {
+			return is_user_logged_in();
+		}
+		return true;
+	}
+
 	public static function voter_key( $request ) {
 		if ( is_user_logged_in() ) {
 			return 'u' . get_current_user_id();
@@ -27,10 +38,52 @@ class CC_REST {
 		register_rest_route( 'cc/v1', '/ping', array( 'methods' => 'GET', 'callback' => function () { global $wpdb; $t = CC_DB::table(); return array( 'ok' => true, 'version' => CC_VERSION, 'tables' => ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $t ) ) === $t ), 'php' => PHP_VERSION ); }, 'permission_callback' => '__return_true' ) );
 		register_rest_route( 'cc/v1', '/cities/(?P<id>\d+)/rating', array( 'methods' => 'GET', 'callback' => function ( $r ) { return self::get_rating( $r ); }, 'permission_callback' => '__return_true' ) );
 		register_rest_route( 'cc/v1', '/cities/(?P<id>\d+)/rating', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::post_rating( $r ); }, 'permission_callback' => '__return_true' ) );
-		register_rest_route( 'cc/v1', '/submissions', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::submission( $r ); }, 'permission_callback' => function () { return self::has_permission(); } ) );
+		register_rest_route( 'cc/v1', '/submissions', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::submission( $r ); }, 'permission_callback' => function () { return self::has_submission_permission(); } ) );
 		register_rest_route( 'cc/v1', '/submissions/(?P<id>\d+)/resubmit', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::resubmit( $r ); }, 'permission_callback' => function () { return self::has_permission(); } ) );
 		register_rest_route( 'cc/v1', '/leaderboard', array( 'methods' => 'GET', 'callback' => function ( $r ) { return CC_Gamification::leaderboard( absint( $r->get_param( 'city_id' ) ) ); }, 'permission_callback' => '__return_true' ) );
 		register_rest_route( 'cc/v1', '/my-submissions', array( 'methods' => 'GET', 'callback' => function ( $r ) { return self::my_submissions( $r ); }, 'permission_callback' => function () { return self::has_permission(); } ) );
+	}
+
+
+	public static function fa_num( $value ) {
+		return function_exists( 'sa_fa_digits' ) ? sa_fa_digits( (string) $value ) : number_format_i18n( $value );
+	}
+
+	public static function upload_max_files() {
+		return class_exists( 'CC_Admin' ) ? CC_Admin::upload_max_files() : 3;
+	}
+
+	public static function upload_max_bytes() {
+		return class_exists( 'CC_Admin' ) ? CC_Admin::upload_max_bytes() : 2 * MB_IN_BYTES;
+	}
+
+	public static function upload_max_mb() {
+		return class_exists( 'CC_Admin' ) ? CC_Admin::upload_max_mb() : 2;
+	}
+
+	public static function upload_daily_limit() {
+		return class_exists( 'CC_Admin' ) ? CC_Admin::upload_daily_limit() : 3;
+	}
+
+	public static function normalise_uploaded_images() {
+		if ( empty( $_FILES['image'] ) ) {
+			return array();
+		}
+		$raw = $_FILES['image'];
+		if ( isset( $raw['name'] ) && is_array( $raw['name'] ) ) {
+			$out = array();
+			foreach ( $raw['name'] as $i => $name ) {
+				$out[] = array(
+					'name'     => $name,
+					'type'     => isset( $raw['type'][ $i ] ) ? $raw['type'][ $i ] : '',
+					'tmp_name' => isset( $raw['tmp_name'][ $i ] ) ? $raw['tmp_name'][ $i ] : '',
+					'error'    => isset( $raw['error'][ $i ] ) ? (int) $raw['error'][ $i ] : UPLOAD_ERR_NO_FILE,
+					'size'     => isset( $raw['size'][ $i ] ) ? (int) $raw['size'][ $i ] : 0,
+				);
+			}
+			return array_values( array_filter( $out, function ( $file ) { return UPLOAD_ERR_NO_FILE !== (int) $file['error']; } ) );
+		}
+		return UPLOAD_ERR_NO_FILE === (int) ( $raw['error'] ?? UPLOAD_ERR_NO_FILE ) ? array() : array( $raw );
 	}
 
 	public static function get_rating( $r ) {
@@ -114,53 +167,76 @@ class CC_REST {
 			if ( (string) $r->get_param( 'rights_confirm' ) !== '1' ) {
 				return new WP_Error( 'rights_required', 'برای ارسال تصویر باید مالکیت یا اجازهٔ انتشار را تأیید کنید.', array( 'status' => 400 ) );
 			}
-			if ( empty( $_FILES['image'] ) || UPLOAD_ERR_NO_FILE === (int) ( $_FILES['image']['error'] ?? UPLOAD_ERR_NO_FILE ) ) {
+
+			$files = self::normalise_uploaded_images();
+			if ( ! $files ) {
 				return new WP_Error( 'image_required', 'برای آلبوم نمای برتر، انتخاب تصویر الزامی است.', array( 'status' => 400 ) );
 			}
+			$max_files = self::upload_max_files();
+			if ( count( $files ) > $max_files ) {
+				return new WP_Error( 'too_many_images', 'در هر ارسال حداکثر ' . self::fa_num( $max_files ) . ' تصویر مجاز است.', array( 'status' => 400 ) );
+			}
+			$max_bytes = self::upload_max_bytes();
+			$max_mb    = self::upload_max_mb();
+			foreach ( $files as $file ) {
+				if ( ! empty( $file['size'] ) && (int) $file['size'] > $max_bytes ) {
+					return new WP_Error( 'image_too_large', 'حجم هر تصویر باید حداکثر ' . self::fa_num( $max_mb ) . ' مگابایت باشد.', array( 'status' => 400 ) );
+				}
+			}
 
-			$key = 'cc_submissions_' . get_current_user_id();
-			$n   = (int) get_transient( $key );
-			if ( $n >= 5 ) {
-				return new WP_Error( 'daily_limit', 'سقف روزانه مشارکت شما تکمیل شده است', array( 'status' => 429 ) );
+			$key   = 'cc_submissions_' . self::voter_key( $r );
+			$n     = (int) get_transient( $key );
+			$daily = self::upload_daily_limit();
+			if ( $n + count( $files ) > $daily ) {
+				return new WP_Error( 'daily_limit', 'سقف روزانه ارسال تصویر شما تکمیل شده است. سقف فعلی: ' . self::fa_num( $daily ) . ' تصویر در روز.', array( 'status' => 429 ) );
 			}
 
 			$sender_note = trim( $text );
 			$caption     = sprintf( 'تصویر ارسالی برای %1$s در شهرستان %2$s، استان %3$s.', $place, get_the_title( $city ), $province ? get_the_title( $province ) : '' );
+			$created     = array();
 
-			$image = CC_Media::handle( $_FILES['image'], $city, $caption, $place, $contributor );
-			if ( is_wp_error( $image ) ) {
-				return $image;
-			}
-
-			$p = wp_insert_post(
-				array(
-					'post_type'    => 'cc_submission',
-					'post_status'  => 'pending',
-					'post_title'   => $place . ' — ' . get_the_title( $city ),
-					'post_content' => $caption,
-					'post_author'  => get_current_user_id(),
-					'meta_input'   => array(
-						'cc_city_id'          => $city,
-						'cc_province_id'      => $province,
-						'cc_type'             => $type ? $type : 'photo',
-						'cc_place_name'       => $place,
-						'cc_contributor_name' => $contributor,
-						'cc_sender_note'      => $sender_note,
-						'cc_image_id'         => is_int( $image ) ? $image : 0,
-						'cc_rights_confirmed' => current_time( 'mysql' ),
-						'cc_ip_hash'          => hash( 'sha256', ( isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '' ) . wp_salt( 'auth' ) ),
+			foreach ( $files as $index => $file ) {
+				$image = CC_Media::handle( $file, $city, $caption, $place, $contributor );
+				if ( is_wp_error( $image ) ) {
+					return $image;
+				}
+				$p = wp_insert_post(
+					array(
+						'post_type'    => 'cc_submission',
+						'post_status'  => 'pending',
+						'post_title'   => $place . ' — ' . get_the_title( $city ) . ( count( $files ) > 1 ? ' #' . ( $index + 1 ) : '' ),
+						'post_content' => $caption,
+						'post_author'  => get_current_user_id(),
+						'meta_input'   => array(
+							'cc_city_id'          => $city,
+							'cc_province_id'      => $province,
+							'cc_type'             => $type ? $type : 'photo',
+							'cc_place_name'       => $place,
+							'cc_contributor_name' => $contributor,
+							'cc_sender_note'      => $sender_note,
+							'cc_image_id'         => is_int( $image ) ? $image : 0,
+							'cc_rights_confirmed' => current_time( 'mysql' ),
+							'cc_ip_hash'          => hash( 'sha256', ( isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '' ) . wp_salt( 'auth' ) ),
+						),
 					),
-				),
-				true
+					true
+				);
+				if ( is_wp_error( $p ) ) {
+					return $p;
+				}
+				if ( is_int( $image ) && $image ) {
+					wp_update_post( array( 'ID' => $image, 'post_parent' => $p ) );
+				}
+				$created[] = absint( $p );
+			}
+
+			set_transient( $key, $n + count( $created ), DAY_IN_SECONDS );
+			$count = count( $created );
+			return array(
+				'success' => true,
+				'count'   => $count,
+				'message' => self::fa_num( $count ) . ' تصویر و نام مکان برای بررسی ارسال شد.',
 			);
-			if ( is_wp_error( $p ) ) {
-				return $p;
-			}
-			if ( is_int( $image ) && $image ) {
-				wp_update_post( array( 'ID' => $image, 'post_parent' => $p ) );
-			}
-			set_transient( $key, $n + 1, DAY_IN_SECONDS );
-			return array( 'success' => true, 'message' => 'تصویر و نام مکان برای بررسی ارسال شد.' );
 		} catch ( Throwable $e ) {
 			return new WP_Error( 'cc_error', 'خطای داخلی', array( 'status' => 500 ) );
 		}

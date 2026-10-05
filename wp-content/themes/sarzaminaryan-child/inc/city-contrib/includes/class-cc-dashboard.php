@@ -11,7 +11,7 @@ class CC_Dashboard {
   $tab=isset($_GET['tab'])?sanitize_key($_GET['tab']):'stats';
   echo '<div class="wrap cc-dash"><h1>مشارکت مردمی «شهر من»</h1>';
   echo '<nav class="cc-dash__tabs">';
-  foreach(array('stats'=>'📊 آمار و رتبه‌بندی','submissions'=>'✍️ مشارکت‌ها و تصاویر','settings'=>'⚙️ تنظیمات پیامک') as $k=>$lb){$u=add_query_arg(array('page'=>'city-contrib-dashboard','tab'=>$k),admin_url('admin.php'));echo '<a class="cc-dash__tab'.($tab===$k?' is-active':'').'" href="'.esc_url($u).'">'.$lb.'</a>';}
+  foreach(array('stats'=>'📊 آمار و رتبه‌بندی','submissions'=>'✍️ مشارکت‌ها و تصاویر','settings'=>'⚙️ تنظیمات ارسال و پیامک') as $k=>$lb){$u=add_query_arg(array('page'=>'city-contrib-dashboard','tab'=>$k),admin_url('admin.php'));echo '<a class="cc-dash__tab'.($tab===$k?' is-active':'').'" href="'.esc_url($u).'">'.$lb.'</a>';}
   echo '</nav>';
   if($tab==='submissions')self::tab_submissions();elseif($tab==='settings')self::tab_settings();else self::tab_stats();
   echo '</div>';
@@ -44,7 +44,7 @@ class CC_Dashboard {
  public static function tab_submissions(){
   $q=new WP_Query(array('post_type'=>'cc_submission','post_status'=>array('pending','publish','rejected','needs_edit'),'posts_per_page'=>100,'orderby'=>'date','order'=>'DESC'));
   if(!$q->have_posts()){echo '<div class="cc-panel"><p>هنوز مشارکتی ارسال نشده است.</p></div>';return;}
-  $types=array('place'=>'معرفی مکان/غذا','correction'=>'پیشنهاد اصلاح','report'=>'گزارش خطا','tip'=>'نکته محلی');
+  $types=array('photo'=>'تصویر نمای برتر','place'=>'معرفی مکان/غذا','correction'=>'پیشنهاد اصلاح','report'=>'گزارش خطا','tip'=>'نکته محلی');
   echo '<div class="cc-panel"><table class="widefat cc-subm-table"><thead><tr><th>وضعیت</th><th>شهر</th><th>نوع</th><th>متن</th><th>تصویر</th><th>ارسال‌کننده</th><th>تاریخ</th><th>اقدام</th></tr></thead><tbody>';
   foreach($q->posts as $p){$st=$p->post_status;$row_cls=$st==='pending'?'cc-row--pending':($st==='publish'?'cc-row--ok':'');$labels=array('pending'=>'در انتظار بررسی','publish'=>'منتشر شده','rejected'=>'رد شده','needs_edit'=>'نیاز به اصلاح');$img=(int)get_post_meta($p->ID,'cc_image_id',true);$user=get_userdata($p->post_author);
    echo '<tr class="'.esc_attr($row_cls).'">';
@@ -62,9 +62,19 @@ class CC_Dashboard {
   echo '</tbody></table></div>';
  }
  public static function tab_settings(){
-  echo '<div class="cc-panel"><h2>تنظیمات پیامکِ ورود</h2><form method="post" action="'.esc_url(admin_url('options.php')).'">';
+  $max_files=class_exists('CC_Admin')?CC_Admin::upload_max_files():3;
+  $max_mb=class_exists('CC_Admin')?CC_Admin::upload_max_mb():2;
+  $daily=class_exists('CC_Admin')?CC_Admin::upload_daily_limit():3;
+  $requires=class_exists('CC_Admin')&&CC_Admin::upload_requires_login();
+  echo '<div class="cc-panel"><h2>تنظیمات ارسال تصویر شهروندان</h2><form method="post" action="'.esc_url(admin_url('options.php')).'">';
   settings_fields('cc_settings');
-  echo '<table class="form-table"><tr><th>آدرس API پیامک</th><td><input class="regular-text" name="cc_sms_endpoint" value="'.esc_attr(get_option('cc_sms_endpoint','')).'"><p class="description">اگر خالی باشد، کدهای ورود به‌جای پیامک در گزارش خطا (debug log) ثبت می‌شوند.</p></td></tr>';
+  echo '<table class="form-table">';
+  echo '<tr><th>نیاز به ورود با شماره تلفن</th><td><label><input type="checkbox" name="cc_upload_requires_login" value="1" '.checked($requires,true,false).'> برای ارسال عکس، ورود سریع/شماره تلفن اجباری باشد</label><p class="description">فعلاً خاموش است؛ با خاموش بودن، کاربر مستقیم فرم آپلود را می‌بیند و تصویر پس از بررسی مدیر منتشر می‌شود.</p></td></tr>';
+  echo '<tr><th><label for="cc_upload_max_files">تعداد تصویر در هر ارسال</label></th><td><input id="cc_upload_max_files" class="small-text" type="number" min="1" max="20" name="cc_upload_max_files" value="'.esc_attr($max_files).'"> <span>تصویر</span><p class="description">پیش‌فرض فعلی: ۳ تصویر. اگر بیشتر شود، فرم و API همان عدد را می‌پذیرند.</p></td></tr>';
+  echo '<tr><th><label for="cc_upload_max_mb">حداکثر حجم هر تصویر</label></th><td><input id="cc_upload_max_mb" class="small-text" type="number" min="0.5" max="50" step="0.5" name="cc_upload_max_mb" value="'.esc_attr($max_mb).'"> <span>مگابایت</span><p class="description">پیش‌فرض فعلی: ۲ مگابایت برای هر فایل شهروند. تصویر بعد از آپلود به WebP سبک و واترمارک‌دار تبدیل می‌شود.</p></td></tr>';
+  echo '<tr><th><label for="cc_upload_daily_limit">سقف روزانه هر کاربر/IP</label></th><td><input id="cc_upload_daily_limit" class="small-text" type="number" min="1" max="100" name="cc_upload_daily_limit" value="'.esc_attr($daily).'"> <span>تصویر در روز</span><p class="description">برای کاربران واردشده بر اساس حساب، و برای مهمان‌ها بر اساس شناسه امن مرورگر/IP محاسبه می‌شود.</p></td></tr>';
+  echo '</table><hr><h2>تنظیمات پیامکِ ورود</h2>';
+  echo '<table class="form-table"><tr><th>آدرس API پیامک</th><td><input class="regular-text" name="cc_sms_endpoint" value="'.esc_attr(get_option('cc_sms_endpoint','')).'"><p class="description">اگر خالی باشد، کدهای ورود به‌جای پیامک در گزارش خطا (debug log) ثبت می‌شوند. با خاموش بودن ورود اجباری، این بخش فقط برای امکانات حساب کاربری/مشارکت‌های من استفاده می‌شود.</p></td></tr>';
   echo '<tr><th>کلید API</th><td><input class="regular-text" type="password" name="cc_sms_key" value="'.esc_attr(get_option('cc_sms_key','')).'"></td></tr>';
   echo '<tr><th>شماره/نام فرستنده</th><td><input class="regular-text" name="cc_sms_sender" value="'.esc_attr(get_option('cc_sms_sender','')).'"></td></tr></table>';
   submit_button('ذخیره تنظیمات');

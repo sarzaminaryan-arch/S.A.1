@@ -33,8 +33,11 @@ class CC_Media {
 			);
 		}
 
-		if ( ! empty( $file['error'] ) || ! empty( $file['size'] ) && (int) $file['size'] > 5 * MB_IN_BYTES ) {
-			return new WP_Error( 'invalid_image', 'تصویر باید JPG، PNG یا WebP و حداکثر ۵ مگابایت باشد', array( 'status' => 400 ) );
+		$max_mb    = class_exists( 'CC_Admin' ) ? CC_Admin::upload_max_mb() : 2;
+		$max_bytes = class_exists( 'CC_Admin' ) ? CC_Admin::upload_max_bytes() : 2 * MB_IN_BYTES;
+		$max_label = function_exists( 'sa_fa_digits' ) ? sa_fa_digits( $max_mb ) : number_format_i18n( $max_mb );
+		if ( ! empty( $file['error'] ) || ! empty( $file['size'] ) && (int) $file['size'] > $max_bytes ) {
+			return new WP_Error( 'invalid_image', 'تصویر باید JPG، PNG یا WebP و حداکثر ' . $max_label . ' مگابایت باشد', array( 'status' => 400 ) );
 		}
 
 		$mime = wp_get_image_mime( $file['tmp_name'] );

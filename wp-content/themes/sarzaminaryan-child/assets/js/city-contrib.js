@@ -36,11 +36,16 @@
 
 document.addEventListener('click',e=>{const sh=e.target.closest('[data-cc-share]'),cp=e.target.closest('[data-cc-copy]');const box=e.target.closest('.cc-share');if(!box)return;if(sh&&navigator.share)navigator.share({title:document.title,text:box.dataset.text,url:box.dataset.url}).catch(()=>{});if(cp){navigator.clipboard?.writeText(box.dataset.url);cp.textContent='کپی شد';setTimeout(()=>cp.textContent='کپی لینک',1500)}});
 
-(()=>{ /* فرم مشارکت — ورود با کد پیامکی لازم است */
+(()=>{ /* فرم مشارکت تصویر — بدون اجبار ورود؛ محدودیت‌ها از پیشخوان خوانده می‌شود */
  const c=document.querySelector('[data-cc-contrib]');if(!c||!window.CC_CONFIG)return;const f=c.querySelector('[data-cc-form]');
- c.querySelector('[data-cc-open]').onclick=()=>{if(!CC_CONFIG.logged){const a=document.querySelector('[data-cc-auth]');if(a)a.hidden=false;return}f.hidden=false};
+ const lim=CC_CONFIG.uploadLimits||{},maxFiles=+(lim.maxFiles||3),maxBytes=+(lim.maxBytes||2*1024*1024),maxMb=+(lim.maxMb||2);
+ c.querySelector('[data-cc-open]').onclick=()=>{if(CC_CONFIG.uploadRequiresLogin&&!CC_CONFIG.logged){const a=document.querySelector('[data-cc-auth]');if(a)a.hidden=false;return}f.hidden=false};
  const cl=c.querySelector('[data-cc-close]');if(cl)cl.onclick=()=>f.hidden=true;
- f.onsubmit=e=>{e.preventDefault();const fd=new FormData(f);if(fd.get('website'))return;const msg=c.querySelector('[data-cc-message]');msg.textContent='در حال ارسال…';fetch(CC_CONFIG.api+'cc/v1/submissions',{method:'POST',headers:{'X-WP-Nonce':CC_CONFIG.nonce},body:fd}).then(r=>r.json()).then(x=>{msg.textContent=x.message||x.code||'خطایی رخ داد';if(x.success)f.reset()})};
+ f.onsubmit=e=>{e.preventDefault();const fd=new FormData(f);if(fd.get('website'))return;const msg=c.querySelector('[data-cc-message]'),input=f.querySelector('input[type="file"][name^="image"]'),files=input&&input.files?Array.from(input.files):[];
+  if(!files.length){msg.textContent='لطفاً حداقل یک تصویر انتخاب کنید.';return}
+  if(files.length>maxFiles){msg.textContent='حداکثر '+maxFiles.toLocaleString('fa-IR')+' تصویر در هر ارسال مجاز است.';return}
+  const big=files.find(file=>file.size>maxBytes);if(big){msg.textContent='حجم هر تصویر باید حداکثر '+maxMb.toLocaleString('fa-IR')+' مگابایت باشد.';return}
+  msg.textContent='در حال ارسال…';fetch(CC_CONFIG.api+'cc/v1/submissions',{method:'POST',headers:{'X-WP-Nonce':CC_CONFIG.nonce},body:fd}).then(r=>r.json()).then(x=>{msg.textContent=x.message||x.code||'خطایی رخ داد';if(x.success)f.reset()}).catch(()=>{msg.textContent='اتصال برقرار نشد؛ دوباره تلاش کنید.'})};
 })();
 
 (()=>{ /* ورود سریع با کد پیامکی */

@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.11
+Stable tag: 2.11.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.12 — 2026-10-05 =
+* برداشتن الزام ورود/شماره تلفن از ارسال عکس شهروندان؛ دکمه «ارسال عکس» مستقیم فرم آپلود را باز می‌کند، مگر مدیر دوباره ورود اجباری را فعال کند.
+* اضافه‌شدن تنظیمات پیشخوان برای محدودیت‌های آپلود: تعداد تصویر در هر ارسال، حجم مجاز هر فایل و سقف روزانه ارسال.
+* پشتیبانی فرم و REST API از ارسال چند تصویر با پیش‌فرض فعلی ۳ تصویر و ۲ مگابایت برای هر فایل، همراه با اعتبارسنجی سمت کاربر و سرور.
 
 = 2.11.11 — 2026-10-05 =
 * حذف مدل تصویر بزرگ/شاخص از شناسنامه «نمای برتر» و جایگزینی با کارت سفید کوچکِ دیاگرام‌دار شامل نام مکان، شهرستان و استان.
