@@ -235,3 +235,64 @@ function sa_summary( $post, $words = 30 ) {
 	$text = has_excerpt( $post ) ? $post->post_excerpt : wp_strip_all_tags( strip_shortcodes( $post->post_content ) );
 	return wp_trim_words( $text, $words, '…' );
 }
+/**
+ * Render a white diagram card for «نمای برتر» identity/archive visuals.
+ *
+ * This replaces the old large featured-image presentation for attractions: the
+ * card is generated from structured data, keeps a clean white background, and
+ * prints the Persian place/city/province labels inside the visual area.
+ *
+ * @param int    $post_id Attraction post ID.
+ * @param string $context identity|card.
+ * @return string
+ */
+function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
+	$post_id = $post_id ? absint( $post_id ) : get_the_ID();
+	if ( ! $post_id || 'attraction' !== get_post_type( $post_id ) ) {
+		return '';
+	}
+
+	$title    = get_the_title( $post_id );
+	$city     = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'city' ) : null;
+	$province = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'province' ) : null;
+	$city_txt = $city ? 'شهرستان ' . get_the_title( $city ) : '';
+	$prov_txt = $province ? 'استان ' . get_the_title( $province ) : '';
+	$terms    = get_the_terms( $post_id, 'attraction_type' );
+	$type_txt     = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'نمای برتر';
+	$is_waterfall = false !== mb_strpos( $title . ' ' . $type_txt, 'آبشار' );
+	$classes      = 'sa-attraction-diagram sa-attraction-diagram--' . sanitize_html_class( $context ) . ( $is_waterfall ? ' sa-attraction-diagram--waterfall' : ' sa-attraction-diagram--landscape' );
+	$aria     = trim( 'دیاگرام ' . $title . ' ' . $city_txt . ' ' . $prov_txt );
+
+	ob_start();
+	?>
+	<div class="<?php echo esc_attr( $classes ); ?>" role="img" aria-label="<?php echo esc_attr( $aria ); ?>">
+		<div class="sa-attraction-diagram__art" aria-hidden="true">
+			<svg viewBox="0 0 220 132" focusable="false">
+				<rect x="0" y="0" width="220" height="132" rx="18" class="sa-attraction-diagram__sky" />
+				<path d="M23 102 C45 78 58 61 78 50 C94 41 111 43 128 27 C145 13 165 18 191 7 L211 7 L211 124 L23 124 Z" class="sa-attraction-diagram__mountain" />
+				<path d="M48 106 C66 84 82 78 98 58 C111 43 125 38 137 22 C151 37 161 51 181 61 C190 66 198 78 204 96 L204 124 L48 124 Z" class="sa-attraction-diagram__ridge" />
+				<path d="M128 25 C121 43 121 55 113 70 C106 84 96 93 91 119" class="sa-attraction-diagram__water sa-attraction-diagram__water--main" />
+				<path d="M151 39 C145 54 147 65 139 78 C132 90 130 103 126 119" class="sa-attraction-diagram__water" />
+				<path d="M105 54 C99 67 101 75 94 87 C88 98 79 106 74 121" class="sa-attraction-diagram__water" />
+				<path d="M176 66 C168 78 166 91 158 103 C153 111 151 116 149 122" class="sa-attraction-diagram__water sa-attraction-diagram__water--thin" />
+				<path d="M68 77 C60 87 58 96 52 106 C48 113 43 118 39 123" class="sa-attraction-diagram__water sa-attraction-diagram__water--thin" />
+				<ellipse cx="112" cy="120" rx="73" ry="8" class="sa-attraction-diagram__pool" />
+				<path d="M27 104 C44 98 58 99 74 104 C95 112 113 111 134 105 C160 98 178 101 198 109" class="sa-attraction-diagram__contour" />
+				<circle cx="40" cy="38" r="10" class="sa-attraction-diagram__leaf" />
+				<circle cx="55" cy="31" r="8" class="sa-attraction-diagram__leaf" />
+				<circle cx="69" cy="39" r="9" class="sa-attraction-diagram__leaf" />
+				<circle cx="185" cy="35" r="8" class="sa-attraction-diagram__leaf" />
+				<circle cx="199" cy="43" r="9" class="sa-attraction-diagram__leaf" />
+			</svg>
+		</div>
+		<div class="sa-attraction-diagram__copy">
+			<span class="sa-attraction-diagram__eyebrow"><?php echo esc_html( $type_txt ); ?></span>
+			<strong><?php echo esc_html( $title ); ?></strong>
+			<?php if ( $city_txt || $prov_txt ) : ?>
+				<span><?php echo esc_html( trim( $city_txt . ( $city_txt && $prov_txt ? '، ' : '' ) . $prov_txt ) ); ?></span>
+			<?php endif; ?>
+		</div>
+	</div>
+	<?php
+	return trim( ob_get_clean() );
+}

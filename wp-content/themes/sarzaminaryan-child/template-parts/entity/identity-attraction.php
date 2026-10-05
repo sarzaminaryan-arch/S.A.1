@@ -38,14 +38,7 @@ $sa_map_url = sa_map_url( $sa_id );
 <header class="sa-attraction-id" aria-label="<?php echo esc_attr( 'شناسنامه نمای برتر ' . get_the_title() ); ?>">
 	<div class="container">
 		<div class="sa-attraction-id__card">
-			<div class="sa-attraction-id__media">
-				<?php if ( has_post_thumbnail() ) : ?>
-					<?php the_post_thumbnail( 'sa-attraction-id', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'class' => 'sa-attraction-id__img' ) ); ?>
-				<?php else : ?>
-					<div class="sa-attraction-id__placeholder" aria-hidden="true">نمای برتر</div>
-				<?php endif; ?>
-				<span class="sa-attraction-id__mark">SARZAMINARYAN</span>
-			</div>
+			<?php echo sa_attraction_diagram_markup( $sa_id, 'identity' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<div class="sa-attraction-id__body">
 				<p class="sa-attraction-id__eyebrow"><span></span><?php esc_html_e( 'شناسنامه نمای برتر', 'sarzaminaryan-child' ); ?></p>
 				<h1 class="entry-title sa-attraction-id__title"><?php the_title(); ?></h1>

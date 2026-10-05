@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.10
+Stable tag: 2.11.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.11 — 2026-10-05 =
+* حذف مدل تصویر بزرگ/شاخص از شناسنامه «نمای برتر» و جایگزینی با کارت سفید کوچکِ دیاگرام‌دار شامل نام مکان، شهرستان و استان.
+* نمایش دیاگرام سفید در کارت‌های آرشیو نمای برتر، به‌جای تصویر شاخص قدیمی یا نامناسب.
+* اختیاری شدن تصویر شاخص برای انتشار نوشته‌های «نمای برتر».
 
 = 2.11.10 — 2026-10-05 =
 * حذف شرط حداقل ۵ منبع/لینک بیرونی از دروازه انتشار نوشته‌های «نمای برتر»؛ منابع همچنان پیشنهادی‌اند اما مقاله را قفل نمی‌کنند.

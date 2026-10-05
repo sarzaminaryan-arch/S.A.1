@@ -3176,3 +3176,203 @@ main.site-main.container,
 		max-height: 360px;
 	}
 }
+
+/* ==========================================================================
+   v2.11.11 — «نمای برتر» white diagram card instead of large featured image
+   ========================================================================== */
+.sa-attraction-diagram {
+	direction: rtl;
+	display: grid;
+	grid-template-columns: 1.1fr .9fr;
+	gap: 10px;
+	align-items: center;
+	padding: 12px;
+	border: 1px solid rgba(15, 81, 50, .14);
+	border-radius: 22px;
+	background: #fff;
+	box-shadow: 0 18px 44px rgba(1,31,61,.10), inset 0 1px 0 rgba(255,255,255,.9);
+	color: #011f3d;
+}
+
+.sa-attraction-diagram__art {
+	min-width: 0;
+	border-radius: 18px;
+	background: linear-gradient(180deg, #f8fffb 0%, #eff8f3 100%);
+	overflow: hidden;
+}
+
+.sa-attraction-diagram svg {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.sa-attraction-diagram__sky {
+	fill: #ffffff;
+}
+
+.sa-attraction-diagram__mountain {
+	fill: #e9f6ee;
+	stroke: rgba(15,81,50,.22);
+	stroke-width: 1.2;
+}
+
+.sa-attraction-diagram__ridge {
+	fill: #d7eddf;
+	stroke: rgba(15,81,50,.20);
+	stroke-width: 1;
+}
+
+.sa-attraction-diagram__water {
+	fill: none;
+	stroke: #1397b8;
+	stroke-width: 5;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	filter: drop-shadow(0 2px 2px rgba(19,151,184,.22));
+}
+
+.sa-attraction-diagram__water--main {
+	stroke: #0f6f95;
+	stroke-width: 7;
+}
+
+.sa-attraction-diagram__water--thin {
+	stroke-width: 3;
+	stroke: #56b6cf;
+}
+
+.sa-attraction-diagram__pool {
+	fill: rgba(19,151,184,.24);
+}
+
+.sa-attraction-diagram__contour {
+	fill: none;
+	stroke: rgba(155,106,22,.42);
+	stroke-width: 2;
+	stroke-linecap: round;
+}
+
+.sa-attraction-diagram__leaf {
+	fill: #1f7a4d;
+	opacity: .82;
+}
+
+.sa-attraction-diagram__copy {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	min-width: 0;
+	text-align: right;
+}
+
+.sa-attraction-diagram__eyebrow {
+	width: fit-content;
+	padding: 4px 8px;
+	border-radius: 999px;
+	background: #e8f6ee;
+	color: #0f5132;
+	font-size: .72rem;
+	font-weight: 900;
+}
+
+.sa-attraction-diagram__copy strong {
+	color: #011f3d;
+	font-size: clamp(1.05rem, 2vw, 1.45rem);
+	font-weight: 950;
+	line-height: 1.35;
+}
+
+.sa-attraction-diagram__copy span:last-child {
+	color: #546879;
+	font-size: .82rem;
+	font-weight: 800;
+	line-height: 1.6;
+}
+
+.sa-attraction-id__card {
+	position: relative;
+	display: block;
+	min-height: 360px;
+	padding-left: clamp(275px, 32vw, 355px);
+}
+
+.sa-attraction-id__media,
+.sa-attraction-id__placeholder,
+.sa-attraction-id__mark {
+	display: none !important;
+}
+
+.sa-attraction-id .sa-attraction-diagram--identity {
+	position: absolute;
+	top: clamp(14px, 2.3vw, 24px);
+	left: clamp(14px, 2.3vw, 24px);
+	width: clamp(245px, 29vw, 315px);
+	min-height: 172px;
+	z-index: 2;
+}
+
+.sa-attraction-id__body {
+	position: relative;
+	z-index: 1;
+}
+
+.sa-card--attraction .sa-card__media {
+	background: linear-gradient(145deg, #f7fbf8, #fff);
+	padding: 10px;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card {
+	width: 100%;
+	height: 100%;
+	min-height: 0;
+	padding: 8px;
+	border-radius: 18px;
+	box-shadow: none;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__art {
+	align-self: stretch;
+	display: grid;
+	place-items: center;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy {
+	gap: 4px;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy strong {
+	font-size: .98rem;
+}
+
+.sa-card--attraction .sa-attraction-diagram--card .sa-attraction-diagram__copy span:last-child {
+	font-size: .72rem;
+}
+
+@media (max-width: 900px) {
+	.sa-attraction-id__card {
+		min-height: 0;
+		padding-left: clamp(14px, 3vw, 24px);
+	}
+
+	.sa-attraction-id .sa-attraction-diagram--identity {
+		position: static;
+		width: 100%;
+		max-width: 360px;
+		margin: 0 0 18px auto;
+	}
+}
+
+@media (max-width: 520px) {
+	.sa-attraction-diagram {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-card--attraction .sa-attraction-diagram--card {
+		grid-template-columns: 1.05fr .95fr;
+	}
+
+	.sa-attraction-id .sa-attraction-diagram--identity {
+		max-width: 100%;
+	}
+}
