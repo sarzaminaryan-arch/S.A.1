@@ -942,7 +942,8 @@ function sa_content_minimums( $type = '' ) {
 		),
 		'attraction' => array(
 			'faq' => 10,
-			'sources' => 5,
+			// v2.11.10: «نمای برتر» articles may be short, local and photo-led; sources stay recommended but no longer block publishing.
+			'sources' => 0,
 			'internal_links' => 10,
 			'coordinates' => true,
 		),
