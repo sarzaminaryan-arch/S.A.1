@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.15
+Stable tag: 2.11.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -38,6 +38,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 
 == Changelog ==
 
+= 2.11.16 — 2026-10-06 =
+* دو مقالهٔ آمادهٔ تازه: «تالاب ازگن (قارون) دورود» و «آبشار ازنادر (دره اسپر) دورود» با متن، متا، سئو، Rank Math، FAQ و منابع.
+* لینک‌دهی داخلی دوسویه بین مقاله‌های دورود، گهر، بیشه و دو مقالهٔ تازه.
 = 2.11.15 — 2026-10-05 =
 * ابزار «مقالات آمادهٔ نمای برتر» داخل قالب: مسیر پیشخوان سرزمین آریان → مقالات آمادهٔ نمای برتر.
 * مقاله‌ها فقط به‌صورت پیش‌نویس وارد می‌شوند؛ انتشار نهایی با مدیر است و نسخهٔ منتشرشده تنها با تیک «بازنویسی نسخهٔ منتشرشده» به‌روزرسانی می‌شود.
