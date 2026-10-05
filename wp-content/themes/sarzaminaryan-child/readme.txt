@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.12
+Stable tag: 2.11.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.13 — 2026-10-05 =
+* بازطراحی کارت تصویری «نمای برتر» به مدل کادر سفید با آیکون رنگی گوشه‌ای و اطلاعات مرکزچین؛ مناسب تصویر شاخص و شناسنامه مقصد.
+* اضافه‌شدن آیکون‌های رنگی تفکیک‌شده برای آبشار، دریاچه/تالاب، کوه/دره، پارک، غار و روستا در کارت‌های نمای برتر.
+* نمایش نام انگلیسی مقصد و موقعیت شهرستان/استان در کارت، برای هماهنگی با مدل تازه تصاویر شاخص.
 
 = 2.11.12 — 2026-10-05 =
 * برداشتن الزام ورود/شماره تلفن از ارسال عکس شهروندان؛ دکمه «ارسال عکس» مستقیم فرم آپلود را باز می‌کند، مگر مدیر دوباره ورود اجباری را فعال کند.

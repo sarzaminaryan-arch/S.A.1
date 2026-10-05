@@ -236,11 +236,74 @@ function sa_summary( $post, $words = 30 ) {
 	return wp_trim_words( $text, $words, '…' );
 }
 /**
- * Render a white diagram card for «نمای برتر» identity/archive visuals.
+ * Detect which colored icon should be used in the compact «نمای برتر» card.
  *
- * This replaces the old large featured-image presentation for attractions: the
- * card is generated from structured data, keeps a clean white background, and
- * prints the Persian place/city/province labels inside the visual area.
+ * @param int    $post_id Attraction post ID.
+ * @param string $title   Attraction title.
+ * @param string $type    Primary attraction type label.
+ * @return string
+ */
+function sa_attraction_icon_kind( $post_id, $title, $type = '' ) {
+	$haystack = $title . ' ' . $type . ' ' . get_post_meta( $post_id, 'sa_attraction_area', true );
+	if ( false !== mb_strpos( $haystack, 'آبشار' ) ) {
+		return 'waterfall';
+	}
+	if ( preg_match( '/(دریاچه|تالاب|سراب|چشمه)/u', $haystack ) ) {
+		return 'lake';
+	}
+	if ( false !== mb_strpos( $haystack, 'غار' ) ) {
+		return 'cave';
+	}
+	if ( preg_match( '/(روستا|دهستان|ییلاق)/u', $haystack ) ) {
+		return 'village';
+	}
+	if ( preg_match( '/(پارک|بوستان|تفرجگاه|باغ)/u', $haystack ) ) {
+		return 'park';
+	}
+	if ( preg_match( '/(کوه|دره|تنگه|اشترانکوه|گردنه|قله)/u', $haystack ) ) {
+		return 'mountain';
+	}
+	return 'landscape';
+}
+
+/**
+ * Colored corner icons for generated «نمای برتر» cards.
+ *
+ * @param string $kind waterfall|lake|mountain|park|cave|village|landscape.
+ * @return string SVG markup.
+ */
+function sa_attraction_diagram_icon_svg( $kind ) {
+	$icons = array(
+		'waterfall' => <<<'SVG'
+<svg viewBox="0 0 220 220" focusable="false" aria-hidden="true"><circle cx="110" cy="110" r="98" fill="#e8f8ff"/><path d="M33 151 C55 120 62 91 88 76 C112 62 125 70 143 48 C160 72 176 85 190 112 C199 129 203 143 204 168 Z" fill="#4a5b64"/><path d="M61 151 C76 114 91 87 110 72 C122 88 134 104 151 121 C164 134 174 150 181 169 Z" fill="#7a858a"/><path d="M92 70 L128 70 L128 154 C128 176 91 176 91 154 Z" fill="#ffffff"/><path d="M100 75 L122 75 L122 151 C122 166 100 166 100 151 Z" fill="#43c7f1"/><ellipse cx="111" cy="169" rx="70" ry="22" fill="#079bd2"/><path d="M43 163 C69 151 90 177 119 162 C148 147 165 174 192 160" fill="none" stroke="#b8f4ff" stroke-width="7" stroke-linecap="round"/><circle cx="42" cy="78" r="16" fill="#60bd25"/><circle cx="61" cy="62" r="18" fill="#4faf1f"/><circle cx="179" cy="80" r="18" fill="#57b926"/><circle cx="160" cy="65" r="16" fill="#4fad21"/></svg>
+SVG,
+		'lake'      => <<<'SVG'
+<svg viewBox="0 0 220 220" focusable="false" aria-hidden="true"><circle cx="110" cy="110" r="98" fill="#54c9f3"/><circle cx="58" cy="57" r="17" fill="#fff"/><circle cx="78" cy="53" r="13" fill="#fff"/><rect x="48" y="58" width="54" height="13" fill="#fff"/><circle cx="158" cy="63" r="14" fill="#fff"/><circle cx="178" cy="59" r="12" fill="#fff"/><rect x="149" y="64" width="43" height="11" fill="#fff"/><path d="M18 134 L78 55 L139 134 Z" fill="#2b8bc7"/><path d="M71 134 L136 38 L205 134 Z" fill="#1c6da8"/><path d="M78 55 L100 91 L69 86 Z M136 38 L162 86 L127 79 Z" fill="#fff"/><path d="M4 151 L61 101 L116 150 Z M107 151 L164 101 L218 151 Z" fill="#43a844"/><path d="M38 142 L52 111 L67 142 Z M55 143 L72 106 L90 143 Z M173 143 L189 110 L205 143 Z" fill="#236f38"/><ellipse cx="110" cy="154" rx="89" ry="36" fill="#0ca6d8"/><path d="M30 151 C64 140 86 164 118 151 C149 139 167 160 194 151 L194 177 C151 190 77 190 30 177 Z" fill="#7de0ee"/><path d="M48 157 C77 150 93 164 121 157 C149 150 164 162 187 157" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg>
+SVG,
+		'mountain'  => <<<'SVG'
+<svg viewBox="0 0 220 220" focusable="false" aria-hidden="true"><circle cx="110" cy="110" r="98" fill="#7ed8ff"/><path d="M8 164 L76 70 L137 164 Z" fill="#2f8ec7"/><path d="M70 164 L137 42 L216 164 Z" fill="#1e70ad"/><path d="M76 70 L97 101 L65 95 Z M137 42 L165 92 L129 83 Z" fill="#fff"/><path d="M0 180 C46 143 80 149 116 176 C151 203 186 194 220 166 L220 220 L0 220 Z" fill="#52b843"/><path d="M0 193 C49 162 85 169 116 190 C151 213 187 203 220 179 L220 220 L0 220 Z" fill="#2f923b"/><path d="M88 170 C108 178 114 192 139 195 C162 198 179 206 199 214" fill="none" stroke="#38bfe6" stroke-width="10" stroke-linecap="round"/><path d="M36 178 L50 146 L66 178 Z M54 178 L72 137 L91 178 Z M21 184 L34 158 L47 184 Z" fill="#126b34"/></svg>
+SVG,
+		'park'      => <<<'SVG'
+<svg viewBox="0 0 220 220" focusable="false" aria-hidden="true"><circle cx="110" cy="110" r="98" fill="#dff8ff"/><path d="M23 160 C53 133 89 120 126 122 C158 124 184 137 207 158 L207 220 L23 220 Z" fill="#b9ef9b"/><rect x="48" y="118" width="14" height="52" rx="7" fill="#8a5a2b"/><circle cx="50" cy="103" r="25" fill="#5aba32"/><circle cx="75" cy="94" r="22" fill="#6ac33b"/><circle cx="81" cy="121" r="24" fill="#47a82d"/><circle cx="43" cy="128" r="21" fill="#49ac2d"/><path d="M92 142 H166 A10 10 0 0 1 176 152 V160 H82 V152 A10 10 0 0 1 92 142 Z" fill="#d8893b"/><rect x="92" y="134" width="76" height="13" rx="6" fill="#f0a74b"/><path d="M97 160 L88 187 M164 160 L174 187" stroke="#4b2b14" stroke-width="6" stroke-linecap="round"/><path d="M147 79 H159 V172 H147 Z" fill="#1d4d62"/><path d="M141 78 C148 53 161 53 168 78 Z" fill="#173763"/><rect x="135" y="78" width="39" height="9" rx="4" fill="#173763"/><path d="M28 190 C72 174 113 174 162 190" fill="none" stroke="#f6dfbb" stroke-width="16" stroke-linecap="round"/></svg>
+SVG,
+		'cave'      => <<<'SVG'
+<svg viewBox="0 0 220 220" focusable="false" aria-hidden="true"><circle cx="110" cy="110" r="98" fill="#fff3e6"/><path d="M31 177 C37 111 64 61 105 44 C145 27 181 62 192 131 C196 153 190 171 178 187 L42 187 C35 184 32 181 31 177 Z" fill="#8a8178"/><path d="M59 178 C62 124 81 86 111 76 C142 85 158 124 161 178 Z" fill="#1b1c21"/><path d="M82 77 L95 126 L106 78 L122 132 L137 80 L145 126 L154 92 C141 76 126 68 111 66 C99 67 89 71 82 77 Z" fill="#d6c8b7"/><ellipse cx="110" cy="184" rx="82" ry="17" fill="#42b7d0"/><path d="M43 151 C62 138 80 143 92 158 M166 151 C150 141 135 145 126 158" fill="none" stroke="#b9e06f" stroke-width="12" stroke-linecap="round"/><circle cx="52" cy="145" r="12" fill="#5fb63a"/><circle cx="168" cy="145" r="14" fill="#60b93e"/></svg>
+SVG,
+		'village'   => <<<'SVG'
+<svg viewBox="0 0 220 220" focusable="false" aria-hidden="true"><circle cx="110" cy="110" r="98" fill="#c9f1ff"/><path d="M0 160 C41 126 82 119 118 142 C152 164 187 146 220 118 L220 220 L0 220 Z" fill="#6cc24a"/><path d="M0 179 C55 153 96 154 140 181 C169 198 192 196 220 184 L220 220 L0 220 Z" fill="#3b9f39"/><g><rect x="36" y="126" width="48" height="42" rx="4" fill="#fff4d8"/><path d="M30 128 L60 105 L91 128 Z" fill="#f27422"/><rect x="56" y="146" width="14" height="22" fill="#8b5a2b"/><rect x="41" y="137" width="12" height="10" fill="#7bc9e8"/></g><g><rect x="111" y="118" width="55" height="50" rx="4" fill="#fff1d4"/><path d="M104 120 L139 93 L174 120 Z" fill="#df5f1c"/><rect x="133" y="143" width="15" height="25" fill="#8b5a2b"/><rect x="116" y="132" width="12" height="10" fill="#7bc9e8"/></g><g><rect x="70" y="83" width="40" height="36" rx="4" fill="#fff5d9"/><path d="M64 85 L90 64 L116 85 Z" fill="#f58220"/></g><path d="M20 189 C67 159 112 160 168 197" fill="none" stroke="#f6d59e" stroke-width="16" stroke-linecap="round"/><path d="M27 165 V193 M45 160 V186 M187 153 V190 M202 145 V181" stroke="#7a4a24" stroke-width="5" stroke-linecap="round"/></svg>
+SVG,
+	);
+	if ( ! isset( $icons[ $kind ] ) ) {
+		$kind = 'mountain';
+	}
+	return $icons[ $kind ];
+}
+
+/**
+ * Render a white information card for «نمای برتر» identity/archive visuals.
+ *
+ * v2.11.13: the card uses a colored corner icon (waterfall/lake/mountain/park/cave/village)
+ * and rewrites the place information in the center, like a clean featured-image card.
  *
  * @param int    $post_id Attraction post ID.
  * @param string $context identity|card.
@@ -257,39 +320,32 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 	$province = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'province' ) : null;
 	$city_txt = $city ? 'شهرستان ' . get_the_title( $city ) : '';
 	$prov_txt = $province ? 'استان ' . get_the_title( $province ) : '';
+	$location = trim( $city_txt . ( $city_txt && $prov_txt ? '  |  ' : '' ) . $prov_txt );
 	$terms    = get_the_terms( $post_id, 'attraction_type' );
-	$type_txt     = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'نمای برتر';
-	$is_waterfall = false !== mb_strpos( $title . ' ' . $type_txt, 'آبشار' );
-	$classes      = 'sa-attraction-diagram sa-attraction-diagram--' . sanitize_html_class( $context ) . ( $is_waterfall ? ' sa-attraction-diagram--waterfall' : ' sa-attraction-diagram--landscape' );
-	$aria     = trim( 'دیاگرام ' . $title . ' ' . $city_txt . ' ' . $prov_txt );
+	$type_txt = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'نمای برتر';
+	$kind     = sa_attraction_icon_kind( $post_id, $title, $type_txt );
+	$classes  = 'sa-attraction-diagram sa-attraction-diagram--' . sanitize_html_class( $context ) . ' sa-attraction-diagram--icon-' . sanitize_html_class( $kind );
+	$aria     = trim( 'کارت معرفی ' . $title . ' ' . $city_txt . ' ' . $prov_txt );
+
+	$english_name = trim( (string) get_post_meta( $post_id, 'sa_english_name', true ) );
+	$city_en      = $city ? trim( ucwords( str_replace( '-', ' ', get_post_field( 'post_name', $city ) ) ) . ' city' ) : '';
+	$prov_en      = $province ? trim( ucwords( str_replace( '-', ' ', get_post_field( 'post_name', $province ) ) ) ) : '';
+	$english_line = implode( '  |  ', array_filter( array( $english_name, $city_en, $prov_en ) ) );
 
 	ob_start();
 	?>
 	<div class="<?php echo esc_attr( $classes ); ?>" role="img" aria-label="<?php echo esc_attr( $aria ); ?>">
 		<div class="sa-attraction-diagram__art" aria-hidden="true">
-			<svg viewBox="0 0 220 132" focusable="false">
-				<rect x="0" y="0" width="220" height="132" rx="18" class="sa-attraction-diagram__sky" />
-				<path d="M23 102 C45 78 58 61 78 50 C94 41 111 43 128 27 C145 13 165 18 191 7 L211 7 L211 124 L23 124 Z" class="sa-attraction-diagram__mountain" />
-				<path d="M48 106 C66 84 82 78 98 58 C111 43 125 38 137 22 C151 37 161 51 181 61 C190 66 198 78 204 96 L204 124 L48 124 Z" class="sa-attraction-diagram__ridge" />
-				<path d="M128 25 C121 43 121 55 113 70 C106 84 96 93 91 119" class="sa-attraction-diagram__water sa-attraction-diagram__water--main" />
-				<path d="M151 39 C145 54 147 65 139 78 C132 90 130 103 126 119" class="sa-attraction-diagram__water" />
-				<path d="M105 54 C99 67 101 75 94 87 C88 98 79 106 74 121" class="sa-attraction-diagram__water" />
-				<path d="M176 66 C168 78 166 91 158 103 C153 111 151 116 149 122" class="sa-attraction-diagram__water sa-attraction-diagram__water--thin" />
-				<path d="M68 77 C60 87 58 96 52 106 C48 113 43 118 39 123" class="sa-attraction-diagram__water sa-attraction-diagram__water--thin" />
-				<ellipse cx="112" cy="120" rx="73" ry="8" class="sa-attraction-diagram__pool" />
-				<path d="M27 104 C44 98 58 99 74 104 C95 112 113 111 134 105 C160 98 178 101 198 109" class="sa-attraction-diagram__contour" />
-				<circle cx="40" cy="38" r="10" class="sa-attraction-diagram__leaf" />
-				<circle cx="55" cy="31" r="8" class="sa-attraction-diagram__leaf" />
-				<circle cx="69" cy="39" r="9" class="sa-attraction-diagram__leaf" />
-				<circle cx="185" cy="35" r="8" class="sa-attraction-diagram__leaf" />
-				<circle cx="199" cy="43" r="9" class="sa-attraction-diagram__leaf" />
-			</svg>
+			<?php echo sa_attraction_diagram_icon_svg( $kind ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</div>
 		<div class="sa-attraction-diagram__copy">
-			<span class="sa-attraction-diagram__eyebrow"><?php echo esc_html( $type_txt ); ?></span>
 			<strong><?php echo esc_html( $title ); ?></strong>
-			<?php if ( $city_txt || $prov_txt ) : ?>
-				<span><?php echo esc_html( trim( $city_txt . ( $city_txt && $prov_txt ? '، ' : '' ) . $prov_txt ) ); ?></span>
+			<?php if ( $location ) : ?>
+				<span class="sa-attraction-diagram__meta"><?php echo esc_html( $location ); ?></span>
+			<?php endif; ?>
+			<span class="sa-attraction-diagram__pin" aria-hidden="true"></span>
+			<?php if ( $english_line ) : ?>
+				<span class="sa-attraction-diagram__english"><?php echo esc_html( $english_line ); ?></span>
 			<?php endif; ?>
 		</div>
 	</div>

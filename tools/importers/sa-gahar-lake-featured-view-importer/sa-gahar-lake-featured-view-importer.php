@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sarzamin Aryan — Gahar Lake Featured View Importer
  * Description: درون‌ریز تک‌مقاله «نمای برتر دریاچه گهر دورود» برای قالب سرزمین آریان؛ پیش‌نویس/مقاله، متاهای شناسنامه، سئو، Rank Math، FAQ، منابع و تصویر شاخص کارت سفید را می‌سازد/به‌روزرسانی می‌کند.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Sarzamin Aryan
  * License: GPLv2 or later
  * Text Domain: sa-gahar-lake-featured-view-importer
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 final class SA_Gahar_Lake_Featured_View_Importer {
-	const VERSION     = '1.0.0';
+	const VERSION     = '1.0.1';
 	const ACTION      = 'sa_gahar_lake_featured_view_import';
 	const NONCE       = 'sa_gahar_lake_featured_view_import_nonce';
 	const POST_SLUG   = 'gahar-lake-dorud';
@@ -393,10 +393,10 @@ final class SA_Gahar_Lake_Featured_View_Importer {
 			array(
 				'ID'           => $attachment_id,
 				'post_title'   => 'کارت سفید دریاچه گهر دورود لرستان',
-				'post_excerpt' => 'دریاچه گهر - شهرستان دورود - استان لرستان / Gahar lake - Dorud city - lorestan',
+				'post_excerpt' => 'دریاچه گهر | شهرستان دورود | استان لرستان / Gahar Lake | Dorud city | Lorestan',
 			)
 		);
-		update_post_meta( $attachment_id, '_wp_attachment_image_alt', 'کارت سفید دریاچه گهر شهرستان دورود استان لرستان با خط رنگی و نام انگلیسی Gahar lake - Dorud city - lorestan' );
+		update_post_meta( $attachment_id, '_wp_attachment_image_alt', 'کارت سفید دریاچه گهر شهرستان دورود استان لرستان با آیکون رنگی گوشه و نام انگلیسی Gahar Lake | Dorud city | Lorestan' );
 		set_post_thumbnail( $post_id, $attachment_id );
 	}
 
