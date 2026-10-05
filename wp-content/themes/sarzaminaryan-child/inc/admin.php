@@ -103,7 +103,8 @@ function sa_admin_dashboard_page() {
 
 	echo '<h2>ترتیب پیشنهادی تولید محتوا (سطح ۶ — لینک‌های داخلی همیشه مقصد داشته باشند)</h2>';
 	echo '<ol><li>۳۱ استان (صفحه‌های هاب)</li><li>شهرهای هر استان</li><li>نمای برتر هر شهر</li><li>غذاها و سوغات هر شهر</li><li>مسیرهای سفر</li></ol>';
-	echo '<p><a class="button button-primary" href="' . esc_url( admin_url( 'customize.php?autofocus[panel]=sa_panel' ) ) . '">تنظیمات قالب (سفارشی‌ساز)</a> ';
+	echo '<p><a class="button" href="' . esc_url( admin_url( 'admin.php?page=sa-ready-articles' ) ) . '">مقالات آمادهٔ نمای برتر</a> ';
+	echo '<a class="button button-primary" href="' . esc_url( admin_url( 'customize.php?autofocus[panel]=sa_panel' ) ) . '">تنظیمات قالب (سفارشی‌ساز)</a> ';
 	echo '<a class="button" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">فهرست‌ها</a> ';
 	echo '<a class="button" href="' . esc_url( admin_url( 'options-permalink.php' ) ) . '">پیوندهای یکتا (در صورت خطای ۴۰۴ یک‌بار ذخیره کنید)</a></p>';
 	echo '</div>';
