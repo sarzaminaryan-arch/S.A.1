@@ -1,2 +1,21 @@
 __pycache__/
 *.pyc
+
+# Generated packages and media must not live in the repository tree.
+# Publish installable ZIPs as GitHub Release assets instead.
+*.zip
+*.zip.sha256
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+*.rar
+
+# Large generated image/output folders are external artifacts, not source code.
+downloads/
+assets/featured/
+release/
+.tmp/
+tmp/
+*.log
+.DS_Store
