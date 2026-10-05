@@ -230,27 +230,93 @@ function sa_ready_articles_ensure_entity( $type, $slug, $title, $province_slug =
 }
 
 /**
- * Build a gallery figure for the article body when the attachment exists.
+ * Find an existing attachment whose stored file name contains the given name.
  *
- * @param array<string,string> $item file/caption/alt.
- * @return string
+ * @param string $file File name fragment.
+ * @return int Attachment ID or 0.
  */
-function sa_ready_articles_figure( $item ) {
-	if ( empty( $item['file'] ) ) {
-		return '';
+function sa_ready_articles_find_attachment( $file ) {
+	if ( '' === trim( (string) $file ) ) {
+		return 0;
 	}
 	global $wpdb;
-	$like = '%' . $wpdb->esc_like( $item['file'] );
+	$like = '%' . $wpdb->esc_like( $file );
 	$id   = $wpdb->get_var( // phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery,WordPress.DB.DirectDatabaseQuery.NoCaching
 		$wpdb->prepare(
 			"SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_wp_attached_file' AND meta_value LIKE %s ORDER BY post_id DESC LIMIT 1",
 			$like
 		)
 	);
+	return $id ? absint( $id ) : 0;
+}
+
+/**
+ * Import a whitelisted source image into the media library exactly once.
+ *
+ * Articles may carry a `url` next to `file`; when the owner has not uploaded a
+ * local copy yet, the picture is copied once into the site's own media library
+ * so published pages never hotlink an external host.  A `_sa_source_url` meta
+ * marker prevents duplicate imports on repeated runs.
+ *
+ * @param string $url     Image URL (must be Wikimedia-hosted).
+ * @param int    $post_id Parent post ID (0 for unattached).
+ * @return int Attachment ID or 0 on failure.
+ */
+function sa_ready_articles_sideload( $url, $post_id = 0 ) {
+	$url  = esc_url_raw( (string) $url );
+	$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+	if ( '' === $url || ! in_array( $host, array( 'upload.wikimedia.org', 'commons.wikimedia.org' ), true ) ) {
+		return 0;
+	}
+
+	$existing = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'meta_key'       => '_sa_source_url', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+			'meta_value'     => $url, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+			'fields'         => 'ids',
+			'posts_per_page' => 1,
+		)
+	);
+	if ( ! empty( $existing ) ) {
+		return absint( $existing[0] );
+	}
+
+	if ( ! function_exists( 'media_sideload_image' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/file.php';
+		require_once ABSPATH . 'wp-admin/includes/media.php';
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+	}
+	$attachment = media_sideload_image( $url, absint( $post_id ), null, 'id' );
+	if ( is_wp_error( $attachment ) || ! $attachment ) {
+		return 0;
+	}
+	$attachment = absint( $attachment );
+	update_post_meta( $attachment, '_sa_source_url', $url );
+	return $attachment;
+}
+
+/**
+ * Build a gallery figure for the article body when the attachment exists.
+ *
+ * @param array<string,string> $item file/caption/alt.
+ * @return string
+ */
+function sa_ready_articles_figure( $item, $post_id = 0 ) {
+	if ( empty( $item['file'] ) && empty( $item['url'] ) ) {
+		return '';
+	}
+	$id = 0;
+	if ( ! empty( $item['file'] ) ) {
+		$id = sa_ready_articles_find_attachment( $item['file'] );
+	}
+	if ( ! $id && ! empty( $item['url'] ) ) {
+		$id = sa_ready_articles_sideload( $item['url'], $post_id );
+	}
 	if ( ! $id ) {
 		return '';
 	}
-	$id    = absint( $id );
 	$image = wp_get_attachment_image( $id, 'large', false, array( 'loading' => 'lazy' ) );
 	if ( ! $image ) {
 		return '';
@@ -276,11 +342,11 @@ function sa_ready_articles_figure( $item ) {
  * @param array<string,mixed> $article Article definition.
  * @return string
  */
-function sa_ready_articles_content( $article ) {
+function sa_ready_articles_content( $article, $post_id = 0 ) {
 	$content = (string) $article['content'];
 	if ( ! empty( $article['gallery'] ) && is_array( $article['gallery'] ) ) {
 		foreach ( $article['gallery'] as $key => $item ) {
-			$content = str_replace( '{{GALLERY:' . $key . '}}', sa_ready_articles_figure( $item ), $content );
+			$content = str_replace( '{{GALLERY:' . $key . '}}', sa_ready_articles_figure( $item, $post_id ), $content );
 		}
 	}
 	return trim( preg_replace( '/\{\{GALLERY:[a-zA-Z0-9_-]+\}\}/', '', $content ) );
@@ -366,7 +432,7 @@ function sa_ready_article_import( $key, $overwrite_published = false ) {
 		'post_name'    => $article['slug'],
 		'post_title'   => $article['title'],
 		'post_excerpt' => $article['excerpt'],
-		'post_content' => sa_ready_articles_content( $article ),
+		'post_content' => sa_ready_articles_content( $article, $post_id ),
 	);
 
 	if ( $post_id ) {
@@ -385,6 +451,22 @@ function sa_ready_article_import( $key, $overwrite_published = false ) {
 
 	if ( ! isset( $postarr['ID'] ) ) {
 		sa_ready_articles_write_meta( $post_id, $article, $province_id, $city_id );
+	}
+
+	// Gallery items that point at a remote source need the post ID first, so the
+	// imported attachments belong to the article; re-render the body afterwards.
+	if ( ! empty( $article['gallery'] ) && is_array( $article['gallery'] ) ) {
+		foreach ( $article['gallery'] as $item ) {
+			if ( ! empty( $item['url'] ) ) {
+				wp_update_post(
+					array(
+						'ID'           => $post_id,
+						'post_content' => sa_ready_articles_content( $article, $post_id ),
+					)
+				);
+				break;
+			}
+		}
 	}
 
 	if ( function_exists( 'sa_sync_relations' ) ) {

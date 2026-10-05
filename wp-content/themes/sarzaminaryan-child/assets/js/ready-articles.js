@@ -112,6 +112,29 @@
 			ctx.fillRect( 0, -r * 0.12, r * 0.12, r * 0.12 );
 			ctx.fillRect( 0, r * 0.18, r * 0.12, r * 0.12 );
 			ctx.fillRect( r * 0.56, -r * 0.12, r * 0.12, r * 0.12 );
+		} else if ( 'castle' === kind ) {
+			/* Historical stronghold: crenellated tower on a hill. */
+			ctx.fillStyle = P.green || '#0f5132';
+			ctx.beginPath();
+			ctx.moveTo( -r, r * 0.62 );
+			ctx.lineTo( -r * 0.3, r * 0.02 );
+			ctx.lineTo( r * 0.38, r * 0.5 );
+			ctx.lineTo( r, r * 0.3 );
+			ctx.lineTo( r, r * 0.62 );
+			ctx.closePath();
+			ctx.fill();
+			ctx.fillStyle = P.navy || '#011f3d';
+			ctx.fillRect( -r * 0.9, r * 0.08, r * 0.92, r * 0.54 );
+			ctx.fillRect( -r * 0.9, -r * 0.08, r * 0.17, r * 0.18 );
+			ctx.fillRect( -r * 0.62, -r * 0.08, r * 0.17, r * 0.18 );
+			ctx.fillRect( -r * 0.34, -r * 0.08, r * 0.17, r * 0.18 );
+			ctx.fillRect( r * 0.14, -r * 0.34, r * 0.6, r * 0.96 );
+			ctx.fillRect( r * 0.14, -r * 0.5, r * 0.14, r * 0.18 );
+			ctx.fillRect( r * 0.36, -r * 0.5, r * 0.14, r * 0.18 );
+			ctx.fillRect( r * 0.58, -r * 0.5, r * 0.14, r * 0.18 );
+			ctx.fillStyle = P.gold || '#9b6a16';
+			ctx.fillRect( r * 0.34, r * 0.26, r * 0.18, r * 0.36 );
+			ctx.fillRect( -r * 0.66, r * 0.24, r * 0.16, r * 0.38 );
 		} else {
 			/* mountain / park / cave / village fall back to a mountain + sun. */
 			ctx.fillStyle = P.gold || '#9b6a16';

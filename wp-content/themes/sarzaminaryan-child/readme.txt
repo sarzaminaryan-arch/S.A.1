@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.18
+Stable tag: 2.11.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -38,6 +38,10 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 
 == Changelog ==
 
+= 2.11.19 — 2026-10-06 =
+* مقالهٔ آمادهٔ «قلعه فلک‌الافلاک (دژ شاپورخواست)» خرم‌آباد با متن، متا، سئو، Rank Math، FAQ و منابع.
+* گالری‌ها می‌توانند منبع اینترنتی ویکی‌مدیایی داشته باشند؛ در ایمپورت، تصویر یک‌بار به کتابخانهٔ رسانه منتقل می‌شود.
+* آیکون «قلعه» برای کارت تصویر شاخص و لینک‌دهی دوسویه از ورودی‌های دورود و بیشه.
 = 2.11.18 — 2026-10-06 =
 * گالری تصاویر واقعی برای مقالهٔ تالاب ازگن (قاب اسب‌های وحشی) و تنگه لی لی (دو نمای تنگه و حوضچه‌ها).
 = 2.11.17 — 2026-10-06 =
