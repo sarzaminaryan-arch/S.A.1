@@ -10,6 +10,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 $sa_id       = get_the_ID();
 $sa_type     = get_post_type();
+if ( 'attraction' === $sa_type ) {
+	get_template_part( 'template-parts/entity/identity-attraction' );
+	return;
+}
 $sa_city     = sa_get_parent( $sa_id, 'city' );
 $sa_province = sa_get_parent( $sa_id, 'province' );
 $sa_kicker   = sa_entity_label( $sa_type );

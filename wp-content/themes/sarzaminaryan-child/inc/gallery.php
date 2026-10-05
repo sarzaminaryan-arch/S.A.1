@@ -20,8 +20,9 @@ const SA_GALLERY_STATUS    = 'sa_gallery_status';
 const SA_GALLERY_PROVINCE  = 'sa_gallery_province_id';
 const SA_GALLERY_CITY      = 'sa_gallery_city_id';
 const SA_GALLERY_SOURCE    = 'sa_gallery_source';
-const SA_GALLERY_PLACE     = 'sa_gallery_place';
-const SA_GALLERY_WATERMARK = 'sarzaminaryan';
+const SA_GALLERY_PLACE       = 'sa_gallery_place';
+const SA_GALLERY_CONTRIBUTOR = 'sa_gallery_contributor';
+const SA_GALLERY_WATERMARK   = 'sarzaminaryan';
 
 /**
  * Register the internal album taxonomy on attachments.
@@ -485,6 +486,7 @@ function sa_gallery_handle_upload( $file, $args = array() ) {
 			'status'      => 'approved',
 			'caption'     => '',
 			'place'       => '',
+			'contributor' => '',
 		)
 	);
 
@@ -543,9 +545,10 @@ function sa_gallery_handle_upload( $file, $args = array() ) {
 		return $ok;
 	}
 
-	$place   = sanitize_text_field( $args['place'] );
-	$caption = sanitize_textarea_field( $args['caption'] );
-	$title   = $place ? $place : sprintf( 'گالری تصاویر %s', get_the_title( $city_id ) );
+	$place       = sanitize_text_field( $args['place'] );
+	$caption     = sanitize_textarea_field( $args['caption'] );
+	$contributor = sanitize_text_field( $args['contributor'] );
+	$title       = $place ? $place : sprintf( 'گالری تصاویر %s', get_the_title( $city_id ) );
 	$status  = in_array( $args['status'], array( 'approved', 'pending', 'rejected' ), true ) ? $args['status'] : 'pending';
 
 	$attachment_id = wp_insert_attachment(
@@ -573,6 +576,9 @@ function sa_gallery_handle_upload( $file, $args = array() ) {
 	update_post_meta( $attachment_id, SA_GALLERY_SOURCE, sanitize_key( $args['source'] ) );
 	if ( $place ) {
 		update_post_meta( $attachment_id, SA_GALLERY_PLACE, $place );
+	}
+	if ( $contributor ) {
+		update_post_meta( $attachment_id, SA_GALLERY_CONTRIBUTOR, $contributor );
 	}
 	update_post_meta( $attachment_id, '_wp_attachment_image_alt', sprintf( 'تصویر %1$s در شهرستان %2$s، استان %3$s - سرزمین آریان', $place ? $place : 'گالری', get_the_title( $city_id ), get_the_title( $province_id ) ) );
 
@@ -679,6 +685,7 @@ function sa_gallery_image_payload( $attachment_id ) {
 		'alt'      => $alt ? $alt : $post->post_title,
 		'place'    => get_post_meta( $attachment_id, SA_GALLERY_PLACE, true ) ?: $post->post_title,
 		'caption'  => $post->post_excerpt,
+		'contributor' => get_post_meta( $attachment_id, SA_GALLERY_CONTRIBUTOR, true ),
 		'download' => $full ? $full[0] : wp_get_attachment_url( $attachment_id ),
 	);
 }
@@ -709,6 +716,7 @@ function sa_gallery_album_payload( $province_id, $city_id ) {
 	return array(
 		'provinceId'    => absint( $province_id ),
 		'cityId'        => absint( $city_id ),
+		'uploadUrl'     => get_permalink( $city_id ) ? get_permalink( $city_id ) . '#cc-contrib' : '',
 		'title'         => 'آلبوم تصاویر ' . get_the_title( $city_id ),
 		'provinceTitle' => get_the_title( $province_id ),
 		'cityTitle'     => get_the_title( $city_id ),
@@ -762,8 +770,9 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 		return;
 	}
 
-	$headline = 'province' === $type ? 'گالری تصاویر استان ' . get_the_title( $province_id ) : 'گالری تصاویر ' . get_the_title( $post_id );
-	$intro    = 'province' === $type ? 'هر شهرستان یک آلبوم آماده دارد؛ تصاویر بهینه، سبک و دارای نشان سرزمین آریان هستند.' : 'تصاویر این شهرستان با لمس یا کشیدن آرام به تصویر بعدی می‌روند.';
+	$headline  = 'province' === $type ? 'گالری تصاویر استان ' . get_the_title( $province_id ) : 'گالری تصاویر ' . get_the_title( $post_id );
+	$intro     = 'province' === $type ? 'هر شهرستان یک آلبوم آماده دارد؛ تصاویر بهینه، سبک و دارای نشان سرزمین آریان هستند.' : 'تصاویر این شهرستان با لمس یا کشیدن آرام به تصویر بعدی می‌روند.';
+	$upload_to = 'city' === $type ? get_permalink( $post_id ) . '#cc-contrib' : '#' . $section_id . '-albums';
 	?>
 	<section class="sa-gallery" id="<?php echo esc_attr( $section_id ); ?>" data-sa-gallery-section aria-label="<?php echo esc_attr( $headline ); ?>">
 		<div class="sa-gallery__topbar">
@@ -772,13 +781,21 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 			<span class="sa-gallery__crumb"><?php echo esc_html( 'استان ' . get_the_title( $province_id ) ); ?></span>
 		</div>
 		<div class="sa-gallery__head">
-			<div>
-				<h2 class="sa-gallery__title"><?php echo esc_html( $headline ); ?></h2>
-				<p class="sa-gallery__intro"><?php echo esc_html( $intro ); ?></p>
+			<div class="sa-gallery__title-row">
+				<span class="sa-gallery__camera" aria-hidden="true">📷</span>
+				<div>
+					<h2 class="sa-gallery__title"><?php echo esc_html( $headline ); ?></h2>
+					<p class="sa-gallery__intro"><?php echo esc_html( $intro ); ?></p>
+				</div>
 			</div>
-			<span class="sa-gallery__hint"><?php esc_html_e( 'لمس/سوایپ برای تماشا', 'sarzaminaryan-child' ); ?></span>
+			<div class="sa-gallery__head-actions">
+				<span class="sa-gallery__hint"><?php esc_html_e( 'لمس/سوایپ برای تماشا', 'sarzaminaryan-child' ); ?></span>
+				<?php if ( $upload_to ) : ?>
+					<a class="sa-gallery__upload" href="<?php echo esc_url( $upload_to ); ?>"><?php esc_html_e( 'نمای برتر شهر/شهرستان‌تان را ارسال کنید', 'sarzaminaryan-child' ); ?></a>
+				<?php endif; ?>
+			</div>
 		</div>
-		<div class="sa-gallery__albums">
+		<div class="sa-gallery__albums" id="<?php echo esc_attr( $section_id . '-albums' ); ?>">
 			<?php foreach ( $albums as $index => $album ) : ?>
 				<?php $album_id = $section_id . '-album-' . absint( $album['cityId'] ); ?>
 				<article class="sa-gallery-card<?php echo $album['count'] ? '' : ' is-empty'; ?>" data-sa-gallery-album="<?php echo esc_attr( $album_id ); ?>" tabindex="0" role="button" aria-label="<?php echo esc_attr( $album['title'] ); ?>">
@@ -794,6 +811,9 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 					<div class="sa-gallery-card__body">
 						<h3><?php echo esc_html( $album['cityTitle'] ); ?></h3>
 						<p><?php echo $album['count'] ? esc_html( sprintf( '%s تصویر آماده نمایش', sa_fa_digits( $album['count'] ) ) ) : esc_html__( 'هنوز تصویری تأیید نشده؛ آلبوم آماده دریافت تصویر است.', 'sarzaminaryan-child' ); ?></p>
+						<?php if ( ! empty( $album['uploadUrl'] ) ) : ?>
+							<a class="sa-gallery-card__upload" data-sa-gallery-stop href="<?php echo esc_url( $album['uploadUrl'] ); ?>"><?php esc_html_e( 'ارسال عکس', 'sarzaminaryan-child' ); ?></a>
+						<?php endif; ?>
 					</div>
 				</article>
 				<script type="application/json" id="<?php echo esc_attr( $album_id ); ?>"><?php echo wp_json_encode( $album, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ); ?></script>
@@ -862,17 +882,30 @@ function sa_gallery_admin_page() {
 		$city_id     = isset( $_POST['sa_gallery_city_id'] ) ? absint( $_POST['sa_gallery_city_id'] ) : 0;
 		$province_id = sa_gallery_city_province_id( $city_id );
 		$place       = isset( $_POST['sa_gallery_place'] ) ? sanitize_text_field( wp_unslash( $_POST['sa_gallery_place'] ) ) : '';
+		$contributor = isset( $_POST['sa_gallery_contributor'] ) ? sanitize_text_field( wp_unslash( $_POST['sa_gallery_contributor'] ) ) : '';
 		$caption     = isset( $_POST['sa_gallery_caption'] ) ? sanitize_textarea_field( wp_unslash( $_POST['sa_gallery_caption'] ) ) : '';
 		$done        = 0;
 		$errors      = array();
+		$files       = isset( $_FILES['sa_gallery_images'] ) ? sa_gallery_normalise_files_array( $_FILES['sa_gallery_images'] ) : array();
 
-		foreach ( isset( $_FILES['sa_gallery_images'] ) ? sa_gallery_normalise_files_array( $_FILES['sa_gallery_images'] ) : array() as $file ) {
+		if ( ! $city_id || ! $province_id ) {
+			$errors[] = 'شهرستان معتبر انتخاب نشده است.';
+		}
+		if ( '' === $place ) {
+			$errors[] = 'نام مکان الزامی است.';
+		}
+		if ( empty( $files ) ) {
+			$errors[] = 'هیچ تصویری انتخاب نشده است.';
+		}
+
+		foreach ( empty( $errors ) ? $files : array() as $file ) {
 			$result = sa_gallery_handle_upload(
 				$file,
 				array(
 					'city_id'     => $city_id,
 					'province_id' => $province_id,
 					'place'       => $place,
+					'contributor' => $contributor,
 					'caption'     => $caption,
 					'source'      => 'admin',
 					'status'      => 'approved',
@@ -925,7 +958,8 @@ function sa_gallery_admin_page() {
 							<?php endforeach; ?>
 						</select>
 					</td></tr>
-					<tr><th scope="row"><label for="sa_gallery_place"><?php esc_html_e( 'نام مکان', 'sarzaminaryan-child' ); ?></label></th><td><input id="sa_gallery_place" name="sa_gallery_place" type="text" class="regular-text" placeholder="مثلاً میدان امیرچخماق"></td></tr>
+					<tr><th scope="row"><label for="sa_gallery_place"><?php esc_html_e( 'نام مکان', 'sarzaminaryan-child' ); ?></label></th><td><input id="sa_gallery_place" name="sa_gallery_place" type="text" class="regular-text" required placeholder="مثلاً دریاچه گهر یا آبشار بیشه"></td></tr>
+					<tr><th scope="row"><label for="sa_gallery_contributor">نام فرستنده/عکاس</label></th><td><input id="sa_gallery_contributor" name="sa_gallery_contributor" type="text" class="regular-text" placeholder="اختیاری"></td></tr>
 					<tr><th scope="row"><label for="sa_gallery_caption"><?php esc_html_e( 'توضیح تصویر', 'sarzaminaryan-child' ); ?></label></th><td><textarea id="sa_gallery_caption" name="sa_gallery_caption" rows="4" class="large-text" placeholder="توضیح کوتاه؛ زیر تصویر در گالری نمایش داده می‌شود."></textarea></td></tr>
 					<tr><th scope="row"><label for="sa_gallery_images"><?php esc_html_e( 'تصاویر', 'sarzaminaryan-child' ); ?></label></th><td><input id="sa_gallery_images" name="sa_gallery_images[]" type="file" accept="image/jpeg,image/png,image/webp" multiple required><p class="description"><?php esc_html_e( 'حداکثر ۱۵ مگابایت برای هر تصویر مدیر؛ خروجی بهینه معمولاً حدود ۲۶۰KB یا کمتر هدف‌گذاری می‌شود.', 'sarzaminaryan-child' ); ?></p></td></tr>
 				</tbody></table>
@@ -944,6 +978,9 @@ function sa_gallery_admin_page() {
  * @return void
  */
 function sa_gallery_sync_contribution_image_status( $submission_id, $status ) {
+	if ( class_exists( 'CC_Admin' ) && method_exists( 'CC_Admin', 'sync_image_meta' ) ) {
+		CC_Admin::sync_image_meta( $submission_id );
+	}
 	$image_id = (int) get_post_meta( $submission_id, 'cc_image_id', true );
 	if ( ! $image_id ) {
 		return;

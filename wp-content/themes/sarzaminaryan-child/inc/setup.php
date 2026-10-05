@@ -21,6 +21,7 @@ function sa_child_setup() {
 	add_image_size( 'sa-gallery-large', 1600, 1600, false );
 	add_image_size( 'sa-gallery-card', 720, 450, true );
 	add_image_size( 'sa-gallery-thumb', 360, 225, true );
+	add_image_size( 'sa-attraction-id', 520, 390, true );
 
 	register_nav_menus(
 		array(

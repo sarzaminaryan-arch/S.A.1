@@ -167,3 +167,37 @@
 	margin-top: .45em;
 	flex: 0 0 auto;
 }
+
+/* v2.11.9 — image-first contribution form */
+.cc-contrib__open {
+	font-size: 1.05rem;
+	min-height: 52px;
+	padding-inline: 22px;
+}
+
+.cc-place-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.cc-contrib__note {
+	margin: .8rem 0;
+	padding: .75rem .9rem;
+	border-radius: 12px;
+	background: #edf7ff;
+	border: 1px solid #c8dff3;
+	color: #24415f;
+	font-size: .92rem;
+	line-height: 1.8;
+}
+
+@media (max-width: 760px) {
+	.cc-place-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.cc-contrib__open {
+		width: 100%;
+	}
+}

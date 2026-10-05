@@ -511,3 +511,84 @@
 		transition: none !important;
 	}
 }
+
+/* v2.11.9 — stronger upload affordance for county albums */
+.sa-gallery__title-row {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	min-width: 0;
+}
+
+.sa-gallery__camera {
+	display: grid;
+	place-items: center;
+	width: 58px;
+	height: 58px;
+	border-radius: 20px;
+	background: #fff;
+	box-shadow: 0 12px 30px rgba(1,31,61,.12);
+	font-size: 1.65rem;
+	flex: 0 0 auto;
+}
+
+.sa-gallery__head-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 10px;
+	flex: 0 0 auto;
+}
+
+.sa-gallery__upload,
+.sa-gallery-card__upload {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	padding: 10px 16px;
+	border-radius: 999px;
+	background: linear-gradient(135deg, var(--sa-gallery-gold), #b37a1c);
+	color: #fff !important;
+	font-weight: 950;
+	text-decoration: none;
+	box-shadow: 0 14px 30px rgba(155,106,22,.22);
+}
+
+.sa-gallery__upload {
+	min-height: 50px;
+	padding-inline: 20px;
+	font-size: .95rem;
+}
+
+.sa-gallery-card__upload {
+	margin-top: 11px;
+	font-size: .84rem;
+}
+
+.sa-gallery__upload:hover,
+.sa-gallery-card__upload:hover {
+	filter: brightness(1.03);
+	transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+	.sa-gallery__title-row {
+		align-items: flex-start;
+	}
+
+	.sa-gallery__camera {
+		width: 50px;
+		height: 50px;
+		border-radius: 17px;
+	}
+
+	.sa-gallery__head-actions {
+		align-items: stretch;
+		width: 100%;
+	}
+
+	.sa-gallery__upload {
+		width: 100%;
+	}
+}

@@ -5,16 +5,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class CC_Media {
 	/**
-	 * Handle citizen image uploads. Since v2.11.7 the same gallery optimiser is
-	 * used here: real mime validation, WebP conversion, watermark, metadata strip
-	 * via re-encoding, raw-file deletion, and pending gallery status.
+	 * Handle citizen image uploads through the gallery optimiser.
 	 *
-	 * @param array  $file    Uploaded file array.
-	 * @param int    $city_id City post ID.
-	 * @param string $caption Optional caption from contribution text.
+	 * @param array  $file        Uploaded file array.
+	 * @param int    $city_id     City post ID.
+	 * @param string $caption     Optional editorial caption.
+	 * @param string $place       Place name written by sender.
+	 * @param string $contributor Optional sender/photographer name.
 	 * @return int|WP_Error
 	 */
-	public static function handle( $file, $city_id = 0, $caption = '' ) {
+	public static function handle( $file, $city_id = 0, $caption = '', $place = '', $contributor = '' ) {
 		if ( empty( $file ) || ( isset( $file['error'] ) && UPLOAD_ERR_NO_FILE === (int) $file['error'] ) ) {
 			return 0;
 		}
@@ -23,11 +23,12 @@ class CC_Media {
 			return sa_gallery_handle_upload(
 				$file,
 				array(
-					'city_id' => absint( $city_id ),
-					'caption' => wp_trim_words( wp_strip_all_tags( (string) $caption ), 28, '…' ),
-					'place'   => $city_id ? get_the_title( $city_id ) : '',
-					'source'  => 'citizen',
-					'status'  => 'pending',
+					'city_id'     => absint( $city_id ),
+					'caption'     => wp_trim_words( wp_strip_all_tags( (string) $caption ), 38, '…' ),
+					'place'       => $place ? $place : ( $city_id ? get_the_title( $city_id ) : '' ),
+					'contributor' => $contributor,
+					'source'      => 'citizen',
+					'status'      => 'pending',
 				)
 			);
 		}

@@ -189,7 +189,18 @@
 		var image = imageAt(activeIndex);
 		if (image) {
 			placeEl.textContent = image.place || activeAlbum.cityTitle || 'تصویر گالری';
-			descEl.textContent = image.caption || 'توضیحی برای این تصویر ثبت نشده است.';
+			var meta = [];
+			if (activeAlbum.cityTitle) {
+				meta.push('شهرستان ' + activeAlbum.cityTitle);
+			}
+			if (activeAlbum.provinceTitle) {
+				meta.push('استان ' + activeAlbum.provinceTitle);
+			}
+			if (image.contributor) {
+				meta.push('ارسالی: ' + image.contributor);
+			}
+			var caption = image.caption || 'توضیحی برای این تصویر ثبت نشده است.';
+			descEl.textContent = (meta.length ? meta.join(' · ') + ' — ' : '') + caption;
 			downloadEl.href = image.download || image.full || image.src || '#';
 			downloadEl.removeAttribute('hidden');
 			countEl.textContent = faNumber(activeIndex + 1) + ' / ' + faNumber(images.length);
@@ -262,7 +273,12 @@
 					openAlbum(album);
 				}
 			};
-			card.addEventListener('click', open);
+			card.addEventListener('click', function (event) {
+				if (event.target.closest('[data-sa-gallery-stop]')) {
+					return;
+				}
+				open();
+			});
 			card.addEventListener('keydown', function (event) {
 				if (event.key === 'Enter' || event.key === ' ') {
 					event.preventDefault();

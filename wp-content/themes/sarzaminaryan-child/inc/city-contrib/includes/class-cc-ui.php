@@ -29,21 +29,26 @@ class CC_UI {
  }
  public static function contrib_block(){
   if(!is_singular('city'))return;
-  $id=get_the_ID();
+  $id=get_the_ID();$province=function_exists('sa_gallery_city_province_id')?sa_gallery_city_province_id($id):(int)get_post_meta($id,'sa_province_id',true);
   echo '<section class="cc-block cc-contrib" id="cc-contrib" data-cc-contrib>';
-  echo '<h2 class="cc-block__title">در تکمیل اطلاعات این شهر مشارکت کنید</h2>';
-  echo '<p class="cc-contrib__hint">اطلاعات شما پس از بررسی ناظر منتشر می‌شود.</p>';
-  echo '<button type="button" class="cc-btn" data-cc-open>＋ مشارکت می‌کنم</button>';
-  echo '<form hidden data-cc-form><input type="hidden" name="city_id" value="'.esc_attr($id).'">';
-  echo '<label>نوع مشارکت<select name="type"><option value="place">معرفی مکان یا غذا</option><option value="correction">پیشنهاد اصلاح</option><option value="report">گزارش خطا یا تعطیلی</option><option value="tip">نکته محلی</option></select></label>';
-  echo '<label>توضیح<textarea name="text" minlength="30" maxlength="2500" required placeholder="حداقل ۳۰ نویسه…"></textarea></label>';
-  echo '<label>تصویر (اختیاری، حداکثر ۵ مگابایت)<input type="file" name="image" accept="image/jpeg,image/png,image/webp"></label>';
-  echo '<label class="cc-consent"><input type="checkbox" name="rights_confirm" value="1" required> تأیید می‌کنم متن/تصویر را خودم تولید کرده‌ام یا اجازهٔ انتشار آن را دارم و برای نمایش در سرزمین آریان ارسال می‌کنم.</label>';
+  echo '<h2 class="cc-block__title">نمای برتر شهر/شهرستان‌تان را ارسال کنید</h2>';
+  echo '<p class="cc-contrib__hint">یک عکس مجاز از طبیعت، چشم‌انداز یا مکان ارزشمند شهر/شهرستان بفرستید. فقط نام مکان الزامی است؛ شهرستان و استان به‌صورت خودکار از همین صفحه ثبت می‌شود و تصویر پس از بررسی مدیر وارد آلبوم می‌شود.</p>';
+  echo '<button type="button" class="cc-btn cc-btn--primary cc-contrib__open" data-cc-open>📷 ارسال عکس برای آلبوم</button>';
+  echo '<form hidden data-cc-form><input type="hidden" name="city_id" value="'.esc_attr($id).'"><input type="hidden" name="province_id" value="'.esc_attr($province).'">';
+  echo '<input type="hidden" name="type" value="photo">';
+  echo '<div class="cc-place-grid"><label>نام مکان <input type="text" name="place_name" required maxlength="120" placeholder="مثلاً دریاچه گهر، آبشار بیشه یا تنگه... "></label>';
+  echo '<label>شهرستان <input type="text" value="'.esc_attr(get_the_title($id)).'" readonly></label>';
+  echo '<label>استان <input type="text" value="'.esc_attr($province?get_the_title($province):'').'" readonly></label></div>';
+  echo '<label>نام فرستنده (اختیاری)<input type="text" name="contributor_name" maxlength="80" placeholder="اگر می‌خواهید کنار تصویر نمایش داده شود"></label>';
+  echo '<label>یادداشت اختیاری برای مدیر<textarea name="text" maxlength="700" placeholder="اختیاری: فصل عکس، مسیر دسترسی یا نکته کوتاه. این متن به‌صورت خودکار زیر تصویر منتشر نمی‌شود."></textarea></label>';
+  echo '<label>تصویر نمای برتر <input type="file" name="image" accept="image/jpeg,image/png,image/webp" required></label>';
+  echo '<p class="cc-contrib__note">پس از ارسال، تصویر به WebP سبک تبدیل می‌شود، فایل خام حذف می‌شود، نشان sarzaminaryan می‌گیرد و تا تأیید مدیر در سایت نمایش داده نمی‌شود.</p>';
+  echo '<label class="cc-consent"><input type="checkbox" name="rights_confirm" value="1" required> تأیید می‌کنم تصویر را خودم گرفته‌ام یا اجازهٔ انتشار آن را دارم و با نمایش آن در سرزمین آریان موافقم.</label>';
   echo '<input class="cc-hp" name="website" tabindex="-1" autocomplete="off">';
   echo '<button type="submit" class="cc-btn cc-btn--primary">ارسال برای بررسی</button> <button type="button" class="cc-btn cc-btn--ghost" data-cc-close>انصراف</button>';
   echo '<p data-cc-message role="status"></p></form>';
-  $url=get_permalink();$text='شهر من رو ببین و امتیاز بده: '.get_permalink();
-  echo '<div class="cc-share" data-url="'.esc_attr($url).'" data-text="'.esc_attr($text).'"><span class="cc-share__label">این شهر را با دوستان خود به اشتراک بگذارید:</span><button type="button" data-cc-share>ارسال برای دوستان</button><button type="button" data-cc-copy>کپی لینک</button><a href="https://t.me/share/url?url='.rawurlencode($url).'&text='.rawurlencode($text).'" target="_blank" rel="noopener">تلگرام</a><a href="https://wa.me/?text='.rawurlencode($text).'" target="_blank" rel="noopener">واتساپ</a></div>';
+  $url=get_permalink();$text='نمای برتر شهر من را ببین و عکس بفرست: '.get_permalink();
+  echo '<div class="cc-share" data-url="'.esc_attr($url).'" data-text="'.esc_attr($text).'"><span class="cc-share__label">این شهرستان را با دوستان خود به اشتراک بگذارید:</span><button type="button" data-cc-share>ارسال برای دوستان</button><button type="button" data-cc-copy>کپی لینک</button><a href="https://t.me/share/url?url='.rawurlencode($url).'&text='.rawurlencode($text).'" target="_blank" rel="noopener">تلگرام</a><a href="https://wa.me/?text='.rawurlencode($text).'" target="_blank" rel="noopener">واتساپ</a></div>';
   echo '</section>';
  }
  public static function top_cities_block($limit=7){
