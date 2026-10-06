@@ -57,14 +57,19 @@ $sa_map_url = sa_map_url( $sa_id );
 						<?php endif; ?>
 						<div class="sa-attraction-id__fact">
 							<span><?php echo esc_html( $sa_label ); ?></span>
-							<strong><?php echo esc_html( sa_digits( $sa_value ) ); ?></strong>
+							<strong>
+								<?php if ( 'استان' === $sa_label && $sa_province ) : ?>
+									<a class="sa-attraction-id__place-link" href="<?php echo esc_url( get_permalink( $sa_province ) ); ?>"><?php echo esc_html( sa_digits( $sa_value ) ); ?></a>
+								<?php elseif ( 'شهرستان' === $sa_label && $sa_city ) : ?>
+									<a class="sa-attraction-id__place-link" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( sa_digits( $sa_value ) ); ?></a>
+								<?php else : ?>
+									<?php echo esc_html( sa_digits( $sa_value ) ); ?>
+								<?php endif; ?>
+							</strong>
 						</div>
 					<?php endforeach; ?>
 				</div>
 				<div class="sa-attraction-id__actions">
-					<?php if ( $sa_city ) : ?>
-						<a class="sa-attraction-id__btn" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( 'صفحه ' . sa_entity_display_name( $sa_city, 'شهرستان' ) ); ?></a>
-					<?php endif; ?>
 					<?php if ( $sa_map_url ) : ?>
 						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener">مشاهده روی نقشه</a>
 					<?php endif; ?>

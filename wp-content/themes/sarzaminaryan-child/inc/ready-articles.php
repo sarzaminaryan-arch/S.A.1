@@ -265,7 +265,9 @@ function sa_ready_articles_find_attachment( $file ) {
 function sa_ready_articles_sideload( $url, $post_id = 0 ) {
 	$url  = esc_url_raw( (string) $url );
 	$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
-	if ( '' === $url || ! in_array( $host, array( 'upload.wikimedia.org', 'commons.wikimedia.org' ), true ) ) {
+	// Wikimedia now serves Commons thumbnails from this separate CDN host.
+	$allowed_hosts = array( 'upload.wikimedia.org', 'thumb.wikimedia.org', 'commons.wikimedia.org' );
+	if ( '' === $url || ! in_array( $host, $allowed_hosts, true ) ) {
 		return 0;
 	}
 

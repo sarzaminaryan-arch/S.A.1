@@ -3081,6 +3081,18 @@ main.site-main.container,
 	line-height: 1.6;
 }
 
+.sa-attraction-id__place-link {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-color: rgba(15,81,50,.35);
+	text-underline-offset: .18em;
+}
+
+.sa-attraction-id__place-link:hover {
+	color: var(--sa-id-green);
+	text-decoration-color: currentColor;
+}
+
 .sa-attraction-id__actions {
 	display: flex;
 	flex-wrap: wrap;
