@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.28
+Stable tag: 2.11.32
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,14 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.32 — 2026-10-06 =
+* انتشار خودکارِ مطالب در کانال تلگرام (Bot API) و حساب اینستاگرام (Instagram Graph API) — داخل قالب و بدون افزونه.
+* تلگرام: ارسال به‌صورت عکس+توضیح یا پیام متنی، با لینک قابل کلیک و هشتگ‌های خودکار.
+* اینستاگرام: انتشارِ تک‌تصویرِ JPEG با تلاشِ دوباره در صورت آماده‌نبودنِ رسانه.
+* جعبهٔ «شبکه‌های اجتماعی» در ویرایشگر: وضعیت، ارسالِ دستی و جلوگیری از ارسال برای هر مطلب.
+* صفحهٔ تنظیمات با قالبِ پیام، تأخیرِ ارسال، انواع محتوا، دکمه‌های تست و گزارشِ ۲۰ ردیفه.
+* راهنمای گام‌به‌گامِ راه‌اندازی در docs/social-auto-publish.md.
 
 = 2.11.28 — 2026-10-06 =
 * سه مقالهٔ آمادهٔ تازه برای شهرستان دورود (استان لرستان): آبشار شوی (تله زنگ)، تفرجگاه باباهور (بام دورود) و دره نیگاه (دره نگار).
