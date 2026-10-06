@@ -13,11 +13,14 @@ if ( is_array( $sa_type ) ) {
 	$sa_type = reset( $sa_type );
 }
 $sa_obj = get_post_type_object( $sa_type );
+$sa_top_views = is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type' );
 ?>
-<header class="sa-archive__head">
+<header class="sa-archive__head<?php echo $sa_top_views ? ' sa-archive__head--topviews' : ''; ?>">
 	<h1 class="sa-archive__title">
 		<?php
-		if ( is_post_type_archive() ) {
+		if ( $sa_top_views ) {
+			echo esc_html( 'این شما و این نماهای برتر پاره‌های تن ایران عزیز' );
+		} elseif ( is_post_type_archive() ) {
 			echo esc_html( $sa_obj ? $sa_obj->labels->name . ' ایران' : post_type_archive_title( '', false ) );
 		} else {
 			echo esc_html( wp_strip_all_tags( get_the_archive_title() ) );

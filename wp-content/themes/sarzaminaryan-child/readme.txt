@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.23
+Stable tag: 2.11.24
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -38,7 +38,10 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 
 == Changelog ==
 
-= 2.11.23 — 2026-10-06 =
+= 2.11.24 — 2026-10-06 =
+* صفحهٔ «نمای برتر» بازطراحی شد: بدون تصویر شاخص و بدون کارت دیاگرام؛ شبکهٔ مربع‌های تمیز با فاصلهٔ کم، هر مربع یک لینک با سایهٔ عمیق و حس سه‌بعدی، نام فارسی بولد، نام انگلیسی ریزتر زیر آن و شهرستان/استان در پایین کادر.
+* تیتر وسط‌چین بالای صفحهٔ نمای برتر: «این شما و این نماهای برتر پاره‌های تن ایران عزیز».
+
 * مقالهٔ آمادهٔ «غار علیصدر» (همدان/کبودرآهنگ) با متن پانزده‌بخشی، متا، سئو، Rank Math، دوازده پرسش متداول، ده منبع و چهار تصویر آزاد ویکی‌مدیایی.
 
 * مقالهٔ آمادهٔ «دشت لاله‌های واژگون کوهرنگ» (چهارمحال و بختیاری/کوهرنگ) با متن، متا، سئو، Rank Math، دوازده پرسش متداول، ده منبع و سه تصویر ویکی‌مدیایی.

@@ -3569,3 +3569,212 @@ main.site-main.container,
 		min-height: 150px;
 	}
 }
+
+/* ==========================================================================
+   v2.11.24 — «نمای برتر» minimal tiles (no featured image)
+   A clean grid of small, deeply shadowed 3D boxes. Each box is one link:
+   bold Persian name, smaller English line, then city · province.
+   ========================================================================== */
+
+/* Centered page heading above the grid. */
+.sa-archive__head--topviews {
+	margin: 1.5rem 0 1.25rem;
+	text-align: center;
+}
+
+.sa-archive__head--topviews .sa-archive__title {
+	margin: 0 auto 0.9rem;
+	max-width: 42ch;
+	font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+	font-weight: 800;
+	line-height: 1.75;
+	letter-spacing: -0.01em;
+}
+
+.sa-archive__head--topviews .sa-archive__title::after {
+	content: "";
+	display: block;
+	width: 72px;
+	height: 3px;
+	margin: 0.85rem auto 0;
+	border-radius: 999px;
+	background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+	opacity: 0.55;
+}
+
+.sa-archive__head--topviews .sa-archive__desc {
+	margin-inline: auto;
+	max-width: 62ch;
+	font-size: 0.92rem;
+	text-align: center;
+}
+
+.sa-archive__head--topviews .sa-filters {
+	justify-content: center;
+}
+
+/* Tight, even grid of clean squares. */
+.post-type-archive-attraction .sa-grid-cards,
+.tax-attraction_type .sa-grid-cards {
+	grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+	gap: 0.6rem;
+}
+
+/* The tile itself: reset the generic card box. */
+.sa-card--attraction {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	overflow: visible;
+}
+
+.sa-card--attraction:hover,
+.sa-card--attraction:focus-within {
+	box-shadow: none;
+	transform: none;
+}
+
+.sa-tile__link {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.3rem;
+	height: 100%;
+	min-height: 168px;
+	padding: 1.05rem 0.85rem 0.95rem;
+	text-align: center;
+	text-decoration: none;
+	color: var(--color-text);
+	background: linear-gradient(180deg, #ffffff 0%, #f7fafe 62%, #eef4fb 100%);
+	border: 1px solid rgba(18, 63, 115, 0.12);
+	border-radius: 18px;
+	box-shadow: var(--sa-shadow-deep);
+	transition: transform 0.18s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+/* Square proportions on the top-views page (elsewhere the tile grows with its text). */
+.post-type-archive-attraction .sa-tile__link,
+.tax-attraction_type .sa-tile__link {
+	aspect-ratio: 1 / 1;
+	min-height: 0;
+}
+
+.sa-card--attraction .sa-tile__link:hover,
+.sa-card--attraction .sa-tile__link:focus-visible {
+	transform: translateY(-4px);
+	border-color: rgba(18, 63, 115, 0.34);
+	box-shadow:
+		0 2px 0 rgba(255, 255, 255, 0.95) inset,
+		0 3px 0 rgba(11, 42, 74, 0.16),
+		0 22px 34px -14px rgba(11, 42, 74, 0.42),
+		0 44px 70px -34px rgba(7, 26, 48, 0.55);
+}
+
+.sa-card--attraction .sa-tile__link:active {
+	transform: translateY(-1px);
+}
+
+.sa-card--attraction .sa-tile__link:focus-visible {
+	outline: none;
+	box-shadow: var(--focus-ring), var(--sa-shadow-deep);
+}
+
+/* Tiny «نمای برتر» label. */
+.sa-tile__badge {
+	position: absolute;
+	inset-block-start: 0.6rem;
+	inset-inline-start: 0.7rem;
+	font-size: 0.62rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	color: var(--color-secondary);
+	opacity: 0.75;
+}
+
+.sa-tile__badge::after {
+	content: "";
+	display: block;
+	width: 20px;
+	height: 2px;
+	margin: 0.28rem auto 0;
+	border-radius: 999px;
+	background: var(--color-primary);
+	opacity: 0.35;
+}
+
+/* Bold Persian name — the main line of the box. */
+.sa-tile__title {
+	font-size: 1.08rem;
+	font-weight: 800;
+	line-height: 1.6;
+	color: var(--color-text);
+	overflow-wrap: anywhere;
+}
+
+/* English name: smaller, directly underneath. */
+.sa-tile__english {
+	font-size: 0.76rem;
+	line-height: 1.5;
+	color: var(--color-secondary);
+	opacity: 0.9;
+	unicode-bidi: isolate;
+	overflow-wrap: anywhere;
+}
+
+/* City · province, smallest line, pinned to the lower part of the box. */
+.sa-tile__place {
+	margin-block-start: auto;
+	padding-block-start: 0.5rem;
+	font-size: 0.72rem;
+	line-height: 1.6;
+	color: var(--color-secondary);
+	opacity: 0.92;
+}
+
+.sa-tile__place::before {
+	content: "";
+	display: block;
+	width: 26px;
+	height: 1px;
+	margin: 0 auto 0.45rem;
+	background: rgba(18, 63, 115, 0.22);
+}
+
+@media (max-width: 640px) {
+	.post-type-archive-attraction .sa-grid-cards,
+	.tax-attraction_type .sa-grid-cards {
+		grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+		gap: 0.5rem;
+	}
+
+	.sa-tile__link {
+		min-height: 148px;
+		border-radius: 15px;
+		padding: 0.9rem 0.7rem 0.85rem;
+	}
+
+	.sa-tile__title {
+		font-size: 0.98rem;
+	}
+
+	.sa-tile__english {
+		font-size: 0.7rem;
+	}
+
+	.sa-tile__place {
+		font-size: 0.66rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-tile__link {
+		transition: none;
+	}
+
+	.sa-card--attraction .sa-tile__link:hover,
+	.sa-card--attraction .sa-tile__link:focus-visible {
+		transform: none;
+	}
+}
