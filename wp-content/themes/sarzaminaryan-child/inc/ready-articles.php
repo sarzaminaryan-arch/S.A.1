@@ -627,8 +627,10 @@ function sa_ready_articles_page() {
 				$has_cover = $post_id ? has_post_thumbnail( $post_id ) : false;
 				$cover_id  = $post_id ? get_post_thumbnail_id( $post_id ) : 0;
 				$generated = $cover_id ? (bool) get_post_meta( $cover_id, '_sa_ready_cover_article', true ) : false;
-				$place     = implode( ' — ', array_filter( array( $article['city_name'], $article['province_name'] ) ) );
-				$city_line = 'شهرستان ' . $article['city_name'];
+				$city_name     = sa_normalize_place_name( $article['city_name'], 'city', '' );
+				$province_name = sa_normalize_place_name( $article['province_name'], 'province', '' );
+				$place         = implode( ' — ', array_filter( array( $city_name, $province_name ) ) );
+				$city_line     = 'شهرستان ' . $city_name;
 				?>
 				<tr>
 					<td>
@@ -680,7 +682,7 @@ function sa_ready_articles_page() {
 							data-english="<?php echo esc_attr( $article['english'] ); ?>"
 							data-kind="<?php echo esc_attr( $article['kind'] ); ?>"
 							data-city="<?php echo esc_attr( $city_line ); ?>"
-							data-province="<?php echo esc_attr( 'استان ' . $article['province_name'] ); ?>"
+							data-province="<?php echo esc_attr( 'استان ' . $province_name ); ?>"
 							<?php echo $post_id ? '' : 'disabled'; ?>>
 							ساخت کارت تصویر شاخص
 						</button>

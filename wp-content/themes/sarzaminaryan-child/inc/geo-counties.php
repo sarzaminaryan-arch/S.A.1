@@ -582,7 +582,7 @@ function sa_county_schema_graph( $graph ) {
 	$node = array(
 		'@type' => 'AdministrativeArea',
 		'@id'   => get_permalink( $id ) . '#county',
-		'name'  => get_the_title( $id ),
+		'name'  => sa_entity_display_name( $id ),
 		'url'   => get_permalink( $id ),
 	);
 	$lat = get_post_meta( $id, 'sa_city_latitude', true );

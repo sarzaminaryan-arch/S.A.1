@@ -89,7 +89,7 @@ class CC_Admin {
 		} elseif ( 'cc_city' === $col ) {
 			$city     = (int) get_post_meta( $id, 'cc_city_id', true );
 			$province = (int) get_post_meta( $id, 'cc_province_id', true );
-			echo esc_html( ( $city ? get_the_title( $city ) : '—' ) . ( $province ? '، ' . get_the_title( $province ) : '' ) );
+			echo esc_html( ( $city ? sa_entity_display_name( $city ) : '—' ) . ( $province ? '، ' . sa_entity_display_name( $province ) : '' ) );
 		} elseif ( 'cc_type' === $col ) {
 			echo esc_html( get_post_meta( $id, 'cc_type', true ) );
 		} elseif ( 'cc_image' === $col ) {
@@ -116,8 +116,8 @@ class CC_Admin {
 		<p>این فیلدها زیر تصویر گالری نمایش داده می‌شوند و هنگام تأیید، با attachment تصویر همگام می‌شوند.</p>
 		<table class="form-table" role="presentation"><tbody>
 			<tr><th><label for="cc_place_name">نام مکان</label></th><td><input class="regular-text" id="cc_place_name" name="cc_place_name" value="<?php echo esc_attr( get_post_meta( $post->ID, 'cc_place_name', true ) ); ?>" required></td></tr>
-			<tr><th>شهرستان</th><td><strong><?php echo esc_html( $city ? get_the_title( $city ) : '—' ); ?></strong><input type="hidden" name="cc_city_id" value="<?php echo esc_attr( $city ); ?>"></td></tr>
-			<tr><th>استان</th><td><strong><?php echo esc_html( $province ? get_the_title( $province ) : '—' ); ?></strong><input type="hidden" name="cc_province_id" value="<?php echo esc_attr( $province ); ?>"></td></tr>
+			<tr><th>شهرستان</th><td><strong><?php echo esc_html( $city ? sa_entity_display_name( $city, '' ) : '—' ); ?></strong><input type="hidden" name="cc_city_id" value="<?php echo esc_attr( $city ); ?>"></td></tr>
+			<tr><th>استان</th><td><strong><?php echo esc_html( $province ? sa_entity_display_name( $province, '' ) : '—' ); ?></strong><input type="hidden" name="cc_province_id" value="<?php echo esc_attr( $province ); ?>"></td></tr>
 			<tr><th><label for="cc_contributor_name">نام فرستنده/عکاس</label></th><td><input class="regular-text" id="cc_contributor_name" name="cc_contributor_name" value="<?php echo esc_attr( get_post_meta( $post->ID, 'cc_contributor_name', true ) ); ?>" placeholder="اختیاری"></td></tr>
 			<tr><th>یادداشت خام فرستنده</th><td><textarea class="large-text" rows="3" readonly><?php echo esc_textarea( get_post_meta( $post->ID, 'cc_sender_note', true ) ?: '—' ); ?></textarea><p class="description">این متن به‌صورت پیش‌فرض زیر تصویر منتشر نمی‌شود؛ اگر مفید و منطقی بود، مدیر می‌تواند خلاصهٔ تمیز آن را در فیلد بعدی بنویسد.</p></td></tr>
 			<tr><th><label for="cc_gallery_caption">توضیح کوتاه زیر تصویر</label></th><td><textarea class="large-text" rows="3" id="cc_gallery_caption" name="cc_gallery_caption"><?php echo esc_textarea( $post->post_content ); ?></textarea></td></tr>
@@ -146,7 +146,7 @@ class CC_Admin {
 		update_post_meta( $post_id, 'cc_contributor_name', $contributor );
 
 		remove_action( 'save_post_cc_submission', array( __CLASS__, 'save_meta' ), 10 );
-		wp_update_post( array( 'ID' => $post_id, 'post_title' => $place ? $place . ' — ' . get_the_title( get_post_meta( $post_id, 'cc_city_id', true ) ) : $post->post_title, 'post_content' => $caption ) );
+		wp_update_post( array( 'ID' => $post_id, 'post_title' => $place ? $place . ' — ' . sa_entity_display_name( (int) get_post_meta( $post_id, 'cc_city_id', true ) ) : $post->post_title, 'post_content' => $caption ) );
 		add_action( 'save_post_cc_submission', array( __CLASS__, 'save_meta' ), 10, 2 );
 
 		self::sync_image_meta( $post_id );
@@ -169,7 +169,7 @@ class CC_Admin {
 		if ( defined( 'SA_GALLERY_CONTRIBUTOR' ) ) {
 			update_post_meta( $image_id, SA_GALLERY_CONTRIBUTOR, $contributor );
 		}
-		wp_update_post( array( 'ID' => $image_id, 'post_title' => $place ? $place : get_the_title( $city_id ), 'post_excerpt' => $caption ) );
-		update_post_meta( $image_id, '_wp_attachment_image_alt', sprintf( 'تصویر %1$s در شهرستان %2$s، استان %3$s - سرزمین آریان', $place ? $place : 'نمای برتر', $city_id ? get_the_title( $city_id ) : '', $province_id ? get_the_title( $province_id ) : '' ) );
+		wp_update_post( array( 'ID' => $image_id, 'post_title' => $place ? $place : sa_entity_display_name( $city_id ), 'post_excerpt' => $caption ) );
+		update_post_meta( $image_id, '_wp_attachment_image_alt', sprintf( 'تصویر %1$s در شهرستان %2$s، استان %3$s - سرزمین آریان', $place ? $place : 'نمای برتر', $city_id ? sa_entity_display_name( $city_id, '' ) : '', $province_id ? sa_entity_display_name( $province_id, '' ) : '' ) );
 	}
 }

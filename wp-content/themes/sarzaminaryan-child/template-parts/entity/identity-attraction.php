@@ -25,8 +25,8 @@ $sa_type    = ( $sa_types && ! is_wp_error( $sa_types ) ) ? $sa_types[0]->name :
 $sa_season  = ( $sa_seasons && ! is_wp_error( $sa_seasons ) ) ? $sa_seasons[0]->name : '';
 $sa_fields  = array(
 	'نام انگلیسی'     => $sa_english,
-	'استان'           => $sa_province ? get_the_title( $sa_province ) : '',
-	'شهرستان'         => $sa_city ? get_the_title( $sa_city ) : '',
+	'استان'           => $sa_province ? sa_entity_display_name( $sa_province, '' ) : '',
+	'شهرستان'         => $sa_city ? sa_entity_display_name( $sa_city, '' ) : '',
 	'نوع نما'          => $sa_type,
 	'بهترین زمان'      => $sa_season,
 	'قدمت'             => get_post_meta( $sa_id, 'sa_attraction_age', true ),
@@ -43,7 +43,7 @@ $sa_map_url = sa_map_url( $sa_id );
 		<div class="sa-attraction-id__card">
 			<div class="sa-attraction-id__body">
 				<p class="sa-attraction-id__eyebrow"><span></span><?php esc_html_e( 'شناسنامه نمای برتر', 'sarzaminaryan-child' ); ?></p>
-				<h1 class="entry-title sa-attraction-id__title"><?php the_title(); ?></h1>
+				<h1 class="entry-title sa-attraction-id__title"><?php echo esc_html( sa_entity_display_name( $sa_id ) ); ?></h1>
 				<?php if ( $sa_english ) : ?>
 					<p class="sa-attraction-id__latin" dir="ltr"><?php echo esc_html( $sa_english ); ?></p>
 				<?php endif; ?>
@@ -63,7 +63,7 @@ $sa_map_url = sa_map_url( $sa_id );
 				</div>
 				<div class="sa-attraction-id__actions">
 					<?php if ( $sa_city ) : ?>
-						<a class="sa-attraction-id__btn" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( 'صفحه شهرستان ' . get_the_title( $sa_city ) ); ?></a>
+						<a class="sa-attraction-id__btn" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( 'صفحه ' . sa_entity_display_name( $sa_city, 'شهرستان' ) ); ?></a>
 					<?php endif; ?>
 					<?php if ( $sa_map_url ) : ?>
 						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener">مشاهده روی نقشه</a>

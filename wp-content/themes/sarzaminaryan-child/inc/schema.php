@@ -128,7 +128,7 @@ function sa_schema_ref( $post, $type ) {
 	return array(
 		'@type' => $type,
 		'@id'   => get_permalink( $post ) . '#place',
-		'name'  => get_the_title( $post ),
+		'name'  => sa_entity_display_name( $post ),
 		'url'   => get_permalink( $post ),
 	);
 }
@@ -144,7 +144,7 @@ function sa_schema_entity( $post ) {
 	$type = $post->post_type;
 	$node = array(
 		'@id'         => get_permalink( $id ) . '#place',
-		'name'        => get_the_title( $id ),
+		'name'        => sa_entity_display_name( $id ),
 		'url'         => get_permalink( $id ),
 		'description' => wp_strip_all_tags( sa_summary( $id, 50 ) ),
 	);
@@ -198,8 +198,8 @@ function sa_schema_entity( $post ) {
 				$node['address'] = array(
 					'@type'           => 'PostalAddress',
 					'streetAddress'   => $address,
-					'addressLocality' => $city ? get_the_title( $city ) : '',
-					'addressRegion'   => $province ? get_the_title( $province ) : '',
+					'addressLocality' => $city ? sa_entity_display_name( $city, '' ) : '',
+					'addressRegion'   => $province ? sa_entity_display_name( $province, '' ) : '',
 					'addressCountry'  => 'IR',
 				);
 			}

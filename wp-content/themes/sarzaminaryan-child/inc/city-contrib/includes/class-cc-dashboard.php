@@ -37,7 +37,7 @@ class CC_Dashboard {
   echo '<div class="cc-panel"><h2>فهرست کامل شهرهای دارای رأی ('.self::fa(count($rows)).' شهر از '.self::fa($total_cities).' شهرستان)</h2>';
   echo '<p><input type="search" id="cc-rank-filter" class="regular-text" placeholder="جست‌وجوی نام شهر یا استان…"></p>';
   echo '<table class="widefat striped cc-rank-table"><thead><tr><th>رتبه</th><th>شهر</th><th>استان</th><th>میانگین</th><th>آرا</th><th>نمودار</th></tr></thead><tbody>';
-  foreach($rows as $i=>$cid){$avg=(float)get_post_meta($cid,'cc_rating_avg',true);$cnt=(int)get_post_meta($cid,'cc_rating_count',true);$prov=CC_Rating::province_of($cid);$pct=$avg>0?round($avg/7*100):0;echo '<tr data-cc-row="'.esc_attr(strtolower($cid.'|'.get_the_title($cid).'|'.$prov)).'"><td>'.self::fa($i+1).'</td><td><a href="'.esc_url(get_edit_post_link($cid)).'">'.esc_html(get_the_title($cid)).'</a></td><td>'.esc_html($prov?:'—').'</td><td>'.esc_html(self::fa(number_format($avg,1))).'</td><td>'.esc_html(self::fa($cnt)).'</td><td><span class="cc-chart__bar cc-chart__bar--mini"><i style="width:'.esc_attr($pct).'%"></i></span></td></tr>';}
+  foreach($rows as $i=>$cid){$avg=(float)get_post_meta($cid,'cc_rating_avg',true);$cnt=(int)get_post_meta($cid,'cc_rating_count',true);$prov=CC_Rating::province_of($cid);$pct=$avg>0?round($avg/7*100):0;echo '<tr data-cc-row="'.esc_attr(strtolower($cid.'|'.sa_entity_display_name($cid,'').'|'.$prov)).'"><td>'.self::fa($i+1).'</td><td><a href="'.esc_url(get_edit_post_link($cid)).'">'.esc_html(sa_entity_display_name($cid,'')).'</a></td><td>'.esc_html($prov?:'—').'</td><td>'.esc_html(self::fa(number_format($avg,1))).'</td><td>'.esc_html(self::fa($cnt)).'</td><td><span class="cc-chart__bar cc-chart__bar--mini"><i style="width:'.esc_attr($pct).'%"></i></span></td></tr>';}
   echo '</tbody></table></div>';
   echo '<script>document.getElementById("cc-rank-filter").addEventListener("input",function(){var q=this.value.trim().toLowerCase();document.querySelectorAll("[data-cc-row]").forEach(function(tr){tr.style.display=tr.getAttribute("data-cc-row").indexOf(q)>-1?"":"none"})});</script>';
  }
@@ -49,7 +49,7 @@ class CC_Dashboard {
   foreach($q->posts as $p){$st=$p->post_status;$row_cls=$st==='pending'?'cc-row--pending':($st==='publish'?'cc-row--ok':'');$labels=array('pending'=>'در انتظار بررسی','publish'=>'منتشر شده','rejected'=>'رد شده','needs_edit'=>'نیاز به اصلاح');$img=(int)get_post_meta($p->ID,'cc_image_id',true);$user=get_userdata($p->post_author);
    echo '<tr class="'.esc_attr($row_cls).'">';
    echo '<td><span class="cc-chip cc-chip--'.($st==='pending'?'warn':($st==='publish'?'ok':'bad')).'">'.esc_html($labels[$st]??$st).'</span></td>';
-   echo '<td>'.esc_html(get_the_title(get_post_meta($p->ID,'cc_city_id',true))).'</td>';
+   echo '<td>'.esc_html(sa_entity_display_name((int)get_post_meta($p->ID,'cc_city_id',true),'')).'</td>';
    echo '<td>'.esc_html($types[get_post_meta($p->ID,'cc_type',true)]??'—').'</td>';
    echo '<td class="cc-subm-text">'.esc_html(wp_trim_words($p->post_content,25)).'</td>';
    echo '<td>'.($img?'<a href="'.esc_url(wp_get_attachment_url($img)).'" target="_blank" rel="noopener">'.wp_get_attachment_image($img,array(64,64)).'</a><span class="cc-chip cc-chip--img">تصویر</span>':'—').'</td>';

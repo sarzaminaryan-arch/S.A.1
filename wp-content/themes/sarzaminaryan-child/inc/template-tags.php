@@ -27,10 +27,10 @@ function sa_entity_facts( $post_id ) {
 	$province = sa_get_parent( $post_id, 'province' );
 	$city     = sa_get_parent( $post_id, 'city' );
 	if ( 'province' !== $type && $province ) {
-		$rows[] = array( 'label' => 'استان', 'value' => '<a href="' . esc_url( get_permalink( $province ) ) . '">' . esc_html( get_the_title( $province ) ) . '</a>', 'html' => true );
+		$rows[] = array( 'label' => 'استان', 'value' => '<a href="' . esc_url( get_permalink( $province ) ) . '">' . esc_html( sa_entity_display_name( $province, '' ) ) . '</a>', 'html' => true );
 	}
 	if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
-		$rows[] = array( 'label' => 'شهر', 'value' => '<a href="' . esc_url( get_permalink( $city ) ) . '">' . esc_html( get_the_title( $city ) ) . '</a>', 'html' => true );
+		$rows[] = array( 'label' => 'شهرستان', 'value' => '<a href="' . esc_url( get_permalink( $city ) ) . '">' . esc_html( sa_entity_display_name( $city, '' ) ) . '</a>', 'html' => true );
 	}
 
 	// Taxonomy enums.
@@ -160,7 +160,7 @@ function sa_card_meta( $post_id ) {
 	}
 	if ( 'city' === $type ) {
 		$p = sa_get_parent( $post_id, 'province' );
-		return $p ? 'استان ' . get_the_title( $p ) : '';
+		return $p ? sa_entity_display_name( $p, 'استان' ) : '';
 	}
 	if ( 'travel_route' === $type ) {
 		$terms = get_the_terms( $post_id, 'travel_duration' );
@@ -168,10 +168,10 @@ function sa_card_meta( $post_id ) {
 	}
 	$c = sa_get_parent( $post_id, 'city' );
 	if ( $c ) {
-		return get_the_title( $c );
+		return sa_entity_display_name( $c );
 	}
 	$p = sa_get_parent( $post_id, 'province' );
-	return $p ? 'استان ' . get_the_title( $p ) : '';
+	return $p ? sa_entity_display_name( $p, 'استان' ) : '';
 }
 
 /**

@@ -40,7 +40,7 @@ function sa_seo_title() {
 			return $custom;
 		}
 		$post = get_queried_object();
-		$name = get_the_title( $post );
+		$name = sa_is_entity( $post ) ? sa_entity_display_name( $post ) : get_the_title( $post );
 		if ( sa_is_entity( $post ) ) {
 			$parent = null;
 			if ( 'city' === $post->post_type ) {
@@ -57,9 +57,10 @@ function sa_seo_title() {
 				'souvenir'     => 'سوغات',
 			);
 			$prefix    = isset( $type_word[ $post->post_type ] ) ? $type_word[ $post->post_type ] : '';
-			$title     = trim( $prefix . ' ' . $name );
+			$title_name = 'province' === $post->post_type ? sa_entity_display_name( $post, '' ) : $name;
+			$title      = trim( $prefix . ' ' . $title_name );
 			if ( $parent ) {
-				$title .= ' | ' . get_the_title( $parent );
+				$title .= ' | ' . sa_entity_display_name( $parent );
 			}
 			return $title . ' | ' . $site;
 		}

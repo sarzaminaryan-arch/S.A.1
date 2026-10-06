@@ -174,7 +174,7 @@ add_filter( 'default_post_metadata', 'sa_region_default_meta', 10, 4 );
  * @return array<string,string>
  */
 function sa_region_published_cities() {
-	$map = get_transient( 'sa_region_cities' );
+	$map = get_transient( 'sa_region_cities_names_v2' );
 	if ( is_array( $map ) ) {
 		return $map;
 	}
@@ -193,10 +193,10 @@ function sa_region_published_cities() {
 	foreach ( $ids as $id ) {
 		$name = get_post_field( 'post_name', $id );
 		if ( $name ) {
-			$map[ $name ] = array( get_permalink( $id ), get_the_title( $id ) );
+			$map[ $name ] = array( get_permalink( $id ), sa_entity_display_name( $id ) );
 		}
 	}
-	set_transient( 'sa_region_cities', $map, 12 * HOUR_IN_SECONDS );
+	set_transient( 'sa_region_cities_names_v2', $map, 12 * HOUR_IN_SECONDS );
 	return $map;
 }
 
@@ -204,7 +204,7 @@ function sa_region_published_cities() {
  * پاک‌کردن کش با هر تغییر وضعیت.
  */
 function sa_region_flush() {
-	delete_transient( 'sa_region_cities' );
+	delete_transient( 'sa_region_cities_names_v2' );
 }
 add_action( 'transition_post_status', 'sa_region_flush' );
 add_action( 'deleted_post', 'sa_region_flush' );

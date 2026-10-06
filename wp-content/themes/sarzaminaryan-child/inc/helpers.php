@@ -63,6 +63,58 @@ function sa_entity_label( $type, $plural = false ) {
 }
 
 /**
+ * Normalize a province or city name when displaying it with a type label.
+ *
+ * Stored titles may already begin with «استان» or «شهرستان»; strip every
+ * repeated leading type word first, then add at most the requested one. Passing
+ * an empty prefix returns the bare place name; null preserves one existing
+ * prefix (if any).
+ *
+ * @param string      $name   Stored place name.
+ * @param string      $type   Entity type: province or city.
+ * @param string|null $prefix Prefix to show, empty for none, or null to preserve.
+ * @return string
+ */
+function sa_normalize_place_name( $name, $type, $prefix = null ) {
+	$name          = trim( wp_strip_all_tags( (string) $name ) );
+	$prefix_tokens = 'province' === $type ? array( 'استان' ) : ( 'city' === $type ? array( 'شهرستان', 'شهر' ) : array() );
+	$existing      = '';
+
+	if ( $prefix_tokens ) {
+		$tokens  = implode( '|', array_map( 'preg_quote', $prefix_tokens ) );
+		$space   = '[\\s\\p{Z}\\x{200c}]+';
+		$pattern = '/^(' . $tokens . ')' . $space . '/u';
+		if ( preg_match( $pattern, $name, $matches ) ) {
+			$existing = $matches[1];
+			$name     = preg_replace( '/^(?:' . $tokens . $space . ')+/u', '', $name );
+		}
+	}
+
+	if ( null === $prefix ) {
+		$prefix = $existing;
+	}
+	$prefix = trim( (string) $prefix );
+
+	return '' !== $prefix && '' !== $name ? $prefix . ' ' . $name : $name;
+}
+
+/**
+ * Front-end display name for an entity post, optionally with one type prefix.
+ *
+ * @param int|WP_Post $post_or_id Entity post or ID.
+ * @param string|null $prefix     Prefix to show, empty for none, or null to preserve.
+ * @return string
+ */
+function sa_entity_display_name( $post_or_id, $prefix = null ) {
+	$post = get_post( $post_or_id );
+	if ( ! $post ) {
+		return '';
+	}
+
+	return sa_normalize_place_name( get_the_title( $post ), $post->post_type, $prefix );
+}
+
+/**
  * Convert ASCII digits (and Arabic-Indic) to Persian digits.
  *
  * @param string|int|float $value Value.
@@ -315,11 +367,11 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 		return '';
 	}
 
-	$title    = get_the_title( $post_id );
+	$title    = sa_entity_display_name( $post_id );
 	$city     = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'city' ) : null;
 	$province = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'province' ) : null;
-	$city_txt = $city ? 'شهرستان ' . get_the_title( $city ) : '';
-	$prov_txt = $province ? 'استان ' . get_the_title( $province ) : '';
+	$city_txt = $city ? sa_entity_display_name( $city, 'شهرستان' ) : '';
+	$prov_txt = $province ? sa_entity_display_name( $province, 'استان' ) : '';
 	$location = trim( $city_txt . ( $city_txt && $prov_txt ? '  |  ' : '' ) . $prov_txt );
 	$terms    = get_the_terms( $post_id, 'attraction_type' );
 	$type_txt = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'نمای برتر';

@@ -100,7 +100,7 @@ function sa_gallery_ensure_album_terms( $province_id, $city_id = 0 ) {
 		return $result;
 	}
 
-	$province_name = get_the_title( $province_id );
+	$province_name = sa_entity_display_name( $province_id, '' );
 	$province_slug = sa_gallery_album_slug( $province_id );
 	$province_term = term_exists( $province_slug, SA_GALLERY_TAXONOMY );
 	if ( ! $province_term ) {
@@ -118,7 +118,7 @@ function sa_gallery_ensure_album_terms( $province_id, $city_id = 0 ) {
 	}
 
 	if ( $city_id ) {
-		$city_name = get_the_title( $city_id );
+		$city_name = sa_entity_display_name( $city_id, '' );
 		$city_slug = sa_gallery_album_slug( $province_id, $city_id );
 		$city_term = term_exists( $city_slug, SA_GALLERY_TAXONOMY );
 		if ( ! $city_term ) {
@@ -548,7 +548,7 @@ function sa_gallery_handle_upload( $file, $args = array() ) {
 	$place       = sanitize_text_field( $args['place'] );
 	$caption     = sanitize_textarea_field( $args['caption'] );
 	$contributor = sanitize_text_field( $args['contributor'] );
-	$title       = $place ? $place : sprintf( 'گالری تصاویر %s', get_the_title( $city_id ) );
+	$title       = $place ? $place : sprintf( 'گالری تصاویر %s', sa_entity_display_name( $city_id ) );
 	$status  = in_array( $args['status'], array( 'approved', 'pending', 'rejected' ), true ) ? $args['status'] : 'pending';
 
 	$attachment_id = wp_insert_attachment(
@@ -580,7 +580,7 @@ function sa_gallery_handle_upload( $file, $args = array() ) {
 	if ( $contributor ) {
 		update_post_meta( $attachment_id, SA_GALLERY_CONTRIBUTOR, $contributor );
 	}
-	update_post_meta( $attachment_id, '_wp_attachment_image_alt', sprintf( 'تصویر %1$s در شهرستان %2$s، استان %3$s - سرزمین آریان', $place ? $place : 'گالری', get_the_title( $city_id ), get_the_title( $province_id ) ) );
+	update_post_meta( $attachment_id, '_wp_attachment_image_alt', sprintf( 'تصویر %1$s در شهرستان %2$s، استان %3$s - سرزمین آریان', $place ? $place : 'گالری', sa_entity_display_name( $city_id, '' ), sa_entity_display_name( $province_id, '' ) ) );
 
 	$terms = sa_gallery_ensure_album_terms( $province_id, $city_id );
 	if ( ! empty( $terms['city'] ) ) {
@@ -717,9 +717,9 @@ function sa_gallery_album_payload( $province_id, $city_id ) {
 		'provinceId'    => absint( $province_id ),
 		'cityId'        => absint( $city_id ),
 		'uploadUrl'     => get_permalink( $city_id ) ? get_permalink( $city_id ) . '#cc-contrib' : '',
-		'title'         => 'آلبوم تصاویر ' . get_the_title( $city_id ),
-		'provinceTitle' => get_the_title( $province_id ),
-		'cityTitle'     => get_the_title( $city_id ),
+		'title'         => 'آلبوم تصاویر ' . sa_entity_display_name( $city_id, 'شهرستان' ),
+		'provinceTitle' => sa_entity_display_name( $province_id, '' ),
+		'cityTitle'     => sa_entity_display_name( $city_id, '' ),
 		'count'         => count( $images ),
 		'cover'         => $cover,
 		'images'        => $images,
@@ -770,7 +770,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 		return;
 	}
 
-	$headline  = 'province' === $type ? 'گالری تصاویر استان ' . get_the_title( $province_id ) : 'گالری تصاویر ' . get_the_title( $post_id );
+	$headline  = 'province' === $type ? 'گالری تصاویر ' . sa_entity_display_name( $province_id, 'استان' ) : 'گالری تصاویر ' . sa_entity_display_name( $post_id );
 	$intro     = 'province' === $type ? 'هر شهرستان یک آلبوم آماده دارد؛ تصاویر بهینه، سبک و دارای نشان سرزمین آریان هستند.' : 'تصاویر این شهرستان با لمس یا کشیدن آرام به تصویر بعدی می‌روند.';
 	$upload_to = 'city' === $type ? get_permalink( $post_id ) . '#cc-contrib' : '#' . $section_id . '-albums';
 	?>
@@ -778,7 +778,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 		<div class="sa-gallery__topbar">
 			<span class="sa-gallery__pulse" aria-hidden="true"></span>
 			<span class="sa-gallery__eyebrow"><?php esc_html_e( 'آلبوم تصاویر', 'sarzaminaryan-child' ); ?></span>
-			<span class="sa-gallery__crumb"><?php echo esc_html( 'استان ' . get_the_title( $province_id ) ); ?></span>
+			<span class="sa-gallery__crumb"><?php echo esc_html( sa_entity_display_name( $province_id, 'استان' ) ); ?></span>
 		</div>
 		<div class="sa-gallery__head">
 			<div class="sa-gallery__title-row">
@@ -799,7 +799,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 			<?php foreach ( $albums as $index => $album ) : ?>
 				<?php $album_id = $section_id . '-album-' . absint( $album['cityId'] ); ?>
 				<article class="sa-gallery-card<?php echo $album['count'] ? '' : ' is-empty'; ?>" data-sa-gallery-album="<?php echo esc_attr( $album_id ); ?>" tabindex="0" role="button" aria-label="<?php echo esc_attr( $album['title'] ); ?>">
-					<div class="sa-gallery-card__bar"><span class="sa-gallery-card__dot" aria-hidden="true"></span><span><?php echo esc_html( 'آلبوم ' . $album['cityTitle'] ); ?></span></div>
+					<div class="sa-gallery-card__bar"><span class="sa-gallery-card__dot" aria-hidden="true"></span><span><?php echo esc_html( 'آلبوم شهرستان ' . $album['cityTitle'] ); ?></span></div>
 					<div class="sa-gallery-card__media">
 						<?php if ( $album['cover'] ) : ?>
 							<img src="<?php echo esc_url( $album['cover'] ); ?>" alt="<?php echo esc_attr( $album['title'] ); ?>" loading="lazy" decoding="async">
@@ -809,7 +809,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 						<span class="sa-gallery-card__watermark">sarzaminaryan</span>
 					</div>
 					<div class="sa-gallery-card__body">
-						<h3><?php echo esc_html( $album['cityTitle'] ); ?></h3>
+						<h3><?php echo esc_html( 'شهرستان ' . $album['cityTitle'] ); ?></h3>
 						<p><?php echo $album['count'] ? esc_html( sprintf( '%s تصویر آماده نمایش', sa_fa_digits( $album['count'] ) ) ) : esc_html__( 'هنوز تصویری تأیید نشده؛ آلبوم آماده دریافت تصویر است.', 'sarzaminaryan-child' ); ?></p>
 						<?php if ( ! empty( $album['uploadUrl'] ) ) : ?>
 							<a class="sa-gallery-card__upload" data-sa-gallery-stop href="<?php echo esc_url( $album['uploadUrl'] ); ?>"><?php esc_html_e( 'ارسال عکس', 'sarzaminaryan-child' ); ?></a>
@@ -954,7 +954,7 @@ function sa_gallery_admin_page() {
 							<option value=""><?php esc_html_e( 'انتخاب کنید…', 'sarzaminaryan-child' ); ?></option>
 							<?php foreach ( $cities as $city ) : ?>
 								<?php $province_id = sa_gallery_city_province_id( $city->ID ); ?>
-								<option value="<?php echo esc_attr( $city->ID ); ?>"><?php echo esc_html( get_the_title( $province_id ) . ' — ' . get_the_title( $city ) ); ?></option>
+								<option value="<?php echo esc_attr( $city->ID ); ?>"><?php echo esc_html( sa_entity_display_name( $province_id, 'استان' ) . ' — ' . sa_entity_display_name( $city, 'شهرستان' ) ); ?></option>
 							<?php endforeach; ?>
 						</select>
 					</td></tr>

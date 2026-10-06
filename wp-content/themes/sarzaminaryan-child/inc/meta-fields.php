@@ -147,13 +147,14 @@ function sa_posts_dropdown( $name, $type, $selected, $multiple ) {
 		if ( in_array( $type, array( 'city', 'attraction' ), true ) ) {
 			$prov = (int) get_post_meta( $p->ID, 'sa_province_id', true );
 			if ( $prov ) {
-				$suffix = ' (' . get_the_title( $prov ) . ')';
+				$suffix = ' (' . sa_entity_display_name( $prov ) . ')';
 			}
 		}
 		if ( 'publish' !== $p->post_status ) {
 			$suffix .= ' [پیش‌نویس]';
 		}
-		printf( '<option value="%d"%s>%s</option>', $p->ID, selected( in_array( $p->ID, $selected, true ), true, false ), esc_html( $p->post_title . $suffix ) );
+		$title = sa_entity_display_name( $p );
+		printf( '<option value="%d"%s>%s</option>', $p->ID, selected( in_array( $p->ID, $selected, true ), true, false ), esc_html( $title . $suffix ) );
 	}
 	echo '</select>';
 	if ( empty( $posts ) ) {

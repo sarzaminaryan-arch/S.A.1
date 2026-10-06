@@ -9,9 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 $sa_id = get_the_ID();
-sa_cards_section( sa_get_children( $sa_id, 'attraction' ), 'نمای برتر ' . get_the_title(), '', 'attractions' );
-sa_cards_section( sa_get_children( $sa_id, 'local_food' ), 'غذاهای محلی ' . get_the_title(), '', 'foods' );
-sa_cards_section( sa_get_children( $sa_id, 'souvenir' ), 'سوغات ' . get_the_title(), '', 'souvenirs' );
+sa_cards_section( sa_get_children( $sa_id, 'attraction' ), 'نمای برتر ' . sa_entity_display_name( $sa_id ), '', 'attractions' );
+sa_cards_section( sa_get_children( $sa_id, 'local_food' ), 'غذاهای محلی ' . sa_entity_display_name( $sa_id ), '', 'foods' );
+sa_cards_section( sa_get_children( $sa_id, 'souvenir' ), 'سوغات ' . sa_entity_display_name( $sa_id ), '', 'souvenirs' );
 sa_cards_section( sa_get_children( $sa_id, 'travel_route' ), 'مسیرهای سفری که از این شهر می‌گذرند', '', 'routes' );
 $sa_province = sa_get_parent( $sa_id, 'province' );
 if ( $sa_province ) {
@@ -21,5 +21,5 @@ if ( $sa_province ) {
 			return $c->ID !== $sa_id;
 		}
 	);
-	sa_cards_section( array_slice( $sa_siblings, 0, 8 ), 'شهرهای دیگر استان ' . get_the_title( $sa_province ), get_permalink( $sa_province ), 'related-cities' );
+	sa_cards_section( array_slice( $sa_siblings, 0, 8 ), 'شهرهای دیگر ' . sa_entity_display_name( $sa_province, 'استان' ), get_permalink( $sa_province ), 'related-cities' );
 }

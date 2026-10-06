@@ -35,10 +35,10 @@ function sa_get_breadcrumb_items() {
 			$province = sa_get_parent( $post->ID, 'province' );
 			$city     = sa_get_parent( $post->ID, 'city' );
 			if ( 'province' !== $type && $province ) {
-				$items[] = array( 'name' => get_the_title( $province ), 'url' => get_permalink( $province ) );
+				$items[] = array( 'name' => sa_entity_display_name( $province ), 'url' => get_permalink( $province ) );
 			}
 			if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
-				$items[] = array( 'name' => get_the_title( $city ), 'url' => get_permalink( $city ) );
+				$items[] = array( 'name' => sa_entity_display_name( $city ), 'url' => get_permalink( $city ) );
 			}
 		} elseif ( 'post' === $type ) {
 			$blog = (int) get_option( 'page_for_posts' );
@@ -54,7 +54,7 @@ function sa_get_breadcrumb_items() {
 				$items[] = array( 'name' => get_the_title( $ancestor ), 'url' => get_permalink( $ancestor ) );
 			}
 		}
-		$items[] = array( 'name' => get_the_title( $post ), 'url' => '' );
+		$items[] = array( 'name' => sa_is_entity( $post ) ? sa_entity_display_name( $post ) : get_the_title( $post ), 'url' => '' );
 		return $items;
 	}
 
@@ -63,7 +63,7 @@ function sa_get_breadcrumb_items() {
 	} elseif ( is_tax( 'province_tax' ) ) {
 		$term = get_queried_object();
 		$items[] = array( 'name' => 'استان‌ها', 'url' => sa_archive_url( 'province' ) );
-		$items[] = array( 'name' => 'استان ' . $term->name, 'url' => '' );
+		$items[] = array( 'name' => sa_normalize_place_name( $term->name, 'province', 'استان' ), 'url' => '' );
 	} elseif ( is_tax() || is_category() || is_tag() ) {
 		$term = get_queried_object();
 		$tax  = get_taxonomy( $term->taxonomy );

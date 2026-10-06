@@ -25,7 +25,7 @@ class CC_Media {
 				array(
 					'city_id'     => absint( $city_id ),
 					'caption'     => wp_trim_words( wp_strip_all_tags( (string) $caption ), 38, '…' ),
-					'place'       => $place ? $place : ( $city_id ? get_the_title( $city_id ) : '' ),
+					'place'       => $place ? $place : ( $city_id ? sa_entity_display_name( $city_id ) : '' ),
 					'contributor' => $contributor,
 					'source'      => 'citizen',
 					'status'      => 'pending',

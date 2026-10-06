@@ -21,7 +21,7 @@ get_header();
 ?>
 <main id="primary" class="site-main container sa-archive sa-archive--province-term">
 	<header class="sa-archive__head">
-		<h1 class="sa-archive__title">استان <?php echo esc_html( $sa_term->name ); ?></h1>
+		<h1 class="sa-archive__title"><?php echo esc_html( sa_normalize_place_name( $sa_term->name, 'province', 'استان' ) ); ?></h1>
 		<?php if ( $sa_term->description ) : ?>
 			<div class="sa-archive__desc"><?php echo wp_kses_post( wpautop( $sa_term->description ) ); ?></div>
 		<?php endif; ?>
@@ -46,7 +46,7 @@ get_header();
 		);
 		if ( $sa_items ) {
 			$sa_any = true;
-			sa_cards_section( $sa_items, sa_entity_label( $sa_type, true ) . ' استان ' . $sa_term->name, '', $sa_type );
+			sa_cards_section( $sa_items, sa_entity_label( $sa_type, true ) . ' ' . sa_normalize_place_name( $sa_term->name, 'province', 'استان' ), '', $sa_type );
 		}
 	}
 	if ( ! $sa_any ) {

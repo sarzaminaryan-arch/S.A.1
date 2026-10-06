@@ -9,7 +9,7 @@ class CC_UI {
   $id=get_the_ID();$d=CC_Rating::get($id,self::viewer_key());
   $rank_txt=$d['rank']>0?sprintf('رتبهٔ %s از %s شهرستان',self::fa_num($d['rank']),self::fa_num($d['total'])):'';
   echo '<section class="cc-block cc-rating" id="cc-rating" data-cc-rating data-city="'.esc_attr($id).'" aria-label="امتیاز کاربران به این شهر">';
-  echo '<h2 class="cc-block__title">امتیاز کاربران به '.esc_html(get_the_title()).'</h2>';
+  echo '<h2 class="cc-block__title">امتیاز کاربران به '.esc_html(sa_entity_display_name(get_the_ID())).'</h2>';
   echo '<div class="cc-rating__row">';
   if($d['count']>0){echo '<p class="cc-rating__avg">'.self::stars_html($d['average']).' <b>'.esc_html(self::fa_num(number_format($d['average'],1))).'</b> از ۷ <span>· '.esc_html(self::fa_num($d['count'])).' رأی</span></p>';if($rank_txt)echo '<p class="cc-rating__rank">🏆 '.esc_html($rank_txt).'</p>';}
   else echo '<p class="cc-rating__avg cc-rating__avg--empty">هنوز رأیی ثبت نشده؛ اولین نفر باشید.</p>';
@@ -38,8 +38,8 @@ class CC_UI {
   echo '<form hidden data-cc-form><input type="hidden" name="city_id" value="'.esc_attr($id).'"><input type="hidden" name="province_id" value="'.esc_attr($province).'">';
   echo '<input type="hidden" name="type" value="photo">';
   echo '<div class="cc-place-grid"><label>نام مکان <input type="text" name="place_name" required maxlength="120" placeholder="مثلاً دریاچه گهر، آبشار بیشه یا تنگه... "></label>';
-  echo '<label>شهرستان <input type="text" value="'.esc_attr(get_the_title($id)).'" readonly></label>';
-  echo '<label>استان <input type="text" value="'.esc_attr($province?get_the_title($province):'').'" readonly></label></div>';
+  echo '<label>شهرستان <input type="text" value="'.esc_attr(sa_entity_display_name($id,'')).'" readonly></label>';
+  echo '<label>استان <input type="text" value="'.esc_attr($province?sa_entity_display_name($province,''):'').'" readonly></label></div>';
   echo '<label>نام فرستنده (اختیاری)<input type="text" name="contributor_name" maxlength="80" placeholder="اگر می‌خواهید کنار تصویر نمایش داده شود"></label>';
   echo '<label>یادداشت اختیاری برای مدیر<textarea name="text" maxlength="700" placeholder="اختیاری: فصل عکس، مسیر دسترسی یا نکته کوتاه. این متن به‌صورت خودکار زیر تصویر منتشر نمی‌شود."></textarea></label>';
   echo '<label>تصاویر نمای برتر <input type="file" name="image[]" accept="image/jpeg,image/png,image/webp" multiple required data-cc-max-files="'.esc_attr($max_files).'" data-cc-max-mb="'.esc_attr($max_mb).'"></label>';

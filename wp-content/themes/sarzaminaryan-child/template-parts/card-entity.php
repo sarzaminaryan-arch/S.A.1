@@ -41,10 +41,10 @@ if ( 'attraction' === $sa_type ) {
 	$sa_prov    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_post->ID, 'province' ) : null;
 	$sa_place   = array();
 	if ( $sa_city ) {
-		$sa_place[] = 'شهرستان ' . get_the_title( $sa_city );
+		$sa_place[] = sa_entity_display_name( $sa_city, 'شهرستان' );
 	}
 	if ( $sa_prov ) {
-		$sa_place[] = 'استان ' . get_the_title( $sa_prov );
+		$sa_place[] = sa_entity_display_name( $sa_prov, 'استان' );
 	}
 	?>
 	<article class="sa-card sa-card--attraction sa-tile">
@@ -76,12 +76,12 @@ $sa_meta = sa_card_meta( $sa_post->ID );
 		<?php elseif ( has_post_thumbnail( $sa_post ) ) : ?>
 			<?php echo get_the_post_thumbnail( $sa_post, 'sarzaminaryan-card', array( 'loading' => 'lazy' ) ); ?>
 		<?php else : ?>
-			<span class="sa-card__placeholder"><?php echo esc_html( mb_substr( get_the_title( $sa_post ), 0, 1 ) ); ?></span>
+			<span class="sa-card__placeholder"><?php echo esc_html( mb_substr( sa_entity_display_name( $sa_post ), 0, 1 ) ); ?></span>
 		<?php endif; ?>
 		<span class="sa-card__badge"><?php echo esc_html( sa_type_badge( $sa_type ) ); ?></span>
 	</a>
 	<div class="sa-card__body">
-		<h3 class="sa-card__title"><a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>"><?php echo esc_html( get_the_title( $sa_post ) ); ?></a></h3>
+		<h3 class="sa-card__title"><a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>"><?php echo esc_html( sa_entity_display_name( $sa_post ) ); ?></a></h3>
 		<?php if ( $sa_meta ) : ?>
 			<p class="sa-card__meta"><?php echo esc_html( $sa_meta ); ?></p>
 		<?php endif; ?>

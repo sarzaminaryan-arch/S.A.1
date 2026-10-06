@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.26
+Stable tag: 2.11.27
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.27 — 2026-10-06 =
+* رفع تکرار «استان استان» و «شهرستان شهرستان» در تیترها، اطلاعات موقعیت، کارت‌ها، گالری، مسیر راهنما، سئو و داده‌های ساختاریافته. عنوان ذخیره‌شده و URL مطالب بدون تغییر می‌مانند.
 
 = 2.11.26 — 2026-10-06 =
 * سه مقالهٔ آمادهٔ «نمای برتر» تازه در ابزار «سرزمین آریان → مقالات آمادهٔ نمای برتر» (همه فقط به‌صورت پیش‌نویس درج می‌شوند):

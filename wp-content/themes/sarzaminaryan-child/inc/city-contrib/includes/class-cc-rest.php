@@ -192,7 +192,7 @@ class CC_REST {
 			}
 
 			$sender_note = trim( $text );
-			$caption     = sprintf( 'تصویر ارسالی برای %1$s در شهرستان %2$s، استان %3$s.', $place, get_the_title( $city ), $province ? get_the_title( $province ) : '' );
+			$caption     = sprintf( 'تصویر ارسالی برای %1$s در شهرستان %2$s، استان %3$s.', $place, sa_entity_display_name( $city, '' ), $province ? sa_entity_display_name( $province, '' ) : '' );
 			$created     = array();
 
 			foreach ( $files as $index => $file ) {
@@ -204,7 +204,7 @@ class CC_REST {
 					array(
 						'post_type'    => 'cc_submission',
 						'post_status'  => 'pending',
-						'post_title'   => $place . ' — ' . get_the_title( $city ) . ( count( $files ) > 1 ? ' #' . ( $index + 1 ) : '' ),
+						'post_title'   => $place . ' — ' . sa_entity_display_name( $city ) . ( count( $files ) > 1 ? ' #' . ( $index + 1 ) : '' ),
 						'post_content' => $caption,
 						'post_author'  => get_current_user_id(),
 						'meta_input'   => array(
@@ -272,7 +272,7 @@ class CC_REST {
 		foreach ( $q->posts as $p ) {
 			$out[] = array(
 				'id'     => $p->ID,
-				'city'   => get_the_title( get_post_meta( $p->ID, 'cc_city_id', true ) ),
+				'city'   => sa_entity_display_name( (int) get_post_meta( $p->ID, 'cc_city_id', true ) ),
 				'place'  => get_post_meta( $p->ID, 'cc_place_name', true ),
 				'type'   => get_post_meta( $p->ID, 'cc_type', true ),
 				'status' => $p->post_status,

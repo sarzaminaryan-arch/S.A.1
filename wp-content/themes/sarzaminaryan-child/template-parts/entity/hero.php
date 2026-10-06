@@ -18,9 +18,9 @@ $sa_city     = sa_get_parent( $sa_id, 'city' );
 $sa_province = sa_get_parent( $sa_id, 'province' );
 $sa_kicker   = sa_entity_label( $sa_type );
 if ( 'city' === $sa_type && $sa_province ) {
-	$sa_kicker .= 'ی در استان ' . get_the_title( $sa_province );
+	$sa_kicker .= 'ی در ' . sa_entity_display_name( $sa_province, 'استان' );
 } elseif ( $sa_city && ! in_array( $sa_type, array( 'province', 'city' ), true ) ) {
-	$sa_kicker .= ' در ' . get_the_title( $sa_city ) . ( $sa_province ? '، استان ' . get_the_title( $sa_province ) : '' );
+	$sa_kicker .= ' در ' . sa_entity_display_name( $sa_city ) . ( $sa_province ? '، ' . sa_entity_display_name( $sa_province, 'استان' ) : '' );
 } elseif ( 'province' === $sa_type ) {
 	$sa_kicker = 'راهنمای سفر به استان';
 }
@@ -34,11 +34,11 @@ if ( 'city' === $sa_type && $sa_province ) {
 	<?php if ( 'province' === $sa_type ) : ?>
 		<?php $sa_province_cities = sa_get_children( $sa_id, 'city' ); ?>
 		<?php if ( $sa_province_cities ) : ?>
-			<nav class="sa-province-city-pills" aria-label="<?php echo esc_attr( 'شهرستان‌های ' . get_the_title() ); ?>">
+			<nav class="sa-province-city-pills" aria-label="<?php echo esc_attr( 'شهرستان‌های ' . sa_entity_display_name( $sa_id ) ); ?>">
 				<div class="container sa-province-city-pills__inner">
 					<span class="sa-province-city-pills__label"><?php esc_html_e( 'شهرستان‌ها', 'sarzaminaryan-child' ); ?></span>
 					<?php foreach ( $sa_province_cities as $sa_city_item ) : ?>
-						<a class="sa-province-city-pills__link" href="<?php echo esc_url( get_permalink( $sa_city_item ) ); ?>"><?php echo esc_html( get_the_title( $sa_city_item ) ); ?></a>
+						<a class="sa-province-city-pills__link" href="<?php echo esc_url( get_permalink( $sa_city_item ) ); ?>"><?php echo esc_html( sa_entity_display_name( $sa_city_item ) ); ?></a>
 					<?php endforeach; ?>
 				</div>
 			</nav>
@@ -46,11 +46,11 @@ if ( 'city' === $sa_type && $sa_province ) {
 	<?php endif; ?>
 	<div class="container sa-entity__hero-text">
 		<p class="sa-entity__kicker"><?php echo esc_html( $sa_kicker ); ?></p>
-		<h1 class="entry-title sa-entity__title"><?php the_title(); ?></h1>
+		<h1 class="entry-title sa-entity__title"><?php echo esc_html( sa_entity_display_name( $sa_id ) ); ?></h1>
 		<?php
 		$sa_terms_html = array();
 		if ( 'city' === $sa_type && $sa_province ) {
-			$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_permalink( $sa_province ) ) . '">' . esc_html( 'استان ' . get_the_title( $sa_province ) ) . '</a>';
+			$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_permalink( $sa_province ) ) . '">' . esc_html( sa_entity_display_name( $sa_province, 'استان' ) ) . '</a>';
 		}
 		foreach ( sa_entity( $sa_type )['taxonomies'] as $sa_tax ) {
 			if ( 'province_tax' === $sa_tax && 'province' !== $sa_type ) {
@@ -59,7 +59,8 @@ if ( 'city' === $sa_type && $sa_province ) {
 			$sa_terms = get_the_terms( $sa_id, $sa_tax );
 			if ( $sa_terms && ! is_wp_error( $sa_terms ) ) {
 				foreach ( $sa_terms as $sa_t ) {
-					$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_term_link( $sa_t ) ) . '">' . esc_html( $sa_t->name ) . '</a>';
+					$sa_term_name = 'province_tax' === $sa_tax ? sa_normalize_place_name( $sa_t->name, 'province' ) : $sa_t->name;
+					$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_term_link( $sa_t ) ) . '">' . esc_html( $sa_term_name ) . '</a>';
 				}
 			}
 		}
