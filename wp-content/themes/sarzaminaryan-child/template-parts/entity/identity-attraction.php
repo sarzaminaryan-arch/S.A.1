@@ -1,6 +1,9 @@
 <?php
 /**
- * Modern identity-card hero for «نمای برتر» pages.
+ * Identity-card hero for «نمای برتر» pages.
+ *
+ * v2.11.25: the featured/diagram card was removed; the identity card now fills
+ * the full width and is fully responsive on its own.
  *
  * @package Sarzaminaryan_Child
  */
@@ -38,7 +41,6 @@ $sa_map_url = sa_map_url( $sa_id );
 <header class="sa-attraction-id" aria-label="<?php echo esc_attr( 'شناسنامه نمای برتر ' . get_the_title() ); ?>">
 	<div class="container">
 		<div class="sa-attraction-id__card">
-			<?php echo sa_attraction_diagram_markup( $sa_id, 'identity' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<div class="sa-attraction-id__body">
 				<p class="sa-attraction-id__eyebrow"><span></span><?php esc_html_e( 'شناسنامه نمای برتر', 'sarzaminaryan-child' ); ?></p>
 				<h1 class="entry-title sa-attraction-id__title"><?php the_title(); ?></h1>
