@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.11.26' );
+define( 'SA_CHILD_VERSION', '2.11.27' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.1' );
@@ -36,6 +36,7 @@ $sa_child_includes = array(
 	'inc/jalali.php',
 	'inc/seo.php',
 	'inc/citations.php',
+	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / نمای برتر
 	'inc/region-map.php',
 	'inc/schema.php',
 	'inc/breadcrumbs.php',

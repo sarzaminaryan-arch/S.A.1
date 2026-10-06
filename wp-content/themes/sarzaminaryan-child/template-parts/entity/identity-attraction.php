@@ -65,6 +65,9 @@ $sa_map_url = sa_map_url( $sa_id );
 					<?php if ( $sa_city ) : ?>
 						<a class="sa-attraction-id__btn" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( 'صفحه شهرستان ' . get_the_title( $sa_city ) ); ?></a>
 					<?php endif; ?>
+					<?php if ( $sa_province ) : ?>
+						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( get_permalink( $sa_province ) ); ?>"><?php echo esc_html( 'صفحه استان ' . get_the_title( $sa_province ) ); ?></a>
+					<?php endif; ?>
 					<?php if ( $sa_map_url ) : ?>
 						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener">مشاهده روی نقشه</a>
 					<?php endif; ?>
