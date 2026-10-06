@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.28
+Stable tag: 2.11.29
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.29 — 2026-10-06 =
+* افزودن مقالهٔ آمادهٔ «آبشار نوژیان خرم‌آباد» به گردش‌کار «مقالات آمادهٔ نمای برتر»: راهنمای بازدید، ۱۲ پرسش متداول، متاداده و Rank Math، منابع رسمی/گردشگری، مختصات و چهار تصویر ویکی‌مدیا با انتساب و مجوز CC BY-SA 4.0. ورود از ابزار همچنان فقط پیش‌نویس می‌سازد.
 
 = 2.11.28 — 2026-10-06 =
 * افزودن مقالهٔ آمادهٔ «سازه‌های آبی تاریخی شوشتر» (خوزستان/شوشتر) به ابزار «مقالات آمادهٔ نمای برتر»: متن راهنمای بازدید، متاداده و سئوی Rank Math، دوازده پرسش متداول، منابع یونسکو و چهار تصویر ویکی‌مدیا با مجوز آزاد. درج از ابزار همچنان فقط پیش‌نویس می‌سازد.
