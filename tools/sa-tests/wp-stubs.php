@@ -29,6 +29,9 @@ $GLOBALS['sa_died']         = null;
 $GLOBALS['sa_redirects']    = array();
 $GLOBALS['sa_meta_boxes']   = array();
 $GLOBALS['sa_settings_reg'] = array();
+$GLOBALS['sa_taxonomies']   = array();
+$GLOBALS['sa_terms_reg']    = array();
+$GLOBALS['sa_next_term_id'] = 1;
 
 /* ---------------------------------------------------------------- کلاس‌ها */
 
@@ -160,6 +163,9 @@ function sa_reset_test_state() {
 	$GLOBALS['sa_redirects']    = array();
 	$GLOBALS['sa_meta_boxes']   = array();
 	$GLOBALS['sa_settings_reg'] = array();
+	$GLOBALS['sa_taxonomies']   = array();
+	$GLOBALS['sa_terms_reg']    = array();
+	$GLOBALS['sa_next_term_id'] = 1;
 }
 
 /**
@@ -457,9 +463,63 @@ function wp_update_post( $args ) {
 	return (int) $post->ID;
 }
 
+/* ------------------------------------------------- پیوست‌ها و تصویرها */
+
+function wp_get_attachment_url( $attachment_id ) {
+	return 'https://sarzaminaryan.test/wp-content/uploads/gallery/file-' . (int) $attachment_id . '.webp';
+}
+function wp_get_attachment_image_src( $attachment_id, $size = 'thumbnail', $icon = false ) {
+	$sizes = array(
+		'full'            => array( 1600, 1200 ),
+		'sa-gallery-large' => array( 1200, 900 ),
+		'sa-gallery-card' => array( 600, 450 ),
+	);
+	$dim = isset( $sizes[ $size ] ) ? $sizes[ $size ] : array( 300, 200 );
+	return array( wp_get_attachment_url( $attachment_id ), $dim[0], $dim[1], false );
+}
+function has_post_thumbnail( $post = null ) {
+	$post = is_object( $post ) ? $post : get_post( $post );
+	return $post ? (bool) get_post_meta( $post->ID, '_thumb_id', true ) : false;
+}
+function get_post_thumbnail_id( $post = null ) {
+	$post = is_object( $post ) ? $post : get_post( $post );
+	return $post ? (int) get_post_meta( $post->ID, '_thumb_id', true ) : 0;
+}
+
 /* --------------------------------------------------------------- ترم‌ها */
 
 function get_the_terms( $post, $taxonomy ) { return array(); }
+function register_taxonomy( $taxonomy, $object_type, $args = array() ) {
+	$GLOBALS['sa_taxonomies'][ (string) $taxonomy ] = array(
+		'object_type' => (array) $object_type,
+		'args'        => (array) $args,
+	);
+	return true;
+}
+function taxonomy_exists( $taxonomy ) {
+	return isset( $GLOBALS['sa_taxonomies'][ (string) $taxonomy ] );
+}
+function term_exists( $term, $taxonomy = '', $parent = null ) {
+	$tax = (string) $taxonomy;
+	if ( ! isset( $GLOBALS['sa_terms_reg'][ $tax ] ) ) {
+		return null;
+	}
+	return isset( $GLOBALS['sa_terms_reg'][ $tax ][ (string) $term ] ) ? $GLOBALS['sa_terms_reg'][ $tax ][ (string) $term ] : null;
+}
+function wp_insert_term( $term, $taxonomy, $args = array() ) {
+	$id  = (int) $GLOBALS['sa_next_term_id']++;
+	$key = isset( $args['slug'] ) && '' !== $args['slug'] ? (string) $args['slug'] : sanitize_title( (string) $term );
+	$GLOBALS['sa_terms_reg'][ (string) $taxonomy ][ $key ] = array(
+		'term_id' => $id,
+		'term_taxonomy_id' => $id,
+	);
+	return array( 'term_id' => $id, 'term_taxonomy_id' => $id );
+}
+function sanitize_title( $title, $fallback = '', $context = 'save' ) {
+	$out = strtolower( (string) $title );
+	$out = preg_replace( '/[^a-z0-9\-]+/', '-', $out );
+	return trim( $out, '-' );
+}
 function wp_get_post_terms( $post, $taxonomy, $args = array() ) { return array(); }
 function get_term_by( $field, $value, $taxonomy = '' ) { return false; }
 function wp_set_post_terms( $post_id, $terms, $taxonomy, $append = false ) { return array(); }
