@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.34
+Stable tag: 2.11.35
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,12 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.35 — 2026-10-06 =
+* گزارش جامعِ وضعیت سایت در docs/site-status-report.md: شناسنامهٔ فنی، معماریِ محتوا و دسته‌بندی‌ها،
+  ساختارِ صفحه‌ها و قالب‌ها، سئو و دادهٔ ساختاری، امکاناتِ بدون افزونه، آمارِ داده‌ها و محتوا،
+  ذخیره‌سازی (گزینه‌ها/رویدادها/REST/شورت‌کدها)، ساختارِ مخزن، کیفیت و انتشار، و پیشنهادهای بعدی.
+* این سند تنها مستندات است و رفتارِ قالب را تغییر نمی‌دهد.
 
 = 2.11.34 — 2026-10-06 =
 * شرطِ نمایش برای گالری: بلوک «آلبوم تصاویر» فقط زمانی نمایش داده می‌شود که دست‌کم یک تصویر تأییدشده در آن باشد (افزودهٔ مدیر یا ارسالیِ مخاطب که مدیر تأیید کرده).
