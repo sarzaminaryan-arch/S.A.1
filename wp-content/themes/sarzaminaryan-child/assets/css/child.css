@@ -3934,3 +3934,19 @@ main.site-main.container,
 .sa-card--attraction .sa-tile__english {
 	-webkit-line-clamp: 2;
 }
+
+/* ==========================================================================
+   v2.11.27 — لینک‌سازی داخلی خودکار (استان / شهرستان / نمای برتر)
+   ظاهرِ این لینک‌ها عمداً همان لینک معمولیِ متن است؛ فقط زیرخطِ پیوسته دارند
+   تا خواننده بفهمد مقصد دارند، بی‌آن‌که متن شبیه تبلیغ یا لینک‌پراکنی شود.
+   ========================================================================== */
+.entry-content a.sa-autolink,
+.sa-community a.sa-autolink {
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+
+.entry-content a.sa-autolink:hover,
+.entry-content a.sa-autolink:focus-visible {
+	text-decoration-thickness: 2px;
+}

@@ -35,3 +35,7 @@ tools/importers/
 # temporary image staging (never commit)
 image-search/
 .stage*/
+
+# php-wasm runtime for tests (installed locally, never committed)
+tools/phpwasm/node_modules/
+tools/phpwasm/package-lock.json

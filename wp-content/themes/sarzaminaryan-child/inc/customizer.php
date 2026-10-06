@@ -91,6 +91,14 @@ function sa_customize_register( $wp_customize ) {
 	$add( 'sa_display', 'sa_jalali', 'تاریخ‌ها شمسی نمایش داده شوند', 'checkbox', true );
 	$add( 'sa_display', 'sa_fa_digits', 'اعداد فارسی در تاریخ‌ها و آمار', 'checkbox', true );
 	$add( 'sa_display', 'sa_fa_digits_content', 'اعداد داخل متن نوشته‌ها هم فارسی شوند (آزمایشی)', 'checkbox', false );
+	$add(
+		'sa_display',
+		'sa_autolink',
+		'لینک‌سازی داخلی خودکار (استان، شهرستان، نمای برتر)',
+		'checkbox',
+		true,
+		array( 'description' => 'نخستین رخدادِ نامِ هر استان/شهرستان/نمای برتر در بدنه‌ی هر مقاله، یک‌بار به صفحه‌ی خودش لینک می‌شود. لینک‌های دستیِ داخل متن دست‌نخورده می‌مانند.' )
+	);
 
 	// Editorial.
 	$wp_customize->add_section( 'sa_editorial', array( 'title' => 'قوانین انتشار (مدل داده)', 'panel' => 'sa_panel' ) );

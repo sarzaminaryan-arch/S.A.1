@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.11.26' );
+define( 'SA_CHILD_VERSION', '2.11.35' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.1' );
@@ -36,6 +36,7 @@ $sa_child_includes = array(
 	'inc/jalali.php',
 	'inc/seo.php',
 	'inc/citations.php',
+	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / نمای برتر
 	'inc/region-map.php',
 	'inc/schema.php',
 	'inc/breadcrumbs.php',
@@ -51,6 +52,8 @@ $sa_child_includes = array(
 	'inc/ready-articles.php', // مقالات آمادهٔ نمای برتر — درج فقط پیش‌نویس + کارت سفید تصویر شاخص
 	'inc/city-contrib.php', // مشارکت مردمی «شهر من» — داخلی قالب، بدون نیاز به افزونه
 	'inc/contact-form.php', // فرم تماس داخلی قالب (ارسال به ایمیل تماس سایت)
+	'inc/social-publish.php', // انتشار خودکار در تلگرام و اینستاگرام — داخلی قالب، بدون افزونه
+	'inc/telegram-bot.php',   // ربات راهنمای تلگرام (استان ← شهر ← دیدنی) — داخلی قالب، بدون افزونه
 	'inc/github-updater.php',
 	'inc/activation.php',
 );
