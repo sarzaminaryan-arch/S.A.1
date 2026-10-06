@@ -335,13 +335,13 @@ function sa_social_build_text( $template, $post_id, $network = 'telegram', $capt
  */
 function sa_social_telegram_api( $method, $args = array(), $token = '' ) {
 	$settings = sa_social_settings();
-	$token    = '' === $token ? trim( (string) $settings['telegram_token'] ) : trim( (string) $token );
+	$token    = preg_replace( '/[^A-Za-z0-9_:-]/', '', '' === $token ? (string) $settings['telegram_token'] : (string) $token );
 	$method   = preg_replace( '/[^A-Za-z]/', '', (string) $method );
 	if ( '' === $token || '' === $method ) {
 		return array( 'ok' => false, 'data' => null, 'message' => 'توکن ربات تنظیم نشده است.' );
 	}
 
-	$url      = 'https://api.telegram.org/bot' . rawurlencode( $token ) . '/' . $method;
+	$url      = 'https://api.telegram.org/bot' . $token . '/' . $method;
 	$response = wp_remote_post(
 		$url,
 		array(
@@ -813,6 +813,199 @@ function sa_social_logs() {
 }
 
 /* -------------------------------------------------------------------------
+ * ارسالِ انبوهِ مطالبِ موجود (گذشته‌نگر)
+ * ---------------------------------------------------------------------- */
+
+/**
+ * وضعیتِ پیش‌فرضِ صف ارسالِ انبوه.
+ *
+ * @return array<string,mixed>
+ */
+function sa_social_bulk_defaults() {
+	return array(
+		'ids'      => array(),
+		'total'    => 0,
+		'done'     => 0,
+		'ok'       => 0,
+		'failed'   => 0,
+		'network'  => 'telegram',
+		'force'    => 0,
+		'types'    => array(),
+		'started'  => 0,
+		'finished' => 0,
+		'last'     => '',
+	);
+}
+
+/**
+ * وضعیتِ فعلیِ ارسالِ انبوه.
+ *
+ * @return array<string,mixed>
+ */
+function sa_social_bulk_state() {
+	$state = get_option( 'sa_social_bulk', array() );
+	return wp_parse_args( is_array( $state ) ? $state : array(), sa_social_bulk_defaults() );
+}
+
+/**
+ * شروعِ ارسالِ انبوه.
+ *
+ * @param array<int,string> $types  Post types (ordered).
+ * @param string            $network telegram|instagram
+ * @param bool              $force  Resend already-sent posts.
+ * @param int               $limit  Max posts per type (0 = unlimited).
+ * @return int تعدادِ مطالبِ در صف
+ */
+function sa_social_bulk_start( $types, $network = 'telegram', $force = false, $limit = 0 ) {
+	$allowed = sa_social_post_types();
+	$types   = array_values( array_intersect( (array) $types, $allowed ) );
+	if ( empty( $types ) ) {
+		return 0;
+	}
+
+	$ids = array();
+	foreach ( $types as $type ) {
+		$args = array(
+			'post_type'        => $type,
+			'post_status'      => 'publish',
+			'posts_per_page'   => $limit > 0 ? (int) $limit : 500,
+			'fields'           => 'ids',
+			'orderby'          => 'title',
+			'order'            => 'ASC',
+			'no_found_rows'    => true,
+			'suppress_filters' => true,
+		);
+		$found = get_posts( $args );
+		foreach ( (array) $found as $id ) {
+			$id = (int) $id;
+			if ( ! $force && ! empty( get_post_meta( $id, '_sa_social_' . $network . '_sent', true ) ) ) {
+				continue;
+			}
+			$ids[] = $id;
+		}
+	}
+
+	$state = sa_social_bulk_defaults();
+	$state['ids']     = array_values( array_unique( $ids ) );
+	$state['total']   = count( $state['ids'] );
+	$state['network'] = in_array( $network, array( 'telegram', 'instagram' ), true ) ? $network : 'telegram';
+	$state['force']   = $force ? 1 : 0;
+	$state['types']   = $types;
+	$state['started'] = time();
+
+	update_option( 'sa_social_bulk', $state, false );
+
+	if ( $state['total'] > 0 && ! wp_next_scheduled( 'sa_social_bulk_event' ) ) {
+		wp_schedule_single_event( time() + 10, 'sa_social_bulk_event' );
+	}
+
+	return $state['total'];
+}
+
+/**
+ * توقف و پاک‌کردنِ صف.
+ */
+function sa_social_bulk_stop() {
+	delete_option( 'sa_social_bulk' );
+	wp_clear_scheduled_hook( 'sa_social_bulk_event' );
+}
+
+/**
+ * اجرای یک دسته از صف (۳ تا در هر بار، سپس وقفهٔ ۷۰ ثانیه‌ای).
+ */
+function sa_social_bulk_tick() {
+	$state = sa_social_bulk_state();
+	if ( empty( $state['ids'] ) ) {
+		$state['finished'] = time();
+		update_option( 'sa_social_bulk', $state, false );
+		return;
+	}
+
+	wp_clear_scheduled_hook( 'sa_social_bulk_event' );
+
+	$batch = array_splice( $state['ids'], 0, 3 );
+	foreach ( $batch as $post_id ) {
+		$post_id = (int) $post_id;
+		if ( ! get_post( $post_id ) ) {
+			$state['done']++;
+			continue;
+		}
+		if ( ! empty( $state['force'] ) ) {
+			delete_post_meta( $post_id, '_sa_social_' . $state['network'] . '_sent' );
+			delete_post_meta( $post_id, '_sa_social_' . $state['network'] . '_error' );
+		}
+		$result = 'instagram' === $state['network'] ? sa_social_instagram_send( $post_id ) : sa_social_telegram_send( $post_id );
+		sa_social_store_result( $post_id, $state['network'], $result );
+
+		$state['done']++;
+		if ( ! empty( $result['ok'] ) ) {
+			$state['ok']++;
+		} else {
+			$state['failed']++;
+			$state['last'] = (string) $result['message'];
+		}
+	}
+
+	if ( empty( $state['ids'] ) ) {
+		$state['finished'] = time();
+	} else {
+		wp_schedule_single_event( time() + 70, 'sa_social_bulk_event' );
+	}
+
+	update_option( 'sa_social_bulk', $state, false );
+}
+add_action( 'sa_social_bulk_event', 'sa_social_bulk_tick' );
+
+/**
+ * شروعِ ارسال انبوه از پیشخوان.
+ */
+function sa_social_bulk_start_action() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'دسترسی کافی ندارید.', 'sarzaminaryan-child' ) );
+	}
+	check_admin_referer( 'sa_social_bulk' );
+
+	$types = isset( $_POST['bulk_types'] ) ? (array) wp_unslash( $_POST['bulk_types'] ) : array();
+	$types = array_map( 'sanitize_key', $types );
+	$net   = isset( $_POST['bulk_network'] ) ? sanitize_key( wp_unslash( $_POST['bulk_network'] ) ) : 'telegram';
+	$force = ! empty( $_POST['bulk_force'] );
+	$limit = isset( $_POST['bulk_limit'] ) ? max( 0, min( 500, (int) $_POST['bulk_limit'] ) ) : 0;
+
+	$count = sa_social_bulk_start( $types, $net, $force, $limit );
+
+	set_transient(
+		'sa_social_notice',
+		array(
+			'ok'      => $count > 0,
+			'message' => 0 === $count
+				? 'مطلبی برای ارسال پیدا نشد (همه ارسال شده‌اند یا نوعی انتخاب نکرده‌اید).'
+				: 'ارسال انبوه شروع شد: ' . $count . ' مطلب در صف (هر بار ۳ مورد با وقفهٔ ۷۰ ثانیه برای رعایت محدودیت تلگرام).',
+		),
+		120
+	);
+
+	wp_safe_redirect( admin_url( 'admin.php?page=sa-social-publish' ) );
+	exit;
+}
+add_action( 'admin_post_sa_social_bulk_start', 'sa_social_bulk_start_action' );
+
+/**
+ * توقفِ ارسال انبوه.
+ */
+function sa_social_bulk_stop_action() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'دسترسی کافی ندارید.', 'sarzaminaryan-child' ) );
+	}
+	check_admin_referer( 'sa_social_bulk' );
+
+	sa_social_bulk_stop();
+	set_transient( 'sa_social_notice', array( 'ok' => true, 'message' => 'ارسال انبوه متوقف و صف پاک شد.' ), 120 );
+	wp_safe_redirect( admin_url( 'admin.php?page=sa-social-publish' ) );
+	exit;
+}
+add_action( 'admin_post_sa_social_bulk_stop', 'sa_social_bulk_stop_action' );
+
+/* -------------------------------------------------------------------------
  * مدیریت: منو، تنظیمات، تست، ارسال دستی
  * ---------------------------------------------------------------------- */
 
@@ -862,9 +1055,11 @@ function sa_social_sanitize( $input ) {
 	$out['telegram_image']     = empty( $data['telegram_image'] ) ? 0 : 1;
 	$out['instagram_enable']   = empty( $data['instagram_enable'] ) ? 0 : 1;
 	$out['hashtags']           = empty( $data['hashtags'] ) ? 0 : 1;
-	$out['telegram_token']     = isset( $data['telegram_token'] ) ? sanitize_text_field( wp_unslash( $data['telegram_token'] ) ) : $old['telegram_token'];
+	$telegram_token            = isset( $data['telegram_token'] ) ? trim( sanitize_text_field( wp_unslash( $data['telegram_token'] ) ) ) : '';
+	$out['telegram_token']     = '' === $telegram_token ? $old['telegram_token'] : $telegram_token;
 	$out['telegram_chat']      = isset( $data['telegram_chat'] ) ? sanitize_text_field( wp_unslash( $data['telegram_chat'] ) ) : '';
-	$out['instagram_token']    = isset( $data['instagram_token'] ) ? sanitize_text_field( wp_unslash( $data['instagram_token'] ) ) : $old['instagram_token'];
+	$instagram_token           = isset( $data['instagram_token'] ) ? trim( sanitize_text_field( wp_unslash( $data['instagram_token'] ) ) ) : '';
+	$out['instagram_token']    = '' === $instagram_token ? $old['instagram_token'] : $instagram_token;
 	$out['instagram_user']     = isset( $data['instagram_user'] ) ? sanitize_text_field( wp_unslash( $data['instagram_user'] ) ) : '';
 	$out['telegram_template']  = isset( $data['telegram_template'] ) ? wp_kses_post( wp_unslash( $data['telegram_template'] ) ) : $old['telegram_template'];
 	$out['instagram_template'] = isset( $data['instagram_template'] ) ? sanitize_textarea_field( wp_unslash( $data['instagram_template'] ) ) : $old['instagram_template'];
@@ -964,8 +1159,8 @@ function sa_social_settings_page() {
 				<tr>
 					<th scope="row"><label for="sa-social-tg-token">توکن ربات</label></th>
 					<td>
-						<input type="password" class="regular-text" id="sa-social-tg-token" name="sa_social_settings[telegram_token]" value="<?php echo esc_attr( (string) $settings['telegram_token'] ); ?>" autocomplete="off" />
-						<p class="description">ذخیره‌شده: <code><?php echo esc_html( sa_social_mask( $settings['telegram_token'] ) ); ?></code> — از @BotFather بگیرید.</p>
+						<input type="password" class="regular-text" id="sa-social-tg-token" name="sa_social_settings[telegram_token]" value="" autocomplete="new-password" placeholder="فقط برای تغییر پر کنید" />
+						<p class="description">ذخیره‌شده: <code><?php echo esc_html( sa_social_mask( $settings['telegram_token'] ) ); ?></code> — از @BotFather بگیرید. — برای تغییر ندادن خالی بگذارید.</p>
 					</td>
 				</tr>
 				<tr>
@@ -991,8 +1186,8 @@ function sa_social_settings_page() {
 				<tr>
 					<th scope="row"><label for="sa-social-ig-token">توکن دسترسی</label></th>
 					<td>
-						<input type="password" class="regular-text" id="sa-social-ig-token" name="sa_social_settings[instagram_token]" value="<?php echo esc_attr( (string) $settings['instagram_token'] ); ?>" autocomplete="off" />
-						<p class="description">ذخیره‌شده: <code><?php echo esc_html( sa_social_mask( $settings['instagram_token'] ) ); ?></code> — توکنِ بلندمدت (۶۰ روزه) از گراف فیسبوک.</p>
+						<input type="password" class="regular-text" id="sa-social-ig-token" name="sa_social_settings[instagram_token]" value="" autocomplete="new-password" placeholder="فقط برای تغییر پر کنید" />
+						<p class="description">ذخیره‌شده: <code><?php echo esc_html( sa_social_mask( $settings['instagram_token'] ) ); ?></code> — توکنِ بلندمدت (۶۰ روزه) از گراف فیسبوک. — برای تغییر ندادن خالی بگذارید.</p>
 					</td>
 				</tr>
 				<tr>
@@ -1028,6 +1223,78 @@ function sa_social_settings_page() {
 			<a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=sa_social_test&network=telegram' ), 'sa_social_test' ) ); ?>">تست تلگرام</a>
 			<a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=sa_social_test&network=telegram_chat' ), 'sa_social_test' ) ); ?>">پیدا کردنِ شناسهٔ کانال</a>
 			<a class="button" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=sa_social_test&network=instagram' ), 'sa_social_test' ) ); ?>">تست اینستاگرام</a>
+		</p>
+
+		<hr />
+		<h2>ارسالِ انبوهِ مطالبِ موجود</h2>
+		<p class="description">
+			همهٔ مطالبِ از پیش منتشرشده (مثلاً صفحه‌های استان‌ها و شهرستان‌ها) را یکی‌یکی به کانال می‌فرستد؛
+			هر بار ۳ مطلب و سپس ۷۰ ثانیه وقفه، تا محدودیتِ تلگرام (حدود ۲۰ پیام در دقیقه برای هر کانال) رعایت شود.
+			پیش‌فرض فقط مطالبی فرستاده می‌شوند که تاکنون ارسال نشده‌اند.
+		</p>
+		<?php $bulk = sa_social_bulk_state(); ?>
+		<?php if ( ! empty( $bulk['total'] ) ) : ?>
+			<div class="notice notice-info inline">
+				<p>
+					<strong>وضعیت:</strong>
+					<?php if ( empty( $bulk['finished'] ) && ! empty( $bulk['ids'] ) ) : ?>
+						در حال اجرا — <?php echo (int) $bulk['done']; ?> از <?php echo (int) $bulk['total']; ?>
+						(موفق: <?php echo (int) $bulk['ok']; ?>، ناموفق: <?php echo (int) $bulk['failed']; ?>)
+						— بعدی تا کمتر از یک دقیقهٔ دیگر.
+					<?php else : ?>
+						پایان یافته — <?php echo (int) $bulk['done']; ?> از <?php echo (int) $bulk['total']; ?>
+						(موفق: <?php echo (int) $bulk['ok']; ?>، ناموفق: <?php echo (int) $bulk['failed']; ?>)
+						<?php echo $bulk['finished'] ? 'در ' . esc_html( date_i18n( 'Y/m/d H:i', (int) $bulk['finished'] ) ) : ''; ?>
+					<?php endif; ?>
+					<?php if ( ! empty( $bulk['last'] ) ) : ?>
+						<br /><small>آخرین خطا: <?php echo esc_html( (string) $bulk['last'] ); ?></small>
+					<?php endif; ?>
+				</p>
+			</div>
+		<?php endif; ?>
+		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+			<input type="hidden" name="action" value="sa_social_bulk_start" />
+			<?php wp_nonce_field( 'sa_social_bulk' ); ?>
+			<table class="form-table" role="presentation">
+				<tr>
+					<th scope="row">شبکه</th>
+					<td>
+						<label><input type="radio" name="bulk_network" value="telegram" checked="checked" /> تلگرام</label>
+						&nbsp;&nbsp;
+						<label><input type="radio" name="bulk_network" value="instagram" /> اینستاگرام</label>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">انواع محتوا</th>
+					<td>
+						<?php
+						$preferred = array( 'province' => 'استان', 'city' => 'شهرستان', 'attraction' => 'نمای برتر', 'post' => 'نوشته' );
+						foreach ( $preferred as $slug => $label ) :
+							if ( ! in_array( $slug, sa_social_post_types(), true ) ) {
+								continue;
+							}
+							?>
+							<label style="display:inline-block;margin-left:12px;">
+								<input type="checkbox" name="bulk_types[]" value="<?php echo esc_attr( $slug ); ?>" <?php checked( in_array( $slug, array( 'province', 'city' ), true ) ); ?> />
+								<?php echo esc_html( $label ); ?>
+							</label>
+						<?php endforeach; ?>
+						<p class="description">ترتیبِ ارسال: استان‌ها، سپس شهرستان‌ها، سپس نماهای برتر و در آخر نوشته‌ها.</p>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">محدودیت و تکرار</th>
+					<td>
+						<label>حداکثر برای هر نوع: <input type="number" min="0" max="500" name="bulk_limit" value="0" style="width:80px;" /> <span class="description">(۰ یعنی همه)</span></label>
+						<br />
+						<label><input type="checkbox" name="bulk_force" value="1" /> ارسالِ دوبارهٔ مطالبی که قبلاً فرستاده شده‌اند</label>
+					</td>
+				</tr>
+			</table>
+			<?php submit_button( 'شروعِ ارسالِ انبوه', 'primary', 'sa_social_bulk_go' ); ?>
+		</form>
+		<p>
+			<a class="button button-link-delete" href="<?php echo esc_url( wp_nonce_url( admin_url( 'admin-post.php?action=sa_social_bulk_stop' ), 'sa_social_bulk' ) ); ?>">توقف و پاک‌کردنِ صف</a>
 		</p>
 
 		<h2>گزارشِ ارسال‌ها (۲۰ مورد آخر)</h2>
