@@ -3292,9 +3292,6 @@ main.site-main.container,
 
 .sa-attraction-id__card {
 	position: relative;
-	display: block;
-	min-height: 360px;
-	padding-left: clamp(275px, 32vw, 355px);
 }
 
 .sa-attraction-id__media,
@@ -3777,4 +3774,163 @@ main.site-main.container,
 	.sa-card--attraction .sa-tile__link:focus-visible {
 		transform: none;
 	}
+}
+
+/* ==========================================================================
+   v2.11.25 — identity card fills the width; tiles get second names + a
+   single vivid accent color for the English line only.
+   ========================================================================== */
+
+/* ---- 1) «نمای برتر» page: the featured/diagram card is gone, so the identity
+   card must stand on its own, full-width and responsive. ---- */
+.sa-attraction-id .sa-attraction-id__card {
+	display: block;
+	min-height: 0;
+	padding-block: clamp(20px, 3.4vw, 34px);
+	padding-inline: clamp(16px, 3.6vw, 36px);
+	border-radius: 24px;
+}
+
+.sa-attraction-id .sa-attraction-id__body {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 0;
+	padding: 0;
+	width: 100%;
+	max-width: 100%;
+}
+
+.sa-attraction-id .sa-attraction-id__title {
+	font-size: clamp(1.7rem, 3.6vw, 3rem);
+	line-height: 1.25;
+}
+
+.sa-attraction-id .sa-attraction-id__summary {
+	max-width: 100%;
+	margin-block-end: 20px;
+}
+
+.sa-attraction-id .sa-attraction-id__facts {
+	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+	gap: 10px;
+	margin-block-start: 0;
+	width: 100%;
+}
+
+.sa-attraction-id .sa-attraction-id__fact {
+	min-width: 0;
+}
+
+.sa-attraction-id .sa-attraction-id__fact strong {
+	overflow-wrap: anywhere;
+}
+
+.sa-attraction-id .sa-attraction-id__actions {
+	gap: 10px;
+}
+
+.sa-attraction-id .sa-attraction-id__btn {
+	flex: 0 1 auto;
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+
+/* Any leftover diagram markup on old cached pages must not break the layout. */
+.sa-attraction-id .sa-attraction-diagram--identity {
+	display: none;
+}
+
+@media (max-width: 780px) {
+	.sa-attraction-id .sa-attraction-id__facts {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	}
+
+	.sa-attraction-id .sa-attraction-id__title {
+		font-size: clamp(1.5rem, 6vw, 2rem);
+	}
+}
+
+@media (max-width: 520px) {
+	.sa-attraction-id .sa-attraction-id__card {
+		border-radius: 20px;
+	}
+
+	.sa-attraction-id .sa-attraction-id__facts {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-attraction-id .sa-attraction-id__actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.sa-attraction-id .sa-attraction-id__btn {
+		width: 100%;
+	}
+}
+
+/* ---- 2) Tiles: everything sits as one centered stack (region name included). ---- */
+.sa-tile__link {
+	justify-content: center;
+	gap: 0.28rem;
+	padding-block: 1.15rem 1.05rem;
+}
+
+.sa-card--attraction .sa-tile__place {
+	margin-block-start: 0;
+	padding-block-start: 0.55rem;
+}
+
+.sa-card--attraction .sa-tile__place::before {
+	margin-block-end: 0.4rem;
+}
+
+/* Second Persian name («قارون» in «تالاب ازگن (قارون)») — smaller, same ink. */
+.sa-tile__alt {
+	font-size: 0.82rem;
+	font-weight: 700;
+	line-height: 1.5;
+	color: var(--color-text);
+	opacity: 0.72;
+	overflow-wrap: anywhere;
+}
+
+/* English line: the only colored text in the box — a different vivid color per tile. */
+.sa-card--attraction .sa-tile__english {
+	color: var(--sa-tile-accent, var(--color-secondary));
+	font-weight: 800;
+	letter-spacing: 0.01em;
+	opacity: 1;
+}
+
+@media (max-width: 640px) {
+	.sa-tile__alt {
+		font-size: 0.74rem;
+	}
+}
+
+/* ---- 3) Keep the squares even: two-line clamps, nothing spills out. ---- */
+.sa-tile__link {
+	overflow: hidden;
+}
+
+.sa-card--attraction .sa-tile__title,
+.sa-card--attraction .sa-tile__english,
+.sa-card--attraction .sa-tile__alt {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	max-width: 100%;
+}
+
+.sa-card--attraction .sa-tile__title {
+	-webkit-line-clamp: 2;
+}
+
+.sa-card--attraction .sa-tile__alt {
+	-webkit-line-clamp: 1;
+}
+
+.sa-card--attraction .sa-tile__english {
+	-webkit-line-clamp: 2;
 }
