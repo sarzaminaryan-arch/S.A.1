@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.21
+Stable tag: 2.11.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -38,7 +38,10 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 
 == Changelog ==
 
-= 2.11.21 — 2026-10-06 =
+= 2.11.22 — 2026-10-06 =
+* مقالهٔ آمادهٔ «دشت لاله‌های واژگون کوهرنگ» (چهارمحال و بختیاری/کوهرنگ) با متن، متا، سئو، Rank Math، دوازده پرسش متداول، ده منبع و سه تصویر ویکی‌مدیایی.
+* رفع اشکال: متغیرهای مشترک سئو/og در مقالات آماده (ازنادر، تنگه لی لی، فلک‌الافلاک، دماوند) جدا شد تا هر مقاله متای خودش را بگیرد.
+
 * مقالهٔ آمادهٔ «قله دماوند» (مازندران/آمل) با متن، متا، سئو، Rank Math، FAQ، منابع و سه تصویر ویکی‌مدیایی.
 = 2.11.20 — 2026-10-06 =
 * سه تصویر برای مقالهٔ آبشار ازنادر (دره اسپر): قاب آبشار، پانورامای دره و روستای دره اسبر (ویکی‌مدیا، CC BY-SA 4.0).
