@@ -236,7 +236,7 @@ function sa_summary( $post, $words = 30 ) {
 	return wp_trim_words( $text, $words, '…' );
 }
 /**
- * Detect which colored icon should be used in the compact «نمای برتر» card.
+ * Detect which colored icon should be used in the compact «دیدنی» card.
  *
  * @param int    $post_id Attraction post ID.
  * @param string $title   Attraction title.
@@ -267,7 +267,7 @@ function sa_attraction_icon_kind( $post_id, $title, $type = '' ) {
 }
 
 /**
- * Colored corner icons for generated «نمای برتر» cards.
+ * Colored corner icons for generated «دیدنی» cards.
  *
  * @param string $kind waterfall|lake|mountain|park|cave|village|landscape.
  * @return string SVG markup.
@@ -300,7 +300,7 @@ SVG,
 }
 
 /**
- * Render a white information card for «نمای برتر» identity/archive visuals.
+ * Render a white information card for «دیدنی» identity/archive visuals.
  *
  * v2.11.13: the card uses a colored corner icon (waterfall/lake/mountain/park/cave/village)
  * and rewrites the place information in the center, like a clean featured-image card.
@@ -323,7 +323,7 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 	$prov_txt    = $province ? 'استان ' . get_the_title( $province ) : '';
 	$location = trim( $city_txt . ( $city_txt && $prov_txt ? '  |  ' : '' ) . $prov_txt );
 	$terms    = get_the_terms( $post_id, 'attraction_type' );
-	$type_txt = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'نمای برتر';
+	$type_txt = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'دیدنی';
 	$kind     = sa_attraction_icon_kind( $post_id, $title, $type_txt );
 	$classes  = 'sa-attraction-diagram sa-attraction-diagram--' . sanitize_html_class( $context ) . ' sa-attraction-diagram--icon-' . sanitize_html_class( $kind );
 	$aria     = trim( 'کارت معرفی ' . $title . ' ' . $city_txt . ' ' . $prov_txt );

@@ -821,7 +821,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 			<div class="sa-gallery__head-actions">
 				<span class="sa-gallery__hint"><?php esc_html_e( 'لمس/سوایپ برای تماشا', 'sarzaminaryan-child' ); ?></span>
 				<?php if ( $upload_to ) : ?>
-					<a class="sa-gallery__upload" href="<?php echo esc_url( $upload_to ); ?>"><?php esc_html_e( 'نمای برتر شهر/شهرستان‌تان را ارسال کنید', 'sarzaminaryan-child' ); ?></a>
+					<a class="sa-gallery__upload" href="<?php echo esc_url( $upload_to ); ?>"><?php esc_html_e( 'دیدنی شهر/شهرستان‌تان را ارسال کنید', 'sarzaminaryan-child' ); ?></a>
 				<?php endif; ?>
 			</div>
 		</div>

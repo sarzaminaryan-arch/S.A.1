@@ -52,7 +52,7 @@ function sa_child_widgets() {
 		array(
 			'name'          => 'کنار صفحه‌ی موجودیت‌ها',
 			'id'            => 'sidebar-entity',
-			'description'   => 'زیر جعبه‌ی اطلاعات کلیدی در صفحه‌ی استان/شهر/نمای برتر/… نمایش داده می‌شود (مناسب تبلیغ یا بنر).',
+			'description'   => 'زیر جعبه‌ی اطلاعات کلیدی در صفحه‌ی استان/شهر/دیدنی/… نمایش داده می‌شود (مناسب تبلیغ یا بنر).',
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',

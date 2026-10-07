@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.11.39' );
+define( 'SA_CHILD_VERSION', '2.11.40' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.2' );
@@ -37,7 +37,7 @@ $sa_child_includes = array(
 	'inc/seo.php',
 	'inc/citations.php',
 	'inc/redirects.php', // تغییر مسیر ۳۰۱ صفحه‌های تکراری (ادغام‌های تأییدشدهٔ مالک)
-	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / نمای برتر
+	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / دیدنی
 	'inc/region-map.php',
 	'inc/schema.php',
 	'inc/breadcrumbs.php',
@@ -51,7 +51,8 @@ $sa_child_includes = array(
 	'inc/admin.php',
 	'inc/content-health.php',
 	'inc/content-repair.php', // تعمیر مکانیکیِ محتوای منتشرشده (H1 بدنه → H2) — پیش‌نمایش + اعمال با nonce
-	'inc/ready-articles.php', // مقالات آمادهٔ نمای برتر — درج فقط پیش‌نویس + کارت سفید تصویر شاخص
+	'inc/site-cleanup.php', // پاک‌سازی صفحه‌های خالیِ شهرستان + یکسان‌سازی نامِ «دیدنی‌ها» در متن
+	'inc/ready-articles.php', // مقالات آمادهٔ دیدنی‌ها — درج فقط پیش‌نویس + کارت سفید تصویر شاخص
 	'inc/city-contrib.php', // مشارکت مردمی «شهر من» — داخلی قالب، بدون نیاز به افزونه
 	'inc/contact-form.php', // فرم تماس داخلی قالب (ارسال به ایمیل تماس سایت)
 	'inc/social-publish.php', // انتشار خودکار در تلگرام و اینستاگرام — داخلی قالب، بدون افزونه

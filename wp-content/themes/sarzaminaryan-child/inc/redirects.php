@@ -207,7 +207,7 @@ function sa_redirect_handle_request() {
 	}
 
 	$target = sa_redirect_target_for_path( sa_redirect_request_path() );
-	if ( '' === $target ) {
+	if ( '' === $target || ! sa_redirect_target_exists( $target ) ) {
 		return;
 	}
 
@@ -222,6 +222,43 @@ function sa_redirect_handle_request() {
 	}
 }
 add_action( 'template_redirect', 'sa_redirect_handle_request', 1 );
+
+/**
+ * آیا صفحهٔ مقصد واقعاً وجود دارد؟ ۴۰۴ به ۴۰۴ وصل نمی‌کنیم.
+ *
+ * نقشهٔ تغییر مسیر می‌تواند پیش از درجِ مقالهٔ مقصد (مثلاً «مقالات آمادهٔ دیدنی‌ها»)
+ * ثبت شده باشد؛ در آن بازه، مسیر قدیمی باید رفتار عادیِ خودش را داشته باشد.
+ *
+ * @param string $target مسیرِ مقصد.
+ * @return bool
+ */
+function sa_redirect_target_exists( $target ) {
+	$parts = explode( '/', trim( (string) $target, '/' ) );
+	if ( count( $parts ) < 2 ) {
+		return true;
+	}
+	$types = array(
+		'city'       => 'city',
+		'province'   => 'province',
+		'attraction' => 'attraction',
+	);
+	if ( ! isset( $types[ $parts[0] ] ) ) {
+		return true;
+	}
+	if ( ! function_exists( 'get_page_by_path' ) ) {
+		return true;
+	}
+	$post = get_page_by_path( $parts[1], OBJECT, $types[ $parts[0] ] );
+	if ( ! $post ) {
+		/*
+		 * مثلاً برگه/نوشتهٔ معمولی: مقصدهای خارج از سه نوعِ اصلی را دست‌نخورده رد می‌کنیم.
+		 * (اگر مقصد برگه باشد، get_page_by_path با نوعِ دیگر آن را پیدا نمی‌کند.)
+		 */
+		$page = get_page_by_path( $parts[1], OBJECT, 'page' );
+		return (bool) $page;
+	}
+	return 'publish' === $post->post_status;
+}
 
 /**
  * بیرون‌گذاشتنِ صفحه‌های قدیمی از آرشیوِ نوعِ نوشته.

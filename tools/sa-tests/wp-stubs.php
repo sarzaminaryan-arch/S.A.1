@@ -459,6 +459,16 @@ function get_posts( $args = array() ) {
 function wp_insert_post( $args, $error = false ) {
 	return sa_add_post( $args );
 }
+function wp_trash_post( $post_id = 0 ) {
+	$post = get_post( $post_id );
+	if ( ! $post ) {
+		return false;
+	}
+	$post->post_status = 'trash';
+	$post->post_name   = $post->post_name . '__trashed';
+	$GLOBALS['sa_trashed'][] = (int) $post->ID;
+	return $post;
+}
 function wp_update_post( $args ) {
 	$post = get_post( isset( $args['ID'] ) ? $args['ID'] : 0 );
 	if ( ! $post ) {
@@ -886,7 +896,7 @@ function sa_entity_label( $type, $form = 'singular' ) {
 	$labels = array(
 		'province'   => array( 'singular' => 'استان', 'plural' => 'استان‌ها' ),
 		'city'       => array( 'singular' => 'شهرستان', 'plural' => 'شهرستان‌ها' ),
-		'attraction' => array( 'singular' => 'نمای برتر', 'plural' => 'نماهای برتر' ),
+		'attraction' => array( 'singular' => 'دیدنی', 'plural' => 'دیدنی‌ها' ),
 	);
 	return isset( $labels[ $type ][ $form ] ) ? $labels[ $type ][ $form ] : $type;
 }

@@ -88,7 +88,7 @@ function sa_gate_missing( $post_id, $type, $form = null ) {
 		: (string) get_post_field( 'post_content', $post_id );
 
 	// missing_featured_image.
-	// v2.11.11: attraction/«نمای برتر» pages use a generated white diagram card
+	// v2.11.11: attraction/«دیدنی» pages use a generated white diagram card
 	// instead of the old large featured-image model, so a thumbnail is optional.
 	if ( 'attraction' !== $type ) {
 		$thumb = null !== $form ? ( isset( $form['_thumbnail_id'] ) ? (int) $form['_thumbnail_id'] : 0 ) : (int) get_post_thumbnail_id( $post_id );

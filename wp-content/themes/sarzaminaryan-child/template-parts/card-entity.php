@@ -2,7 +2,7 @@
 /**
  * Card for any post type (expects query var sa_card_post or global post).
  *
- * v2.11.24: «نمای برتر» (attraction) cards are minimal text tiles — no featured
+ * v2.11.24: «دیدنی» (attraction) cards are minimal text tiles — no featured
  * image and no diagram art. The whole box is the link to the entity page.
  *
  * @package Sarzaminaryan_Child

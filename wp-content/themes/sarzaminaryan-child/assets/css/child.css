@@ -2928,7 +2928,7 @@ main.site-main.container,
 }
 
 /* ==========================================================================
-   v2.11.9 — «نمای برتر» identity card and stable article imagery
+   v2.11.9 — «دیدنی» identity card and stable article imagery
    ========================================================================== */
 .sa-attraction-id {
 	--sa-id-green: #0f5132;
@@ -3178,7 +3178,7 @@ main.site-main.container,
 }
 
 /* ==========================================================================
-   v2.11.11 — «نمای برتر» white diagram card instead of large featured image
+   v2.11.11 — «دیدنی» white diagram card instead of large featured image
    ========================================================================== */
 .sa-attraction-diagram {
 	direction: rtl;
@@ -3568,7 +3568,7 @@ main.site-main.container,
 }
 
 /* ==========================================================================
-   v2.11.24 — «نمای برتر» minimal tiles (no featured image)
+   v2.11.24 — «دیدنی» minimal tiles (no featured image)
    A clean grid of small, deeply shadowed 3D boxes. Each box is one link:
    bold Persian name, smaller English line, then city · province.
    ========================================================================== */
@@ -3678,7 +3678,7 @@ main.site-main.container,
 	box-shadow: var(--focus-ring), var(--sa-shadow-deep);
 }
 
-/* Tiny «نمای برتر» label. */
+/* Tiny «دیدنی» label. */
 .sa-tile__badge {
 	position: absolute;
 	inset-block-start: 0.6rem;
@@ -3781,7 +3781,7 @@ main.site-main.container,
    single vivid accent color for the English line only.
    ========================================================================== */
 
-/* ---- 1) «نمای برتر» page: the featured/diagram card is gone, so the identity
+/* ---- 1) «دیدنی» page: the featured/diagram card is gone, so the identity
    card must stand on its own, full-width and responsive. ---- */
 .sa-attraction-id .sa-attraction-id__card {
 	display: block;
@@ -3936,7 +3936,7 @@ main.site-main.container,
 }
 
 /* ==========================================================================
-   v2.11.27 — لینک‌سازی داخلی خودکار (استان / شهرستان / نمای برتر)
+   v2.11.27 — لینک‌سازی داخلی خودکار (استان / شهرستان / دیدنی)
    ظاهرِ این لینک‌ها عمداً همان لینک معمولیِ متن است؛ فقط زیرخطِ پیوسته دارند
    تا خواننده بفهمد مقصد دارند، بی‌آن‌که متن شبیه تبلیغ یا لینک‌پراکنی شود.
    ========================================================================== */

@@ -145,7 +145,7 @@ sa_eq( 'هیچ مبدأی مقصدِ مبدأِ دیگری نیست', array(), a
 $bad_shape = array();
 foreach ( $map as $from => $to ) {
 	foreach ( array( $from, $to ) as $path ) {
-		if ( ! preg_match( '~^/(city|province|attraction)/[a-z0-9-]+/$~D', $path ) ) {
+		if ( ! preg_match( '~^/(city|province|attraction)/[a-z0-9\p{L}\p{N}\p{M}_-]+/$~uD', $path ) ) {
 			$bad_shape[] = $path;
 		}
 	}
@@ -265,6 +265,53 @@ $html = sa_autolink_content( 'برای دیدنِ فهرستِ روستاها ب
 sa_eq( 'رندر: یک لینک به مقصد ساخته می‌شود', 1, substr_count( $html, 'href="https://sarzaminaryan.test/city/ejrud/"' ) );
 sa_eq( 'رندر: هیچ لینکی به صفحهٔ ادغام‌شده نیست', 0, substr_count( $html, '/city/ijrud/' ) );
 sa_eq( 'رندر: متنِ لینک نامِ کامل است', 1, substr_count( $html, '>شهرستان ایجرود</a>' ) );
+
+/* ------------------------------------------------- §۷. جاذبه‌های لینک‌شدهٔ بی‌صفحه */
+
+// نامک‌های قدیمیِ فارسی در نقشه، مقصدشان باید همان مقالهٔ تازه (نامکِ لاتین) باشد.
+sa_eq( '«دریاچهٔ گهرِ دورود» به مقالهٔ تازه می‌رسد', '/attraction/gahar-lake-dorud/', isset( $map['/attraction/دریاچه-ی-گهر/'] ) ? $map['/attraction/دریاچه-ی-گهر/'] : '' );
+sa_eq( '«آبشار بیشه» به مقالهٔ تازه می‌رسد', '/attraction/bisheh-waterfall-dorud/', isset( $map['/attraction/آبشار-بیشه/'] ) ? $map['/attraction/آبشار-بیشه/'] : '' );
+sa_eq( '«آبشار شوی تله‌زنگ» به مقالهٔ تازه می‌رسد', '/attraction/shevi-waterfall-tele-zang/', isset( $map['/attraction/آبشار-شوی-تله-زنگ/'] ) ? $map['/attraction/آبشار-شوی-تله-زنگ/'] : '' );
+sa_eq( '«درهٔ ستاره‌های قشم» به مقالهٔ تازه می‌رسد', '/attraction/qeshm-stars-valley-geopark/', isset( $map['/attraction/stars-valley-qeshm/'] ) ? $map['/attraction/stars-valley-qeshm/'] : '' );
+sa_eq( 'هیچ مبدأی مقصدِ مبدأِ دیگری نیست (پس از افزودنِ جاذبه‌ها)', array(), array_values( array_intersect( array_keys( $map ), array_values( $map ) ) ) );
+
+// نگهبان: ۴۰۴ به ۴۰۴ وصل نمی‌شود. مقصد باید وجود داشته و منتشرشده باشد.
+sa_add_post(
+	array(
+		'post_type'   => 'attraction',
+		'post_status' => 'publish',
+		'post_name'   => 'gahar-lake-dorud',
+		'post_title'  => 'دریاچهٔ گهر',
+	)
+);
+sa_add_post(
+	array(
+		'post_type'   => 'attraction',
+		'post_status' => 'draft',
+		'post_name'   => 'bisheh-waterfall-dorud',
+		'post_title'  => 'آبشار بیشه',
+	)
+);
+sa_eq( 'مقصدِ منتشرشده معتبر است', true, sa_redirect_target_exists( '/attraction/gahar-lake-dorud/' ) );
+sa_eq( 'مقصدِ منتشرنشده معتبر نیست', false, sa_redirect_target_exists( '/attraction/bisheh-waterfall-dorud/' ) );
+sa_eq( 'مقصدِ ناموجود معتبر نیست', false, sa_redirect_target_exists( '/attraction/هیچ-مقصدی-نیست/' ) );
+sa_eq( 'مقصدِ شهرستانِ موجود معتبر است', true, sa_redirect_target_exists( '/city/ejrud/' ) );
+sa_eq( 'نامکِ غیرِ استاندارد دست‌نخورده پذیرفته می‌شود', true, sa_redirect_target_exists( '/something/else/' ) );
+
+// پایان‌به‌پایان: با مقصدِ ناموجود نباید تغییر مسیری رخ دهد.
+$_SERVER['REQUEST_METHOD'] = 'GET';
+$_SERVER['REQUEST_URI']    = '/attraction/آبشار-بیشه/';
+$GLOBALS['sa_redirects']   = array();
+sa_redirect_handle_request();
+sa_eq( 'بدونِ مقالهٔ مقصد، تغییر مسیر انجام نمی‌شود', array(), $GLOBALS['sa_redirects'] );
+
+// با مقالهٔ منتشرشده، همان مسیر باید به مقصدِ تازه اشاره کند. (فراخوانیِ خودِ هندلر این‌جا
+// ممکن نیست: پس از wp_safe_redirect()، وردپرس exit می‌کند و اجرای آزمون را قطع می‌کند.)
+sa_eq( 'مسیر قدیمی به مقالهٔ تازه اشاره می‌کند', '/attraction/gahar-lake-dorud/', sa_redirect_target_for_path( '/attraction/دریاچه-ی-گهر/' ) );
+sa_eq( 'نگهبان، مقصدِ منتشرشده را تأیید می‌کند', true, sa_redirect_target_exists( sa_redirect_target_for_path( '/attraction/دریاچه-ی-گهر/' ) ) );
+sa_eq( 'مسیر قدیمیِ آبشار بیشه به مقصدِ پیش‌نویس می‌رسد ولی نگهبان ردش می‌کند', false, sa_redirect_target_exists( sa_redirect_target_for_path( '/attraction/آبشار-بیشه/' ) ) );
+unset( $_SERVER['REQUEST_METHOD'] );
+unset( $_SERVER['REQUEST_URI'] );
 
 /* ------------------------------------------------- §۶. بارگذاریِ مستقلِ موتور */
 

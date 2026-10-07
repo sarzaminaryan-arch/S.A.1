@@ -380,6 +380,22 @@ function sa_health_page() {
 	sa_repair_section();
 	sa_selflink_section();
 
+	/*
+	 * بخش‌های «پاک‌سازی» در فایلِ جداگانه‌اند؛ اگر قالب آن را بار نکرده باشد
+	 * (اجرای مستقلِ همین فایل در آزمون‌ها)، بی‌صدا رد می‌شوند تا صفحهٔ سلامت
+	 * هرگز با خطای مرگبار بالا نیاید.
+	 */
+	$sa_cleanup_module = defined( 'SA_CHILD_DIR' ) ? SA_CHILD_DIR . 'inc/site-cleanup.php' : '';
+	if ( '' !== $sa_cleanup_module && is_readable( $sa_cleanup_module ) && ! function_exists( 'sa_city_cleanup_section' ) ) {
+		require_once $sa_cleanup_module;
+	}
+	if ( function_exists( 'sa_city_cleanup_section' ) ) {
+		sa_city_cleanup_section();
+	}
+	if ( function_exists( 'sa_term_rename_section' ) ) {
+		sa_term_rename_section();
+	}
+
 	echo '<style>
 	.sa-health__cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0 26px}
 	.sa-health__card{background:#fff;border:1px solid #dcdcde;border-inline-start-width:4px;border-radius:6px;padding:14px 16px}

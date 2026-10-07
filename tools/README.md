@@ -128,7 +128,9 @@ node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 | `tools/sa-tests/run-autolink-audit.php` | ممیزیِ لینک‌سازی خودکار: ساختِ واژه‌نامه از دادهٔ واقعی و اجرای موتورِ `inc/internal-links.php` روی بدنهٔ صفحه‌ها (شبیه‌سازی رندر، بدون تغییر محتوا) |
 | `tools/sa-tests/run-autolink-rules.php` | ۲۶ ادعا برای قواعدِ ضدخطایِ موتورِ لینک‌سازی: متنِ کاملِ نام، واژه‌های نامبهم («بافت شهری»)، پدیده/تقسیمِ چسبیده («رود شاهرود»، «بخش نطنز»، «کلان‌شهر کرمان»)، نامِ خودِ صفحه، یک‌بار‌بودنِ مقصد و سقفِ ۳۰ لینک |
 | `tools/sa-tests/run-health-scan.php` | اسکنِ صفحه‌بندی‌شدهٔ سلامت محتوا: کامل‌بودن اسکن (۵۴۰ سند در ۳ صفحه)، سقفِ ایمنی فیلتردار، هشدارِ بریدگی و رندرِ صفحه با/بدون سقف |
-| `tools/sa-tests/run-redirects.php` | ۳۳ ادعا برای ماژولِ تغییر مسیرِ صفحه‌های ادغام‌شده: نقشهٔ ۳۰۱ (کلید/مقصد/بی‌زنجیره/داخلِ رجیستری)، نرمال‌سازیِ مسیر و حفظِ کوئری، بیرون‌ماندنِ صفحهٔ قدیمی از آرشیو و نقشهٔ سایت، نبودِ لینکِ تولیدشده به صفحهٔ ادغام‌شده در رندرِ پایان‌به‌پایان، و بارگذاریِ خودکارِ ماژول وقتی فقط موتورِ لینک‌سازی خوانده می‌شود |
+| `tools/sa-tests/run-redirects.php` | ۴۷ ادعا برای ماژولِ تغییر مسیرِ صفحه‌های ادغام‌شده: نقشهٔ ۳۰۱ (کلید/مقصد/بی‌زنجیره/داخلِ رجیستری، شاملِ نامک‌های فارسیِ جاذبه‌ها)، نرمال‌سازیِ مسیر و حفظِ کوئری، نگهبانِ `sa_redirect_target_exists()` (۴۰۴ به ۴۰۴ وصل نمی‌شود)، بیرون‌ماندنِ صفحهٔ قدیمی از آرشیو و نقشهٔ سایت، نبودِ لینکِ تولیدشده به صفحهٔ ادغام‌شده، و بارگذاریِ خودکارِ ماژول |
+| `tools/sa-tests/run-site-cleanup.php` | ۶۰ ادعا برای پاک‌سازیِ پیشخوان: شناساییِ صفحه‌های بی‌متن، جایگزینیِ نامِ قدیمی فقط در متنِ منتشرشده، جانشینِ تکراری‌ها از رجیستری (نردبانِ نامکِ دقیق → پسوندِ `-city` → لِوِنشتاینِ ۱)، رندرِ جدولِ سطلِ زباله و نبودِ حذفِ قطعی، و capability/nonce |
+| `tools/sa-tests/run-ready-articles.php` | ۳۲ ادعا برای `data/ready-articles.php`: ساختارِ همهٔ مدخل‌ها (فیلدهای لازم، `kind` مجاز، نامکِ یکتا، چکیده/بدنه/FAQ/متا)، اعتبارِ استان و شهرستان در برابر رجیستری، مقصدِ همهٔ پیوندهای داخلی (`/city/`، `/province/`، `/attraction/`)، کمالِ متای مدخل‌های تازه و فهرستِ زندهٔ مقصدهای بی‌مقاله |
 | `tools/tests/test_audit_autolinks.py` | ممیزیِ رندرِ لینک‌سازی: یکسان‌سازی نام، شناساییِ نام‌های هم‌نام (تداخلِ واژه‌نامه)، تفکیکِ لینکِ تولیدشده از پیوندِ موجود، تشخیصِ لینکِ غلطِ بین‌استانی و پیوندِ خودارجاع، و دسته‌بندیِ اجرای php-wasm |
 | `tools/tests/test_registry_live_diff.py` | مقایسهٔ رجیستری↔WXR: یکسان‌سازی نام (ی/ک عربی، نیم‌فاصله، پیشوند «شهرستان»)، تشخیص اختلاف slug فقط برای صفحهٔ منتشرشده، تکراری‌های منتشرشده، برخورد پیش‌نویس/سطل‌زباله، آمار لینک `/city/` استان و نبودِ متن مقاله در گزارش |
 | `tools/tests/test_wxr_rollup.py` | rollup: دسته‌بندی ریسک، تشخیص H1/یادداشت/تکراری/نازک، حذفِ پیوست‌ها، ساختِ گزارش و CSV و نبودِ فرادادهٔ SEO |
@@ -151,6 +153,8 @@ PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-content-repair.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-autolink-rules.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-redirects.php
+node     tools/phpwasm/exec.js tools/sa-tests/run-site-cleanup.php
+node     tools/phpwasm/exec.js tools/sa-tests/run-ready-articles.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 SA_AUTOLINK_JOB=/ws/.tmp-autolink/job.json node tools/phpwasm/exec.js tools/sa-tests/run-autolink-audit.php
 SA_SELFLINK_JOB=/ws/.tmp-selflink/job.json node tools/phpwasm/exec.js tools/sa-tests/run-selflink-repair.php

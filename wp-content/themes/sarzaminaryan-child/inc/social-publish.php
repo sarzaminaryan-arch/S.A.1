@@ -1268,7 +1268,7 @@ function sa_social_settings_page() {
 					<th scope="row">انواع محتوا</th>
 					<td>
 						<?php
-						$preferred = array( 'province' => 'استان', 'city' => 'شهرستان', 'attraction' => 'نمای برتر', 'post' => 'نوشته' );
+						$preferred = array( 'province' => 'استان', 'city' => 'شهرستان', 'attraction' => 'دیدنی', 'post' => 'نوشته' );
 						foreach ( $preferred as $slug => $label ) :
 							if ( ! in_array( $slug, sa_social_post_types(), true ) ) {
 								continue;
@@ -1279,7 +1279,7 @@ function sa_social_settings_page() {
 								<?php echo esc_html( $label ); ?>
 							</label>
 						<?php endforeach; ?>
-						<p class="description">ترتیبِ ارسال: استان‌ها، سپس شهرستان‌ها، سپس نماهای برتر و در آخر نوشته‌ها.</p>
+						<p class="description">ترتیبِ ارسال: استان‌ها، سپس شهرستان‌ها، سپس دیدنی‌ها و در آخر نوشته‌ها.</p>
 					</td>
 				</tr>
 				<tr>
