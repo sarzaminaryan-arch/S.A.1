@@ -42,3 +42,6 @@ tools/phpwasm/package-lock.json
 
 # Google Drive downloads used for audits (never committed)
 google_drive/
+
+# پوشهٔ موقتِ ممیزیِ لینک‌سازی (job.json) — هرگز commit نمی‌شود
+tools/sa-tests/.tmp-*/
