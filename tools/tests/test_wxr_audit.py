@@ -29,17 +29,22 @@ def wxr_item(post_id, slug, body, seo_title="", seo_description="", status="publ
     """
 
 
+def audit_items(items):
+    """اجرای ممیزی روی یک WXR ساختگی و برگرداندن گزارش."""
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+    <rss xmlns:content="http://purl.org/rss/1.0/modules/content/"
+         xmlns:wp="http://wordpress.org/export/1.2/">
+      <channel>{''.join(items)}</channel>
+    </rss>"""
+    with tempfile.TemporaryDirectory() as temp_dir:
+        path = Path(temp_dir) / "sample.xml"
+        path.write_text(xml, encoding="utf-8")
+        return AUDIT.audit_wxr(path, "https://sarzaminaryan.ir")
+
+
 class WxrAuditTest(unittest.TestCase):
     def audit(self, items):
-        xml = f"""<?xml version="1.0" encoding="UTF-8"?>
-        <rss xmlns:content="http://purl.org/rss/1.0/modules/content/"
-             xmlns:wp="http://wordpress.org/export/1.2/">
-          <channel>{''.join(items)}</channel>
-        </rss>"""
-        with tempfile.TemporaryDirectory() as temp_dir:
-            path = Path(temp_dir) / "sample.xml"
-            path.write_text(xml, encoding="utf-8")
-            return AUDIT.audit_wxr(path, "https://sarzaminaryan.ir")
+        return audit_items(items)
 
     def test_flags_content_hygiene_and_counts_wxr_meta(self):
         body = (
@@ -96,3 +101,41 @@ class WxrAuditTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class WxrDomainTest(unittest.TestCase):
+    """دامنه‌های بیرونی: تمرکز روی یک منبع باید بدون بازکردن متن پیدا شود."""
+
+    def audit(self, items):
+        return audit_items(items)
+
+
+    def test_external_domain_histogram_flags_single_source_concentration(self):
+        body = (
+            "<p>متن</p>"
+            '<a href="https://a.example.test/1">۱</a>'
+            '<a href="https://a.example.test/2">۲</a>'
+            '<a href="https://a.example.test/3">۳</a>'
+            '<a href="https://b.example.test/x">۴</a>'
+            '<a href="https://sarzaminaryan.ir/city/other/">داخلی</a>'
+        )
+        report = self.audit([wxr_item(1, "sample", body)])
+        row = report["items"][0]
+        self.assertEqual(row["external_links"], 4)
+        self.assertEqual(row["internal_links"], 1)
+        self.assertEqual(row["external_domains"], 2)
+        self.assertEqual(row["top_external_domain"], "a.example.test")
+        self.assertEqual(row["top_external_domain_links"], 3)
+        self.assertNotIn("domain_counts", row)
+        self.assertEqual(
+            report["summary"]["external_domain_histogram"],
+            {"a.example.test": 3, "b.example.test": 1},
+        )
+        # زیر آستانهٔ ۱۰ لینک، تمرکز علامت نمی‌خورد.
+        self.assertEqual(report["summary"]["posts_over_35pct_single_domain"], 0)
+
+    def test_single_domain_above_threshold_is_counted(self):
+        links = "".join(f'<a href="https://c.example.test/{i}">لینک {i}</a>' for i in range(12))
+        report = self.audit([wxr_item(2, "many", f"<p>متن</p>{links}")])
+        self.assertEqual(report["summary"]["posts_over_35pct_single_domain"], 1)
+        self.assertEqual(report["summary"]["external_domain_histogram"], {"c.example.test": 12})

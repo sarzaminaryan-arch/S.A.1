@@ -2,6 +2,8 @@
 """Audit a WordPress WXR export without loading its full content into memory.
 
 The report is a deterministic editorial/technical checklist aid, not an SEO score.
+Alongside per-item counts it aggregates the external-link domain histogram (public URLs
+only) so single-source concentration is visible without opening the content.
 It reads only the selected post fields and SEO meta keys; it never prints post bodies,
 raw metadata, authors, emails, or database credentials.
 
@@ -158,7 +160,7 @@ class ContentAuditParser(HTMLParser):
         self.anchor_stack.clear()
         internal = 0
         external = 0
-        domains: set[str] = set()
+        domain_counts: Counter[str] = Counter()
         empty_anchors = 0
         for anchor in self.anchors:
             label = " ".join(str(part) for part in anchor["parts"]).strip()
@@ -175,7 +177,8 @@ class ContentAuditParser(HTMLParser):
                     internal += 1
                 elif parsed.scheme in {"http", "https"}:
                     external += 1
-                    domains.add(host)
+                    domain_counts[host] += 1
+        top_domain, top_links = domain_counts.most_common(1)[0] if domain_counts else ("", 0)
         text = " ".join(self.text_parts)
         word_count = len(WORD_RE.findall(text))
         has_residue = any(pattern.search(text) for pattern in EDITORIAL_RESIDUE_PATTERNS)
@@ -187,7 +190,10 @@ class ContentAuditParser(HTMLParser):
             "images_missing_alt": self.images_missing_alt,
             "internal_links": internal,
             "external_links": external,
-            "external_domains": len(domains),
+            "external_domains": len(domain_counts),
+            "top_external_domain": top_domain,
+            "top_external_domain_links": top_links,
+            "domain_counts": dict(domain_counts),
             "empty_anchors": empty_anchors,
             "editorial_residue": has_residue,
         }
@@ -266,9 +272,13 @@ def audit_wxr(path: Path, site_url: str) -> dict[str, object]:
         raise ValueError("--site-url must include a hostname, e.g. https://sarzaminaryan.ir")
     site_host = parsed_site.hostname.lower().removeprefix("www.")
     rows: list[dict[str, object]] = []
+    domain_histogram: Counter[str] = Counter()
     for _, element in ET.iterparse(path, events=("end",)):
         if local_name(element.tag) == "item":
-            rows.append(audit_item(element, site_host))
+            row = audit_item(element, site_host)
+            for domain, count in row.pop("domain_counts", {}).items():
+                domain_histogram[domain] += int(count)
+            rows.append(row)
             element.clear()
 
     type_counts = Counter(str(row["post_type"]) for row in rows)
@@ -318,6 +328,13 @@ def audit_wxr(path: Path, site_url: str) -> dict[str, object]:
         "images_missing_alt_attribute": sum(int(row["images_missing_alt"]) for row in rows),
         "missing_seo_title_override": sum("no_exported_seo_title_override" in row["flags"] for row in rows),
         "missing_seo_description_override": sum("no_exported_seo_description_override" in row["flags"] for row in rows),
+        "external_domain_histogram": dict(domain_histogram.most_common(25)),
+        "posts_over_35pct_single_domain": sum(
+            1
+            for row in rows
+            if int(row["external_links"]) >= 10
+            and int(row["top_external_domain_links"]) / max(1, int(row["external_links"])) > 0.35
+        ),
         "duplicate_seo_titles": duplicate_groups(title_slugs),
         "duplicate_seo_descriptions": duplicate_groups(description_slugs),
         "duplicate_slugs": duplicate_slugs,
@@ -347,6 +364,8 @@ def write_csv(report: dict[str, object], destination: Path) -> None:
         "internal_links",
         "external_links",
         "external_domains",
+        "top_external_domain",
+        "top_external_domain_links",
         "image_count",
         "images_missing_alt",
         "empty_anchors",

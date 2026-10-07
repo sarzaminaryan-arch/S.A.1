@@ -13,7 +13,18 @@ python3 tools/audit_wxr_content.py /مسیر/export.xml \
 python3 -m unittest discover -s tools/tests -v
 ```
 
-گزارش شامل نوع/وضعیت/URL، شمار H1 و لینک و FAQ/منبع، alt، الگوهای احتمالی placeholder و تکرار title/description است. این ابزار 404 مقصدها، اعتبار منبع، صحت واقعیت، مفیدبودن محتوا یا رتبهٔ Google را تعیین نمی‌کند؛ نبود override سئو هم لزوماً خطا نیست چون قالب/افزونه ممکن است fallback بسازد. CSV/JSON را فقط در فضای امن نگه دارید؛ از واردکردن SQL یا اطلاعات شخصی در این ابزار بپرهیزید.
+گزارش شامل نوع/وضعیت/URL، شمار H1 و لینک و FAQ/منبع، alt، الگوهای احتمالی placeholder، تکرار title/description و **هیستوگرام دامنه‌های بیرونی** (برای دیدن تمرکز روی یک منبع) است.
+
+برای تبدیل خروجی‌های JSON به گزارشِ فارسیِ منتشرشدنی و فهرستِ کارِ CSV (بدون متن مقاله/فرادادهٔ SEO؛ فقط slug/URL و شمارش‌ها):
+
+```bash
+python3 tools/wxr_audit_rollup.py /tmp/ostanha.json /tmp/shar.json /tmp/namayebartar.json \
+  --provenance reports/provenance.json \
+  --out docs/YYYY-MM-DD-content-corpus-audit-fa.md \
+  --issues docs/YYYY-MM-DD-content-issues-fa.csv
+```
+
+`--provenance` اختیاری است (نام فایل/بایت/sha256/تاریخ Drive). سطح پوشش: پیوست/رسانه و ردیف‌های سطل‌زباله از فهرست کار کنار گذاشته می‌شوند. نمونهٔ اجراشده: `docs/2026-10-07-content-corpus-audit-fa.md`. این ابزار 404 مقصدها، اعتبار منبع، صحت واقعیت، مفیدبودن محتوا یا رتبهٔ Google را تعیین نمی‌کند؛ نبود override سئو هم لزوماً خطا نیست چون قالب/افزونه ممکن است fallback بسازد. CSV/JSON را فقط در فضای امن نگه دارید؛ از واردکردن SQL یا اطلاعات شخصی در این ابزار بپرهیزید.
 
 ## ۱. کنترل ساختاری رجیستری جغرافیا
 
@@ -63,6 +74,9 @@ node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 | `tools/tests/test_wxr_audit.py` | ممیزی WXR: شمارش ساختاری، hygiene/FAQ/source، duplicateها و عدم افشای متن/فرادادهٔ SEO در گزارش |
 | `tools/sa-tests/run-bot.php` | ربات راهنمای تلگرام: تنظیمات، ارتباط با Bot API، خلاصه‌ها، صفحه‌بندی، مسیرِ استان←شهر←دیدنی، جستجو، وب‌هوک (۴۰۳/۵۰۳/۲۰۰)، تنظیم وب‌هوک، پاک‌سازیِ ورودی و رندرِ صفحهٔ مدیریت |
 | `tools/sa-tests/run-social.php` | انتشار خودکار: استخراج تصویر، ساخت متن، ارسال تلگرام/اینستاگرام، شرط‌ها و زمان‌بندی، **ارسالِ انبوه** و رندرِ صفحهٔ مدیریت |
+| `tools/sa-tests/run-content-repair.php` | تعمیر مکانیکی `H1→H2`: تابع خالص (چند سربرگ/ویژگی‌ها/برچسب ناقص)، پیش‌نمایش و اعمالِ دسته‌ای، سقف دسته، capability/nonce و رندرِ بخش پیشخوان |
+| `tools/sa-tests/run-health-scan.php` | اسکنِ صفحه‌بندی‌شدهٔ سلامت محتوا: کامل‌بودن اسکن (۵۴۰ سند در ۳ صفحه)، سقفِ ایمنی فیلتردار، هشدارِ بریدگی و رندرِ صفحه با/بدون سقف |
+| `tools/tests/test_wxr_rollup.py` | rollup: دسته‌بندی ریسک، تشخیص H1/یادداشت/تکراری/نازک، حذفِ پیوست‌ها، ساختِ گزارش و CSV و نبودِ فرادادهٔ SEO |
 | `tools/sa-tests/wp-stubs.php` | شبیه‌سازِ وردپرس (گزینه‌ها، متا، نوشته‌ها، ترنزینت‌ها، رویدادهای زمان‌بندی‌شده، درخواست‌های HTTP، REST، قلاب‌ها، توابعِ پیشخوان) |
 | `tools/sa-tests/assert.php` | توابعِ سادهٔ ادعا و چاپِ خلاصه |
 
@@ -77,6 +91,10 @@ node     tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-social.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-social.php
+node     tools/phpwasm/exec.js tools/sa-tests/run-content-repair.php
+PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-content-repair.php
+node     tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
+PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 ```
 
 خروجیِ پایانی به‌شکل `PASS: 113   FAIL: 0` است و در صورت شکست، کدِ خروج `۱` برمی‌گردد.
