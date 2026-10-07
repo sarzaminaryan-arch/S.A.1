@@ -32,16 +32,29 @@ return array(
 	'/attraction/stars-valley-qeshm/' => '/attraction/qeshm-stars-valley-geopark/',
 
 	/*
+	 * نامکِ دیگرِ صفحه‌های موجود (۱۴۰۵-۰۷-۱۷).
+	 * صفحه‌های منتشرشده یک دیدنی را با نامکِ دیگری لینک کرده‌اند، در حالی که همان دیدنی
+	 * صفحهٔ منتشرشده دارد؛ به‌جای ساختنِ صفحهٔ تکراری، مسیرِ قدیمی به صفحهٔ موجود می‌رود.
+	 * مقصدهای هر چهار مورد منتشرشده‌اند، پس این تغییر مسیرها همین حالا فعال‌اند.
+	 */
+	'/attraction/meidan-emam-isfahan/' => '/attraction/naqsh-e-jahan-square-isfahan/',
+	'/attraction/shahdad-kalut/' => '/attraction/shahdad-kaluts-lut-desert/',
+	'/attraction/22438-ابشار-نوژیان/' => '/attraction/nozhian-waterfall-khorramabad/',
+	'/attraction/persepolis/' => '/attraction/persepolis-takht-jamshid/',
+
+	/*
 	 * پیش‌نویس‌های تکراریِ شهرستان (۱۴۰۵-۰۷-۱۵).
 	 * سه پیش‌نویسِ خالیِ سایت (`isfahan`، `galikesh`، `kabudarahang-city`) نسخهٔ
 	 * نامکِ قدیمیِ صفحه‌های منتشرشدهٔ `isfahan-city`، `galikash` و `kabutarahang`
 	 * هستند (هم‌نام و هم‌استان در رجیستری). این نقشه، هر پیوند یا نشانیِ قدیمی را
 	 * به صفحهٔ منتشرشدهٔ درست می‌رساند؛ تکلیفِ خودِ پیش‌نویس‌ها از «سلامت محتوا →
 	 * تعیین تکلیفِ شهرستان‌های بی‌متن» روشن می‌شود.
-	 * چهارمین پیش‌نویس خالی (`shahdad`) ردیفِ رجیستری ندارد (شهداد شهرستان نیست،
-	 * بخشی از شهرستان کرمان است) و مقصدِ جانشین برایش ساخته نمی‌شود.
+	 * چهارمین پیش‌نویس خالی (`shahdad`) ردیفِ رجیستری ندارد؛ شهداد شهرستان نیست،
+	 * شهرِ شهرستان کرمان است. پس نشانیِ قدیمی‌اش به «شهرستان کرمان» می‌رود —
+	 * همان مقصدی که ارجاعِ مقالهٔ «کلوت‌های شهداد» هم به آن منتقل می‌شود.
 	 */
 	'/city/isfahan/' => '/city/isfahan-city/',
 	'/city/galikesh/' => '/city/galikash/',
 	'/city/kabudarahang-city/' => '/city/kabutarahang/',
+	'/city/shahdad/' => '/city/kerman/',
 );

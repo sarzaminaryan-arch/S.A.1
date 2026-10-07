@@ -559,6 +559,280 @@ function sa_selflink_handle() {
 }
 add_action( 'admin_post_sa_selflink_unwrap', 'sa_selflink_handle' );
 
+/* -------------------------------------------------------------------------
+ * تعمیر سوم: عبارتِ تحریریِ جامانده در متنِ ذخیره‌شده (v2.11.42)
+ *
+ * دروازهٔ انتشار، عبارت‌هایی مانند «برای انتشار نهایی» را «یادداشتِ تحریریه»
+ * می‌شناسد و انتشار را متوقف می‌کند. در ممیزیِ ۱۴۰۵-۰۷-۱۵ این عبارت در متنِ
+ * ۳۱ صفحهٔ منتشرشدهٔ شهرستان (از جمله ۲۲ صفحه در خراسان شمالی و خوزستان) و در
+ * مقالهٔ آمادهٔ «آبشار بیشه» بود؛ یعنی هر بار که مالک یکی از آن صفحه‌ها را
+ * ویرایش می‌کرد، صفحه به‌جای انتشار در پیش‌نویس می‌ماند. این تعمیر فقط همین
+ * عبارتِ آغازین را از سرِ جمله برمی‌دارد (متنِ جمله دست‌نخورده می‌ماند) و
+ * بقیهٔ رخدادها را «بررسی‌نشده» گزارش می‌کند تا تصمیمِ انسانی بماند.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * حذفِ عبارتِ تحریریِ آغازین از متن (تابع خالص).
+ *
+ * @param string $content   محتوای خام.
+ * @param int    $removed   (مرجع) شمار عبارت‌های برداشته‌شده.
+ * @param int    $remaining (مرجع) شمار رخدادهایی که برداشته نشدند (میانِ جمله).
+ * @param bool   $guarded   (مرجع) اگر برداشتنِ عبارت ساختارِ پیوندها را خراب کند، true.
+ * @return string
+ */
+function sa_repair_editorial_phrase( $content, &$removed = null, &$remaining = null, &$guarded = null ) {
+	$content   = (string) $content;
+	$removed   = 0;
+	$remaining = 0;
+	$guarded   = false;
+	if ( '' === $content ) {
+		return $content;
+	}
+	if ( false === strpos( $content, 'برای' ) ) {
+		return $content;
+	}
+
+	// فقط جایی که جمله/پاراگراف تازه شروع می‌شود (پس از تگ، نقطه/علامت پرسش یا خطِ نو).
+	$pattern = '/(^|[>\.!\?؟\n\r]\s{0,3})(?:برای\s+انتشار\s+نهایی)[،,]?\s*/u';
+	$count   = 0;
+	$out     = preg_replace( $pattern, '$1', $content, -1, $count );
+	if ( ! is_string( $out ) ) {
+		return $content;
+	}
+
+	// محافظ: اگر برداشتنِ عبارت، ساختارِ پیوندها را به هم بزند (مثلاً متنِ خودِ لینک
+	// باشد) دست‌نخورده برمی‌گردانیم تا یک ایراد جای ایرادِ دیگری نگذارد.
+	$links_before = preg_match_all( '/<a\b/iu', $content );
+	$empty_before = preg_match_all( '/>\s*<\/a>/iu', $content );
+	$links_after  = preg_match_all( '/<a\b/iu', $out );
+	$empty_after  = preg_match_all( '/>\s*<\/a>/iu', $out );
+	if ( $links_before !== $links_after || $empty_after > $empty_before ) {
+		$guarded   = true;
+		$removed   = 0;
+		$remaining = 0;
+		if ( preg_match_all( '/برای\s+انتشار\s+نهایی/u', $content, $m ) ) {
+			$remaining = count( $m[0] );
+		}
+		return $content;
+	}
+
+	$removed = (int) $count;
+
+	$left = 0;
+	if ( preg_match_all( '/برای\s+انتشار\s+نهایی/u', $out, $matches ) ) {
+		$left = count( $matches[0] );
+	}
+	$remaining = (int) $left;
+
+	return $out;
+}
+
+/**
+ * نامزدهای تعمیر سوم: موجودیت‌هایی که عبارتِ تحریری در متنشان هست.
+ *
+ * @param int $limit سقف بررسی در این اجرا.
+ * @return array<int,int> شناسه‌ها.
+ */
+function sa_repair_editorial_candidates( $limit = 0 ) {
+	$types = array_values( array_filter( array_map( 'strval', (array) sa_entity_types() ) ) );
+	if ( ! $types ) {
+		return array();
+	}
+	if ( $limit <= 0 ) {
+		$limit = sa_repair_batch_size();
+	}
+
+	// جست‌وجوی واژه‌ایِ وردپرس، بعد بازبینیِ دقیق با الگوی خودمان.
+	$q = new WP_Query(
+		array(
+			'post_type'              => $types,
+			'post_status'            => array( 'publish', 'draft', 'pending' ),
+			'posts_per_page'         => $limit,
+			'no_found_rows'          => true,
+			'fields'                 => 'ids',
+			'update_post_term_cache' => false,
+			'orderby'                => 'ID',
+			'order'                  => 'ASC',
+			's'                      => 'برای انتشار نهایی',
+		)
+	);
+
+	$out = array();
+	foreach ( $q->posts as $pid ) {
+		$content = (string) get_post_field( 'post_content', $pid );
+		if ( false !== strpos( $content, 'برای انتشار نهایی' ) || preg_match( '/برای\s+انتشار\s+نهایی/u', $content ) ) {
+			$out[] = (int) $pid;
+		}
+	}
+
+	return $out;
+}
+
+/**
+ * اجرای تعمیر سوم (پیش‌نمایش یا اعمال).
+ *
+ * @param string $mode  dry|apply.
+ * @param int    $limit سقف نوشته در این اجرا.
+ * @return array<string,mixed>
+ */
+function sa_repair_editorial_run( $mode = 'dry', $limit = 0 ) {
+	$mode   = ( 'apply' === $mode ) ? 'apply' : 'dry';
+	$limit  = $limit > 0 ? (int) $limit : sa_repair_batch_size();
+	$report = array(
+		'mode'      => $mode,
+		'time'      => time(),
+		'scanned'   => 0,
+		'posts'     => 0,
+		'phrases'   => 0,
+		'remaining' => 0,
+		'failed'    => array(),
+		'unchanged' => array(),
+		'guarded'   => 0,
+		'ids'       => array(),
+		'batch'     => $limit,
+	);
+
+	foreach ( sa_repair_editorial_candidates( $limit ) as $pid ) {
+		$content = (string) get_post_field( 'post_content', $pid );
+		$out     = sa_repair_editorial_phrase( $content, $removed, $left, $guarded );
+
+		++$report['scanned'];
+		$report['remaining'] += (int) $left;
+		if ( $guarded ) {
+			++$report['guarded'];
+		}
+
+		if ( ! $removed || $out === $content ) {
+			$report['unchanged'][] = (int) $pid;
+			continue;
+		}
+
+		if ( 'dry' === $mode ) {
+			++$report['posts'];
+			$report['phrases'] += (int) $removed;
+			$report['ids'][]    = (int) $pid;
+			continue;
+		}
+
+		$result = wp_update_post(
+			array(
+				'ID'           => (int) $pid,
+				'post_content' => $out,
+			),
+			true
+		);
+		if ( is_wp_error( $result ) || ! $result ) {
+			$report['failed'][] = (int) $pid;
+			continue;
+		}
+
+		++$report['posts'];
+		$report['phrases'] += (int) $removed;
+		$report['ids'][]    = (int) $pid;
+	}
+
+	if ( 'apply' === $mode && $report['posts'] ) {
+		delete_transient( 'sa_health_scan' );
+	}
+
+	update_option( 'sa_repair_editorial_last', $report, false );
+	return $report;
+}
+
+/**
+ * آخرین گزارش تعمیر سوم.
+ *
+ * @return array<string,mixed>|null
+ */
+function sa_repair_editorial_last() {
+	$last = get_option( 'sa_repair_editorial_last' );
+	return is_array( $last ) ? $last : null;
+}
+
+/**
+ * منطق قابل‌آزمونِ دکمه‌های تعمیر سوم.
+ *
+ * @return array<string,mixed>|null
+ */
+function sa_repair_editorial_action() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'شما اجازه‌ی این کار را ندارید.', 'sarzaminaryan-child' ) );
+		return null;
+	}
+	check_admin_referer( 'sa_repair_editorial' );
+
+	$mode = ( isset( $_POST['sa_repair_mode'] ) && 'apply' === $_POST['sa_repair_mode'] ) ? 'apply' : 'dry';
+	return sa_repair_editorial_run( $mode );
+}
+
+/**
+ * مدیریت دکمه‌های «پیش‌نمایش» و «اعمال».
+ */
+function sa_repair_editorial_handle() {
+	$report = sa_repair_editorial_action();
+	$mode   = is_array( $report ) && isset( $report['mode'] ) ? (string) $report['mode'] : 'dry';
+
+	wp_safe_redirect(
+		add_query_arg(
+			array(
+				'page'          => 'sa-content-health',
+				'sa_editorial'  => $mode,
+			),
+			admin_url( 'admin.php' )
+		)
+	);
+	exit;
+}
+add_action( 'admin_post_sa_repair_editorial', 'sa_repair_editorial_handle' );
+
+/**
+ * بخش «عبارت تحریری جامانده» در صفحهٔ سلامت محتوا.
+ */
+function sa_repair_editorial_section() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	$fa      = 'sa_fa_digits';
+	$ids     = sa_repair_editorial_candidates( sa_repair_batch_size() );
+	$count   = count( $ids );
+	$last    = sa_repair_editorial_last();
+	$done    = isset( $_GET['sa_editorial'] ) ? sanitize_key( wp_unslash( $_GET['sa_editorial'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+	echo '<h2>حذفِ عبارتِ تحریریِ جامانده («برای انتشار نهایی»)</h2>';
+	echo '<p>دروازهٔ انتشار این عبارت را «یادداشتِ تحریریه» می‌شناسد و تا پاک نشدنش اجازهٔ انتشار نمی‌دهد؛ در متنِ ذخیره‌شدهٔ ۳۱ صفحهٔ شهرستان و مقالهٔ «آبشار بیشه» بود. '
+		. 'این ابزار فقط همان عبارتِ آغازین را از سرِ جمله برمی‌دارد و باقیِ متن را دست‌نخورده نگه می‌دارد (هر تغییر نسخهٔ بازبینی دارد). '
+		. 'رخدادهای میانِ جمله برداشته نمی‌شوند و در گزارش «بررسی‌نشده» می‌مانند.</p>';
+
+	if ( $done && $last ) {
+		if ( 'dry' === $last['mode'] ) {
+			echo '<div class="notice notice-info inline"><p><strong>پیش‌نمایش:</strong> در '
+				. esc_html( $fa( (string) $last['posts'] ) ) . ' صفحه، ' . esc_html( $fa( (string) $last['phrases'] ) )
+				. ' عبارت پیدا شد. هنوز چیزی تغییر نکرده است.</p></div>';
+		} else {
+			echo '<div class="notice notice-success inline"><p><strong>اعمال شد:</strong> '
+				. esc_html( $fa( (string) $last['posts'] ) ) . ' صفحه اصلاح شد ('
+				. esc_html( $fa( (string) $last['phrases'] ) ) . ' عبارت).</p></div>';
+		}
+		if ( ! empty( $last['remaining'] ) ) {
+			echo '<p class="description">بررسی‌نشده (میانِ جمله): ' . esc_html( $fa( (string) $last['remaining'] ) ) . ' مورد.</p>';
+		}
+	}
+
+	if ( ! $count ) {
+		echo '<p><strong>موردی نیست. ✓</strong></p>';
+		return;
+	}
+
+	echo '<p class="description">' . esc_html( $fa( (string) $count ) ) . ' صفحه در این اجرا بررسی می‌شود.</p>';
+	echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
+	wp_nonce_field( 'sa_repair_editorial' );
+	echo '<input type="hidden" name="action" value="sa_repair_editorial" />';
+	echo '<p><button class="button" name="sa_repair_mode" value="dry">پیش‌نمایش</button> ';
+	echo '<button class="button button-primary" name="sa_repair_mode" value="apply">حذفِ عبارت و اصلاحِ متن</button></p>';
+	echo '</form>';
+}
+
 /**
  * بخش «پیوندهای خودارجاع» در صفحهٔ سلامت محتوا.
  */

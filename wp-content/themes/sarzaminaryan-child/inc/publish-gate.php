@@ -408,17 +408,36 @@ function sa_gate_filter( $data, $postarr ) {
 	}
 
 	$user = get_current_user_id();
-	if ( $blocking || $warnings ) {
+
+	/*
+	 * v2.11.42 — محافظت از صفحه‌های منتشرشده.
+	 *
+	 * تا پیش از این، هر بار که مالک یک صفحهٔ زنده را ویرایش می‌کرد و یکی از
+	 * شرط‌های دروازه برآورده نمی‌شد، وردپرس آن صفحه را «پیش‌نویس» ذخیره می‌کرد
+	 * (نوارِ سرخِ «انتشار نوشته به‌صورت پیش‌نویس ذخیره شد»)؛ یعنی یک صفحهٔ زنده
+	 * بی‌سروصدا از سایت بیرون می‌رفت. حالا صفحهٔ منتشرشده هرگز پایین نمی‌آید؛
+	 * مانع‌ها به «یادآوری» تبدیل می‌شوند و در متای نوشته ثبت می‌مانند.
+	 */
+	$current_status = $post_id ? (string) get_post_status( $post_id ) : '';
+	$protect        = ( 'publish' === $current_status ) && (bool) apply_filters( 'sa_gate_protect_published', true );
+	if ( $protect && $blocking ) {
+		$warnings = array_merge( $blocking, $warnings );
+		$blocking = array();
+	}
+
+	if ( $protect || $blocking || $warnings ) {
+		$mode = $protect ? 'protected' : ( $blocking ? 'hard' : 'info' );
 		set_transient(
 			'sa_gate_' . $user,
 			array(
 				'post'     => $post_id,
 				'missing'  => $blocking,
 				'warnings' => $warnings,
-				'mode'     => $blocking ? 'hard' : 'info',
+				'mode'     => $mode,
 			),
 			120
 		);
+		sa_gate_store_report( $post_id, $blocking, $warnings, $mode, $protect );
 	}
 
 	if ( $blocking ) {
@@ -427,6 +446,144 @@ function sa_gate_filter( $data, $postarr ) {
 	return $data;
 }
 add_filter( 'wp_insert_post_data', 'sa_gate_filter', 20, 2 );
+
+/**
+ * v2.11.42 — ذخیرهٔ ماندگارِ گزارشِ دروازه روی خودِ نوشته.
+ *
+ * نوارهای پیشخوان موقتی‌اند (۱۲۰ ثانیه و با یک بار دیدن پاک می‌شوند)؛ این متا
+ * می‌ماند تا در جعبهٔ کنارِ ویرایشگر همیشه معلوم باشد «چه چیزی مانع انتشار است».
+ *
+ * @param int      $post_id  شناسهٔ نوشته.
+ * @param string[] $blocking مانع‌ها.
+ * @param string[] $warnings یادآوری‌ها.
+ * @param string   $mode     hard|protected|info.
+ * @param bool     $protect  آیا صفحهٔ زنده محافظت شد؟
+ * @return void
+ */
+function sa_gate_store_report( $post_id, $blocking, $warnings, $mode, $protect = false ) {
+	if ( ! $post_id || ! sa_is_entity( get_post_type( $post_id ) ) ) {
+		return;
+	}
+	update_post_meta(
+		$post_id,
+		'_sa_gate_report',
+		array(
+			'time'     => time(),
+			'mode'     => (string) $mode,
+			'protect'  => (bool) $protect,
+			'blocking' => array_values( array_map( 'strval', (array) $blocking ) ),
+			'warnings' => array_values( array_map( 'strval', (array) $warnings ) ),
+		)
+	);
+}
+
+/**
+ * v2.11.42 — راهنمای کوتاهِ رفع برای هر مانع.
+ *
+ * @param string $item متن مانع از sa_gate_missing().
+ * @return string راهنمای فارسی (یا رشتهٔ خالی).
+ */
+function sa_gate_hint( $item ) {
+	$item = (string) $item;
+	$map  = array(
+		'رابطه:'             => 'در جعبهٔ «روابط» انتخاب کنید.',
+		'سئو:'               => 'جعبهٔ «سئو» را کامل کنید (عنوان، توضیحات متا، کلیدواژه).',
+		'طبقه‌بندی اصلی:'    => 'در جعبهٔ طبقه‌بندی‌ها ترم را انتخاب کنید.',
+		'تصویر شاخص'         => 'تصویر شاخص بگذارید؛ برای مقالات آماده دکمهٔ «ساخت کارت تصویر شاخص» را بزنید.',
+		'منابع:'             => 'فهرست منابع را کامل کنید؛ هر منبع با نشانیِ https در یک خط.',
+		'بهداشت محتوا:'      => 'متن را اصلاح کنید؛ اگر H1 در بدنه است یا عبارت تحریری جامانده، «سرزمین آریان → سلامت محتوا → تعمیر محتوا» آن را اصلاح می‌کند.',
+		'مختصات جغرافیایی'   => 'عرض و طول جغرافیایی را پر کنید (مانع نیست، ولی در نقشه لازم است).',
+		'لینک داخلی:'        => 'لینک داخلی مفید بیفزایید (مانع نیست).',
+	);
+	foreach ( $map as $needle => $hint ) {
+		if ( 0 === strpos( $item, $needle ) ) {
+			return $hint;
+		}
+	}
+	return '';
+}
+
+/**
+ * v2.11.42 — جعبهٔ «دروازهٔ انتشار» در کنارِ ویرایشگر.
+ *
+ * @return void
+ */
+function sa_gate_register_box() {
+	foreach ( sa_entity_types() as $type ) {
+		add_meta_box( 'sa_gate_report', 'دروازهٔ انتشار — چه چیزی مانع است؟', 'sa_gate_render_report_box', $type, 'side', 'high' );
+	}
+}
+add_action( 'add_meta_boxes', 'sa_gate_register_box' );
+
+/**
+ * v2.11.42 — نمایشِ ماندگارِ مانع‌ها/یادآوری‌ها با راهنمای رفع.
+ *
+ * @param WP_Post $post نوشته.
+ * @return void
+ */
+function sa_gate_render_report_box( $post ) {
+	$stored = get_post_meta( $post->ID, '_sa_gate_report', true );
+	$live   = empty( $stored );
+	if ( $live ) {
+		$type     = (string) get_post_type( $post->ID );
+		$missing  = sa_gate_missing( (int) $post->ID, $type, null );
+		list( $blocking, $advisory ) = sa_gate_split( $missing );
+		$warnings = array_merge( sa_gate_warnings( (int) $post->ID, $type, null ), $advisory );
+		$report   = array(
+			'time'     => 0,
+			'mode'     => $blocking ? 'hard' : 'info',
+			'protect'  => 'publish' === get_post_status( $post->ID ),
+			'blocking' => $blocking,
+			'warnings' => $warnings,
+		);
+	} else {
+		$report = (array) $stored;
+	}
+
+	$blocking = isset( $report['blocking'] ) ? (array) $report['blocking'] : array();
+	$warnings = isset( $report['warnings'] ) ? (array) $report['warnings'] : array();
+	$time     = isset( $report['time'] ) ? (int) $report['time'] : 0;
+
+	echo '<div class="sa-box sa-stack">';
+	if ( $time ) {
+		echo '<p class="description">آخرین بررسی: ' . esc_html( sa_fa_digits( sa_jalali_date( 'j F Y — H:i', $time ) ) ) . '</p>';
+	} else {
+		echo '<p class="description">ارزیابیِ زندهٔ همین لحظه (هنوز ذخیره‌ای ثبت نشده است).</p>';
+	}
+
+	if ( ! $blocking ) {
+		echo '<p><strong>مانعی برای انتشار نیست. ✓</strong></p>';
+	} else {
+		echo '<p style="color:#b32d2e"><strong>' . esc_html( sa_fa_digits( count( $blocking ) ) ) . ' مانع انتشار:</strong></p><ul style="list-style:disc;margin-inline-start:1.2em">';
+		foreach ( $blocking as $item ) {
+			echo '<li>' . esc_html( $item );
+			$hint = sa_gate_hint( $item );
+			if ( '' !== $hint ) {
+				echo '<br /><span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
+		}
+		echo '</ul>';
+	}
+
+	if ( $warnings ) {
+		echo '<p><strong>یادآوری‌ها (' . esc_html( sa_fa_digits( count( $warnings ) ) ) . '):</strong></p><ul style="list-style:disc;margin-inline-start:1.2em">';
+		foreach ( $warnings as $item ) {
+			echo '<li>' . esc_html( $item );
+			$hint = sa_gate_hint( $item );
+			if ( '' !== $hint ) {
+				echo '<br /><span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
+		}
+		echo '</ul>';
+	}
+
+	if ( ! empty( $report['protect'] ) ) {
+		echo '<p class="description">این صفحه منتشر شده است؛ دروازه هیچ‌وقت صفحهٔ زنده را به پیش‌نویس برنمی‌گرداند.</p>';
+	}
+	echo '</div>';
+}
 
 /**
  * Keep the message visible after redirect.
@@ -452,20 +609,38 @@ function sa_gate_notice() {
 	}
 	delete_transient( 'sa_gate_' . get_current_user_id() );
 	$warnings = isset( $data['warnings'] ) ? (array) $data['warnings'] : array();
-	if ( ! empty( $data['missing'] ) ) {
-		$class = 'hard' === $data['mode'] ? 'notice-error' : 'notice-warning';
+	$mode     = isset( $data['mode'] ) ? (string) $data['mode'] : 'info';
+	if ( ! empty( $data['missing'] ) || ( 'protected' === $mode && $warnings ) ) {
+		if ( 'protected' === $mode ) {
+			$class = 'notice-warning';
+			$title = 'منتشر ماند و از سایت بیرون نرفت؛ اما این موارد را تکمیل کنید:';
+		} else {
+			$class = 'hard' === $mode ? 'notice-error' : 'notice-warning';
+			$title = 'hard' === $mode ? 'انتشار متوقف شد و نوشته به‌صورت پیش‌نویس ذخیره شد.' : 'منتشر شد، اما برای رعایت استاندارد این موارد باید تکمیل شوند:';
+		}
 		echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p><strong>';
-		echo 'hard' === $data['mode'] ? 'انتشار متوقف شد و نوشته به‌صورت پیش‌نویس ذخیره شد.' : 'منتشر شد، اما برای رعایت استاندارد این موارد باید تکمیل شوند:';
+		echo esc_html( $title );
 		echo '</strong> (دروازه‌ی انتشار — مدل داده سطح ۷)</p><ul style="list-style:disc;margin-inline-start:1.5em">';
-		foreach ( $data['missing'] as $m ) {
-			echo '<li>' . esc_html( $m ) . '</li>';
+		foreach ( array_merge( (array) $data['missing'], $warnings ) as $m ) {
+			echo '<li>' . esc_html( $m );
+			$hint = sa_gate_hint( $m );
+			if ( '' !== $hint ) {
+				echo ' <span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
 		}
 		echo '</ul></div>';
+		return;
 	}
 	if ( $warnings ) {
 		echo '<div class="notice notice-info is-dismissible"><p><strong>یادآوری‌های راستی‌آزمایی:</strong></p><ul style="list-style:disc;margin-inline-start:1.5em">';
 		foreach ( $warnings as $w ) {
-			echo '<li>' . esc_html( $w ) . '</li>';
+			echo '<li>' . esc_html( $w );
+			$hint = sa_gate_hint( $w );
+			if ( '' !== $hint ) {
+				echo ' <span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
 		}
 		echo '</ul></div>';
 	}
@@ -488,6 +663,22 @@ function sa_gate_badge( $post_id ) {
 	$warnings = array_merge( $warnings, $advisory );
 
 	$extra = $warnings ? ' <span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $warnings ) ) . '">قابل بهبود</span>' : '';
+
+	/*
+	 * v2.11.42 — نشانِ صفحهٔ منتشرشده.
+	 *
+	 * پیش از این، صفحهٔ منتشرشده‌ای که شرایطِ سطح ۷ را نداشت هم برچسبِ سرخِ
+	 * «مانع انتشار» می‌گرفت؛ مالک از فهرست چنین برداشت می‌کرد که صفحه منتشر
+	 * نشده است. حالا وضعیتِ واقعی نوشته صریح نوشته می‌شود و تعدادِ مواردِ
+	 * باقی‌مانده (که خودِ دروازه هم فهرست می‌کند) کنارش می‌آید.
+	 */
+	if ( 'publish' === (string) get_post_status( $post_id ) ) {
+		if ( empty( $blocking ) ) {
+			return '<span class="sa-badge sa-badge--ok" title="منتشرشده و از نظرِ دروازهٔ سطح ۷ کامل است">منتشرشده ✓</span>' . $extra;
+		}
+		return '<span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $blocking ) ) . '">منتشرشده · ' . esc_html( sa_fa_digits( count( $blocking ) ) ) . ' مورد برای تکمیل</span>' . $extra;
+	}
+
 	if ( empty( $blocking ) ) {
 		return '<span class="sa-badge sa-badge--ok" title="آماده‌ی انتشار است">قابل انتشار ✓</span>' . $extra;
 	}

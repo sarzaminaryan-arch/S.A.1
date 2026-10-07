@@ -379,6 +379,7 @@ function sa_health_page() {
 	/* --- تعمیر مکانیکی --- */
 	sa_repair_section();
 	sa_selflink_section();
+	sa_repair_editorial_section();
 
 	/*
 	 * بخش‌های «پاک‌سازی» در فایلِ جداگانه‌اند؛ اگر قالب آن را بار نکرده باشد

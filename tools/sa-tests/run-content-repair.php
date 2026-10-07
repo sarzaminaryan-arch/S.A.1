@@ -302,4 +302,109 @@ sa_selflink_section();
 $html = (string) ob_get_clean();
 sa_eq( 'برای کاربر کم‌دسترسی چیزی چاپ نمی‌شود', '', $html );
 
+echo "\n۸) تعمیر سوم: عبارتِ تحریریِ جامانده («برای انتشار نهایی»)\n";
+
+sa_reset_test_state();
+
+// تابع خالص: عبارتِ آغازین برداشته می‌شود و متنِ جمله دست‌نخورده می‌ماند.
+$pure  = '<p>برای انتشار نهایی، ساعت حرکت قطارها را همان روز بررسی کنید.</p>';
+$after = sa_repair_editorial_phrase( $pure, $removed, $left, $guarded );
+sa_eq( 'عبارتِ آغازین برداشته می‌شود', '<p>ساعت حرکت قطارها را همان روز بررسی کنید.</p>', $after );
+sa_eq( 'شمارِ برداشته‌شده گزارش می‌شود', 1, $removed );
+sa_eq( 'چیزی برای بررسیِ انسانی نمی‌ماند', 0, $left );
+sa_eq( 'محافظ فعال نشده است', false, $guarded );
+
+$two = '<p>متن. برای انتشار نهایی ادامه دهید.</p>';
+$out = sa_repair_editorial_phrase( $two, $removed2, $left2 );
+sa_eq( 'عبارتِ پس از پایانِ جمله هم برداشته می‌شود', '<p>متن. ادامه دهید.</p>', $out );
+sa_eq( 'دو رخدادِ پشتِ‌سرِ هم درست شمرده می‌شود', 1, $removed2 );
+
+$mid = '<p>این متن برای انتشار نهایی آماده است.</p>';
+sa_eq( 'رخدادِ میانِ جمله دست‌نخورده می‌ماند', $mid, sa_repair_editorial_phrase( $mid, $removed3, $left3 ) );
+sa_eq( 'رخدادِ میانِ جمله صفر برداشته‌شده دارد', 0, $removed3 );
+sa_eq( 'رخدادِ میانِ جمله «بررسی‌نشده» شمرده می‌شود', 1, $left3 );
+
+// اگر عبارت آغازِ متنِ یک پیوند باشد، برچسبِ باقی‌مانده دست‌نخورده می‌ماند.
+$link = '<p><a href="/city/tabas/">برای انتشار نهایی طبس</a></p>';
+$link_out = sa_repair_editorial_phrase( $link, $removed4, $left4, $guarded4 );
+sa_eq( 'برچسبِ پیوند پس از برداشتنِ عبارت سالم می‌ماند', '<p><a href="/city/tabas/">طبس</a></p>', $link_out );
+sa_eq( 'محافظ لازم نمی‌شود', false, $guarded4 );
+sa_eq( 'برداشت انجام می‌شود', 1, $removed4 );
+
+// محافظِ پیوند: اگر برداشتنِ عبارت برچسبِ لینک را خالی کند، دست نمی‌زنیم.
+$bare = '<p><a href="/city/tabas/">برای انتشار نهایی</a></p>';
+$bare_out = sa_repair_editorial_phrase( $bare, $removed5, $left5, $guarded5 );
+sa_eq( 'متنِ لینک دست‌نخورده می‌ماند', $bare, $bare_out );
+sa_eq( 'محافظ فعال می‌شود', true, $guarded5 );
+sa_eq( 'برداشتی رخ نمی‌دهد', 0, $removed5 );
+sa_eq( 'پیوندِ بی‌نام ساخته نمی‌شود', 0, preg_match_all( '/>\s*<\/a>/iu', $bare_out ) );
+
+// نامزدها: فقط موجودیت‌های دارای عبارت + بازبینیِ دقیق با الگوی خودمان.
+sa_reset_test_state();
+$para_id  = sa_seed( 'city', '<p>برای انتشار نهایی، مسیر را بررسی کنید.</p>' );
+$mid_id   = sa_seed( 'province', '<p>این متن برای انتشار نهایی آماده است.</p>' );
+$page_id  = sa_seed( 'page', '<p>برای انتشار نهایی، برگه.</p>' );
+$clean_id = sa_seed( 'attraction', '<p>متنِ سالم.</p>' );
+
+$cand = sa_repair_editorial_candidates();
+sa_eq( 'نامزدها فقط موجودیت‌های دارای عبارت‌اند', 2, count( $cand ) );
+sa_ok( 'پاراگرافِ آغازین نامزد است', in_array( $para_id, $cand, true ) );
+sa_ok( 'رخدادِ میانِ جمله هم نامزد است (تصمیمِ انسانی)', in_array( $mid_id, $cand, true ) );
+sa_eq( 'برگه هرگز نامزد نمی‌شود', false, in_array( $page_id, $cand, true ) );
+sa_eq( 'متنِ سالم نامزد نمی‌شود', false, in_array( $clean_id, $cand, true ) );
+
+$dry_report = sa_repair_editorial_run( 'dry' );
+sa_eq( 'پیش‌نمایش: یک صفحه قابلِ اصلاح', 1, (int) $dry_report['posts'] );
+sa_eq( 'پیش‌نمایش: یک عبارت', 1, (int) $dry_report['phrases'] );
+sa_eq( 'پیش‌نمایش: یک رخداد بررسی‌نشده', 1, (int) $dry_report['remaining'] );
+sa_has( 'پیش‌نمایش متن را تغییر نمی‌دهد', 'برای انتشار نهایی', (string) get_post_field( 'post_content', $para_id ) );
+
+$apply_report = sa_repair_editorial_run( 'apply' );
+sa_eq( 'اعمال: یک صفحه اصلاح شد', 1, (int) $apply_report['posts'] );
+sa_eq( 'اعمال: عبارت از متن رفت', '<p>مسیر را بررسی کنید.</p>', (string) get_post_field( 'post_content', $para_id ) );
+sa_has( 'رخدادِ میانِ جمله دست‌نخورده ماند', 'برای انتشار نهایی', (string) get_post_field( 'post_content', $mid_id ) );
+sa_eq( 'گزارشِ آخرین اجرا ذخیره شد', 'apply', sa_repair_editorial_last()['mode'] );
+
+$again_report = sa_repair_editorial_run( 'apply' );
+sa_eq( 'اجرای دوباره چیزی برای اصلاح ندارد', 0, (int) $again_report['posts'] );
+sa_eq( 'و موردِ باقی‌مانده را «بی‌تغییر» می‌شمارد', 1, count( $again_report['unchanged'] ) );
+
+echo "\n۹) تعمیر سوم: دسترسی، nonce و رندر بخش\n";
+
+sa_set_caps( array( 'manage_options' => false ) );
+$_POST = array( 'action' => 'sa_repair_editorial', 'sa_repair_mode' => 'apply' );
+$died = '';
+try {
+	sa_repair_editorial_action();
+} catch ( Exception $e ) {
+	$died = $e->getMessage();
+}
+sa_has( 'بدونِ دسترسی، wp_die اجرا می‌شود', 'wp_die', $died );
+
+sa_set_caps( array( 'manage_options' => true ) );
+$report = sa_repair_editorial_action();
+sa_eq( 'با دسترسی، حالتِ apply از فرم خوانده می‌شود', 'apply', $report['mode'] );
+
+sa_reset_test_state();
+ob_start();
+sa_repair_editorial_section();
+$html = (string) ob_get_clean();
+sa_has( 'در نبود مورد، پیام «موردی نیست» می‌آید', 'موردی نیست', $html );
+
+sa_seed( 'city', '<p>برای انتشار نهایی، مسیر.</p>' );
+ob_start();
+sa_repair_editorial_section();
+$html = (string) ob_get_clean();
+sa_has( 'تیتر بخش', 'حذفِ عبارتِ تحریریِ جامانده', $html );
+sa_has( 'دکمهٔ پیش‌نمایش', 'value="dry"', $html );
+sa_has( 'دکمهٔ اعمال', 'value="apply"', $html );
+sa_has( 'اکشن admin-post', 'value="sa_repair_editorial"', $html );
+sa_has( 'فیلد nonce', 'name="_wpnonce"', $html );
+
+sa_set_caps( array( 'manage_options' => false ) );
+ob_start();
+sa_repair_editorial_section();
+sa_eq( 'برای کاربر کم‌دسترسی چیزی چاپ نمی‌شود', '', (string) ob_get_clean() );
+sa_set_caps( array( 'manage_options' => true ) );
+
 sa_done();

@@ -275,6 +275,12 @@ sa_eq( '«آبشار شوی تله‌زنگ» به مقالهٔ تازه می‌
 sa_eq( '«درهٔ ستاره‌های قشم» به مقالهٔ تازه می‌رسد', '/attraction/qeshm-stars-valley-geopark/', isset( $map['/attraction/stars-valley-qeshm/'] ) ? $map['/attraction/stars-valley-qeshm/'] : '' );
 sa_eq( 'هیچ مبدأی مقصدِ مبدأِ دیگری نیست (پس از افزودنِ جاذبه‌ها)', array(), array_values( array_intersect( array_keys( $map ), array_values( $map ) ) ) );
 
+// نامکِ دیگرِ صفحه‌های موجودِ سایت (۱۴۰۵-۰۷-۱۷): بدونِ ساختِ صفحهٔ تکراری.
+sa_eq( '«میدان امام اصفهان» به مقالهٔ منتشرشدهٔ نقش جهان می‌رسد', '/attraction/naqsh-e-jahan-square-isfahan/', isset( $map['/attraction/meidan-emam-isfahan/'] ) ? $map['/attraction/meidan-emam-isfahan/'] : '' );
+sa_eq( '«کلوتِ شهداد» به مقالهٔ منتشرشدهٔ کلوت‌های شهداد می‌رسد', '/attraction/shahdad-kaluts-lut-desert/', isset( $map['/attraction/shahdad-kalut/'] ) ? $map['/attraction/shahdad-kalut/'] : '' );
+sa_eq( '«آبشار نوژیان» به مقالهٔ منتشرشدهٔ نوژیان می‌رسد', '/attraction/nozhian-waterfall-khorramabad/', isset( $map['/attraction/22438-ابشار-نوژیان/'] ) ? $map['/attraction/22438-ابشار-نوژیان/'] : '' );
+sa_eq( '«تخت جمشید/پرسپولیس» به مقالهٔ منتشرشده می‌رسد', '/attraction/persepolis-takht-jamshid/', isset( $map['/attraction/persepolis/'] ) ? $map['/attraction/persepolis/'] : '' );
+
 // نگهبان: ۴۰۴ به ۴۰۴ وصل نمی‌شود. مقصد باید وجود داشته و منتشرشده باشد.
 sa_add_post(
 	array(
@@ -297,6 +303,21 @@ sa_eq( 'مقصدِ منتشرنشده معتبر نیست', false, sa_redirect_t
 sa_eq( 'مقصدِ ناموجود معتبر نیست', false, sa_redirect_target_exists( '/attraction/هیچ-مقصدی-نیست/' ) );
 sa_eq( 'مقصدِ شهرستانِ موجود معتبر است', true, sa_redirect_target_exists( '/city/ejrud/' ) );
 sa_eq( 'نامکِ غیرِ استاندارد دست‌نخورده پذیرفته می‌شود', true, sa_redirect_target_exists( '/something/else/' ) );
+
+// مقصدهای تازه هم باید صفحهٔ منتشرشده داشته باشند (وگرنه تغییر مسیر اجرا نمی‌شود).
+foreach ( array( 'naqsh-e-jahan-square-isfahan', 'shahdad-kaluts-lut-desert', 'nozhian-waterfall-khorramabad', 'persepolis-takht-jamshid' ) as $target_slug ) {
+	sa_add_post(
+		array(
+			'post_type'   => 'attraction',
+			'post_status' => 'publish',
+			'post_name'   => $target_slug,
+			'post_title'  => $target_slug,
+		)
+	);
+}
+sa_eq( 'مقصدِ «نقش جهان» منتشرشده و معتبر است', true, sa_redirect_target_exists( '/attraction/naqsh-e-jahan-square-isfahan/' ) );
+sa_eq( 'مسیر «کلوتِ شهداد» به مقصدِ منتشرشده می‌رسد', true, sa_redirect_target_exists( sa_redirect_target_for_path( '/attraction/shahdad-kalut/' ) ) );
+sa_eq( 'مسیر «پرسپولیس» به مقصدِ منتشرشده می‌رسد', true, sa_redirect_target_exists( sa_redirect_target_for_path( '/attraction/persepolis/' ) ) );
 
 // پایان‌به‌پایان: با مقصدِ ناموجود نباید تغییر مسیری رخ دهد.
 $_SERVER['REQUEST_METHOD'] = 'GET';

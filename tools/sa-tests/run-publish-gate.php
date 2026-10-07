@@ -31,6 +31,37 @@ function sa_entity( $type ) {
 function sa_fa_digits( $value ) {
 	return strtr( (string) $value, array( '0' => '۰', '1' => '۱', '2' => '۲', '3' => '۳', '4' => '۴', '5' => '۵', '6' => '۶', '7' => '۷', '8' => '۸', '9' => '۹' ) );
 }
+function sa_is_entity( $post_or_type = null ) {
+	$type = is_string( $post_or_type ) ? $post_or_type : get_post_type( $post_or_type );
+	return $type && in_array( $type, array_values( (array) sa_entity_types() ), true );
+}
+function get_current_user_id() {
+	return 1;
+}
+function sa_count_sources( $raw ) {
+	$public = preg_split( '/^\s*-{3,}.*$/mu', (string) $raw, 2 );
+	return preg_match_all( '#https?://#i', $public[0] );
+}
+function sa_count_markers( $content ) {
+	$content = (string) $content;
+	return substr_count( $content, 'نیازمند بررسی' ) + substr_count( $content, 'منبع لازم' );
+}
+function sa_get_faq( $post_id ) {
+	$rows = json_decode( (string) get_post_meta( $post_id, 'sa_faq', true ), true );
+	return is_array( $rows ) ? $rows : array();
+}
+function has_term( $term = '', $taxonomy = '', $post = null ) {
+	return true;
+}
+function get_theme_mod( $name, $default = false ) {
+	return $default;
+}
+function sa_test_return_false() {
+	return false;
+}
+function sa_fa_digits_en( $value ) {
+	return (string) $value;
+}
 
 require '/ws/theme/inc/publish-gate.php';
 require '/ws/theme/inc/geo-counties.php';
@@ -130,5 +161,139 @@ if ( is_array( $county ) && ! empty( $county['slug'] ) ) {
 	sa_ok( 'همسایه‌ها به گرهٔ اصلی افزوده شدند', ! empty( $merged[0]['borders'] ) );
 	sa_ok( 'جاذبه‌های پروفایل به گرهٔ اصلی افزوده شدند', ! empty( $merged[0]['touristAttraction'] ) );
 }
+
+echo "\n== دروازهٔ انتشار: راهنما، حفاظت از صفحهٔ زنده و گزارشِ ماندگار (v2.11.42) ==\n";
+
+if ( ! function_exists( 'sa_jalali_date' ) ) {
+	/**
+	 * شبیه‌سازِ تاریخ شمسی برای رندر جعبهٔ دروازه.
+	 *
+	 * @param string $format قالب.
+	 * @param int    $time   زمان.
+	 * @return string
+	 */
+	function sa_jalali_date( $format, $time = 0 ) {
+		return '۱۴۰۵-۰۷-۱۷ — ۱۲:۰۰';
+	}
+}
+
+sa_has( 'برای «تصویر شاخص» راهنما هست', 'کارت تصویر شاخص', sa_gate_hint( 'تصویر شاخص' ) );
+sa_has( 'برای کمبودِ سئو راهنما هست', 'جعبهٔ «سئو»', sa_gate_hint( 'سئو: عنوان سئو' ) );
+sa_has( 'برای رابطهٔ والد راهنما هست', 'روابط', sa_gate_hint( 'رابطه: استان انتخاب نشده است' ) );
+sa_has( 'برای بهداشتِ محتوا راهنمای تعمیر هست', 'تعمیر محتوا', sa_gate_hint( 'بهداشت محتوا: یادداشت تحریریه' ) );
+sa_eq( 'برای مانعِ ناشناس راهنما چاپ نمی‌شود', '', sa_gate_hint( 'یک مانعِ تازه' ) );
+
+/**
+ * ساختِ صفحهٔ شهرستانِ آزمایشی با کمبودِ آگاهانه (تصویر شاخص).
+ *
+ * @param string $status وضعیت.
+ * @return int
+ */
+function sa_gate_seed_city( $status ) {
+	return sa_add_post(
+		array(
+			'post_title'   => 'شهرستان نمونه',
+			'post_type'    => 'city',
+			'post_status'  => $status,
+			'post_name'    => 'sample-county-' . $status,
+			'post_content' => '<p>متنِ صفحه.</p>',
+			'meta'         => array(
+				'sa_province_id'     => 1,
+				'sa_seo_title'       => 'شهرستان نمونه | سرزمین آریان',
+				'sa_seo_description' => 'توضیحِ کوتاه دربارهٔ شهرستان نمونه.',
+				'sa_focus_keyword'   => 'شهرستان نمونه',
+				'sa_sources'         => "منبع یکم | https://example.org/a\nمنبع دوم | https://example.org/b\nمنبع سوم | https://example.org/c\nمنبع چهارم | https://example.org/d\nمنبع پنجم | https://example.org/e",
+				'sa_city_latitude'   => '35.7',
+				'sa_city_longitude'  => '51.4',
+			),
+		)
+	);
+}
+
+// پیش‌نویس: همان قاعدهٔ سختِ پیشین — انتشار متوقف و نوشته پیش‌نویس می‌ماند.
+$gate_draft = sa_gate_seed_city( 'draft' );
+$data       = array(
+	'post_status' => 'publish',
+	'post_type'   => 'city',
+	'post_content' => '<p>متنِ صفحه.</p>',
+);
+$_POST      = array();
+$filtered   = sa_gate_filter( $data, array( 'ID' => $gate_draft ) );
+sa_eq( 'پیش‌نویسِ ناقص همچنان پیش‌نویس می‌ماند', 'draft', $filtered['post_status'] );
+$transient = get_transient( 'sa_gate_' . get_current_user_id() );
+sa_eq( 'حالتِ گزارش برای پیش‌نویس hard است', 'hard', isset( $transient['mode'] ) ? $transient['mode'] : '' );
+
+// صفحهٔ منتشرشده: هرگز پایین نمی‌آید؛ مانع‌ها یادآوری می‌شوند.
+$gate_live  = sa_gate_seed_city( 'publish' );
+$filtered2  = sa_gate_filter( $data, array( 'ID' => $gate_live ) );
+sa_eq( 'صفحهٔ منتشرشده منتشر می‌ماند', 'publish', $filtered2['post_status'] );
+$transient2 = get_transient( 'sa_gate_' . get_current_user_id() );
+sa_eq( 'حالتِ گزارش برای صفحهٔ زنده protected است', 'protected', isset( $transient2['mode'] ) ? $transient2['mode'] : '' );
+sa_eq( 'مانعِ صفحهٔ زنده به یادآوری تبدیل می‌شود', array(), isset( $transient2['missing'] ) ? $transient2['missing'] : array( 'x' ) );
+sa_has( 'یادآوری شاملِ همان کمبود است', 'تصویر شاخص', implode( ' · ', isset( $transient2['warnings'] ) ? (array) $transient2['warnings'] : array() ) );
+
+$report = get_post_meta( $gate_live, '_sa_gate_report', true );
+sa_eq( 'گزارشِ ماندگار روی نوشته ذخیره می‌شود', true, is_array( $report ) && ! empty( $report['time'] ) );
+sa_eq( 'گزارش حالت را نگه می‌دارد', 'protected', isset( $report['mode'] ) ? $report['mode'] : '' );
+sa_has( 'گزارش یادآوری‌ها را فهرست می‌کند', 'تصویر شاخص', implode( ' · ', isset( $report['warnings'] ) ? (array) $report['warnings'] : array() ) );
+
+// جعبهٔ پیشخوان: مانع‌ها + راهنمای رفع.
+sa_gate_register_box();
+$screens = array();
+foreach ( (array) $GLOBALS['sa_meta_boxes'] as $box ) {
+	$screens[] = $box['screen'];
+}
+sa_ok( 'جعبهٔ دروازه برای نوعِ شهرستان ثبت می‌شود', in_array( 'city', $screens, true ) );
+
+$box_live = null;
+foreach ( (array) $GLOBALS['sa_meta_boxes'] as $box ) {
+	if ( 'sa_gate_report' === $box['id'] ) {
+		$box_live = $box['title'];
+	}
+}
+sa_has( 'عنوانِ جعبه «چه چیزی مانع است؟» را می‌پرسد', 'چه چیزی مانع است؟', (string) $box_live );
+
+ob_start();
+sa_gate_render_report_box( get_post( $gate_live ) );
+$box_html = (string) ob_get_clean();
+sa_has( 'جعبه مانعِ ثبت‌شده را نشان می‌دهد', 'مانع انتشار', $box_html );
+sa_has( 'جعبه راهنمای رفع می‌دهد', 'کارت تصویر شاخص', $box_html );
+sa_has( 'جعبه توضیحِ محافظت را می‌دهد', 'به پیش‌نویس برنمی‌گرداند', $box_html );
+
+// با خاموش‌کردنِ حفاظت (فیلتر)، قاعدهٔ پیشین برمی‌گردد.
+add_filter( 'sa_gate_protect_published', 'sa_test_return_false' );
+$filtered3 = sa_gate_filter( $data, array( 'ID' => $gate_live ) );
+sa_eq( 'با فیلترِ خاموش، صفحه به پیش‌نویس برمی‌گردد (رفتارِ پیشین)', 'draft', $filtered3['post_status'] );
+
+$clean_id = sa_add_post(
+	array(
+		'post_title'   => 'شهرستان سالم',
+		'post_type'    => 'city',
+		'post_status'  => 'publish',
+		'post_name'    => 'clean-county',
+		'post_content' => '<p>متنِ صفحه.</p>',
+		'meta'         => array(
+			'sa_province_id'     => 1,
+			'sa_seo_title'       => 'شهرستان سالم | سرزمین آریان',
+			'sa_seo_description' => 'توضیحِ کوتاه دربارهٔ شهرستان سالم.',
+			'sa_focus_keyword'   => 'شهرستان سالم',
+			'sa_sources'         => "منبع یکم | https://example.org/a\nمنبع دوم | https://example.org/b\nمنبع سوم | https://example.org/c\nمنبع چهارم | https://example.org/d\nمنبع پنجم | https://example.org/e",
+			'sa_city_latitude'   => '35.7',
+			'sa_city_longitude'  => '51.4',
+			'_thumb_id'          => 99,
+		),
+	)
+);
+ob_start();
+sa_gate_render_report_box( get_post( $clean_id ) );
+$clean_html = (string) ob_get_clean();
+sa_has( 'صفحهٔ سالم پیامِ آماده بودن می‌گیرد', 'مانعی برای انتشار نیست', $clean_html );
+sa_has( 'ارزیابیِ زنده در نبود گزارش اعلام می‌شود', 'ارزیابیِ زنده', $clean_html );
+
+// نشانِ فهرستِ پیشخوان: وضعیتِ واقعی نوشته، نه فقط مانع‌ها.
+sa_has( 'نشانِ صفحهٔ منتشرشده وضعیتِ انتشار را می‌گوید', 'منتشرشده · ۱ مورد برای تکمیل', sa_gate_badge( $gate_live ) );
+sa_has( 'نشانِ صفحهٔ منتشرشدهٔ کامل «منتشرشده ✓» است', 'منتشرشده ✓', sa_gate_badge( $clean_id ) );
+sa_has( 'نشانِ پیش‌نویسِ ناقص همچنان «مانع انتشار» است', 'مانع انتشار', sa_gate_badge( $gate_draft ) );
+sa_has( 'راهنمای همان مانع در tooltipِ نشان هست', 'تصویر شاخص', sa_gate_badge( $gate_draft ) );
 
 sa_done();

@@ -122,7 +122,7 @@ function sa_cleanup_known_duplicates() {
 		'isfahan'           => array( 'to' => 'isfahan-city', 'why' => 'همان اصفهان؛ صفحهٔ منتشرشده با نامکِ کامل' ),
 		'galikesh'          => array( 'to' => 'galikash', 'why' => 'آوانگاریِ دیگرِ گالیکش؛ صفحهٔ منتشرشده' ),
 		'kabudarahang-city' => array( 'to' => 'kabutarahang', 'why' => 'همان کبودرآهنگ؛ صفحهٔ منتشرشده' ),
-		'shahdad'           => array( 'to' => '', 'why' => 'شهداد شهرستان نیست (شهرِ شهرستان کرمان) — بدونِ جانشین' ),
+		'shahdad'           => array( 'to' => 'kerman', 'why' => 'شهداد شهرستان نیست؛ شهرِ شهرستان کرمان است و ارجاع‌هایش به «شهرستان کرمان» می‌رود' ),
 		'bam-safiabad'      => array( 'to' => 'bam-and-safiabad', 'why' => 'نامکِ قدیمیِ «بام و صفی‌آباد» (خراسان شمالی)' ),
 		'maneh-samalqan'    => array( 'to' => 'samalqan', 'why' => 'نامکِ قدیمیِ «سملقان» (رجیستریِ ۲.۱۱.۳۹ هم‌راستا شد)' ),
 	);
@@ -514,9 +514,10 @@ function sa_city_cleanup_section() {
 
 	echo '<h2>پاک‌سازی: صفحه‌های بی‌تکلیفِ شهرستان</h2>';
 	echo '<p>صفحه‌هایی که <strong>متن ندارند</strong> یا <strong>عنوان‌شان خالی است</strong> (بقایای ساختِ شهرستان‌ها) نه به بازدیدکننده چیزی می‌گویند و نه باید در فهرست‌ها بمانند. '
-		. 'این ابزار فقط همین‌ها را به سطلِ زباله می‌برد؛ هر صفحه‌ای که حتی یک خط متن دارد دست‌نخورده می‌ماند و هر مورد از «سطل زباله» قابل بازگردانی است.</p>';
+		. 'این ابزار همین‌ها را به سطلِ زباله می‌برد؛ هر صفحه‌ای که حتی یک خط متن دارد دست‌نخورده می‌ماند و هر مورد از «سطل زباله» قابل بازگردانی است. '
+		. 'اگر می‌خواهید پروندهٔ صفحه‌های بی‌متن یک‌بار برای همیشه بسته شود، بخشِ «حذفِ قطعیِ صفحه‌های بی‌متن» در پایان همین صفحه این کار را با تأییدِ دوباره انجام می‌دهد.</p>';
 	echo '<p>ستونِ <strong>جانشین</strong> بر پایهٔ رجیستریِ رسمیِ شهرستان‌ها پر می‌شود: اگر صفحهٔ بی‌متن نسخهٔ نامکِ قدیمیِ یک صفحهٔ منتشرشده باشد، همان صفحه این‌جا نشان داده می‌شود. '
-		. 'برای سه مورد از این تکراری‌ها، تغییر مسیرِ ۳۰۱ در خودِ قالب ثبت شده است (اصفهان، گالیکش، کبودرآهنگ)؛ پس از به‌روزرسانیِ قالب، نشانیِ قدیمی به صفحهٔ درست می‌رود، حتی پیش از این‌که شما سطل‌کردن را اجرا کنید.</p>';
+		. 'برای هر چهار موردِ تکراری، تغییر مسیرِ ۳۰۱ در خودِ قالب ثبت شده است (اصفهان، گالیکش، کبودرآهنگ و شهداد → شهرستان کرمان)؛ پس از به‌روزرسانیِ قالب، نشانیِ قدیمی به صفحهٔ درست می‌رود، حتی پیش از این‌که شما سطل‌کردن را اجرا کنید.</p>';
 
 	if ( 'city' === $done && $last ) {
 		if ( 'dry' === $last['mode'] ) {
@@ -533,6 +534,7 @@ function sa_city_cleanup_section() {
 
 	if ( ! $count ) {
 		echo '<p><strong>موردی نیست. ✓</strong></p>';
+		sa_cleanup_purge_section();
 		return;
 	}
 
@@ -577,13 +579,14 @@ function sa_city_cleanup_section() {
 	echo '</form>';
 
 	sa_cleanup_trash_section();
+	sa_cleanup_purge_section();
 }
 
 /**
  * فهرستِ صفحه‌های شهرستانِ ازپیش‌سطل‌شده با تصمیمِ هرکدام.
  *
- * حذفِ قطعی عمداً در این ابزار نیست (بازگشت‌ناپذیر است)؛ تصمیم این‌جا مستند
- * می‌شود و حذفِ همیشگی با یک کلیک از «برگه‌ها → سطل زباله» انجام می‌شود.
+ * حذفِ قطعی در بخشِ جداگانهٔ `sa_cleanup_purge_section()` انجام می‌شود که
+ * محافظ‌های خودش را دارد؛ این‌جا فقط تصمیمِ هر مورد مستند می‌شود.
  */
 function sa_cleanup_trash_section() {
 	$posts = get_posts(
@@ -600,7 +603,7 @@ function sa_cleanup_trash_section() {
 		echo '<p class="description">صفحهٔ شهرستانی در سطلِ زباله نیست.</p>';
 		return;
 	}
-	echo '<p class="description">این‌ها پیش‌تر سطل شده‌اند و از دیدِ بازدیدکننده پنهان‌اند. تصمیمِ هرکدام در ستونِ «تصمیم» آمده؛ حذفِ همیشگی را از «برگه‌ها → سطل زباله» انجام دهید (حذفِ قطعی از این ابزار عمداً برداشته شده است).</p>';
+	echo '<p class="description">این‌ها پیش‌تر سطل شده‌اند و از دیدِ بازدیدکننده پنهان‌اند. تصمیمِ هرکدام در ستونِ «تصمیم» آمده؛ حذفِ همیشگی را از بخشِ «حذفِ قطعیِ صفحه‌های بی‌متن» در پایان همین صفحه انجام دهید (یا از «برگه‌ها → سطل زباله»).</p>';
 	echo '<table class="widefat striped" style="max-width:1100px"><thead><tr><th>عنوان</th><th>نامک</th><th>جانشین</th><th>تصمیم</th></tr></thead><tbody>';
 	foreach ( $posts as $post ) {
 		$slug  = (string) $post->post_name;
@@ -617,6 +620,504 @@ function sa_cleanup_trash_section() {
 		echo '</td><td>' . esc_html( $why ) . ' → حذفِ همیشگی از سطلِ زباله</td></tr>';
 	}
 	echo '</tbody></table>';
+}
+
+/**
+ * v2.11.42 — فهرستِ ارجاع‌های دیگر نوشته‌ها به این صفحه (رابطهٔ شهرستان/استان).
+ *
+ * @param int $post_id شناسهٔ صفحه.
+ * @return array<int,array{ID:int,key:string}>
+ */
+function sa_cleanup_references( $post_id ) {
+	$post_id = (int) $post_id;
+	if ( $post_id <= 0 ) {
+		return 0;
+	}
+	$statuses = array( 'publish', 'draft', 'pending', 'private', 'future' );
+	$queries  = array(
+		array(
+			'post_type'  => array( 'attraction', 'local_food', 'souvenir', 'accommodation', 'travel_route' ),
+			'meta_key'   => 'sa_city_id',
+		),
+		array(
+			'post_type'  => array( 'attraction', 'local_food', 'souvenir', 'accommodation', 'travel_route' ),
+			'meta_key'   => 'sa_city_ids',
+		),
+		array(
+			'post_type'  => array( 'city', 'attraction', 'local_food', 'souvenir', 'accommodation' ),
+			'meta_key'   => 'sa_province_id',
+		),
+	);
+	$rows = array();
+	foreach ( $queries as $q ) {
+		$found = get_posts(
+			array(
+				'post_type'      => $q['post_type'],
+				'post_status'    => $statuses,
+				'posts_per_page' => 50,
+				'fields'         => 'ids',
+				'post__not_in'   => array( $post_id ),
+				'meta_query'     => array(
+					array(
+						'key'   => $q['meta_key'],
+						'value' => $post_id,
+					),
+				),
+			)
+		);
+		foreach ( (array) $found as $found_id ) {
+			if ( (int) $found_id !== $post_id ) {
+				$rows[] = array(
+					'ID'  => (int) $found_id,
+					'key' => (string) $q['meta_key'],
+				);
+			}
+		}
+	}
+	return $rows;
+}
+
+/**
+ * v2.11.42 — شمارِ ارجاع‌های دیگر نوشته‌ها به این صفحه.
+ *
+ * حذفِ قطعیِ صفحه‌ای که نوشته‌های دیگر به آن ارجاع داده‌اند می‌تواند پیوندها را
+ * بی‌مقصد کند؛ پس پیش از حذف شمرده می‌شود و در صورت وجود ارجاع، حذف متوقف می‌شود —
+ * مگر مالک بخواهد ارجاع‌ها پیش از حذف به جانشین منتقل شوند.
+ *
+ * @param int $post_id شناسهٔ صفحه.
+ * @return int
+ */
+function sa_cleanup_reference_count( $post_id ) {
+	return count( sa_cleanup_references( $post_id ) );
+}
+
+/**
+ * v2.11.42 — انتقالِ ارجاع‌های یک صفحهٔ بی‌متن به جانشینِ منتشرشدهٔ آن.
+ *
+ * نمونهٔ واقعی: مقالهٔ «میدان نقش جهان» با `sa_city_id` به پیش‌نویسِ خالیِ
+ * `isfahan` وصل بود؛ با این تابع به صفحهٔ منتشرشدهٔ `isfahan-city` منتقل می‌شود.
+ * رابطهٔ «استان» عمداً دست‌نخورده می‌ماند و در گزارش «دستی» علامت می‌خورد.
+ *
+ * @param int    $post_id شناسهٔ صفحهٔ بی‌متن.
+ * @param string $mode    dry|apply.
+ * @return array<string,mixed>
+ */
+function sa_cleanup_reassign_references( $post_id, $mode = 'dry' ) {
+	$mode   = ( 'apply' === $mode ) ? 'apply' : 'dry';
+	$post   = get_post( $post_id );
+	$report = array(
+		'mode'    => $mode,
+		'source'  => $post ? (string) $post->post_name : '',
+		'target'  => '',
+		'name'    => '',
+		'moved'   => array(),
+		'manual'  => array(),
+		'blocked' => array(),
+	);
+
+	if ( ! $post ) {
+		$report['blocked'][] = 'صفحه پیدا نشد.';
+		return $report;
+	}
+
+	$slug = str_replace( '__trashed', '', (string) $post->post_name );
+	$twin = sa_city_cleanup_twin( $slug );
+	if ( '' === $twin['slug'] ) {
+		$report['blocked'][] = 'جانشینِ منتشرشده‌ای برای «' . $slug . '» شناخته نشد.';
+		return $report;
+	}
+
+	$target = function_exists( 'get_page_by_path' ) ? get_page_by_path( $twin['slug'], OBJECT, 'city' ) : null;
+	if ( ! $target || 'publish' !== (string) $target->post_status ) {
+		$report['blocked'][] = 'صفحهٔ جانشین («' . $twin['slug'] . '») منتشرشده نیست.';
+		return $report;
+	}
+	$report['target'] = (string) $twin['slug'];
+	$report['name']   = '' !== (string) $twin['name'] ? (string) $twin['name'] : (string) $twin['slug'];
+
+	foreach ( sa_cleanup_references( $post_id ) as $ref ) {
+		$ref_id   = (int) $ref['ID'];
+		$ref_post = get_post( $ref_id );
+		$label    = $ref_post ? (string) $ref_post->post_title : '#' . $ref_id;
+
+		if ( 'sa_city_id' === $ref['key'] ) {
+			if ( 'apply' === $mode ) {
+				update_post_meta( $ref_id, 'sa_city_id', (int) $target->ID );
+			}
+			$report['moved'][] = $label . ' → ' . $report['name'];
+			continue;
+		}
+
+		if ( 'sa_city_ids' === $ref['key'] ) {
+			$current = get_post_meta( $ref_id, 'sa_city_ids', true );
+			if ( ! is_array( $current ) ) {
+				$current = array_values( array_filter( array_map( 'trim', explode( ',', (string) $current ) ), 'strlen' ) );
+			}
+			$updated = array();
+			foreach ( $current as $item ) {
+				$updated[] = ( (int) $item === (int) $post_id ) ? (int) $target->ID : (int) $item;
+			}
+			if ( ! in_array( (int) $target->ID, $updated, true ) ) {
+				$updated[] = (int) $target->ID;
+			}
+			if ( 'apply' === $mode ) {
+				update_post_meta( $ref_id, 'sa_city_ids', array_values( array_unique( $updated ) ) );
+			}
+			$report['moved'][] = $label . ' → ' . $report['name'];
+			continue;
+		}
+
+		$report['manual'][] = $label . ' — کلیدِ «' . $ref['key'] . '» دستی اصلاح شود.';
+	}
+
+	return $report;
+}
+
+/**
+ * v2.11.42 — آیا این صفحه بی‌خطر و با خیال راحت قابلِ «حذف قطعی» است؟
+ *
+ * @param int $post_id شناسهٔ صفحه.
+ * @return string رشتهٔ خالی = مجاز؛ در غیر این صورت دلیلِ ممنوعیت.
+ */
+function sa_cleanup_purge_guard_detail( $post_id ) {
+	$post = get_post( $post_id );
+	if ( ! $post || 'city' !== (string) $post->post_type ) {
+		return array( 'code' => 'type', 'message' => 'این نوشته از نوعِ «شهرستان» نیست.', 'refs' => 0 );
+	}
+	if ( 'publish' === (string) $post->post_status ) {
+		return array( 'code' => 'published', 'message' => 'منتشرشده است؛ حذفِ صفحهٔ زنده از این ابزار انجام نمی‌شود.', 'refs' => 0 );
+	}
+	if ( '' !== trim( wp_strip_all_tags( (string) $post->post_content ) ) ) {
+		return array( 'code' => 'content', 'message' => 'متن دارد؛ فقط صفحه‌های بی‌متن حذف می‌شوند.', 'refs' => 0 );
+	}
+
+	$slug  = str_replace( '__trashed', '', (string) $post->post_name );
+	$index = sa_cleanup_county_index();
+	if ( isset( $index[ $slug ] ) ) {
+		return array(
+			'code'    => 'registry',
+			'message' => 'ردیفِ رجیستری دارد (' . $index[ $slug ] . ')؛ این صفحه بخشی از برنامهٔ شهرستان‌هاست و باید تعیین تکلیف شود، نه حذف.',
+			'refs'    => 0,
+		);
+	}
+
+	$map = function_exists( 'sa_redirect_map' ) ? (array) sa_redirect_map() : array();
+	if ( in_array( '/city/' . $slug . '/', array_values( $map ), true ) ) {
+		return array( 'code' => 'redirect', 'message' => 'مقصدِ یک تغییر مسیر است؛ با حذفِ آن، تغییر مسیر بی‌مقصد می‌شود.', 'refs' => 0 );
+	}
+
+	$refs = sa_cleanup_reference_count( (int) $post->ID );
+	if ( $refs > 0 ) {
+		return array(
+			'code'    => 'refs',
+			'message' => sa_fa_digits( $refs ) . ' نوشتهٔ دیگر به این صفحه ارجاع داده‌اند؛ ابتدا رابطه‌ها را اصلاح کنید (یا گزینهٔ انتقالِ ارجاع‌ها را بزنید).',
+			'refs'    => $refs,
+		);
+	}
+
+	return array( 'code' => '', 'message' => '', 'refs' => 0 );
+}
+
+/**
+ * نسخهٔ رشته‌ایِ همان محافظ (سازگاری با فراخوان‌های پیشین).
+ *
+ * @param int $post_id شناسهٔ صفحه.
+ * @return string رشتهٔ خالی = مجاز.
+ */
+function sa_cleanup_purge_guard( $post_id ) {
+	$detail = sa_cleanup_purge_guard_detail( $post_id );
+	return (string) $detail['message'];
+}
+
+/**
+ * v2.11.42 — فهرستِ نامزدهای حذفِ قطعی (با دلیلِ ممنوعیت، اگر باشد).
+ *
+ * @return array<int,array<string,mixed>>
+ */
+function sa_cleanup_purge_targets() {
+	$out = array();
+	foreach ( sa_city_cleanup_candidates( 200 ) as $row ) {
+		$row['guard']     = sa_cleanup_purge_guard( (int) $row['ID'] );
+		$row['deletable'] = ( '' === $row['guard'] );
+		$row['refs']      = sa_cleanup_reference_count( (int) $row['ID'] );
+		$out[]            = $row;
+	}
+
+	/*
+	 * صفحه‌های سطلِ زباله هم در فهرست می‌آیند: تکلیفِ آن‌ها پیش‌تر «انتقال به سطل»
+	 * بود؛ حالا مالک می‌تواند پروندهٔ همان صفحه‌های بی‌متن را برای همیشه ببندد.
+	 */
+	$trashed = get_posts(
+		array(
+			'post_type'      => 'city',
+			'post_status'    => 'trash',
+			'posts_per_page' => 200,
+			'orderby'        => 'ID',
+			'order'          => 'ASC',
+		)
+	);
+	foreach ( (array) $trashed as $post ) {
+		if ( ! $post instanceof WP_Post ) {
+			continue;
+		}
+		$text  = trim( wp_strip_all_tags( (string) $post->post_content ) );
+		$slug  = str_replace( '__trashed', '', (string) $post->post_name );
+		$twin  = sa_city_cleanup_twin( $slug );
+		$row   = array(
+			'ID'          => (int) $post->ID,
+			'title'       => trim( (string) $post->post_title ),
+			'slug'        => $slug,
+			'status'      => 'trash',
+			'reason'      => array( '' === trim( (string) $post->post_title ) ? 'title' : 'content' ),
+			'chars'       => strlen( $text ),
+			'twin'        => $twin,
+			'twin_status' => sa_cleanup_twin_status( $twin['slug'] ),
+			'redirect'    => function_exists( 'sa_redirect_target_for_path' ) ? (string) sa_redirect_target_for_path( '/city/' . $slug . '/' ) : '',
+		);
+		$row['guard']     = sa_cleanup_purge_guard( (int) $post->ID );
+		$row['deletable'] = ( '' === $row['guard'] );
+		$row['refs']      = sa_cleanup_reference_count( (int) $post->ID );
+		$out[]            = $row;
+	}
+
+	return $out;
+}
+
+/**
+ * v2.11.42 — اجرای حذفِ قطعی (پیش‌نمایش یا اعمال) با بازبینیِ دوبارهٔ مجوزها.
+ *
+ * @param string $mode      dry|apply.
+ * @param int[]  $ids       شناسه‌های انتخاب‌شده.
+ * @param bool   $move_refs ارجاع‌های نوشته‌های دیگر پیش از حذف به جانشین منتقل شود؟
+ * @return array<string,mixed>
+ */
+function sa_cleanup_purge_run( $mode = 'dry', $ids = array(), $move_refs = false ) {
+	$mode    = ( 'apply' === $mode ) ? 'apply' : 'dry';
+	$ids     = array_values( array_unique( array_filter( array_map( 'absint', (array) $ids ) ) ) );
+	$report  = array(
+		'mode'       => $mode,
+		'scanned'    => count( $ids ),
+		'deleted'    => 0,
+		'moved_refs' => 0,
+		'moves'      => array(),
+		'blocked'    => array(),
+		'items'      => array(),
+		'time'       => time(),
+	);
+
+	foreach ( $ids as $id ) {
+		$post   = get_post( $id );
+		$label  = $post ? ( str_replace( '__trashed', '', (string) $post->post_name ) ) : '#' . $id;
+		$detail = sa_cleanup_purge_guard_detail( $id );
+
+		// تنها مانعی که می‌شود خودکار باز کرد: ارجاعِ نوشته‌های دیگر.
+		if ( 'refs' === $detail['code'] && $move_refs ) {
+			// در پیش‌نمایش هم «dry» می‌ماند تا هیچ رابطه‌ای جابه‌جا نشود.
+			$move = sa_cleanup_reassign_references( $id, $mode );
+			if ( ! empty( $move['moved'] ) ) {
+				$report['moved_refs'] += count( $move['moved'] );
+				$report['moves'][ $label ] = $move['moved'];
+			}
+			if ( ! empty( $move['blocked'] ) || ! empty( $move['manual'] ) ) {
+				$report['blocked'][] = $label . ' — ' . implode( ' | ', array_merge( (array) $move['blocked'], (array) $move['manual'] ) );
+				continue;
+			}
+			// پیش‌نمایش: نشان بده که این صفحه پس از انتقال قابلِ حذف می‌شود.
+			$detail = ( 'apply' === $mode ) ? sa_cleanup_purge_guard_detail( $id ) : array( 'code' => '', 'message' => '', 'refs' => 0 );
+		}
+
+		if ( '' !== $detail['code'] ) {
+			$report['blocked'][] = $label . ' — ' . $detail['message'];
+			continue;
+		}
+
+		$report['items'][] = array(
+			'ID'    => $id,
+			'slug'  => $label,
+			'title' => $post ? (string) $post->post_title : '',
+		);
+		if ( 'apply' !== $mode ) {
+			continue;
+		}
+		if ( wp_delete_post( $id, true ) ) {
+			++$report['deleted'];
+		}
+	}
+
+	if ( 'apply' === $mode && $report['deleted'] ) {
+		// فهرستِ مدیریتیِ صفحه‌های پاک‌شده (برای پیگیری؛ چون خودِ نوشته دیگر وجود ندارد).
+		$log = get_option( 'sa_cleanup_purged_log' );
+		$log = is_array( $log ) ? $log : array();
+		foreach ( $report['items'] as $item ) {
+			$log[] = array(
+				'slug'  => $item['slug'],
+				'title' => $item['title'],
+				'time'  => time(),
+			);
+		}
+		update_option( 'sa_cleanup_purged_log', array_slice( $log, -100 ), false );
+	}
+
+	update_option( 'sa_cleanup_purge_last', $report, false );
+	return $report;
+}
+
+/**
+ * v2.11.42 — هندلرِ فرمِ حذفِ قطعی.
+ *
+ * @return void
+ */
+function sa_cleanup_purge_handle() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		wp_die( esc_html__( 'شما اجازه‌ی این کار را ندارید.', 'sarzaminaryan-child' ) );
+	}
+	check_admin_referer( 'sa_cleanup_purge' );
+
+	$mode = ( isset( $_POST['sa_cleanup_mode'] ) && 'apply' === $_POST['sa_cleanup_mode'] ) ? 'apply' : 'dry';
+	$ids  = isset( $_POST['sa_purge_ids'] ) ? (array) wp_unslash( $_POST['sa_purge_ids'] ) : array();
+	$move = ! empty( $_POST['sa_purge_move_refs'] );
+	sa_cleanup_purge_run( $mode, $ids, $move );
+
+	wp_safe_redirect( add_query_arg( array( 'page' => 'sa-content-health', 'sa_cleanup' => 'purge' ), admin_url( 'admin.php' ) ) );
+	exit;
+}
+add_action( 'admin_post_sa_cleanup_purge', 'sa_cleanup_purge_handle' );
+
+/**
+ * v2.11.42 — بخشِ «حذفِ قطعیِ صفحه‌های بی‌متن».
+ *
+ * تا پیش از این نسخه، ابزار فقط «انتقال به سطلِ زباله» داشت و حذفِ همیشگی را
+ * عمداً انجام نمی‌داد. مالک خواست پروندهٔ صفحه‌های بی‌متن یک‌بار برای همیشه بسته
+ * شود؛ پس این بخش اضافه شد با سه محافظ: فقط «شهرستان»، فقط بی‌متن، فقط پیش‌نویس/
+ * سطل — و هر شناسه پیش از حذف دوباره بازبینی می‌شود.
+ *
+ * @return void
+ */
+function sa_cleanup_purge_section() {
+	if ( ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	$fa       = 'sa_fa_digits';
+	$rows     = array_filter(
+		sa_cleanup_purge_targets(),
+		function ( $row ) {
+			return 'publish' !== $row['status'];
+		}
+	);
+	$deletable = array_filter(
+		$rows,
+		function ( $row ) {
+			return ! empty( $row['deletable'] );
+		}
+	);
+	$last     = get_option( 'sa_cleanup_purge_last' );
+	$last     = is_array( $last ) ? $last : null;
+	$done     = isset( $_GET['sa_cleanup'] ) ? sanitize_key( wp_unslash( $_GET['sa_cleanup'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+
+	echo '<h3 style="margin-top:26px">حذفِ قطعیِ صفحه‌های بی‌متن (بازگشت‌ناپذیر)</h3>';
+	echo '<p>صفحه‌های بی‌متن و تکراری که سالِ گذشته در ساختِ شهرستان‌ها جا مانده‌اند، با «حذفِ قطعی» برای همیشه از سایت و از فهرستِ پیشخوان پاک می‌شوند. '
+		. 'این بخش با احتیاط کامل کار می‌کند: فقط نوعِ «شهرستان»، فقط صفحه‌هایی که <strong>هیچ متنی ندارند</strong>، هرگز صفحهٔ منتشرشده، و هر شناسه پیش از حذف یک‌بار دیگر بازبینی می‌شود. '
+		. 'نشانیِ عمومیِ صفحه‌های تکراری هم با تغییر مسیرِ ۳۰۱ در قالب به صفحهٔ درست می‌رود.</p>';
+
+	if ( 'purge' === $done && $last ) {
+		if ( 'dry' === $last['mode'] ) {
+			echo '<div class="notice notice-info inline"><p><strong>پیش‌نمایش:</strong> '
+				. esc_html( $fa( (string) count( $last['items'] ) ) ) . ' صفحه آمادهٔ حذف قطعی است. هنوز چیزی پاک نشده است.</p></div>';
+		} else {
+			echo '<div class="notice notice-success inline"><p><strong>حذف شد:</strong> '
+				. esc_html( $fa( (string) $last['deleted'] ) ) . ' صفحه برای همیشه پاک شد'
+				. ( ! empty( $last['moved_refs'] ) ? ' و ارجاعِ ' . esc_html( $fa( (string) $last['moved_refs'] ) ) . ' نوشته به شهرستانِ جانشین منتقل شد' : '' )
+				. '.</p></div>';
+			if ( ! empty( $last['moves'] ) ) {
+				echo '<p class="description">انتقال‌ها: ';
+				$lines = array();
+				foreach ( (array) $last['moves'] as $from => $targets ) {
+					$lines[] = '<code>' . esc_html( (string) $from ) . '</code> ← ' . esc_html( implode( '، ', array_map( 'strval', (array) $targets ) ) );
+				}
+				echo wp_kses_post( implode( ' · ', $lines ) ) . '</p>';
+			}
+		}
+		if ( ! empty( $last['blocked'] ) ) {
+			echo '<p class="description">ردشده‌ها: ' . esc_html( implode( ' | ', $last['blocked'] ) ) . '</p>';
+		}
+	}
+
+	if ( ! $rows ) {
+		echo '<p><strong>صفحهٔ بی‌متنِ قابلِ حذفی نیست. ✓</strong></p>';
+		return;
+	}
+
+	echo '<form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
+	wp_nonce_field( 'sa_cleanup_purge' );
+	echo '<input type="hidden" name="action" value="sa_cleanup_purge" />';
+	echo '<table class="widefat striped" style="max-width:1100px"><thead><tr><th style="width:34px">&nbsp;</th><th>صفحه</th><th>نامک</th><th>وضعیت</th><th>جانشین</th><th>ارجاع‌ها</th><th>مجاز به حذف؟</th></tr></thead><tbody>';
+	foreach ( $rows as $row ) {
+		$twin = isset( $row['twin'] ) && is_array( $row['twin'] ) ? $row['twin'] : array( 'slug' => '', 'name' => '' );
+		$dupe = ( '' !== $twin['slug'] && $twin['slug'] !== $row['slug'] );
+		echo '<tr><td>';
+		if ( ! empty( $row['deletable'] ) ) {
+			printf(
+				'<input type="checkbox" name="sa_purge_ids[]" value="%1$d" checked="checked" aria-label="%2$s" />',
+				(int) $row['ID'],
+				esc_attr( (string) $row['slug'] )
+			);
+		}
+		echo '</td><td>' . esc_html( '' !== $row['title'] ? $row['title'] : '—' ) . '</td><td><code>' . esc_html( $row['slug'] ) . '</code></td><td>'
+			. esc_html( $row['status'] ) . '</td><td>';
+		if ( $dupe ) {
+			echo esc_html( '' !== $twin['name'] ? $twin['name'] : $twin['slug'] ) . ' <code>' . esc_html( $twin['slug'] ) . '</code>';
+		} else {
+			echo '—';
+		}
+		echo '</td><td>';
+		$row_refs = isset( $row['refs'] ) ? (int) $row['refs'] : 0;
+		if ( $row_refs > 0 ) {
+			echo esc_html( $fa( (string) $row_refs ) ) . ' ارجاع';
+			if ( $dupe && 'publish' === (string) $row['twin_status'] ) {
+				echo '<br /><span class="description">→ به «' . esc_html( '' !== $twin['name'] ? $twin['name'] : $twin['slug'] ) . '» منتقل می‌شود</span>';
+			} else {
+				echo '<br /><span class="description">جانشینِ منتشرشده ندارد؛ دستی اصلاح شود</span>';
+			}
+		} else {
+			echo '—';
+		}
+		echo '</td><td>';
+		if ( ! empty( $row['deletable'] ) ) {
+			echo '<span style="color:#065f46">مجاز</span>';
+		} else {
+			echo '<span style="color:#b32d2e">رد شد</span><br /><span class="description">' . esc_html( $row['guard'] ) . '</span>';
+		}
+		echo '</td></tr>';
+	}
+	echo '</tbody></table>';
+	$ref_rows = 0;
+	foreach ( $rows as $row ) {
+		if ( ! empty( $row['refs'] ) ) {
+			++$ref_rows;
+		}
+	}
+	echo '<p class="description">' . esc_html( $fa( (string) count( $deletable ) ) ) . ' مورد قابلِ حذف است. جمعِ همهٔ مواردِ بی‌متن: ' . esc_html( $fa( (string) count( $rows ) ) ) . '.</p>';
+	if ( $ref_rows ) {
+		echo '<p><label><input type="checkbox" name="sa_purge_move_refs" value="1" checked="checked" /> ';
+		echo 'ارجاعِ نوشته‌های دیگر را پیش از حذف به شهرستانِ جانشین منتقل کن ';
+		echo '<span class="description">(مثلاً مقالهٔ «میدان نقش جهان» از پیش‌نویسِ خالیِ اصفهان به صفحهٔ منتشرشدهٔ «اصفهان» می‌رود)</span></label></p>';
+	}
+	echo '<p><button class="button" name="sa_cleanup_mode" value="dry">پیش‌نمایش</button> ';
+	echo '<button class="button button-link-delete" name="sa_cleanup_mode" value="apply" onclick="return confirm(\'این صفحه‌ها برای همیشه حذف می‌شوند و قابل بازگردانی نیستند. مطمئنید؟\')">'
+		. ( $ref_rows ? 'انتقالِ ارجاع‌ها و حذفِ قطعی (بازگشت‌ناپذیر)' : 'حذفِ قطعی (بازگشت‌ناپذیر)' )
+		. '</button></p>';
+	echo '</form>';
+
+	$log = get_option( 'sa_cleanup_purged_log' );
+	if ( is_array( $log ) && $log ) {
+		echo '<p class="description">پاک‌شده‌های پیشین: ';
+		$parts = array();
+		foreach ( array_slice( $log, -10 ) as $entry ) {
+			$parts[] = '<code>' . esc_html( (string) $entry['slug'] ) . '</code>' . ( '' !== (string) $entry['title'] ? ' (' . esc_html( (string) $entry['title'] ) . ')' : '' );
+		}
+		echo wp_kses_post( implode( ' · ', $parts ) );
+		echo '</p>';
+	}
 }
 
 /**

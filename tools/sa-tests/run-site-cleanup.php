@@ -236,7 +236,7 @@ $t_ga = sa_city_cleanup_twin( 'galikesh' );
 sa_eq( 'پیش‌نویسِ galikesh جانشینش galikash است', 'galikash', $t_ga['slug'] );
 $t_ka = sa_city_cleanup_twin( 'kabudarahang-city' );
 sa_eq( 'پیش‌نویسِ kabudarahang-city جانشینش kabutarahang است', 'kabutarahang', $t_ka['slug'] );
-sa_eq( 'پیش‌نویسِ shahdad جانشینی در رجیستری ندارد', '', sa_city_cleanup_twin( 'shahdad' )['slug'] );
+sa_eq( 'پیش‌نویسِ shahdad جانشینش شهرستان کرمان است (شهداد شهرستان نیست)', 'kerman', sa_city_cleanup_twin( 'shahdad' )['slug'] );
 sa_eq( 'shahdad به شاهرود وصل نمی‌شود (حدِ فاصله ۱)', false, 'shahrud' === sa_city_cleanup_twin( 'shahdad' )['slug'] );
 sa_eq( 'bam-safiabad جانشینش bam-and-safiabad است', 'bam-and-safiabad', sa_city_cleanup_twin( 'bam-safiabad' )['slug'] );
 sa_eq( 'maneh-samalqan جانشینش samalqan است', 'samalqan', sa_city_cleanup_twin( 'maneh-samalqan' )['slug'] );
@@ -296,5 +296,260 @@ sa_eq( 'فهرستِ سطلِ زباله رندر می‌شود', true, false !=
 sa_eq( 'تصمیمِ حذفِ همیشگی نوشته می‌شود', true, false !== strpos( $html2, 'حذفِ همیشگی از سطلِ زباله' ) );
 sa_eq( 'جانشینِ موردِ سطل‌شده نشان داده می‌شود', true, false !== strpos( $html2, 'bam-and-safiabad' ) );
 sa_eq( 'ستونِ جانشین در جدولِ کاندیدها هست', true, false !== strpos( $html2, '>جانشین<' ) );
+
+/* ------------------------------------------------- §۹. حذفِ قطعیِ صفحه‌های بی‌متن (v2.11.42) */
+
+// صفحات آزمایشی با همان الگوی چهار موردِ واقعی سایت (پیش‌نویسِ بی‌متن + جانشینِ منتشرشده).
+$purge_ok  = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'draft',
+		'post_title'   => 'گالیکش',
+		'post_name'    => 'galikesh',
+		'post_content' => '',
+	)
+);
+$purge_ok2 = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'draft',
+		'post_title'   => 'کبودرآهنگ',
+		'post_name'    => 'kabudarahang-city',
+		'post_content' => '',
+	)
+);
+$purge_pub = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'publish',
+		'post_title'   => 'شهرستان منتشرشده',
+		'post_name'    => 'published-county',
+		'post_content' => '',
+	)
+);
+$purge_txt = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'draft',
+		'post_title'   => 'پیش‌نویسِ دارای متن',
+		'post_name'    => 'draft-with-text',
+		'post_content' => '<p>متنِ واقعی</p>',
+	)
+);
+$purge_reg = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'draft',
+		'post_title'   => 'اصفهان',
+		'post_name'    => 'isfahan-city',
+		'post_content' => '',
+	)
+);
+$purge_pg  = sa_add_post(
+	array(
+		'post_type'    => 'page',
+		'post_status'  => 'draft',
+		'post_name'    => 'plain-page',
+		'post_content' => '',
+	)
+);
+
+sa_eq( 'پیش‌نویسِ بی‌متن مجاز به حذفِ قطعی است', '', sa_cleanup_purge_guard( $purge_ok ) );
+sa_eq( 'پیش‌نویسِ تکراریِ دیگری هم مجاز است', '', sa_cleanup_purge_guard( $purge_ok2 ) );
+sa_ok( 'صفحهٔ منتشرشده هرگز مجاز نیست', false !== strpos( sa_cleanup_purge_guard( $purge_pub ), 'منتشرشده' ) );
+sa_ok( 'صفحهٔ دارای متن مجاز نیست', false !== strpos( sa_cleanup_purge_guard( $purge_txt ), 'متن دارد' ) );
+sa_ok( 'نوعِ غیرِ شهرستان مجاز نیست', false !== strpos( sa_cleanup_purge_guard( $purge_pg ), 'شهرستان' ) );
+sa_ok( 'ردیفِ رجیستری محافظت می‌شود (حذف نمی‌شود)', false !== strpos( sa_cleanup_purge_guard( $purge_reg ), 'رجیستری' ) );
+
+// ارجاع از یک دیدنی به صفحهٔ بی‌متن: تا اصلاحِ رابطه، حذف متوقف می‌شود.
+$purge_ref = sa_add_post(
+	array(
+		'post_type'    => 'attraction',
+		'post_status'  => 'publish',
+		'post_title'   => 'دیدنیِ ارجاع‌دهنده',
+		'post_name'    => 'ref-attraction',
+		'post_content' => '<p>متن</p>',
+		'meta'         => array( 'sa_city_id' => $purge_ok ),
+	)
+);
+sa_eq( 'شمارِ ارجاع‌ها درست شمرده می‌شود', 1, sa_cleanup_reference_count( $purge_ok ) );
+sa_ok( 'ارجاعِ نوشتهٔ دیگر مانعِ حذف می‌شود', false !== strpos( sa_cleanup_purge_guard( $purge_ok ), 'ارجاع' ) );
+
+$dry_purge = sa_cleanup_purge_run( 'dry', array( $purge_ok, $purge_ok2, $purge_pub, $purge_reg ) );
+sa_eq( 'پیش‌نمایش: هیچ صفحه‌ای حذف نمی‌شود', 0, (int) $dry_purge['deleted'] );
+sa_eq( 'پیش‌نمایش: فقط صفحهٔ مجاز در فهرست است', 1, count( $dry_purge['items'] ) );
+sa_eq( 'پیش‌نمایش: ردشده‌ها گزارش می‌شوند', 3, count( $dry_purge['blocked'] ) );
+sa_eq( 'پیش‌نمایش: صفحهٔ ارجاع‌دار دست‌نخورده می‌ماند', 'draft', get_post( $purge_ok )->post_status );
+
+// با برداشتنِ ارجاع، همان شناسه‌ها مجاز می‌شوند.
+wp_delete_post( $purge_ref, true );
+$apply_purge = sa_cleanup_purge_run( 'apply', array( $purge_ok, $purge_ok2, $purge_pub, $purge_reg ) );
+sa_eq( 'اعمال: دو صفحهٔ مجاز حذف شد', 2, (int) $apply_purge['deleted'] );
+sa_eq( 'صفحهٔ حذف‌شده دیگر در سایت نیست', null, get_post( $purge_ok ) );
+sa_eq( 'صفحهٔ منتشرشده دست‌نخورده مانده است', 'publish', get_post( $purge_pub )->post_status );
+sa_eq( 'صفحهٔ سئوی رجیستری دست‌نخورده مانده است', 'draft', get_post( $purge_reg )->post_status );
+
+$purge_log = get_option( 'sa_cleanup_purged_log' );
+sa_eq( 'سیاههٔ حذفِ قطعی ثبت می‌شود', 2, count( (array) $purge_log ) );
+sa_eq( 'سیاهه نامکِ صفحه‌های پاک‌شده را نگه می‌دارد', array( 'galikesh', 'kabudarahang-city' ), array_column( (array) $purge_log, 'slug' ) );
+
+ob_start();
+sa_cleanup_purge_section();
+$html3 = ob_get_clean();
+sa_eq( 'بخشِ حذفِ قطعی رندر می‌شود', true, false !== strpos( $html3, 'حذفِ قطعیِ صفحه‌های بی‌متن' ) );
+sa_eq( 'فرم به هندلرِ حذفِ قطعی وصل است', true, false !== strpos( $html3, 'value="sa_cleanup_purge"' ) );
+sa_eq( 'هر شناسه پیش از حذف بازبینی می‌شود (برچسبِ رد)', true, false !== strpos( $html3, 'رد شد' ) );
+sa_eq( 'دکمهٔ حذفِ قطعی هشدار می‌دهد', true, false !== strpos( $html3, 'بازگشت‌ناپذیر' ) );
+
+/* ------------------------------------- §۱۰. انتقالِ ارجاع‌ها پیش از حذف (پروندهٔ شهرهای بی‌متن) */
+
+// الگوی واقعیِ سایت: پیش‌نویسِ خالی + جانشینِ منتشرشده + مقاله‌ای که به پیش‌نویس ارجاع دارد.
+// همین جفت در §۸ ساخته شده است (پیش‌نویسِ بی‌متن + صفحهٔ منتشرشده) و در سایتِ زنده هم هست.
+$move_src_post = get_page_by_path( 'isfahan', OBJECT, 'city' );
+$move_dst_post = get_page_by_path( 'isfahan-city', OBJECT, 'city' );
+$move_src      = $move_src_post ? (int) $move_src_post->ID : 0;
+$move_dst      = $move_dst_post ? (int) $move_dst_post->ID : 0;
+$move_ref = sa_add_post(
+	array(
+		'post_type'    => 'attraction',
+		'post_status'  => 'publish',
+		'post_title'   => 'میدان نقش جهان',
+		'post_name'    => 'naqsh-e-jahan-square',
+		'post_content' => '<p>متن</p>',
+		'meta'         => array( 'sa_city_id' => $move_src ),
+	)
+);
+
+$detail = sa_cleanup_purge_guard_detail( $move_src );
+sa_eq( 'کدِ مانعِ ارجاع مشخص است', 'refs', $detail['code'] );
+sa_eq( 'شمارِ ارجاع در جزئیاتِ محافظ می‌آید', 1, (int) $detail['refs'] );
+
+$move_dry = sa_cleanup_reassign_references( $move_src, 'dry' );
+sa_eq( 'پیش‌نمایشِ انتقال، جانشینِ منتشرشده را نشان می‌دهد', 'isfahan-city', $move_dry['target'] );
+sa_eq( 'پیش‌نمایشِ انتقال چیزی را عوض نمی‌کند', (string) $move_src, (string) get_post_meta( $move_ref, 'sa_city_id', true ) );
+
+$move_apply = sa_cleanup_reassign_references( $move_src, 'apply' );
+sa_eq( 'انتقالِ ارجاع انجام شد', 1, count( $move_apply['moved'] ) );
+sa_eq( 'ارجاعِ دیدنی به صفحهٔ منتشرشده رسید', (string) $move_dst, (string) get_post_meta( $move_ref, 'sa_city_id', true ) );
+sa_eq( 'پس از انتقال، مانعی نمی‌ماند', '', sa_cleanup_purge_guard( $move_src ) );
+
+// حذفِ قطعی با انتقالِ خودکار ارجاع‌ها — یک کلیکِ مالک.
+$auto_src = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'draft',
+		'post_title'   => 'کبودرآهنگ',
+		'post_name'    => 'kabudarahang-city',
+		'post_content' => '',
+	)
+);
+$auto_dst = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'publish',
+		'post_title'   => 'کبودرآهنگ',
+		'post_name'    => 'kabutarahang',
+		'post_content' => '<p>متنِ شهرستان</p>',
+	)
+);
+$auto_ref = sa_add_post(
+	array(
+		'post_type'    => 'attraction',
+		'post_status'  => 'publish',
+		'post_title'   => 'غار علیصدر',
+		'post_name'    => 'ali-sadr-cave',
+		'post_content' => '<p>متن</p>',
+		'meta'         => array( 'sa_city_id' => $auto_src ),
+	)
+);
+
+$auto_dry = sa_cleanup_purge_run( 'dry', array( $auto_src ), true );
+sa_eq( 'پیش‌نمایش با انتقال، صفحه را قابلِ حذف می‌داند', 1, count( $auto_dry['items'] ) );
+sa_eq( 'پیش‌نمایش هیچ صفحه‌ای را حذف نمی‌کند', 0, (int) $auto_dry['deleted'] );
+
+$auto_apply = sa_cleanup_purge_run( 'apply', array( $auto_src ), true );
+sa_eq( 'حذفِ قطعی با انتقال انجام شد', 1, (int) $auto_apply['deleted'] );
+sa_eq( 'ارجاعِ مقاله در همان اجرا منتقل شد', 1, (int) $auto_apply['moved_refs'] );
+sa_eq( 'مقاله اکنون به صفحهٔ منتشرشده اشاره می‌کند', (string) $auto_dst, (string) get_post_meta( $auto_ref, 'sa_city_id', true ) );
+sa_eq( 'صفحهٔ بی‌متن برای همیشه پاک شد', null, get_post( $auto_src ) );
+
+// بدونِ اجازهٔ انتقال، محافظ سرِ جایش می‌ماند (رفتارِ محافظه‌کارانه).
+$hold_src = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'draft',
+		'post_title'   => 'شهداد',
+		'post_name'    => 'shahdad',
+		'post_content' => '',
+	)
+);
+sa_add_post(
+	array(
+		'post_type'    => 'attraction',
+		'post_status'  => 'publish',
+		'post_title'   => 'کلوت‌های شهداد',
+		'post_name'    => 'shahdad-kaluts',
+		'post_content' => '<p>متن</p>',
+		'meta'         => array( 'sa_city_id' => $hold_src ),
+	)
+);
+$hold = sa_cleanup_purge_run( 'apply', array( $hold_src ), false );
+sa_eq( 'بدونِ اجازهٔ انتقال، حذف متوقف می‌شود', 0, (int) $hold['deleted'] );
+sa_eq( 'صفحهٔ ارجاع‌دار دست‌نخورده می‌ماند', 'draft', get_post( $hold_src )->post_status );
+
+// صفحهٔ سطلِ زباله هم در فهرستِ حذفِ قطعی دیده می‌شود.
+$trash_src = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'trash',
+		'post_title'   => '',
+		'post_name'    => 'bam-safiabad__trashed',
+		'post_content' => '',
+	)
+);
+$trash_slug = '';
+$trash_ok   = false;
+foreach ( sa_cleanup_purge_targets() as $row ) {
+	if ( (int) $row['ID'] === (int) $trash_src ) {
+		$trash_slug = (string) $row['slug'];
+		$trash_ok   = ! empty( $row['deletable'] );
+	}
+}
+sa_eq( 'نامکِ صفحهٔ سطل از پسوندِ __trashed پاک می‌شود', 'bam-safiabad', $trash_slug );
+sa_eq( 'صفحهٔ بی‌متنِ سطل مجاز به حذفِ قطعی است', true, $trash_ok );
+
+// انتقالِ ارجاع‌ها با جانشینِ نامشخص، شکستِ شفاف می‌دهد (نه حذفِ کورکورانه).
+$orphan = sa_add_post(
+	array(
+		'post_type'    => 'city',
+		'post_status'  => 'draft',
+		'post_title'   => '',
+		'post_name'    => 'zzz-unknown-city',
+		'post_content' => '',
+	)
+);
+sa_add_post(
+	array(
+		'post_type'    => 'attraction',
+		'post_status'  => 'publish',
+		'post_title'   => 'دیدنیِ بی‌جانشین',
+		'post_name'    => 'orphan-ref',
+		'post_content' => '<p>متن</p>',
+		'meta'         => array( 'sa_city_id' => $orphan ),
+	)
+);
+$orphan_move = sa_cleanup_reassign_references( $orphan, 'apply' );
+sa_eq( 'جانشینِ ناشناخته گزارش می‌شود', 1, count( $orphan_move['blocked'] ) );
+sa_eq( 'و هیچ ارجاعی جابه‌جا نمی‌شود', 0, count( $orphan_move['moved'] ) );
+$orphan_purge = sa_cleanup_purge_run( 'apply', array( $orphan ), true );
+sa_eq( 'صفحهٔ بی‌جانشین هم حذف نمی‌شود', 0, (int) $orphan_purge['deleted'] );
+sa_eq( 'و دلیلش گزارش می‌شود', 1, count( $orphan_purge['blocked'] ) );
+
+// رندرِ بخش با گزینهٔ انتقال.
+ob_start();
+sa_cleanup_purge_section();
+$html4 = ob_get_clean();
+sa_eq( 'گزینهٔ انتقالِ ارجاع‌ها رندر می‌شود', true, false !== strpos( $html4, 'sa_purge_move_refs' ) );
+sa_eq( 'ستونِ ارجاع‌ها در جدول هست', true, false !== strpos( $html4, 'ارجاع‌ها' ) );
 
 sa_done();

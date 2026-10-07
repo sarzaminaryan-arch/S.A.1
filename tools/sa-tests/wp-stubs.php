@@ -171,6 +171,8 @@ function sa_reset_test_state() {
 	$GLOBALS['sa_caps']         = array( 'manage_options' => true );
 	$GLOBALS['sa_died']         = null;
 	$GLOBALS['sa_redirects']    = array();
+	$GLOBALS['sa_trashed']      = array();
+	$GLOBALS['sa_deleted']      = array();
 	$GLOBALS['sa_meta_boxes']   = array();
 	$GLOBALS['sa_settings_reg'] = array();
 	$GLOBALS['sa_taxonomies']   = array();
@@ -469,6 +471,28 @@ function wp_trash_post( $post_id = 0 ) {
 	$GLOBALS['sa_trashed'][] = (int) $post->ID;
 	return $post;
 }
+/**
+ * حذفِ قطعیِ نوشته (v2.11.42 — برای آزمونِ «حذفِ قطعیِ صفحه‌های بی‌متن»).
+ *
+ * @param int  $post_id      شناسه.
+ * @param bool $force_delete بی‌درنگ (بدونِ سطلِ زباله).
+ * @return object|false
+ */
+function wp_delete_post( $post_id = 0, $force_delete = false ) {
+	$post = get_post( $post_id );
+	if ( ! $post ) {
+		return false;
+	}
+	if ( ! $force_delete ) {
+		$post->post_status = 'trash';
+		$post->post_name   = $post->post_name . '__trashed';
+		return $post;
+	}
+	unset( $GLOBALS['sa_posts'][ (int) $post->ID ] );
+	unset( $GLOBALS['sa_meta'][ (int) $post->ID ] );
+	$GLOBALS['sa_deleted'][] = (int) $post->ID;
+	return $post;
+}
 function wp_update_post( $args ) {
 	$post = get_post( isset( $args['ID'] ) ? $args['ID'] : 0 );
 	if ( ! $post ) {
@@ -559,7 +583,8 @@ function get_transient( $key ) {
 function set_transient( $key, $value, $expiration = 0 ) {
 	$GLOBALS['sa_transients'][ $key ] = array(
 		'value'      => $value,
-		'expiration' => (int) $expiration,
+		// در وردپرس، ترنزینت زمانِ انقضای مطلق را نگه می‌دارد.
+		'expiration' => $expiration > 0 ? time() + (int) $expiration : 0,
 	);
 	return true;
 }
