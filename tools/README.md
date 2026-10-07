@@ -34,6 +34,21 @@ python3 tools/wxr_audit_rollup.py /tmp/ostanha.json /tmp/shar.json /tmp/namayeba
 node tools/phpwasm/exec.js tools/sa-tests/run-geo-registry-audit.php
 ```
 
+### ۱.۱ مقایسهٔ رجیستری با خروجی واقعی WXR
+
+`tools/registry_live_diff.py` رجیستری `data/counties.php` را با خروجی شهرستان‌ها/استان‌ها مقایسه می‌کند و اختلاف‌ها را به‌شکل جدول‌های منتشرشدنی (اختلاف slug، تکراری‌های منتشرشده، پیش‌نویس/سطل‌زبالهٔ هم‌نام، اختلاف نام با slug یکسان) و شمارش لینک‌های `/city/` در صفحه‌های استان چاپ می‌کند. خروجی فقط slug/عنوان/وضعیت است؛ متن مقاله چاپ نمی‌شود.
+
+```bash
+python3 tools/registry_live_diff.py \
+  --registry wp-content/themes/sarzaminaryan-child/data/counties.php \
+  --wxr /مسیر/s-aryan-shar.xml \
+  --wxr-provinces /مسیر/s.aryan.ostanha.31.xml \
+  --json reports/registry-live-diff.json --markdown /tmp/registry-live-diff.md
+python3 -m unittest tools/tests/test_registry_live_diff.py -v
+```
+
+گزارش اجراشده روی خروجی ۲۰۲۶-۱۰-۰۷: `docs/2026-10-07-registry-vs-live-divergence-fa.md` (۳۹ اختلاف slug، ۲ جفت منتشرشدهٔ تکراری، ۳ پیش‌نویس هم‌نام و ۴ لینک `/city/` در کل ۳۱ استان). این ابزار ۴۰۴، وضعیت ایندکس، درستی رسمی نام‌ها و شمار قطعی تقسیمات کشوری را تعیین نمی‌کند.
+
 ## ۲. اجرای PHP بدون نیاز به نصبِ PHP روی سیستم
 
 `tools/phpwasm` یک اجراکنندهٔ سبک بر پایهٔ [php-wasm](https://www.npmjs.com/package/@php-wasm/node) است که PHP 8.1 و 7.4 را داخل Node اجرا می‌کند.
@@ -59,7 +74,7 @@ node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 
 `exec.js` هنگام اجرا:
 
-- پوشه‌های `data/` و `inc/` قالب را به شکل只读 در فایل‌سیستمِ مجازیِ PHP کپی می‌کند،
+- پوشه‌های `data/` و `inc/` قالب را به شکل فقط‌خواندنی در فایل‌سیستمِ مجازیِ PHP کپی می‌کند،
 - اسکریپت و همهٔ فایل‌های کناری‌اش (مثل `wp-stubs.php` و `assert.php`) را هم کپی می‌کند،
 - متغیر محیطی `SA_CHILD_DIR` را برای اسکریپت تنظیم می‌کند.
 
@@ -76,6 +91,7 @@ node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 | `tools/sa-tests/run-social.php` | انتشار خودکار: استخراج تصویر، ساخت متن، ارسال تلگرام/اینستاگرام، شرط‌ها و زمان‌بندی، **ارسالِ انبوه** و رندرِ صفحهٔ مدیریت |
 | `tools/sa-tests/run-content-repair.php` | تعمیر مکانیکی `H1→H2`: تابع خالص (چند سربرگ/ویژگی‌ها/برچسب ناقص)، پیش‌نمایش و اعمالِ دسته‌ای، سقف دسته، capability/nonce و رندرِ بخش پیشخوان |
 | `tools/sa-tests/run-health-scan.php` | اسکنِ صفحه‌بندی‌شدهٔ سلامت محتوا: کامل‌بودن اسکن (۵۴۰ سند در ۳ صفحه)، سقفِ ایمنی فیلتردار، هشدارِ بریدگی و رندرِ صفحه با/بدون سقف |
+| `tools/tests/test_registry_live_diff.py` | مقایسهٔ رجیستری↔WXR: یکسان‌سازی نام (ی/ک عربی، نیم‌فاصله، پیشوند «شهرستان»)، تشخیص اختلاف slug فقط برای صفحهٔ منتشرشده، تکراری‌های منتشرشده، برخورد پیش‌نویس/سطل‌زباله، آمار لینک `/city/` استان و نبودِ متن مقاله در گزارش |
 | `tools/tests/test_wxr_rollup.py` | rollup: دسته‌بندی ریسک، تشخیص H1/یادداشت/تکراری/نازک، حذفِ پیوست‌ها، ساختِ گزارش و CSV و نبودِ فرادادهٔ SEO |
 | `tools/sa-tests/wp-stubs.php` | شبیه‌سازِ وردپرس (گزینه‌ها، متا، نوشته‌ها، ترنزینت‌ها، رویدادهای زمان‌بندی‌شده، درخواست‌های HTTP، REST، قلاب‌ها، توابعِ پیشخوان) |
 | `tools/sa-tests/assert.php` | توابعِ سادهٔ ادعا و چاپِ خلاصه |
