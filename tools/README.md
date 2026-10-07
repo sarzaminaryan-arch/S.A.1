@@ -120,6 +120,7 @@ node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 | `tools/sa-tests/run-publish-gate.php` | ۵۴ ادعا: اجباری/اختیاری بودن SEO، غیرفعال‌بودن FAQPage gate، hygiene blockers، regex/anchor edge cases، ادغام پروفایل شهرستان روی `#place` یکتا، و **محافظت از صفحهٔ منتشرشده** (v2.11.42): مانع→یادآوری، گزارشِ ماندگار روی نوشته، جعبهٔ «چه چیزی مانع است؟» با راهنمای رفع، فیلترِ `sa_gate_protect_published` و نشانِ واقعیِ فهرست |
 | `tools/sa-tests/run-geo-registry-audit.php` | ساختار رجیستری استان/شهرستان، slugهای یکتا، ارجاع استان و شمار وضعیت snapshot؛ نه صحت رسمی یا وضعیت زنده |
 | `tools/tests/test_wxr_audit.py` | ممیزی WXR: شمارش ساختاری، hygiene/FAQ/source، duplicateها و عدم افشای متن/فرادادهٔ SEO در گزارش |
+| `tools/sa-tests/run-rest-guard.php` | ۳۶ ادعا برای نگهبانِ REST و تعارضِ نسخه: کالبکِ خصوصی/ناموجود/خالی، حذفِ مسیرِ نامعتبر پیش از اجرا (به‌جای خطای کشندهٔ ۵۰۰)، ثبتِ گزارش و خطِ `error_log`، پیامِ پیشخوان با نامِ کالبک و فایلِ مسئول، پاک‌شدنِ گزارش پس از رفع، و بررسیِ ایستا که کلاس‌های REST قالب هیچ متدِ خصوصی‌ای به‌عنوان کالبک ندارند |
 | `tools/sa-tests/run-bot.php` | ربات راهنمای تلگرام: تنظیمات، ارتباط با Bot API، خلاصه‌ها، صفحه‌بندی، مسیرِ استان←شهر←دیدنی، جستجو، وب‌هوک (۴۰۳/۵۰۳/۲۰۰)، تنظیم وب‌هوک، پاک‌سازیِ ورودی و رندرِ صفحهٔ مدیریت |
 | `tools/sa-tests/run-social.php` | انتشار خودکار: استخراج تصویر، ساخت متن، ارسال تلگرام/اینستاگرام، شرط‌ها و زمان‌بندی، **ارسالِ انبوه** و رندرِ صفحهٔ مدیریت |
 | `tools/sa-tests/run-content-repair.php` | ۱۲۱ ادعا: تعمیر مکانیکی محتوا — `H1→H2` (چند سربرگ/ویژگی‌ها/برچسب ناقص)، حذفِ پیوندِ خودارجاع (نرمال‌سازی مسیر، حفظ متن، `#`/کوئری، بلوک‌های کد) و **حذفِ عبارتِ تحریریِ جاماندهٔ «برای انتشار نهایی»** (فقط آغازِ جمله، حفظِ متنِ جمله، گزارشِ رخدادهای میانِ جمله، محافظِ ساختارِ پیوندها، dry/apply، سقفِ دسته، capability/nonce و رندرِ بخشِ پیشخوان) |
@@ -157,6 +158,7 @@ node     tools/phpwasm/exec.js tools/sa-tests/run-redirects.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-site-cleanup.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-ready-articles.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-ready-gate-sim.php
+node     tools/phpwasm/exec.js tools/sa-tests/run-rest-guard.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 SA_AUTOLINK_JOB=/ws/.tmp-autolink/job.json node tools/phpwasm/exec.js tools/sa-tests/run-autolink-audit.php
 SA_SELFLINK_JOB=/ws/.tmp-selflink/job.json node tools/phpwasm/exec.js tools/sa-tests/run-selflink-repair.php

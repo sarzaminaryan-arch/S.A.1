@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.42
+Stable tag: 2.11.43
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,13 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.43 — 2026-10-08 =
+* نگهبانِ مسیرهای REST: کالبک‌های نامعتبر (مثل متدِ خصوصی) پیش از اجرا حذف می‌شوند تا درخواست‌های
+  /cc/v1/... به‌جای خطای کشندهٔ ۵۰۰ پاسخِ «مسیر یافت نشد» بگیرند.
+* پیامِ پیشخوان، مسیر و فایلِ مسئولِ همان کالبک را نشان می‌دهد؛ اگر ماژول «شهر من» از افزونه‌ای قدیمی
+  بارگذاری شده باشد، تعارضِ نسخه هم با نشانیِ فایل گزارش می‌شود.
+* آزمونِ تازه: tools/sa-tests/run-rest-guard.php (۳۶ ادعا).
 
 = 2.11.42 — 2026-10-08 =
 * دروازهٔ انتشار دیگر هیچ صفحهٔ زنده‌ای را پایین نمی‌آورد: مانع‌ها روی صفحهٔ منتشرشده به «یادآوری»

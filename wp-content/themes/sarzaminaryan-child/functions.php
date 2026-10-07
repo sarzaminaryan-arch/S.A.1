@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.11.42' );
+define( 'SA_CHILD_VERSION', '2.11.43' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.2' );
@@ -27,6 +27,7 @@ if ( ! defined( 'SA_ENABLE_ACCOMMODATION' ) ) {
 $sa_child_includes = array(
 	'inc/entities-config.php',   // generated from data-model.yaml
 	'inc/helpers.php',
+	'inc/system-diagnostics.php', // نگهبانِ REST (جلوگیری از خطای ۵۰۰ کالبکِ خصوصی) + گزارشِ تعارضِ نسخه
 	'inc/setup.php',
 	'inc/post-types.php',
 	'inc/taxonomies.php',

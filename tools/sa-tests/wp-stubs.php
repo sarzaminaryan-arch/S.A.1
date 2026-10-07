@@ -262,6 +262,15 @@ function sa_run_event( $hook ) {
 
 /* --------------------------------------------------------------- گزینه‌ها */
 
+function __return_true() {
+	return true;
+}
+function __return_false() {
+	return false;
+}
+function __return_empty_array() {
+	return array();
+}
 function get_option( $key, $default = false ) {
 	return array_key_exists( $key, $GLOBALS['sa_options'] ) ? $GLOBALS['sa_options'][ $key ] : $default;
 }
