@@ -110,10 +110,38 @@ $sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر ی�
    یک‌ساعته در inc/performance.php). ادعای «۴۴۸+ شهرستان» روی سایتی که ۸۲
    شهرستان دارد، تناقضی است که هم کاربر و هم ارزیاب کیفیت می‌بیند.
    اگر در سفارشی‌سازی عدد دستی گذاشته باشید، همان اولویت دارد. */
-$sa_counts    = function_exists( 'sa_entity_counts' ) ? (array) sa_entity_counts() : array();
-$sa_stat1_num = get_theme_mod( 'sa_stat1_num', isset( $sa_counts['province'] ) ? (string) (int) $sa_counts['province'] : '31' );
+if ( ! function_exists( 'sa_home_stat_value' ) ) {
+	/**
+	 * مقدار یک شمارنده‌ی آمار: عدد دستیِ سفارشی‌سازی، وگرنه شمارش واقعی منتشرشده.
+	 *
+	 * v2.11.27 — تا پیش از این از `get_theme_mod( $id, $dynamic )` استفاده می‌شد.
+	 * آن شیوه در نمای جلوی سایت درست کار می‌کرد، اما در نمای پیش‌نمایشِ
+	 * سفارشی‌سازی وردپرس مقدار پیش‌فرضِ *ثبت‌شده* را از راه فیلتر
+	 * `theme_mod_{$id}` تزریق می‌کند؛ پس پیشخوان عدد ثابت و سایت زنده عدد
+	 * واقعی را نشان می‌داد. حالا پیش‌فرض ثبت‌شده خالی است و «خالی = خودکار»
+	 * در هر دو نما یکسان تفسیر می‌شود.
+	 *
+	 * @param string $mod       شناسه‌ی تنظیم سفارشی‌سازی.
+	 * @param string $count_key کلید شمارش واقعی در `sa_entity_counts()`.
+	 * @param string $fallback  مقدار آخر اگر شمارش در دسترس نبود.
+	 * @return string
+	 */
+	function sa_home_stat_value( $mod, $count_key, $fallback ) {
+		$manual = trim( (string) get_theme_mod( $mod, '' ) );
+		if ( '' !== $manual ) {
+			return $manual;
+		}
+		static $counts = null;
+		if ( null === $counts ) {
+			$counts = function_exists( 'sa_entity_counts' ) ? (array) sa_entity_counts() : array();
+		}
+		return isset( $counts[ $count_key ] ) ? (string) (int) $counts[ $count_key ] : $fallback;
+	}
+}
+
+$sa_stat1_num = sa_home_stat_value( 'sa_stat1_num', 'province', '31' );
 $sa_stat1_lb  = get_theme_mod( 'sa_stat1_label', 'استان' );
-$sa_stat2_num = get_theme_mod( 'sa_stat2_num', isset( $sa_counts['city'] ) ? (string) (int) $sa_counts['city'] : '0' );
+$sa_stat2_num = sa_home_stat_value( 'sa_stat2_num', 'city', '0' );
 $sa_stat2_suf = get_theme_mod( 'sa_stat2_suffix', '' );
 $sa_stat2_lb  = get_theme_mod( 'sa_stat2_label', 'شهرستان' );
 $sa_prov_h2   = get_theme_mod( 'sa_sec_prov_title', 'استان‌های ایران' );

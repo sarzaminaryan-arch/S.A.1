@@ -96,8 +96,19 @@ foreach ( array(
 	sa_footer_add_link( $sa_page_links, $sa_seen, sa_seeded_page_link( $sa_slug ), $sa_label );
 }
 
-$sa_contact_email = get_theme_mod( 'sa_contact_email', '' );
-$sa_about_text    = get_theme_mod( 'sa_footer_about', 'دانشنامه‌ی سفر ایران: استان‌ها، شهرها، جاذبه‌ها، مسیرها، غذاها و سوغات.' );
+/* v2.11.27 — ایمیل پابرگ همان نشانی‌ای است که فرم تماس واقعاً به آن می‌فرستد.
+   پیش از این فقط `sa_contact_email` خوانده می‌شد که پیش‌فرضش خالی است، پس
+   `inc/contact-form.php` نامه را به Mail@sarzaminaryan.ir می‌فرستاد ولی پابرگ
+   هیچ ایمیلی نشان نمی‌داد. */
+$sa_contact_email = function_exists( 'sa_site_contact_email' ) ? sa_site_contact_email() : get_theme_mod( 'sa_contact_email', '' );
+
+/* v2.11.27 — رشته‌ی پیش‌فرض حالا از `sa_default_footer_about()` می‌آید.
+   پیش از این اینجا و در `inc/customizer.php` دو رشته‌ی متفاوت نوشته شده بود:
+   این فایل «…جاذبه‌ها، مسیرها، غذاها و سوغات» را نشان می‌داد که سه تای آن‌ها
+   (`travel_route`، `local_food`، `souvenir`) طبق `sa_nav_hidden_entity_types()`
+   از ناوبری عمومی پنهان‌اند، یعنی پابرگ بخش‌هایی را تبلیغ می‌کرد که کاربر
+   راهی به آن‌ها ندارد. */
+$sa_about_text = get_theme_mod( 'sa_footer_about', function_exists( 'sa_default_footer_about' ) ? sa_default_footer_about() : '' );
 ?>
 
 <footer id="colophon" class="site-footer sa-hf-foot sa-hf-foot--mini">
@@ -143,7 +154,13 @@ $sa_about_text    = get_theme_mod( 'sa_footer_about', 'دانشنامه‌ی س�
 			<div class="sa-hf-foot__col sa-hf-foot__links-col">
 				<?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
 					<?php dynamic_sidebar( 'footer-3' ); ?>
-				<?php else : ?>
+				<?php elseif ( $sa_page_links || $sa_contact_email ) : ?>
+				<?php /* v2.11.27 — اگر هیچ برگه‌ی منتشرشده و هیچ ایمیلی نباشد،
+				         ستون با یک تیتر خالی رندر می‌شد. برگه‌های درباره/تماس/
+				         حریم خصوصی/سیاست در `inc/activation.php` پیش‌نویس ساخته
+				         می‌شوند و `sa_seeded_page_link()` برای پیش‌نویس رشته‌ی
+				         خالی برمی‌گرداند (تا لینک ۴۰۴ ساخته نشود)، پس در نصب
+				         تازه این حالت واقعاً رخ می‌دهد. */ ?>
 				<h2 class="widget-title">ارتباط با ما</h2>
 				<?php if ( $sa_page_links ) : ?>
 					<ul class="sa-hf-foot__links">

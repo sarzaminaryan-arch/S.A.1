@@ -49,23 +49,32 @@ function sa_customize_register( $wp_customize ) {
 	};
 
 	// Home / hero.
-	$wp_customize->add_section( 'sa_home', array( 'title' => 'صفحه‌ی اول', 'panel' => 'sa_panel' ) );
-	$add( 'sa_home', 'sa_hero_title', 'عنوان بزرگ هیرو', 'text', 'ایران را استان به استان بشناسید' );
-	$add( 'sa_home', 'sa_hero_subtitle', 'زیرعنوان هیرو', 'textarea', '۳۱ استان، صدها شهر و نمای برتر طبیعت و دیدنی‌های ایران — با اطلاعات دقیق و به‌روز.' );
-	$add( 'sa_home', 'sa_hero_image', 'تصویر پس‌زمینه‌ی هیرو (اختیاری)', 'image' );
-	$add( 'sa_home', 'sa_home_description', 'توضیحات متای صفحه‌ی اول (۷۰ تا ۱۵۵ کاراکتر)', 'textarea', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و نمای برتر طبیعت‌های بکر و دیدنی‌های ایران با اطلاعات دقیق و به‌روز.' );
-	$add( 'sa_home', 'sa_show_stats', 'نمایش آمار (تعداد استان/شهر/نمای برتر…) ', 'checkbox', true );
-	$add( 'sa_home', 'sa_home_sections', 'بخش‌های صفحه‌ی اول (به ترتیب، با ویرگول)', 'text', 'provinces,attractions,routes,foods,souvenirs,posts', array( 'description' => 'گزینه‌ها: provinces, cities, attractions, routes, foods, souvenirs, posts' ) );
+	/* v2.11.27 — پنج تنظیم مرده حذف شدند: `sa_hero_title`، `sa_hero_subtitle`،
+	   `sa_hero_image`، `sa_show_stats` و `sa_home_sections` از طرح خانه‌ی نسخه‌ی ۱
+	   باقی مانده بودند و هیچ‌جای قالب خوانده نمی‌شدند (خانه‌ی واقعی
+	   `template-home.php` است که از بخش «صفحه اصلی (طرح v2)» می‌خواند).
+	   این تنظیم‌ها در پیشخوان دیده می‌شدند و ویرایشگر با تغییرشان هیچ اثری
+	   نمی‌دید. تنها تنظیم زنده‌ی این بخش `sa_home_description` است که
+	   `inc/seo.php` برای توضیحات متای صفحه‌ی اول می‌خواند. */
+	$wp_customize->add_section( 'sa_home', array( 'title' => 'سئوی صفحه‌ی اول', 'panel' => 'sa_panel' ) );
+	$add( 'sa_home', 'sa_home_description', 'توضیحات متای صفحه‌ی اول (۷۰ تا ۱۵۵ کاراکتر)', 'textarea', sa_default_home_description(), array( 'description' => 'خالی = همان متن پیش‌فرض قالب. متن‌های هیرو و شعار در بخش «صفحه اصلی (طرح v2)» هستند.' ) );
 
 	// صفحه اصلی (طرح v2) — قالب برگه «صفحه اصلی سرزمین آریان (طرح v2)».
 	$wp_customize->add_section( 'sa_home_v2', array( 'title' => 'صفحه اصلی (طرح v2)', 'panel' => 'sa_panel', 'description' => 'تنظیمات دستی صفحه‌ی خانه (برگه‌ی «خانه» با قالب «صفحه اصلی سرزمین آریان (طرح v2)»). لوگو از بخش «هویت سایت → لوگو» قابل تغییر است؛ اگر لوگویی انتخاب نشود لوگوی اصلی سایت استفاده می‌شود.' ) );
 	$add( 'sa_home_v2', 'sa_home_slogan', 'شعار سایت (حماسی — زیر نام سایت، هدر و فوتر)', 'text', 'چو ایران نباشد، تن من مباد' );
 	$add( 'sa_home_v2', 'sa_hero_text', 'متن معرفی زیر شعار', 'textarea', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و نمای برتر طبیعت ایران.' );
 	$add( 'sa_home_v2', 'sa_search_placeholder', 'متن جایگزین جعبه‌ی جست‌وجو', 'text', 'استان، شهر یا نمای برتر…' );
-	$add( 'sa_home_v2', 'sa_stat1_num', 'آمار ۱ — عدد', 'text', '31' );
+	/* v2.11.27 — پیش‌فرض آمارها خالی شد، یعنی «خودکار».
+	   پیش‌فرض‌های ثبت‌شده `31` و `419+` با آنچه قالب واقعاً نشان می‌دهد در تضاد
+	   بودند: `template-home.php` این مقدارها را با تعداد واقعی منتشرشده از
+	   `sa_entity_counts()` جایگزین می‌کند و `data/counties.php` از ۴۸۳ شهرستان
+	   فقط ۱۴۴ را منتشرشده ثبت کرده است. چون در نمای پیش‌نمایشِ سفارشی‌سازی
+	   مقدار ثبت‌شده تزریق می‌شود، پیشخوان عدد ۴۱۹+ و سایت زنده عدد واقعی را
+	   نشان می‌داد. خانه‌ی خالی در هر دو نما یکسان «خودکار» معنا می‌شود. */
+	$add( 'sa_home_v2', 'sa_stat1_num', 'آمار ۱ — عدد', 'text', '', array( 'description' => 'خالی = تعداد واقعی استان‌های منتشرشده. برای عدد دستی فقط رقم انگلیسی بنویسید.' ) );
 	$add( 'sa_home_v2', 'sa_stat1_label', 'آمار ۱ — برچسب', 'text', 'استان' );
-	$add( 'sa_home_v2', 'sa_stat2_num', 'آمار ۲ — عدد (انگلیسی برای شمارنده)', 'text', '419' );
-	$add( 'sa_home_v2', 'sa_stat2_suffix', 'آمار ۲ — پسوند (+ یا خالی)', 'text', '+' );
+	$add( 'sa_home_v2', 'sa_stat2_num', 'آمار ۲ — عدد (انگلیسی برای شمارنده)', 'text', '', array( 'description' => 'خالی = تعداد واقعی شهرستان‌های منتشرشده. ادعای عددی بزرگ‌تر از محتوای منتشرشده هم کاربر و هم ارزیاب کیفیت گوگل را از دست می‌دهد.' ) );
+	$add( 'sa_home_v2', 'sa_stat2_suffix', 'آمار ۲ — پسوند (+ یا خالی)', 'text', '', array( 'description' => 'خالی = بدون پسوند. وقتی عدد از شمارش واقعی می‌آید، «+» گمراه‌کننده است.' ) );
 	$add( 'sa_home_v2', 'sa_stat2_label', 'آمار ۲ — برچسب', 'text', 'شهرستان' );
 	$add( 'sa_home_v2', 'sa_sec_prov_title', 'عنوان بخش استان‌ها', 'text', 'استان‌های ایران' );
 	$add( 'sa_home_v2', 'sa_sec_latest_title', 'عنوان بخش آخرین مقالات', 'text', 'آخرین مقالات' );
@@ -74,7 +83,7 @@ function sa_customize_register( $wp_customize ) {
 
 	// Footer.
 	$wp_customize->add_section( 'sa_footer', array( 'title' => 'پابرگ', 'panel' => 'sa_panel' ) );
-	$add( 'sa_footer', 'sa_footer_about', 'متن «درباره» در پابرگ', 'textarea', 'سرزمین آریان دانشنامه‌ی سفر ایران است؛ اطلاعات دقیق و به‌روز درباره‌ی استان‌ها، شهرها و نمای برتر ایران.' );
+	$add( 'sa_footer', 'sa_footer_about', 'متن «درباره» در پابرگ', 'textarea', sa_default_footer_about(), array( 'description' => 'پیش‌فرض در `sa_default_footer_about()` (inc/helpers.php) تعریف شده تا پیشخوان و پابرگ هرگز واگرا نشوند.' ) );
 	$add( 'sa_footer', 'sa_footer_copyright', 'متن حق نشر (خالی = خودکار)', 'text', '' );
 	$add( 'sa_footer', 'sa_footer_credit', 'نمایش «طراحی و توسعه: محمدرضا لک»', 'checkbox', true );
 
