@@ -880,3 +880,117 @@ function sa_entity_label( $type, $form = 'singular' ) {
 	);
 	return isset( $labels[ $type ][ $form ] ) ? $labels[ $type ][ $form ] : $type;
 }
+if ( ! function_exists( 'sa_entity_types' ) ) {
+	/**
+	 * شبیه‌سازِ سبکِ sa_entity_types بر پایهٔ همان منطقِ helpers.php.
+	 *
+	 * @return string[]
+	 */
+	function sa_entity_types() {
+		if ( ! function_exists( 'sa_entities_config' ) ) {
+			return array();
+		}
+		$types = array();
+		foreach ( sa_entities_config() as $slug => $entity ) {
+			if ( 'active' === $entity['status'] ) {
+				$types[] = $slug;
+			}
+		}
+		return $types;
+	}
+}
+function add_query_arg( $args, $url = '' ) {
+	if ( is_array( $args ) ) {
+		$pairs = array();
+		foreach ( $args as $key => $value ) {
+			$pairs[] = rawurlencode( (string) $key ) . '=' . rawurlencode( (string) $value );
+		}
+		$args = implode( '&', $pairs );
+	}
+	$args = (string) $args;
+	if ( '' === $args ) {
+		return $url;
+	}
+	return $url . ( false === strpos( (string) $url, '?' ) ? '?' : '&' ) . $args;
+}
+function get_post_type_object( $type ) {
+	return null; // در تست، نگاشت پیشوند مسیر لازم نیست.
+}
+
+/**
+ * شبیه‌سازِ کمینهٔ WP_Query برای اسکن‌های صفحه‌بندی‌شده.
+ *
+ * فقط آرگومان‌هایی را می‌فهمد که اسکنرِ سلامت محتوا و ابزار تعمیر استفاده
+ * می‌کنند: post_type/post_status/fields/posts_per_page/paged.
+ */
+class WP_Query {
+	public $posts         = array();
+	public $found_posts   = 0;
+	public $max_num_pages = 1;
+	public $query_vars    = array();
+
+	public function __construct( $args = array() ) {
+		$this->query_vars = wp_parse_args(
+			$args,
+			array(
+				'post_type'      => 'post',
+				'post_status'    => 'publish',
+				'posts_per_page' => 10,
+				'paged'          => 1,
+				'fields'         => '',
+			)
+		);
+
+		$all = get_posts(
+			array_merge(
+				$this->query_vars,
+				array(
+					'posts_per_page' => -1,
+					'fields'         => 'ids',
+				)
+			)
+		);
+		$ids = array_map( 'intval', (array) $all );
+
+		$this->found_posts = count( $ids );
+		$per_page          = (int) $this->query_vars['posts_per_page'];
+		if ( $per_page > 0 ) {
+			$this->max_num_pages = (int) ceil( $this->found_posts / $per_page );
+			$paged               = max( 1, (int) $this->query_vars['paged'] );
+			$ids                 = array_slice( $ids, ( $paged - 1 ) * $per_page, $per_page );
+		} else {
+			$this->max_num_pages = 1;
+		}
+
+		if ( 'ids' === $this->query_vars['fields'] ) {
+			$this->posts = $ids;
+		} else {
+			$this->posts = array_values( array_filter( array_map( 'get_post', $ids ) ) );
+		}
+	}
+}
+
+/**
+ * شبیه‌سازِ کمینهٔ $wpdb برای کوئری‌های مستقیمِ خواندنی.
+ */
+class SA_Test_WPDB {
+	public $posts = 'wp_posts';
+	public $rows  = array();
+
+	public function set_results( $rows ) {
+		$this->rows = (array) $rows;
+	}
+
+	public function prepare( $query, ...$args ) {
+		return $query;
+	}
+
+	public function get_results( $query ) {
+		return $this->rows;
+	}
+
+	public function get_col( $query ) {
+		return array();
+	}
+}
+$GLOBALS['wpdb'] = new SA_Test_WPDB();
