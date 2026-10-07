@@ -9,6 +9,16 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	define( 'ABSPATH', '/ws/' );
 }
+// ثابت‌های نوعِ خروجیِ وردپرس (get_page_by_path/get_posts).
+if ( ! defined( 'OBJECT' ) ) {
+	define( 'OBJECT', 'OBJECT' );
+}
+if ( ! defined( 'ARRAY_A' ) ) {
+	define( 'ARRAY_A', 'ARRAY_A' );
+}
+if ( ! defined( 'ARRAY_N' ) ) {
+	define( 'ARRAY_N', 'ARRAY_N' );
+}
 define( 'HOUR_IN_SECONDS', 3600 );
 define( 'MINUTE_IN_SECONDS', 60 );
 define( 'DAY_IN_SECONDS', 86400 );

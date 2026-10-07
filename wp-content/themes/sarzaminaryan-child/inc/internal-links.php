@@ -540,6 +540,22 @@ add_action(
 	2
 );
 
+/*
+ * ادغام‌های تأییدشدهٔ مالک (data/redirects.php): صفحه‌های تغییرمسیردهنده نباید مقصدِ لینک شوند.
+ * در سایت، functions.php این ماژول را پیش از ما بار می‌کند؛ این تضمین برای محیط‌هایی است که
+ * فقط همین فایل را بار می‌کنند (اجراکننده‌های آزمون).
+ */
+if ( ! function_exists( 'sa_redirect_is_old_slug' ) ) {
+	$sa_redirect_module = __DIR__ . '/redirects.php';
+	if ( ! is_readable( $sa_redirect_module ) && defined( 'SA_CHILD_DIR' ) ) {
+		$sa_redirect_module = SA_CHILD_DIR . 'inc/redirects.php';
+	}
+	if ( is_readable( $sa_redirect_module ) ) {
+		require_once $sa_redirect_module;
+	}
+	unset( $sa_redirect_module );
+}
+
 /**
  * فهرستِ نوشته‌های منتشرشده‌ی مقصد، برچسب‌گذاری‌شده با نوع و نامک.
  *
@@ -683,6 +699,10 @@ function sa_autolink_build_targets() {
 			if ( empty( $posts['city'][ $county['slug'] ] ) ) {
 				continue;
 			}
+			// صفحه‌های تکراری که به مقصدِ تأییدشده تغییر مسیر می‌دهند، مقصدِ لینک نمی‌شوند.
+			if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( $county['slug'] ) ) {
+				continue;
+			}
 			$parent = isset( $county['province'] ) ? (string) $county['province'] : '';
 			$add( $county['name'], 'city', $posts['city'][ $county['slug'] ]['id'], 2, 0, $parent );
 			$known_city_ids[ (int) $posts['city'][ $county['slug'] ]['id'] ] = true;
@@ -695,8 +715,11 @@ function sa_autolink_build_targets() {
 		}
 	}
 	// شهرستان‌هایی که بیرون از فهرست ثابت ساخته شده‌اند.
-	foreach ( $city_posts as $city ) {
+	foreach ( $city_posts as $city_slug => $city ) {
 		if ( isset( $known_city_ids[ $city['id'] ] ) ) {
+			continue;
+		}
+		if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( $city_slug ) ) {
 			continue;
 		}
 		if ( sa_autolink_name_ok( $city['title'], 'city' ) ) {

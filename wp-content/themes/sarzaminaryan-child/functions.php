@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.11.38' );
+define( 'SA_CHILD_VERSION', '2.11.39' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.2' );
@@ -36,6 +36,7 @@ $sa_child_includes = array(
 	'inc/jalali.php',
 	'inc/seo.php',
 	'inc/citations.php',
+	'inc/redirects.php', // تغییر مسیر ۳۰۱ صفحه‌های تکراری (ادغام‌های تأییدشدهٔ مالک)
 	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / نمای برتر
 	'inc/region-map.php',
 	'inc/schema.php',

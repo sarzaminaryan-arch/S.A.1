@@ -77,6 +77,8 @@ def read_items(path: str, post_type: str) -> list[dict]:
 def slug_divergences(registry: list[dict], live: list[dict]) -> list[dict]:
     """ردیف‌های رجیستری که نامشان با یک صفحهٔ **منتشرشده** یکی است اما slug متفاوت دارند.
 
+    اگر خودِ slugِ رجیستری هم بین صفحه‌های هم‌نام باشد، ردیف سالم است و اینجا گزارش
+    نمی‌شود؛ آن حالت (چند صفحهٔ هم‌نام) در `duplicate_published` می‌آید.
     پیش‌نویس‌ها/سطل‌زباله عمداً کنار گذاشته می‌شوند؛ آن‌ها در `nonpublish_collisions` می‌آیند.
     """
     by_name: dict[str, list[dict]] = defaultdict(list)
@@ -88,6 +90,9 @@ def slug_divergences(registry: list[dict], live: list[dict]) -> list[dict]:
     for row in registry:
         matches = by_name.get(normalize_name(row['name']), [])
         if not matches:
+            continue
+        # ردیفِ خودش صفحه دارد؟ پس هم‌راستاست؛ صفحهٔ دیگرِ هم‌نام در duplicate_published گزارش می‌شود.
+        if any(match['slug'] == row['slug'] for match in matches):
             continue
         target = matches[-1]
         if row['slug'] != target['slug']:
@@ -144,8 +149,13 @@ def orphans(registry: list[dict], live: list[dict]) -> dict:
     registry_slugs = {r['slug'] for r in registry}
     registry_names = {normalize_name(r['name']) for r in registry}
     live_names = {normalize_name(i['title']) for i in live if i['status'] == 'publish'}
+    published_slugs = {i['slug'] for i in live if i['status'] == 'publish'}
+    other_slugs = {i['slug'] for i in live if i['status'] != 'publish'}
     return {
-        'live_slugs_not_in_registry': sorted({i['slug'] for i in live} - registry_slugs),
+        # صفحه‌های منتشرشده‌ای که نامکشان در رجیستری نیست (شهرِ مرکزِ شهرستان، دو صفحهٔ هم‌نام).
+        'live_slugs_not_in_registry': sorted(published_slugs - registry_slugs),
+        # پیش‌نویس/سطل‌زباله — تصمیمِ جداگانه، نه خطای هم‌راستاسازی.
+        'live_slugs_not_in_registry_nonpublish': sorted(other_slugs - registry_slugs),
         'live_published_names_not_in_registry': sorted(live_names - registry_names),
         'registry_names_without_live_page': sorted(registry_names - live_names),
         'registry_status_counts': dict(Counter(r['status'] for r in registry)),
@@ -197,7 +207,7 @@ def build_markdown(report: dict) -> str:
         _table(t3, '| slug | نام رجیستری | عنوان زنده | وضعیت رجیستری | وضعیت زنده |\n|---|---|---|---|---|'),
         '\n## خلاصه',
         f"- ردیف‌های رجیستری: {report['orphans']['registry_status_counts']}",
-        f"- slugهای زندهٔ بدون ردیفِ رجیستری: {len(report['orphans']['live_slugs_not_in_registry'])}",
+        f"- نامک‌های منتشرشدهٔ بدون ردیفِ رجیستری: {len(report['orphans']['live_slugs_not_in_registry'])}",
         f"- عنوان‌های منتشرشدهٔ بدون نامِ متناظر در رجیستری: {len(report['orphans']['live_published_names_not_in_registry'])}",
         f"- نام‌های رجیستری بدون صفحهٔ منتشرشده: {len(report['orphans']['registry_names_without_live_page'])}" + prov_line,
         '',

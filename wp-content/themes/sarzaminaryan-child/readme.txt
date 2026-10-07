@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.38
+Stable tag: 2.11.39
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,14 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.39 — 2026-10-07 =
+* ادغام صفحهٔ تکراری ایجرود: /city/ijrud/ با ۳۰۱ به /city/ejrud/ می‌رود (بدون ویرایش محتوا)؛
+  صفحهٔ قدیمی از آرشیو و نقشهٔ سایت بیرون می‌ماند و موتور لینک‌سازی به آن لینک نمی‌سازد.
+* همراستاسازی نامک رجیستری: bushehr-county، dashtestan، samalqan، aliabad — هر ۴۸۳ ردیف
+  اکنون به صفحهٔ منتشرشدهٔ هم‌نامش وصل است (بدون تغییر URL).
+* بازسنجی رندر با ابزار اصلاح‌شده: ۶٬۷۵۹ لینک شهرستانی و ۶۲۸ لینک در ۳۱ هاب استان
+  (سنجش A/B روی همان موتور و همان ۵۱۸ صفحه: رجیستری ۲.۱۱.۳۸ → ۶٬۷۵۴/۶۲۶).
 
 = 2.11.38 — 2026-10-07 =
 * ابزار حذف پیوند خودارجاع در «سلامت محتوا»: حذف تگ <a> با حفظ متن، پیش‌نمایش + اعمال دسته‌ای، بازگشت‌پذیر
