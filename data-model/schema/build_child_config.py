@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Generate wp-content/themes/sarzaminaryan-child/inc/entities-config.php from data-model.yaml.
 
-The child theme never hard-codes entity fields: this script is the single bridge between
-MASTER_DATA_MODEL (Level 1–5) and WordPress (CPTs, meta boxes, publish gate, schema).
-Run after every model change:  python3 data-model/schema/build_child_config.py
+This generator builds the core CPT, field, relation, taxonomy, SEO, and publish-gate
+configuration from data-model.yaml. The county-specific fixed profile is a separate runtime
+extension in inc/geo-counties.php and is documented under entities.city.county_profile_extension.
+Run after relevant model changes:  python3 data-model/schema/build_child_config.py
 """
 import os
 import sys
@@ -18,8 +19,8 @@ OUT = os.path.join(ROOT, 'wp-content', 'themes', 'sarzaminaryan-child', 'inc', '
 # ---- Persian UI labels ------------------------------------------------------
 ENTITY_LABELS = {
     'province':      dict(singular='استان', plural='استان‌ها', icon='dashicons-location-alt', menu_pos=1),
-    'city':          dict(singular='شهر', plural='شهرها', icon='dashicons-building', menu_pos=2),
-    'attraction':    dict(singular='جاذبه', plural='جاذبه‌ها', icon='dashicons-camera-alt', menu_pos=3),
+    'city':          dict(singular='شهرستان', plural='شهرستان‌ها', icon='dashicons-building', menu_pos=2),
+    'attraction':    dict(singular='نمای برتر', plural='نمای برتر', icon='dashicons-camera-alt', menu_pos=3),
     'travel_route':  dict(singular='مسیر سفر', plural='مسیرهای سفر', icon='dashicons-randomize', menu_pos=4),
     'local_food':    dict(singular='غذای محلی', plural='غذاهای محلی', icon='dashicons-food', menu_pos=5),
     'souvenir':      dict(singular='سوغات', plural='سوغات', icon='dashicons-cart', menu_pos=6),
@@ -29,9 +30,14 @@ ENTITY_LABELS = {
 FIELD_LABELS = {
     'province_center_city': 'مرکز استان', 'province_population': 'جمعیت', 'province_area': 'مساحت (کیلومتر مربع)',
     'province_latitude': 'عرض جغرافیایی', 'province_longitude': 'طول جغرافیایی', 'province_climate': 'اقلیم',
-    'city_population': 'جمعیت', 'city_elevation': 'ارتفاع از سطح دریا (متر)', 'city_latitude': 'عرض جغرافیایی',
-    'city_longitude': 'طول جغرافیایی', 'access_air': 'دسترسی هوایی', 'access_rail': 'دسترسی ریلی',
+    'city_population': 'جمعیت شهرستان', 'city_elevation': 'ارتفاع از سطح دریا (متر)',
+    'city_latitude': 'عرض جغرافیایی مرکز شهرستان', 'city_longitude': 'طول جغرافیایی مرکز شهرستان',
+    'access_air': 'دسترسی هوایی', 'access_rail': 'دسترسی ریلی',
     'access_road': 'دسترسی جاده‌ای', 'google_map_url': 'لینک گوگل‌مپ',
+    'english_name': 'نام انگلیسی (برای شناسنامه)', 'attraction_age': 'قدمت یا سن زمین‌شناسی/تاریخی',
+    'attraction_area': 'مساحت یا گستره', 'elevation': 'ارتفاع تقریبی از سطح دریا (متر)',
+    'access_level': 'سطح دسترسی/درجه سختی', 'trail_note': 'مسیر پیاده‌روی/نیاز به راهنما',
+    'safety_note': 'نکته ایمنی کوتاه',
     'latitude': 'عرض جغرافیایی', 'longitude': 'طول جغرافیایی', 'address': 'نشانی', 'opening_hours': 'ساعات بازدید',
     'ticket_price': 'قیمت بلیت', 'visit_duration': 'مدت بازدید پیشنهادی',
     'official_website': 'وب‌سایت رسمی', 'last_verified_date': 'تاریخ آخرین راستی‌آزمایی (ساعات/قیمت/دسترسی)',
@@ -45,7 +51,7 @@ FIELD_LABELS = {
 }
 TAX_LABELS = {
     'province_tax':       dict(singular='استان', plural='استان‌ها', slug='ostan', hierarchical=True),
-    'attraction_type':    dict(singular='نوع جاذبه', plural='انواع جاذبه', slug='attraction-type', hierarchical=True),
+    'attraction_type':    dict(singular='نوع نمای برتر', plural='انواع نمای برتر', slug='attraction-type', hierarchical=True),
     'travel_season':      dict(singular='فصل سفر', plural='فصل‌های سفر', slug='season', hierarchical=False),
     'travel_budget':      dict(singular='بودجه سفر', plural='بودجه‌های سفر', slug='budget', hierarchical=False),
     'travel_duration':    dict(singular='مدت سفر', plural='مدت‌های سفر', slug='duration', hierarchical=False),
@@ -100,7 +106,7 @@ def main():
         for f in e['fields']:
             name = f['name']
             t = f['type']
-            if name.endswith(SKIP_SUFFIX) or t in ('image', 'slug', 'enum'):
+            if (name.endswith(SKIP_SUFFIX) and name != 'english_name') or t in ('image', 'slug', 'enum'):
                 continue
             field = dict(name=name, label=FIELD_LABELS.get(name, name), type=UI_TYPE[t], key='sa_' + name)
             if t == 'reference':
@@ -149,10 +155,15 @@ def main():
                                source=terms if isinstance(terms, str) else None)
 
     seo_required = model['seo_fields']['required']
-    blockers = model['content_rules']['publish_blockers']
-    minimums = model['content_rules'].get('minimums', {})
-    markers = model['content_rules'].get('uncertainty_markers', [])
-    stale_days = int(model['content_rules'].get('stale_after_days', 365))
+    seo_optional = model['seo_fields'].get('generated_or_optional_overrides', [])
+    seo_deprecated = model['seo_fields'].get('deprecated', [])
+    content_rules = model['content_rules']
+    blockers = content_rules['publish_blockers']
+    advisories = content_rules.get('advisory_checks', [])
+    hygiene_checks = content_rules.get('content_hygiene_checks', [])
+    minimums = content_rules.get('minimums', {})
+    markers = content_rules.get('uncertainty_markers', [])
+    stale_days = int(content_rules.get('stale_after_days', 365))
     out = f"""<?php
 /**
  * GENERATED FILE — do not edit by hand.
@@ -186,39 +197,67 @@ function sa_taxonomies_config() {{
 }}
 
 /**
- * Level 5 — SEO fields required on every entity (meta keys are prefixed with sa_).
+ * Level 5 — author-entered SEO fields required by the data model.
  */
 function sa_seo_required_fields() {{
 	return {php(seo_required, 1)};
 }}
 
 /**
- * Level 7 — publish blockers.
+ * Level 5 — generated fields with optional overrides; absence is not a publish error.
+ */
+function sa_seo_optional_overrides() {{
+	return {php(seo_optional, 1)};
+}}
+
+/**
+ * Level 5 — legacy/deprecated SEO fields; do not generate these outputs.
+ */
+function sa_seo_deprecated_fields() {{
+	return {php(seo_deprecated, 1)};
+}}
+
+/**
+ * Level 7 — publish blockers; missing_sources is conditional on the entity's source minimum.
  */
 function sa_publish_blockers() {{
 	return {php(blockers, 1)};
 }}
 
 /**
- * Level 7 (v1.1) — per-entity minimums enforced by the publish gate: faq, sources, internal_links, coordinates.
+ * Level 7 — advisory checks that may guide editorial review but never lock publication.
+ */
+function sa_content_advisory_checks() {{
+	return {php(advisories, 1)};
+}}
+
+/**
+ * Level 7 — content hygiene checks implemented by the publish gate.
+ */
+function sa_content_hygiene_checks() {{
+	return {php(hygiene_checks, 1)};
+}}
+
+/**
+ * Level 7 (v1.2) — editorial diagnostic targets per entity, not Google ranking quotas.
  */
 function sa_content_minimums( $type = '' ) {{
 	$all = {php(minimums, 1)};
 	if ( '' === $type ) {{
 		return $all;
 	}}
-	return isset( $all[ $type ] ) ? $all[ $type ] : array( 'faq' => 1, 'sources' => 0, 'internal_links' => 0, 'coordinates' => false );
+	return isset( $all[ $type ] ) ? $all[ $type ] : array( 'faq' => 0, 'sources' => 0, 'internal_links' => 0, 'coordinates' => false );
 }}
 
 /**
- * Level 7 (v1.1) — uncertainty markers allowed in published text (rendered as a badge, counted, never removed).
+ * Level 7 — transparency markers allowed in published text (rendered as visible badges).
  */
 function sa_uncertainty_markers() {{
 	return {php(markers, 1)};
 }}
 
 /**
- * Level 7 (v1.1) — days after which attraction.last_verified_date is considered stale.
+ * Level 7 — days after which attraction.last_verified_date is considered stale.
  */
 function sa_stale_after_days() {{
 	return {stale_days};

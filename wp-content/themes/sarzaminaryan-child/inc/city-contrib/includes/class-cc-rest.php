@@ -170,7 +170,7 @@ class CC_REST {
 
 			$files = self::normalise_uploaded_images();
 			if ( ! $files ) {
-				return new WP_Error( 'image_required', 'برای آلبوم نمای برتر، انتخاب تصویر الزامی است.', array( 'status' => 400 ) );
+				return new WP_Error( 'image_required', 'برای آلبوم دیدنی، انتخاب تصویر الزامی است.', array( 'status' => 400 ) );
 			}
 			$max_files = self::upload_max_files();
 			if ( count( $files ) > $max_files ) {

@@ -6,7 +6,7 @@
 
 model:
   name: Iran Travel Knowledge Graph
-  version: "1.1"
+  version: "1.2"
   status_legend:
     active: Built in v1.0. Must exist before launch.
     reserved: Designed in v1.0, not built yet. Names/slugs/URLs/relation slots are locked.
@@ -52,6 +52,7 @@ entities:
 
   city:
     label: City
+    public_concept: county_page
     cpt: city
     status: active
     primary_key: city_slug
@@ -71,6 +72,32 @@ entities:
       - { name: access_road,        type: text }
       - { name: google_map_url,     type: url }
       - { name: featured_image,     type: image }
+    county_profile_extension:
+      runtime: wp-content/themes/sarzaminaryan-child/inc/geo-counties.php
+      registry: wp-content/themes/sarzaminaryan-child/data/counties.php
+      note: >
+        Fixed county facts are stored separately from the generated core city_* fields.
+        Population keys sa_city_population and sa_cty_population coexist; never overwrite
+        or infer one from the other without a verified source and an explicit migration.
+      fields:
+        - { name: county_center,              storage_key: sa_cty_center,              type: string, group: identity }
+        - { name: county_population,          storage_key: sa_cty_population,          type: integer, group: identity }
+        - { name: county_census_year,         storage_key: sa_cty_census_year,         type: integer, group: identity }
+        - { name: county_area,                storage_key: sa_cty_area,                type: number, unit: km2, group: identity }
+        - { name: county_districts,           storage_key: sa_cty_districts,           type: integer, group: divisions }
+        - { name: county_rural_districts,     storage_key: sa_cty_rural_districts,     type: integer, group: divisions }
+        - { name: county_cities,              storage_key: sa_cty_cities,              type: integer, group: divisions }
+        - { name: county_villages,            storage_key: sa_cty_villages,            type: integer, group: divisions }
+        - { name: county_neighbours,          storage_key: sa_cty_neighbors,           type: list, group: geo }
+        - { name: county_distance_to_province_center, storage_key: sa_cty_distance_center, type: integer, unit: km, group: geo }
+        - { name: county_climate,             storage_key: sa_cty_climate,             type: string, group: geo }
+        - { name: county_language,            storage_key: sa_cty_language,            type: string, group: life }
+        - { name: county_livelihood,          storage_key: sa_cty_livelihood,          type: string, group: life }
+        - { name: county_best_visit_time,     storage_key: sa_cty_best_time,           type: string, group: visit }
+        - { name: nature_poi,                 storage_key: sa_cty_poi_nature,          type: poi_list, group: visit }
+        - { name: offbeat_poi,                storage_key: sa_cty_poi_offbeat,         type: poi_list, group: visit }
+        - { name: recreation_poi,             storage_key: sa_cty_poi_recreation,      type: poi_list, group: visit }
+        - { name: heritage_poi,               storage_key: sa_cty_poi_heritage,        type: poi_list, group: visit }
     relations:
       - { type: belongs_to,      target: province,      status: active }
       - { type: has_many,        target: attraction,    status: active }
@@ -98,6 +125,13 @@ entities:
       - { name: attraction_name,    type: string }
       - { name: attraction_slug,    type: slug }
       - { name: attraction_summary, type: text }
+      - { name: english_name,        type: string, nullable: true } # existing UI field; optional Latin name
+      - { name: attraction_age,      type: string, nullable: true }
+      - { name: attraction_area,     type: string, nullable: true }
+      - { name: elevation,           type: number, unit: m, nullable: true }
+      - { name: access_level,        type: string, nullable: true }
+      - { name: trail_note,          type: string, nullable: true }
+      - { name: safety_note,         type: text, nullable: true }
       - { name: attraction_type,    type: enum, taxonomy: attraction_type }
       - { name: latitude,           type: float }
       - { name: longitude,          type: float }
@@ -305,11 +339,22 @@ seo_fields:
     - seo_title
     - seo_description
     - focus_keyword
-    - og_title
-    - og_description
-    - faq_schema
-    - breadcrumb_schema
-    - canonical_url
+  content_fields:
+    - faq_content              # visible Q&A; editorially useful, not a Google rich-result target
+  generated_or_optional_overrides:
+    - og_title                 # generated from title unless explicitly overridden
+    - og_description            # generated from meta description unless explicitly overridden
+    - breadcrumb_schema        # generated from the actual breadcrumb trail
+    - canonical_url            # generated from the permalink; override only for a documented migration/canonical case
+  deprecated:
+    - name: faq_schema
+      replacement: faq_content
+      status: deprecated
+      structured_data_output: disabled
+      reason: Google stopped showing FAQ rich results in Search on 2026-05-07; visible Q&A may remain.
+  notes:
+    - focus_keyword is an internal editorial planning field, not a Google ranking field.
+    - Structured data must match visible page content; it does not guarantee a rich result or ranking.
   accommodation_extra:
     status: reserved
     rules:
@@ -322,31 +367,36 @@ seo_fields:
 content_rules:
   required_sections:
     - Introduction
-    - Structured Data
-    - FAQ
-    - Internal Links
-    - SEO Data
+    - Key Facts when applicable
+    - Contextual Internal Links
+    - SEO Data / search intent
+  advisory_checks:
+    - missing_faq                # visible Q&A is useful only when there are real user questions
+    - missing_coordinates        # where minimums.<entity>.coordinates is true
+    - missing_internal_links     # contextual links, not a volume quota
   publish_blockers:
     - missing_relation
     - missing_seo_fields
-    - missing_faq
     - missing_featured_image
     - missing_primary_taxonomy
-    - missing_coordinates        # v1.1 — where minimums.<entity>.coordinates is true
-    - missing_sources            # v1.1 — fewer than minimums.<entity>.sources lines with a URL
-    - missing_internal_links     # v1.1 — fewer than minimums.<entity>.internal_links same-site links in the content
-  minimums:                      # v1.1 — per-entity thresholds enforced by the theme publish gate (content-templates/*.md PUBLISHING RULE)
-    province:     { faq: 10, sources: 5, internal_links: 20, coordinates: true }
-    city:         { faq: 10, sources: 5, internal_links: 10, coordinates: true }
-    attraction:   { faq: 10, sources: 5, internal_links: 10, coordinates: true }
-    travel_route: { faq: 3,  sources: 2, internal_links: 5,  coordinates: false }
-    local_food:   { faq: 3,  sources: 2, internal_links: 3,  coordinates: false }
-    souvenir:     { faq: 3,  sources: 2, internal_links: 3,  coordinates: false }
-    accommodation: { faq: 3, sources: 2, internal_links: 3,  coordinates: true }   # reserved
-  uncertainty_markers:           # v1.1 — allowed in published text; rendered as a visible badge and counted, never silently removed
+    - missing_sources             # only for entity types with a non-zero source minimum
+    - missing_content_hygiene     # body H1 duplicate, unresolved editorial placeholder, empty/unlabelled anchor
+  content_hygiene_checks:
+    - body_h1
+    - unresolved_editorial_placeholder
+    - empty_or_unlabelled_anchor
+  minimums:                       # editorial diagnostics; FAQ/link counts are advisories, not Google ranking quotas
+    province:     { faq: 3, sources: 5, internal_links: 5,  coordinates: true }
+    city:         { faq: 3, sources: 5, internal_links: 5,  coordinates: true }
+    attraction:   { faq: 3, sources: 0, internal_links: 3,  coordinates: true }  # source count advisory for photo-led pages; claims still need evidence
+    travel_route: { faq: 3, sources: 2, internal_links: 3,  coordinates: false }
+    local_food:   { faq: 3, sources: 2, internal_links: 2,  coordinates: false }
+    souvenir:     { faq: 3, sources: 2, internal_links: 2,  coordinates: false }
+    accommodation: { faq: 3, sources: 2, internal_links: 2, coordinates: true }  # reserved
+  uncertainty_markers:           # allowed only when uncertainty is clear to readers; rendered as a visible badge
     - "[نیازمند بررسی]"
     - "[منبع لازم]"
-  stale_after_days: 365          # v1.1 — attraction.last_verified_date older than this => "needs review" badge (does not block)
+  stale_after_days: 365          # last_verified_date older than this => "needs review" badge (does not block)
   accommodation_publish_blockers:
     status: reserved
     items:
@@ -364,5 +414,6 @@ governance:
     - bump model.version
     - add CHANGELOG.md entry
     - update data-model.yaml
-    - regenerate data-model.json
+    - run schema/build_json.py
+    - verify schema/build_child_config.py reproduces the tracked config without dropping active fields
   naming_policy: Field and slug names are append-only — never rename or reuse; deprecate instead.

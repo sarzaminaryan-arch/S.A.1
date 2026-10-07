@@ -35,3 +35,13 @@ tools/importers/
 # temporary image staging (never commit)
 image-search/
 .stage*/
+
+# php-wasm runtime for tests (installed locally, never committed)
+tools/phpwasm/node_modules/
+tools/phpwasm/package-lock.json
+
+# Google Drive downloads used for audits (never committed)
+google_drive/
+
+# پوشهٔ موقتِ ممیزیِ لینک‌سازی (job.json) — هرگز commit نمی‌شود
+tools/sa-tests/.tmp-*/

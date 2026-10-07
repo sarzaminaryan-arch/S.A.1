@@ -1,7 +1,7 @@
 {
   "model": {
     "name": "Iran Travel Knowledge Graph",
-    "version": "1.1",
+    "version": "1.2",
     "status_legend": {
       "active": "Built in v1.0. Must exist before launch.",
       "reserved": "Designed in v1.0, not built yet. Names/slugs/URLs/relation slots are locked."
@@ -125,6 +125,7 @@
     },
     "city": {
       "label": "City",
+      "public_concept": "county_page",
       "cpt": "city",
       "status": "active",
       "primary_key": "city_slug",
@@ -186,6 +187,123 @@
           "type": "image"
         }
       ],
+      "county_profile_extension": {
+        "runtime": "wp-content/themes/sarzaminaryan-child/inc/geo-counties.php",
+        "registry": "wp-content/themes/sarzaminaryan-child/data/counties.php",
+        "note": "Fixed county facts are stored separately from the generated core city_* fields. Population keys sa_city_population and sa_cty_population coexist; never overwrite or infer one from the other without a verified source and an explicit migration.\n",
+        "fields": [
+          {
+            "name": "county_center",
+            "storage_key": "sa_cty_center",
+            "type": "string",
+            "group": "identity"
+          },
+          {
+            "name": "county_population",
+            "storage_key": "sa_cty_population",
+            "type": "integer",
+            "group": "identity"
+          },
+          {
+            "name": "county_census_year",
+            "storage_key": "sa_cty_census_year",
+            "type": "integer",
+            "group": "identity"
+          },
+          {
+            "name": "county_area",
+            "storage_key": "sa_cty_area",
+            "type": "number",
+            "unit": "km2",
+            "group": "identity"
+          },
+          {
+            "name": "county_districts",
+            "storage_key": "sa_cty_districts",
+            "type": "integer",
+            "group": "divisions"
+          },
+          {
+            "name": "county_rural_districts",
+            "storage_key": "sa_cty_rural_districts",
+            "type": "integer",
+            "group": "divisions"
+          },
+          {
+            "name": "county_cities",
+            "storage_key": "sa_cty_cities",
+            "type": "integer",
+            "group": "divisions"
+          },
+          {
+            "name": "county_villages",
+            "storage_key": "sa_cty_villages",
+            "type": "integer",
+            "group": "divisions"
+          },
+          {
+            "name": "county_neighbours",
+            "storage_key": "sa_cty_neighbors",
+            "type": "list",
+            "group": "geo"
+          },
+          {
+            "name": "county_distance_to_province_center",
+            "storage_key": "sa_cty_distance_center",
+            "type": "integer",
+            "unit": "km",
+            "group": "geo"
+          },
+          {
+            "name": "county_climate",
+            "storage_key": "sa_cty_climate",
+            "type": "string",
+            "group": "geo"
+          },
+          {
+            "name": "county_language",
+            "storage_key": "sa_cty_language",
+            "type": "string",
+            "group": "life"
+          },
+          {
+            "name": "county_livelihood",
+            "storage_key": "sa_cty_livelihood",
+            "type": "string",
+            "group": "life"
+          },
+          {
+            "name": "county_best_visit_time",
+            "storage_key": "sa_cty_best_time",
+            "type": "string",
+            "group": "visit"
+          },
+          {
+            "name": "nature_poi",
+            "storage_key": "sa_cty_poi_nature",
+            "type": "poi_list",
+            "group": "visit"
+          },
+          {
+            "name": "offbeat_poi",
+            "storage_key": "sa_cty_poi_offbeat",
+            "type": "poi_list",
+            "group": "visit"
+          },
+          {
+            "name": "recreation_poi",
+            "storage_key": "sa_cty_poi_recreation",
+            "type": "poi_list",
+            "group": "visit"
+          },
+          {
+            "name": "heritage_poi",
+            "storage_key": "sa_cty_poi_heritage",
+            "type": "poi_list",
+            "group": "visit"
+          }
+        ]
+      },
       "relations": [
         {
           "type": "belongs_to",
@@ -269,6 +387,42 @@
         {
           "name": "attraction_summary",
           "type": "text"
+        },
+        {
+          "name": "english_name",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "attraction_age",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "attraction_area",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "elevation",
+          "type": "number",
+          "unit": "m",
+          "nullable": true
+        },
+        {
+          "name": "access_level",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "trail_note",
+          "type": "string",
+          "nullable": true
+        },
+        {
+          "name": "safety_note",
+          "type": "text",
+          "nullable": true
         },
         {
           "name": "attraction_type",
@@ -874,12 +1028,29 @@
     "required": [
       "seo_title",
       "seo_description",
-      "focus_keyword",
+      "focus_keyword"
+    ],
+    "content_fields": [
+      "faq_content"
+    ],
+    "generated_or_optional_overrides": [
       "og_title",
       "og_description",
-      "faq_schema",
       "breadcrumb_schema",
       "canonical_url"
+    ],
+    "deprecated": [
+      {
+        "name": "faq_schema",
+        "replacement": "faq_content",
+        "status": "deprecated",
+        "structured_data_output": "disabled",
+        "reason": "Google stopped showing FAQ rich results in Search on 2026-05-07; visible Q&A may remain."
+      }
+    ],
+    "notes": [
+      "focus_keyword is an internal editorial planning field, not a Google ranking field.",
+      "Structured data must match visible page content; it does not guarantee a rich result or ranking."
     ],
     "accommodation_extra": {
       "status": "reserved",
@@ -892,62 +1063,69 @@
   "content_rules": {
     "required_sections": [
       "Introduction",
-      "Structured Data",
-      "FAQ",
-      "Internal Links",
-      "SEO Data"
+      "Key Facts when applicable",
+      "Contextual Internal Links",
+      "SEO Data / search intent"
+    ],
+    "advisory_checks": [
+      "missing_faq",
+      "missing_coordinates",
+      "missing_internal_links"
     ],
     "publish_blockers": [
       "missing_relation",
       "missing_seo_fields",
-      "missing_faq",
       "missing_featured_image",
       "missing_primary_taxonomy",
-      "missing_coordinates",
       "missing_sources",
-      "missing_internal_links"
+      "missing_content_hygiene"
+    ],
+    "content_hygiene_checks": [
+      "body_h1",
+      "unresolved_editorial_placeholder",
+      "empty_or_unlabelled_anchor"
     ],
     "minimums": {
       "province": {
-        "faq": 10,
+        "faq": 3,
         "sources": 5,
-        "internal_links": 20,
+        "internal_links": 5,
         "coordinates": true
       },
       "city": {
-        "faq": 10,
+        "faq": 3,
         "sources": 5,
-        "internal_links": 10,
+        "internal_links": 5,
         "coordinates": true
       },
       "attraction": {
-        "faq": 10,
-        "sources": 5,
-        "internal_links": 10,
+        "faq": 3,
+        "sources": 0,
+        "internal_links": 3,
         "coordinates": true
       },
       "travel_route": {
         "faq": 3,
         "sources": 2,
-        "internal_links": 5,
+        "internal_links": 3,
         "coordinates": false
       },
       "local_food": {
         "faq": 3,
         "sources": 2,
-        "internal_links": 3,
+        "internal_links": 2,
         "coordinates": false
       },
       "souvenir": {
         "faq": 3,
         "sources": 2,
-        "internal_links": 3,
+        "internal_links": 2,
         "coordinates": false
       },
       "accommodation": {
         "faq": 3,
         "sources": 2,
-        "internal_links": 3,
+        "internal_links": 2,
         "coordinates": true
       }
     },
@@ -972,7 +1150,8 @@
       "bump model.version",
       "add CHANGELOG.md entry",
       "update data-model.yaml",
-      "regenerate data-model.json"
+      "run schema/build_json.py",
+      "verify schema/build_child_config.py reproduces the tracked config without dropping active fields"
     ],
     "naming_policy": "Field and slug names are append-only — never rename or reuse; deprecate instead."
   }

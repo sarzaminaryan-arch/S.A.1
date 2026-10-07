@@ -35,7 +35,7 @@ function sa_add_meta_boxes() {
 	}
 	foreach ( sa_seo_post_types() as $type ) {
 		add_meta_box( 'sa-seo', 'سئو و شبکه‌های اجتماعی', 'sa_render_seo_box', $type, 'normal', 'default' );
-		add_meta_box( 'sa-faq', 'سوالات متداول (FAQ) — برای اسکیمای FAQPage', 'sa_render_faq_box', $type, 'normal', 'default' );
+		add_meta_box( 'sa-faq', 'پرسش‌های متداول (اختیاری، برای خواننده؛ بدون FAQPage JSON-LD)', 'sa_render_faq_box', $type, 'normal', 'default' );
 		add_meta_box( 'sa-sources', 'منابع و تاریخ به‌روزرسانی اطلاعات', 'sa_render_sources_box', $type, 'normal', 'low' );
 	}
 }
@@ -217,15 +217,15 @@ function sa_render_seo_box( $post ) {
 	?>
 	<div class="sa-box sa-grid">
 		<div class="sa-grid__item sa-grid__item--wide">
-			<label for="sa_seo_title">عنوان سئو <span class="description">(حداکثر ۶۰ کاراکتر — خالی = عنوان خودکار)</span></label>
+			<label for="sa_seo_title">عنوان سئو <span class="description">(الزامی برای انتشار؛ پیشنهاد کوتاه و دقیق، معمولاً حداکثر ۶۰ کاراکتر)</span></label>
 			<input type="text" id="sa_seo_title" name="sa_seo_title" class="widefat sa-count" maxlength="70" data-max="60" value="<?php echo esc_attr( $g( 'sa_seo_title' ) ); ?>">
 		</div>
 		<div class="sa-grid__item sa-grid__item--wide">
-			<label for="sa_seo_description">توضیحات متا <span class="description">(۷۰ تا ۱۵۵ کاراکتر)</span></label>
+			<label for="sa_seo_description">توضیحات متا <span class="description">(الزامی برای انتشار؛ خلاصهٔ واقعی و یکتا، معمولاً ۷۰ تا ۱۵۵ کاراکتر)</span></label>
 			<textarea id="sa_seo_description" name="sa_seo_description" class="widefat sa-count" rows="2" maxlength="170" data-max="155"><?php echo esc_textarea( $g( 'sa_seo_description' ) ); ?></textarea>
 		</div>
 		<div class="sa-grid__item">
-			<label for="sa_focus_keyword">کلیدواژه‌ی کانونی</label>
+			<label for="sa_focus_keyword">کلیدواژهٔ کانونی <span class="description">(الزامی در brief تحریریه؛ سیگنال رتبهٔ Google نیست)</span></label>
 			<input type="text" id="sa_focus_keyword" name="sa_focus_keyword" class="widefat" value="<?php echo esc_attr( $g( 'sa_focus_keyword' ) ); ?>">
 		</div>
 		<div class="sa-grid__item">
@@ -266,7 +266,7 @@ function sa_render_faq_box( $post ) {
 	echo '<template id="sa-faq-template">';
 	sa_faq_row_html( '', '' );
 	echo '</template>';
-	echo '<p><button type="button" class="button" id="sa-faq-add">+ افزودن پرسش</button> <span class="description">حداقل ۳ پرسش واقعی کاربران، پاسخ حداکثر ۶۰ کلمه.</span></p>';
+	echo '<p><button type="button" class="button" id="sa-faq-add">+ افزودن پرسش</button> <span class="description">فقط پرسش‌های واقعی و مفید کاربران را با پاسخی کوتاه و دقیق اضافه کنید؛ تعداد حداقلی یا امتیاز رتبه‌ای ندارد. این متن روی صفحه دیده می‌شود و FAQPage JSON-LD تولید نمی‌شود.</span></p>';
 }
 
 /**
