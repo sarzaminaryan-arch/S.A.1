@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.43
+Stable tag: 2.11.44
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,14 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.44 — 2026-10-07 =
+* نگهبانِ REST دیگر «گزینهٔ مسیر» را با «هندلر» اشتباه نمی‌گیرد: `schema`، `allow_batch`،
+  `callback` و `args` مسیرهای هسته دست‌نخورده می‌مانند و پیامِ کاذبِ «۱۴۳ مسیر» ساخته نمی‌شود.
+* مسیرهای متای `/wp-json/` (فهرست) و `/batch/v1` (ذخیرهٔ دسته‌ای ویرایشگر) سالم می‌مانند؛
+  فقط هندلرهای دارای کالبکِ واقعاً نامعتبر بی‌اثر و گزارش می‌شوند (با نامِ متد).
+* گزارشِ کهنهٔ نسخهٔ ۲.۱۱.۴۳ خودبه‌خود کنار گذاشته می‌شود و پیامِ سرخ از پیشخوان می‌رود.
+* آزمون: tools/sa-tests/run-rest-guard.php (۵۸ ادعا، شاملِ ساختارِ واقعیِ مسیرهای هسته).
 
 = 2.11.43 — 2026-10-08 =
 * نگهبانِ مسیرهای REST: کالبک‌های نامعتبر (مثل متدِ خصوصی) پیش از اجرا حذف می‌شوند تا درخواست‌های

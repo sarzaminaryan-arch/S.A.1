@@ -19,6 +19,13 @@
  *
  *   ۱) فیلترِ `rest_endpoints` هر کالبکِ نامعتبر را پیش از اجرا حذف می‌کند؛
  *      نتیجه: پاسخِ تمیزِ `rest_no_route` به‌جای خطای ۵۰۰.
+ *      نکتهٔ مهم (اصلاحِ ۲.۱۱.۴۴): این فیلتر آرایهٔ **ثبت‌شده** را می‌بیند، نه آرایهٔ
+ *      نرمال‌شده. هر مسیر دو نوع کلید دارد: کلیدهای **عددی** (هندلرها، همان‌هایی که
+ *      کالبک دارند) و کلیدهای **غیرعددی** (گزینه‌های مسیر مثل `schema`، `allow_batch`
+ *      و `namespace`) که هندلر نیستند. نسخهٔ ۲.۱۱.۴۳ گزینه‌های مسیر را هم «هندلرِ
+ *      بی‌کالبک» فرض می‌کرد و ۱۴۳ هشدارِ کاذب می‌ساخت و همان گزینه‌ها را از مسیرهای
+ *      هسته (از جمله `/` و `/batch/v1`) برمی‌داشت. از ۲.۱۱.۴۴ فقط هندلرها بررسی
+ *      می‌شوند و گزینه‌های مسیر دست‌نخورده می‌مانند.
  *   ۲) مسیر و **فایلِ تعریف‌کنندهٔ** همان کالبک در پیشخوان اعلام می‌شود تا مالک
  *      بداند کدام افزونه را غیرفعال کند.
  *   ۳) اگر ماژولِ «شهر من» از نسخهٔ دیگری (افزونه) بارگذاری شده باشد، فایلِ آن
@@ -29,6 +36,14 @@
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
+}
+
+/**
+ * قالبِ گزارشِ نگهبان. با هر تغییرِ معنایی در گزارش بالا می‌رود تا گزارشِ
+ * قالبِ قدیمی (که ممکن است هشدارِ کاذب داشته باشد) کنار گذاشته شود.
+ */
+if ( ! defined( 'SA_REST_GUARD_REPORT_FORMAT' ) ) {
+	define( 'SA_REST_GUARD_REPORT_FORMAT', 2 );
 }
 
 /**
@@ -127,7 +142,94 @@ function sa_rest_guard_callable( $callback, $required = true ) {
 }
 
 /**
+ * نامِ متدهای یک هندلر به شکلِ خوانا (`GET, POST`).
+ *
+ * @param array<string,mixed> $handler هندلر.
+ * @return string
+ */
+function sa_rest_guard_handler_methods( $handler ) {
+	if ( ! isset( $handler['methods'] ) ) {
+		return '';
+	}
+
+	$methods = array();
+	foreach ( (array) $handler['methods'] as $key => $value ) {
+		if ( is_string( $value ) ) {
+			// هسته می‌تواند مقدارهای چندمتدیِ جداشده با کاما (مثلِ WP_REST_Server::EDITABLE) بدهد.
+			foreach ( explode( ',', $value ) as $method ) {
+				$methods[] = $method;
+			}
+		} elseif ( true === $value && is_string( $key ) ) {
+			// شکلِ پس از نرمال‌سازیِ هسته: array( 'GET' => true ).
+			$methods[] = $key;
+		}
+	}
+
+	$methods = array_filter( array_map( 'trim', $methods ) );
+	return implode( ', ', array_values( array_unique( array_map( 'strtoupper', $methods ) ) ) );
+}
+
+/**
+ * ایرادهای یک هندلر (کالبکِ نامعتبر).
+ *
+ * @param array<string,mixed> $handler هندلر.
+ * @return array<int,array<string,mixed>> فهرستِ ایرادها؛ خالی یعنی هندلر سالم است.
+ */
+function sa_rest_guard_handler_problems( $handler ) {
+	$problems = array();
+
+	$callback = isset( $handler['callback'] ) ? $handler['callback'] : null;
+	if ( ! sa_rest_guard_callable( $callback, true ) ) {
+		$problems[] = array(
+			'kind'  => 'callback',
+			'value' => $callback,
+		);
+	}
+
+	if ( isset( $handler['permission_callback'] ) && ! sa_rest_guard_callable( $handler['permission_callback'], false ) ) {
+		$problems[] = array(
+			'kind'  => 'permission_callback',
+			'value' => $handler['permission_callback'],
+		);
+	}
+
+	return $problems;
+}
+
+/**
+ * افزودنِ ایرادهای یک هندلر به گزارش (با نامِ متد و فایلِ تعریف‌کننده).
+ *
+ * @param array<int,array<string,string>> $blocked گزارشِ در حالِ ساخت.
+ * @param string                          $route   مسیر.
+ * @param array<string,mixed>             $handler هندلر.
+ * @param array<int,array<string,mixed>>  $problems ایرادها.
+ * @return void
+ */
+function sa_rest_guard_collect( &$blocked, $route, $handler, $problems ) {
+	$methods = sa_rest_guard_handler_methods( $handler );
+
+	foreach ( $problems as $problem ) {
+		$blocked[] = array(
+			'route'    => (string) $route,
+			'method'   => $methods,
+			'kind'     => $problem['kind'],
+			'callback' => sa_rest_guard_describe( $problem['value'] ),
+			'file'     => sa_rest_guard_file( $problem['value'] ),
+		);
+	}
+}
+
+/**
  * حذفِ مسیرهای REST با کالبکِ نامعتبر (به‌جای خطای کشندهٔ ۵۰۰).
+ *
+ * ساختارِ آرایهٔ مسیرها در وردپرس دو شکل دارد و نگهبان باید همان تفکیکِ هسته را
+ * رعایت کند، وگرنه هشدارِ کاذب می‌سازد و مسیرهای سالمِ هسته را خراب می‌کند:
+ *
+ *   ۱) «تک‌هندلر»: کلیدِ `callback` در سطحِ بالای آرایهٔ مسیر است؛ مثلِ `/` و
+ *      `/batch/v1` که خودِ WP_REST_Server در سازنده ثبت می‌کند. هسته هم با
+ *      `isset( $handlers['callback'] )` همین شکل را تشخیص می‌دهد.
+ *   ۲) فهرستِ هندلرها: کلیدهای **عددی** هندلرند و کلیدهای **غیرعددی** گزینهٔ مسیر
+ *      (`schema`، `allow_batch`، `namespace` و…) که هندلر نیستند و دست‌نخورده می‌مانند.
  *
  * @param array<string,mixed> $endpoints فهرستِ مسیرها.
  * @return array<string,mixed>
@@ -139,38 +241,41 @@ function sa_rest_guard_filter( $endpoints ) {
 
 	$blocked = array();
 	foreach ( $endpoints as $route => $handlers ) {
-		foreach ( (array) $handlers as $key => $handler ) {
-			if ( ! is_array( $handler ) ) {
-				continue;
-			}
-
-			$bad = array();
-			if ( ! sa_rest_guard_callable( isset( $handler['callback'] ) ? $handler['callback'] : null, true ) ) {
-				$bad[] = array( 'kind' => 'callback', 'value' => isset( $handler['callback'] ) ? $handler['callback'] : null );
-			}
-			if ( isset( $handler['permission_callback'] ) && ! sa_rest_guard_callable( $handler['permission_callback'], false ) ) {
-				$bad[] = array( 'kind' => 'permission_callback', 'value' => $handler['permission_callback'] );
-			}
-			if ( ! $bad ) {
-				continue;
-			}
-
-			$methods = isset( $handler['methods'] ) ? $handler['methods'] : '';
-			$methods = is_array( $methods ) ? implode( ',', array_map( 'strval', $methods ) ) : (string) $methods;
-
-			foreach ( $bad as $item ) {
-				$blocked[] = array(
-					'route'    => (string) $route,
-					'method'   => $methods,
-					'kind'     => $item['kind'],
-					'callback' => sa_rest_guard_describe( $item['value'] ),
-					'file'     => sa_rest_guard_file( $item['value'] ),
-				);
-			}
-
-			unset( $endpoints[ $route ][ $key ] );
+		if ( ! is_array( $handlers ) ) {
+			continue;
 		}
-		if ( isset( $endpoints[ $route ] ) && empty( $endpoints[ $route ] ) ) {
+
+		// شکلِ ۱: خودِ آرایه یک هندلر است.
+		if ( isset( $handlers['callback'] ) ) {
+			$problems = sa_rest_guard_handler_problems( $handlers );
+			if ( $problems ) {
+				sa_rest_guard_collect( $blocked, $route, $handlers, $problems );
+				unset( $endpoints[ $route ] );
+			}
+			continue;
+		}
+
+		// شکلِ ۲: فقط کلیدهای عددی هندلرند.
+		$removed   = 0;
+		$remaining = 0;
+		foreach ( $handlers as $key => $handler ) {
+			if ( ! is_numeric( $key ) || ! is_array( $handler ) ) {
+				continue; // گزینهٔ مسیر یا مقدارِ نامعتبر — هندلر نیست.
+			}
+
+			$problems = sa_rest_guard_handler_problems( $handler );
+			if ( ! $problems ) {
+				$remaining++;
+				continue;
+			}
+
+			sa_rest_guard_collect( $blocked, $route, $handler, $problems );
+			unset( $endpoints[ $route ][ $key ] );
+			$removed++;
+		}
+
+		// اگر هیچ هندلرِ سالمی نماند، خودِ مسیر هم برداشته می‌شود.
+		if ( $removed > 0 && 0 === $remaining ) {
 			unset( $endpoints[ $route ] );
 		}
 	}
@@ -195,6 +300,7 @@ function sa_rest_guard_store( $blocked ) {
 	update_option(
 		'sa_rest_guard_last',
 		array(
+			'format'  => SA_REST_GUARD_REPORT_FORMAT,
 			'time'    => time(),
 			'blocked' => array_values( $blocked ),
 		),
@@ -248,6 +354,15 @@ function sa_system_notices() {
 	$conflicts = get_option( 'sa_system_conflicts' );
 	$conflicts = is_array( $conflicts ) ? $conflicts : array();
 
+	/*
+	 * گزارشِ قالبِ قدیمی (نسخهٔ ۲.۱۱.۴۳) ممکن است گزینه‌های مسیرِ هسته را «کالبکِ
+	 * نامعتبر» شمرده باشد؛ چنین گزارشی دور ریخته می‌شود تا پیامِ کاذب در پیشخوان نماند.
+	 */
+	if ( is_array( $last ) && ( ! isset( $last['format'] ) || SA_REST_GUARD_REPORT_FORMAT !== (int) $last['format'] ) ) {
+		delete_option( 'sa_rest_guard_last' );
+		$last = false;
+	}
+
 	if ( is_array( $last ) && ! empty( $last['blocked'] ) ) {
 		$fa = function_exists( 'sa_fa_digits' ) ? 'sa_fa_digits' : 'strval';
 		echo '<div class="notice notice-error"><p><strong>محافظِ سیستمِ سرزمین آریان:</strong> ';
@@ -265,7 +380,8 @@ function sa_system_notices() {
 			echo '</li>';
 		}
 		echo '</ul><p>کدِ قالب هیچ متدِ خصوصی‌ای را به‌عنوان کالبکِ REST به کار نمی‌برد؛ منبعِ این مسیرها یک افزونه یا نسخهٔ قدیمیِ جداگانه است. ';
-		echo 'همان افزونه را غیرفعال یا به‌روز کنید (نشانیِ فایل در فهرستِ بالا آمده است).</p></div>';
+		echo 'همان افزونه را غیرفعال یا به‌روز کنید (نشانیِ فایل در فهرستِ بالا آمده است). ';
+		echo 'تنها «هندلر»های REST بررسی می‌شوند؛ گزینه‌های مسیر مانند <code>schema</code> و <code>allow_batch</code> دست‌نخورده می‌مانند و مسیرهای هستهٔ وردپرس در این فهرست نمی‌آیند.</p></div>';
 	}
 
 	if ( $conflicts ) {

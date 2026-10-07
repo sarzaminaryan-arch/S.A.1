@@ -170,6 +170,34 @@ sa_has( 'فایلِ نسخهٔ قدیمی نشان داده می‌شود', 'old
 sa_has( 'راهنمای رفع در پیام هست', 'غیرفعال', $conflict_html );
 delete_option( 'sa_system_conflicts' );
 
+/* --------------------- §۴.۱ گزارشِ قالبِ قدیمی (۲.۱۱.۴۳) نمایش داده نمی‌شود */
+
+// گزارشِ نسخهٔ ۲.۱۱.۴۳ «فرمت» نداشت و گزینه‌های مسیرِ هسته را هم بی‌اثر شمرده بود؛
+// چنین گزارشی باید یک‌بار برای همیشه کنار گذاشته شود تا پیامِ کاذب در پیشخوان نماند.
+delete_option( 'sa_system_conflicts' );
+update_option(
+	'sa_rest_guard_last',
+	array(
+		'time'    => time() - 60,
+		'blocked' => array(
+			array(
+				'route'    => '/wp/v2/posts',
+				'method'   => '',
+				'kind'     => 'callback',
+				'callback' => 'NULL',
+				'file'     => '',
+			),
+		),
+	),
+	false
+);
+$GLOBALS['sa_caps'] = array( 'manage_options' => true );
+ob_start();
+sa_system_notices();
+$stale_html = ob_get_clean();
+sa_eq( 'گزارشِ قالبِ قدیمی (۲.۱۱.۴۳) نمایش داده نمی‌شود', '', $stale_html );
+sa_eq( 'و خودش کنار گذاشته می‌شود', false, get_option( 'sa_rest_guard_last' ) );
+
 /* ------------------------------------------- §۵. کدِ خودِ قالب: هیچ کالبکِ خصوصی */
 
 $rest_src = (string) file_get_contents( SA_CHILD_DIR . 'inc/city-contrib/includes/class-cc-rest.php' );
@@ -213,5 +241,128 @@ foreach ( array( $rest_src, $otp_src ) as $src ) {
 	$safe_perms  += (int) preg_match_all( $safe_pattern, $src );
 }
 sa_eq( 'همهٔ permission_callback‌ها شکلِ امن دارند', $total_perms, $safe_perms );
+
+/* ------------- §۶. ساختارِ واقعیِ هستهٔ وردپرس (۷.۱.x): گزینهٔ مسیر ≠ هندلر */
+
+/*
+ * فیلتر `rest_endpoints` آرایهٔ «ثبت‌شده» را می‌بیند، نه نرمال‌شده. در آن آرایه
+ * هر مسیر دو نوع کلید دارد:
+ *   - کلیدهای عددی: هندلرها (همان‌هایی که `callback` دارند)؛
+ *   - کلیدهای غیرعددی: گزینه‌های مسیر مثل `allow_batch` و `schema`.
+ * دو مسیرِ `/` و `/batch/v1` را خودِ WP_REST_Server در سازنده با شکلِ «تک‌هندلر»
+ * ثبت می‌کند (کلیدِ `callback` در سطحِ بالا). نگهبانِ ۲.۱۱.۴۳ این گزینه‌ها را
+ * «هندلرِ بی‌کالبک» می‌شمرد و ۱۴۳ هشدارِ کاذب می‌ساخت؛ این بخش همان اشکال را
+ * قفل می‌کند تا برنگردد.
+ */
+
+class SA_Test_Core_Controller {
+	public function get_items() {}
+	public function create_item() {}
+	public function get_items_permissions_check() {}
+	public function create_item_permissions_check() {}
+	public function get_public_item_schema() {}
+	public function get_index() {}
+	public function serve_batch_request_v1() {}
+}
+
+$core = new SA_Test_Core_Controller();
+
+$core_endpoints = array(
+	// شکلِ سازندهٔ WP_REST_Server.
+	'/'         => array(
+		'callback' => array( $core, 'get_index' ),
+		'methods'  => 'GET',
+		'args'     => array( 'context' => array( 'default' => 'view' ) ),
+	),
+	'/batch/v1' => array(
+		'callback' => array( $core, 'serve_batch_request_v1' ),
+		'methods'  => 'POST',
+		'args'     => array( 'requests' => array( 'required' => true ) ),
+	),
+	// شکلِ WP_REST_Posts_Controller::register_routes().
+	'/wp/v2/posts' => array(
+		array(
+			'methods'             => 'GET',
+			'callback'            => array( $core, 'get_items' ),
+			'permission_callback' => array( $core, 'get_items_permissions_check' ),
+			'args'                => array( 'per_page' => array( 'default' => 10 ) ),
+		),
+		array(
+			'methods'             => 'POST',
+			'callback'            => array( $core, 'create_item' ),
+			'permission_callback' => array( $core, 'create_item_permissions_check' ),
+		),
+		'allow_batch' => array( 'v1' => true ),
+		'schema'      => array( $core, 'get_public_item_schema' ),
+	),
+	// شکلِ WP_REST_Search_Controller (بدونِ allow_batch).
+	'/wp/v2/search' => array(
+		array(
+			'methods'             => 'GET',
+			'callback'            => array( $core, 'get_items' ),
+			'permission_callback' => '__return_true',
+		),
+		'schema' => array( $core, 'get_public_item_schema' ),
+	),
+);
+
+$core_out = sa_rest_guard_filter( $core_endpoints );
+
+sa_eq( 'مسیرِ متای / هسته: callback دست‌نخورده', true, isset( $core_out['/']['callback'] ) );
+sa_eq( 'مسیرِ متای / هسته: args دست‌نخورده', true, isset( $core_out['/']['args'] ) );
+sa_eq( 'مسیرِ متای /batch/v1 هسته: callback دست‌نخورده', true, isset( $core_out['/batch/v1']['callback'] ) );
+sa_eq( 'مسیرِ متای /batch/v1 هسته: args دست‌نخورده', true, isset( $core_out['/batch/v1']['args'] ) );
+sa_eq( 'گزینهٔ مسیرِ allow_batch حفظ می‌شود', true, isset( $core_out['/wp/v2/posts']['allow_batch'] ) );
+sa_eq( 'گزینهٔ مسیرِ schema حفظ می‌شود', true, isset( $core_out['/wp/v2/posts']['schema'] ) );
+sa_eq( 'گزینهٔ مسیرِ schema در search حفظ می‌شود', true, isset( $core_out['/wp/v2/search']['schema'] ) );
+sa_eq( 'هندلرهای GET/POST نوشته‌ها دست‌نخورده می‌مانند', 2, count( array_filter( array_keys( $core_out['/wp/v2/posts'] ), 'is_numeric' ) ) );
+sa_eq( 'ساختارِ سالمِ هسته هیچ گزارشِ کاذبی نمی‌سازد', false, get_option( 'sa_rest_guard_last' ) );
+
+// مسیرِ هسته‌مانند که فقط هندلرِ POST آن خراب است: باید فقط همان هندلر برود و
+// گزینه‌های مسیر و هندلرِ سالم بمانند.
+$half_broken = array(
+	'/wp/v2/posts' => array(
+		array(
+			'methods'             => 'GET',
+			'callback'            => array( $core, 'get_items' ),
+			'permission_callback' => '__return_true',
+		),
+		array(
+			'methods'             => 'POST',
+			'callback'            => array( $core, 'create_item' ),
+			'permission_callback' => array( 'SA_Test_Rest_Legacy', 'auth' ),
+		),
+		'allow_batch' => array( 'v1' => true ),
+		'schema'      => array( $core, 'get_public_item_schema' ),
+	),
+);
+
+$half_out = sa_rest_guard_filter( $half_broken );
+$half     = get_option( 'sa_rest_guard_last' );
+
+sa_eq( 'هندلرِ سالمِ GET می‌ماند', true, isset( $half_out['/wp/v2/posts'][0]['callback'] ) );
+sa_eq( 'هندلرِ خرابِ POST حذف می‌شود', false, isset( $half_out['/wp/v2/posts'][1] ) );
+sa_eq( 'گزینهٔ allow_batch پس از حذفِ هندلرِ خراب می‌ماند', true, isset( $half_out['/wp/v2/posts']['allow_batch'] ) );
+sa_eq( 'گزینهٔ schema پس از حذفِ هندلرِ خراب می‌ماند', true, isset( $half_out['/wp/v2/posts']['schema'] ) );
+sa_eq( 'برای هندلرِ خراب یک ردیف گزارش می‌شود', 1, is_array( $half ) ? count( $half['blocked'] ) : -1 );
+sa_eq( 'گزارش، متدِ خراب را می‌گوید', 'POST', is_array( $half ) ? $half['blocked'][0]['method'] : '' );
+sa_eq( 'گزارش، نامِ کالبکِ خصوصی را می‌گوید', 'SA_Test_Rest_Legacy::auth', is_array( $half ) ? $half['blocked'][0]['callback'] : '' );
+sa_eq( 'گزارش با «فرمت» جاری ذخیره می‌شود', SA_REST_GUARD_REPORT_FORMAT, is_array( $half ) ? (int) $half['format'] : -1 );
+
+// مسیرِ تک‌هندلر (شکلِ `/`) که کالبکش خصوصی است: کلِ مسیر باید بی‌اثر شود.
+$single_broken = array(
+	'/sa/v1/single' => array(
+		'callback' => array( 'SA_Test_Rest_Legacy', 'auth' ),
+		'methods'  => 'GET',
+		'args'     => array( 'context' => array( 'default' => 'view' ) ),
+	),
+);
+
+$single_out = sa_rest_guard_filter( $single_broken );
+$single     = get_option( 'sa_rest_guard_last' );
+
+sa_eq( 'مسیرِ تک‌هندلر با کالبکِ خصوصی کاملاً حذف می‌شود', false, isset( $single_out['/sa/v1/single'] ) );
+sa_eq( 'و در گزارش می‌آید', 1, is_array( $single ) ? count( $single['blocked'] ) : -1 );
+sa_eq( 'گزارش، متدِ همان مسیر را می‌گوید', 'GET', is_array( $single ) ? $single['blocked'][0]['method'] : '' );
 
 sa_done();
