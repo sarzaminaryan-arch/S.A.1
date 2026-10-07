@@ -315,11 +315,12 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 		return '';
 	}
 
-	$title    = get_the_title( $post_id );
-	$city     = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'city' ) : null;
-	$province = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'province' ) : null;
-	$city_txt = $city ? 'شهرستان ' . get_the_title( $city ) : '';
-	$prov_txt = $province ? 'استان ' . get_the_title( $province ) : '';
+	$title       = get_the_title( $post_id );
+	$city        = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'city' ) : null;
+	$province    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'province' ) : null;
+	$city_name   = $city ? ( function_exists( 'sa_county_name' ) ? sa_county_name( $city ) : get_the_title( $city ) ) : '';
+	$city_txt    = $city_name ? 'شهرستان ' . $city_name : '';
+	$prov_txt    = $province ? 'استان ' . get_the_title( $province ) : '';
 	$location = trim( $city_txt . ( $city_txt && $prov_txt ? '  |  ' : '' ) . $prov_txt );
 	$terms    = get_the_terms( $post_id, 'attraction_type' );
 	$type_txt = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'نمای برتر';

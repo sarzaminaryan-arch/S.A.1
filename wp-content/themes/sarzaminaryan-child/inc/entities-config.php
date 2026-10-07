@@ -1,7 +1,7 @@
 <?php
 /**
  * GENERATED FILE — do not edit by hand.
- * Source: data-model/schema/data-model.yaml (model v1.1) via build_child_config.py
+ * Source: data-model/schema/data-model.yaml (model v1.2) via build_child_config.py
  * Maps MASTER_DATA_MODEL Levels 1–5 onto WordPress: CPTs, meta keys, relations, taxonomies, SEO fields.
  *
  * @package Sarzaminaryan_Child
@@ -120,8 +120,8 @@ function sa_entities_config() {
 			'cpt' => 'city',
 			'status' => 'active',
 			'label' => 'City',
-			'singular' => 'شهر',
-			'plural' => 'شهرها',
+			'singular' => 'شهرستان',
+			'plural' => 'شهرستان‌ها',
 			'icon' => 'dashicons-building',
 			'menu_pos' => 2,
 			'url_base' => 'city',
@@ -132,7 +132,7 @@ function sa_entities_config() {
 			'fields' => array(
 				array(
 					'name' => 'city_population',
-					'label' => 'جمعیت',
+					'label' => 'جمعیت شهرستان',
 					'type' => 'integer',
 					'key' => 'sa_city_population',
 				),
@@ -145,13 +145,13 @@ function sa_entities_config() {
 				),
 				array(
 					'name' => 'city_latitude',
-					'label' => 'عرض جغرافیایی',
+					'label' => 'عرض جغرافیایی مرکز شهرستان',
 					'type' => 'float',
 					'key' => 'sa_city_latitude',
 				),
 				array(
 					'name' => 'city_longitude',
-					'label' => 'طول جغرافیایی',
+					'label' => 'طول جغرافیایی مرکز شهرستان',
 					'type' => 'float',
 					'key' => 'sa_city_longitude',
 				),
@@ -892,94 +892,135 @@ function sa_taxonomies_config() {
 }
 
 /**
- * Level 5 — SEO fields required on every entity (meta keys are prefixed with sa_).
+ * Level 5 — author-entered SEO fields required by the data model.
  */
 function sa_seo_required_fields() {
 	return array(
 		'seo_title',
 		'seo_description',
 		'focus_keyword',
+	);
+}
+
+/**
+ * Level 5 — generated fields with optional overrides; absence is not a publish error.
+ */
+function sa_seo_optional_overrides() {
+	return array(
 		'og_title',
 		'og_description',
-		'faq_schema',
 		'breadcrumb_schema',
 		'canonical_url',
 	);
 }
 
 /**
- * Level 7 — publish blockers.
+ * Level 5 — legacy/deprecated SEO fields; do not generate these outputs.
+ */
+function sa_seo_deprecated_fields() {
+	return array(
+		array(
+			'name' => 'faq_schema',
+			'replacement' => 'faq_content',
+			'status' => 'deprecated',
+			'structured_data_output' => 'disabled',
+			'reason' => 'Google stopped showing FAQ rich results in Search on 2026-05-07; visible Q&A may remain.',
+		),
+	);
+}
+
+/**
+ * Level 7 — publish blockers; missing_sources is conditional on the entity's source minimum.
  */
 function sa_publish_blockers() {
 	return array(
 		'missing_relation',
 		'missing_seo_fields',
-		'missing_faq',
 		'missing_featured_image',
 		'missing_primary_taxonomy',
-		'missing_coordinates',
 		'missing_sources',
+		'missing_content_hygiene',
+	);
+}
+
+/**
+ * Level 7 — advisory checks that may guide editorial review but never lock publication.
+ */
+function sa_content_advisory_checks() {
+	return array(
+		'missing_faq',
+		'missing_coordinates',
 		'missing_internal_links',
 	);
 }
 
 /**
- * Level 7 (v1.1) — per-entity minimums enforced by the publish gate: faq, sources, internal_links, coordinates.
+ * Level 7 — content hygiene checks implemented by the publish gate.
+ */
+function sa_content_hygiene_checks() {
+	return array(
+		'body_h1',
+		'unresolved_editorial_placeholder',
+		'empty_or_unlabelled_anchor',
+	);
+}
+
+/**
+ * Level 7 (v1.2) — editorial diagnostic targets per entity, not Google ranking quotas.
  */
 function sa_content_minimums( $type = '' ) {
 	$all = array(
 		'province' => array(
-			'faq' => 10,
+			'faq' => 3,
 			'sources' => 5,
-			'internal_links' => 20,
+			'internal_links' => 5,
 			'coordinates' => true,
 		),
 		'city' => array(
-			'faq' => 10,
+			'faq' => 3,
 			'sources' => 5,
-			'internal_links' => 10,
+			'internal_links' => 5,
 			'coordinates' => true,
 		),
 		'attraction' => array(
-			'faq' => 10,
-			// v2.11.10: «نمای برتر» articles may be short, local and photo-led; sources stay recommended but no longer block publishing.
+			'faq' => 3,
 			'sources' => 0,
-			'internal_links' => 10,
+			'internal_links' => 3,
 			'coordinates' => true,
 		),
 		'travel_route' => array(
 			'faq' => 3,
 			'sources' => 2,
-			'internal_links' => 5,
+			'internal_links' => 3,
 			'coordinates' => false,
 		),
 		'local_food' => array(
 			'faq' => 3,
 			'sources' => 2,
-			'internal_links' => 3,
+			'internal_links' => 2,
 			'coordinates' => false,
 		),
 		'souvenir' => array(
 			'faq' => 3,
 			'sources' => 2,
-			'internal_links' => 3,
+			'internal_links' => 2,
 			'coordinates' => false,
 		),
 		'accommodation' => array(
 			'faq' => 3,
 			'sources' => 2,
-			'internal_links' => 3,
+			'internal_links' => 2,
 			'coordinates' => true,
 		),
 	);
 	if ( '' === $type ) {
 		return $all;
 	}
-	return isset( $all[ $type ] ) ? $all[ $type ] : array( 'faq' => 1, 'sources' => 0, 'internal_links' => 0, 'coordinates' => false );
+	return isset( $all[ $type ] ) ? $all[ $type ] : array( 'faq' => 0, 'sources' => 0, 'internal_links' => 0, 'coordinates' => false );
 }
 
 /**
- * Level 7 (v1.1) — uncertainty markers allowed in published text (rendered as a badge, counted, never removed).
+ * Level 7 — transparency markers allowed in published text (rendered as visible badges).
  */
 function sa_uncertainty_markers() {
 	return array(
@@ -989,7 +1030,7 @@ function sa_uncertainty_markers() {
 }
 
 /**
- * Level 7 (v1.1) — days after which attraction.last_verified_date is considered stale.
+ * Level 7 — days after which attraction.last_verified_date is considered stale.
  */
 function sa_stale_after_days() {
 	return 365;

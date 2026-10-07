@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $sa_id       = get_the_ID();
 $sa_city     = sa_get_parent( $sa_id, 'city' );
 $sa_province = sa_get_parent( $sa_id, 'province' );
+$sa_city_name = $sa_city ? ( function_exists( 'sa_county_name' ) ? sa_county_name( $sa_city ) : get_the_title( $sa_city ) ) : '';
 $sa_english  = trim( (string) get_post_meta( $sa_id, 'sa_english_name', true ) );
 if ( '' === $sa_english ) {
 	$sa_english = strtoupper( str_replace( '-', ' ', get_post_field( 'post_name', $sa_id ) ) );
@@ -26,7 +27,7 @@ $sa_season  = ( $sa_seasons && ! is_wp_error( $sa_seasons ) ) ? $sa_seasons[0]->
 $sa_fields  = array(
 	'نام انگلیسی'     => $sa_english,
 	'استان'           => $sa_province ? get_the_title( $sa_province ) : '',
-	'شهرستان'         => $sa_city ? get_the_title( $sa_city ) : '',
+	'شهرستان'         => $sa_city_name,
 	'نوع نما'          => $sa_type,
 	'بهترین زمان'      => $sa_season,
 	'قدمت'             => get_post_meta( $sa_id, 'sa_attraction_age', true ),
@@ -63,7 +64,7 @@ $sa_map_url = sa_map_url( $sa_id );
 				</div>
 				<div class="sa-attraction-id__actions">
 					<?php if ( $sa_city ) : ?>
-						<a class="sa-attraction-id__btn" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( 'صفحه شهرستان ' . get_the_title( $sa_city ) ); ?></a>
+						<a class="sa-attraction-id__btn" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( 'صفحه شهرستان ' . $sa_city_name ); ?></a>
 					<?php endif; ?>
 					<?php if ( $sa_province ) : ?>
 						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( get_permalink( $sa_province ) ); ?>"><?php echo esc_html( 'صفحه استان ' . get_the_title( $sa_province ) ); ?></a>

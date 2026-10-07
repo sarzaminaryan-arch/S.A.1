@@ -38,7 +38,8 @@ function sa_get_breadcrumb_items() {
 				$items[] = array( 'name' => get_the_title( $province ), 'url' => get_permalink( $province ) );
 			}
 			if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
-				$items[] = array( 'name' => get_the_title( $city ), 'url' => get_permalink( $city ) );
+				$city_name = function_exists( 'sa_county_name' ) ? sa_county_name( $city, true ) : get_the_title( $city );
+				$items[]   = array( 'name' => $city_name, 'url' => get_permalink( $city ) );
 			}
 		} elseif ( 'post' === $type ) {
 			$blog = (int) get_option( 'page_for_posts' );
@@ -54,7 +55,8 @@ function sa_get_breadcrumb_items() {
 				$items[] = array( 'name' => get_the_title( $ancestor ), 'url' => get_permalink( $ancestor ) );
 			}
 		}
-		$items[] = array( 'name' => get_the_title( $post ), 'url' => '' );
+		$page_name = 'city' === $type && function_exists( 'sa_county_name' ) ? sa_county_name( $post, true ) : get_the_title( $post );
+		$items[]   = array( 'name' => $page_name, 'url' => '' );
 		return $items;
 	}
 

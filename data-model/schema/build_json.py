@@ -28,6 +28,11 @@ def check(data: dict) -> None:
         for fld in ent["fields"]:
             if fld.get("taxonomy"):
                 assert fld["taxonomy"] in taxes, f"{key}.{fld['name']}: unknown taxonomy"
+        profile = ent.get("county_profile_extension")
+        if profile:
+            storage_keys = [field["storage_key"] for field in profile.get("fields", [])]
+            assert len(storage_keys) == len(set(storage_keys)), f"{key}: duplicate county-profile storage key"
+            assert all(storage_key.startswith("sa_cty_") for storage_key in storage_keys), f"{key}: unexpected county-profile storage key"
 
 
 def main() -> int:

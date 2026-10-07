@@ -2,10 +2,10 @@
 /**
  * Level 7 publish gate: an entity cannot be published while a blocker is missing.
  *
- * Blockers (data model v1.1): missing_relation, missing_seo_fields, missing_faq,
- * missing_featured_image, missing_primary_taxonomy, missing_coordinates, missing_sources,
- * missing_internal_links — thresholds from sa_content_minimums(). Warnings (non-blocking):
- * uncertainty markers, stale last_verified_date.
+ * Blockers (data model v1.2): missing_relation, missing_seo_fields, missing_featured_image,
+ * missing_primary_taxonomy, conditional missing_sources, and missing_content_hygiene.
+ * FAQ/link counts and coordinates are advisory, never publication locks. Warnings:
+ * uncertainty markers and stale last_verified_date.
  * Mode (Customizer): 'hard' = demote to draft + notice (default), 'soft' = publish + warning.
  *
  * @package Sarzaminaryan_Child
@@ -81,24 +81,11 @@ function sa_gate_missing( $post_id, $type, $form = null ) {
 		}
 	}
 
-	// missing_faq (≥1 complete pair; 3 recommended).
-	if ( null !== $form ) {
-		$qs    = isset( $form['sa_faq_q'] ) ? (array) $form['sa_faq_q'] : array();
-		$as    = isset( $form['sa_faq_a'] ) ? (array) $form['sa_faq_a'] : array();
-		$pairs = 0;
-		foreach ( $qs as $i => $q ) {
-			if ( '' !== trim( (string) $q ) && isset( $as[ $i ] ) && '' !== trim( (string) $as[ $i ] ) ) {
-				$pairs++;
-			}
-		}
-	} else {
-		$pairs = count( sa_get_faq( $post_id ) );
-	}
-	$min      = sa_content_minimums( $type );
-	$faq_min  = max( 1, (int) $min['faq'] );
-	if ( $pairs < $faq_min ) {
-		$missing[] = 'سوالات متداول: ' . sa_fa_digits( $pairs ) . ' از حداقل ' . sa_fa_digits( $faq_min ) . ' پرسش و پاسخ';
-	}
+	// FAQ is optional. The visible accordion is editorial content, not a publish requirement.
+	$min = sa_content_minimums( $type );
+	$content = null !== $form
+		? ( isset( $form['post_content'] ) ? (string) $form['post_content'] : (string) get_post_field( 'post_content', $post_id ) )
+		: (string) get_post_field( 'post_content', $post_id );
 
 	// missing_featured_image.
 	// v2.11.11: attraction/«نمای برتر» pages use a generated white diagram card
@@ -155,17 +142,113 @@ function sa_gate_missing( $post_id, $type, $form = null ) {
 		}
 	}
 
-	// v1.1 — missing_internal_links.
+	// v1.2 — link volume is diagnostic only; sa_gate_split() keeps it advisory.
 	$link_min = (int) $min['internal_links'];
 	if ( $link_min > 0 ) {
-		$content = null !== $form ? ( isset( $form['post_content'] ) ? (string) $form['post_content'] : (string) get_post_field( 'post_content', $post_id ) ) : (string) get_post_field( 'post_content', $post_id );
-		$links   = sa_count_internal_links( $content );
+		$links = sa_count_internal_links( $content );
 		if ( $links < $link_min ) {
-			$missing[] = 'لینک داخلی: ' . sa_fa_digits( $links ) . ' از حداقل ' . sa_fa_digits( $link_min ) . ' لینک به صفحات سایت';
+			$missing[] = 'لینک داخلی: ' . sa_fa_digits( $links ) . ' از هدف تحریریهٔ ' . sa_fa_digits( $link_min ) . ' لینک؛ فقط اگر برای خواننده مفید است اضافه کنید';
 		}
 	}
 
+	// v1.2 — content hygiene is a hard blocker (distinct from volume/source advisories).
+	foreach ( sa_gate_content_hygiene_issues( $content ) as $issue ) {
+		$missing[] = $issue;
+	}
+
 	return $missing;
+}
+
+/**
+ * Find content-hygiene errors that must be fixed before publishing an entity.
+ *
+ * The transparency markers [نیازمند بررسی] and [منبع لازم] are deliberately not
+ * treated as unresolved placeholders: they are rendered visibly for readers.
+ *
+ * @param string $content Stored editor HTML.
+ * @return string[]
+ */
+function sa_gate_content_hygiene_issues( $content ) {
+	$content = (string) $content;
+	if ( '' === trim( $content ) ) {
+		return array();
+	}
+
+	// Ignore comments and non-rendered markup so hidden notes do not trip the gate.
+	$html = preg_replace( '/<!--.*?-->/s', ' ', $content );
+	$html = preg_replace( '#<(script|style|noscript)\b[^>]*>.*?</\1\s*>#isu', ' ', $html );
+	$html = is_string( $html ) ? $html : $content;
+	$checks = function_exists( 'sa_content_hygiene_checks' )
+		? (array) sa_content_hygiene_checks()
+		: array( 'body_h1', 'unresolved_editorial_placeholder', 'empty_or_unlabelled_anchor' );
+	$issues = array();
+
+	if ( in_array( 'body_h1', $checks, true ) && preg_match( '/<h1(?:\s|>)/iu', $html ) ) {
+		$issues[] = 'بهداشت محتوا: تیتر H1 در بدنهٔ ویرایشگر وجود دارد؛ H1 صفحه از قالب می‌آید';
+	}
+
+	$visible = html_entity_decode( strip_tags( $html ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+	if ( in_array( 'unresolved_editorial_placeholder', $checks, true ) ) {
+		$patterns = array(
+			'/\b(?:TODO|FIXME|TBD|PLACEHOLDER|INSERT[_ -]?HERE|LIPSUM)\b/iu',
+			'/\{\{[^{}]{1,120}\}\}/u',
+			'/(?:برای انتشار نهایی|یادداشت برای نویسنده|یادداشت ویراستاری|این بخش را تکمیل کنید)/u',
+			'/«\s*»/u',
+		);
+		foreach ( $patterns as $pattern ) {
+			if ( preg_match( $pattern, $visible ) ) {
+				$issues[] = 'بهداشت محتوا: یادداشت تحریریه یا جای‌نگهدار حل‌نشده در متن دیده شد';
+				break;
+			}
+		}
+	}
+
+	if ( in_array( 'empty_or_unlabelled_anchor', $checks, true ) ) {
+		$empty_anchors = 0;
+		if ( preg_match_all( '/<a\b([^>]*)>(.*?)<\/a\s*>/isu', $html, $anchors, PREG_SET_ORDER ) ) {
+			foreach ( $anchors as $anchor ) {
+				$attributes = $anchor[1];
+				if ( ! preg_match( '/\bhref\s*=/iu', $attributes ) ) {
+					continue;
+				}
+
+				$has_label = false;
+				if ( preg_match_all( '/\b(?:aria-label|title)\s*=\s*(["\x27])(.*?)\1/isu', $attributes, $attribute_labels, PREG_SET_ORDER ) ) {
+					foreach ( $attribute_labels as $label ) {
+						$label_text = html_entity_decode( $label[2], ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+						$label_text = preg_replace( '/[\s\p{Z}\x{200B}-\x{200F}\x{FEFF}]+/u', '', $label_text );
+						if ( is_string( $label_text ) && '' !== $label_text ) {
+							$has_label = true;
+							break;
+						}
+					}
+				}
+
+				$inner = $anchor[2];
+				if ( ! $has_label && preg_match_all( '/<img\b[^>]*\balt\s*=\s*(["\x27])(.*?)\1/isu', $inner, $alt_matches, PREG_SET_ORDER ) ) {
+					foreach ( $alt_matches as $alt ) {
+						$alt_text = html_entity_decode( $alt[2], ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+						$alt_text = preg_replace( '/[\s\p{Z}\x{200B}-\x{200F}\x{FEFF}]+/u', '', $alt_text );
+						if ( is_string( $alt_text ) && '' !== $alt_text ) {
+							$has_label = true;
+							break;
+						}
+					}
+				}
+
+				$text = html_entity_decode( strip_tags( $inner ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+				$text = preg_replace( '/[\s\p{Z}\x{200B}-\x{200F}\x{FEFF}]+/u', '', $text );
+				if ( ! $has_label && ( ! is_string( $text ) || '' === $text ) ) {
+					++$empty_anchors;
+				}
+			}
+		}
+		if ( $empty_anchors > 0 ) {
+			$issues[] = 'بهداشت محتوا: ' . sa_fa_digits( $empty_anchors ) . ' پیوند بدون نام دسترس‌پذیر';
+		}
+	}
+
+	return $issues;
 }
 
 /**
