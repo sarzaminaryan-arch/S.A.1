@@ -47,7 +47,15 @@ python3 tools/registry_live_diff.py \
 python3 -m unittest tools/tests/test_registry_live_diff.py -v
 ```
 
-گزارش اجراشده روی خروجی ۲۰۲۶-۱۰-۰۷: `docs/2026-10-07-registry-vs-live-divergence-fa.md` (۳۹ اختلاف slug، ۲ جفت منتشرشدهٔ تکراری، ۳ پیش‌نویس هم‌نام و ۴ لینک `/city/` در کل ۳۱ استان). این ابزار ۴۰۴، وضعیت ایندکس، درستی رسمی نام‌ها و شمار قطعی تقسیمات کشوری را تعیین نمی‌کند.
+`tools/align_registry_slugs.py` همین مقایسه را به **اصلاحِ داده** تبدیل می‌کند: URLهای زنده قفل‌اند، پس رجیستری slug زنده را می‌گیرد — فقط در ردیف‌هایی که «یک نام، یک صفحهٔ منتشرشدهٔ هم‌نام» دارند؛ ابهام‌ها فقط گزارش می‌شوند.
+
+```bash
+python3 tools/align_registry_slugs.py --wxr /مسیر/s-aryan-shar.xml --markdown /tmp/align.md   # dry-run
+python3 tools/align_registry_slugs.py --wxr /مسیر/s-aryan-shar.xml --apply                    # ۳۵ ردیف
+python3 -m unittest tools/tests/test_align_registry_slugs.py -v
+```
+
+گزارش اجراشده روی خروجی ۲۰۲۶-۱۰-۰۷ (پیش از اصلاح): `docs/2026-10-07-registry-vs-live-divergence-fa.md` (۳۹ اختلاف slug، ۲ جفت منتشرشدهٔ تکراری، ۳ پیش‌نویس هم‌نام و ۴ لینک `/city/` در کل ۳۱ استان). پس از اجرای `--apply`، ۳۵ ردیف اصلاح و ۴ اختلاف باقی‌مانده به تصمیم مالک سپرده شد: `docs/2026-10-07-selflink-repair-and-registry-slugs-fa.md`. این ابزار ۴۰۴، وضعیت ایندکس، درستی رسمی نام‌ها و شمار قطعی تقسیمات کشوری را تعیین نمی‌کند.
 
 ## ۱.۲ ممیزیِ رندرِ لینک‌سازیِ داخلیِ خودکار
 
@@ -68,7 +76,8 @@ python3 -m unittest tools/tests/test_audit_autolinks.py -v
 - `tools/sa-tests/run-autolink-audit.php` موتورِ PHP است؛ `exec.js` آن را اجرا می‌کند. خروجیِ php-wasm حدود ۶۴KB بریده می‌شود، پس `--batch` (پیش‌فرض ۵) صفحه‌ها را دسته‌بندی می‌کند.
 - گزارش شامل: شمار لینکِ تولیدشده به تفکیک نوع، لینکِ هم‌نامِ بین‌استانی (خطای واقعی)، لینکِ خودیِ موتور (نباید رخ دهد) و پیوندهای خودارجاعِ متنِ ذخیره‌شده (کارِ تحریریه) است.
 - سنجهٔ قاعده «متنِ لینک = نامِ کامل»: ستونِ «لینکِ تولیدشده با متنِ بدونِ پیشوند» باید صفر بماند؛ اگر بزرگ‌تر از صفر شد، یعنی موتور لینکِ برهنه ساخته است.
-- نمونهٔ اجراشده روی خروجی ۲۰۲۶-۱۰-۰۷: `docs/2026-10-07-autolink-render-audit-fa.md` و `docs/2026-10-07-self-links-fa.csv` (۵۱۸ صفحه، ۶٬۶۲۱ لینکِ شهرستانی، ۰ لینکِ غلطِ خودی، ۰ متنِ بدونِ پیشوند، ۱۷۶ پیوندِ خودارجاعِ تحریریه). شرحِ قواعد و پیش/پس: `docs/2026-10-07-autolink-rules-fix-fa.md`.
+- نمونهٔ اجراشده روی خروجی ۲۰۲۶-۱۰-۰۷: `docs/2026-10-07-autolink-render-audit-fa.md` و `docs/2026-10-07-self-links-fa.csv` (۵۱۸ صفحه، ۶٬۷۵۵ لینکِ شهرستانی، ۶۲۶ لینک در ۳۱ هابِ استان، ۰ لینکِ غلطِ خودی، ۰ متنِ بدونِ پیشوند، ۱۷۶ پیوندِ خودارجاعِ تحریریه در ۱۷۵ صفحه).
+- پیوندهای خودارجاعِ متنِ ذخیره‌شده با ابزارِ `inc/content-repair.php` در صفحهٔ «سلامت محتوا» حذف می‌شوند (پیش‌نمایش/اعمال، بازگشت‌پذیر)؛ راستی‌آزماییِ داده‌محورِ آن: `tools/sa-tests/run-selflink-repair.php` (۱۷۵ صفحه، ۱۸۱ برچسب، ۰ آسیب به متن، ۰ لینکِ غیرخودیِ تغییرکرده). شرحِ قواعد و پیش/پس: `docs/2026-10-07-autolink-rules-fix-fa.md`.
 - محدودیت: شبیه‌سازی است، نه صفحهٔ زنده؛ ترم‌های تاکسونومی/صفحه‌بندی/افزونه‌ها/کش مدل نمی‌شوند. متن مقاله در گزارش چاپ نمی‌شود.
 
 ## ۲. اجرای PHP بدون نیاز به نصبِ PHP روی سیستم
@@ -111,7 +120,9 @@ node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 | `tools/tests/test_wxr_audit.py` | ممیزی WXR: شمارش ساختاری، hygiene/FAQ/source، duplicateها و عدم افشای متن/فرادادهٔ SEO در گزارش |
 | `tools/sa-tests/run-bot.php` | ربات راهنمای تلگرام: تنظیمات، ارتباط با Bot API، خلاصه‌ها، صفحه‌بندی، مسیرِ استان←شهر←دیدنی، جستجو، وب‌هوک (۴۰۳/۵۰۳/۲۰۰)، تنظیم وب‌هوک، پاک‌سازیِ ورودی و رندرِ صفحهٔ مدیریت |
 | `tools/sa-tests/run-social.php` | انتشار خودکار: استخراج تصویر، ساخت متن، ارسال تلگرام/اینستاگرام، شرط‌ها و زمان‌بندی، **ارسالِ انبوه** و رندرِ صفحهٔ مدیریت |
-| `tools/sa-tests/run-content-repair.php` | تعمیر مکانیکی `H1→H2`: تابع خالص (چند سربرگ/ویژگی‌ها/برچسب ناقص)، پیش‌نمایش و اعمالِ دسته‌ای، سقف دسته، capability/nonce و رندرِ بخش پیشخوان |
+| `tools/sa-tests/run-content-repair.php` | تعمیر مکانیکی محتوا: `H1→H2` (چند سربرگ/ویژگی‌ها/برچسب ناقص) و حذفِ پیوندِ خودارجاع (نرمال‌سازی مسیر، حفظ متن، `#`/کوئری، بلوک‌های کد)، پیش‌نمایش و اعمالِ دسته‌ای، سقف دسته، capability/nonce و رندرِ بخش پیشخوان — ۸۱ ادعا |
+| `tools/sa-tests/run-selflink-repair.php` | راستی‌آزماییِ داده‌محور روی WXR واقعی: ۱۷۵ صفحهٔ دارای پیوندِ خودارجاع، حذفِ ۱۸۱ برچسب، دست‌نخوردنِ متن و پیوندهای غیرخودی و نبودِ پیوندِ خودیِ باقی‌مانده |
+| `tools/tests/test_align_registry_slugs.py` | هم‌راستاسازیِ slug: تشخیص «یک نام، یک صفحه»، دست‌نخوردنِ ردیف‌های مبهم، درجِ اصلاح فقط در ردیف‌های بی‌ابهام، بی‌اثر بودنِ اجرای دوباره و dry-run پیش‌فرض |
 | `tools/sa-tests/run-autolink-audit.php` | ممیزیِ لینک‌سازی خودکار: ساختِ واژه‌نامه از دادهٔ واقعی و اجرای موتورِ `inc/internal-links.php` روی بدنهٔ صفحه‌ها (شبیه‌سازی رندر، بدون تغییر محتوا) |
 | `tools/sa-tests/run-autolink-rules.php` | ۲۶ ادعا برای قواعدِ ضدخطایِ موتورِ لینک‌سازی: متنِ کاملِ نام، واژه‌های نامبهم («بافت شهری»)، پدیده/تقسیمِ چسبیده («رود شاهرود»، «بخش نطنز»، «کلان‌شهر کرمان»)، نامِ خودِ صفحه، یک‌بار‌بودنِ مقصد و سقفِ ۳۰ لینک |
 | `tools/sa-tests/run-health-scan.php` | اسکنِ صفحه‌بندی‌شدهٔ سلامت محتوا: کامل‌بودن اسکن (۵۴۰ سند در ۳ صفحه)، سقفِ ایمنی فیلتردار، هشدارِ بریدگی و رندرِ صفحه با/بدون سقف |
@@ -138,6 +149,7 @@ node     tools/phpwasm/exec.js tools/sa-tests/run-autolink-rules.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 SA_AUTOLINK_JOB=/ws/.tmp-autolink/job.json node tools/phpwasm/exec.js tools/sa-tests/run-autolink-audit.php
+SA_SELFLINK_JOB=/ws/.tmp-selflink/job.json node tools/phpwasm/exec.js tools/sa-tests/run-selflink-repair.php
 ```
 
 خروجیِ پایانی به‌شکل `PASS: 113   FAIL: 0` است و در صورت شکست، کدِ خروج `۱` برمی‌گردد.

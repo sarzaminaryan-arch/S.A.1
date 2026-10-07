@@ -58,11 +58,17 @@ def read_items(path: str, post_type: str) -> list[dict]:
     for _, el in ET.iterparse(path, events=('end',)):
         if _local(el.tag) == 'item':
             if (el.findtext(NS + 'post_type') or '') == post_type:
+                province = ''
+                for category in el.findall('category'):
+                    if (category.get('domain') or '') == 'province_tax':
+                        province = category.get('nicename') or ''
+                        break
                 items.append({
                     'slug': el.findtext(NS + 'post_name') or '',
                     'status': el.findtext(NS + 'status') or '',
                     'title': (el.findtext('title') or '').strip(),
                     'content': el.findtext(CONTENT) or '',
+                    'province': province,
                 })
             el.clear()
     return items

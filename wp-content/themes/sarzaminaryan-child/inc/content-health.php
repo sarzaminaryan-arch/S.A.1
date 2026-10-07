@@ -378,6 +378,7 @@ function sa_health_page() {
 
 	/* --- تعمیر مکانیکی --- */
 	sa_repair_section();
+	sa_selflink_section();
 
 	echo '<style>
 	.sa-health__cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0 26px}

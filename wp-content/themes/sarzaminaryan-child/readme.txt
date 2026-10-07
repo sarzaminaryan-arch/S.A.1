@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.37
+Stable tag: 2.11.38
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,13 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.38 — 2026-10-07 =
+* ابزار حذف پیوند خودارجاع در «سلامت محتوا»: حذف تگ <a> با حفظ متن، پیش‌نمایش + اعمال دسته‌ای، بازگشت‌پذیر
+  (۱۷۵ صفحه / ۱۸۱ لینک در فهرست آماده است).
+* رجیستری شهرستان‌ها (data/counties.php) با slug صفحه‌های منتشرشدهٔ زنده هم‌راستا شد (۳۵ ردیف، بدون تغییر URL)؛
+  نتیجه: ۶٬۷۴۵ لینک شهرستانی و ۶۱۶ لینک در هاب‌های استان.
+* رفعِ نقص ریزِ موتور: نامِ خودیِ استان با قرینهٔ صریح («شهرستان همدان») به شهرستانِ هم‌استان لینک می‌شود.
 
 = 2.11.37 — 2026-10-07 =
 * موتور لینک‌سازی خودکار، سخت‌سازی‌شده با قواعدِ ضدخطا (inc/internal-links.php):

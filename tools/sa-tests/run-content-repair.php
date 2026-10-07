@@ -54,6 +54,26 @@ function sa_seed( $type, $content, $status = 'publish' ) {
 	);
 }
 
+/**
+ * ثبت نوشتهٔ آزمایشی با نامکِ مشخص (برای تستِ پیوندِ خودارجاع).
+ *
+ * @param string $type    نوع.
+ * @param string $slug    نامک.
+ * @param string $content محتوا.
+ * @param string $status  وضعیت.
+ * @return int
+ */
+function sa_seed_named( $type, $slug, $content, $status = 'publish' ) {
+	return sa_add_post(
+		array(
+			'post_type'    => $type,
+			'post_name'    => $slug,
+			'post_content' => $content,
+			'post_status'  => $status,
+		)
+	);
+}
+
 /* ------------------------------------------------- تابع خالص: تنزل H1 ----- */
 
 echo "\n۱) تابع خالصِ تنزل H1\n";
@@ -172,6 +192,113 @@ sa_has( 'فیلد nonce', 'name="_wpnonce"', $html );
 sa_set_caps( array( 'manage_options' => false ) );
 ob_start();
 sa_repair_section();
+$html = (string) ob_get_clean();
+sa_eq( 'برای کاربر کم‌دسترسی چیزی چاپ نمی‌شود', '', $html );
+
+/* --------------------------------------- تعمیر پیوند خودارجاع (۲.۱۱.۳۸) -- */
+
+echo "\n۵) پیوندِ خودارجاع: تابع خالص\n";
+
+sa_eq( 'مسیرِ مطلق نرمال می‌شود', '/city/baft/', sa_repair_normalize_path( 'https://sarzaminaryan.ir/city/baft/' ) );
+sa_eq( 'اسلشِ پایانیِ جاافتاده افزوده می‌شود', '/city/baft/', sa_repair_normalize_path( '/city/baft' ) );
+sa_eq( 'دامنهٔ قدیمی، کوئری و fragment حذف می‌شوند', '/city/baft/', sa_repair_normalize_path( 'https://old.example/city/baft/?utm=1#x' ) );
+sa_eq( 'نشانیِ نسبی هم پذیرفته می‌شود', '/city/baft/', sa_repair_normalize_path( 'city/baft/' ) );
+
+$paths = array( '/city/baft/', '/city/baft' );
+
+$html = '<p>متن <a href="https://sarzaminaryan.ir/city/baft/">شهرستان بافت</a> و <a href="/city/baft">بافت</a> است.</p>';
+$out  = sa_repair_unwrap_self_links( $html, $paths, $removed, $kept );
+sa_eq( 'هر دو پیوندِ خودی باز می‌شوند', 2, $removed );
+sa_eq( 'متنِ برچسب دست‌نخورده می‌ماند', '<p>متن شهرستان بافت و بافت است.</p>', $out );
+
+$html = '<p><a href="https://fa.wikipedia.org/wiki/بافت">ویکی</a> و <a href="/city/kerman/">کرمان</a></p>';
+$out  = sa_repair_unwrap_self_links( $html, $paths, $removed, $kept );
+sa_eq( 'پیوندِ بیرونی و پیوندِ شهرستانِ دیگر لمس نمی‌شوند', $html, $out );
+sa_eq( 'شمارِ بازشده صفر است', 0, $removed );
+
+$out = sa_repair_unwrap_self_links( '<p><a href="/city/baft/#gallery">گالری</a> و <a href="/city/baft/?a=1">کوئری</a></p>', $paths, $removed, $kept );
+sa_eq( 'پیوندِ دارای fragment/کوئری باز نمی‌شود', 0, $removed );
+sa_eq( 'اما شمرده می‌شود (شفافیت)', 2, $kept );
+
+$out = sa_repair_unwrap_self_links( '<p><a href="/city/baft/"><strong>شهرستان بافت</strong></a></p>', $paths, $removed, $kept );
+sa_eq( 'مارک‌آپِ داخلِ پیوند حفظ می‌شود', '<p><strong>شهرستان بافت</strong></p>', $out );
+
+$out = sa_repair_unwrap_self_links( '<pre><a href="/city/baft/">کد</a></pre><p><a href="/city/baft/">متن</a></p>', $paths, $removed, $kept );
+sa_has( 'بلوکِ کد دست‌نخورده می‌ماند', '<pre><a href="/city/baft/">کد</a></pre>', $out );
+sa_eq( 'و فقط پیوندِ بیرونِ کد باز می‌شود', 1, $removed );
+
+$html = '<p>الف</p>';
+sa_eq( 'محتوای بدون پیوندِ خودی بایت‌به‌بایت سالم می‌ماند', $html, sa_repair_unwrap_self_links( $html, $paths, $removed, $kept ) );
+sa_eq( 'و شمارش صفر است', 0, $removed + $kept );
+
+echo "\n۶) پیوندِ خودارجاع: اجرا، سقف و گزارش\n";
+
+sa_reset_test_state();
+$id1 = sa_seed_named( 'city', 'baft', '<p>متن <a href="/city/baft/">شهرستان بافت</a></p>' );
+$id2 = sa_seed_named( 'city', 'kerman', '<p>بدونِ پیوندِ خودی: <a href="/city/baft/">بافت</a></p>' );
+
+$dry = sa_repair_selflink_run( 'dry' );
+sa_eq( 'پیش‌نمایش یک صفحهٔ نامزد می‌بیند', 1, $dry['posts'] );
+sa_eq( 'و یک پیوند می‌شمارد', 1, $dry['links'] );
+sa_eq( 'حالتِ گزارش dry است', 'dry', $dry['mode'] );
+sa_has( 'نمونهٔ متنِ پیوند ثبت می‌شود', 'شهرستان بافت', implode( '|', $dry['samples'] ) );
+sa_eq( 'در پیش‌نمایش محتوا دست‌نخورده است', '<p>متن <a href="/city/baft/">شهرستان بافت</a></p>', (string) get_post_field( 'post_content', $id1 ) );
+
+$apply = sa_repair_selflink_run( 'apply' );
+sa_eq( 'اعمال یک صفحه را تغییر می‌دهد', 1, $apply['posts'] );
+sa_eq( 'برچسب حذف و متن نگه داشته می‌شود', '<p>متن شهرستان بافت</p>', (string) get_post_field( 'post_content', $id1 ) );
+sa_eq( 'صفحهٔ دیگر دست‌نخورده می‌ماند', '<p>بدونِ پیوندِ خودی: <a href="/city/baft/">بافت</a></p>', (string) get_post_field( 'post_content', $id2 ) );
+$last = sa_repair_selflink_last();
+sa_eq( 'گزارشِ آخرین اجرا ذخیره شد', 'apply', $last['mode'] );
+$after = sa_repair_selflink_run( 'dry' );
+sa_eq( 'اجرای دوباره چیزی برای اصلاح پیدا نمی‌کند', 0, $after['posts'] );
+
+sa_reset_test_state();
+sa_seed_named( 'city', 'baft', '<p><a href="/city/baft/">الف</a></p>' );
+sa_seed_named( 'city', 'kerman', '<p><a href="/city/kerman/">ب</a></p>' );
+sa_seed_named( 'province', 'kerman', '<p><a href="/province/kerman/">ج</a></p>' );
+$limited = sa_repair_selflink_run( 'dry', 2 );
+sa_eq( 'با سقف ۲ فقط دو نامزد بررسی می‌شود', 2, $limited['scanned'] );
+sa_eq( 'و دو مورد پیشنهاد می‌شود', 2, $limited['posts'] );
+sa_ok( 'اعلام می‌کند کار باقی مانده', ! empty( $limited['remaining'] ) );
+
+sa_set_caps( array( 'manage_options' => false ) );
+$_POST = array( 'action' => 'sa_selflink_unwrap', 'sa_selflink_mode' => 'apply' );
+$died = '';
+try {
+	sa_selflink_action();
+} catch ( Exception $e ) {
+	$died = $e->getMessage();
+}
+sa_has( 'بدونِ دسترسی، wp_die اجرا می‌شود', 'wp_die', $died );
+sa_has( 'متنِ بی‌دسترسی دست‌نخورده است', '<a href="/province/kerman/">ج</a>', (string) get_post_field( 'post_content', 3 ) );
+
+sa_set_caps( array( 'manage_options' => true ) );
+$report = sa_selflink_action();
+sa_eq( 'با دسترسی، nonce بررسی و اعمال انجام می‌شود', 'apply', $report['mode'] );
+sa_eq( 'هر سه پیوندِ باقی‌مانده باز شد', 3, $report['links'] );
+
+echo "\n۷) پیوندِ خودارجاع: رندر بخش پیشخوان\n";
+
+sa_reset_test_state();
+ob_start();
+sa_selflink_section();
+$html = (string) ob_get_clean();
+sa_has( 'در نبود مورد، پیام «موردی نیست» می‌آید', 'موردی نیست', $html );
+
+sa_seed_named( 'city', 'baft', '<p><a href="/city/baft/">شهرستان بافت</a></p>' );
+ob_start();
+sa_selflink_section();
+$html = (string) ob_get_clean();
+sa_has( 'تیتر بخش', 'تعمیر مکانیکی: پیوندِ خودارجاع در متن', $html );
+sa_has( 'دکمهٔ پیش‌نمایش', 'پیش‌نمایش (بدون تغییر)', $html );
+sa_has( 'دکمهٔ اعمال', 'اعمال حذفِ پیوند خودارجاع', $html );
+sa_has( 'اکشن admin-post', 'action" value="sa_selflink_unwrap"', $html );
+sa_has( 'فیلد nonce', 'name="_wpnonce"', $html );
+
+sa_set_caps( array( 'manage_options' => false ) );
+ob_start();
+sa_selflink_section();
 $html = (string) ob_get_clean();
 sa_eq( 'برای کاربر کم‌دسترسی چیزی چاپ نمی‌شود', '', $html );
 

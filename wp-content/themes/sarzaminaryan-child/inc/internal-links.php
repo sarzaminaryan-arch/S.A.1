@@ -985,10 +985,10 @@ function sa_autolink_fragment( $text, &$state ) {
 		}
 		$url_key = sa_autolink_url_key( $url );
 		if ( '' !== $state['current_key'] && $url_key === $state['current_key'] ) {
-			// خودِ همین صفحه: نامش در سراسر صفحه لینک نمی‌شود و به کاندیدِ
-			// هم‌نامِ دیگر هم نمی‌رود.
+			// خودِ همین صفحه: لینک ساخته نمی‌شود و به کاندیدِ هم‌نامِ دیگر هم نمی‌رود.
+			// عمداً `needle_done` ثبت نمی‌شود: اگر بعداً در همین صفحه «شهرستان/استان X»
+			// با قرینهٔ صریح بیاید، همان نام باید بتواند به کاندیدِ هم‌استانِ درست برسد.
 			$state['self_needles'][ $needle ] = true;
-			$state['needle_done'][ $needle ]  = true;
 			$state['used'][ $chosen['key'] ]  = true;
 			continue;
 		}
