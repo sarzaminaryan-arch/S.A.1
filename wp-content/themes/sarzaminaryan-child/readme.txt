@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.35
+Stable tag: 2.11.36
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,14 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.36 — 2026-10-07 =
+* ابزار تعمیر مکانیکی محتوا (inc/content-repair.php): تبدیل H1 داخل بدنه به H2 برای موجودیت‌ها،
+  با پیش‌نمایش (بدون ذخیره) و اعمالِ دسته‌ای، محافظتِ nonce + دسترسی، و ذخیرهٔ گزارشِ آخرین اجرا.
+* صفحهٔ سلامت محتوا: سقفِ ثابتِ ۵۰۰ نوشته برداشته شد؛ اسکنِ صفحه‌بندی‌شده (۲۰۰تایی، حداکثر ۲۵ صفحه)
+  با فیلترهای sa_health_per_page و sa_health_max_pages، نمایش «اسکن‌شده: X نوشته در Y صفحه» و هشدارِ سقفِ ایمنی.
+* هم‌ترازی مدل: SA_MODEL_VERSION از 1.1 به 1.2 (هم‌راستا با مدل دادهٔ 1.2 و دروازهٔ انتشار).
+* تست‌های تازهٔ PHP-WASM: run-content-repair.php و run-health-scan.php.
 
 = 2.11.35 — 2026-10-06 =
 * گزارش جامعِ وضعیت سایت در docs/site-status-report.md: شناسنامهٔ فنی، معماریِ محتوا و دسته‌بندی‌ها،

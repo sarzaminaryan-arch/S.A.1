@@ -97,6 +97,60 @@ add_action( 'transition_post_status', 'sa_health_flush' );
 add_action( 'deleted_post', 'sa_health_flush' );
 
 /**
+ * تحلیل یک نوشته برای گزارش سلامت محتوا (فقط‌خواندنی).
+ *
+ * @param int                               $pid     شناسهٔ نوشته.
+ * @param string                            $brx     الگوی regex پیشوندهای مسیر.
+ * @param array<string,string>              $bases   نگاشت پیشوند → نوع محتوا.
+ * @param array<string,array<string,true>>  $map     نامک‌های منتشرشده به تفکیک نوع.
+ * @param string                            $home    میزبان سایت.
+ * @param array<string,int>                 $dead    (مرجع) شمارش لینک مرده.
+ * @param array<string,int>                 $domains (مرجع) شمارش دامنه‌های بیرونی.
+ * @return array<string,mixed>
+ */
+function sa_health_scan_post( $pid, $brx, $bases, $map, $home, &$dead, &$domains ) {
+	$content = (string) get_post_field( 'post_content', $pid );
+	$ext     = 0;
+	$int     = 0;
+	$seen    = array();
+	if ( preg_match_all( '/href=["\']([^"\']+)["\']/i', $content, $m ) ) {
+		foreach ( $m[1] as $href ) {
+			if ( function_exists( 'sa_citation_is_external' ) && sa_citation_is_external( $href ) ) {
+				++$ext;
+				$h             = preg_replace( '/^www\./', '', strtolower( (string) wp_parse_url( $href, PHP_URL_HOST ) ) );
+				$domains[ $h ] = isset( $domains[ $h ] ) ? $domains[ $h ] + 1 : 1;
+				$seen[ $href ] = true;
+			} elseif ( '' !== $href && '#' !== $href[0] ) {
+				++$int;
+			}
+		}
+	}
+
+	$post_dead = 0;
+	if ( $brx && preg_match_all( '#href=["\'](?:https?://' . preg_quote( $home, '#' ) . ')?/(' . $brx . ')/([^/"\'?\#]+)/?["\']#i', $content, $mm, PREG_SET_ORDER ) ) {
+		foreach ( $mm as $hit ) {
+			$cpt  = isset( $bases[ $hit[1] ] ) ? $bases[ $hit[1] ] : '';
+			$slug = rawurldecode( $hit[2] );
+			if ( $cpt && empty( $map[ $cpt ][ $slug ] ) ) {
+				++$post_dead;
+				$k          = $hit[1] . '/' . $slug;
+				$dead[ $k ] = isset( $dead[ $k ] ) ? $dead[ $k ] + 1 : 1;
+			}
+		}
+	}
+
+	return array(
+		'id'     => (int) $pid,
+		'ext'    => $ext,
+		'int'    => $int,
+		'uniq'   => count( $seen ),
+		'h1'     => (bool) preg_match( '/<h1[\s>]/i', $content ),
+		'dead'   => $post_dead,
+		'status' => get_post_status( $pid ),
+	);
+}
+
+/**
  * تحلیل کل مجموعه (با کش ۱۵ دقیقه‌ای).
  *
  * @param bool $force نادیده‌گرفتن کش.
@@ -116,18 +170,15 @@ function sa_health_scan( $force = false ) {
 	$brx   = $bases ? implode( '|', array_map( 'preg_quote', array_keys( $bases ) ) ) : '';
 	$home  = strtolower( (string) wp_parse_url( home_url(), PHP_URL_HOST ) );
 
-	$q = new WP_Query(
-		array(
-			'post_type'              => $types,
-			'post_status'            => array( 'publish', 'draft', 'pending' ),
-			'posts_per_page'         => 500,
-			'no_found_rows'          => true,
-			'fields'                 => 'ids',
-			'update_post_term_cache' => false,
-			'orderby'                => 'ID',
-			'order'                  => 'ASC',
-		)
-	);
+	// صفحه‌بندی‌شده اسکن می‌شود تا سقفِ پیشینِ ۵۰۰ نوشته (که با ۵۴۱ موجودیت
+	// منتشرشده دور زده می‌شد) حذف شود؛ سقف ایمنی فقط برای جلوگیری از حلقه‌ی
+	// بی‌پایان روی نصب‌های غول‌آسا است.
+	$per_page    = (int) apply_filters( 'sa_health_per_page', 200 );
+	$per_page    = $per_page > 0 ? $per_page : 200;
+	$max_pages   = (int) apply_filters( 'sa_health_max_pages', 25 ); // سقف ایمنی: ۲۵ × ۲۰۰ = ۵۰۰۰ نوشته.
+	$max_pages   = $max_pages > 0 ? $max_pages : 25;
+	$page        = 1;
+	$total_pages = 1;
 
 	$rows   = array();
 	$dead   = array();
@@ -139,69 +190,55 @@ function sa_health_scan( $force = false ) {
 		'uniq'      => 0,
 		'h1'        => 0,
 		'dead'      => 0,
+		'pages'     => 0,
+		'per_page'  => $per_page,
+		'truncated' => false,
 	);
 	$domains = array();
 
-	foreach ( $q->posts as $pid ) {
-		$content = (string) get_post_field( 'post_content', $pid );
-		$status  = get_post_status( $pid );
-		++$totals['posts'];
-
-		$ext  = 0;
-		$int  = 0;
-		$seen = array();
-		if ( preg_match_all( '/href=["\']([^"\']+)["\']/i', $content, $m ) ) {
-			foreach ( $m[1] as $href ) {
-				if ( function_exists( 'sa_citation_is_external' ) && sa_citation_is_external( $href ) ) {
-					++$ext;
-					$h = preg_replace( '/^www\./', '', strtolower( (string) wp_parse_url( $href, PHP_URL_HOST ) ) );
-					$domains[ $h ] = isset( $domains[ $h ] ) ? $domains[ $h ] + 1 : 1;
-					$seen[ $href ] = true;
-				} elseif ( '' !== $href && '#' !== $href[0] ) {
-					++$int;
-				}
-			}
-		}
-		$totals['ext']  += $ext;
-		$totals['int']  += $int;
-		$totals['uniq'] += count( $seen );
-
-		$has_h1 = (bool) preg_match( '/<h1[\s>]/i', $content );
-		if ( $has_h1 ) {
-			++$totals['h1'];
-		}
-
-		$post_dead = 0;
-		if ( $brx && preg_match_all( '#href=["\'](?:https?://' . preg_quote( $home, '#' ) . ')?/(' . $brx . ')/([^/"\'?\#]+)/?["\']#i', $content, $mm, PREG_SET_ORDER ) ) {
-			foreach ( $mm as $hit ) {
-				$cpt  = isset( $bases[ $hit[1] ] ) ? $bases[ $hit[1] ] : '';
-				$slug = rawurldecode( $hit[2] );
-				if ( $cpt && empty( $map[ $cpt ][ $slug ] ) ) {
-					++$post_dead;
-					$k          = $hit[1] . '/' . $slug;
-					$dead[ $k ] = isset( $dead[ $k ] ) ? $dead[ $k ] + 1 : 1;
-				}
-			}
-		}
-		$totals['dead'] += $post_dead;
-
-		if ( 'publish' !== $status ) {
-			list( $blocking ) = sa_gate_split( sa_gate_missing( $pid, get_post_type( $pid ), null ) );
-			if ( empty( $blocking ) ) {
-				$ready[] = $pid;
-			}
-		}
-
-		$rows[] = array(
-			'id'     => $pid,
-			'ext'    => $ext,
-			'int'    => $int,
-			'uniq'   => count( $seen ),
-			'h1'     => $has_h1,
-			'dead'   => $post_dead,
-			'status' => $status,
+	do {
+		$q = new WP_Query(
+			array(
+				'post_type'              => $types,
+				'post_status'            => array( 'publish', 'draft', 'pending' ),
+				'posts_per_page'         => $per_page,
+				'paged'                  => $page,
+				'no_found_rows'          => false,
+				'fields'                 => 'ids',
+				'update_post_term_cache' => false,
+				'orderby'                => 'ID',
+				'order'                  => 'ASC',
+			)
 		);
-	}
+
+		foreach ( $q->posts as $pid ) {
+			$row = sa_health_scan_post( (int) $pid, $brx, $bases, $map, $home, $dead, $domains );
+
+			$totals['ext']  += $row['ext'];
+			$totals['int']  += $row['int'];
+			$totals['uniq'] += $row['uniq'];
+			$totals['dead'] += $row['dead'];
+			++$totals['posts'];
+			if ( $row['h1'] ) {
+				++$totals['h1'];
+			}
+
+			if ( 'publish' !== $row['status'] ) {
+				list( $blocking ) = sa_gate_split( sa_gate_missing( (int) $pid, get_post_type( (int) $pid ), null ) );
+				if ( empty( $blocking ) ) {
+					$ready[] = (int) $pid;
+				}
+			}
+
+			$rows[] = $row;
+		}
+
+		++$totals['pages'];
+		$total_pages = (int) $q->max_num_pages;
+		++$page;
+	} while ( $page <= $total_pages && $page <= $max_pages );
+
+	$totals['truncated'] = $total_pages > $max_pages;
 
 	arsort( $domains );
 	arsort( $dead );
@@ -261,6 +298,16 @@ function sa_health_page() {
 			. '<b>' . esc_html( $c[1] ) . '</b><span>' . esc_html( $c[0] ) . '</span></div>';
 	}
 	echo '</div>';
+
+	if ( ! empty( $t['truncated'] ) ) {
+		echo '<div class="notice notice-warning inline"><p>اسکن روی سقف ایمنی متوقف شد؛ '
+			. 'ممکن است بخشی از محتوا در این گزارش نیامده باشد. برای مجموعه‌های بزرگ‌تر، '
+			. 'با فیلتر <code>sa_health_max_pages</code> (و در صورت نیاز <code>sa_health_per_page</code>) سقف را بالا ببرید.</p></div>';
+	}
+	echo '<p class="description">اسکن‌شده: ' . esc_html( $fa( (string) $t['posts'] ) ) . ' نوشته در '
+		. esc_html( $fa( (string) $t['pages'] ) ) . ' صفحه ('
+		. esc_html( $fa( (string) ( isset( $t['per_page'] ) ? $t['per_page'] : 200 ) ) )
+		. 'تایی، صفحه‌بندی‌شده).</p>';
 
 	/* --- آماده‌ی انتشار --- */
 	echo '<h2>پیش‌نویس‌هایی که هیچ مانع انتشاری ندارند</h2>';
@@ -328,6 +375,9 @@ function sa_health_page() {
 			. '<td>' . esc_html( 'publish' === $r['status'] ? 'منتشرشده' : 'پیش‌نویس' ) . '</td></tr>';
 	}
 	echo '</tbody></table>';
+
+	/* --- تعمیر مکانیکی --- */
+	sa_repair_section();
 
 	echo '<style>
 	.sa-health__cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:18px 0 26px}
