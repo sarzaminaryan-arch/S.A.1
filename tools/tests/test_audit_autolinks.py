@@ -127,6 +127,38 @@ class AnalysisTests(unittest.TestCase):
         self.assertNotIn('<p>متن</p>', markdown)
 
 
+class RuleMetricTests(unittest.TestCase):
+    """قاعدهٔ «متنِ لینک = نامِ کامل» و شمارشِ تخلف‌های آن."""
+
+    def test_type_prefix_detection(self):
+        for ok in ('شهرستان نطنز', 'استان گیلان', 'شهر کرج', 'دهستان مرکزی', 'بخش مرکزی'):
+            self.assertTrue(aa._has_type_prefix(ok), ok)
+        for bad in ('نطنز', 'بافت', 'شهرضا', 'کرمان', '', 'کاروانسرای نطنز'):
+            self.assertFalse(aa._has_type_prefix(bad), bad)
+
+    def test_bare_anchor_counter_is_aggregated(self):
+        subjects = [live_item('province', 'kerman', 'استان کرمان', province=''),
+                    live_item('city', 'natanz', 'شهرستان نطنز', province='isfahan')]
+        result = {'max_links': 30, 'subjects': [
+            {'slug': 'kerman', 'type': 'province', 'bare_anchors': 0, 'total': 2,
+             'counts': {'city': 2, 'province': 0, 'attraction': 0, 'other': 0},
+             'links': [{'kind': 'city', 'path': '/city/natanz/', 'label': 'شهرستان نطنز',
+                        'generated': True},
+                       {'kind': 'city', 'path': '/city/baft/', 'label': 'شهرستان بافت',
+                        'generated': True}]},
+            {'slug': 'natanz', 'type': 'city', 'bare_anchors': 1, 'total': 1,
+             'counts': {'city': 1, 'province': 0, 'attraction': 0, 'other': 0},
+             'links': [{'kind': 'city', 'path': '/city/kashan/', 'label': 'کاشان',
+                        'generated': True}]},
+        ]}
+        report = aa.analyse(result, subjects, {}, {'natanz': 'isfahan', 'baft': 'kerman'})
+        self.assertEqual(report['summary']['bare_anchors'], 1)
+        self.assertEqual(report['summary']['generated_city_links'], 3)
+        markdown = aa.build_markdown(report)
+        self.assertIn('| لینکِ تولیدشده با متنِ بدونِ پیشوند (نباید رخ دهد) | 1 |', markdown)
+        self.assertIn('تخلفِ قاعدهٔ ۱', markdown)
+
+
 class JobTests(unittest.TestCase):
     def test_build_job_skips_empty_and_draft(self):
         cities = [live_item('city', 'karaj', 'شهرستان کرج'),

@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.36
+Stable tag: 2.11.37
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,15 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.37 — 2026-10-07 =
+* موتور لینک‌سازی خودکار، سخت‌سازی‌شده با قواعدِ ضدخطا (inc/internal-links.php):
+  متنِ لینک همیشه نامِ کاملِ موجودیت است («شهرستان نطنز»، «شهر کرج»، «استان گیلان»)؛
+  واژه‌های نامبهم («بافت»، «انار»، «مهر»…) بدون قرینهٔ صریح لینک نمی‌شوند؛
+  نامی که به پدیده/تقسیمِ دیگری چسبیده است («رود شاهرود»، «بخش نطنز»، «کلان‌شهر کرمان») لینک نمی‌شود.
+* نامِ خودِ صفحه در همان صفحه لینک نمی‌شود و به کاندیدِ هم‌نامِ استانِ دیگر نمی‌رود
+  (شهرستانِ هم‌استان فقط با قرینهٔ صریح)؛ هر مقصد یک‌بار در صفحه.
+* کلیدِ ترانزینتِ واژه‌نامه به نسخهٔ قالب گره خورد تا پس از به‌روزرسانی، واژه‌نامهٔ تازه ساخته شود.
 
 = 2.11.36 — 2026-10-07 =
 * ابزار تعمیر مکانیکی محتوا (inc/content-repair.php): تبدیل H1 داخل بدنه به H2 برای موجودیت‌ها،

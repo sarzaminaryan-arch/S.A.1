@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.11.36' );
+define( 'SA_CHILD_VERSION', '2.11.37' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.2' );

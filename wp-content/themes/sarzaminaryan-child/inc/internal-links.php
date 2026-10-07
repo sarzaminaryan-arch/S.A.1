@@ -25,6 +25,17 @@
  *   ۶. داخل تگ‌های حساس کاری انجام نمی‌شود: لینک‌های موجود، تیترها، کد،
  *      اسکریپت، استایل، فرم، دکمه و هر عنصری که `data-sa-autolink="off"`
  *      یا کلاس `sa-autolink-off` داشته باشد.
+ *   ۷. متنِ لینک همیشه نامِ کاملِ موجودیت است: «شهرستان نطنز» / «استان گیلان»،
+ *      نه واژه‌ی بدون پیشوند. اگر خودِ متن قرینه را دارد («شهرستان نطنز»)،
+ *      همان عبارت لینک می‌شود؛ وگرنه پیشوند به متنِ نمایشی افزوده می‌شود
+ *      (فقط در زمان نمایش؛ محتوای ذخیره‌شده تغییر نمی‌کند).
+ *   ۸. نام‌های «مبهم» فقط با قرینهٔ صریح لینک می‌شوند: نام‌های سه‌حرفی و کمتر،
+ *      نام‌هایی که هم‌زمان واژه‌ی رایجِ فارسی‌اند («بافت»، «انار»، «مهر»، «بهار»…)
+ *      و هر نامی که با قرینه در نوعِ دیگری به‌کار رفته است. نمونهٔ واقعی: «بافت
+ *      شهری فلان شهرستان» نباید به شهرستان بافت لینک شود؛ فقط «شهرستان بافت».
+ *   ۹. اگر واژهٔ تطبیق‌یافته نامِ خودِ صفحهٔ جاری باشد، **هیچ** لینکی ساخته
+ *      نمی‌شود؛ به کاندیدِ هم‌نامِ بعدی هم نمی‌رود (پیش‌تر «البرز» در صفحهٔ
+ *      استان البرز به شهرستان البرزِ قزوین لینک می‌شد).
  *
  * امنیت و کارایی
  * --------------
@@ -34,9 +45,10 @@
  *   - تطبیق روی رشته‌ی نرمال‌شده انجام می‌شود تا نیم‌فاصله، فاصله‌ی نشکن،
  *     ی/ک عربی و آ/أ/إ تفاوتی ایجاد نکند: «بستان‌آباد»، «بستان آباد» و
  *     «بستانآباد» همه یک نام‌اند.
- *   - نام‌های خیلی کوتاه (۳ حرف یا کمتر) فقط وقتی لینک می‌شوند که پیش از آن‌ها
- *     «شهرستان/شهر/استان/بخش/دهستان» آمده باشد؛ وگرنه «دیر» در «دیر یا زود»
- *     به شهرستان دیر لینک می‌خورد.
+ *   - نام‌های «مبهم» (سه حرف و کمتر یا در فهرستِ واژه‌های هم‌نامِ رایج) فقط وقتی
+ *     لینک می‌شوند که پیش از آن‌ها «شهرستان/شهر/استان/بخش/دهستان» آمده باشد؛
+ *     وگرنه «دیر» در «دیر یا زود» یا «بافت» در «بافت شهری» لینک نمی‌شود.
+ *   - فهرستِ واژه‌های مبهم با فیلتر `sa_autolink_ambiguous_names` قابل تغییر است.
  *   - واژه‌نامه یک‌بار ساخته و ۱۲ ساعت در ترانزینت کش می‌شود و با هر انتشار،
  *     ویرایش یا حذفِ موجودیت پاک می‌شود.
  *
@@ -241,6 +253,124 @@ function sa_autolink_normalize( $text ) {
 }
 
 /**
+ * نام‌هایی که هم‌زمان واژه‌ی رایجِ فارسی‌اند و بدون قرینه نباید لینک شوند.
+ *
+ * «بافت» می‌تواند بافتِ شهری باشد، «انار» میوه، «مهر» ماه و محبت، «صحنه» صحنهٔ
+ * نمایش. لینک‌کردنِ این واژه‌ها به صفحهٔ شهرستانِ هم‌نام، خطای معنایی است؛ پس فقط
+ * با قرینهٔ صریح («شهرستان بافت») لینک می‌شوند.
+ *
+ * @return string[] نام‌های نرمال‌شده.
+ */
+function sa_autolink_ambiguous_names() {
+	static $names = null;
+	if ( null === $names ) {
+		$raw = array(
+			'البرز', 'انار', 'بافت', 'بم', 'بن', 'بهار', 'پاییز', 'پردیس', 'پیشوا',
+			'جم', 'خاتم', 'دشتی', 'دیر', 'راز', 'رستم', 'ری', 'سامان', 'سراب', 'سرباز',
+			'سنقر', 'سیمرغ', 'صحنه', 'فارس', 'قدس', 'گز', 'کارون', 'کوثر', 'کوهپایه',
+			'گرمی', 'مبارکه', 'مهر', 'میانه', 'نور', 'نیر', 'نیمروز',
+		);
+		$names = array();
+		foreach ( $raw as $name ) {
+			$norm    = sa_autolink_normalize( $name );
+			$names[] = $norm['text'];
+		}
+	}
+
+	/**
+	 * فهرستِ نام‌های مبهم.
+	 *
+	 * @param string[] $names نام‌های نرمال‌شده.
+	 */
+	return (array) apply_filters( 'sa_autolink_ambiguous_names', $names );
+}
+
+/**
+ * واژه‌های پیش از نام که آن را به یک پدیدهٔ دیگر می‌چسبانند.
+ *
+ * «رود شاهرود»، «رشته‌کوه البرز»، «تالاب رامسر»، «حوضهٔ کرج»: اینجا نام بخشی از
+ * نامِ یک پدیده است و به شهرستانِ هم‌نام مربوط نیست؛ پس لینک ساخته نمی‌شود.
+ *
+ * @return string[] واژه‌های نرمال‌شده.
+ */
+function sa_autolink_compound_prefixes() {
+	static $words = null;
+	if ( null === $words ) {
+		$raw = array(
+			'رود', 'رودخانه', 'رشته‌کوه', 'کوه', 'قله', 'دریاچه', 'تالاب', 'سد',
+			'تنگه', 'دره', 'دریا', 'خلیج', 'جزیره', 'کویر', 'جنگل', 'چشمه',
+			'آبشار', 'حوضه', 'حوزه', 'دشت', 'ساحل', 'کرانه', 'آبراه', 'کانال',
+			// تقسیماتِ زیرِ شهرستان: «بخش نطنز» یعنی بخشی از نطنز، نه خودِ شهرستان.
+			'بخش', 'دهستان', 'کلان‌شهر', 'مادرشهر',
+		);
+		$words = array();
+		foreach ( $raw as $word ) {
+			$norm    = sa_autolink_normalize( $word );
+			$words[] = $norm['text'];
+		}
+	}
+
+	/**
+	 * واژه‌های «پدیده‌ساز» که لینکِ نامِ پس از خود را می‌بندند.
+	 *
+	 * @param string[] $words فهرستِ نرمال‌شده.
+	 */
+	return (array) apply_filters( 'sa_autolink_compound_prefixes', $words );
+}
+
+/**
+ * آیا واژهٔ پیش از این تطبیق، نام را به پدیدهٔ دیگری می‌چسباند؟
+ *
+ * @param string $subject متنِ نرمال‌شده.
+ * @param int    $offset  مکانِ بایتیِ آغازِ تطبیق.
+ * @return bool
+ */
+function sa_autolink_has_compound_prefix( $subject, $offset ) {
+	$offset = (int) $offset;
+	if ( $offset <= 0 ) {
+		return false;
+	}
+	$start = max( 0, $offset - 40 );
+	$chunk = substr( (string) $subject, $start, $offset - $start );
+	$chunk = (string) preg_replace( '~^[\x80-\xBF]+~', '', $chunk, 1 );
+	if ( '' === $chunk ) {
+		return false;
+	}
+	foreach ( sa_autolink_compound_prefixes() as $word ) {
+		if ( preg_match( '~(?:^|[\s\x{200C}])' . preg_quote( $word, '~' ) . '[\s\x{200C}]+$~u', $chunk ) ) {
+			return true;
+		}
+	}
+
+	// واژه‌ای که خودش به «…شهر» چسبیده است: «کلان‌شهر کرمان»، «مادرشهر تبریز».
+	if ( preg_match( '~(?:^|[\s\x{00A0}])([\p{L}\x{200C}]+?)(?:شهرستان|شهر|استان|بخش|دهستان)[\s\x{200C}]+$~u', $chunk ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * آغازِ عبارتِ قرینه در متنِ اصلی («شهرستان بافت» → از «شهرستان»).
+ *
+ * @param string $text  متنِ اصلیِ گره.
+ * @param int    $start مکانِ بایتیِ آغازِ تطبیق در متنِ اصلی.
+ * @return int مکانِ بایتیِ آغازِ قرینه، یا همان $start اگر قرینه‌ای نبود.
+ */
+
+function sa_autolink_context_anchor_start( $text, $start ) {
+	$before = substr( (string) $text, 0, (int) $start );
+	if ( '' === $before ) {
+		return (int) $start;
+	}
+	if ( preg_match( '~(?:^|[\s\x{00A0}])((?:استان|شهرستان|شهر|بخش|دهستان)[\s\x{200C}]+)$~u', $before, $m, PREG_OFFSET_CAPTURE ) ) {
+		return (int) $m[1][1];
+	}
+
+	return (int) $start;
+}
+
+/**
  * نام‌های عمومی که نباید لینک شوند («آبشار»، «تالاب»، «روستا»…).
  *
  * @return string[] نام‌های نرمال‌شده.
@@ -311,20 +441,40 @@ function sa_autolink_name_ok( $name, $type = 'attraction' ) {
  * @return string
  */
 function sa_autolink_label( $type, $name ) {
-	$name   = trim( (string) $name );
+	$name = trim( (string) $name );
+	if ( '' === $name ) {
+		return $name;
+	}
+	// عنوانی که خودش پیشوندِ معنایی دارد («شهر کرج»، «شهرستان نطنز») دوباره
+	// پیشوند نمی‌گیرد؛ وگرنه «شهرستان شهر کرج» ساخته می‌شد.
+	if ( preg_match( '~^(?:استان|شهرستان|شهر|بخش|دهستان)[\s\x{200C}]~u', $name ) ) {
+		return $name;
+	}
 	$prefix = 'province' === $type ? 'استان' : ( 'city' === $type ? 'شهرستان' : '' );
-	if ( '' === $prefix || '' === $name ) {
+	if ( '' === $prefix ) {
 		return $name;
 	}
-	if ( 0 === strpos( $name, $prefix ) ) {
-		return $name;
-	}
+
 	return $prefix . ' ' . $name;
 }
 
 /* -------------------------------------------------------------------------
  * واژه‌نامه‌ی مقصدها
  * ---------------------------------------------------------------------- */
+
+/**
+ * کلیدِ ترانزینتِ واژه‌نامه.
+ *
+ * نسخهٔ قالب در کلید می‌آید تا پس از هر به‌روزرسانی، واژه‌نامهٔ تازه ساخته شود و
+ * واژه‌نامهٔ کهنه (بدونِ فیلدهای تازه) ۱۲ ساعت در کش نماند.
+ *
+ * @return string
+ */
+function sa_autolink_cache_key() {
+	$version = defined( 'SA_CHILD_VERSION' ) ? (string) SA_CHILD_VERSION : '0';
+
+	return 'sa_autolink_targets_' . md5( $version );
+}
 
 /**
  * واژه‌نامه‌ی آماده (کشِ ۱۲ ساعته).
@@ -334,7 +484,7 @@ function sa_autolink_label( $type, $name ) {
  *     'index' => array( نرمال‌شده => array( کاندید، … ) ),
  *     'regex' => الگوی آماده‌ی preg،
  *   )
- * هر کاندید: array( type, id, term, label, prio, ctx, name ).
+ * هر کاندید: array( type, id, term, label, prio, ctx, name, province ).
  *
  * @return array{index:array,regex:string}
  */
@@ -344,16 +494,16 @@ function sa_autolink_targets() {
 		return $cache;
 	}
 
-	$cached = get_transient( 'sa_autolink_targets' );
+	$cached = get_transient( sa_autolink_cache_key() );
 	if ( is_array( $cached ) && isset( $cached['index'], $cached['regex'] ) ) {
 		$cache = $cached;
 		return $cache;
 	}
 
 	$cache = sa_autolink_build_targets();
-	set_transient( 'sa_autolink_targets', $cache, 12 * HOUR_IN_SECONDS );
+	set_transient( sa_autolink_cache_key(), $cache, 12 * HOUR_IN_SECONDS );
 	if ( function_exists( 'sa_remember_cache_key' ) ) {
-		sa_remember_cache_key( 'sa_autolink_targets' );
+		sa_remember_cache_key( sa_autolink_cache_key() );
 	}
 	return $cache;
 }
@@ -364,7 +514,7 @@ function sa_autolink_targets() {
  * @return void
  */
 function sa_autolink_flush() {
-	delete_transient( 'sa_autolink_targets' );
+	delete_transient( sa_autolink_cache_key() );
 }
 add_action( 'deleted_post', 'sa_autolink_flush' );
 add_action( 'saved_province_tax', 'sa_autolink_flush' );
@@ -445,8 +595,9 @@ function sa_autolink_build_targets() {
 	 * @param int    $id     شناسه‌ی نوشته.
 	 * @param int    $prio   اولویت در صورت تداخلِ نام (بزرگ‌تر مقدم‌تر).
 	 * @param int    $term   شناسه‌ی ترم (برای استانی که صفحه ندارد).
+	 * @param string $parent استانِ شهرستان (برای ترجیحِ کاندیدِ هم‌استان).
 	 */
-	$add = function ( $name, $type, $id, $prio, $term = 0 ) use ( &$index ) {
+	$add = function ( $name, $type, $id, $prio, $term = 0, $parent = '' ) use ( &$index ) {
 		$name = trim( (string) $name );
 		$id   = (int) $id;
 		$term = (int) $term;
@@ -466,18 +617,21 @@ function sa_autolink_build_targets() {
 
 		$letters = preg_replace( '~\s+~u', '', $norm['text'] );
 		$length  = function_exists( 'mb_strlen' ) ? mb_strlen( (string) $letters, 'UTF-8' ) : strlen( (string) $letters );
-		// نام‌های خیلی کوتاه («دیر»، «ری»، «جم») فقط با قرینه‌ی «شهرستان/شهر/استان»
-		// لینک می‌شوند. نام استان‌ها مستثنی است: «قم» و «یزد» همیشه همان استان‌اند.
-		$short   = ( $length <= 3 && 'province' !== $type );
+		// نام‌های مبهم (سه‌حرفی و کمتر، یا واژه‌های رایجِ هم‌نام مثل «بافت») فقط
+		// با قرینهٔ صریح لینک می‌شوند. نام استان‌ها فقط وقتی مبهم‌اند که در فهرست باشند
+		// («فارس»)؛ کوتاه‌بودنِ نامِ استان مانع لینک نیست چون متنِ لینک «استان X» است.
+		$ambiguous = in_array( $norm['text'], sa_autolink_ambiguous_names(), true );
+		$short     = ( $ambiguous || ( $length <= 3 && 'province' !== $type ) );
 
 		$candidate = array(
-			'type'  => (string) $type,
-			'id'    => $id,
-			'term'  => $term,
-			'label' => sa_autolink_label( $type, $name ),
-			'prio'  => (int) $prio,
-			'ctx'   => $short,
-			'name'  => $name,
+			'type'     => (string) $type,
+			'id'       => $id,
+			'term'     => $term,
+			'label'    => sa_autolink_label( $type, $name ),
+			'prio'     => (int) $prio,
+			'ctx'      => $short,
+			'name'     => $name,
+			'province' => (string) $parent,
 		);
 
 		foreach ( array_unique( array_filter( $needles ) ) as $needle ) {
@@ -529,13 +683,14 @@ function sa_autolink_build_targets() {
 			if ( empty( $posts['city'][ $county['slug'] ] ) ) {
 				continue;
 			}
-			$add( $county['name'], 'city', $posts['city'][ $county['slug'] ]['id'], 2 );
+			$parent = isset( $county['province'] ) ? (string) $county['province'] : '';
+			$add( $county['name'], 'city', $posts['city'][ $county['slug'] ]['id'], 2, 0, $parent );
 			$known_city_ids[ (int) $posts['city'][ $county['slug'] ]['id'] ] = true;
 
 			// اگر عنوان صفحه با نامِ ثبت‌شده فرق دارد، آن هم مقصد باشد.
 			$title = trim( (string) $posts['city'][ $county['slug'] ]['title'] );
 			if ( '' !== $title && ! preg_match( '~(?:استان|شهرستان)\s~u', $title ) && sa_autolink_name_ok( $title, 'city' ) ) {
-				$add( $title, 'city', $posts['city'][ $county['slug'] ]['id'], 2 );
+				$add( $title, 'city', $posts['city'][ $county['slug'] ]['id'], 2, 0, $parent );
 			}
 		}
 	}
@@ -699,10 +854,11 @@ function sa_autolink_context_kind( $subject, $offset ) {
 	if ( '' === $chunk ) {
 		return '';
 	}
-	if ( preg_match( '~(?:^|\s)استان[\s\x{200C}]+$~u', $chunk ) ) {
+	if ( preg_match( '~(?:^|[\s\x{00A0}])استان[\s\x{200C}]+$~u', $chunk ) ) {
 		return 'province';
 	}
-	if ( preg_match( '~(?:شهرستان|شهر|بخش|دهستان)[\s\x{200C}]+$~u', $chunk ) ) {
+	// مرزِ چپ لازم است؛ وگرنه «کلان‌شهر کرمان» هم «شهر کرمان» دیده می‌شود.
+	if ( preg_match( '~(?:^|[\s\x{00A0}])(?:شهرستان|شهر|بخش|دهستان)[\s\x{200C}]+$~u', $chunk ) ) {
 		return 'city';
 	}
 	return '';
@@ -746,24 +902,56 @@ function sa_autolink_fragment( $text, &$state ) {
 			continue;
 		}
 
-		$list = $state['index'][ $needle ];
-		if ( count( $list ) > 1 ) {
-			// نام مشترک (مثلاً «اصفهان» هم استان است هم شهرستان): قرینه تعیین می‌کند.
-			$kind = sa_autolink_context_kind( $subject, $begin );
-			if ( $kind ) {
-				$ordered = array();
-				foreach ( $list as $candidate ) {
-					if ( $kind === $candidate['type'] ) {
-						$ordered[] = $candidate;
-					}
+		$list        = $state['index'][ $needle ];
+		$self_needle = isset( $state['self_needles'][ $needle ] );
+		if ( $self_needle ) {
+			// نامِ خودِ صفحهٔ جاری: فقط شهرستانِ هم‌استان و فقط با قرینهٔ صریح.
+			$same = array();
+			foreach ( $list as $candidate ) {
+				if ( 'city' === $candidate['type'] && '' !== $state['current_province']
+					&& ! empty( $candidate['province'] ) && $candidate['province'] === $state['current_province'] ) {
+					$same[] = $candidate;
 				}
-				foreach ( $list as $candidate ) {
-					if ( $kind !== $candidate['type'] ) {
-						$ordered[] = $candidate;
-					}
-				}
-				$list = $ordered;
 			}
+			if ( ! $same ) {
+				continue; // کاندیدِ هم‌استانی نیست: لینک ساخته نمی‌شود.
+			}
+			$list = $same;
+		}
+		if ( isset( $state['needle_done'][ $needle ] ) ) {
+			continue; // تصمیمِ همین نام در این صفحه گرفته شده است (یک نام، یک مقصد).
+		}
+		if ( sa_autolink_has_compound_prefix( $subject, $begin ) ) {
+			continue; // «رود شاهرود» / «رشته‌کوه البرز»: نامِ یک پدیده، نه شهرستان.
+		}
+
+		$start  = isset( $map[ $begin ] ) ? (int) $map[ $begin ] : 0;
+		$finish = isset( $map[ $end ] ) ? (int) $map[ $end ] : $tlen;
+		if ( $finish <= $start ) {
+			continue;
+		}
+
+		$kind      = sa_autolink_context_kind( $subject, $begin );
+		$ctx_start = $kind ? sa_autolink_context_anchor_start( $text, $start ) : $start;
+
+		// قرینه باید در متنِ اصلی هم جدا باشد؛ «فرخ‌شهر پردیس» نباید «شهر»ِ چسبیده را
+		// قرینه ببیند (وگرنه «پردیس دانشگاهی» به شهرستان پردیس لینک می‌شد).
+		if ( $kind && ( $ctx_start >= $start || preg_match( '~[\p{L}\p{N}]$~u', substr( $text, 0, $ctx_start ) ) ) ) {
+			$kind = '';
+		}
+
+		if ( $kind ) {
+			// قرینهٔ صریح («استان X» یا «شهرستان X») نوعِ مقصد را قطعی می‌کند.
+			$matched = array();
+			foreach ( $list as $candidate ) {
+				if ( $kind === $candidate['type'] ) {
+					$matched[] = $candidate;
+				}
+			}
+			if ( ! $matched ) {
+				continue; // قرینه با هیچ کاندیدی نمی‌خواند: لینک ساخته نمی‌شود.
+			}
+			$list = $matched;
 		}
 
 		$chosen = null;
@@ -775,8 +963,8 @@ function sa_autolink_fragment( $text, &$state ) {
 			if ( $candidate['id'] && (int) $candidate['id'] === (int) $state['current_id'] ) {
 				continue; // لینک به خودِ صفحه ممنوع.
 			}
-			if ( ! empty( $candidate['ctx'] ) && ! sa_autolink_has_context( $subject, $begin ) ) {
-				continue; // نام کوتاه بدون قرینه.
+			if ( ( $self_needle || ! empty( $candidate['ctx'] ) ) && ! $kind ) {
+				continue; // نامِ مبهم/نامِ خودی بدون قرینه («بافت شهری»، «دیر یا زود»).
 			}
 			$chosen        = $candidate;
 			$chosen['key'] = $key;
@@ -792,33 +980,49 @@ function sa_autolink_fragment( $text, &$state ) {
 
 		$url = sa_autolink_target_url( $chosen );
 		if ( '' === $url ) {
-			continue;
+			$state['needle_done'][ $needle ] = true;
+			continue; // مقصدی برای لینک وجود ندارد.
 		}
 		$url_key = sa_autolink_url_key( $url );
-		if ( isset( $state['prelinked'][ $url_key ] ) || ( '' !== $state['current_key'] && $url_key === $state['current_key'] ) ) {
-			// این مقصد همین حالا در متن لینک شده است؛ لینک دوم نمی‌سازیم.
+		if ( '' !== $state['current_key'] && $url_key === $state['current_key'] ) {
+			// خودِ همین صفحه: نامش در سراسر صفحه لینک نمی‌شود و به کاندیدِ
+			// هم‌نامِ دیگر هم نمی‌رود.
+			$state['self_needles'][ $needle ] = true;
+			$state['needle_done'][ $needle ]  = true;
+			$state['used'][ $chosen['key'] ]  = true;
+			continue;
+		}
+		if ( isset( $state['prelinked'][ $url_key ] ) ) {
+			// این مقصد از قبل در متن لینک شده است؛ لینک دوم نمی‌سازیم.
+			$state['needle_done'][ $needle ] = true;
 			$state['used'][ $chosen['key'] ] = true;
 			continue;
 		}
 
-		$start  = isset( $map[ $begin ] ) ? (int) $map[ $begin ] : 0;
-		$finish = isset( $map[ $end ] ) ? (int) $map[ $end ] : $tlen;
-		if ( $finish <= $start ) {
-			continue;
+		$anchor_start = $start;
+		$anchor_text  = substr( $text, $start, $finish - $start );
+
+		if ( $kind && $ctx_start < $start && $ctx_start >= $last ) {
+			// عبارتِ قرینه هم داخل لینک می‌آید: «شهرستان بافت»، «استان گیلان».
+			$anchor_start = $ctx_start;
+			$anchor_text  = substr( $text, $ctx_start, $finish - $ctx_start );
+		} elseif ( 'attraction' !== $chosen['type'] && ! empty( $chosen['label'] ) ) {
+			// متنِ لینک همیشه نامِ کاملِ موجودیت است: «شهرستان نطنز» نه «نطنز».
+			$anchor_text = (string) $chosen['label'];
 		}
 
-		$anchor = substr( $text, $start, $finish - $start );
-		if ( false !== strpos( $anchor, '&' ) ) {
-			$anchor = html_entity_decode( $anchor, ENT_QUOTES, 'UTF-8' );
+		if ( false !== strpos( $anchor_text, '&' ) ) {
+			$anchor_text = html_entity_decode( $anchor_text, ENT_QUOTES, 'UTF-8' );
 		}
 
-		$out .= substr( $text, $last, $start - $last );
+		$out .= substr( $text, $last, $anchor_start - $last );
 		$out .= '<a class="sa-autolink sa-autolink--' . esc_attr( $chosen['type'] ) . '" href="' . esc_url( $url ) . '"'
 			. ' title="' . esc_attr( $chosen['label'] ) . '" data-sa-autolink="' . esc_attr( $chosen['type'] ) . '">'
-			. esc_html( $anchor ) . '</a>';
+			. esc_html( $anchor_text ) . '</a>';
 
-		$last                            = $finish;
-		$state['used'][ $chosen['key'] ] = true;
+		$last                             = $finish;
+		$state['used'][ $chosen['key'] ]  = true;
+		$state['needle_done'][ $needle ]  = true;
 		$state['count']++;
 	}
 
@@ -842,14 +1046,45 @@ function sa_autolink_state( $content ) {
 		'used'        => array(),
 		'count'       => 0,
 		'max'         => (int) apply_filters( 'sa_autolink_max_links', 30 ),
-		'current_id'  => (int) get_the_ID(),
-		'current_key' => '',
-		'prelinked'   => array(),
+		'current_id'   => (int) get_the_ID(),
+		'current_key'  => '',
+		'prelinked'        => array(),
+		'self_needles'     => array(),
+		'needle_done'      => array(),
+		'current_province' => '',
 	);
 
 	$current_url = $state['current_id'] ? get_permalink( $state['current_id'] ) : '';
 	if ( $current_url ) {
 		$state['current_key'] = sa_autolink_url_key( $current_url );
+	}
+
+	// استانِ صفحهٔ جاری: برای گزینشِ کاندیدِ هم‌استان وقتی نامِ خودِ صفحه می‌آید.
+	if ( $state['current_id'] ) {
+		$current_type = get_post_type( $state['current_id'] );
+		if ( 'province' === $current_type ) {
+			$state['current_province'] = (string) get_post_field( 'post_name', $state['current_id'] );
+		} elseif ( 'city' === $current_type && function_exists( 'sa_county_of_post' ) ) {
+			$county = sa_county_of_post( $state['current_id'] );
+			if ( is_array( $county ) && ! empty( $county['province'] ) ) {
+				$state['current_province'] = (string) $county['province'];
+			}
+		}
+	}
+
+	// نام‌های خودِ صفحهٔ جاری: در همین صفحه فقط کاندیدِ هم‌استان و آن هم با قرینهٔ
+	// صریح مجاز است؛ در غیر این صورت هیچ لینکی ساخته نمی‌شود و به کاندیدِ هم‌نامِ
+	// استانِ دیگر هم نمی‌رود (پیش‌تر «البرز» در صفحهٔ استان البرز به شهرستان البرزِ
+	// قزوین می‌رفت).
+	if ( $state['current_id'] ) {
+		foreach ( $state['index'] as $needle => $candidates ) {
+			foreach ( $candidates as $candidate ) {
+				if ( ! empty( $candidate['id'] ) && (int) $candidate['id'] === (int) $state['current_id'] ) {
+					$state['self_needles'][ $needle ] = true;
+					break;
+				}
+			}
+		}
 	}
 
 	// لینک‌هایی که از پیش در متن هستند: مقصدشان دیگر لینک خودکار نمی‌گیرد.

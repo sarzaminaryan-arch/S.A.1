@@ -67,7 +67,8 @@ python3 -m unittest tools/tests/test_audit_autolinks.py -v
 - `--subjects province|both|ambiguous` — فقط استان‌ها، همهٔ صفحه‌های استان/شهرستان، یا فقط صفحه‌هایی که نامشان با موجودیتِ دیگری هم‌نام است (کاندیدِ لینکِ غلط).
 - `tools/sa-tests/run-autolink-audit.php` موتورِ PHP است؛ `exec.js` آن را اجرا می‌کند. خروجیِ php-wasm حدود ۶۴KB بریده می‌شود، پس `--batch` (پیش‌فرض ۵) صفحه‌ها را دسته‌بندی می‌کند.
 - گزارش شامل: شمار لینکِ تولیدشده به تفکیک نوع، لینکِ هم‌نامِ بین‌استانی (خطای واقعی)، لینکِ خودیِ موتور (نباید رخ دهد) و پیوندهای خودارجاعِ متنِ ذخیره‌شده (کارِ تحریریه) است.
-- نمونهٔ اجراشده روی خروجی ۲۰۲۶-۱۰-۰۷: `docs/2026-10-07-autolink-render-audit-fa.md` و `docs/2026-10-07-self-links-fa.csv` (۷٬۵۰۶ لینک روی ۵۱۸ صفحه، ۲ لینکِ غلطِ هم‌نام، ۱۷۶ پیوندِ خودارجاع).
+- سنجهٔ قاعده «متنِ لینک = نامِ کامل»: ستونِ «لینکِ تولیدشده با متنِ بدونِ پیشوند» باید صفر بماند؛ اگر بزرگ‌تر از صفر شد، یعنی موتور لینکِ برهنه ساخته است.
+- نمونهٔ اجراشده روی خروجی ۲۰۲۶-۱۰-۰۷: `docs/2026-10-07-autolink-render-audit-fa.md` و `docs/2026-10-07-self-links-fa.csv` (۵۱۸ صفحه، ۶٬۶۲۱ لینکِ شهرستانی، ۰ لینکِ غلطِ خودی، ۰ متنِ بدونِ پیشوند، ۱۷۶ پیوندِ خودارجاعِ تحریریه). شرحِ قواعد و پیش/پس: `docs/2026-10-07-autolink-rules-fix-fa.md`.
 - محدودیت: شبیه‌سازی است، نه صفحهٔ زنده؛ ترم‌های تاکسونومی/صفحه‌بندی/افزونه‌ها/کش مدل نمی‌شوند. متن مقاله در گزارش چاپ نمی‌شود.
 
 ## ۲. اجرای PHP بدون نیاز به نصبِ PHP روی سیستم
@@ -112,6 +113,7 @@ node tools/phpwasm/exec.js tools/sa-tests/run-bot.php
 | `tools/sa-tests/run-social.php` | انتشار خودکار: استخراج تصویر، ساخت متن، ارسال تلگرام/اینستاگرام، شرط‌ها و زمان‌بندی، **ارسالِ انبوه** و رندرِ صفحهٔ مدیریت |
 | `tools/sa-tests/run-content-repair.php` | تعمیر مکانیکی `H1→H2`: تابع خالص (چند سربرگ/ویژگی‌ها/برچسب ناقص)، پیش‌نمایش و اعمالِ دسته‌ای، سقف دسته، capability/nonce و رندرِ بخش پیشخوان |
 | `tools/sa-tests/run-autolink-audit.php` | ممیزیِ لینک‌سازی خودکار: ساختِ واژه‌نامه از دادهٔ واقعی و اجرای موتورِ `inc/internal-links.php` روی بدنهٔ صفحه‌ها (شبیه‌سازی رندر، بدون تغییر محتوا) |
+| `tools/sa-tests/run-autolink-rules.php` | ۲۶ ادعا برای قواعدِ ضدخطایِ موتورِ لینک‌سازی: متنِ کاملِ نام، واژه‌های نامبهم («بافت شهری»)، پدیده/تقسیمِ چسبیده («رود شاهرود»، «بخش نطنز»، «کلان‌شهر کرمان»)، نامِ خودِ صفحه، یک‌بار‌بودنِ مقصد و سقفِ ۳۰ لینک |
 | `tools/sa-tests/run-health-scan.php` | اسکنِ صفحه‌بندی‌شدهٔ سلامت محتوا: کامل‌بودن اسکن (۵۴۰ سند در ۳ صفحه)، سقفِ ایمنی فیلتردار، هشدارِ بریدگی و رندرِ صفحه با/بدون سقف |
 | `tools/tests/test_audit_autolinks.py` | ممیزیِ رندرِ لینک‌سازی: یکسان‌سازی نام، شناساییِ نام‌های هم‌نام (تداخلِ واژه‌نامه)، تفکیکِ لینکِ تولیدشده از پیوندِ موجود، تشخیصِ لینکِ غلطِ بین‌استانی و پیوندِ خودارجاع، و دسته‌بندیِ اجرای php-wasm |
 | `tools/tests/test_registry_live_diff.py` | مقایسهٔ رجیستری↔WXR: یکسان‌سازی نام (ی/ک عربی، نیم‌فاصله، پیشوند «شهرستان»)، تشخیص اختلاف slug فقط برای صفحهٔ منتشرشده، تکراری‌های منتشرشده، برخورد پیش‌نویس/سطل‌زباله، آمار لینک `/city/` استان و نبودِ متن مقاله در گزارش |
@@ -132,6 +134,7 @@ node     tools/phpwasm/exec.js tools/sa-tests/run-social.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-social.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-content-repair.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-content-repair.php
+node     tools/phpwasm/exec.js tools/sa-tests/run-autolink-rules.php
 node     tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 PHP_VER=7.4 node tools/phpwasm/exec.js tools/sa-tests/run-health-scan.php
 SA_AUTOLINK_JOB=/ws/.tmp-autolink/job.json node tools/phpwasm/exec.js tools/sa-tests/run-autolink-audit.php

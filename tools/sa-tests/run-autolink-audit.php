@@ -169,7 +169,8 @@ foreach ( $job['subjects'] as $subject ) {
 		}
 	}
 
-	$links = array();
+	$links        = array();
+	$bare_anchors = 0;
 	if ( preg_match_all( '~<a\b[^>]*\shref=("|\')([^"\']+)\1[^>]*>(.*?)</a>~su', (string) $rendered, $matches, PREG_SET_ORDER ) ) {
 		foreach ( $matches as $match ) {
 			$url   = (string) $match[2];
@@ -192,11 +193,19 @@ foreach ( $job['subjects'] as $subject ) {
 			}
 			$path     = (string) preg_replace( '~^https?://[^/]+~', '', $url );
 			$was_there = isset( $prelinked[ $path ] );
+			// قاعدهٔ موتور: متنِ لینکِ تولیدشده باید نامِ کامل باشد («شهرستان/استان X»).
+			$bare = ( ! $was_there
+				&& 'attraction' !== $kind
+				&& ! preg_match( '~^(?:استان|شهرستان|شهر|بخش|دهستان)[\s\x{200C}]~u', $label ) );
+			if ( $bare ) {
+				$bare_anchors++;
+			}
 			$links[ $url ] = array(
 				'kind'      => $kind,
 				'path'      => $path,
 				'label'     => $label,
 				'generated' => ! $was_there,
+				'bare'      => $bare,
 			);
 		}
 	}
@@ -212,6 +221,7 @@ foreach ( $job['subjects'] as $subject ) {
 	}
 
 	$out['subjects'][] = array(
+		'bare_anchors' => $bare_anchors,
 		'slug'   => $slug,
 		'type'   => $type,
 		'counts' => $counts,

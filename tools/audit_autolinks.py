@@ -161,6 +161,7 @@ def analyse(result: dict, subjects_all: list[dict], registry: dict[str, int],
             'total': subject['total'],
             'registry_counties': registry.get(slug, 0),
             'cross_province': 0,
+            'bare_anchors': int(subject.get('bare_anchors', 0) or 0),
             'city_targets': [],
         }
         subject_province = page.get('province', '') or (slug if kind == 'province' else '')
@@ -210,6 +211,9 @@ def analyse(result: dict, subjects_all: list[dict], registry: dict[str, int],
         'provinces_without_city_links': sorted(r['slug'] for r in rows if r['city'] == 0),
         'distribution': dict(sorted(distribution.items())),
         'max_links_cap': result.get('max_links'),
+        # قاعدهٔ موتور: متنِ لینکِ تولیدشده نامِ کامل است («شهرستان X» / «استان X»).
+        'bare_anchors': sum(r['bare_anchors'] for r in rows),
+        'generated_city_links': sum(r['city'] + r['province'] for r in rows),
     }
     report = {'summary': summary, 'rows': rows, 'issues': issues}
     if needles:
@@ -239,6 +243,10 @@ def build_markdown(report: dict, provenance: dict | None = None) -> str:
         '| کل لینکِ شهرستانیِ تولیدشده | %d |' % summary['total_city_links'],
         '| میانهٔ لینکِ شهرستانی در هر صفحه | %d |' % summary['median_city_links'],
         '| صفحه‌های بدون لینکِ شهرستانی | %d |' % len(summary['provinces_without_city_links']),
+        '| لینکِ تولیدشده با متنِ کامل («شهرستان/استان X») | %d از %d |' % (
+            summary.get('generated_city_links', 0) - summary.get('bare_anchors', 0),
+            summary.get('generated_city_links', 0)),
+        '| لینکِ تولیدشده با متنِ بدونِ پیشوند (نباید رخ دهد) | %d |' % summary.get('bare_anchors', 0),
         '| پیوندِ خودارجاع در متنِ ذخیره‌شده | %d |' % len(report['issues'].get('authored_self_links', [])),
         '| لینکِ تولیدشدهٔ خودی (نباید رخ دهد) | %d |' % len(report['issues'].get('self_links', [])),
         '',
@@ -256,8 +264,10 @@ def build_markdown(report: dict, provenance: dict | None = None) -> str:
 
     issues = report['issues']
     head += ['## ۴. یافته‌های خطا', '',
-             'قاعدهٔ موتور این است که نامِ هر صفحه در صفحهٔ خودش لینک نمی‌شود؛ اما اگر موجودیتِ هم‌نامی وجود داشته باشد،' +
-             ' موتور به کاندیدِ بعدی می‌رود. اگر آن کاندید در استانِ دیگری باشد، نتیجه یک **لینکِ غلط** است:', '']
+             'قواعدِ موتور (نسخهٔ ۲.۱۱.۳۷): (۱) متنِ لینک همیشه نامِ کامل است — «شهرستان نطنز»، نه «نطنز»؛' +
+             ' (۲) نام‌های نامبهم و هر نامی که به پدیدهٔ دیگری چسبیده باشد («بافت شهری»، «رود شاهرود»)' +
+             ' بدون قرینهٔ صریح لینک نمی‌شوند؛ (۳) نامِ خودِ صفحه در همان صفحه لینک نمی‌شود و به کاندیدِ هم‌نامِ' +
+             ' استانِ دیگر هم نمی‌رود (به‌جز شهرستانِ هم‌استان با قرینهٔ صریح). خروجیِ زیر تخلف‌ها را فهرست می‌کند:', '']
     if issues['own_name_collisions']:
         head += ['| صفحه | واژهٔ لینک‌شده | مقصد | استانِ مقصد | استانِ صفحه |', '|---|---|---|---|---|']
         for item in issues['own_name_collisions'][:30]:
@@ -280,6 +290,12 @@ def build_markdown(report: dict, provenance: dict | None = None) -> str:
         head += ['- `%s` (`%s`) → `%s`' % (i['slug'], i['type'], i['path'])
                  for i in issues['authored_self_links'][:20]]
         head.append('')
+    if summary.get('bare_anchors', 0):
+        head += ['**لینک با متنِ بدونِ پیشوند (تخلفِ قاعدهٔ ۱):** %d مورد — ' % summary['bare_anchors'] +
+                 '، '.join('%s → `%s`' % (t['label'], t['path'])
+                           for r in report['rows'] for t in r.get('city_targets', [])
+                           if t.get('generated') and t.get('label')
+                           and not _has_type_prefix(t['label']))[:600], '']
     cross = sum(r['cross_province'] for r in report['rows'])
     head += ['**لینک به شهرستانی در استانِ دیگر (اطلاعی):** %d لینک از %d؛ این‌ها لزوماً خطا نیستند (مثلاً نامِ شهرستانِ همسایه در متن می‌آید) و فقط برای بازبینی فهرست می‌شوند.' %
              (cross, report['summary']['total_city_links']), '']
@@ -302,6 +318,12 @@ def write_self_links_csv(report: dict, path: str) -> None:
         writer.writerow(['page_slug', 'page_type', 'self_path'])
         for item in report['issues'].get('authored_self_links', []):
             writer.writerow([item['slug'], item['type'], item['path']])
+
+
+def _has_type_prefix(label: str) -> bool:
+    """آیا متنِ لینک با پیشوندِ نوعِ موجودیت آغاز می‌شود؟ («شهرستان/شهر/استان/بخش/دهستان X»)"""
+    import re
+    return bool(re.match(r'^(?:استان|شهرستان|شهر|بخش|دهستان)[\s\u200c]', (label or '').strip()))
 
 
 def _path(url: str) -> str:
