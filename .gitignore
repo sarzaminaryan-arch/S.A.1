@@ -39,3 +39,6 @@ image-search/
 # php-wasm runtime for tests (installed locally, never committed)
 tools/phpwasm/node_modules/
 tools/phpwasm/package-lock.json
+
+# Google Drive downloads used for audits (never committed)
+google_drive/
