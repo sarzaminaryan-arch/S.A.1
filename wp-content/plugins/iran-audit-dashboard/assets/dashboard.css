@@ -1,0 +1,76 @@
+.iaad-wrap { max-width: 1440px; }
+.iaad-lead { color: #596579; font-size: 14px; }
+.iaad-shell { margin-top: 18px; }
+.iaad-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 18px; border-bottom: 1px solid #dcdcde; }
+.iaad-tab { appearance: none; border: 0; border-bottom: 3px solid transparent; background: transparent; color: #2c3338; cursor: pointer; padding: 11px 16px; font-weight: 600; }
+.iaad-tab:hover, .iaad-tab:focus { color: #135e96; }
+.iaad-tab.is-active { border-bottom-color: #2271b1; color: #135e96; }
+.iaad-engine-status, .iaad-panel, .iaad-report-panel, .iaad-job-panel, .iaad-engine-missing { background: #fff; border: 1px solid #dcdcde; border-radius: 6px; padding: 16px; margin: 14px 0; }
+.iaad-engine-status-line, .iaad-job-details, .iaad-report-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.iaad-engine-status-line { color: #50575e; }
+.iaad-engine-status-line strong { color: #1d2327; }
+.iaad-content { min-height: 220px; }
+.iaad-content h2 { margin-top: 22px; }
+.iaad-cards { display: grid; grid-template-columns: repeat(4, minmax(140px, 1fr)); gap: 12px; margin: 16px 0; }
+.iaad-report-panel .iaad-cards { grid-template-columns: repeat(3, minmax(120px, 1fr)); }
+.iaad-card { display: flex; flex-direction: column; gap: 6px; min-height: 86px; justify-content: center; border: 1px solid #dcdcde; border-radius: 6px; background: #fff; padding: 12px 16px; }
+.iaad-card-label { color: #646970; font-size: 13px; }
+.iaad-card-value { font-size: 24px; line-height: 1.3; color: #1d2327; }
+.iaad-card-hint { color: #757575; }
+.iaad-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.iaad-panel h3 { margin-top: 0; }
+.iaad-table { border-collapse: collapse; margin-top: 10px; }
+.iaad-table th, .iaad-table td { vertical-align: top; }
+.iaad-table td { overflow-wrap: anywhere; }
+.iaad-posts-table { min-width: 900px; }
+.iaad-post-table, .iaad-claims-host, .iaad-rules-host { overflow-x: auto; }
+.iaad-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin: 16px 0; }
+.iaad-filters input[type="search"] { min-width: 240px; }
+.iaad-filters select { min-width: 150px; }
+.iaad-list-actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
+.iaad-pager { display: flex; align-items: center; gap: 10px; margin: 14px 0; }
+.iaad-pager span { margin-inline-end: auto; color: #646970; }
+.iaad-post-title { border: 0; background: transparent; color: #135e96; cursor: pointer; text-align: start; padding: 0; font-weight: 600; }
+.iaad-post-title:hover { text-decoration: underline; }
+.iaad-permalink { display: inline-block; margin-inline-start: 8px; font-size: 12px; }
+.iaad-badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 9px; font-size: 12px; line-height: 1.5; white-space: nowrap; background: #f0f0f1; color: #50575e; }
+.iaad-status-verified { background: #edfaef; color: #116329; }
+.iaad-status-warning { background: #fcf0d5; color: #704b00; }
+.iaad-status-issue, .iaad-status-failed { background: #fcdddd; color: #8a2424; }
+.iaad-status-insufficient, .iaad-status-unaudited, .iaad-status-pending { background: #f0f0f1; color: #50575e; }
+.iaad-status-queued, .iaad-status-running { background: #e8f2fa; color: #135e96; }
+.iaad-status-completed, .iaad-status-verified_by_human { background: #edfaef; color: #116329; }
+.iaad-status-cancelled, .iaad-status-rejected { background: #f0f0f1; color: #50575e; }
+.iaad-notice { border-inline-start: 4px solid #72aee6; background: #f0f6fc; padding: 10px 13px; margin: 10px 0; }
+.iaad-notice.warning { border-color: #dba617; background: #fcf9e8; }
+.iaad-notice.error { border-color: #d63638; background: #fcf0f1; }
+.iaad-distribution { display: grid; grid-template-columns: repeat(2, minmax(120px, 1fr)); gap: 10px; list-style: none; margin: 12px 0 0; padding: 0; }
+.iaad-distribution li { display: flex; justify-content: space-between; align-items: center; gap: 9px; }
+.iaad-job-panel progress { display: block; width: 100%; height: 12px; margin: 12px 0; }
+.iaad-report-panel { position: relative; }
+.iaad-report-head { justify-content: space-between; }
+.iaad-history-section, .iaad-historical-preview { border-top: 1px solid #dcdcde; margin-top: 16px; padding-top: 12px; }
+.iaad-diff-results { flex-basis: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.iaad-diff-group { border: 1px solid #dcdcde; border-radius: 4px; padding: 10px; }
+.iaad-diff-group p { overflow-wrap: anywhere; }
+.iaad-ranking-panel { margin-top: 16px; }
+.iaad-report-head h3 { margin: 0; }
+.iaad-report-meta { color: #646970; }
+.iaad-issue { border-top: 1px solid #eee; padding: 12px 0; }
+.iaad-issue-title { display: flex; align-items: center; gap: 9px; }
+.iaad-issue p { margin: 8px 0; }
+.iaad-suggestion { color: #135e96; }
+.iaad-human-review { color: #704b00; }
+.iaad-danger-button { color: #b32d2e !important; }
+.iaad-loading-text { color: #646970; }
+.iaad-engine-missing { max-width: 750px; border-inline-start: 4px solid #d63638; }
+@media (max-width: 900px) {
+	.iaad-columns { grid-template-columns: 1fr; }
+	.iaad-cards { grid-template-columns: repeat(2, minmax(140px, 1fr)); }
+}
+@media (max-width: 540px) {
+	.iaad-cards, .iaad-report-panel .iaad-cards { grid-template-columns: 1fr 1fr; }
+	.iaad-tabs { gap: 0; }
+	.iaad-tab { flex: 1 1 42%; text-align: center; }
+	.iaad-filters input[type="search"] { min-width: 100%; }
+}

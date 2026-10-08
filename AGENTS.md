@@ -1,7 +1,7 @@
 # AGENTS.md — lean repository rules for S.A.1
 
 1. **Delivery channel is GitHub only.** Push code to `sarzaminaryan-arch/S.A.1`, then return GitHub links. Installable ZIPs belong in GitHub Releases, not inside the repository tree.
-2. **Active code lives in `wp-content/themes/sarzaminaryan-child/`.** Parent-theme edits are allowed only when a parent fix is unavoidable.
+2. **Active code lives in `wp-content/themes/sarzaminaryan-child/`.** Parent-theme edits are allowed only when a parent fix is unavoidable. Owner-authorized exception: the standalone audit pair may live in `wp-content/plugins/iran-audit-engine/` and `wp-content/plugins/iran-audit-dashboard/`; the engine is read-only against site content and writes only to its own `{prefix}iaa_*` tables, while the dashboard consumes the engine REST API and never accesses its tables directly.
 3. Obey `data-model/MASTER_DATA_MODEL.md`; names/slugs are append-only and the publish gate remains Level 7.
 4. Use `skill-SA-agent/SKILL.md` as the operating procedure for theme work, QA and releases.
 5. Persian WordPress/fa_IR/RTL; machine dates stay Gregorian; no external CDNs/plugins.
