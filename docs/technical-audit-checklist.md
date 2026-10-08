@@ -58,10 +58,10 @@
 
 - 487 شهرستان منتشر، 4 شهرستان پیش‌نویس، 31 استان منتشر و 26 دیدنی منتشر وجود دارد؛ در 491 نوشتهٔ `city` slug تکراری پیدا نشد.
 - هر 491 شهرستان دقیقاً یک term از `province_tax` دارند و آن term با `sa_province_id` هماهنگ است. هر 487 شهرستان منتشر به استان منتشر وصل است.
-- همهٔ 26 دیدنی یک رابطهٔ شهر و استان سازگار دارند؛ 22 رابطه به شهر منتشر می‌رسد و 4 رابطه به شهر پیش‌نویس: `ali-sadr-cave-hamedan-guide → kabudarahang-city`، `golestan-national-park-guide → galikesh`، `naqsh-e-jahan-square-isfahan → isfahan` و `shahdad-kaluts-lut-desert → shahdad`.
-- registry قالب فرزند 483 slug دارد. ZIP در CHANGELOG برای `/city/ijrud/ → /city/ejrud/` تصمیم مالک را ثبت کرده و `bushehr-city` را جدا از `bushehr-county` توصیف می‌کند. وضعیت صفحهٔ منتشرشدهٔ `borazjan` و `khorramdarreh` همچنان نیازمند تصمیم/منبع است؛ تغییر داده انجام نشده است.
+- همهٔ 26 دیدنی یک رابطهٔ شهر و استان سازگار دارند؛ 22 رابطه به شهر منتشر می‌رسد و 4 رابطه به شهر پیش‌نویس: `ali-sadr-cave-hamedan-guide → kabudarahang-city`، `golestan-national-park-guide → galikesh`، `naqsh-e-jahan-square-isfahan → isfahan` و `shahdad-kaluts-lut-desert → shahdad`. مالک مقصدهای `kabutarahang`، `galikash`، `isfahan-city` و `kerman` را برای dry-run تأیید کرد؛ بازسنجی WXR نشان داد هر چهار مقصد منتشرند و استان مقصد با استان دیدنی برابر است. رابطهٔ پایگاه زنده تغییر نکرده است.
+- registry قالب فرزند 483 slug دارد؛ فیلدهای `status` آن snapshot قدیمی‌اند و برای وضعیت جاری WXR استفاده نشدند. ZIP در CHANGELOG برای `/city/ijrud/ → /city/ejrud/` تصمیم مالک را ثبت کرده و `bushehr-city` را جدا از `bushehr-county` توصیف می‌کند. مالک در 2026-10-08 تأیید کرد `borazjan` alias `dashtestan` است؛ هر دو در WXR منتشرند، اما پیاده‌سازی 301 هنوز انجام نشده. `khorramdarreh` هم در WXR منتشر است؛ چون منبع رسمی یا نگاشت تأییدشده نداریم، فعلاً خارج از registry و دست‌نخورده می‌ماند.
 - WXR دارای 19 term برای `attraction_type` در برابر 12 term مدل است؛ سه term افزوده (`family`, `recreational`, `waterfall`) به نوشته وصل‌اند و چهار term (`bazaar`, `museum`, `natural`, `sea`) در WXR استفاده نشده‌اند. `travel_budget` پنج term در برابر سه و `travel_duration` هشت term در برابر چهار term مدل دارد؛ termهای اضافی این دو taxonomy در WXR استفاده نشده‌اند. `province_tax` با 31 و `travel_season` با 4 term با مدل تطبیق دارد.
-- `inc/entities-config.php` فعلی با خروجی generator نسخهٔ 1.1 round-trip نمی‌شود: config فعلی چند فیلد اختصاصی دیدنی خارج از YAML دارد و حداقل منابع دیدنی را `0` می‌گذارد، در حالی که YAML مرجع `5` می‌گوید. generator این تفاوت‌ها را بازنویسی می‌کند؛ پیش از ساخت مجدد، مدل و رفتار باید آگاهانه هم‌راستا شوند.
+- `inc/entities-config.php` فعلی با خروجی generator نسخهٔ 1.1 round-trip نمی‌شود: config فعلی چند فیلد اختصاصی دیدنی خارج از YAML دارد و حداقل منابع دیدنی را `0` می‌گذارد، در حالی که YAML مرجع `5` می‌گوید. generator این تفاوت‌ها را بازنویسی می‌کند؛ پیش از ساخت مجدد، مدل و رفتار باید آگاهانه هم‌راستا شوند. مالک خواستار تهیهٔ پیشنهاد غیرمرجع v1.2 شد؛ جزئیات در [`model-v1.2-proposal.md`](model-v1.2-proposal.md) است.
 
 ## ۵. امنیت و تغییرات عملیاتی
 
@@ -100,7 +100,7 @@
 - [ ] **ظاهر/دسترس‌پذیری:** مرور موبایل/دسکتاپ و صفحه‌کلید ثبت شده باشد.
 - [ ] **محتوا:** فقط پس از اتمام کامل بررسی فنی/ساختاری و تأیید جداگانهٔ مالک آغاز شود.
 
-**وضعیت این اجرا:** فنی و ساختاری هنوز کامل نیست؛ PHP/WordPress زنده در دسترس نیست، دو slug شهرستانی و termهای خارج از مدل تعیین تکلیف نشده‌اند و مدل `1.2` منبع مرجع ندارد. مرحلهٔ محتوا شروع نشده است.
+**وضعیت این اجرا:** فنی و ساختاری هنوز کامل نیست؛ PHP/WordPress زنده در دسترس نیست، `khorramdarreh` و termهای خارج از مدل تعیین تکلیف نشده‌اند و مدل `1.2` هنوز مرجع canonical ندارد. پیش‌نویس غیرمرجع v1.2 آماده شده است. مرحلهٔ محتوا شروع نشده است.
 
 ## منابع رسمی و داخلی
 
