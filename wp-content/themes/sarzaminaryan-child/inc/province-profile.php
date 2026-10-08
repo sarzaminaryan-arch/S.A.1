@@ -1,6 +1,6 @@
 <?php
 /**
- * Source-aware data helpers for the province identity profile.
+ * Helpers for the concise, bilingual province identity profile.
  *
  * @package Sarzaminaryan_Child
  */
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Read the province profile dataset once per request.
+ * Read the profile dataset once per request.
  *
  * @return array
  */
@@ -34,7 +34,7 @@ function sa_province_profile_data() {
 }
 
 /**
- * Dataset-level provenance and review status.
+ * Source metadata retained with the local dataset (not printed in the profile).
  *
  * @return array
  */
@@ -44,7 +44,7 @@ function sa_province_profile_metadata() {
 }
 
 /**
- * Get the statistics and neighbour record for one province slug.
+ * Get one province's profile row.
  *
  * @param string $slug Province post slug.
  * @return array|null
@@ -59,9 +59,21 @@ function sa_province_profile( $slug ) {
 }
 
 /**
- * Province catalog indexed by the stable theme slug and Persian name.
+ * Normalize Persian names for matching source labels to the province catalog.
  *
- * @return array{by_slug:array,by_name:array}
+ * @param string $name Province or neighbour name.
+ * @return string
+ */
+function sa_province_profile_normalize_name( $name ) {
+	$name = trim( (string) $name );
+	$name = preg_replace( '/[\s\p{Z}\x{200C}]+/u', ' ', $name );
+	return trim( (string) $name );
+}
+
+/**
+ * Province catalog indexed by stable theme slug and normalized Persian name.
+ *
+ * @return array
  */
 function sa_province_profile_catalog() {
 	static $catalog = null;
@@ -81,7 +93,7 @@ function sa_province_profile_catalog() {
 			continue;
 		}
 		$slug = sanitize_key( $record['slug'] );
-		$name = trim( (string) $record['name'] );
+		$name = sa_province_profile_normalize_name( $record['name'] );
 		$catalog['by_slug'][ $slug ] = $record;
 		$catalog['by_name'][ $name ] = $slug;
 	}
@@ -90,9 +102,35 @@ function sa_province_profile_catalog() {
 }
 
 /**
- * Published province posts keyed by their real WordPress slug.
+ * Convert an ASCII county slug to a readable English name.
  *
- * A neighbour is linked only when a published post exists for its exact catalog slug.
+ * The repository's county registry uses Latin slugs but has no separate English
+ * label. This formats that existing transliteration; it does not invent a URL.
+ *
+ * @param string $slug County slug.
+ * @return string
+ */
+function sa_province_profile_english_name( $slug ) {
+	$slug = strtolower( sanitize_key( (string) $slug ) );
+	$slug = str_replace( '_', '-', $slug );
+	$slug = preg_replace( '/-(?:city|county)$/', '', $slug );
+	$parts = array_filter( explode( '-', $slug ), 'strlen' );
+	$words = array();
+	$last  = count( $parts ) - 1;
+
+	foreach ( array_values( $parts ) as $index => $part ) {
+		if ( in_array( $part, array( 'e', 'eh' ), true ) && $words && $index < $last ) {
+			$words[ count( $words ) - 1 ] .= '-' . $part;
+			continue;
+		}
+		$words[] = ucfirst( $part );
+	}
+
+	return implode( ' ', $words );
+}
+
+/**
+ * Published province posts indexed by their real WordPress slug.
  *
  * @return int[]
  */
@@ -127,9 +165,21 @@ function sa_province_profile_published_provinces() {
 }
 
 /**
- * Resolve a neighbour name to a real, published province post ID.
+ * Remove a source annotation such as "(مرز آبی)" for matching.
  *
- * @param string $place Neighbour name as written in the source document.
+ * @param string $place Source label.
+ * @return string
+ */
+function sa_province_profile_clean_place( $place ) {
+	$place = trim( (string) $place );
+	$place = preg_replace( '/\s*\([^)]*\)\s*$/u', '', $place );
+	return sa_province_profile_normalize_name( $place );
+}
+
+/**
+ * Resolve a neighbouring province to a real published WordPress page.
+ *
+ * @param string $place Neighbour label.
  * @return int|null
  */
 function sa_province_profile_neighbor_post_id( $place ) {
@@ -145,21 +195,39 @@ function sa_province_profile_neighbor_post_id( $place ) {
 }
 
 /**
- * Remove a source annotation such as "(مرز آبی)" for exact province-name matching.
+ * English label for a neighbouring province or a named international border.
  *
- * The unmodified source label is still used for display when no province post matches.
- *
- * @param string $place Source label.
+ * @param string $place Persian label.
  * @return string
  */
-function sa_province_profile_clean_place( $place ) {
-	$place = trim( (string) $place );
-	$place = preg_replace( '/\s*\([^)]*\)\s*$/u', '', $place );
-	return trim( (string) $place );
+function sa_province_profile_place_english( $place ) {
+	$place   = sa_province_profile_clean_place( $place );
+	$catalog = sa_province_profile_catalog();
+	if ( isset( $catalog['by_name'][ $place ] ) ) {
+		$slug = $catalog['by_name'][ $place ];
+		return isset( $catalog['by_slug'][ $slug ]['en'] ) ? (string) $catalog['by_slug'][ $slug ]['en'] : '';
+	}
+
+	$outside = array(
+		'ارمنستان'        => 'Armenia',
+		'افغانستان'       => 'Afghanistan',
+		'ترکمنستان'       => 'Turkmenistan',
+		'ترکیه'           => 'Turkey',
+		'جمهوری آذربایجان' => 'Azerbaijan',
+		'خلیج فارس'       => 'Persian Gulf',
+		'دریای خزر'       => 'Caspian Sea',
+		'دریای عمان'      => 'Gulf of Oman',
+		'دریای عمان / خلیج فارس' => 'Gulf of Oman / Persian Gulf',
+		'عراق'            => 'Iraq',
+		'نخجوان'          => 'Nakhchivan',
+		'پاکستان'         => 'Pakistan',
+	);
+
+	return isset( $outside[ $place ] ) ? $outside[ $place ] : '';
 }
 
 /**
- * Published county pages related to this province through the site's stored relation.
+ * Published county pages related to a province through the stored relation.
  *
  * @param int $province_id Province post ID.
  * @return WP_Post[]
@@ -176,13 +244,14 @@ function sa_province_profile_county_posts( $province_id ) {
 			$rows[] = $post;
 		}
 	}
+
 	return $rows;
 }
 
 /**
- * Reader-friendly county label, preferring a province-matched registry name.
+ * Reader-friendly county label, preferring the canonical registry name.
  *
- * @param WP_Post $post         Published county page.
+ * @param WP_Post $post         County page.
  * @param string  $province_slug Parent province slug.
  * @return string
  */
@@ -203,15 +272,70 @@ function sa_province_profile_county_label( $post, $province_slug ) {
 	}
 
 	$title = trim( get_the_title( $post ) );
-	$title = preg_replace( '/^شهرستان(?:\s|‌)+/u', '', $title );
+	$title = preg_replace( '/^(?:شهرستان[\s\p{Z}\x{200C}]+)+/u', '', $title );
 	return trim( (string) $title );
 }
 
 /**
- * Find the published county page matching the exact registered province-center name.
+ * Full province county list; only real, published related pages get links.
  *
- * @param string  $province_slug Province slug.
- * @param WP_Post[] $county_posts Published county posts already scoped to the province.
+ * @param string $province_slug Province slug.
+ * @param int       $province_id Province post ID.
+ * @param WP_Post[] $county_posts Optional published county posts already queried.
+ * @return array[]
+ */
+function sa_province_profile_county_entries( $province_slug, $province_id, $county_posts = null ) {
+	$province_slug = sanitize_key( (string) $province_slug );
+	$posts         = is_array( $county_posts ) ? $county_posts : sa_province_profile_county_posts( $province_id );
+	$posts_by_slug = array();
+	foreach ( $posts as $post ) {
+		$posts_by_slug[ sanitize_key( $post->post_name ) ] = $post;
+	}
+
+	$registered = function_exists( 'sa_counties_by_province' ) ? sa_counties_by_province() : array();
+	$rows       = isset( $registered[ $province_slug ] ) ? (array) $registered[ $province_slug ] : array();
+	$entries    = array();
+
+	foreach ( $rows as $row ) {
+		if ( empty( $row['slug'] ) ) {
+			continue;
+		}
+		$slug = sanitize_key( $row['slug'] );
+		$post = isset( $posts_by_slug[ $slug ] ) ? $posts_by_slug[ $slug ] : null;
+		$name = $post ? sa_province_profile_county_label( $post, $province_slug ) : ( isset( $row['name'] ) ? trim( (string) $row['name'] ) : '' );
+		if ( '' === $name ) {
+			$name = sa_province_profile_english_name( $slug );
+		}
+		$english = ! empty( $row['en'] ) ? (string) $row['en'] : sa_province_profile_english_name( $slug );
+		$entries[ $slug ] = array(
+			'slug'    => $slug,
+			'name'    => $name,
+			'english' => $english,
+			'url'     => $post ? (string) get_permalink( $post ) : '',
+		);
+	}
+
+	foreach ( $posts as $post ) {
+		$slug = sanitize_key( $post->post_name );
+		if ( isset( $entries[ $slug ] ) ) {
+			continue;
+		}
+		$entries[ $slug ] = array(
+			'slug'    => $slug,
+			'name'    => sa_province_profile_county_label( $post, $province_slug ),
+			'english' => sa_province_profile_english_name( $slug ),
+			'url'     => (string) get_permalink( $post ),
+		);
+	}
+
+	return array_values( $entries );
+}
+
+/**
+ * Find the published county page matching the registered province center.
+ *
+ * @param string    $province_slug Province slug.
+ * @param WP_Post[] $county_posts  Related published county pages.
  * @return WP_Post|null
  */
 function sa_province_profile_center_post( $province_slug, $county_posts ) {
@@ -220,23 +344,17 @@ function sa_province_profile_center_post( $province_slug, $county_posts ) {
 	if ( ! isset( $catalog['by_slug'][ $slug ]['center'] ) ) {
 		return null;
 	}
-	$center = trim( (string) $catalog['by_slug'][ $slug ]['center'] );
+	$center = sa_province_profile_normalize_name( $catalog['by_slug'][ $slug ]['center'] );
 
 	foreach ( (array) $county_posts as $post ) {
 		if ( ! ( $post instanceof WP_Post ) ) {
 			continue;
 		}
-
-		if ( function_exists( 'sa_county' ) ) {
-			$registry = sa_county( $post->post_name );
-			if ( $registry && isset( $registry['province'], $registry['name'] ) && $slug === $registry['province'] && $center === $registry['name'] ) {
-				return $post;
-			}
+		$registry = function_exists( 'sa_county' ) ? sa_county( $post->post_name ) : null;
+		if ( $registry && isset( $registry['province'], $registry['name'] ) && $slug === $registry['province'] && $center === sa_province_profile_normalize_name( $registry['name'] ) ) {
+			return $post;
 		}
-
-		$title = trim( get_the_title( $post ) );
-		$title = preg_replace( '/^شهرستان(?:\s|‌)+/u', '', $title );
-		if ( $center === trim( (string) $title ) ) {
+		if ( $center === sa_province_profile_normalize_name( sa_province_profile_county_label( $post, $slug ) ) ) {
 			return $post;
 		}
 	}
@@ -245,47 +363,52 @@ function sa_province_profile_center_post( $province_slug, $county_posts ) {
 }
 
 /**
- * Detect disagreements between the supplied neighbour list and the legacy theme list.
+ * English name for a province center, preferring its registered county slug.
  *
- * @param string $province_slug Province slug.
- * @param array  $profile      Supplied profile row.
- * @return array{source_only:string[],legacy_only:string[]}
+ * @param string       $province_slug Province slug.
+ * @param string       $center_name   Persian center name.
+ * @param WP_Post|null $center_post   Published center county page, if present.
+ * @return string
  */
-function sa_province_profile_neighbor_differences( $province_slug, $profile ) {
-	$legacy = function_exists( 'sa_region_province' ) ? sa_region_province( $province_slug ) : null;
-	if ( ! is_array( $legacy ) || empty( $legacy['neighbors'] ) || empty( $profile['neighbor_groups'] ) ) {
-		return array();
+function sa_province_profile_center_english( $province_slug, $center_name, $center_post = null ) {
+	if ( $center_post instanceof WP_Post ) {
+		return sa_province_profile_english_name( $center_post->post_name );
 	}
 
-	$catalog    = sa_province_profile_catalog();
-	$source_set = array();
-	$legacy_set = array();
-	foreach ( (array) $profile['neighbor_groups'] as $group ) {
-		foreach ( isset( $group['places'] ) ? (array) $group['places'] : array() as $place ) {
-			$clean = sa_province_profile_clean_place( $place );
-			if ( isset( $catalog['by_name'][ $clean ] ) ) {
-				$source_set[ $clean ] = true;
-			}
+	$province_slug = sanitize_key( (string) $province_slug );
+	$center_name   = sa_province_profile_normalize_name( $center_name );
+	$registered    = function_exists( 'sa_counties_by_province' ) ? sa_counties_by_province() : array();
+	foreach ( isset( $registered[ $province_slug ] ) ? (array) $registered[ $province_slug ] : array() as $row ) {
+		if ( isset( $row['name'], $row['slug'] ) && $center_name === sa_province_profile_normalize_name( $row['name'] ) ) {
+			return sa_province_profile_english_name( $row['slug'] );
 		}
 	}
 
-	$legacy_names = preg_split( '/[,،\r\n]+/u', (string) $legacy['neighbors'] );
-	foreach ( (array) $legacy_names as $name ) {
-		$clean = sa_province_profile_clean_place( $name );
-		if ( isset( $catalog['by_name'][ $clean ] ) ) {
-			$legacy_set[ $clean ] = true;
-		}
+	$known_centers = array(
+		'یاسوج' => 'Yasuj',
+	);
+
+	return isset( $known_centers[ $center_name ] ) ? $known_centers[ $center_name ] : '';
+}
+
+/**
+ * Display a broad, reader-friendly population estimate rather than census precision.
+ *
+ * @param int|float|string $population Population estimate.
+ * @return string
+ */
+function sa_province_profile_population_label( $population ) {
+	$population = (int) $population;
+	if ( $population < 1 ) {
+		return '';
 	}
 
-	$source_only = array_keys( array_diff_key( $source_set, $legacy_set ) );
-	$legacy_only = array_keys( array_diff_key( $legacy_set, $source_set ) );
-	sort( $source_only, SORT_STRING );
-	sort( $legacy_only, SORT_STRING );
+	$rounded = (int) round( $population / 100000 ) * 100000;
+	if ( $rounded >= 1000000 ) {
+		$millions = $rounded / 1000000;
+		$decimals = 0 === $rounded % 1000000 ? 0 : 1;
+		return 'حدود ' . sa_number( $millions, $decimals ) . ' میلیون';
+	}
 
-	return $source_only || $legacy_only
-		? array(
-			'source_only' => $source_only,
-			'legacy_only' => $legacy_only,
-		)
-		: array();
+	return 'حدود ' . sa_number( $rounded / 1000 ) . ' هزار';
 }

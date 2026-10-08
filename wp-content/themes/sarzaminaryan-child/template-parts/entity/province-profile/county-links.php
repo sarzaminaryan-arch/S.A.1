@@ -1,6 +1,6 @@
 <?php
 /**
- * Internal county links, resolved only from published WordPress pages.
+ * Bilingual county list, linked when a real published county page exists.
  *
  * @package Sarzaminaryan_Child
  */
@@ -9,57 +9,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sa_posts          = isset( $args['county_posts'] ) && is_array( $args['county_posts'] ) ? $args['county_posts'] : array();
-$sa_profile        = isset( $args['profile'] ) && is_array( $args['profile'] ) ? $args['profile'] : array();
-$sa_stats          = isset( $args['stats'] ) && is_array( $args['stats'] ) ? $args['stats'] : array();
-$sa_slug           = isset( $args['slug'] ) ? (string) $args['slug'] : '';
-$sa_map_year       = isset( $sa_profile['map_year'] ) ? (int) $sa_profile['map_year'] : 0;
-$sa_page_count     = count( $sa_posts );
-$sa_map_count      = isset( $sa_stats['county_count'] ) ? (int) $sa_stats['county_count'] : null;
-$sa_province_title = isset( $args['post_id'] ) ? get_the_title( (int) $args['post_id'] ) : '';
+$sa_entries = isset( $args['county_entries'] ) && is_array( $args['county_entries'] ) ? $args['county_entries'] : array();
+$sa_count   = count( $sa_entries );
 ?>
 <section class="sa-province-profile__module sa-province-profile__module--counties" aria-labelledby="sa-province-profile-counties-title">
 	<div class="sa-province-profile__module-heading">
 		<div>
-			<h3 id="sa-province-profile-counties-title"><?php esc_html_e( 'فهرست پیونددار شهرستان‌ها', 'sarzaminaryan-child' ); ?></h3>
-			<p><?php esc_html_e( 'هر پیوند از صفحهٔ منتشرشدهٔ همین سایت گرفته می‌شود؛ برای مقصد ناموجود، لینک حدسی ساخته نمی‌شود.', 'sarzaminaryan-child' ); ?></p>
+			<p class="sa-province-profile__section-kicker" lang="en" dir="ltr">COUNTY LIST</p>
+			<h3 class="sa-province-profile__section-title" id="sa-province-profile-counties-title"><?php esc_html_e( 'شهرستان‌های استان', 'sarzaminaryan-child' ); ?></h3>
 		</div>
-		<span class="sa-province-profile__count-badge"><?php echo esc_html( sa_fa_digits( (string) $sa_page_count ) ); ?> <?php esc_html_e( 'صفحهٔ منتشرشده', 'sarzaminaryan-child' ); ?></span>
+		<span class="sa-province-profile__count-badge"><?php echo esc_html( sa_fa_digits( (string) $sa_count ) ); ?> <?php esc_html_e( 'شهرستان', 'sarzaminaryan-child' ); ?></span>
 	</div>
 
-	<?php if ( $sa_posts ) : ?>
+	<?php if ( $sa_entries ) : ?>
 		<details class="sa-province-profile__county-details" open>
-			<summary><?php echo esc_html( sprintf( __( 'مشاهدهٔ شهرستان‌های دارای صفحه (%s)', 'sarzaminaryan-child' ), sa_fa_digits( (string) $sa_page_count ) ) ); ?></summary>
-			<nav aria-label="<?php echo esc_attr( sprintf( __( 'صفحه‌های شهرستان استان %s', 'sarzaminaryan-child' ), $sa_province_title ) ); ?>">
+			<summary><?php esc_html_e( 'نمایش فهرست شهرستان‌ها', 'sarzaminaryan-child' ); ?></summary>
+			<nav aria-label="<?php esc_attr_e( 'فهرست دوزبانهٔ شهرستان‌های استان', 'sarzaminaryan-child' ); ?>">
 				<ul class="sa-province-profile__county-list">
-					<?php foreach ( $sa_posts as $sa_post ) : ?>
+					<?php foreach ( $sa_entries as $sa_entry ) : ?>
 						<?php
-						$sa_label = sa_province_profile_county_label( $sa_post, $sa_slug );
-						if ( '' === $sa_label ) {
+						$sa_name    = isset( $sa_entry['name'] ) ? (string) $sa_entry['name'] : '';
+						$sa_english = isset( $sa_entry['english'] ) ? (string) $sa_entry['english'] : '';
+						$sa_url     = isset( $sa_entry['url'] ) ? (string) $sa_entry['url'] : '';
+						if ( '' === $sa_name && '' === $sa_english ) {
 							continue;
 					}
 						?>
-						<li><a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>"><?php echo esc_html( $sa_label ); ?></a></li>
+						<li>
+							<?php if ( $sa_url ) : ?>
+								<a class="sa-province-profile__county-label" href="<?php echo esc_url( $sa_url ); ?>">
+							<?php else : ?>
+								<span class="sa-province-profile__county-label sa-province-profile__county-label--plain">
+							<?php endif; ?>
+								<span class="sa-province-profile__county-name"><?php echo esc_html( $sa_name ); ?></span>
+								<?php if ( $sa_english ) : ?><small class="sa-province-profile__county-en" lang="en" dir="ltr"><?php echo esc_html( $sa_english ); ?></small><?php endif; ?>
+							<?php if ( $sa_url ) : ?>
+								</a>
+							<?php else : ?>
+								</span>
+							<?php endif; ?>
+						</li>
 					<?php endforeach; ?>
 				</ul>
 			</nav>
 		</details>
-	<?php else : ?>
-		<p class="sa-province-profile__empty"><?php esc_html_e( 'در حال حاضر صفحهٔ شهرستانِ منتشرشده‌ای برای پیوند دادن در این استان پیدا نشد.', 'sarzaminaryan-child' ); ?></p>
-	<?php endif; ?>
-
-	<?php if ( null !== $sa_map_count && $sa_page_count !== $sa_map_count ) : ?>
-		<p class="sa-province-profile__review" role="note">
-			<?php
-			echo esc_html(
-				sprintf(
-					__( 'عددِ فایل آماری برای نقشهٔ %1$s: %2$s شهرستان؛ تعداد صفحه‌های منتشرشدهٔ سایت: %3$s. اختلاف این دو شمارش هنوز تطبیق داده نشده است.', 'sarzaminaryan-child' ),
-					sa_fa_digits( (string) $sa_map_year ),
-					sa_fa_digits( (string) $sa_map_count ),
-					sa_fa_digits( (string) $sa_page_count )
-				)
-			);
-			?>
-		</p>
 	<?php endif; ?>
 </section>

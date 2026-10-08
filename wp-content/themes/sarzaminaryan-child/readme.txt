@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.11.45
+Stable tag: 2.11.46
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,12 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.11.46 — 2026-10-08 =
+* کارت شناسنامهٔ استان ساده و سفرمحور شد؛ هشدارهای اختلاف، پیام‌های بررسی و شمارهای ریزِ سرشماری از صفحه حذف شدند.
+* جمعیت از فهرست برآورد موجود می‌آید و در نمایش به نزدیک‌ترین ۱۰۰ هزار گرد می‌شود.
+* فهرست شهرستان‌ها کامل و دوزبانه است؛ پیوند فقط به صفحهٔ واقعیِ منتشرشده می‌رود. نام انگلیسی استان و همسایه‌ها نیز نمایش داده می‌شود.
+* حاشیهٔ سرمه‌ایِ پررنگ دور کارت و حاشیه‌های واضح داخل آن افزوده شد.
 
 = 2.11.45 — 2026-10-08 =
 * شناسنامهٔ ماژولار و منبع‌دارِ هر ۳۱ استان با نمایش سال/وضعیت راستی‌آزماییِ شاخص‌ها.

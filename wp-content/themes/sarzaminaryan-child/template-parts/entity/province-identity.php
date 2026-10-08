@@ -1,9 +1,6 @@
 <?php
 /**
- * Source-aware, modular identity card for all published province pages.
- *
- * Modules can be removed or reordered with the `sa_province_identity_modules`
- * filter. Each section lives in its own template part so later edits stay local.
+ * Compact, bilingual visitor-facing profile for a province page.
  *
  * @package Sarzaminaryan_Child
  */
@@ -12,59 +9,57 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sa_id                = get_the_ID();
-$sa_slug              = sanitize_key( get_post_field( 'post_name', $sa_id ) );
-$sa_profile           = sa_province_profile( $sa_slug );
-$sa_meta              = sa_province_profile_metadata();
-$sa_stats             = isset( $sa_profile['stats'] ) && is_array( $sa_profile['stats'] ) ? $sa_profile['stats'] : array();
-$sa_counties          = sa_province_profile_county_posts( $sa_id );
-$sa_catalog           = sa_province_profile_catalog();
-$sa_center            = isset( $sa_catalog['by_slug'][ $sa_slug ]['center'] ) ? (string) $sa_catalog['by_slug'][ $sa_slug ]['center'] : '';
-$sa_center_post       = $sa_center ? sa_province_profile_center_post( $sa_slug, $sa_counties ) : null;
-$sa_geo_baseline      = function_exists( 'sa_region_province' ) ? sa_region_province( $sa_slug ) : null;
-$sa_geo               = $sa_geo_baseline;
-if ( function_exists( 'sa_region_map_enabled' ) && ! sa_region_map_enabled() ) {
-	$sa_geo = null;
-}
-$sa_page_area         = get_post_meta( $sa_id, 'sa_province_area', true );
-$sa_page_climate      = get_post_meta( $sa_id, 'sa_province_climate', true );
-$sa_neighbors_diff    = sa_province_profile_neighbor_differences( $sa_slug, $sa_profile );
-$sa_page_population   = get_post_meta( $sa_id, 'sa_province_population', true );
-$sa_legacy_population = isset( $sa_stats['population'] ) && is_numeric( $sa_page_population ) && (int) $sa_page_population !== (int) $sa_stats['population']
-	? (int) $sa_page_population
-	: null;
-
+$sa_id      = get_the_ID();
+$sa_slug    = sanitize_key( get_post_field( 'post_name', $sa_id ) );
+$sa_profile = sa_province_profile( $sa_slug );
 if ( ! $sa_profile ) {
 	return;
 }
 
+$sa_catalog         = sa_province_profile_catalog();
+$sa_province_record = isset( $sa_catalog['by_slug'][ $sa_slug ] ) ? $sa_catalog['by_slug'][ $sa_slug ] : array();
+$sa_name            = isset( $sa_profile['name'] ) ? (string) $sa_profile['name'] : get_the_title( $sa_id );
+$sa_name_en         = isset( $sa_province_record['en'] ) ? (string) $sa_province_record['en'] : sa_province_profile_english_name( $sa_slug );
+$sa_county_posts    = sa_province_profile_county_posts( $sa_id );
+$sa_county_entries  = sa_province_profile_county_entries( $sa_slug, $sa_id, $sa_county_posts );
+$sa_center          = isset( $sa_province_record['center'] ) ? (string) $sa_province_record['center'] : '';
+$sa_center_post     = $sa_center ? sa_province_profile_center_post( $sa_slug, $sa_county_posts ) : null;
+$sa_center_en       = $sa_center ? sa_province_profile_center_english( $sa_slug, $sa_center, $sa_center_post ) : '';
+$sa_geo             = function_exists( 'sa_region_province' ) ? sa_region_province( $sa_slug ) : array();
+$sa_page_area       = get_post_meta( $sa_id, 'sa_province_area', true );
+$sa_page_climate    = trim( (string) get_post_meta( $sa_id, 'sa_province_climate', true ) );
+$sa_area            = is_numeric( $sa_page_area ) && (float) $sa_page_area > 0
+	? (float) $sa_page_area
+	: ( isset( $sa_geo['area'] ) && is_numeric( $sa_geo['area'] ) ? (float) $sa_geo['area'] : null );
+$sa_climate         = '' !== $sa_page_climate
+	? $sa_page_climate
+	: ( isset( $sa_geo['climate'] ) ? trim( (string) $sa_geo['climate'] ) : '' );
+$sa_stats           = isset( $sa_profile['stats'] ) && is_array( $sa_profile['stats'] ) ? $sa_profile['stats'] : array();
+
 $sa_context = array(
-	'post_id'             => $sa_id,
-	'slug'                => $sa_slug,
-	'profile'             => $sa_profile,
-	'metadata'            => $sa_meta,
-	'stats'               => $sa_stats,
-	'county_posts'        => $sa_counties,
-	'center_name'         => $sa_center,
-	'center_post'         => $sa_center_post,
-	'geo'                 => $sa_geo,
-	'geo_baseline'        => $sa_geo_baseline,
-	'page_area'           => $sa_page_area,
-	'page_climate'        => $sa_page_climate,
-	'neighbor_differences' => $sa_neighbors_diff,
-	'legacy_population'   => $sa_legacy_population,
+	'post_id'        => $sa_id,
+	'slug'           => $sa_slug,
+	'profile'        => $sa_profile,
+	'stats'          => $sa_stats,
+	'province_name'  => $sa_name,
+	'province_english' => $sa_name_en,
+	'county_entries' => $sa_county_entries,
+	'center_name'    => $sa_center,
+	'center_english' => $sa_center_en,
+	'center_post'    => $sa_center_post,
+	'area'           => $sa_area,
+	'climate'        => $sa_climate,
 );
-$sa_default_modules = array( 'stats', 'geography', 'county-links', 'sources' );
+$sa_default_modules = array( 'stats', 'geography', 'county-links' );
 $sa_modules         = apply_filters( 'sa_province_identity_modules', $sa_default_modules, $sa_id, $sa_profile );
 ?>
 <section class="sa-province-profile" id="province-profile" aria-labelledby="sa-province-profile-title">
 	<header class="sa-province-profile__header">
 		<div>
-			<p class="sa-province-profile__eyebrow"><?php esc_html_e( 'نمای کلی جغرافیایی و آماری', 'sarzaminaryan-child' ); ?></p>
-			<h2 class="sa-province-profile__title" id="sa-province-profile-title"><?php esc_html_e( 'شناسنامهٔ استان', 'sarzaminaryan-child' ); ?></h2>
-			<p class="sa-province-profile__intro"><?php esc_html_e( 'آمار تقسیماتی، اطلاعات پایه و پیوندهای شهرستانی در یک بخش مستقل و قابل‌به‌روزرسانی.', 'sarzaminaryan-child' ); ?></p>
+			<p class="sa-province-profile__eyebrow"><?php esc_html_e( 'شناسنامهٔ استان', 'sarzaminaryan-child' ); ?> <span lang="en">PROVINCE PROFILE</span></p>
+			<h2 class="sa-province-profile__title" id="sa-province-profile-title"><?php echo esc_html( $sa_name ); ?></h2>
+			<p class="sa-province-profile__english" lang="en" dir="ltr"><?php echo esc_html( $sa_name_en . ' Province' ); ?></p>
 		</div>
-		<span class="sa-province-profile__status"><?php esc_html_e( 'منبع ورودی در انتظار بازبینی', 'sarzaminaryan-child' ); ?></span>
 	</header>
 
 	<?php

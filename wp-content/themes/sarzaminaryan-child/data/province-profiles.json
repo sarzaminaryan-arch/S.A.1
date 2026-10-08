@@ -12,7 +12,9 @@
     "household_year": 1395,
     "recorded_per_province_source_notes": 16,
     "province_record_count": 31,
-    "area_and_climate_note": "Not supplied in the two province-statistics files. The theme already contains these values in data/region-facts.php; its header attributes them to regions.json / Iran Map v0.8.0 but gives no dated, field-level source. The UI marks those values for review."
+    "area_and_climate_note": "Area and climate are drawn from the theme’s existing data/region-facts.php and displayed as concise approximate visitor facts without discrepancy notices.",
+    "population_estimate_document": "Google Drive: جمعیت استانها.md",
+    "population_estimate_note": "Rounded province-level estimate supplied for visitor-facing scale; the page rounds this again to 100,000-person increments and does not show census-level precision."
   },
   "provinces": {
     "yazd": {
@@ -32,7 +34,8 @@
         "city_count": 24,
         "settlement_count": 4774,
         "household_count": 340657,
-        "population": 1138533
+        "population": 1138533,
+        "population_estimate": 1314000
       },
       "neighbor_groups": [
         {
@@ -78,7 +81,8 @@
         "city_count": 34,
         "settlement_count": 1456,
         "household_count": 455866,
-        "population": 1429475
+        "population": 1429475,
+        "population_estimate": 1472000
       },
       "neighbor_groups": [
         {
@@ -130,7 +134,8 @@
         "city_count": 56,
         "settlement_count": 2931,
         "household_count": 851382,
-        "population": 2530696
+        "population": 2530696,
+        "population_estimate": 2569000
       },
       "neighbor_groups": [
         {
@@ -182,7 +187,8 @@
         "city_count": 33,
         "settlement_count": 3521,
         "household_count": 509025,
-        "population": 1760649
+        "population": 1760649,
+        "population_estimate": 1792000
       },
       "neighbor_groups": [
         {
@@ -231,7 +237,8 @@
         "city_count": 35,
         "settlement_count": 3150,
         "household_count": 576861,
-        "population": 1952434
+        "population": 1952434,
+        "population_estimate": 1999000
       },
       "neighbor_groups": [
         {
@@ -283,7 +290,8 @@
         "city_count": 21,
         "settlement_count": 2355,
         "household_count": 186320,
-        "population": 713052
+        "population": 713052,
+        "population_estimate": 759000
       },
       "neighbor_groups": [
         {
@@ -335,7 +343,8 @@
         "city_count": 33,
         "settlement_count": 1086,
         "household_count": 550249,
-        "population": 1868819
+        "population": 1868819,
+        "population_estimate": 2016000
       },
       "neighbor_groups": [
         {
@@ -387,7 +396,8 @@
         "city_count": 7,
         "settlement_count": 360,
         "household_count": 378923,
-        "population": 1292283
+        "population": 1292283,
+        "population_estimate": 1454000
       },
       "neighbor_groups": [
         {
@@ -433,7 +443,8 @@
         "city_count": 55,
         "settlement_count": 10672,
         "household_count": 704888,
-        "population": 2775014
+        "population": 2775014,
+        "population_estimate": 3280000
       },
       "neighbor_groups": [
         {
@@ -481,7 +492,8 @@
         "city_count": 114,
         "settlement_count": 8582,
         "household_count": 1443073,
-        "population": 4851274
+        "population": 4851274,
+        "population_estimate": 5136000
       },
       "neighbor_groups": [
         {
@@ -539,7 +551,8 @@
         "city_count": 80,
         "settlement_count": 6225,
         "household_count": 1268750,
-        "population": 4710509
+        "population": 4710509,
+        "population_estimate": 5115000
       },
       "neighbor_groups": [
         {
@@ -586,7 +599,8 @@
         "city_count": 21,
         "settlement_count": 1212,
         "household_count": 328983,
-        "population": 1057611
+        "population": 1057611,
+        "population_estimate": 1119000
       },
       "neighbor_groups": [
         {
@@ -636,7 +650,8 @@
         "city_count": 24,
         "settlement_count": 1108,
         "household_count": 241582,
-        "population": 863092
+        "population": 863092,
+        "population_estimate": 875000
       },
       "neighbor_groups": [
         {
@@ -679,7 +694,8 @@
         "city_count": 49,
         "settlement_count": 1051,
         "household_count": 4748863,
-        "population": 13267637
+        "population": 13267637,
+        "population_estimate": 14425000
       },
       "neighbor_groups": [
         {
@@ -734,7 +750,8 @@
         "city_count": 18,
         "settlement_count": 490,
         "household_count": 861266,
-        "population": 2712400
+        "population": 2712400,
+        "population_estimate": 3028000
       },
       "neighbor_groups": [
         {
@@ -777,7 +794,8 @@
         "city_count": 28,
         "settlement_count": 1185,
         "household_count": 159370,
-        "population": 580158
+        "population": 580158,
+        "population_estimate": 597000
       },
       "neighbor_groups": [
         {
@@ -823,7 +841,8 @@
         "city_count": 21,
         "settlement_count": 2289,
         "household_count": 215571,
-        "population": 702360
+        "population": 702360,
+        "population_estimate": 787000
       },
       "neighbor_groups": [
         {
@@ -871,7 +890,8 @@
         "city_count": 96,
         "settlement_count": 7345,
         "household_count": 1938703,
-        "population": 6434501
+        "population": 6434501,
+        "population_estimate": 7109000
       },
       "neighbor_groups": [
         {
@@ -915,7 +935,8 @@
         "city_count": 41,
         "settlement_count": 877,
         "household_count": 321826,
-        "population": 1163400
+        "population": 1163400,
+        "population_estimate": 1277000
       },
       "neighbor_groups": [
         {
@@ -954,7 +975,8 @@
         "city_count": 31,
         "settlement_count": 3589,
         "household_count": 223984,
-        "population": 768898
+        "population": 768898,
+        "population_estimate": 845000
       },
       "neighbor_groups": [
         {
@@ -995,7 +1017,8 @@
         "city_count": 43,
         "settlement_count": 1027,
         "household_count": 270434,
-        "population": 947763
+        "population": 947763,
+        "population_estimate": 997000
       },
       "neighbor_groups": [
         {
@@ -1032,7 +1055,8 @@
         "city_count": 114,
         "settlement_count": 3721,
         "household_count": 1607482,
-        "population": 5120850
+        "population": 5120850,
+        "population_estimate": 5429000
       },
       "neighbor_groups": [
         {
@@ -1080,7 +1104,8 @@
         "city_count": 73,
         "settlement_count": 3060,
         "household_count": 1223028,
-        "population": 3909652
+        "population": 3909652,
+        "population_estimate": 3924000
       },
       "neighbor_groups": [
         {
@@ -1125,7 +1150,8 @@
         "city_count": 64,
         "settlement_count": 3602,
         "household_count": 1084798,
-        "population": 3283582
+        "population": 3283582,
+        "population_estimate": 3415000
       },
       "neighbor_groups": [
         {
@@ -1170,7 +1196,8 @@
         "city_count": 33,
         "settlement_count": 1886,
         "household_count": 471310,
-        "population": 1603011
+        "population": 1603011,
+        "population_estimate": 1689000
       },
       "neighbor_groups": [
         {
@@ -1214,7 +1241,8 @@
         "city_count": 34,
         "settlement_count": 1201,
         "household_count": 538803,
-        "population": 1738234
+        "population": 1738234,
+        "population_estimate": 1769000
       },
       "neighbor_groups": [
         {
@@ -1262,7 +1290,8 @@
         "city_count": 28,
         "settlement_count": 1151,
         "household_count": 397165,
-        "population": 1273761
+        "population": 1273761,
+        "population_estimate": 1344000
       },
       "neighbor_groups": [
         {
@@ -1311,7 +1340,8 @@
         "city_count": 48,
         "settlement_count": 3656,
         "household_count": 935956,
-        "population": 3265219
+        "population": 3265219,
+        "population_estimate": 3529000
       },
       "neighbor_groups": [
         {
@@ -1361,7 +1391,8 @@
         "city_count": 85,
         "settlement_count": 11798,
         "household_count": 932721,
-        "population": 3164718
+        "population": 3164718,
+        "population_estimate": 3313000
       },
       "neighbor_groups": [
         {
@@ -1409,7 +1440,8 @@
         "city_count": 52,
         "settlement_count": 2262,
         "household_count": 493660,
-        "population": 1776415
+        "population": 1776415,
+        "population_estimate": 2018000
       },
       "neighbor_groups": [
         {
@@ -1458,7 +1490,8 @@
         "city_count": 30,
         "settlement_count": 1655,
         "household_count": 374737,
-        "population": 1270420
+        "population": 1270420,
+        "population_estimate": 1299000
       },
       "neighbor_groups": [
         {
