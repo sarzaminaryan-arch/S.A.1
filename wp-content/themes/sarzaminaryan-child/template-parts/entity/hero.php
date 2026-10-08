@@ -31,19 +31,6 @@ if ( 'city' === $sa_type && $sa_province ) {
 			<?php the_post_thumbnail( 'full', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'class' => 'sa-entity__hero-img' ) ); ?>
 		</figure>
 	<?php endif; ?>
-	<?php if ( 'province' === $sa_type ) : ?>
-		<?php $sa_province_cities = sa_get_children( $sa_id, 'city' ); ?>
-		<?php if ( $sa_province_cities ) : ?>
-			<nav class="sa-province-city-pills" aria-label="<?php echo esc_attr( 'شهرستان‌های ' . get_the_title() ); ?>">
-				<div class="container sa-province-city-pills__inner">
-					<span class="sa-province-city-pills__label"><?php esc_html_e( 'شهرستان‌ها', 'sarzaminaryan-child' ); ?></span>
-					<?php foreach ( $sa_province_cities as $sa_city_item ) : ?>
-						<a class="sa-province-city-pills__link" href="<?php echo esc_url( get_permalink( $sa_city_item ) ); ?>"><?php echo esc_html( get_the_title( $sa_city_item ) ); ?></a>
-					<?php endforeach; ?>
-				</div>
-			</nav>
-		<?php endif; ?>
-	<?php endif; ?>
 	<div class="container sa-entity__hero-text">
 		<p class="sa-entity__kicker"><?php echo esc_html( $sa_kicker ); ?></p>
 		<h1 class="entry-title sa-entity__title"><?php the_title(); ?></h1>

@@ -1,0 +1,1491 @@
+{
+  "_meta": {
+    "schema": "sa-province-profile/1",
+    "input_document": "Google Drive: امار استانها تقسیمات کشوری.md",
+    "input_document_secondary": "Google Drive: لیست امار کامل استانها با جمعیت 1403",
+    "input_read_date": "2026-10-08",
+    "map_source_as_stated": "دفتر نقشه و اطلاعات مکانی؛ www.amar.org.ir",
+    "map_source_index_url": "https://amar.org.ir/map-province",
+    "source_verification": "pending_direct_human_verification",
+    "source_note": "The supplied documents say the division counts and boundaries come from maps for 1402 or 1403, varying by province. Population and household values are explicitly marked 1395 in every province record. The official map payload could not be independently retrieved during this implementation; source values are therefore not labelled as the latest official statistics.",
+    "population_year": 1395,
+    "household_year": 1395,
+    "recorded_per_province_source_notes": 16,
+    "province_record_count": 31,
+    "area_and_climate_note": "Not supplied in the two province-statistics files. The theme already contains these values in data/region-facts.php; its header attributes them to regions.json / Iran Map v0.8.0 but gives no dated, field-level source. The UI marks those values for review."
+  },
+  "provinces": {
+    "yazd": {
+      "name": "یزد",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 12,
+        "district_count": 25,
+        "rural_district_count": 51,
+        "city_count": 24,
+        "settlement_count": 4774,
+        "household_count": 340657,
+        "population": 1138533
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال و شمال غربی",
+          "places": [
+            "اصفهان"
+          ]
+        },
+        {
+          "direction": "شمال شرقی",
+          "places": [
+            "خراسان جنوبی"
+          ]
+        },
+        {
+          "direction": "شرق و جنوب شرقی",
+          "places": [
+            "کرمان"
+          ]
+        },
+        {
+          "direction": "جنوب و جنوب غربی",
+          "places": [
+            "فارس"
+          ]
+        }
+      ]
+    },
+    "markazi": {
+      "name": "مرکزی",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 12,
+        "district_count": 24,
+        "rural_district_count": 67,
+        "city_count": 34,
+        "settlement_count": 1456,
+        "household_count": 455866,
+        "population": 1429475
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال غربی",
+          "places": [
+            "قزوین"
+          ]
+        },
+        {
+          "direction": "شمال و شمال شرقی",
+          "places": [
+            "تهران"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "همدان"
+          ]
+        },
+        {
+          "direction": "جنوب غربی",
+          "places": [
+            "لرستان"
+          ]
+        },
+        {
+          "direction": "جنوب و جنوب شرقی",
+          "places": [
+            "اصفهان"
+          ]
+        }
+      ]
+    },
+    "gilan": {
+      "name": "گیلان",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 17,
+        "district_count": 46,
+        "rural_district_count": 113,
+        "city_count": 56,
+        "settlement_count": 2931,
+        "household_count": 851382,
+        "population": 2530696
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "دریای خزر (مرز آبی)"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "اردبیل"
+          ]
+        },
+        {
+          "direction": "جنوب غربی",
+          "places": [
+            "زنجان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "قزوین"
+          ]
+        },
+        {
+          "direction": "جنوب شرقی",
+          "places": [
+            "مازندران"
+          ]
+        }
+      ]
+    },
+    "lorestan": {
+      "name": "لرستان",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 12,
+        "district_count": 36,
+        "rural_district_count": 90,
+        "city_count": 33,
+        "settlement_count": 3521,
+        "household_count": 509025,
+        "population": 1760649
+      },
+      "neighbor_groups": [
+        {
+          "direction": "غرب",
+          "places": [
+            "کرمانشاه",
+            "ایلام"
+          ]
+        },
+        {
+          "direction": "شمال",
+          "places": [
+            "همدان",
+            "مرکزی"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "اصفهان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "خوزستان",
+            "چهارمحال و بختیاری"
+          ]
+        }
+      ]
+    },
+    "kermanshah": {
+      "name": "کرمانشاه",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 14,
+        "district_count": 34,
+        "rural_district_count": 87,
+        "city_count": 35,
+        "settlement_count": 3150,
+        "household_count": 576861,
+        "population": 1952434
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "کردستان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "همدان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "لرستان"
+          ]
+        },
+        {
+          "direction": "غرب و جنوب غربی",
+          "places": [
+            "ایلام"
+          ]
+        },
+        {
+          "direction": "غرب (مرز بین‌المللی)",
+          "places": [
+            "عراق"
+          ]
+        }
+      ]
+    },
+    "kohgiluyeh-boyer-ahmad": {
+      "name": "کهگیلویه و بویراحمد",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 9,
+        "district_count": 22,
+        "rural_district_count": 50,
+        "city_count": 21,
+        "settlement_count": 2355,
+        "household_count": 186320,
+        "population": 713052
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "چهارمحال و بختیاری"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "اصفهان"
+          ]
+        },
+        {
+          "direction": "جنوب و جنوب شرقی",
+          "places": [
+            "فارس"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "خوزستان"
+          ]
+        },
+        {
+          "direction": "جنوب غربی",
+          "places": [
+            "بوشهر"
+          ]
+        }
+      ]
+    },
+    "golestan": {
+      "name": "گلستان",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 14,
+        "district_count": 27,
+        "rural_district_count": 60,
+        "city_count": 33,
+        "settlement_count": 1086,
+        "household_count": 550249,
+        "population": 1868819
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "ترکمنستان (مرز بین‌المللی)"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "دریای خزر (مرز آبی)"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "سمنان"
+          ]
+        },
+        {
+          "direction": "جنوب شرقی",
+          "places": [
+            "خراسان شمالی"
+          ]
+        },
+        {
+          "direction": "جنوب غربی",
+          "places": [
+            "مازندران"
+          ]
+        }
+      ]
+    },
+    "qom": {
+      "name": "قم",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 3,
+        "district_count": 7,
+        "rural_district_count": 13,
+        "city_count": 7,
+        "settlement_count": 360,
+        "household_count": 378923,
+        "population": 1292283
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "تهران"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "مرکزی"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "اصفهان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "سمنان"
+          ]
+        }
+      ]
+    },
+    "sistan-baluchestan": {
+      "name": "سیستان و بلوچستان",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 26,
+        "district_count": 64,
+        "rural_district_count": 164,
+        "city_count": 55,
+        "settlement_count": 10672,
+        "household_count": 704888,
+        "population": 2775014
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "خراسان جنوبی"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "کرمان",
+            "هرمزگان"
+          ]
+        },
+        {
+          "direction": "شرق (مرز بین‌المللی)",
+          "places": [
+            "پاکستان",
+            "افغانستان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "دریای عمان (مرز آبی)"
+          ]
+        }
+      ]
+    },
+    "fars": {
+      "name": "فارس",
+      "map_year": 1402,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 37,
+        "district_count": 97,
+        "rural_district_count": 232,
+        "city_count": 114,
+        "settlement_count": 8582,
+        "household_count": 1443073,
+        "population": 4851274
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "اصفهان",
+            "یزد"
+          ]
+        },
+        {
+          "direction": "شمال شرقی",
+          "places": [
+            "خراسان جنوبی (محدود)"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "کرمان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "هرمزگان",
+            "خلیج فارس (مرز آبی)"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "بوشهر",
+            "کهگیلویه و بویراحمد"
+          ]
+        },
+        {
+          "direction": "شمال غربی",
+          "places": [
+            "چهارمحال و بختیاری"
+          ]
+        }
+      ]
+    },
+    "khuzestan": {
+      "name": "خوزستان",
+      "map_year": 1402,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 30,
+        "district_count": 71,
+        "rural_district_count": 169,
+        "city_count": 80,
+        "settlement_count": 6225,
+        "household_count": 1268750,
+        "population": 4710509
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "لرستان",
+            "ایلام"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "چهارمحال و بختیاری",
+            "کهگیلویه و بویراحمد",
+            "فارس",
+            "بوشهر"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "خلیج فارس (مرز آبی)"
+          ]
+        },
+        {
+          "direction": "غرب (مرز بین‌المللی)",
+          "places": [
+            "عراق"
+          ]
+        }
+      ]
+    },
+    "zanjan": {
+      "name": "زنجان",
+      "map_year": 1402,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 8,
+        "district_count": 19,
+        "rural_district_count": 50,
+        "city_count": 21,
+        "settlement_count": 1212,
+        "household_count": 328983,
+        "population": 1057611
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "اردبیل"
+          ]
+        },
+        {
+          "direction": "شمال غربی",
+          "places": [
+            "آذربایجان شرقی"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "آذربایجان غربی",
+            "کردستان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "همدان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "قزوین"
+          ]
+        }
+      ]
+    },
+    "north-khorasan": {
+      "name": "خراسان شمالی",
+      "map_year": 1402,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 10,
+        "district_count": 26,
+        "rural_district_count": 64,
+        "city_count": 24,
+        "settlement_count": 1108,
+        "household_count": 241582,
+        "population": 863092
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال (مرز بین‌المللی)",
+          "places": [
+            "ترکمنستان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "خراسان رضوی"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "سمنان"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "گلستان"
+          ]
+        }
+      ]
+    },
+    "tehran": {
+      "name": "تهران",
+      "map_year": 1402,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 16,
+        "district_count": 35,
+        "rural_district_count": 72,
+        "city_count": 49,
+        "settlement_count": 1051,
+        "household_count": 4748863,
+        "population": 13267637
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "مازندران"
+          ]
+        },
+        {
+          "direction": "شمال غربی",
+          "places": [
+            "قزوین"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "البرز"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "سمنان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "قم"
+          ]
+        },
+        {
+          "direction": "جنوب غربی",
+          "places": [
+            "مرکزی"
+          ]
+        }
+      ]
+    },
+    "alborz": {
+      "name": "البرز",
+      "map_year": 1402,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 7,
+        "district_count": 14,
+        "rural_district_count": 31,
+        "city_count": 18,
+        "settlement_count": 490,
+        "household_count": 861266,
+        "population": 2712400
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "مازندران"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "قزوین"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "مرکزی"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "تهران"
+          ]
+        }
+      ]
+    },
+    "ilam": {
+      "name": "ایلام",
+      "map_year": 1402,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 12,
+        "district_count": 25,
+        "rural_district_count": 57,
+        "city_count": 28,
+        "settlement_count": 1185,
+        "household_count": 159370,
+        "population": 580158
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "کرمانشاه"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "لرستان"
+          ]
+        },
+        {
+          "direction": "جنوب شرقی",
+          "places": [
+            "خوزستان"
+          ]
+        },
+        {
+          "direction": "غرب (مرز بین‌المللی)",
+          "places": [
+            "عراق"
+          ]
+        }
+      ]
+    },
+    "semnan": {
+      "name": "سمنان",
+      "map_year": 1403,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 8,
+        "district_count": 15,
+        "rural_district_count": 31,
+        "city_count": 21,
+        "settlement_count": 2289,
+        "household_count": 215571,
+        "population": 702360
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "مازندران",
+            "گلستان",
+            "دریای خزر (مرز آبی)"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "خراسان شمالی",
+            "خراسان رضوی"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "اصفهان",
+            "خراسان جنوبی"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "تهران",
+            "قم"
+          ]
+        }
+      ]
+    },
+    "razavi-khorasan": {
+      "name": "خراسان رضوی",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 34,
+        "district_count": 83,
+        "rural_district_count": 180,
+        "city_count": 96,
+        "settlement_count": 7345,
+        "household_count": 1938703,
+        "population": 6434501
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال (مرز بین‌المللی)",
+          "places": [
+            "ترکمنستان"
+          ]
+        },
+        {
+          "direction": "شرق (مرز بین‌المللی)",
+          "places": [
+            "افغانستان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "خراسان جنوبی"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "سمنان",
+            "خراسان شمالی"
+          ]
+        }
+      ]
+    },
+    "bushehr": {
+      "name": "بوشهر",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 10,
+        "district_count": 27,
+        "rural_district_count": 52,
+        "city_count": 41,
+        "settlement_count": 877,
+        "household_count": 321826,
+        "population": 1163400
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "خوزستان",
+            "کهگیلویه و بویراحمد"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "فارس",
+            "هرمزگان"
+          ]
+        },
+        {
+          "direction": "جنوب و غرب",
+          "places": [
+            "خلیج فارس (مرز آبی)"
+          ]
+        }
+      ]
+    },
+    "south-khorasan": {
+      "name": "خراسان جنوبی",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 12,
+        "district_count": 29,
+        "rural_district_count": 68,
+        "city_count": 31,
+        "settlement_count": 3589,
+        "household_count": 223984,
+        "population": 768898
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال (مرز بین‌المللی)",
+          "places": [
+            "خراسان رضوی",
+            "افغانستان (شرق)"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "سیستان و بلوچستان",
+            "کرمان"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "یزد",
+            "اصفهان",
+            "سمنان"
+          ]
+        }
+      ]
+    },
+    "chaharmahal-bakhtiari": {
+      "name": "چهارمحال و بختیاری",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 12,
+        "district_count": 29,
+        "rural_district_count": 56,
+        "city_count": 43,
+        "settlement_count": 1027,
+        "household_count": 270434,
+        "population": 947763
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال و شرق",
+          "places": [
+            "اصفهان"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "خوزستان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "کهگیلویه و بویراحمد"
+          ]
+        }
+      ]
+    },
+    "isfahan": {
+      "name": "اصفهان",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 28,
+        "district_count": 55,
+        "rural_district_count": 131,
+        "city_count": 114,
+        "settlement_count": 3721,
+        "household_count": 1607482,
+        "population": 5120850
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "مرکزی",
+            "قم",
+            "سمنان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "خراسان جنوبی",
+            "یزد"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "فارس",
+            "کهگیلویه و بویراحمد"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "چهارمحال و بختیاری",
+            "لرستان"
+          ]
+        }
+      ]
+    },
+    "east-azerbaijan": {
+      "name": "آذربایجان شرقی",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 23,
+        "district_count": 51,
+        "rural_district_count": 150,
+        "city_count": 73,
+        "settlement_count": 3060,
+        "household_count": 1223028,
+        "population": 3909652
+      },
+      "neighbor_groups": [
+        {
+          "direction": "غرب",
+          "places": [
+            "آذربایجان غربی"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "اردبیل"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "زنجان"
+          ]
+        },
+        {
+          "direction": "شمال (مرز بین‌المللی)",
+          "places": [
+            "جمهوری آذربایجان",
+            "ارمنستان",
+            "نخجوان"
+          ]
+        }
+      ]
+    },
+    "mazandaran": {
+      "name": "مازندران",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 22,
+        "district_count": 59,
+        "rural_district_count": 135,
+        "city_count": 64,
+        "settlement_count": 3602,
+        "household_count": 1084798,
+        "population": 3283582
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "دریای خزر (مرز آبی)"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "گیلان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "تهران",
+            "سمنان",
+            "البرز"
+          ]
+        },
+        {
+          "direction": "جنوب غربی",
+          "places": [
+            "قزوین"
+          ]
+        }
+      ]
+    },
+    "kurdistan": {
+      "name": "کردستان",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 10,
+        "district_count": 31,
+        "rural_district_count": 86,
+        "city_count": 33,
+        "settlement_count": 1886,
+        "household_count": 471310,
+        "population": 1603011
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "آذربایجان غربی"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "زنجان",
+            "همدان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "کرمانشاه"
+          ]
+        },
+        {
+          "direction": "غرب (مرز بین‌المللی)",
+          "places": [
+            "عراق"
+          ]
+        }
+      ]
+    },
+    "hamadan": {
+      "name": "همدان",
+      "map_year": 1403,
+      "source_note_present_in_record": false,
+      "source_note_lines": [],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 10,
+        "district_count": 26,
+        "rural_district_count": 75,
+        "city_count": 34,
+        "settlement_count": 1201,
+        "household_count": 538803,
+        "population": 1738234
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "زنجان",
+            "قزوین"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "مرکزی"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "لرستان"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "کرمانشاه",
+            "کردستان"
+          ]
+        }
+      ]
+    },
+    "qazvin": {
+      "name": "قزوین",
+      "map_year": 1403,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 6,
+        "district_count": 19,
+        "rural_district_count": 46,
+        "city_count": 28,
+        "settlement_count": 1151,
+        "household_count": 397165,
+        "population": 1273761
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "گیلان",
+            "مازندران"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "البرز",
+            "تهران"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "مرکزی"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "کردستان",
+            "زنجان"
+          ]
+        }
+      ]
+    },
+    "west-azerbaijan": {
+      "name": "آذربایجان غربی",
+      "map_year": 1403,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 20,
+        "district_count": 48,
+        "rural_district_count": 122,
+        "city_count": 48,
+        "settlement_count": 3656,
+        "household_count": 935956,
+        "population": 3265219
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال (مرز بین‌المللی)",
+          "places": [
+            "جمهوری آذربایجان",
+            "ارمنستان",
+            "نخجوان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "آذربایجان شرقی",
+            "زنجان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "کردستان"
+          ]
+        },
+        {
+          "direction": "غرب (مرز بین‌المللی)",
+          "places": [
+            "ترکیه",
+            "عراق"
+          ]
+        }
+      ]
+    },
+    "kerman": {
+      "name": "کرمان",
+      "map_year": 1403,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 25,
+        "district_count": 65,
+        "rural_district_count": 164,
+        "city_count": 85,
+        "settlement_count": 11798,
+        "household_count": 932721,
+        "population": 3164718
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "یزد",
+            "خراسان جنوبی"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "سیستان و بلوچستان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "هرمزگان",
+            "دریای عمان / خلیج فارس (مرز آبی)"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "فارس"
+          ]
+        }
+      ]
+    },
+    "hormozgan": {
+      "name": "هرمزگان",
+      "map_year": 1403,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 13,
+        "district_count": 43,
+        "rural_district_count": 92,
+        "city_count": 52,
+        "settlement_count": 2262,
+        "household_count": 493660,
+        "population": 1776415
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال",
+          "places": [
+            "فارس",
+            "کرمان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "سیستان و بلوچستان"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "فارس",
+            "بوشهر"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "خلیج فارس",
+            "دریای عمان (مرز آبی)"
+          ]
+        }
+      ]
+    },
+    "ardabil": {
+      "name": "اردبیل",
+      "map_year": 1403,
+      "source_note_present_in_record": true,
+      "source_note_lines": [
+        "دفتر نقشه و اطلاعات مکانی",
+        "www.amar.org.ir"
+      ],
+      "population_year": 1395,
+      "household_year": 1395,
+      "stats": {
+        "county_count": 12,
+        "district_count": 31,
+        "rural_district_count": 70,
+        "city_count": 30,
+        "settlement_count": 1655,
+        "household_count": 374737,
+        "population": 1270420
+      },
+      "neighbor_groups": [
+        {
+          "direction": "شمال و شمال غربی (مرز بین‌المللی)",
+          "places": [
+            "جمهوری آذربایجان"
+          ]
+        },
+        {
+          "direction": "شرق",
+          "places": [
+            "گیلان"
+          ]
+        },
+        {
+          "direction": "جنوب",
+          "places": [
+            "زنجان"
+          ]
+        },
+        {
+          "direction": "غرب",
+          "places": [
+            "آذربایجان شرقی"
+          ]
+        }
+      ]
+    }
+  }
+}

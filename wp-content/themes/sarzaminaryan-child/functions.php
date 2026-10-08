@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.11.26' );
+define( 'SA_CHILD_VERSION', '2.11.27' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.1' );
@@ -42,6 +42,7 @@ $sa_child_includes = array(
 	'inc/template-tags.php',
 	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
 	'inc/geo-counties.php',
+	'inc/province-profile.php',
 	'inc/geo-import.php',
 	'inc/security.php',
 	'inc/performance.php',
