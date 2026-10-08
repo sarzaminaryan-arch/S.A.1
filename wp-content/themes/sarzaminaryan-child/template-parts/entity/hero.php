@@ -16,6 +16,7 @@ if ( 'attraction' === $sa_type ) {
 }
 $sa_city     = sa_get_parent( $sa_id, 'city' );
 $sa_province = sa_get_parent( $sa_id, 'province' );
+$sa_title    = 'city' === $sa_type && function_exists( 'sa_county_name' ) ? sa_county_name( $sa_id, true ) : get_the_title( $sa_id );
 $sa_kicker   = sa_entity_label( $sa_type );
 if ( 'city' === $sa_type && $sa_province ) {
 	$sa_kicker .= 'ی در استان ' . get_the_title( $sa_province );
@@ -33,7 +34,7 @@ if ( 'city' === $sa_type && $sa_province ) {
 	<?php endif; ?>
 	<div class="container sa-entity__hero-text">
 		<p class="sa-entity__kicker"><?php echo esc_html( $sa_kicker ); ?></p>
-		<h1 class="entry-title sa-entity__title"><?php the_title(); ?></h1>
+		<h1 class="entry-title sa-entity__title"><?php echo esc_html( $sa_title ); ?></h1>
 		<?php
 		$sa_terms_html = array();
 		if ( 'city' === $sa_type && $sa_province ) {

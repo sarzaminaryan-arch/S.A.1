@@ -93,6 +93,26 @@ function sa_county_of_post( $post_id ) {
 }
 
 /**
+ * County display name without a duplicated leading "شهرستان" prefix.
+ *
+ * The importer and some legacy titles may already store the prefix. Callers that
+ * add a visible county label should use $include_prefix=true to normalize it.
+ *
+ * @param int|WP_Post $post_or_id County post or ID.
+ * @param bool        $include_prefix Whether to add one normalized county prefix.
+ * @return string
+ */
+function sa_county_name( $post_or_id, $include_prefix = false ) {
+	$name = trim( (string) get_the_title( $post_or_id ) );
+	$name = preg_replace( '/^(?:شهرستان[\s\p{Z}\x{200C}]+)+/u', '', $name );
+	$name = is_string( $name ) ? trim( $name ) : '';
+	if ( $include_prefix && '' !== $name ) {
+		$name = 'شهرستان ' . $name;
+	}
+	return $name;
+}
+
+/**
  * Persian province name for a province_tax slug.
  *
  * @param string $slug Province slug.
@@ -565,7 +585,9 @@ function sa_county_facts_rows( $rows, $post_id ) {
 add_filter( 'sa_entity_facts', 'sa_county_facts_rows', 10, 2 );
 
 /**
- * Enrich the JSON-LD graph: a county is an AdministrativeArea with neighbours.
+ * Enrich the primary county AdministrativeArea node with registry/profile details.
+ * The base entity schema already creates the `#place` node; adding a second `#county`
+ * node would describe the same page twice and can leave conflicting location types.
  *
  * @param array $graph Schema graph.
  * @return array
@@ -579,25 +601,36 @@ function sa_county_schema_graph( $graph ) {
 	if ( ! $reg ) {
 		return $graph;
 	}
-	$node = array(
-		'@type' => 'AdministrativeArea',
-		'@id'   => get_permalink( $id ) . '#county',
-		'name'  => get_the_title( $id ),
-		'url'   => get_permalink( $id ),
-	);
+
+	$node_id    = get_permalink( $id ) . '#place';
+	$node_index = null;
+	foreach ( (array) $graph as $index => $candidate ) {
+		if ( is_array( $candidate ) && isset( $candidate['@id'] ) && $node_id === $candidate['@id'] ) {
+			$node_index = $index;
+			break;
+		}
+	}
+	if ( null === $node_index ) {
+		return $graph;
+	}
+	$node = $graph[ $node_index ];
+
 	$lat = get_post_meta( $id, 'sa_city_latitude', true );
 	$lng = get_post_meta( $id, 'sa_city_longitude', true );
-	if ( $lat && $lng ) {
+	if ( empty( $node['geo'] ) && $lat && $lng ) {
 		$node['geo'] = array(
 			'@type'     => 'GeoCoordinates',
 			'latitude'  => (float) $lat,
 			'longitude' => (float) $lng,
 		);
 	}
-	$node['containedInPlace'] = array(
-		'@type' => 'AdministrativeArea',
-		'name'  => 'استان ' . sa_province_name( $reg['province'] ),
-	);
+	if ( empty( $node['containedInPlace'] ) ) {
+		$node['containedInPlace'] = array(
+			'@type' => 'AdministrativeArea',
+			'name'  => 'استان ' . sa_province_name( $reg['province'] ),
+		);
+	}
+
 	$borders = array();
 	foreach ( sa_county_lines( get_post_meta( $id, 'sa_cty_neighbors', true ) ) as $line ) {
 		$n = sa_county_parse_neighbor( $line );
@@ -611,6 +644,7 @@ function sa_county_schema_graph( $graph ) {
 	if ( $borders ) {
 		$node['borders'] = $borders;
 	}
+
 	$attractions = array();
 	foreach ( array( 'sa_cty_poi_nature', 'sa_cty_poi_offbeat', 'sa_cty_poi_recreation', 'sa_cty_poi_heritage' ) as $key ) {
 		foreach ( sa_county_lines( get_post_meta( $id, $key, true ) ) as $line ) {
@@ -627,7 +661,8 @@ function sa_county_schema_graph( $graph ) {
 	if ( $attractions ) {
 		$node['touristAttraction'] = $attractions;
 	}
-	$graph[] = $node;
+
+	$graph[ $node_index ] = $node;
 	return $graph;
 }
 add_filter( 'sa_schema_graph', 'sa_county_schema_graph' );

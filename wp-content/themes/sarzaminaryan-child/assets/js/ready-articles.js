@@ -1,5 +1,5 @@
 /**
- * «مقالات آمادهٔ نمای برتر» — white featured-image card generator.
+ * «مقالات آمادهٔ دیدنی‌ها» — white featured-image card generator.
  *
  * Draws the mandated card on a 1200×600 canvas: pure white background, one
  * colored corner icon, centered Persian/English text in navy / dark green /

@@ -198,6 +198,10 @@ function sa_province_profile_county_label( $post, $province_slug ) {
 		}
 	}
 
+	if ( function_exists( 'sa_county_name' ) ) {
+		return trim( (string) sa_county_name( $post, false ) );
+	}
+
 	$title = trim( get_the_title( $post ) );
 	$title = preg_replace( '/^شهرستان(?:\s|‌)+/u', '', $title );
 	return trim( (string) $title );

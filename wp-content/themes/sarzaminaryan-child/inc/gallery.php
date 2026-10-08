@@ -727,7 +727,23 @@ function sa_gallery_album_payload( $province_id, $city_id ) {
 }
 
 /**
+ * Does this album hold at least one approved image?
+ *
+ * @param int $province_id Province ID.
+ * @param int $city_id     City ID.
+ * @return bool
+ */
+function sa_gallery_album_has_images( $province_id, $city_id ) {
+	return ! empty( sa_gallery_image_ids( $province_id, $city_id, 1 ) );
+}
+
+/**
  * Render gallery section for province pages or the current city page.
+ *
+ * The block appears only when at least one album holds an approved image
+ * (added by an admin, or sent by a visitor and approved by an admin).
+ * Albums without any image stay hidden, while the image-submission section
+ * remains active on its own.
  *
  * @param int    $post_id Entity post ID.
  * @param string $context province|city.
@@ -753,8 +769,16 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 		return;
 	}
 
+	/**
+	 * Hide albums that hold no approved image yet.
+	 *
+	 * @param bool $hide_empty Hide empty albums (default true).
+	 */
+	$hide_empty = (bool) apply_filters( 'sa_gallery_hide_empty_albums', true );
+
 	$section_id = 'sa-gallery-' . absint( $post_id );
 	$albums     = array();
+	$empty      = 0;
 	foreach ( $cities as $city ) {
 		if ( ! $city instanceof WP_Post ) {
 			$city = get_post( $city );
@@ -762,10 +786,16 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 		if ( ! $city || 'city' !== $city->post_type ) {
 			continue;
 		}
+		if ( $hide_empty && ! sa_gallery_album_has_images( $province_id, $city->ID ) ) {
+			$empty++;
+			continue;
+		}
 		sa_gallery_ensure_album_terms( $province_id, $city->ID );
 		$albums[] = sa_gallery_album_payload( $province_id, $city->ID );
 	}
 
+	// هیچ آلبومِ دارای تصویری نیست → بلوکِ گالری نمایش داده نمی‌شود
+	// (بخشِ «ارسال تصویر» در جای خودش فعال می‌ماند).
 	if ( ! $albums ) {
 		return;
 	}
@@ -774,7 +804,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 	$intro     = 'province' === $type ? 'هر شهرستان یک آلبوم آماده دارد؛ تصاویر بهینه، سبک و دارای نشان سرزمین آریان هستند.' : 'تصاویر این شهرستان با لمس یا کشیدن آرام به تصویر بعدی می‌روند.';
 	$upload_to = 'city' === $type ? get_permalink( $post_id ) . '#cc-contrib' : '#' . $section_id . '-albums';
 	?>
-	<section class="sa-gallery" id="<?php echo esc_attr( $section_id ); ?>" data-sa-gallery-section aria-label="<?php echo esc_attr( $headline ); ?>">
+	<section class="sa-gallery" id="<?php echo esc_attr( $section_id ); ?>" data-sa-gallery-section data-sa-gallery-empty="<?php echo esc_attr( (string) $empty ); ?>" aria-label="<?php echo esc_attr( $headline ); ?>">
 		<div class="sa-gallery__topbar">
 			<span class="sa-gallery__pulse" aria-hidden="true"></span>
 			<span class="sa-gallery__eyebrow"><?php esc_html_e( 'آلبوم تصاویر', 'sarzaminaryan-child' ); ?></span>
@@ -791,7 +821,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 			<div class="sa-gallery__head-actions">
 				<span class="sa-gallery__hint"><?php esc_html_e( 'لمس/سوایپ برای تماشا', 'sarzaminaryan-child' ); ?></span>
 				<?php if ( $upload_to ) : ?>
-					<a class="sa-gallery__upload" href="<?php echo esc_url( $upload_to ); ?>"><?php esc_html_e( 'نمای برتر شهر/شهرستان‌تان را ارسال کنید', 'sarzaminaryan-child' ); ?></a>
+					<a class="sa-gallery__upload" href="<?php echo esc_url( $upload_to ); ?>"><?php esc_html_e( 'دیدنی شهر/شهرستان‌تان را ارسال کنید', 'sarzaminaryan-child' ); ?></a>
 				<?php endif; ?>
 			</div>
 		</div>
