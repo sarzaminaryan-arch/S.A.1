@@ -1,0 +1,91 @@
+{
+  "register_version": 1,
+  "stage": "0",
+  "created_at": "2026-10-08",
+  "status": "draft",
+  "activation": "nothing in this file is active; approval and a separate reviewed diff are required",
+  "draft_records": [
+    {
+      "id": "SEO-TITLE-01",
+      "source_title": "Influencing your title links in search results",
+      "source_url": "https://developers.google.com/search/docs/appearance/title-link",
+      "accessed_at": "2026-10-08",
+      "location": "Best practices for influencing title links; How title links in Google Search are created",
+      "finding": "Google recommends descriptive, concise, distinct title text, warns against keyword stuffing and repeated boilerplate, and states that there is no fixed maximum length for a title element; the displayed title link may be shortened to fit the device.",
+      "scope_note": "Supports a qualitative title check. It does not establish the site's 25–65 character threshold as a Google requirement.",
+      "status": "draft"
+    },
+    {
+      "id": "SEO-META-01",
+      "source_title": "Control your snippets in search results",
+      "source_url": "https://developers.google.com/search/docs/appearance/snippet",
+      "accessed_at": "2026-10-08",
+      "location": "How snippets are created; Best practices for creating quality meta descriptions",
+      "finding": "Google primarily generates snippets from page content and may use the meta description when it better describes the page. The documentation gives no fixed maximum length for a meta description; displayed snippets may be truncated to fit the device.",
+      "scope_note": "Supports relevance and uniqueness checks. It does not establish the site's 70–160 character threshold as a Google requirement.",
+      "status": "draft"
+    },
+    {
+      "id": "SEO-SCHEMA-01",
+      "source_title": "Article structured data",
+      "source_url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+      "accessed_at": "2026-10-08",
+      "location": "Introduction; Guidelines; Structured data type definitions",
+      "finding": "The Article guide concerns news, blog, and sports article pages. It says Article markup can help Google understand those pages, and that Article markup is not a requirement for eligibility for Top Stories.",
+      "scope_note": "Do not infer a universal Article requirement for every page type.",
+      "status": "draft"
+    },
+    {
+      "id": "SEO-SCHEMA-01-GENERAL",
+      "source_title": "General structured data guidelines",
+      "source_url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "accessed_at": "2026-10-08",
+      "location": "Quality guidelines > Content; Relevance; Multiple items on a page",
+      "finding": "Structured data must describe relevant, reader-visible content and match the page's focus. The guidance permits multiple structured-data items on a page; it does not require every page to carry a particular schema type.",
+      "scope_note": "Validate markup against rendered HTML and the page profile; do not turn optional types into universal requirements.",
+      "status": "draft"
+    },
+    {
+      "id": "GEO-EEAT-01",
+      "source_title": "Creating helpful, reliable, people-first content",
+      "source_url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "accessed_at": "2026-10-08",
+      "location": "Ask \"Who, How, and Why\" about your content > Who (created the content); How (the content was created)",
+      "finding": "Google strongly encourages accurate authorship information and bylines where readers might expect them, warns against deceptive authorship, and says that explaining automation can help where readers would reasonably expect to know how content was produced.",
+      "scope_note": "This guidance does not make a visible byline, publication date, or sources section a universal Google requirement for every page. Any site-wide requirement remains an editorial policy.",
+      "status": "draft"
+    },
+    {
+      "id": "EDITOR-REST-01",
+      "source_title": "register_post_type()",
+      "source_url": "https://developer.wordpress.org/reference/functions/register_post_type/",
+      "accessed_at": "2026-10-08",
+      "location": "Parameters > show_in_rest",
+      "finding": "WordPress documents that a custom post type must set show_in_rest to true to be available in the block editor.",
+      "scope_note": "The theme currently sets show_in_rest to false intentionally. This is a confirmed code choice, not proof of the live editor configuration.",
+      "status": "draft"
+    }
+  ],
+  "open_sources": [
+    {
+      "id": "FA-HALFSPACE-01",
+      "source_title": "دستور خطّ فارسی (ویراست جدید)",
+      "source_url": "https://apll.ir/wp-content/uploads/2023/07/Dastour-e-Khat-17.04.1402.pdf",
+      "accessed_at": "2026-10-08",
+      "location": null,
+      "attempt": "The official-domain PDF was located through search, but direct retrieval returned HTTP 500. No rule text or page locator was extracted.",
+      "status": "open",
+      "use_restriction": "Do not enable or amend spelling rules from a search-result excerpt."
+    },
+    {
+      "id": "GEO-NAMES-01",
+      "source_title": "نقشه تقسیمات استان‌های کشور به تفکیک شهرستان",
+      "source_url": "https://amar.org.ir/map-province",
+      "accessed_at": "2026-10-08",
+      "location": null,
+      "attempt": "The official Statistics Center page is indexed with province maps labelled 1402, but direct retrieval returned HTTP 500. No machine-readable county list, identifiers, aliases, or CSV was obtained.",
+      "status": "open",
+      "use_restriction": "No geography record or numeric claim has been copied from the search index."
+    }
+  ]
+}
