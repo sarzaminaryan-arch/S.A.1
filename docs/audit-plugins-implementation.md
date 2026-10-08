@@ -1,6 +1,6 @@
 # برنامهٔ ساخت افزونه‌های ممیزی — Path A
 
-**وضعیت:** سورس هر دو افزونه در شاخهٔ `arena/95d36f25-s-a-1` پوش شده است؛ فایل‌های ZIP هنوز در Release نبودند، چون آپلود مستقیم از محیط Arena به `uploads.github.com` با EOF شکست خورد. راهکار بسته‌بندی روی GitHub Actions اضافه شده تا runner خود GitHub ZIPها را بسازد و به Release بچسباند.
+**وضعیت:** سورس و گزارش روی شاخهٔ `arena/95d36f25-s-a-1` پوش شده‌اند. بسته‌های نصب در [GitHub Release نسخهٔ Preview 2](https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/iran-audit-plugins-v0.1.0-preview.2) منتشر شدند؛ GitHub Actions run [37852871074](https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/37852871074) با موفقیت ZIPها را ساخت و بارگذاری کرد.
 **دستور مالک (2026-10-09):** بستهٔ نصب آماده شود و آزمون تازه لازم نیست؛ workflow فقط بسته‌بندی و انتشار می‌کند و آزمون افزونه اجرا نمی‌کند.
 **مرجع API:** سند قراردادی ارائه‌شده از مالک، نسخهٔ 1.1.0 / API 1.1؛ فایل منبع بیرونی در ریپو کپی نشده است.
 **مرجع قوانین:** `data/rules.json` نسخهٔ `2026.10.08-2` با 41 قانون؛ snapshot مورد استفاده در بستهٔ Engine بدون تغییر نگهداری می‌شود.
@@ -52,10 +52,10 @@
 
 ## راه‌حل انتشار و نصب
 
-- **علت ناتمامی تحویل قبلی:** سورس روی GitHub بود، اما این محیط به میزبان بارگذاری Release (`uploads.github.com`) دسترسی نداشت؛ بنابراین ZIP نصب در Release ظاهر نشد. این خطا از جنس شبکه/تحویل بود، نه خطای ساخت افزونه.
-- **راه‌حل اجرایی:** workflowِ [`.github/workflows/release-audit-plugins.yml`](../.github/workflows/release-audit-plugins.yml) بسته‌ها را روی runner خود GitHub می‌سازد و از همان‌جا به Release می‌فرستد؛ نیاز به ZIP داخل Git و نیاز به دسترسی این sandbox به میزبان upload ندارد. نسخهٔ جاری با تغییر فایل workflow در شاخهٔ Arena اجرا می‌شود؛ برای تکرار بعدی، نسخهٔ tag را در workflow bump کنید یا از `workflow_dispatch` استفاده کنید.
-- **نسخهٔ مورد انتشار:** `iran-audit-plugins-v0.1.0-preview.2`؛ دو ZIP مستقل، راهنمای نصب و checksum به Release پیوست می‌شوند. پس از موفقیت workflow، همین صفحهٔ Release مسیر دانلود خواهد بود.
-- **نصب دستی:** در WordPress → افزونه‌ها → افزودن افزونه → بارگذاری افزونه، اول ZIP موتور را نصب و فعال کنید؛ سپس ZIP داشبورد را نصب و فعال کنید. حداقل نیازمندی‌ها WordPress 6.4 و PHP 7.4 است. فعال‌سازی موتور فقط جدول‌های اختصاصی `{prefix}iaa_*` را می‌سازد/به‌روزرسانی می‌کند؛ import محتوا انجام نمی‌شود.
+- **اشتباه من در تحویل قبلی:** بسته را محلی ساختم و مسیر آپلود مستقیم از Arena را انتخاب کردم؛ این sandbox به میزبان `uploads.github.com` دسترسی نداشت. این مشکل از انتقال فایل بود، نه از کد افزونه یا کاری که مالک انجام داده بود.
+- **راه‌حل اجراشده:** workflowِ [`.github/workflows/release-audit-plugins.yml`](../.github/workflows/release-audit-plugins.yml) بسته‌ها را روی runner خود GitHub ساخت و بارگذاری کرد. run اول به‌علت شرط اجرای job بدون job شکست خورد؛ شرط برداشته شد و run بعدی موفق شد.
+- **نسخهٔ منتشرشده:** [`iran-audit-plugins-v0.1.0-preview.2`](https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/iran-audit-plugins-v0.1.0-preview.2). دارایی‌ها: [Engine ZIP](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/iran-audit-engine-0.1.0-preview.zip)، [Dashboard ZIP](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/iran-audit-dashboard-0.1.0-preview.zip)، [راهنمای نصب](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/INSTALL-PREVIEW.txt)، [SHA-256](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/SHA256SUMS.txt).
+- **نصب دستی:** در WordPress → افزونه‌ها → افزودن افزونه → بارگذاری افزونه، ZIP موتور را اول نصب و فعال کنید؛ سپس ZIP داشبورد را نصب و فعال کنید. یا در cPanel هر ZIP را در `wp-content/plugins/` استخراج و بعد در صفحهٔ افزونه‌ها فعال کنید. نیازمندی‌ها WordPress 6.4+ و PHP 7.4+ است. فعال‌سازی موتور فقط جدول‌های اختصاصی `{prefix}iaa_*` را می‌سازد/به‌روزرسانی می‌کند؛ import محتوا انجام نمی‌شود.
 
 ## اعتبار و محدودیت نسخه
 

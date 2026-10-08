@@ -117,15 +117,15 @@
 
 - گزاره‌های این گزارش که می‌گویند «افزونه در مخزن نبود» مربوط به snapshot مرحلهٔ ۰ در 2026-10-08 هستند. از آن زمان دو افزونه به `wp-content/plugins/iran-audit-engine/` و `wp-content/plugins/iran-audit-dashboard/` اضافه و روی شاخهٔ `arena/95d36f25-s-a-1` در commit `93371ca` پوش شده‌اند.
 - تصمیم مالک دربارهٔ City در کد پیاده شده است: همهٔ نوشته‌های CPT `city`، City محسوب و از alias سازگاری `county` در API 1.1 استفاده می‌کنند. County موجودیت مستقل نیست. `province_tax` برای استان گزارش به کار می‌رود. قرارداد API 1.1 و مدل داده تغییر نکرده‌اند؛ `Accommodation` رزروشده باقی مانده است.
-- **تحویل قبلی ناقص بود:** ZIPها ساخته شده بودند، اما آپلود مستقیم Release از محیط Arena با خطای EOF روی `uploads.github.com` شکست خورد؛ هیچ Release دارای ZIP نصب منتشر نشد. این مشکل شبکهٔ مسیر upload بود، نه خطای ساخت کد.
+- **تحویل قبلی ناقص بود:** ZIPها ساخته شده بودند، اما آپلود مستقیم Release از محیط Arena با خطای EOF روی `uploads.github.com` شکست خورد؛ علت محدودیت شبکهٔ مسیر upload بود، نه خطای کد. این اشتباه از مسیر تحویل من بود.
+- **وضعیت اصلاح‌شده:** workflow ابتدا با شرطی که job را اجرا نکرد، شکست خورد؛ شرط حذف شد. GitHub Actions run [37852871074](https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/37852871074) سپس با موفقیت ZIPها را ساخت و منتشر کرد.
 
-### راه‌حل قطعی و مسیر نصب
+### راه‌حل اجراشده و مسیر نصب
 
-- workflow در [`.github/workflows/release-audit-plugins.yml`](../.github/workflows/release-audit-plugins.yml) اضافه شده است: بسته‌بندی و بارگذاری Release را runner میزبانی‌شدهٔ GitHub انجام می‌دهد، نه sandbox Arena؛ بنابراین محدودیت دسترسی به `uploads.github.com` دور زده می‌شود.
-- انتشار Preview با برچسب `iran-audit-plugins-v0.1.0-preview.2` انجام می‌شود. بعد از موفقیت run، Release شامل ZIP جداگانهٔ Engine و Dashboard، راهنمای نصب و SHA-256 خواهد بود.
-- روی WordPress آزمایشی: **۱)** ZIP موتور را در «افزونه‌ها ← افزودن ← بارگذاری افزونه» نصب و فعال کنید؛ **۲)** ZIP داشبورد را نصب و فعال کنید. نیازمندی‌ها WordPress 6.4+ و PHP 7.4+ است. فعال‌سازی Engine فقط جدول‌های اختصاصی `{prefix}iaa_*` را ایجاد/به‌روزرسانی می‌کند؛ نوشته‌ها import یا ویرایش نمی‌شوند.
-- اگر workflow به‌علت تنظیمات مخزن اجرا نشد، مدیر مخزن باید GitHub Actions را فعال و مجوز `contents: write` برای `GITHUB_TOKEN` را مجاز کند؛ credential یا token نباید در گفتگو یا ریپو قرار گیرد.
+- workflow در [`.github/workflows/release-audit-plugins.yml`](../.github/workflows/release-audit-plugins.yml) بسته‌بندی و بارگذاری را روی runner میزبانی‌شدهٔ GitHub انجام می‌دهد؛ بنابراین sandbox دیگر به `uploads.github.com` وصل نمی‌شود.
+- Release نهاییِ Preview: [`iran-audit-plugins-v0.1.0-preview.2`](https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/iran-audit-plugins-v0.1.0-preview.2). [Engine ZIP](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/iran-audit-engine-0.1.0-preview.zip)، [Dashboard ZIP](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/iran-audit-dashboard-0.1.0-preview.zip)، [راهنمای نصب](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/INSTALL-PREVIEW.txt) و [SHA-256](https://github.com/sarzaminaryan-arch/S.A.1/releases/download/iran-audit-plugins-v0.1.0-preview.2/SHA256SUMS.txt) منتشر شده‌اند.
+- **برای نصب:** در WordPress → افزونه‌ها → افزودن افزونه → بارگذاری افزونه، Engine را اول نصب و فعال کنید؛ بعد Dashboard را نصب و فعال کنید. نیازمندی‌ها WordPress 6.4+ و PHP 7.4+ است. Engine فقط جدول‌های اختصاصی `{prefix}iaa_*` را می‌سازد/به‌روزرسانی می‌کند؛ نوشته‌ها import یا ویرایش نمی‌شوند.
 
 ### مرز وضعیت
 
-در این کار آزمون جدید اجرا نشد، مطابق دستور مالک. فایل ZIP قابل نصب و انتشار Preview به‌معنای تأیید فعال‌سازی روی WordPress واقعی یا آمادگی Production نیست؛ Staging واقعی، import دیتابیس و نصب/فعال‌سازی روی سایت انجام نشده‌اند. رکوردهای WXR با `post_type=city` پس از نصب توسط موتور پردازش می‌شوند، اما هیچ داده‌ای در این بسته import نمی‌شود.
+در این کار آزمون جدید اجرا نشد، مطابق دستور مالک. ZIPها قابل نصب‌اند، اما Preview بودن یعنی فعال‌سازی روی WordPress واقعی تأیید نشده و Production certification نیست. Staging واقعی و import دیتابیس انجام نشده‌اند. رکوردهای WXR با `post_type=city` پس از نصب توسط موتور پردازش می‌شوند، اما این انتشار هیچ داده‌ای import نمی‌کند.
