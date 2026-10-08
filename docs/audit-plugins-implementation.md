@@ -53,7 +53,7 @@
 ## راه‌حل انتشار و نصب
 
 - **علت ناتمامی تحویل قبلی:** سورس روی GitHub بود، اما این محیط به میزبان بارگذاری Release (`uploads.github.com`) دسترسی نداشت؛ بنابراین ZIP نصب در Release ظاهر نشد. این خطا از جنس شبکه/تحویل بود، نه خطای ساخت افزونه.
-- **راه‌حل اجرایی:** workflowِ [`.github/workflows/release-audit-plugins.yml`](../.github/workflows/release-audit-plugins.yml) بسته‌ها را روی runner خود GitHub می‌سازد و از همان‌جا به Release می‌فرستد؛ نیاز به ZIP داخل Git و نیاز به دسترسی این sandbox به میزبان upload ندارد. انتشار فقط با commit پیام‌دار `release(audit): publish preview ...` روی شاخهٔ Arena اجرا می‌شود.
+- **راه‌حل اجرایی:** workflowِ [`.github/workflows/release-audit-plugins.yml`](../.github/workflows/release-audit-plugins.yml) بسته‌ها را روی runner خود GitHub می‌سازد و از همان‌جا به Release می‌فرستد؛ نیاز به ZIP داخل Git و نیاز به دسترسی این sandbox به میزبان upload ندارد. نسخهٔ جاری با تغییر فایل workflow در شاخهٔ Arena اجرا می‌شود؛ برای تکرار بعدی، نسخهٔ tag را در workflow bump کنید یا از `workflow_dispatch` استفاده کنید.
 - **نسخهٔ مورد انتشار:** `iran-audit-plugins-v0.1.0-preview.2`؛ دو ZIP مستقل، راهنمای نصب و checksum به Release پیوست می‌شوند. پس از موفقیت workflow، همین صفحهٔ Release مسیر دانلود خواهد بود.
 - **نصب دستی:** در WordPress → افزونه‌ها → افزودن افزونه → بارگذاری افزونه، اول ZIP موتور را نصب و فعال کنید؛ سپس ZIP داشبورد را نصب و فعال کنید. حداقل نیازمندی‌ها WordPress 6.4 و PHP 7.4 است. فعال‌سازی موتور فقط جدول‌های اختصاصی `{prefix}iaa_*` را می‌سازد/به‌روزرسانی می‌کند؛ import محتوا انجام نمی‌شود.
 

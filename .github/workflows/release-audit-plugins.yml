@@ -6,9 +6,7 @@ on:
       - arena/95d36f25-s-a-1
     paths:
       - .github/workflows/release-audit-plugins.yml
-      - wp-content/plugins/iran-audit-engine/**
-      - wp-content/plugins/iran-audit-dashboard/**
-      - docs/audit-plugins-implementation.md
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -19,7 +17,6 @@ concurrency:
 
 jobs:
   package-and-publish:
-    if: startsWith(github.event.head_commit.message, 'release(audit): publish preview')
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     env:
