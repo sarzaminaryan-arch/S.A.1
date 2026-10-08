@@ -29,4 +29,4 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: 
 - `raw/master-data-model-v1.0.original.txt` — original delivered text preserved verbatim.
 
 ### Planned (not yet scheduled)
-- **1.1** — activate `Accommodation` (see Appendix A in `MASTER_DATA_MODEL.md`).
+- Activate `Accommodation` only after explicit approval. At implementation, assign the next approved MINOR version, update the model/schema and regenerate the child config. Version `1.2` remains proposed and is not canonical until approved.
