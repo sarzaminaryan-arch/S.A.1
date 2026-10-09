@@ -104,7 +104,7 @@ function sa_seo_description() {
 		if ( $custom ) {
 			return $custom;
 		}
-		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و نمای برتر طبیعت‌های بکر و دیدنی‌های ایران با اطلاعات دقیق و به‌روز.' );
+		return get_theme_mod( 'sa_home_description', sa_default_home_description() );
 	}
 	if ( is_singular() ) {
 		$id     = get_queried_object_id();
@@ -119,9 +119,11 @@ function sa_seo_description() {
 		$text = $blog ? sa_summary( $blog, 28 ) : '';
 		return $text ? $text : 'تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ ' . get_bloginfo( 'name' ) . '.';
 	}
-	if ( is_front_page() ) {
-		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و نمای برتر طبیعت‌های بکر و دیدنی‌های ایران با اطلاعات دقیق و به‌روز.' );
-	}
+	/* v2.11.27 — یک شاخه‌ی `is_front_page()` تکراری از اینجا حذف شد.
+	   چون نخستین شرط همین تابع (`sa_seo_description()`) از قبل `is_front_page()`
+	   را می‌سنجد و `return` می‌کند، این بلوک هرگز اجرا نمی‌شد و فقط یک نسخه‌ی
+	   دوم از رشته‌ی بلند پیش‌فرض را نگه می‌داشت که می‌توانست با نسخه‌ی
+	   `inc/customizer.php` واگرا شود. */
 	if ( is_tax() || is_category() || is_tag() ) {
 		$term = get_queried_object();
 		if ( $term && $term->description ) {

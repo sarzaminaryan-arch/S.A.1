@@ -43,7 +43,11 @@ function sa_schema_organization() {
 	if ( $same_as ) {
 		$node['sameAs'] = $same_as;
 	}
-	$email = get_theme_mod( 'sa_contact_email', '' );
+	/* v2.11.27 — ایمیل گره‌ی Organization همان نشانی واقعی تماس سایت است.
+	   پیش از این `sa_contact_email` خوانده می‌شد که پیش‌فرضش خالی است، پس
+	   `email` از داده‌ی ساختاریافته جا می‌ماند در حالی که فرم تماس سایت
+	   به Mail@sarzaminaryan.ir نامه می‌فرستاد. */
+	$email = function_exists( 'sa_site_contact_email' ) ? sa_site_contact_email() : get_theme_mod( 'sa_contact_email', '' );
 	if ( $email ) {
 		$node['email'] = $email;
 	}
