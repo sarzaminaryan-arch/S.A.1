@@ -142,6 +142,30 @@ function sa_dashboard_dataset() {
 }
 
 /**
+ * نشانی برگه‌ی داشبورد اگر وجود، منتشر و به قالب داشبورد بسته باشد.
+ *
+ * برگه در `sa_create_default_pages()` ساخته می‌شود (فعال‌سازی قالب و هر بار
+ * ارتقای نسخه)، بنابراین این تابع معمولاً بلافاصله پس از به‌روزرسانی نشانی دارد.
+ *
+ * @return string نشانی یا رشته‌ی خالی.
+ */
+function sa_dashboard_page_url() {
+	if ( ! sa_dashboard_enabled() ) {
+		return '';
+	}
+	$ids = get_option( 'sa_default_pages', array() );
+	$id  = ! empty( $ids['dashboard'] ) ? (int) $ids['dashboard'] : 0;
+	if ( ! $id || 'publish' !== get_post_status( $id ) ) {
+		$page = get_page_by_path( 'dashboard' );
+		$id   = ( $page && 'publish' === get_post_status( $page ) ) ? (int) $page->ID : 0;
+	}
+	if ( ! $id || 'template-dashboard.php' !== get_page_template_slug( $id ) ) {
+		return '';
+	}
+	return (string) get_permalink( $id );
+}
+
+/**
  * بارگذاری دارایی‌های داشبورد فقط روی صفحه‌ای که قالب آن را دارد.
  */
 function sa_dashboard_assets() {

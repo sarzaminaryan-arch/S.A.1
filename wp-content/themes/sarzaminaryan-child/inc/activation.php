@@ -67,12 +67,13 @@ add_action( 'init', 'sa_maybe_upgrade', 100 );
  */
 function sa_create_default_pages() {
 	$pages = array(
-		'home'    => array( 'title' => 'خانه', 'status' => 'publish', 'content' => '' ),
-		'blog'    => array( 'title' => 'وبلاگ', 'status' => 'publish', 'content' => '' ),
-		'about'   => array( 'title' => 'درباره ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سرزمین آریان دانشنامه‌ی سفر ایران است. این متن را با معرفی واقعی تیم، هدف سایت و سیاست تحریریه جایگزین کنید (برای E-E-A-T مهم است).</p>\n<!-- /wp:paragraph -->" ),
-		'contact' => array( 'title' => 'تماس با ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>ایمیل و راه‌های تماس را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
-		'privacy' => array( 'title' => 'حریم خصوصی', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سیاست حفظ حریم خصوصی سایت (کوکی‌ها، آمار، اطلاعات تماس) را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
-		'policy'  => array( 'title' => 'سیاست تحریریه و منابع', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>توضیح دهید اطلاعات (ساعات، قیمت‌ها، مسافت‌ها) از چه منابعی گردآوری و هر چند وقت یک‌بار بازبینی می‌شود.</p>\n<!-- /wp:paragraph -->" ),
+		'home'      => array( 'title' => 'خانه', 'status' => 'publish', 'content' => '' ),
+		'blog'      => array( 'title' => 'وبلاگ', 'status' => 'publish', 'content' => '' ),
+		'dashboard' => array( 'title' => 'داشبورد جامع گردشگری ایران', 'status' => 'publish', 'content' => '' ),
+		'about'     => array( 'title' => 'درباره ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سرزمین آریان دانشنامه‌ی سفر ایران است. این متن را با معرفی واقعی تیم، هدف سایت و سیاست تحریریه جایگزین کنید (برای E-E-A-T مهم است).</p>\n<!-- /wp:paragraph -->" ),
+		'contact'   => array( 'title' => 'تماس با ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>ایمیل و راه‌های تماس را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
+		'privacy'   => array( 'title' => 'حریم خصوصی', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سیاست حفظ حریم خصوصی سایت (کوکی‌ها، آمار، اطلاعات تماس) را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
+		'policy'    => array( 'title' => 'سیاست تحریریه و منابع', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>توضیح دهید اطلاعات (ساعات، قیمت‌ها، مسافت‌ها) از چه منابعی گردآوری و هر چند وقت یک‌بار بازبینی می‌شود.</p>\n<!-- /wp:paragraph -->" ),
 	);
 	$ids = get_option( 'sa_default_pages', array() );
 	foreach ( $pages as $key => $p ) {
@@ -106,6 +107,19 @@ function sa_create_default_pages() {
 			wp_update_post(
 				array(
 					'ID'          => (int) $ids['home'],
+					'post_status' => 'publish',
+				)
+			);
+		}
+	}
+
+	// صفحه‌ی «داشبورد» هم مثل خانه تمام‌قالبی است؛ قالب داشبورد را می‌بندیم و منتشر نگه می‌داریم.
+	if ( ! empty( $ids['dashboard'] ) && get_post( $ids['dashboard'] ) ) {
+		update_post_meta( (int) $ids['dashboard'], '_wp_page_template', 'template-dashboard.php' );
+		if ( 'publish' !== get_post_status( $ids['dashboard'] ) ) {
+			wp_update_post(
+				array(
+					'ID'          => (int) $ids['dashboard'],
 					'post_status' => 'publish',
 				)
 			);
