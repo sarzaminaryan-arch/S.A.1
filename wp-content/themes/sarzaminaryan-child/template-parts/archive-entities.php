@@ -19,7 +19,7 @@ $sa_top_views = is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type
 	<h1 class="sa-archive__title">
 		<?php
 		if ( $sa_top_views ) {
-			echo esc_html( 'این شما و این نماهای برتر پاره‌های تن ایران عزیز' );
+			echo esc_html( 'این شما و این دیدنی‌ها پاره‌های تن ایران عزیز' );
 		} elseif ( is_post_type_archive() ) {
 			echo esc_html( $sa_obj ? $sa_obj->labels->name . ' ایران' : post_type_archive_title( '', false ) );
 		} else {
@@ -36,7 +36,7 @@ $sa_top_views = is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type
 	<?php if ( is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type' ) ) : ?>
 		<?php $sa_types = get_terms( array( 'taxonomy' => 'attraction_type', 'hide_empty' => true ) ); ?>
 		<?php if ( $sa_types && ! is_wp_error( $sa_types ) ) : ?>
-			<nav class="sa-filters" aria-label="فیلتر بر اساس نوع نمای برتر">
+			<nav class="sa-filters" aria-label="فیلتر بر اساس نوع دیدنی">
 				<a class="sa-chip<?php echo is_post_type_archive( 'attraction' ) ? ' is-active' : ''; ?>" href="<?php echo esc_url( sa_archive_url( 'attraction' ) ); ?>">همه</a>
 				<?php foreach ( $sa_types as $sa_t ) : ?>
 					<a class="sa-chip<?php echo is_tax( 'attraction_type', $sa_t->slug ) ? ' is-active' : ''; ?>" href="<?php echo esc_url( get_term_link( $sa_t ) ); ?>"><?php echo esc_html( $sa_t->name ); ?></a>

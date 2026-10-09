@@ -1,7 +1,7 @@
 <?php
 /**
  * Breadcrumbs (visible + feeds BreadcrumbList schema) following the Level 6 hierarchy:
- * خانه › استان‌ها › {استان} › {شهر} › {نمای برتر}
+ * خانه › استان‌ها › {استان} › {شهر} › {دیدنی}
  *
  * @package Sarzaminaryan_Child
  */
@@ -38,7 +38,8 @@ function sa_get_breadcrumb_items() {
 				$items[] = array( 'name' => get_the_title( $province ), 'url' => get_permalink( $province ) );
 			}
 			if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
-				$items[] = array( 'name' => get_the_title( $city ), 'url' => get_permalink( $city ) );
+				$city_name = function_exists( 'sa_county_name' ) ? sa_county_name( $city, true ) : get_the_title( $city );
+				$items[]   = array( 'name' => $city_name, 'url' => get_permalink( $city ) );
 			}
 		} elseif ( 'post' === $type ) {
 			$blog = (int) get_option( 'page_for_posts' );
@@ -54,7 +55,8 @@ function sa_get_breadcrumb_items() {
 				$items[] = array( 'name' => get_the_title( $ancestor ), 'url' => get_permalink( $ancestor ) );
 			}
 		}
-		$items[] = array( 'name' => get_the_title( $post ), 'url' => '' );
+		$page_name = 'city' === $type && function_exists( 'sa_county_name' ) ? sa_county_name( $post, true ) : get_the_title( $post );
+		$items[]   = array( 'name' => $page_name, 'url' => '' );
 		return $items;
 	}
 
@@ -68,7 +70,7 @@ function sa_get_breadcrumb_items() {
 		$term = get_queried_object();
 		$tax  = get_taxonomy( $term->taxonomy );
 		if ( is_tax( 'attraction_type' ) ) {
-			$items[] = array( 'name' => 'نمای برتر', 'url' => sa_archive_url( 'attraction' ) );
+			$items[] = array( 'name' => 'دیدنی‌ها', 'url' => sa_archive_url( 'attraction' ) );
 		} elseif ( $tax && is_category() ) {
 			$blog = (int) get_option( 'page_for_posts' );
 			if ( $blog ) {

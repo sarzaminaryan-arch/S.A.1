@@ -1,6 +1,6 @@
 <?php
 /**
- * FAQ accordion (native <details>) — pairs with the FAQPage schema.
+ * Optional, visible FAQ accordion (native <details>); no FAQPage JSON-LD is emitted.
  *
  * @package Sarzaminaryan_Child
  */

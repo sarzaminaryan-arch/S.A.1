@@ -1,0 +1,198 @@
+{
+  "register_version": 1,
+  "stage": "0",
+  "created_at": "2026-10-08",
+  "status": "draft",
+  "activation": "nothing in this file is active; approval and a separate reviewed diff are required",
+  "draft_records": [
+    {
+      "id": "SEO-TITLE-01",
+      "source_title": "Influencing your title links in search results",
+      "source_url": "https://developers.google.com/search/docs/appearance/title-link",
+      "accessed_at": "2026-10-08",
+      "location": "Best practices for influencing title links; How title links in Google Search are created",
+      "finding": "Google recommends descriptive, concise, distinct title text, warns against keyword stuffing and repeated boilerplate, and states that there is no fixed maximum length for a title element; the displayed title link may be shortened to fit the device.",
+      "scope_note": "Supports a qualitative title check. It does not establish the site's 25–65 character threshold as a Google requirement.",
+      "status": "draft"
+    },
+    {
+      "id": "SEO-META-01",
+      "source_title": "Control your snippets in search results",
+      "source_url": "https://developers.google.com/search/docs/appearance/snippet",
+      "accessed_at": "2026-10-08",
+      "location": "How snippets are created; Best practices for creating quality meta descriptions",
+      "finding": "Google primarily generates snippets from page content and may use the meta description when it better describes the page. The documentation gives no fixed maximum length for a meta description; displayed snippets may be truncated to fit the device.",
+      "scope_note": "Supports relevance and uniqueness checks. It does not establish the site's 70–160 character threshold as a Google requirement.",
+      "status": "draft"
+    },
+    {
+      "id": "SEO-SCHEMA-01",
+      "source_title": "Article structured data",
+      "source_url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+      "accessed_at": "2026-10-08",
+      "location": "Introduction; Guidelines; Structured data type definitions",
+      "finding": "The Article guide concerns news, blog, and sports article pages. It says Article markup can help Google understand those pages, and that Article markup is not a requirement for eligibility for Top Stories.",
+      "scope_note": "Do not infer a universal Article requirement for every page type.",
+      "status": "draft"
+    },
+    {
+      "id": "SEO-SCHEMA-01-GENERAL",
+      "source_title": "General structured data guidelines",
+      "source_url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "accessed_at": "2026-10-08",
+      "location": "Quality guidelines > Content; Relevance; Multiple items on a page",
+      "finding": "Structured data must describe relevant, reader-visible content and match the page's focus. The guidance permits multiple structured-data items on a page; it does not require every page to carry a particular schema type.",
+      "scope_note": "Validate markup against rendered HTML and the page profile; do not turn optional types into universal requirements.",
+      "status": "draft"
+    },
+    {
+      "id": "GEO-EEAT-01",
+      "source_title": "Creating helpful, reliable, people-first content",
+      "source_url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "accessed_at": "2026-10-08",
+      "location": "Ask \"Who, How, and Why\" about your content > Who (created the content); How (the content was created)",
+      "finding": "Google strongly encourages accurate authorship information and bylines where readers might expect them, warns against deceptive authorship, and says that explaining automation can help where readers would reasonably expect to know how content was produced.",
+      "scope_note": "This guidance does not make a visible byline, publication date, or sources section a universal Google requirement for every page. Any site-wide requirement remains an editorial policy.",
+      "status": "draft"
+    },
+    {
+      "id": "EDITOR-REST-01",
+      "source_title": "register_post_type()",
+      "source_url": "https://developer.wordpress.org/reference/functions/register_post_type/",
+      "accessed_at": "2026-10-08",
+      "location": "Parameters > show_in_rest",
+      "finding": "WordPress documents that a custom post type must set show_in_rest to true to be available in the block editor.",
+      "scope_note": "The theme currently sets show_in_rest to false intentionally. This is a confirmed code choice, not proof of the live editor configuration.",
+      "status": "draft"
+    }
+  ],
+  "open_sources": [
+    {
+      "id": "FA-HALFSPACE-01",
+      "source_title": "دستور خطّ فارسی (ویراست جدید)",
+      "source_url": "https://apll.ir/wp-content/uploads/2023/07/Dastour-e-Khat-17.04.1402.pdf",
+      "accessed_at": "2026-10-08",
+      "location": null,
+      "attempt": "Retried direct PDF retrieval on 2026-10-08; the fetch failed again without returning a document body. Search indexing found the Academy’s official notice announcing the new edition, but that notice does not expose the rule text or page locator. No spelling rule was enabled or changed.",
+      "status": "open",
+      "use_restriction": "Do not enable or amend spelling rules without the official PDF text and an exact page/section locator.",
+      "attempts": [
+        {
+          "date": "2026-10-08",
+          "method": "direct_fetch_retry",
+          "url": "https://apll.ir/wp-content/uploads/2023/07/Dastour-e-Khat-17.04.1402.pdf",
+          "outcome": "Fetch failed again; no document body or page locator was returned."
+        },
+        {
+          "date": "2026-10-08",
+          "method": "official_site_search_index",
+          "url": "https://apll.ir/1402/02/12/%D9%88%DB%8C%D8%B1%D8%A7%D8%B3%D8%AA-%D8%AC%D8%AF%DB%8C%D8%AF-%D8%AF%D8%B3%D8%AA%D9%88%D8%B1%D8%AE%D8%B7%D9%91-%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-%D9%85%D9%86%D8%AA%D8%B4%D8%B1-%D8%B4%D8%AF/",
+          "outcome": "Official notice confirms publication of the revised دستور خطّ فارسی; it is bibliographic evidence only and does not verify a particular half-space rule."
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "APLL official publication notice for the revised دستور خطّ فارسی",
+          "url": "https://apll.ir/1402/02/12/%D9%88%DB%8C%D8%B1%D8%A7%D8%B3%D8%AA-%D8%AC%D8%AF%DB%8C%D8%AF-%D8%AF%D8%B3%D8%AA%D9%88%D8%B1%D8%AE%D8%B7%D9%91-%D9%81%D8%A7%D8%B1%D8%B3%DB%8C-%D9%85%D9%86%D8%AA%D8%B4%D8%B1-%D8%B4%D8%AF/",
+          "use": "Confirms the edition/publication, not the wording or page of a specific rule; do not use as evidence to activate a spelling rule.",
+          "status": "bibliographic_only"
+        }
+      ]
+    },
+    {
+      "id": "GEO-NAMES-01",
+      "source_title": "نقشه تقسیمات استان‌های کشور به تفکیک شهرستان",
+      "source_url": "https://amar.org.ir/map-province",
+      "accessed_at": "2026-10-08",
+      "location": null,
+      "attempt": "Retried direct retrieval on 2026-10-08: HTTP 500. Official search indexing shows the 1402 provincial county-boundary map pages, but no machine-readable list was extracted. The alternative Statistics Center geography page is indexed with 1402 geographic files and a change-list, but direct retrieval also failed (HTTP 500); no file URL or rows were obtained. The Ministry of Interior FAQ is indexed as offering digital lists of cities and boundary units, but direct access returned HTTP 403 due to a geographic-IP restriction. No geography record was copied.",
+      "status": "open",
+      "use_restriction": "No dataset row, name, code, alias, count, or coordinate was copied. Do not activate any future draft without owner approval.",
+      "attempts": [
+        {
+          "date": "2026-10-08",
+          "method": "direct_fetch_retry",
+          "url": "https://amar.org.ir/map-province",
+          "outcome": "HTTP 500; no body or rows retrieved."
+        },
+        {
+          "date": "2026-10-08",
+          "method": "official_site_search_index",
+          "url": "https://amar.org.ir/map-province",
+          "outcome": "Indexed 1402 province-by-province map pages; no machine-readable list/CSV surfaced."
+        },
+        {
+          "date": "2026-10-08",
+          "method": "direct_fetch",
+          "url": "https://amar.org.ir/geo",
+          "outcome": "HTTP 500; no direct file URL retrieved."
+        },
+        {
+          "date": "2026-10-08",
+          "method": "official_site_search_index",
+          "url": "https://amar.org.ir/geo",
+          "outcome": "Lists 1402 geographic files and a change-list; download payload was not available for inspection."
+        },
+        {
+          "date": "2026-10-08",
+          "method": "direct_fetch",
+          "url": "https://www.moi.ir/fa/%D8%B3%D9%88%D8%A7%D9%84%D8%A7%D8%AA-%D9%85%D8%AA%D8%AF%D8%A7%D9%88%D9%84/%D8%AF%D9%81%D8%AA%D8%B1-%D8%AA%D9%82%D8%B3%DB%8C%D9%85%D8%A7%D8%AA-%DA%A9%D8%B4%D9%88%D8%B1%DB%8C",
+          "outcome": "HTTP 403; page reports geographic-IP access restriction."
+        },
+        {
+          "date": "2026-10-08",
+          "method": "official_site_search_index",
+          "url": "https://www.moi.ir/fa/%D8%B3%D9%88%D8%A7%D9%84%D8%A7%D8%AA-%D9%85%D8%AA%D8%AF%D8%A7%D9%88%D9%84/%D8%AF%D9%81%D8%AA%D8%B1-%D8%AA%D9%82%D8%B3%DB%8C%D9%85%D8%A7%D8%AA-%DA%A9%D8%B4%D9%88%D8%B1%DB%8C",
+          "outcome": "Ministry FAQ describes digital lists of cities and boundary units as obtainable from the Country Divisions office; request the current dated file directly."
+        },
+        {
+          "date": "2026-10-08",
+          "method": "official_site_search_index",
+          "url": "https://www.moi.ir/fa/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1/145067",
+          "outcome": "Found a Ministry item referring to a county-status list dated 1399/09/15; historical only, not accepted as a current canonical dataset."
+        }
+      ],
+      "alternatives": [
+        {
+          "title": "Statistics Center of Iran — statistical maps and geographic information, including 1402 files",
+          "url": "https://amar.org.ir/geo",
+          "use": "Best public candidate for a dated official geospatial file; file download still needs retrieval and format inspection.",
+          "status": "open"
+        },
+        {
+          "title": "Ministry of Interior — Country Divisions Office FAQ",
+          "url": "https://www.moi.ir/fa/%D8%B3%D9%88%D8%A7%D9%84%D8%A7%D8%AA-%D9%85%D8%AA%D8%AF%D8%A7%D9%88%D9%84/%D8%AF%D9%81%D8%AA%D8%B1-%D8%AA%D9%82%D8%B3%DB%8C%D9%85%D8%A7%D8%AA-%DA%A9%D8%B4%D9%88%D8%B1%DB%8C",
+          "use": "Official path to request the current digital list of cities and boundary units, including source date and stable IDs.",
+          "status": "request_required"
+        },
+        {
+          "title": "Ministry of Interior — county status list, dated 1399/09/15",
+          "url": "https://www.moi.ir/fa/%D8%A7%D8%AE%D8%A8%D8%A7%D8%B1/145067",
+          "use": "Historical cross-check only; too old to use as the current dataset without a newer official confirmation.",
+          "status": "historical_only"
+        }
+      ],
+      "record_count": 0
+    }
+  ],
+  "reviewed_at": "2026-10-08",
+  "owner_confirmed_inputs": [
+    {
+      "id": "RULES-CANONICAL-01",
+      "path_in_local_imported_bundle": "google_drive/rules.json",
+      "decision": "Owner confirmed rules_version 2026.10.08-2 (41 rules) as the only valid rules version.",
+      "result": "The local imported copy now contains the 41-rule version under the canonical filename rules.json; the 39-rule duplicate was removed. The live/site rules were not activated or changed.",
+      "canonical_sha256": "06f0310548e2984a2e83341c24a668d6fadcd262d2e61dc9e70e201f806ed02b",
+      "removed_copy_sha256": "8eb64cff63d4e91298bc70f7db76134db9cf6661c81e6d75ed86846986a3c785",
+      "storage_note": "Only the local imported bundle was cleaned; the Google Drive service itself was not edited."
+    },
+    {
+      "id": "CONTRACT-CANONICAL-01",
+      "path_in_local_imported_bundle": "google_drive/contract.md",
+      "decision": "Owner confirmed document version 1.1.0 and API version 1.1 as canonical.",
+      "copies_found": 1,
+      "status": "canonical",
+      "open_note": "The contract examples still mention rules_version 2026.10.08-1. They were not edited because the owner confirmed contract 1.1.0 and the contract requires versioned approval for changes. Clarify whether these are historical examples before any contract revision."
+    }
+  ]
+}

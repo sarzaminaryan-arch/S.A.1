@@ -44,7 +44,7 @@ class CC_Dashboard {
  public static function tab_submissions(){
   $q=new WP_Query(array('post_type'=>'cc_submission','post_status'=>array('pending','publish','rejected','needs_edit'),'posts_per_page'=>100,'orderby'=>'date','order'=>'DESC'));
   if(!$q->have_posts()){echo '<div class="cc-panel"><p>هنوز مشارکتی ارسال نشده است.</p></div>';return;}
-  $types=array('photo'=>'تصویر نمای برتر','place'=>'معرفی مکان/غذا','correction'=>'پیشنهاد اصلاح','report'=>'گزارش خطا','tip'=>'نکته محلی');
+  $types=array('photo'=>'تصویر دیدنی','place'=>'معرفی مکان/غذا','correction'=>'پیشنهاد اصلاح','report'=>'گزارش خطا','tip'=>'نکته محلی');
   echo '<div class="cc-panel"><table class="widefat cc-subm-table"><thead><tr><th>وضعیت</th><th>شهر</th><th>نوع</th><th>متن</th><th>تصویر</th><th>ارسال‌کننده</th><th>تاریخ</th><th>اقدام</th></tr></thead><tbody>';
   foreach($q->posts as $p){$st=$p->post_status;$row_cls=$st==='pending'?'cc-row--pending':($st==='publish'?'cc-row--ok':'');$labels=array('pending'=>'در انتظار بررسی','publish'=>'منتشر شده','rejected'=>'رد شده','needs_edit'=>'نیاز به اصلاح');$img=(int)get_post_meta($p->ID,'cc_image_id',true);$user=get_userdata($p->post_author);
    echo '<tr class="'.esc_attr($row_cls).'">';

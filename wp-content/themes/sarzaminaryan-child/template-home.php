@@ -104,8 +104,8 @@ if ( has_custom_logo() ) {
 
 /* ---- customizable texts (پیشخوان → سفارشی‌سازی → صفحه اصلی (طرح v2)) ---- */
 $sa_slogan    = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
-$sa_hero_text = get_theme_mod( 'sa_hero_text', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و نمای برتر طبیعت ایران.' );
-$sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر یا نمای برتر…' );
+$sa_hero_text = get_theme_mod( 'sa_hero_text', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و دیدنی‌ها طبیعت ایران.' );
+$sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر یا دیدنی…' );
 /* v2.1.0: پیش‌فرض شمارنده‌ها = تعداد واقعی منتشرشده (sa_entity_counts با کش
    یک‌ساعته در inc/performance.php). ادعای «۴۴۸+ شهرستان» روی سایتی که ۸۲
    شهرستان دارد، تناقضی است که هم کاربر و هم ارزیاب کیفیت می‌بیند.
@@ -154,6 +154,11 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .sa-chips a{padding:6px 16px;border-radius:99px;background:#edf6ff;border:1px solid #bdd8f1;color:var(--navy);font-size:14px;font-weight:600;text-decoration:none;transition:.25s}
 .sa-chips a:hover,.sa-chips a:focus-visible{background:var(--navy);border-color:var(--navy);color:#fff;outline:0}
+.sa-dash-cta{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:13px 28px;border-radius:99px;background:linear-gradient(135deg,#177357 0%,#0e93a0 130%);color:#fff;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(14,147,160,.55),0 2px 6px rgba(7,26,48,.2);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.sa-dash-cta svg{flex:none}
+.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(14,147,160,.65),0 3px 8px rgba(7,26,48,.24);filter:brightness(1.06);color:#fff;outline:0}
+.sa-dash-cta small{font-size:12px;font-weight:500;opacity:.85}
+@media(prefers-reduced-motion:reduce){.sa-dash-cta{transition:none}.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:none}}
 .sa-map{position:relative}
 .sa-map:before{content:"";position:absolute;inset:8% 4%;border-radius:50%;background:radial-gradient(circle,rgba(36,109,168,.24),transparent 68%)}
 .sa-map svg{position:relative;display:block;width:100%;height:auto;filter:drop-shadow(0 44px 40px rgba(7,26,48,.34))}
@@ -201,7 +206,7 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-logo{width:136px;height:136px;padding:8px}.sa-logo img{width:100%;height:100%}.sa-map{max-width:380px;margin:10px auto 0}.sa-posts{grid-template-columns:repeat(2,1fr)}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
 @media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-bars,.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:108px;height:108px;padding:7px}.sa-logo img{width:100%;height:100%}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-bar{height:62px}.sa-bar b{font-size:clamp(12px,3.15vw,15px)}.sa-head{padding:7px 8px;border-inline-start-width:4px}}
-@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-bar{gap:8px;padding-inline:9px}.sa-bar b{font-size:clamp(10.8px,3.15vw,13.5px);letter-spacing:-.04em}.sa-bar em{display:none}}
+@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-bar{gap:8px;padding-inline:9px}.sa-bar b{font-size:clamp(10.8px,3.15vw,13.5px);letter-spacing:-.04em}.sa-bar em{display:none}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
 /* zir-e 430px, dokme be radif-e dovom miravad */
 @media(max-width:430px){.sa-search{height:auto;padding:8px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;font-size:16px}.sa-search svg{order:2;margin:0}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
@@ -233,6 +238,14 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 						<a href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>"><?php echo esc_html( sa_entity_label( $sa_type, true ) ); ?></a>
 					<?php endforeach; ?>
 				</div>
+				<?php $sa_dash_url = function_exists( 'sa_dashboard_page_url' ) ? sa_dashboard_page_url() : ''; ?>
+				<?php if ( $sa_dash_url ) : ?>
+					<a class="sa-dash-cta" href="<?php echo esc_url( $sa_dash_url ); ?>">
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20V9M10 20V4M16 20v-8M21 20H3"/></svg>
+						<span>داشبورد جامع گردشگری ایران</span>
+						<small>۳۱ استان، نقشه و نمودارها</small>
+					</a>
+				<?php endif; ?>
 			</div>
 			<div class="sa-map">
 				<svg viewBox="-10 -10 420 380" role="img" aria-label="نقشه ایران با نقطه‌ی هر استان">
