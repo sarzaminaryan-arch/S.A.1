@@ -1,0 +1,1279 @@
+/**
+ * داشبورد جامع گردشگری ایران — سبک‌ها.
+ * هویت بصری: سبز طبیعی + فیروزه‌ای با لهجه‌های طلایی/نارنجی/قرمز محدود.
+ * تم روشن و تیره، راست‌به‌چپ، واکنش‌گرا، چاپ‌پسند و بدون انیمیشن اضافه.
+ *
+ * @package Sarzaminaryan_Child
+ */
+
+/* ================== توکن‌ها ================== */
+
+.sa-dash {
+	--d-bg: #f3f9f6;
+	--d-surface: #ffffff;
+	--d-surface2: #e9f4ef;
+	--d-ink: #12332b;
+	--d-ink-soft: #41635a;
+	--d-line: #d3e5dc;
+	--d-green: #177357;
+	--d-green-deep: #0e5b43;
+	--d-turq: #0e93a0;
+	--d-turq-soft: #d8f0f2;
+	--d-gold: #b7862b;
+	--d-orange: #c96a1f;
+	--d-red: #b5443c;
+	--d-track: #dcebe4;
+	--d-focus: 0 0 0 3px rgba(14, 147, 160, 0.35);
+	--d-shadow: 0 10px 28px rgba(18, 51, 43, 0.08);
+
+	background: var(--d-bg);
+	color: var(--d-ink);
+	font-family: Vazirmatn, "Segoe UI", Tahoma, Arial, sans-serif;
+	line-height: 1.9;
+	padding: 20px 4px 56px;
+}
+
+.sa-dash[data-theme="dark"] {
+	--d-bg: #081613;
+	--d-surface: #0f211c;
+	--d-surface2: #16302a;
+	--d-ink: #e6f2ec;
+	--d-ink-soft: #a2c3b7;
+	--d-line: #23443b;
+	--d-green: #37b18d;
+	--d-green-deep: #8fd9c0;
+	--d-turq: #2ec4d4;
+	--d-turq-soft: #123537;
+	--d-gold: #e0b153;
+	--d-orange: #e89149;
+	--d-red: #e0716a;
+	--d-track: #1b3a32;
+	--d-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.sa-dash *,
+.sa-dash *::before,
+.sa-dash *::after {
+	box-sizing: border-box;
+}
+
+.sa-dash a {
+	color: var(--d-green);
+}
+
+.sa-dash :focus-visible {
+	outline: none;
+	box-shadow: var(--d-focus);
+	border-radius: 8px;
+}
+
+.sa-visually-hidden {
+	position: absolute !important;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ================== سربرگ ================== */
+
+.sa-dash__top {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: flex-start;
+	justify-content: space-between;
+	background: linear-gradient(135deg, var(--d-green) 0%, var(--d-turq) 130%);
+	color: #fff;
+	border-radius: 18px;
+	padding: 26px 28px;
+	box-shadow: var(--d-shadow);
+}
+
+.sa-dash[data-theme="dark"] .sa-dash__top {
+	background: linear-gradient(135deg, #10402f 0%, #0c3a40 130%);
+}
+
+.sa-dash__title {
+	margin: 0 0 6px;
+	font-size: clamp(1.4rem, 3.4vw, 2rem);
+	line-height: 1.4;
+	color: #fff;
+}
+
+.sa-dash__sub {
+	margin: 0;
+	opacity: 0.95;
+	font-size: 0.95rem;
+}
+
+.sa-dash__sub-site {
+	font-weight: 700;
+}
+
+.sa-dash__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 12px 0 0;
+}
+
+.sa-chip {
+	display: inline-block;
+	font-size: 0.74rem;
+	padding: 3px 12px;
+	border-radius: 999px;
+	background: rgba(255, 255, 255, 0.16);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	color: #fff;
+}
+
+.sa-chip--warn {
+	background: rgba(255, 214, 102, 0.22);
+	border-color: rgba(255, 214, 102, 0.5);
+}
+
+.sa-dash__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+/* دکمه‌ها */
+.sa-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	font: inherit;
+	font-size: 0.85rem;
+	color: var(--d-ink);
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 10px;
+	padding: 8px 14px;
+	cursor: pointer;
+	transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.sa-dash__top .sa-btn {
+	background: rgba(255, 255, 255, 0.92);
+	border-color: rgba(255, 255, 255, 0.6);
+	color: #10402f;
+}
+
+.sa-btn:hover {
+	box-shadow: 0 6px 16px rgba(14, 91, 67, 0.18);
+	transform: translateY(-1px);
+}
+
+.sa-btn--ghost {
+	background: transparent;
+}
+
+.sa-btn--gold {
+	background: var(--d-gold);
+	border-color: var(--d-gold);
+	color: #fff;
+}
+
+.sa-btn.is-on {
+	background: var(--d-green);
+	color: #fff;
+	border-color: var(--d-green);
+}
+
+.sa-btn[disabled] {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.sa-btn__ico {
+	font-size: 1rem;
+	line-height: 1;
+}
+
+/* ناوبری بخش‌ها */
+.sa-dash__nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin: 16px 0 0;
+}
+
+.sa-dash__nav a {
+	font-size: 0.83rem;
+	text-decoration: none;
+	color: var(--d-ink);
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 999px;
+	padding: 6px 16px;
+	transition: background 0.15s ease, color 0.15s ease;
+}
+
+.sa-dash__nav a:hover {
+	background: var(--d-green);
+	color: #fff;
+	border-color: var(--d-green);
+}
+
+/* ================== فیلترها ================== */
+
+.sa-filters {
+	margin-top: 16px;
+}
+
+.sa-dash__panel {
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 16px;
+	padding: 18px 20px;
+	box-shadow: var(--d-shadow);
+}
+
+.sa-filters__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 14px 18px;
+	align-items: end;
+}
+
+.sa-field label {
+	display: block;
+	font-size: 0.8rem;
+	color: var(--d-ink-soft);
+	margin-bottom: 6px;
+}
+
+.sa-field select,
+.sa-field input[type="search"] {
+	width: 100%;
+	font: inherit;
+	font-size: 0.88rem;
+	color: var(--d-ink);
+	background: var(--d-surface2);
+	border: 1px solid var(--d-line);
+	border-radius: 10px;
+	padding: 9px 12px;
+}
+
+.sa-field input[type="range"] {
+	width: 100%;
+	accent-color: var(--d-green);
+}
+
+.sa-field output {
+	font-weight: 700;
+	color: var(--d-green);
+	font-variant-numeric: tabular-nums;
+}
+
+.sa-field--check label {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	font-size: 0.88rem;
+	color: var(--d-ink);
+	cursor: pointer;
+}
+
+.sa-field--check input {
+	width: 18px;
+	height: 18px;
+	accent-color: var(--d-green);
+}
+
+.sa-check-inline {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	font-size: 0.85rem;
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.sa-check-inline input {
+	width: 17px;
+	height: 17px;
+	accent-color: var(--d-green);
+}
+
+.sa-filters__note {
+	margin: 12px 0 0;
+	font-size: 0.78rem;
+	color: var(--d-ink-soft);
+}
+
+.sa-dash__scope {
+	margin: 14px 4px 0;
+	font-size: 0.85rem;
+	color: var(--d-ink-soft);
+}
+
+/* ================== بخش‌ها و پنل‌ها ================== */
+
+.sa-dash__sec {
+	margin-top: 34px;
+	scroll-margin-top: 20px;
+}
+
+.sa-dash__h2 {
+	font-size: 1.25rem;
+	line-height: 1.4;
+	margin: 0 0 14px;
+	color: var(--d-ink);
+	border-inline-start: 5px solid var(--d-green);
+	padding-inline-start: 12px;
+}
+
+.sa-charts {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 18px;
+}
+
+.sa-panel {
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 16px;
+	padding: 18px;
+	box-shadow: var(--d-shadow);
+	min-width: 0;
+}
+
+.sa-panel--wide {
+	grid-column: 1 / -1;
+}
+
+.sa-panel h3 {
+	margin: 0 0 14px;
+	font-size: 0.98rem;
+	color: var(--d-ink);
+}
+
+.sa-panel h3 small {
+	font-weight: 400;
+	color: var(--d-ink-soft);
+	font-size: 0.76rem;
+}
+
+/* ================== کارت‌های شاخص ================== */
+
+.sa-kpis {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+	gap: 14px;
+}
+
+.sa-kpi {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 14px;
+	padding: 16px 18px;
+	box-shadow: var(--d-shadow);
+	transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sa-kpi:hover {
+	transform: translateY(-2px);
+}
+
+.sa-kpi__icon {
+	flex: none;
+	width: 46px;
+	height: 46px;
+	border-radius: 12px;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	background: var(--d-green);
+}
+
+.sa-kpi__icon svg {
+	width: 26px;
+	height: 26px;
+}
+
+.sa-kpi--counties .sa-kpi__icon { background: var(--d-turq); }
+.sa-kpi--attractions .sa-kpi__icon { background: var(--d-gold); }
+.sa-kpi--area .sa-kpi__icon { background: var(--d-orange); }
+.sa-kpi--population .sa-kpi__icon { background: var(--d-red); }
+
+.sa-kpi__body {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.sa-kpi__value {
+	font-size: 1.28rem;
+	font-weight: 800;
+	line-height: 1.5;
+	font-variant-numeric: tabular-nums;
+}
+
+.sa-kpi__value small {
+	font-size: 0.68rem;
+	font-weight: 600;
+	color: var(--d-ink-soft);
+}
+
+.sa-kpi__label {
+	font-size: 0.8rem;
+	color: var(--d-ink-soft);
+}
+
+.sa-dash__fineprint {
+	margin: 10px 2px 0;
+	font-size: 0.76rem;
+	color: var(--d-ink-soft);
+}
+
+/* ================== نمودار میله‌ای افقی ================== */
+
+.hbar {
+	display: grid;
+	grid-template-columns: 128px minmax(0, 1fr) 86px;
+	align-items: center;
+	gap: 10px;
+	padding: 3px 2px;
+	border-radius: 8px;
+}
+
+.hbar:hover {
+	background: var(--d-surface2);
+}
+
+.hbar__name {
+	font-size: 0.8rem;
+	text-align: end;
+	color: var(--d-ink);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.hbar__track {
+	display: block;
+	height: 13px;
+	border-radius: 999px;
+	background: var(--d-track);
+	overflow: hidden;
+}
+
+.hbar__fill {
+	display: block;
+	height: 100%;
+	border-radius: 999px;
+	background: linear-gradient(270deg, var(--d-green), var(--d-turq));
+	transition: width 0.5s ease;
+}
+
+.hbar__val {
+	font-size: 0.76rem;
+	font-variant-numeric: tabular-nums;
+	color: var(--d-ink-soft);
+	text-align: start;
+}
+
+.hbar.is-top-1 .hbar__fill { background: linear-gradient(270deg, var(--d-gold), #d8a94e); }
+.hbar.is-top-2 .hbar__fill { background: linear-gradient(270deg, #93a2a8, #b9c4c9); }
+.hbar.is-top-3 .hbar__fill { background: linear-gradient(270deg, #a4683c, #c98d5d); }
+.hbar.is-gold .hbar__fill { background: linear-gradient(270deg, var(--d-gold), #d8a94e); }
+
+/* ================== دونات ================== */
+
+.donut-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 18px;
+	align-items: center;
+	justify-content: center;
+}
+
+.donut {
+	width: 200px;
+	height: 200px;
+	flex: none;
+}
+
+.donut__num {
+	font-size: 17px;
+	font-weight: 800;
+	fill: var(--d-ink);
+}
+
+.donut__cap {
+	font-size: 10px;
+	fill: var(--d-ink-soft);
+}
+
+.donut-legend {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	min-width: 220px;
+	flex: 1;
+}
+
+.donut-legend li {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.82rem;
+}
+
+.donut-legend li.is-muted {
+	color: var(--d-ink-soft);
+}
+
+.donut-legend__val {
+	margin-inline-start: auto;
+	font-variant-numeric: tabular-nums;
+	font-size: 0.78rem;
+}
+
+.swatch {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 4px;
+	flex: none;
+}
+
+.swatch--out {
+	background: var(--d-track);
+	border: 1px dashed var(--d-line);
+}
+
+/* ================== مرزها ================== */
+
+.border-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 9px;
+}
+
+.border-row {
+	display: grid;
+	grid-template-columns: 150px 70px minmax(0, 1fr);
+	align-items: center;
+	gap: 10px;
+	padding: 8px 10px;
+	border: 1px solid var(--d-line);
+	border-radius: 12px;
+	background: var(--d-surface2);
+}
+
+.border-row.is-empty {
+	opacity: 0.5;
+}
+
+.border-row__country {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-weight: 700;
+	font-size: 0.86rem;
+}
+
+.border-row__count {
+	font-size: 0.76rem;
+	color: var(--d-ink-soft);
+}
+
+.border-row__provs {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.chip {
+	display: inline-block;
+	font-size: 0.72rem;
+	background: var(--d-surface);
+	border: 1px solid var(--chipc, var(--d-line));
+	color: var(--d-ink);
+	border-radius: 999px;
+	padding: 2px 10px;
+}
+
+.chip--none {
+	border-style: dashed;
+	color: var(--d-ink-soft);
+}
+
+/* ================== پراکندگی ================== */
+
+.scatter {
+	width: 100%;
+	height: auto;
+	direction: ltr;
+}
+
+.scatter .grid {
+	stroke: var(--d-line);
+	stroke-width: 1;
+	stroke-dasharray: 3 4;
+}
+
+.scatter .tick {
+	font-size: 11px;
+	fill: var(--d-ink-soft);
+}
+
+.scatter .axis-label {
+	font-size: 12px;
+	fill: var(--d-ink);
+}
+
+.scatter circle {
+	stroke: var(--d-surface);
+	stroke-width: 1.5;
+	cursor: pointer;
+	transition: r 0.15s ease;
+}
+
+.scatter circle:hover,
+.scatter circle:focus-visible {
+	r: 10;
+}
+
+.scatter-legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	margin: 10px 0 0;
+	font-size: 0.78rem;
+	color: var(--d-ink-soft);
+	align-items: center;
+}
+
+.scatter-legend span {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.scatter-legend__th {
+	color: var(--d-ink-soft);
+}
+
+/* ================== جدول ================== */
+
+.sa-table-tools {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 12px 16px;
+	margin-bottom: 12px;
+}
+
+.sa-field--grow {
+	flex: 1 1 240px;
+}
+
+.sa-table-tools__hint {
+	flex-basis: 100%;
+	margin: 0;
+	font-size: 0.74rem;
+	color: var(--d-ink-soft);
+}
+
+.sa-table-wrap {
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 16px;
+	box-shadow: var(--d-shadow);
+	overflow-x: auto;
+}
+
+.sa-table {
+	width: 100%;
+	min-width: 880px;
+	border-collapse: collapse;
+	font-size: 0.84rem;
+}
+
+.sa-table th,
+.sa-table td {
+	padding: 10px 12px;
+	text-align: right;
+	border-bottom: 1px solid var(--d-line);
+	white-space: nowrap;
+}
+
+.sa-table thead th {
+	background: var(--d-surface2);
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.sa-sort {
+	font: inherit;
+	font-weight: 700;
+	color: var(--d-ink);
+	background: none;
+	border: 0;
+	cursor: pointer;
+	padding: 0;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.sa-sort::after {
+	content: "↕";
+	font-size: 0.7rem;
+	opacity: 0.45;
+}
+
+.sa-sort.is-asc::after {
+	content: "↑";
+	opacity: 1;
+	color: var(--d-green);
+}
+
+.sa-sort.is-desc::after {
+	content: "↓";
+	opacity: 1;
+	color: var(--d-green);
+}
+
+.sa-table tbody tr:nth-child(even) {
+	background: var(--d-surface2);
+}
+
+.sa-table tbody tr:hover {
+	background: var(--d-turq-soft);
+}
+
+.sa-table .num {
+	font-variant-numeric: tabular-nums;
+}
+
+.rank {
+	display: inline-grid;
+	place-items: center;
+	min-width: 30px;
+	height: 30px;
+	padding: 0 6px;
+	border-radius: 9px;
+	font-weight: 800;
+	background: var(--d-surface2);
+	border: 1px solid var(--d-line);
+	font-variant-numeric: tabular-nums;
+}
+
+.rank.is-medal-1 {
+	background: linear-gradient(135deg, #f5d061, #c9962e);
+	border-color: #b7862b;
+	color: #3c2a05;
+}
+
+.rank.is-medal-2 {
+	background: linear-gradient(135deg, #e6ecf0, #a9b6bd);
+	border-color: #93a2a8;
+	color: #2b363b;
+}
+
+.rank.is-medal-3 {
+	background: linear-gradient(135deg, #e0a071, #a4683c);
+	border-color: #8f5730;
+	color: #351d0c;
+}
+
+.badge-badge {
+	display: inline-block;
+	font-size: 0.66rem;
+	font-weight: 700;
+	color: #fff;
+	background: var(--d-turq);
+	border-radius: 999px;
+	padding: 1px 9px;
+	vertical-align: middle;
+}
+
+.pill {
+	display: inline-block;
+	font-size: 0.72rem;
+	border-radius: 999px;
+	padding: 2px 10px;
+	background: var(--d-surface2);
+	border: 1px solid var(--d-line);
+}
+
+.pill--yes {
+	color: #fff;
+	background: var(--d-green);
+	border-color: var(--d-green);
+}
+
+.pill--no {
+	color: var(--d-ink-soft);
+}
+
+.pill--gold {
+	color: #4a3505;
+	background: linear-gradient(135deg, #f5d061, #e0b153);
+	border-color: #c9962e;
+	font-weight: 700;
+}
+
+.sa-pager {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+	margin-top: 12px;
+}
+
+.sa-pager__info {
+	font-size: 0.78rem;
+	color: var(--d-ink-soft);
+	margin-inline-start: auto;
+}
+
+/* ================== نقشه ================== */
+
+.sa-map-tools {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: end;
+	gap: 14px;
+	margin-bottom: 12px;
+}
+
+.sa-map-tools__hint {
+	flex: 1 1 280px;
+	margin: 0;
+	font-size: 0.74rem;
+	color: var(--d-ink-soft);
+}
+
+.sa-mapgrid {
+	display: grid;
+	grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr);
+	gap: 18px;
+	align-items: start;
+}
+
+.sa-mapbox {
+	position: relative;
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 16px;
+	box-shadow: var(--d-shadow);
+	padding: 16px;
+	min-height: 300px;
+}
+
+.sa-mapsvg {
+	width: 100%;
+	height: auto;
+	direction: ltr;
+	display: block;
+}
+
+.sa-mapsvg path {
+	stroke: var(--d-surface);
+	stroke-width: 1.4;
+	cursor: pointer;
+	transition: filter 0.15s ease, opacity 0.2s ease;
+}
+
+.sa-mapsvg path.is-out {
+	fill: var(--d-track) !important;
+	opacity: 0.55;
+	cursor: default;
+}
+
+.sa-mapsvg path:hover:not(.is-out),
+.sa-mapsvg path:focus-visible {
+	filter: brightness(1.14) saturate(1.1);
+}
+
+.sa-mapsvg path.is-sel {
+	stroke: var(--d-gold);
+	stroke-width: 2.6;
+}
+
+.sa-maplegend {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 12px;
+	margin-top: 12px;
+	font-size: 0.74rem;
+	color: var(--d-ink-soft);
+	direction: rtl;
+}
+
+.sa-maplegend__step {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-variant-numeric: tabular-nums;
+}
+
+.sa-mapinfo {
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 16px;
+	box-shadow: var(--d-shadow);
+	padding: 18px;
+	position: sticky;
+	top: 16px;
+}
+
+.sa-mapinfo__name {
+	margin: 0 0 12px;
+	font-size: 1.08rem;
+	color: var(--d-green);
+	border-bottom: 1px dashed var(--d-line);
+	padding-bottom: 10px;
+}
+
+.sa-mapinfo__name small {
+	color: var(--d-ink-soft);
+	font-weight: 400;
+}
+
+.sa-mapinfo__dl {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	gap: 7px 14px;
+	margin: 0;
+	font-size: 0.84rem;
+}
+
+.sa-mapinfo__dl dt {
+	color: var(--d-ink-soft);
+	white-space: nowrap;
+}
+
+.sa-mapinfo__dl dd {
+	margin: 0;
+	font-variant-numeric: tabular-nums;
+	word-break: break-word;
+}
+
+/* ================== جاذبه‌ها ================== */
+
+.sa-attr-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 14px;
+}
+
+.sa-acard {
+	display: flex;
+	flex-direction: column;
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: var(--d-shadow);
+	transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sa-acard:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 16px 34px rgba(18, 51, 43, 0.16);
+}
+
+.sa-acard__media {
+	height: 96px;
+	display: grid;
+	place-items: center;
+	color: #fff;
+	background: linear-gradient(135deg, var(--d-green), var(--d-turq));
+}
+
+.sa-acard--natural .sa-acard__media { background: linear-gradient(135deg, #0e93a0, #2b6a8f); }
+.sa-acard--religious .sa-acard__media { background: linear-gradient(135deg, #b7862b, #8f5730); }
+.sa-acard--cultural .sa-acard__media { background: linear-gradient(135deg, #2b6a8f, #177357); }
+
+.sa-acard__media svg {
+	width: 44px;
+	height: 44px;
+	opacity: 0.95;
+}
+
+.sa-acard__body {
+	padding: 14px 16px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	flex: 1;
+}
+
+.sa-acard__body h3 {
+	margin: 0;
+	font-size: 0.95rem;
+	line-height: 1.6;
+}
+
+.sa-acard__loc {
+	margin: 0;
+	font-size: 0.78rem;
+	color: var(--d-ink-soft);
+	display: flex;
+	gap: 6px;
+	flex-wrap: wrap;
+}
+
+.sa-acard__meta {
+	margin: auto 0 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.sa-acard__note {
+	margin: 4px 0 0;
+	font-size: 0.72rem;
+	color: var(--d-ink-soft);
+	border-inline-start: 3px solid var(--d-gold);
+	padding-inline-start: 8px;
+}
+
+/* ================== منابع، اسکلت، تولتیپ، توست ================== */
+
+.sa-dash__sources {
+	margin-top: 40px;
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 16px;
+	padding: 20px 22px;
+	font-size: 0.82rem;
+	color: var(--d-ink-soft);
+}
+
+.sa-dash__sources .sa-dash__h2 {
+	font-size: 1rem;
+}
+
+.sa-dash__sources ul {
+	margin: 0;
+	padding-inline-start: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.sa-dash__noscript {
+	background: #fff3cd;
+	color: #4a3505;
+	border-radius: 12px;
+	padding: 14px 18px;
+	margin-top: 16px;
+}
+
+.sa-sk {
+	position: relative;
+	overflow: hidden;
+	background: var(--d-surface2);
+	border-radius: 10px;
+	min-height: 74px;
+}
+
+.sa-sk--tall {
+	min-height: 220px;
+	width: 100%;
+}
+
+.sa-sk::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+	animation: sa-shimmer 1.4s infinite;
+}
+
+.sa-dash[data-theme="dark"] .sa-sk::after {
+	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+}
+
+@keyframes sa-shimmer {
+	from { transform: translateX(100%); }
+	to { transform: translateX(-100%); }
+}
+
+.sa-empty {
+	text-align: center;
+	padding: 34px 18px;
+	color: var(--d-ink-soft);
+	background: var(--d-surface2);
+	border: 1px dashed var(--d-line);
+	border-radius: 12px;
+}
+
+.sa-empty p {
+	margin: 0 0 12px;
+	font-size: 0.9rem;
+}
+
+.sa-tooltip {
+	position: fixed;
+	z-index: 9999;
+	max-width: 280px;
+	background: #10302a;
+	color: #eafaf3;
+	font-size: 0.76rem;
+	line-height: 1.8;
+	padding: 8px 12px;
+	border-radius: 10px;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+	pointer-events: none;
+}
+
+.sa-toast {
+	position: fixed;
+	bottom: 22px;
+	inset-inline-start: 50%;
+	transform: translateX(-50%) translateY(20px);
+	background: #10302a;
+	color: #eafaf3;
+	padding: 10px 20px;
+	border-radius: 12px;
+	font-size: 0.85rem;
+	opacity: 0;
+	transition: opacity 0.25s ease, transform 0.25s ease;
+	z-index: 9999;
+	pointer-events: none;
+}
+
+.sa-toast.is-on {
+	opacity: 1;
+	transform: translateX(-50%) translateY(0);
+}
+
+/* ================== واکنش‌گرایی ================== */
+
+@media (max-width: 1020px) {
+	.sa-charts {
+		grid-template-columns: 1fr;
+	}
+	.sa-mapgrid {
+		grid-template-columns: 1fr;
+	}
+	.sa-mapinfo {
+		position: static;
+	}
+}
+
+@media (max-width: 640px) {
+	.sa-dash {
+		padding-inline: 0;
+	}
+	.sa-dash__top {
+		padding: 20px 18px;
+	}
+	.hbar {
+		grid-template-columns: 92px minmax(0, 1fr) 74px;
+		gap: 7px;
+	}
+	.hbar__name {
+		font-size: 0.72rem;
+	}
+	.border-row {
+		grid-template-columns: 1fr;
+		gap: 6px;
+	}
+	.donut-wrap {
+		flex-direction: column;
+	}
+	.sa-filters__grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ================== حرکت کمتر ================== */
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-dash *,
+	.sa-dash *::before,
+	.sa-dash *::after {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+/* ================== چاپ ================== */
+
+@page {
+	margin: 14mm;
+}
+
+@media print {
+	.sa-dash__actions,
+	.sa-dash__nav,
+	.sa-filters,
+	.sa-table-tools,
+	.sa-map-tools,
+	.sa-pager,
+	.sa-tooltip,
+	.sa-toast {
+		display: none !important;
+	}
+
+	.sa-dash {
+		background: #fff;
+		color: #000;
+		padding: 0;
+	}
+
+	.sa-dash__top {
+		background: #fff;
+		color: #0e5b43;
+		box-shadow: none;
+		border: 2px solid #0e5b43;
+	}
+
+	.sa-chip {
+		color: #0e5b43;
+		border-color: #0e5b43;
+		background: #fff;
+	}
+
+	.sa-panel,
+	.sa-kpi,
+	.sa-table-wrap,
+	.sa-mapbox,
+	.sa-mapinfo,
+	.sa-acard,
+	.sa-dash__sources {
+		box-shadow: none;
+		break-inside: avoid;
+	}
+
+	.sa-charts {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-table-wrap {
+		overflow: visible;
+	}
+
+	.sa-table {
+		min-width: 0;
+		font-size: 0.72rem;
+	}
+
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}
