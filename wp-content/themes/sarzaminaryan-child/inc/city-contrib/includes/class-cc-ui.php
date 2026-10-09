@@ -32,7 +32,7 @@ class CC_UI {
   $id=get_the_ID();$province=function_exists('sa_gallery_city_province_id')?sa_gallery_city_province_id($id):(int)get_post_meta($id,'sa_province_id',true);
   $max_files=class_exists('CC_Admin')?CC_Admin::upload_max_files():3;$max_mb=class_exists('CC_Admin')?CC_Admin::upload_max_mb():2;
   echo '<section class="cc-block cc-contrib" id="cc-contrib" data-cc-contrib>';
-  echo '<h2 class="cc-block__title">نمای برتر شهر/شهرستان‌تان را ارسال کنید</h2>';
+  echo '<h2 class="cc-block__title">دیدنی شهر/شهرستان‌تان را ارسال کنید</h2>';
   echo '<p class="cc-contrib__hint">عکس‌های مجاز از طبیعت، چشم‌انداز یا مکان ارزشمند شهر/شهرستان بفرستید. فقط نام مکان الزامی است؛ شهرستان و استان به‌صورت خودکار از همین صفحه ثبت می‌شود و تصویر پس از بررسی مدیر وارد آلبوم می‌شود. فعلاً تا '.esc_html(self::fa_num($max_files)).' تصویر و هر تصویر حداکثر '.esc_html(self::fa_num($max_mb)).' مگابایت پذیرفته می‌شود.</p>';
   echo '<button type="button" class="cc-btn cc-btn--primary cc-contrib__open" data-cc-open>📷 ارسال عکس برای آلبوم</button>';
   echo '<form hidden data-cc-form><input type="hidden" name="city_id" value="'.esc_attr($id).'"><input type="hidden" name="province_id" value="'.esc_attr($province).'">';
@@ -42,13 +42,13 @@ class CC_UI {
   echo '<label>استان <input type="text" value="'.esc_attr($province?get_the_title($province):'').'" readonly></label></div>';
   echo '<label>نام فرستنده (اختیاری)<input type="text" name="contributor_name" maxlength="80" placeholder="اگر می‌خواهید کنار تصویر نمایش داده شود"></label>';
   echo '<label>یادداشت اختیاری برای مدیر<textarea name="text" maxlength="700" placeholder="اختیاری: فصل عکس، مسیر دسترسی یا نکته کوتاه. این متن به‌صورت خودکار زیر تصویر منتشر نمی‌شود."></textarea></label>';
-  echo '<label>تصاویر نمای برتر <input type="file" name="image[]" accept="image/jpeg,image/png,image/webp" multiple required data-cc-max-files="'.esc_attr($max_files).'" data-cc-max-mb="'.esc_attr($max_mb).'"></label>';
+  echo '<label>تصاویر دیدنی <input type="file" name="image[]" accept="image/jpeg,image/png,image/webp" multiple required data-cc-max-files="'.esc_attr($max_files).'" data-cc-max-mb="'.esc_attr($max_mb).'"></label>';
   echo '<p class="cc-contrib__note">می‌توانید تا '.esc_html(self::fa_num($max_files)).' تصویر انتخاب کنید؛ هر فایل حداکثر '.esc_html(self::fa_num($max_mb)).' مگابایت. پس از ارسال، تصویرها به WebP سبک تبدیل می‌شوند، فایل خام حذف می‌شود، نشان sarzaminaryan می‌گیرند و تا تأیید مدیر در سایت نمایش داده نمی‌شوند.</p>';
   echo '<label class="cc-consent"><input type="checkbox" name="rights_confirm" value="1" required> تأیید می‌کنم تصویر را خودم گرفته‌ام یا اجازهٔ انتشار آن را دارم و با نمایش آن در سرزمین آریان موافقم.</label>';
   echo '<input class="cc-hp" name="website" tabindex="-1" autocomplete="off">';
   echo '<button type="submit" class="cc-btn cc-btn--primary">ارسال برای بررسی</button> <button type="button" class="cc-btn cc-btn--ghost" data-cc-close>انصراف</button>';
   echo '<p data-cc-message role="status"></p></form>';
-  $url=get_permalink();$text='نمای برتر شهر من را ببین و عکس بفرست: '.get_permalink();
+  $url=get_permalink();$text='دیدنی شهر من را ببین و عکس بفرست: '.get_permalink();
   echo '<div class="cc-share" data-url="'.esc_attr($url).'" data-text="'.esc_attr($text).'"><span class="cc-share__label">این شهرستان را با دوستان خود به اشتراک بگذارید:</span><button type="button" data-cc-share>ارسال برای دوستان</button><button type="button" data-cc-copy>کپی لینک</button><a href="https://t.me/share/url?url='.rawurlencode($url).'&text='.rawurlencode($text).'" target="_blank" rel="noopener">تلگرام</a><a href="https://wa.me/?text='.rawurlencode($text).'" target="_blank" rel="noopener">واتساپ</a></div>';
   echo '</section>';
  }

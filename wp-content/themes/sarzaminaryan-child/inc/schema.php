@@ -165,7 +165,7 @@ function sa_schema_entity( $post ) {
 			$node['containedInPlace'] = array( '@type' => 'Country', 'name' => 'ایران', 'sameAs' => 'https://www.wikidata.org/wiki/Q794' );
 			$cities = array_slice( sa_get_children( $id, 'city' ), 0, 20 );
 			if ( $cities ) {
-				$node['containsPlace'] = array_map( function ( $c ) { return sa_schema_ref( $c, 'City' ); }, $cities );
+				$node['containsPlace'] = array_map( function ( $c ) { return sa_schema_ref( $c, 'AdministrativeArea' ); }, $cities );
 			}
 			$attractions = array_slice( sa_get_children( $id, 'attraction' ), 0, 20 );
 			if ( $attractions ) {
@@ -174,7 +174,8 @@ function sa_schema_entity( $post ) {
 			break;
 
 		case 'city':
-			$node['@type'] = array( 'City', 'TouristDestination' );
+			// `city` is the locked technical CPT for county pages, not a municipal city.
+			$node['@type'] = array( 'AdministrativeArea', 'TouristDestination' );
 			if ( $province ) {
 				$node['containedInPlace'] = sa_schema_ref( $province, 'AdministrativeArea' );
 			}
@@ -191,17 +192,23 @@ function sa_schema_entity( $post ) {
 		case 'attraction':
 			$node['@type'] = 'TouristAttraction';
 			if ( $city ) {
-				$node['containedInPlace'] = sa_schema_ref( $city, 'City' );
+				$node['containedInPlace'] = sa_schema_ref( $city, 'AdministrativeArea' );
 			}
 			$address = get_post_meta( $id, 'sa_address', true );
 			if ( $address ) {
-				$node['address'] = array(
-					'@type'           => 'PostalAddress',
-					'streetAddress'   => $address,
-					'addressLocality' => $city ? get_the_title( $city ) : '',
-					'addressRegion'   => $province ? get_the_title( $province ) : '',
-					'addressCountry'  => 'IR',
+				$postal_address = array(
+					'@type'          => 'PostalAddress',
+					'streetAddress'  => $address,
+					'addressCountry' => 'IR',
 				);
+				$locality = $city ? trim( (string) get_post_meta( $city->ID, 'sa_cty_center', true ) ) : '';
+				if ( $locality ) {
+					$postal_address['addressLocality'] = $locality;
+				}
+				if ( $province ) {
+					$postal_address['addressRegion'] = get_the_title( $province );
+				}
+				$node['address'] = $postal_address;
 			}
 			$hours = get_post_meta( $id, 'sa_opening_hours', true );
 			if ( $hours ) {
@@ -230,7 +237,7 @@ function sa_schema_entity( $post ) {
 			$node['@type'] = 'TouristTrip';
 			$stops         = array();
 			foreach ( sa_get_related( $id, 'sa_city_ids' ) as $c ) {
-				$stops[] = sa_schema_ref( $c, 'City' );
+				$stops[] = sa_schema_ref( $c, 'AdministrativeArea' );
 			}
 			foreach ( sa_get_related( $id, 'sa_attraction_ids' ) as $a ) {
 				$stops[] = sa_schema_ref( $a, 'TouristAttraction' );
@@ -267,7 +274,7 @@ function sa_schema_entity( $post ) {
 			}
 			$node['author'] = array( '@id' => home_url( '/#organization' ) );
 			if ( $city ) {
-				$node['spatialCoverage'] = sa_schema_ref( $city, 'City' );
+				$node['spatialCoverage'] = sa_schema_ref( $city, 'AdministrativeArea' );
 			}
 			unset( $node['geo'] );
 			break;
@@ -289,7 +296,7 @@ function sa_schema_entity( $post ) {
 		case 'accommodation':
 			$node['@type'] = 'LodgingBusiness';
 			if ( $city ) {
-				$node['containedInPlace'] = sa_schema_ref( $city, 'City' );
+				$node['containedInPlace'] = sa_schema_ref( $city, 'AdministrativeArea' );
 			}
 			break;
 
@@ -334,33 +341,17 @@ function sa_schema_article( $post ) {
 }
 
 /**
- * FAQPage node from sa_faq meta.
+ * Legacy FAQPage helper retained for compatibility; FAQPage output is disabled.
  *
- * @param int $post_id Post ID.
- * @return array|null
+ * The FAQ accordion remains visible to readers, but the theme intentionally emits no
+ * FAQPage JSON-LD. Do not restore structured output solely to seek a Google rich result.
+ *
+ * @deprecated data-model v1.2 — no longer outputs structured data.
+ * @param int $post_id Post ID (unused).
+ * @return null
  */
 function sa_schema_faq( $post_id ) {
-	$faq = sa_get_faq( $post_id );
-	if ( count( $faq ) < 1 ) {
-		return null;
-	}
-	return array(
-		'@type'      => 'FAQPage',
-		'@id'        => get_permalink( $post_id ) . '#faq',
-		'mainEntity' => array_map(
-			function ( $row ) {
-				return array(
-					'@type'          => 'Question',
-					'name'           => $row['q'],
-					'acceptedAnswer' => array(
-						'@type' => 'Answer',
-						'text'  => $row['a'],
-					),
-				);
-			},
-			$faq
-		),
-	);
+	return null;
 }
 
 /**
@@ -397,7 +388,8 @@ function sa_schema_breadcrumbs() {
  * With an SEO plugin active (Rank Math, Yoast, AIOSEO, SEOPress, TSF) the plugin owns the
  * site-level nodes — Organization, WebSite, WebPage/Article, BreadcrumbList — so the theme
  * prints only what no plugin can build from its meta boxes: the entity node
- * (AdministrativeArea/TouristDestination/…) and FAQPage. Node @ids follow the same
+ * (AdministrativeArea/TouristDestination/…). Visible FAQ content remains in the page;
+ * the theme intentionally emits no FAQPage JSON-LD. Node @ids follow the same
  * `home_url( '/#organization' )` convention as the plugins, so references resolve.
  * `add_filter( 'sa_schema_with_plugin', '__return_false' )` switches the theme graph off
  * completely when a plugin is active (v1.0.1 behaviour).
@@ -436,10 +428,6 @@ function sa_schema_output() {
 				'inLanguage'  => 'fa-IR',
 				'isPartOf'    => array( '@id' => home_url( '/#website' ) ),
 			);
-		}
-		$faq = sa_schema_faq( $post->ID );
-		if ( $faq ) {
-			$graph[] = $faq;
 		}
 	} elseif ( ! $plugin && ( is_post_type_archive() || is_tax() || is_category() ) ) {
 		$graph[] = array(

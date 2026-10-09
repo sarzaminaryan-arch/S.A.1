@@ -1,8 +1,8 @@
 <?php
 /**
- * «مقالات آمادهٔ نمای برتر» — in-theme ready-article tool (v2.11.15).
+ * «مقالات آمادهٔ دیدنی‌ها» — in-theme ready-article tool (v2.11.15).
  *
- * Admin path: سرزمین آریان → مقالات آمادهٔ نمای برتر
+ * Admin path: سرزمین آریان → مقالات آمادهٔ دیدنی‌ها
  *
  * Rules enforced here:
  * - new articles are ALWAYS inserted as draft (post_status = draft);
@@ -43,8 +43,8 @@ function sa_ready_articles_data() {
 function sa_ready_articles_menu() {
 	add_submenu_page(
 		'sarzaminaryan',
-		'مقالات آمادهٔ نمای برتر',
-		'مقالات آمادهٔ نمای برتر',
+		'مقالات آمادهٔ دیدنی‌ها',
+		'مقالات آمادهٔ دیدنی‌ها',
 		'edit_posts',
 		'sa-ready-articles',
 		'sa_ready_articles_page'
@@ -572,7 +572,7 @@ function sa_ready_articles_page() {
 	$data = sa_ready_articles_data();
 	?>
 	<div class="wrap sa-ready">
-		<h1>مقالات آمادهٔ نمای برتر</h1>
+		<h1>مقالات آمادهٔ دیدنی‌ها</h1>
 		<p class="sa-ready__lead">
 			مقاله‌های آمادهٔ قالب، <strong>فقط به‌صورت پیش‌نویس</strong> وارد سایت می‌شوند؛ انتشار نهایی همیشه با مدیر است.
 			برای هر مقاله می‌توانید کارت سفید تصویر شاخص (۱۲۰۰×۶۰۰) را بسازید: زمینهٔ کاملاً سفید، یک آیکون رنگی گوشه‌ای، نوشته‌های مرکزچین با رنگ‌های آبی ناوی، سبز تیره و طلایی تیره و سایهٔ عمیق دور کاور.
@@ -635,7 +635,7 @@ function sa_ready_articles_page() {
 						<strong><?php echo esc_html( $article['title'] ); ?></strong>
 						<code dir="ltr"><?php echo esc_html( $article['slug'] ); ?></code>
 					</td>
-					<td><?php echo esc_html( 'attraction' === $article['type'] ? 'نمای برتر' : 'شهرستان' ); ?></td>
+					<td><?php echo esc_html( 'attraction' === $article['type'] ? 'دیدنی' : 'شهرستان' ); ?></td>
 					<td><?php echo esc_html( $place ); ?></td>
 					<td>
 						<span class="sa-ready__badge sa-ready__badge--<?php echo esc_attr( $status_class ); ?>">

@@ -2,10 +2,10 @@
 /**
  * Level 7 publish gate: an entity cannot be published while a blocker is missing.
  *
- * Blockers (data model v1.1): missing_relation, missing_seo_fields, missing_faq,
- * missing_featured_image, missing_primary_taxonomy, missing_coordinates, missing_sources,
- * missing_internal_links — thresholds from sa_content_minimums(). Warnings (non-blocking):
- * uncertainty markers, stale last_verified_date.
+ * Blockers (data model v1.2): missing_relation, missing_seo_fields, missing_featured_image,
+ * missing_primary_taxonomy, conditional missing_sources, and missing_content_hygiene.
+ * FAQ/link counts and coordinates are advisory, never publication locks. Warnings:
+ * uncertainty markers and stale last_verified_date.
  * Mode (Customizer): 'hard' = demote to draft + notice (default), 'soft' = publish + warning.
  *
  * @package Sarzaminaryan_Child
@@ -81,27 +81,14 @@ function sa_gate_missing( $post_id, $type, $form = null ) {
 		}
 	}
 
-	// missing_faq (≥1 complete pair; 3 recommended).
-	if ( null !== $form ) {
-		$qs    = isset( $form['sa_faq_q'] ) ? (array) $form['sa_faq_q'] : array();
-		$as    = isset( $form['sa_faq_a'] ) ? (array) $form['sa_faq_a'] : array();
-		$pairs = 0;
-		foreach ( $qs as $i => $q ) {
-			if ( '' !== trim( (string) $q ) && isset( $as[ $i ] ) && '' !== trim( (string) $as[ $i ] ) ) {
-				$pairs++;
-			}
-		}
-	} else {
-		$pairs = count( sa_get_faq( $post_id ) );
-	}
-	$min      = sa_content_minimums( $type );
-	$faq_min  = max( 1, (int) $min['faq'] );
-	if ( $pairs < $faq_min ) {
-		$missing[] = 'سوالات متداول: ' . sa_fa_digits( $pairs ) . ' از حداقل ' . sa_fa_digits( $faq_min ) . ' پرسش و پاسخ';
-	}
+	// FAQ is optional. The visible accordion is editorial content, not a publish requirement.
+	$min = sa_content_minimums( $type );
+	$content = null !== $form
+		? ( isset( $form['post_content'] ) ? (string) $form['post_content'] : (string) get_post_field( 'post_content', $post_id ) )
+		: (string) get_post_field( 'post_content', $post_id );
 
 	// missing_featured_image.
-	// v2.11.11: attraction/«نمای برتر» pages use a generated white diagram card
+	// v2.11.11: attraction/«دیدنی» pages use a generated white diagram card
 	// instead of the old large featured-image model, so a thumbnail is optional.
 	if ( 'attraction' !== $type ) {
 		$thumb = null !== $form ? ( isset( $form['_thumbnail_id'] ) ? (int) $form['_thumbnail_id'] : 0 ) : (int) get_post_thumbnail_id( $post_id );
@@ -155,17 +142,113 @@ function sa_gate_missing( $post_id, $type, $form = null ) {
 		}
 	}
 
-	// v1.1 — missing_internal_links.
+	// v1.2 — link volume is diagnostic only; sa_gate_split() keeps it advisory.
 	$link_min = (int) $min['internal_links'];
 	if ( $link_min > 0 ) {
-		$content = null !== $form ? ( isset( $form['post_content'] ) ? (string) $form['post_content'] : (string) get_post_field( 'post_content', $post_id ) ) : (string) get_post_field( 'post_content', $post_id );
-		$links   = sa_count_internal_links( $content );
+		$links = sa_count_internal_links( $content );
 		if ( $links < $link_min ) {
-			$missing[] = 'لینک داخلی: ' . sa_fa_digits( $links ) . ' از حداقل ' . sa_fa_digits( $link_min ) . ' لینک به صفحات سایت';
+			$missing[] = 'لینک داخلی: ' . sa_fa_digits( $links ) . ' از هدف تحریریهٔ ' . sa_fa_digits( $link_min ) . ' لینک؛ فقط اگر برای خواننده مفید است اضافه کنید';
 		}
 	}
 
+	// v1.2 — content hygiene is a hard blocker (distinct from volume/source advisories).
+	foreach ( sa_gate_content_hygiene_issues( $content ) as $issue ) {
+		$missing[] = $issue;
+	}
+
 	return $missing;
+}
+
+/**
+ * Find content-hygiene errors that must be fixed before publishing an entity.
+ *
+ * The transparency markers [نیازمند بررسی] and [منبع لازم] are deliberately not
+ * treated as unresolved placeholders: they are rendered visibly for readers.
+ *
+ * @param string $content Stored editor HTML.
+ * @return string[]
+ */
+function sa_gate_content_hygiene_issues( $content ) {
+	$content = (string) $content;
+	if ( '' === trim( $content ) ) {
+		return array();
+	}
+
+	// Ignore comments and non-rendered markup so hidden notes do not trip the gate.
+	$html = preg_replace( '/<!--.*?-->/s', ' ', $content );
+	$html = preg_replace( '#<(script|style|noscript)\b[^>]*>.*?</\1\s*>#isu', ' ', $html );
+	$html = is_string( $html ) ? $html : $content;
+	$checks = function_exists( 'sa_content_hygiene_checks' )
+		? (array) sa_content_hygiene_checks()
+		: array( 'body_h1', 'unresolved_editorial_placeholder', 'empty_or_unlabelled_anchor' );
+	$issues = array();
+
+	if ( in_array( 'body_h1', $checks, true ) && preg_match( '/<h1(?:\s|>)/iu', $html ) ) {
+		$issues[] = 'بهداشت محتوا: تیتر H1 در بدنهٔ ویرایشگر وجود دارد؛ H1 صفحه از قالب می‌آید';
+	}
+
+	$visible = html_entity_decode( strip_tags( $html ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+	if ( in_array( 'unresolved_editorial_placeholder', $checks, true ) ) {
+		$patterns = array(
+			'/\b(?:TODO|FIXME|TBD|PLACEHOLDER|INSERT[_ -]?HERE|LIPSUM)\b/iu',
+			'/\{\{[^{}]{1,120}\}\}/u',
+			'/(?:برای انتشار نهایی|یادداشت برای نویسنده|یادداشت ویراستاری|این بخش را تکمیل کنید)/u',
+			'/«\s*»/u',
+		);
+		foreach ( $patterns as $pattern ) {
+			if ( preg_match( $pattern, $visible ) ) {
+				$issues[] = 'بهداشت محتوا: یادداشت تحریریه یا جای‌نگهدار حل‌نشده در متن دیده شد';
+				break;
+			}
+		}
+	}
+
+	if ( in_array( 'empty_or_unlabelled_anchor', $checks, true ) ) {
+		$empty_anchors = 0;
+		if ( preg_match_all( '/<a\b([^>]*)>(.*?)<\/a\s*>/isu', $html, $anchors, PREG_SET_ORDER ) ) {
+			foreach ( $anchors as $anchor ) {
+				$attributes = $anchor[1];
+				if ( ! preg_match( '/\bhref\s*=/iu', $attributes ) ) {
+					continue;
+				}
+
+				$has_label = false;
+				if ( preg_match_all( '/\b(?:aria-label|title)\s*=\s*(["\x27])(.*?)\1/isu', $attributes, $attribute_labels, PREG_SET_ORDER ) ) {
+					foreach ( $attribute_labels as $label ) {
+						$label_text = html_entity_decode( $label[2], ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+						$label_text = preg_replace( '/[\s\p{Z}\x{200B}-\x{200F}\x{FEFF}]+/u', '', $label_text );
+						if ( is_string( $label_text ) && '' !== $label_text ) {
+							$has_label = true;
+							break;
+						}
+					}
+				}
+
+				$inner = $anchor[2];
+				if ( ! $has_label && preg_match_all( '/<img\b[^>]*\balt\s*=\s*(["\x27])(.*?)\1/isu', $inner, $alt_matches, PREG_SET_ORDER ) ) {
+					foreach ( $alt_matches as $alt ) {
+						$alt_text = html_entity_decode( $alt[2], ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+						$alt_text = preg_replace( '/[\s\p{Z}\x{200B}-\x{200F}\x{FEFF}]+/u', '', $alt_text );
+						if ( is_string( $alt_text ) && '' !== $alt_text ) {
+							$has_label = true;
+							break;
+						}
+					}
+				}
+
+				$text = html_entity_decode( strip_tags( $inner ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+				$text = preg_replace( '/[\s\p{Z}\x{200B}-\x{200F}\x{FEFF}]+/u', '', $text );
+				if ( ! $has_label && ( ! is_string( $text ) || '' === $text ) ) {
+					++$empty_anchors;
+				}
+			}
+		}
+		if ( $empty_anchors > 0 ) {
+			$issues[] = 'بهداشت محتوا: ' . sa_fa_digits( $empty_anchors ) . ' پیوند بدون نام دسترس‌پذیر';
+		}
+	}
+
+	return $issues;
 }
 
 /**
@@ -325,17 +408,36 @@ function sa_gate_filter( $data, $postarr ) {
 	}
 
 	$user = get_current_user_id();
-	if ( $blocking || $warnings ) {
+
+	/*
+	 * v2.11.42 — محافظت از صفحه‌های منتشرشده.
+	 *
+	 * تا پیش از این، هر بار که مالک یک صفحهٔ زنده را ویرایش می‌کرد و یکی از
+	 * شرط‌های دروازه برآورده نمی‌شد، وردپرس آن صفحه را «پیش‌نویس» ذخیره می‌کرد
+	 * (نوارِ سرخِ «انتشار نوشته به‌صورت پیش‌نویس ذخیره شد»)؛ یعنی یک صفحهٔ زنده
+	 * بی‌سروصدا از سایت بیرون می‌رفت. حالا صفحهٔ منتشرشده هرگز پایین نمی‌آید؛
+	 * مانع‌ها به «یادآوری» تبدیل می‌شوند و در متای نوشته ثبت می‌مانند.
+	 */
+	$current_status = $post_id ? (string) get_post_status( $post_id ) : '';
+	$protect        = ( 'publish' === $current_status ) && (bool) apply_filters( 'sa_gate_protect_published', true );
+	if ( $protect && $blocking ) {
+		$warnings = array_merge( $blocking, $warnings );
+		$blocking = array();
+	}
+
+	if ( $protect || $blocking || $warnings ) {
+		$mode = $protect ? 'protected' : ( $blocking ? 'hard' : 'info' );
 		set_transient(
 			'sa_gate_' . $user,
 			array(
 				'post'     => $post_id,
 				'missing'  => $blocking,
 				'warnings' => $warnings,
-				'mode'     => $blocking ? 'hard' : 'info',
+				'mode'     => $mode,
 			),
 			120
 		);
+		sa_gate_store_report( $post_id, $blocking, $warnings, $mode, $protect );
 	}
 
 	if ( $blocking ) {
@@ -344,6 +446,144 @@ function sa_gate_filter( $data, $postarr ) {
 	return $data;
 }
 add_filter( 'wp_insert_post_data', 'sa_gate_filter', 20, 2 );
+
+/**
+ * v2.11.42 — ذخیرهٔ ماندگارِ گزارشِ دروازه روی خودِ نوشته.
+ *
+ * نوارهای پیشخوان موقتی‌اند (۱۲۰ ثانیه و با یک بار دیدن پاک می‌شوند)؛ این متا
+ * می‌ماند تا در جعبهٔ کنارِ ویرایشگر همیشه معلوم باشد «چه چیزی مانع انتشار است».
+ *
+ * @param int      $post_id  شناسهٔ نوشته.
+ * @param string[] $blocking مانع‌ها.
+ * @param string[] $warnings یادآوری‌ها.
+ * @param string   $mode     hard|protected|info.
+ * @param bool     $protect  آیا صفحهٔ زنده محافظت شد؟
+ * @return void
+ */
+function sa_gate_store_report( $post_id, $blocking, $warnings, $mode, $protect = false ) {
+	if ( ! $post_id || ! sa_is_entity( get_post_type( $post_id ) ) ) {
+		return;
+	}
+	update_post_meta(
+		$post_id,
+		'_sa_gate_report',
+		array(
+			'time'     => time(),
+			'mode'     => (string) $mode,
+			'protect'  => (bool) $protect,
+			'blocking' => array_values( array_map( 'strval', (array) $blocking ) ),
+			'warnings' => array_values( array_map( 'strval', (array) $warnings ) ),
+		)
+	);
+}
+
+/**
+ * v2.11.42 — راهنمای کوتاهِ رفع برای هر مانع.
+ *
+ * @param string $item متن مانع از sa_gate_missing().
+ * @return string راهنمای فارسی (یا رشتهٔ خالی).
+ */
+function sa_gate_hint( $item ) {
+	$item = (string) $item;
+	$map  = array(
+		'رابطه:'             => 'در جعبهٔ «روابط» انتخاب کنید.',
+		'سئو:'               => 'جعبهٔ «سئو» را کامل کنید (عنوان، توضیحات متا، کلیدواژه).',
+		'طبقه‌بندی اصلی:'    => 'در جعبهٔ طبقه‌بندی‌ها ترم را انتخاب کنید.',
+		'تصویر شاخص'         => 'تصویر شاخص بگذارید؛ برای مقالات آماده دکمهٔ «ساخت کارت تصویر شاخص» را بزنید.',
+		'منابع:'             => 'فهرست منابع را کامل کنید؛ هر منبع با نشانیِ https در یک خط.',
+		'بهداشت محتوا:'      => 'متن را اصلاح کنید؛ اگر H1 در بدنه است یا عبارت تحریری جامانده، «سرزمین آریان → سلامت محتوا → تعمیر محتوا» آن را اصلاح می‌کند.',
+		'مختصات جغرافیایی'   => 'عرض و طول جغرافیایی را پر کنید (مانع نیست، ولی در نقشه لازم است).',
+		'لینک داخلی:'        => 'لینک داخلی مفید بیفزایید (مانع نیست).',
+	);
+	foreach ( $map as $needle => $hint ) {
+		if ( 0 === strpos( $item, $needle ) ) {
+			return $hint;
+		}
+	}
+	return '';
+}
+
+/**
+ * v2.11.42 — جعبهٔ «دروازهٔ انتشار» در کنارِ ویرایشگر.
+ *
+ * @return void
+ */
+function sa_gate_register_box() {
+	foreach ( sa_entity_types() as $type ) {
+		add_meta_box( 'sa_gate_report', 'دروازهٔ انتشار — چه چیزی مانع است؟', 'sa_gate_render_report_box', $type, 'side', 'high' );
+	}
+}
+add_action( 'add_meta_boxes', 'sa_gate_register_box' );
+
+/**
+ * v2.11.42 — نمایشِ ماندگارِ مانع‌ها/یادآوری‌ها با راهنمای رفع.
+ *
+ * @param WP_Post $post نوشته.
+ * @return void
+ */
+function sa_gate_render_report_box( $post ) {
+	$stored = get_post_meta( $post->ID, '_sa_gate_report', true );
+	$live   = empty( $stored );
+	if ( $live ) {
+		$type     = (string) get_post_type( $post->ID );
+		$missing  = sa_gate_missing( (int) $post->ID, $type, null );
+		list( $blocking, $advisory ) = sa_gate_split( $missing );
+		$warnings = array_merge( sa_gate_warnings( (int) $post->ID, $type, null ), $advisory );
+		$report   = array(
+			'time'     => 0,
+			'mode'     => $blocking ? 'hard' : 'info',
+			'protect'  => 'publish' === get_post_status( $post->ID ),
+			'blocking' => $blocking,
+			'warnings' => $warnings,
+		);
+	} else {
+		$report = (array) $stored;
+	}
+
+	$blocking = isset( $report['blocking'] ) ? (array) $report['blocking'] : array();
+	$warnings = isset( $report['warnings'] ) ? (array) $report['warnings'] : array();
+	$time     = isset( $report['time'] ) ? (int) $report['time'] : 0;
+
+	echo '<div class="sa-box sa-stack">';
+	if ( $time ) {
+		echo '<p class="description">آخرین بررسی: ' . esc_html( sa_fa_digits( sa_jalali_date( 'j F Y — H:i', $time ) ) ) . '</p>';
+	} else {
+		echo '<p class="description">ارزیابیِ زندهٔ همین لحظه (هنوز ذخیره‌ای ثبت نشده است).</p>';
+	}
+
+	if ( ! $blocking ) {
+		echo '<p><strong>مانعی برای انتشار نیست. ✓</strong></p>';
+	} else {
+		echo '<p style="color:#b32d2e"><strong>' . esc_html( sa_fa_digits( count( $blocking ) ) ) . ' مانع انتشار:</strong></p><ul style="list-style:disc;margin-inline-start:1.2em">';
+		foreach ( $blocking as $item ) {
+			echo '<li>' . esc_html( $item );
+			$hint = sa_gate_hint( $item );
+			if ( '' !== $hint ) {
+				echo '<br /><span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
+		}
+		echo '</ul>';
+	}
+
+	if ( $warnings ) {
+		echo '<p><strong>یادآوری‌ها (' . esc_html( sa_fa_digits( count( $warnings ) ) ) . '):</strong></p><ul style="list-style:disc;margin-inline-start:1.2em">';
+		foreach ( $warnings as $item ) {
+			echo '<li>' . esc_html( $item );
+			$hint = sa_gate_hint( $item );
+			if ( '' !== $hint ) {
+				echo '<br /><span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
+		}
+		echo '</ul>';
+	}
+
+	if ( ! empty( $report['protect'] ) ) {
+		echo '<p class="description">این صفحه منتشر شده است؛ دروازه هیچ‌وقت صفحهٔ زنده را به پیش‌نویس برنمی‌گرداند.</p>';
+	}
+	echo '</div>';
+}
 
 /**
  * Keep the message visible after redirect.
@@ -369,20 +609,38 @@ function sa_gate_notice() {
 	}
 	delete_transient( 'sa_gate_' . get_current_user_id() );
 	$warnings = isset( $data['warnings'] ) ? (array) $data['warnings'] : array();
-	if ( ! empty( $data['missing'] ) ) {
-		$class = 'hard' === $data['mode'] ? 'notice-error' : 'notice-warning';
+	$mode     = isset( $data['mode'] ) ? (string) $data['mode'] : 'info';
+	if ( ! empty( $data['missing'] ) || ( 'protected' === $mode && $warnings ) ) {
+		if ( 'protected' === $mode ) {
+			$class = 'notice-warning';
+			$title = 'منتشر ماند و از سایت بیرون نرفت؛ اما این موارد را تکمیل کنید:';
+		} else {
+			$class = 'hard' === $mode ? 'notice-error' : 'notice-warning';
+			$title = 'hard' === $mode ? 'انتشار متوقف شد و نوشته به‌صورت پیش‌نویس ذخیره شد.' : 'منتشر شد، اما برای رعایت استاندارد این موارد باید تکمیل شوند:';
+		}
 		echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p><strong>';
-		echo 'hard' === $data['mode'] ? 'انتشار متوقف شد و نوشته به‌صورت پیش‌نویس ذخیره شد.' : 'منتشر شد، اما برای رعایت استاندارد این موارد باید تکمیل شوند:';
+		echo esc_html( $title );
 		echo '</strong> (دروازه‌ی انتشار — مدل داده سطح ۷)</p><ul style="list-style:disc;margin-inline-start:1.5em">';
-		foreach ( $data['missing'] as $m ) {
-			echo '<li>' . esc_html( $m ) . '</li>';
+		foreach ( array_merge( (array) $data['missing'], $warnings ) as $m ) {
+			echo '<li>' . esc_html( $m );
+			$hint = sa_gate_hint( $m );
+			if ( '' !== $hint ) {
+				echo ' <span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
 		}
 		echo '</ul></div>';
+		return;
 	}
 	if ( $warnings ) {
 		echo '<div class="notice notice-info is-dismissible"><p><strong>یادآوری‌های راستی‌آزمایی:</strong></p><ul style="list-style:disc;margin-inline-start:1.5em">';
 		foreach ( $warnings as $w ) {
-			echo '<li>' . esc_html( $w ) . '</li>';
+			echo '<li>' . esc_html( $w );
+			$hint = sa_gate_hint( $w );
+			if ( '' !== $hint ) {
+				echo ' <span class="description">' . esc_html( $hint ) . '</span>';
+			}
+			echo '</li>';
 		}
 		echo '</ul></div>';
 	}
@@ -405,6 +663,22 @@ function sa_gate_badge( $post_id ) {
 	$warnings = array_merge( $warnings, $advisory );
 
 	$extra = $warnings ? ' <span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $warnings ) ) . '">قابل بهبود</span>' : '';
+
+	/*
+	 * v2.11.42 — نشانِ صفحهٔ منتشرشده.
+	 *
+	 * پیش از این، صفحهٔ منتشرشده‌ای که شرایطِ سطح ۷ را نداشت هم برچسبِ سرخِ
+	 * «مانع انتشار» می‌گرفت؛ مالک از فهرست چنین برداشت می‌کرد که صفحه منتشر
+	 * نشده است. حالا وضعیتِ واقعی نوشته صریح نوشته می‌شود و تعدادِ مواردِ
+	 * باقی‌مانده (که خودِ دروازه هم فهرست می‌کند) کنارش می‌آید.
+	 */
+	if ( 'publish' === (string) get_post_status( $post_id ) ) {
+		if ( empty( $blocking ) ) {
+			return '<span class="sa-badge sa-badge--ok" title="منتشرشده و از نظرِ دروازهٔ سطح ۷ کامل است">منتشرشده ✓</span>' . $extra;
+		}
+		return '<span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $blocking ) ) . '">منتشرشده · ' . esc_html( sa_fa_digits( count( $blocking ) ) ) . ' مورد برای تکمیل</span>' . $extra;
+	}
+
 	if ( empty( $blocking ) ) {
 		return '<span class="sa-badge sa-badge--ok" title="آماده‌ی انتشار است">قابل انتشار ✓</span>' . $extra;
 	}

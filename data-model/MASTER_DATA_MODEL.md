@@ -438,7 +438,7 @@ Activation must not change anything in Levels 1–6 for the six active entities 
 | 3 | Enable URL `/accommodation/{accommodation-slug}` and the hub page `/city/{city-slug}/where-to-stay`. |
 | 4 | Add "Where to stay" blocks to the City and Attraction templates (Level 6 links). |
 | 5 | Apply Level 5 SEO fields + Level 7 rules, including the sponsored-link rules. |
-| 6 | Bump this model to **v1.1**, record it in `CHANGELOG.md`, regenerate `schema/`. |
+| 6 | Bump to the next approved MINOR version, record it in `CHANGELOG.md`, and regenerate `schema/`. |
 
 **Rationale (as delivered, Persian):**
 

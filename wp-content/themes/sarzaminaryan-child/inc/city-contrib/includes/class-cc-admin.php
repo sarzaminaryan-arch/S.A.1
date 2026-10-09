@@ -170,6 +170,6 @@ class CC_Admin {
 			update_post_meta( $image_id, SA_GALLERY_CONTRIBUTOR, $contributor );
 		}
 		wp_update_post( array( 'ID' => $image_id, 'post_title' => $place ? $place : get_the_title( $city_id ), 'post_excerpt' => $caption ) );
-		update_post_meta( $image_id, '_wp_attachment_image_alt', sprintf( 'تصویر %1$s در شهرستان %2$s، استان %3$s - سرزمین آریان', $place ? $place : 'نمای برتر', $city_id ? get_the_title( $city_id ) : '', $province_id ? get_the_title( $province_id ) : '' ) );
+		update_post_meta( $image_id, '_wp_attachment_image_alt', sprintf( 'تصویر %1$s در شهرستان %2$s، استان %3$s - سرزمین آریان', $place ? $place : 'دیدنی', $city_id ? get_the_title( $city_id ) : '', $province_id ? get_the_title( $province_id ) : '' ) );
 	}
 }
