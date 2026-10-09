@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Iran Audit Engine
  * Description: موتور مستقلِ ممیزی ساختار و سئوی سایت؛ فقط‌خواندنی نسبت به محتوای WordPress.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * Text Domain: iran-audit-engine
@@ -16,10 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'IAAE_VERSION' ) ) {
-	define( 'IAAE_VERSION', '0.1.0' );
+	define( 'IAAE_VERSION', '0.2.0' );
 }
 if ( ! defined( 'IAAE_API_VERSION' ) ) {
-	define( 'IAAE_API_VERSION', '1.1' );
+	define( 'IAAE_API_VERSION', '1.2' );
 }
 if ( ! defined( 'IAAE_FILE' ) ) {
 	define( 'IAAE_FILE', __FILE__ );

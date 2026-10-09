@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Iran Audit Dashboard
  * Description: داشبورد مستقلِ گزارش‌های ممیزی؛ همهٔ داده‌ها را فقط از REST موتور می‌خواند.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Requires at least: 6.4
  * Requires PHP: 7.4
  * Text Domain: iran-audit-dashboard

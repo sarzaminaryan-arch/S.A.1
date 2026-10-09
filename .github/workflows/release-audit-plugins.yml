@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 10
     env:
       VERSION: 0.2.0
-      TAG: iran-audit-plugins-v0.2.0-preview.1
+      TAG: iran-audit-plugins-v0.2.0-preview.2
     steps:
       - name: Check out source
         uses: actions/checkout@v4
@@ -98,7 +98,7 @@ jobs:
                 "$package_dir/SHA256SUMS.txt#SHA-256 checksums" \
                 --repo "$GITHUB_REPOSITORY" \
                 --target "$GITHUB_SHA" \
-                --title "Iran Audit Plugins v${VERSION} — Preview 1" \
+                --title "Iran Audit Plugins v${VERSION} — Preview 2" \
                 --notes-file "$package_dir/RELEASE-NOTES.md" \
                 --prerelease
             fi
