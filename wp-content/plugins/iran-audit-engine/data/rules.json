@@ -1,0 +1,1014 @@
+{
+  "schema_version": 1,
+  "rules_version": "2026.10.09-1",
+  "updated_at": "2026-10-09",
+  "note": "مقادیر basis=editorial_policy آستانه‌های سلیقه‌ای سایت هستند و باید با مجموعه طلایی کالیبره شوند؛ قانون رسمی گوگل نیستند.",
+  "sources": [
+    {
+      "id": "gse",
+      "title": "Google Search Essentials",
+      "url": "https://developers.google.com/search/docs/essentials"
+    },
+    {
+      "id": "gh",
+      "title": "Creating helpful, reliable, people-first content",
+      "url": "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+    },
+    {
+      "id": "sd",
+      "title": "Structured data intro",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+    },
+    {
+      "id": "cwv",
+      "title": "Core Web Vitals",
+      "url": "https://web.dev/articles/vitals"
+    },
+    {
+      "id": "fa_orth",
+      "title": "دستور خط فارسی - فرهنگستان زبان و ادب فارسی",
+      "url": "https://apll.ir"
+    }
+  ],
+  "basis_types": {
+    "google_official": "مستقیم از رهنمود رسمی گوگل",
+    "technical_standard": "استاندارد فنی (HTML، HTTP، Schema.org)",
+    "language_standard": "دستور خط فارسی",
+    "editorial_policy": "سیاست سردبیری سایت؛ نیازمند کالیبراسیون"
+  },
+  "category_weights": {
+    "technical_seo": 15,
+    "structure": 10,
+    "persian_writing": 15,
+    "duplicate": 15,
+    "links": 15,
+    "media": 8,
+    "tourism_geo": 17,
+    "ux_technical": 5
+  },
+  "severity_labels": {
+    "critical": "بحرانی",
+    "major": "مهم",
+    "minor": "جزئی",
+    "info": "اطلاع‌رسانی"
+  },
+  "profiles": {
+    "province": {
+      "label": "استان",
+      "min_words": 2500,
+      "max_paragraph_words": 150
+    },
+    "county": {
+      "label": "شهرستان",
+      "min_words": 1500,
+      "max_paragraph_words": 150
+    },
+    "attraction": {
+      "label": "جاذبه",
+      "min_words": 800,
+      "max_paragraph_words": 150
+    },
+    "historical": {
+      "label": "تاریخی",
+      "min_words": 1000,
+      "max_paragraph_words": 150
+    },
+    "travel_guide": {
+      "label": "راهنمای سفر",
+      "min_words": 1200,
+      "max_paragraph_words": 150
+    },
+    "other": {
+      "label": "سایر",
+      "min_words": 500,
+      "max_paragraph_words": 150
+    }
+  },
+  "profile_checklists": {
+    "province": [
+      "location",
+      "history",
+      "counties_list",
+      "best_time",
+      "food_souvenir",
+      "accommodation",
+      "access",
+      "attractions",
+      "faq"
+    ],
+    "county": [
+      "location",
+      "history",
+      "access",
+      "best_time",
+      "attractions_nearby",
+      "food_souvenir",
+      "accommodation",
+      "tips",
+      "faq"
+    ],
+    "attraction": [
+      "location",
+      "access",
+      "visit_hours_tickets",
+      "history",
+      "best_time",
+      "nearby",
+      "tips",
+      "faq"
+    ],
+    "historical": [
+      "location",
+      "history",
+      "architecture",
+      "visit_hours_tickets",
+      "access",
+      "nearby",
+      "sources"
+    ],
+    "travel_guide": [
+      "route",
+      "best_time",
+      "accommodation",
+      "food",
+      "budget",
+      "tips",
+      "map",
+      "faq"
+    ]
+  },
+  "rules": [
+    {
+      "id": "SEO-TITLE-01",
+      "category": "technical_seo",
+      "title": "وجود و طول عنوان سئو",
+      "severity": "major",
+      "weight": 5,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "min_chars": 25,
+        "max_chars": 65
+      },
+      "evaluator": "TitleLengthEvaluator",
+      "basis": "editorial_policy",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "گوگل عدد ثابتی برای طول عنوان ندارد؛ عنوان باید توصیفی و یکتا باشد. بازه فقط برای جلوگیری از بریده‌شدن در نتایج است.",
+      "suggestion": "عنوان را توصیفی، یکتا و شامل موضوع اصلی (نام مکان) بنویسید."
+    },
+    {
+      "id": "SEO-META-01",
+      "category": "technical_seo",
+      "title": "وجود و کیفیت متا دیسکریپشن",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "min_chars": 70,
+        "max_chars": 160
+      },
+      "evaluator": "MetaDescriptionEvaluator",
+      "basis": "editorial_policy",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "متا دیسکریپشن عامل رتبه نیست ولی ممکن است در خلاصه نتیجه جست‌وجو استفاده شود. باید منحصربه‌فرد و مرتبط باشد.",
+      "suggestion": "یک خلاصه منحصربه‌فرد و جذاب از محتوای صفحه بنویسید."
+    },
+    {
+      "id": "SEO-H1-01",
+      "category": "technical_seo",
+      "title": "H1 یکتا و منطبق با موضوع",
+      "severity": "major",
+      "weight": 5,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "exact_count": 1
+      },
+      "evaluator": "H1UniqueEvaluator",
+      "basis": "technical_standard",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "ساختار سرتیتر به درک ساختار صفحه کمک می‌کند. بیش از یک H1 یا نبود آن در رندر نهایی ایراد ساختاری است.",
+      "suggestion": "فقط یک H1 در رندر نهایی صفحه وجود داشته باشد."
+    },
+    {
+      "id": "SEO-HEADING-HIER-01",
+      "category": "technical_seo",
+      "title": "سلسله‌مراتب سرتیترها بدون پرش",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "HeadingHierarchyEvaluator",
+      "basis": "technical_standard",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "پرش از H2 به H4 دسترسی‌پذیری و درک ساختار را کاهش می‌دهد.",
+      "suggestion": "سطح سرتیترها را پیوسته کنید."
+    },
+    {
+      "id": "SEO-SLUG-01",
+      "category": "technical_seo",
+      "title": "کیفیت اسلاگ",
+      "severity": "minor",
+      "weight": 2,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "max_chars": 80
+      },
+      "evaluator": "SlugEvaluator",
+      "basis": "editorial_policy",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "URL ساده و خوانا برای کاربر و خزنده بهتر است. کاراکترهای عجیب یا اسلاگ بسیار بلند مناسب نیست.",
+      "suggestion": "اسلاگ کوتاه و توصیفی انتخاب کنید (تغییر اسلاگ منتشرشده نیاز به ریدایرکت 301 دارد)."
+    },
+    {
+      "id": "SEO-INDEX-01",
+      "category": "technical_seo",
+      "title": "noindex یا canonical اشتباه",
+      "severity": "critical",
+      "weight": 6,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "IndexabilityEvaluator",
+      "basis": "google_official",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "noindex ناخواسته یا canonical به صفحه دیگر باعث حذف صفحه از نتایج می‌شود. بر اساس HTML رندرشده و هدرهای HTTP سنجیده شود.",
+      "suggestion": "تنظیمات ایندکس و canonical را بازبینی کنید."
+    },
+    {
+      "id": "SEO-KEYWORD-01",
+      "category": "technical_seo",
+      "title": "حضور طبیعی کلمه کلیدی کانونی",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "stuffing_density_max_percent": 3.0
+      },
+      "evaluator": "FocusKeywordEvaluator",
+      "basis": "google_official",
+      "source": "gse",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "تکرار بی‌رویه کلمات برای دستکاری رتبه (Keyword Stuffing) خلاف سیاست اسپم گوگل است. عدد 3 درصد آستانه هشدار سایت است نه قانون گوگل.",
+      "suggestion": "کلمه کلیدی را در تیتر، مقدمه و یکی دو سرتیتر طبیعی به‌کار ببرید و از تکرار مصنوعی بپرهیزید."
+    },
+    {
+      "id": "SEO-SCHEMA-01",
+      "category": "technical_seo",
+      "title": "اعتبار Structured Data",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "expected_types": [
+          "Article",
+          "BreadcrumbList"
+        ],
+        "optional_types": [
+          "FAQPage",
+          "TouristAttraction",
+          "Place"
+        ]
+      },
+      "evaluator": "StructuredDataEvaluator",
+      "basis": "google_official",
+      "source": "sd",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "Schema باید با محتوای قابل‌مشاهده صفحه همخوان و از نظر ساختاری معتبر باشد. توجه: نمایش FAQ rich result برای اکثر سایت‌ها محدود شده است؛ فقط درستی ساختار بررسی می‌شود.",
+      "suggestion": "JSON-LD معتبر و همخوان با محتوا اضافه یا اصلاح کنید."
+    },
+    {
+      "id": "STR-WORDS-01",
+      "category": "structure",
+      "title": "حداقل تعداد کلمات متناسب با پروفایل",
+      "severity": "major",
+      "weight": 5,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "use_profile_min_words": true
+      },
+      "evaluator": "WordCountEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "گوگل حداقل تعداد کلمه ندارد؛ معیار «کامل‌بودن موضوع» است. آستانه فقط شاخص سردبیری برای شناسایی محتوای کم‌عمق است و باید با مجموعه طلایی کالیبره شود.",
+      "suggestion": "بخش‌های ناقص چک‌لیست پروفایل را کامل کنید، نه فقط حجم را بالا ببرید."
+    },
+    {
+      "id": "STR-PARA-01",
+      "category": "structure",
+      "title": "طول پاراگراف و جمله",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "max_paragraph_words": 150,
+        "max_sentence_words": 40
+      },
+      "evaluator": "ParagraphSentenceEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "پاراگراف‌ها و جملات بسیار بلند خوانایی موبایل را کم می‌کند.",
+      "suggestion": "پاراگراف را به واحدهای معنایی کوچک‌تر یا لیست تبدیل کنید."
+    },
+    {
+      "id": "STR-INTRO-OUTRO-01",
+      "category": "structure",
+      "title": "وجود مقدمه و جمع‌بندی",
+      "severity": "minor",
+      "weight": 2,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "IntroOutroEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "ساختار مقدمه، بدنه، جمع‌بندی درک مطلب را آسان می‌کند.",
+      "suggestion": "یک مقدمه کوتاه و جمع‌بندی اضافه کنید."
+    },
+    {
+      "id": "STR-HEADING-DENSITY-01",
+      "category": "structure",
+      "title": "تعداد سرتیتر نسبت به حجم",
+      "severity": "minor",
+      "weight": 2,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "max_words_between_headings": 300
+      },
+      "evaluator": "HeadingDensityEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "بخش‌های طولانی بدون سرتیتر پیمایش را سخت می‌کند.",
+      "suggestion": "سرتیتر توصیفی میانی اضافه کنید."
+    },
+    {
+      "id": "FA-CHARSET-01",
+      "category": "persian_writing",
+      "title": "یکسان‌سازی ی/ک و ارقام",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "digits": "persian_in_text"
+      },
+      "evaluator": "PersianCharsetEvaluator",
+      "basis": "language_standard",
+      "source": "fa_orth",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "استفاده از «ي» و «ك» عربی و ارقام مختلط باعث ناسازگاری جست‌وجو و املا می‌شود.",
+      "suggestion": "نویسه‌های عربی را به فارسی و ارقام را یکدست کنید."
+    },
+    {
+      "id": "FA-HALFSPACE-01",
+      "category": "persian_writing",
+      "title": "رعایت نیم‌فاصله",
+      "severity": "minor",
+      "weight": 4,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "patterns": [
+          "prefix_mi",
+          "suffix_ha",
+          "suffix_tar",
+          "suffix_tarin",
+          "suffix_ee"
+        ]
+      },
+      "evaluator": "HalfSpaceEvaluator",
+      "basis": "language_standard",
+      "source": "fa_orth",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "طبق دستور خط فارسی، پیشوند «می» و پسوندهایی مانند «ها»، «تر»، «ترین» با نیم‌فاصله نوشته می‌شوند. موارد مبهم باید با واژه‌نامه استثنا بررسی شوند.",
+      "suggestion": "فاصله را با نیم‌فاصله (ZWNJ) جایگزین کنید."
+    },
+    {
+      "id": "FA-PUNCT-01",
+      "category": "persian_writing",
+      "title": "فاصله‌گذاری علائم نگارشی",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "PunctuationSpacingEvaluator",
+      "basis": "language_standard",
+      "source": "fa_orth",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "علائم نگارشی به کلمه قبل می‌چسبند و بعد از آن فاصله می‌آید؛ فاصله‌های اضافه و خطوط خالی تکراری ایراد نگارشی است.",
+      "suggestion": "فاصله‌ها را مطابق قواعد نگارشی اصلاح کنید."
+    },
+    {
+      "id": "FA-REPEAT-01",
+      "category": "persian_writing",
+      "title": "کلمات تکراری پشت‌سرهم و تکرار بیش‌ازحد",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "max_same_word_per_paragraph": 5
+      },
+      "evaluator": "WordRepetitionEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "تکرار پشت‌سرهم قطعاً غلط تایپی است؛ تکرار زیاد یک واژه در پاراگراف شاخص ضعف سبک است.",
+      "suggestion": "از مترادف یا بازنویسی جمله استفاده کنید."
+    },
+    {
+      "id": "FA-SPELL-01",
+      "category": "persian_writing",
+      "title": "غلط‌های املایی رایج (واژه‌نامه)",
+      "severity": "minor",
+      "weight": 4,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "lexicon_file": "data/spelling-lexicon.json"
+      },
+      "evaluator": "SpellingLexiconEvaluator",
+      "basis": "language_standard",
+      "source": "fa_orth",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "فقط غلط‌های مندرج در واژه‌نامه قابل‌ویرایش گزارش می‌شوند تا مثبت کاذب کم بماند.",
+      "suggestion": "املای صحیح طبق واژه‌نامه."
+    },
+    {
+      "id": "FA-TONE-01",
+      "category": "persian_writing",
+      "title": "لحن ماشینی و کلیشه‌ای",
+      "severity": "info",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "cliche_file": "data/cliches-fa.json",
+        "sentence_length_variance_min": 0.25
+      },
+      "evaluator": "ToneEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "needs_human_review",
+      "manual_review_only": true,
+      "scientific_note": "گوگل محتوای تولیدشده خودکار را به‌خودی‌خود ممنوع نکرده، اما محتوای کم‌ارزش و انبوه را اسپم می‌داند. این قانون فقط الگوهای کلیشه‌ای و یکنواختی جمله را علامت می‌زند و تشخیص قطعی نیست.",
+      "suggestion": "جمله را با تجربه، جزئیات و لحن طبیعی نویسنده بازنویسی کنید."
+    },
+    {
+      "id": "DUP-INTERNAL-01",
+      "category": "duplicate",
+      "title": "شباهت داخلی با سایر مقالات",
+      "severity": "critical",
+      "weight": 7,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "method": "simhash+shingle",
+        "shingle_size": 5,
+        "warn_threshold": 0.35,
+        "critical_threshold": 0.6
+      },
+      "evaluator": "InternalSimilarityEvaluator",
+      "basis": "editorial_policy",
+      "source": "gse",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "گوگل محتوای تکراری و کپی‌شده را بدون ارزش افزوده نمی‌پسندد. آستانه‌ها سلیقه‌ای‌اند و باید با مقالات واقعی سایت کالیبره شوند.",
+      "suggestion": "بخش‌های مشابه را با اطلاعات اختصاصی همان مکان بازنویسی کنید."
+    },
+    {
+      "id": "DUP-CANNIBAL-01",
+      "category": "duplicate",
+      "title": "رقابت چند مقاله روی یک عبارت",
+      "severity": "major",
+      "weight": 4,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "CannibalizationEvaluator",
+      "basis": "editorial_policy",
+      "source": "gse",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "چند صفحه با هدف جست‌وجوی یکسان می‌توانند سیگنال‌ها را تقسیم کنند. قضاوت نهایی انسانی است.",
+      "suggestion": "مقاله‌ها را ادغام یا هدف هر کدام را متمایز کنید."
+    },
+    {
+      "id": "DUP-TEMPLATE-01",
+      "category": "duplicate",
+      "title": "پاراگراف‌های قالبی بین مقالات شهرها",
+      "severity": "major",
+      "weight": 5,
+      "enabled": true,
+      "applies_to": [
+        "county",
+        "attraction",
+        "historical"
+      ],
+      "params": {
+        "min_shared_words": 25
+      },
+      "evaluator": "TemplateParagraphEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "جایگزینی صرف نام شهر در یک متن ثابت محتوای کم‌ارزش و انبوه تولید می‌کند.",
+      "suggestion": "اطلاعات اختصاصی همان شهر را جایگزین کنید."
+    },
+    {
+      "id": "DUP-THIN-01",
+      "category": "duplicate",
+      "title": "محتوای کم‌عمق (Thin) و پرگویی",
+      "severity": "major",
+      "weight": 4,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "min_unique_facts": 8
+      },
+      "evaluator": "ThinContentEvaluator",
+      "basis": "google_official",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "محتوا باید ارزش اضافه نسبت به صفحات دیگر داشته باشد. شاخص‌ها: تعداد موجودیت‌ها، اعداد، نام‌ها و جزئیات اختصاصی.",
+      "suggestion": "جزئیات مشخص و تجربی اضافه کنید."
+    },
+    {
+      "id": "LNK-INT-01",
+      "category": "links",
+      "title": "لینک‌دهی داخلی و ارتباط سلسله‌مراتبی",
+      "severity": "major",
+      "weight": 5,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "min_internal_links": 3,
+        "max_internal_links": 40
+      },
+      "evaluator": "InternalLinksEvaluator",
+      "basis": "google_official",
+      "source": "gse",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "گوگل صفحات را از طریق لینک کشف می‌کند. هر جاذبه باید به شهرستان و استان خود و صفحات هم‌جوار لینک داشته باشد.",
+      "suggestion": "به مقاله‌های مرتبط (استان، شهرستان، جاذبه‌های اطراف) لینک دهید."
+    },
+    {
+      "id": "LNK-ANCHOR-01",
+      "category": "links",
+      "title": "متن لینک (Anchor) توصیفی",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "bad_anchors": [
+          "اینجا",
+          "کلیک کنید",
+          "ادامه",
+          "بیشتر بخوانید",
+          "این لینک"
+        ]
+      },
+      "evaluator": "AnchorTextEvaluator",
+      "basis": "google_official",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "متن لینک باید موضوع مقصد را توصیف کند.",
+      "suggestion": "متن لینک را با نام مقصد جایگزین کنید."
+    },
+    {
+      "id": "LNK-ORPHAN-01",
+      "category": "links",
+      "title": "صفحه یتیم (Orphan)",
+      "severity": "major",
+      "weight": 5,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "min_inbound": 1
+      },
+      "evaluator": "OrphanEvaluator",
+      "basis": "google_official",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "صفحه‌ای که هیچ لینک داخلی ورودی ندارد، کشف و ارزش‌گذاری آن دشوار است.",
+      "suggestion": "از صفحه استان، شهرستان یا مقالات مرتبط لینک ورودی بدهید."
+    },
+    {
+      "id": "LNK-EXT-01",
+      "category": "links",
+      "title": "سلامت لینک‌های بیرونی",
+      "severity": "major",
+      "weight": 6,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "timeout_sec": 10,
+        "max_redirects": 5,
+        "recheck_blocked_after_hours": 24
+      },
+      "evaluator": "ExternalLinkHealthEvaluator",
+      "basis": "technical_standard",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "404/410 شکسته واقعی است. 403/429/WAF «مسدود» است و نباید شکسته اعلام شود. زنجیره ریدایرکت و http به‌جای https جداگانه گزارش می‌شود.",
+      "suggestion": "لینک شکسته را با منبع معتبر جایگزین یا حذف کنید."
+    },
+    {
+      "id": "LNK-REL-01",
+      "category": "links",
+      "title": "لینک‌های خالی یا نادرست و rel",
+      "severity": "minor",
+      "weight": 2,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "LinkAttributesEvaluator",
+      "basis": "technical_standard",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "لینک‌های # یا javascript: و target=_blank بدون rel مناسب ایراد فنی هستند؛ لینک‌های تبلیغاتی باید sponsored باشند.",
+      "suggestion": "href معتبر و rel مناسب تنظیم کنید."
+    },
+    {
+      "id": "MED-NEED-01",
+      "category": "media",
+      "title": "نسبت تصویر به متن",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "min_images_per_500_words": 1,
+        "require_featured_image": true
+      },
+      "evaluator": "ImageRatioEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "در مقالات گردشگری تصویر اطلاعات واقعی منتقل می‌کند. نسبت پیشنهادی سردبیری است.",
+      "suggestion": "در بخش‌های طولانی بدون تصویر، تصویر مرتبط اضافه کنید."
+    },
+    {
+      "id": "MED-ALT-01",
+      "category": "media",
+      "title": "متن جایگزین (Alt) تصاویر",
+      "severity": "major",
+      "weight": 4,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "ImageAltEvaluator",
+      "basis": "google_official",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "Alt توصیفی برای دسترسی‌پذیری و درک تصویر توسط موتور جست‌وجو لازم است. تصاویر صرفاً تزئینی می‌توانند alt خالی داشته باشند.",
+      "suggestion": "برای هر تصویر یک توضیح کوتاه و دقیق بنویسید."
+    },
+    {
+      "id": "MED-FORMAT-01",
+      "category": "media",
+      "title": "حجم، ابعاد، فرمت و تصویر شکسته",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "max_kb": 300,
+        "prefer_formats": [
+          "webp",
+          "avif"
+        ],
+        "require_dimensions": true,
+        "lazy_load": true
+      },
+      "evaluator": "ImageTechnicalEvaluator",
+      "basis": "technical_standard",
+      "source": "cwv",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "ابعاد نامشخص باعث CLS می‌شود و تصاویر سنگین LCP را بدتر می‌کنند. آستانه حجم سلیقه‌ای است.",
+      "suggestion": "تصویر را بهینه کنید، ابعاد width/height بدهید و تصاویر شکسته را جایگزین کنید."
+    },
+    {
+      "id": "GEO-CHECKLIST-01",
+      "category": "tourism_geo",
+      "title": "کامل‌بودن بخش‌های ضروری پروفایل",
+      "severity": "major",
+      "weight": 7,
+      "enabled": true,
+      "applies_to": [
+        "province",
+        "county",
+        "attraction",
+        "historical",
+        "travel_guide"
+      ],
+      "params": {
+        "use_profile_checklist": true
+      },
+      "evaluator": "ProfileChecklistEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "محتوای مفید به پرسش کاربر کامل پاسخ می‌دهد. تشخیص بخش‌ها بر اساس سرتیتر و کلمات کلیدی است و ممکن است خطا داشته باشد؛ در صورت تردید «نیازمند بررسی انسانی».",
+      "suggestion": "بخش‌های ناقص چک‌لیست را با اطلاعات دقیق تکمیل کنید."
+    },
+    {
+      "id": "GEO-MAP-01",
+      "category": "tourism_geo",
+      "title": "نقشه و مختصات جغرافیایی",
+      "severity": "major",
+      "weight": 5,
+      "enabled": true,
+      "applies_to": [
+        "attraction",
+        "historical",
+        "county",
+        "travel_guide"
+      ],
+      "params": {
+        "accepted_embeds": [
+          "leaflet",
+          "osm",
+          "balad",
+          "neshan",
+          "google_maps"
+        ],
+        "coordinate_meta_keys": []
+      },
+      "evaluator": "MapCoordinatesEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "برای مقالات مکان‌محور، نقشه و مختصات جزو اطلاعات اصلی کاربر است. کلیدهای متای مختصات باید در مرحله شناخت مشخص شود.",
+      "suggestion": "نقشه یا مختصات دقیق اضافه کنید."
+    },
+    {
+      "id": "GEO-NAMES-01",
+      "category": "tourism_geo",
+      "title": "اعتبارسنجی نام استان و شهرستان",
+      "severity": "major",
+      "weight": 6,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "dataset": "data/iran-divisions.csv",
+        "check_membership": true,
+        "check_aliases": true
+      },
+      "evaluator": "GeoNamesEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "نام‌ها با دیتاست داخلی تقسیمات کشوری تطبیق داده می‌شوند. تقسیمات کشوری تغییر می‌کند؛ تعلق نادرست شهر به استان باید با دیتاست به‌روز و تأیید انسانی نهایی شود.",
+      "suggestion": "نام را مطابق شکل استاندارد دیتاست یکسان کنید."
+    },
+    {
+      "id": "GEO-CONSISTENCY-01",
+      "category": "tourism_geo",
+      "title": "ناهماهنگی تاریخ‌ها و اعداد داخل مقاله",
+      "severity": "major",
+      "weight": 4,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "InternalConsistencyEvaluator",
+      "basis": "editorial_policy",
+      "source": "gh",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "اگر یک عدد یا سال در دو جای مقاله متفاوت آمده باشد، یکی از آن‌ها مشکوک است (بدون قضاوت درباره درستی مطلق).",
+      "suggestion": "مقدار را بررسی و در سراسر مقاله یکدست کنید."
+    },
+    {
+      "id": "UX-CWV-01",
+      "category": "ux_technical",
+      "title": "Core Web Vitals (اختیاری با PageSpeed API)",
+      "severity": "minor",
+      "weight": 3,
+      "enabled": false,
+      "applies_to": [
+        "*"
+      ],
+      "params": {
+        "requires_api_key": true,
+        "send_url_consent_required": true
+      },
+      "evaluator": "CoreWebVitalsEvaluator",
+      "basis": "google_official",
+      "source": "cwv",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "فقط با کلید و رضایت صریح کاربر اجرا می‌شود (ارسال URL به سرویس بیرونی). در غیر این‌صورت وضعیت «اطلاعات ناکافی».",
+      "suggestion": "تصاویر، فونت و اسکریپت‌های مسدودکننده را بهینه کنید."
+    },
+    {
+      "id": "UX-HTML-01",
+      "category": "ux_technical",
+      "title": "شورت‌کد خراب، Mixed Content و HTML نامعتبر",
+      "severity": "major",
+      "weight": 4,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "RenderIntegrityEvaluator",
+      "basis": "technical_standard",
+      "source": "gse",
+      "confidence_default": "certain",
+      "manual_review_only": false,
+      "scientific_note": "شورت‌کدهای رندرنشده به‌صورت متن خام، منابع http در صفحه https و تگ‌های ناقص تجربه کاربر و پردازش را مختل می‌کنند.",
+      "suggestion": "شورت‌کد یا منبع مشکل‌دار را اصلاح کنید."
+    },
+    {
+      "id": "UX-MOBILE-01",
+      "category": "ux_technical",
+      "title": "جدول‌ها و المان‌های سرریز در موبایل",
+      "severity": "minor",
+      "weight": 2,
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "params": {},
+      "evaluator": "MobileOverflowEvaluator",
+      "basis": "technical_standard",
+      "source": "gse",
+      "confidence_default": "probable",
+      "manual_review_only": false,
+      "scientific_note": "تحلیل ایستا (عرض ثابت، جدول بدون ظرف اسکرول) تقریبی است؛ تأیید نهایی با تست دستی موبایل.",
+      "suggestion": "جدول‌ها را در ظرف قابل‌اسکرول قرار دهید و عرض ثابت را حذف کنید."
+    },
+    {
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "basis": "editorial_policy",
+      "source": "gh",
+      "manual_review_only": false,
+      "id": "STR-PLACEHOLDER-01",
+      "category": "structure",
+      "title": "نشانه‌های محتوای ناتمام (جای‌نگهدار)",
+      "severity": "major",
+      "weight": 5,
+      "params": {
+        "patterns_certain": [
+          "lorem ipsum",
+          "TODO",
+          "TBD",
+          "XXX"
+        ],
+        "patterns_probable": [
+          "به زودی",
+          "به‌زودی",
+          "در حال تکمیل",
+          "در دست تکمیل",
+          "...",
+          "…"
+        ],
+        "bracket_placeholder_regex": "\\[[^\\]]{0,40}\\]",
+        "check_empty_shortcodes": true
+      },
+      "evaluator": "PlaceholderEvaluator",
+      "confidence_default": "probable",
+      "scientific_note": "صفحه‌ای که بخش‌هایش ناتمام یا جای‌نگهدار است به پرسش کاربر کامل پاسخ نمی‌دهد و با رهنمود محتوای مفید سازگار نیست. الگوهای قطعی (مثل lorem ipsum) با اطمینان «قطعی» و الگوهای دووجهی (مثل «...») با «محتمل» ثبت شوند؛ متن داخل نقل‌قول یا شعر استثناست.",
+      "suggestion": "جای‌نگهدارها را با اطلاعات واقعی جایگزین کنید یا تا تکمیل، صفحه را منتشر نکنید."
+    },
+    {
+      "enabled": true,
+      "applies_to": [
+        "*"
+      ],
+      "basis": "editorial_policy",
+      "source": "gh",
+      "manual_review_only": false,
+      "id": "STR-EMPTY-SECTION-01",
+      "category": "structure",
+      "title": "سرتیتر بدون محتوا و پایان ناگهانی",
+      "severity": "major",
+      "weight": 5,
+      "params": {
+        "min_words_under_heading": 40,
+        "flag_heading_followed_by_heading": true,
+        "flag_abrupt_ending": true
+      },
+      "evaluator": "EmptySectionEvaluator",
+      "confidence_default": "probable",
+      "scientific_note": "سرتیتری که زیرش متنی نیست، یا مقاله‌ای که به سرتیتر یا جمله نیمه‌تمام ختم می‌شود، نشانه محتوای نیمه‌نوشته است. بخش‌های کوتاه عمدی (مثل یک جدول یا فهرست) باید با شمارش جدول/فهرست به‌عنوان محتوا لحاظ شوند.",
+      "suggestion": "زیر هر سرتیتر محتوای کافی بنویسید یا سرتیتر خالی را حذف کنید."
+    }
+  ]
+}

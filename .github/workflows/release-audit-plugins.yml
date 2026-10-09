@@ -1,0 +1,120 @@
+name: Release audit plugin preview
+
+on:
+  push:
+    branches:
+      - arena/b726e7c2-s-a-1
+    paths:
+      - .github/workflows/release-audit-plugins.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-plugin-preview-release
+  cancel-in-progress: false
+
+jobs:
+  package-and-publish:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    env:
+      VERSION: 0.2.0
+      TAG: iran-audit-plugins-v0.2.0-preview.1
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Build plugin ZIPs and release notes
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/audit-plugin-release"
+          cd wp-content/plugins
+          zip -X -q -r "$RUNNER_TEMP/audit-plugin-release/iran-audit-engine-${VERSION}-preview.zip" \
+            iran-audit-engine -x 'iran-audit-engine/tests/*' '*/.DS_Store'
+          zip -X -q -r "$RUNNER_TEMP/audit-plugin-release/iran-audit-dashboard-${VERSION}-preview.zip" \
+            iran-audit-dashboard -x '*/.DS_Store'
+          cd "$RUNNER_TEMP/audit-plugin-release"
+          cat > INSTALL-PREVIEW.txt <<'EOF'
+          Iran Audit Engine / Dashboard — Preview 0.2.0 (API 1.2)
+
+          Manual installation order on a test/staging WordPress site:
+          1. Install and activate iran-audit-engine-0.2.0-preview.zip.
+          2. Install and activate iran-audit-dashboard-0.2.0-preview.zip.
+          3. The Dashboard requires the Engine to be active and uses its REST API.
+          4. Update BOTH plugins together: Dashboard 0.2.0 refuses Engine API older than 1.2.
+
+          Requirements: WordPress 6.4+ and PHP 7.4+.
+          Engine activation creates/updates only its own {prefix}iaa_* tables. It does not import posts or rewrite site content. Posts with post_type=city are processed as City. `county` is only an API compatibility alias; no County CPT/entity/table is created.
+
+          What changed in 0.2.0 (per explicit owner decision, 2026-10-09):
+          - The human-review claims queue (approve/reject) is retired. All pending claims are auto-approved once when the Engine updates; new audits no longer extract claims. Historical claim rows are preserved.
+          - Rules GEO-CLAIMS-01 and GEO-EEAT-01 are removed (39 rules remain). No rule requires sources/footnotes anymore.
+          - New "Action Plan" tab: a prioritized do-this list per post and across the site, with a province filter for province-by-province fixing. After fixing a province, re-run the audit for its posts.
+
+          This is an installable preview, not production certification. No real WordPress/Staging installation or database import was performed for this release. Use only on a test/staging site pending manual review.
+          EOF
+          sha256sum iran-audit-engine-0.2.0-preview.zip \
+            iran-audit-dashboard-0.2.0-preview.zip > SHA256SUMS.txt
+          cat > RELEASE-NOTES.md <<'EOF'
+          ## Iran Audit Engine and Dashboard — Preview 0.2.0 (API 1.2)
+
+          Install the Engine first, then the Dashboard. Requires WordPress 6.4+ and PHP 7.4+. **Update both plugins together.**
+
+          - Claims approve/reject queue removed; all pending claims auto-approved on update.
+          - Rules GEO-CLAIMS-01 and GEO-EEAT-01 removed (39 rules, version 2026.10.09-1).
+          - New Action Plan: prioritized per-post and site-wide fix lists with province filter.
+          - New REST routes: `GET /posts/{id}/actions`, `GET /stats/action-plan`. Removed: `/claims`, `/claims/{id}`.
+
+          This preview is for manual installation on a test/staging site. It was not installed on real WordPress/Staging, and no database import was performed. It is not production certification.
+
+          All existing `post_type=city` posts are processed as City. `county` is only an API compatibility alias; no separate County entity is created.
+          EOF
+
+      - name: Publish preview release and attach install ZIPs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ env.TAG }}
+          VERSION: ${{ env.VERSION }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          package_dir="$RUNNER_TEMP/audit-plugin-release"
+          publish() {
+            if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" \
+                "$package_dir/iran-audit-engine-${VERSION}-preview.zip" \
+                "$package_dir/iran-audit-dashboard-${VERSION}-preview.zip" \
+                "$package_dir/INSTALL-PREVIEW.txt" \
+                "$package_dir/SHA256SUMS.txt" \
+                --clobber --repo "$GITHUB_REPOSITORY"
+            else
+              gh release create "$TAG" \
+                "$package_dir/iran-audit-engine-${VERSION}-preview.zip#Engine — install first" \
+                "$package_dir/iran-audit-dashboard-${VERSION}-preview.zip#Dashboard — install second" \
+                "$package_dir/INSTALL-PREVIEW.txt#Installation notes" \
+                "$package_dir/SHA256SUMS.txt#SHA-256 checksums" \
+                --repo "$GITHUB_REPOSITORY" \
+                --target "$GITHUB_SHA" \
+                --title "Iran Audit Plugins v${VERSION} — Preview 1" \
+                --notes-file "$package_dir/RELEASE-NOTES.md" \
+                --prerelease
+            fi
+          }
+          for attempt in 1 2 3; do
+            if publish; then
+              break
+            fi
+            if [[ "$attempt" == '3' ]]; then
+              echo "Failed to publish $TAG after three attempts." >&2
+              exit 1
+            fi
+            echo "Publish attempt $attempt failed; retrying in 15 seconds." >&2
+            sleep 15
+          done
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets \
+            --jq '.assets[].name' | grep -Fx "iran-audit-engine-${VERSION}-preview.zip" >/dev/null
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets \
+            --jq '.assets[].name' | grep -Fx "iran-audit-dashboard-${VERSION}-preview.zip" >/dev/null
