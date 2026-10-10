@@ -16,7 +16,7 @@ if ( ! defined( 'SA_CHILD_DIR' ) ) {
 	define( 'SA_CHILD_DIR', trailingslashit( dirname( __DIR__ ) ) );
 }
 if ( ! defined( 'SA_CHILD_VERSION' ) ) {
-	define( 'SA_CHILD_VERSION', '2.12.4-test' );
+	define( 'SA_CHILD_VERSION', '2.12.5-test' );
 }
 if ( ! defined( 'HOUR_IN_SECONDS' ) ) {
 	define( 'HOUR_IN_SECONDS', 3600 );
@@ -271,4 +271,38 @@ sa_test_expect( 'استان تهران' === sa_province_name_for_post( 101, true
 sa_test_expect( 'دورود' === sa_county_name( 102 ), 'county display helper strips duplicate stored prefixes' );
 sa_test_expect( 'شهرستان دورود' === sa_county_name( 102, true ), 'county display helper adds at most one requested prefix' );
 
-fwrite( STDOUT, "PASS: internal geographic auto-link regression tests\n" );
+$ready_articles = require SA_CHILD_DIR . 'data/ready-articles.php';
+$article_links  = array(
+	'fin-garden' => array(
+		'/city/kashan/'                    => 'شهرستان کاشان',
+		'/province/isfahan/'               => 'استان اصفهان',
+		'/attraction/6789-باغ-گلشن-طبس/'    => 'باغ گلشن طبس',
+	),
+	'masouleh' => array(
+		'/province/gilan/'                 => 'استان گیلان',
+		'/attraction/23328-sar-agha-seyed-village/' => 'روستای سرآقا سید',
+	),
+	'persepolis-takht-jamshid' => array(
+		'/province/fars/'                  => 'استان فارس',
+		'/attraction/naqsh-e-jahan-square-isfahan/' => 'میدان نقش جهان',
+	),
+	'naqsh-e-jahan-square-isfahan' => array(
+		'/province/isfahan/'               => 'استان اصفهان',
+		'/city/isfahan-city/'              => 'شهرستان اصفهان',
+		'/attraction/persepolis-takht-jamshid/' => 'تخت جمشید',
+	),
+	'shahdad-kaluts-lut-desert' => array(
+		'/province/kerman/'                => 'استان کرمان',
+		'/city/kerman/'                    => 'شهرستان کرمان',
+		'/attraction/308149-attraction-tabas/' => 'راهنمای دیدنی‌های طبس',
+	),
+);
+foreach ( $article_links as $article_key => $links ) {
+	sa_test_expect( isset( $ready_articles[ $article_key ]['content'] ), 'rewritten article must exist: ' . $article_key );
+	foreach ( $links as $href => $label ) {
+		$anchor = '<a href="' . $href . '">' . $label . '</a>';
+		sa_test_expect( 1 === substr_count( $ready_articles[ $article_key ]['content'], $anchor ), 'expected one exact internal link in ' . $article_key . ': ' . $href );
+	}
+}
+
+fwrite( STDOUT, "PASS: internal geographic auto-link and rewritten-article link tests\n" );
