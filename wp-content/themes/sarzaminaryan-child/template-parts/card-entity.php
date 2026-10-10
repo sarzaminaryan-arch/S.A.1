@@ -45,7 +45,7 @@ if ( 'attraction' === $sa_type ) {
 		$sa_place[]   = 'شهرستان ' . $sa_city_name;
 	}
 	if ( $sa_prov ) {
-		$sa_place[] = 'استان ' . get_the_title( $sa_prov );
+		$sa_place[] = 'استان ' . sa_province_name_for_post( $sa_prov );
 	}
 	?>
 	<article class="sa-card sa-card--attraction sa-tile">

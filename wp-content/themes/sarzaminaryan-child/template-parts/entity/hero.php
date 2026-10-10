@@ -19,9 +19,10 @@ $sa_province = sa_get_parent( $sa_id, 'province' );
 $sa_title    = 'city' === $sa_type && function_exists( 'sa_county_name' ) ? sa_county_name( $sa_id, true ) : get_the_title( $sa_id );
 $sa_kicker   = sa_entity_label( $sa_type );
 if ( 'city' === $sa_type && $sa_province ) {
-	$sa_kicker .= 'ی در استان ' . get_the_title( $sa_province );
+	$sa_kicker .= 'ی در استان ' . sa_province_name_for_post( $sa_province );
 } elseif ( $sa_city && ! in_array( $sa_type, array( 'province', 'city' ), true ) ) {
-	$sa_kicker .= ' در ' . get_the_title( $sa_city ) . ( $sa_province ? '، استان ' . get_the_title( $sa_province ) : '' );
+	$sa_city_name = function_exists( 'sa_county_name' ) ? sa_county_name( $sa_city, true ) : get_the_title( $sa_city );
+	$sa_kicker .= ' در ' . $sa_city_name . ( $sa_province ? '، استان ' . sa_province_name_for_post( $sa_province ) : '' );
 } elseif ( 'province' === $sa_type ) {
 	$sa_kicker = 'راهنمای سفر به استان';
 }
@@ -38,7 +39,7 @@ if ( 'city' === $sa_type && $sa_province ) {
 		<?php
 		$sa_terms_html = array();
 		if ( 'city' === $sa_type && $sa_province ) {
-			$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_permalink( $sa_province ) ) . '">' . esc_html( 'استان ' . get_the_title( $sa_province ) ) . '</a>';
+			$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_permalink( $sa_province ) ) . '">' . esc_html( 'استان ' . sa_province_name_for_post( $sa_province ) ) . '</a>';
 		}
 		foreach ( sa_entity( $sa_type )['taxonomies'] as $sa_tax ) {
 			if ( 'province_tax' === $sa_tax && 'province' !== $sa_type ) {

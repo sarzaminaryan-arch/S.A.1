@@ -59,6 +59,10 @@ jobs:
           find "$THEME_DIR" -type f -name '*.php' -print0 \
             | xargs -0 -n 1 php -l
 
+      - name: Run geographic auto-link regression tests
+        shell: bash
+        run: php "$THEME_DIR/tests/test-internal-links.php"
+
       - name: Reject accidentally committed credentials
         shell: bash
         run: |

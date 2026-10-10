@@ -320,7 +320,7 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 	$province    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'province' ) : null;
 	$city_name   = $city ? ( function_exists( 'sa_county_name' ) ? sa_county_name( $city ) : get_the_title( $city ) ) : '';
 	$city_txt    = $city_name ? 'شهرستان ' . $city_name : '';
-	$prov_txt    = $province ? 'استان ' . get_the_title( $province ) : '';
+	$prov_txt    = $province ? 'استان ' . sa_province_name_for_post( $province ) : '';
 	$location = trim( $city_txt . ( $city_txt && $prov_txt ? '  |  ' : '' ) . $prov_txt );
 	$terms    = get_the_terms( $post_id, 'attraction_type' );
 	$type_txt = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'دیدنی';

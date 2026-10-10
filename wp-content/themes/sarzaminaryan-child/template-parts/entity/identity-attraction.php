@@ -26,7 +26,7 @@ $sa_type    = ( $sa_types && ! is_wp_error( $sa_types ) ) ? $sa_types[0]->name :
 $sa_season  = ( $sa_seasons && ! is_wp_error( $sa_seasons ) ) ? $sa_seasons[0]->name : '';
 $sa_fields  = array(
 	'نام انگلیسی'     => $sa_english,
-	'استان'           => $sa_province ? get_the_title( $sa_province ) : '',
+	'استان'           => $sa_province ? sa_province_name_for_post( $sa_province ) : '',
 	'شهرستان'         => $sa_city_name,
 	'نوع نما'          => $sa_type,
 	'بهترین زمان'      => $sa_season,
@@ -67,7 +67,7 @@ $sa_map_url = sa_map_url( $sa_id );
 						<a class="sa-attraction-id__btn" href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>"><?php echo esc_html( 'صفحه شهرستان ' . $sa_city_name ); ?></a>
 					<?php endif; ?>
 					<?php if ( $sa_province ) : ?>
-						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( get_permalink( $sa_province ) ); ?>"><?php echo esc_html( 'صفحه استان ' . get_the_title( $sa_province ) ); ?></a>
+						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( get_permalink( $sa_province ) ); ?>"><?php echo esc_html( 'صفحه استان ' . sa_province_name_for_post( $sa_province ) ); ?></a>
 					<?php endif; ?>
 					<?php if ( $sa_map_url ) : ?>
 						<a class="sa-attraction-id__btn sa-attraction-id__btn--ghost" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener">مشاهده روی نقشه</a>

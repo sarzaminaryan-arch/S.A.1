@@ -27,7 +27,7 @@ function sa_entity_facts( $post_id ) {
 	$province = sa_get_parent( $post_id, 'province' );
 	$city     = sa_get_parent( $post_id, 'city' );
 	if ( 'province' !== $type && $province ) {
-		$rows[] = array( 'label' => 'استان', 'value' => '<a href="' . esc_url( get_permalink( $province ) ) . '">' . esc_html( get_the_title( $province ) ) . '</a>', 'html' => true );
+		$rows[] = array( 'label' => 'استان', 'value' => '<a href="' . esc_url( get_permalink( $province ) ) . '">' . esc_html( sa_province_name_for_post( $province ) ) . '</a>', 'html' => true );
 	}
 	if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
 		$rows[] = array( 'label' => 'شهر', 'value' => '<a href="' . esc_url( get_permalink( $city ) ) . '">' . esc_html( get_the_title( $city ) ) . '</a>', 'html' => true );
@@ -160,7 +160,7 @@ function sa_card_meta( $post_id ) {
 	}
 	if ( 'city' === $type ) {
 		$p = sa_get_parent( $post_id, 'province' );
-		return $p ? 'استان ' . get_the_title( $p ) : '';
+		return $p ? 'استان ' . sa_province_name_for_post( $p ) : '';
 	}
 	if ( 'travel_route' === $type ) {
 		$terms = get_the_terms( $post_id, 'travel_duration' );
@@ -171,7 +171,7 @@ function sa_card_meta( $post_id ) {
 		return get_the_title( $c );
 	}
 	$p = sa_get_parent( $post_id, 'province' );
-	return $p ? 'استان ' . get_the_title( $p ) : '';
+	return $p ? 'استان ' . sa_province_name_for_post( $p ) : '';
 }
 
 /**

@@ -206,7 +206,7 @@ function sa_schema_entity( $post ) {
 					$postal_address['addressLocality'] = $locality;
 				}
 				if ( $province ) {
-					$postal_address['addressRegion'] = get_the_title( $province );
+					$postal_address['addressRegion'] = sa_province_name_for_post( $province );
 				}
 				$node['address'] = $postal_address;
 			}
