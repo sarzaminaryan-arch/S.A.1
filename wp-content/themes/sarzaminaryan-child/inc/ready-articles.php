@@ -265,7 +265,7 @@ function sa_ready_articles_find_attachment( $file ) {
 function sa_ready_articles_sideload( $url, $post_id = 0 ) {
 	$url  = esc_url_raw( (string) $url );
 	$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
-	if ( '' === $url || ! in_array( $host, array( 'upload.wikimedia.org', 'commons.wikimedia.org' ), true ) ) {
+	if ( '' === $url || ! in_array( $host, array( 'upload.wikimedia.org', 'thumb.wikimedia.org', 'commons.wikimedia.org' ), true ) ) {
 		return 0;
 	}
 
@@ -280,7 +280,22 @@ function sa_ready_articles_sideload( $url, $post_id = 0 ) {
 		)
 	);
 	if ( ! empty( $existing ) ) {
-		return absint( $existing[0] );
+		$attachment_id = absint( $existing[0] );
+		// The first render of a new article may import before its post ID exists.
+		// Attach that cached image on the follow-up render, without moving an
+		// attachment that is already associated with another post.
+		if ( $post_id ) {
+			$attachment_post = get_post( $attachment_id );
+			if ( $attachment_post && empty( $attachment_post->post_parent ) ) {
+				wp_update_post(
+					array(
+						'ID'          => $attachment_id,
+						'post_parent' => absint( $post_id ),
+					)
+				);
+			}
+		}
+		return $attachment_id;
 	}
 
 	if ( ! function_exists( 'media_sideload_image' ) ) {
@@ -298,19 +313,64 @@ function sa_ready_articles_sideload( $url, $post_id = 0 ) {
 }
 
 /**
+ * Build an escaped caption and optional linked image attribution.
+ *
+ * @param array<string,string> $item Image description and attribution fields.
+ * @return string
+ */
+function sa_ready_articles_caption( $item ) {
+	$description = isset( $item['caption'] ) ? trim( (string) $item['caption'] ) : '';
+	$attribution = array();
+
+	if ( ! empty( $item['credit'] ) ) {
+		$attribution[] = 'عکس: ' . esc_html( (string) $item['credit'] );
+	}
+	if ( ! empty( $item['source_url'] ) ) {
+		$source_url = esc_url( (string) $item['source_url'] );
+		if ( $source_url ) {
+			$attribution[] = '<a href="' . $source_url . '" target="_blank" rel="noopener noreferrer">صفحهٔ منبع</a>';
+		}
+	}
+	if ( ! empty( $item['license_name'] ) ) {
+		$license_name = esc_html( (string) $item['license_name'] );
+		$license_url  = empty( $item['license_url'] ) ? '' : esc_url( (string) $item['license_url'] );
+		if ( $license_url ) {
+			$attribution[] = 'مجوز: <a href="' . $license_url . '" target="_blank" rel="license noopener noreferrer">' . $license_name . '</a>';
+		} else {
+			$attribution[] = 'مجوز: ' . $license_name;
+		}
+	}
+	if ( ! empty( $item['edit_note'] ) ) {
+		$attribution[] = 'تغییر: ' . esc_html( (string) $item['edit_note'] );
+	}
+
+	if ( '' === $description && empty( $attribution ) ) {
+		return '';
+	}
+
+	$html = '<figcaption>';
+	if ( '' !== $description ) {
+		$html .= '<span class="sa-article-image-caption">' . esc_html( $description ) . '</span>';
+	}
+	if ( ! empty( $attribution ) ) {
+		$html .= '<small class="sa-article-image-attribution">' . implode( ' <span aria-hidden="true">·</span> ', $attribution ) . '</small>';
+	}
+	return $html . '</figcaption>';
+}
+
+/**
  * Build a gallery figure for the article body when the attachment exists.
  *
- * @param array<string,string> $item file/caption/alt.
+ * @param array<string,string> $item file/caption/alt/theme_img and optional attribution.
  * @return string
  */
 function sa_ready_articles_figure( $item, $post_id = 0 ) {
 	// تصویر بهینه‌شدهٔ همراه قالب (WebP پردازش‌شده در assets/img/articles/<slug>/).
-	// این تصاویر با مجوز آزاد دانلود، با حفظ انتساب پردازش و در قالب بسته‌بندی شده‌اند؛
-	// بنابراین بدون نیاز به کتابخانهٔ رسانه، مستقیم از قالب سرو می‌شوند.
+	// انتساب، صفحهٔ منبع، مجوز و یادداشت ویرایش در صورت وجود در زیرنویس دیده می‌شوند.
 	if ( ! empty( $item['theme_img'] ) ) {
 		$url     = SA_CHILD_URI . 'assets/img/articles/' . ltrim( (string) $item['theme_img'], '/' );
 		$alt     = empty( $item['alt'] ) ? '' : esc_attr( $item['alt'] );
-		$caption = empty( $item['caption'] ) ? '' : '<figcaption>' . esc_html( $item['caption'] ) . '</figcaption>';
+		$caption = sa_ready_articles_caption( $item );
 		return '<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" src="' . esc_url( $url ) . '" alt="' . $alt . '" />' . $caption . '</figure>';
 	}
 	if ( empty( $item['file'] ) && empty( $item['url'] ) ) {
@@ -341,7 +401,7 @@ function sa_ready_articles_figure( $item, $post_id = 0 ) {
 			)
 		);
 	}
-	$caption = empty( $item['caption'] ) ? '' : '<figcaption>' . esc_html( $item['caption'] ) . '</figcaption>';
+	$caption = sa_ready_articles_caption( $item );
 	return '<figure class="wp-block-image size-large">' . $image . $caption . '</figure>';
 }
 
