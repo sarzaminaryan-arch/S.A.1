@@ -304,6 +304,15 @@ function sa_ready_articles_sideload( $url, $post_id = 0 ) {
  * @return string
  */
 function sa_ready_articles_figure( $item, $post_id = 0 ) {
+	// تصویر بهینه‌شدهٔ همراه قالب (WebP پردازش‌شده در assets/img/articles/<slug>/).
+	// این تصاویر با مجوز آزاد دانلود، با حفظ انتساب پردازش و در قالب بسته‌بندی شده‌اند؛
+	// بنابراین بدون نیاز به کتابخانهٔ رسانه، مستقیم از قالب سرو می‌شوند.
+	if ( ! empty( $item['theme_img'] ) ) {
+		$url     = SA_CHILD_URI . 'assets/img/articles/' . ltrim( (string) $item['theme_img'], '/' );
+		$alt     = empty( $item['alt'] ) ? '' : esc_attr( $item['alt'] );
+		$caption = empty( $item['caption'] ) ? '' : '<figcaption>' . esc_html( $item['caption'] ) . '</figcaption>';
+		return '<figure class="wp-block-image size-large"><img loading="lazy" decoding="async" src="' . esc_url( $url ) . '" alt="' . $alt . '" />' . $caption . '</figure>';
+	}
 	if ( empty( $item['file'] ) && empty( $item['url'] ) ) {
 		return '';
 	}
@@ -348,6 +357,31 @@ function sa_ready_articles_content( $article, $post_id = 0 ) {
 		foreach ( $article['gallery'] as $key => $item ) {
 			$content = str_replace( '{{GALLERY:' . $key . '}}', sa_ready_articles_figure( $item, $post_id ), $content );
 		}
+	}
+	if ( false !== strpos( $content, '{{FAQ}}' ) ) {
+		$faq_html = '';
+		if ( ! empty( $article['faq'] ) && is_array( $article['faq'] ) ) {
+			foreach ( $article['faq'] as $row ) {
+				$faq_html .= '<h3>' . esc_html( (string) $row['q'] ) . '</h3>' . "\n" . '<p>' . esc_html( (string) $row['a'] ) . '</p>' . "\n";
+			}
+		}
+		$content = str_replace( '{{FAQ}}', trim( $faq_html ), $content );
+	}
+	if ( false !== strpos( $content, '{{SOURCES}}' ) ) {
+		$src_html = '';
+		$sources  = isset( $article['meta']['sa_sources'] ) ? (string) $article['meta']['sa_sources'] : '';
+		if ( '' !== $sources ) {
+			$src_html = '<ul>' . "\n";
+			foreach ( explode( "\n", $sources ) as $line ) {
+				$line = trim( $line );
+				if ( '' === $line ) {
+					continue;
+				}
+				$src_html .= '<li>' . esc_html( $line ) . '</li>' . "\n";
+			}
+			$src_html .= '</ul>';
+		}
+		$content = str_replace( '{{SOURCES}}', $src_html, $content );
 	}
 	return trim( preg_replace( '/\{\{GALLERY:[a-zA-Z0-9_-]+\}\}/', '', $content ) );
 }
