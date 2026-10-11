@@ -74,20 +74,35 @@
 
 ## روش انتشار محتوا
 
-هر نوبت فقط **یک مقاله** نوشته و بازبینی می‌شود. ساختار، بایلاین، سئو، اسکیما، منابع، پیوندهای مجاز و برگهٔ بازبینی انسانی طبق [استاندارد تولید مقاله](ARTICLE-STANDARD.md) است. پیش از تأیید جداگانه، پیش‌نویس‌ها نه در وردپرس وارد می‌شوند و نه منتشر یا جایگزین خواهند شد.
+ساختار، بایلاین، سئو، اسکیما، منابع و پیوندهای مجاز طبق [استاندارد تولید مقاله (نسخهٔ ۱٫۱)](ARTICLE-STANDARD.md) است. **شرط بازبینی انسانیِ پیش‌نویس حذف شده است**؛ به‌جای آن هر مقاله از فیلتر تحلیل محتوا می‌گذرد که جمله‌های نامرتبط و نشانه‌های مخصوص ماشین را پیدا می‌کند و هشدار می‌دهد:
 
-همچنین ۲۸ مدخل موجود در `wp-content/themes/sarzaminaryan-child/data/ready-articles.php` در صف بازبینی مرحله‌ای قرار می‌گیرند: حذف یادداشت‌های داخلیِ تولید، اصلاح دستور زبان و تکرار، طبیعی‌کردن لحن و حفظ فقط ادعاهای دارای پشتوانه. بازبینی یک مقاله به معنی تأیید یا اصلاح همهٔ آن‌ها نیست.
+```bash
+python3 tools/content-lint/content_lint.py --fix docs/camping-education/articles/       # گزارش + اصلاح‌های مکانیکی امن
+python3 tools/content-lint/content_lint.py --mark-ready docs/camping-education/articles/ # مقالهٔ بی‌هشدار → «آمادهٔ انتشار»
+python3 tools/content-lint/content_lint.py --check-ready docs/camping-education/articles/ # در CI: مقالهٔ «آماده» با هشدار باز = خطا
+```
+
+مقاله تا وقتی هشدار باز دارد «پیش‌نویس» می‌ماند؛ پس از ویرایش و صفرشدن هشدارها «آمادهٔ انتشار» می‌شود و انتشار در وردپرس با تصمیم مالک انجام می‌شود. گزارش هر دسته در [`lint-reports/`](lint-reports/) نگه داشته می‌شود. پیش‌نویس‌های Google Docs با `tools/content-lint/gdoc_convert.py` و یک فایل مکمل (`supplements/{slug}.md`) به قالب استاندارد تبدیل می‌شوند؛ شرح ابزارها در [`tools/content-lint/README.md`](../../tools/content-lint/README.md).
+
+همچنین ۲۸ مدخل موجود در `wp-content/themes/sarzaminaryan-child/data/ready-articles.php` در صف پالایش مرحله‌ای قرار می‌گیرند: حذف یادداشت‌های داخلیِ تولید، اصلاح دستور زبان و تکرار، طبیعی‌کردن لحن و حفظ فقط ادعاهای مستند.
 
 ## نقشهٔ کار
 
-1. `articles/essential-camping-equipment.md` و `articles/essential-camping-equipment-review.md` — چک‌لیست پایه و انتخاب وسایل؛ در انتظار بازبینی انسانی.
-2. [آب آشامیدنی در کمپ و سفر](articles/camping-water-planning.md) و [برگهٔ بازبینی](articles/camping-water-planning-review.md) — برنامه‌ریزی بر پایهٔ مسیر، نگهداری و محدودیت روش‌های تصفیه؛ بازبینی مالک انجام شد و ایرادی اعلام نشد، اما مقاله منتشر نشده است.
-3. سرپناه و خواب امن در جنگل.
-4. گره‌های کاربردی و تعمیرهای کم‌خطر؛ مواردی که هرگز نباید با جایگزین دست‌ساز انجام شوند.
-5. تجهیزات حرفه‌ای کمپ و معیار انتخاب، بدون برند و پیوند خرید.
-6. جایگزین‌های ساده و کاردستی‌های DIY برای وسایل غیرحیاتی.
-7. آتش مجاز، پخت‌وپز، خاموش‌کردن و مهار آتش.
-8. چهار درس مجزای نجات در آب و رسیدگی پس از غوطه‌وری.
-9. مچ پا، شکستگی، سوختگی، اوردوز و دیگر وضعیت‌های کمک اولیه.
-10. سوخت خودرو با روش‌های مجاز؛ سپس برخورد با جانوران و ارزیابی خطرهای محل.
-11. بازبینی محتوای ۲۸ مقالهٔ موجود، تک‌به‌تک.
+### آماده در مخزن (۲۷ مقاله؛ همه با فیلتر بدون هشدار، وضعیت «آمادهٔ انتشار»)
+
+| شاخه | نامک‌ها |
+|---|---|
+| تجهیزات عمومی | `camping-essential-checklist`، `essential-camping-equipment`، `how-to-choose-camping-tent`، `sleeping-bag-guide`، `outdoor-clothing-guide`، `first-aid-kit-checklist`، `outdoor-cooking-equipment`، `camping-lighting-guide` |
+| تجهیزات حرفه‌ای (بدون لینک خرید) | `portable-water-filter-review`، `camping-stove-review`، `multi-tool-knife-review`، `gps-navigation-tools`، `rope-carabiner-guide`، `professional-rescue-kit` |
+| کاردستی DIY | `diy-water-filter`، `diy-can-stove`، `rope-alternatives-outdoor`، `diy-compass`، `diy-emergency-torch` |
+| آتش | `how-to-start-campfire`، `fire-without-lighter`، `maintain-fire-in-rain`، `how-to-extinguish-campfire` |
+| آب | `camping-water-planning`، `drinking-water-in-nature`، `emergency-water-purification` |
+| نجات غریق | `drowning-rescue-guide` |
+
+### در صف (طبق برنامهٔ ۶۵ مقاله‌ای مالک)
+
+1. `diy-water-container` (شمارهٔ ۱۹ برنامه؛ پیش‌نویس آن در Drive نبود).
+2. نجات در آب: `self-rescue-drowning`، `unconscious-drowning-cpr`، `water-safety-children`.
+3. کمک‌های اولیه: `cpr-complete-guide`، مچ پا، شکستگی، اوردوز، سوختگی، خونریزی، گرمازدگی، سرمازدگی، گزش.
+4. مهار آتش، خودرو، پناهگاه، حیوانات، مسیریابی، سیگنال‌دهی و مقالات تکمیلی (۳۹ تا ۶۵).
+5. پالایش ۲۸ مقالهٔ موجود `ready-articles.php`، تک‌به‌تک، با همین فیلتر.
