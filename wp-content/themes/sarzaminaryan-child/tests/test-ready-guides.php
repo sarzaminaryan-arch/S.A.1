@@ -97,7 +97,7 @@ foreach ( $guides as $key => $g ) {
 		$covers = isset( $covers ) ? $covers + 1 : 1;
 	}
 }
-sa_guides_expect( isset( $covers ) && $covers >= 17, 'at least 17 guides must ship a bundled cover (owner batch 1)' );
+sa_guides_expect( isset( $covers ) && $covers >= 22, 'at least 22 guides must ship a bundled cover (owner batches 1 + 2)' );
 
 /**
  * Minimal strip-tags shim (no WordPress here).
