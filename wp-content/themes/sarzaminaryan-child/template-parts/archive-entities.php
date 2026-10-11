@@ -20,6 +20,8 @@ if ( is_post_type_archive( 'province' ) && function_exists( 'sa_province_bars_ht
 	$sa_bars = 'province';
 } elseif ( is_post_type_archive( 'city' ) && function_exists( 'sa_city_bars_html' ) ) {
 	$sa_bars = 'city';
+} elseif ( $sa_top_views && function_exists( 'sa_attraction_bars_html' ) ) {
+	$sa_bars = 'attraction'; // v2.13.5: دیدنی‌ها (و فیلتر نوع) هم با نوارهای صفحهٔ استان‌ها، صفحه‌بندی حفظ می‌شود.
 }
 ?>
 <header class="sa-archive__head<?php echo $sa_top_views ? ' sa-archive__head--topviews' : ''; ?>">
@@ -77,6 +79,9 @@ if ( is_post_type_archive( 'province' ) && function_exists( 'sa_province_bars_ht
 	<?php echo sa_province_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
 <?php elseif ( 'city' === $sa_bars && have_posts() ) : ?>
 	<?php echo sa_city_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
+<?php elseif ( 'attraction' === $sa_bars && have_posts() ) : ?>
+	<?php echo sa_attraction_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
+	<?php the_posts_pagination( array( 'prev_text' => 'قبلی', 'next_text' => 'بعدی', 'mid_size' => 2 ) ); ?>
 <?php elseif ( have_posts() ) : ?>
 	<div class="sa-grid-cards">
 		<?php

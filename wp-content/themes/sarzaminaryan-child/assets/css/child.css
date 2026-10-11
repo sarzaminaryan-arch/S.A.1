@@ -2459,9 +2459,9 @@ main.site-main.container,
    ========================================================================== */
 
 /* ---- ۱. فاصله‌ی تنفس میان بدنه‌ی صفحه و فوتر ----
-   آخرین بخش صفحه‌ی اصلی (بلوک آبی «پست‌های معروف») تا پیش از این دقیقاً به لبه‌ی
-   کادر سفید و از آنجا به خط فوتر می‌چسبید. حالا هم فاصله‌ی بیرونی بیشتر شده و هم
-   بلوک آبی گوشه‌ی پایین گرد گرفته تا داخل کادر «بنشیند». */
+   آخرین بخش صفحه‌ی اصلی تا پیش از این دقیقاً به لبه‌ی کادر سفید و از آنجا به خط
+   فوتر می‌چسبید؛ حالا فاصله‌ی بیرونی بیشتر شده. (v2.13.5: بلوک آبی «پست‌های معروف»
+   حذف شد؛ قاعده‌های آن هم.) */
 .sa-home,
 .sa-main--entity,
 main.site-main.container,
@@ -2475,12 +2475,6 @@ main.site-main.container,
 
 .sa-home > section:last-child {
 	margin-bottom: 0;
-}
-
-.sa-home .sa-pop {
-	margin-top: 56px;
-	padding: 48px 0 44px;
-	border-radius: 24px;
 }
 
 .sa-hf-foot {
@@ -2605,12 +2599,6 @@ main.site-main.container,
 
 	.sa-home {
 		padding-bottom: 10px;
-	}
-
-	.sa-home .sa-pop {
-		margin-top: 36px;
-		padding: 32px 0 30px;
-		border-radius: 16px;
 	}
 }
 
@@ -4673,4 +4661,10 @@ main.site-main.container,
 	.sa-bars--province .sa-bar--soon em {
 		display: inline;
 	}
+}
+
+/* v2.13.5: دیدنی‌ها (و فیلتر نوع) با همان نوارهای دوستونهٔ استان‌ها؛ صفحه‌بندی زیر نوارها می‌نشیند. */
+.sa-bars--attraction + .pagination,
+.sa-bars--attraction + .navigation {
+	margin-top: 1.5rem;
 }

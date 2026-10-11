@@ -50,8 +50,7 @@ $sa_stat2_num = get_theme_mod( 'sa_stat2_num', isset( $sa_counts['city'] ) ? (st
 $sa_stat2_suf = get_theme_mod( 'sa_stat2_suffix', '' );
 $sa_stat2_lb  = get_theme_mod( 'sa_stat2_label', 'شهرستان' );
 $sa_latest_h2 = get_theme_mod( 'sa_sec_latest_title', 'آخرین مقالات' );
-$sa_pop_h2    = get_theme_mod( 'sa_sec_pop_title', 'پست‌های معروف' );
-$sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_theme_mod( 'sa_pop_ids', '' ) ) ) );
+/* v2.13.5: بخش «پست‌های معروف» به درخواست مالک از صفحهٔ اول حذف شد. */
 /* v2.13.1: «آموزش‌ها» (دستهٔ آموزش‌های ضروری کمپینگ و بقا) کنار استان‌ها، شهرستان‌ها و دیدنی‌ها:
    چیپ هیرو، کارت آمار سوم و یک بخش جدا با آخرین آموزش‌ها. تا وقتی آموزشی منتشر نشده
    (پیش‌نویس‌ها در انتظار تأیید مالک)، هیچ‌کدام نشان داده نمی‌شوند تا لینکِ آرشیو خالی نسازیم. */
@@ -129,10 +128,6 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-pb h3{margin:0 0 6px;font-size:17px;line-height:1.7;font-weight:700}
 .sa-pb p{margin:0 0 10px;color:var(--mut);font-size:14px}
 .sa-pb small{color:#8593a6;font-size:12.5px}
-.sa-pop{margin-top:96px;padding:84px 0 100px;border-radius:44px 44px 0 0;color:#fff;background:radial-gradient(700px 320px at 85% 0,rgba(36,109,168,.34),transparent 70%),var(--navy-deep);content-visibility:auto;contain-intrinsic-size:auto 700px}
-.sa-pop .sa-head{background:linear-gradient(155deg,#174f82,#0b2a4a);border-color:#387aaf;border-inline-start-color:#8eb9e3;box-shadow:0 2px 0 rgba(255,255,255,.16) inset,0 22px 40px -22px rgba(0,0,0,.8)}.sa-pop .sa-head h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-.sa-pop .sa-post{background:#111d36;color:#fff;box-shadow:0 38px 64px -30px color-mix(in srgb,var(--c,#18558f) 85%,transparent)}
-.sa-pop .sa-pb p{color:#9fb0c9}.sa-pop .sa-pb small{color:#7f92b0}
 .js .rv{opacity:0;transform:translateY(26px)}
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in:hover{transform:translateY(-5px)}
@@ -300,49 +295,6 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 						$sa_thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
 						?>
 						<a class="sa-post rv" href="<?php the_permalink(); ?>" style="--c:<?php echo esc_attr( $sa_colors[ ( $sa_latest->current_post * 3 ) % 8 ] ); ?>">
-							<div class="sa-img" <?php if ( $sa_thumb ) : ?>style="background-image:url('<?php echo esc_url( $sa_thumb ); ?>')"<?php endif; ?>></div>
-							<div class="sa-pb">
-								<h3><?php the_title(); ?></h3>
-								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18, '…' ) ); ?></p>
-								<small><?php echo esc_html( get_the_date() ); ?></small>
-							</div>
-						</a>
-					<?php endwhile; ?>
-				</div>
-			</div>
-		</section>
-	<?php endif; wp_reset_postdata(); ?>
-
-	<?php
-	/* ---- پست‌های معروف: شناسه‌های دستی از سفارشی‌سازی، وگرنه نوشته‌های چسبان ---- */
-	$sa_pop_args = array(
-		'post_type'           => 'post',
-		'post_status'         => 'publish',
-		'posts_per_page'      => 3,
-		'ignore_sticky_posts' => false,
-		'no_found_rows'       => true,
-	);
-	if ( $sa_pop_ids ) {
-		$sa_pop_args['post__in'] = $sa_pop_ids;
-		$sa_pop_args['orderby']  = 'post__in';
-		$sa_pop_args['ignore_sticky_posts'] = true;
-	} else {
-		$sa_pop_args['post__in'] = get_option( 'sticky_posts' );
-		$sa_pop_args['orderby']  = 'date';
-	}
-	$sa_pop = new WP_Query( $sa_pop_args );
-	if ( $sa_pop->have_posts() ) :
-		?>
-		<section class="sa-pop">
-			<div class="sa-wrap">
-				<div class="sa-head"><h2><?php echo esc_html( $sa_pop_h2 ); ?></h2></div>
-				<div class="sa-posts">
-					<?php
-					while ( $sa_pop->have_posts() ) :
-						$sa_pop->the_post();
-						$sa_thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-						?>
-						<a class="sa-post rv" href="<?php the_permalink(); ?>" style="--c:<?php echo esc_attr( $sa_colors[ ( $sa_pop->current_post * 3 + 2 ) % 8 ] ); ?>">
 							<div class="sa-img" <?php if ( $sa_thumb ) : ?>style="background-image:url('<?php echo esc_url( $sa_thumb ); ?>')"<?php endif; ?>></div>
 							<div class="sa-pb">
 								<h3><?php the_title(); ?></h3>

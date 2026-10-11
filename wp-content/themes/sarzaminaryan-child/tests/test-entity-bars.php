@@ -76,6 +76,9 @@ function get_the_title( $post ) {
 function get_post_meta( $id, $key, $single = false ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 	return isset( $GLOBALS['t']['meta'][ $id ][ $key ] ) ? $GLOBALS['t']['meta'][ $id ][ $key ] : '';
 }
+function get_post_status( $id ) {
+	return isset( $GLOBALS['t']['posts'][ $id ] ) ? $GLOBALS['t']['posts'][ $id ]->post_status : false;
+}
 function update_meta_cache() {
 	return true;
 }
@@ -128,9 +131,25 @@ sa_t_assert( false === strpos( $chtml, 'sa-bar--soon' ), 'no placeholders on the
 sa_t_assert( false !== strpos( $chtml, 'class="sa-bars sa-bars--city"' ), 'city grid class' );
 sa_t_assert( '' === sa_city_bars_html( array() ), 'empty city list renders nothing' );
 
-/* 5) Escaping. */
+/* 5) Attraction bars (v2.13.5): city label first, province fallback, drafts never named. */
+$GLOBALS['t']['posts'][20] = new WP_Post( 20, 'gahar-lake', 'دریاچه گهر', 'attraction' );
+$GLOBALS['t']['posts'][21] = new WP_Post( 21, 'bisheh', 'آبشار بیشه', 'attraction' );
+$GLOBALS['t']['posts'][22] = new WP_Post( 22, 'alisadr', 'غار علیصدر', 'attraction' );
+$GLOBALS['t']['meta'][20]  = array( 'sa_city_id' => 10, 'sa_province_id' => 1 ); // دورود، لرستان
+$GLOBALS['t']['meta'][21]  = array( 'sa_province_id' => 1 ); // فقط استان
+$GLOBALS['t']['meta'][22]  = array( 'sa_city_id' => 99, 'sa_province_id' => 4 ); // شهر ناموجود، استان پیش‌نویس
+$ahtml = sa_attraction_bars_html( array( $GLOBALS['t']['posts'][20], $GLOBALS['t']['posts'][21], $GLOBALS['t']['posts'][22] ) );
+sa_t_assert( 3 === substr_count( $ahtml, '<a class="sa-bar"' ), 'three attraction links' );
+sa_t_assert( false !== strpos( $ahtml, '<b>دریاچه گهر</b><em class="fa">دورود</em>' ), 'attraction shows its city' );
+sa_t_assert( false !== strpos( $ahtml, '<b>آبشار بیشه</b><em class="fa">لرستان</em>' ), 'province fallback when no city' );
+sa_t_assert( false !== strpos( $ahtml, '<b>غار علیصدر</b></a>' ), 'missing city + draft province → no secondary label' );
+sa_t_assert( false !== strpos( $ahtml, 'class="sa-bars sa-bars--attraction"' ), 'attraction grid class' );
+sa_t_assert( false === strpos( $ahtml, 'sa-bar--soon' ), 'no placeholders on the attraction archive' );
+sa_t_assert( '' === sa_attraction_bars_html( array() ), 'empty attraction list renders nothing' );
+
+/* 6) Escaping. */
 $GLOBALS['t']['posts'][13] = new WP_Post( 13, 'x', 'شهر <b>x</b>', 'city' );
 $xss                       = sa_city_bars_html( array( $GLOBALS['t']['posts'][13] ) );
 sa_t_assert( false === strpos( $xss, '<b>x</b>' ) && false !== strpos( $xss, '&lt;b&gt;x&lt;/b&gt;' ), 'titles are escaped' );
 
-echo "PASS: entity bars (31 provinces, published-only links, city bars with province label)\n";
+echo "PASS: entity bars (31 provinces, published-only links, city bars with province label, attraction bars with city/province label)\n";

@@ -197,6 +197,59 @@ function sa_city_bars_html( $posts ) {
 }
 
 /**
+ * v2.13.5 — Attraction bars (archive «دیدنی‌ها» and its attraction_type filters): same
+ * two-column bars as the province page; the secondary label is the attraction's city
+ * (sa_city_id), falling back to its province (sa_province_id).
+ *
+ * @param WP_Post[] $posts Attractions of the current page of the main query.
+ * @return string HTML (empty when there is nothing to list).
+ */
+function sa_attraction_bars_html( $posts ) {
+	$colors = sa_bar_colors();
+	$ids    = array();
+	foreach ( (array) $posts as $p ) {
+		if ( $p instanceof WP_Post ) {
+			$ids[] = (int) $p->ID;
+		}
+	}
+	if ( ! $ids ) {
+		return '';
+	}
+	update_meta_cache( 'post', $ids ); // one query for sa_city_id / sa_province_id of every attraction.
+	$parent_ids = array();
+	foreach ( $ids as $id ) {
+		foreach ( array( 'sa_city_id', 'sa_province_id' ) as $key ) {
+			$pid = (int) get_post_meta( $id, $key, true );
+			if ( $pid ) {
+				$parent_ids[] = $pid;
+			}
+		}
+	}
+	if ( $parent_ids ) {
+		_prime_post_caches( array_values( array_unique( $parent_ids ) ), false, false );
+	}
+	$out = '<div class="sa-bars sa-bars--attraction" id="sa-bars">';
+	$i   = 0;
+	foreach ( (array) $posts as $p ) {
+		if ( ! $p instanceof WP_Post ) {
+			continue;
+		}
+		$sub = '';
+		foreach ( array( 'sa_city_id', 'sa_province_id' ) as $key ) {
+			$pid = (int) get_post_meta( $p->ID, $key, true );
+			if ( $pid && 'publish' === get_post_status( $pid ) ) {
+				$sub = (string) get_the_title( $pid );
+				break;
+			}
+		}
+		$out .= sa_entity_bar_html( get_the_title( $p ), $sub, (string) get_permalink( $p ), $colors[ $i % 8 ], true );
+		$i++;
+	}
+	$out .= '</div>';
+	return $out;
+}
+
+/**
  * Province and city archives list everything on one page (the bars are a directory).
  *
  * @param WP_Query $query Main query.
@@ -208,6 +261,11 @@ function sa_entity_bars_query( $query ) {
 	if ( $query->is_post_type_archive( array( 'province', 'city' ) ) ) {
 		$query->set( 'posts_per_page', -1 );
 		$query->set( 'no_found_rows', true );
+	} elseif ( $query->is_post_type_archive( 'attraction' ) || $query->is_tax( 'attraction_type' ) ) {
+		// v2.13.5: bars are compact — 40 per page (two columns × 20), title order, pagination kept.
+		$query->set( 'orderby', 'title' );
+		$query->set( 'order', 'ASC' );
+		$query->set( 'posts_per_page', 40 );
 	}
 }
 add_action( 'pre_get_posts', 'sa_entity_bars_query', 20 );
