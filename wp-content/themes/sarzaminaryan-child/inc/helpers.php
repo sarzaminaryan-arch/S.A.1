@@ -356,3 +356,17 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 	<?php
 	return trim( ob_get_clean() );
 }
+
+/**
+ * v2.13.2 — Registered image size for a post's featured image.
+ *
+ * Guides (type «post») ship 16:9 infographics that must not be cropped, so they
+ * use the soft `sa-guide-cover` size; entities keep the top-anchored `sa-hero` poster crop.
+ *
+ * @param int $post_id Post ID (0 = current).
+ * @return string
+ */
+function sa_cover_image_size( $post_id = 0 ) {
+	$post_id = $post_id ? (int) $post_id : get_the_ID();
+	return 'post' === get_post_type( $post_id ) ? 'sa-guide-cover' : 'sa-hero';
+}

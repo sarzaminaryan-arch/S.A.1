@@ -4359,8 +4359,9 @@ main.site-main.container,
 .sa-guide .post-thumbnail img {
 	width: 100%;
 	height: auto;
-	aspect-ratio: 2 / 1;
-	object-fit: cover;
+	/* v2.13.2: اینفوگرافیک‌های ۱۶:۹ بدون برش نمایش داده می‌شوند (پیش‌تر برش ۲:۱ لبه‌ها را می‌برید). */
+	aspect-ratio: auto;
+	object-fit: contain;
 	border-radius: 16px;
 	box-shadow: var(--sa-shadow);
 }

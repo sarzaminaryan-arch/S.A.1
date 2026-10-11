@@ -81,6 +81,7 @@ function sa_ready_article_normalize( $article ) {
 		'meta'          => array(),
 		'faq'           => array(),
 		'gallery'       => array(),
+		'cover'         => array(), // v2.13.2 — تصویر شاخص همراه قالب: file (نسبت به assets/img/) + alt + title.
 		'content'       => '',
 	);
 	$article  = array_merge( $defaults, $article );
@@ -392,6 +393,134 @@ function sa_ready_articles_sideload( $url, $post_id = 0 ) {
 }
 
 /**
+ * v2.13.2 — Attach the featured image that ships with the theme (assets/img/<file>).
+ *
+ * The owner's infographics are bundled as `assets/img/guides/<slug>.webp` and
+ * referenced from the article record (`cover` => file/alt/title, generated from
+ * the Markdown SEO block). On import the file is copied once into the media
+ * library (fingerprinted by MD5 so repeated runs reuse the same attachment),
+ * the alt text — which carries the article's focus keyword — is written to
+ * `_wp_attachment_image_alt`, and the attachment becomes the post thumbnail.
+ *
+ * Replacement rules: a missing thumbnail is filled; a generated white card
+ * (`_sa_ready_cover_article`) or an older copy of this same bundled file is
+ * replaced; an image the owner picked by hand is never touched. This step is
+ * additive (no content change), so it also runs for published posts.
+ *
+ * @param int                 $post_id Post ID.
+ * @param array<string,mixed> $article Article record.
+ * @return int|WP_Error Attachment ID when (re)attached, 0 when nothing changed.
+ */
+function sa_ready_articles_attach_cover( $post_id, $article ) {
+	$post_id = absint( $post_id );
+	$cover   = isset( $article['cover'] ) && is_array( $article['cover'] ) ? $article['cover'] : array();
+	$file    = isset( $cover['file'] ) ? ltrim( (string) $cover['file'], '/' ) : '';
+	if ( ! $post_id || '' === $file || false !== strpos( $file, '..' ) || ! preg_match( '#^[a-z0-9][a-z0-9/_-]*\.(webp|jpe?g|png)$#', $file ) ) {
+		return 0;
+	}
+	$path = SA_CHILD_DIR . 'assets/img/' . $file;
+	if ( ! is_readable( $path ) ) {
+		return new WP_Error( 'cover_missing', 'فایل تصویر شاخص در قالب پیدا نشد: assets/img/' . $file );
+	}
+	$hash = (string) md5_file( $path );
+	$alt  = isset( $cover['alt'] ) ? sanitize_text_field( (string) $cover['alt'] ) : '';
+	if ( '' === $alt ) {
+		$keyword = isset( $article['meta']['sa_focus_keyword'] ) ? (string) $article['meta']['sa_focus_keyword'] : '';
+		$alt     = trim( 'تصویر شاخص ' . ( '' !== $keyword ? $keyword : (string) $article['title'] ) );
+	}
+	$title = isset( $cover['title'] ) && '' !== trim( (string) $cover['title'] ) ? sanitize_text_field( (string) $cover['title'] ) : $alt;
+
+	$current_id = (int) get_post_thumbnail_id( $post_id );
+	if ( $current_id ) {
+		$is_ours      = (string) get_post_meta( $current_id, '_sa_ready_cover_file', true ) === $file;
+		$is_generated = '' !== (string) get_post_meta( $current_id, '_sa_ready_cover_article', true );
+		if ( $is_ours && (string) get_post_meta( $current_id, '_sa_ready_cover_hash', true ) === $hash ) {
+			// Same picture already in place — only keep alt/title in sync.
+			update_post_meta( $current_id, '_wp_attachment_image_alt', $alt );
+			return 0;
+		}
+		if ( ! $is_ours && ! $is_generated ) {
+			return 0; // تصویری که مالک خودش انتخاب کرده هرگز جایگزین نمی‌شود.
+		}
+	}
+
+	// Reuse the attachment created from this exact file earlier (e.g. the post was re-imported).
+	$existing = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'meta_key'       => '_sa_ready_cover_hash', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key
+			'meta_value'     => $hash, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+		)
+	);
+	$attachment_id = $existing ? absint( $existing[0] ) : 0;
+
+	if ( ! $attachment_id ) {
+		$contents = file_get_contents( $path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- theme-bundled asset.
+		if ( false === $contents || strlen( $contents ) < 512 ) {
+			return new WP_Error( 'cover_unreadable', 'تصویر شاخص قابل خواندن نیست: assets/img/' . $file );
+		}
+		$upload = wp_upload_bits( wp_basename( $file ), null, $contents );
+		if ( ! empty( $upload['error'] ) ) {
+			return new WP_Error( 'cover_upload', (string) $upload['error'] );
+		}
+		$filetype = wp_check_filetype( $upload['file'] );
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+		$attachment_id = wp_insert_attachment(
+			array(
+				'post_mime_type' => ! empty( $filetype['type'] ) ? $filetype['type'] : 'image/webp',
+				'post_title'     => $title,
+				'post_excerpt'   => '',
+				'post_content'   => '',
+				'post_status'    => 'inherit',
+			),
+			$upload['file'],
+			$post_id,
+			true
+		);
+		if ( is_wp_error( $attachment_id ) ) {
+			return $attachment_id;
+		}
+		$attachment_id = absint( $attachment_id );
+		wp_update_attachment_metadata( $attachment_id, wp_generate_attachment_metadata( $attachment_id, $upload['file'] ) );
+		update_post_meta( $attachment_id, '_sa_ready_cover_file', $file );
+		update_post_meta( $attachment_id, '_sa_ready_cover_hash', $hash );
+	} else {
+		$attachment = get_post( $attachment_id );
+		if ( $attachment && empty( $attachment->post_parent ) ) {
+			wp_update_post(
+				array(
+					'ID'          => $attachment_id,
+					'post_parent' => $post_id,
+				)
+			);
+		}
+	}
+
+	update_post_meta( $attachment_id, '_wp_attachment_image_alt', $alt );
+	set_post_thumbnail( $post_id, $attachment_id );
+	sa_ready_articles_cover_log( (string) $article['slug'], $attachment_id );
+	return $attachment_id;
+}
+
+/**
+ * v2.13.2 — Per-request log of covers attached by sa_ready_articles_attach_cover().
+ *
+ * @param string|null $slug          Record slug to log; null to read the log.
+ * @param int         $attachment_id Attachment ID.
+ * @return array<string,int>
+ */
+function sa_ready_articles_cover_log( $slug = null, $attachment_id = 0 ) {
+	static $log = array();
+	if ( null !== $slug ) {
+		$log[ (string) $slug ] = absint( $attachment_id );
+	}
+	return $log;
+}
+
+/**
  * Build an escaped caption and optional linked image attribution.
  *
  * @param array<string,string> $item Image description and attribution fields.
@@ -614,6 +743,9 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 	$is_draft = ( '' === $status || in_array( $status, array( 'draft', 'auto-draft' ), true ) );
 
 	if ( $post_id && ! $is_draft && ! $overwrite_published ) {
+		// v2.13.2 — the bundled featured image is additive (no content change), so a
+		// published article still receives it; an owner-chosen image is left alone.
+		sa_ready_articles_attach_cover( $post_id, $article );
 		return new WP_Error(
 			'published_locked',
 			'این مقاله وضعیت «' . $status . '» دارد. برای به‌روزرسانی، گزینهٔ «بازنویسی نسخهٔ منتشرشده» را تیک بزنید.'
@@ -684,6 +816,12 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 				break;
 			}
 		}
+	}
+
+	// v2.13.2 — featured image shipped with the theme (alt text = focus keyword).
+	$cover = sa_ready_articles_attach_cover( $post_id, $article );
+	if ( is_wp_error( $cover ) ) {
+		return $cover;
 	}
 
 	if ( ! $is_post && function_exists( 'sa_sync_relations' ) ) {
@@ -810,6 +948,9 @@ function sa_ready_articles_handle_import() {
 		$args['sa-ready'] = 'updated';
 	}
 	$args['sa-post'] = absint( $result );
+	if ( sa_ready_articles_cover_log() ) {
+		$args['sa-cover'] = 1; // v2.13.2
+	}
 	wp_safe_redirect( add_query_arg( $args, admin_url( 'admin.php' ) ) );
 	exit;
 }
@@ -854,6 +995,7 @@ function sa_ready_articles_handle_import_all() {
 		'skipped'   => array(),
 		'errors'    => array(),
 		'reminders' => 0,
+		'covers'    => 0,
 		'publish'   => $publish,
 		'overwrite' => $overwrite,
 	);
@@ -884,6 +1026,8 @@ function sa_ready_articles_handle_import_all() {
 			}
 		}
 	}
+
+	$summary['covers'] = count( sa_ready_articles_cover_log() ); // v2.13.2
 
 	// گزارش گروهی جای نوار تک‌مقاله‌ایِ دروازه را می‌گیرد.
 	delete_transient( 'sa_gate_' . get_current_user_id() );
@@ -926,6 +1070,9 @@ function sa_ready_articles_render_bulk_summary() {
 	echo '</p>';
 	if ( ! empty( $summary['reminders'] ) ) {
 		echo '<p>' . esc_html( $fa( (int) $summary['reminders'] ) . ' مقاله یادآوری سطح ۷ دارد (مانع انتشار نیست؛ در ستون «وضعیت» و جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر دیده می‌شود).' ) . '</p>';
+	}
+	if ( ! empty( $summary['covers'] ) ) {
+		echo '<p>' . esc_html( 'تصویر شاخص همراه قالب برای ' . $fa( (int) $summary['covers'] ) . ' مقاله متصل یا به‌روز شد (با متن جایگزین حاوی کلمهٔ کلیدی).' ) . '</p>';
 	}
 	if ( ! empty( $summary['skipped'] ) ) {
 		echo '<p>' . esc_html( 'رد شده چون منتشرشده بود و تیک «بازنویسی نسخه‌های منتشرشده» نخورده بود: ' . implode( '، ', array_map( 'strval', $summary['skipped'] ) ) ) . '</p>';
@@ -985,6 +1132,9 @@ function sa_ready_articles_page() {
 				$text = isset( $_GET['sa-msg'] ) ? rawurldecode( wp_unslash( $_GET['sa-msg'] ) ) : 'خطای نامشخص.'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- escaped on output below.
 			}
 			$edit = isset( $_GET['sa-post'] ) ? absint( $_GET['sa-post'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			if ( $ok && ! empty( $_GET['sa-cover'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				$text .= ' تصویر شاخص همراه قالب (با متن جایگزین حاوی کلمهٔ کلیدی) متصل شد.';
+			}
 			?>
 			<div class="notice <?php echo esc_attr( $class ); ?> is-dismissible"><p>
 				<?php echo esc_html( $text ); ?>
@@ -1028,7 +1178,7 @@ function sa_ready_articles_page() {
 					<th>نوع</th>
 					<th>موقعیت</th>
 					<th>وضعیت</th>
-					<th>تصویر شاخص (کارت سفید)</th>
+					<th>تصویر شاخص</th>
 					<th>اقدام‌ها</th>
 				</tr>
 			</thead>
@@ -1043,6 +1193,8 @@ function sa_ready_articles_page() {
 				$has_cover = $post_id ? has_post_thumbnail( $post_id ) : false;
 				$cover_id  = $post_id ? get_post_thumbnail_id( $post_id ) : 0;
 				$generated = $cover_id ? (bool) get_post_meta( $cover_id, '_sa_ready_cover_article', true ) : false;
+				$bundled   = ! empty( $article['cover']['file'] ); // v2.13.2 — تصویر شاخص همراه قالب
+				$from_pack = $cover_id ? ( (string) get_post_meta( $cover_id, '_sa_ready_cover_file', true ) === ltrim( (string) ( $bundled ? $article['cover']['file'] : '' ), '/' ) ) : false;
 				$is_post   = sa_ready_article_is_post( $article );
 				list( $place_main, $place_sub ) = sa_ready_article_place( $article );
 				$place     = implode( ' — ', array_filter( array( $place_main, $place_sub ) ) );
@@ -1107,10 +1259,13 @@ function sa_ready_articles_page() {
 					<td>
 						<?php if ( $has_cover ) : ?>
 							<span class="sa-ready__badge sa-ready__badge--cover">
-								<?php echo esc_html( $generated ? 'کارت سفید قالب' : 'تصویر ثبت‌شده' ); ?>
+								<?php echo esc_html( $from_pack ? 'تصویر همراه قالب ✓' : ( $generated ? 'کارت سفید قالب' : 'تصویر ثبت‌شده' ) ); ?>
 							</span>
 						<?php else : ?>
 							<span class="sa-ready__badge sa-ready__badge--none">ندارد</span>
+						<?php endif; ?>
+						<?php if ( $bundled && ! $from_pack ) : ?>
+							<span class="sa-ready__mini"><?php echo esc_html( $has_cover && ! $generated ? 'تصویر همراه قالب موجود است؛ تصویر انتخابی شما دست نمی‌خورد.' : 'با «درج/به‌روزرسانی» تصویر همراه قالب متصل می‌شود.' ); ?></span>
 						<?php endif; ?>
 					</td>
 					<td class="sa-ready__actions">
@@ -1157,6 +1312,7 @@ function sa_ready_articles_page() {
 			نکته‌ها: درج جدید بدون تیک «تأیید مالک» پیش‌نویس می‌ماند و با تیک آن منتشر می‌شود؛ اگر مقاله‌ای از قبل منتشر شده باشد تنها با تیک «بازنویسی نسخهٔ منتشرشده» به‌روزرسانی می‌شود و منتشر می‌ماند.
 			یادآوری‌های سطح ۷ هشدارند، نه مانع؛ پس از انتشار هم در جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر می‌مانند تا تکمیل شوند.
 			کارت تصویر شاخص به‌صورت WebP (و در صورت پشتیبانی‌نشدن مرورگر، PNG) ذخیره و بلافاصله تصویر شاخصِ مقاله می‌شود.
+			از نسخهٔ ۲٫۱۳٫۲ آموزش‌هایی که تصویر شاخص همراه قالب دارند (اینفوگرافیک‌های مالک در <code>assets/img/guides/</code>) هنگام درج/به‌روزرسانی — حتی برای مقالهٔ منتشرشده و بدون تیک بازنویسی — همان تصویر را با متن جایگزینِ حاوی کلمهٔ کلیدی می‌گیرند؛ کارت سفید قبلی جایگزین می‌شود ولی تصویری که خودتان انتخاب کرده باشید دست نمی‌خورد.
 		</p>
 	</div>
 	<?php

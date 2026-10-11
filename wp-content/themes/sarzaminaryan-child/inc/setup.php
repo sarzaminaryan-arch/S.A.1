@@ -17,6 +17,7 @@ function sa_child_setup() {
 
 	add_theme_support( 'post-thumbnails', array_merge( array( 'post', 'page' ), sa_entity_types() ) );
 	add_image_size( 'sa-hero', 1600, 700, array( 'center', 'top' ) ); // top-anchored: poster titles sit in the upper band (v1.0.3).
+	add_image_size( 'sa-guide-cover', 1600, 900, false ); // v2.13.2 — آموزش‌ها: اینفوگرافیک ۱۶:۹ بدون برش (sa-hero برش ۱۶:۷ می‌زند).
 	add_image_size( 'sa-square', 480, 480, true );
 	add_image_size( 'sa-gallery-large', 1600, 1600, false );
 	add_image_size( 'sa-gallery-card', 720, 450, true );

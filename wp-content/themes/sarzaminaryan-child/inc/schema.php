@@ -87,7 +87,7 @@ function sa_schema_image( $post_id ) {
 	if ( ! has_post_thumbnail( $post_id ) ) {
 		return null;
 	}
-	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'sa-hero' );
+	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $post_id ) : 'sa-hero' );
 	if ( ! $img ) {
 		return null;
 	}

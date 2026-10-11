@@ -218,7 +218,7 @@ function sa_seo_head() {
 		$og_desc  = get_post_meta( $id, 'sa_og_description', true ) ? get_post_meta( $id, 'sa_og_description', true ) : $og_desc;
 		$og_type  = 'post' === get_post_type( $id ) ? 'article' : ( sa_is_entity( $id ) ? 'place' : 'website' );
 		if ( has_post_thumbnail( $id ) ) {
-			$img      = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'sa-hero' );
+			$img      = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $id ) : 'sa-hero' );
 			$og_image = $img ? $img[0] : $og_image;
 		}
 	}

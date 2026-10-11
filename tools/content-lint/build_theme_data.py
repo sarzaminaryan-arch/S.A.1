@@ -13,6 +13,8 @@ build_theme_data.py — تولید دادهٔ قالب برای مقالات آ�
   - بخش «منابع» → متای sa_sources (هر سطر «عنوان | URL»)
   - بخش «اسکیما» حذف می‌شود (قالب اسکیمای Article را خودش چاپ می‌کند؛ FAQPage طبق سیاست قالب چاپ نمی‌شود)
   - پیوندهای داخلی https://SITE/slug → /slug/
+  - کلیدهای «تصویر شاخص» (مسیر نسبی به assets/img/ قالب) و «متن جایگزین تصویر» → رکورد cover
+    (ابزار «مقالات آماده» فایل را از قالب به کتابخانهٔ رسانه می‌برد و با همین متن جایگزین تصویر شاخص می‌کند)
 
 کاربرد:
   python3 tools/content-lint/build_theme_data.py [--articles DIR] [--out FILE] [--check]
@@ -32,6 +34,8 @@ import article_model as am  # noqa: E402
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 DEFAULT_ARTICLES = os.path.join(ROOT, 'docs', 'camping-education', 'articles')
 DEFAULT_OUT = os.path.join(ROOT, 'wp-content', 'themes', 'sarzaminaryan-child', 'data', 'ready-guides.php')
+THEME_IMG = os.path.join(ROOT, 'wp-content', 'themes', 'sarzaminaryan-child', 'assets', 'img')
+COVER_RE = re.compile(r'^[a-z0-9][a-z0-9/_-]*\.(webp|jpe?g|png)$')
 CONFIG = os.path.join(HERE, 'lint-config.json')
 
 CATEGORY = ('camping-survival', 'آموزش‌های ضروری کمپینگ و بقا')
@@ -513,10 +517,33 @@ def build_record(path: str, cfg: dict) -> Optional[Dict[str, object]]:
             'sa_sources': '\n'.join(sources),
         },
         'faq': faq_rows(art, inline),
+        'cover': cover_record(art, path),
         'content': content,
         'internal_links': sorted(set(inline.internal)),
     }
     return rec
+
+
+def cover_record(art: am.Article, path: str) -> Dict[str, str]:
+    """تصویر شاخص همراه قالب: «تصویر شاخص: guides/<slug>.webp» + «متن جایگزین تصویر: …» در بلوک سئو."""
+    file = art.front.get('تصویر شاخص', '').strip().lstrip('/')
+    if not file or file in ('بدون تصویر', '—', '-'):
+        return {}
+    if not COVER_RE.match(file) or '..' in file:
+        raise SystemExit('مسیر «تصویر شاخص» نامعتبر است (فقط حروف کوچک لاتین، رقم، خط تیره و پسوند webp/jpg/png): %s در %s' % (file, path))
+    if not os.path.isfile(os.path.join(THEME_IMG, file)):
+        raise SystemExit('فایل «تصویر شاخص» در قالب نیست: assets/img/%s (%s)' % (file, path))
+    kw = art.front.get('کلمهٔ کلیدی اصلی', art.front.get('کلمه کلیدی اصلی', '')).strip()
+    alt = art.front.get('متن جایگزین تصویر', '').strip()
+    if not alt:
+        raise SystemExit('«متن جایگزین تصویر» برای تصویر شاخص خالی است: ' + path)
+    if kw and kw not in alt:
+        raise SystemExit('«متن جایگزین تصویر» باید کلمهٔ کلیدی اصلی («%s») را داشته باشد: %s' % (kw, path))
+    return {
+        'file': file,
+        'alt': alt,
+        'title': ('اینفوگرافیک ' + kw) if kw else alt,
+    }
 
 
 def php_array(d: Dict[str, str], indent: str) -> str:
@@ -560,6 +587,8 @@ def emit_php(records: List[Dict[str, object]], version_note: str) -> str:
         out.append("\t\t'category'      => " + php_array(r['category'], '\t\t') + ',')
         out.append("\t\t'tags'          => " + php_array(r['tags'], '\t\t') + ',')
         out.append("\t\t'meta'          => " + php_array(r['meta'], '\t\t') + ',')
+        if r.get('cover'):
+            out.append("\t\t'cover'         => " + php_array(r['cover'], '\t\t') + ',')
         out.append("\t\t'faq'           => array(")
         for row in r['faq']:
             out.append('\t\t\tarray(')

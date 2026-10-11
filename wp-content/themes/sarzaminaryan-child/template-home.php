@@ -229,7 +229,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-sec--edu .sa-head{border-inline-start-color:#177357}
 .sa-sec__intro{margin:-12px 0 26px;max-width:720px;color:var(--mut);font-size:16px}
 .sa-post .sa-tag{display:inline-block;margin-inline-start:8px;padding:1px 9px;border-radius:99px;background:#e8f6ee;color:#0f5132;font-size:11.5px;font-weight:700}
-.sa-sec--edu .sa-img{background:linear-gradient(135deg,color-mix(in srgb,#177357 30%,#fff),color-mix(in srgb,var(--c,#18558f) 10%,#fff)) center/cover}
+.sa-sec--edu .sa-img{aspect-ratio:16/9;background:linear-gradient(135deg,color-mix(in srgb,#177357 30%,#fff),color-mix(in srgb,var(--c,#18558f) 10%,#fff)) center/cover}/* 16:9 = نسبت اینفوگرافیک‌های آموزش (v2.13.2) */
 @media(max-width:640px){.sa-stats .sa-wrap--3{gap:10px}.sa-wrap--3 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span{font-size:13px}}
 </style>
 

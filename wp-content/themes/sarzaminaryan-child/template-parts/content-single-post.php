@@ -45,7 +45,7 @@ $sa_policy = get_page_by_path( 'editorial-policy' );
 	</header>
 
 	<?php if ( has_post_thumbnail() ) : ?>
-		<figure class="post-thumbnail"><?php the_post_thumbnail( 'sa-hero', array( 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?></figure>
+		<figure class="post-thumbnail"><?php the_post_thumbnail( 'sa-guide-cover', array( 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?></figure>
 	<?php endif; ?>
 
 	<div class="sa-entity__layout sa-guide__layout">

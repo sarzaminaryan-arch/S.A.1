@@ -82,7 +82,22 @@ foreach ( $guides as $key => $g ) {
 		$internal++;
 	}
 	sa_guides_expect( $internal >= 2, "{$key}: fewer than 2 links to sibling guides" );
+
+	// v2.13.2 — bundled featured image: file inside the theme, alt text with the focus keyword.
+	if ( ! empty( $g['cover'] ) ) {
+		$cover = $g['cover'];
+		sa_guides_expect( is_array( $cover ) && ! empty( $cover['file'] ) && ! empty( $cover['alt'] ), "{$key}: cover needs file and alt" );
+		sa_guides_expect( preg_match( '#^guides/[a-z0-9-]+\.(webp|jpe?g|png)$#', $cover['file'] ) && 'guides/' . $g['slug'] . '.' . pathinfo( $cover['file'], PATHINFO_EXTENSION ) === $cover['file'], "{$key}: cover file must be guides/<slug>.<ext>" );
+		$abs = SA_CHILD_DIR . 'assets/img/' . $cover['file'];
+		sa_guides_expect( is_file( $abs ) && filesize( $abs ) > 10 * 1024, "{$key}: cover file missing or too small ({$cover['file']})" );
+		sa_guides_expect( filesize( $abs ) <= 400 * 1024, "{$key}: cover file larger than 400 KB — optimise before bundling" );
+		sa_guides_expect( 'webp' !== pathinfo( $abs, PATHINFO_EXTENSION ) || 'WEBP' === substr( (string) file_get_contents( $abs, false, null, 8, 4 ), 0, 4 ), "{$key}: cover is not a valid WebP" );
+		sa_guides_expect( false !== mb_strpos( $cover['alt'], (string) $g['meta']['sa_focus_keyword'] ), "{$key}: cover alt must contain the focus keyword" );
+		sa_guides_expect( mb_strlen( $cover['alt'] ) <= 160, "{$key}: cover alt longer than 160 chars" );
+		$covers = isset( $covers ) ? $covers + 1 : 1;
+	}
 }
+sa_guides_expect( isset( $covers ) && $covers >= 17, 'at least 17 guides must ship a bundled cover (owner batch 1)' );
 
 /**
  * Minimal strip-tags shim (no WordPress here).
@@ -94,4 +109,4 @@ function wp_strip_all_tags_shim( $html ) {
 	return trim( preg_replace( '/\s+/u', ' ', strip_tags( $html ) ) );
 }
 
-echo 'PASS: ready-guides data (' . count( $guides ) . " guides, category camping-survival)\n";
+echo 'PASS: ready-guides data (' . count( $guides ) . ' guides, ' . (int) $covers . " bundled covers, category camping-survival)\n";
