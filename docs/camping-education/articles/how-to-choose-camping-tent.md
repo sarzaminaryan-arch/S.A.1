@@ -180,7 +180,7 @@
 - [راهنمای انتخاب کیسه‌خواب](/sleeping-bag-guide)
 - [لباس مناسب برای طبیعت در هر فصل](/outdoor-clothing-guide)
 - [چک‌لیست تجهیزات پایهٔ کمپ](/essential-camping-equipment)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

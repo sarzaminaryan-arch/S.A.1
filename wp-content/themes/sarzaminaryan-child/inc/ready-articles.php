@@ -1,8 +1,8 @@
 <?php
 /**
- * «مقالات آمادهٔ دیدنی‌ها» — in-theme ready-article tool (v2.11.15).
+ * «مقالات آماده» — in-theme ready-article tool (v2.11.15; guides since v2.13.0).
  *
- * Admin path: سرزمین آریان → مقالات آمادهٔ دیدنی‌ها
+ * Admin path: سرزمین آریان → مقالات آماده
  *
  * Rules enforced here:
  * - new articles are inserted as draft unless the owner ticks «تأیید مالک —
@@ -23,20 +23,97 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Ready-article definitions (data/ready-articles.php).
+ * Ready-article definitions.
+ *
+ * Two data files are merged (v2.13.0):
+ * - data/ready-articles.php — attraction entities (province/city aware);
+ * - data/ready-guides.php   — camping/survival guides imported as ordinary
+ *   posts in the «آموزش‌های ضروری کمپینگ و بقا» category (generated from
+ *   docs/camping-education/articles by tools/content-lint/build_theme_data.py).
+ *
+ * Every record is normalised so the importer and the admin table can rely on
+ * the same keys regardless of the source file.
  *
  * @return array<string,array<string,mixed>>
  */
 function sa_ready_articles_data() {
 	static $data = null;
 	if ( null === $data ) {
-		$file = SA_CHILD_DIR . 'data/ready-articles.php';
-		$data = file_exists( $file ) ? include $file : array();
-		if ( ! is_array( $data ) ) {
-			$data = array();
+		$data = array();
+		foreach ( array( 'data/ready-articles.php', 'data/ready-guides.php' ) as $rel ) {
+			$file = SA_CHILD_DIR . $rel;
+			$set  = file_exists( $file ) ? include $file : array();
+			if ( ! is_array( $set ) ) {
+				continue;
+			}
+			foreach ( $set as $key => $article ) {
+				if ( ! is_array( $article ) || empty( $article['slug'] ) ) {
+					continue;
+				}
+				$data[ $key ] = sa_ready_article_normalize( $article );
+			}
 		}
 	}
 	return $data;
+}
+
+/**
+ * Fill the optional keys of a ready-article record with safe defaults.
+ *
+ * @param array<string,mixed> $article Raw record.
+ * @return array<string,mixed>
+ */
+function sa_ready_article_normalize( $article ) {
+	$defaults = array(
+		'title'         => '',
+		'type'          => 'attraction',
+		'slug'          => '',
+		'excerpt'       => '',
+		'english'       => '',
+		'kind'          => 'mountain',
+		'province'      => '',
+		'province_name' => '',
+		'city'          => '',
+		'city_name'     => '',
+		'category'      => array(),
+		'tags'          => array(),
+		'terms'         => array(),
+		'meta'          => array(),
+		'faq'           => array(),
+		'gallery'       => array(),
+		'content'       => '',
+	);
+	$article  = array_merge( $defaults, $article );
+	if ( 'post' === $article['type'] && '' === $article['kind'] ) {
+		$article['kind'] = 'tent';
+	}
+	return $article;
+}
+
+/**
+ * Whether a record is a plain WordPress post (guide) rather than an entity.
+ *
+ * @param array<string,mixed> $article Record.
+ * @return bool
+ */
+function sa_ready_article_is_post( $article ) {
+	return isset( $article['type'] ) && 'post' === $article['type'];
+}
+
+/**
+ * Human label for the record's section: the city/province for attractions, the
+ * category (and first tag) for guides. Used by the admin table and the cover card.
+ *
+ * @param array<string,mixed> $article Record.
+ * @return array{0:string,1:string} [primary, secondary]
+ */
+function sa_ready_article_place( $article ) {
+	if ( sa_ready_article_is_post( $article ) ) {
+		$cat = is_array( $article['category'] ) ? array_values( $article['category'] ) : array();
+		$tag = is_array( $article['tags'] ) ? array_values( $article['tags'] ) : array();
+		return array( $tag ? (string) $tag[0] : '', $cat ? (string) $cat[0] : '' );
+	}
+	return array( (string) $article['city_name'], (string) $article['province_name'] );
 }
 
 /**
@@ -45,8 +122,8 @@ function sa_ready_articles_data() {
 function sa_ready_articles_menu() {
 	add_submenu_page(
 		'sarzaminaryan',
-		'مقالات آمادهٔ دیدنی‌ها',
-		'مقالات آمادهٔ دیدنی‌ها',
+		'مقالات آماده (دیدنی‌ها و آموزش‌ها)',
+		'مقالات آماده',
 		'edit_posts',
 		'sa-ready-articles',
 		'sa_ready_articles_page'
@@ -445,6 +522,24 @@ function sa_ready_articles_content( $article, $post_id = 0 ) {
 		}
 		$content = str_replace( '{{SOURCES}}', $src_html, $content );
 	}
+	if ( sa_ready_article_is_post( $article ) && ! empty( $article['category'] ) && is_array( $article['category'] ) ) {
+		// Guides link to their hub as /category/<slug>/; honour a custom category base.
+		foreach ( array_keys( $article['category'] ) as $cat_slug ) {
+			$term = get_term_by( 'slug', sanitize_title( (string) $cat_slug ), 'category' );
+			if ( ! $term || is_wp_error( $term ) ) {
+				continue;
+			}
+			$link = get_term_link( $term );
+			if ( is_wp_error( $link ) ) {
+				continue;
+			}
+			$relative = wp_make_link_relative( $link );
+			$default  = '/category/' . $cat_slug . '/';
+			if ( $relative && $relative !== $default ) {
+				$content = str_replace( 'href="' . $default . '"', 'href="' . esc_url( $relative ) . '"', $content );
+			}
+		}
+	}
 	return trim( preg_replace( '/\{\{GALLERY:[a-zA-Z0-9_-]+\}\}/', '', $content ) );
 }
 
@@ -469,30 +564,34 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 		return new WP_Error( 'missing_cpt', 'نوع محتوای موردنیاز فعال نیست؛ ابتدا قالب فرزند «سرزمین آریان» را فعال کنید.' );
 	}
 
-	$province = get_posts(
-		array(
-			'post_type'      => 'province',
-			'name'           => $article['province'],
-			'post_status'    => 'any',
-			'posts_per_page' => 1,
-			'fields'         => 'ids',
-		)
-	);
-	$province_id = $province ? absint( $province[0] ) : 0;
-	if ( ! $province_id ) {
-		$province_id = sa_ready_articles_ensure_entity(
-			'province',
-			$article['province'],
-			$article['province_name'],
-			$article['province']
+	$is_post     = sa_ready_article_is_post( $article );
+	$province_id = 0;
+	if ( ! $is_post && ! empty( $article['province'] ) ) {
+		$province = get_posts(
+			array(
+				'post_type'      => 'province',
+				'name'           => $article['province'],
+				'post_status'    => 'any',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+			)
 		);
-		if ( is_wp_error( $province_id ) ) {
-			return $province_id;
+		$province_id = $province ? absint( $province[0] ) : 0;
+		if ( ! $province_id ) {
+			$province_id = sa_ready_articles_ensure_entity(
+				'province',
+				$article['province'],
+				$article['province_name'],
+				$article['province']
+			);
+			if ( is_wp_error( $province_id ) ) {
+				return $province_id;
+			}
 		}
 	}
 
 	$city_id = 0;
-	if ( ! empty( $article['city'] ) ) {
+	if ( ! $is_post && ! empty( $article['city'] ) ) {
 		$city_id = sa_ready_articles_ensure_entity(
 			'city',
 			$article['city'],
@@ -503,6 +602,11 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 		if ( is_wp_error( $city_id ) ) {
 			return $city_id;
 		}
+	}
+
+	if ( $is_post && ! empty( $article['category'] ) && is_array( $article['category'] ) ) {
+		// Create the guide category up front so the body can link to its archive.
+		sa_ready_articles_term_ids( 'category', $article['category'] );
 	}
 
 	$post_id  = sa_ready_articles_find_post( $article );
@@ -582,10 +686,10 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 		}
 	}
 
-	if ( function_exists( 'sa_sync_relations' ) ) {
+	if ( ! $is_post && function_exists( 'sa_sync_relations' ) ) {
 		sa_sync_relations( $post_id, $article['type'] );
 	}
-	if ( function_exists( 'sa_flush_relation_cache' ) ) {
+	if ( ! $is_post && function_exists( 'sa_flush_relation_cache' ) ) {
 		sa_flush_relation_cache( $post_id, $article['type'] );
 	}
 
@@ -601,13 +705,20 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
  * @param int                 $city_id     City post ID (0 when not applicable).
  */
 function sa_ready_articles_write_meta( $post_id, $article, $province_id, $city_id ) {
-	$meta = isset( $article['meta'] ) && is_array( $article['meta'] ) ? $article['meta'] : array();
+	$meta    = isset( $article['meta'] ) && is_array( $article['meta'] ) ? $article['meta'] : array();
+	$is_post = sa_ready_article_is_post( $article );
 
-	$meta['sa_province_id'] = absint( $province_id );
-	if ( $city_id ) {
-		$meta['sa_city_id'] = absint( $city_id );
+	if ( ! $is_post ) {
+		$meta['sa_province_id'] = absint( $province_id );
+		if ( $city_id ) {
+			$meta['sa_city_id'] = absint( $city_id );
+		}
 	}
 	foreach ( $meta as $meta_key => $meta_value ) {
+		if ( '' === $meta_value || null === $meta_value ) {
+			delete_post_meta( $post_id, $meta_key );
+			continue;
+		}
 		update_post_meta( $post_id, $meta_key, $meta_value );
 	}
 
@@ -619,31 +730,53 @@ function sa_ready_articles_write_meta( $post_id, $article, $province_id, $city_i
 		);
 	}
 
-	if ( ! empty( $article['terms'] ) && is_array( $article['terms'] ) ) {
-		foreach ( $article['terms'] as $taxonomy => $terms ) {
-			if ( ! taxonomy_exists( $taxonomy ) ) {
-				continue;
-			}
-			$ids = array();
-			foreach ( $terms as $term_slug => $term_name ) {
-				$term = get_term_by( 'slug', $term_slug, $taxonomy );
-				if ( ! $term ) {
-					$created = wp_insert_term( $term_name, $taxonomy, array( 'slug' => $term_slug ) );
-					if ( ! is_wp_error( $created ) ) {
-						$ids[] = absint( $created['term_id'] );
-					}
-				} else {
-					$ids[] = absint( $term->term_id );
-				}
-			}
-			if ( $ids ) {
-				wp_set_object_terms( $post_id, $ids, $taxonomy, false );
-			}
+	$terms = ! empty( $article['terms'] ) && is_array( $article['terms'] ) ? $article['terms'] : array();
+	if ( $is_post ) {
+		// Guides: WordPress category + tags (slug => name; created on first use).
+		if ( ! empty( $article['category'] ) && is_array( $article['category'] ) ) {
+			$terms['category'] = $article['category'];
+		}
+		if ( ! empty( $article['tags'] ) && is_array( $article['tags'] ) ) {
+			$terms['post_tag'] = $article['tags'];
 		}
 	}
-	if ( taxonomy_exists( 'province_tax' ) ) {
+	foreach ( $terms as $taxonomy => $pairs ) {
+		if ( ! taxonomy_exists( $taxonomy ) || ! is_array( $pairs ) ) {
+			continue;
+		}
+		$ids = sa_ready_articles_term_ids( $taxonomy, $pairs );
+		if ( $ids ) {
+			wp_set_object_terms( $post_id, $ids, $taxonomy, false );
+		}
+	}
+	if ( ! $is_post && taxonomy_exists( 'province_tax' ) && ! empty( $article['province'] ) ) {
 		wp_set_object_terms( $post_id, $article['province'], 'province_tax', false );
 	}
+}
+
+/**
+ * Resolve slug => name pairs to term IDs, creating missing terms.
+ *
+ * @param string               $taxonomy Taxonomy.
+ * @param array<string,string> $pairs    slug => Persian name.
+ * @return int[]
+ */
+function sa_ready_articles_term_ids( $taxonomy, $pairs ) {
+	$ids = array();
+	foreach ( $pairs as $term_slug => $term_name ) {
+		$term_slug = sanitize_title( (string) $term_slug );
+		$term      = get_term_by( 'slug', $term_slug, $taxonomy );
+		if ( ! $term ) {
+			$created = wp_insert_term( (string) $term_name, $taxonomy, array( 'slug' => $term_slug ) );
+			if ( is_wp_error( $created ) ) {
+				continue;
+			}
+			$ids[] = absint( $created['term_id'] );
+		} else {
+			$ids[] = absint( $term->term_id );
+		}
+	}
+	return $ids;
 }
 
 /**
@@ -820,7 +953,10 @@ function sa_ready_articles_page() {
 	$state       = isset( $_GET['sa-ready'] ) ? sanitize_key( wp_unslash( $_GET['sa-ready'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	?>
 	<div class="wrap sa-ready">
-		<h1>مقالات آمادهٔ دیدنی‌ها</h1>
+		<h1>مقالات آماده — دیدنی‌ها و آموزش‌های کمپینگ</h1>
+		<p class="sa-ready__lead">
+			<strong>دو دسته مقاله در این فهرست است:</strong> «دیدنی» (نوع محتوای جاذبه، با استان و شهرستان) و «آموزش» (نوشتهٔ معمول وردپرس در دستهٔ <strong>آموزش‌های ضروری کمپینگ و بقا</strong> با برچسب شاخه؛ از نسخهٔ ۲٫۱۳٫۰). متن آموزش‌ها با فیلتر محتوای تحریریه بررسی شده و پرسش‌های رایج و منابع آن‌ها در بخش‌های جداگانهٔ صفحه نمایش داده می‌شوند.
+		</p>
 		<p class="sa-ready__lead">
 			<strong>سیاست انتشار (از نسخهٔ ۲٫۱۲٫۷):</strong> شرط انتشار فقط <strong>تأیید مالک</strong> است.
 			درج یا به‌روزرسانی بدون تیک «تأیید مالک» مقاله را <strong>پیش‌نویس</strong> نگه می‌دارد؛ با تیک «تأیید مالک» همان‌جا منتشر می‌شود.
@@ -907,8 +1043,18 @@ function sa_ready_articles_page() {
 				$has_cover = $post_id ? has_post_thumbnail( $post_id ) : false;
 				$cover_id  = $post_id ? get_post_thumbnail_id( $post_id ) : 0;
 				$generated = $cover_id ? (bool) get_post_meta( $cover_id, '_sa_ready_cover_article', true ) : false;
-				$place     = implode( ' — ', array_filter( array( $article['city_name'], $article['province_name'] ) ) );
-				$city_line = 'شهرستان ' . $article['city_name'];
+				$is_post   = sa_ready_article_is_post( $article );
+				list( $place_main, $place_sub ) = sa_ready_article_place( $article );
+				$place     = implode( ' — ', array_filter( array( $place_main, $place_sub ) ) );
+				$city_line = $is_post ? $place_main : 'شهرستان ' . $place_main;
+				$prov_line = $is_post ? $place_sub : 'استان ' . $place_sub;
+				if ( 'attraction' === $article['type'] ) {
+					$type_label = 'دیدنی';
+				} elseif ( $is_post ) {
+					$type_label = 'آموزش';
+				} else {
+					$type_label = 'شهرستان';
+				}
 				// v2.12.7 — یادآوری‌های سطح ۷ (هشدار، نه مانع) برای مقاله‌های واردشده.
 				$gate = ( $post_id && function_exists( 'sa_gate_evaluate' ) )
 					? sa_gate_evaluate( $post_id )
@@ -923,7 +1069,7 @@ function sa_ready_articles_page() {
 						<strong><?php echo esc_html( $article['title'] ); ?></strong>
 						<code dir="ltr"><?php echo esc_html( $article['slug'] ); ?></code>
 					</td>
-					<td><?php echo esc_html( 'attraction' === $article['type'] ? 'دیدنی' : 'شهرستان' ); ?></td>
+					<td><?php echo esc_html( $type_label ); ?></td>
 					<td><?php echo esc_html( $place ); ?></td>
 					<td>
 						<span class="sa-ready__badge sa-ready__badge--<?php echo esc_attr( $status_class ); ?>">
@@ -996,7 +1142,7 @@ function sa_ready_articles_page() {
 							data-english="<?php echo esc_attr( $article['english'] ); ?>"
 							data-kind="<?php echo esc_attr( $article['kind'] ); ?>"
 							data-city="<?php echo esc_attr( $city_line ); ?>"
-							data-province="<?php echo esc_attr( 'استان ' . $article['province_name'] ); ?>"
+							data-province="<?php echo esc_attr( $prov_line ); ?>"
 							<?php echo $post_id ? '' : 'disabled'; ?>>
 							ساخت کارت تصویر شاخص
 						</button>
@@ -1095,11 +1241,16 @@ function sa_ready_articles_cover_endpoint( WP_REST_Request $request ) {
 
 	require_once ABSPATH . 'wp-admin/includes/image.php';
 
+	// v2.13.0 — the caption follows the record (city/province for attractions,
+	// branch/category for guides) instead of a fixed place name.
+	list( $place_main, $place_sub ) = sa_ready_article_place( $article );
+	$place_fa = implode( ' | ', array_filter( array( $article['title'], $place_main, $place_sub ) ) );
+
 	$attachment_id = wp_insert_attachment(
 		array(
 			'post_mime_type' => $mime,
-			'post_title'     => 'کارت سفید ' . $article['title'] . ' | شهرستان دورود | استان لرستان',
-			'post_excerpt'   => $article['title'] . ' | شهرستان دورود | استان لرستان / ' . $article['english'] . ' | Dorud city | Lorestan',
+			'post_title'     => 'کارت سفید ' . $place_fa,
+			'post_excerpt'   => $place_fa . ( '' !== (string) $article['english'] ? ' / ' . $article['english'] : '' ),
 			'post_content'   => '',
 			'post_status'    => 'inherit',
 		),
@@ -1115,7 +1266,7 @@ function sa_ready_articles_cover_endpoint( WP_REST_Request $request ) {
 	update_post_meta(
 		$attachment_id,
 		'_wp_attachment_image_alt',
-		'کارت سفید ' . $article['title'] . ' با آیکون رنگی گوشه‌ای و نوشته‌های مرکزچین — ' . $article['english'] . ' | Dorud city | Lorestan'
+		'کارت سفید ' . $place_fa . ' با آیکون رنگی گوشه‌ای و نوشته‌های مرکزچین' . ( '' !== (string) $article['english'] ? ' — ' . $article['english'] : '' )
 	);
 	update_post_meta( $attachment_id, '_sa_ready_cover_article', $key );
 

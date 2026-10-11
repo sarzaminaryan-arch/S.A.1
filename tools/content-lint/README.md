@@ -14,6 +14,7 @@
 | `schema_build.py` | ساخت `@graph` (Article، BreadcrumbList، HowTo، FAQPage) از متن نهایی؛ `--write FILE` فنس اسکیما را جایگزین می‌کند |
 | `gdoc_normalize.py` | پاک‌سازی خروجی Markdown گوگل‌داکس (escape‌های `\=`، `<br>`، خطوط خالی بین سطرهای جدول، نشانه‌گذاری تیترها) |
 | `gdoc_convert.py` | تبدیل پیش‌نویس ۹بخشی تمپلیت Drive (خروجی Qwen) به مقالهٔ ۲۰بخشی استاندارد، با یک فایل مکمل |
+| `build_theme_data.py` | تولید `wp-content/themes/sarzaminaryan-child/data/ready-guides.php` از مقاله‌های «آمادهٔ انتشار» برای ابزار «مقالات آماده» قالب (نوع `post`، دستهٔ `camping-survival`، برچسب شاخه، FAQ→`sa_faq`، منابع→`sa_sources`، بدون بخش اسکیما، پیوندهای داخلی نسبی). `--check` فقط هم‌خوانی فایل موجود را بررسی می‌کند (CI) |
 | `prepare_26.py` | پیش‌پردازش یک‌بارمصرف پیش‌نویس «نجات غریق» که قالب متفاوت (کامنت RankMath، FAQ با «### س:») داشت |
 
 ## قاعده‌ها
@@ -38,6 +39,10 @@ python3 tools/content-lint/content_lint.py --mark-ready docs/camping-education/a
 
 # ۳) در CI (.github/workflows/content-lint.yml): فقط مقالهٔ «آماده» با هشدار باز خطا می‌دهد
 python3 tools/content-lint/content_lint.py --check-ready --quiet docs/camping-education/articles/
+
+# ۴) پس از هر تغییر در مقالهٔ «آماده»: بازسازی دادهٔ قالب (همراه مقاله کامیت شود)
+python3 tools/content-lint/build_theme_data.py
+php wp-content/themes/sarzaminaryan-child/tests/test-ready-guides.php
 
 # گزارش جدولی برای مستندسازی
 python3 tools/content-lint/content_lint.py --format md docs/camping-education/articles/ > docs/camping-education/lint-reports/YYYY-MM-DD-batch.md

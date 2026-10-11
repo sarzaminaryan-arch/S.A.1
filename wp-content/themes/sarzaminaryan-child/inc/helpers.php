@@ -58,6 +58,9 @@ function sa_entity_label( $type, $plural = false ) {
 	if ( isset( $config[ $type ] ) ) {
 		return $plural ? $config[ $type ]['plural'] : $config[ $type ]['singular'];
 	}
+	if ( 'post' === $type ) {
+		return $plural ? 'مقاله‌ها' : 'مقاله'; // v2.13.0 — card badge for educational guides instead of core's «نوشته».
+	}
 	$obj = get_post_type_object( $type );
 	return $obj ? ( $plural ? $obj->labels->name : $obj->labels->singular_name ) : $type;
 }

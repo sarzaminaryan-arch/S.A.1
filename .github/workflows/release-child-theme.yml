@@ -67,6 +67,14 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-publish-gate.php"
 
+      - name: Check ready-guides data (camping guides generated from docs/camping-education)
+        shell: bash
+        run: |
+          php "$THEME_DIR/tests/test-ready-guides.php"
+          if [ -d docs/camping-education/articles ]; then
+            python3 tools/content-lint/build_theme_data.py --check
+          fi
+
       - name: Reject accidentally committed credentials
         shell: bash
         run: |

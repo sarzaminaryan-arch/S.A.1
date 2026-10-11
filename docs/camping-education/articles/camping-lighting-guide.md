@@ -174,7 +174,7 @@
 - [ساخت مشعل اضطراری](/diy-emergency-torch) — اگر هیچ چراغی نداشتی
 - [کیف کمک‌های اولیه](/first-aid-kit-checklist)
 - [چک‌لیست تجهیزات پایهٔ کمپ](/essential-camping-equipment)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

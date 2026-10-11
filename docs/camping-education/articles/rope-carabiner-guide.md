@@ -193,7 +193,7 @@
 - [معرفی کیت نجات حرفه‌ای](/professional-rescue-kit)
 - [راهنمای انتخاب چادر مناسب](/how-to-choose-camping-tent)
 - [چک‌لیست کامل وسایل ضروری کمپینگ](/camping-essential-checklist)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

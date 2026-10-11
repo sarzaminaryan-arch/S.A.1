@@ -181,7 +181,7 @@
 - [راهنمای انتخاب چادر مناسب](/how-to-choose-camping-tent)
 - [چک‌لیست کامل وسایل ضروری کمپینگ](/camping-essential-checklist)
 - [ساخت مشعل اضطراری](/diy-emergency-torch)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

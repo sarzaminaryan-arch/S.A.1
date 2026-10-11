@@ -180,7 +180,7 @@
 - [ساخت اجاق با قوطی کنسرو](/diy-can-stove) — جایگزین اضطراری
 - [خاموش کردن کامل و ایمن آتش](/how-to-extinguish-campfire)
 - [چک‌لیست کامل وسایل ضروری کمپینگ](/camping-essential-checklist)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

@@ -344,6 +344,64 @@ function sa_sources_section( $post_id ) {
 }
 
 /**
+ * Sources list for guides/posts (v2.13.0): title + linked host, so a reader can
+ * tell «CDC — تصفیهٔ آب» from «EPA — ضدعفونی اضطراری» without opening the link.
+ *
+ * @param int $post_id Post ID.
+ */
+function sa_guide_sources_section( $post_id ) {
+	$sources = sa_get_sources( $post_id );
+	if ( ! $sources ) {
+		return;
+	}
+	echo '<section class="sa-sources sa-sources--guide" id="sources"><h2>منابع</h2><ol class="sa-sources__list">';
+	foreach ( $sources as $src ) {
+		$title = trim( (string) $src['title'] );
+		echo '<li>';
+		if ( $src['url'] ) {
+			$host = strtolower( (string) wp_parse_url( $src['url'], PHP_URL_HOST ) );
+			$host = preg_replace( '/^www\./', '', $host );
+			if ( '' !== $title && $title !== $src['url'] ) {
+				echo esc_html( $title ) . ' <span class="sa-sources__sep" aria-hidden="true">—</span> ';
+			}
+			echo '<a href="' . esc_url( $src['url'] ) . '" rel="' . esc_attr( sa_source_rel( $src['url'] ) ) . '" target="_blank" dir="ltr">' . esc_html( $host ) . '</a>';
+		} else {
+			echo esc_html( $title );
+		}
+		echo '</li>';
+	}
+	echo '</ol></section>';
+}
+
+/**
+ * Related guides: up to 3 other published posts from the same category (v2.13.0).
+ *
+ * @param int $post_id Current post ID.
+ */
+function sa_guide_related( $post_id ) {
+	$cats = wp_get_post_categories( $post_id, array( 'fields' => 'ids' ) );
+	if ( is_wp_error( $cats ) || ! $cats ) {
+		return;
+	}
+	$posts = get_posts(
+		array(
+			'post_type'      => 'post',
+			'post_status'    => 'publish',
+			'posts_per_page' => 3,
+			'orderby'        => 'rand',
+			'post__not_in'   => array( (int) $post_id ),
+			'category__in'   => array_map( 'intval', $cats ),
+		)
+	);
+	if ( ! $posts ) {
+		return;
+	}
+	$cat  = get_category( (int) $cats[0] );
+	$more = $cat && ! is_wp_error( $cat ) ? get_category_link( $cat ) : '';
+	sa_cards_section( $posts, 'آموزش‌های مرتبط', $more, 'related-guides' );
+}
+
+/**
  * Related articles from other provinces (Module 3).
  * Shows 3 random entities of the same type from a different province (v2.7.1).
  *

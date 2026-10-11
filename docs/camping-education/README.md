@@ -84,6 +84,8 @@ python3 tools/content-lint/content_lint.py --check-ready docs/camping-education/
 
 مقاله تا وقتی هشدار باز دارد «پیش‌نویس» می‌ماند؛ پس از ویرایش و صفرشدن هشدارها «آمادهٔ انتشار» می‌شود و انتشار در وردپرس با تصمیم مالک انجام می‌شود. گزارش هر دسته در [`lint-reports/`](lint-reports/) نگه داشته می‌شود. پیش‌نویس‌های Google Docs با `tools/content-lint/gdoc_convert.py` و یک فایل مکمل (`supplements/{slug}.md`) به قالب استاندارد تبدیل می‌شوند؛ شرح ابزارها در [`tools/content-lint/README.md`](../../tools/content-lint/README.md).
 
+**رساندن به وردپرس (از قالب 2.13.0):** مقاله‌های «آمادهٔ انتشار» با `python3 tools/content-lint/build_theme_data.py` به فایل دادهٔ قالب `wp-content/themes/sarzaminaryan-child/data/ready-guides.php` تبدیل می‌شوند (نوع `post`، دستهٔ «آموزش‌های ضروری کمپینگ و بقا» با نامک `camping-survival`، برچسب شاخه، FAQ و منابع در متا). پس از به‌روزرسانی قالب، مالک از پیشخوان **سرزمین آریان → مقالات آماده** آن‌ها را درج می‌کند؛ بدون تیک «تأیید مالک» پیش‌نویس می‌مانند. هر تغییری در مارک‌داون باید با بازسازی این فایل همراه شود (`build_theme_data.py --check` در CI هم‌خوانی را بررسی می‌کند).
+
 همچنین ۲۸ مدخل موجود در `wp-content/themes/sarzaminaryan-child/data/ready-articles.php` در صف پالایش مرحله‌ای قرار می‌گیرند: حذف یادداشت‌های داخلیِ تولید، اصلاح دستور زبان و تکرار، طبیعی‌کردن لحن و حفظ فقط ادعاهای مستند.
 
 ## نقشهٔ کار

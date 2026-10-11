@@ -189,7 +189,7 @@
 - [معرفی طناب و کارابین](/rope-carabiner-guide)
 - [معرفی GPS و ابزار مسیریابی](/gps-navigation-tools)
 - [وسایل روشنایی برای کمپ](/camping-lighting-guide)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

@@ -178,7 +178,7 @@
 - [معرفی طناب و کارابین](/rope-carabiner-guide)
 - [کیف کمک‌های اولیه](/first-aid-kit-checklist)
 - [چک‌لیست تجهیزات پایهٔ کمپ](/essential-camping-equipment)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

@@ -3,9 +3,11 @@
   "site_url": "https://sarzaminaryan.ir",
   "byline": "تیم تحریریه آموزش‌های بقا",
   "editorial_policy_path": "/editorial-policy",
+  "hub_path": "/category/camping-survival/",
   "fixed_paths": [
     "/editorial-policy",
     "/contact",
+    "/category/camping-survival/",
     "/"
   ],
   "allowed_slugs": {

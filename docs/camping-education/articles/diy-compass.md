@@ -191,7 +191,7 @@
 - [چک‌لیست کامل وسایل ضروری کمپینگ](/camping-essential-checklist)
 - [وسایل روشنایی برای کمپ](/camping-lighting-guide)
 - [کیف کمک‌های اولیه](/first-aid-kit-checklist)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

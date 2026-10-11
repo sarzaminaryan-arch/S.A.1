@@ -191,7 +191,7 @@
 - [خاموش کردن کامل و ایمن آتش](/how-to-extinguish-campfire) — خاموش‌کردن کامل اجاق و آتش
 - [معرفی اجاق‌های کوهنوردی](/camping-stove-review)
 - [تجهیزات پخت‌وپز در طبیعت](/outdoor-cooking-equipment)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

@@ -224,7 +224,7 @@
 - [چک‌لیست کامل وسایل ضروری کمپینگ](/camping-essential-checklist)
 - [کیف کمک‌های اولیه](/first-aid-kit-checklist)
 - [چک‌لیست تجهیزات پایهٔ کمپ](/essential-camping-equipment)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

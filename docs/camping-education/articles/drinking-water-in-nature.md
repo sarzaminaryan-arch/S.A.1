@@ -187,7 +187,7 @@
 - [تصفیهٔ آب در شرایط اضطراری](/emergency-water-purification) — روش‌های تصفیه
 - [معرفی فیلتر آب قابل‌حمل](/portable-water-filter-review)
 - [ساخت فیلتر آب با بطری و زغال؛ با محدودیت‌های روشن](/diy-water-filter)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

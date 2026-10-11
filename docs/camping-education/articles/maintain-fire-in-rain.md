@@ -185,7 +185,7 @@
 - [روشن کردن آتش بدون فندک و کبریت](/fire-without-lighter)
 - [خاموش کردن کامل و ایمن آتش](/how-to-extinguish-campfire)
 - [راهنمای انتخاب چادر مناسب](/how-to-choose-camping-tent) — پناه امن وقتی هوا بد است
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

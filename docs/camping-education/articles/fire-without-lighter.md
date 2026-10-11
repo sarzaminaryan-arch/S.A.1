@@ -200,7 +200,7 @@
 - [نگهداری آتش در باد و باران](/maintain-fire-in-rain)
 - [خاموش کردن کامل و ایمن آتش](/how-to-extinguish-campfire)
 - [ساخت مشعل اضطراری](/diy-emergency-torch)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

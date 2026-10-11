@@ -197,7 +197,7 @@
 - [معرفی فیلتر آب قابل‌حمل](/portable-water-filter-review)
 - [تأمین آب آشامیدنی در طبیعت](/drinking-water-in-nature)
 - [آب آشامیدنی در کمپ؛ برنامه‌ریزی، تصفیه و نگهداری](/camping-water-planning)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

@@ -311,7 +311,7 @@
 - [معرفی کیت نجات حرفه‌ای](/professional-rescue-kit)
 - [چک‌لیست کامل وسایل ضروری کمپینگ](/camping-essential-checklist)
 - [آب آشامیدنی در کمپ؛ برنامه‌ریزی، تصفیه و نگهداری](/camping-water-planning)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

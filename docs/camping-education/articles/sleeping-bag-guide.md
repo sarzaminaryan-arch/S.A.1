@@ -185,7 +185,7 @@
 - [لباس مناسب برای طبیعت در هر فصل](/outdoor-clothing-guide)
 - [چک‌لیست کامل وسایل ضروری کمپینگ](/camping-essential-checklist)
 - [چک‌لیست تجهیزات پایهٔ کمپ](/essential-camping-equipment)
-- [هاب آموزش‌های کمپینگ](/)
+- [هاب آموزش‌های کمپینگ](/category/camping-survival/)
 
 ## منابع
 

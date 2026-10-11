@@ -59,6 +59,16 @@ jobs:
           sys.exit(1 if bad else 0)
           PY
 
+      - name: Theme data must match the ready articles (data/ready-guides.php)
+        # هشدار، نه مانع: اگر مقاله‌ای عوض شده و دادهٔ قالب بازسازی نشده، در خلاصهٔ اجرا دیده می‌شود.
+        continue-on-error: true
+        run: |
+          if ! python3 tools/content-lint/build_theme_data.py --check; then
+            echo "::warning title=ready-guides.php قدیمی است::python3 tools/content-lint/build_theme_data.py را اجرا و فایل data/ready-guides.php قالب را همراه مقاله کامیت کنید."
+            echo "⚠️ data/ready-guides.php با مقالات هم‌خوان نیست — build_theme_data.py را اجرا کنید." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
       - uses: actions/upload-artifact@v4
         if: always()
         with:
