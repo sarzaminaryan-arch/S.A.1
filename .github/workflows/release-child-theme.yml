@@ -71,6 +71,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-education-nav.php"
 
+      - name: Run province/city bars tests (minimal archive directories)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-entity-bars.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

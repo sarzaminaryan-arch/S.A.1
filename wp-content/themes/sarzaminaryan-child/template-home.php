@@ -16,81 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 /* ---- province dot coordinates on the hero map (x, y from the v2 design) ---- */
-$sa_map_points = array(
-	array( 'آذربایجان شرقی', 'east-azerbaijan', 56, 45 ),
-	array( 'آذربایجان غربی', 'west-azerbaijan', 31, 58 ),
-	array( 'اردبیل', 'ardabil', 96, 41 ),
-	array( 'اصفهان', 'isfahan', 180, 165 ),
-	array( 'البرز', 'alborz', 146, 94 ),
-	array( 'ایلام', 'ilam', 58, 150 ),
-	array( 'بوشهر', 'bushehr', 152, 258 ),
-	array( 'تهران', 'tehran', 162, 104 ),
-	array( 'چهارمحال و بختیاری', 'chaharmahal-bakhtiari', 147, 181 ),
-	array( 'خراسان جنوبی', 'south-khorasan', 314, 168 ),
-	array( 'خراسان رضوی', 'razavi-khorasan', 322, 87 ),
-	array( 'خراسان شمالی', 'north-khorasan', 276, 60 ),
-	array( 'خوزستان', 'khuzestan', 104, 205 ),
-	array( 'زنجان', 'zanjan', 100, 78 ),
-	array( 'سمنان', 'semnan', 198, 104 ),
-	array( 'سیستان و بلوچستان', 'sistan-baluchestan', 347, 248 ),
-	array( 'فارس', 'fars', 181, 245 ),
-	array( 'قزوین', 'qazvin', 130, 88 ),
-	array( 'قم', 'qom', 148, 127 ),
-	array( 'کردستان', 'kurdistan', 70, 111 ),
-	array( 'کرمان', 'kerman', 271, 229 ),
-	array( 'کرمانشاه', 'kermanshah', 71, 134 ),
-	array( 'کهگیلویه و بویراحمد', 'kohgiluyeh-boyer-ahmad', 162, 220 ),
-	array( 'گلستان', 'golestan', 219, 75 ),
-	array( 'گیلان', 'gilan', 124, 70 ),
-	array( 'لرستان', 'lorestan', 97, 154 ),
-	array( 'مازندران', 'mazandaran', 191, 81 ),
-	array( 'مرکزی', 'markazi', 124, 139 ),
-	array( 'هرمزگان', 'hormozgan', 254, 296 ),
-	array( 'همدان', 'hamadan', 100, 123 ),
-	array( 'یزد', 'yazd', 217, 191 ),
-);
-$sa_colors = array( '#0b2a4a', '#123f73', '#18558f', '#246da8', '#174f82', '#2b6094', '#387aaf', '#0f355f' );
+/* v2.13.3: فهرست ۳۱ استان به inc/entity-bars.php منتقل شد (مشترک با آرشیو استان‌ها). */
+$sa_map_points = sa_iran_provinces();
+$sa_colors = sa_bar_colors();
 
 /* ---- v2.1.0: فقط استان‌هایی که واقعاً منتشر شده‌اند لینک می‌شوند ----
-   پیش از این، هر ۳۱ استان از آرایه‌ی بالا لینک می‌شدند؛ چون ۴ استان منتشر بود،
-   صفحه‌ی اصلی ۵۴ لینک به صفحه‌های ۴۰۴ می‌داد (۲۷ نقطه‌ی نقشه + ۲۷ نوار).
-   این بدترین جای ممکن برای لینک مرده است: گوگل صفحه‌ی اصلی را بیش از هر
-   صفحه‌ی دیگری می‌خزد. با انتشار هر استان، لینکش خودبه‌خود برمی‌گردد. */
-if ( ! function_exists( 'sa_home_province_url' ) ) {
-	/**
-	 * نشانی استان اگر منتشر شده باشد، وگرنه رشته‌ی خالی.
-	 *
-	 * کش داخلی static است، نه متغیر سراسری: فایل‌های قالب داخل load_template()
-	 * بارگذاری می‌شوند، پس متغیرهای سطح فایل global نیستند.
-	 *
-	 * @param string $slug نامک استان.
-	 * @return string
-	 */
-	function sa_home_province_url( $slug ) {
-		static $map = null;
-		if ( null === $map ) {
-			$map = array();
-			$ids = get_posts(
-				array(
-					'post_type'              => 'province',
-					'post_status'            => 'publish',
-					'posts_per_page'         => 40,
-					'fields'                 => 'ids',
-					'no_found_rows'          => true,
-					'update_post_meta_cache' => false,
-					'update_post_term_cache' => false,
-				)
-			);
-			foreach ( $ids as $id ) {
-				$name = get_post_field( 'post_name', $id );
-				if ( $name ) {
-					$map[ $name ] = get_permalink( $id );
-				}
-			}
-		}
-		return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
-	}
-}
+   پیش از این، هر ۳۱ استان لینک می‌شدند و صفحه‌ی اصلی ده‌ها لینک ۴۰۴ داشت.
+   v2.13.3: نقشهٔ هیرو از sa_published_entity_ids('province') (inc/entity-bars.php) استفاده می‌کند. */
+$sa_pub_provinces = sa_published_entity_ids( 'province' );
 
 /* ---- logo: custom logo if set, otherwise the bundled official one ---- */
 $sa_logo_url = SA_CHILD_URI . 'assets/img/logo.webp';
@@ -116,7 +49,6 @@ $sa_stat1_lb  = get_theme_mod( 'sa_stat1_label', 'استان' );
 $sa_stat2_num = get_theme_mod( 'sa_stat2_num', isset( $sa_counts['city'] ) ? (string) (int) $sa_counts['city'] : '0' );
 $sa_stat2_suf = get_theme_mod( 'sa_stat2_suffix', '' );
 $sa_stat2_lb  = get_theme_mod( 'sa_stat2_label', 'شهرستان' );
-$sa_prov_h2   = get_theme_mod( 'sa_sec_prov_title', 'استان‌های ایران' );
 $sa_latest_h2 = get_theme_mod( 'sa_sec_latest_title', 'آخرین مقالات' );
 $sa_pop_h2    = get_theme_mod( 'sa_sec_pop_title', 'پست‌های معروف' );
 $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_theme_mod( 'sa_pop_ids', '' ) ) ) );
@@ -177,8 +109,6 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-map .d{fill:#bdd8f1;filter:drop-shadow(0 0 5px #18558f);animation:sab var(--t) ease-in-out var(--d) infinite;transition:r .2s}
 .sa-map a:hover .d{r:5.2}
 .sa-map .sa-dot--soon{opacity:.35;pointer-events:none}
-.sa-bar--soon{opacity:.45;cursor:default;pointer-events:none}
-.sa-bar--soon em{font-style:normal}
 @keyframes sab{0%,100%{opacity:.15}50%{opacity:1}}
 .sa-scroll{position:absolute;bottom:24px;left:50%;margin-left:-13px;width:26px;height:42px;border:2px solid rgba(11,20,36,.28);border-radius:14px}
 .sa-scroll i{position:absolute;top:8px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--blue);animation:saw 1.8s infinite}
@@ -192,14 +122,6 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-head{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:30px;padding:10px 12px;background:linear-gradient(155deg,#fff 0%,#edf6ff 56%,#dcecff 100%);border:1px solid #bdd8f1;border-inline-start:6px solid var(--navy-2);border-radius:18px;box-shadow:0 2px 0 #fff inset,0 3px 0 rgba(11,42,74,.16),0 18px 28px -14px rgba(11,42,74,.34),0 38px 58px -34px rgba(7,26,48,.48)}
 .sa-head h2{position:relative;z-index:1;margin:0;font-size:clamp(26px,3.6vw,38px);font-weight:800;color:var(--navy);text-shadow:0 1px 0 #fff,0 8px 18px rgba(11,42,74,.14)}
 .sa-head a{position:relative;z-index:1;color:var(--navy-2);font-weight:700;text-decoration:none;white-space:nowrap}
-.sa-bars{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px}
-.sa-bar{display:flex;align-items:center;gap:14px;height:68px;padding:0 12px;border-radius:20px;background:#fff;border:1px solid rgba(11,20,36,.05);color:var(--ink);text-decoration:none;box-shadow:0 22px 38px -18px color-mix(in srgb,var(--c) 80%,transparent),0 2px 6px rgba(11,20,36,.04);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-.sa-bar:before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 18%,transparent)}
-.sa-bar b{flex:1;min-width:0;font-weight:800;font-size:clamp(13px,1.55vw,16.5px);line-height:1.3;white-space:nowrap;letter-spacing:-.02em}
-.sa-bar em{font-style:normal;color:#7a8799;font-size:13px;letter-spacing:.4px;direction:ltr}
-.sa-bar:after{content:"";flex:none;width:9px;height:9px;border:solid var(--c);border-width:2px 0 0 2px;transform:rotate(-45deg);transition:transform .3s}
-.sa-bar:hover:after{transform:rotate(-45deg) translate(-3px,-3px)}
-.sa-bar:nth-child(even){--x:-40px}
 .sa-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .sa-post{display:block;border-radius:24px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 34px 54px -28px color-mix(in srgb,var(--c,#18558f) 75%,transparent),0 2px 6px rgba(11,20,36,.05);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
 .sa-img{aspect-ratio:16/10;background:linear-gradient(135deg,color-mix(in srgb,var(--c,#18558f) 35%,#fff),color-mix(in srgb,var(--c,#18558f) 8%,#fff)) center/cover}
@@ -212,12 +134,11 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-pop .sa-post{background:#111d36;color:#fff;box-shadow:0 38px 64px -30px color-mix(in srgb,var(--c,#18558f) 85%,transparent)}
 .sa-pop .sa-pb p{color:#9fb0c9}.sa-pop .sa-pb small{color:#7f92b0}
 .js .rv{opacity:0;transform:translateY(26px)}
-.js .sa-bar.rv{transform:translateX(var(--x,40px))}
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-logo{width:136px;height:136px;padding:8px}.sa-logo img{width:100%;height:100%}.sa-map{max-width:380px;margin:10px auto 0}.sa-posts{grid-template-columns:repeat(2,1fr)}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
-@media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-bars,.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:108px;height:108px;padding:7px}.sa-logo img{width:100%;height:100%}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-bar{height:62px}.sa-bar b{font-size:clamp(12px,3.15vw,15px)}.sa-head{padding:7px 8px;border-inline-start-width:4px}}
-@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-bar{gap:8px;padding-inline:9px}.sa-bar b{font-size:clamp(10.8px,3.15vw,13.5px);letter-spacing:-.04em}.sa-bar em{display:none}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
+@media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:108px;height:108px;padding:7px}.sa-logo img{width:100%;height:100%}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-head{padding:7px 8px;border-inline-start-width:4px}}
+@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
 /* zir-e 430px, dokme be radif-e dovom miravad */
 @media(max-width:430px){.sa-search{height:auto;padding:8px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;font-size:16px}.sa-search svg{order:2;margin:0}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
@@ -283,7 +204,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 					<g id="sa-dots">
 						<?php
 						foreach ( $sa_map_points as $sa_p ) :
-							$sa_url  = sa_home_province_url( $sa_p[1] );
+							$sa_url  = isset( $sa_pub_provinces[ $sa_p[1] ] ) ? (string) get_permalink( $sa_pub_provinces[ $sa_p[1] ] ) : '';
 							$sa_anim = 'style="--t:' . esc_attr( number_format( 2 + wp_rand( 0, 40 ) / 10, 1 ) ) . 's;--d:-' . esc_attr( number_format( wp_rand( 0, 60 ) / 10, 1 ) ) . 's"';
 							?>
 							<?php if ( $sa_url ) : ?>
@@ -316,24 +237,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 		</div>
 	</section>
 
-	<section class="sa-sec">
-		<div class="sa-wrap">
-			<div class="sa-head"><h2><?php echo esc_html( $sa_prov_h2 ); ?></h2><a href="<?php echo esc_url( get_post_type_archive_link( 'province' ) ); ?>">همه‌ی استان‌ها</a></div>
-			<div class="sa-bars" id="sa-bars">
-				<?php
-				foreach ( $sa_map_points as $sa_i => $sa_p ) :
-					$sa_url = sa_home_province_url( $sa_p[1] );
-					$sa_en  = ucwords( str_replace( '-', ' ', $sa_p[1] ) );
-					?>
-					<?php if ( $sa_url ) : ?>
-						<a class="sa-bar" href="<?php echo esc_url( $sa_url ); ?>" style="--c:<?php echo esc_attr( $sa_colors[ $sa_i % 8 ] ); ?>"><b><?php echo esc_html( $sa_p[0] ); ?></b><em><?php echo esc_html( $sa_en ); ?></em></a>
-					<?php else : ?>
-						<span class="sa-bar sa-bar--soon" style="--c:<?php echo esc_attr( $sa_colors[ $sa_i % 8 ] ); ?>"><b><?php echo esc_html( $sa_p[0] ); ?></b><em>به‌زودی</em></span>
-					<?php endif; ?>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</section>
+	<?php /* v2.13.3: بخش «استان‌های ایران» (نوارهای سفید) به درخواست مالک از صفحهٔ اول حذف و به آرشیو استان‌ها (/province/) منتقل شد. */ ?>
 
 	<?php
 	/* ---- آموزش‌ها (v2.13.1): آخرین آموزش‌های منتشرشدهٔ دستهٔ کمپینگ و بقا ---- */
@@ -472,7 +376,7 @@ var calm=matchMedia('(prefers-reduced-motion:reduce)').matches,io=('Intersection
 es.forEach(function(x){if(!x.isIntersecting)return;var e=x.target;e.style.transitionDelay=(k++%4)*80+'ms';e.classList.add('in');io.unobserve(e);
 setTimeout(function(){e.style.transitionDelay=''},1100);var b=e.querySelector('b[data-n]');if(b)count(b)})},{threshold:.12}):null;
 function rv(list){Array.prototype.forEach.call(list,function(e){e.classList.add('rv');if(io)io.observe(e);else e.classList.add('in')})}
-rv(R.querySelectorAll('.sa-bar,.sa-st,.sa-head,.sa-post')); /* v2.13.1: کارت‌های مقاله/آموزش هم در فهرست نمایش با اسکرول — پیش‌تر کلاس rv داشتند ولی رصد نمی‌شدند و با JS نامرئی می‌ماندند */
+rv(R.querySelectorAll('.sa-st,.sa-head,.sa-post')); /* v2.13.1: کارت‌های مقاله/آموزش هم در فهرست نمایش با اسکرول — پیش‌تر کلاس rv داشتند ولی رصد نمی‌شدند و با JS نامرئی می‌ماندند */
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){R.classList.toggle('sa-off',!es[0].isIntersecting)}).observe(R.querySelector('.sa-hero'))}
 })();
 </script>
