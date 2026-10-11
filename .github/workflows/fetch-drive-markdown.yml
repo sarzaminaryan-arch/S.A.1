@@ -1,25 +1,31 @@
 name: Fetch Markdown drafts from Google Drive
 
-# Manual bridge: pulls Markdown drafts the owner placed in Google Drive into the
+# Bridge: pulls Markdown drafts the owner placed in Google Drive into the
 # current branch so the content-lint tool can run on the exact bytes.
 # Each file must be shared «anyone with the link (reader)» while the run lasts;
 # the Arena session re-privatises the files right after the commit lands.
+#
+# Trigger: push a manifest file named `drive-manifest.txt` anywhere under docs/
+# (the files land next to the manifest). workflow_dispatch is also available
+# once the workflow exists on the default branch.
 #
 # manifest lines:  <drive-file-id>|<target-file-name.md>[|<expected-md5>]
 # The run fails (and commits nothing) when a download is empty, is HTML
 # (Drive interstitial) or does not match the expected MD5.
 
 on:
+  push:
+    branches:
+      - main
+      - "arena/**"
+    paths:
+      - "docs/**/drive-manifest.txt"
   workflow_dispatch:
     inputs:
-      manifest:
-        description: "One line per file: <drive-file-id>|<target-name.md>[|<md5>]"
+      manifest_path:
+        description: "Path of the manifest file inside the repository"
         required: true
-        type: string
-      target_dir:
-        description: "Directory inside the repository that receives the files"
-        required: true
-        default: "docs/camping-education/incoming"
+        default: "docs/camping-education/incoming/drive-manifest.txt"
         type: string
 
 permissions:
@@ -39,18 +45,42 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
-          fetch-depth: 1
+          fetch-depth: 0
+
+      - name: Locate manifest
+        id: manifest
+        shell: bash
+        env:
+          INPUT_PATH: ${{ inputs.manifest_path }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [[ -n "${INPUT_PATH:-}" ]]; then
+            path="$INPUT_PATH"
+          else
+            # push event: the manifest(s) touched by this push.
+            path="$(git diff --name-only "${BEFORE}" "${GITHUB_SHA}" 2>/dev/null | grep -E '(^|/)drive-manifest\.txt$' | head -n 1 || true)"
+            if [[ -z "$path" ]]; then
+              path="$(git ls-files 'docs/**/drive-manifest.txt' | head -n 1 || true)"
+            fi
+          fi
+          case "$path" in
+            ''|/*|*..*) echo "Refusing manifest path '$path'" >&2; exit 1 ;;
+          esac
+          if [[ ! -f "$path" ]]; then
+            echo "Manifest not found: $path" >&2; exit 1
+          fi
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+          echo "dir=$(dirname "$path")" >> "$GITHUB_OUTPUT"
 
       - name: Download files
         shell: bash
         env:
-          MANIFEST: ${{ inputs.manifest }}
-          TARGET_DIR: ${{ inputs.target_dir }}
+          MANIFEST_PATH: ${{ steps.manifest.outputs.path }}
+          TARGET_DIR: ${{ steps.manifest.outputs.dir }}
         run: |
           set -euo pipefail
-          case "$TARGET_DIR" in
-            ''|/*|*..*) echo "Refusing target_dir '$TARGET_DIR'" >&2; exit 1 ;;
-          esac
+          MANIFEST="$(grep -v '^[[:space:]]*#' "$MANIFEST_PATH" || true)"
           mkdir -p "$TARGET_DIR"
           count=0
           while IFS='|' read -r id name md5 _; do
@@ -92,7 +122,7 @@ jobs:
       - name: Commit and push
         shell: bash
         env:
-          TARGET_DIR: ${{ inputs.target_dir }}
+          TARGET_DIR: ${{ steps.manifest.outputs.dir }}
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
