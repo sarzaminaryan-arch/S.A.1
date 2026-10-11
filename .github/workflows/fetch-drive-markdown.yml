@@ -10,6 +10,11 @@ name: Fetch Markdown drafts from Google Drive
 # once the workflow exists on the default branch.
 #
 # manifest lines:  <drive-file-id>|<target-file-name.md>[|<expected-md5>]
+#              or  <drive-file-id>|<archive-name.zip>[|<expected-md5>]
+# A *.zip entry (featured-image batches) is downloaded, verified, and only its
+# image files (png/jpg/jpeg/webp, paths flattened) are extracted into
+# <manifest-dir>/<archive-name>/ ; the zip itself is deleted and never committed
+# (repository rule: archives only as GitHub Release assets).
 # The run fails (and commits nothing) when a download is empty, is HTML
 # (Drive interstitial) or does not match the expected MD5.
 
@@ -99,8 +104,8 @@ jobs:
             if [[ ! "$id" =~ ^[A-Za-z0-9_-]{10,}$ ]]; then
               echo "Invalid Drive id: $id" >&2; exit 1
             fi
-            if [[ -z "$name" || "$name" == */* || "$name" == .* || "$name" != *.md ]]; then
-              echo "Invalid target name for $id: '$name' (must be a plain *.md file name)" >&2; exit 1
+            if [[ -z "$name" || "$name" == */* || "$name" == .* || ( "$name" != *.md && "$name" != *.zip ) ]]; then
+              echo "Invalid target name for $id: '$name' (must be a plain *.md or *.zip file name)" >&2; exit 1
             fi
             out="$TARGET_DIR/$name"
             echo "→ $id  →  $out"
@@ -119,6 +124,32 @@ jobs:
               if [[ "$actual" != "$md5" ]]; then
                 echo "MD5 mismatch for $id: expected $md5, got $actual" >&2; exit 1
               fi
+            fi
+            if [[ "$name" == *.zip ]]; then
+              if [[ "$(head -c 2 "$out")" != "PK" ]]; then
+                echo "Not a zip archive: $name" >&2; rm -f "$out"; exit 1
+              fi
+              if [[ "$(stat -c %s "$out")" -gt $((80 * 1024 * 1024)) ]]; then
+                echo "Archive too large (>80 MB): $name" >&2; rm -f "$out"; exit 1
+              fi
+              dest="$TARGET_DIR/${name%.zip}"
+              echo "---- archive listing ($name) ----"
+              unzip -l "$out"
+              mkdir -p "$dest"
+              # Flatten paths (-j) so archive entries can never escape $dest; images only.
+              unzip -j -o -q "$out" '*.png' '*.jpg' '*.jpeg' '*.webp' '*.PNG' '*.JPG' '*.JPEG' '*.WEBP' \
+                -x '__MACOSX/*' '*/.*' -d "$dest" || true
+              rm -f "$out"
+              echo "---- extracted images ($dest) ----"
+              n=0
+              while IFS= read -r -d '' img; do
+                n=$((n + 1))
+                echo "$(stat -c %s "$img") bytes  $(identify -format '%wx%h %m' "$img" 2>/dev/null || echo '?')  $(basename "$img")"
+              done < <(find "$dest" -maxdepth 1 -type f -print0 | sort -z)
+              if [[ "$n" -eq 0 ]]; then
+                echo "Archive $name contained no image files." >&2; exit 1
+              fi
+              echo "extracted=$n images"
             fi
             count=$((count + 1))
           done <<< "$MANIFEST"
@@ -140,5 +171,5 @@ jobs:
           if git diff --cached --quiet; then
             echo "Nothing new to commit."; exit 0
           fi
-          git commit -m "Import Markdown drafts from Google Drive into $TARGET_DIR"
+          git commit -m "Import files from Google Drive into $TARGET_DIR"
           git push origin "HEAD:${GITHUB_REF_NAME}"
