@@ -3,7 +3,7 @@
 
 | | |
 |---|---|
-| **Version** | 1.1 |
+| **Version** | 1.3 |
 | **Status** | Active — single source of truth for content, schema and SEO architecture |
 | **Core entities** | 6 active + 1 reserved (`Accommodation`) |
 | **Machine-readable schema** | [`schema/data-model.yaml`](schema/data-model.yaml) · [`schema/data-model.json`](schema/data-model.json) |
@@ -394,7 +394,7 @@ Additional for Accommodation 🟡: `booking_url` must be output with `rel="spons
 4. Internal Links
 5. SEO Data
 
-**No entity may be published if:**
+**Level 7 checks (`publish_blockers` — names are append-only; since v1.3 they are *reminders*, see the publishing policy below):**
 
 - Missing relation
 - Missing SEO fields
@@ -426,6 +426,15 @@ Additional for Accommodation 🟡: `booking_url` must be output with `rel="spons
 - **Uncertainty markers** `[نیازمند بررسی]` / `[منبع لازم]` are *allowed* in published text (Google Helpful Content: transparency over guessing). The theme renders them as a visible badge and counts them per post; they never block publishing and are never removed silently.
 - `attraction.last_verified_date` older than 365 days ⇒ «needs review» badge in the admin list (no block).
 - Production prompts per entity: `content-templates/province.md`, `city.md`, `attraction.md`.
+
+---
+
+**v1.3 publishing policy (owner decision, 2026-10-11 — `schema/data-model.yaml → content_rules.publish_policy`):**
+
+- **The owner's explicit approval is the only publish condition.** `publish_policy: owner_approval`, `enforcement: advisory`.
+- Every Level 7 check above (the five original blockers, the v1.1 blockers, the per-entity minimums and the reserved Accommodation blockers) is still evaluated and reported, but **as a reminder/warning, never as a lock**: it must not block, demote or delay a publish the owner approved. Reminders stay visible after publishing (admin list badge «N یادآوری», the «دروازهٔ انتشار» box, the content-health report, the ready-articles tool) so the owner can complete them at any time.
+- The theme implements this as the default (`soft` / «یادآوری») mode of the publish gate; the legacy blocking (`hard` / «سخت‌گیر») mode remains an explicit opt-in in the Customizer for a future owner decision, and even then a page that is already published is never demoted.
+- The `publish_blockers` list keeps its name and items for compatibility (append-only rule); read it as «Level 7 reminders».
 
 ## APPENDIX A — Accommodation activation plan
 

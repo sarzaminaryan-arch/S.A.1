@@ -2,7 +2,7 @@
 
 1. **Delivery channel is GitHub only.** Push code to `sarzaminaryan-arch/S.A.1`, then return GitHub links. Installable ZIPs belong in GitHub Releases, not inside the repository tree.
 2. **Active code lives in `wp-content/themes/sarzaminaryan-child/`.** Parent-theme edits are allowed only when a parent fix is unavoidable.
-3. Obey `data-model/MASTER_DATA_MODEL.md`; names/slugs are append-only and the publish gate remains Level 7.
+3. Obey `data-model/MASTER_DATA_MODEL.md`; names/slugs are append-only and the publish gate remains Level 7. **Publishing policy (owner decision, 2026-10-11 / model 1.3): the owner's explicit approval is the only publish condition.** Level 7 rules are advisory — surface them as reminders/warnings, never as blockers; once the owner approves, publish.
 4. Use `skill-SA-agent/SKILL.md` as the operating procedure for theme work, QA and releases.
 5. Persian WordPress/fa_IR/RTL; machine dates stay Gregorian; no external CDNs/plugins.
 6. Security baseline: sanitize input, escape output, nonce + capability for writes.

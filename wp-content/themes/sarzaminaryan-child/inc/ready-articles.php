@@ -5,9 +5,11 @@
  * Admin path: سرزمین آریان → مقالات آمادهٔ دیدنی‌ها
  *
  * Rules enforced here:
- * - new articles are ALWAYS inserted as draft (post_status = draft);
+ * - new articles are inserted as draft unless the owner ticks «تأیید مالک —
+ *   منتشر شود» (v2.12.7 publishing policy: the owner's approval is the only
+ *   publish condition; Level 7 findings are shown as reminders, never as locks);
  * - an already published article is never touched unless the operator ticks the
- *   explicit «بازنویسی نسخهٔ منتشرشده» box on that row;
+ *   explicit «بازنویسی نسخهٔ منتشرشده» box on that row (or in the bulk form);
  * - the white featured-image card (pure white background, one colored corner
  *   icon, centered Persian/English text, deep shadow) is rendered in the browser
  *   on a 1200×600 canvas and stored through the REST route below, so no binary
@@ -451,9 +453,12 @@ function sa_ready_articles_content( $article, $post_id = 0 ) {
  *
  * @param string $key                 Article key.
  * @param bool   $overwrite_published Allow updating an already published article.
+ * @param bool   $publish             v2.12.7 — owner approval: publish the article (new or
+ *                                    draft) instead of leaving it as a draft. The caller
+ *                                    must have verified the `publish_posts` capability.
  * @return int|WP_Error Post ID or error.
  */
-function sa_ready_article_import( $key, $overwrite_published = false ) {
+function sa_ready_article_import( $key, $overwrite_published = false, $publish = false ) {
 	$data = sa_ready_articles_data();
 	if ( empty( $data[ $key ] ) ) {
 		return new WP_Error( 'unknown_article', 'این مقالهٔ آماده در قالب پیدا نشد.' );
@@ -511,18 +516,15 @@ function sa_ready_article_import( $key, $overwrite_published = false ) {
 		);
 	}
 
-	// The publish gate blocks non-attraction entities without a featured image;
-	// ask for the white card first so an update cannot demote a published page.
-	if ( $post_id && ! $is_draft && 'attraction' !== $article['type'] && ! has_post_thumbnail( $post_id ) ) {
-		return new WP_Error(
-			'missing_thumbnail',
-			'این مقاله منتشر شده اما تصویر شاخص ندارد. ابتدا «ساخت کارت تصویر شاخص» را بزنید و سپس به‌روزرسانی کنید.'
-		);
-	}
+	/*
+	 * v2.12.7 — the old «published without a featured image» refusal is gone:
+	 * the gate never demotes a published page (v2.11.42) and, under the
+	 * owner-approval policy, a missing thumbnail is a reminder, not a lock.
+	 */
 
 	$postarr = array(
 		'post_type'    => $article['type'],
-		'post_status'  => $post_id ? $status : 'draft', // new articles are always drafts.
+		'post_status'  => $post_id ? $status : 'draft', // new articles start as drafts; owner approval publishes below.
 		'post_name'    => $article['slug'],
 		'post_title'   => $article['title'],
 		'post_excerpt' => $article['excerpt'],
@@ -534,7 +536,10 @@ function sa_ready_article_import( $key, $overwrite_published = false ) {
 		// demoted by the publish gate while its fields are still empty.
 		sa_ready_articles_write_meta( $post_id, $article, $province_id, $city_id );
 		$postarr['ID'] = $post_id;
-		$saved         = wp_update_post( $postarr, true );
+		if ( $publish && 'publish' !== $status ) {
+			$postarr['post_status'] = 'publish'; // تأیید مالک.
+		}
+		$saved = wp_update_post( $postarr, true );
 	} else {
 		$saved = wp_insert_post( $postarr, true );
 	}
@@ -545,6 +550,20 @@ function sa_ready_article_import( $key, $overwrite_published = false ) {
 
 	if ( ! isset( $postarr['ID'] ) ) {
 		sa_ready_articles_write_meta( $post_id, $article, $province_id, $city_id );
+		if ( $publish ) {
+			// تأیید مالک: پس از ثبت متادیتا منتشر می‌شود تا دروازهٔ سطح ۷ یادآوری‌هایش
+			// را روی همین نوشته ثبت کند (و در حالت اختیاریِ «سخت‌گیر» بتواند ارزیابی کند).
+			$published = wp_update_post(
+				array(
+					'ID'          => $post_id,
+					'post_status' => 'publish',
+				),
+				true
+			);
+			if ( is_wp_error( $published ) ) {
+				return $published;
+			}
+		}
 	}
 
 	// Gallery items that point at a remote source need the post ID first, so the
@@ -638,7 +657,8 @@ function sa_ready_articles_handle_import() {
 	check_admin_referer( 'sa_ready_import_' . $key, 'sa_ready_nonce' );
 
 	$overwrite = ! empty( $_POST['sa_overwrite_published'] );
-	$result    = sa_ready_article_import( $key, $overwrite );
+	$publish   = sa_ready_articles_publish_requested();
+	$result    = sa_ready_article_import( $key, $overwrite, $publish );
 
 	$args = array( 'page' => 'sa-ready-articles' );
 	if ( is_wp_error( $result ) ) {
@@ -648,13 +668,144 @@ function sa_ready_articles_handle_import() {
 		exit;
 	}
 
-	$was_draft = 'draft' === get_post_status( $result );
-	$args['sa-ready']  = $was_draft ? 'draft' : 'updated';
-	$args['sa-post']   = absint( $result );
+	$status = (string) get_post_status( $result );
+	if ( 'publish' === $status ) {
+		$args['sa-ready'] = 'published';
+	} elseif ( 'draft' === $status ) {
+		$args['sa-ready'] = $publish ? 'gated' : 'draft';
+	} else {
+		$args['sa-ready'] = 'updated';
+	}
+	$args['sa-post'] = absint( $result );
 	wp_safe_redirect( add_query_arg( $args, admin_url( 'admin.php' ) ) );
 	exit;
 }
 add_action( 'admin_post_sa_ready_article', 'sa_ready_articles_handle_import' );
+
+/**
+ * v2.12.7 — Did the current request carry the owner's publish approval?
+ *
+ * The checkbox alone is not enough: the user must also be allowed to publish.
+ *
+ * @return bool
+ */
+function sa_ready_articles_publish_requested() {
+	// phpcs:ignore WordPress.Security.NonceVerification.Missing -- callers verify the nonce first.
+	return ! empty( $_POST['sa_publish_approved'] ) && current_user_can( 'publish_posts' );
+}
+
+/**
+ * v2.12.7 — admin-post handler: import/update every ready article in one run.
+ *
+ * Published articles are skipped unless «بازنویسی نسخه‌های منتشرشده» is ticked;
+ * «تأیید مالک» publishes new/draft articles. A summary is kept in a short-lived
+ * transient and rendered on the tool screen after the redirect.
+ */
+function sa_ready_articles_handle_import_all() {
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		wp_die( esc_html( 'برای این کار دسترسی کافی ندارید.' ) );
+	}
+	check_admin_referer( 'sa_ready_import_all', 'sa_ready_nonce_all' );
+
+	$overwrite = ! empty( $_POST['sa_overwrite_published'] );
+	$publish   = sa_ready_articles_publish_requested();
+
+	if ( function_exists( 'set_time_limit' ) ) {
+		@set_time_limit( 300 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- may be disabled by the host.
+	}
+
+	$summary = array(
+		'published' => array(),
+		'updated'   => array(),
+		'draft'     => array(),
+		'skipped'   => array(),
+		'errors'    => array(),
+		'reminders' => 0,
+		'publish'   => $publish,
+		'overwrite' => $overwrite,
+	);
+
+	foreach ( sa_ready_articles_data() as $key => $article ) {
+		$title  = (string) $article['title'];
+		$result = sa_ready_article_import( $key, $overwrite, $publish );
+		if ( is_wp_error( $result ) ) {
+			if ( 'published_locked' === $result->get_error_code() ) {
+				$summary['skipped'][] = $title;
+			} else {
+				$summary['errors'][] = $title . ': ' . $result->get_error_message();
+			}
+			continue;
+		}
+		$status = (string) get_post_status( $result );
+		if ( 'publish' === $status ) {
+			$summary['published'][] = $title;
+		} elseif ( 'draft' === $status ) {
+			$summary['draft'][] = $title;
+		} else {
+			$summary['updated'][] = $title;
+		}
+		if ( function_exists( 'sa_gate_evaluate' ) ) {
+			$report = sa_gate_evaluate( (int) $result );
+			if ( ! empty( $report['warnings'] ) || ! empty( $report['blocking'] ) ) {
+				++$summary['reminders'];
+			}
+		}
+	}
+
+	// گزارش گروهی جای نوار تک‌مقاله‌ایِ دروازه را می‌گیرد.
+	delete_transient( 'sa_gate_' . get_current_user_id() );
+	set_transient( 'sa_ready_bulk_' . get_current_user_id(), $summary, 5 * MINUTE_IN_SECONDS );
+	wp_safe_redirect(
+		add_query_arg(
+			array(
+				'page'     => 'sa-ready-articles',
+				'sa-ready' => 'bulk',
+			),
+			admin_url( 'admin.php' )
+		)
+	);
+	exit;
+}
+add_action( 'admin_post_sa_ready_article_all', 'sa_ready_articles_handle_import_all' );
+
+/**
+ * v2.12.7 — Render the summary of the last bulk run (one-shot transient).
+ *
+ * @return void
+ */
+function sa_ready_articles_render_bulk_summary() {
+	$key     = 'sa_ready_bulk_' . get_current_user_id();
+	$summary = get_transient( $key );
+	if ( ! is_array( $summary ) ) {
+		echo '<div class="notice notice-info is-dismissible"><p>گزارش اجرای گروهی در دسترس نیست (منقضی شده است).</p></div>';
+		return;
+	}
+	delete_transient( $key );
+
+	$fa    = function ( $n ) {
+		return function_exists( 'sa_fa_digits' ) ? sa_fa_digits( (string) $n ) : (string) $n;
+	};
+	$class = empty( $summary['errors'] ) ? 'notice-success' : 'notice-warning';
+
+	echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible sa-ready__bulk-summary">';
+	echo '<p><strong>اجرای گروهی انجام شد.</strong> ';
+	echo esc_html( 'منتشرشده: ' . $fa( count( $summary['published'] ) ) . ' · به‌روزرسانی (وضعیت دست‌نخورده): ' . $fa( count( $summary['updated'] ) ) . ' · پیش‌نویس: ' . $fa( count( $summary['draft'] ) ) . ' · رد شده: ' . $fa( count( $summary['skipped'] ) ) . ' · خطا: ' . $fa( count( $summary['errors'] ) ) );
+	echo '</p>';
+	if ( ! empty( $summary['reminders'] ) ) {
+		echo '<p>' . esc_html( $fa( (int) $summary['reminders'] ) . ' مقاله یادآوری سطح ۷ دارد (مانع انتشار نیست؛ در ستون «وضعیت» و جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر دیده می‌شود).' ) . '</p>';
+	}
+	if ( ! empty( $summary['skipped'] ) ) {
+		echo '<p>' . esc_html( 'رد شده چون منتشرشده بود و تیک «بازنویسی نسخه‌های منتشرشده» نخورده بود: ' . implode( '، ', array_map( 'strval', $summary['skipped'] ) ) ) . '</p>';
+	}
+	if ( ! empty( $summary['errors'] ) ) {
+		echo '<ul style="list-style:disc;margin-inline-start:1.5em">';
+		foreach ( $summary['errors'] as $line ) {
+			echo '<li>' . esc_html( (string) $line ) . '</li>';
+		}
+		echo '</ul>';
+	}
+	echo '</div>';
+}
 
 /**
  * Render the tool screen.
@@ -663,25 +814,39 @@ function sa_ready_articles_page() {
 	if ( ! current_user_can( 'edit_posts' ) ) {
 		wp_die( esc_html( 'برای دیدن این صفحه دسترسی کافی ندارید.' ) );
 	}
-	$data = sa_ready_articles_data();
+	$data        = sa_ready_articles_data();
+	$can_publish = current_user_can( 'publish_posts' );
+	$advisory    = function_exists( 'sa_gate_is_advisory' ) ? sa_gate_is_advisory() : true;
+	$state       = isset( $_GET['sa-ready'] ) ? sanitize_key( wp_unslash( $_GET['sa-ready'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 	?>
 	<div class="wrap sa-ready">
 		<h1>مقالات آمادهٔ دیدنی‌ها</h1>
 		<p class="sa-ready__lead">
-			مقاله‌های آمادهٔ قالب، <strong>فقط به‌صورت پیش‌نویس</strong> وارد سایت می‌شوند؛ انتشار نهایی همیشه با مدیر است.
+			<strong>سیاست انتشار (از نسخهٔ ۲٫۱۲٫۷):</strong> شرط انتشار فقط <strong>تأیید مالک</strong> است.
+			درج یا به‌روزرسانی بدون تیک «تأیید مالک» مقاله را <strong>پیش‌نویس</strong> نگه می‌دارد؛ با تیک «تأیید مالک» همان‌جا منتشر می‌شود.
+			کمبودهای سطح ۷ (رابطه، سئو، منابع، تصویر شاخص، طبقه‌بندی، بهداشت محتوا…) فقط به‌صورت <strong>یادآوری</strong> در ستون «وضعیت» و در جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر نشان داده می‌شوند و مانع انتشار نیستند.
 			برای هر مقاله می‌توانید کارت سفید تصویر شاخص (۱۲۰۰×۶۰۰) را بسازید: زمینهٔ کاملاً سفید، یک آیکون رنگی گوشه‌ای، نوشته‌های مرکزچین با رنگ‌های آبی ناوی، سبز تیره و طلایی تیره و سایهٔ عمیق دور کاور.
 		</p>
+		<?php if ( ! $advisory ) : ?>
+			<div class="notice notice-warning"><p>دروازهٔ انتشار در سفارشی‌ساز روی حالت <strong>سخت‌گیر</strong> است؛ در این حالت مقالهٔ ناقص حتی با تیک «تأیید مالک» پیش‌نویس می‌ماند. برای اجرای سیاست «فقط تأیید مالک» حالت را به «یادآوری» برگردانید (سفارشی‌ساز → سرزمین آریان → قوانین انتشار).</p></div>
+		<?php endif; ?>
 
-		<?php if ( isset( $_GET['sa-ready'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended ?>
+		<?php if ( 'bulk' === $state ) : ?>
+			<?php sa_ready_articles_render_bulk_summary(); ?>
+		<?php elseif ( '' !== $state ) : ?>
 			<?php
-			$ok    = in_array( wp_unslash( $_GET['sa-ready'] ), array( 'draft', 'updated' ), true ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$class = $ok ? 'notice-success' : 'notice-error';
-			if ( 'draft' === wp_unslash( $_GET['sa-ready'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-				$text = 'مقاله به‌صورت پیش‌نویس ساخته شد. بازبینی کنید و انتشار را خودتان انجام دهید.';
-			} elseif ( 'updated' === wp_unslash( $_GET['sa-ready'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$ok    = in_array( $state, array( 'draft', 'updated', 'published', 'gated' ), true );
+			$class = $ok ? ( 'gated' === $state ? 'notice-warning' : 'notice-success' ) : 'notice-error';
+			if ( 'draft' === $state ) {
+				$text = 'مقاله به‌صورت پیش‌نویس ذخیره شد. برای انتشار، تیک «تأیید مالک» را بزنید یا در ویرایشگر «انتشار» را بزنید.';
+			} elseif ( 'updated' === $state ) {
 				$text = 'مقاله به‌روزرسانی شد و وضعیت انتشار آن دست‌نخورده ماند.';
+			} elseif ( 'published' === $state ) {
+				$text = 'مقاله با تأیید شما منتشر شد. یادآوری‌های سطح ۷ (در صورت وجود) در ستون «وضعیت» و جعبهٔ «دروازهٔ انتشار» دیده می‌شوند.';
+			} elseif ( 'gated' === $state ) {
+				$text = 'انتشار درخواست شد، اما دروازهٔ انتشار (حالت سخت‌گیر) مقاله را پیش‌نویس نگه داشت. در جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر ببینید چه چیزی کم است، یا حالت دروازه را به «یادآوری» برگردانید.';
 			} else {
-				$text = isset( $_GET['sa-msg'] ) ? rawurldecode( wp_unslash( $_GET['sa-msg'] ) ) : 'خطای نامشخص.'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				$text = isset( $_GET['sa-msg'] ) ? rawurldecode( wp_unslash( $_GET['sa-msg'] ) ) : 'خطای نامشخص.'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- escaped on output below.
 			}
 			$edit = isset( $_GET['sa-post'] ) ? absint( $_GET['sa-post'] ) : 0; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			?>
@@ -689,9 +854,30 @@ function sa_ready_articles_page() {
 				<?php echo esc_html( $text ); ?>
 				<?php if ( $ok && $edit ) : ?>
 					<a href="<?php echo esc_url( (string) get_edit_post_link( $edit ) ); ?>">ویرایش همین حالا</a>
+					<?php if ( 'published' === $state ) : ?>
+						· <a href="<?php echo esc_url( (string) get_permalink( $edit ) ); ?>">مشاهده</a>
+					<?php endif; ?>
 				<?php endif; ?>
 			</p></div>
 		<?php endif; ?>
+
+		<form class="sa-ready__bulk" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+			<input type="hidden" name="action" value="sa_ready_article_all">
+			<?php wp_nonce_field( 'sa_ready_import_all', 'sa_ready_nonce_all' ); ?>
+			<strong>اجرای گروهی روی هر <?php echo esc_html( sa_fa_digits( count( $data ) ) ); ?> مقاله:</strong>
+			<button type="submit" class="button button-primary">درج/به‌روزرسانی همه از منبع قالب</button>
+			<label class="sa-ready__check">
+				<input type="checkbox" name="sa_overwrite_published" value="1">
+				بازنویسی نسخه‌های منتشرشده
+			</label>
+			<?php if ( $can_publish ) : ?>
+				<label class="sa-ready__check sa-ready__check--approve">
+					<input type="checkbox" name="sa_publish_approved" value="1">
+					تأیید مالک — مقاله‌های جدید و پیش‌نویس منتشر شوند
+				</label>
+			<?php endif; ?>
+			<span class="description">بدون تیک «بازنویسی»، مقاله‌های منتشرشده دست‌نخورده می‌مانند و در گزارش «رد شده» شمرده می‌شوند.</span>
+		</form>
 
 		<p class="sa-ready__legend">
 			<span class="sa-ready__dot sa-ready__dot--draft"></span> پیش‌نویس
@@ -723,6 +909,14 @@ function sa_ready_articles_page() {
 				$generated = $cover_id ? (bool) get_post_meta( $cover_id, '_sa_ready_cover_article', true ) : false;
 				$place     = implode( ' — ', array_filter( array( $article['city_name'], $article['province_name'] ) ) );
 				$city_line = 'شهرستان ' . $article['city_name'];
+				// v2.12.7 — یادآوری‌های سطح ۷ (هشدار، نه مانع) برای مقاله‌های واردشده.
+				$gate = ( $post_id && function_exists( 'sa_gate_evaluate' ) )
+					? sa_gate_evaluate( $post_id )
+					: array(
+						'blocking' => array(),
+						'warnings' => array(),
+					);
+				$gate_items = array_merge( (array) $gate['blocking'], (array) $gate['warnings'] );
 				?>
 				<tr>
 					<td>
@@ -739,6 +933,28 @@ function sa_ready_articles_page() {
 							<a class="sa-ready__mini" href="<?php echo esc_url( (string) get_edit_post_link( $post_id ) ); ?>">ویرایش</a>
 							<?php if ( 'publish' === $status ) : ?>
 								<a class="sa-ready__mini" href="<?php echo esc_url( (string) get_permalink( $post_id ) ); ?>">مشاهده</a>
+							<?php endif; ?>
+							<?php if ( ! empty( $gate['blocking'] ) ) : ?>
+								<details class="sa-ready__gate sa-ready__gate--blocking">
+									<summary><?php echo esc_html( sa_fa_digits( count( $gate['blocking'] ) ) ); ?> مانع (حالت سخت‌گیر)</summary>
+									<ul>
+										<?php foreach ( $gate['blocking'] as $item ) : ?>
+											<li><?php echo esc_html( (string) $item ); ?></li>
+										<?php endforeach; ?>
+									</ul>
+								</details>
+							<?php endif; ?>
+							<?php if ( ! empty( $gate['warnings'] ) ) : ?>
+								<details class="sa-ready__gate">
+									<summary><?php echo esc_html( sa_fa_digits( count( $gate['warnings'] ) ) ); ?> یادآوری سطح ۷ (مانع انتشار نیست)</summary>
+									<ul>
+										<?php foreach ( $gate['warnings'] as $item ) : ?>
+											<li><?php echo esc_html( (string) $item ); ?></li>
+										<?php endforeach; ?>
+									</ul>
+								</details>
+							<?php elseif ( empty( $gate_items ) ) : ?>
+								<span class="sa-ready__mini sa-ready__mini--ok">بدون یادآوری ✓</span>
 							<?php endif; ?>
 						<?php endif; ?>
 					</td>
@@ -757,12 +973,18 @@ function sa_ready_articles_page() {
 							<input type="hidden" name="sa_article" value="<?php echo esc_attr( $key ); ?>">
 							<?php wp_nonce_field( 'sa_ready_import_' . $key, 'sa_ready_nonce' ); ?>
 							<button type="submit" class="button <?php echo $post_id ? '' : 'button-primary'; ?>">
-								<?php echo esc_html( $post_id ? 'به‌روزرسانی از منبع قالب' : 'درج پیش‌نویس' ); ?>
+								<?php echo esc_html( $post_id ? 'به‌روزرسانی از منبع قالب' : 'درج از منبع قالب' ); ?>
 							</button>
 							<label class="sa-ready__check">
 								<input type="checkbox" name="sa_overwrite_published" value="1">
 								بازنویسی نسخهٔ منتشرشده
 							</label>
+							<?php if ( $can_publish && 'publish' !== $status ) : ?>
+								<label class="sa-ready__check sa-ready__check--approve">
+									<input type="checkbox" name="sa_publish_approved" value="1">
+									تأیید مالک — منتشر شود
+								</label>
+							<?php endif; ?>
 						</form>
 
 						<button type="button"
@@ -786,7 +1008,8 @@ function sa_ready_articles_page() {
 		</table>
 
 		<p class="sa-ready__foot">
-			نکته‌ها: درج جدید همیشه پیش‌نویس است؛ اگر مقاله‌ای از قبل منتشر شده باشد تنها با تیک «بازنویسی نسخهٔ منتشرشده» به‌روزرسانی می‌شود.
+			نکته‌ها: درج جدید بدون تیک «تأیید مالک» پیش‌نویس می‌ماند و با تیک آن منتشر می‌شود؛ اگر مقاله‌ای از قبل منتشر شده باشد تنها با تیک «بازنویسی نسخهٔ منتشرشده» به‌روزرسانی می‌شود و منتشر می‌ماند.
+			یادآوری‌های سطح ۷ هشدارند، نه مانع؛ پس از انتشار هم در جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر می‌مانند تا تکمیل شوند.
 			کارت تصویر شاخص به‌صورت WebP (و در صورت پشتیبانی‌نشدن مرورگر، PNG) ذخیره و بلافاصله تصویر شاخصِ مقاله می‌شود.
 		</p>
 	</div>

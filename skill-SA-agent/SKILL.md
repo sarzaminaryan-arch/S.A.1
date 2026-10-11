@@ -42,7 +42,10 @@ Single skill that tells an AI agent **how to work on this project correctly**. D
    (never the old wordpress-fa 5.8 fork). All visible strings Persian; machine-readable dates
    stay Gregorian ISO-8601 (see `references/03-persian-rtl-jalali.md`).
 4. **Data model is law.** Do not invent entities/fields/URLs. Names are append-only; bump the
-   model version + CHANGELOG on any change. Publish-gate rules (Level 7) are enforced in code.
+   model version + CHANGELOG on any change. Publish-gate rules (Level 7) are evaluated in code
+   but are **advisory only** (owner decision 2026-10-11, model 1.3): the owner's explicit
+   approval is the sole publish condition. Show Level 7 findings as reminders; never block,
+   demote or delay a publish the owner approved.
 5. **Security baseline on every PHP change:** sanitize on input, escape on output, nonce +
    capability on every write, `$wpdb->prepare()` for SQL, no direct `$_POST` arrays.
 6. **No external assets** (fonts, CSS, JS from CDNs). Bundle locally with licenses.
@@ -85,7 +88,7 @@ Single skill that tells an AI agent **how to work on this project correctly**. D
 
 - [ ] `php -l` clean on all changed files
 - [ ] Theme Check essentials: `style.css` header, `screenshot.png`, `wp_head`/`wp_footer`/`wp_body_open`, `title-tag`, `$content_width`, escaping, i18n, no hard-coded scripts
-- [ ] Data-model conformance: slugs/URLs (L4), relations (L3), publish gate (L7)
+- [ ] Data-model conformance: slugs/URLs (L4), relations (L3), publish gate (L7 — reminders only; owner approval is the only publish condition)
 - [ ] SEO: one `<h1>`, title/description, canonical, OG, JSON-LD valid, breadcrumbs, `noindex` on search/thin pages
 - [ ] RTL/Persian: `dir="rtl"` from `language_attributes()`, fonts local, digits/Jalali only in display strings
 - [ ] Security: nonce+cap on writes, sanitized/escaped, XML-RPC off, no user enumeration

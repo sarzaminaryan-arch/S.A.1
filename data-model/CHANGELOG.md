@@ -3,6 +3,20 @@
 All notable changes to the data model are recorded here.
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) · Versioning: `MAJOR.MINOR` (MAJOR = breaking change to an active entity/URL, MINOR = additive).
 
+## [1.3] — 2026-10-11
+
+### Changed
+- **Level 7 — publishing policy (owner decision 2026-10-11).** `content_rules.publish_policy: owner_approval`, `content_rules.enforcement: advisory`. The owner's explicit approval is the **only** publish condition. All Level 7 checks (`publish_blockers`, `minimums`, reserved `accommodation_publish_blockers`) are still evaluated and shown, but only as reminders/warnings — they never block, demote or delay a publish the owner approved.
+- `publish_blockers` keeps its name and items (append-only rule); it is now read as the list of Level 7 reminders.
+
+### Notes
+- MINOR, policy-only: no entity, field, slug, URL or relation change. Child theme 2.12.7 implements it: publish gate defaults to the advisory («یادآوری») mode, a one-time migration moves sites off the old blocking default, and the ready-articles tool publishes on «تأیید مالک». The legacy blocking («سخت‌گیر») mode stays as an explicit Customizer opt-in; a published page is never demoted in any mode.
+
+## [1.2] — 2026-10-07
+
+### Notes
+- Version number used by the child theme (`SA_MODEL_VERSION` 1.2 in theme 2.11.36) to align with the publish-gate code. No schema change was recorded in this changelog; the proposed 1.2 fields (`attraction.national_registration_number`, … ) remain **not applied**. Superseded by 1.3.
+
 ## [1.1] — 2026-09-26
 
 ### Added

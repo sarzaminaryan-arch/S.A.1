@@ -106,6 +106,56 @@
 	color: #50575e;
 }
 
+.sa-ready__check--approve {
+	color: var(--sa-green);
+	font-weight: 600;
+}
+
+/* v2.12.7 — اجرای گروهی (درج/به‌روزرسانی همهٔ مقاله‌ها) */
+.sa-ready__bulk {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px 14px;
+	align-items: center;
+	margin: 12px 0;
+	padding: 12px 14px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-inline-start: 4px solid var(--sa-green);
+}
+
+.sa-ready__bulk .description {
+	flex-basis: 100%;
+	font-size: 12px;
+}
+
+/* v2.12.7 — یادآوری‌های سطح ۷ در ستون وضعیت (هشدار، نه مانع) */
+.sa-ready__gate {
+	margin-top: 6px;
+	font-size: 12px;
+	color: #50575e;
+}
+
+.sa-ready__gate summary {
+	cursor: pointer;
+	color: #9b6a16;
+}
+
+.sa-ready__gate--blocking summary {
+	color: #b32d2e;
+	font-weight: 600;
+}
+
+.sa-ready__gate ul {
+	list-style: disc;
+	margin: 4px 0 0;
+	margin-inline-start: 1.4em;
+}
+
+.sa-ready__mini--ok {
+	color: var(--sa-green);
+}
+
 .sa-ready__cover {
 	border-color: var(--sa-gold) !important;
 	color: var(--sa-gold) !important;
