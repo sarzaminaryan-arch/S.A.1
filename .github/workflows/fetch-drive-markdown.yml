@@ -11,6 +11,9 @@ name: Fetch Markdown drafts from Google Drive
 #
 # manifest lines:  <drive-file-id>|<target-file-name.md>[|<expected-md5>]
 #              or  <drive-file-id>|<archive-name.zip>[|<expected-md5>]
+#              or  <drive-file-id>|<image-name.webp|png|jpg|jpeg>[|<expected-md5>]
+# A single image entry (one featured image placed loose in the Drive folder) is
+# downloaded next to the manifest and must really be an image (MIME sniffed).
 # A *.zip entry (featured-image batches) is downloaded, verified, and only its
 # image files (png/jpg/jpeg/webp, paths flattened) are extracted into
 # <manifest-dir>/<archive-name>/ ; the zip itself is deleted and never committed
@@ -104,8 +107,13 @@ jobs:
             if [[ ! "$id" =~ ^[A-Za-z0-9_-]{10,}$ ]]; then
               echo "Invalid Drive id: $id" >&2; exit 1
             fi
-            if [[ -z "$name" || "$name" == */* || "$name" == .* || ( "$name" != *.md && "$name" != *.zip ) ]]; then
-              echo "Invalid target name for $id: '$name' (must be a plain *.md or *.zip file name)" >&2; exit 1
+            case "$name" in
+              */*|.*|'') bad=1 ;;
+              *.md|*.zip|*.webp|*.png|*.jpg|*.jpeg) bad=0 ;;
+              *) bad=1 ;;
+            esac
+            if [[ "$bad" -eq 1 ]]; then
+              echo "Invalid target name for $id: '$name' (must be a plain *.md, *.zip or image file name)" >&2; exit 1
             fi
             out="$TARGET_DIR/$name"
             echo "→ $id  →  $out"
@@ -125,6 +133,22 @@ jobs:
                 echo "MD5 mismatch for $id: expected $md5, got $actual" >&2; exit 1
               fi
             fi
+            case "$name" in
+              *.webp|*.png|*.jpg|*.jpeg)
+                # Magic bytes (no external tool): RIFF....WEBP / PNG / JPEG.
+                sig="$(head -c 12 "$out" | od -An -tx1 | tr -d ' \n')"
+                case "$sig" in
+                  52494646????????57454250) mime="image/webp" ;;
+                  89504e470d0a1a0a*)        mime="image/png" ;;
+                  ffd8ff*)                  mime="image/jpeg" ;;
+                  *) echo "Not an image (signature $sig): $name" >&2; rm -f "$out"; exit 1 ;;
+                esac
+                if [[ "$(stat -c %s "$out")" -gt $((8 * 1024 * 1024)) ]]; then
+                  echo "Image too large (>8 MB): $name" >&2; rm -f "$out"; exit 1
+                fi
+                echo "$(stat -c %s "$out") bytes  $(identify -format '%wx%h %m' "$out" 2>/dev/null || echo "$mime")  $name"
+                ;;
+            esac
             if [[ "$name" == *.zip ]]; then
               if [[ "$(head -c 2 "$out")" != "PK" ]]; then
                 echo "Not a zip archive: $name" >&2; rm -f "$out"; exit 1
