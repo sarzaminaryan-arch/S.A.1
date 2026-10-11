@@ -539,7 +539,7 @@
 
 .sa-entity__title {
 	margin: 0;
-	font-size: clamp(1.7rem, 4vw, 2.7rem);
+	font-size: clamp(1.6rem, 3.6vw, 2.4rem);
 	color: #fff;
 	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
@@ -570,8 +570,8 @@
 }
 
 	.sa-entity__lead {
-		font-size: 1.12rem;
-		line-height: 1.95;
+		font-size: 1.05rem;
+		line-height: 1.8;
 		color: #334155;
 		background: #fff;
 		border: 1px solid var(--color-border);
@@ -590,7 +590,7 @@
 .sa-entity__layout .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2 {
-	font-size: 1.45rem;
+	font-size: 1.4rem;
 	margin: 2.6rem 0 1.3rem;
 	padding: 0.8rem 1.2rem;
 	background: linear-gradient(160deg, #ffffff 0%, #edf6ff 55%, #dcecff 100%);
@@ -837,7 +837,7 @@
 	border-top: 1px solid var(--sa-navy-200);
 	border-radius: 0 0 10px 10px;
 	color: #334155;
-	line-height: 1.95;
+	line-height: 1.8;
 }
 
 .sa-faq-item__answer p:last-child {
@@ -933,7 +933,7 @@
 
 .sa-footer__about {
 	font-size: 0.92rem;
-	line-height: 1.9;
+	line-height: 1.8;
 	margin-top: 0.75rem;
 }
 
@@ -1048,7 +1048,7 @@
 	padding-inline-start: 1.4rem;
 	font-size: 0.92rem;
 	color: var(--color-muted);
-	line-height: 1.9;
+	line-height: 1.8;
 }
 
 .sa-sources__list a {
@@ -1480,7 +1480,7 @@
 .sa-hf-foot .sa-footer__about {
 	color: #9fb0c9;
 	font-size: 14px;
-	line-height: 2;
+	line-height: 1.8;
 	margin: 16px 0 14px;
 	max-width: 380px;
 }
@@ -1865,7 +1865,7 @@ img, svg, video, iframe, table, pre {
 	}
 	.sa-footer__about {
 		font-size: 13.5px;
-		line-height: 1.9;
+		line-height: 1.8;
 	}
 	.sa-hf-foot__bottom,
 	.sa-footer__bottom {
@@ -2035,7 +2035,7 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 }
 
 .sa-article .entry-content h2 {
-	font-size: 1.45rem;
+	font-size: 1.4rem;
 	margin: 2.6rem 0 1.3rem;
 }
 
@@ -2240,7 +2240,9 @@ main.site-main.container,
 	padding-block: 8px 10px;
 }
 
-/* Persian body copy: straight right/left edges without splitting normal words. */
+/* Persian body copy (v2.13.6): natural ragged edge, standard word spacing.
+   Until 2.13.5 these blocks were justified with extra word-spacing (.045em); justified
+   Persian text stretches the gaps between words unevenly — the owner asked for standard spacing. */
 .entry-content,
 .entry-summary,
 .sa-entity__lead,
@@ -2253,23 +2255,14 @@ main.site-main.container,
 .sa-home .sa-intro,
 .sa-home .sa-pb p,
 .sa-footer__about {
-	text-align: justify;
-	text-justify: inter-word;
-	word-spacing: .045em;
+	text-align: start;
+	word-spacing: normal;
 	word-break: normal;
 	overflow-wrap: normal;
 	-webkit-hyphens: none;
 	hyphens: none;
 	white-space: normal;
 	font-kerning: normal;
-	orphans: 3;
-	widows: 3;
-}
-
-.entry-content :is(h1, h2, h3, h4, h5, h6, table, pre, code, kbd, samp, .wp-block-buttons),
-.entry-summary :is(h1, h2, h3, h4, h5, h6) {
-	text-align: start;
-	word-spacing: normal;
 }
 
 /* On mobile the header search control belongs at the far left, not mid-header. */
@@ -2325,20 +2318,6 @@ main.site-main.container,
 		padding: 7px 8px;
 	}
 
-	.entry-content,
-	.entry-summary,
-	.sa-entity__lead,
-	.sa-archive__desc,
-	.sa-faq-item__answer,
-	.sa-community,
-	.sa-sources__list,
-	.sa-footnotes__item,
-	.sa-card__excerpt,
-	.sa-home .sa-intro,
-	.sa-home .sa-pb p,
-	.sa-footer__about {
-		word-spacing: .025em;
-	}
 }
 
 /* ==========================================================================
@@ -2495,7 +2474,7 @@ main.site-main.container,
 .sa-hf-foot--mini .widget-title {
 	font-size: 12.5px;
 	font-weight: 700;
-	letter-spacing: .2px;
+	letter-spacing: 0;
 	margin: 0 0 6px;
 	color: #e8f1ff;
 }
@@ -2966,7 +2945,7 @@ main.site-main.container,
 	max-width: 760px;
 	color: #3e5568;
 	font-size: 1rem;
-	line-height: 2;
+	line-height: 1.8;
 }
 
 .sa-attraction-id__facts {
@@ -3038,8 +3017,8 @@ main.site-main.container,
 }
 
 .single-attraction .entry-content {
-	font-size: 1.03rem;
-	line-height: 2.05;
+	font-size: 1rem;
+	line-height: 1.8;
 }
 
 .single-attraction .entry-content h2 {
@@ -3603,7 +3582,7 @@ main.site-main.container,
 	inset-inline-start: 0.7rem;
 	font-size: 0.62rem;
 	font-weight: 700;
-	letter-spacing: 0.02em;
+	letter-spacing: 0;
 	color: var(--color-secondary);
 	opacity: 0.75;
 }
@@ -3719,7 +3698,7 @@ main.site-main.container,
 }
 
 .sa-attraction-id .sa-attraction-id__title {
-	font-size: clamp(1.7rem, 3.6vw, 3rem);
+	font-size: clamp(1.6rem, 3.4vw, 2.5rem);
 	line-height: 1.25;
 }
 
@@ -3911,7 +3890,7 @@ main.site-main.container,
 .sa-province-profile__eyebrow span {
 	color: var(--sa-profile-navy);
 	font-size: .68rem;
-	letter-spacing: .08em;
+	letter-spacing: 0;
 }
 
 .sa-province-profile__title {
@@ -3957,7 +3936,7 @@ main.site-main.container,
 	color: #58728b;
 	font-size: .62rem;
 	font-weight: 800;
-	letter-spacing: .12em;
+	letter-spacing: 0;
 }
 
 .sa-province-profile__count-badge {
@@ -4402,8 +4381,8 @@ main.site-main.container,
 .sa-callout--answer {
 	border-inline-start: 5px solid var(--sa-navy-700);
 	background: linear-gradient(160deg, #ffffff 0%, #edf6ff 60%, #dcecff 100%);
-	font-size: 1.05rem;
-	line-height: 1.9;
+	font-size: 1rem;
+	line-height: 1.8;
 }
 
 .sa-callout--warning {
@@ -4667,4 +4646,32 @@ main.site-main.container,
 .sa-bars--attraction + .pagination,
 .sa-bars--attraction + .navigation {
 	margin-top: 1.5rem;
+}
+
+/* ---------- v2.13.6: مقیاس استاندارد تایپوگرافی (درخواست مالک: متن‌ها کمی بزرگ و کلمات فاصله‌دار بودند) ----------
+   پایه: ۱۶px با ارتفاع خط ۱٫۷۵ (قالب مادر ۱٫۹ می‌داد)؛ متن مقاله ۱٫۸؛ بدون justify و word-spacing اضافه؛
+   عنوان‌ها کمی کوچک‌تر (H2 مقاله 1.4rem، عنوان صفحه حداکثر 2.4rem)؛ برچسب‌های ریز فارسی بدون letter-spacing. */
+body {
+	line-height: 1.75;
+}
+
+.entry-content,
+.entry-summary,
+.sa-faq-item__answer,
+.sa-community,
+.sa-facts,
+.sa-callout {
+	line-height: 1.8;
+}
+
+.entry-content > p,
+.entry-content > ul,
+.entry-content > ol {
+	margin-block: 0 1.1em;
+}
+
+.entry-meta,
+.entry-footer,
+small {
+	line-height: 1.6;
 }

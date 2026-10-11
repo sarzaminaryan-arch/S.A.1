@@ -68,7 +68,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 /* فونت Vazirmatn به‌صورت محلی در قالب مادر بارگذاری و preload می‌شود
    (assets/css/fonts.css + wp_head). درخواست به fonts.googleapis.com از داخل
    ایران معمولاً برنمی‌گردد و چون @import بود، رندر را هم بلوک می‌کرد. */
-.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.8;overflow:hidden}
+.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.75;overflow:hidden}
 .sa-home *{box-sizing:border-box}
 .sa-wrap{max-width:1180px;margin:0 auto;padding:0 10px}
 .sa-hero{position:relative;overflow:hidden;min-height:min(100vh,800px);display:flex;align-items:center;padding:64px 0 96px;background:radial-gradient(760px 480px at 18% 55%,rgba(36,109,168,.16),transparent 70%),linear-gradient(#fff,#edf6ff)}
@@ -82,10 +82,10 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-brand{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-bottom:6px;min-width:0}
 .sa-logo{flex:none;width:176px;height:176px;display:grid;place-items:center;background:#fff;border:1px solid rgba(214,166,67,.5);border-radius:50%;padding:10px;box-shadow:0 24px 42px -24px rgba(7,26,48,.55),0 0 0 4px rgba(255,255,255,.58);filter:none;transform:translateZ(0)}
 .sa-logo img{width:100%;height:100%;object-fit:contain;display:block;border-radius:50%;filter:none}
-.sa-home .sa-hero h1{margin:0;font-size:clamp(28px,5.4vw,64px);line-height:1.25;font-weight:800;letter-spacing:-.5px;min-width:0;overflow-wrap:anywhere;color:var(--navy);text-shadow:0 2px 0 #fff,0 12px 26px rgba(11,42,74,.2)}
+.sa-home .sa-hero h1{margin:0;font-size:clamp(28px,5vw,56px);line-height:1.25;font-weight:800;letter-spacing:-.5px;min-width:0;overflow-wrap:anywhere;color:var(--navy);text-shadow:0 2px 0 #fff,0 12px 26px rgba(11,42,74,.2)}
 .sa-en{color:var(--navy-2);font-weight:800;letter-spacing:4px;font-size:13px;direction:ltr;text-align:right;margin:2px 0 14px}
 .sa-slogan{margin:0 0 10px;font-size:clamp(16px,2.2vw,21px);font-weight:700;color:var(--navy-2)}
-.sa-hero .sa-intro{margin:0 0 28px;color:var(--mut);font-size:17px;max-width:520px}
+.sa-hero .sa-intro{margin:0 0 28px;color:var(--mut);font-size:16px;max-width:520px}
 .sa-search{display:flex;align-items:center;flex-wrap:wrap;gap:12px;max-width:100%;height:74px;padding:0 14px 0 10px;border:1px solid #bdd8f1;border-radius:26px;background:linear-gradient(145deg,#f2f8ff,var(--light-blue));box-shadow:0 2px 0 rgba(255,255,255,.95) inset,0 38px 62px -32px rgba(11,42,74,.55),0 12px 24px -14px rgba(11,42,74,.34);transition:box-shadow .3s,border-color .3s}
 .sa-search:focus-within{border-color:var(--blue);box-shadow:0 2px 0 #fff inset,0 34px 62px -30px rgba(11,42,74,.62),0 0 0 3px rgba(36,109,168,.22)}
 .sa-search svg{flex:none;margin-right:10px}
@@ -115,17 +115,17 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-off *{animation-play-state:paused!important}
 .sa-stats .sa-wrap{position:relative;max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .sa-st{text-align:center;padding:12px 10px;background:linear-gradient(155deg,#fff,#edf6ff);border:1px solid #bdd8f1;border-radius:28px;box-shadow:0 2px 0 #fff inset,0 40px 64px -28px color-mix(in srgb,var(--c) 72%,transparent),0 10px 22px -16px rgba(11,42,74,.35)}
-.sa-st b{display:block;font-size:clamp(40px,6vw,58px);line-height:1.3;font-weight:700;color:var(--c)}
+.sa-st b{display:block;font-size:clamp(36px,5.2vw,52px);line-height:1.3;font-weight:700;color:var(--c)}
 .sa-st span{color:var(--mut);font-weight:500}
 .sa-sec{padding-top:96px;content-visibility:auto;contain-intrinsic-size:auto 900px}
 .sa-head{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:30px;padding:10px 12px;background:linear-gradient(155deg,#fff 0%,#edf6ff 56%,#dcecff 100%);border:1px solid #bdd8f1;border-inline-start:6px solid var(--navy-2);border-radius:18px;box-shadow:0 2px 0 #fff inset,0 3px 0 rgba(11,42,74,.16),0 18px 28px -14px rgba(11,42,74,.34),0 38px 58px -34px rgba(7,26,48,.48)}
-.sa-head h2{position:relative;z-index:1;margin:0;font-size:clamp(26px,3.6vw,38px);font-weight:800;color:var(--navy);text-shadow:0 1px 0 #fff,0 8px 18px rgba(11,42,74,.14)}
+.sa-head h2{position:relative;z-index:1;margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:800;color:var(--navy);text-shadow:0 1px 0 #fff,0 8px 18px rgba(11,42,74,.14)}
 .sa-head a{position:relative;z-index:1;color:var(--navy-2);font-weight:700;text-decoration:none;white-space:nowrap}
 .sa-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .sa-post{display:block;border-radius:24px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 34px 54px -28px color-mix(in srgb,var(--c,#18558f) 75%,transparent),0 2px 6px rgba(11,20,36,.05);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
 .sa-img{aspect-ratio:16/10;background:linear-gradient(135deg,color-mix(in srgb,var(--c,#18558f) 35%,#fff),color-mix(in srgb,var(--c,#18558f) 8%,#fff)) center/cover}
 .sa-pb{padding:10px 12px 12px}
-.sa-pb h3{margin:0 0 6px;font-size:17px;line-height:1.7;font-weight:700}
+.sa-pb h3{margin:0 0 6px;font-size:16px;line-height:1.6;font-weight:700}
 .sa-pb p{margin:0 0 10px;color:var(--mut);font-size:14px}
 .sa-pb small{color:#8593a6;font-size:12.5px}
 .js .rv{opacity:0;transform:translateY(26px)}
