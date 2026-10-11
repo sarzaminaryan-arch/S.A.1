@@ -84,6 +84,10 @@ sa_footer_add_link( $sa_explore_links, $sa_seen, home_url( '/' ), 'صفحه اص
 foreach ( sa_nav_entity_types() as $sa_type ) {
 	sa_footer_add_link( $sa_explore_links, $sa_seen, sa_archive_url( $sa_type ), sa_entity_label( $sa_type, true ) );
 }
+$sa_edu_nav = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
+if ( $sa_edu_nav ) {
+	sa_footer_add_link( $sa_explore_links, $sa_seen, $sa_edu_nav['url'], $sa_edu_nav['label'] ); // v2.13.1
+}
 
 /* ستون ۳ — ارتباط با ما: برگه‌های سایت (ادغام‌شده) + ایمیل. */
 $sa_page_links = array();

@@ -68,9 +68,17 @@ function sa_customize_register( $wp_customize ) {
 	$add( 'sa_home_v2', 'sa_stat2_suffix', 'آمار ۲ — پسوند (+ یا خالی)', 'text', '+' );
 	$add( 'sa_home_v2', 'sa_stat2_label', 'آمار ۲ — برچسب', 'text', 'شهرستان' );
 	$add( 'sa_home_v2', 'sa_sec_prov_title', 'عنوان بخش استان‌ها', 'text', 'استان‌های ایران' );
+	$add( 'sa_home_v2', 'sa_stat3_label', 'آمار ۳ — برچسب آموزش‌ها (عدد خودکار = آموزش‌های منتشرشده)', 'text', 'آموزش' );
+	$add( 'sa_home_v2', 'sa_sec_edu_title', 'عنوان بخش آموزش‌ها (خالی = نام دسته)', 'text', '' );
+	$add( 'sa_home_v2', 'sa_sec_edu_intro', 'متن کوتاه زیر عنوان بخش آموزش‌ها', 'textarea', 'پیش از سفر به طبیعت بخوانید: تجهیزات، آتش، آب آشامیدنی، کاردستی‌های اضطراری و نجات غریق — گام‌به‌گام، با منابع رسمی و هشدارهای ایمنی.' );
 	$add( 'sa_home_v2', 'sa_sec_latest_title', 'عنوان بخش آخرین مقالات', 'text', 'آخرین مقالات' );
 	$add( 'sa_home_v2', 'sa_sec_pop_title', 'عنوان بخش پست‌های معروف', 'text', 'پست‌های معروف' );
 	$add( 'sa_home_v2', 'sa_pop_ids', 'شناسه‌ی «پست‌های معروف» (با کاما)', 'text', '', array( 'description' => 'خالی = نوشته‌های چسبانده‌شده (Sticky) نمایش داده می‌شوند. مثال: ۱۲,۳۴,۵۶ با اعداد انگلیسی.' ) );
+
+	// آموزش‌ها (v2.13.1) — دستهٔ هاب که کنار استان‌ها/شهرستان‌ها/دیدنی‌ها در منو، صفحهٔ اول و پابرگ می‌نشیند.
+	$wp_customize->add_section( 'sa_education', array( 'title' => 'آموزش‌ها (کمپینگ و بقا)', 'panel' => 'sa_panel', 'description' => 'لینک «آموزش‌ها» در منوی اصلی، چیپ‌های صفحهٔ اول، آمار و پابرگ به‌طور خودکار پس از انتشار نخستین آموزش (تیک «تأیید مالک» در ابزار «مقالات آماده») ظاهر می‌شود؛ تا آن زمان به آرشیو خالی لینک داده نمی‌شود.' ) );
+	$add( 'sa_education', 'sa_education_category', 'نامک دستهٔ آموزش‌ها', 'text', 'camping-survival', array( 'description' => 'پیش‌فرض: camping-survival («آموزش‌های ضروری کمپینگ و بقا»).' ) );
+	$add( 'sa_education', 'sa_education_nav_label', 'برچسب لینک در منو، چیپ‌ها و پابرگ', 'text', 'آموزش‌ها' );
 
 	// Footer.
 	$wp_customize->add_section( 'sa_footer', array( 'title' => 'پابرگ', 'panel' => 'sa_panel' ) );

@@ -120,6 +120,17 @@ $sa_prov_h2   = get_theme_mod( 'sa_sec_prov_title', 'استان‌های ایر�
 $sa_latest_h2 = get_theme_mod( 'sa_sec_latest_title', 'آخرین مقالات' );
 $sa_pop_h2    = get_theme_mod( 'sa_sec_pop_title', 'پست‌های معروف' );
 $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_theme_mod( 'sa_pop_ids', '' ) ) ) );
+/* v2.13.1: «آموزش‌ها» (دستهٔ آموزش‌های ضروری کمپینگ و بقا) کنار استان‌ها، شهرستان‌ها و دیدنی‌ها:
+   چیپ هیرو، کارت آمار سوم و یک بخش جدا با آخرین آموزش‌ها. تا وقتی آموزشی منتشر نشده
+   (پیش‌نویس‌ها در انتظار تأیید مالک)، هیچ‌کدام نشان داده نمی‌شوند تا لینکِ آرشیو خالی نسازیم. */
+$sa_edu_nav   = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
+$sa_edu_term  = function_exists( 'sa_education_category' ) ? sa_education_category() : null;
+$sa_edu_h2    = get_theme_mod( 'sa_sec_edu_title', '' );
+if ( '' === trim( (string) $sa_edu_h2 ) ) {
+	$sa_edu_h2 = $sa_edu_term ? $sa_edu_term->name : 'آموزش‌های ضروری کمپینگ و بقا';
+}
+$sa_edu_intro = get_theme_mod( 'sa_sec_edu_intro', 'پیش از سفر به طبیعت بخوانید: تجهیزات، آتش، آب آشامیدنی، کاردستی‌های اضطراری و نجات غریق — گام‌به‌گام، با منابع رسمی و هشدارهای ایمنی.' );
+$sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 ?>
 
 <style>
@@ -210,6 +221,16 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 /* zir-e 430px, dokme be radif-e dovom miravad */
 @media(max-width:430px){.sa-search{height:auto;padding:8px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;font-size:16px}.sa-search svg{order:2;margin:0}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+/* v2.13.1 — آموزش‌ها کنار استان/شهرستان/دیدنی */
+.sa-chips a.sa-chip--edu{background:#e8f6ee;border-color:#9bd1b3;color:#0f5132}
+.sa-chips a.sa-chip--edu:hover,.sa-chips a.sa-chip--edu:focus-visible{background:#0f5132;border-color:#0f5132;color:#fff}
+.sa-stats .sa-wrap--3{max-width:980px;grid-template-columns:repeat(3,1fr)}
+.sa-stats a.sa-st{color:inherit;text-decoration:none;transition:transform .3s}.sa-stats a.sa-st:hover,.sa-stats a.sa-st:focus-visible{transform:translateY(-3px)}
+.sa-sec--edu .sa-head{border-inline-start-color:#177357}
+.sa-sec__intro{margin:-12px 0 26px;max-width:720px;color:var(--mut);font-size:16px}
+.sa-post .sa-tag{display:inline-block;margin-inline-start:8px;padding:1px 9px;border-radius:99px;background:#e8f6ee;color:#0f5132;font-size:11.5px;font-weight:700}
+.sa-sec--edu .sa-img{background:linear-gradient(135deg,color-mix(in srgb,#177357 30%,#fff),color-mix(in srgb,var(--c,#18558f) 10%,#fff)) center/cover}
+@media(max-width:640px){.sa-stats .sa-wrap--3{gap:10px}.sa-wrap--3 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span{font-size:13px}}
 </style>
 
 <div class="sa-home" id="sa-home">
@@ -237,6 +258,9 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 					<?php foreach ( sa_nav_entity_types() as $sa_type ) : ?>
 						<a href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>"><?php echo esc_html( sa_entity_label( $sa_type, true ) ); ?></a>
 					<?php endforeach; ?>
+					<?php if ( $sa_edu_nav ) : ?>
+						<a class="sa-chip--edu" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><?php echo esc_html( $sa_edu_nav['label'] ); ?></a>
+					<?php endif; ?>
 				</div>
 				<?php $sa_dash_url = function_exists( 'sa_dashboard_page_url' ) ? sa_dashboard_page_url() : ''; ?>
 				<?php if ( $sa_dash_url ) : ?>
@@ -283,9 +307,12 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 	?>
 
 	<section class="sa-stats" id="sa-stats">
-		<div class="sa-wrap">
+		<div class="sa-wrap<?php echo $sa_edu_nav ? ' sa-wrap--3' : ''; ?>">
 			<div class="sa-st" style="--c:#123f73"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b><span><?php echo esc_html( $sa_stat1_lb ); ?></span></div>
 			<div class="sa-st" style="--c:#246da8"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b><span><?php echo esc_html( $sa_stat2_lb ); ?></span></div>
+			<?php if ( $sa_edu_nav ) : ?>
+				<a class="sa-st" style="--c:#177357" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_edu_nav['count'] ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_edu_nav['count'] ) ); ?></b><span><?php echo esc_html( $sa_stat3_lb ); ?></span></a>
+			<?php endif; ?>
 		</div>
 	</section>
 
@@ -309,16 +336,53 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 	</section>
 
 	<?php
+	/* ---- آموزش‌ها (v2.13.1): آخرین آموزش‌های منتشرشدهٔ دستهٔ کمپینگ و بقا ---- */
+	$sa_edu_q      = $sa_edu_nav && function_exists( 'sa_education_latest_query' ) ? sa_education_latest_query( 6 ) : null;
+	$sa_edu_shown  = false;
+	if ( $sa_edu_q && $sa_edu_q->have_posts() ) :
+		$sa_edu_shown = true;
+		?>
+		<section class="sa-sec sa-sec--edu" id="sa-education">
+			<div class="sa-wrap">
+				<div class="sa-head"><h2><?php echo esc_html( $sa_edu_h2 ); ?></h2><a href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>">همه‌ی <?php echo esc_html( $sa_edu_nav['label'] ); ?></a></div>
+				<?php if ( '' !== trim( (string) $sa_edu_intro ) ) : ?>
+					<p class="sa-sec__intro"><?php echo esc_html( $sa_edu_intro ); ?></p>
+				<?php endif; ?>
+				<div class="sa-posts">
+					<?php
+					while ( $sa_edu_q->have_posts() ) :
+						$sa_edu_q->the_post();
+						$sa_thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+						$sa_tags  = get_the_tags();
+						$sa_tag   = $sa_tags && ! is_wp_error( $sa_tags ) ? $sa_tags[0]->name : '';
+						?>
+						<a class="sa-post rv" href="<?php the_permalink(); ?>" style="--c:<?php echo esc_attr( $sa_colors[ ( $sa_edu_q->current_post * 3 + 1 ) % 8 ] ); ?>">
+							<div class="sa-img" <?php if ( $sa_thumb ) : ?>style="background-image:url('<?php echo esc_url( $sa_thumb ); ?>')"<?php endif; ?>></div>
+							<div class="sa-pb">
+								<h3><?php the_title(); ?></h3>
+								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18, '…' ) ); ?></p>
+								<small><?php echo esc_html( get_the_modified_date() ); ?><?php if ( $sa_tag ) : ?><span class="sa-tag"><?php echo esc_html( $sa_tag ); ?></span><?php endif; ?></small>
+							</div>
+						</a>
+					<?php endwhile; ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; wp_reset_postdata(); ?>
+
+	<?php
 	/* ---- آخرین مقالات (سرور-رندر؛ بدون وابستگی به REST) ---- */
-	$sa_latest = new WP_Query(
-		array(
-			'post_type'           => 'post',
-			'post_status'         => 'publish',
-			'posts_per_page'      => 6,
-			'ignore_sticky_posts' => true,
-			'no_found_rows'       => true,
-		)
+	$sa_latest_args = array(
+		'post_type'           => 'post',
+		'post_status'         => 'publish',
+		'posts_per_page'      => 6,
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
 	);
+	if ( $sa_edu_shown && $sa_edu_term ) {
+		$sa_latest_args['category__not_in'] = array( (int) $sa_edu_term->term_id ); // آموزش‌ها بخش خودشان را دارند.
+	}
+	$sa_latest = new WP_Query( $sa_latest_args );
 	if ( $sa_latest->have_posts() ) :
 		?>
 		<section class="sa-sec">
@@ -408,7 +472,7 @@ var calm=matchMedia('(prefers-reduced-motion:reduce)').matches,io=('Intersection
 es.forEach(function(x){if(!x.isIntersecting)return;var e=x.target;e.style.transitionDelay=(k++%4)*80+'ms';e.classList.add('in');io.unobserve(e);
 setTimeout(function(){e.style.transitionDelay=''},1100);var b=e.querySelector('b[data-n]');if(b)count(b)})},{threshold:.12}):null;
 function rv(list){Array.prototype.forEach.call(list,function(e){e.classList.add('rv');if(io)io.observe(e);else e.classList.add('in')})}
-rv(R.querySelectorAll('.sa-bar,.sa-st,.sa-head'));
+rv(R.querySelectorAll('.sa-bar,.sa-st,.sa-head,.sa-post')); /* v2.13.1: کارت‌های مقاله/آموزش هم در فهرست نمایش با اسکرول — پیش‌تر کلاس rv داشتند ولی رصد نمی‌شدند و با JS نامرئی می‌ماندند */
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){R.classList.toggle('sa-off',!es[0].isIntersecting)}).observe(R.querySelector('.sa-hero'))}
 })();
 </script>

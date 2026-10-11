@@ -43,6 +43,20 @@ $sa_top_views = is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type
 				<?php endforeach; ?>
 			</nav>
 		<?php endif; ?>
+	<?php elseif ( ( is_category() || is_tag() ) && function_exists( 'sa_is_education_context' ) && sa_is_education_context() ) : ?>
+		<?php
+		/* v2.13.1 — شاخه‌های آموزش (برچسب‌ها) به‌عنوان فیلتر روی آرشیو دستهٔ کمپینگ و بقا و برچسب‌هایش. */
+		$sa_edu_tags = sa_education_filter_tags();
+		$sa_edu_url  = sa_education_url();
+		?>
+		<?php if ( $sa_edu_tags && $sa_edu_url ) : ?>
+			<nav class="sa-filters" aria-label="شاخه‌های آموزش">
+				<a class="sa-chip<?php echo is_category() ? ' is-active' : ''; ?>" href="<?php echo esc_url( $sa_edu_url ); ?>">همه</a>
+				<?php foreach ( $sa_edu_tags as $sa_t ) : ?>
+					<a class="sa-chip<?php echo is_tag( $sa_t->slug ) ? ' is-active' : ''; ?>" href="<?php echo esc_url( get_term_link( $sa_t ) ); ?>"><?php echo esc_html( $sa_t->name ); ?></a>
+				<?php endforeach; ?>
+			</nav>
+		<?php endif; ?>
 	<?php endif; ?>
 </header>
 

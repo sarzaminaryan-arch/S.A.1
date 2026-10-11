@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.13.0' );
+define( 'SA_CHILD_VERSION', '2.13.1' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -43,6 +43,7 @@ $sa_child_includes = array(
 	'inc/schema.php',
 	'inc/breadcrumbs.php',
 	'inc/template-tags.php',
+	'inc/education.php', // بخش «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار استان/شهرستان/دیدنی در منو، صفحهٔ اول و فوتر
 	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
 	'inc/geo-counties.php',
 	'inc/province-profile.php',

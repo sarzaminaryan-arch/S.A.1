@@ -689,6 +689,11 @@ function sa_fallback_menu() {
 		$current = is_post_type_archive( $type ) || is_singular( $type ) ? ' current-menu-item' : '';
 		echo '<li class="menu-item' . esc_attr( $current ) . '"><a href="' . esc_url( sa_archive_url( $type ) ) . '">' . esc_html( sa_entity_label( $type, true ) ) . '</a></li>';
 	}
+	// v2.13.1 — «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار آرشیو موجودیت‌ها؛ فقط وقتی آموزشی منتشر شده باشد.
+	$edu = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
+	if ( $edu ) {
+		echo '<li class="menu-item sa-menu-item--education' . ( $edu['current'] ? ' current-menu-item' : '' ) . '"><a href="' . esc_url( $edu['url'] ) . '">' . esc_html( $edu['label'] ) . '</a></li>';
+	}
 	$blog = (int) get_option( 'page_for_posts' );
 	if ( $blog ) {
 		echo '<li class="menu-item"><a href="' . esc_url( get_permalink( $blog ) ) . '">' . esc_html( get_the_title( $blog ) ) . '</a></li>';
