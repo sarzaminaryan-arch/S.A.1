@@ -63,6 +63,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-internal-links.php"
 
+      - name: Run publish-gate policy tests (owner approval is the only publish condition)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-publish-gate.php"
+
       - name: Reject accidentally committed credentials
         shell: bash
         run: |
