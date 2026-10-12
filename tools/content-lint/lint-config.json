@@ -37,7 +37,17 @@
     "drinking-water-in-nature": "تأمین آب آشامیدنی در طبیعت",
     "emergency-water-purification": "تصفیهٔ آب در شرایط اضطراری",
     "drowning-rescue-guide": "نجات فردی که در آب افتاده",
-    "maintain-fire-in-rain": "نگهداری آتش در باد و باران"
+    "maintain-fire-in-rain": "نگهداری آتش در باد و باران",
+    "self-rescue-drowning": "آموزش نجات خویشتن در آب",
+    "unconscious-drowning-cpr": "نجات فرد بیهوش از آب",
+    "cpr-complete-guide": "آموزش کامل CPR در طبیعت",
+    "ankle-sprain-first-aid": "کمک‌های اولیه پیچ‌خوردگی و دررفتگی مچ پا",
+    "overdose-rescue-guide": "کمک‌های اولیه اوردوز و مسمومیت دارویی",
+    "burn-injury-first-aid": "کمک‌های اولیه سوختگی در طبیعت",
+    "bleeding-wound-first-aid": "کمک‌های اولیه خونریزی شدید",
+    "heatstroke-first-aid": "کمک‌های اولیه گرمازدگی",
+    "hypothermia-first-aid": "کمک‌های اولیه سرمازدگی (هیپوترمی)",
+    "snake-insect-bite-first-aid": "کمک‌های اولیه گزیدگی مار و حشرات"
   },
   "status_values": [
     "پیش‌نویس",

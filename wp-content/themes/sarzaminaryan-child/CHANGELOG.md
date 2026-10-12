@@ -1,3 +1,12 @@
+## 2.14.0 — 1405-07-20 (2026-10-12)
+
+- **ده آموزش تازهٔ «نجات در آب» و «کمک‌های اولیه» (۲۷ → ۳۷ مقالهٔ آماده):** دوازده پیش‌نویس پوشهٔ Drive «12 articles» (شماره‌های ۲۶ تا ۳۸ برنامهٔ ۶۵ مقاله‌ای) با پل Drive→GitHub وارد، با استاندارد مقاله (نسخهٔ ۱٫۱) از نو نوشته و با فیلتر محتوا به صفر هشدار رسیدند؛ هر ده مقاله در `docs/camping-education/articles/` با وضعیت «آمادهٔ انتشار» و در `data/ready-guides.php` (۳۷ رکورد) هستند و مثل بقیه تا تأیید مالک پیش‌نویس می‌مانند.
+  - شاخهٔ «نجات غریق و ایمنی آبی» (برچسب موجود `water-rescue`): `self-rescue-drowning` (نجات خود هنگام غرق‌شدگی: شناوری، جریان شکافنده، شوک آب سرد)، `unconscious-drowning-cpr` (بیرون‌آوردن غریق بیهوش و احیا با تنفس).
+  - شاخهٔ تازهٔ «کمک‌های اولیه در طبیعت» (برچسب `first-aid`): `cpr-complete-guide`، `ankle-sprain-first-aid`، `burn-injury-first-aid`، `overdose-rescue-guide`، `bleeding-wound-first-aid`، `heatstroke-first-aid`، `hypothermia-first-aid`، `snake-insect-bite-first-aid`.
+  - دو پیش‌نویس وارد نشدند: فایل ۲۶ تکرار همان «نجات غریق» موجود (`drowning-rescue-guide`) بود و فایل ۳۴ نسخهٔ دوم پیش‌نویس سوختگی (فایل ۲۹) بود؛ برای «شکستگی پا» (۳۲) و «ایمنی آبی کودکان» (۲۹ برنامه) پیش‌نویسی در پوشه نبود. ادعاهای پزشکی با راهنماهای ERC/ILCOR، WMS، WHO و IFRC هم‌خوان شدند (بدون دوز دارو؛ ارجاع به ۱۱۵ و پزشک در همه).
+- **تصاویر شاخص دستهٔ چهارم:** ده اینفوگرافیک مالک از همان پوشه در `assets/img/guides/<slug>.webp` (WebP ‎۱۶۷۲×۹۴۱‎، ۵۷ تا ۶۳ کیلوبایت؛ دو فایل تکراری کنار گذاشته شد) با متن جایگزین حاوی کلمهٔ کلیدی اصلی — **هر ۳۷ آموزش تصویر شاخص همراه قالب دارند**. آستانهٔ آزمون‌های `test-ready-guides.php` و `test-ready-covers.php` به ۳۷ رسید.
+- ابزار تولید داده (`build_theme_data.py`): شاخهٔ `first-aid` و عنوان انگلیسی ده مقاله؛ `lint-config.json`: ده نامک تازه در `allowed_slugs` (۳۷ نامک). مستندات `docs/camping-education/README.md`، `ARTICLE-STANDARD.md` و `assets/img/guides/README.md` به‌روز شدند.
+
 ## 2.13.6 — 1405-07-19 (2026-10-11)
 
 - **تصاویر شاخص دستهٔ سوم (۵ مقالهٔ باقی‌مانده):** اینفوگرافیک‌های مالک از زیرپوشهٔ «5 img» برای `first-aid-kit-checklist`، `diy-emergency-torch`، `camping-water-planning`، `essential-camping-equipment` و `drowning-rescue-guide` در `assets/img/guides/` قرار گرفت و کلیدهای «تصویر شاخص»/«متن جایگزین تصویر» به مقاله‌ها اضافه شد؛ `data/ready-guides.php` بازتولید شد — **هر ۲۷ آموزش تصویر شاخص همراه قالب دارند**. آستانهٔ آزمون‌های پوشش به ۲۷ رسید.

@@ -59,6 +59,16 @@
 | `drinking-water-in-nature` | تأمین آب آشامیدنی در طبیعت |
 | `emergency-water-purification` | تصفیهٔ آب در شرایط اضطراری |
 | `drowning-rescue-guide` | نجات غریق از ساحل و CPR ساده |
+| `self-rescue-drowning` | نجات خود هنگام غرق‌شدگی؛ شناوری، جریان شکافنده، آب سرد |
+| `unconscious-drowning-cpr` | بیرون‌آوردن غریق بیهوش و احیا با تنفس |
+| `cpr-complete-guide` | احیای قلبی‌ریوی کامل؛ بزرگسال، کودک، نوزاد |
+| `ankle-sprain-first-aid` | پیچ‌خوردگی، دررفتگی و شک به شکستگی مچ پا |
+| `burn-injury-first-aid` | سوختگی در طبیعت؛ خنک‌سازی و پانسمان |
+| `overdose-rescue-guide` | اوردوز و مسمومیت دارویی؛ راه هوایی و ۱۱۵ |
+| `bleeding-wound-first-aid` | خونریزی شدید؛ فشار، پک کردن، گارو |
+| `heatstroke-first-aid` | گرمازدگی و سکتهٔ گرمایی |
+| `hypothermia-first-aid` | سرمازدگی، هیپوترمی و یخ‌زدگی |
+| `snake-insect-bite-first-aid` | گزیدگی مار، عقرب، زنبور و کنه |
 
 ## ترتیب ثابت متن مقاله
 

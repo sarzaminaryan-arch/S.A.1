@@ -27,7 +27,7 @@ function sa_guides_expect( $condition, $message ) {
 }
 
 $guides = include SA_CHILD_DIR . 'data/ready-guides.php';
-sa_guides_expect( is_array( $guides ) && count( $guides ) >= 27, 'ready-guides.php must return at least 27 records' );
+sa_guides_expect( is_array( $guides ) && count( $guides ) >= 37, 'ready-guides.php must return at least 37 records' );
 
 $attractions = include SA_CHILD_DIR . 'data/ready-articles.php';
 sa_guides_expect( is_array( $attractions ) && ! array_intersect_key( $guides, $attractions ), 'guide keys must not collide with attraction keys' );
@@ -97,7 +97,7 @@ foreach ( $guides as $key => $g ) {
 		$covers = isset( $covers ) ? $covers + 1 : 1;
 	}
 }
-sa_guides_expect( isset( $covers ) && $covers >= 27, 'all 27 guides must ship a bundled cover (owner batches 1–3)' );
+sa_guides_expect( isset( $covers ) && $covers >= 37, 'all 37 guides must ship a bundled cover (owner batches 1–4)' );
 
 /**
  * Minimal strip-tags shim (no WordPress here).

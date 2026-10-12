@@ -53,7 +53,11 @@ BRANCHES: Dict[str, Tuple[str, str, List[str]]] = {
         'how-to-start-campfire', 'fire-without-lighter', 'maintain-fire-in-rain', 'how-to-extinguish-campfire']),
     'drinking-water': ('آب آشامیدنی', 'Drinking water', [
         'camping-water-planning', 'drinking-water-in-nature', 'emergency-water-purification']),
-    'water-rescue': ('نجات غریق و ایمنی آبی', 'Water rescue', ['drowning-rescue-guide']),
+    'water-rescue': ('نجات غریق و ایمنی آبی', 'Water rescue', [
+        'drowning-rescue-guide', 'self-rescue-drowning', 'unconscious-drowning-cpr']),
+    'first-aid': ('کمک‌های اولیه در طبیعت', 'First aid', [
+        'cpr-complete-guide', 'ankle-sprain-first-aid', 'burn-injury-first-aid', 'overdose-rescue-guide',
+        'bleeding-wound-first-aid', 'heatstroke-first-aid', 'hypothermia-first-aid', 'snake-insect-bite-first-aid']),
 }
 
 ENGLISH: Dict[str, str] = {
@@ -84,6 +88,16 @@ ENGLISH: Dict[str, str] = {
     'drinking-water-in-nature': 'Drinking Water in Nature',
     'emergency-water-purification': 'Emergency Water Purification',
     'drowning-rescue-guide': 'Drowning Rescue Guide',
+    'self-rescue-drowning': 'Self-Rescue from Drowning',
+    'unconscious-drowning-cpr': 'Unconscious Drowning Victim and CPR',
+    'cpr-complete-guide': 'Complete CPR Guide',
+    'ankle-sprain-first-aid': 'Ankle Sprain First Aid',
+    'burn-injury-first-aid': 'Burn Injury First Aid',
+    'overdose-rescue-guide': 'Overdose Rescue Guide',
+    'bleeding-wound-first-aid': 'Severe Bleeding First Aid',
+    'heatstroke-first-aid': 'Heatstroke First Aid',
+    'hypothermia-first-aid': 'Hypothermia First Aid',
+    'snake-insect-bite-first-aid': 'Snake and Insect Bite First Aid',
 }
 
 READY_STATUSES = ('آمادهٔ انتشار', 'منتشرشده')

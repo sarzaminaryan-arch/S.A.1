@@ -235,6 +235,6 @@ foreach ( $guides as $key => $g ) {
 	sa_t_assert( is_readable( $abs ), "{$key}: cover file readable" );
 	$n++;
 }
-sa_t_assert( $n >= 27, 'all 27 covers bundled (owner batches 1–3)' );
+sa_t_assert( $n >= 37, 'all 37 covers bundled (owner batches 1–4)' );
 
 echo "PASS: ready-articles bundled covers ({$n} files; attach/replace/keep/reuse rules)\n";

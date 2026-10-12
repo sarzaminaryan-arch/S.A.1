@@ -86,7 +86,7 @@ python3 tools/content-lint/content_lint.py --check-ready docs/camping-education/
 
 **رساندن به وردپرس (از قالب 2.13.0):** مقاله‌های «آمادهٔ انتشار» با `python3 tools/content-lint/build_theme_data.py` به فایل دادهٔ قالب `wp-content/themes/sarzaminaryan-child/data/ready-guides.php` تبدیل می‌شوند (نوع `post`، دستهٔ «آموزش‌های ضروری کمپینگ و بقا» با نامک `camping-survival`، برچسب شاخه، FAQ و منابع در متا). پس از به‌روزرسانی قالب، مالک از پیشخوان **سرزمین آریان → مقالات آماده** آن‌ها را درج می‌کند؛ بدون تیک «تأیید مالک» پیش‌نویس می‌مانند. هر تغییری در مارک‌داون باید با بازسازی این فایل همراه شود (`build_theme_data.py --check` در CI هم‌خوانی را بررسی می‌کند).
 
-**تصویر شاخص (از قالب 2.13.2):** اینفوگرافیک‌های مالک در `wp-content/themes/sarzaminaryan-child/assets/img/guides/<slug>.webp` و دو کلید «تصویر شاخص» / «متن جایگزین تصویر» در بلوک سئوی مقاله؛ ابزار «مقالات آماده» هنگام درج/به‌روزرسانی آن را با متن جایگزینِ حاوی کلمهٔ کلیدی تصویر شاخص می‌کند (شرح در [`assets/img/guides/README.md`](../../wp-content/themes/sarzaminaryan-child/assets/img/guides/README.md)). دستهٔ نخست (2.13.2): ۱۷ مقاله؛ دستهٔ دوم (2.13.4): ۵ مقاله (آتش در باد و باران، آتش بدون فندک، خاموش کردن آتش، تأمین آب در طبیعت، تصفیهٔ اضطراری آب). دستهٔ سوم (2.13.6): ۵ مقالهٔ باقی‌مانده (کیف کمک‌های اولیه، مشعل اضطراری، برنامه‌ریزی آب، وسایل ضروری یک‌شبه، نجات غریق) — هر ۲۷ مقاله تصویر شاخص دارند.
+**تصویر شاخص (از قالب 2.13.2):** اینفوگرافیک‌های مالک در `wp-content/themes/sarzaminaryan-child/assets/img/guides/<slug>.webp` و دو کلید «تصویر شاخص» / «متن جایگزین تصویر» در بلوک سئوی مقاله؛ ابزار «مقالات آماده» هنگام درج/به‌روزرسانی آن را با متن جایگزینِ حاوی کلمهٔ کلیدی تصویر شاخص می‌کند (شرح در [`assets/img/guides/README.md`](../../wp-content/themes/sarzaminaryan-child/assets/img/guides/README.md)). دستهٔ نخست (2.13.2): ۱۷ مقاله؛ دستهٔ دوم (2.13.4): ۵ مقاله (آتش در باد و باران، آتش بدون فندک، خاموش کردن آتش، تأمین آب در طبیعت، تصفیهٔ اضطراری آب). دستهٔ سوم (2.13.6): ۵ مقالهٔ باقی‌مانده (کیف کمک‌های اولیه، مشعل اضطراری، برنامه‌ریزی آب، وسایل ضروری یک‌شبه، نجات غریق). دستهٔ چهارم (2.14.0): ۱۰ مقالهٔ نجات در آب و کمک‌های اولیه، هر کدام با اینفوگرافیک مالک از همان پوشهٔ Drive «12 articles» — هر ۳۷ مقاله تصویر شاخص دارند.
 
 **جایگاه در سایت (از قالب 2.13.1):** دستهٔ `camping-survival` کنار استان‌ها، شهرستان‌ها و دیدنی‌ها نشان داده می‌شود — چیپ «آموزش‌ها» در هیروی صفحهٔ اول، کارت آمار «آموزش»، بخش «آموزش‌های ضروری کمپینگ و بقا» (شش آموزش تازه) پیش از «آخرین مقالات»، آیتم منوی اصلی سربرگ، ستون «لینک‌های کاربردی» پابرگ و ردیف فیلتر شاخه‌ها (برچسب‌ها) روی آرشیو دسته. همهٔ این‌ها تنها وقتی ظاهر می‌شوند که دست‌کم یک آموزش **منتشر** شده باشد (قاعدهٔ «به آرشیو خالی پیوند نده»)؛ نامک دسته و برچسب پیوند در سفارشی‌ساز، بخش «آموزش‌ها (کمپینگ و بقا)»، قابل تغییر است (`inc/education.php`).
 
@@ -94,7 +94,7 @@ python3 tools/content-lint/content_lint.py --check-ready docs/camping-education/
 
 ## نقشهٔ کار
 
-### آماده در مخزن (۲۷ مقاله؛ همه با فیلتر بدون هشدار، وضعیت «آمادهٔ انتشار»)
+### آماده در مخزن (۳۷ مقاله؛ همه با فیلتر بدون هشدار، وضعیت «آمادهٔ انتشار»)
 
 | شاخه | نامک‌ها |
 |---|---|
@@ -103,12 +103,13 @@ python3 tools/content-lint/content_lint.py --check-ready docs/camping-education/
 | کاردستی DIY | `diy-water-filter`، `diy-can-stove`، `rope-alternatives-outdoor`، `diy-compass`، `diy-emergency-torch` |
 | آتش | `how-to-start-campfire`، `fire-without-lighter`، `maintain-fire-in-rain`، `how-to-extinguish-campfire` |
 | آب | `camping-water-planning`، `drinking-water-in-nature`، `emergency-water-purification` |
-| نجات غریق | `drowning-rescue-guide` |
+| نجات غریق | `drowning-rescue-guide`، `self-rescue-drowning`، `unconscious-drowning-cpr` |
+| کمک‌های اولیه در طبیعت | `cpr-complete-guide`، `ankle-sprain-first-aid`، `burn-injury-first-aid`، `overdose-rescue-guide`، `bleeding-wound-first-aid`، `heatstroke-first-aid`، `hypothermia-first-aid`، `snake-insect-bite-first-aid` |
 
 ### در صف (طبق برنامهٔ ۶۵ مقاله‌ای مالک)
 
 1. `diy-water-container` (شمارهٔ ۱۹ برنامه؛ پیش‌نویس آن در Drive نبود).
-2. نجات در آب: `self-rescue-drowning`، `unconscious-drowning-cpr`، `water-safety-children`.
-3. کمک‌های اولیه: `cpr-complete-guide`، مچ پا، شکستگی، اوردوز، سوختگی، خونریزی، گرمازدگی، سرمازدگی، گزش.
+2. نجات در آب: `water-safety-children` (شمارهٔ ۲۹ برنامه؛ در پوشهٔ Drive پیش‌نویسی برای آن نبود — فایل شمارهٔ ۲۹ پوشه دربارهٔ سوختگی بود و فایل ۲۶ تکرار «نجات غریق» موجود).
+3. کمک‌های اولیه: شکستگی (شمارهٔ ۳۲ برنامه؛ پیش‌نویسی در Drive نداشت).
 4. مهار آتش، خودرو، پناهگاه، حیوانات، مسیریابی، سیگنال‌دهی و مقالات تکمیلی (۳۹ تا ۶۵).
 5. پالایش ۲۸ مقالهٔ موجود `ready-articles.php`، تک‌به‌تک، با همین فیلتر.
