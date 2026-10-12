@@ -1,0 +1,38 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"mr-main","className":"mr-main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group mr-main" id="mr-main">
+
+	<!-- wp:group {"className":"mr-section","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group mr-section">
+		<!-- wp:query-title {"type":"search","level":1} /-->
+		<!-- wp:search {"showLabel":false,"buttonUseIcon":true,"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}}} /-->
+
+		<!-- wp:query {"queryId":31,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"relevance","author":"","search":"","exclude":[],"sticky":"","inherit":true},"layout":{"type":"default"}} -->
+		<div class="wp-block-query">
+			<!-- wp:post-template {"layout":{"type":"grid","columnCount":2}} -->
+				<!-- wp:post-title {"isLink":true,"level":2,"fontSize":"large"} /-->
+				<!-- wp:post-excerpt {"excerptLength":28} /-->
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-numbers /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>نتیجه‌ای برای این جست‌وجو پیدا نشد. عبارت دیگری را امتحان کنید.</p>
+				<!-- /wp:paragraph -->
+				<!-- wp:search {"showLabel":false,"buttonUseIcon":true} /-->
+			<!-- /wp:query-no-results -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

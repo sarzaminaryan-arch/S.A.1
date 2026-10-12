@@ -1,0 +1,37 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"mr-main","className":"mr-main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group mr-main" id="mr-main">
+
+	<!-- wp:pattern {"slug":"mr369l/hero"} /-->
+
+	<!-- wp:pattern {"slug":"mr369l/trust-badges"} /-->
+
+	<!-- wp:group {"align":"wide","className":"mr-section","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide mr-section">
+		<!-- wp:heading {"level":2,"className":"mr-reveal","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} -->
+		<h2 class="wp-block-heading mr-reveal">تازه‌های فروشگاه</h2>
+		<!-- /wp:heading -->
+
+		<!-- wp:query {"queryId":12,"query":{"perPage":6,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"className":"mr-stagger","layout":{"type":"default"}} -->
+		<div class="wp-block-query mr-stagger">
+			<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/10","style":{"border":{"radius":"var:custom|radius|md"}}} /-->
+				<!-- wp:post-title {"isLink":true,"level":3,"fontSize":"large"} /-->
+				<!-- wp:post-date {"fontSize":"small","className":"mr-footer__note"} /-->
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>هنوز نوشته‌ای منتشر نشده است.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

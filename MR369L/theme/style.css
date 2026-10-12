@@ -1,0 +1,25 @@
+/*
+Theme Name: MR369L
+Theme URI: https://github.com/sarzaminaryan-arch/S.A.1
+Author: محمدرضا لک
+Author URI: https://sarzaminaryan.ir
+Description: قالب فروشگاهی مینیمال، فارسی و راست‌چین برای ووکامرس. سیستم طراحی بر پایهٔ theme.json نسخهٔ ۳، تایپوگرافی فارسی با فونت وزیرمتن (محلی، OFL)، موشن تایپوگرافی سبک و کم‌مصرف با CSS خالص، دسترس‌پذیری AA و یک صفحهٔ تنظیمات ساده برای مالک. بدون جاوااسکریپت اختصاصی و بدون هیچ درخواست بیرونی.
+Version: 0.1.0
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: mr369l
+Domain Path: /languages
+Tags: rtl-language-support, e-commerce, block-styles, wide-blocks, full-width-template, custom-logo, custom-menu, translation-ready, accessibility-ready, blog
+*/
+
+/*
+استایل‌های قالب در این سه فایل هستند و از طریق inc/assets.php بارگذاری می‌شوند:
+  - assets/css/theme.css              → پایه، چیدمان، اجزای نمایشی
+  - assets/css/typography-motion.css  → موشن تایپوگرافی (CSS خالص)
+توکن‌های طراحی (رنگ، تایپ، فاصله) در theme.json تعریف شده‌اند و به‌صورت
+متغیرهای --wp--preset--* و --wp--custom--* در دسترس‌اند.
+این فایل فقط متادیتای قالب را نگه می‌دارد؛ هیچ قاعده‌ای اینجا نوشته نمی‌شود.
+*/

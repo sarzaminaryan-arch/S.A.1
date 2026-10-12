@@ -1,0 +1,248 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "44rem",
+			"wideSize": "72rem"
+		},
+		"color": {
+			"background": true,
+			"button": true,
+			"caption": true,
+			"custom": false,
+			"customDuotone": false,
+			"customGradient": false,
+			"defaultDuotone": false,
+			"defaultGradients": false,
+			"defaultPalette": false,
+			"heading": true,
+			"link": true,
+			"text": true,
+			"palette": [
+				{ "slug": "base", "name": "پایه (سفید)", "color": "#ffffff" },
+				{ "slug": "surface", "name": "سطح", "color": "#f7f7f5" },
+				{ "slug": "line", "name": "خط جداکننده (تزئینی)", "color": "#d9dcda" },
+				{ "slug": "line-strong", "name": "مرز کنترل‌ها", "color": "#868e96" },
+				{ "slug": "contrast", "name": "متن اصلی", "color": "#141a1f" },
+				{ "slug": "muted", "name": "متن فرعی", "color": "#525c66" },
+				{ "slug": "accent", "name": "تأکیدی", "color": "#0f6f5c" },
+				{ "slug": "accent-soft", "name": "تأکیدی روشن", "color": "#e8f2ef" },
+				{ "slug": "danger", "name": "هشدار/ناموجود", "color": "#a4232b" },
+				{ "slug": "success", "name": "موفق", "color": "#16643d" }
+			]
+		},
+		"typography": {
+			"customFontSize": false,
+			"dropCap": false,
+			"fluid": true,
+			"fontStyle": true,
+			"fontWeight": true,
+			"letterSpacing": false,
+			"lineHeight": true,
+			"textDecoration": true,
+			"textTransform": false,
+			"writingMode": false,
+			"fontFamilies": [
+				{
+					"slug": "vazirmatn",
+					"name": "وزیرمتن",
+					"fontFamily": "Vazirmatn, \"IRANSans\", Tahoma, system-ui, -apple-system, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Vazirmatn",
+							"fontWeight": "400",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/Vazirmatn-Regular.woff2" ]
+						},
+						{
+							"fontFamily": "Vazirmatn",
+							"fontWeight": "500",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/Vazirmatn-Medium.woff2" ]
+						},
+						{
+							"fontFamily": "Vazirmatn",
+							"fontWeight": "700",
+							"fontStyle": "normal",
+							"fontDisplay": "swap",
+							"src": [ "file:./assets/fonts/Vazirmatn-Bold.woff2" ]
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{ "slug": "small", "name": "کوچک", "size": "0.875rem" },
+				{ "slug": "medium", "name": "متوسط", "size": "1rem" },
+				{ "slug": "large", "name": "بزرگ", "size": "1.25rem" },
+				{ "slug": "x-large", "name": "خیلی بزرگ", "size": "clamp(1.5rem, 1.2rem + 1.2vw, 2rem)" },
+				{ "slug": "display", "name": "نمایشی", "size": "clamp(1.9rem, 1.5rem + 2.6vw, 3.4rem)" }
+			]
+		},
+		"spacing": {
+			"blockGap": true,
+			"margin": true,
+			"padding": true,
+			"units": [ "px", "rem", "em", "%", "vw", "vh" ],
+			"spacingSizes": [
+				{ "slug": "10", "name": "۱", "size": "0.25rem" },
+				{ "slug": "20", "name": "۲", "size": "0.5rem" },
+				{ "slug": "30", "name": "۳", "size": "0.75rem" },
+				{ "slug": "40", "name": "۴", "size": "1rem" },
+				{ "slug": "50", "name": "۵", "size": "1.5rem" },
+				{ "slug": "60", "name": "۶", "size": "2rem" },
+				{ "slug": "70", "name": "۷", "size": "3rem" },
+				{ "slug": "80", "name": "۸", "size": "4rem" },
+				{ "slug": "90", "name": "۹", "size": "6rem" }
+			]
+		},
+		"border": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
+		},
+		"dimensions": {
+			"minHeight": true
+		},
+		"position": {
+			"sticky": true
+		},
+		"custom": {
+			"radius": {
+				"sm": "6px",
+				"md": "10px",
+				"lg": "16px"
+			},
+			"shadow": {
+				"soft": "0 1px 2px rgba(20, 26, 31, 0.06), 0 8px 24px rgba(20, 26, 31, 0.06)",
+				"none": "none"
+			},
+			"motion": {
+				"duration": {
+					"fast": "180ms",
+					"base": "260ms",
+					"slow": "520ms"
+				},
+				"easing": "cubic-bezier(.2,.7,.2,1)"
+			}
+		}
+	},
+	"styles": {
+		"spacing": {
+			"blockGap": "1.5rem"
+		},
+		"color": {
+			"background": "var:preset|color|base",
+			"text": "var:preset|color|contrast"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|vazirmatn",
+			"fontSize": "var:preset|font-size|medium",
+			"lineHeight": "1.85",
+			"fontWeight": "400"
+		},
+		"elements": {
+			"heading": {
+				"typography": {
+					"lineHeight": "1.35",
+					"fontWeight": "700"
+				},
+				"color": {
+					"text": "var:preset|color|contrast"
+				}
+			},
+			"link": {
+				"color": {
+					"text": "var:preset|color|accent"
+				},
+				"typography": {
+					"textDecoration": "underline"
+				},
+				":hover": {
+					"typography": {
+						"textDecoration": "none"
+					}
+				}
+			},
+			"button": {
+				"border": {
+					"radius": "var:custom|radius|sm"
+				},
+				"color": {
+					"background": "var:preset|color|accent",
+					"text": "var:preset|color|base"
+				},
+				"typography": {
+					"fontWeight": "500",
+					"fontSize": "var:preset|font-size|medium"
+				},
+				":focus": {
+					"outline": {
+						"width": "2px",
+						"style": "solid",
+						"color": "var:preset|color|accent"
+					},
+					"outlineOffset": "2px"
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontSize": "var:preset|font-size|large",
+					"fontWeight": "700"
+				}
+			},
+			"core/navigation": {
+				"typography": {
+					"fontWeight": "500"
+				}
+			},
+			"core/quote": {
+				"border": {
+					"right": {
+						"width": "3px",
+						"style": "solid",
+						"color": "var:preset|color|accent"
+					}
+				},
+				"spacing": {
+					"padding": {
+						"right": "var:preset|spacing|50"
+					}
+				}
+			},
+			"core/code": {
+				"typography": {
+					"fontSize": "var:preset|font-size|small"
+				}
+			},
+			"core/separator": {
+				"color": {
+					"background": "var:preset|color|line"
+				}
+			},
+			"core/table": {
+				"typography": {
+					"fontSize": "var:preset|font-size|small"
+				}
+			}
+		}
+	},
+	"templateParts": [
+		{ "name": "header", "title": "سربرگ", "area": "header" },
+		{ "name": "footer", "title": "پاصفحه", "area": "footer" }
+	],
+	"customTemplates": [
+		{
+			"name": "page-wide",
+			"title": "برگهٔ تمام‌عرض",
+			"postTypes": [ "page" ]
+		}
+	]
+}

@@ -1,0 +1,38 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","anchor":"mr-main","className":"mr-main","layout":{"type":"constrained"}} -->
+<main class="wp-block-group mr-main" id="mr-main">
+
+	<!-- wp:group {"className":"mr-section","layout":{"type":"constrained"}} -->
+	<div class="wp-block-group mr-section">
+		<!-- wp:query-title {"type":"archive","level":1} /-->
+		<!-- wp:term-description /-->
+
+		<!-- wp:query {"queryId":21,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"className":"mr-stagger","layout":{"type":"default"}} -->
+		<div class="wp-block-query mr-stagger">
+			<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
+				<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"16/10","style":{"border":{"radius":"var:custom|radius|md"}}} /-->
+				<!-- wp:post-title {"isLink":true,"level":2,"fontSize":"large"} /-->
+				<!-- wp:post-date {"fontSize":"small","className":"mr-footer__note"} /-->
+			<!-- /wp:post-template -->
+
+			<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"space-between"}} -->
+				<!-- wp:query-pagination-previous /-->
+				<!-- wp:query-pagination-numbers /-->
+				<!-- wp:query-pagination-next /-->
+			<!-- /wp:query-pagination -->
+
+			<!-- wp:query-no-results -->
+				<!-- wp:paragraph -->
+				<p>در این بخش هنوز موردی منتشر نشده است.</p>
+				<!-- /wp:paragraph -->
+			<!-- /wp:query-no-results -->
+		</div>
+		<!-- /wp:query -->
+	</div>
+	<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer","area":"footer"} /-->

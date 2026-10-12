@@ -1,0 +1,185 @@
+/**
+ * MR369L — موشن تایپوگرافی (CSS خالص، بدون جاوااسکریپت).
+ *
+ * قرارداد اجرا (D-009 در docs/DECISIONS_FA.md):
+ * - سطح موشن از کلاس body می‌آید: mr-motion-off | mr-motion-subtle | mr-motion-full
+ * - حالت پایه همیشه «کامل و خوانا» است؛ انیمیشن فقط «افکت ورود» است (M2).
+ * - انیمیشن‌های وابسته به اسکرول داخل @supports(animation-timeline: view()) (M4).
+ * - با prefers-reduced-motion: reduce همهٔ حرکت‌ها خاموش می‌شوند (M3).
+ * - فقط transform/opacity/clip-path انیمیت می‌شوند؛ هیچ ویژگی چیدمانی (M5).
+ *
+ * کنترل متوالی: متغیر --mr-i (شمارهٔ ترتیب) که در مارک‌آپ الگوها ست می‌شود.
+ */
+
+/* ۱) کلیدها */
+
+@keyframes mr-rise-in {
+	from {
+		opacity: 0;
+		transform: translateY(0.6em);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes mr-mask-wipe {
+	from {
+		clip-path: inset(0 100% 0 0);
+	}
+	to {
+		clip-path: inset(0 0 0 0);
+	}
+}
+
+@keyframes mr-underline-draw {
+	from {
+		background-size: 0% 1px;
+	}
+	to {
+		background-size: 100% 1px;
+	}
+}
+
+@keyframes mr-ticker-shift {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+
+@keyframes mr-scroll-title {
+	from {
+		opacity: 0;
+		transform: translateY(0.75em);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* ۲) حالت پایه: محتوا کامل و ثابت */
+
+.mr-rise,
+.mr-mask,
+.mr-reveal {
+	opacity: 1;
+	transform: none;
+}
+
+/* span کلمه‌ای باید inline-block باشد؛ transform روی عناصر inline اثر ندارد. */
+.mr-rise,
+.mr-mask {
+	display: inline-block;
+}
+
+/* ۳) سطح «ملایم» */
+
+.mr-motion-subtle .mr-rise,
+.mr-motion-full .mr-rise {
+	animation: mr-rise-in var(--wp--custom--motion--duration--slow, 520ms)
+		var(--wp--custom--motion--easing, cubic-bezier(.2, .7, .2, 1)) both;
+	animation-delay: calc(var(--mr-i, 0) * 70ms);
+	will-change: transform, opacity;
+}
+
+/* کارت‌ها و آیتم‌های شبکه: ورود پله‌ای */
+.mr-motion-subtle .mr-stagger > *,
+.mr-motion-full .mr-stagger > * {
+	animation: mr-rise-in 420ms var(--wp--custom--motion--easing, cubic-bezier(.2, .7, .2, 1)) both;
+	animation-delay: calc(var(--mr-i, 0) * 45ms);
+}
+
+/* لینک‌ها و دکمه‌های متنی: کشیده‌شدن زیرخط در hover/focus */
+.mr-motion-subtle .mr-underline,
+.mr-motion-full .mr-underline {
+	background-image: linear-gradient(currentColor, currentColor);
+	background-repeat: no-repeat;
+	background-position: 0% 100%;
+	background-size: 0% 1px;
+	transition: background-size var(--wp--custom--motion--duration--base, 260ms)
+		var(--wp--custom--motion--easing, cubic-bezier(.2, .7, .2, 1));
+}
+
+.mr-motion-subtle .mr-underline:hover,
+.mr-motion-subtle .mr-underline:focus-visible,
+.mr-motion-full .mr-underline:hover,
+.mr-motion-full .mr-underline:focus-visible {
+	background-size: 100% 1px;
+}
+
+/* ۴) سطح «نمایشی» (افزودنی) */
+
+/* نمایان‌شدن تیتر با پردهٔ برشی — جایگزین تایپ‌رایتر (مناسب فونت تناسبی فارسی) */
+.mr-motion-full .mr-mask {
+	animation: mr-mask-wipe 700ms var(--wp--custom--motion--easing, cubic-bezier(.2, .7, .2, 1)) both;
+	animation-delay: calc(var(--mr-i, 0) * 90ms);
+}
+
+/* نوار اعلان متحرک: نسخهٔ اصلی متن در دسترس می‌ماند، نسخهٔ تکراری تزئینی aria-hidden است */
+.mr-motion-full .mr-ticker__track {
+	display: flex;
+	inline-size: max-content;
+	gap: var(--wp--preset--spacing--60, 2rem);
+	animation: mr-ticker-shift 22s linear infinite;
+}
+
+.mr-motion-full .mr-ticker:hover .mr-ticker__track,
+.mr-motion-full .mr-ticker:focus-within .mr-ticker__track {
+	animation-play-state: paused;
+}
+
+.mr-ticker {
+	overflow: hidden;
+}
+
+/* ۵) انیمیشن وابسته به اسکرول (با پشتیبانی تدریجی) */
+
+@supports (animation-timeline: view()) {
+	.mr-motion-subtle .mr-reveal,
+	.mr-motion-full .mr-reveal {
+		animation: mr-scroll-title linear both;
+		animation-timeline: view();
+		animation-range: entry 0% cover 32%;
+	}
+}
+
+/* ۶) سطح خاموش: صریحاً ثابت */
+
+.mr-motion-off .mr-rise,
+.mr-motion-off .mr-mask,
+.mr-motion-off .mr-reveal,
+.mr-motion-off .mr-stagger > * {
+	animation: none;
+	opacity: 1;
+	transform: none;
+}
+
+/* ۷) کاهش حرکت: خاموشی کامل (استثنای مستندِ قاعدهٔ AUD-11) */
+
+@media (prefers-reduced-motion: reduce) {
+	.mr-rise,
+	.mr-mask,
+	.mr-reveal,
+	.mr-stagger > *,
+	.mr-motion-full .mr-ticker__track,
+	[class*="mr-motion-"] .mr-rise,
+	[class*="mr-motion-"] .mr-mask,
+	[class*="mr-motion-"] .mr-reveal,
+	[class*="mr-motion-"] .mr-stagger > * {
+		animation: none !important;
+		transition: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+		clip-path: none !important;
+	}
+
+	.mr-ticker__track {
+		inline-size: auto;
+		transform: none !important;
+	}
+}

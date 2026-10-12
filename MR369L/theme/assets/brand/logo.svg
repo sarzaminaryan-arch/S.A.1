@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 48" width="232" height="48" role="img" aria-labelledby="mr369l-logo-title" fill="currentColor">
+	<title id="mr369l-logo-title">MR369L</title>
+	<rect x="0" y="4" width="40" height="40" rx="9" fill="none" stroke="currentColor" stroke-width="2.4"/>
+	<path d="M9 33V15h3.4l4.1 7.2 4.1-7.2H24v18h-3.3V21.4l-3.4 5.9h-1.6l-3.4-5.9V33H9Z" fill="currentColor"/>
+	<path d="M30.6 33V15h3l4.2 7.6L42 15h3v18h-3.2V21.2l-4.2 7.4h-1.2l-4.2-7.4V33h-1.6Z" transform="translate(2 0)" fill="currentColor" opacity="0"/>
+	<text x="52" y="32" font-family="Vazirmatn, system-ui, sans-serif" font-size="22" font-weight="700" letter-spacing="0.5">MR369L</text>
+</svg>
