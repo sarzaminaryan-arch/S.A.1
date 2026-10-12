@@ -122,11 +122,16 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-head h2{position:relative;z-index:1;margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:800;color:var(--navy);text-shadow:0 1px 0 #fff,0 8px 18px rgba(11,42,74,.14)}
 .sa-head a{position:relative;z-index:1;color:var(--navy-2);font-weight:700;text-decoration:none;white-space:nowrap}
 .sa-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.sa-post{display:block;border-radius:24px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 34px 54px -28px color-mix(in srgb,var(--c,#18558f) 75%,transparent),0 2px 6px rgba(11,20,36,.05);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.sa-post{display:block;border-radius:24px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 34px 54px -28px color-mix(in srgb,var(--c,#18558f) 75%,transparent),0 2px 6px rgba(11,20,36,.05);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background-color .3s}
+/* v2.16.0: هاور و کلیک رنگی روی کارت مقالات (درخواست مالک). */
+.sa-post:hover,.sa-post:focus-visible{background:color-mix(in srgb,var(--c,#18558f) 4%,#fff);transform:translateY(-5px);box-shadow:0 32px 50px -26px color-mix(in srgb,var(--c,#18558f) 92%,transparent),0 0 0 3px color-mix(in srgb,var(--c,#18558f) 13%,transparent)}
+.sa-post:active{background:color-mix(in srgb,var(--c,#18558f) 10%,#fff);transform:translateY(-2px) scale(.995);box-shadow:0 14px 24px -16px color-mix(in srgb,var(--c,#18558f) 90%,transparent),0 0 0 5px color-mix(in srgb,var(--c,#18558f) 18%,transparent)}
+.sa-post:hover h3,.sa-post:focus-visible h3{color:color-mix(in srgb,var(--c,#18558f) 80%,#0b1424)}
 /* v2.15.0: کادر تصویر (.sa-img) از کارت‌های صفحهٔ اول برداشته شد — مقالات بدون تصویر شاخص. */
-.sa-pb{padding:20px 18px 18px;border-top:4px solid color-mix(in srgb,var(--c,#18558f) 70%,#fff)}
-.sa-pb h3{margin:0 0 6px;font-size:16px;line-height:1.6;font-weight:700}
-.sa-pb p{margin:0 0 10px;color:var(--mut);font-size:14px}
+/* v2.16.0: کادر مقالات بزرگ‌تر — عنوان‌ها و چکیده‌ها بلند است و باید جا داشته باشند. */
+.sa-pb{padding:26px 24px 24px;border-top:4px solid color-mix(in srgb,var(--c,#18558f) 70%,#fff)}
+.sa-pb h3{margin:0 0 9px;font-size:18px;line-height:1.8;font-weight:700;transition:color .3s}
+.sa-pb p{margin:0 0 12px;color:var(--mut);font-size:14.5px;line-height:1.9}
 .sa-pb small{color:#8593a6;font-size:12.5px}
 .js .rv{opacity:0;transform:translateY(26px)}
 .js .rv.in{opacity:1;transform:none}

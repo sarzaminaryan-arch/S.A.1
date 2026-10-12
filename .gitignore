@@ -35,3 +35,6 @@ tools/importers/
 # temporary image staging (never commit)
 image-search/
 .stage*/
+
+# Local preview page served during Arena sessions (not part of any release).
+.preview/
