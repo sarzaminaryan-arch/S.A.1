@@ -75,6 +75,14 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-entity-bars.php"
 
+      - name: Run media restore tests (missing uploads files, source fallbacks, backup ZIP)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-media-restore.php"
+
+      - name: Run featured-image switch tests (hidden by default, in-content placeholder)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-featured-images.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

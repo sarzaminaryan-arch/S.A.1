@@ -140,9 +140,14 @@ function sa_social_image_url( $post_id, $network = 'telegram' ) {
 	$images = sa_social_content_images( $post_id );
 
 	// تصویر شاخص همیشه در اولویت است (اگر وجود داشته باشد).
-	$thumb = get_the_post_thumbnail_url( $post_id, 'full' );
-	if ( $thumb ) {
-		array_unshift( $images, $thumb );
+	// v2.15.0: تصویری که فایلش از سرور پاک شده در انتشار شبکه‌های اجتماعی نمی‌رود.
+	$thumb_id = (int) get_post_thumbnail_id( $post_id );
+	$thumb_ok = $thumb_id && ( ! function_exists( 'sa_media_attachment_missing' ) || ! sa_media_attachment_missing( $thumb_id ) );
+	if ( $thumb_ok ) {
+		$thumb = get_the_post_thumbnail_url( $post_id, 'full' );
+		if ( $thumb ) {
+			array_unshift( $images, $thumb );
+		}
 	}
 
 	$url = '';

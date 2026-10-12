@@ -436,6 +436,10 @@ function sa_ready_articles_attach_cover( $post_id, $article ) {
 		$is_generated = '' !== (string) get_post_meta( $current_id, '_sa_ready_cover_article', true );
 		if ( $is_ours && (string) get_post_meta( $current_id, '_sa_ready_cover_hash', true ) === $hash ) {
 			// Same picture already in place — only keep alt/title in sync.
+			// v2.15.0: فایلِ پاک‌شدهٔ همین تصویر شاخص را از نسخهٔ همراه قالب برمی‌گردانیم.
+			if ( function_exists( 'sa_media_attachment_missing' ) && sa_media_attachment_missing( $current_id ) ) {
+				sa_media_restore_from_file( $current_id, $path );
+			}
 			update_post_meta( $current_id, '_wp_attachment_image_alt', $alt );
 			return 0;
 		}
@@ -593,6 +597,15 @@ function sa_ready_articles_figure( $item, $post_id = 0 ) {
 	}
 	if ( ! $id ) {
 		return '';
+	}
+	// v2.15.0: اگر فایلِ پیوست از سرور پاک شده باشد، پیش از تولید خروجی از
+	// نسخهٔ همراه قالب یا نشانی منبع همان قلم برمی‌گردد؛ اگر نشد تصویر شکسته
+	// منتشر نمی‌شود (نوار جای‌گزین در inc/featured-images.php نمایش داده می‌شود).
+	if ( function_exists( 'sa_media_attachment_missing' ) && sa_media_attachment_missing( $id ) ) {
+		sa_media_try_restore_attachment( $id, $item );
+		if ( sa_media_attachment_missing( $id ) ) {
+			return '';
+		}
 	}
 	$image = wp_get_attachment_image( $id, 'large', false, array( 'loading' => 'lazy' ) );
 	if ( ! $image ) {

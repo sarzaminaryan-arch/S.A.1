@@ -75,7 +75,7 @@ $sa_meta          = sa_card_meta( $sa_post->ID );
 	<a class="sa-card__media" href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>" tabindex="-1" aria-hidden="true">
 		<?php if ( 'attraction' === $sa_type && function_exists( 'sa_attraction_diagram_markup' ) ) : ?>
 			<?php echo sa_attraction_diagram_markup( $sa_post->ID, 'card' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		<?php elseif ( has_post_thumbnail( $sa_post ) ) : ?>
+		<?php elseif ( function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $sa_post->ID, 'card' ) ) : ?>
 			<?php echo get_the_post_thumbnail( $sa_post, 'sarzaminaryan-card', array( 'loading' => 'lazy' ) ); ?>
 		<?php else : ?>
 			<span class="sa-card__placeholder"><?php echo esc_html( mb_substr( $sa_display_title, 0, 1 ) ); ?></span>

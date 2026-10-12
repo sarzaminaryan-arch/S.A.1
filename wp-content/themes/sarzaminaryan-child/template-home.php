@@ -123,8 +123,8 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-head a{position:relative;z-index:1;color:var(--navy-2);font-weight:700;text-decoration:none;white-space:nowrap}
 .sa-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .sa-post{display:block;border-radius:24px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 34px 54px -28px color-mix(in srgb,var(--c,#18558f) 75%,transparent),0 2px 6px rgba(11,20,36,.05);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-.sa-img{aspect-ratio:16/10;background:linear-gradient(135deg,color-mix(in srgb,var(--c,#18558f) 35%,#fff),color-mix(in srgb,var(--c,#18558f) 8%,#fff)) center/cover}
-.sa-pb{padding:10px 12px 12px}
+/* v2.15.0: کادر تصویر (.sa-img) از کارت‌های صفحهٔ اول برداشته شد — مقالات بدون تصویر شاخص. */
+.sa-pb{padding:20px 18px 18px;border-top:4px solid color-mix(in srgb,var(--c,#18558f) 70%,#fff)}
 .sa-pb h3{margin:0 0 6px;font-size:16px;line-height:1.6;font-weight:700}
 .sa-pb p{margin:0 0 10px;color:var(--mut);font-size:14px}
 .sa-pb small{color:#8593a6;font-size:12.5px}
@@ -145,7 +145,8 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-sec--edu .sa-head{border-inline-start-color:#177357}
 .sa-sec__intro{margin:-12px 0 26px;max-width:720px;color:var(--mut);font-size:16px}
 .sa-post .sa-tag{display:inline-block;margin-inline-start:8px;padding:1px 9px;border-radius:99px;background:#e8f6ee;color:#0f5132;font-size:11.5px;font-weight:700}
-.sa-sec--edu .sa-img{aspect-ratio:16/9;background:linear-gradient(135deg,color-mix(in srgb,#177357 30%,#fff),color-mix(in srgb,var(--c,#18558f) 10%,#fff)) center/cover}/* 16:9 = نسبت اینفوگرافیک‌های آموزش (v2.13.2) */
+/* v2.15.0: بخش آموزش‌ها با نوارهای سفید سایه‌دار (مانند فهرست استان‌ها/شهرستان‌ها) — بدون تصویر زمینه. */
+.sa-sec--edu .sa-bars{margin-top:2px}
 @media(max-width:640px){.sa-stats .sa-wrap--3{gap:10px}.sa-wrap--3 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span{font-size:13px}}
 </style>
 
@@ -235,38 +236,27 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 	<?php /* v2.13.3: بخش «استان‌های ایران» (نوارهای سفید) به درخواست مالک از صفحهٔ اول حذف و به آرشیو استان‌ها (/province/) منتقل شد. */ ?>
 
 	<?php
-	/* ---- آموزش‌ها (v2.13.1): آخرین آموزش‌های منتشرشدهٔ دستهٔ کمپینگ و بقا ---- */
-	$sa_edu_q      = $sa_edu_nav && function_exists( 'sa_education_latest_query' ) ? sa_education_latest_query( 6 ) : null;
+	/* ---- آموزش‌ها (v2.13.1): آخرین آموزش‌های منتشرشدهٔ دستهٔ کمپینگ و بقا ----
+	   v2.15.0: به درخواست مالک، این بخش دیگر کارت تصویردار نیست؛ مثل فهرست
+	   استان‌ها/شهرستان‌ها نوارهای کوچک سفید با سایهٔ عمیق و تیتر روی کادر است. */
+	$sa_edu_limit  = function_exists( 'sa_education_home_count' ) ? sa_education_home_count() : 6;
+	$sa_edu_q      = $sa_edu_nav && function_exists( 'sa_education_latest_query' ) ? sa_education_latest_query( $sa_edu_limit > 0 ? $sa_edu_limit : 200 ) : null;
 	$sa_edu_shown  = false;
 	if ( $sa_edu_q && $sa_edu_q->have_posts() ) :
 		$sa_edu_shown = true;
+		$sa_edu_bars  = function_exists( 'sa_education_bars_html' ) ? sa_education_bars_html( $sa_edu_q->posts, $sa_edu_limit ) : '';
 		?>
+		<?php if ( '' !== $sa_edu_bars ) : ?>
 		<section class="sa-sec sa-sec--edu" id="sa-education">
 			<div class="sa-wrap">
 				<div class="sa-head"><h2><?php echo esc_html( $sa_edu_h2 ); ?></h2><a href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>">همه‌ی <?php echo esc_html( $sa_edu_nav['label'] ); ?></a></div>
 				<?php if ( '' !== trim( (string) $sa_edu_intro ) ) : ?>
 					<p class="sa-sec__intro"><?php echo esc_html( $sa_edu_intro ); ?></p>
 				<?php endif; ?>
-				<div class="sa-posts">
-					<?php
-					while ( $sa_edu_q->have_posts() ) :
-						$sa_edu_q->the_post();
-						$sa_thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-						$sa_tags  = get_the_tags();
-						$sa_tag   = $sa_tags && ! is_wp_error( $sa_tags ) ? $sa_tags[0]->name : '';
-						?>
-						<a class="sa-post rv" href="<?php the_permalink(); ?>" style="--c:<?php echo esc_attr( $sa_colors[ ( $sa_edu_q->current_post * 3 + 1 ) % 8 ] ); ?>">
-							<div class="sa-img" <?php if ( $sa_thumb ) : ?>style="background-image:url('<?php echo esc_url( $sa_thumb ); ?>')"<?php endif; ?>></div>
-							<div class="sa-pb">
-								<h3><?php the_title(); ?></h3>
-								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18, '…' ) ); ?></p>
-								<small><?php echo esc_html( get_the_modified_date() ); ?><?php if ( $sa_tag ) : ?><span class="sa-tag"><?php echo esc_html( $sa_tag ); ?></span><?php endif; ?></small>
-							</div>
-						</a>
-					<?php endwhile; ?>
-				</div>
+				<?php echo $sa_edu_bars; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- داخل خودش escape شده است. ?>
 			</div>
 		</section>
+		<?php endif; ?>
 	<?php endif; wp_reset_postdata(); ?>
 
 	<?php
@@ -292,14 +282,15 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 					<?php
 					while ( $sa_latest->have_posts() ) :
 						$sa_latest->the_post();
-						$sa_thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+						/* v2.15.0: تصویر شاخص مقالات تا بازگرداندن فایل‌های رسانه نمایش داده نمی‌شود. */
+						$sa_tags = get_the_tags();
+						$sa_tag  = $sa_tags && ! is_wp_error( $sa_tags ) ? $sa_tags[0]->name : '';
 						?>
 						<a class="sa-post rv" href="<?php the_permalink(); ?>" style="--c:<?php echo esc_attr( $sa_colors[ ( $sa_latest->current_post * 3 ) % 8 ] ); ?>">
-							<div class="sa-img" <?php if ( $sa_thumb ) : ?>style="background-image:url('<?php echo esc_url( $sa_thumb ); ?>')"<?php endif; ?>></div>
 							<div class="sa-pb">
 								<h3><?php the_title(); ?></h3>
 								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18, '…' ) ); ?></p>
-								<small><?php echo esc_html( get_the_date() ); ?></small>
+								<small><?php echo esc_html( get_the_date() ); ?><?php if ( $sa_tag ) : ?><span class="sa-tag"><?php echo esc_html( $sa_tag ); ?></span><?php endif; ?></small>
 							</div>
 						</a>
 					<?php endwhile; ?>

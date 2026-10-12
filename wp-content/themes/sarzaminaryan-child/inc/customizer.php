@@ -78,6 +78,7 @@ function sa_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'sa_education', array( 'title' => 'آموزش‌ها (کمپینگ و بقا)', 'panel' => 'sa_panel', 'description' => 'لینک «آموزش‌ها» در منوی اصلی، چیپ‌های صفحهٔ اول، آمار و پابرگ به‌طور خودکار پس از انتشار نخستین آموزش (تیک «تأیید مالک» در ابزار «مقالات آماده») ظاهر می‌شود؛ تا آن زمان به آرشیو خالی لینک داده نمی‌شود.' ) );
 	$add( 'sa_education', 'sa_education_category', 'نامک دستهٔ آموزش‌ها', 'text', 'camping-survival', array( 'description' => 'پیش‌فرض: camping-survival («آموزش‌های ضروری کمپینگ و بقا»).' ) );
 	$add( 'sa_education', 'sa_education_nav_label', 'برچسب لینک در منو، چیپ‌ها و پابرگ', 'text', 'آموزش‌ها' );
+	$add( 'sa_home_v2', 'sa_sec_edu_count', 'تعداد نوارهای آموزش‌ها در صفحهٔ اول (۰ = همه)', 'text', '10' );
 
 	// Footer.
 	$wp_customize->add_section( 'sa_footer', array( 'title' => 'پابرگ', 'panel' => 'sa_panel' ) );
@@ -106,6 +107,25 @@ function sa_customize_register( $wp_customize ) {
 		true,
 		array( 'description' => 'نخستین رخدادِ نامِ هر استان/شهرستان/دیدنی در بدنه‌ی هر مقاله، یک‌بار به صفحه‌ی خودش لینک می‌شود. لینک‌های دستیِ داخل متن دست‌نخورده می‌مانند.' )
 	);
+
+	// تصاویر (v2.15.0): پس از پاک‌شدن فایل‌های رسانه، نمایش تصویر شاخص خاموش و تصویرهای گمشدهٔ متن جای‌گزین می‌شوند.
+	$add(
+		'sa_display',
+		'sa_show_featured_images',
+		'نمایش تصویر شاخص در سایت (خاموش تا بازگشت فایل‌های رسانه)',
+		'checkbox',
+		false,
+		array( 'description' => 'پیش‌فرض خاموش است: کارت‌ها، آرشیوها و هیروی صفحه‌ها بدون تصویر شاخص نمایش داده می‌شوند. حتی با روشن‌کردن این گزینه، تصویری که فایلش روی سرور نیست نمایش داده نمی‌شود. بازگرداندن فایل‌ها: سرزمین آریان → بازیابی تصاویر.' )
+	);
+	$add(
+		'sa_display',
+		'sa_hide_missing_images',
+		'جای‌گزینی تصویرهای گمشدهٔ داخل متن با کادر متنی',
+		'checkbox',
+		true,
+		array( 'description' => 'تصویرهایی که فایلشان روی سرور نیست، در بخش عمومی سایت به کادر آرام «تصویر این بخش در دست بازبینی است» تبدیل می‌شوند؛ محتوای ذخیره‌شده و ویرایشگر دست‌نخورده می‌مانند.' )
+	);
+	$add( 'sa_display', 'sa_missing_image_label', 'متن کادر جای‌گزین تصویر گمشده', 'text', 'تصویر این بخش در دست بازبینی است' );
 
 	// Editorial.
 	$wp_customize->add_section( 'sa_editorial', array( 'title' => 'قوانین انتشار (مدل داده)', 'panel' => 'sa_panel' ) );

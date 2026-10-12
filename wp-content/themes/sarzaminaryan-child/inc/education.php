@@ -298,3 +298,65 @@ function sa_education_menu_item( $items, $args ) {
 	return $items;
 }
 add_filter( 'wp_nav_menu_objects', 'sa_education_menu_item', 20, 2 );
+
+/**
+ * v2.15.0 — شمار آموزش‌های بخش صفحهٔ اول (۰ = همهٔ آموزش‌ها).
+ *
+ * پیش‌فرض ۱۰ است؛ با فیلتر `sa_education_home_count` یا از سفارشی‌ساز
+ * («سرزمین آریان → صفحه اصلی (طرح v2) → تعداد آموزش‌های صفحهٔ اول») عوض می‌شود.
+ *
+ * @return int
+ */
+function sa_education_home_count() {
+	$count = (int) get_theme_mod( 'sa_sec_edu_count', 10 );
+	/**
+	 * شمار کارت/نوار آموزش در صفحهٔ اول.
+	 *
+	 * @param int $count شمار (۰ = همه).
+	 */
+	$count = (int) apply_filters( 'sa_education_home_count', $count );
+	return max( 0, $count );
+}
+
+/**
+ * v2.15.0 — نوارهای «آموزش‌ها» به سبک فهرست استان‌ها/شهرستان‌ها.
+ *
+ * همان طراحی محبوب مالک: کادرهای کوچک سفید با سایهٔ عمیق رنگی، تیتر روی خود
+ * کادر و برچسب دومِ کوچک (شاخهٔ آموزش = نخستین برچسب نوشته). بدون تصویر
+ * زمینه. روی صفحهٔ اول و روی آرشیو دستهٔ آموزش‌ها (و برچسب‌هایش) استفاده می‌شود.
+ *
+ * @param WP_Post[]|null $posts نوشته‌ها (خالی = تازه‌ترین آموزش‌ها).
+ * @param int            $limit سقف نوارها (۰ = بی‌سقف).
+ * @return string HTML ('' = چیزی برای نمایش نیست).
+ */
+function sa_education_bars_html( $posts = null, $limit = 0 ) {
+	$colors = function_exists( 'sa_bar_colors' ) ? (array) sa_bar_colors() : array( '#18558f' );
+	if ( ! $colors ) {
+		$colors = array( '#18558f' );
+	}
+	if ( null === $posts ) {
+		$query = sa_education_latest_query( $limit > 0 ? $limit : 200 );
+		$posts = $query ? $query->posts : array();
+	}
+	$posts = array_slice( (array) $posts, 0, $limit > 0 ? (int) $limit : null );
+	$out   = '<div class="sa-bars sa-bars--edu" id="sa-edu-bars">';
+	$count = 0;
+	foreach ( $posts as $post ) {
+		if ( ! $post instanceof WP_Post ) {
+			continue;
+		}
+		$tags  = get_the_tags( $post->ID );
+		$sub   = ( $tags && ! is_wp_error( $tags ) ) ? (string) $tags[0]->name : '';
+		$title = get_the_title( $post );
+		$url   = (string) get_permalink( $post );
+		if ( function_exists( 'sa_entity_bar_html' ) ) {
+			$out .= sa_entity_bar_html( $title, $sub, $url, $colors[ $count % count( $colors ) ], true );
+		} else {
+			$out .= '<a class="sa-bar" href="' . esc_url( $url ) . '"><b>' . esc_html( $title ) . '</b>'
+				. ( '' !== $sub ? '<em class="fa">' . esc_html( $sub ) . '</em>' : '' ) . '</a>';
+		}
+		++$count;
+	}
+	$out .= '</div>';
+	return $count > 0 ? $out : '';
+}

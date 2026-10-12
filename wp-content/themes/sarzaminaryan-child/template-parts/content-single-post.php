@@ -44,7 +44,8 @@ $sa_policy = get_page_by_path( 'editorial-policy' );
 		</p>
 	</header>
 
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php /* v2.15.0: تصویر شاخص تا روشن‌کردن کلید «نمایش تصویر شاخص» و بازگشت فایل‌ها نمایش داده نمی‌شود. */ ?>
+	<?php if ( function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $sa_id, 'guide' ) ) : ?>
 		<figure class="post-thumbnail"><?php the_post_thumbnail( 'sa-guide-cover', array( 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?></figure>
 	<?php endif; ?>
 

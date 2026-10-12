@@ -23,6 +23,8 @@ if ( is_post_type_archive( 'province' ) && function_exists( 'sa_province_bars_ht
 } elseif ( $sa_top_views && function_exists( 'sa_attraction_bars_html' ) ) {
 	$sa_bars = 'attraction'; // v2.13.5: دیدنی‌ها (و فیلتر نوع) هم با نوارهای صفحهٔ استان‌ها، صفحه‌بندی حفظ می‌شود.
 }
+/* v2.15.0 — دستهٔ «آموزش‌ها» (و برچسب‌های شاخه‌هایش) هم مثل استان/شهرستان/دیدنی‌ها نوارهای سفید سایه‌دار را نشان می‌دهد، بدون تصویر شاخص. */
+$sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_education_context' ) && sa_is_education_context();
 ?>
 <header class="sa-archive__head<?php echo $sa_top_views ? ' sa-archive__head--topviews' : ''; ?>">
 	<h1 class="sa-archive__title">
@@ -81,6 +83,9 @@ if ( is_post_type_archive( 'province' ) && function_exists( 'sa_province_bars_ht
 	<?php echo sa_city_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
 <?php elseif ( 'attraction' === $sa_bars && have_posts() ) : ?>
 	<?php echo sa_attraction_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
+	<?php the_posts_pagination( array( 'prev_text' => 'قبلی', 'next_text' => 'بعدی', 'mid_size' => 2 ) ); ?>
+<?php elseif ( $sa_edu_archive && have_posts() && function_exists( 'sa_education_bars_html' ) ) : ?>
+	<?php echo sa_education_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
 	<?php the_posts_pagination( array( 'prev_text' => 'قبلی', 'next_text' => 'بعدی', 'mid_size' => 2 ) ); ?>
 <?php elseif ( have_posts() ) : ?>
 	<div class="sa-grid-cards">

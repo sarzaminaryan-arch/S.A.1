@@ -27,8 +27,10 @@ if ( 'city' === $sa_type && $sa_province ) {
 	$sa_kicker = 'راهنمای سفر به استان';
 }
 ?>
-<header class="sa-entity__hero<?php echo has_post_thumbnail() ? ' has-image' : ''; ?>">
-	<?php if ( has_post_thumbnail() ) : ?>
+<?php /* v2.15.0: تصویر شاخص هیروی موجودیت‌ها تا بازگشت فایل‌های رسانه پنهان است. */ ?>
+<?php $sa_hero_image = function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $sa_id, 'hero' ); ?>
+<header class="sa-entity__hero<?php echo $sa_hero_image ? ' has-image' : ''; ?>">
+	<?php if ( $sa_hero_image ) : ?>
 		<figure class="sa-entity__hero-media">
 			<?php the_post_thumbnail( 'full', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'class' => 'sa-entity__hero-img' ) ); ?>
 		</figure>
