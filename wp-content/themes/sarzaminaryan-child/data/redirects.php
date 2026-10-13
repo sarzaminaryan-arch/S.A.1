@@ -42,13 +42,6 @@ return array(
 	'/attraction/22438-ابشار-نوژیان/' => '/attraction/nozhian-waterfall-khorramabad/',
 	'/attraction/persepolis/' => '/attraction/persepolis-takht-jamshid/',
 
-	// ادغام تأییدشدهٔ مالک (۱۴۰۵-۰۷-۱۸): «دره نیگاه (دره نگار)» دو صفحهٔ منتشرشدهٔ
-	// تکراری داشت (nigah-valley-dorud و nigah-valley-dorud-2 با محتوای یکسان).
-	// مقصد: مقالهٔ کامل‌ترِ «مقالات آمادهٔ دیدنی‌ها». پیشنهاد می‌شود خودِ صفحهٔ
-	// «-2» از پیش‌خوان وردپرس به زباله‌دان منتقل شود؛ این نقشه تا آن زمان هم
-	// بازدیدکننده و موتور جست‌وجو را به نسخهٔ درست می‌رساند.
-	'/attraction/nigah-valley-dorud-2/' => '/attraction/nigah-valley-dorud/',
-
 	/*
 	 * پیش‌نویس‌های تکراریِ شهرستان (۱۴۰۵-۰۷-۱۵).
 	 * سه پیش‌نویسِ خالیِ سایت (`isfahan`، `galikesh`، `kabudarahang-city`) نسخهٔ
@@ -64,4 +57,10 @@ return array(
 	'/city/galikesh/' => '/city/galikash/',
 	'/city/kabudarahang-city/' => '/city/kabutarahang/',
 	'/city/shahdad/' => '/city/kerman/',
+
+	/*
+	 * نامکِ تازهٔ «جاهای دیدنی طبس» (۱۴۰۵-۰۷-۲۱): شناسهٔ خروجیِ وردپرس از نشانی برداشته شد؛
+	 * نامکِ معنادار جای آن نشست و مسیرِ قدیمی با ۳۰۱ به آن می‌رود.
+	 */
+	'/attraction/308149-attraction-tabas/' => '/attraction/tabas-attractions/',
 );
