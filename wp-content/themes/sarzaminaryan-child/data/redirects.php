@@ -77,4 +77,28 @@ return array(
 	 */
 	'/attraction/9235-tang-e-sayad-national-park/' => '/attraction/tang-e-sayad-national-park/',
 	'/attraction/23328-sar-agha-seyed-village/' => '/attraction/sar-agha-seyed-village/',
+
+	/*
+	 * نامکِ تازهٔ «باغ گلشن طبس» (۱۴۰۵-۰۷-۲۱): نامکِ فارسیِ قدیمی در پیوندهای موجود بود و
+	 * نامکِ زندهٔ سایت هم شناسهٔ خروجی داشت؛ هر دو با ۳۰۱ به نامکِ معنادار می‌روند.
+	 */
+	'/attraction/6789-bagh-glshn-tbs/' => '/attraction/bagh-golshan-tabas/',
+	'/attraction/6789-باغ-گلشن-طبس/' => '/attraction/bagh-golshan-tabas/',
+
+	/*
+	 * یکسان‌سازی نامکِ «شهرستان دورود» با کلیدِ رکورد (۱۴۰۵-۰۷-۲۱): صفحه هنوز منتشر نشده
+	 * است؛ این ردیف برای هر پیوند یا نشانیِ قدیمیِ فرضی، مسیر را به نامکِ تازه می‌رساند.
+	 */
+	'/attraction/dorud/' => '/attraction/dorud-city/',
+
+	/*
+	 * نامک‌های تازهٔ سه رکورد شناسه‌دارِ زنده (۱۴۰۵-۰۷-۲۱): نامکِ زندهٔ سایت شناسهٔ خروجی داشت و
+	 * نامکِ رکورد هم فارسی بود؛ هر دو مسیر با ۳۰۱ به نامکِ معنادار می‌روند.
+	 */
+	'/attraction/6976-aramgah-ghasm-anvar/' => '/attraction/qasem-anvar-shrine/',
+	'/attraction/6976-ارامگاه-قاسم-انوار/' => '/attraction/qasem-anvar-shrine/',
+	'/attraction/26950-kvir-rig-jn/' => '/attraction/rig-e-jenn-desert/',
+	'/attraction/26950-کویر-ریگ-جن/' => '/attraction/rig-e-jenn-desert/',
+	'/attraction/6619-ghlh-dkhtr-bshrvih/' => '/attraction/ghaleh-dokhtar-boshruyeh/',
+	'/attraction/6619-قلعه-دختر-بشرویه/' => '/attraction/ghaleh-dokhtar-boshruyeh/',
 );

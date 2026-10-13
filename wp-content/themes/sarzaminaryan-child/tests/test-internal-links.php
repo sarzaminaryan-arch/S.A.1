@@ -276,7 +276,7 @@ $article_links  = array(
 	'fin-garden' => array(
 		'/city/kashan/'                    => 'شهرستان کاشان',
 		'/province/isfahan/'               => 'استان اصفهان',
-		'/attraction/6789-باغ-گلشن-طبس/'    => 'باغ گلشن طبس',
+		'/attraction/bagh-golshan-tabas/'    => 'باغ گلشن طبس',
 	),
 	'masouleh' => array(
 		'/province/gilan/'                 => 'استان گیلان',
@@ -305,4 +305,24 @@ foreach ( $article_links as $article_key => $links ) {
 	}
 }
 
-fwrite( STDOUT, "PASS: internal geographic auto-link and rewritten-article link tests\n" );
+/**
+ * v2.18.2 — نگهبانِ پیوندهای مقالات دیدنی‌ها:
+ *  ۱) کلیدِ هر رکورد باید همان نامک باشد (قاعدهٔ آزمون راهنماها)؛
+ *  ۲) هیچ پیوند داخلیِ دیدنی در بدنه نباید به مقصدی برود که رکورد آمادهٔ آن وجود ندارد
+ *     (پیوندهای ۴۰۴ پیشین در ۲٫۱۸٫۲ به متن ساده تبدیل شدند).
+ */
+$ready_article_keys = array_keys( $ready_articles );
+foreach ( $ready_articles as $article_key => $article_record ) {
+	sa_test_expect( $article_key === $article_record['slug'], 'article key must equal its slug: ' . $article_key );
+	sa_test_expect( ! empty( $article_record['content'] ), 'article record must ship content: ' . $article_key );
+	preg_match_all( '~href="(/attraction/[^"#?]+)/"~', (string) $article_record['content'], $attraction_hrefs );
+	foreach ( array_unique( $attraction_hrefs[1] ) as $attraction_href ) {
+		$target_key = substr( trim( $attraction_href, '/' ), strlen( 'attraction/' ) );
+		sa_test_expect(
+			in_array( $target_key, $ready_article_keys, true ),
+			'article ' . $article_key . ' links to an attraction without a prepared record: ' . $attraction_href
+		);
+	}
+}
+
+fwrite( STDOUT, "PASS: internal geographic auto-link, rewritten-article link and prepared-record link tests\n" );
