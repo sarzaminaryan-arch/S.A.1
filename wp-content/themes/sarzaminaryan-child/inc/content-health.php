@@ -310,11 +310,11 @@ function sa_health_page() {
 		. 'تایی، صفحه‌بندی‌شده).</p>';
 
 	/* --- آماده‌ی انتشار --- */
-	echo '<h2>پیش‌نویس‌هایی که هیچ مانع انتشاری ندارند</h2>';
+	echo '<h2>پیش‌نویس‌هایی که هیچ کمبود سطح ۷ ندارند</h2>';
 	if ( empty( $scan['ready'] ) ) {
 		echo '<p>موردی نیست.</p>';
 	} else {
-		echo '<p><strong>' . esc_html( $fa( (string) count( $scan['ready'] ) ) ) . '</strong> نوشته هر شش شرط انتشار را دارد و هنوز پیش‌نویس است. '
+		echo '<p><strong>' . esc_html( $fa( (string) count( $scan['ready'] ) ) ) . '</strong> نوشته همهٔ شرط‌های سطح ۷ را دارد و هنوز پیش‌نویس است (شرط انتشار فقط تأیید مالک است). '
 			. 'صفحه‌ی خوبِ منتشرشده از صفحه‌ی عالیِ پیش‌نویس بهتر است.</p><ul style="list-style:disc;margin-inline-start:1.5em">';
 		foreach ( array_slice( $scan['ready'], 0, 40 ) as $pid ) {
 			echo '<li><a href="' . esc_url( (string) get_edit_post_link( $pid ) ) . '">' . esc_html( (string) get_the_title( $pid ) ) . '</a> '

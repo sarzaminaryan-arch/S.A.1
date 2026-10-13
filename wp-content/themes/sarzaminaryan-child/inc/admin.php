@@ -57,7 +57,7 @@ add_filter( 'parent_file', 'sa_admin_parent_file' );
  */
 function sa_admin_dashboard_page() {
 	echo '<div class="wrap sa-dash"><h1>سرزمین آریان — داشبورد محتوا</h1>';
-	echo '<p>مدل داده نسخه ' . esc_html( sa_fa_digits( SA_MODEL_VERSION ) ) . ' · قالب فرزند نسخه ' . esc_html( sa_fa_digits( SA_CHILD_VERSION ) ) . ' · حالت دروازه‌ی انتشار: <strong>' . ( 'hard' === sa_gate_mode() ? 'سخت‌گیر' : 'هشدار' ) . '</strong></p>';
+	echo '<p>مدل داده نسخه ' . esc_html( sa_fa_digits( SA_MODEL_VERSION ) ) . ' · قالب فرزند نسخه ' . esc_html( sa_fa_digits( SA_CHILD_VERSION ) ) . ' · حالت دروازه‌ی انتشار: <strong>' . ( 'hard' === sa_gate_mode() ? 'سخت‌گیر (اختیاری)' : 'یادآوری — شرط انتشار فقط تأیید مالک است' ) . '</strong></p>';
 	echo '<div class="sa-dash__cards">';
 	foreach ( sa_entity_types() as $type ) {
 		$c   = wp_count_posts( $type );

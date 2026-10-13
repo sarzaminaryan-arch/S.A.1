@@ -14,10 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.12.2' );
+define( 'SA_CHILD_VERSION', '2.18.2' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
-define( 'SA_MODEL_VERSION', '1.2' );
+define( 'SA_MODEL_VERSION', '1.3' );
 
 // Accommodation entity is RESERVED in the data model (v1.0). Flip to true when v1.1 activates it.
 if ( ! defined( 'SA_ENABLE_ACCOMMODATION' ) ) {
@@ -43,6 +43,9 @@ $sa_child_includes = array(
 	'inc/schema.php',
 	'inc/breadcrumbs.php',
 	'inc/template-tags.php',
+	'inc/featured-images.php', // v2.15.0: کلید «نمایش تصویر شاخص» + جای‌گزین تصویرهای گمشدهٔ داخل متن
+	'inc/education.php', // بخش «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار استان/شهرستان/دیدنی در منو، صفحهٔ اول و فوتر
+	'inc/entity-bars.php', // v2.13.3: فهرست ۳۱ استان + نوارهای مینیمال استان/شهرستان برای آرشیوها (و نقشهٔ هیرو)
 	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
 	'inc/geo-counties.php',
 	'inc/province-profile.php',
@@ -56,6 +59,7 @@ $sa_child_includes = array(
 	'inc/site-cleanup.php', // پاک‌سازی صفحه‌های خالیِ شهرستان + یکسان‌سازی نامِ «دیدنی‌ها» در متن
 	'inc/dashboard.php', // داشبورد جامع گردشگری ایران (قالب صفحه‌ی جدا)
 	'inc/ready-articles.php', // مقالات آمادهٔ دیدنی‌ها — درج فقط پیش‌نویس + کارت سفید تصویر شاخص
+	'inc/media-restore.php', // v2.15.0: گزارش و بازگردانی فایل‌های تصویریِ گمشدهٔ پوشهٔ رسانه (منبع/قالب/پشتیبان)
 	'inc/city-contrib.php', // مشارکت مردمی «شهر من» — داخلی قالب، بدون نیاز به افزونه
 	'inc/contact-form.php', // فرم تماس داخلی قالب (ارسال به ایمیل تماس سایت)
 	'inc/social-publish.php', // انتشار خودکار در تلگرام و اینستاگرام — داخلی قالب، بدون افزونه

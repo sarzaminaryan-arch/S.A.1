@@ -27,7 +27,7 @@ function sa_entity_facts( $post_id ) {
 	$province = sa_get_parent( $post_id, 'province' );
 	$city     = sa_get_parent( $post_id, 'city' );
 	if ( 'province' !== $type && $province ) {
-		$rows[] = array( 'label' => 'استان', 'value' => '<a href="' . esc_url( get_permalink( $province ) ) . '">' . esc_html( get_the_title( $province ) ) . '</a>', 'html' => true );
+		$rows[] = array( 'label' => 'استان', 'value' => '<a href="' . esc_url( get_permalink( $province ) ) . '">' . esc_html( sa_province_name_for_post( $province ) ) . '</a>', 'html' => true );
 	}
 	if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
 		$rows[] = array( 'label' => 'شهر', 'value' => '<a href="' . esc_url( get_permalink( $city ) ) . '">' . esc_html( get_the_title( $city ) ) . '</a>', 'html' => true );
@@ -160,7 +160,7 @@ function sa_card_meta( $post_id ) {
 	}
 	if ( 'city' === $type ) {
 		$p = sa_get_parent( $post_id, 'province' );
-		return $p ? 'استان ' . get_the_title( $p ) : '';
+		return $p ? 'استان ' . sa_province_name_for_post( $p ) : '';
 	}
 	if ( 'travel_route' === $type ) {
 		$terms = get_the_terms( $post_id, 'travel_duration' );
@@ -171,7 +171,7 @@ function sa_card_meta( $post_id ) {
 		return get_the_title( $c );
 	}
 	$p = sa_get_parent( $post_id, 'province' );
-	return $p ? 'استان ' . get_the_title( $p ) : '';
+	return $p ? 'استان ' . sa_province_name_for_post( $p ) : '';
 }
 
 /**
@@ -341,6 +341,64 @@ function sa_sources_section( $post_id ) {
 		echo '</li>';
 	}
 	echo '</ol></section>';
+}
+
+/**
+ * Sources list for guides/posts (v2.13.0): title + linked host, so a reader can
+ * tell «CDC — تصفیهٔ آب» from «EPA — ضدعفونی اضطراری» without opening the link.
+ *
+ * @param int $post_id Post ID.
+ */
+function sa_guide_sources_section( $post_id ) {
+	$sources = sa_get_sources( $post_id );
+	if ( ! $sources ) {
+		return;
+	}
+	echo '<section class="sa-sources sa-sources--guide" id="sources"><h2>منابع</h2><ol class="sa-sources__list">';
+	foreach ( $sources as $src ) {
+		$title = trim( (string) $src['title'] );
+		echo '<li>';
+		if ( $src['url'] ) {
+			$host = strtolower( (string) wp_parse_url( $src['url'], PHP_URL_HOST ) );
+			$host = preg_replace( '/^www\./', '', $host );
+			if ( '' !== $title && $title !== $src['url'] ) {
+				echo esc_html( $title ) . ' <span class="sa-sources__sep" aria-hidden="true">—</span> ';
+			}
+			echo '<a href="' . esc_url( $src['url'] ) . '" rel="' . esc_attr( sa_source_rel( $src['url'] ) ) . '" target="_blank" dir="ltr">' . esc_html( $host ) . '</a>';
+		} else {
+			echo esc_html( $title );
+		}
+		echo '</li>';
+	}
+	echo '</ol></section>';
+}
+
+/**
+ * Related guides: up to 3 other published posts from the same category (v2.13.0).
+ *
+ * @param int $post_id Current post ID.
+ */
+function sa_guide_related( $post_id ) {
+	$cats = wp_get_post_categories( $post_id, array( 'fields' => 'ids' ) );
+	if ( is_wp_error( $cats ) || ! $cats ) {
+		return;
+	}
+	$posts = get_posts(
+		array(
+			'post_type'      => 'post',
+			'post_status'    => 'publish',
+			'posts_per_page' => 3,
+			'orderby'        => 'rand',
+			'post__not_in'   => array( (int) $post_id ),
+			'category__in'   => array_map( 'intval', $cats ),
+		)
+	);
+	if ( ! $posts ) {
+		return;
+	}
+	$cat  = get_category( (int) $cats[0] );
+	$more = $cat && ! is_wp_error( $cat ) ? get_category_link( $cat ) : '';
+	sa_cards_section( $posts, 'آموزش‌های مرتبط', $more, 'related-guides' );
 }
 
 /**
@@ -630,6 +688,11 @@ function sa_fallback_menu() {
 	foreach ( sa_nav_entity_types() as $type ) {
 		$current = is_post_type_archive( $type ) || is_singular( $type ) ? ' current-menu-item' : '';
 		echo '<li class="menu-item' . esc_attr( $current ) . '"><a href="' . esc_url( sa_archive_url( $type ) ) . '">' . esc_html( sa_entity_label( $type, true ) ) . '</a></li>';
+	}
+	// v2.13.1 — «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار آرشیو موجودیت‌ها؛ فقط وقتی آموزشی منتشر شده باشد.
+	$edu = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
+	if ( $edu ) {
+		echo '<li class="menu-item sa-menu-item--education' . ( $edu['current'] ? ' current-menu-item' : '' ) . '"><a href="' . esc_url( $edu['url'] ) . '">' . esc_html( $edu['label'] ) . '</a></li>';
 	}
 	$blog = (int) get_option( 'page_for_posts' );
 	if ( $blog ) {

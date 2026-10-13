@@ -58,6 +58,9 @@ function sa_entity_label( $type, $plural = false ) {
 	if ( isset( $config[ $type ] ) ) {
 		return $plural ? $config[ $type ]['plural'] : $config[ $type ]['singular'];
 	}
+	if ( 'post' === $type ) {
+		return $plural ? 'مقاله‌ها' : 'مقاله'; // v2.13.0 — card badge for educational guides instead of core's «نوشته».
+	}
 	$obj = get_post_type_object( $type );
 	return $obj ? ( $plural ? $obj->labels->name : $obj->labels->singular_name ) : $type;
 }
@@ -320,7 +323,7 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 	$province    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $post_id, 'province' ) : null;
 	$city_name   = $city ? ( function_exists( 'sa_county_name' ) ? sa_county_name( $city ) : get_the_title( $city ) ) : '';
 	$city_txt    = $city_name ? 'شهرستان ' . $city_name : '';
-	$prov_txt    = $province ? 'استان ' . get_the_title( $province ) : '';
+	$prov_txt    = $province ? 'استان ' . sa_province_name_for_post( $province ) : '';
 	$location = trim( $city_txt . ( $city_txt && $prov_txt ? '  |  ' : '' ) . $prov_txt );
 	$terms    = get_the_terms( $post_id, 'attraction_type' );
 	$type_txt = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0]->name : 'دیدنی';
@@ -352,4 +355,18 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
 	</div>
 	<?php
 	return trim( ob_get_clean() );
+}
+
+/**
+ * v2.13.2 — Registered image size for a post's featured image.
+ *
+ * Guides (type «post») ship 16:9 infographics that must not be cropped, so they
+ * use the soft `sa-guide-cover` size; entities keep the top-anchored `sa-hero` poster crop.
+ *
+ * @param int $post_id Post ID (0 = current).
+ * @return string
+ */
+function sa_cover_image_size( $post_id = 0 ) {
+	$post_id = $post_id ? (int) $post_id : get_the_ID();
+	return 'post' === get_post_type( $post_id ) ? 'sa-guide-cover' : 'sa-hero';
 }

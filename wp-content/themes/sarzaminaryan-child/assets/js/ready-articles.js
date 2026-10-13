@@ -135,6 +135,28 @@
 			ctx.fillStyle = P.gold || '#9b6a16';
 			ctx.fillRect( r * 0.34, r * 0.26, r * 0.18, r * 0.36 );
 			ctx.fillRect( -r * 0.66, r * 0.24, r * 0.16, r * 0.38 );
+		} else if ( 'tent' === kind ) {
+			/* Educational guide (camping/survival): tent on a ground line + small sun. */
+			ctx.fillStyle = P.gold || '#9b6a16';
+			ctx.beginPath();
+			ctx.arc( r * 0.58, -r * 0.5, r * 0.18, 0, Math.PI * 2 );
+			ctx.fill();
+			ctx.fillStyle = P.green || '#0f5132';
+			ctx.fillRect( -r, r * 0.5, r * 2, r * 0.16 );
+			ctx.fillStyle = P.navy || '#011f3d';
+			ctx.beginPath();
+			ctx.moveTo( -r * 0.86, r * 0.5 );
+			ctx.lineTo( 0, -r * 0.56 );
+			ctx.lineTo( r * 0.86, r * 0.5 );
+			ctx.closePath();
+			ctx.fill();
+			ctx.fillStyle = P.mint || '#e8f6ee';
+			ctx.beginPath();
+			ctx.moveTo( -r * 0.22, r * 0.5 );
+			ctx.lineTo( 0, -r * 0.04 );
+			ctx.lineTo( r * 0.22, r * 0.5 );
+			ctx.closePath();
+			ctx.fill();
 		} else {
 			/* mountain / park / cave / village fall back to a mountain + sun. */
 			ctx.fillStyle = P.gold || '#9b6a16';

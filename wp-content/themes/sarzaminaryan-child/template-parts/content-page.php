@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 	</header>
-	<?php if ( has_post_thumbnail() ) : ?>
+	<?php /* v2.15.0: تصویر شاخص برگه‌ها هم تا بازگشت فایل‌های رسانه پنهان است. */ ?>
+	<?php if ( function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( get_the_ID(), 'page' ) ) : ?>
 		<figure class="post-thumbnail"><?php the_post_thumbnail( 'sa-hero', array( 'loading' => 'eager', 'fetchpriority' => 'high' ) ); ?></figure>
 	<?php endif; ?>
 	<div class="entry-content">

@@ -52,6 +52,7 @@ function sa_maybe_upgrade() {
 		sa_seed_terms();
 		sa_create_default_pages(); // برگه‌های از دست رفته (از جمله حریم خصوصی) را می‌سازد و قالب v2 را به «خانه» می‌بندد.
 		sa_home_v2_setup();
+		sa_gate_policy_migrate();
 		update_option( 'sa_child_version', SA_CHILD_VERSION, false );
 		update_option( 'sa_flush_rewrite', 1, false );
 	}
@@ -61,6 +62,26 @@ function sa_maybe_upgrade() {
 	}
 }
 add_action( 'init', 'sa_maybe_upgrade', 100 );
+
+/**
+ * v2.12.7 — یک‌بار برای همیشه: سیاست انتشار «فقط تأیید مالک».
+ *
+ * تا پیش از این، پیش‌فرض دروازهٔ سطح ۷ «سخت‌گیر» بود و موجودیت ناقص به پیش‌نویس
+ * برمی‌گشت. طبق تصمیم مالک (۱۴۰۵/۰۷/۱۹) شرط انتشار فقط تأیید اوست؛ پس اگر
+ * سفارشی‌ساز هنوز روی «سخت‌گیر» مانده باشد، همین یک بار به «یادآوری» برمی‌گردد.
+ * انتخاب بعدیِ مالک در سفارشی‌ساز دیگر دست‌کاری نمی‌شود.
+ *
+ * @return void
+ */
+function sa_gate_policy_migrate() {
+	if ( get_option( 'sa_gate_policy_owner_approval' ) ) {
+		return;
+	}
+	if ( 'hard' === get_theme_mod( 'sa_gate_mode' ) ) {
+		set_theme_mod( 'sa_gate_mode', 'soft' );
+	}
+	update_option( 'sa_gate_policy_owner_approval', '2.12.7', false );
+}
 
 /**
  * Create About / Contact / Blog / Home pages once (drafts for editable text, published for structure).

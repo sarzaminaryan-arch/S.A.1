@@ -217,8 +217,11 @@ function sa_seo_head() {
 		$og_title = get_post_meta( $id, 'sa_og_title', true ) ? get_post_meta( $id, 'sa_og_title', true ) : $og_title;
 		$og_desc  = get_post_meta( $id, 'sa_og_description', true ) ? get_post_meta( $id, 'sa_og_description', true ) : $og_desc;
 		$og_type  = 'post' === get_post_type( $id ) ? 'article' : ( sa_is_entity( $id ) ? 'place' : 'website' );
-		if ( has_post_thumbnail( $id ) ) {
-			$img      = wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'sa-hero' );
+		// v2.15.0: تصویری که فایلش روی سرور نیست در og:image نمی‌آید (اشتراک‌گذاری تصویر شکسته).
+		$sa_thumb_id = get_post_thumbnail_id( $id );
+		$sa_thumb_ok = $sa_thumb_id && ( ! function_exists( 'sa_media_attachment_missing' ) || ! sa_media_attachment_missing( $sa_thumb_id ) );
+		if ( $sa_thumb_ok ) {
+			$img      = wp_get_attachment_image_src( $sa_thumb_id, function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $id ) : 'sa-hero' );
 			$og_image = $img ? $img[0] : $og_image;
 		}
 	}

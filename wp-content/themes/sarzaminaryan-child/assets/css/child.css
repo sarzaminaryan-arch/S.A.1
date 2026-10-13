@@ -539,7 +539,7 @@
 
 .sa-entity__title {
 	margin: 0;
-	font-size: clamp(1.7rem, 4vw, 2.7rem);
+	font-size: clamp(1.6rem, 3.6vw, 2.4rem);
 	color: #fff;
 	text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
@@ -570,8 +570,8 @@
 }
 
 	.sa-entity__lead {
-		font-size: 1.12rem;
-		line-height: 1.95;
+		font-size: 1.05rem;
+		line-height: 1.8;
 		color: #334155;
 		background: #fff;
 		border: 1px solid var(--color-border);
@@ -590,7 +590,7 @@
 .sa-entity__layout .entry-content h2,
 .sa-faq-section > h2,
 .sa-sources > h2 {
-	font-size: 1.45rem;
+	font-size: 1.4rem;
 	margin: 2.6rem 0 1.3rem;
 	padding: 0.8rem 1.2rem;
 	background: linear-gradient(160deg, #ffffff 0%, #edf6ff 55%, #dcecff 100%);
@@ -837,7 +837,7 @@
 	border-top: 1px solid var(--sa-navy-200);
 	border-radius: 0 0 10px 10px;
 	color: #334155;
-	line-height: 1.95;
+	line-height: 1.8;
 }
 
 .sa-faq-item__answer p:last-child {
@@ -933,7 +933,7 @@
 
 .sa-footer__about {
 	font-size: 0.92rem;
-	line-height: 1.9;
+	line-height: 1.8;
 	margin-top: 0.75rem;
 }
 
@@ -1048,7 +1048,7 @@
 	padding-inline-start: 1.4rem;
 	font-size: 0.92rem;
 	color: var(--color-muted);
-	line-height: 1.9;
+	line-height: 1.8;
 }
 
 .sa-sources__list a {
@@ -1480,7 +1480,7 @@
 .sa-hf-foot .sa-footer__about {
 	color: #9fb0c9;
 	font-size: 14px;
-	line-height: 2;
+	line-height: 1.8;
 	margin: 16px 0 14px;
 	max-width: 380px;
 }
@@ -1865,7 +1865,7 @@ img, svg, video, iframe, table, pre {
 	}
 	.sa-footer__about {
 		font-size: 13.5px;
-		line-height: 1.9;
+		line-height: 1.8;
 	}
 	.sa-hf-foot__bottom,
 	.sa-footer__bottom {
@@ -2035,7 +2035,7 @@ body :where(.entry-content, .entry-summary) a:not(.sa-btn):focus-visible {
 }
 
 .sa-article .entry-content h2 {
-	font-size: 1.45rem;
+	font-size: 1.4rem;
 	margin: 2.6rem 0 1.3rem;
 }
 
@@ -2240,7 +2240,9 @@ main.site-main.container,
 	padding-block: 8px 10px;
 }
 
-/* Persian body copy: straight right/left edges without splitting normal words. */
+/* Persian body copy (v2.13.6): natural ragged edge, standard word spacing.
+   Until 2.13.5 these blocks were justified with extra word-spacing (.045em); justified
+   Persian text stretches the gaps between words unevenly — the owner asked for standard spacing. */
 .entry-content,
 .entry-summary,
 .sa-entity__lead,
@@ -2253,23 +2255,14 @@ main.site-main.container,
 .sa-home .sa-intro,
 .sa-home .sa-pb p,
 .sa-footer__about {
-	text-align: justify;
-	text-justify: inter-word;
-	word-spacing: .045em;
+	text-align: start;
+	word-spacing: normal;
 	word-break: normal;
 	overflow-wrap: normal;
 	-webkit-hyphens: none;
 	hyphens: none;
 	white-space: normal;
 	font-kerning: normal;
-	orphans: 3;
-	widows: 3;
-}
-
-.entry-content :is(h1, h2, h3, h4, h5, h6, table, pre, code, kbd, samp, .wp-block-buttons),
-.entry-summary :is(h1, h2, h3, h4, h5, h6) {
-	text-align: start;
-	word-spacing: normal;
 }
 
 /* On mobile the header search control belongs at the far left, not mid-header. */
@@ -2325,20 +2318,6 @@ main.site-main.container,
 		padding: 7px 8px;
 	}
 
-	.entry-content,
-	.entry-summary,
-	.sa-entity__lead,
-	.sa-archive__desc,
-	.sa-faq-item__answer,
-	.sa-community,
-	.sa-sources__list,
-	.sa-footnotes__item,
-	.sa-card__excerpt,
-	.sa-home .sa-intro,
-	.sa-home .sa-pb p,
-	.sa-footer__about {
-		word-spacing: .025em;
-	}
 }
 
 /* ==========================================================================
@@ -2459,9 +2438,9 @@ main.site-main.container,
    ========================================================================== */
 
 /* ---- ۱. فاصله‌ی تنفس میان بدنه‌ی صفحه و فوتر ----
-   آخرین بخش صفحه‌ی اصلی (بلوک آبی «پست‌های معروف») تا پیش از این دقیقاً به لبه‌ی
-   کادر سفید و از آنجا به خط فوتر می‌چسبید. حالا هم فاصله‌ی بیرونی بیشتر شده و هم
-   بلوک آبی گوشه‌ی پایین گرد گرفته تا داخل کادر «بنشیند». */
+   آخرین بخش صفحه‌ی اصلی تا پیش از این دقیقاً به لبه‌ی کادر سفید و از آنجا به خط
+   فوتر می‌چسبید؛ حالا فاصله‌ی بیرونی بیشتر شده. (v2.13.5: بلوک آبی «پست‌های معروف»
+   حذف شد؛ قاعده‌های آن هم.) */
 .sa-home,
 .sa-main--entity,
 main.site-main.container,
@@ -2475,12 +2454,6 @@ main.site-main.container,
 
 .sa-home > section:last-child {
 	margin-bottom: 0;
-}
-
-.sa-home .sa-pop {
-	margin-top: 56px;
-	padding: 48px 0 44px;
-	border-radius: 24px;
 }
 
 .sa-hf-foot {
@@ -2501,7 +2474,7 @@ main.site-main.container,
 .sa-hf-foot--mini .widget-title {
 	font-size: 12.5px;
 	font-weight: 700;
-	letter-spacing: .2px;
+	letter-spacing: 0;
 	margin: 0 0 6px;
 	color: #e8f1ff;
 }
@@ -2605,12 +2578,6 @@ main.site-main.container,
 
 	.sa-home {
 		padding-bottom: 10px;
-	}
-
-	.sa-home .sa-pop {
-		margin-top: 36px;
-		padding: 32px 0 30px;
-		border-radius: 16px;
 	}
 }
 
@@ -2978,7 +2945,7 @@ main.site-main.container,
 	max-width: 760px;
 	color: #3e5568;
 	font-size: 1rem;
-	line-height: 2;
+	line-height: 1.8;
 }
 
 .sa-attraction-id__facts {
@@ -3050,8 +3017,8 @@ main.site-main.container,
 }
 
 .single-attraction .entry-content {
-	font-size: 1.03rem;
-	line-height: 2.05;
+	font-size: 1rem;
+	line-height: 1.8;
 }
 
 .single-attraction .entry-content h2 {
@@ -3615,7 +3582,7 @@ main.site-main.container,
 	inset-inline-start: 0.7rem;
 	font-size: 0.62rem;
 	font-weight: 700;
-	letter-spacing: 0.02em;
+	letter-spacing: 0;
 	color: var(--color-secondary);
 	opacity: 0.75;
 }
@@ -3731,7 +3698,7 @@ main.site-main.container,
 }
 
 .sa-attraction-id .sa-attraction-id__title {
-	font-size: clamp(1.7rem, 3.6vw, 3rem);
+	font-size: clamp(1.6rem, 3.4vw, 2.5rem);
 	line-height: 1.25;
 }
 
@@ -3923,7 +3890,7 @@ main.site-main.container,
 .sa-province-profile__eyebrow span {
 	color: var(--sa-profile-navy);
 	font-size: .68rem;
-	letter-spacing: .08em;
+	letter-spacing: 0;
 }
 
 .sa-province-profile__title {
@@ -3969,7 +3936,7 @@ main.site-main.container,
 	color: #58728b;
 	font-size: .62rem;
 	font-weight: 800;
-	letter-spacing: .12em;
+	letter-spacing: 0;
 }
 
 .sa-province-profile__count-badge {
@@ -4319,5 +4286,611 @@ main.site-main.container,
 	.sa-province-profile__county-label[href]:hover,
 	.sa-province-profile__county-label[href]:focus-visible {
 		transform: none;
+	}
+}
+
+/* ---------- Educational guides (ordinary posts, v2.13.0) ---------- */
+.sa-main--post {
+	padding-block: 1.25rem 3rem;
+}
+
+.sa-guide > .entry-header {
+	margin-bottom: 1.4rem;
+}
+
+.sa-guide .sa-article__cats {
+	position: relative;
+	z-index: 1;
+	margin: 0 0 .65rem;
+}
+
+.sa-guide .sa-article__byline {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .35rem 1.1rem;
+	margin: .75rem 0 0;
+	font-size: .9rem;
+	color: #475569;
+}
+
+.sa-guide .sa-article__byline a {
+	font-weight: 700;
+}
+
+.sa-guide .post-thumbnail {
+	margin: 0 0 1.5rem;
+}
+
+.sa-guide .post-thumbnail img {
+	width: 100%;
+	height: auto;
+	/* v2.13.2: اینفوگرافیک‌های ۱۶:۹ بدون برش نمایش داده می‌شوند (پیش‌تر برش ۲:۱ لبه‌ها را می‌برید). */
+	aspect-ratio: auto;
+	object-fit: contain;
+	border-radius: 16px;
+	box-shadow: var(--sa-shadow);
+}
+
+.sa-guide__layout {
+	margin-top: 1.25rem;
+}
+
+.sa-guide .entry-content h3.sa-step {
+	display: flex;
+	align-items: center;
+	gap: .7rem;
+	margin: 2.1rem 0 .9rem;
+	padding-inline-start: 0;
+	border-inline-start: 0;
+	font-size: 1.18rem;
+}
+
+.sa-step__n {
+	flex: none;
+	display: inline-grid;
+	place-items: center;
+	width: 2.1rem;
+	height: 2.1rem;
+	border-radius: 50%;
+	background: var(--sa-navy-800);
+	color: #fff;
+	font-size: 1rem;
+	font-weight: 700;
+	box-shadow: var(--sa-shadow);
+}
+
+.sa-callout {
+	margin: 1.4rem 0;
+	padding: 1rem 1.2rem;
+	border: 1px solid var(--sa-navy-200);
+	border-radius: 14px;
+	background: var(--sa-navy-50);
+	box-shadow: var(--sa-shadow);
+}
+
+.sa-callout > p {
+	margin: 0;
+}
+
+.sa-callout > p + p {
+	margin-top: .6rem;
+}
+
+.sa-callout--answer {
+	border-inline-start: 5px solid var(--sa-navy-700);
+	background: linear-gradient(160deg, #ffffff 0%, #edf6ff 60%, #dcecff 100%);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+
+.sa-callout--warning {
+	border-color: #f3d19c;
+	border-inline-start: 5px solid #b45309;
+	background: linear-gradient(160deg, #fffdf7 0%, #fff4df 100%);
+}
+
+.sa-callout__title {
+	margin-bottom: .45rem;
+	font-weight: 800;
+	color: #7c2d12;
+}
+
+.sa-steps-meta {
+	list-style: none;
+	margin: 0 0 1.2rem;
+	padding: .8rem 1rem;
+	border: 1px dashed var(--sa-navy-300);
+	border-radius: 12px;
+	background: var(--sa-surface-2);
+	font-size: .95rem;
+}
+
+.sa-steps-meta li {
+	margin: .25rem 0;
+}
+
+.sa-checklist {
+	list-style: none;
+	margin: 1rem 0 1.4rem;
+	padding: 0;
+}
+
+.sa-checklist li {
+	position: relative;
+	margin: .45rem 0;
+	padding-inline-start: 2.1rem;
+}
+
+.sa-checklist li::before {
+	content: '';
+	position: absolute;
+	inset-inline-start: 0;
+	top: .28em;
+	width: 1.15rem;
+	height: 1.15rem;
+	border: 2px solid var(--sa-navy-600);
+	border-radius: 5px;
+	background: #fff;
+}
+
+.sa-guide .entry-content blockquote {
+	margin: 1.4rem 0;
+	padding: .9rem 1.2rem;
+	border-inline-start: 4px solid var(--sa-navy-300);
+	border-radius: 12px;
+	background: #fff;
+	color: #334155;
+	box-shadow: var(--sa-shadow);
+}
+
+.sa-guide .entry-content blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+.sa-article__note {
+	font-size: .9rem;
+	color: #64748b;
+}
+
+.sa-article__tags {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .4rem;
+	margin: 2rem 0 0;
+}
+
+.sa-chip--soft {
+	background: #fff;
+	border-color: var(--sa-navy-200);
+}
+
+.sa-sources--guide li {
+	margin: .4rem 0;
+}
+
+.sa-sources__sep {
+	color: var(--sa-navy-300);
+}
+
+/* ---------- v2.13.3: نوارهای مینیمال استان‌ها / شهرستان‌ها (از صفحهٔ اول به آرشیوها منتقل شد) ---------- */
+.sa-bars {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 18px 24px;
+	margin: 0 0 1.5rem;
+}
+
+.sa-bar {
+	--c: #18558f;
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	height: 68px;
+	padding: 0 14px;
+	border-radius: 20px;
+	background: #fff;
+	border: 1px solid rgba(11, 20, 36, .05);
+	color: #0b1424;
+	text-decoration: none;
+	box-shadow: 0 22px 38px -18px color-mix(in srgb, var(--c) 80%, transparent), 0 2px 6px rgba(11, 20, 36, .04);
+	transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .3s;
+}
+
+.sa-bar:hover,
+.sa-bar:focus-visible {
+	color: #0b1424;
+	transform: translateY(-3px);
+	box-shadow: 0 28px 44px -18px color-mix(in srgb, var(--c) 85%, transparent), 0 4px 10px rgba(11, 20, 36, .06);
+}
+
+.sa-bar::before {
+	content: "";
+	flex: none;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: var(--c);
+	box-shadow: 0 0 0 5px color-mix(in srgb, var(--c) 18%, transparent);
+}
+
+.sa-bar b {
+	flex: 1;
+	min-width: 0;
+	font-weight: 800;
+	font-size: clamp(13px, 1.55vw, 16.5px);
+	line-height: 1.3;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	letter-spacing: -.02em;
+}
+
+.sa-bar em {
+	font-style: normal;
+	color: #7a8799;
+	font-size: 13px;
+	letter-spacing: .4px;
+	direction: ltr;
+	white-space: nowrap;
+}
+
+.sa-bar em.fa {
+	direction: rtl;
+	letter-spacing: 0;
+}
+
+.sa-bar::after {
+	content: "";
+	flex: none;
+	width: 9px;
+	height: 9px;
+	border: solid var(--c);
+	border-width: 2px 0 0 2px;
+	transform: rotate(-45deg);
+	transition: transform .3s;
+}
+
+.sa-bar:hover::after {
+	transform: rotate(-45deg) translate(-3px, -3px);
+}
+
+.sa-bar--soon {
+	opacity: .45;
+	cursor: default;
+	pointer-events: none;
+}
+
+.sa-bars__note {
+	margin: -.25rem 0 1.5rem;
+	color: #7a8799;
+	font-size: .9rem;
+}
+
+/* شهرستان‌ها: باریک‌تر و کوچک‌تر، سه‌ستونه در دسکتاپ */
+.sa-bars--city {
+	grid-template-columns: repeat(3, 1fr);
+	gap: 12px 16px;
+}
+
+.sa-bars--city .sa-bar {
+	height: 50px;
+	gap: 10px;
+	padding: 0 12px;
+	border-radius: 14px;
+	box-shadow: 0 14px 26px -16px color-mix(in srgb, var(--c) 75%, transparent), 0 1px 4px rgba(11, 20, 36, .04);
+}
+
+.sa-bars--city .sa-bar::before {
+	width: 8px;
+	height: 8px;
+	box-shadow: 0 0 0 4px color-mix(in srgb, var(--c) 16%, transparent);
+}
+
+.sa-bars--city .sa-bar b {
+	font-size: clamp(12.5px, 1.2vw, 14.5px);
+}
+
+.sa-bars--city .sa-bar em {
+	font-size: 12px;
+}
+
+.sa-bars--city .sa-bar::after {
+	width: 7px;
+	height: 7px;
+}
+
+@media (max-width: 900px) {
+	.sa-bars--city {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 640px) {
+	.sa-bars,
+	.sa-bars--city {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-bar {
+		height: 62px;
+	}
+
+	.sa-bars--city .sa-bar {
+		height: 48px;
+	}
+}
+
+@media (max-width: 480px) {
+	.sa-bar {
+		gap: 8px;
+		padding-inline: 10px;
+	}
+
+	.sa-bar b {
+		font-size: clamp(12px, 3.4vw, 14px);
+	}
+
+	.sa-bars--province .sa-bar em {
+		display: none; /* نام انگلیسی روی موبایل جا نمی‌شود؛ نام استانِ شهرستان‌ها می‌ماند */
+	}
+
+	.sa-bars--province .sa-bar--soon em {
+		display: inline;
+	}
+}
+
+/* v2.13.5: دیدنی‌ها (و فیلتر نوع) با همان نوارهای دوستونهٔ استان‌ها؛ صفحه‌بندی زیر نوارها می‌نشیند. */
+.sa-bars--attraction + .pagination,
+.sa-bars--attraction + .navigation {
+	margin-top: 1.5rem;
+}
+
+/* ---------- v2.15.0: نوارهای «آموزش‌ها» — همان کادر سفید با سایهٔ عمیق استان/شهرستان، بدون تصویر زمینه ---------- */
+.sa-bars--edu + .pagination,
+.sa-bars--edu + .navigation {
+	margin-top: 1.5rem;
+}
+
+.sa-bars--edu .sa-bar {
+	height: auto;
+	min-height: 68px;
+	padding: 11px 14px;
+}
+
+.sa-bars--edu .sa-bar b {
+	white-space: normal;
+	overflow: visible;
+	text-overflow: clip;
+	line-height: 1.5;
+}
+
+.sa-bars--edu .sa-bar em {
+	align-self: center;
+	padding: 2px 10px;
+	border-radius: 99px;
+	background: color-mix(in srgb, var(--c) 10%, #fff);
+	color: color-mix(in srgb, var(--c) 78%, #0b1424);
+	font-size: 12px;
+	font-weight: 700;
+}
+
+@media (max-width: 640px) {
+	.sa-bars--edu .sa-bar {
+		min-height: 60px;
+	}
+}
+
+/* ---------- v2.15.0: کادر جای‌گزین تصویرِ گمشدهٔ داخل متن (ناتمام‌های بازگردانی تصاویر) ---------- */
+.sa-media-missing {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 96px;
+	margin: 1.2rem 0;
+	padding: 18px 16px;
+	border: 1px dashed var(--sa-navy-200, #bdd8f1);
+	border-radius: 16px;
+	background: linear-gradient(155deg, #fff, #edf6ff);
+	color: #49627a;
+	font-size: .95rem;
+	font-weight: 600;
+	text-align: center;
+}
+
+.sa-media-missing__text {
+	max-width: 42ch;
+}
+
+/* ---------- v2.13.6: مقیاس استاندارد تایپوگرافی (درخواست مالک: متن‌ها کمی بزرگ و کلمات فاصله‌دار بودند) ----------
+   پایه: ۱۶px با ارتفاع خط ۱٫۷۵ (قالب مادر ۱٫۹ می‌داد)؛ متن مقاله ۱٫۸؛ بدون justify و word-spacing اضافه؛
+   عنوان‌ها کمی کوچک‌تر (H2 مقاله 1.4rem، عنوان صفحه حداکثر 2.4rem)؛ برچسب‌های ریز فارسی بدون letter-spacing. */
+body {
+	line-height: 1.75;
+}
+
+.entry-content,
+.entry-summary,
+.sa-faq-item__answer,
+.sa-community,
+.sa-facts,
+.sa-callout {
+	line-height: 1.8;
+}
+
+.entry-content > p,
+.entry-content > ul,
+.entry-content > ol {
+	margin-block: 0 1.1em;
+}
+
+.entry-meta,
+.entry-footer,
+small {
+	line-height: 1.6;
+}
+
+/* ==========================================================================
+   v2.16.0 — درخواست مالک: «مقالات مرتبط» و فهرست‌ها بدون تصویر شاخص، کادرها
+   بزرگ‌تر (نوشته‌ها بلند است)، هاور و کلیک رنگی، و ظاهر شدن آرام و لغزندهٔ
+   کادرها یکی‌یکی.
+   ========================================================================== */
+
+/* ۱) نوارهای «آموزش‌ها» بزرگ‌تر: عنوان‌های بلند باید جا داشته باشند. */
+.sa-bars--edu {
+	gap: 20px 24px;
+}
+
+.sa-bars--edu .sa-bar {
+	min-height: 98px;
+	padding: 16px 20px;
+	border-radius: 22px;
+}
+
+.sa-bars--edu .sa-bar b {
+	font-size: clamp(15px, 1.35vw, 17.5px);
+	line-height: 1.6;
+	letter-spacing: -.01em;
+}
+
+.sa-bars--edu .sa-bar em {
+	padding: 3px 11px;
+	font-size: 12.5px;
+}
+
+@media (max-width: 640px) {
+	.sa-bars--edu .sa-bar {
+		min-height: 84px;
+		padding: 13px 15px;
+	}
+}
+
+/* اگر تصویر شاخصی چاپ نشود، آوند خالیِ قالب مادر (فهرست/جست‌وجو) هیچ فاصله‌ای نگیرد. */
+.post-thumbnail:not(:has(img)) {
+	display: none;
+}
+
+/* ۲) هاور و کلیک رنگی روی همهٔ نوارهای سفید (آموزش، استان، شهرستان، دیدنی). */
+.sa-bar {
+	transition: transform .35s cubic-bezier(.2, .8, .2, 1), box-shadow .3s, background-color .3s, border-color .3s;
+}
+
+.sa-bar:hover,
+.sa-bar:focus-visible {
+	background: color-mix(in srgb, var(--c) 10%, #fff);
+	border-color: color-mix(in srgb, var(--c) 45%, #fff);
+	box-shadow: 0 30px 46px -18px color-mix(in srgb, var(--c) 90%, transparent), 0 0 0 3px color-mix(in srgb, var(--c) 15%, transparent);
+}
+
+.sa-bar:hover b,
+.sa-bar:focus-visible b {
+	color: color-mix(in srgb, var(--c) 72%, #0b1424);
+}
+
+.sa-bar:hover::before,
+.sa-bar:focus-visible::before {
+	box-shadow: 0 0 0 7px color-mix(in srgb, var(--c) 26%, transparent);
+}
+
+.sa-bar:active {
+	background: color-mix(in srgb, var(--c) 22%, #fff);
+	border-color: color-mix(in srgb, var(--c) 55%, #fff);
+	transform: translateY(-1px) scale(.99);
+	box-shadow: 0 12px 22px -14px color-mix(in srgb, var(--c) 90%, transparent), 0 0 0 5px color-mix(in srgb, var(--c) 22%, transparent);
+}
+
+/* ۳) کارت مقالات («مقالات مرتبط» و فهرست‌ها) بدون کادر تصویر: بزرگ‌تر و رنگی. */
+.sa-card--textonly {
+	border-color: color-mix(in srgb, var(--c, #18558f) 16%, #fff);
+	box-shadow: 0 22px 34px -24px color-mix(in srgb, var(--c, #18558f) 60%, transparent), 0 2px 6px rgba(11, 20, 36, .05);
+	transition: box-shadow .3s ease, transform .35s cubic-bezier(.2, .8, .2, 1), background-color .3s, border-color .3s;
+}
+
+.sa-card--textonly::before {
+	content: "";
+	display: block;
+	flex: none;
+	height: 4px;
+	background: linear-gradient(90deg, var(--c, #18558f), color-mix(in srgb, var(--c, #18558f) 25%, #fff));
+}
+
+.sa-card--textonly .sa-card__body {
+	gap: .5rem;
+	padding: 1.35rem 1.3rem 1.45rem;
+}
+
+.sa-card--textonly .sa-card__chip {
+	align-self: flex-start;
+	padding: 3px 12px;
+	border-radius: 999px;
+	background: color-mix(in srgb, var(--c, #18558f) 12%, #fff);
+	color: color-mix(in srgb, var(--c, #18558f) 78%, #0b1424);
+	font-size: .78rem;
+	font-weight: 700;
+}
+
+.sa-card--textonly .sa-card__title {
+	font-size: 1.18rem;
+	line-height: 1.75;
+}
+
+.sa-card--textonly .sa-card__meta {
+	font-size: .82rem;
+}
+
+.sa-card--textonly .sa-card__excerpt {
+	margin-top: .35rem;
+	font-size: .95rem;
+	line-height: 1.85;
+}
+
+.sa-card--textonly:hover,
+.sa-card--textonly:focus-within {
+	background: color-mix(in srgb, var(--c, #18558f) 4%, #fff);
+	border-color: color-mix(in srgb, var(--c, #18558f) 40%, #fff);
+	box-shadow: 0 30px 44px -24px color-mix(in srgb, var(--c, #18558f) 85%, transparent), 0 0 0 3px color-mix(in srgb, var(--c, #18558f) 12%, transparent);
+}
+
+.sa-card--textonly:hover .sa-card__title a,
+.sa-card--textonly:focus-within .sa-card__title a {
+	color: color-mix(in srgb, var(--c, #18558f) 80%, #0b1424);
+}
+
+.sa-card--textonly:active {
+	background: color-mix(in srgb, var(--c, #18558f) 10%, #fff);
+	transform: translateY(-1px) scale(.995);
+}
+
+@media (max-width: 560px) {
+	.sa-card--textonly .sa-card__title {
+		font-size: 1.08rem;
+	}
+}
+
+/* ۴) ظاهر شدن آرام و لغزندهٔ کادرها یکی‌یکی (نوارها و شبکهٔ کارت‌ها).
+   کلاس‌های sa-stagger/sa-in را child.js می‌گذارد: بدون جاوااسکریپت، یا با
+   تنظیم «کاهش حرکت»، همه‌چیز ساده و کامل دیده می‌شود — چیزی پنهان نمی‌ماند. */
+@keyframes sa-slide-in {
+	from {
+		opacity: 0;
+		translate: 0 26px;
+	}
+
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}
+
+.sa-stagger.sa-in > * {
+	animation: sa-slide-in .7s cubic-bezier(.22, .8, .24, 1) both;
+	animation-delay: calc(var(--sa-i, 0) * 80ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-stagger.sa-in > * {
+		animation: none;
 	}
 }

@@ -14,8 +14,8 @@
  *   ۱. فقط بدنه‌ی محتوا (`the_content`) و فقط صفحه‌های تکی (`is_singular`).
  *      آرشیوها، خلاصه‌ها و خوراک دست‌نخورده می‌مانند.
  *   ۲. هر مقصد (استان، شهرستان، دیدنی) **فقط یک‌بار در هر صفحه** لینک می‌شود؛
- *      آن هم در **نخستین** رخدادِ نامش در متن. ده استان نام برده شود، ده لینک
- *      ساخته می‌شود — اما «لرستان» فقط یکی.
+ *      آن هم در نخستین رخدادِ قابل‌پیوند. استان/شهرستان فقط با عبارت کاملِ دارای
+ *      پیشوند وارد واژه‌نامه می‌شوند؛ نامِ تنها هرگز به مقصد جغرافیایی لینک نیست.
  *   ۳. لینک خودبه‌خودی ممنوع: نامِ استان در صفحه‌ی همان استان، نامِ شهرستان در
  *      صفحه‌ی همان شهرستان و عنوانِ نما در صفحه‌ی همان نما لینک نمی‌شود.
  *   ۴. لینکی که از قبل در متن هست دست‌نخورده می‌ماند و دوبار شمرده نمی‌شود:
@@ -25,10 +25,10 @@
  *   ۶. داخل تگ‌های حساس کاری انجام نمی‌شود: لینک‌های موجود، تیترها، کد،
  *      اسکریپت، استایل، فرم، دکمه و هر عنصری که `data-sa-autolink="off"`
  *      یا کلاس `sa-autolink-off` داشته باشد.
- *   ۷. متنِ لینک همیشه نامِ کاملِ موجودیت است: «شهرستان نطنز» / «استان گیلان»،
- *      نه واژه‌ی بدون پیشوند. اگر خودِ متن قرینه را دارد («شهرستان نطنز»)،
- *      همان عبارت لینک می‌شود؛ وگرنه پیشوند به متنِ نمایشی افزوده می‌شود
- *      (فقط در زمان نمایش؛ محتوای ذخیره‌شده تغییر نمی‌کند).
+ *   ۷. لینک جغرافیایی فقط وقتی ساخته می‌شود که خودِ متن عبارت کاملِ
+ *      «شهرستان + نام» یا «استان + نام» را داشته باشد. پیشوند هرگز به متن افزوده
+ *      نمی‌شود و همان عبارتِ موجود، بدون بازنویسی، داخل پیوند قرار می‌گیرد.
+ *      تکرارهایِ پشت‌سرهمِ یک پیشوند نیز هنگام نمایش به یک مورد فروکاسته می‌شوند.
  *   ۸. نام‌های «مبهم» فقط با قرینهٔ صریح لینک می‌شوند: نام‌های سه‌حرفی و کمتر،
  *      نام‌هایی که هم‌زمان واژه‌ی رایجِ فارسی‌اند («بافت»، «انار»، «مهر»، «بهار»…)
  *      و هر نامی که با قرینه در نوعِ دیگری به‌کار رفته است. نمونهٔ واقعی: «بافت
@@ -434,7 +434,40 @@ function sa_autolink_name_ok( $name, $type = 'attraction' ) {
 }
 
 /**
- * برچسبِ قابل‌نمایش برای یک مقصد (برای صفت title).
+ * Clean a geographic post title to its name, rejecting a mismatched prefix.
+ *
+ * The automatic geography dictionary is keyed only by complete source phrases:
+ * "استان X" and "شهرستان X". Legacy titles may already include the correct
+ * label; strip that label before rebuilding one canonical phrase. A county title
+ * prefixed as a province (or vice versa) is not accepted as an alias.
+ *
+ * @param string $type province|city|attraction.
+ * @param string $name Name or legacy title.
+ * @return string
+ */
+function sa_autolink_base_name( $type, $name ) {
+	$name = trim( (string) $name );
+	if ( '' === $name ) {
+		return '';
+	}
+
+	if ( 'province' === $type ) {
+		if ( preg_match( '~^(?:شهرستان|شهر|بخش|دهستان)[\s\x{200C}]+~u', $name ) ) {
+			return '';
+		}
+		$name = preg_replace( '~^(?:استان[\s\x{200C}]+)+~u', '', $name );
+	} elseif ( 'city' === $type ) {
+		if ( preg_match( '~^استان[\s\x{200C}]+~u', $name ) ) {
+			return '';
+		}
+		$name = preg_replace( '~^(?:(?:شهرستان|شهر|بخش|دهستان)[\s\x{200C}]+)+~u', '', $name );
+	}
+
+	return is_string( $name ) ? trim( $name ) : '';
+}
+
+/**
+ * Complete geographic phrase for a destination; attractions keep their title.
  *
  * @param string $type نوع مقصد.
  * @param string $name نام.
@@ -442,20 +475,33 @@ function sa_autolink_name_ok( $name, $type = 'attraction' ) {
  */
 function sa_autolink_label( $type, $name ) {
 	$name = trim( (string) $name );
-	if ( '' === $name ) {
-		return $name;
-	}
-	// عنوانی که خودش پیشوندِ معنایی دارد («شهر کرج»، «شهرستان نطنز») دوباره
-	// پیشوند نمی‌گیرد؛ وگرنه «شهرستان شهر کرج» ساخته می‌شد.
-	if ( preg_match( '~^(?:استان|شهرستان|شهر|بخش|دهستان)[\s\x{200C}]~u', $name ) ) {
-		return $name;
-	}
-	$prefix = 'province' === $type ? 'استان' : ( 'city' === $type ? 'شهرستان' : '' );
-	if ( '' === $prefix ) {
+	if ( 'province' !== $type && 'city' !== $type ) {
 		return $name;
 	}
 
+	$name = sa_autolink_base_name( $type, $name );
+	if ( '' === $name ) {
+		return '';
+	}
+	$prefix = 'province' === $type ? 'استان' : 'شهرستان';
+
 	return $prefix . ' ' . $name;
+}
+
+/**
+ * Detect an exact geographic prefix at the start of a normalized dictionary key.
+ *
+ * @param string $needle Normalized match.
+ * @return string province|city|''
+ */
+function sa_autolink_needle_kind( $needle ) {
+	if ( preg_match( '~^استان\s~u', (string) $needle ) ) {
+		return 'province';
+	}
+	if ( preg_match( '~^شهرستان\s~u', (string) $needle ) ) {
+		return 'city';
+	}
+	return '';
 }
 
 /* -------------------------------------------------------------------------
@@ -614,36 +660,44 @@ function sa_autolink_build_targets() {
 	 * @param string $parent استانِ شهرستان (برای ترجیحِ کاندیدِ هم‌استان).
 	 */
 	$add = function ( $name, $type, $id, $prio, $term = 0, $parent = '' ) use ( &$index ) {
-		$name = trim( (string) $name );
+		$name = sa_autolink_base_name( $type, $name );
 		$id   = (int) $id;
 		$term = (int) $term;
 		if ( '' === $name || ( ! $id && ! $term ) ) {
 			return;
 		}
 
-		$norm    = sa_autolink_normalize( $name );
-		$needles = array( $norm['text'] );
-		// «بستان‌آباد» گاهی «بستانآباد» نوشته می‌شود؛ هر دو شکل را بپذیر.
+		$name_norm = sa_autolink_normalize( $name );
+		$label     = sa_autolink_label( $type, $name );
+		$norm      = sa_autolink_normalize( $label );
+		$needles   = array( $norm['text'] );
+		// نیم‌فاصلهٔ داخل نام گاهی حذف می‌شود؛ در گونهٔ چسبیده، جداییِ پیشوند
+		// («استان/شهرستان») از نام را همچنان اجباری نگه می‌داریم.
 		if ( false !== strpos( $name, "\xE2\x80\x8C" ) ) {
-			$joined = str_replace( ' ', '', $norm['text'] );
+			if ( 'province' === $type || 'city' === $type ) {
+				$prefix = 'province' === $type ? 'استان' : 'شهرستان';
+				$joined = $prefix . ' ' . str_replace( ' ', '', $name_norm['text'] );
+				$joined = sa_autolink_normalize( $joined )['text'];
+			} else {
+				$joined = str_replace( ' ', '', $norm['text'] );
+			}
 			if ( '' !== $joined && $joined !== $norm['text'] ) {
 				$needles[] = $joined;
 			}
 		}
 
-		$letters = preg_replace( '~\s+~u', '', $norm['text'] );
+		$letters = preg_replace( '~\s+~u', '', $name_norm['text'] );
 		$length  = function_exists( 'mb_strlen' ) ? mb_strlen( (string) $letters, 'UTF-8' ) : strlen( (string) $letters );
 		// نام‌های مبهم (سه‌حرفی و کمتر، یا واژه‌های رایجِ هم‌نام مثل «بافت») فقط
-		// با قرینهٔ صریح لینک می‌شوند. نام استان‌ها فقط وقتی مبهم‌اند که در فهرست باشند
-		// («فارس»)؛ کوتاه‌بودنِ نامِ استان مانع لینک نیست چون متنِ لینک «استان X» است.
-		$ambiguous = in_array( $norm['text'], sa_autolink_ambiguous_names(), true );
+		// با قرینهٔ صریح لینک می‌شوند. کوتاهیِ نام با پیشوندِ کامل مشکلی ندارد.
+		$ambiguous = in_array( $name_norm['text'], sa_autolink_ambiguous_names(), true );
 		$short     = ( $ambiguous || ( $length <= 3 && 'province' !== $type ) );
 
 		$candidate = array(
 			'type'     => (string) $type,
 			'id'       => $id,
 			'term'     => $term,
-			'label'    => sa_autolink_label( $type, $name ),
+			'label'    => $label,
 			'prio'     => (int) $prio,
 			'ctx'      => $short,
 			'name'     => $name,
@@ -707,10 +761,14 @@ function sa_autolink_build_targets() {
 			$add( $county['name'], 'city', $posts['city'][ $county['slug'] ]['id'], 2, 0, $parent );
 			$known_city_ids[ (int) $posts['city'][ $county['slug'] ]['id'] ] = true;
 
-			// اگر عنوان صفحه با نامِ ثبت‌شده فرق دارد، آن هم مقصد باشد.
-			$title = trim( (string) $posts['city'][ $county['slug'] ]['title'] );
-			if ( '' !== $title && ! preg_match( '~(?:استان|شهرستان)\s~u', $title ) && sa_autolink_name_ok( $title, 'city' ) ) {
-				$add( $title, 'city', $posts['city'][ $county['slug'] ]['id'], 2, 0, $parent );
+			// اگر عنوان صفحه با نام ثبت‌شده فرق دارد، همان نام هم فقط با پیشوند
+			// «شهرستان» وارد واژه‌نامه می‌شود؛ عنوانِ استان برای شهرستان پذیرفته نیست.
+			$title      = trim( (string) $posts['city'][ $county['slug'] ]['title'] );
+			$title_name = sa_autolink_base_name( 'city', $title );
+			$title_norm = sa_autolink_normalize( $title_name );
+			$county_norm = sa_autolink_normalize( sa_autolink_base_name( 'city', $county['name'] ) );
+			if ( '' !== $title_name && $title_norm['text'] !== $county_norm['text'] && sa_autolink_name_ok( $title_name, 'city' ) ) {
+				$add( $title_name, 'city', $posts['city'][ $county['slug'] ]['id'], 2, 0, $parent );
 			}
 		}
 	}
@@ -895,7 +953,7 @@ function sa_autolink_context_kind( $subject, $offset ) {
  * @return string
  */
 function sa_autolink_fragment( $text, &$state ) {
-	$text = (string) $text;
+	$text = sa_autolink_normalize_duplicate_prefixes( (string) $text );
 	if ( '' === $text || empty( $state['regex'] ) ) {
 		return $text;
 	}
@@ -954,12 +1012,13 @@ function sa_autolink_fragment( $text, &$state ) {
 			continue;
 		}
 
-		$kind      = sa_autolink_context_kind( $subject, $begin );
-		$ctx_start = $kind ? sa_autolink_context_anchor_start( $text, $start ) : $start;
+		$needle_kind = sa_autolink_needle_kind( $needle );
+		$kind        = $needle_kind ? $needle_kind : sa_autolink_context_kind( $subject, $begin );
+		$ctx_start   = $needle_kind ? $start : ( $kind ? sa_autolink_context_anchor_start( $text, $start ) : $start );
 
-		// قرینه باید در متنِ اصلی هم جدا باشد؛ «فرخ‌شهر پردیس» نباید «شهر»ِ چسبیده را
-		// قرینه ببیند (وگرنه «پردیس دانشگاهی» به شهرستان پردیس لینک می‌شد).
-		if ( $kind && ( $ctx_start >= $start || preg_match( '~[\p{L}\p{N}]$~u', substr( $text, 0, $ctx_start ) ) ) ) {
+		// قرینه‌ای که پیش از نامِ تنها آمده باید در متن اصلی هم جدا باشد؛ عبارتِ
+		// کاملِ استان/شهرستان از خودِ کلید تشخیص داده می‌شود و به پیشوند بیرونی نیاز ندارد.
+		if ( ! $needle_kind && $kind && ( $ctx_start >= $start || preg_match( '~[\p{L}\p{N}]$~u', substr( $text, 0, $ctx_start ) ) ) ) {
 			$kind = '';
 		}
 
@@ -1025,13 +1084,11 @@ function sa_autolink_fragment( $text, &$state ) {
 		$anchor_start = $start;
 		$anchor_text  = substr( $text, $start, $finish - $start );
 
-		if ( $kind && $ctx_start < $start && $ctx_start >= $last ) {
-			// عبارتِ قرینه هم داخل لینک می‌آید: «شهرستان بافت»، «استان گیلان».
+		if ( $kind && ! $needle_kind && $ctx_start < $start && $ctx_start >= $last ) {
+			// برای لینک‌های نامِ تنها (مانند جاذبه)، قرینهٔ موجود هم در لینک می‌آید.
+			// مقصدهای جغرافیایی از ابتدا با پیشوند کامل تطبیق می‌شوند و متن عیناً می‌ماند.
 			$anchor_start = $ctx_start;
 			$anchor_text  = substr( $text, $ctx_start, $finish - $ctx_start );
-		} elseif ( 'attraction' !== $chosen['type'] && ! empty( $chosen['label'] ) ) {
-			// متنِ لینک همیشه نامِ کاملِ موجودیت است: «شهرستان نطنز» نه «نطنز».
-			$anchor_text = (string) $chosen['label'];
 		}
 
 		if ( false !== strpos( $anchor_text, '&' ) ) {
@@ -1128,7 +1185,14 @@ function sa_autolink_state( $content ) {
  */
 function sa_autolink_content( $content ) {
 	$content = (string) $content;
-	if ( is_admin() || is_feed() || ! sa_autolink_enabled() || ! is_singular() ) {
+	if ( is_admin() || is_feed() || ! is_singular() ) {
+		return $content;
+	}
+
+	// تصحیح پیشوندهای تکراری در متن و تیترهای مقاله مستقل از فعال‌بودن لینک‌ساز؛
+	// پردازش فقط روی گره‌های متنی است و به تگ/ویژگی HTML دست نمی‌زند.
+	$content = sa_autolink_normalize_content_prefixes( $content );
+	if ( ! sa_autolink_enabled() ) {
 		return $content;
 	}
 	if ( '' === trim( wp_strip_all_tags( $content ) ) ) {
@@ -1213,7 +1277,7 @@ function sa_autolink_content( $content ) {
  */
 function sa_autolink_protect_blocks( $content, &$keep ) {
 	$out = preg_replace_callback(
-		'~<(script|style|iframe|noscript|template|svg|math)\b.*?</\1\s*>~isu',
+		'~<(script|style|iframe|noscript|template|svg|math|pre|code|kbd|samp|var|textarea)\b.*?</\1\s*>~isu',
 		function ( $m ) use ( &$keep ) {
 			$key            = "\x01sa-keep-" . count( $keep ) . "\x01";
 			$keep[ $key ]   = $m[0];
@@ -1236,6 +1300,53 @@ function sa_autolink_restore_blocks( $content, $keep ) {
 		return $content;
 	}
 	return str_replace( array_keys( $keep ), array_values( $keep ), $content );
+}
+
+/**
+ * Collapse repeated identical province/county prefixes in a text node.
+ *
+ * @param string $text Plain text, never an HTML tag or attribute.
+ * @return string
+ */
+function sa_autolink_normalize_duplicate_prefixes( $text ) {
+	$text = (string) $text;
+	if ( function_exists( 'sa_geo_normalize_duplicate_prefixes' ) ) {
+		return sa_geo_normalize_duplicate_prefixes( $text );
+	}
+	$normalized = preg_replace(
+		'~(^|[^\p{L}\p{N}\p{M}\x{200C}])(استان|شهرستان)(?:[\s\p{Z}\x{200C}]+\2)+(?![\p{L}\p{N}\p{M}\x{200C}])~u',
+		'$1$2',
+		$text
+	);
+	return is_string( $normalized ) ? $normalized : $text;
+}
+
+/**
+ * Normalize duplicate geo labels in visible HTML text, including skipped headings.
+ * Tags, attributes and code/script blocks remain untouched.
+ *
+ * @param string $content HTML content.
+ * @return string
+ */
+function sa_autolink_normalize_content_prefixes( $content ) {
+	$content = (string) $content;
+	if ( false === strpos( $content, '<' ) ) {
+		return sa_autolink_normalize_duplicate_prefixes( $content );
+	}
+
+	$keep    = array();
+	$working = sa_autolink_protect_blocks( $content, $keep );
+	$tokens  = preg_split( '~(<!--.*?-->|<!\[CDATA\[.*?\]\]>|<[^>]*>)~su', $working, -1, PREG_SPLIT_DELIM_CAPTURE );
+	if ( ! is_array( $tokens ) ) {
+		return $content;
+	}
+	foreach ( $tokens as $i => $token ) {
+		if ( '' !== $token && '<' !== substr( $token, 0, 1 ) ) {
+			$tokens[ $i ] = sa_autolink_normalize_duplicate_prefixes( $token );
+		}
+	}
+
+	return sa_autolink_restore_blocks( implode( '', $tokens ), $keep );
 }
 
 /**

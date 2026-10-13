@@ -670,6 +670,11 @@ function sa_gallery_image_payload( $attachment_id ) {
 		return null;
 	}
 
+	// v2.15.0: تصویری که فایلش روی سرور نیست در آلبوم نمایش داده نمی‌شود.
+	if ( function_exists( 'sa_media_attachment_missing' ) && sa_media_attachment_missing( $attachment_id ) ) {
+		return null;
+	}
+
 	$full  = wp_get_attachment_image_src( $attachment_id, 'full' );
 	$large = wp_get_attachment_image_src( $attachment_id, 'sa-gallery-large' );
 	$thumb = wp_get_attachment_image_src( $attachment_id, 'sa-gallery-card' );
@@ -708,7 +713,7 @@ function sa_gallery_album_payload( $province_id, $city_id ) {
 	}
 
 	$cover = $images ? $images[0]['thumb'] : '';
-	if ( ! $cover && has_post_thumbnail( $city_id ) ) {
+	if ( ! $cover && function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $city_id, 'gallery' ) ) {
 		$cover_src = wp_get_attachment_image_src( get_post_thumbnail_id( $city_id ), 'sa-gallery-card' );
 		$cover     = $cover_src ? $cover_src[0] : '';
 	}

@@ -16,81 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 
 /* ---- province dot coordinates on the hero map (x, y from the v2 design) ---- */
-$sa_map_points = array(
-	array( 'آذربایجان شرقی', 'east-azerbaijan', 56, 45 ),
-	array( 'آذربایجان غربی', 'west-azerbaijan', 31, 58 ),
-	array( 'اردبیل', 'ardabil', 96, 41 ),
-	array( 'اصفهان', 'isfahan', 180, 165 ),
-	array( 'البرز', 'alborz', 146, 94 ),
-	array( 'ایلام', 'ilam', 58, 150 ),
-	array( 'بوشهر', 'bushehr', 152, 258 ),
-	array( 'تهران', 'tehran', 162, 104 ),
-	array( 'چهارمحال و بختیاری', 'chaharmahal-bakhtiari', 147, 181 ),
-	array( 'خراسان جنوبی', 'south-khorasan', 314, 168 ),
-	array( 'خراسان رضوی', 'razavi-khorasan', 322, 87 ),
-	array( 'خراسان شمالی', 'north-khorasan', 276, 60 ),
-	array( 'خوزستان', 'khuzestan', 104, 205 ),
-	array( 'زنجان', 'zanjan', 100, 78 ),
-	array( 'سمنان', 'semnan', 198, 104 ),
-	array( 'سیستان و بلوچستان', 'sistan-baluchestan', 347, 248 ),
-	array( 'فارس', 'fars', 181, 245 ),
-	array( 'قزوین', 'qazvin', 130, 88 ),
-	array( 'قم', 'qom', 148, 127 ),
-	array( 'کردستان', 'kurdistan', 70, 111 ),
-	array( 'کرمان', 'kerman', 271, 229 ),
-	array( 'کرمانشاه', 'kermanshah', 71, 134 ),
-	array( 'کهگیلویه و بویراحمد', 'kohgiluyeh-boyer-ahmad', 162, 220 ),
-	array( 'گلستان', 'golestan', 219, 75 ),
-	array( 'گیلان', 'gilan', 124, 70 ),
-	array( 'لرستان', 'lorestan', 97, 154 ),
-	array( 'مازندران', 'mazandaran', 191, 81 ),
-	array( 'مرکزی', 'markazi', 124, 139 ),
-	array( 'هرمزگان', 'hormozgan', 254, 296 ),
-	array( 'همدان', 'hamadan', 100, 123 ),
-	array( 'یزد', 'yazd', 217, 191 ),
-);
-$sa_colors = array( '#0b2a4a', '#123f73', '#18558f', '#246da8', '#174f82', '#2b6094', '#387aaf', '#0f355f' );
+/* v2.13.3: فهرست ۳۱ استان به inc/entity-bars.php منتقل شد (مشترک با آرشیو استان‌ها). */
+$sa_map_points = sa_iran_provinces();
+$sa_colors = sa_bar_colors();
 
 /* ---- v2.1.0: فقط استان‌هایی که واقعاً منتشر شده‌اند لینک می‌شوند ----
-   پیش از این، هر ۳۱ استان از آرایه‌ی بالا لینک می‌شدند؛ چون ۴ استان منتشر بود،
-   صفحه‌ی اصلی ۵۴ لینک به صفحه‌های ۴۰۴ می‌داد (۲۷ نقطه‌ی نقشه + ۲۷ نوار).
-   این بدترین جای ممکن برای لینک مرده است: گوگل صفحه‌ی اصلی را بیش از هر
-   صفحه‌ی دیگری می‌خزد. با انتشار هر استان، لینکش خودبه‌خود برمی‌گردد. */
-if ( ! function_exists( 'sa_home_province_url' ) ) {
-	/**
-	 * نشانی استان اگر منتشر شده باشد، وگرنه رشته‌ی خالی.
-	 *
-	 * کش داخلی static است، نه متغیر سراسری: فایل‌های قالب داخل load_template()
-	 * بارگذاری می‌شوند، پس متغیرهای سطح فایل global نیستند.
-	 *
-	 * @param string $slug نامک استان.
-	 * @return string
-	 */
-	function sa_home_province_url( $slug ) {
-		static $map = null;
-		if ( null === $map ) {
-			$map = array();
-			$ids = get_posts(
-				array(
-					'post_type'              => 'province',
-					'post_status'            => 'publish',
-					'posts_per_page'         => 40,
-					'fields'                 => 'ids',
-					'no_found_rows'          => true,
-					'update_post_meta_cache' => false,
-					'update_post_term_cache' => false,
-				)
-			);
-			foreach ( $ids as $id ) {
-				$name = get_post_field( 'post_name', $id );
-				if ( $name ) {
-					$map[ $name ] = get_permalink( $id );
-				}
-			}
-		}
-		return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
-	}
-}
+   پیش از این، هر ۳۱ استان لینک می‌شدند و صفحه‌ی اصلی ده‌ها لینک ۴۰۴ داشت.
+   v2.13.3: نقشهٔ هیرو از sa_published_entity_ids('province') (inc/entity-bars.php) استفاده می‌کند. */
+$sa_pub_provinces = sa_published_entity_ids( 'province' );
 
 /* ---- logo: custom logo if set, otherwise the bundled official one ---- */
 $sa_logo_url = SA_CHILD_URI . 'assets/img/logo.webp';
@@ -116,17 +49,26 @@ $sa_stat1_lb  = get_theme_mod( 'sa_stat1_label', 'استان' );
 $sa_stat2_num = get_theme_mod( 'sa_stat2_num', isset( $sa_counts['city'] ) ? (string) (int) $sa_counts['city'] : '0' );
 $sa_stat2_suf = get_theme_mod( 'sa_stat2_suffix', '' );
 $sa_stat2_lb  = get_theme_mod( 'sa_stat2_label', 'شهرستان' );
-$sa_prov_h2   = get_theme_mod( 'sa_sec_prov_title', 'استان‌های ایران' );
 $sa_latest_h2 = get_theme_mod( 'sa_sec_latest_title', 'آخرین مقالات' );
-$sa_pop_h2    = get_theme_mod( 'sa_sec_pop_title', 'پست‌های معروف' );
-$sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_theme_mod( 'sa_pop_ids', '' ) ) ) );
+/* v2.13.5: بخش «پست‌های معروف» به درخواست مالک از صفحهٔ اول حذف شد. */
+/* v2.13.1: «آموزش‌ها» (دستهٔ آموزش‌های ضروری کمپینگ و بقا) کنار استان‌ها، شهرستان‌ها و دیدنی‌ها:
+   چیپ هیرو، کارت آمار سوم و یک بخش جدا با آخرین آموزش‌ها. تا وقتی آموزشی منتشر نشده
+   (پیش‌نویس‌ها در انتظار تأیید مالک)، هیچ‌کدام نشان داده نمی‌شوند تا لینکِ آرشیو خالی نسازیم. */
+$sa_edu_nav   = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
+$sa_edu_term  = function_exists( 'sa_education_category' ) ? sa_education_category() : null;
+$sa_edu_h2    = get_theme_mod( 'sa_sec_edu_title', '' );
+if ( '' === trim( (string) $sa_edu_h2 ) ) {
+	$sa_edu_h2 = $sa_edu_term ? $sa_edu_term->name : 'آموزش‌های ضروری کمپینگ و بقا';
+}
+$sa_edu_intro = get_theme_mod( 'sa_sec_edu_intro', 'پیش از سفر به طبیعت بخوانید: تجهیزات، آتش، آب آشامیدنی، کاردستی‌های اضطراری و نجات غریق — گام‌به‌گام، با منابع رسمی و هشدارهای ایمنی.' );
+$sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 ?>
 
 <style>
 /* فونت Vazirmatn به‌صورت محلی در قالب مادر بارگذاری و preload می‌شود
    (assets/css/fonts.css + wp_head). درخواست به fonts.googleapis.com از داخل
    ایران معمولاً برنمی‌گردد و چون @import بود، رندر را هم بلوک می‌کرد. */
-.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.8;overflow:hidden}
+.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.75;overflow:hidden}
 .sa-home *{box-sizing:border-box}
 .sa-wrap{max-width:1180px;margin:0 auto;padding:0 10px}
 .sa-hero{position:relative;overflow:hidden;min-height:min(100vh,800px);display:flex;align-items:center;padding:64px 0 96px;background:radial-gradient(760px 480px at 18% 55%,rgba(36,109,168,.16),transparent 70%),linear-gradient(#fff,#edf6ff)}
@@ -140,10 +82,10 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-brand{display:flex;align-items:center;flex-wrap:wrap;gap:18px;margin-bottom:6px;min-width:0}
 .sa-logo{flex:none;width:176px;height:176px;display:grid;place-items:center;background:#fff;border:1px solid rgba(214,166,67,.5);border-radius:50%;padding:10px;box-shadow:0 24px 42px -24px rgba(7,26,48,.55),0 0 0 4px rgba(255,255,255,.58);filter:none;transform:translateZ(0)}
 .sa-logo img{width:100%;height:100%;object-fit:contain;display:block;border-radius:50%;filter:none}
-.sa-home .sa-hero h1{margin:0;font-size:clamp(28px,5.4vw,64px);line-height:1.25;font-weight:800;letter-spacing:-.5px;min-width:0;overflow-wrap:anywhere;color:var(--navy);text-shadow:0 2px 0 #fff,0 12px 26px rgba(11,42,74,.2)}
+.sa-home .sa-hero h1{margin:0;font-size:clamp(28px,5vw,56px);line-height:1.25;font-weight:800;letter-spacing:-.5px;min-width:0;overflow-wrap:anywhere;color:var(--navy);text-shadow:0 2px 0 #fff,0 12px 26px rgba(11,42,74,.2)}
 .sa-en{color:var(--navy-2);font-weight:800;letter-spacing:4px;font-size:13px;direction:ltr;text-align:right;margin:2px 0 14px}
 .sa-slogan{margin:0 0 10px;font-size:clamp(16px,2.2vw,21px);font-weight:700;color:var(--navy-2)}
-.sa-hero .sa-intro{margin:0 0 28px;color:var(--mut);font-size:17px;max-width:520px}
+.sa-hero .sa-intro{margin:0 0 28px;color:var(--mut);font-size:16px;max-width:520px}
 .sa-search{display:flex;align-items:center;flex-wrap:wrap;gap:12px;max-width:100%;height:74px;padding:0 14px 0 10px;border:1px solid #bdd8f1;border-radius:26px;background:linear-gradient(145deg,#f2f8ff,var(--light-blue));box-shadow:0 2px 0 rgba(255,255,255,.95) inset,0 38px 62px -32px rgba(11,42,74,.55),0 12px 24px -14px rgba(11,42,74,.34);transition:box-shadow .3s,border-color .3s}
 .sa-search:focus-within{border-color:var(--blue);box-shadow:0 2px 0 #fff inset,0 34px 62px -30px rgba(11,42,74,.62),0 0 0 3px rgba(36,109,168,.22)}
 .sa-search svg{flex:none;margin-right:10px}
@@ -166,8 +108,6 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-map .d{fill:#bdd8f1;filter:drop-shadow(0 0 5px #18558f);animation:sab var(--t) ease-in-out var(--d) infinite;transition:r .2s}
 .sa-map a:hover .d{r:5.2}
 .sa-map .sa-dot--soon{opacity:.35;pointer-events:none}
-.sa-bar--soon{opacity:.45;cursor:default;pointer-events:none}
-.sa-bar--soon em{font-style:normal}
 @keyframes sab{0%,100%{opacity:.15}50%{opacity:1}}
 .sa-scroll{position:absolute;bottom:24px;left:50%;margin-left:-13px;width:26px;height:42px;border:2px solid rgba(11,20,36,.28);border-radius:14px}
 .sa-scroll i{position:absolute;top:8px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--blue);animation:saw 1.8s infinite}
@@ -175,41 +115,44 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 .sa-off *{animation-play-state:paused!important}
 .sa-stats .sa-wrap{position:relative;max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .sa-st{text-align:center;padding:12px 10px;background:linear-gradient(155deg,#fff,#edf6ff);border:1px solid #bdd8f1;border-radius:28px;box-shadow:0 2px 0 #fff inset,0 40px 64px -28px color-mix(in srgb,var(--c) 72%,transparent),0 10px 22px -16px rgba(11,42,74,.35)}
-.sa-st b{display:block;font-size:clamp(40px,6vw,58px);line-height:1.3;font-weight:700;color:var(--c)}
+.sa-st b{display:block;font-size:clamp(36px,5.2vw,52px);line-height:1.3;font-weight:700;color:var(--c)}
 .sa-st span{color:var(--mut);font-weight:500}
 .sa-sec{padding-top:96px;content-visibility:auto;contain-intrinsic-size:auto 900px}
 .sa-head{position:relative;display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:30px;padding:10px 12px;background:linear-gradient(155deg,#fff 0%,#edf6ff 56%,#dcecff 100%);border:1px solid #bdd8f1;border-inline-start:6px solid var(--navy-2);border-radius:18px;box-shadow:0 2px 0 #fff inset,0 3px 0 rgba(11,42,74,.16),0 18px 28px -14px rgba(11,42,74,.34),0 38px 58px -34px rgba(7,26,48,.48)}
-.sa-head h2{position:relative;z-index:1;margin:0;font-size:clamp(26px,3.6vw,38px);font-weight:800;color:var(--navy);text-shadow:0 1px 0 #fff,0 8px 18px rgba(11,42,74,.14)}
+.sa-head h2{position:relative;z-index:1;margin:0;font-size:clamp(24px,3.2vw,34px);font-weight:800;color:var(--navy);text-shadow:0 1px 0 #fff,0 8px 18px rgba(11,42,74,.14)}
 .sa-head a{position:relative;z-index:1;color:var(--navy-2);font-weight:700;text-decoration:none;white-space:nowrap}
-.sa-bars{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 24px}
-.sa-bar{display:flex;align-items:center;gap:14px;height:68px;padding:0 12px;border-radius:20px;background:#fff;border:1px solid rgba(11,20,36,.05);color:var(--ink);text-decoration:none;box-shadow:0 22px 38px -18px color-mix(in srgb,var(--c) 80%,transparent),0 2px 6px rgba(11,20,36,.04);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-.sa-bar:before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--c);box-shadow:0 0 0 5px color-mix(in srgb,var(--c) 18%,transparent)}
-.sa-bar b{flex:1;min-width:0;font-weight:800;font-size:clamp(13px,1.55vw,16.5px);line-height:1.3;white-space:nowrap;letter-spacing:-.02em}
-.sa-bar em{font-style:normal;color:#7a8799;font-size:13px;letter-spacing:.4px;direction:ltr}
-.sa-bar:after{content:"";flex:none;width:9px;height:9px;border:solid var(--c);border-width:2px 0 0 2px;transform:rotate(-45deg);transition:transform .3s}
-.sa-bar:hover:after{transform:rotate(-45deg) translate(-3px,-3px)}
-.sa-bar:nth-child(even){--x:-40px}
 .sa-posts{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.sa-post{display:block;border-radius:24px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 34px 54px -28px color-mix(in srgb,var(--c,#18558f) 75%,transparent),0 2px 6px rgba(11,20,36,.05);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
-.sa-img{aspect-ratio:16/10;background:linear-gradient(135deg,color-mix(in srgb,var(--c,#18558f) 35%,#fff),color-mix(in srgb,var(--c,#18558f) 8%,#fff)) center/cover}
-.sa-pb{padding:10px 12px 12px}
-.sa-pb h3{margin:0 0 6px;font-size:17px;line-height:1.7;font-weight:700}
-.sa-pb p{margin:0 0 10px;color:var(--mut);font-size:14px}
+.sa-post{display:block;border-radius:24px;overflow:hidden;background:#fff;color:var(--ink);text-decoration:none;box-shadow:0 34px 54px -28px color-mix(in srgb,var(--c,#18558f) 75%,transparent),0 2px 6px rgba(11,20,36,.05);transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background-color .3s}
+/* v2.16.0: هاور و کلیک رنگی روی کارت مقالات (درخواست مالک). */
+.sa-post:hover,.sa-post:focus-visible{background:color-mix(in srgb,var(--c,#18558f) 4%,#fff);transform:translateY(-5px);box-shadow:0 32px 50px -26px color-mix(in srgb,var(--c,#18558f) 92%,transparent),0 0 0 3px color-mix(in srgb,var(--c,#18558f) 13%,transparent)}
+.sa-post:active{background:color-mix(in srgb,var(--c,#18558f) 10%,#fff);transform:translateY(-2px) scale(.995);box-shadow:0 14px 24px -16px color-mix(in srgb,var(--c,#18558f) 90%,transparent),0 0 0 5px color-mix(in srgb,var(--c,#18558f) 18%,transparent)}
+.sa-post:hover h3,.sa-post:focus-visible h3{color:color-mix(in srgb,var(--c,#18558f) 80%,#0b1424)}
+/* v2.15.0: کادر تصویر (.sa-img) از کارت‌های صفحهٔ اول برداشته شد — مقالات بدون تصویر شاخص. */
+/* v2.16.0: کادر مقالات بزرگ‌تر — عنوان‌ها و چکیده‌ها بلند است و باید جا داشته باشند. */
+.sa-pb{padding:26px 24px 24px;border-top:4px solid color-mix(in srgb,var(--c,#18558f) 70%,#fff)}
+.sa-pb h3{margin:0 0 9px;font-size:18px;line-height:1.8;font-weight:700;transition:color .3s}
+.sa-pb p{margin:0 0 12px;color:var(--mut);font-size:14.5px;line-height:1.9}
 .sa-pb small{color:#8593a6;font-size:12.5px}
-.sa-pop{margin-top:96px;padding:84px 0 100px;border-radius:44px 44px 0 0;color:#fff;background:radial-gradient(700px 320px at 85% 0,rgba(36,109,168,.34),transparent 70%),var(--navy-deep);content-visibility:auto;contain-intrinsic-size:auto 700px}
-.sa-pop .sa-head{background:linear-gradient(155deg,#174f82,#0b2a4a);border-color:#387aaf;border-inline-start-color:#8eb9e3;box-shadow:0 2px 0 rgba(255,255,255,.16) inset,0 22px 40px -22px rgba(0,0,0,.8)}.sa-pop .sa-head h2{color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35)}
-.sa-pop .sa-post{background:#111d36;color:#fff;box-shadow:0 38px 64px -30px color-mix(in srgb,var(--c,#18558f) 85%,transparent)}
-.sa-pop .sa-pb p{color:#9fb0c9}.sa-pop .sa-pb small{color:#7f92b0}
 .js .rv{opacity:0;transform:translateY(26px)}
-.js .sa-bar.rv{transform:translateX(var(--x,40px))}
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-logo{width:136px;height:136px;padding:8px}.sa-logo img{width:100%;height:100%}.sa-map{max-width:380px;margin:10px auto 0}.sa-posts{grid-template-columns:repeat(2,1fr)}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
-@media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-bars,.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:108px;height:108px;padding:7px}.sa-logo img{width:100%;height:100%}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-bar{height:62px}.sa-bar b{font-size:clamp(12px,3.15vw,15px)}.sa-head{padding:7px 8px;border-inline-start-width:4px}}
-@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-bar{gap:8px;padding-inline:9px}.sa-bar b{font-size:clamp(10.8px,3.15vw,13.5px);letter-spacing:-.04em}.sa-bar em{display:none}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
+@media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-posts{grid-template-columns:1fr}.sa-brand{gap:14px}.sa-logo{width:108px;height:108px;padding:7px}.sa-logo img{width:100%;height:100%}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}.sa-head{padding:7px 8px;border-inline-start-width:4px}}
+@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-brand{gap:12px}.sa-logo{width:84px;height:84px;padding:6px}.sa-logo img{width:100%;height:100%}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
 /* zir-e 430px, dokme be radif-e dovom miravad */
 @media(max-width:430px){.sa-search{height:auto;padding:8px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;font-size:16px}.sa-search svg{order:2;margin:0}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
+/* v2.13.1 — آموزش‌ها کنار استان/شهرستان/دیدنی */
+.sa-chips a.sa-chip--edu{background:#e8f6ee;border-color:#9bd1b3;color:#0f5132}
+.sa-chips a.sa-chip--edu:hover,.sa-chips a.sa-chip--edu:focus-visible{background:#0f5132;border-color:#0f5132;color:#fff}
+.sa-stats .sa-wrap--3{max-width:980px;grid-template-columns:repeat(3,1fr)}
+.sa-stats a.sa-st{color:inherit;text-decoration:none;transition:transform .3s}.sa-stats a.sa-st:hover,.sa-stats a.sa-st:focus-visible{transform:translateY(-3px)}
+.sa-sec--edu .sa-head{border-inline-start-color:#177357}
+.sa-sec__intro{margin:-12px 0 26px;max-width:720px;color:var(--mut);font-size:16px}
+.sa-post .sa-tag{display:inline-block;margin-inline-start:8px;padding:1px 9px;border-radius:99px;background:#e8f6ee;color:#0f5132;font-size:11.5px;font-weight:700}
+/* v2.15.0: بخش آموزش‌ها با نوارهای سفید سایه‌دار (مانند فهرست استان‌ها/شهرستان‌ها) — بدون تصویر زمینه. */
+.sa-sec--edu .sa-bars{margin-top:2px}
+@media(max-width:640px){.sa-stats .sa-wrap--3{gap:10px}.sa-wrap--3 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span{font-size:13px}}
 </style>
 
 <div class="sa-home" id="sa-home">
@@ -237,6 +180,9 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 					<?php foreach ( sa_nav_entity_types() as $sa_type ) : ?>
 						<a href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>"><?php echo esc_html( sa_entity_label( $sa_type, true ) ); ?></a>
 					<?php endforeach; ?>
+					<?php if ( $sa_edu_nav ) : ?>
+						<a class="sa-chip--edu" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><?php echo esc_html( $sa_edu_nav['label'] ); ?></a>
+					<?php endif; ?>
 				</div>
 				<?php $sa_dash_url = function_exists( 'sa_dashboard_page_url' ) ? sa_dashboard_page_url() : ''; ?>
 				<?php if ( $sa_dash_url ) : ?>
@@ -259,7 +205,7 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 					<g id="sa-dots">
 						<?php
 						foreach ( $sa_map_points as $sa_p ) :
-							$sa_url  = sa_home_province_url( $sa_p[1] );
+							$sa_url  = isset( $sa_pub_provinces[ $sa_p[1] ] ) ? (string) get_permalink( $sa_pub_provinces[ $sa_p[1] ] ) : '';
 							$sa_anim = 'style="--t:' . esc_attr( number_format( 2 + wp_rand( 0, 40 ) / 10, 1 ) ) . 's;--d:-' . esc_attr( number_format( wp_rand( 0, 60 ) / 10, 1 ) ) . 's"';
 							?>
 							<?php if ( $sa_url ) : ?>
@@ -283,42 +229,54 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 	?>
 
 	<section class="sa-stats" id="sa-stats">
-		<div class="sa-wrap">
+		<div class="sa-wrap<?php echo $sa_edu_nav ? ' sa-wrap--3' : ''; ?>">
 			<div class="sa-st" style="--c:#123f73"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b><span><?php echo esc_html( $sa_stat1_lb ); ?></span></div>
 			<div class="sa-st" style="--c:#246da8"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b><span><?php echo esc_html( $sa_stat2_lb ); ?></span></div>
+			<?php if ( $sa_edu_nav ) : ?>
+				<a class="sa-st" style="--c:#177357" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_edu_nav['count'] ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_edu_nav['count'] ) ); ?></b><span><?php echo esc_html( $sa_stat3_lb ); ?></span></a>
+			<?php endif; ?>
 		</div>
 	</section>
 
-	<section class="sa-sec">
-		<div class="sa-wrap">
-			<div class="sa-head"><h2><?php echo esc_html( $sa_prov_h2 ); ?></h2><a href="<?php echo esc_url( get_post_type_archive_link( 'province' ) ); ?>">همه‌ی استان‌ها</a></div>
-			<div class="sa-bars" id="sa-bars">
-				<?php
-				foreach ( $sa_map_points as $sa_i => $sa_p ) :
-					$sa_url = sa_home_province_url( $sa_p[1] );
-					$sa_en  = ucwords( str_replace( '-', ' ', $sa_p[1] ) );
-					?>
-					<?php if ( $sa_url ) : ?>
-						<a class="sa-bar" href="<?php echo esc_url( $sa_url ); ?>" style="--c:<?php echo esc_attr( $sa_colors[ $sa_i % 8 ] ); ?>"><b><?php echo esc_html( $sa_p[0] ); ?></b><em><?php echo esc_html( $sa_en ); ?></em></a>
-					<?php else : ?>
-						<span class="sa-bar sa-bar--soon" style="--c:<?php echo esc_attr( $sa_colors[ $sa_i % 8 ] ); ?>"><b><?php echo esc_html( $sa_p[0] ); ?></b><em>به‌زودی</em></span>
-					<?php endif; ?>
-				<?php endforeach; ?>
+	<?php /* v2.13.3: بخش «استان‌های ایران» (نوارهای سفید) به درخواست مالک از صفحهٔ اول حذف و به آرشیو استان‌ها (/province/) منتقل شد. */ ?>
+
+	<?php
+	/* ---- آموزش‌ها (v2.13.1): آخرین آموزش‌های منتشرشدهٔ دستهٔ کمپینگ و بقا ----
+	   v2.15.0: به درخواست مالک، این بخش دیگر کارت تصویردار نیست؛ مثل فهرست
+	   استان‌ها/شهرستان‌ها نوارهای کوچک سفید با سایهٔ عمیق و تیتر روی کادر است. */
+	$sa_edu_limit  = function_exists( 'sa_education_home_count' ) ? sa_education_home_count() : 6;
+	$sa_edu_q      = $sa_edu_nav && function_exists( 'sa_education_latest_query' ) ? sa_education_latest_query( $sa_edu_limit > 0 ? $sa_edu_limit : 200 ) : null;
+	$sa_edu_shown  = false;
+	if ( $sa_edu_q && $sa_edu_q->have_posts() ) :
+		$sa_edu_shown = true;
+		$sa_edu_bars  = function_exists( 'sa_education_bars_html' ) ? sa_education_bars_html( $sa_edu_q->posts, $sa_edu_limit ) : '';
+		?>
+		<?php if ( '' !== $sa_edu_bars ) : ?>
+		<section class="sa-sec sa-sec--edu" id="sa-education">
+			<div class="sa-wrap">
+				<div class="sa-head"><h2><?php echo esc_html( $sa_edu_h2 ); ?></h2><a href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>">همه‌ی <?php echo esc_html( $sa_edu_nav['label'] ); ?></a></div>
+				<?php if ( '' !== trim( (string) $sa_edu_intro ) ) : ?>
+					<p class="sa-sec__intro"><?php echo esc_html( $sa_edu_intro ); ?></p>
+				<?php endif; ?>
+				<?php echo $sa_edu_bars; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- داخل خودش escape شده است. ?>
 			</div>
-		</div>
-	</section>
+		</section>
+		<?php endif; ?>
+	<?php endif; wp_reset_postdata(); ?>
 
 	<?php
 	/* ---- آخرین مقالات (سرور-رندر؛ بدون وابستگی به REST) ---- */
-	$sa_latest = new WP_Query(
-		array(
-			'post_type'           => 'post',
-			'post_status'         => 'publish',
-			'posts_per_page'      => 6,
-			'ignore_sticky_posts' => true,
-			'no_found_rows'       => true,
-		)
+	$sa_latest_args = array(
+		'post_type'           => 'post',
+		'post_status'         => 'publish',
+		'posts_per_page'      => 6,
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
 	);
+	if ( $sa_edu_shown && $sa_edu_term ) {
+		$sa_latest_args['category__not_in'] = array( (int) $sa_edu_term->term_id ); // آموزش‌ها بخش خودشان را دارند.
+	}
+	$sa_latest = new WP_Query( $sa_latest_args );
 	if ( $sa_latest->have_posts() ) :
 		?>
 		<section class="sa-sec">
@@ -329,57 +287,15 @@ $sa_pop_ids   = array_filter( array_map( 'absint', explode( ',', (string) get_th
 					<?php
 					while ( $sa_latest->have_posts() ) :
 						$sa_latest->the_post();
-						$sa_thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+						/* v2.15.0: تصویر شاخص مقالات تا بازگرداندن فایل‌های رسانه نمایش داده نمی‌شود. */
+						$sa_tags = get_the_tags();
+						$sa_tag  = $sa_tags && ! is_wp_error( $sa_tags ) ? $sa_tags[0]->name : '';
 						?>
 						<a class="sa-post rv" href="<?php the_permalink(); ?>" style="--c:<?php echo esc_attr( $sa_colors[ ( $sa_latest->current_post * 3 ) % 8 ] ); ?>">
-							<div class="sa-img" <?php if ( $sa_thumb ) : ?>style="background-image:url('<?php echo esc_url( $sa_thumb ); ?>')"<?php endif; ?>></div>
 							<div class="sa-pb">
 								<h3><?php the_title(); ?></h3>
 								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18, '…' ) ); ?></p>
-								<small><?php echo esc_html( get_the_date() ); ?></small>
-							</div>
-						</a>
-					<?php endwhile; ?>
-				</div>
-			</div>
-		</section>
-	<?php endif; wp_reset_postdata(); ?>
-
-	<?php
-	/* ---- پست‌های معروف: شناسه‌های دستی از سفارشی‌سازی، وگرنه نوشته‌های چسبان ---- */
-	$sa_pop_args = array(
-		'post_type'           => 'post',
-		'post_status'         => 'publish',
-		'posts_per_page'      => 3,
-		'ignore_sticky_posts' => false,
-		'no_found_rows'       => true,
-	);
-	if ( $sa_pop_ids ) {
-		$sa_pop_args['post__in'] = $sa_pop_ids;
-		$sa_pop_args['orderby']  = 'post__in';
-		$sa_pop_args['ignore_sticky_posts'] = true;
-	} else {
-		$sa_pop_args['post__in'] = get_option( 'sticky_posts' );
-		$sa_pop_args['orderby']  = 'date';
-	}
-	$sa_pop = new WP_Query( $sa_pop_args );
-	if ( $sa_pop->have_posts() ) :
-		?>
-		<section class="sa-pop">
-			<div class="sa-wrap">
-				<div class="sa-head"><h2><?php echo esc_html( $sa_pop_h2 ); ?></h2></div>
-				<div class="sa-posts">
-					<?php
-					while ( $sa_pop->have_posts() ) :
-						$sa_pop->the_post();
-						$sa_thumb = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
-						?>
-						<a class="sa-post rv" href="<?php the_permalink(); ?>" style="--c:<?php echo esc_attr( $sa_colors[ ( $sa_pop->current_post * 3 + 2 ) % 8 ] ); ?>">
-							<div class="sa-img" <?php if ( $sa_thumb ) : ?>style="background-image:url('<?php echo esc_url( $sa_thumb ); ?>')"<?php endif; ?>></div>
-							<div class="sa-pb">
-								<h3><?php the_title(); ?></h3>
-								<p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 18, '…' ) ); ?></p>
-								<small><?php echo esc_html( get_the_date() ); ?></small>
+								<small><?php echo esc_html( get_the_date() ); ?><?php if ( $sa_tag ) : ?><span class="sa-tag"><?php echo esc_html( $sa_tag ); ?></span><?php endif; ?></small>
 							</div>
 						</a>
 					<?php endwhile; ?>
@@ -408,7 +324,7 @@ var calm=matchMedia('(prefers-reduced-motion:reduce)').matches,io=('Intersection
 es.forEach(function(x){if(!x.isIntersecting)return;var e=x.target;e.style.transitionDelay=(k++%4)*80+'ms';e.classList.add('in');io.unobserve(e);
 setTimeout(function(){e.style.transitionDelay=''},1100);var b=e.querySelector('b[data-n]');if(b)count(b)})},{threshold:.12}):null;
 function rv(list){Array.prototype.forEach.call(list,function(e){e.classList.add('rv');if(io)io.observe(e);else e.classList.add('in')})}
-rv(R.querySelectorAll('.sa-bar,.sa-st,.sa-head'));
+rv(R.querySelectorAll('.sa-st,.sa-head,.sa-post')); /* v2.13.1: کارت‌های مقاله/آموزش هم در فهرست نمایش با اسکرول — پیش‌تر کلاس rv داشتند ولی رصد نمی‌شدند و با JS نامرئی می‌ماندند */
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){R.classList.toggle('sa-off',!es[0].isIntersecting)}).observe(R.querySelector('.sa-hero'))}
 })();
 </script>

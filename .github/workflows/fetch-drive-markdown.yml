@@ -1,0 +1,199 @@
+name: Fetch Markdown drafts from Google Drive
+
+# Bridge: pulls Markdown drafts the owner placed in Google Drive into the
+# current branch so the content-lint tool can run on the exact bytes.
+# Each file must be shared «anyone with the link (reader)» while the run lasts;
+# the Arena session re-privatises the files right after the commit lands.
+#
+# Trigger: push a manifest file named `drive-manifest.txt` anywhere under docs/
+# (the files land next to the manifest). workflow_dispatch is also available
+# once the workflow exists on the default branch.
+#
+# manifest lines:  <drive-file-id>|<target-file-name.md>[|<expected-md5>]
+#              or  <drive-file-id>|<archive-name.zip>[|<expected-md5>]
+#              or  <drive-file-id>|<image-name.webp|png|jpg|jpeg>[|<expected-md5>]
+# A single image entry (one featured image placed loose in the Drive folder) is
+# downloaded next to the manifest and must really be an image (MIME sniffed).
+# A *.zip entry (featured-image batches) is downloaded, verified, and only its
+# image files (png/jpg/jpeg/webp, paths flattened) are extracted into
+# <manifest-dir>/<archive-name>/ ; the zip itself is deleted and never committed
+# (repository rule: archives only as GitHub Release assets).
+# The run fails (and commits nothing) when a download is empty, is HTML
+# (Drive interstitial) or does not match the expected MD5.
+
+on:
+  push:
+    branches:
+      - main
+      - "arena/**"
+    paths:
+      - "docs/**/drive-manifest.txt"
+  workflow_dispatch:
+    inputs:
+      manifest_path:
+        description: "Path of the manifest file inside the repository"
+        required: true
+        default: "docs/camping-education/incoming/drive-manifest.txt"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-drive-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    name: Download and commit
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Locate manifest
+        id: manifest
+        shell: bash
+        env:
+          INPUT_PATH: ${{ inputs.manifest_path }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          if [[ -n "${INPUT_PATH:-}" ]]; then
+            path="$INPUT_PATH"
+          else
+            # push event: the manifest(s) touched by this push.
+            path="$(git diff --name-only "${BEFORE}" "${GITHUB_SHA}" 2>/dev/null | grep -E '(^|/)drive-manifest\.txt$' | head -n 1 || true)"
+            if [[ -z "$path" ]]; then
+              path="$(git ls-files 'docs/**/drive-manifest.txt' | head -n 1 || true)"
+            fi
+          fi
+          case "$path" in
+            ''|/*|*..*) echo "Refusing manifest path '$path'" >&2; exit 1 ;;
+          esac
+          if [[ ! -f "$path" ]]; then
+            if [[ -z "${INPUT_PATH:-}" ]]; then
+              # push that only deleted/moved a manifest (import finished): nothing to fetch.
+              echo "Manifest removed in this push ($path); nothing to do."
+              echo "skip=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "Manifest not found: $path" >&2; exit 1
+          fi
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "path=$path" >> "$GITHUB_OUTPUT"
+          echo "dir=$(dirname "$path")" >> "$GITHUB_OUTPUT"
+
+      - name: Download files
+        if: steps.manifest.outputs.skip != 'true'
+        shell: bash
+        env:
+          MANIFEST_PATH: ${{ steps.manifest.outputs.path }}
+          TARGET_DIR: ${{ steps.manifest.outputs.dir }}
+        run: |
+          set -euo pipefail
+          MANIFEST="$(grep -v '^[[:space:]]*#' "$MANIFEST_PATH" || true)"
+          mkdir -p "$TARGET_DIR"
+          count=0
+          while IFS='|' read -r id name md5 _; do
+            id="$(echo "${id:-}" | tr -d '[:space:]')"
+            name="$(echo "${name:-}" | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
+            md5="$(echo "${md5:-}" | tr -d '[:space:]')"
+            [[ -z "$id" ]] && continue
+            if [[ ! "$id" =~ ^[A-Za-z0-9_-]{10,}$ ]]; then
+              echo "Invalid Drive id: $id" >&2; exit 1
+            fi
+            case "$name" in
+              */*|.*|'') bad=1 ;;
+              *.md|*.zip|*.webp|*.png|*.jpg|*.jpeg) bad=0 ;;
+              *) bad=1 ;;
+            esac
+            if [[ "$bad" -eq 1 ]]; then
+              echo "Invalid target name for $id: '$name' (must be a plain *.md, *.zip or image file name)" >&2; exit 1
+            fi
+            out="$TARGET_DIR/$name"
+            echo "→ $id  →  $out"
+            curl -fsSL --retry 3 --retry-delay 2 \
+              -A "Mozilla/5.0 (compatible; S.A.1-fetch/1.0)" \
+              "https://drive.usercontent.google.com/download?id=${id}&export=download" \
+              -o "$out"
+            if [[ ! -s "$out" ]]; then
+              echo "Empty download for $id" >&2; exit 1
+            fi
+            if head -c 512 "$out" | grep -qi '<html'; then
+              echo "Drive returned HTML instead of the file for $id (not shared publicly?)" >&2; exit 1
+            fi
+            if [[ -n "$md5" ]]; then
+              actual="$(md5sum "$out" | cut -d' ' -f1)"
+              if [[ "$actual" != "$md5" ]]; then
+                echo "MD5 mismatch for $id: expected $md5, got $actual" >&2; exit 1
+              fi
+            fi
+            case "$name" in
+              *.webp|*.png|*.jpg|*.jpeg)
+                # Magic bytes (no external tool): RIFF....WEBP / PNG / JPEG.
+                sig="$(head -c 12 "$out" | od -An -tx1 | tr -d ' \n')"
+                case "$sig" in
+                  52494646????????57454250) mime="image/webp" ;;
+                  89504e470d0a1a0a*)        mime="image/png" ;;
+                  ffd8ff*)                  mime="image/jpeg" ;;
+                  *) echo "Not an image (signature $sig): $name" >&2; rm -f "$out"; exit 1 ;;
+                esac
+                if [[ "$(stat -c %s "$out")" -gt $((8 * 1024 * 1024)) ]]; then
+                  echo "Image too large (>8 MB): $name" >&2; rm -f "$out"; exit 1
+                fi
+                echo "$(stat -c %s "$out") bytes  $(identify -format '%wx%h %m' "$out" 2>/dev/null || echo "$mime")  $name"
+                ;;
+            esac
+            if [[ "$name" == *.zip ]]; then
+              if [[ "$(head -c 2 "$out")" != "PK" ]]; then
+                echo "Not a zip archive: $name" >&2; rm -f "$out"; exit 1
+              fi
+              if [[ "$(stat -c %s "$out")" -gt $((80 * 1024 * 1024)) ]]; then
+                echo "Archive too large (>80 MB): $name" >&2; rm -f "$out"; exit 1
+              fi
+              dest="$TARGET_DIR/${name%.zip}"
+              echo "---- archive listing ($name) ----"
+              unzip -l "$out"
+              mkdir -p "$dest"
+              # Flatten paths (-j) so archive entries can never escape $dest; images only.
+              unzip -j -o -q "$out" '*.png' '*.jpg' '*.jpeg' '*.webp' '*.PNG' '*.JPG' '*.JPEG' '*.WEBP' \
+                -x '__MACOSX/*' '*/.*' -d "$dest" || true
+              rm -f "$out"
+              echo "---- extracted images ($dest) ----"
+              n=0
+              while IFS= read -r -d '' img; do
+                n=$((n + 1))
+                echo "$(stat -c %s "$img") bytes  $(identify -format '%wx%h %m' "$img" 2>/dev/null || echo '?')  $(basename "$img")"
+              done < <(find "$dest" -maxdepth 1 -type f -print0 | sort -z)
+              if [[ "$n" -eq 0 ]]; then
+                echo "Archive $name contained no image files." >&2; exit 1
+              fi
+              echo "extracted=$n images"
+            fi
+            count=$((count + 1))
+          done <<< "$MANIFEST"
+          echo "downloaded=$count files"
+          if [[ "$count" -eq 0 ]]; then
+            echo "Manifest contained no files." >&2; exit 1
+          fi
+
+      - name: Commit and push
+        if: steps.manifest.outputs.skip != 'true'
+        shell: bash
+        env:
+          TARGET_DIR: ${{ steps.manifest.outputs.dir }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- "$TARGET_DIR"
+          if git diff --cached --quiet; then
+            echo "Nothing new to commit."; exit 0
+          fi
+          git commit -m "Import files from Google Drive into $TARGET_DIR"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

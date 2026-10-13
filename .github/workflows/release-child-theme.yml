@@ -59,6 +59,43 @@ jobs:
           find "$THEME_DIR" -type f -name '*.php' -print0 \
             | xargs -0 -n 1 php -l
 
+      - name: Run geographic auto-link regression tests
+        shell: bash
+        run: php "$THEME_DIR/tests/test-internal-links.php"
+
+      - name: Run publish-gate policy tests (owner approval is the only publish condition)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-publish-gate.php"
+
+      - name: Run education navigation tests (آموزش‌ها next to استان/شهرستان/دیدنی)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-education-nav.php"
+
+      - name: Run province/city bars tests (minimal archive directories)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-entity-bars.php"
+
+      - name: Run media restore tests (missing uploads files, source fallbacks, backup ZIP)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-media-restore.php"
+
+      - name: Run featured-image switch tests (hidden by default, in-content placeholder)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-featured-images.php"
+
+      - name: Run article-card tests (text-only related posts, bigger boxes, slide-in)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-article-cards.php"
+
+      - name: Check ready-guides data (camping guides generated from docs/camping-education)
+        shell: bash
+        run: |
+          php "$THEME_DIR/tests/test-ready-guides.php"
+          php "$THEME_DIR/tests/test-ready-covers.php"
+          if [ -d docs/camping-education/articles ]; then
+            python3 tools/content-lint/build_theme_data.py --check
+          fi
+
       - name: Reject accidentally committed credentials
         shell: bash
         run: |

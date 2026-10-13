@@ -21,5 +21,5 @@ if ( $sa_province ) {
 			return $c->ID !== $sa_id;
 		}
 	);
-	sa_cards_section( array_slice( $sa_siblings, 0, 8 ), 'شهرهای دیگر استان ' . get_the_title( $sa_province ), get_permalink( $sa_province ), 'related-cities' );
+	sa_cards_section( array_slice( $sa_siblings, 0, 8 ), 'شهرهای دیگر استان ' . sa_province_name_for_post( $sa_province ), get_permalink( $sa_province ), 'related-cities' );
 }

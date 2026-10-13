@@ -87,7 +87,12 @@ function sa_schema_image( $post_id ) {
 	if ( ! has_post_thumbnail( $post_id ) ) {
 		return null;
 	}
-	$img = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), 'sa-hero' );
+	$sa_thumb_id = (int) get_post_thumbnail_id( $post_id );
+	// v2.15.0: تصویرِ بی‌فایل در داده ساخت‌یافته اعلام نمی‌شود.
+	if ( $sa_thumb_id && function_exists( 'sa_media_attachment_missing' ) && sa_media_attachment_missing( $sa_thumb_id ) ) {
+		return null;
+	}
+	$img = wp_get_attachment_image_src( $sa_thumb_id, function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $post_id ) : 'sa-hero' );
 	if ( ! $img ) {
 		return null;
 	}
@@ -206,7 +211,7 @@ function sa_schema_entity( $post ) {
 					$postal_address['addressLocality'] = $locality;
 				}
 				if ( $province ) {
-					$postal_address['addressRegion'] = get_the_title( $province );
+					$postal_address['addressRegion'] = sa_province_name_for_post( $province );
 				}
 				$node['address'] = $postal_address;
 			}
@@ -329,6 +334,17 @@ function sa_schema_article( $post ) {
 		),
 		'publisher'        => array( '@id' => home_url( '/#organization' ) ),
 	);
+	// v2.13.0 — editorial guides carry a team byline (sa_byline): the author is the
+	// organisation, never an invented person, and the type is a plain Article.
+	$byline = trim( (string) get_post_meta( $post->ID, 'sa_byline', true ) );
+	if ( '' !== $byline ) {
+		$node['@type']  = 'Article';
+		$node['author'] = array(
+			'@type' => 'Organization',
+			'name'  => $byline,
+			'url'   => home_url( '/' ),
+		);
+	}
 	$img = sa_schema_image( $post->ID );
 	if ( $img ) {
 		$node['image'] = $img;

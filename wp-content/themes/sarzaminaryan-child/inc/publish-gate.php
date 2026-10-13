@@ -1,12 +1,18 @@
 <?php
 /**
- * Level 7 publish gate: an entity cannot be published while a blocker is missing.
+ * Level 7 publish gate — advisory by default (data model v1.3).
  *
- * Blockers (data model v1.2): missing_relation, missing_seo_fields, missing_featured_image,
- * missing_primary_taxonomy, conditional missing_sources, and missing_content_hygiene.
- * FAQ/link counts and coordinates are advisory, never publication locks. Warnings:
- * uncertainty markers and stale last_verified_date.
- * Mode (Customizer): 'hard' = demote to draft + notice (default), 'soft' = publish + warning.
+ * Publishing policy (owner decision, 2026-10-11): the only condition for publishing
+ * an entity is the owner's explicit approval (pressing «انتشار» or ticking «تأیید
+ * مالک» in the ready-articles tool). Every Level 7 check — missing_relation,
+ * missing_seo_fields, missing_featured_image, missing_primary_taxonomy,
+ * missing_sources, content hygiene, FAQ/link counts, coordinates, uncertainty
+ * markers and stale last_verified_date — is reported as a reminder (warning) but
+ * never blocks or demotes a post.
+ *
+ * Mode (Customizer `sa_gate_mode`): 'soft' = publish + reminders (default since
+ * v2.12.7), 'hard' = opt-in legacy behaviour that demotes an incomplete entity to
+ * draft. Published pages are never demoted in either mode (v2.11.42).
  *
  * @package Sarzaminaryan_Child
  */
@@ -324,10 +330,84 @@ function sa_gate_warnings( $post_id, $type, $form = null ) {
 /**
  * Gate mode.
  *
+ * v2.12.7 — the default is 'soft' (advisory): the owner's approval is the only
+ * publish condition, Level 7 findings are reminders. 'hard' must be chosen
+ * explicitly in the Customizer («قوانین انتشار»).
+ *
  * @return string hard|soft
  */
 function sa_gate_mode() {
-	return 'soft' === get_theme_mod( 'sa_gate_mode', 'hard' ) ? 'soft' : 'hard';
+	$mode = get_theme_mod( 'sa_gate_mode', 'soft' );
+
+	/**
+	 * Final gate mode.
+	 *
+	 * @param string $mode 'soft' (advisory, default) or 'hard' (demote to draft).
+	 */
+	$mode = apply_filters( 'sa_gate_mode', 'hard' === $mode ? 'hard' : 'soft' );
+
+	return 'hard' === $mode ? 'hard' : 'soft';
+}
+
+/**
+ * v2.12.7 — Is the gate advisory (reminders only, nothing blocks publishing)?
+ *
+ * @return bool
+ */
+function sa_gate_is_advisory() {
+	return 'soft' === sa_gate_mode();
+}
+
+/**
+ * v2.12.7 — Apply the publishing policy to an evaluated post.
+ *
+ * In advisory mode every blocker becomes a reminder so the UI (badge, side box,
+ * notices, ready-articles tool) never presents a «مانع انتشار» that does not exist.
+ *
+ * @param string[] $blocking Blockers from sa_gate_split().
+ * @param string[] $warnings Reminders.
+ * @return array{0:string[],1:string[]} [blocking, warnings]
+ */
+function sa_gate_apply_policy( $blocking, $warnings ) {
+	$blocking = array_values( (array) $blocking );
+	$warnings = array_values( (array) $warnings );
+	if ( $blocking && sa_gate_is_advisory() ) {
+		$warnings = array_merge( $blocking, $warnings );
+		$blocking = array();
+	}
+	return array( $blocking, $warnings );
+}
+
+/**
+ * v2.12.7 — Full reminder list for a stored post (used by admin tools).
+ *
+ * @param int $post_id Post ID.
+ * @return array{blocking:string[],warnings:string[]}
+ */
+function sa_gate_evaluate( $post_id ) {
+	$post_id = (int) $post_id;
+	$type    = (string) get_post_type( $post_id );
+	if ( ! $post_id || ! sa_is_entity( $type ) ) {
+		return array(
+			'blocking' => array(),
+			'warnings' => array(),
+		);
+	}
+	$missing = sa_gate_missing( $post_id, $type, null );
+	list( $blocking, $advisory ) = sa_gate_split( $missing );
+	$warnings = array_merge( sa_gate_warnings( $post_id, $type, null ), $advisory );
+	list( $blocking, $warnings ) = sa_gate_apply_policy( $blocking, $warnings );
+
+	// صفحهٔ منتشرشده هرگز پایین نمی‌آید (v2.11.42)؛ پس برای آن هم «مانع» معنا ندارد.
+	if ( $blocking && 'publish' === (string) get_post_status( $post_id ) && (bool) apply_filters( 'sa_gate_protect_published', true ) ) {
+		$warnings = array_merge( $blocking, $warnings );
+		$blocking = array();
+	}
+
+	return array(
+		'blocking' => $blocking,
+		'warnings' => $warnings,
+	);
 }
 
 /**
@@ -401,11 +481,13 @@ function sa_gate_filter( $data, $postarr ) {
 	list( $blocking, $advisory ) = sa_gate_split( $missing );
 	$warnings = array_merge( $warnings, $advisory );
 
-	// حالت soft قالب همچنان کار می‌کند: هیچ‌چیز مانع انتشار نمی‌شود.
-	if ( 'soft' === sa_gate_mode() && $blocking ) {
-		$warnings = array_merge( $warnings, $blocking );
-		$blocking = array();
-	}
+	/*
+	 * v2.12.7 — سیاست انتشار: شرط انتشار فقط تأیید مالک است.
+	 * در حالت پیش‌فرض (یادآوری) هیچ‌چیز مانع انتشار نمی‌شود؛ کمبودهای سطح ۷ به
+	 * یادآوری تبدیل و روی نوشته ثبت می‌شوند. حالت «سخت‌گیر» فقط با انتخاب صریح
+	 * در سفارشی‌ساز فعال می‌شود.
+	 */
+	list( $blocking, $warnings ) = sa_gate_apply_policy( $blocking, $warnings );
 
 	$user = get_current_user_id();
 
@@ -509,8 +591,9 @@ function sa_gate_hint( $item ) {
  * @return void
  */
 function sa_gate_register_box() {
+	$title = sa_gate_is_advisory() ? 'دروازهٔ انتشار — یادآوری‌های سطح ۷' : 'دروازهٔ انتشار — چه چیزی مانع است؟';
 	foreach ( sa_entity_types() as $type ) {
-		add_meta_box( 'sa_gate_report', 'دروازهٔ انتشار — چه چیزی مانع است؟', 'sa_gate_render_report_box', $type, 'side', 'high' );
+		add_meta_box( 'sa_gate_report', $title, 'sa_gate_render_report_box', $type, 'side', 'high' );
 	}
 }
 add_action( 'add_meta_boxes', 'sa_gate_register_box' );
@@ -544,7 +627,13 @@ function sa_gate_render_report_box( $post ) {
 	$warnings = isset( $report['warnings'] ) ? (array) $report['warnings'] : array();
 	$time     = isset( $report['time'] ) ? (int) $report['time'] : 0;
 
+	// v2.12.7 — در حالت یادآوری، گزارش‌های قدیمیِ ذخیره‌شده هم مانع نشان داده نمی‌شوند.
+	list( $blocking, $warnings ) = sa_gate_apply_policy( $blocking, $warnings );
+
 	echo '<div class="sa-box sa-stack">';
+	if ( sa_gate_is_advisory() ) {
+		echo '<p class="description">شرط انتشار فقط تأیید مالک است؛ موارد زیر یادآوری‌اند و مانع انتشار نیستند.</p>';
+	}
 	if ( $time ) {
 		echo '<p class="description">آخرین بررسی: ' . esc_html( sa_fa_digits( sa_jalali_date( 'j F Y — H:i', $time ) ) ) . '</p>';
 	} else {
@@ -616,7 +705,7 @@ function sa_gate_notice() {
 			$title = 'منتشر ماند و از سایت بیرون نرفت؛ اما این موارد را تکمیل کنید:';
 		} else {
 			$class = 'hard' === $mode ? 'notice-error' : 'notice-warning';
-			$title = 'hard' === $mode ? 'انتشار متوقف شد و نوشته به‌صورت پیش‌نویس ذخیره شد.' : 'منتشر شد، اما برای رعایت استاندارد این موارد باید تکمیل شوند:';
+			$title = 'hard' === $mode ? 'انتشار متوقف شد و نوشته به‌صورت پیش‌نویس ذخیره شد.' : 'با تأیید شما منتشر شد؛ این یادآوری‌های سطح ۷ مانع انتشار نیستند، اما بهتر است تکمیل شوند:';
 		}
 		echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible"><p><strong>';
 		echo esc_html( $title );
@@ -662,7 +751,10 @@ function sa_gate_badge( $post_id ) {
 	list( $blocking, $advisory ) = sa_gate_split( $missing );
 	$warnings = array_merge( $warnings, $advisory );
 
-	$extra = $warnings ? ' <span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $warnings ) ) . '">قابل بهبود</span>' : '';
+	// v2.12.7 — در حالت یادآوری هیچ مانعی وجود ندارد؛ همه‌چیز «قابل بهبود» است.
+	list( $blocking, $warnings ) = sa_gate_apply_policy( $blocking, $warnings );
+
+	$extra = $warnings ? ' <span class="sa-badge sa-badge--stale" title="' . esc_attr( implode( ' · ', $warnings ) ) . '">' . esc_html( sa_fa_digits( count( $warnings ) ) ) . ' یادآوری</span>' : '';
 
 	/*
 	 * v2.11.42 — نشانِ صفحهٔ منتشرشده.

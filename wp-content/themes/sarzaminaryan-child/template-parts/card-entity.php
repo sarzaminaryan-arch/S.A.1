@@ -30,13 +30,13 @@ if ( 'attraction' === $sa_type ) {
 	// Vivid per-tile accent for the English line only. A static counter walks the
 	// palette with a coprime step, so neighbouring boxes never repeat a color and
 	// the same page always looks the same.
-	static $sa_tile_i = 0;
+	$sa_tile_i  = isset( $GLOBALS['sa_tile_accent_i'] ) ? (int) $GLOBALS['sa_tile_accent_i'] : 0;
 	$sa_palette = array(
 		'#c1121f', '#d9480f', '#e8590c', '#b5179e', '#7048e8', '#1864ab',
 		'#0b7285', '#2b8a3e', '#5c940d', '#a95200', '#862e9c', '#c2255c',
 	);
 	$sa_accent = $sa_palette[ ( $sa_tile_i * 5 + 1 ) % count( $sa_palette ) ];
-	$sa_tile_i++;
+	$GLOBALS['sa_tile_accent_i'] = $sa_tile_i + 1;
 	$sa_city    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_post->ID, 'city' ) : null;
 	$sa_prov    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_post->ID, 'province' ) : null;
 	$sa_place   = array();
@@ -45,7 +45,7 @@ if ( 'attraction' === $sa_type ) {
 		$sa_place[]   = 'شهرستان ' . $sa_city_name;
 	}
 	if ( $sa_prov ) {
-		$sa_place[] = 'استان ' . get_the_title( $sa_prov );
+		$sa_place[] = 'استان ' . sa_province_name_for_post( $sa_prov );
 	}
 	?>
 	<article class="sa-card sa-card--attraction sa-tile">
@@ -70,24 +70,47 @@ if ( 'attraction' === $sa_type ) {
 
 $sa_display_title = 'city' === $sa_type && function_exists( 'sa_county_name' ) ? sa_county_name( $sa_post, true ) : get_the_title( $sa_post );
 $sa_meta          = sa_card_meta( $sa_post->ID );
+
+/*
+ * v2.16.0 — کارتِ متنی (درخواست مالک): تا وقتی تصویر شاخصی برای نمایش نیست
+ * (کلید «نمایش تصویر شاخص» خاموش است یا فایل تصویر گم شده) کادرِ تصویر به‌کل
+ * از کارت حذف می‌شود؛ «مقالات مرتبط» و فهرست‌های مقاله بدون تصویر شاخص و با
+ * فضای بیشتر برای عنوان و چکیدهٔ بلند نشان داده می‌شوند. رنگ تأکید کارت از
+ * همان پالت نوارها می‌آید و در هاور و کلیک دیده می‌شود.
+ */
+$sa_has_media = ( 'attraction' === $sa_type && function_exists( 'sa_attraction_diagram_markup' ) )
+	|| ( function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $sa_post->ID, 'card' ) );
+
+$sa_card_i      = isset( $GLOBALS['sa_card_accent_i'] ) ? (int) $GLOBALS['sa_card_accent_i'] : 0;
+$sa_card_colors = function_exists( 'sa_bar_colors' ) ? (array) sa_bar_colors() : array( '#18558f' );
+if ( ! $sa_card_colors ) {
+	$sa_card_colors = array( '#18558f' );
+}
+$sa_card_accent              = $sa_card_colors[ ( $sa_card_i * 3 + 2 ) % count( $sa_card_colors ) ];
+$GLOBALS['sa_card_accent_i'] = $sa_card_i + 1;
 ?>
-<article class="sa-card sa-card--<?php echo esc_attr( $sa_type ); ?>">
+<article class="sa-card sa-card--<?php echo esc_attr( $sa_type ); ?><?php echo $sa_has_media ? '' : ' sa-card--textonly'; ?>"<?php echo $sa_has_media ? '' : ' style="--c:' . esc_attr( $sa_card_accent ) . '"'; ?>>
+	<?php if ( $sa_has_media ) : ?>
 	<a class="sa-card__media" href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>" tabindex="-1" aria-hidden="true">
 		<?php if ( 'attraction' === $sa_type && function_exists( 'sa_attraction_diagram_markup' ) ) : ?>
 			<?php echo sa_attraction_diagram_markup( $sa_post->ID, 'card' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-		<?php elseif ( has_post_thumbnail( $sa_post ) ) : ?>
+		<?php elseif ( function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $sa_post->ID, 'card' ) ) : ?>
 			<?php echo get_the_post_thumbnail( $sa_post, 'sarzaminaryan-card', array( 'loading' => 'lazy' ) ); ?>
 		<?php else : ?>
 			<span class="sa-card__placeholder"><?php echo esc_html( mb_substr( $sa_display_title, 0, 1 ) ); ?></span>
 		<?php endif; ?>
 		<span class="sa-card__badge"><?php echo esc_html( sa_type_badge( $sa_type ) ); ?></span>
 	</a>
+	<?php endif; ?>
 	<div class="sa-card__body">
+		<?php if ( ! $sa_has_media ) : ?>
+			<span class="sa-card__chip"><?php echo esc_html( sa_type_badge( $sa_type ) ); ?></span>
+		<?php endif; ?>
 		<h3 class="sa-card__title"><a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>"><?php echo esc_html( $sa_display_title ); ?></a></h3>
 		<?php if ( $sa_meta ) : ?>
 			<p class="sa-card__meta"><?php echo esc_html( $sa_meta ); ?></p>
 		<?php endif; ?>
-		<p class="sa-card__excerpt"><?php echo esc_html( sa_summary( $sa_post, 18 ) ); ?></p>
+		<p class="sa-card__excerpt"><?php echo esc_html( sa_summary( $sa_post, $sa_has_media ? 18 : 26 ) ); // v2.16.0: کارت متنی چکیدهٔ بلندتری دارد. ?></p>
 	</div>
 </article>
 <?php

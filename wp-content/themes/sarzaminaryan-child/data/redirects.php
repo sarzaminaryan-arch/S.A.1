@@ -42,6 +42,13 @@ return array(
 	'/attraction/22438-ابشار-نوژیان/' => '/attraction/nozhian-waterfall-khorramabad/',
 	'/attraction/persepolis/' => '/attraction/persepolis-takht-jamshid/',
 
+	// ادغام تأییدشدهٔ مالک (۱۴۰۵-۰۷-۱۸): «دره نیگاه (دره نگار)» دو صفحهٔ منتشرشدهٔ
+	// تکراری داشت (nigah-valley-dorud و nigah-valley-dorud-2 با محتوای یکسان).
+	// مقصد: مقالهٔ کامل‌ترِ «مقالات آمادهٔ دیدنی‌ها». پیشنهاد می‌شود خودِ صفحهٔ
+	// «-2» از پیش‌خوان وردپرس به زباله‌دان منتقل شود؛ این نقشه تا آن زمان هم
+	// بازدیدکننده و موتور جست‌وجو را به نسخهٔ درست می‌رساند.
+	'/attraction/nigah-valley-dorud-2/' => '/attraction/nigah-valley-dorud/',
+
 	/*
 	 * پیش‌نویس‌های تکراریِ شهرستان (۱۴۰۵-۰۷-۱۵).
 	 * سه پیش‌نویسِ خالیِ سایت (`isfahan`، `galikesh`، `kabudarahang-city`) نسخهٔ
@@ -57,4 +64,41 @@ return array(
 	'/city/galikesh/' => '/city/galikash/',
 	'/city/kabudarahang-city/' => '/city/kabutarahang/',
 	'/city/shahdad/' => '/city/kerman/',
+
+	/*
+	 * نامکِ تازهٔ «جاهای دیدنی طبس» (۱۴۰۵-۰۷-۲۱): شناسهٔ خروجیِ وردپرس از نشانی برداشته شد؛
+	 * نامکِ معنادار جای آن نشست و مسیرِ قدیمی با ۳۰۱ به آن می‌رود.
+	 */
+	'/attraction/308149-attraction-tabas/' => '/attraction/tabas-attractions/',
+
+	/*
+	 * نامک‌های تازهٔ دو صفحهٔ شناسه‌دار (۱۴۰۵-۰۷-۲۱): شناسهٔ خروجیِ وردپرس از نشانی
+	 * برداشته شد و مسیرهای قدیمی با ۳۰۱ به نامک‌های معنادار می‌روند.
+	 */
+	'/attraction/9235-tang-e-sayad-national-park/' => '/attraction/tang-e-sayad-national-park/',
+	'/attraction/23328-sar-agha-seyed-village/' => '/attraction/sar-agha-seyed-village/',
+
+	/*
+	 * نامکِ تازهٔ «باغ گلشن طبس» (۱۴۰۵-۰۷-۲۱): نامکِ فارسیِ قدیمی در پیوندهای موجود بود و
+	 * نامکِ زندهٔ سایت هم شناسهٔ خروجی داشت؛ هر دو با ۳۰۱ به نامکِ معنادار می‌روند.
+	 */
+	'/attraction/6789-bagh-glshn-tbs/' => '/attraction/bagh-golshan-tabas/',
+	'/attraction/6789-باغ-گلشن-طبس/' => '/attraction/bagh-golshan-tabas/',
+
+	/*
+	 * یکسان‌سازی نامکِ «شهرستان دورود» با کلیدِ رکورد (۱۴۰۵-۰۷-۲۱): صفحه هنوز منتشر نشده
+	 * است؛ این ردیف برای هر پیوند یا نشانیِ قدیمیِ فرضی، مسیر را به نامکِ تازه می‌رساند.
+	 */
+	'/attraction/dorud/' => '/attraction/dorud-city/',
+
+	/*
+	 * نامک‌های تازهٔ سه رکورد شناسه‌دارِ زنده (۱۴۰۵-۰۷-۲۱): نامکِ زندهٔ سایت شناسهٔ خروجی داشت و
+	 * نامکِ رکورد هم فارسی بود؛ هر دو مسیر با ۳۰۱ به نامکِ معنادار می‌روند.
+	 */
+	'/attraction/6976-aramgah-ghasm-anvar/' => '/attraction/qasem-anvar-shrine/',
+	'/attraction/6976-ارامگاه-قاسم-انوار/' => '/attraction/qasem-anvar-shrine/',
+	'/attraction/26950-kvir-rig-jn/' => '/attraction/rig-e-jenn-desert/',
+	'/attraction/26950-کویر-ریگ-جن/' => '/attraction/rig-e-jenn-desert/',
+	'/attraction/6619-ghlh-dkhtr-bshrvih/' => '/attraction/ghaleh-dokhtar-boshruyeh/',
+	'/attraction/6619-قلعه-دختر-بشرویه/' => '/attraction/ghaleh-dokhtar-boshruyeh/',
 );

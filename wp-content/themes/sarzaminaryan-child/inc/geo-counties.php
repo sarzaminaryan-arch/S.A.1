@@ -93,6 +93,39 @@ function sa_county_of_post( $post_id ) {
 }
 
 /**
+ * Collapse repeated leading geographic labels without changing a single label.
+ *
+ * This is deliberately limited to consecutive duplicate occurrences of the same
+ * prefix; it does not add a label or change an ordinary province/county name.
+ *
+ * @param string $text Visible text.
+ * @return string
+ */
+function sa_geo_normalize_duplicate_prefixes( $text ) {
+	$text       = (string) $text;
+	$normalized = preg_replace(
+		'~(^|[^\p{L}\p{N}\p{M}\x{200C}])(استان|شهرستان)(?:[\s\p{Z}\x{200C}]+\2)+(?![\p{L}\p{N}\p{M}\x{200C}])~u',
+		'$1$2',
+		$text
+	);
+
+	return is_string( $normalized ) ? $normalized : $text;
+}
+
+/**
+ * Normalize duplicate labels in rendered post titles, including H1s and headings
+ * generated from legacy entity titles.
+ *
+ * @param string $title   Post title.
+ * @param int    $post_id Post ID.
+ * @return string
+ */
+function sa_geo_normalize_title_prefixes( $title, $post_id = 0 ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+	return sa_geo_normalize_duplicate_prefixes( $title );
+}
+add_filter( 'the_title', 'sa_geo_normalize_title_prefixes', 20, 2 );
+
+/**
  * County display name without a duplicated leading "شهرستان" prefix.
  *
  * The importer and some legacy titles may already store the prefix. Callers that
@@ -103,7 +136,7 @@ function sa_county_of_post( $post_id ) {
  * @return string
  */
 function sa_county_name( $post_or_id, $include_prefix = false ) {
-	$name = trim( (string) get_the_title( $post_or_id ) );
+	$name = trim( sa_geo_normalize_duplicate_prefixes( (string) get_the_title( $post_or_id ) ) );
 	$name = preg_replace( '/^(?:شهرستان[\s\p{Z}\x{200C}]+)+/u', '', $name );
 	$name = is_string( $name ) ? trim( $name ) : '';
 	if ( $include_prefix && '' !== $name ) {
@@ -130,6 +163,41 @@ function sa_province_name( $slug ) {
 		}
 	}
 	return isset( $map[ $slug ] ) ? $map[ $slug ] : $slug;
+}
+
+/**
+ * Province display name from a province post, normalized to zero or one prefix.
+ *
+ * The canonical registry name is preferred over the editable post title. This
+ * keeps labels stable even when legacy province titles already contain "استان".
+ *
+ * @param int|WP_Post $post_or_id Province post or ID.
+ * @param bool        $include_prefix Whether to return one "استان" prefix.
+ * @return string
+ */
+function sa_province_name_for_post( $post_or_id, $include_prefix = false ) {
+	$post = is_object( $post_or_id ) ? $post_or_id : get_post( (int) $post_or_id );
+	$name = '';
+
+	if ( $post && ! empty( $post->post_name ) ) {
+		$registered = sa_province_name( (string) $post->post_name );
+		if ( $registered !== (string) $post->post_name ) {
+			$name = $registered;
+		}
+	}
+
+	if ( '' === $name ) {
+		$name = (string) get_the_title( $post_or_id );
+	}
+	$name = sa_geo_normalize_duplicate_prefixes( trim( $name ) );
+	$name = preg_replace( '~^(?:استان[\s\p{Z}\x{200C}]+)+~u', '', $name );
+	$name = is_string( $name ) ? trim( $name ) : '';
+
+	if ( $include_prefix && '' !== $name ) {
+		return 'استان ' . $name;
+	}
+
+	return $name;
 }
 
 /* -------------------------------------------------------------------------

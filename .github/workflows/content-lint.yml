@@ -1,0 +1,77 @@
+name: Content lint (camping education)
+
+# فیلتر تحلیل محتوا: جایگزین مرحلهٔ «بازبینی انسانی پیش‌نویس».
+# همهٔ یافته‌ها هشدار یا اطلاع‌اند و در گزارش اجرا دیده می‌شوند؛ تنها وقتی خطا می‌دهد که
+# مقاله‌ای «آمادهٔ انتشار» علامت خورده باشد ولی هشدار باز داشته باشد (--check-ready).
+
+on:
+  push:
+    branches:
+      - main
+      - "arena/**"
+    paths:
+      - "docs/camping-education/articles/**"
+      - "tools/content-lint/**"
+      - ".github/workflows/content-lint.yml"
+  pull_request:
+    paths:
+      - "docs/camping-education/articles/**"
+      - "tools/content-lint/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Byte-compile tools
+        run: python3 -m py_compile tools/content-lint/*.py
+
+      - name: Full report (warnings + infos, never fails)
+        run: |
+          python3 tools/content-lint/content_lint.py --format md docs/camping-education/articles/ \
+            | tee content-lint-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Ready articles must have zero warnings
+        run: python3 tools/content-lint/content_lint.py --check-ready --quiet docs/camping-education/articles/
+
+      - name: Schema JSON in every article must parse
+        run: |
+          python3 - <<'PY'
+          import glob, json, re, sys
+          bad = 0
+          for p in sorted(glob.glob('docs/camping-education/articles/*.md')):
+              m = re.search(r'```json\n(.*?)\n```', open(p, encoding='utf-8').read(), re.S)
+              if not m:
+                  print('no schema fence:', p); bad += 1; continue
+              try:
+                  json.loads(m.group(1))
+              except Exception as e:  # noqa: BLE001
+                  print('invalid JSON:', p, e); bad += 1
+          sys.exit(1 if bad else 0)
+          PY
+
+      - name: Theme data must match the ready articles (data/ready-guides.php)
+        # هشدار، نه مانع: اگر مقاله‌ای عوض شده و دادهٔ قالب بازسازی نشده، در خلاصهٔ اجرا دیده می‌شود.
+        continue-on-error: true
+        run: |
+          if ! python3 tools/content-lint/build_theme_data.py --check; then
+            echo "::warning title=ready-guides.php قدیمی است::python3 tools/content-lint/build_theme_data.py را اجرا و فایل data/ready-guides.php قالب را همراه مقاله کامیت کنید."
+            echo "⚠️ data/ready-guides.php با مقالات هم‌خوان نیست — build_theme_data.py را اجرا کنید." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: content-lint-report
+          path: content-lint-report.md
+          retention-days: 14
