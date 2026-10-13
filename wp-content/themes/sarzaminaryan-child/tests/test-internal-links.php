@@ -280,7 +280,7 @@ $article_links  = array(
 	),
 	'masouleh' => array(
 		'/province/gilan/'                 => 'استان گیلان',
-		'/attraction/23328-sar-agha-seyed-village/' => 'روستای سرآقا سید',
+		'/attraction/sar-agha-seyed-village/' => 'روستای سرآقا سید',
 	),
 	'persepolis-takht-jamshid' => array(
 		'/province/fars/'                  => 'استان فارس',
@@ -294,7 +294,7 @@ $article_links  = array(
 	'shahdad-kaluts-lut-desert' => array(
 		'/province/kerman/'                => 'استان کرمان',
 		'/city/kerman/'                    => 'شهرستان کرمان',
-		'/attraction/308149-attraction-tabas/' => 'راهنمای دیدنی‌های طبس',
+		'/attraction/tabas-attractions/' => 'راهنمای دیدنی‌های طبس',
 	),
 );
 foreach ( $article_links as $article_key => $links ) {
