@@ -43,12 +43,15 @@ CATEGORY = ('camping-survival', 'آموزش‌های ضروری کمپینگ و 
 BRANCHES: Dict[str, Tuple[str, str, List[str]]] = {
     'camping-gear': ('تجهیزات کمپینگ', 'Camping gear', [
         'camping-essential-checklist', 'essential-camping-equipment', 'how-to-choose-camping-tent', 'sleeping-bag-guide',
-        'outdoor-clothing-guide', 'first-aid-kit-checklist', 'outdoor-cooking-equipment', 'camping-lighting-guide']),
+        'outdoor-clothing-guide', 'first-aid-kit-checklist', 'outdoor-cooking-equipment', 'camping-lighting-guide',
+        'build-shelter-branches']),
     'pro-gear': ('تجهیزات حرفه‌ای', 'Professional gear', [
         'portable-water-filter-review', 'camping-stove-review', 'multi-tool-knife-review', 'gps-navigation-tools',
         'rope-carabiner-guide', 'professional-rescue-kit']),
     'diy-outdoor': ('کاردستی و جایگزین‌های DIY', 'DIY', [
-        'diy-water-filter', 'diy-can-stove', 'rope-alternatives-outdoor', 'diy-compass', 'diy-emergency-torch']),
+        'diy-water-filter', 'diy-can-stove', 'rope-alternatives-outdoor', 'diy-compass', 'diy-emergency-torch',
+        'trash-bag-emergency-raincoat', 'newspaper-insulation-bed', 'can-cookware-diy', 'diy-bottle-lantern',
+        'pull-tab-tools-diy', 'plastic-bottle-shovel-funnel']),
     'campfire': ('آتش در طبیعت', 'Campfire', [
         'how-to-start-campfire', 'fire-without-lighter', 'maintain-fire-in-rain', 'how-to-extinguish-campfire']),
     'drinking-water': ('آب آشامیدنی', 'Drinking water', [
@@ -57,7 +60,8 @@ BRANCHES: Dict[str, Tuple[str, str, List[str]]] = {
         'drowning-rescue-guide', 'self-rescue-drowning', 'unconscious-drowning-cpr']),
     'first-aid': ('کمک‌های اولیه در طبیعت', 'First aid', [
         'cpr-complete-guide', 'ankle-sprain-first-aid', 'burn-injury-first-aid', 'overdose-rescue-guide',
-        'bleeding-wound-first-aid', 'heatstroke-first-aid', 'hypothermia-first-aid', 'snake-insect-bite-first-aid']),
+        'bleeding-wound-first-aid', 'heatstroke-first-aid', 'hypothermia-first-aid', 'snake-insect-bite-first-aid',
+        'old-clothes-bandage-wick']),
 }
 
 ENGLISH: Dict[str, str] = {
@@ -69,6 +73,14 @@ ENGLISH: Dict[str, str] = {
     'first-aid-kit-checklist': 'First Aid Kit Checklist',
     'outdoor-cooking-equipment': 'Outdoor Cooking Equipment',
     'camping-lighting-guide': 'Camping Lighting Guide',
+    'trash-bag-emergency-raincoat': 'Trash Bag Emergency Raincoat',
+    'newspaper-insulation-bed': 'Newspaper Insulation Bed',
+    'can-cookware-diy': 'DIY Can Cookware',
+    'diy-bottle-lantern': 'DIY Water Bottle Lantern',
+    'pull-tab-tools-diy': 'Pull Tab Tools',
+    'plastic-bottle-shovel-funnel': 'Plastic Bottle Shovel and Funnel',
+    'old-clothes-bandage-wick': 'Old Clothes Bandage and Fire Wick',
+    'build-shelter-branches': 'Build a Branch Shelter',
     'portable-water-filter-review': 'Portable Water Filters',
     'camping-stove-review': 'Camping Stoves',
     'multi-tool-knife-review': 'Multi-tools and Knives',

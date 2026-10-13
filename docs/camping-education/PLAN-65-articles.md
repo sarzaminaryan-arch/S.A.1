@@ -148,7 +148,7 @@
 
 ### شاخه ۱۰: ساخت پناهگاه
 
-46 | ساخت سرپناه با شاخه و برگ | build-shelter-branches | ⬜
+46 | ساخت سرپناه با شاخه و برگ | build-shelter-branches | ✅
 
 47 | ساخت تخت معلق بین درخت‌ها | diy-hammock-trees | ⬜
 

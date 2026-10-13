@@ -306,7 +306,7 @@ class Linter:
         art = self.art
         found = [(s.key, s) for s in art.sections if s.key]
         keys = [k for k, _ in found]
-        required = ['intro', 'prereq', 'steps', 'iran', 'safety', 'myths', 'trouble', 'prevent', 'faq', 'checklist', 'links', 'sources', 'closing', 'schema']
+        required = ['intro', 'prereq', 'steps', 'safety', 'myths', 'trouble', 'prevent', 'faq', 'checklist', 'links', 'sources', 'closing', 'schema']
         for k in required:
             if k not in keys:
                 self.add('T07', 0, f'بخش الزامی «{am.SECTION_LABELS[k]}» پیدا نشد (تیتر H2 با کلیدواژهٔ همین بخش لازم است)')
@@ -341,11 +341,9 @@ class Linter:
             txt = '\n'.join(safety.text_lines(art.lines))
             if not re.search(r'^\s*([' + PD + r']+|\d+)[\.)]\s+', txt, re.M):
                 self.add('T12', safety.start, 'نکات ایمنی باید شماره‌دار باشند', severity='info')
-        # پیام پایانی و شفافیت
+        # پیام پایانی و سلب مسئولیت (نسخهٔ ۱٫۲: سطر «کمک هوش مصنوعی» و «تأیید مالک» طبق دستور مالک حذف شده است)
         closing = art.section_by_key('closing')
         tail = '\n'.join(art.lines[closing.start:self.body_b]) if closing else '\n'.join(art.lines[max(self.body_a, self.body_b - 15):self.body_b])
-        if 'هوش مصنوعی' not in tail:
-            self.add('T13', closing.start if closing else self.body_b - 1, 'سطر شفافیت دربارهٔ کمک هوش مصنوعی (پس از پیام پایانی) نیست')
         if not re.search(r'جایگزین[^\n]{0,60}(پزشک|توصیه|راهنما)[^\n]{0,60}نیست', tail):
             self.add('T13', closing.start if closing else self.body_b - 1, 'سلب مسئولیت («…جایگزین توصیهٔ پزشکی، راهنمای محلی یا آموزش عملی نیست») نیست')
         if closing:
@@ -567,6 +565,7 @@ class Linter:
                             'M04': 'مارک‌آپ باقی‌مانده (HTML/فرار/کامنت)',
                             'M07': 'کلیشهٔ متنی مدل',
                             'M08': 'جملهٔ متا دربارهٔ خود مقاله',
+                            'M12': 'سطر «کمک هوش مصنوعی» یا «تأیید مالک» (طبق دستور مالک، مقاله باید تمیز و بی‌این‌سطرها باشد)',
                         }[short]
                         if short == 'M04' and (fm_a <= i < fm_b):
                             break

@@ -38,3 +38,6 @@ image-search/
 
 # Local preview page served during Arena sessions (not part of any release).
 .preview/
+
+# پیش‌نویس‌های خام Drive (متن ماشینی اولیه) فقط برای پیگیری مالک در ورک‌اسپیس می‌مانند.
+docs/camping-education/incoming/

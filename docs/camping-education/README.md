@@ -94,22 +94,24 @@ python3 tools/content-lint/content_lint.py --check-ready docs/camping-education/
 
 ## نقشهٔ کار
 
-### آماده در مخزن (۳۷ مقاله؛ همه با فیلتر بدون هشدار، وضعیت «آمادهٔ انتشار»)
+### آماده در مخزن (۴۵ مقاله؛ همه با فیلتر بدون هشدار، وضعیت «آمادهٔ انتشار»)
 
 | شاخه | نامک‌ها |
 |---|---|
-| تجهیزات عمومی | `camping-essential-checklist`، `essential-camping-equipment`، `how-to-choose-camping-tent`، `sleeping-bag-guide`، `outdoor-clothing-guide`، `first-aid-kit-checklist`، `outdoor-cooking-equipment`، `camping-lighting-guide` |
+| تجهیزات عمومی | `camping-essential-checklist`، `essential-camping-equipment`، `how-to-choose-camping-tent`، `sleeping-bag-guide`، `outdoor-clothing-guide`، `first-aid-kit-checklist`، `outdoor-cooking-equipment`، `camping-lighting-guide`، `build-shelter-branches` |
 | تجهیزات حرفه‌ای (بدون لینک خرید) | `portable-water-filter-review`، `camping-stove-review`، `multi-tool-knife-review`، `gps-navigation-tools`، `rope-carabiner-guide`، `professional-rescue-kit` |
-| کاردستی DIY | `diy-water-filter`، `diy-can-stove`، `rope-alternatives-outdoor`، `diy-compass`، `diy-emergency-torch` |
+| کاردستی DIY | `diy-water-filter`، `diy-can-stove`، `rope-alternatives-outdoor`، `diy-compass`، `diy-emergency-torch`، `trash-bag-emergency-raincoat`، `newspaper-insulation-bed`، `can-cookware-diy`، `diy-bottle-lantern`، `pull-tab-tools-diy`، `plastic-bottle-shovel-funnel` |
 | آتش | `how-to-start-campfire`، `fire-without-lighter`، `maintain-fire-in-rain`، `how-to-extinguish-campfire` |
 | آب | `camping-water-planning`، `drinking-water-in-nature`، `emergency-water-purification` |
 | نجات غریق | `drowning-rescue-guide`، `self-rescue-drowning`، `unconscious-drowning-cpr` |
-| کمک‌های اولیه در طبیعت | `cpr-complete-guide`، `ankle-sprain-first-aid`، `burn-injury-first-aid`، `overdose-rescue-guide`، `bleeding-wound-first-aid`، `heatstroke-first-aid`، `hypothermia-first-aid`، `snake-insect-bite-first-aid` |
+| کمک‌های اولیه در طبیعت | `cpr-complete-guide`، `ankle-sprain-first-aid`، `burn-injury-first-aid`، `overdose-rescue-guide`، `bleeding-wound-first-aid`، `heatstroke-first-aid`، `hypothermia-first-aid`، `snake-insect-bite-first-aid`، `old-clothes-bandage-wick` |
+
+**دستهٔ پنجم (قالب 2.17.0) — هشت مقالهٔ تازه از پوشهٔ Drive «39_46»:** بارانی اضطراری با کیسهٔ زباله، تشک و بالش با روزنامه و گونی، قابلمه و فنجان از قوطی کنسرو، فانوس بطری آب، ابزارهای ریز از حلقهٔ قوطی نوشابه، بیلچه و قیف بطری پلاستیکی، باند و فتیله از لباس کهنه، و سرپناه بدون چادر. همه از درفت ماشینی بازنویسی انسانی شدند (فارسی روان و املای اصلاح‌شده، بدون ادعای تجربهٔ ساختگی)، سطر «کمک هوش مصنوعی / تأیید مالک» از پایان همهٔ ۴۵ مقاله برداشته شد و بخش «بومی‌سازی ایران» از ساختار اجباری حذف شد (بومی‌سازی در مثال‌ها و قوانین محلی هر بخش می‌آید).
 
 ### در صف (طبق برنامهٔ ۶۵ مقاله‌ای مالک)
 
 1. `diy-water-container` (شمارهٔ ۱۹ برنامه؛ پیش‌نویس آن در Drive نبود).
 2. نجات در آب: `water-safety-children` (شمارهٔ ۲۹ برنامه؛ در پوشهٔ Drive پیش‌نویسی برای آن نبود — فایل شمارهٔ ۲۹ پوشه دربارهٔ سوختگی بود و فایل ۲۶ تکرار «نجات غریق» موجود).
 3. کمک‌های اولیه: شکستگی (شمارهٔ ۳۲ برنامه؛ پیش‌نویسی در Drive نداشت).
-4. مهار آتش، خودرو، پناهگاه، حیوانات، مسیریابی، سیگنال‌دهی و مقالات تکمیلی (۳۹ تا ۶۵).
+4. بقیهٔ برنامه: خودرو، حیوانات، مسیریابی، سیگنال‌دهی و مقالات تکمیلی (۴۷ تا ۶۵). شماره‌های ۳۹ تا ۴۵ برنامه با موضوع فایل‌های پوشهٔ Drive یکی نبود؛ با همان موضوع Drive (کاردستی و بقا) نوشته و منتشر شدند و شمارهٔ ۴۶ (`build-shelter-branches`) هم انجام شد.
 5. پالایش ۲۸ مقالهٔ موجود `ready-articles.php`، تک‌به‌تک، با همین فیلتر.
