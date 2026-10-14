@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.18.2
+Stable tag: 2.18.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,10 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.18.3 — 2026-10-14 =
+* ده اینفوگرافیک انگلیسیِ دستهٔ دوم، با واترمارک sarzaminaryan.ir، در مقاله‌های مرتبط درج شد و تصویرهای شاخصِ همان مقاله‌ها جایگزین شدند.
+* متن جایگزین فارسی و دادهٔ تولیدیِ مقالات آماده با فایل‌های تازه همگام شد؛ تولید HTML امن برای تصویرهای محلیِ درون مقاله به ابزار ساخت داده افزوده شد.
 
 = 2.17.0 — 2026-10-13 =
 * ۸ مقالهٔ تازهٔ کاردستی و بقا از پوشهٔ Drive مالک (۳۹ تا ۴۶) در بخش «آموزش‌ها»: بارانی اضطراری با کیسهٔ زباله، تشک و بالش با روزنامه و گونی، قابلمه و فنجان از قوطی کنسرو، فانوس بطری آب، ابزارهای ریز از حلقهٔ قوطی نوشابه، بیلچه و قیف بطری پلاستیکی، باند و فتیله از لباس کهنه، و سرپناه بدون چادر.
