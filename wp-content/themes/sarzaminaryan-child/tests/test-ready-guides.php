@@ -97,7 +97,7 @@ foreach ( $guides as $key => $g ) {
 		$covers = isset( $covers ) ? $covers + 1 : 1;
 	}
 }
-sa_guides_expect( isset( $covers ) && $covers >= 35, 'the 35 non-migrated cover records must keep their bundled covers' );
+sa_guides_expect( isset( $covers ) && $covers >= 34, 'the 34 non-migrated cover records must keep their bundled covers' );
 
 $lighting = $guides['camping-lighting-guide'];
 sa_guides_expect( ! empty( $lighting['remove_featured_image'] ), 'lighting guide explicitly opts out of its featured image' );
@@ -119,6 +119,19 @@ foreach ( array( 'straw', 'pump', 'squeeze', 'uv' ) as $tool ) {
 	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/portable-water-filter-' . $tool . '.webp';
 	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "water-filter {$tool} card asset exists and is compact" );
 	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "water-filter {$tool} card asset is a valid WebP" );
+}
+
+$stove = $guides['camping-stove-review'];
+sa_guides_expect( ! empty( $stove['remove_featured_image'] ), 'camping-stove guide explicitly opts out of its featured image' );
+sa_guides_expect( empty( $stove['cover'] ), 'camping-stove guide does not carry a featured-cover record' );
+sa_guides_expect( 4 === substr_count( (string) $stove['content'], '<figure class="sa-guide-topic-card">' ), 'camping-stove guide has exactly four in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $stove['content'], 'camping-stove-review.webp' ), 'retired camping-stove infographic is not referenced in the imported body' );
+foreach ( array( 'canister', 'integrated', 'multifuel', 'picnic' ) as $type ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/camping-stove-' . $type . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "camping-stove {$type} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "camping-stove {$type} card asset is a valid WebP" );
+	$dimensions = getimagesize( $image );
+	sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1], "camping-stove {$type} card asset is 720x540" );
 }
 
 /**

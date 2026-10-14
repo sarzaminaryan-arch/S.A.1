@@ -30,6 +30,7 @@ $GLOBALS['t'] = array(
 	'ready_articles' => array(
 		'camping-lighting-guide'        => array( 'slug' => 'camping-lighting-guide', 'remove_featured_image' => true ),
 		'portable-water-filter-review' => array( 'slug' => 'portable-water-filter-review', 'remove_featured_image' => true ),
+		'camping-stove-review'         => array( 'slug' => 'camping-stove-review', 'remove_featured_image' => true ),
 	),
 );
 @mkdir( $GLOBALS['t']['tmp'] . '/2026/10', 0777, true ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
@@ -147,9 +148,16 @@ sa_t_assert( false === sa_featured_image_available( 7 ), 'the flagged article st
 $GLOBALS['t']['posts'][8] = array( 'thumb' => 80, 'slug' => 'portable-water-filter-review' );
 $GLOBALS['t']['attached'][80] = array( 'missing' => false );
 sa_t_assert( true === sa_featured_image_suppressed( 8 ), 'a second explicitly flagged guide is individually suppressed' );
+$GLOBALS['t']['posts'][9] = array( 'thumb' => 90, 'slug' => 'camping-stove-review' );
+$GLOBALS['t']['attached'][90] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 9 ), 'the camping-stove featured image is suppressed by its own article record' );
+sa_t_assert( false === sa_featured_image_available( 9 ), 'the camping-stove thumbnail stays hidden with the global switch on' );
 $GLOBALS['t']['current'] = 7;
 sa_t_assert( '' === sa_featured_image_guard( '<img>' ), 'the global guard hides only the explicitly flagged article' );
 sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), 'a nested thumbnail for another post is not hidden by the current guide flag' );
+$GLOBALS['t']['current'] = 9;
+sa_t_assert( '' === sa_featured_image_guard( '<img>' ), 'the stove article is hidden only when its own record is current' );
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), 'the stove article flag does not hide another post thumbnail' );
 $GLOBALS['t']['current'] = 0;
 sa_t_assert( true === sa_featured_image_available( 5 ), 'the other article is still visible under the same global setting' );
 

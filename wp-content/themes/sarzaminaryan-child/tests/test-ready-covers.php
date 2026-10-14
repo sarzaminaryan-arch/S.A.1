@@ -238,6 +238,8 @@ $lighting = sa_ready_article_normalize( $guides['camping-lighting-guide'] );
 sa_t_assert( ! empty( $lighting['remove_featured_image'] ) && empty( $lighting['cover'] ), 'lighting record requests removal and has no bundled cover' );
 $water = sa_ready_article_normalize( $guides['portable-water-filter-review'] );
 sa_t_assert( ! empty( $water['remove_featured_image'] ) && empty( $water['cover'] ), 'water-filter record requests removal and has no bundled cover' );
+$stove = sa_ready_article_normalize( $guides['camping-stove-review'] );
+sa_t_assert( ! empty( $stove['remove_featured_image'] ) && empty( $stove['cover'] ), 'camping-stove record requests removal and has no bundled cover' );
 $current = get_post_thumbnail_id( 10 );
 $uploads_before_removal = count( $GLOBALS['t']['uploads'] );
 sa_t_assert( 0 === sa_ready_articles_apply_featured_image_policy( 10, $lighting ), 'explicit removal returns without uploading' );
@@ -259,6 +261,6 @@ foreach ( $guides as $key => $g ) {
 	sa_t_assert( is_readable( $abs ), "{$key}: cover file readable" );
 	$n++;
 }
-sa_t_assert( $n >= 35, '35 remaining bundled covers are readable after two article migrations' );
+sa_t_assert( $n >= 34, '34 remaining bundled covers are readable after three article migrations' );
 
 echo "PASS: ready-articles bundled covers ({$n} files; attach/replace/keep/reuse/remove rules)\n";

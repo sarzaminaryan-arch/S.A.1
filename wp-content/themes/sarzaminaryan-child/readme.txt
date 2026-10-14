@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.18.5
+Stable tag: 2.18.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.18.6 — 2026-10-14 =
+* چهار کارت تصویری خاموش و بی‌برند برای سرشعلهٔ کپسولی، سیستم پخت یکپارچه، اجاق چندسوخته و اجاق پیک‌نیکی در مقالهٔ اجاق کمپینگ؛ WebPهای ۷۲۰×۵۴۰ با واترمارک کوچک `sarzaminaryan.ir` در پایینِ چپ.
+* اینفوگرافیک درون‌متنی حذف شد؛ تصویر شاخص فقط برای همین مقاله با پرچم موردی پنهان می‌شود. فایل اینفوگرافیک از بستهٔ قالب حذف شد، اما پیوست رسانه و سایر مقاله‌ها تغییر نمی‌کنند.
+* دادهٔ آماده، آزمون‌های کارت/تصویر شاخص و مستندات تصاویر به‌روز شدند؛ تصویرهای تولیدی عکس مستند یا محصول واقعی نیستند.
 
 = 2.18.5 — 2026-10-14 =
 * چهار کارت تصویری بی‌برند برای فیلتر نی‌شکل، پمپی، فشاری و دستگاه UV در مقالهٔ فیلتر آب؛ هر تصویر ۷۲۰×۵۴۰ WebP با واترمارک کوچک `sarzaminaryan.ir`، نوشتهٔ مشکی روی زمینهٔ نیمه‌شفاف شیشه‌ای در پایینِ چپ.
