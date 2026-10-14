@@ -97,7 +97,18 @@ foreach ( $guides as $key => $g ) {
 		$covers = isset( $covers ) ? $covers + 1 : 1;
 	}
 }
-sa_guides_expect( isset( $covers ) && $covers >= 37, 'all 37 guides must ship a bundled cover (owner batches 1–4)' );
+sa_guides_expect( isset( $covers ) && $covers >= 36, 'the 36 non-migrated cover records must keep their bundled covers' );
+
+$lighting = $guides['camping-lighting-guide'];
+sa_guides_expect( ! empty( $lighting['remove_featured_image'] ), 'lighting guide explicitly opts out of its featured image' );
+sa_guides_expect( empty( $lighting['cover'] ), 'lighting guide does not carry a featured-cover record' );
+sa_guides_expect( 3 === substr_count( (string) $lighting['content'], '<figure class="sa-guide-topic-card">' ), 'lighting guide has exactly three in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $lighting['content'], 'camping-lighting-guide.webp' ), 'retired lighting infographic is not referenced in the imported body' );
+foreach ( array( 'headlamp', 'flashlight', 'lantern' ) as $tool ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/camping-lighting-' . $tool . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "lighting {$tool} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "lighting {$tool} card asset is a valid WebP" );
+}
 
 /**
  * Minimal strip-tags shim (no WordPress here).

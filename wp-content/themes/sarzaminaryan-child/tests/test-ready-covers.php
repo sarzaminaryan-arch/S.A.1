@@ -85,11 +85,19 @@ function update_post_meta( $id, $key, $value ) {
 	$GLOBALS['t']['meta'][ $id ][ $key ] = $value;
 	return true;
 }
+function delete_post_meta( $id, $key ) {
+	$exists = isset( $GLOBALS['t']['meta'][ $id ][ $key ] );
+	unset( $GLOBALS['t']['meta'][ $id ][ $key ] );
+	return $exists;
+}
 function get_post_thumbnail_id( $post_id ) {
 	return (int) get_post_meta( $post_id, '_thumbnail_id', true );
 }
 function set_post_thumbnail( $post_id, $attachment_id ) {
 	return update_post_meta( $post_id, '_thumbnail_id', (int) $attachment_id );
+}
+function delete_post_thumbnail( $post_id ) {
+	return delete_post_meta( $post_id, '_thumbnail_id' );
 }
 function get_post( $id ) {
 	return isset( $GLOBALS['t']['posts'][ $id ] ) ? $GLOBALS['t']['posts'][ $id ] : null;
@@ -225,7 +233,21 @@ $missing          = $article;
 $missing['cover'] = array( 'file' => 'guides/does-not-exist.webp', 'alt' => 'x' );
 sa_t_assert( is_wp_error( sa_ready_articles_attach_cover( 10, $missing ) ), 'missing file reported as error' );
 
-/* 7) Every bundled cover in the data file is readable and valid WebP. */
+/* 7) An explicit no-cover policy unsets only the thumbnail relation, not the attachment. */
+$lighting = sa_ready_article_normalize( $guides['camping-lighting-guide'] );
+sa_t_assert( ! empty( $lighting['remove_featured_image'] ) && empty( $lighting['cover'] ), 'lighting record requests removal and has no bundled cover' );
+$current = get_post_thumbnail_id( 10 );
+$uploads_before_removal = count( $GLOBALS['t']['uploads'] );
+sa_t_assert( 0 === sa_ready_articles_apply_featured_image_policy( 10, $lighting ), 'explicit removal returns without uploading' );
+sa_t_assert( 0 === get_post_thumbnail_id( 10 ), 'explicit removal unsets the post thumbnail' );
+sa_t_assert( '1' === get_post_meta( 10, '_sa_ready_remove_featured_image', true ), 'explicit removal persists a post-scoped marker' );
+sa_t_assert( isset( $GLOBALS['t']['posts'][ $current ] ), 'the image attachment itself is preserved' );
+sa_t_assert( $uploads_before_removal === count( $GLOBALS['t']['uploads'] ), 'removal does not create an upload' );
+$restored = sa_ready_articles_apply_featured_image_policy( 10, $article );
+sa_t_assert( is_int( $restored ) && get_post_thumbnail_id( 10 ) === $restored, 'an ordinary cover record keeps its existing import behavior' );
+sa_t_assert( '' === get_post_meta( 10, '_sa_ready_remove_featured_image', true ), 'ordinary cover policy clears the per-post removal marker' );
+
+/* 8) Every active bundled cover in the data file is readable and valid WebP. */
 $n = 0;
 foreach ( $guides as $key => $g ) {
 	if ( empty( $g['cover']['file'] ) ) {
@@ -235,6 +257,6 @@ foreach ( $guides as $key => $g ) {
 	sa_t_assert( is_readable( $abs ), "{$key}: cover file readable" );
 	$n++;
 }
-sa_t_assert( $n >= 37, 'all 37 covers bundled (owner batches 1–4)' );
+sa_t_assert( $n >= 36, '36 remaining bundled covers are readable after the one-article migration' );
 
-echo "PASS: ready-articles bundled covers ({$n} files; attach/replace/keep/reuse rules)\n";
+echo "PASS: ready-articles bundled covers ({$n} files; attach/replace/keep/reuse/remove rules)\n";

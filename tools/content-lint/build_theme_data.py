@@ -123,6 +123,7 @@ GUIDE_IMAGE_RE = re.compile(
     r'^\.\./\.\./\.\./wp-content/themes/sarzaminaryan-child/assets/img/guides/'
     r'([a-z0-9-]+\.(?:webp|jpe?g|png))$'
 )
+TOPIC_CARD_IMAGE_RE = re.compile(r'^topic-cards/[a-z0-9][a-z0-9-]*\.webp$')
 BOLD_RE = re.compile(r'\*\*(.+?)\*\*')
 ITAL_RE = re.compile(r'(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])')
 CODE_RE = re.compile(r'`([^`]+)`')
@@ -161,6 +162,27 @@ class Inline:
         return (
             '<figure class="sa-guide-infographic"><img src="' + html.escape(src, quote=True)
             + '" alt="' + html.escape(alt.strip(), quote=True) + '" loading="lazy" decoding="async" /></figure>'
+        )
+
+    def topic_card(self, image: str, alt: str, title: str, description: str) -> str:
+        """Render a validated, uniform guide topic card using a bundled WebP asset."""
+        if not TOPIC_CARD_IMAGE_RE.fullmatch(image):
+            raise ValueError('مسیر تصویر کارت باید topic-cards/{name}.webp باشد: ' + image)
+        if not alt.strip() or not title.strip() or not description.strip():
+            raise ValueError('کارت موضوعی باید متن جایگزین، عنوان و توضیح داشته باشد.')
+        local_file = os.path.join(THEME_IMG, 'guides', image)
+        if not os.path.isfile(local_file):
+            raise ValueError('فایل تصویر کارت پیدا نشد: ' + local_file)
+        src = self.site + '/wp-content/themes/sarzaminaryan-child/assets/img/guides/' + image
+        return (
+            '<figure class="sa-guide-topic-card">'
+            '<div class="sa-guide-topic-card__media"><img src="' + html.escape(src, quote=True)
+            + '" alt="' + html.escape(alt.strip(), quote=True)
+            + '" width="720" height="540" loading="lazy" decoding="async" /></div>'
+            '<figcaption class="sa-guide-topic-card__body">'
+            '<strong class="sa-guide-topic-card__title">' + html.escape(title.strip(), quote=False) + '</strong>'
+            '<span class="sa-guide-topic-card__description">' + html.escape(description.strip(), quote=False) + '</span>'
+            '</figcaption></figure>'
         )
 
     def render(self, text: str) -> str:
@@ -242,6 +264,28 @@ class Renderer:
             s = line.strip()
             if not s or s == '---':
                 i += 1
+                continue
+            # Uniform, locally bundled topic card; fields stay plain text and are escaped at render time.
+            if s == ':::sa-topic-card':
+                j = i + 1
+                fields: Dict[str, str] = {}
+                allowed = ('image', 'alt', 'title', 'description')
+                while j < n and lines[j].strip() != ':::':
+                    raw = lines[j].strip()
+                    if raw:
+                        key, sep, value = raw.partition(':')
+                        if not sep or key not in allowed or key in fields:
+                            raise ValueError('فیلد نامعتبر یا تکراری در کارت موضوعی: ' + raw)
+                        fields[key] = value.strip()
+                    j += 1
+                if j >= n:
+                    raise ValueError('پایان کارت موضوعی ::: پیدا نشد.')
+                missing = [key for key in allowed if not fields.get(key, '').strip()]
+                if missing:
+                    raise ValueError('فیلدهای ضروری کارت موضوعی خالی هستند: ' + ', '.join(missing))
+                self.out.append(self.inl.topic_card(fields['image'], fields['alt'], fields['title'], fields['description']))
+                self.last = ''
+                i = j + 1
                 continue
             # GitHub-relative image in the source article → validated theme image in WordPress.
             m = IMAGE_LINE_RE.fullmatch(s)
@@ -571,6 +615,7 @@ def build_record(path: str, cfg: dict) -> Optional[Dict[str, object]]:
         },
         'faq': faq_rows(art, inline),
         'cover': cover_record(art, path),
+        'remove_featured_image': art.front.get('تصویر شاخص', '').strip() == 'حذف',
         'content': content,
         'internal_links': sorted(set(inline.internal)),
     }
@@ -579,7 +624,10 @@ def build_record(path: str, cfg: dict) -> Optional[Dict[str, object]]:
 
 def cover_record(art: am.Article, path: str) -> Dict[str, str]:
     """تصویر شاخص همراه قالب: «تصویر شاخص: guides/<slug>.webp» + «متن جایگزین تصویر: …» در بلوک سئو."""
-    file = art.front.get('تصویر شاخص', '').strip().lstrip('/')
+    raw = art.front.get('تصویر شاخص', '').strip()
+    if raw == 'حذف':
+        return {}
+    file = raw.lstrip('/')
     if not file or file in ('بدون تصویر', '—', '-'):
         return {}
     if not COVER_RE.match(file) or '..' in file:
@@ -642,6 +690,8 @@ def emit_php(records: List[Dict[str, object]], version_note: str) -> str:
         out.append("\t\t'meta'          => " + php_array(r['meta'], '\t\t') + ',')
         if r.get('cover'):
             out.append("\t\t'cover'         => " + php_array(r['cover'], '\t\t') + ',')
+        if r.get('remove_featured_image'):
+            out.append("\t\t'remove_featured_image' => true,")
         out.append("\t\t'faq'           => array(")
         for row in r['faq']:
             out.append('\t\t\tarray(')

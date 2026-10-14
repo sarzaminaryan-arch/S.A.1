@@ -4347,6 +4347,99 @@ main.site-main.container,
 	box-shadow: var(--sa-shadow);
 }
 
+/* Fixed 1/3 image + 2/3 Persian copy card for in-context guide illustrations. */
+.sa-guide .entry-content .sa-guide-topic-card {
+	display: flex;
+	direction: ltr;
+	align-items: stretch;
+	width: 100%;
+	height: 12rem;
+	min-height: 12rem;
+	margin: 1.5rem 0;
+	overflow: hidden;
+	border: 1px solid rgba(148, 163, 184, .18);
+	border-radius: 18px;
+	background: #fff;
+	box-shadow: 0 18px 42px rgba(15, 23, 42, .22), 0 5px 12px rgba(15, 23, 42, .1);
+}
+
+.sa-guide .entry-content .sa-guide-topic-card__media {
+	flex: 0 0 33.333%;
+	min-width: 0;
+	height: 100%;
+	background: #f1f5f9;
+}
+
+.sa-guide .entry-content .sa-guide-topic-card__media img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	box-shadow: none;
+}
+
+.sa-guide .entry-content .sa-guide-topic-card__body {
+	display: flex;
+	flex: 1 1 66.667%;
+	box-sizing: border-box;
+	flex-direction: column;
+	justify-content: center;
+	gap: .5rem;
+	min-width: 0;
+	overflow: hidden;
+	padding: 1.15rem clamp(.85rem, 3vw, 1.5rem);
+	direction: rtl;
+	text-align: right;
+	color: #0f172a;
+}
+
+.sa-guide .entry-content .sa-guide-topic-card__title {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+	font-size: 1.08rem;
+	font-weight: 800;
+	line-height: 1.45;
+}
+
+.sa-guide .entry-content .sa-guide-topic-card__description {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	color: #475569;
+	font-size: .94rem;
+	line-height: 1.55;
+}
+
+@media (max-width: 480px) {
+	.sa-guide .entry-content .sa-guide-topic-card {
+		height: 9.5rem;
+		min-height: 9.5rem;
+		border-radius: 14px;
+	}
+
+	.sa-guide .entry-content .sa-guide-topic-card__media,
+	.sa-guide .entry-content .sa-guide-topic-card__media img {
+		min-height: 0;
+	}
+
+	.sa-guide .entry-content .sa-guide-topic-card__body {
+		gap: .25rem;
+		padding: .7rem .75rem;
+	}
+
+	.sa-guide .entry-content .sa-guide-topic-card__title {
+		font-size: .96rem;
+	}
+
+	.sa-guide .entry-content .sa-guide-topic-card__description {
+		font-size: .82rem;
+		line-height: 1.65;
+	}
+}
+
 .sa-guide__layout {
 	margin-top: 1.25rem;
 }

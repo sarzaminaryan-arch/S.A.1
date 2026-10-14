@@ -994,11 +994,7 @@ SA_ART,
 			'sa_sources' => 'سرویس پارک‌های ملی آمریکا (NPS) — «ده اصل ضروری» شامل روشنایی و باتری یدک
 استاندارد ANSI/PLATO FL1 — تعریف لومن، زمان روشنایی و درجهٔ ضدآب روی بسته‌بندی چراغ‌ها',
 		),
-		'cover'         => array(
-			'file' => 'guides/camping-lighting-guide.webp',
-			'alt' => 'اینفوگرافیک وسایل روشنایی کمپ: هدلایت، فانوس و چراغ‌قوه و کاربرد هرکدام',
-			'title' => 'اینفوگرافیک وسایل روشنایی کمپ',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
 				'q' => 'هدلایت بخرم یا چراغ قوه؟',
@@ -1059,21 +1055,23 @@ SA_ART,
 <li><strong>زمان:</strong> انتخاب و امتحان قبل از سفر چند دقیقه؛ هر شب قبل از تاریکی چراغ‌ها را دم دست بگذار.</li>
 <li><strong>هشدار:</strong> چراغ پرتوان را مستقیم به چشم کسی نگیر؛ در گروه از نور قرمز یا کم‌نور استفاده کن تا دید شب همه حفظ شود.</li>
 </ul>
-<figure class="sa-guide-infographic"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/camping-lighting-guide.webp" alt="اینفوگرافیک وسایل روشنایی کمپ: هدلایت، فانوس و چراغ‌قوه و کاربرد هرکدام" loading="lazy" decoding="async" /></figure>
 <p>هر نوری برای یه کار خاص ساخته شده. نمی‌تونی با یه ابزار همه کارها رو انجام بدی. این سه تا وسیله، مثلث نور تو کمپ هستن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> هدلایت یا چراغ پیشانی (دست‌های آزاد، ذهن باز)</h3>
 <p>وقتی داری تو چادر دنبال یه قرص مسکن می‌گردی، یا داری تو آشپزخونه پیاز خرد می‌کنی، دستات باید آزاده. هدلایت دقیقاً همون جایی رو روشن می‌کنه که داری بهش نگاه می‌کنی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-lighting-headlamp.webp" alt="هدلایت کمپ با بند کشی و چراغ پیشانی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">هدلایت؛ نور همراه با دست‌های آزاد</strong><span class="sa-guide-topic-card__description">برای برپایی چادر، آشپزی و کارهای نزدیک؛ نور را هم‌جهت نگاهت نگه می‌دارد.</span></figcaption></figure>
 <ul>
 <li>چی بخریم: هدلایتی که سبک باشه، بندش راحت تنظیم بشه و ترجیحاً حالت نور قرمز (Red Light) داشته باشه.</li>
 <li>نکته طلایی: نور قرمز برای شب‌خوانی یا کار تو چادر عالیه، چون دید در شب (Night Vision) چشم رو خراب نمی‌کنه و بقیه هم‌سفرا رو کور نمی‌کنه.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> چراغ قوه قدرتمند (برای مسیر و گشت‌زنی)</h3>
 <p>وقتی می‌خوای از چادر بری بیرون، تو مسیر پیاده‌روی کنی یا صدای عجیبی از تو بوته‌ها بشنوی و بخوای چک کنی، به نوری نیاز داری که برد زیادی داشته باشه و تاریکی رو بشکافه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-lighting-flashlight.webp" alt="چراغ‌قوهٔ دستی کمپینگ روی سنگ در مسیر تاریک جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چراغ‌قوه؛ دیدن مسیر و دوردست</strong><span class="sa-guide-topic-card__description">برای پیمایش و بررسی مسیر، پرتاب نور را کنار میزان لومن بسنج.</span></figcaption></figure>
 <ul>
 <li>چی بخریم: چراغ قوه‌ای با بدنه فلزی (آلومینیوم) که ضربه و آب رو تحمل کنه. تمرکز روی "برد نور" (Beam Distance) باشه، نه فقط لومن.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> فانوس یا لامپ کمپینگ (نور محیطی)</h3>
 <p>این وسیله برای اینه که دور هم بشینید، چای بخورید و تو چادر یه نور ملایم و پخش شده داشته باشید. فانوس نور رو ۳۶۰ درجه پخش می‌کنه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-lighting-lantern.webp" alt="فانوس LED روشن روی کندهٔ چوب در محل کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فانوس LED؛ نور یکنواخت محیطی</strong><span class="sa-guide-topic-card__description">برای روشن‌کردن میز یا فضای نشستن، نوع کم‌مصرف با شدت قابل تنظیم انتخاب کن.</span></figcaption></figure>
 <ul>
 <li>چی بخریم: فانوس‌های LED که مصرف باتری پایینی دارن و می‌تون شدت نورشون رو کم و زیاد کرد.</li>
 </ul>

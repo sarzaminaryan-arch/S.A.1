@@ -27,6 +27,9 @@ $GLOBALS['t'] = array(
 	'ajax'      => false,
 	'tmp'       => rtrim( sys_get_temp_dir(), '/' ) . '/sa-feat-test-' . uniqid(),
 	'current'   => 0,
+	'ready_articles' => array(
+		'camping-lighting-guide' => array( 'slug' => 'camping-lighting-guide', 'remove_featured_image' => true ),
+	),
 );
 @mkdir( $GLOBALS['t']['tmp'] . '/2026/10', 0777, true ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 
@@ -64,6 +67,15 @@ function is_feed() {
 }
 function get_the_ID() {
 	return (int) $GLOBALS['t']['current'];
+}
+function get_post_field( $field, $post_id ) {
+	if ( 'post_name' !== $field ) {
+		return '';
+	}
+	return isset( $GLOBALS['t']['posts'][ $post_id ]['slug'] ) ? $GLOBALS['t']['posts'][ $post_id ]['slug'] : '';
+}
+function sa_ready_articles_data() {
+	return $GLOBALS['t']['ready_articles'];
 }
 function has_post_thumbnail( $post_id ) {
 	return ! empty( $GLOBALS['t']['posts'][ $post_id ]['thumb'] );
@@ -125,6 +137,17 @@ sa_t_assert( false === sa_featured_image_available( 5 ), 'off switch hides even 
 $GLOBALS['t']['mods']['sa_show_featured_images'] = true;
 sa_t_assert( true === sa_featured_image_available( 5 ), 'on switch + existing file shows the thumbnail' );
 sa_t_assert( false === sa_featured_image_available( 6 ), 'a post without a thumbnail never shows one' );
+
+// One explicitly flagged guide remains hidden even when the global switch is on.
+$GLOBALS['t']['posts'][7] = array( 'thumb' => 70, 'slug' => 'camping-lighting-guide' );
+$GLOBALS['t']['attached'][70] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 7 ), 'the explicit article record suppresses its featured image' );
+sa_t_assert( false === sa_featured_image_available( 7 ), 'the flagged article stays hidden with the switch on' );
+$GLOBALS['t']['current'] = 7;
+sa_t_assert( '' === sa_featured_image_guard( '<img>' ), 'the global guard hides only the explicitly flagged article' );
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), 'a nested thumbnail for another post is not hidden by the current guide flag' );
+$GLOBALS['t']['current'] = 0;
+sa_t_assert( true === sa_featured_image_available( 5 ), 'the other article is still visible under the same global setting' );
 
 $GLOBALS['t']['attached'][50]['missing'] = true;
 sa_t_assert( false === sa_featured_image_available( 5 ), 'a thumbnail whose file was deleted is not shown' );
