@@ -4333,6 +4333,20 @@ main.site-main.container,
 	box-shadow: var(--sa-shadow);
 }
 
+.sa-guide .entry-content .sa-guide-infographic {
+	max-width: 100%;
+	margin: 1.5rem auto;
+}
+
+.sa-guide .entry-content .sa-guide-infographic img {
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	height: auto;
+	object-fit: contain;
+	box-shadow: var(--sa-shadow);
+}
+
 .sa-guide__layout {
 	margin-top: 1.25rem;
 }

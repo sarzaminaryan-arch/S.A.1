@@ -118,6 +118,11 @@ READY_STATUSES = ('آمادهٔ انتشار', 'منتشرشده')
 # inline markdown → HTML
 # ---------------------------------------------------------------------------
 LINK_RE = re.compile(r'\[([^\]]+)\]\(([^)\s]+)\)')
+IMAGE_LINE_RE = re.compile(r'^!\[([^\]]+)\]\(([^)\s]+)\)$')
+GUIDE_IMAGE_RE = re.compile(
+    r'^\.\./\.\./\.\./wp-content/themes/sarzaminaryan-child/assets/img/guides/'
+    r'([a-z0-9-]+\.(?:webp|jpe?g|png))$'
+)
 BOLD_RE = re.compile(r'\*\*(.+?)\*\*')
 ITAL_RE = re.compile(r'(?<![*\w])\*(?!\s)(.+?)(?<!\s)\*(?![*\w])')
 CODE_RE = re.compile(r'`([^`]+)`')
@@ -142,6 +147,21 @@ class Inline:
             self.internal.append(url.strip('/'))
             return url, False
         return url, True
+
+    def image(self, alt: str, url: str) -> str:
+        """Render a GitHub-relative guide image as a checked local theme asset."""
+        match = GUIDE_IMAGE_RE.fullmatch(url)
+        if not match or not alt.strip():
+            raise ValueError('تصویر بدنه باید مسیر محلی مجاز و متن جایگزین داشته باشد: ' + url)
+        filename = match.group(1)
+        local_file = os.path.join(THEME_IMG, 'guides', filename)
+        if not os.path.isfile(local_file):
+            raise ValueError('فایل تصویر بدنه پیدا نشد: ' + local_file)
+        src = self.site + '/wp-content/themes/sarzaminaryan-child/assets/img/guides/' + filename
+        return (
+            '<figure class="sa-guide-infographic"><img src="' + html.escape(src, quote=True)
+            + '" alt="' + html.escape(alt.strip(), quote=True) + '" loading="lazy" decoding="async" /></figure>'
+        )
 
     def render(self, text: str) -> str:
         text = html.escape(text, quote=False)
@@ -221,6 +241,13 @@ class Renderer:
             line = lines[i]
             s = line.strip()
             if not s or s == '---':
+                i += 1
+                continue
+            # GitHub-relative image in the source article → validated theme image in WordPress.
+            m = IMAGE_LINE_RE.fullmatch(s)
+            if m:
+                self.out.append(self.inl.image(m.group(1), m.group(2)))
+                self.last = ''
                 i += 1
                 continue
             # تیترها
