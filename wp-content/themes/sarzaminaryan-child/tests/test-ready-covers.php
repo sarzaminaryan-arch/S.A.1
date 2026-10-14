@@ -240,6 +240,16 @@ $water = sa_ready_article_normalize( $guides['portable-water-filter-review'] );
 sa_t_assert( ! empty( $water['remove_featured_image'] ) && empty( $water['cover'] ), 'water-filter record requests removal and has no bundled cover' );
 $stove = sa_ready_article_normalize( $guides['camping-stove-review'] );
 sa_t_assert( ! empty( $stove['remove_featured_image'] ) && empty( $stove['cover'] ), 'camping-stove record requests removal and has no bundled cover' );
+$multi_tool = sa_ready_article_normalize( $guides['multi-tool-knife-review'] );
+sa_t_assert( ! empty( $multi_tool['remove_featured_image'] ) && empty( $multi_tool['cover'] ), 'multi-tool record requests only a post-scoped featured-image removal' );
+$gps = sa_ready_article_normalize( $guides['gps-navigation-tools'] );
+sa_t_assert( ! empty( $gps['remove_featured_image'] ) && empty( $gps['cover'] ), 'GPS record requests only a post-scoped featured-image removal' );
+
+$recent_guides = array();
+foreach ( array( 'rope-carabiner-guide', 'professional-rescue-kit', 'diy-water-filter', 'diy-can-stove', 'rope-alternatives-outdoor' ) as $slug ) {
+	$recent_guides[ $slug ] = sa_ready_article_normalize( $guides[ $slug ] );
+	sa_t_assert( ! empty( $recent_guides[ $slug ]['remove_featured_image'] ) && empty( $recent_guides[ $slug ]['cover'] ), $slug . ': only its own featured-image relation is removed' );
+}
 $current = get_post_thumbnail_id( 10 );
 $uploads_before_removal = count( $GLOBALS['t']['uploads'] );
 sa_t_assert( 0 === sa_ready_articles_apply_featured_image_policy( 10, $lighting ), 'explicit removal returns without uploading' );
@@ -247,6 +257,24 @@ sa_t_assert( 0 === get_post_thumbnail_id( 10 ), 'explicit removal unsets the pos
 sa_t_assert( '1' === get_post_meta( 10, '_sa_ready_remove_featured_image', true ), 'explicit removal persists a post-scoped marker' );
 sa_t_assert( isset( $GLOBALS['t']['posts'][ $current ] ), 'the image attachment itself is preserved' );
 sa_t_assert( $uploads_before_removal === count( $GLOBALS['t']['uploads'] ), 'removal does not create an upload' );
+
+/* Each migrated guide removes only its own thumbnail relation and preserves the media attachment. */
+$policy_guides = array( 13 => $multi_tool, 14 => $gps );
+$post_id = 15;
+foreach ( $recent_guides as $guide ) {
+	$policy_guides[ $post_id++ ] = $guide;
+}
+foreach ( $policy_guides as $post_id => $guide ) {
+	$GLOBALS['t']['posts'][ $post_id ] = (object) array( 'ID' => $post_id, 'post_type' => 'post', 'post_parent' => 0 );
+	$attachment = wp_insert_attachment( array( 'post_mime_type' => 'image/webp' ), '/uploads/2026/10/guide-' . $post_id . '.webp', $post_id );
+	set_post_thumbnail( $post_id, $attachment );
+	$before = count( $GLOBALS['t']['uploads'] );
+	sa_t_assert( 0 === sa_ready_articles_apply_featured_image_policy( $post_id, $guide ), $guide['slug'] . ': featured-image removal is a no-upload operation' );
+	sa_t_assert( 0 === get_post_thumbnail_id( $post_id ), $guide['slug'] . ': only its thumbnail relation is removed' );
+	sa_t_assert( isset( $GLOBALS['t']['posts'][ $attachment ] ), $guide['slug'] . ': the media attachment remains intact' );
+	sa_t_assert( '1' === get_post_meta( $post_id, '_sa_ready_remove_featured_image', true ), $guide['slug'] . ': removal marker is scoped to its post' );
+	sa_t_assert( $before === count( $GLOBALS['t']['uploads'] ), $guide['slug'] . ': no media file is uploaded or deleted by the policy' );
+}
 $restored = sa_ready_articles_apply_featured_image_policy( 10, $article );
 sa_t_assert( is_int( $restored ) && get_post_thumbnail_id( 10 ) === $restored, 'an ordinary cover record keeps its existing import behavior' );
 sa_t_assert( '' === get_post_meta( 10, '_sa_ready_remove_featured_image', true ), 'ordinary cover policy clears the per-post removal marker' );
@@ -261,6 +289,6 @@ foreach ( $guides as $key => $g ) {
 	sa_t_assert( is_readable( $abs ), "{$key}: cover file readable" );
 	$n++;
 }
-sa_t_assert( $n >= 34, '34 remaining bundled covers are readable after three article migrations' );
+sa_t_assert( $n >= 27, '27 remaining bundled covers stay readable after ten post-scoped article migrations' );
 
 echo "PASS: ready-articles bundled covers ({$n} files; attach/replace/keep/reuse/remove rules)\n";
