@@ -28,7 +28,8 @@ $GLOBALS['t'] = array(
 	'tmp'       => rtrim( sys_get_temp_dir(), '/' ) . '/sa-feat-test-' . uniqid(),
 	'current'   => 0,
 	'ready_articles' => array(
-		'camping-lighting-guide' => array( 'slug' => 'camping-lighting-guide', 'remove_featured_image' => true ),
+		'camping-lighting-guide'        => array( 'slug' => 'camping-lighting-guide', 'remove_featured_image' => true ),
+		'portable-water-filter-review' => array( 'slug' => 'portable-water-filter-review', 'remove_featured_image' => true ),
 	),
 );
 @mkdir( $GLOBALS['t']['tmp'] . '/2026/10', 0777, true ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
@@ -143,6 +144,9 @@ $GLOBALS['t']['posts'][7] = array( 'thumb' => 70, 'slug' => 'camping-lighting-gu
 $GLOBALS['t']['attached'][70] = array( 'missing' => false );
 sa_t_assert( true === sa_featured_image_suppressed( 7 ), 'the explicit article record suppresses its featured image' );
 sa_t_assert( false === sa_featured_image_available( 7 ), 'the flagged article stays hidden with the switch on' );
+$GLOBALS['t']['posts'][8] = array( 'thumb' => 80, 'slug' => 'portable-water-filter-review' );
+$GLOBALS['t']['attached'][80] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 8 ), 'a second explicitly flagged guide is individually suppressed' );
 $GLOBALS['t']['current'] = 7;
 sa_t_assert( '' === sa_featured_image_guard( '<img>' ), 'the global guard hides only the explicitly flagged article' );
 sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), 'a nested thumbnail for another post is not hidden by the current guide flag' );

@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.18.4
+Stable tag: 2.18.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.18.5 — 2026-10-14 =
+* چهار کارت تصویری بی‌برند برای فیلتر نی‌شکل، پمپی، فشاری و دستگاه UV در مقالهٔ فیلتر آب؛ هر تصویر ۷۲۰×۵۴۰ WebP با واترمارک کوچک `sarzaminaryan.ir`، نوشتهٔ مشکی روی زمینهٔ نیمه‌شفاف شیشه‌ای در پایینِ چپ.
+* تصویر شاخص فقط برای مقالهٔ فیلتر آب با پرچم موردی حذف شد؛ پیوست رسانه‌ای پاک نمی‌شود و تصاویر دیگر مقاله‌ها تحت تأثیر نیستند.
+* دادهٔ آماده، آزمون‌های پوشش/کارت و استاندارد تحریریهٔ نسخهٔ ۱٫۳ به‌روز شد.
 
 = 2.18.4 — 2026-10-14 =
 * سه کارت تصویری یک‌اندازه برای هدلایت، چراغ‌قوه و فانوس در مقالهٔ روشنایی کمپ؛ تصویرها محصول‌محور، بی‌نوشته و بی‌واترمارک‌اند و به‌عنوان عکس مستند یا محصول واقعی معرفی نمی‌شوند.

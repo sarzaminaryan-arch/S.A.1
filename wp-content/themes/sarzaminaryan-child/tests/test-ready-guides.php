@@ -97,7 +97,7 @@ foreach ( $guides as $key => $g ) {
 		$covers = isset( $covers ) ? $covers + 1 : 1;
 	}
 }
-sa_guides_expect( isset( $covers ) && $covers >= 36, 'the 36 non-migrated cover records must keep their bundled covers' );
+sa_guides_expect( isset( $covers ) && $covers >= 35, 'the 35 non-migrated cover records must keep their bundled covers' );
 
 $lighting = $guides['camping-lighting-guide'];
 sa_guides_expect( ! empty( $lighting['remove_featured_image'] ), 'lighting guide explicitly opts out of its featured image' );
@@ -108,6 +108,17 @@ foreach ( array( 'headlamp', 'flashlight', 'lantern' ) as $tool ) {
 	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/camping-lighting-' . $tool . '.webp';
 	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "lighting {$tool} card asset exists and is compact" );
 	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "lighting {$tool} card asset is a valid WebP" );
+}
+
+$water = $guides['portable-water-filter-review'];
+sa_guides_expect( ! empty( $water['remove_featured_image'] ), 'water-filter guide explicitly opts out of its featured image' );
+sa_guides_expect( empty( $water['cover'] ), 'water-filter guide does not carry a featured-cover record' );
+sa_guides_expect( 4 === substr_count( (string) $water['content'], '<figure class="sa-guide-topic-card">' ), 'water-filter guide has four in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $water['content'], 'portable-water-filter-review.webp' ), 'retired water-filter infographic is not referenced in the imported body' );
+foreach ( array( 'straw', 'pump', 'squeeze', 'uv' ) as $tool ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/portable-water-filter-' . $tool . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "water-filter {$tool} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "water-filter {$tool} card asset is a valid WebP" );
 }
 
 /**

@@ -6505,11 +6505,7 @@ SA_ART,
 آژانس حفاظت از محیط‌زیست آمریکا (EPA) — تصفیهٔ اضطراری آب آشامیدنی | https://www.epa.gov/ground-water-and-drinking-water/emergency-disinfection-drinking-water
 سازمان جهانی بهداشت (WHO) — راهنمای کیفیت آب آشامیدنی و روش‌های تصفیه در خانوار',
 		),
-		'cover'         => array(
-			'file' => 'guides/portable-water-filter-review.webp',
-			'alt' => 'اینفوگرافیک فیلتر آب قابل‌حمل پمپی: توری ورودی، محفظهٔ پمپ، کارتریج و خروجی آب فیلترشده',
-			'title' => 'اینفوگرافیک فیلتر آب قابل‌حمل',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
 				'q' => 'آیا می‌تونم مستقیم از چشمه کوهستان آب بخورم و فیلتر نبرم؟',
@@ -6567,28 +6563,31 @@ SA_ART,
 <li><strong>زمان:</strong> فیلتر فشاری یا پمپی یک لیتر را در حدود یک تا دو دقیقه می‌دهد؛ قرص‌ها به ۳۰ دقیقه تا چند ساعت انتظار نیاز دارند.</li>
 <li><strong>هشدار:</strong> بعد از فیلتر، دهانه و درِ بطری را با دست یا آب خام آلوده نکن؛ بیشتر آلودگی‌های دوباره از همین‌جاست.</li>
 </ul>
-<figure class="sa-guide-infographic"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/portable-water-filter-review.webp" alt="اینفوگرافیک فیلتر آب قابل‌حمل پمپی: توری ورودی، محفظهٔ پمپ، کارتریج و خروجی آب فیلترشده" loading="lazy" decoding="async" /></figure>
 <p>همه فیلترها شبیه هم نیستن. بعضی‌ها فقط گل و لای رو می‌گیرن، بعضی‌ها باکتری‌ها رو، و بعضی‌ها ویروس‌ها رو. بذار انواعش رو برات کالبدشکافی کنم.</p>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> فیلترهای نی‌شکل (Straw Filters)</h3>
 <p>این‌ها دقیقاً شبیه یه نی بزرگ هستن. یه سرش رو می‌ذاری تو رودخونه، سر دیگه رو می‌مکی. آب از بین الیاف توخالی (Hollow Fiber) رد میشه و باکتری‌ها و انگل‌ها پشت در می‌مونن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-straw.webp" alt="فیلتر نی‌شکل آب با درپوش روی سنگ کنار رودخانه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فیلتر نی‌شکل؛ سبک و شخصی</strong><span class="sa-guide-topic-card__description">برای نوشیدن مستقیم در پیمایش سبک؛ ویروس و آلودگی شیمیایی را حذف نمی‌کند.</span></figcaption></figure>
 <ul>
 <li>مزایا: فوق‌العاده سبک، کوچک، ارزان، و سریع.</li>
 <li>معایب: فقط برای آب‌های نسبتاً زلال خوبه. تو آب‌های گل‌آلود سریع کیپ میشه. ویروس‌ها رو رد می‌کنه.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> فیلترهای پمپی (Pump Filters)</h3>
 <p>یه شلنگ می‌ذاری تو رودخونه، و با یه اهرم دستی، آب رو با فشار از داخل یه فیلتر سرامیکی یا کربنی عبور می‌دی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-pump.webp" alt="فیلتر پمپی دستی با دو شلنگ و بطری خروجی کنار آب جاری" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فیلتر پمپی؛ مناسب آب‌گیری گروهی</strong><span class="sa-guide-topic-card__description">آب خام را از ورودی بکش و خروجی را در ظرف تمیز جمع کن؛ نگهداری را طبق دفترچه انجام بده.</span></figcaption></figure>
 <ul>
 <li>مزایا: فیلتراسیون بسیار دقیق، قابلیت شست‌وشو و تمیز کردن فیلتر تو مسیر، عمر طولانی.</li>
 <li>معایب: سنگین، جاگیر، و نیاز به زور بازو داره. پمپاژ کردن هزار لیتر آب کم‌کم خسته‌ت می‌کنه.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> فیلترهای بطری و فشاری (Squeeze/Bottle Filters)</h3>
 <p>این‌ها محبوب‌ترین مدل‌های امروزی‌ان. یا مستقیم تو یه بطری نرم (مثل بطری دوچرخه) پیچ می‌شن و آب رو می‌مکی، یا مثل یه فرنچ پرس عمل می‌کنن و آب کثیف رو از بالا می‌ریزی و از پایین آب تمیز تحویل می‌گیری.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-squeeze.webp" alt="کیسهٔ فشاری آب با فیلتر خطی و بطری تمیز در کنار جوی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فیلتر فشاری یا بطری؛ سبک و سریع</strong><span class="sa-guide-topic-card__description">برای پیمایش سبک و پرکردن بطری؛ کیسه را از فشار زیاد و یخ‌زدگی حفظ کن.</span></figcaption></figure>
 <ul>
 <li>مزایا: استفاده آسان، سبک، مناسب برای پر کردن بطری‌های آب.</li>
 <li>معایب: بطری‌های پلاستیکی نرم ممکنه تو سرما یا فشار زیاد سوراخ بشن.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> تصفیه‌کننده‌های اشعه فرابنفش (UV Purifiers)</h3>
 <p>این‌ها فیلتر فیزیکی نیستن. یه میله شیشه‌ای دارن که با باتری کار می‌کنه و اشعه UV ساطع می‌کنه. این اشعه DNA میکروب‌ها رو نابود می‌کنه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-uv.webp" alt="دستگاه تصفیهٔ فرابنفش قابل‌حمل کنار بطری شفاف آب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">تصفیه‌کنندهٔ UV؛ وابسته به باتری</strong><span class="sa-guide-topic-card__description">این روش ذرات را فیلتر نمی‌کند؛ آب کدر را پیش‌تصفیه کن و دستور سازنده را رعایت کن.</span></figcaption></figure>
 <ul>
 <li>مزایا: ویروس‌ها رو هم از بین می‌بره (چون سوراخ فیلترها از ویروس بزرگتره)، طعم آب رو عوض نمی‌کنه.</li>
 <li>معایب: آب رو تصفیه فیزیکی نمی‌کنه (اگه آب گل‌آلود باشه، اشعه به میکروب‌های پشت گل نمی‌رسه). به باتری وابسته‌ست. تو هوای خیلی سرد باتریش زود تموم میشه.</li>

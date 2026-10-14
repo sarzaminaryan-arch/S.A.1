@@ -236,6 +236,8 @@ sa_t_assert( is_wp_error( sa_ready_articles_attach_cover( 10, $missing ) ), 'mis
 /* 7) An explicit no-cover policy unsets only the thumbnail relation, not the attachment. */
 $lighting = sa_ready_article_normalize( $guides['camping-lighting-guide'] );
 sa_t_assert( ! empty( $lighting['remove_featured_image'] ) && empty( $lighting['cover'] ), 'lighting record requests removal and has no bundled cover' );
+$water = sa_ready_article_normalize( $guides['portable-water-filter-review'] );
+sa_t_assert( ! empty( $water['remove_featured_image'] ) && empty( $water['cover'] ), 'water-filter record requests removal and has no bundled cover' );
 $current = get_post_thumbnail_id( 10 );
 $uploads_before_removal = count( $GLOBALS['t']['uploads'] );
 sa_t_assert( 0 === sa_ready_articles_apply_featured_image_policy( 10, $lighting ), 'explicit removal returns without uploading' );
@@ -257,6 +259,6 @@ foreach ( $guides as $key => $g ) {
 	sa_t_assert( is_readable( $abs ), "{$key}: cover file readable" );
 	$n++;
 }
-sa_t_assert( $n >= 36, '36 remaining bundled covers are readable after the one-article migration' );
+sa_t_assert( $n >= 35, '35 remaining bundled covers are readable after two article migrations' );
 
 echo "PASS: ready-articles bundled covers ({$n} files; attach/replace/keep/reuse/remove rules)\n";
