@@ -51,17 +51,27 @@ BRANCHES: Dict[str, Tuple[str, str, List[str]]] = {
     'diy-outdoor': ('کاردستی و جایگزین‌های DIY', 'DIY', [
         'diy-water-filter', 'diy-can-stove', 'rope-alternatives-outdoor', 'diy-compass', 'diy-emergency-torch',
         'trash-bag-emergency-raincoat', 'newspaper-insulation-bed', 'can-cookware-diy', 'diy-bottle-lantern',
-        'pull-tab-tools-diy', 'plastic-bottle-shovel-funnel']),
+        'pull-tab-tools-diy', 'plastic-bottle-shovel-funnel', 'diy-water-container']),
     'campfire': ('آتش در طبیعت', 'Campfire', [
         'how-to-start-campfire', 'fire-without-lighter', 'maintain-fire-in-rain', 'how-to-extinguish-campfire']),
     'drinking-water': ('آب آشامیدنی', 'Drinking water', [
         'camping-water-planning', 'drinking-water-in-nature', 'emergency-water-purification']),
     'water-rescue': ('نجات غریق و ایمنی آبی', 'Water rescue', [
-        'drowning-rescue-guide', 'self-rescue-drowning', 'unconscious-drowning-cpr']),
+        'drowning-rescue-guide', 'self-rescue-drowning', 'unconscious-drowning-cpr', 'water-safety-children']),
     'first-aid': ('کمک‌های اولیه در طبیعت', 'First aid', [
         'cpr-complete-guide', 'ankle-sprain-first-aid', 'burn-injury-first-aid', 'overdose-rescue-guide',
         'bleeding-wound-first-aid', 'heatstroke-first-aid', 'hypothermia-first-aid', 'snake-insect-bite-first-aid',
-        'old-clothes-bandage-wick']),
+        'old-clothes-bandage-wick', 'leg-fracture-first-aid']),
+    'campsite-shelter': ('کمپ‌سازی و سرپناه', 'Campsite and shelter', [
+        'diy-hammock-trees', 'choosing-campsite', 'ground-insulation-sleeping']),
+    'wildlife': ('برخورد با حیوانات', 'Wildlife encounters', [
+        'bear-encounter-guide', 'wild-boar-encounter', 'snake-encounter-guide', 'stray-dog-encounter',
+        'night-wildlife-defense', 'safe-food-storage-outdoor']),
+    'navigation': ('مسیریابی و سیگنال', 'Navigation and signaling', [
+        'navigation-by-sun', 'navigation-by-stars', 'lost-in-nature-guide', 'paper-map-reading',
+        'rescue-signaling-guide', 'international-distress-signals']),
+    'field-skills': ('مهارت‌های میدانی', 'Field skills', [
+        'knot-tying-guide', 'outdoor-cooking-minimal', 'personal-hygiene-outdoor', 'children-outdoor-safety']),
 }
 
 ENGLISH: Dict[str, str] = {
@@ -110,6 +120,28 @@ ENGLISH: Dict[str, str] = {
     'heatstroke-first-aid': 'Heatstroke First Aid',
     'hypothermia-first-aid': 'Hypothermia First Aid',
     'snake-insect-bite-first-aid': 'Snake and Insect Bite First Aid',
+    'diy-water-container': 'DIY Water Container',
+    'water-safety-children': 'Water Safety for Children',
+    'leg-fracture-first-aid': 'Leg Fracture First Aid',
+    'diy-hammock-trees': 'DIY Hammock Between Trees',
+    'choosing-campsite': 'How to Choose a Campsite',
+    'ground-insulation-sleeping': 'Ground Insulation for Sleeping',
+    'bear-encounter-guide': 'Bear Encounter Guide',
+    'wild-boar-encounter': 'Wild Boar Encounter',
+    'snake-encounter-guide': 'Snake Encounter Guide',
+    'stray-dog-encounter': 'Stray Dog Encounter',
+    'night-wildlife-defense': 'Night Wildlife Safety',
+    'safe-food-storage-outdoor': 'Safe Food Storage Outdoors',
+    'navigation-by-sun': 'Navigation by the Sun',
+    'navigation-by-stars': 'Navigation by the Stars',
+    'lost-in-nature-guide': 'Lost in Nature Guide',
+    'paper-map-reading': 'Paper Map Reading',
+    'rescue-signaling-guide': 'Rescue Signaling Guide',
+    'international-distress-signals': 'International Distress Signals',
+    'knot-tying-guide': 'Knot Tying Guide',
+    'outdoor-cooking-minimal': 'Minimalist Outdoor Cooking',
+    'personal-hygiene-outdoor': 'Personal Hygiene Outdoors',
+    'children-outdoor-safety': 'Children Outdoor Safety',
 }
 
 READY_STATUSES = ('آمادهٔ انتشار', 'منتشرشده')
@@ -178,6 +210,9 @@ HEADING_RE = re.compile(r'^(#{2,6})\s+(.*)$')
 NOTE_LINE_RE = re.compile(r'^\*(?!\*)(.+)\*$')
 LABEL_LINE_RE = re.compile(r'^\*\*([^*]+):\*\*\s*(.*)$')
 STEP_META_LABELS = ('مناسب برای', 'لازم داری', 'زمان', 'هشدار', 'تصویر')
+CARD_START = ':::sa-topic-card'
+CARD_FIELD_RE = re.compile(r'^([A-Za-z]+)\s*:\s*(.*)$')
+CARD_IMG_RE = re.compile(r'^topic-cards/[a-z0-9][a-z0-9/_-]*\.webp$')
 
 
 def split_cells(line: str) -> List[str]:
@@ -230,6 +265,19 @@ class Renderer:
                 self.last = ''
                 self.out.append('<h%d>%s</h%d>' % (lvl, self.inl.render(am.strip_emoji(m.group(2)).strip()), lvl))
                 i += 1
+                continue
+            # کارت تصویری درون مقاله: «:::sa-topic-card … :::» → <figure><img>
+            if s == CARD_START:
+                j = i + 1
+                fields: Dict[str, str] = {}
+                while j < n and lines[j].strip() != ':::':
+                    mf = CARD_FIELD_RE.match(lines[j].strip())
+                    if mf:
+                        fields[mf.group(1)] = mf.group(2).strip()
+                    j += 1
+                self.last = ''
+                self.topic_card(fields)
+                i = j + 1
                 continue
             # نقل‌قول / جعبه
             if s.startswith('>'):
@@ -403,7 +451,27 @@ class Renderer:
     @staticmethod
     def is_block_start(line: str) -> bool:
         s = line.strip()
-        return bool(HEADING_RE.match(s) or s.startswith('>') or s.startswith('|') or UL_RE.match(line) or OL_RE.match(s) or s == '---' or NOTE_LINE_RE.match(s) or LABEL_LINE_RE.match(s))
+        return bool(HEADING_RE.match(s) or s.startswith('>') or s.startswith('|') or UL_RE.match(line) or OL_RE.match(s) or s == '---' or NOTE_LINE_RE.match(s) or LABEL_LINE_RE.match(s) or s == CARD_START)
+
+    def topic_card(self, fields: Dict[str, str]) -> None:
+        """کارت تصویری درون مقاله: تصویر واقع‌نما + عنوان و توضیح یک‌جمله‌ای (استاندارد 2.18.3)."""
+        img = fields.get('image', '')
+        alt = fields.get('alt', '')
+        title = fields.get('title', '')
+        desc = fields.get('description', '')
+        missing = [k for k, v in (('image', img), ('alt', alt), ('title', title), ('description', desc)) if not v]
+        if missing:
+            raise SystemExit('کارت تصویری ناقص است (' + '، '.join(missing) + ' لازم است)')
+        if not CARD_IMG_RE.match(img) or '..' in img:
+            raise SystemExit('مسیر «image» کارت تصویری نامعتبر است (قالب: topic-cards/{slug}-{topic}.webp): ' + img)
+        if not os.path.isfile(os.path.join(THEME_IMG, 'guides', img)):
+            raise SystemExit('فایل تصویر کارت در قالب نیست: assets/img/guides/' + img)
+        url = self.inl.site + '/wp-content/themes/sarzaminaryan-child/assets/img/guides/' + img
+        self.out.append('<figure class="sa-topic-card">')
+        self.out.append('<img src="' + html.escape(url, quote=True) + '" alt="' + html.escape(alt, quote=True) + '" loading="lazy" decoding="async" />')
+        self.out.append('<figcaption><strong class="sa-topic-card__title">' + html.escape(title) + '</strong>'
+                        '<span class="sa-topic-card__desc">' + html.escape(desc) + '</span></figcaption>')
+        self.out.append('</figure>')
 
     def quote(self, block: List[str]) -> None:
         first = next((b for b in block if b.strip()), '')

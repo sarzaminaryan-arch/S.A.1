@@ -8,3 +8,15 @@
 - دستهٔ دوم (۱۹ مهر ۱۴۰۵، شش فایل تکی در همان پوشه): `maintain-fire-in-rain`، `fire-without-lighter`، `how-to-extinguish-campfire`، `drinking-water-in-nature`، `emergency-water-purification`؛ فایل ششم (`1000102768.webp`) نسخهٔ دوبارهٔ همان اینفوگرافیک `gps-navigation-tools` بود (پیکسل‌به‌پیکسل یکسان) و جایگزین نشد تا اثر انگشت و بارگذاری دوباره تغییر نکند.
 - دستهٔ سوم (۱۹ مهر ۱۴۰۵، زیرپوشهٔ «5 img»): `first-aid-kit-checklist`، `diy-emergency-torch`، `camping-water-planning`، `essential-camping-equipment`، `drowning-rescue-guide` — با این دسته هیچ مقاله‌ای بدون تصویر نمانده است.
 - دستهٔ چهارم (۲۰ مهر ۱۴۰۵، پوشهٔ «12 articles» همراه پیش‌نویس‌ها): `self-rescue-drowning`، `unconscious-drowning-cpr`، `cpr-complete-guide`، `ankle-sprain-first-aid`، `burn-injury-first-aid`، `overdose-rescue-guide`، `bleeding-wound-first-aid`، `heatstroke-first-aid`، `hypothermia-first-aid`، `snake-insect-bite-first-aid`. از ۱۲ فایل، دو فایل (`1000102834.webp` نسخهٔ دوم «نجات خود از غرق‌شدگی» و `1000102841.webp` تصویر پیش‌نویس تکراری سوختگی) کنار گذاشته شد. چند تصویر غلط املایی کوچک در متن خود اینفوگرافیک دارند (مثل «پپرهیز»، «حباتی»، «آسپیراسون»، «استقاده»، «پرهیر» و واژهٔ لاتین «venomous»)؛ پرونده‌ها بدون دست‌کاری نگه داشته شده‌اند تا مالک در صورت تمایل نسخهٔ اصلاح‌شده را جایگزین کند.
+
+
+## کارت‌های تصویری مقاله‌ها (زیرپوشهٔ `topic-cards/`، از قالب 2.18.3)
+
+عکس‌های واقع‌گرایانهٔ مستند برای کارت‌های `:::sa-topic-card` مقاله‌های تازه و بازسازی‌شده (دسته‌های ۱۷ تا ۲۱ و ۲۱ مقالهٔ تازهٔ ۲۳ مهر ۱۴۰۵) — ۷۸ کارت در مجموع.
+
+- هر فایل: WebP با ابعاد **۷۲۰×۵۴۰** (۴:۳ پس از برش مرکزی)، کیفیت ۸۲، حجم ۱۰ تا ۲۰۰ کیلوبایت، واترمارک متنی `sarzaminaryan.ir` در گوشهٔ پایین‌چپ.
+- نام‌ها `{نامک}-{پسوند موضوعی}.webp` و دقیقاً همان مقدار `image:` بلوک کارت در مارک‌داون است؛ `build_theme_data.py` نبودِ فایل را خطای ساخت می‌داند.
+- رندر قالب: `figure.sa-topic-card` با `img` تنبل (`loading="lazy" decoding="async"`) و `figcaption` (عنوان + توضیح)؛ استایل در انتهای `assets/css/child.css`.
+- پیام‌های تولید تصویر بدون متن/لوگو/واترمارک ساخته می‌شوند؛ واترمارک را پردازش محلی (`make_cards.py`) اضافه می‌کند. تصویر تازه: نسخهٔ خام را با همان نام در `topic-cards/` جایگزین کن و `build_theme_data.py` را دوباره اجرا کن.
+
+۴۱ مقالهٔ قدیمی‌تر (بدون کارت) همان سطر «**تصویر:** … تصویری لازم نیست» را نگه می‌دارند و تصویر شاخص‌شان از اینفوگرافیک‌های همین پوشه (`guides/<slug>.webp`) است.
