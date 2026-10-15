@@ -489,7 +489,7 @@
 					if ( row ) {
 						var badge = row.querySelector( '.sa-ready__badge--cover, .sa-ready__badge--none' );
 						if ( badge ) {
-							badge.textContent = 'کارت قالب';
+							badge.textContent = 'کارت سه‌دریک قالب';
 							badge.className = 'sa-ready__badge sa-ready__badge--cover';
 						}
 					}
