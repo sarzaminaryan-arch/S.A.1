@@ -291,24 +291,15 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> توقف و حفظ فاصله</h3>
 <p>به‌محض دیدن خرس، بایست؛ قدم‌های آهسته عقب برو و فاصله را حفظ کن. اگر خرس ایستاد، تو هم بایست؛ هر حرکت تند، تهدید ترجمه می‌شود. اگر مسیر باریک است، کنار برو و راه را باز کن؛ خرس مسیر را ادامه می‌دهد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bear-encounter-guide-distance.webp" alt="خرس قهوه‌ای در حال چرا در دشت کوهستانی از فاصلهٔ زیاد" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فاصله، اولین ابزار</strong><span class="sa-topic-card__desc">دیدن خرس از فاصلهٔ زیاد یعنی توقف و دورشدن آرام؛ نزدیک‌شدن برای عکس، خطر را چند برابر می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bear-encounter-guide-distance.webp" alt="خرس قهوه‌ای در حال چرا در دشت کوهستانی از فاصلهٔ زیاد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فاصله، اولین ابزار</strong><span class="sa-guide-topic-card__description">دیدن خرس از فاصلهٔ زیاد یعنی توقف و دورشدن آرام؛ نزدیک‌شدن برای عکس، خطر را چند برابر می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> بلند و آرام حرف‌زدن</h3>
 <p>آرام بلند حرف بزن تا بفهمد موجودیت تو انسان است، نه طعمه؛ جملات ساده و صدای پایدار بهتر از جیغ است. دست‌ها را آرام بالا ببر تا بزرگ‌تر دیده شوی؛ حرکات تند و پرش ممنوع. اگر خرس روی دو پا ایستاد، معمولاً کنجکاوی است، نه حمله؛ حرف زدن را ادامه بده.</p>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> عقب‌کشیدن آرام و عبور امن</h3>
 <p>آرام و رو به عقب دور شو؛ به‌محض دورشدن، مسیرت را عوض کن. هرگز ندو و بالای درخت نپر (خرس‌ها خوب بالا می‌روند مگر درخت‌های بسیار تنومند). اگر خرس دنبالت آمد، بایست؛ بیشتر تعقیب‌ها، آزمایش فرار است و با ایستادن قطع می‌شود.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bear-encounter-guide-back-away.webp" alt="کوهنوردی که آرام در حال عقب‌کشیدن از مسیر جنگلی با خرس در فاصله است" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">آرام عقب بکش، نه فرار</strong><span class="sa-topic-card__desc">عقب‌کشیدن آرام با نگاه به خرس، تعقیب را خاموش نگه می‌دارد؛ دویدن دقیقاً برعکس عمل می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bear-encounter-guide-back-away.webp" alt="کوهنوردی که آرام در حال عقب‌کشیدن از مسیر جنگلی با خرس در فاصله است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آرام عقب بکش، نه فرار</strong><span class="sa-guide-topic-card__description">عقب‌کشیدن آرام با نگاه به خرس، تعقیب را خاموش نگه می‌دارد؛ دویدن دقیقاً برعکس عمل می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> نگهداری ایمن غذا، همیشه و قبل از مواجهه</h3>
 <p>غذا، بو و زباله را در ظرف مقاوم یا کیسهٔ آویز، دور از چادر و مسیر خرس نگه دار؛ پخت‌وپز را هم دورتر از جای خواب انجام بده. بیشتر مواجهه‌های خطرناک، از عادت‌دادن خرس به غذای انسان شروع می‌شود؛ جزئیات در <a href="/safe-food-storage-outdoor/">نگهداری ایمن غذا</a>.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bear-encounter-guide-food-canister.webp" alt="جعبهٔ غذای مقاوم دربسته روی سنگ دور از چادر در کمپ کوهستانی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">غذا دور از چادر، در جعبهٔ مقاوم</strong><span class="sa-topic-card__desc">جعبهٔ غذای دربسته و دور از چادر، خرس را از کمپ دور نگه می‌دارد؛ بوی غذا، دعوت‌نامه است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bear-encounter-guide-food-canister.webp" alt="جعبهٔ غذای مقاوم دربسته روی سنگ دور از چادر در کمپ کوهستانی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">غذا دور از چادر، در جعبهٔ مقاوم</strong><span class="sa-guide-topic-card__description">جعبهٔ غذای دربسته و دور از چادر، خرس را از کمپ دور نگه می‌دارد؛ بوی غذا، دعوت‌نامه است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> رفتار متفاوت با گونه‌ها و شرایط</h3>
 <p>خرس سیاه معمولاً با صدا و بزرگ‌نمایی فاصله می‌گیرد؛ خرس قهوه‌ای (گریزلی) در نزدیکی و دفاع از توله، ممکن است واکنش نشان بدهد و در آن حالت، بی‌حرکت‌ماندن و بعد عقب‌کشیدن تدریجی بهتر است. هیچ توصیهٔ عمومی «مقابله با خرس وحشی» نساز؛ تفاوت‌ها را از راهنمای محلی همان منطقه بپرس.</p>
 <h2>نکات ایمنی</h2>
@@ -1152,11 +1143,7 @@ SA_ART,
 			'sa_sources' => 'سرویس پارک‌های ملی آمریکا (NPS) — «ده اصل ضروری» شامل روشنایی و باتری یدک
 استاندارد ANSI/PLATO FL1 — تعریف لومن، زمان روشنایی و درجهٔ ضدآب روی بسته‌بندی چراغ‌ها',
 		),
-		'cover'         => array(
-			'file' => 'guides/camping-lighting-guide.webp',
-			'alt' => 'اینفوگرافیک وسایل روشنایی کمپ: تفاوت هدلایت، چراغ‌قوه و فانوس، مفهوم لومن، نوع باتری و ترفندهای نورپردازی در چادر',
-			'title' => 'اینفوگرافیک وسایل روشنایی کمپ',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
 				'q' => 'هدلایت بخرم یا چراغ قوه؟',
@@ -1220,17 +1207,20 @@ SA_ART,
 <p>هر نوری برای یه کار خاص ساخته شده. نمی‌تونی با یه ابزار همه کارها رو انجام بدی. این سه تا وسیله، مثلث نور تو کمپ هستن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> هدلایت یا چراغ پیشانی (دست‌های آزاد، ذهن باز)</h3>
 <p>وقتی داری تو چادر دنبال یه قرص مسکن می‌گردی، یا داری تو آشپزخونه پیاز خرد می‌کنی، دستات باید آزاده. هدلایت دقیقاً همون جایی رو روشن می‌کنه که داری بهش نگاه می‌کنی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-lighting-headlamp.webp" alt="هدلایت کمپ با بند کشی و چراغ پیشانی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">هدلایت؛ نور همراه با دست‌های آزاد</strong><span class="sa-guide-topic-card__description">برای برپایی چادر، آشپزی و کارهای نزدیک؛ نور را هم‌جهت نگاهت نگه می‌دارد.</span></figcaption></figure>
 <ul>
 <li>چی بخریم: هدلایتی که سبک باشه، بندش راحت تنظیم بشه و ترجیحاً حالت نور قرمز (Red Light) داشته باشه.</li>
 <li>نکته طلایی: نور قرمز برای شب‌خوانی یا کار تو چادر عالیه، چون دید در شب (Night Vision) چشم رو خراب نمی‌کنه و بقیه هم‌سفرا رو کور نمی‌کنه.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> چراغ قوه قدرتمند (برای مسیر و گشت‌زنی)</h3>
 <p>وقتی می‌خوای از چادر بری بیرون، تو مسیر پیاده‌روی کنی یا صدای عجیبی از تو بوته‌ها بشنوی و بخوای چک کنی، به نوری نیاز داری که برد زیادی داشته باشه و تاریکی رو بشکافه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-lighting-flashlight.webp" alt="چراغ‌قوهٔ دستی کمپینگ روی سنگ در مسیر تاریک جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چراغ‌قوه؛ دیدن مسیر و دوردست</strong><span class="sa-guide-topic-card__description">برای پیمایش و بررسی مسیر، پرتاب نور را کنار میزان لومن بسنج.</span></figcaption></figure>
 <ul>
 <li>چی بخریم: چراغ قوه‌ای با بدنه فلزی (آلومینیوم) که ضربه و آب رو تحمل کنه. تمرکز روی "برد نور" (Beam Distance) باشه، نه فقط لومن.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> فانوس یا لامپ کمپینگ (نور محیطی)</h3>
 <p>این وسیله برای اینه که دور هم بشینید، چای بخورید و تو چادر یه نور ملایم و پخش شده داشته باشید. فانوس نور رو ۳۶۰ درجه پخش می‌کنه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-lighting-lantern.webp" alt="فانوس LED روشن روی کندهٔ چوب در محل کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فانوس LED؛ نور یکنواخت محیطی</strong><span class="sa-guide-topic-card__description">برای روشن‌کردن میز یا فضای نشستن، نوع کم‌مصرف با شدت قابل تنظیم انتخاب کن.</span></figcaption></figure>
 <ul>
 <li>چی بخریم: فانوس‌های LED که مصرف باتری پایینی دارن و می‌تون شدت نورشون رو کم و زیاد کرد.</li>
 </ul>
@@ -1326,15 +1316,11 @@ SA_ART,
 مراکز کنترل بیماری آمریکا (CDC) — مسمومیت با مونوکسید کربن از وسایل سوخت‌سوز در فضای بسته
 دفترچه‌های راهنمای سازندگان اجاق‌های کوهنوردی — نگهداری، تعویض واشر و پیش‌گرم اجاق‌های چندسوخته',
 		),
-		'cover'         => array(
-			'file' => 'guides/camping-stove-review.webp',
-			'alt' => 'اینفوگرافیک انتخاب اجاق کوهنوردی: انواع سرشعله، اجاق‌های چندسوخته، سیستم‌های پخت یکپارچه و نکات ایمنی و کاربردی',
-			'title' => 'اینفوگرافیک اجاق کوهنوردی',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
 				'q' => 'تو هوای خیلی سرد، کپسول گاز ضعیف میشه. چیکار کنم؟',
-				'a' => 'کپسول‌های گاز تو سرما فشارشون افت می‌کنه. راه‌حل کماندوها اینه: شب کپسول رو بذار داخل کیسه‌خوابت تا گرمای بدنت اون رو گرم نگه داره. موقع استفاده هم کپسول رو تو مشتات گرم کن یا بذار تو یه کاسه آب ولرم (هرگز آب جوش نه، خطرناکه!). اگه زیاد تو زمستون میری، کلاً به اجاق‌های بنزینی فکر کن.',
+				'a' => 'در سرما فشار کپسول افت می‌کند. کپسول سالم و جدا از اجاق را در جیب داخلی لباس گرم نگه دار و پیش از استفاده با دست کمی گرمش کن. هرگز آن را روی شعله، با آب داغ یا در خودروی داغ گرم نکن؛ در سرمای شدید، کپسول سازگارِ چهارفصل یا اجاق چندسوخته انتخاب کن و دستور سازنده را بخوان.',
 			),
 			array(
 				'q' => 'چطور بفهمم چقدر گاز برای سفرم نیاز دارم؟',
@@ -1350,7 +1336,7 @@ SA_ART,
 			),
 			array(
 				'q' => 'اگه وسط سفر اورینگ (O-ring) اجاقم خراب شد چیکار کنم؟',
-				'a' => 'همیشه یه اورینگ زاپاس تو کیفت داشته باش. این قطعه لاستیکی کوچیک رو می‌تونی از تعمیرگاه‌های دوچرخه یا حتی با بریدن یه تیکه لاستیک سیلیکونی ضخیم تهیه کنی. اگه شلنگ سوراخ شد، با چسب نواری پهن موقتاً درز رو بگیر تا به شهر برسی، ولی بهش اعتماد نکن و سریع تعویضش کن.',
+				'a' => 'برای هر اجاق فقط اورینگِ سازگار با همان مدل را طبق دفترچهٔ سازنده همراه داشته باش؛ واشرِ نامشخصِ تعمیرگاه یا تکه‌لاستیک جایگزین ایمن نیست. اگر اورینگ، شلنگ یا اتصال سوخت آسیب دید یا بوی گاز یا سوخت آمد، شیر را ببند، اجاق را خاموش کن و از آن استفاده نکن؛ تا تعویض قطعه با نمونهٔ درست و بررسی نشتی در فضای باز، روشن‌کردن دوباره ممنوع است و چسب نواری تعمیر ایمن شلنگ سوخت نیست.',
 			),
 		),
 		'content'       => <<<'SA_ART'
@@ -1390,22 +1376,28 @@ SA_ART,
 <p>هر اجاقی برای یه شرایط خاصی ساخته شده. نمی‌تونی با یه ابزار همه کارها رو انجام بدی. بذار انواعش رو برات کالبدشکافی کنم.</p>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> سرشعله‌های پیچی و سوزنی (سبک و سریع)</h3>
 <p>این‌ها مستقیم روی کپسول گاز پیچ می‌شن. مدل‌های سوزنی شلنگ دارن و تعادل بهتری برای قابلمه‌های بزرگتر دارن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-stove-canister.webp" alt="سرشعلهٔ کپسولی پیچی با قابلمهٔ کوچک روی سنگ در فضای باز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سرشعلهٔ کپسولیِ پیچی؛ سبک و سریع</strong><span class="sa-guide-topic-card__description">برای پیمایش سه‌فصل؛ بادگیر و سرما می‌توانند کارایی آن را کم کنند.</span></figcaption></figure>
 <ul>
 <li>مزایا: فوق‌العاده سبک، جمع‌وجور، راه‌اندازی در چند ثانیه.</li>
 <li>معایب: تو بادهای شدید بدون بادگیر کارایی‌شون رو از دست می‌دن. تو سرمای زیر صفر، فشار کپسول افت می‌کنه و شعله ضعیف میشه.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> اجاق‌های سیستم پخت یکپارچه (بادگیر و سریع)</h3>
 <p>این‌ها یه کیت کامل هستن. سرشعله، قابلمه و بادگیر به هم وصلن و حرارت مستقیم میره تو کف قابلمه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-stove-integrated.webp" alt="سیستم پخت یکپارچهٔ کوهنوردی با قابلمه و بادگیر روی زمین جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سیستم پخت یکپارچه؛ سریع در باد</strong><span class="sa-guide-topic-card__description">مناسب جوشاندن سریع آب؛ برای غذایی که نیاز به هم‌زدن دارد گزینهٔ خوبی نیست.</span></figcaption></figure>
 <ul>
 <li>مزایا: مصرف گاز به شدت پایین، جوش آوردن آب در زمان رکورد، مقاومت عالی در برابر باد.</li>
 <li>معایب: سنگین‌تر، جاگیرتر، و فقط برای جوش آوردن آب یا پخت‌های ساده مناسبه. نمی‌تونی باهاش مثل یه قابلمه معمولی آشپزی کنی و غذا رو هم بزنی.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> اجاق‌های چندسوخته یا بنزینی (غول‌های زمستون)</h3>
 <p>این اجاق‌ها با بنزین سفید، بنزین معمولی یا حتی نفت کار می‌کنن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-stove-multifuel.webp" alt="اجاق چندسوخته با بطری سوخت جدا و شلنگ روی سنگ در ارتفاعات" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اجاق چندسوخته؛ مناسب سرما و ارتفاع</strong><span class="sa-guide-topic-card__description">پمپاژ و پیش‌گرم‌کردن لازم دارد؛ استفاده فقط در فضای باز و طبق دفترچهٔ سازنده.</span></figcaption></figure>
 <ul>
 <li>مزایا: تو سرمای شدید و ارتفاعات بالا که گاز مایع کار نمی‌کنه، این‌ها مثل موتور دیزل روشن می‌شن. قدرت حرارتی فوق‌العاده بالا.</li>
 <li>معایب: سنگین، نیاز به پمپاژ و گرم کردن اولیه (Priming)، بوی سوخت می‌دن و نگهداری‌شون سخت‌تره.</li>
 </ul>
+<h3 class="sa-step"><span class="sa-step__n">۴</span> اجاق‌های پیک‌نیکی رومیزی (برای کمپ کنار خودرو)</h3>
+<p>این مدل‌ها بدنهٔ جعبه‌ای و یک شعلهٔ پهن دارند و روی میز یا سطح صاف و پایدار می‌نشینند. برای پخت معمولی در کمپ خودرویی راحت‌اند، اما سنگین و حجیم‌اند و برای حمل در کوله مناسب نیستند. از آن‌ها فقط در فضای باز، دور از چادر، خودرو و مواد قابل‌اشتعال استفاده کن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-stove-picnic.webp" alt="اجاق پیک‌نیکی رومیزی خاموش روی میز چوبی در فضای باز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اجاق پیک‌نیکی؛ برای کمپ کنار خودرو</strong><span class="sa-guide-topic-card__description">برای ظرف بزرگ و کمپ خودرویی؛ سنگین و نامناسب حمل در کوله.</span></figcaption></figure>
 <p>جایگزین خلاقانه: اگه سفرت کوتاهه و نمی‌خوای هزینه اجاق بدی، یا اگه وسط سفر اجاقت خراب شد، می‌تونی با یه قوطی کنسرو خالی و الکل صنعتی (یا چوب‌های رزینی)، یه اجاق اضطراری بسازی. (توی مقاله ساخت اجاق با قوطی کنسرو کامل یادت دادم). این روش شاید برای پخت غذای پیچیده عالی نباشه، ولی برای جوش آوردن آب و درست کردن چای تو شرایط بقا کاملاً نجاتت می‌ده.</p>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
@@ -1417,7 +1409,7 @@ SA_ART,
 </ul>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: هرگز، تکرار می‌کنم هرگز، اجاق گاز رو داخل چادر روشن نکن. حتی اگه در چادر باز باشه. احتراق ناقص گاز، گاز مونوکسید کربن تولید می‌کنه. این گاز بی‌بو و بی‌رنگه و تو خواب خفه‌ات می‌کنه. آشپزخونه تو همیشه باید زیر آسمون باز یا تو فضای جلویی چادر با تهویه کامل باشه.</li>
+<li>هشدار جدی: هرگز، تکرار می‌کنم هرگز، اجاق گاز رو داخل چادر روشن نکن؛ حتی اگر در چادر باز باشد. احتراق ناقص گاز مونوکسید کربن بی‌بو و بی‌رنگ تولید می‌کند و پارچهٔ چادر هم آتش‌گیر است. اجاق فقط زیر آسمان باز و با فاصله از چادر و سایه‌بان پارچه‌ای استفاده شود؛ فضای جلویی چادر هم محل استفاده از اجاق نیست، حتی با تهویه.</li>
 <li>قبل از تعویض کپسول، شعله کاملاً خاموش و اجاق سرد باشد؛ نشت را با بو و صدا بشناس و هرگز با فندک دنبال نشت نگرد.</li>
 <li>کپسول و بطری سوخت را دور از اجاق و آفتاب مستقیم نگه دار.</li>
 <li>اجاق بنزینی را دور از چادر و وسایل، روی سنگ یا خاک، پیش‌گرم کن و در صورت شعله‌ورشدن ناگهانی عقب برو و شیر را ببند.</li>
@@ -1457,7 +1449,7 @@ SA_ART,
 <ul class="sa-checklist">
 <li>هرگز داخل چادر روشن نکن.</li>
 <li>اورینگ زاپاس و فندک همیشه همراهت باشه.</li>
-<li>کپسول رو شب تو کیسه‌خواب نگه دار تا یخ نزنه.</li>
+<li>کپسول را در جیب داخلی لباس گرم نگه دار؛ هرگز با شعله یا آب داغ گرم نکن.</li>
 <li>بعد از سفر، نازل رو تمیز کن.</li>
 </ul>
 <h2>لینک‌های مرتبط</h2>
@@ -1831,7 +1823,7 @@ SA_ART,
 		),
 		'meta'          => array(
 			'sa_seo_title' => 'ایمنی کودکان در طبیعت | راهنمای کمپ و پیاده‌روی با بچه‌ها',
-			'sa_seo_description' => 'طبیعت با بچه‌ها، لذت دوچندان داره ولی قاعده هم می‌خواد. تو این راهنما یاد می‌گیری چطور بچه‌ها رو در مسیر و کمپ ایمن نگه داری، سوت و قواعد ساده بهشون یاد بدی و از گمشدن و حیوانات در امان باشی.',
+			'sa_seo_description' => 'ایمنی کودکان در طبیعت قانون می‌خواد: قاعدهٔ مسیر، سوت، لباس و آب کافی، و کاری که وقتی بچه از دیدت دور شد باید بکنی — راهنمای عملی کمپ با بچه‌ها.',
 			'sa_focus_keyword' => 'ایمنی کودکان در طبیعت',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
 			'sa_risk_level' => 'متوسط؛ کودکان',
@@ -1899,22 +1891,13 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> سوت، اولین ابزار کودک</h3>
 <p>به هر کودک سوت بده و قاعدهٔ سه‌تایی را یاد بده: سه بار سوت، یعنی «کمک»؛ سوت را در بازی تمرین کن تا در لحظهٔ ترس، به‌خاطر بیاورد. سوت، صدای کودک را چند برابر می‌کند و انرژی‌اش را نمی‌گیرد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/children-outdoor-safety-whistle.webp" alt="کودک با سوت نارنجی گردنی در مسیر جنگلی در کنار بزرگ‌سال" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سوت، صدای کوچکِ بلند</strong><span class="sa-topic-card__desc">سوت گردنی و قاعدهٔ سه‌تایی، ساده‌ترین راه کمک‌خواستن کودک در طبیعت است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/children-outdoor-safety-whistle.webp" alt="کودک با سوت نارنجی گردنی در مسیر جنگلی در کنار بزرگ‌سال" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سوت، صدای کوچکِ بلند</strong><span class="sa-guide-topic-card__description">سوت گردنی و قاعدهٔ سه‌تایی، ساده‌ترین راه کمک‌خواستن کودک در طبیعت است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> دست‌دردست و «همیشه در دید»</h3>
 <p>در مسیرهای نزدیک آب، شیب و حیوانات، دست کودک را بگیر؛ قاعدهٔ «همیشه ببینم و ببینی‌ام» را با بازی تمرین کن. برای بچه‌های بزرگ‌تر، «رفیق» تعیین کن؛ دو کودک با هم، کمتر گم می‌شوند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/children-outdoor-safety-hold-hands.webp" alt="دست بزرگ‌سال و کودک در هم گره خورده در مسیر سنگی کنار جویبار" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">دست‌دردست، نزدیک آب</strong><span class="sa-topic-card__desc">نزدیک آب و شیب، دست‌گرفتن ساده‌ترین قاعدهٔ ایمنی کودکان است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/children-outdoor-safety-hold-hands.webp" alt="دست بزرگ‌سال و کودک در هم گره خورده در مسیر سنگی کنار جویبار" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">دست‌دردست، نزدیک آب</strong><span class="sa-guide-topic-card__description">نزدیک آب و شیب، دست‌گرفتن ساده‌ترین قاعدهٔ ایمنی کودکان است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> بازی برچسب و ماندن در دید</h3>
 <p>بازی «برچسب» (اسم‌گذاری اشیا در مسیر) و «پیداکردن نشانه‌ها»، هم کودک را سرگرم می‌کند و هم در دید نگه می‌دارد؛ خستگی و کسلی، ریسک گمشدن را زیاد می‌کند. توقف‌های بازی و میان‌وعده، انرژی و روحیه را بالا نگه می‌دارند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/children-outdoor-safety-buddy-tag.webp" alt="دو کودک در حال بازی برچسب در چمنزار روشن نزدیک چادر کمپ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">بازی، ایمنی هم می‌سازد</strong><span class="sa-topic-card__desc">بازی‌های گروهی در مسیر، کودکان را در دید و شاد نگه می‌دارند؛ سرگرمی، بخشی از ایمنی است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/children-outdoor-safety-buddy-tag.webp" alt="دو کودک در حال بازی برچسب در چمنزار روشن نزدیک چادر کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بازی، ایمنی هم می‌سازد</strong><span class="sa-guide-topic-card__description">بازی‌های گروهی در مسیر، کودکان را در دید و شاد نگه می‌دارند؛ سرگرمی، بخشی از ایمنی است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> فاصله از آب، ارتفاع و حیوانات</h3>
 <p>نزدیک رودخانه، دریاچه و شیب، کودک باید در دست بزرگ‌سال باشد؛ حتی آب کم‌عمق برای کودک خطرناک است (<a href="/drowning-rescue-guide/">غرق‌شدگی</a>). به حیوانات (حتی توله‌ها) نزدیک نشو و به کودک یاد بده حیوان غذا نیست و اسباب‌بازی نیست.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> آماده‌سازی کیف شخصی کودک</h3>
@@ -2057,22 +2040,13 @@ Leave No Trace Center for Outdoor Ethics — اصول کمپ کم‌اثر و ا
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> پیداکردن زمین صاف با زهکشی</h3>
 <p>زمینی را انتخاب کن که نه گود باشد و نه تیزشیب؛ شیب ملایم چند درجه‌ای کمک می‌کند آب باران زیر چادر جمع نشود. زیر چادر را از سنگ، ریشه و خاشاک پاک کن، اما زمین را نتراش و چمن را نکن؛ اثر کمپ، قاعدهٔ طبیعت‌گردی است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/choosing-campsite-flat-ground.webp" alt="زمین صاف چمنی بین درختان پراکنده با چادر کوچک در جنگل" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">صاف، باز، با زهکشی</strong><span class="sa-topic-card__desc">زمین صاف با شیب ملایم، بدون گودال و خاشاک، پایهٔ یک کمپ امن و خشک است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/choosing-campsite-flat-ground.webp" alt="زمین صاف چمنی بین درختان پراکنده با چادر کوچک در جنگل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">صاف، باز، با زهکشی</strong><span class="sa-guide-topic-card__description">زمین صاف با شیب ملایم، بدون گودال و خاشاک، پایهٔ یک کمپ امن و خشک است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> فاصله‌گرفتن از آب و مسیر سیل</h3>
 <p>چادر را دست‌کم چند متر (و در دره‌ها بیشتر) بالاتر از سطح رودخانه و برکه بزن؛ نشانه‌های سیل قبلی — چوب‌های گیرکرده، سنگ‌های جابه‌جا و خاشاک لای بوته — یعنی همان‌جا مسیر آب است. از کناره‌های گِلی و بستر رودخانهٔ خشک هم دوری کن؛ باران در بالادست، بستر خشک را ناگهان پر می‌کند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/choosing-campsite-water-distance.webp" alt="چادر کمپ روی زمین مرتفع با فاصله از جویبار کوهستانی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">چند متر بالاتر از آب</strong><span class="sa-topic-card__desc">فاصلهٔ ایمن از لبهٔ رودخانه، طغیان ناگهانی آب شب‌هنگام را بی‌اثر می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/choosing-campsite-water-distance.webp" alt="چادر کمپ روی زمین مرتفع با فاصله از جویبار کوهستانی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چند متر بالاتر از آب</strong><span class="sa-guide-topic-card__description">فاصلهٔ ایمن از لبهٔ رودخانه، طغیان ناگهانی آب شب‌هنگام را بی‌اثر می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> بررسی بالای سر و پناه باد</h3>
 <p>سرت را بالا بگیر و شاخه‌های خشک، تنه‌های کج و سنگ‌های معلق را ببین؛ زیر درختان مرده و شاخه‌های آویزان، چادر نزن. در دشت‌های باز، به‌دنبال پناه طبیعی ملایم (بوته، سنگ بزرگ) باش، اما نه در دالان باد و نه کنار تنهٔ تنها که در طوفان رعدوبرق، نقطهٔ خطر است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/choosing-campsite-hazard-check.webp" alt="فردی در محل احتمالی کمپ به بالا نگاه می‌کند و شاخه‌های درخت را بررسی می‌کند" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">اول بالای سر را ببین</strong><span class="sa-topic-card__desc">بررسی شاخه‌های خشک و آویزان بالای سر، پیش از چادرزدن، خطر سقوط شبانه را حذف می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/choosing-campsite-hazard-check.webp" alt="فردی در محل احتمالی کمپ به بالا نگاه می‌کند و شاخه‌های درخت را بررسی می‌کند" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول بالای سر را ببین</strong><span class="sa-guide-topic-card__description">بررسی شاخه‌های خشک و آویزان بالای سر، پیش از چادرزدن، خطر سقوط شبانه را حذف می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> چک‌کردن باد، سرما و دسترسی</h3>
 <p>به باد غالب فکر کن: دره‌ها شب باد سرد می‌گیرند و خط الراس‌ها در معرض باد طوفانی‌اند. دسترسی به آب تمیز، مسیر خروج اضطراری و آنتن تلفن را هم بسنج؛ بهترین محل، جایی است که هم امن باشد و هم راه فرار و تماس داشته باشد.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> چادرزدن و چیدمان کمپ</h3>
@@ -2503,10 +2477,10 @@ SA_ART,
 SA_ART,
 	),
 	'diy-can-stove' => array(
-		'title'          => 'ساخت اجاق با قوطی کنسرو؛ چطور با یه آشغال فلزی، غذای گرم بپزیم؟',
+		'title'          => 'ساخت اجاق با قوطی کنسرو؛ خطرها را پیش از روشن‌کردن بشناس',
 		'type'           => 'post',
 		'slug'           => 'diy-can-stove',
-		'excerpt'        => 'آموزش قدم به قدم ساخت اجاق هیزمی (هوبو) و اجاق الکلی با استفاده از قوطی کنسرو خالی. بررسی نکات ایمنی حیاتی، نحوه استفاده از سوخت‌های طبیعی و جایگزین‌های خلاقانه در شرایط بقا.',
+		'excerpt'        => 'بررسی خطرهای اجاق قوطی دست‌ساز و راه انتخاب اجاق طراحی‌شده برای فضای باز؛ بدون دستور برش، سوراخ‌کاری یا روشن‌کردن وسیلهٔ ناشناخته.',
 		'english'        => 'DIY Can Stove',
 		'kind'           => 'tent',
 		'category'      => array(
@@ -2516,171 +2490,136 @@ SA_ART,
 			'diy-outdoor' => 'کاردستی و جایگزین‌های DIY',
 		),
 		'meta'          => array(
-			'sa_seo_title' => 'ساخت اجاق با قوطی کنسرو | آموزش ساخت اجاق هوبو در طبیعت',
-			'sa_seo_description' => 'گازت تموم شده و نیاز به یه غذای گرم داری؟ تو این مقاله یاد می‌گیری چطور با یه قوطی کنسرو خالی و چند تا شاخه خشک، یه اجاق هیزمی کارآمد و حیاتی بسازی.',
+			'sa_seo_title' => 'اجاق قوطی دست‌ساز؛ خطرها و گزینهٔ امن‌تر برای کمپ',
+			'sa_seo_description' => 'قوطی کنسرو را برای ساخت اجاق نسوزان؛ خطر لبهٔ تیز، پوشش ناشناخته، آتش و مونوکسیدکربن را بشناس و گزینهٔ امن‌تر کمپ را انتخاب کن.',
 			'sa_focus_keyword' => 'ساخت اجاق با قوطی کنسرو',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
-			'sa_risk_level' => 'بالا؛ آتش، سوختگی و مونوکسید کربن',
-			'sa_sources' => 'سرویس پارک‌های ملی آمریکا (NPS) — ایمنی آتش و اجاق در کمپ
-مرکز Leave No Trace — اصل «کاهش اثر آتش کمپ»
-مراکز کنترل بیماری آمریکا (CDC) — مسمومیت با مونوکسید کربن از سوختن چوب و زغال در فضای بسته',
+			'sa_risk_level' => 'بالا؛ آتش، سوختگی و مونوکسیدکربن',
+			'sa_sources' => 'سرویس پارک‌های ملی آمریکا (NPS) — ایمنی آتش و خاموش‌کردن کامل در کمپ
+مرکز Leave No Trace — کاهش اثر آتش کمپ و پیشگیری از گسترش آتش
+مراکز کنترل و پیشگیری از بیماری آمریکا (CDC) — خطر مونوکسیدکربن ناشی از سوختن در فضای بسته
+سازمان آتش‌نشانی و خدمات ایمنی — مقررات محلی و راهنمای خاموش‌کردن آتش',
 		),
-		'cover'         => array(
-			'file' => 'guides/diy-can-stove.webp',
-			'alt' => 'اینفوگرافیک ساخت اجاق با قوطی کنسرو: اجاق هیزمی (هوبو)، اجاق الکلی، سوخت‌های طبیعی و جایگزین و نکات ایمنی حیاتی',
-			'title' => 'اینفوگرافیک ساخت اجاق با قوطی کنسرو',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
-				'q' => 'چقدر طول می‌کشه تا با این اجاق آب جوش بیاد؟',
-				'a' => 'بستگی به خشکی چوب و باد داره، ولی با چوب‌های کاملاً خشک و رزینی (مثل کاج)، می‌تونی تو حدود ۱۰ تا ۱۵ دقیقه یه لیوان آب رو جوش بیاری. این سرعت برای یه اجاق دست‌ساز فوق‌العاده‌ست.',
+				'q' => 'می‌توانم پوشش داخلی قوطی را با آتش بسوزانم و از قوطی اجاق بسازم؟',
+				'a' => 'نه. پوشش و جنس قوطی برای سوختن یا تماس با شعله معلوم نیست؛ سوزاندن آن روش پاک‌سازی ایمن نیست. از قوطی برای پخت‌وپز استفاده نکن.',
 			),
 			array(
-				'q' => 'آیا می‌تونم از این قوطی برای ساخت اجاق الکلی هم استفاده کنم؟',
-				'a' => 'بله. اگه هیزم نداری، می‌تونی ته قوطی رو با یه تیکه پارچهٔ نخی یا پنبه پر کنی و روش کمی الکل بریزی. پنبه باعث می‌شه اگه قوطی واژگون شد، الکل بیرون نریزه. این مدل تمیز و بی‌دود می‌سوزه، ولی دو خطر جدی داره: شعلهٔ الکل در روز تقریباً نامرئیه، پس هرگز روی اجاق روشن یا داغ سوخت نریز؛ و الکل صنعتی (متانول) سمیه، پس بخارش رو تنفس نکن و دور از غذا و بچه‌ها نگهش دار.',
+				'q' => 'آیا می‌توانم قوطی را به اجاق الکلی دست‌ساز تبدیل کنم؟',
+				'a' => 'توصیه نمی‌شود. شعله و سوخت الکلیِ دست‌ساز قابل‌کنترل نیستند و ریختن سوخت روی وسیلهٔ داغ خطر آتش‌گرفتن ناگهانی دارد. از اجاق طراحی‌شده و سوخت مجاز همان مدل استفاده کن.',
 			),
 			array(
-				'q' => 'چطور این اجاق رو خاموش کنیم؟ اگه روش آب بریزیم چی میشه؟',
-				'a' => 'هرگز روی فلز داغ آب نریز! شوک حرارتی باعث میشه فلز نازک قوطی تاب برداره، ترک بخوره یا حتی بترکه و آب جوش روی پات بریزه. برای خاموش کردن، یا یه قوطی خالی دیگه یا یه تیکه سنگ تخت بذار روش تا اکسیژن قطع بشه، یا با یه چوب، بقایای چوب‌های نسوخته رو از ته قوطی بیرون بریز تا روی خاک خنک بشن.',
+				'q' => 'اجاق قوطی را داخل چادر یا زیر سایه‌بان روشن کنم؟',
+				'a' => 'هرگز. اجاق سوخت‌سوز را در چادر، خودرو یا فضای بسته و نیمه‌بسته روشن نکن؛ خطر مونوکسیدکربن و آتش‌سوزی وجود دارد.',
 			),
 			array(
-				'q' => 'دود خیلی می‌کنه و تو چشم می‌زنه. چیکار کنم؟',
-				'a' => 'دود کردن یعنی سوختت خیس یا سبزه. فقط از چوب‌های کاملاً خشک (Dead and Down) استفاده کن. چوبی که از روی زمین جمع می‌کنی و وقتی می‌شکنی صدای "تق" میده و خشکه، بهترین سوخته. چوبی که خم میشه، هنوز آب داره.',
+				'q' => 'اجاق یا آتش کوچک را چطور خاموش کنم؟',
+				'a' => 'برای اجاق، دستور سازنده را دنبال کن؛ برای هر آتش روباز، راهنمای رسمی و مقررات محلی را رعایت کن. وسیله را داغ جابه‌جا نکن و تا خاموشی کامل محل را ترک نکن؛ اگر کنترل از دست رفته، فاصله بگیر و آتش‌نشانی را خبر کن.',
 			),
 			array(
-				'q' => 'اگه سیم مفتول برای پایه قابلمه نداشتیم چیکار کنیم؟',
-				'a' => 'می‌تونی از دو تا شاخه نسبتاً صاف و محکم استفاده کنی. اون‌ها رو از دو سوراخ روبروی هم رد کن. یا حتی می‌تونی دو تا سنگ صاف رو در دو طرف قوطی بذاری و قابلمه رو روی اون‌ها قرار بدی (فقط حواست باشه سنگ‌ها تو حرارت زیاد منفجر نشن، پس از سنگ‌های رودخونه‌ای مرطوب استفاده نکن).',
+				'q' => 'اگر آتش روشن‌کردن ممنوع باشد چه کار کنم؟',
+				'a' => 'از غذای آمادهٔ بدون نیاز به پخت یا وعده‌ای که پیش از سفر آماده کرده‌ای استفاده کن. ممنوعیت آتش شامل اجاق قوطی دست‌ساز هم می‌شود.',
 			),
 		),
 		'content'       => <<<'SA_ART'
 <div class="sa-callout sa-callout--answer">
-<p><strong>پاسخ سریع:</strong> اجاق قوطی کنسرو (هوبو) یک محفظهٔ فلزی با سوراخ‌های هوا در پایین و بالا است که با شاخه‌های نازک خشک می‌سوزد و برای جوشاندن یک لیوان آب کافی است. فقط در هوای باز، روی خاک یا سنگ لخت، دور از علف خشک و چادر روشنش کن، شاخه‌های نازک بریز، نه چوب‌های ضخیم، و در پایان با آب کامل خاموشش کن تا سرد شود.</p>
+<p><strong>پاسخ سریع:</strong> قوطی کنسرو برای سوختن و پخت‌وپز طراحی نشده است؛ لبهٔ بریده، پوشش داخلی ناشناخته، واژگونی و دود می‌توانند خطرساز شوند. این مقاله روش ساخت یا روشن‌کردن اجاق قوطی را آموزش نمی‌دهد؛ برای پخت‌وپز در فضای باز از اجاق مخصوص و دستور سازنده استفاده کن.</p>
 </div>
 <div class="sa-callout sa-callout--warning" role="note">
-<p class="sa-callout__title">⚠️ اجاق کوچک، خطر بزرگ</p>
-<p>این اجاق را هرگز داخل چادر، زیر سایه‌بان یا در فضای بسته روشن نکن؛ دود چوب مونوکسید کربن دارد و بی‌صدا می‌کشد. بدنهٔ قوطی تا مدت‌ها پس از خاموشی داغ است. در فصل خشک و در جنگل و علفزار، یک جرقه کافی است؛ اگر منطقه ممنوعیت آتش دارد، این اجاق هم مشمول همان ممنوعیت است.</p>
+<p class="sa-callout__title">⚠️ هیچ اجاق سوخت‌سوزی را در چادر روشن نکن</p>
+<p>دود و مونوکسیدکربن می‌توانند در چادر، خودرو، سایه‌بان بسته یا هر فضای نیمه‌بسته جمع شوند؛ شعله و سطح داغ هم خطر آتش‌سوزی دارند. اگر مقررات محلی آتش را ممنوع کرده، اجاق قوطی و اجاق سفری را روشن نکن.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن شب شده، باد سرد می‌وزد و اجاق گازت یا جا مانده یا کپسولش تمام شده؛ تنها چیزی که داری یک قوطی کنسرو خالی، چاقو و چند شاخهٔ خشک است. همین کافی است تا یک لیوان آب برای چای یا سوپ جوش بیاوری. پایین‌تر ساخت اجاق قوطی را قدم‌به‌قدم می‌بینی، همراه با نکاتی که فرق یک اجاق کارآمد و یک قوطی دودزا را مشخص می‌کند، و مهم‌تر از همه، چطور بی‌خطر از آن استفاده کنی.</p>
+<p>فرض کن اجاق کمپ جا مانده و یک قوطی خالی در دسترس داری. تبدیل آن به محفظهٔ سوختن شاید ساده به نظر برسد، اما جنس پوشش داخلی، استحکام پایه و رفتار شعله معلوم نیست. راه کم‌خطرتر، کنارگذاشتن قوطی برای آشپزی و انتخاب وسیله‌ای است که برای سوخت و کاربری مشخص طراحی شده باشد.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
-<li>یک قوطی کنسرو خالی و تمیز (ترجیحاً بزرگ، بدون پوشش پلاستیکی داخلی که بوی سوختن بدهد)، دربازکن یا چاقو، میخ یا سوهان برای سوراخ‌کاری.</li>
-<li>دستکش یا پارچه برای کار با لبه‌های تیز فلز.</li>
-<li>شاخه‌های نازک و خشک (قطر مداد تا انگشت)، کمی مواد آتش‌زنه (پوست خشک، کاغذ، کرک) و فندک یا کبریت.</li>
-<li>محل امن: خاک یا سنگ لخت، دور از علف خشک، چادر و شاخه‌های آویزان، با آب برای خاموش‌کردن.</li>
-<li>اطمینان از این‌که آتش در منطقه و فصل جاری ممنوع نیست.</li>
+<li>قبل از هر شعله، مقررات منطقه، هشدار آتش‌سوزی، باد و خشکی پوشش گیاهی را بررسی کن؛ در صورت ممنوعیت یا تردید، از آتش استفاده نکن.</li>
+<li>برای پخت‌وپز، اجاق تجاری طراحی‌شده برای فضای باز و سوخت مشخصش را انتخاب کن و دفترچهٔ همان مدل را بخوان.</li>
+<li>سطح پایدار و غیرقابل‌اشتعال و فاصلهٔ ایمن از چادر، علف خشک، شاخه و وسایل قابل‌اشتعال لازم است؛ دستور سازنده و مقررات محل مقدم‌اند.</li>
+<li>ابزار خاموش‌کردن مناسب را پیش از روشن‌کردن آماده کن و اجاق را هرگز بدون مراقبت رها نکن.</li>
 </ul>
-<h2>جدول مقایسه: اجاق قوطی در برابر گزینه‌های دیگر</h2>
+<h2>جدول مقایسه: اجاق قوطی و گزینه‌های پخت‌وپز</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
-<thead><tr><th>معیار</th><th>اجاق قوطی (هیزمی)</th><th>اجاق گاز سفری</th><th>آتش روباز کوچک</th></tr></thead>
+<thead><tr><th>گزینه</th><th>میزان پیش‌بینی‌پذیری</th><th>خطر یا محدودیت</th><th>انتخاب مناسب‌تر</th></tr></thead>
 <tbody>
-<tr><td>سوخت</td><td>شاخه‌های نازک خشک؛ رایگان</td><td>کپسول گاز؛ باید حمل شود</td><td>هیزم بیشتر</td></tr>
-<tr><td>سرعت جوشاندن یک لیوان</td><td>۵ تا ۱۵ دقیقه بسته به چوب و باد</td><td>۳ تا ۵ دقیقه</td><td>کند و پرمصرف</td></tr>
-<tr><td>کنترل شعله و دود</td><td>کم؛ دود دارد</td><td>عالی</td><td>کم</td></tr>
-<tr><td>ردپا در طبیعت</td><td>کم اگر روی سنگ باشد</td><td>تقریباً هیچ</td><td>زیاد</td></tr>
-<tr><td>ایمنی</td><td>نیاز به مراقبت دائم؛ بدنهٔ داغ</td><td>خوب با رعایت نکات</td><td>بیشترین خطر</td></tr>
+<tr><td>قوطی کنسرو دست‌ساز</td><td>نامعلوم</td><td>پوشش، لبه، پایه و جریان هوا استاندارد نیست</td><td>برای پخت‌وپز توصیه نمی‌شود</td></tr>
+<tr><td>اجاق مخصوص فضای باز</td><td>تابع طراحی و دستور همان مدل</td><td>سوخت، سطح داغ و مونوکسیدکربن همچنان خطر دارند</td><td>استفاده فقط در فضای باز و مطابق دفترچه</td></tr>
+<tr><td>غذای بدون پخت</td><td>به نوع غذا بستگی دارد</td><td>نیازمند نگهداری و بهداشت مناسب است</td><td>گزینهٔ ساده هنگام ممنوعیت آتش</td></tr>
+<tr><td>آتش روباز</td><td>متغیر و وابسته به شرایط محل</td><td>گسترش آتش، جرقه و اثر محیطی</td><td>فقط جایی که مقررات صریحاً اجازه می‌دهد</td></tr>
 </tbody></table></figure>
-<h2>مراحل ساخت اجاق با قوطی کنسرو</h2>
+<h2>روش گام‌به‌گام: ارزیابی اجاق قوطی دست‌ساز و انتخاب جایگزین</h2>
 <ul class="sa-steps-meta">
-<li><strong>مناسب برای:</strong> جوشاندن آب و گرم‌کردن غذای ساده در شرایطی که اجاق نداری؛ نه پخت گروهی، نه داخل چادر، نه در فصل ممنوعیت آتش.</li>
-<li><strong>لازم داری:</strong> قوطی کنسرو، ابزار سوراخ‌کاری، دستکش یا پارچه، شاخهٔ نازک خشک، آتش‌زنه، فندک، آب برای خاموش‌کردن.</li>
-<li><strong>زمان:</strong> ساخت ۱۵ تا ۲۰ دقیقه؛ روشن‌کردن و جوشاندن یک لیوان آب ۵ تا ۱۵ دقیقه.</li>
-<li><strong>هشدار:</strong> روی اجاق قوطی ظرف بزرگ و پر نگذار؛ واژگونی آب جوش و اجاق هم‌زمان، سوختگی و آتش‌سوزی به همراه دارد.</li>
+<li><strong>مناسب برای:</strong> تصمیم‌گیری ایمن پیش از پخت‌وپز در سفر؛ نه ساخت یا روشن‌کردن اجاق قوطی.</li>
+<li><strong>لازم داری:</strong> اطلاع از مقررات محل، وسیلهٔ پخت‌وپز طراحی‌شده برای فضای باز، دفترچهٔ سازنده و ابزار خاموش‌کردن موردنیاز.</li>
+<li><strong>زمان:</strong> پیش از سفر وضعیت منطقه و وسیله را بررسی کن؛ زمان ایمن و ثابتی برای استفاده از اجاق قوطی وجود ندارد.</li>
+<li><strong>هشدار:</strong> قوطی را برای جداکردن پوشش داخلی آتش نزن و با چاقو یا میخ برای ساخت اجاق سوراخ نکن؛ این مقاله دستور ساخت یا استفاده از آن را ارائه نمی‌دهد.</li>
 </ul>
-<p>ما قراره یه اجاق هیزمی (چوب‌سوز) بسازیم. این اجاق مثل یه بخاری هیزمی کوچک عمل می‌کنه و کشش هوای فوق‌العاده‌ای داره.</p>
-<h3 class="sa-step"><span class="sa-step__n">۱</span> جمع‌آوری مواد و ابزار</h3>
-<ul>
-<li><strong>قوطی کنسرو:</strong> یه قوطی بزرگ و بلند (مثل قوطی رب گوجه یا کنسرو لوبیا). هرچی بلندتر باشه، کشش دودکش بهتری داره.</li>
-<li><strong>میخ بزرگ یا سنگ نوک‌تیز:</strong> برای سوراخ کردن فلز.</li>
-<li><strong>سیم مفتول یا گیره کاغذ بزرگ:</strong> برای ساخت پایه قابلمه.</li>
-<li><strong>سوخت:</strong> شاخه‌های خشک و نازک (به اندازه یه انگشت)، کاج‌کوب (صنوبر خشک)، یا پوست درخت‌های رزینی.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۲</span> آماده‌سازی و سوراخ‌کاری (حیاتی‌ترین بخش)</h3>
-<ul>
-<li>اول از همه، مطمئن شو قوطی کاملاً خالیه و شسته شده.</li>
-<li><strong>سوراخ‌های ورود هوا (پایین قوطی):</strong> با میخ، حدود ۱۰ تا ۱۵ سوراخ ریز دور تا دور قسمت پایینی قوطی (نزدیک ته قوطی) ایجاد کن. این سوراخ‌ها اکسیژن رو به آتیش می‌رسونن. بدون اینا، آتیشت خفه میشه و فقط دود می‌کنه.</li>
-<li><strong>سوراخ‌های خروج دود و پایه (بالای قوطی):</strong> حدود ۲ تا ۳ سانتی‌متر پایین‌تر از لبه بالایی قوطی، دو تا سوراخ روبروی هم ایجاد کن. سیم مفتول رو از این سوراخ‌ها رد کن و دو سرش رو خم کن تا بشه مثل یه پل، قابلمه یا لیوان رو روش گذاشت.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۳</span> روشن کردن و استفاده</h3>
-<ul>
-<li>قوطی رو روی یه سطح صاف و بدون علف خشک بذار.</li>
-<li>چند تیکه کاغذ مچاله یا پوست درخت خشک رو بنداز ته قوطی و آتیش بزن.</li>
-<li>کم‌کم شاخه‌های نازک و خشک رو مثل یه چادر (تیپی) روی هم بچین.</li>
-<li>وقتی آتیش گرفت و شاخه‌ها سوختن و تبدیل به زغال شدن، قابلمه‌ت رو روی سیم‌های بالا بذار. کشش هوای داخل قوطی باعث میشه شعله با قدرت به سمت بالا زده بشه و دقیقاً زیر قابلمه متمرکز بشه.</li>
-</ul>
-<p>جایگزین خلاقانه: اگه قوطی کنسرو نداری، می‌تونی از یه تکه لوله فلزی توخالی، یه سطل رنگ فلزی شسته شده، یا حتی یه تکه فویل آلومینیومی ضخیم که به شکل استوانه درآوردی و دورش رو با سیم محکم کردی استفاده کنی. اگه هیچ فلزی نداری، می‌تونی دو تا تیکه چوب تر رو به شکل V تو زمین فرو کنی و قابلمه رو روی اون‌ها بذاری و زیرش آتیش روشن کنی (اجاق ذوزنقه‌ای).</p>
-<h2>بومی‌سازی برای ایران</h2>
-<ul>
-<li>در جنگل‌های شمال و زاگرس و در تابستان و پاییز خشک، آتش‌سوزی‌های بزرگ از جرقه‌های کوچک شروع شده‌اند؛ در این فصل‌ها فقط روی سنگ و خاک لخت و دور از علف، یا اصلاً استفاده نکن.</li>
-<li>در مناطق حفاظت‌شده و پارک‌های ملی، هر نوع آتش از جمله این اجاق ممکن است ممنوع باشد؛ از محیط‌بان بپرس.</li>
-<li>قوطی‌های کنسرو ماهی و لوبیای رایج در ایران برای یک لیوان آب کافی‌اند؛ قوطی روغن یا رب بزرگ‌تر برای یک قابلمهٔ کوچک مناسب‌تر است.</li>
-<li>شاخه‌های خشک افتاده را استفاده کن؛ شکستن شاخهٔ زنده هم ممنوع است و هم نمی‌سوزد.</li>
-<li>قوطی سردشده را با خودت به شهر برگردان؛ در طبیعت رها نکن.</li>
-</ul>
+<ol>
+<li>مقررات آتش، شرایط خشک و باد، و محل مجاز پخت‌وپز را پیش از روشن‌کردن هر وسیله بررسی کن. اگر آتش‌سوزی محتمل است، ممنوعیت اعلام شده یا محل مناسب پیدا نمی‌کنی، شعله را روشن نکن.</li>
+<li>قوطی کنسرو را اجاق قابل‌اعتماد فرض نکن. لبه‌های برش‌خورده می‌توانند دست را ببرند و پوشش داخلی ممکن است برای گرم‌کردن مستقیم طراحی نشده باشد. ظاهر فلز یا نبود بوی غیرعادی، ترکیب پوشش را مشخص نمی‌کند.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-can-stove-unlit.webp" alt="قوطی فلزی خالی و اجاق قوطی دست‌ساز خاموش، بدون شعله و نوشته" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">قوطی، اجاق استاندارد نیست</strong><span class="sa-guide-topic-card__description">پوشش ناشناخته و ساختار ناپایدار دلیل کافی برای کنارگذاشتن آن در آشپزی است.</span></figcaption></figure>
+<ol>
+<li>اگر پخت‌وپز لازم است و مقررات اجازه می‌دهد، اجاق مخصوص فضای باز را طبق دفترچه روی سطح ثابت و دور از مواد قابل‌اشتعال قرار بده. از سوخت دیگری جز سوخت مجاز همان وسیله استفاده نکن؛ اجاق روشن را تنها نگذار و کودک و حیوان را از آن دور نگه دار.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-can-stove-commercial-stove.webp" alt="اجاق سفری بی‌نشان با قابلمه‌ای دردار روی زمینهٔ روشن" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">وسیلهٔ طراحی‌شده را انتخاب کن</strong><span class="sa-guide-topic-card__description">سوخت، فاصله و نحوهٔ استفاده باید با دستور همان اجاق سازگار باشد.</span></figcaption></figure>
+<ol>
+<li>خاموش‌کردن را بخشی از برنامه بدان. دستور سازنده و راهنمای آتش‌نشانی محل را دنبال کن، وسیلهٔ داغ را جابه‌جا نکن و محل را تا اطمینان از خاموشی کامل ترک نکن. اگر شعله از محدوده خارج شد یا توان خاموش‌کردن ایمن نداری، فاصله بگیر و با آتش‌نشانی تماس بگیر.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-can-stove-fire-safety.webp" alt="اجاق سفری خاموش کنار سطل آبی و پتوی قرمزِ خاموش‌کردن آتش" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خاموشی را از قبل برنامه‌ریزی کن</strong><span class="sa-guide-topic-card__description">وسیلهٔ داغ را رها نکن؛ مقررات محلی و دستور سازنده را رعایت کن.</span></figcaption></figure>
+<p><strong>جایگزین خلاقانه:</strong> اگر اجاق مجاز و محیط امن نداری، غذای آمادهٔ بدون نیاز به پخت همراه ببر و شعله روشن نکن؛ غذای سرد بهتر از آتش ناایمن است.</p>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: هرگز، تکرار می‌کنم هرگز، این اجاق رو داخل چادر یا فضای بسته روشن نکن. احتراق ناقص چوب تو فضای بسته، گاز کشنده مونوکسید کربن تولید می‌کنه. این اجاق فقط برای فضای بازه.</li>
-<li>اجاق را روی سنگ یا خاک لخت بگذار و دور تا دورش را تا یک متر از برگ و علف خشک پاک کن.</li>
-<li>اجاق روشن را حتی برای یک دقیقه رها نکن؛ آب یا خاک برای خاموش‌کردن کنارت باشد.</li>
-<li>شعلهٔ الکل در روز تقریباً نامرئی است؛ هرگز روی اجاق روشن یا داغ، سوخت نریز و الکل را دور از اجاق نگه دار.</li>
-<li>الکل متانول (الکل صنعتی) سمی است؛ بخار و تماس آن را جدی بگیر و ظرفش را دور از غذا و بچه‌ها نگه دار.</li>
-<li>بعد از استفاده، خاکستر را با آب خیس کن، هم بزن و با دست پشت دست دما را چک کن؛ تا سرد نشده جمع نکن.</li>
+<li>اجاق قوطی، اجاق الکلی دست‌ساز و هر وسیلهٔ ناشناخته را در چادر، خودرو، اتاق یا زیر پوشش نیمه‌بسته روشن نکن.</li>
+<li>هرگز پوشش داخلی قوطی را با سوزاندن «پاک» نکن؛ ترکیب آن ممکن است نامشخص باشد و دود یا باقی‌ماندهٔ آن وارد محیط و غذا شود.</li>
+<li>برای روشن‌کردن از بنزین، حلال، الکل صنعتی یا مایع آتش‌زا استفاده نکن؛ سوخت فقط باید همان نوعی باشد که سازنده برای اجاق مشخص کرده است.</li>
+<li>شعله را از چادر، علف و شاخه دور نگه دار؛ در باد، خشکی شدید یا ممنوعیت آتش از آن استفاده نکن.</li>
+<li>سردرد، گیجی، تهوع یا ضعف در نزدیکی وسیلهٔ سوخت‌سوز می‌تواند هشدار مونوکسیدکربن باشد؛ همه را فوراً به هوای آزاد ببر، دوباره وارد فضا نشو و کمک اضطراری بخواه.</li>
+<li>اجاق و ظرف داغ را لمس یا جابه‌جا نکن و تا خاموشی و سردشدن کامل مراقب محل بمان.</li>
 </ol>
 <h2>باورهای غلط</h2>
-<p><strong>باور غلط:</strong> «هر قوطی کنسروی رو برمی‌دارم و استفاده می‌کنم.»</p>
-<p><strong>واقعیت:</strong> دست نگه دار! خیلی از قوطی‌های کنسرو امروزی داخلشون یه لایه پلاستیک یا اپوکسی (BPA) داره تا غذا با فلز واکنش نده. اگه این قوطی رو مستقیم روی آتیش بذاری، اون لایه پلاستیکی می‌سوزه و دود به شدت سمی و سرطان‌زایی تولید می‌کنه که غذات رو مسموم می‌کنه. راه‌حل: قبل از استفاده، قوطی رو خالی بذار روی آتیش تا وقتی که دیگه دودی خارج نشه و لایه داخلی کاملاً خاکستر بشه. بعد بشورش و استفاده کن.</p>
-<p><strong>باور غلط:</strong> «چوب‌های بزرگ و ضخیم آتیش رو قوی‌تر می‌کنن.»</p>
-<p><strong>واقعیت:</strong> تو این اجاق کوچک، چوب‌های ضخیم جا نمیشن و راه هوا رو می‌بندن. فقط از شاخه‌های نازک (به ضخامت یه مداد یا انگشت) و کاملاً خشک استفاده کن. چوب خیس فقط دود می‌کنه و حرارتی تولید نمی‌کنه.</p>
-<p><strong>باور غلط:</strong> «اجاق قوطی کوچیکه، پس بی‌خطره و تو چادر هم می‌شه روشنش کرد.»</p>
-<p><strong>واقعیت:</strong> دود و مونوکسید کربن اجاق هیزمی در فضای بسته همان‌قدر خطرناک است که آتش بزرگ، و بدنهٔ داغ قوطی به‌راحتی پارچهٔ چادر را می‌سوزاند.</p>
+<p><strong>باور غلط:</strong> «قوطی کوچک است، پس آتش آن بی‌خطر است.»</p>
+<p><strong>واقعیت:</strong> اندازهٔ شعله خطر دود، مونوکسیدکربن، سوختگی یا واژگونی ظرف را از بین نمی‌برد. فضای بسته و پوشش گیاهی خشک همچنان خطرناک‌اند.</p>
+<p><strong>باور غلط:</strong> «اگر پوشش داخلی قوطی را در آتش بسوزانم، برای غذا ایمن می‌شود.»</p>
+<p><strong>واقعیت:</strong> سوزاندن پوشش ناشناخته راه ایمن پاک‌سازی نیست؛ ممکن است دود زیان‌آور ایجاد کند و باقی‌ماندهٔ آن هم قابل تشخیص نباشد. قوطی را برای پخت‌وپز به کار نبر.</p>
+<p><strong>باور غلط:</strong> «هر اجاق دست‌ساز را می‌توان با یک درپوش یا یک روش ثابت خاموش کرد.»</p>
+<p><strong>واقعیت:</strong> روش خاموش‌کردن به طراحی، سوخت و مقررات محل بستگی دارد. دستور سازنده یا راهنمای رسمی را رعایت کن و هیچ وسیلهٔ داغ یا آتشی را تا خاموشی کامل رها نکن.</p>
 <h2>عیب‌یابی و علائم خطر</h2>
 <ul>
-<li><strong>روشن نمی‌شود یا فقط دود می‌کند:</strong> چوب مرطوب یا ضخیم است یا سوراخ‌های هوا کم؛ شاخه‌های نازک خشک، آتش‌زنهٔ بیشتر و سوراخ‌های بیشتر پایین قوطی.</li>
-<li><strong>شعله زود خاموش می‌شود:</strong> هوا نمی‌رسد یا سوخت تمام شده؛ قوطی را روی دو سنگ کمی بالا بیاور تا هوا از زیر بکشد و پیوسته شاخه بریز.</li>
-<li><strong>ظرف روی اجاق ناپایدار است:</strong> پایهٔ سه‌تایی از میخ یا سیم بساز یا دو سنگ تخت دو طرف اجاق بگذار.</li>
-<li><strong>علائم خطر:</strong> جرقه روی علف، شعله‌ای که از قوطی بیرون می‌زند، سردرد و گیجی نزدیک اجاق در فضای نیمه‌بسته؛ خاموش کن، همه را به هوای باز ببر، در آتش‌سوزی با ۱۲۵ و در مصدومیت با ۱۱۵ تماس بگیر.</li>
+<li>دود زیاد، شعلهٔ ناپایدار یا واژگونی نشانهٔ ادامه‌دادن نیست؛ از وسیله فاصله بگیر و در صورت امکان فقط طبق دستور سازنده آن را خاموش کن.</li>
+<li>اگر جرقه به علف یا چادر رسید، افراد را از مسیر خطر دور کن و در صورت گسترش آتش با آتش‌نشانی تماس بگیر.</li>
+<li>سردرد، گیجی، تهوع یا گیجی ناگهانی در نزدیکی سوختن، نیازمند رفتن به هوای آزاد و درخواست کمک فوری است؛ برای بررسی دوباره وارد فضای آلوده نشو.</li>
+<li>اگر دست یا پوست سوخت، از راهنمای کمک‌های اولیهٔ معتبر استفاده کن و برای سوختگی شدید یا رو به وخامت از خدمات پزشکی کمک بگیر.</li>
 </ul>
 <h2>پیشگیری و کیت</h2>
 <ul>
-<li>یک قوطی سوراخ‌شدهٔ آماده در کوله، تا در شرایط اضطراری وقت صرف ساختن نکنی.</li>
-<li>کیسهٔ کوچک آتش‌زنه (کرک پنبه با وازلین، پوست خشک) در کیت.</li>
-<li>تمرین ساخت و روشن‌کردن در حیاط، نه اولین بار در باد و تاریکی.</li>
-<li>کپسول گاز را درست تخمین بزن تا اصلاً به اجاق قوطی نیاز نیفتد.</li>
+<li>پیش از حرکت، سوخت مناسب و وضعیت اجاق سفری را طبق دفترچه بررسی کن؛ تعمیر یا تغییر طراحی را به سازنده یا تعمیرکار مجاز بسپار.</li>
+<li>جایگزین بدون شعله، مانند غذای آماده، را برای زمان ممنوعیت آتش در نظر بگیر.</li>
+<li>محل پخت‌وپز، فاصله از مواد قابل‌اشتعال و ابزار خاموش‌کردن را پیش از روشن‌کردن آماده کن.</li>
+<li>کودک و حیوان را از محل دور نگه دار و مسئول مراقبت از اجاق را مشخص کن.</li>
+<li>پس از استفاده، خاکستر یا سوخت داغ را در طبیعت رها نکن و پیش از ترک محل از خاموشی کامل مطمئن شو.</li>
 </ul>
 <h2>چک‌لیست جمع‌بندی</h2>
-<p>وقتی می‌خوای تو شرایط اضطراری اجاق بسازی، این مراحل رو تو ذهنت مرور کن:</p>
-<p>انتخاب قوطی:</p>
 <ul class="sa-checklist">
-<li>قوطی بلند و فلزی (بدون لایه پلاستیکی داخلی یا سوخته شده)</li>
+<li>مقررات و شرایط منطقه برای شعله بررسی شده است.</li>
+<li>قوطی کنسرو را برای سوختن یا پخت‌وپز به کار نمی‌برم.</li>
+<li>اجاق مخصوص و سوخت مجاز آن را طبق دفترچه انتخاب کرده‌ام.</li>
+<li>محل باز، پایدار و دور از مواد قابل‌اشتعال است.</li>
+<li>ابزار خاموش‌کردن و مسئول مراقبت از اجاق از پیش مشخص‌اند.</li>
+<li>هیچ اجاقی را در چادر، خودرو یا فضای نیمه‌بسته روشن نمی‌کنم.</li>
 </ul>
-<p>سوراخ‌کاری:</p>
-<ul class="sa-checklist">
-<li>۱۰ تا ۱۵ سوراخ ریز پایین (ورود هوا)</li>
-<li>۲ سوراخ روبروی هم بالا (برای پایه)</li>
-</ul>
-<p>سوخت‌گیری:</p>
-<ul class="sa-checklist">
-<li>فقط شاخه‌های نازک، خشک و رزینی</li>
-<li>چیدمان به شکل چادر (تیپی) برای جریان هوا</li>
-</ul>
-<p>ایمنی:</p>
-<ul class="sa-checklist">
-<li>هرگز داخل چادر روشن نکن</li>
-<li>روی سطح بدون علف خشک قرار بده</li>
-<li>با آب خاموش نکن (شوک حرارتی)</li>
-</ul>
-<h2>لینک‌های مرتبط</h2>
+<h2>پیوندهای مرتبط</h2>
 <ul>
-<li><a href="/how-to-start-campfire/">روشن کردن اصولی آتش در طبیعت</a></li>
-<li><a href="/how-to-extinguish-campfire/">خاموش کردن کامل و ایمن آتش</a> — خاموش‌کردن کامل اجاق و آتش</li>
 <li><a href="/camping-stove-review/">معرفی اجاق‌های کوهنوردی</a></li>
 <li><a href="/outdoor-cooking-equipment/">تجهیزات پخت‌وپز در طبیعت</a></li>
+<li><a href="/how-to-extinguish-campfire/">خاموش‌کردن کامل آتش در طبیعت</a></li>
+<li><a href="/how-to-start-campfire/">روشن‌کردن آتش فقط در محل مجاز</a></li>
 <li><a href="/category/camping-survival/">هاب آموزش‌های کمپینگ</a></li>
 </ul>
 <h2>پیام پایانی</h2>
-<p>رفیق، ساختن یه اجاق با دستان خودت، یه حس غرور و رضایت عمیق بهت می‌ده که با هیچ اجاق گرون‌قیمتی قابل مقایسه نیست.</p>
-<p>وقتی داری با این اجاق کار می‌کنی، حواست به باد باشه. اگه باد می‌وزه، با چند تا سنگ دور تا دورش بادگیر بساز تا حرارت هدر نره. بعد از استفاده هم، خاکسترها رو کامل پخش کن تا ردپای انسانی تو طبیعت باقی نمونه.</p>
-<p>مراقب خودت باش، از طعم غذای گرم تو دل کوه لذت ببر و همیشه یه قوطی خالی تو کیسه زباله‌ت برای روز مبادا نگه دار.</p>
+<p>قوطی کنسرو برای نگهداری غذا ساخته شده، نه برای اجاق. اگر وسیلهٔ ایمن و محل مجاز نداری، شعله روشن نکن؛ یک وعدهٔ بدون پخت انتخاب کم‌خطرتری است.</p>
 <p class="sa-article__note">این مقاله جنبهٔ آموزشی دارد و جایگزین توصیهٔ پزشکی، راهنمای محلی، آموزش عملی یا دستور سازندهٔ محصولات نیست.</p>
 SA_ART,
 	),
@@ -2709,7 +2648,7 @@ SA_ART,
 		),
 		'cover'         => array(
 			'file' => 'guides/diy-compass.webp',
-			'alt' => 'اینفوگرافیک ساخت قطب‌نما با سوزن و آب: مواد لازم، چهار مرحلهٔ ساخت، کاربرد در گم‌شدگی و نکات حیاتی',
+			'alt' => 'اینفوگرافیک ساخت قطب‌نما با سوزن و آب: ظرف غیرفلزی، برگ شناور و سوزن مغناطیسی با جهت تقریبی',
 			'title' => 'اینفوگرافیک ساخت قطب‌نما با سوزن و آب',
 		),
 		'faq'           => array(
@@ -2762,10 +2701,7 @@ SA_ART,
 <tr><td>ستارهٔ قطبی</td><td>شمال</td><td>شب صاف، شناخت دب اکبر</td><td>خوب</td><td>ابر و نور شهر</td></tr>
 <tr><td>قطب‌نمای واقعی</td><td>همهٔ جهات با درجه</td><td>هیچ</td><td>عالی</td><td>باید همراه داشته باشی</td></tr>
 </tbody></table></figure>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-compass-map-compass.webp" alt="قطب‌نمای صفحه‌ای روی نقشهٔ کاغذی توپوگرافی در طبیعت" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">قطب‌نما و نقشه، مرجع نهایی</strong><span class="sa-topic-card__desc">قطب‌نمای صفحه‌ای روی نقشهٔ کاغذی، مرجع اصلی تطبیق جهت است؛ سوزن شناور فقط تمرین اضطراری است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-compass-map-compass.webp" alt="قطب‌نمای صفحه‌ای روی نقشهٔ کاغذی توپوگرافی در طبیعت" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">قطب‌نما و نقشه، مرجع نهایی</strong><span class="sa-guide-topic-card__description">قطب‌نمای صفحه‌ای روی نقشهٔ کاغذی، مرجع اصلی تطبیق جهت است؛ سوزن شناور فقط تمرین اضطراری است.</span></figcaption></figure>
 <h2>مراحل ساخت قطب‌نمای اضطراری</h2>
 <ul class="sa-steps-meta">
 <li><strong>مناسب برای:</strong> جهت‌یابی اضطراری وقتی قطب‌نما و گوشی نداری و جهت کلی مقصد را می‌دانی؛ نه جایگزین قطب‌نما و نقشه در برنامه‌ریزی سفر.</li>
@@ -2794,10 +2730,7 @@ SA_ART,
 <p>آب باید کاملاً ساکن و بدون موج باشه. اگه از لیوان استفاده می‌کنی، اون رو روی یه سطح صاف بذار. اگه تو طبیعت هستی و باد میاد، با بدنت یا یه سنگ جلوی باد رو بگیر تا سطح آب آروم بشه.</p>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> شناور کردن سوزن</h3>
 <p>سوزن مغناطیسی شده رو به آرامی روی سطح شناور (برگ یا کاغذ) بذار. حالا با احتیاط کامل، سطح شناور رو روی آب قرار بده. مراقب باش سوزن به دیواره‌های ظرف نچسبه.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-compass-needle-demo.webp" alt="سوزن مغناطیسی شناور روی برگ کوچک در کاسهٔ آب ساکن" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سوزن شناور روی آب ساکن</strong><span class="sa-topic-card__desc">سوزن مغناطیسی‌شده روی برگ کوچک، در آب ساکن می‌چرخد و محور شمال‌جنوب را نشان می‌دهد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-compass-needle-demo.webp" alt="سوزن مغناطیسی شناور روی برگ کوچک در کاسهٔ آب ساکن" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سوزن شناور روی آب ساکن</strong><span class="sa-guide-topic-card__description">سوزن مغناطیسی‌شده روی برگ کوچک، در آب ساکن می‌چرخد و محور شمال‌جنوب را نشان می‌دهد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> خواندن جهت</h3>
 <p>صبر کن. سطح آب که کاملاً آروم شد، سوزن شروع به چرخش می‌کنه و در نهایت در یک جهت خاص می‌ایسته. این جهت، محور شمال-جنوب مغناطیسی زمین هست.</p>
 <h2>بومی‌سازی برای ایران</h2>
@@ -2837,10 +2770,7 @@ SA_ART,
 <li>یک سوزن یا سنجاق قفلی در کیت اضطراری (برای دوخت هم به کار می‌آید).</li>
 <li>یک بار در حیاط تمرین کن و جواب را با قطب‌نمای گوشی مقایسه کن.</li>
 </ul>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-compass-navigation-kit.webp" alt="کیت کوچک مسیریابی: قطب‌نما، سوت و چراغ پیشانی روی چوب" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">کیت کوچک مسیریابی</strong><span class="sa-topic-card__desc">قطب‌نمای کوچک، سوت نجات و چراغ پیشانی، کیت سبک مسیریابی و درخواست کمک را کامل می‌کنند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-compass-navigation-kit.webp" alt="کیت کوچک مسیریابی: قطب‌نما، سوت و چراغ پیشانی روی چوب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">کیت کوچک مسیریابی</strong><span class="sa-guide-topic-card__description">قطب‌نمای کوچک، سوت نجات و چراغ پیشانی، کیت سبک مسیریابی و درخواست کمک را کامل می‌کنند.</span></figcaption></figure>
 <h2>چک‌لیست جمع‌بندی</h2>
 <p>وقتی نیاز به ساخت قطب‌نمای اضطراری داری، این مراحل رو تو ذهنت مرور کن:</p>
 <p>مواد لازم:</p>
@@ -2950,18 +2880,9 @@ SA_ART,
 <tr><td>مشعل صمغ خالص</td><td>۱۰ دقیقه</td><td>۳۰ تا ۶۰ دقیقه</td><td>زیاد (چکه)</td><td>مانند بالا</td></tr>
 <tr><td>مشعل پارچه‌ای با چربی/موم</td><td>۱۰ دقیقه</td><td>بسته به مادهٔ آغشته</td><td>متوسط تا زیاد</td><td>وقتی چوب رزینی نیست</td></tr>
 </tbody></table></figure>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-emergency-torch-headlamp.webp" alt="چراغ پیشانی روشن روی سنگ خزه‌دار در جنگل هنگام غروب" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">چراغ پیشانی، دست‌های آزاد</strong><span class="sa-topic-card__desc">چراغ پیشانی، نور پایدار بدون شعله می‌دهد و دست‌ها را برای حرکت و حمل بار آزاد نگه می‌دارد.</span></figcaption>
-</figure>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-emergency-torch-flashlight.webp" alt="چراغ قوهٔ کوچک ایستاده روی سنگ با پرتو گرم در شب جنگل" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">چراغ قوه، نور متمرکز مسیر</strong><span class="sa-topic-card__desc">چراغ قوهٔ کم‌مصرف با باتری یدک، برای مسیر کوتاه شب از هر مشعلی امن‌تر و قابل‌کنترل‌تر است.</span></figcaption>
-</figure>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-emergency-torch-safety-lantern.webp" alt="فانوس باتری‌دار نرم‌تاب روی میز چوبی کمپ هنگام غروب" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فانوس ایمن، نور پخش کمپ</strong><span class="sa-topic-card__desc">فانوس باتری‌دار بدون شعله، نور کمپ را پخش می‌کند و خطر آتش‌سوزی مشعل‌های دست‌ساز را ندارد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-emergency-torch-headlamp.webp" alt="چراغ پیشانی روشن روی سنگ خزه‌دار در جنگل هنگام غروب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چراغ پیشانی، دست‌های آزاد</strong><span class="sa-guide-topic-card__description">چراغ پیشانی، نور پایدار بدون شعله می‌دهد و دست‌ها را برای حرکت و حمل بار آزاد نگه می‌دارد.</span></figcaption></figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-emergency-torch-flashlight.webp" alt="چراغ قوهٔ کوچک ایستاده روی سنگ با پرتو گرم در شب جنگل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چراغ قوه، نور متمرکز مسیر</strong><span class="sa-guide-topic-card__description">چراغ قوهٔ کم‌مصرف با باتری یدک، برای مسیر کوتاه شب از هر مشعلی امن‌تر و قابل‌کنترل‌تر است.</span></figcaption></figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-emergency-torch-safety-lantern.webp" alt="فانوس باتری‌دار نرم‌تاب روی میز چوبی کمپ هنگام غروب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فانوس ایمن، نور پخش کمپ</strong><span class="sa-guide-topic-card__description">فانوس باتری‌دار بدون شعله، نور کمپ را پخش می‌کند و خطر آتش‌سوزی مشعل‌های دست‌ساز را ندارد.</span></figcaption></figure>
 <h2>روش‌های ساخت مشعل اضطراری</h2>
 <ul class="sa-steps-meta">
 <li><strong>مناسب برای:</strong> اضطرار واقعی، بدون هیچ منبع نور، در هوای آرام و مسیر کوتاه و خاکی؛ نه برای تفریح، عکاسی یا روشنایی کمپ.</li>
@@ -3144,24 +3065,15 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> انتخاب دو درخت سالم</h3>
 <p>درخت‌های زنده با پوست سالم و تنهٔ ضخیم را انتخاب کن؛ فاصلهٔ مناسب وقتی است که بندهای هاموک با کمی کشش به دو طرف برسد (معمولاً سه تا چهار متر). بالای سر را نگاه کن: شاخهٔ خشک و آویزان یعنی محل عوض شود. از درخت جوان و باریک و درختی که ریشه‌اش لب آب است، صرف‌نظر کن.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-hammock-trees-strap.webp" alt="بند پهن مخصوص درخت بسته‌شده دور تنهٔ درخت جنگلی با قلاب فلزی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">بند پهن، نه طناب نازک</strong><span class="sa-topic-card__desc">بند پهن درختی، فشار را روی پوست درخت پخش می‌کند و هم به درخت آسیب نمی‌زند و هم محکم‌تر می‌ماند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-hammock-trees-strap.webp" alt="بند پهن مخصوص درخت بسته‌شده دور تنهٔ درخت جنگلی با قلاب فلزی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بند پهن، نه طناب نازک</strong><span class="sa-guide-topic-card__description">بند پهن درختی، فشار را روی پوست درخت پخش می‌کند و هم به درخت آسیب نمی‌زند و هم محکم‌تر می‌ماند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> بستن بندها در ارتفاع مناسب</h3>
 <p>بندها را حدود ارتفاع سینه تا کمر به تنه ببند (برای نشیمن حدود زانو وقتی می‌نشینی). بند را مستقیم و بدون گره‌های اضافه دور تنه بینداز و از حلقهٔ خودش رد کن؛ هرگز طناب نازک را مستقیم به پوست درخت نپیچ — هم درخت را خفه می‌کند و هم سُر می‌خورد.</p>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> تنظیم ارتفاع و شیب هاموک</h3>
 <p>هاموک باید وقتی می‌نشینی، تقریباً در ارتفاع زانو باشد و قوس ملایمی بگیرد؛ خوابیدن در هاموک خیلی سفت یا خیلی شل، کمر را خسته می‌کند. زاویهٔ بندها نسبت به تنه حدود ۳۰ درجه ملایم است؛ اگر تخت مثل تاب سفت شد، بندها را جلوتر ببند یا هاموک را بلندتر کن.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-hammock-trees-height.webp" alt="تخت معلق نصب‌شده بین دو درخت با ارتفاع نشیمن مناسب در پاک‌سازی جنگل" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">نشیمن در ارتفاع زانو</strong><span class="sa-topic-card__desc">تخت معلق با نشیمن حدود ارتفاع زانو و قوس ملایم، نشستن و خوابیدن را راحت و امن می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-hammock-trees-height.webp" alt="تخت معلق نصب‌شده بین دو درخت با ارتفاع نشیمن مناسب در پاک‌سازی جنگل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نشیمن در ارتفاع زانو</strong><span class="sa-guide-topic-card__description">تخت معلق با نشیمن حدود ارتفاع زانو و قوس ملایم، نشستن و خوابیدن را راحت و امن می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> نصب تارپ باران</h3>
 <p>تارپ را بالای هاموک و با فاصله از صورت نصب کن؛ شیب ملایم بده تا آب باران رویش جمع نشود و به گوشه‌ها بچکد. گوشه‌های تارپ را با طناب نازک و میخ‌زمینی محکم کن؛ تارپ شل در باد، هم صدا می‌دهد و هم خیس می‌کند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-hammock-trees-tarp.webp" alt="تارپ باران نصب‌شده بالای تخت معلق بین دو درخت در جنگل سبز" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">تارپ بالای سر، شیب ملایم</strong><span class="sa-topic-card__desc">تارپ با شیب ملایم بالای تخت معلق، باران و شبنم را از خواب شبانه دور نگه می‌دارد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-hammock-trees-tarp.webp" alt="تارپ باران نصب‌شده بالای تخت معلق بین دو درخت در جنگل سبز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">تارپ بالای سر، شیب ملایم</strong><span class="sa-guide-topic-card__description">تارپ با شیب ملایم بالای تخت معلق، باران و شبنم را از خواب شبانه دور نگه می‌دارد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> خواب امن و جمع‌کردن</h3>
 <p>زیرانداز عایق را داخل هاموک بینداز؛ زیر بدن معلق، سرمای هوا از پایین بیشتر حس می‌شود. جیب‌های خالی، کوله و کفش را روی زمین و دور از رطوبت بگذار. صبح، بندها را باز کن، تنه را نگاه کن و اگر پوست درخت جایی آسیب دیده، محل را برای دفعهٔ بعد عوض کن.</p>
 <h2>نکات ایمنی</h2>
@@ -3302,22 +3214,13 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> انتخاب ظرف اصلی</h3>
 <p>بطری محکم با درِ پیچی، ستون اصلی برنامهٔ آب است. جنس شفاف کمک می‌کند ببینی آب گِل‌آلود است یا صاف، و بدنهٔ سخت در برابر فشار کوله مقاوم است. اگر قمقمهٔ فلزی داری، برای نوشیدنی گرم و روزهای سرد عالی است، اما برای دیدن محتوا و شست‌وشوی سریع، همان بطری ساده راحت‌تر است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-container-bottle.webp" alt="بطری آب محکم با درپوش پیچی روی سنگ کنار جویبار" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">بطری محکم، پایهٔ برنامهٔ آب</strong><span class="sa-topic-card__desc">یک بطری پیچی محکم و شفاف، ظرف اصلی آشامیدن روزانه در طبیعت است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-container-bottle.webp" alt="بطری آب محکم با درپوش پیچی روی سنگ کنار جویبار" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بطری محکم، پایهٔ برنامهٔ آب</strong><span class="sa-guide-topic-card__description">یک بطری پیچی محکم و شفاف، ظرف اصلی آشامیدن روزانه در طبیعت است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> اضافه‌کردن ظرف تاشو برای ذخیره</h3>
 <p>ظرف تاشو یا کیسهٔ آب، ذخیرهٔ اضافی بدون سنگینی است. خالی‌اش را تا کن و ته کوله بگذار؛ وقتی به آب رسیدی، پر کن و به ابتدای برنامهٔ شب برسان. این ظرف‌ها را روی سنگ نتراش و از شاخهٔ نازک آویزان نکن؛ درزهایشان بیشتر از بطری سخت آسیب می‌بیند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-container-collapsible-jug.webp" alt="ظرف آب تاشوی نیمه‌پر روی میز چوبی کمپ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">ظرف تاشو، ذخیرهٔ سبک</strong><span class="sa-topic-card__desc">ظرف تاشوی نیمه‌پر برای بردن آب اضافی به کمپ، سبک و کم‌حجم است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-container-collapsible-jug.webp" alt="ظرف آب تاشوی نیمه‌پر روی میز چوبی کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ظرف تاشو، ذخیرهٔ سبک</strong><span class="sa-guide-topic-card__description">ظرف تاشوی نیمه‌پر برای بردن آب اضافی به کمپ، سبک و کم‌حجم است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> تقسیم آب بین چند ظرف جدا</h3>
 <p>همهٔ آب را در یک ظرف نگه ندار. یک ظرف برای آشامیدن فوری، یکی برای پخت‌وپز و یک ظرف کوچک برای اضطرار؛ اگر یکی آلوده یا سوراخ شد، بقیه سالم می‌مانند. ظرف اضطراری را پر و درش را بسته نگه دار تا اگر برنامه به‌هم خورد، دست‌کم چند جرعهٔ تمیز داشته باشی.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-container-separated-vessels.webp" alt="سه ظرف آب جدا از هم روی سنگ صاف در طبیعت" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سه ظرف جدا، یک بیمهٔ ساده</strong><span class="sa-topic-card__desc">تقسیم آب بین چند ظرفِ دور از هم، خطر تمام‌شدن یا آلوده‌شدن همهٔ آب را کم می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-container-separated-vessels.webp" alt="سه ظرف آب جدا از هم روی سنگ صاف در طبیعت" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سه ظرف جدا، یک بیمهٔ ساده</strong><span class="sa-guide-topic-card__description">تقسیم آب بین چند ظرفِ دور از هم، خطر تمام‌شدن یا آلوده‌شدن همهٔ آب را کم می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> پرکردن ایمن از منبع</h3>
 <p>از آب جاری و روشن پر کن، نه از گوشهٔ راکد برکه. دهانهٔ ظرف را به آب نزن؛ با دست تمیز یا ظرف کوچک، آب را بریز توی ظرف تا لبهٔ آلوده داخل آب آشامیدنی نرود. اگر آب کمی گِل‌آلود است، اول از پارچهٔ تمیز یا فیلتر ساده رد کن و بعد پر کن؛ حذف گِل، گندزدایی نیست.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> نگهداری و شست‌وشوی ظرف</h3>
@@ -3381,10 +3284,10 @@ SA_ART,
 SA_ART,
 	),
 	'diy-water-filter' => array(
-		'title'          => 'ساخت فیلتر آب با بطری و زغال؛ چطور تو شرایط اضطراری آب رو تصفیه کنیم؟',
+		'title'          => 'ساخت فیلتر آب با بطری و زغال؛ زلالی آب، ایمنی نمی‌آورد',
 		'type'           => 'post',
 		'slug'           => 'diy-water-filter',
-		'excerpt'        => 'آموزش قدم به قدم ساخت یک فیلتر آب اضطراری و کاربردی در طبیعت با استفاده از مواد دورریختنی مثل بطری پلاستیکی، زغال چوب، ماسه و سنگریزه، همراه با نکات حیاتی ایمنی.',
+		'excerpt'        => 'نمایش آموزشیِ کاهش بخشی از ذرات معلق با قیف و لایه‌های ساده، همراه با توضیح روشن اینکه این مدل آب را برای نوشیدن ایمن نمی‌کند؛ روش معتبر تصفیه باید با نوع آلودگی سازگار باشد.',
 		'english'        => 'DIY Water Filter',
 		'kind'           => 'tent',
 		'category'      => array(
@@ -3394,173 +3297,133 @@ SA_ART,
 			'diy-outdoor' => 'کاردستی و جایگزین‌های DIY',
 		),
 		'meta'          => array(
-			'sa_seo_title' => 'ساخت فیلتر آب با بطری و زغال | تصفیه آب اضطراری در طبیعت',
-			'sa_seo_description' => 'وسط طبیعت فیلتر آب نداری یا تموم شده؟ تو این مقاله یاد می‌گیری چطور با یه بطری پلاستیکی، زغال و ماسه، یه فیلتر آب اضطراری بسازی و آب رو برای نوشیدن آماده کنی.',
-			'sa_focus_keyword' => 'ساخت فیلتر آب با بطری و زغال',
+			'sa_seo_title' => 'فیلتر آب دست‌ساز با بطری و زغال؛ زلالی به معنی سلامت نیست',
+			'sa_seo_description' => 'مدل نمایشی بطری، پارچه، ماسه و سنگ‌ریزه فقط می‌تواند بخشی از ذرات را جدا کند؛ زغال معمولی آب را ضدعفونی نمی‌کند و خروجی فیلتر دست‌ساز آب آشامیدنی نیست.',
+			'sa_focus_keyword' => 'فیلتر آب دست‌ساز',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
-			'sa_risk_level' => 'بالا؛ آب آشامیدنی',
-			'sa_sources' => 'مراکز کنترل بیماری آمریکا (CDC) — تصفیهٔ آب در طبیعت و سفر | https://www.cdc.gov/healthywater/drinking/travel/
-آژانس حفاظت از محیط‌زیست آمریکا (EPA) — تصفیهٔ اضطراری آب آشامیدنی | https://www.epa.gov/ground-water-and-drinking-water/emergency-disinfection-drinking-water
-سازمان جهانی بهداشت (WHO) — روش‌های تصفیهٔ آب در سطح خانوار',
+			'sa_risk_level' => 'بالا؛ خطر بیماری و آلودگی آب',
+			'sa_sources' => 'مراکز کنترل و پیشگیری از بیماری آمریکا (CDC) — راهنمای آب آشامیدنی و تصفیه در سفر
+آژانس حفاظت از محیط‌زیست آمریکا (EPA) — گندزدایی اضطراری آب و محدودیت روش‌ها
+سازمان جهانی بهداشت (WHO) — راهنمای کیفیت و تصفیهٔ آب آشامیدنی',
 		),
-		'cover'         => array(
-			'file' => 'guides/diy-water-filter.webp',
-			'alt' => 'اینفوگرافیک ساخت فیلتر آب با بطری و زغال: مواد لازم، چهار مرحلهٔ ساخت و نکات ایمنی (آب را پس از فیلتر بجوشانید)',
-			'title' => 'اینفوگرافیک ساخت فیلتر آب با بطری و زغال',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
-				'q' => 'چرا آب خروجی اولش سیاه و کدره؟ خراب کردم؟',
-				'a' => 'نه، خراب نکردی. این گرد و غبار زغال‌های پودر شده‌ست که هنوز شسته نشده. کاملاً طبیعیه. فقط کافیه آب سیاه رو دوباره بریزی تو فیلتر و این کار رو انقدر تکرار کنی تا آب خروجی مثل شیشه شفاف بشه. بعد از اون می‌تونی آب رو جمع کنی.',
+				'q' => 'آیا آب خروجی فیلتر بطری برای نوشیدن امن است؟',
+				'a' => 'نه. این مدل فقط برای نمایش جداشدن بخشی از ذرات است و ضدعفونی یا حذف مواد حل‌شده را تضمین نمی‌کند. خروجی را ننوش و برای غذا استفاده نکن.',
 			),
 			array(
-				'q' => 'می‌تونم به جای ماسه از خاک معمولی جنگل استفاده کنم؟',
-				'a' => 'اصلاً این کار رو نکن. خاک وقتی خیس میشه تبدیل به گل میشه و کل فیلترت رو کیپ می‌کنه. ضمن اینکه خاک خودش پر از میکروارگانیسم و آلودگیه. باید حتماً از ماسه شسته شده (مثل ماسه رودخونه‌ای که گلش رفته) استفاده کنی.',
+				'q' => 'زغال معمولی همان زغال فعال است؟',
+				'a' => 'نه. زغال فعال برای کاربردهای مشخص پردازش می‌شود و حتی آن هم همهٔ آلاینده‌ها را حذف نمی‌کند. زغال معمولیِ آتش یا کباب را برای تصفیهٔ آب آشامیدنی قابل‌اعتماد فرض نکن.',
 			),
 			array(
-				'q' => 'این فیلتر تا کی دووم میاره؟ می‌تونم هفته‌ها ازش استفاده کنم؟',
-				'a' => 'این یه فیلتر اضطراریه، نه یه تصفیه‌کننده دائمی. زغال بعد از مدتی اشباع میشه و دیگه نمی‌تونه سموم رو جذب کنه. این فیلتر برای چند روز استفاده در شرایط بقا طراحی شده. اگه تو کمپ ثابت هستی، بهتره از فیلترهای تجاری یا روش جوشاندن استفاده کنی.',
+				'q' => 'اگر آب را بعد از فیلتر بجوشانم، ایمن می‌شود؟',
+				'a' => 'جوشاندن طبق راهنمای معتبر می‌تواند برخی خطرهای میکروبی را کاهش دهد، اما مواد شیمیایی، فلزات سنگین یا نمک را حذف نمی‌کند. دربارهٔ منبع مشکوک از راهنمای بهداشتی کمک بگیر.',
 			),
 			array(
-				'q' => 'آیا این فیلتر آب شور دریا رو شیرین می‌کنه؟',
-				'a' => 'رفیق، این فیلتر آبیه، نه دستگاه شیرین‌کن! زغال و ماسه نمی‌تونن نمک (سدیم کلرید) رو از مولکول‌های آب جدا کنن. برای شیرین کردن آب دریا فقط و فقط باید از روش تقطیر (تبخیر و میعان) استفاده کنی که داستانش کاملاً متفاوته.',
+				'q' => 'می‌توانم از آب رودخانه یا چشمه برای این مدل استفاده کنم؟',
+				'a' => 'برای نمایش خانگی از نمونهٔ نمایشیِ آب و خاک تمیز استفاده کن، نه آب طبیعی. آب رودخانه و چشمه ممکن است آلوده باشد و ظاهرش نشانهٔ ایمنی نیست.',
 			),
 			array(
-				'q' => 'اگه زغال چوب خالص پیدا نکردیم چیکار کنیم؟',
-				'a' => 'اگه تو جنگلی و آتیش روشن کردی، می‌تونی از زغال همون آتیش استفاده کنی. فقط صبر کن آتیش کاملاً خاموش بشه و زغال‌ها سرد بشن. زغال‌هایی که از چوب‌های سخت (مثل بلوط یا راش) به دست میان، تخلخل بیشتری دارن و برای تصفیه آب بهتر از چوب‌های نرم عمل می‌کنن.',
+				'q' => 'آیا این فیلتر آب دریا را شیرین می‌کند؟',
+				'a' => 'نه. پارچه، ماسه، سنگ‌ریزه و زغال نمک محلول را جدا نمی‌کنند. آب شور برای آشامیدن به فرایند تخصصی نمک‌زدایی نیاز دارد.',
 			),
 		),
 		'content'       => <<<'SA_ART'
 <div class="sa-callout sa-callout--answer">
-<p><strong>پاسخ سریع:</strong> فیلتر بطری با پارچه، زغال خرد، ماسه و سنگریزه فقط آب را زلال می‌کند و بو و بخشی از مواد شیمیایی را کم می‌کند؛ باکتری، ویروس و انگل را حذف نمی‌کند. آب خروجی را حتماً بجوشان یا با قرص تصفیه کن و این فیلتر را فقط برای وقتی نگه دار که فیلتر واقعی نداری.</p>
+<p><strong>پاسخ سریع:</strong> بطری، پارچه، ماسه و سنگ‌ریزه می‌توانند در یک نمایش ساده بخشی از ذرات قابل‌دیدن را جدا کنند؛ این فرایند آب را آشامیدنی نمی‌کند. زغال معمولی ضدعفونی‌کننده نیست و برای حذف مواد شیمیایی هم نباید به آن تکیه کرد؛ آب خروجی را نچش و ننوش.</p>
 </div>
 <div class="sa-callout sa-callout--warning" role="note">
-<p class="sa-callout__title">⚠️ زلال یعنی سالم؟ نه</p>
-<p>آبی که از این فیلتر بیرون می‌آید هنوز می‌تواند بیماری‌زا باشد؛ هرگز آن را بدون جوشاندن (یک دقیقه جوش کامل، در ارتفاع بالا سه دقیقه) یا قرص تصفیه ننوش. از آب پایین‌دست مزرعه، معدن، کارخانه یا فاضلاب حتی بعد از فیلتر و جوشاندن استفاده نکن؛ هیچ روش صحرایی سموم و فلزات سنگین را حذف نمی‌کند.</p>
+<p class="sa-callout__title">⚠️ آب زلال هم ممکن است آلوده باشد</p>
+<p>فیلتر دست‌ساز، جوشاندن یا قرص ضدعفونی راه‌حل همهٔ آلودگی‌ها نیستند. اگر احتمال آلودگی شیمیایی، سوخت، فلزات سنگین یا شوری وجود دارد، آب را برای نوشیدن و پخت‌وپز به کار نبر و به راهنمای بهداشتی معتبر یا منبع آب ایمن رجوع کن.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن سه روز است در مسیری، فیلتر آبت گم شده یا شکسته و تنها منبع آب، چالهٔ گل‌آلودی است که کسی رغبت نمی‌کند حتی دستش را در آن بزند. فیلتر بداهه با بطری پلاستیکی همان چیزی است که این آب را به آبی قابل جوشاندن تبدیل می‌کند: ذرات، گل و بخشی از بو را می‌گیرد تا جوشاندن یا قرص کارش را درست انجام دهد. پایین‌تر ساختش را قدم‌به‌قدم می‌بینی، همراه با حد و مرز واقعی‌اش.</p>
+<p>فرض کن در سفر آبی کدر می‌بینی و وسوسه می‌شوی آن را از چند لایه ماسه و زغال عبور بدهی. خروجی شاید شفاف‌تر به نظر برسد، اما چشم نمی‌تواند وجود عوامل بیماری‌زا یا مواد حل‌شده را تشخیص دهد. این مقاله فقط یک نمایش آموزشی برای جداشدن بخشی از ذرات است و مرزهای تصفیهٔ واقعی آب را توضیح می‌دهد.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
-<li>یک بطری پلاستیکی تمیز (ترجیحاً شفاف و بزرگ)، چاقو یا ابزار برش، تکه پارچه یا بافر.</li>
-<li>زغال چوب سرد و خاموش (از آتش قبلی، بدون مواد آتش‌زا یا زغال فشرده‌ی حاوی مواد افزودنی)، ماسهٔ شسته و سنگریزه.</li>
-<li>ظرف تمیز برای جمع‌کردن آب خروجی و روشی برای ضدعفونی: اجاق/آتش برای جوشاندن یا قرص تصفیه.</li>
-<li>زمان کافی: ساخت و شست‌وشوی اولیه حدود نیم تا یک ساعت.</li>
-<li>منبع آبی که تا جای ممکن جاری و دور از دام و سکونتگاه باشد.</li>
+<li>این مدل را فقط برای نمایش در خانه یا کلاس بساز؛ از آب رودخانه، چشمه، چاه یا منبع ناشناخته برای آزمایش استفاده نکن.</li>
+<li>از قیف شفاف یا بطری تمیز، پارچهٔ تمیز، ماسه و سنگ‌ریزهٔ شسته و ظرف جداگانه استفاده کن؛ هیچ‌کدام را برای آماده‌کردن آب خوراکی به کار نبر.</li>
+<li>برای نمونهٔ کدر، کمی خاک تمیز را در آب معمولیِ نمایشی مخلوط کن؛ از فاضلاب، آب صنعتی یا آب مشکوک استفاده نکن.</li>
+<li>زغال معمولی را «زغال فعال» حساب نکن. زغال فعالِ مهندسی‌شده هم فقط در محدودهٔ ادعای تأییدشدهٔ محصول کاربرد دارد و همهٔ آلاینده‌ها را حذف نمی‌کند.</li>
 </ul>
-<h2>جدول واقع‌بینانه: این فیلتر چه می‌کند و چه نمی‌کند</h2>
+<h2>جدول واقع‌بینانه: فیلتر دست‌ساز چه می‌کند؟</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
-<thead><tr><th>مشکل آب</th><th>فیلتر بطری</th><th>جوشاندن</th><th>قرص کلر/ید</th><th>فیلتر صنعتی قابل‌حمل</th></tr></thead>
+<thead><tr><th>مسئله</th><th>مدل پارچه و ماسه</th><th>جوشاندن یا ضدعفونی</th><th>محدودیت اصلی</th></tr></thead>
 <tbody>
-<tr><td>گل، ذرات، حشره</td><td>بله</td><td>خیر</td><td>خیر</td><td>بله</td></tr>
-<tr><td>بو و طعم</td><td>تا حدی (زغال)</td><td>کمی</td><td>بدتر می‌کند</td><td>بعضی مدل‌ها</td></tr>
-<tr><td>باکتری و انگل</td><td>خیر</td><td>بله</td><td>بله (انگل‌ها زمان بیشتر)</td><td>بله</td></tr>
-<tr><td>ویروس</td><td>خیر</td><td>بله</td><td>بله</td><td>معمولاً خیر</td></tr>
-<tr><td>سموم و فلزات سنگین</td><td>خیر (جز مقدار کم)</td><td>خیر</td><td>خیر</td><td>خیر</td></tr>
+<tr><td>ذرات درشت و بخشی از کدورت</td><td>ممکن است بخشی را جدا کند</td><td>ذرات را جدا نمی‌کند</td><td>مقدار و نتیجه قابل‌اعتماد و ثابت نیست</td></tr>
+<tr><td>باکتری، ویروس و انگل</td><td>حذف قابل‌اعتماد ندارد</td><td>روش معتبر می‌تواند برخی خطرهای میکروبی را کاهش دهد</td><td>باید دستور بهداشتی و نوع آلودگی را در نظر گرفت</td></tr>
+<tr><td>سوخت، مواد شیمیایی و فلزات</td><td>حذف نمی‌کند</td><td>جوشاندن آن‌ها را بی‌خطر نمی‌کند</td><td>منبع مشکوک را برای نوشیدن کنار بگذار</td></tr>
+<tr><td>نمک و آب شور</td><td>حذف نمی‌کند</td><td>آب را شیرین نمی‌کند</td><td>به فرایند تخصصی نمک‌زدایی نیاز است</td></tr>
 </tbody></table></figure>
-<h2>مراحل ساخت فیلتر آب اضطراری</h2>
+<h2>روش گام‌به‌گام: نمایش جداشدن ذرات، نه تهیهٔ آب آشامیدنی</h2>
 <ul class="sa-steps-meta">
-<li><strong>مناسب برای:</strong> وضعیت اضطراری که فیلتر واقعی در دسترس نیست و منبع آب کدر است؛ جایگزین دائمی فیلتر یا قرص نیست.</li>
-<li><strong>لازم داری:</strong> بطری پلاستیکی، پارچه، زغال چوب خرد، ماسهٔ شسته، سنگریزه، ظرف تمیز، و امکان جوشاندن یا قرص تصفیه.</li>
-<li><strong>زمان:</strong> ساخت ۲۰ تا ۳۰ دقیقه؛ شست‌وشوی اولیه تا زلال شدن خروجی ۱۵ تا ۳۰ دقیقه؛ عبور هر لیتر آب چند دقیقه.</li>
-<li><strong>هشدار:</strong> آب خروجی قبل از جوشاندن یا قرص، آب آشامیدنی نیست؛ دست و ظرف خروجی را با آب خام آلوده نکن.</li>
+<li><strong>مناسب برای:</strong> مشاهدهٔ سادهٔ اینکه یک لایهٔ فیزیکی ممکن است بخشی از ذرات درشت را بگیرد؛ برای آشامیدن، پخت‌وپز یا درمان آب نیست.</li>
+<li><strong>لازم داری:</strong> قیف شفاف یا بطری تمیز، پارچه، ماسه و سنگ‌ریزهٔ شسته، دو ظرف مجزا و آب معمولیِ مخلوط با کمی خاک تمیز.</li>
+<li><strong>زمان:</strong> این نمایش کوتاه است؛ مدت آن هیچ معیاری برای ایمن‌شدن آب نیست.</li>
+<li><strong>هشدار:</strong> روی ظرف خروجی بنویس «غیرقابل آشامیدن» و آن را دور از خوراکی‌ها و کودکان نگه دار. از چاقو برای بریدن بطری استفاده نکن.</li>
 </ul>
-<p>ما می‌خوایم یه سیستم فیلتراسیون چند لایه بسازیم. هر لایه وظیفه داره یه نوع آلودگی رو بگیره.</p>
-<h3 class="sa-step"><span class="sa-step__n">۱</span> جمع‌آوری مواد اولیه</h3>
-<ul>
-<li><strong>بطری پلاستیکی:</strong> یه بطری آب معدنی ۱.۵ لیتری خالی.</li>
-<li><strong>زغال چوب:</strong> زغال خالص (بدون مواد شیمیایی آتش‌زنه). باید اون رو تو یه کیسه بریزی و با سنگ کاملاً پودر و خرد کنی.</li>
-<li><strong>ماسه بادی:</strong> ماسه نرم و شسته شده (اگه ماسه تمیز نداری، ماسه رودخونه‌ای رو اول با آب تمیز چند بار بشور تا گِلش بره).</li>
-<li><strong>سنگریزه:</strong> سنگ‌های ریز و درشت تمیز.</li>
-<li><strong>پارچه تمیز یا پنبه:</strong> یه تیکه پارچه نخی تمیز، باند استریل یا حتی پنبه‌های داخل یه کاپشن کهنه.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۲</span> آماده‌سازی بدنه فیلتر</h3>
-<ul>
-<li>با چاقوی جیبی یا یه سنگ تیز، ته بطری (قسمت گود زیرین) رو ببر.</li>
-<li>بطری رو برعکس کن (در بطری رو به پایین). در بطری رو باز کن و یه سوراخ ریز توش ایجاد کن، یا کلاً درش رو بنداز و جاش پارچه بذار تا زغال‌ها نریزن بیرون.</li>
-<li>بطری رو برعکس آویزون کن (می‌تونی با طناب از یه شاخه درخت آویزونش کنی یا بدی دست همسفرت).</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۳</span> چیدمان لایه‌ها (مهم‌ترین بخش)</h3>
-<p>حالا باید مواد رو به ترتیب از پایین به بالا (از در بطری به سمت دهانه بریده شده) بریزی. ترتیب حیاتیه:</p>
-<ul>
-<li><strong>لایه اول (پایین‌ترین لایه، نزدیک در بطری):</strong> پارچه تمیز یا پنبه. این لایه مثل دروازه عمل می‌کنه و نمی‌ذاره زغال و ماسه بریزن بیرون.</li>
-<li><strong>لایه دوم:</strong> زغال پودر شده. ضخامت این لایه باید حداقل ۵ تا ۱۰ سانتی‌متر باشه. زغال مثل یه آهنربا عمل می‌کنه و سموم، مواد شیمیایی و بوی بد آب رو به خودش جذب می‌کنه (همون خاصیت زغال فعال).</li>
-<li><strong>لایه سوم:</strong> ماسه نرم. این لایه ذرات ریز، گل و لای و حتی بعضی از باکتری‌های بزرگتر رو به دام می‌اندازه.</li>
-<li><strong>لایه چهارم (بالاترین لایه، نزدیک دهانه بریده شده):</strong> سنگریزه. این لایه آشغال‌های درشت مثل برگ، حشرات و شن‌های درشت رو قبل از ورود به لایه‌های ظریف‌تر متوقف می‌کنه.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۴</span> شست‌وشوی اولیه و فیلتر کردن</h3>
-<ul>
-<li>آب کدر رو آروم آروم روی لایه سنگریزه بریز.</li>
-<li>آب از لایه‌ها عبور می‌کنه و از در بطری می‌چکه.</li>
-<li><strong>نکته حیاتی:</strong> چند لیتر اولی که خارج میشه، احتمالاً سیاه و کدره (به خاطر گرد و غبار زغال). این آب رو نریز تو لیوان! بریز دوباره روی خود فیلتر تا وقتی که آب خروجی کاملاً زلال و شفاف بشه.</li>
-</ul>
-<p>جایگزین خلاقانه: اگه بطری پلاستیکی نداری، می‌تونی از یه قیف طبیعی استفاده کنی. یه تیکه پوست درخت رو به شکل قیف لوله کن، تهش رو با علف و الیاف گیاهی کیپ کن و همون لایه‌های زغال و ماسه رو توش بریز. یا حتی می‌تونی از ساقه توخالی یه گیاه بزرگ (مثل بامبو یا نی) استفاده کنی.</p>
-<h2>بومی‌سازی برای ایران</h2>
-<ul>
-<li>در دامنه‌های پرتردد و ییلاق‌های ایران، آب چشمه و رودخانه اغلب با دام در تماس است؛ انگل‌هایی مثل ژیاردیا از این فیلتر رد می‌شوند، پس جوشاندن حذف نمی‌شود.</li>
-<li>زغال چوب از آتش کمپ قبلی یا زغال کبابی ساده (نه زغال فشردهٔ آغشته به مواد آتش‌زا) مناسب است.</li>
-<li>در مناطق کشاورزی دشت‌های مرکزی و شمال، سموم و کود در آب سطحی وجود دارد؛ این فیلتر و جوشاندن آن‌ها را حذف نمی‌کند؛ از این منابع استفاده نکن.</li>
-<li>در هوای گرم جنوب و کویر، آب فیلترشده و جوشانده را در ظرف دربسته و سایه نگه دار تا دوباره آلوده نشود.</li>
-<li>در زمستان آب برف و یخ ذوب‌شده هم باید جوشانده شود؛ سرما میکروب را نمی‌کشد.</li>
-</ul>
+<ol>
+<li><strong>آماده‌کردن مدل نمایشی.</strong> قیف را روی ظرف خالی قرار بده و پارچه را طوری بگذار که ماسه و سنگ‌ریزه از دهانه بیرون نریزند. اگر از بطری استفاده می‌کنی، فقط از قطعهٔ آماده و بدون لبهٔ تیز بهره ببر؛ در غیر این صورت قیف ایمن‌تر است. زغال برای این نمایش لازم نیست و افزودنش هیچ تضمین تازه‌ای ایجاد نمی‌کند.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-filter-demo.webp" alt="قیف شفاف و لایهٔ پارچه و ماسه برای نمایش غیرخوراکی کاهش ذرات آب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فقط یک نمایش آموزشی</strong><span class="sa-guide-topic-card__description">آب خروجی از مدل دست‌ساز را هرگز برای نوشیدن یا آماده‌کردن غذا به کار نبر.</span></figcaption></figure>
+<ol>
+<li><strong>عبور دادن نمونهٔ آب کدر.</strong> مقدار کمی آبِ نمایشی را آرام از لایه‌ها عبور بده و ظاهر ورودی و خروجی را مقایسه کن. ممکن است بخشی از خاک در لایه‌ها بماند؛ این نتیجه فقط تغییر ظاهریِ نمونه را نشان می‌دهد، نه حذف میکروب یا مواد حل‌شده. برای مقایسه، آب خروجی را در لیوان نچش.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-filter-layers.webp" alt="لایه‌های جداگانهٔ ماسه و سنگ‌ریزهٔ شسته در ظرف شفاف آموزشی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">لایه‌ها فقط ذرات را نشان می‌دهند</strong><span class="sa-guide-topic-card__description">کاهش کدورت، آزمون سلامت آب نیست و برای شرب مجوز نمی‌دهد.</span></figcaption></figure>
+<ol>
+<li><strong>جداکردن نمونه و تمیزکاری.</strong> آب ورودی و خروجی را غیرخوراکی علامت بزن و طبق مقررات محلی دور بریز؛ ظرف غذا یا بطری آب آشامیدنی را با نمونه آلوده نکن. پس از کار دست‌ها را بشوی و ابزار نمایش را از وسایل آشپزی جدا نگه دار.</li>
+<li><strong>برای سفر، روش معتبر را از پیش انتخاب کن.</strong> آب بسته‌بندی‌شده یا روش تصفیه‌ای را انتخاب کن که برای خطر مورد انتظار و دستور سازنده مناسب باشد. فیلترهای تجاری هم محدودیت دارند؛ اندازهٔ منافذ، نوع عامل بیماری‌زا، نیاز به ضدعفونی مکمل و هشدارهای سازنده را بررسی کن.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/diy-water-filter-safe-water.webp" alt="بطری آب بسته و فیلتر آب تجاری بدون برند در کنار تجهیزات تمیز سفر" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آب ایمن را از قبل برنامه‌ریزی کن</strong><span class="sa-guide-topic-card__description">روش معتبر را با نوع منبع و محدودیت‌های سازنده هماهنگ کن؛ یک ابزار برای هر آلاینده کار نمی‌کند.</span></figcaption></figure>
+<p><strong>جایگزین خلاقانه:</strong> اگر بطری یا قیف در دسترس نیست، یک پارچه و ظرف شفاف برای نمایش ذرات کافی است؛ نتیجه همچنان فقط نمایشی است و نباید نوشیده شود.</p>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: هرگز از زغال‌های کبابی بازاری که مواد آتش‌زنه (مثل گریز از مرکز یا مواد شیمیایی روشن‌کننده) دارن استفاده نکن. اون مواد شیمیایی تو آب حل میشن و تو رو مسموم می‌کنن. فقط از زغال چوب خالص استفاده کن.</li>
-<li>بطری را با چاقو دور از بدن ببر و لبه‌های تیز پلاستیک را با پارچه بپوشان.</li>
-<li>زغال باید کاملاً سرد باشد؛ زغال نیمه‌سوخته را با دست خالی نگیر.</li>
-<li>آب خروجی اولیه (سیاه و کدر) را دور بریز و تا زلال شدن ادامه بده.</li>
-<li>بین ظرف آب خام و ظرف آب خروجی تماس نباشد؛ دست‌ها را بشوی.</li>
+<li>خروجی فیلتر دست‌ساز را نچش، ننوش و برای غذا یا مسواک‌زدن استفاده نکن.</li>
+<li>شفاف‌شدن، بی‌بو بودن یا خوش‌طعم‌بودن آب اثبات نمی‌کند که آب از عوامل بیماری‌زا و مواد محلول پاک شده است.</li>
+<li>جوشاندن یا ضدعفونی می‌تواند برای برخی خطرهای میکروبی مفید باشد، اما مواد شیمیایی، فلزات سنگین و نمک را به‌طور قابل‌اعتماد حذف نمی‌کند؛ دستور مقام بهداشتی را دنبال کن.</li>
+<li>اگر منبع آب در معرض سوخت، معدن، فاضلاب، کشاورزی یا هشدار آلودگی است، برای آشامیدن و پخت‌وپز از آن استفاده نکن.</li>
+<li>ظرف آب خام را از آب سالم و وسایل تمیز جدا نگه دار؛ برای آب آشامیدنی ظرف دربسته و تمیز به کار ببر.</li>
 </ol>
 <h2>باورهای غلط</h2>
-<p><strong>باور غلط:</strong> «آبی که از این فیلتر رد میشه دیگه تمیز و قابل شربه.»</p>
-<p><strong>واقعیت:</strong> دست نگه دار! این فیلتر فقط ذرات معلق، گل و لای و برخی مواد شیمیایی رو می‌گیره و آب رو "زلال" می‌کنه. اما باکتری‌ها، انگل‌ها و ویروس‌ها هنوز توی آب هستن. آب خروجی این فیلتر فقط در صورتی قابل شربنه که بعدش حتماً حداقل ۱ دقیقه جوشونده بشه یا از قرص تصفیه (کلر/ید) استفاده کنی.</p>
-<p><strong>باور غلط:</strong> «هرچی آب سریع‌تر از فیلتر رد بشه بهتره.»</p>
-<p><strong>واقعیت:</strong> برعکس. هرچی آب آروم‌تر و کندتر از لایه زغال و ماسه عبور کنه، فرصت بیشتری برای جذب آلودگی‌ها وجود داره. اگه آب مثل شیر آب باز جاری باشه، فیلتر هیچ کاری نمی‌تونه بکنه.</p>
-<p><strong>باور غلط:</strong> «زغال فعال و زغال چوب یکی هستند.»</p>
-<p><strong>واقعیت:</strong> زغال فعال صنعتی سطح جذب بسیار بیشتری دارد؛ زغال چوب خرد‌شده کمک می‌کند ولی انتظار حذف مواد شیمیایی را از آن نداشته باش.</p>
+<p><strong>باور غلط:</strong> «اگر آب از ماسه و زغال رد شود، میکروب‌ها و سمومش گرفته می‌شوند.»</p>
+<p><strong>واقعیت:</strong> پارچه و ماسهٔ خانگی مانع قابل‌اعتماد برای میکروب‌ها نیستند. زغال معمولی نیز زغال فعالِ دارای مشخصات عملکردی نیست و نباید برای حذف سموم یا مواد شیمیایی به آن اعتماد کرد.</p>
+<p><strong>باور غلط:</strong> «هرچه آب خروجی شفاف‌تر باشد، قابل‌شرب‌تر است.»</p>
+<p><strong>واقعیت:</strong> بسیاری از آلودگی‌های میکروبی و مواد حل‌شده با چشم دیده نمی‌شوند. شفافیت فقط ظاهر را توصیف می‌کند و آزمون ایمنی آب نیست.</p>
+<p><strong>باور غلط:</strong> «بعد از فیلتر دست‌ساز، یک بار جوشاندن هر آبی را امن می‌کند.»</p>
+<p><strong>واقعیت:</strong> جوشاندن برای برخی آلودگی‌های میکروبی به‌کار می‌رود، اما آلودگی شیمیایی، فلزات سنگین و شوری را رفع نمی‌کند. منبع مشکوک را با جوشاندن قابل‌شرب فرض نکن.</p>
 <h2>عیب‌یابی و علائم خطر</h2>
 <ul>
-<li><strong>آب از فیلتر رد نمی‌شود:</strong> لایه‌ها را خیلی فشرده کرده‌ای یا ماسه گل‌دار است؛ لایهٔ بالایی را سبک کن و ماسه را بشوی.</li>
-<li><strong>آب خروجی همچنان کدر است:</strong> لایه‌ها را ضخیم‌تر کن (به‌ویژه ماسهٔ ریز) و آب ورودی را قبلش ته‌نشین کن.</li>
-<li><strong>بو و طعم بد مانده:</strong> زغال کم یا درشت است؛ خردتر و بیشتر کن. بعد از جوشاندن، تهویه (ریختن از ظرفی به ظرف دیگر) طعم را بهتر می‌کند.</li>
-<li><strong>علائم خطر:</strong> اسهال و استفراغ شدید، تب، خون در مدفوع، کاهش ادرار؛ مایعات و ORS و مراجعه به درمانگاه یا تماس با ۱۱۵.</li>
+<li>اگر آب از لایه‌ها عبور نمی‌کند، این موضوع فقط نشان‌دهندهٔ گرفتگی یا چیدمان نامناسب مدل است؛ آب را با فشار از آن رد نکن و خروجی را برای شرب نگه ندار.</li>
+<li>اگر آب پس از عبور همچنان کدر یا بدبو است، آن را مصرف نکن؛ افزودن زغال یا تکرار فرایند، ایمنی را ثابت نمی‌کند.</li>
+<li>اگر در سفر آب مطمئن نداری، از منبع مشکوک ننوش و راهنمای بهداشتی یا خدمات امدادی را برای یافتن گزینهٔ امن دنبال کن.</li>
+<li>اگر پس از نوشیدن آب تصفیه‌نشده بیمار شدی، با متخصص سلامت تماس بگیر؛ در علائم شدید یا رو به وخامت از خدمات اورژانسی کمک بخواه.</li>
 </ul>
 <h2>پیشگیری و کیت</h2>
 <ul>
-<li>یک فیلتر واقعی و بستهٔ قرص تصفیه در کیت همیشگی، تا اصلاً به این مرحله نرسی.</li>
-<li>یک تکه پارچه یا بافر برای پیش‌فیلتر همیشه در کوله.</li>
-<li>در هر سفر منبع آب مطمئن را از قبل شناسایی و آب ذخیره بردار.</li>
-<li>این روش را یک بار در خانه تمرین کن تا در شرایط واقعی زمان تلف نکنی.</li>
+<li>پیش از حرکت، حجم آب لازم و منبع‌های قابل‌اعتماد مسیر را برنامه‌ریزی کن.</li>
+<li>روش معتبر تصفیه و ابزار جایگزین مناسب سفر را همراه داشته باش و دستور سازنده را بخوان.</li>
+<li>بطری آب سالم را در ظرف تمیز و دربسته نگه دار و با ظرف آب خام تماس نده.</li>
+<li>فیلتر یا قرص را فقط در محدودهٔ کاربرد و تاریخ مصرف اعلام‌شده استفاده کن؛ روش‌ها را خودسرانه با هم ترکیب نکن.</li>
+<li>آب مشکوک را از آب سالم جدا علامت‌گذاری کن تا کسی از روی ظاهر آن را اشتباه نگیرد.</li>
 </ul>
 <h2>چک‌لیست جمع‌بندی</h2>
-<p>وقتی مجبوری تو شرایط اضطراری فیلتر بسازی، این ترتیب رو تو ذهنت حک کن:</p>
-<p>مواد لازم: بطری، پارچه، زغال پودر، ماسه شسته شده، سنگریزه.</p>
-<p>ترتیب لایه‌ها (از پایین به بالا):</p>
 <ul class="sa-checklist">
-<li>پارچه/پنبه (جلوگیری از ریزش)</li>
-<li>زغال پودر (جذب سموم و بو)</li>
-<li>ماسه نرم (جذب ذرات ریز)</li>
-<li>سنگریزه (جذب آشغال‌های درشت)</li>
+<li>مدل فقط برای نمایش غیرخوراکی ساخته شده است.</li>
+<li>آب طبیعی، فاضلاب یا نمونهٔ شیمیایی برای نمایش به کار نرفته است.</li>
+<li>زغال معمولی را جایگزین زغال فعال یا ضدعفونی‌کننده نمی‌دانم.</li>
+<li>آب خروجی علامت‌گذاری شده و جدا از وسایل آشپزی است.</li>
+<li>برای نوشیدن، آب مطمئن یا روش معتبر سازگار با نوع آلودگی دارم.</li>
 </ul>
-<p>قانون طلایی بقا:</p>
-<ul class="sa-checklist">
-<li>آب رو فیلتر کن تا زلال بشه.</li>
-<li>آب زلال شده رو حتماً بجوشون یا قرص تصفیه بزن تا میکروب‌ها کشته بشن.</li>
-<li>آب سیاه اولیه رو دور بریز.</li>
-</ul>
-<h2>لینک‌های مرتبط</h2>
+<h2>پیوندهای مرتبط</h2>
 <ul>
-<li><a href="/emergency-water-purification/">تصفیهٔ آب در شرایط اضطراری</a> — جوشاندن و قرص: مرحلهٔ ضروری بعد از این فیلتر</li>
+<li><a href="/emergency-water-purification/">تصفیهٔ آب در شرایط اضطراری</a></li>
 <li><a href="/portable-water-filter-review/">معرفی فیلتر آب قابل‌حمل</a></li>
 <li><a href="/drinking-water-in-nature/">تأمین آب آشامیدنی در طبیعت</a></li>
-<li><a href="/camping-water-planning/">آب آشامیدنی در کمپ؛ برنامه‌ریزی، تصفیه و نگهداری</a></li>
+<li><a href="/camping-water-planning/">برنامه‌ریزی آب و نگهداری آن در کمپ</a></li>
 <li><a href="/category/camping-survival/">هاب آموزش‌های کمپینگ</a></li>
 </ul>
 <h2>پیام پایانی</h2>
-<p>رفیق، طبیعت همیشه منابع رو در اختیار ما می‌ذاره، به شرطی که ما هم از مغزمون درست استفاده کنیم.</p>
-<p>ساخت این فیلتر شاید یه کمی زمان‌بر باشه و نیاز به صبر داشته باشه، ولی تو شرایطی که تشنگی داره اذیتت می‌کنه، همین صبر کردن می‌تونه جونت رو نجات بده.</p>
-<p>یادت نره، زلال بودن آب به معنی سالم بودنش نیست. همیشه مرحله نهایی تصفیه (جوشاندن یا مواد شیمیایی) رو فراموش نکن.</p>
-<p>مراقب خودت باش، هیدراته بمون و با احترام از طبیعت عبور کن.</p>
+<p>فیلتر ساده می‌تواند آزمایش دیدنی‌ای باشد، اما آب زلال را به آب آشامیدنی تبدیل نمی‌کند. برای سفر، آب را پیش‌بینی و روش معتبر را پیش از حرکت آماده کن؛ در مورد منبع مشکوک ریسک نکن.</p>
 <p class="sa-article__note">این مقاله جنبهٔ آموزشی دارد و جایگزین توصیهٔ پزشکی، راهنمای محلی، آموزش عملی یا دستور سازندهٔ محصولات نیست.</p>
 SA_ART,
 	),
@@ -3770,7 +3633,7 @@ SA_ART,
 		),
 		'cover'         => array(
 			'file' => 'guides/drowning-rescue-guide.webp',
-			'alt' => 'اینفوگرافیک آموزش نجات غریق: چهار گام از لحظهٔ دیدن تا بیرون آوردن، احیا و مراقبت بعد از نجات، با جایگزین‌های بدون تجهیزات',
+			'alt' => 'اینفوگرافیک آموزش نجات غریق از ساحل: رساندن میله، پرتاب وسیلهٔ شناور، کمک از قایق و ورود فقط برای فرد آموزش‌دیده',
 			'title' => 'اینفوگرافیک آموزش نجات غریق',
 		),
 		'faq'           => array(
@@ -3838,6 +3701,7 @@ SA_ART,
 <li><strong>زمان:</strong> هر ثانیه مهم است؛ از فریاد تا رساندن وسیله باید کمتر از یک دقیقه طول بکشد. CPR را تا رسیدن اورژانس یا بازگشت تنفس ادامه بده.</li>
 <li><strong>هشدار:</strong> در غرق‌شدگی، تنفس مصنوعی اهمیت ویژه دارد؛ اگر آموزش دیده‌ای، CPR را با ۲ تا ۵ تنفس شروع کن و سپس ۳۰ فشار و ۲ تنفس. اگر آموزش ندیده‌ای، فشار قفسهٔ سینه را بدون وقفه ادامه بده.</li>
 </ul>
+<figure class="sa-guide-infographic"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/drowning-rescue-guide.webp" alt="اینفوگرافیک آموزش نجات غریق از ساحل: رساندن میله، پرتاب وسیلهٔ شناور، کمک از قایق و ورود فقط برای فرد آموزش‌دیده" loading="lazy" decoding="async" /></figure>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> اول از همه: نپر توی آب</h3>
 <p>جدی می‌گم. مگه اینکه شناگر حرفه‌ای باشی و آموزش نجات غریق دیده باشی. آدمی که داره غرق می‌شه، از شدت وحشت دست و پا می‌زنه و ناخودآگاه تو رو هم می‌کشه زیر آب. این غریزه‌ست، مقصر نیست. ولی نتیجه‌ش اینه که به جای یه نفر، دو نفر غرق می‌شن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> داد بزن و کمک بخواه</h3>
@@ -4430,14 +4294,8 @@ SA_ART,
 <tr><td>کمان و میلهٔ چوبی (Bow Drill)</td><td>چوب خشک نرم، بند کفش، چاقو</td><td>۵ تا ۳۰ دقیقه با مهارت</td><td>چوب خشک، تمرین</td><td>خستگی، تاول، ناامیدی</td></tr>
 <tr><td>سنگ چخماق و فولاد</td><td>چخماق/فروسریم، تیغهٔ فولادی</td><td>کمتر از یک دقیقه با تمرین</td><td>آتش‌زنهٔ بسیار خشک</td><td>تراشهٔ تیز، بریدگی</td></tr>
 </tbody></table></figure>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/fire-without-lighter-waterproof-matches.webp" alt="جعبهٔ کبریت ضدآب باز با کبریت‌های بلند طوفانی روی سنگ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">کبریت ضدآب، اولین بکاپ</strong><span class="sa-topic-card__desc">کبریت ضدآب در جعبهٔ دربسته، ساده‌ترین و سریع‌ترین جایگزین فندک است که خیس‌شدنش هم قابل پیشگیری است.</span></figcaption>
-</figure>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/fire-without-lighter-ferro-rod.webp" alt="میلهٔ آتش‌زنهٔ فروسریم با جرقه‌های نارنجی روی لانهٔ آتش‌زنه" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فروسریم، جرقه حتی وقتی خیسی</strong><span class="sa-topic-card__desc">میلهٔ فروسریم با تیغهٔ فولادی، در سرما و رطوبت جرقهٔ پایدار می‌دهد و به شارژ باتری وابسته نیست.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/fire-without-lighter-waterproof-matches.webp" alt="جعبهٔ کبریت ضدآب باز با کبریت‌های بلند طوفانی روی سنگ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">کبریت ضدآب، اولین بکاپ</strong><span class="sa-guide-topic-card__description">کبریت ضدآب در جعبهٔ دربسته، ساده‌ترین و سریع‌ترین جایگزین فندک است که خیس‌شدنش هم قابل پیشگیری است.</span></figcaption></figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/fire-without-lighter-ferro-rod.webp" alt="میلهٔ آتش‌زنهٔ فروسریم با جرقه‌های نارنجی روی لانهٔ آتش‌زنه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فروسریم، جرقه حتی وقتی خیسی</strong><span class="sa-guide-topic-card__description">میلهٔ فروسریم با تیغهٔ فولادی، در سرما و رطوبت جرقهٔ پایدار می‌دهد و به شارژ باتری وابسته نیست.</span></figcaption></figure>
 <h2>روش‌های روشن کردن آتش بدون فندک</h2>
 <ul class="sa-steps-meta">
 <li><strong>مناسب برای:</strong> اضطرار واقعی وقتی فندک و کبریت نداری، در محل و فصل مجاز؛ تمرین این روش‌ها در حیاط، پیش از نیاز.</li>
@@ -4511,10 +4369,7 @@ SA_ART,
 <li>قبل از سفر یک بار این روش‌ها را در حیاط امتحان کن تا در سرما و استرس بلد باشی.</li>
 <li>فندک را در کیسهٔ زیپ‌دار کوچک نگه دار؛ بیشتر «فندک ندارم»ها یعنی «فندک خیس شد».</li>
 </ul>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/fire-without-lighter-backup-light.webp" alt="شمع کوچک فلزی و فندک ساده به‌عنوان منبع آتش پشتیبان کنار لانهٔ آتش‌زنه" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">منبع نور و حرارت پشتیبان</strong><span class="sa-topic-card__desc">یک شمع کوچک یا فندک یدک، برای روزی که همهٔ روش‌های سخت جواب ندهند؛ در جای خشک و دربسته نگه دار.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/fire-without-lighter-backup-light.webp" alt="شمع کوچک فلزی و فندک ساده به‌عنوان منبع آتش پشتیبان کنار لانهٔ آتش‌زنه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">منبع نور و حرارت پشتیبان</strong><span class="sa-guide-topic-card__description">یک شمع کوچک یا فندک یدک، برای روزی که همهٔ روش‌های سخت جواب ندهند؛ در جای خشک و دربسته نگه دار.</span></figcaption></figure>
 <h2>چک‌لیست جمع‌بندی</h2>
 <p>وقتی فندک نداری و باید آتش روشن کنی، این مسیر رو تو ذهنت طی کن:</p>
 <p>ارزیابی منابع:</p>
@@ -4744,10 +4599,10 @@ SA_ART,
 SA_ART,
 	),
 	'gps-navigation-tools' => array(
-		'title'          => 'معرفی GPS و ابزار مسیریابی؛ چطور تو دل طبیعت گم نشیم؟',
+		'title'          => 'ابزارهای مسیریابی در طبیعت؛ GPS، نقشه و قطب‌نما',
 		'type'           => 'post',
 		'slug'           => 'gps-navigation-tools',
-		'excerpt'        => 'راهنمای جامع انتخاب و استفاده از ابزارهای مسیریابی در طبیعت. بررسی GPS دستی، اپلیکیشن‌های موبایل، قطب‌نما و نقشه، و ترکیب برنده این ابزارها برای جلوگیری از گم شدن.',
+		'excerpt'        => 'GPS و نقشهٔ آفلاین به پیدا‌کردن موقعیت کمک می‌کنند، اما مسیر امن را تضمین نمی‌کنند. یاد بگیر ابزارهای دیجیتال را با نقشهٔ کاغذی و قطب‌نمای تمرین‌شده پشتیبانی کنی و هنگام گم‌شدن از حرکت بداهه و نشانه‌های طبیعیِ نامطمئن پرهیز کنی.',
 		'english'        => 'GPS and Navigation Tools',
 		'kind'           => 'tent',
 		'category'      => array(
@@ -4757,162 +4612,149 @@ SA_ART,
 			'pro-gear' => 'تجهیزات حرفه‌ای',
 		),
 		'meta'          => array(
-			'sa_seo_title' => 'معرفی GPS و ابزار مسیریابی | چطور تو طبیعت گم نشیم؟',
-			'sa_seo_description' => 'نمی‌دونی تو طبیعت چطور مسیر رو پیدا کنی؟ تو این مقاله انواع GPS دستی، اپلیکیشن‌های موبایل و قطب‌نما رو بررسی کردیم تا تو کوه و جنگل مسیر رو گم نکنی.',
-			'sa_focus_keyword' => 'ابزار مسیریابی',
+			'sa_seo_title' => 'ابزار مسیریابی در طبیعت | GPS، نقشه و قطب‌نما',
+			'sa_seo_description' => 'راهنمای استفادهٔ پشتیبان‌دار از GPS دستی، نقشهٔ آفلاین گوشی، نقشهٔ کاغذی و قطب‌نما؛ همراه با نکات ایمنی وقتی مسیر را گم می‌کنی.',
+			'sa_focus_keyword' => 'ابزار مسیریابی در طبیعت',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
-			'sa_risk_level' => 'متوسط؛ گم‌شدن در طبیعت',
-			'sa_sources' => 'سرویس پارک‌های ملی آمریکا (NPS) — راهنمای «ده اصل ضروری» و ایمنی مسیریابی
-هلال‌احمر جمهوری اسلامی ایران — امداد کوهستان و شمارهٔ ۱۱۲
-سازمان نقشه‌برداری کشور — نقشه‌های توپوگرافی',
+			'sa_risk_level' => 'متوسط؛ گم‌شدن و حرکت در زمین ناشناخته',
+			'sa_sources' => 'GPS.gov — Trilateration | https://www.gps.gov/trilateration
+National Park Service — Outdoor Emergency Plan | https://www.nps.gov/subjects/healthandsafety/upload/NPS-Outdoor-Emergency-Plan-508c.pdf
+National Park Service — Wilderness Travel Basics | https://www.nps.gov/olym/planyourvisit/wilderness-travel-basics.htm
+National Park Service — Wilderness Safety | https://www.nps.gov/olym/planyourvisit/wilderness-safety.htm
+جمعیت هلال‌احمر جمهوری اسلامی ایران — آشنایی با ندای امداد (۱۱۲) | https://learn.rcs.ir/article/%D8%B4%D9%85%D8%A7%D8%B1%D9%87-%D8%AA%D9%85%D8%A7%D8%B3-112-%D9%85%D8%B1%DA%A9%D8%B2-%D9%BE%D8%A7%D8%B3%D8%AE%DA%AF%D9%88%DB%8C%DB%8C-%D8%A8%D9%87-%D8%AD%D9%88%D8%A7%D8%AF%D8%AB-%D9%88-%D8%B3%D9%88-929519',
 		),
-		'cover'         => array(
-			'file' => 'guides/gps-navigation-tools.webp',
-			'alt' => 'اینفوگرافیک ابزار مسیریابی در طبیعت: GPS دستی، اپلیکیشن‌های موبایل، قطب‌نما و نقشه و ترکیب برندهٔ این ابزارها',
-			'title' => 'اینفوگرافیک ابزار مسیریابی',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
-				'q' => 'آیا گوشی موبایل بدون سیم‌کارت و آنتن هم GPS داره؟',
-				'a' => 'بله، صد در صد. چیپ GPS گوشی‌ت با دریافت سیگنال از ماهواره‌ها موقعیتت رو پیدا می‌کنه و هیچ ربطی به آنتن‌دهی مخابرات نداره. اما یادت باشه، برای اینکه اون نقطه آبی رو روی نقشه ببینی، حتماً باید قبل از رفتن به منطقه، نقشه اون ناحیه رو تو اپلیکیشن دانلود کرده باشی (آفلین کنی).',
+				'q' => 'آیا گوشی بدون سیم‌کارت یا آنتن هم موقعیت را پیدا می‌کند؟',
+				'a' => 'گیرندهٔ ماهواره‌ای می‌تواند بدون شبکهٔ موبایل موقعیت را حساب کند، اگر سیگنال بگیرد. برای دیدن نقشه، دادهٔ محدوده را از قبل ذخیره کن و عملکرد برنامه را در نبود اینترنت بیازما.',
 			),
 			array(
-				'q' => 'باتری GPS دستی چقدر دووم میاره؟',
-				'a' => 'بستگی به مدلش داره، ولی اکثر GPSهای دستی استاندارد با دو تا سه جفت باتری قلمی (AA) لیتیومی یا آلکالاین، بین ۱۵ تا ۴۰ ساعت کارکرد مداوم دارن. تو هوای خیلی سرد این زمان کمتر میشه. همیشه یه جفت باتری اضافه تو کوله‌ت داشته باش.',
+				'q' => 'باتری GPS دستی چند ساعت دوام می‌آورد؟',
+				'a' => 'عدد به مدل، تنظیمات، باتری و سرما بستگی دارد. مشخصات سازنده را بخوان، باتری سازگار یدک بردار و پشتیبان مستقل داشته باش.',
 			),
 			array(
-				'q' => 'چرا باید نقشه کاغذی ببرم وقتی GPS و گوشی دارم؟',
-				'a' => 'چون تو طبیعت، قانون "اضافه بودن" حکمفرماست. گوشی‌ت ممکنه بیفته تو رودخونه، باتریش تموم بشه، یا تو سرما خاموش بشه. GPS دستی ممکنه گم بشه. نقشه کاغذی تو یه کاور ضدآب، هیچ‌وقت باتریش تموم نمیشه و همیشه در دسترسه. نقشه کاغذی بیمه‌نامه ابزارهای دیجیتال توئه.',
+				'q' => 'چرا با وجود گوشی و GPS نقشهٔ کاغذی ببرم؟',
+				'a' => 'گوشی ممکن است خیس یا بی‌شارژ شود و GPS هم ممکن است گم شود. نقشه و قطب‌نمای تمرین‌شده به برق وابسته نیستند، اما بدون مهارت پشتیبان واقعی نیستند.',
 			),
 			array(
-				'q' => 'چطور مسیرهای طی شده توسط دیگران رو پیدا کنیم؟',
-				'a' => 'تو اپلیکیشن‌هایی مثل Wikiloc یا حتی گروه‌های کوهنوردی، مسیرهای ثبت شده (GPX Tracks) وجود داره. می‌تونی این فایل‌ها رو دانلود کنی و تو اپلیکیشن مسیریابیت لود کنی. این کار باعث میشه دقیقاً همون مسیری رو بری که قبلاً بقیه رفتن و از نظر ایمنی تایید شده.',
+				'q' => 'ترک مسیرهایی که دیگران ثبت کرده‌اند چقدر قابل اعتماد است؟',
+				'a' => 'ترک به‌تنهایی ایمنی یا مجازبودن مسیر را تأیید نمی‌کند. تاریخ و وضعیت آن را از مرجع محلی بررسی و با نقشه و توان گروه تطبیق بده.',
 			),
 			array(
-				'q' => 'اگه باتری تموم شد و قطب‌نما نداشتیم، چطور جهت رو پیدا کنیم؟',
-				'a' => 'طبیعت پر از نشونه‌ست. ساده‌ترین راه استفاده از خورشیده. خورشید از شرق طلوع و به غرب غروب می‌کنه. اگه ساعت عقربه‌ای داری، می‌تونی با عقربه ساعت‌شمار و خورشید، شمال رو پیدا کنی. تو شب هم ستاره قطبی (دب اصغر) همیشه شمال رو نشون میده. اگه تو جنگل هستی، جریان آب‌های کوچیک معمولاً به رودخونه‌های بزرگتر و در نهایت به آبادی می‌رسه.',
+				'q' => 'اگر باتری تمام شد و قطب‌نما نداشتم، از نشانه‌های طبیعی چه‌طور جهت پیدا کنم؟',
+				'a' => 'نشانه‌های طبیعی جهت دقیق نمی‌دهند و آبراهه می‌تواند به زمین خطرناک برسد. اگر جای خود را نمی‌دانی، بی‌هدف حرکت نکن؛ در محل امن بمان، علامت بده و کمک بخواه.',
 			),
 		),
 		'content'       => <<<'SA_ART'
 <div class="sa-callout sa-callout--answer">
-<p><strong>پاسخ سریع:</strong> در طبیعت به یک ابزار مسیریابی تکیه نکن: گوشی با نقشهٔ آفلاین دانلودشده و پاوربانک، به‌علاوهٔ قطب‌نما و نقشهٔ کاغذی منطقه که قبل از سفر یاد گرفته‌ای. مسیر را به کسی خارج از گروه بگو، در نقاط کلیدی به عقب نگاه کن تا مسیر برگشت را بشناسی و اگر گم شدی، همان‌جا بمان و علامت بده.</p>
+<p><strong>پاسخ سریع:</strong> برای مسیر ناآشنا، نقشهٔ آفلاین دانلود و آزمایش‌شده را با یک پشتیبان مستقل همراه کن: نقشهٔ کاغذیِ همان منطقه و قطب‌نمایی که کار با آن را تمرین کرده‌ای. GPS موقعیت را نشان می‌دهد، نه ایمنی مسیر را؛ مسیر، وضعیت هوا و توان گروه را هم بررسی کن. اگر گم شدی، توقف کن، موقعیت و آخرین نقطهٔ مطمئن را بسنج و اگر راه امن را نمی‌شناسی همان‌جا بمان و کمک بخواه.</p>
 </div>
 <div class="sa-callout sa-callout--warning" role="note">
-<p class="sa-callout__title">⚠️ باتری تمام می‌شود، شب می‌رسد</p>
-<p>گوشی در سرما و با GPS روشن ممکن است در چند ساعت خاموش شود؛ هرگز بدون پاوربانک و روش پشتیبان (قطب‌نما و نقشه) به مسیر ناشناخته نرو. اگر مسیر را گم کردی: بایست، فکر کن، به نقطهٔ آخرِ مطمئن برگرد؛ در تاریکی و مه روی شیب و لبهٔ دره حرکت نکن و با ۱۱۲ یا ۱۱۵ تماس بگیر.</p>
+<p class="sa-callout__title">⚠️ برای آنتن یا آبادی راه نیفت</p>
+<p>گوشی ممکن است نقشهٔ آفلاین نداشته باشد یا باتری‌اش تمام شود؛ درهٔ عمیق و پوشش متراکم درخت می‌توانند دریافت موقعیت را مختل کنند و سرما و رطوبت هم به گوشی آسیب بزنند. اگر مسیر را گم کردی، دنبال رودخانه نرو و برای پیدا‌کردن آنتن از شیب یا یال ناشناخته بالا نرو؛ در جای امن بمان، خودت را گرم نگه دار، علامت بده و با امداد تماس بگیر.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن سر یک دوراهی در جنگل ایستاده‌ای، مه پایین آمده، گوشی‌ات ۱۰ درصد باتری دارد و نقشهٔ آنلاین بارگذاری نمی‌شود. تقریباً همهٔ گم‌شدن‌ها از همین ترکیب شروع می‌شود: اعتماد به یک ابزار، بدون پشتیبان و بدون آمادگی. پایین‌تر سه ابزار اصلی مسیریابی را مقایسه می‌کنیم، می‌بینی هر کدام کجا جواب می‌دهد و کجا کم می‌آورد، و اگر هیچ‌کدام را نداشتی چه کنی.</p>
+<p>فرض کن در دوراهی مه می‌رسد و گوشی نقشه را باز نمی‌کند. نقطهٔ آبی به‌تنهایی راه‌حل نیست؛ باید بدانی نقشه کجا ذخیره شده، آخرین جای مطمئن کجا بوده و چه وقت امن‌تر است بمانی. آماده‌سازی قبلی و پشتیبان مستقل از تصمیم عجولانه جلوگیری می‌کند.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
-<li>نقشهٔ آفلاین منطقه را قبل از سفر دانلود کن و ردپای مسیر (ترک) را روی گوشی یا GPS بگذار.</li>
-<li>اعلام برنامه: مسیر، زمان بازگشت و نقاط توقف را به یک نفر خارج از گروه بده.</li>
-<li>پاوربانک پر، کابل و باتری یدک برای GPS دستی.</li>
-<li>یک قطب‌نمای ساده و نقشهٔ کاغذی منطقه، و دانستن اصول اولیهٔ استفاده از آن‌ها.</li>
-<li>پیش‌بینی هوا را ببین؛ مه و برف نشانه‌های طبیعی مسیر را پاک می‌کنند.</li>
+<li>نقشهٔ آفلاینِ مسیر و اطراف را دانلود و در نبود اینترنت امتحان کن.</li>
+<li>برنامه، زمان بازگشت و زمان پیگیری را به فردی بیرون از گروه بسپار.</li>
+<li>نقشهٔ کاغذیِ به‌روز، قطب‌نما و مهارت استفاده از هر دو را همراه داشته باش.</li>
+<li>شارژ و باتری پشتیبان بردار؛ دوام و مقاومت هر دستگاه به مدل و شرایط بستگی دارد.</li>
+<li>هوا، وضعیت مسیر، محدودیت‌های منطقه و نقاط کم‌دید را پیشاپیش بررسی کن.</li>
 </ul>
 <h2>جدول مقایسه: ابزارهای مسیریابی</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
-<thead><tr><th>ابزار</th><th>نقطهٔ قوت</th><th>ضعف</th><th>باتری/وابستگی</th><th>نقش در سفر</th></tr></thead>
+<thead><tr><th>ابزار</th><th>کاربرد</th><th>محدودیت</th><th>نقش در برنامه</th></tr></thead>
 <tbody>
-<tr><td>گوشی با نقشهٔ آفلاین</td><td>در دسترس، نقشه‌های دقیق، ردیابی مسیر</td><td>شکننده، باتری در سرما، صفحه در باران</td><td>زیاد؛ پاوربانک لازم</td><td>ابزار اصلی روزمره</td></tr>
-<tr><td>GPS دستی</td><td>مقاوم، باتری طولانی، دریافت بهتر زیر درخت</td><td>قیمت، نیاز به یادگیری</td><td>باتری قلمی قابل تعویض</td><td>ابزار اصلی برای سفرهای طولانی</td></tr>
-<tr><td>قطب‌نما + نقشهٔ کاغذی</td><td>بدون باتری، همیشه کار می‌کند</td><td>نیاز به مهارت و تمرین</td><td>هیچ</td><td>پشتیبان همیشگی</td></tr>
-<tr><td>نشانه‌های طبیعی (خورشید، ستاره، شیب)</td><td>همیشه موجود</td><td>تقریبی و وابسته به هوا</td><td>هیچ</td><td>فقط برای جهت‌یابی کلی</td></tr>
+<tr><td>گوشی با نقشهٔ آفلاین</td><td>نمایش نقشه و ثبت موقعیت</td><td>باتری، رطوبت و دادهٔ دانلودنشده</td><td>ابزار روزمره، نه تنها پشتیبان</td></tr>
+<tr><td>GPS دستی</td><td>مختصات و نقشه در بعضی مدل‌ها</td><td>مقاومت، باتری و امکانات مدل‌به‌مدل فرق دارد</td><td>مکمل دیجیتال</td></tr>
+<tr><td>نقشهٔ کاغذی و قطب‌نما</td><td>کار مستقل از برق و شبکه</td><td>نیازمند تمرین و تنظیم انحراف</td><td>پشتیبان مستقل</td></tr>
+<tr><td>نشانه‌های طبیعی</td><td>تطبیق عارضهٔ شناخته‌شده با نقشه</td><td>جهت و مسیر امن را تضمین نمی‌کنند</td><td>فقط سرنخ کمکی</td></tr>
 </tbody></table></figure>
-<h2>روش گام‌به‌گام: انواع ابزار مسیریابی</h2>
+<h2>روش گام‌به‌گام: ترکیب GPS، نقشه و قطب‌نما</h2>
 <ul class="sa-steps-meta">
-<li><strong>مناسب برای:</strong> مسیریابی در پیاده‌روی و کمپ در مسیرهای شناخته‌شده؛ پیمایش‌های فنی، یخچالی و کویری دور نیاز به راهنما و تجهیزات تخصصی دارد.</li>
-<li><strong>لازم داری:</strong> گوشی با نقشهٔ آفلاین و پاوربانک، قطب‌نما، نقشهٔ کاغذی منطقه، سوت و چراغ برای علامت‌دادن.</li>
-<li><strong>زمان:</strong> آماده‌سازی نقشه و اعلام برنامه حدود نیم ساعت قبل از سفر؛ بررسی موقعیت در مسیر هر ۲۰ تا ۳۰ دقیقه و در هر دوراهی.</li>
-<li><strong>هشدار:</strong> سر دوراهی‌های نامطمئن توقف کن و تا مطمئن نشدی ادامه نده؛ «کمی جلوتر می‌فهمم» شایع‌ترین دلیل گم‌شدن است.</li>
+<li><strong>مناسب برای:</strong> مسیرهایی که پیشاپیش بررسی شده‌اند؛ مسیر فنی یا دورافتاده به مهارت و برنامهٔ تخصصی نیاز دارد.</li>
+<li><strong>لازم داری:</strong> نقشهٔ آفلاینِ آزمایش‌شده، گوشی و شارژ، نقشهٔ کاغذی، قطب‌نما و سوت.</li>
+<li><strong>زمان:</strong> مسیر را پیش از حرکت آماده کن و در دوراهی‌ها یا نقاط شاخص دوباره بررسی کن.</li>
+<li><strong>هشدار:</strong> GPS مسیر امن را تضمین نمی‌کند؛ در مه، تاریکی یا زمین نامطمئن توقف کن.</li>
 </ul>
-<p>هر ابزاری یه نقطه قوت و یه نقطه ضعف داره. قانون طلایی طبیعت‌گردی اینه: "دو تا یکیه، و یکی هیچیه". یعنی همیشه باید یه ابزار پشتیبان داشته باشی.</p>
-<h3 class="sa-step"><span class="sa-step__n">۱</span> جی‌پی‌اس دستی (Handheld GPS)</h3>
-<p>این دستگاه‌ها مخصوص کارهای سخت و شرایط اضطراری ساخته شدن. بدنه‌شون ضد ضربه و ضد آبه و با باتری‌های قلمی معمولی کار می‌کنن.</p>
-<ul>
-<li>مزایا: تو شرایط سخت (بارون، ضربه، سرمای شدید) دووم می‌یارن. نیازی به آنتن موبایل ندارن و باتریشون روزها دووم میاره.</li>
-<li>معایب: صفحه نمایش کوچیک و بی‌کیفیت، قیمت بالا، و نقشه‌هاشون معمولاً به جزئیات اپلیکیشن‌های موبایل نیست.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۲</span> اپلیکیشن‌های مسیریابی موبایل</h3>
-<p>امروزه اکثر طبیعت‌گردها از اپلیکیشن‌هایی مثل Wikiloc، Gaia GPS یا اپلیکیشن‌های ایرانی استفاده می‌کنن. این برنامه‌ها نقشه‌های توپوگرافی، مسیرهای طی شده توسط دیگران و ارتفاع‌سنج رو تو گوشی‌ت می‌ذارن.</p>
-<ul>
-<li>مزایا: رایگان یا ارزون، نقشه‌های دقیق و رنگی، رابط کاربری آسون، و ثبت خودکار مسیر (Track recording).</li>
-<li>معایب: قاتل باتری! اگه پاوربانک نداشته باشی، وسط راه گوشی‌ت خاموش میشه. ضمن اینکه گوشی تو طبیعت ممکنه بیفته، خیس بشه یا بشکنه.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۳</span> قطب‌نما و نقشه کاغذی (روش کلاسیک و مرگ‌نشد)</h3>
-<p>این همون ابزاریه که وقتی تمام تکنولوژی‌ها_fail_ می‌کنن، نجاتت می‌ده. یه نقشه کاغذی ضدآب و یه قطب‌نمای پایه‌ای.</p>
-<ul>
-<li>مزایا: هرگز باتریش تموم نمیشه، هرگز هنگ نمی‌کنه، و تو هر شرایط آب و هوایی کار می‌کنه.</li>
-<li>معایب: کار باهاش نیاز به یادگیری و تمرین داره. باید بلد باشی نقشه رو با زمین تطبیق بدی (Orientation).</li>
-</ul>
-<p>جایگزین خلاقانه: اگه هیچ کدوم از این ابزارها رو همراهت نداری و احساس کردی مسیر رو گم کردی، طبیعت خودش بهت جهت رو نشون میده. خورشید (طلوع از شرق، غروب از غرب)، ستاره قطبی تو شب، و حتی شیب کوه‌ها و جریان آب (آب معمولاً تو دره‌ها جریان داره و تو رو به مناطق پایین‌دست و معمولاً آبادی می‌رسونه). (توی مقالات جهت‌یابی با خورشید و ستاره‌ها کامل یادت دادم).</p>
+<h3 class="sa-step"><span class="sa-step__n">۱</span> GPS دستی</h3>
+<p>مختصات و در بعضی مدل‌ها نقشهٔ ذخیره‌شده را نمایش می‌دهد. مقاومت، ضدآب‌بودن و باتری به مدل بستگی دارد؛ در درهٔ عمیق یا زیر پوشش متراکم درخت، دریافت ماهواره‌ای هم ممکن است ضعیف شود.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/gps-handheld.webp" alt="دستگاه GPS دستیِ بی‌نشان با خطوط توپوگرافی ساده روی نمایشگر، در مسیر کوهستانی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">GPS دستی؛ ابزار مکمل</strong><span class="sa-guide-topic-card__description">مدل، باتری و نقشهٔ ذخیره‌شده را بررسی کن؛ دریافت موقعیت در هر نقطه تضمین‌شده نیست.</span></figcaption></figure>
+<h3 class="sa-step"><span class="sa-step__n">۲</span> گوشی با نقشهٔ آفلاین</h3>
+<p>گیرندهٔ ماهواره‌ای گوشی می‌تواند بدون آنتن موبایل موقعیت را حساب کند، اما برنامه فقط نقشه و داده‌هایی را نشان می‌دهد که از قبل ذخیره شده‌اند. در حالت بدون اینترنت امتحانش کن و یاد بگیر مختصات را چطور بخوانی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/gps-offline-map-phone.webp" alt="گوشی هوشمند عمومی با خطوط ترازِ بی‌نوشته روی صفحه، کنار راه جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">گوشی با نقشهٔ آفلاین</strong><span class="sa-guide-topic-card__description">نقشه را پیشاپیش دانلود و در نبود اینترنت آزمایش کن؛ شارژ و محافظت از رطوبت را فراموش نکن.</span></figcaption></figure>
+<h3 class="sa-step"><span class="sa-step__n">۳</span> نقشهٔ کاغذی و قطب‌نما</h3>
+<p>نقشهٔ همان منطقه و مقیاسش را بشناس. قطب‌نما را دور از گوشی، آهن‌ربا و فلز بخوان و برای پیمایش دقیق، انحراف مغناطیسی را طبق نقشه تنظیم کن؛ این مهارت را پیش از مسیر دشوار تمرین کن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/gps-paper-map-compass.webp" alt="نقشهٔ کاغذیِ خطوط تراز و قطب‌نمای پایه‌دارِ بی‌نوشته روی سنگ در فضای باز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نقشه و قطب‌نما؛ پشتیبان مستقل</strong><span class="sa-guide-topic-card__description">وقتی درست تمرین شده باشند، به باتری وابسته نیستند؛ نقشهٔ منطقه و انحراف مغناطیسی را بشناس.</span></figcaption></figure>
+<p><strong>جایگزین خلاقانهٔ بدون باتری:</strong> اگر گوشی یا GPS در دسترس نیست، با نقشهٔ کاغذی و قطب‌نمای تمرین‌شده فقط مسیر شناخته‌شده را ادامه بده. اگر ابزار یا مهارتش را نداری، در محل امن بمان و کمک بخواه.</p>
+<h3 class="sa-step"><span class="sa-step__n">۴</span> نشانه‌های طبیعی؛ فقط سرنخ‌های محدود</h3>
+<p>خورشید، ستاره‌ها و شکل زمین جهت دقیق یا مسیر امن را تضمین نمی‌کنند؛ زمان، فصل، دید و عوارض برداشت را تغییر می‌دهند. خزه و جریان آب هم قطب‌نمای قابل اتکا نیستند. آبراهه ممکن است به پرتگاه، آبشار یا درهٔ تنگ برسد، نه راه یا آبادی؛ از نشانه‌ها فقط برای تطبیق عارضه‌ای شناخته‌شده با نقشه استفاده کن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/gps-natural-landmarks.webp" alt="درهٔ کوهستانی با خورشید نزدیک افق و آبراهه‌ای در میان عوارض طبیعی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نشانه‌های طبیعی؛ نه مسیر‌یاب</strong><span class="sa-guide-topic-card__description">خورشید و آبراهه جهت یا امنیت راه را تضمین نمی‌کنند؛ در صورت گم‌شدن بی‌هدف حرکت نکن.</span></figcaption></figure>
+<p>اگر نمی‌توانی جای خود را با نشانه‌های مطمئن پیدا کنی، به دنبال میان‌بُر نرو؛ در محل امن بمان، گرم و خشک شو و کمک بخواه.</p>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
-<li>در دره‌های البرز و زاگرس و زیر تاج جنگل‌های هیرکانی، دریافت GPS گوشی ضعیف و آنتن موبایل اغلب قطع است؛ نقشهٔ آفلاین و قطب‌نما جایگزین ندارند.</li>
-<li>شمارهٔ امداد کوهستان هلال‌احمر ۱۱۲ و اورژانس ۱۱۵ است؛ در نقاط بدون آنتن، گاهی پیامک یا بالا رفتن تا یال کمک می‌کند.</li>
-<li>مسیرهای چوپانی و مال‌رو در ایران زیادند و با مسیر اصلی اشتباه گرفته می‌شوند؛ به ترک دانلودشده و نشانه‌های مسیر (سنگ‌چین، علامت رنگی) تکیه کن.</li>
-<li>در کویر، فاصله‌ها فریب‌دهنده‌اند و نشانه‌های زمینی کم؛ بدون GPS و ذخیرهٔ آب کافی وارد پهنه‌های باز نشو.</li>
-<li>نقشه‌های توپوگرافی سازمان نقشه‌برداری کشور و ترک‌های گروه‌های کوهنوردی معتبر، منابع خوبی برای آماده‌سازی هستند؛ همیشه تاریخ ترک را چک کن.</li>
+<li>قطع آنتن موبایل لزوماً موقعیت‌یابی ماهواره‌ای را قطع نمی‌کند؛ درهٔ عمیق و پوشش درخت ممکن است دریافت را مختل کنند.</li>
+<li>ترک دیگران و مسیر مال‌رو ممکن است قدیمی یا برای گروه تو نامناسب باشد؛ تاریخ، مجازبودن و وضعیت مسیر را محلی بررسی کن.</li>
+<li>در دشت و کویر، بدون مسیر بررسی‌شده، آب کافی و برنامهٔ بازگشت وارد پهنهٔ ناشناخته نشو.</li>
+<li>شماره‌های امدادی را از مرجع رسمی مقصد بررسی کن؛ در ایران ۱۱۲ برای امدادونجات هلال‌احمر و ۱۱۵ برای اورژانس پزشکی است. اگر تماس ممکن نیست، روش اضطراری را پیشاپیش برنامه‌ریزی کن.</li>
 </ul>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: GPS بهت "مسیر" نشون میده، نه "امنیت" رو. ممکنه GPS بگه از این صخره مستقیم برو، ولی تو واقعیت اونجا پرتگاه باشه. یا مسیری رو نشون بده که تو فصل بارندگی مسیر سیلابیه. همیشه چشم و مغزت رو به ابزار ترجیح بده.</li>
-<li>گوشی را در جیب داخلی و گرم نگه دار و در حالت پرواز با GPS روشن کار کن تا باتری کمتر مصرف شود.</li>
-<li>در هر دوراهی و قبل از تغییر جهت، برگرد و پشت سرت را نگاه کن تا در برگشت مسیر را بشناسی.</li>
-<li>از گروه جدا نشو؛ اگر کسی عقب ماند، همهٔ گروه توقف کند.</li>
-<li>قطب‌نما را دور از گوشی، آهن‌ربا و اجسام فلزی بخوان؛ انحراف چند درجه در چند کیلومتر یعنی صدها متر خطا.</li>
+<li>GPS موقعیت را تخمین می‌زند، نه ایمنی مسیر را؛ زمین، آب‌وهوا و توان گروه را هم بسنج.</li>
+<li>گوشی را از سرما و رطوبت محافظت کن و نقشهٔ مستقل همراه داشته باش.</li>
+<li>در دوراهی نامطمئن توقف کن؛ اگر جای خود را نمی‌دانی، در زمین ناشناخته پیش نرو.</li>
+<li>از گروه جدا نشو و برنامه و زمان برگشت را به یک نفر بیرون از گروه بده.</li>
+<li>قطب‌نما را دور از فلز و آهن‌ربا بخوان و انحراف مغناطیسی نقشه را رعایت کن.</li>
+<li>ترک برنامه یا GPS را تأیید ایمنی‌شده فرض نکن؛ وضعیت مسیر و مهارت گروه را بررسی کن.</li>
+<li>برای آنتن از یال یا شیب ناشناخته بالا نرو؛ در محل امن بمان، علامت بده و کمک بخواه.</li>
 </ol>
 <h2>باورهای غلط</h2>
-<p><strong>باور غلط:</strong> «گوشی موبایلم GPS داره، پس نیازی به قطب‌نما یا GPS دستی ندارم.»</p>
-<p><strong>واقعیت:</strong> چیپ GPS گوشی برای کار کردن نیازی به آنتن سیم‌کارت نداره، ولی اپلیکیشن‌های نقشه برای نشون دادن مسیر، نیاز به "نقشه‌های دانلود شده آفلاین" دارن. اگه قبل از سفر نقشه رو دانلود نکرده باشی، تو منطقه بدون آنتن، فقط یه صفحه خالی می‌بینی. ضمن اینکه باتری گوشی تو هوای سرد و با روشن بودن GPS مداوم، تو چند ساعت تموم میشه.</p>
-<p><strong>باور غلط:</strong> «قطب‌نما همیشه شمال رو درست نشون میده.»</p>
-<p><strong>واقعیت:</strong> قطب‌نما "شمال مغناطیسی" رو نشون میده که با "شمال جغرافیایی" (قطب واقعی) کمی فاصله داره (Declination). تو مسیریابی‌های طولانی و دقیق، باید این اختلاف زاویه رو تو محاسباتت لحاظ کنی، وگرنه تو distances طولانی، کیلومترها از مسیری انحراف پیدا می‌کنی.</p>
-<p><strong>باور غلط:</strong> «با GPS که دیگه گم نمی‌شم.»</p>
-<p><strong>واقعیت:</strong> GPS فقط می‌گوید کجایی؛ تصمیم‌گیری دربارهٔ مسیر امن، برآورد زمان و خواندن زمین با توست و وقتی باتری تمام شد هیچ کمکی نمی‌کند.</p>
+<p><strong>باور غلط:</strong> «گوشی GPS دارد؛ پس نقشهٔ دانلودشده لازم نیست.»</p>
+<p><strong>واقعیت:</strong> گیرندهٔ ماهواره‌ای بدون شبکه هم می‌تواند موقعیت را حساب کند، اما برنامه برای نمایش نقشه به دادهٔ ذخیره‌شده نیاز دارد؛ دریافت هم ممکن است با موانع زمینی ضعیف شود.</p>
+<p><strong>باور غلط:</strong> «GPS دستی همیشه زیر درخت و دره بهتر کار می‌کند.»</p>
+<p><strong>واقعیت:</strong> مقاومت و باتری به مدل بستگی دارد و هر گیرنده‌ای ممکن است در درهٔ عمیق یا پوشش متراکم دچار اختلال شود.</p>
+<p><strong>باور غلط:</strong> «قطب‌نما شمال جغرافیایی را نشان می‌دهد.»</p>
+<p><strong>واقعیت:</strong> سوزن به شمال مغناطیسی اشاره می‌کند؛ اختلاف نقشه را تنظیم کن و از فلز و آهن‌ربا فاصله بگیر.</p>
+<p><strong>باور غلط:</strong> «ترک دیگران یا جریان آب حتماً راه امنی است.»</p>
+<p><strong>واقعیت:</strong> ترک ممکن است قدیمی باشد و آبراهه به زمین خطرناک برسد؛ آن‌ها را فقط سرنخ بدان و مسیر را با نقشه و مرجع محلی بررسی کن.</p>
 <h2>عیب‌یابی و علائم خطر</h2>
 <ul>
-<li><strong>گوشی خاموش شد یا سیگنال ندارد:</strong> به قطب‌نما و نقشه برو، آخرین موقعیت مطمئن را روی نقشه علامت بزن، به جای بلند و باز برو.</li>
-<li><strong>مسیر را گم کردی:</strong> توقف کن (STOP: بایست، فکر کن، مشاهده کن، برنامه بریز)؛ به آخرین نقطهٔ مطمئن برگرد؛ اگر نمی‌دانی کجایی، همان‌جا بمان، گرم بمان و علامت بده.</li>
-<li><strong>هوا بد شد (مه، برف، تاریکی):</strong> حرکت روی زمین ناشناس را متوقف کن، پناه بگیر و منتظر بهبود دید بمان.</li>
-<li><strong>علائم خطر و تماس:</strong> تاریکی نزدیک است و مسیر نامعلوم، فردی مصدوم شده، آب تمام شده یا هوا در حال بدشدن است؛ با ۱۱۲ یا ۱۱۵ تماس بگیر و موقعیت را (مختصات گوشی، نشانه‌های اطراف) بده.</li>
+<li><strong>گوشی خاموش شد یا نقشه باز نمی‌شود:</strong> توقف کن؛ اگر نقشه و قطب‌نمای کاغذی را بلدی به آن‌ها برو، وگرنه در محل امن بمان و کمک بخواه.</li>
+<li><strong>GPS موقعیت نمی‌دهد:</strong> باتری و تنظیمات را طبق دفترچه بررسی کن؛ فقط اگر راه امن است به فضای بازتر برو، نه از شیب ناشناخته.</li>
+<li><strong>مسیر را گم کردی:</strong> نفس بکش، آخرین نقطهٔ مطمئن را مشخص کن و فقط اگر مسیر برگشت را با اطمینان می‌شناسی برگرد؛ در غیر این صورت بمان، گرم شو و علامت بده.</li>
+<li><strong>مه، تاریکی یا باد شدید نزدیک است:</strong> پیمایش ناآشنا را متوقف و در محل امن پناه بگیر.</li>
+<li><strong>مصدومیت، سرمای شدید یا ناتوانی در بازگشت:</strong> با امداد تماس بگیر و مختصات، تعداد افراد و وضعیت را گزارش کن.</li>
 </ul>
 <h2>پیشگیری و کیت</h2>
 <ul>
-<li>قبل از هر سفر، نقشهٔ آفلاین و ترک را دانلود کن و یک بار مسیر را روی نقشه مرور کن.</li>
-<li>اعلام برنامه به یک نفر و ساعت «زنگ خطر» برای تماس او با امداد.</li>
-<li>تمرین قطب‌نما و نقشه در پارک یا مسیر آشنا، قبل از نیاز واقعی.</li>
-<li>کیت علامت‌دهی سبک: سوت، آینهٔ کوچک، چراغ، تکه پارچهٔ رنگی.</li>
+<li>نقشهٔ آفلاین را در خود دستگاه امتحان و نسخهٔ کاغذی همان محدوده را جداگانه نگه دار.</li>
+<li>نقشه‌خوانی و قطب‌نما را در مسیر آشنا تمرین کن.</li>
+<li>پاوربانک، کابل، باتری یدکِ سازگار و کاور مقاوم به آب همراه داشته باش.</li>
+<li>مسیر و زمان بازگشت را به فردی بیرون از گروه بسپار.</li>
+<li>سوت و چراغ بردار و برای منطقهٔ دورافتاده راه ارتباط اضطراری داشته باش.</li>
 </ul>
 <h2>چک‌لیست جمع‌بندی</h2>
-<p>وقتی داری برای مسیریابی آماده میشی، این فلوچارت رو تو ذهنت مرور کن:</p>
-<p>ابزار اصلی (روزمره):</p>
 <ul class="sa-checklist">
-<li>گوشی موبایل + اپلیکیشن مسیریابی با نقشه‌های آفلاین دانلود شده</li>
-<li>پاوربانک و کابل شارژ (حیاتی)</li>
+<li>نقشهٔ آفلاین دانلود و بدون اینترنت آزمایش شده است.</li>
+<li>نقشهٔ کاغذی و قطب‌نمای تمرین‌شده همراه دارم.</li>
+<li>شارژ و منبع برق پشتیبان دارم و دستگاه را از سرما و رطوبت حفظ می‌کنم.</li>
+<li>مسیر و زمان برگشت را به فردی بیرون از گروه گفته‌ام.</li>
+<li>ترک و نشانهٔ طبیعی را تضمین امنیت مسیر فرض نمی‌کنم.</li>
+<li>اگر گم شوم، توقف می‌کنم و برای آنتن یا آبادی بی‌هدف حرکت نمی‌کنم.</li>
 </ul>
-<p>ابزار پشتیبان (شرایط اضطراری):</p>
-<ul class="sa-checklist">
-<li>GPS دستی (برای سفرهای چند روزه و مناطق بکر)</li>
-<li>یا نقشه کاغذی ضدآب + قطب‌نما</li>
-</ul>
-<p>ابزار نهایی (وقتی هیچی نداری):</p>
-<ul class="sa-checklist">
-<li>شناخت خورشید، ستاره‌ها، شیب زمین و جریان آب</li>
-</ul>
-<p>یادت باشه: تکنولوژی فقط یه کمکه، مغز و دقت تو به محیط، ابزار اصلیه.</p>
 <h2>لینک‌های مرتبط</h2>
 <ul>
-<li><a href="/diy-compass/">ساخت قطب‌نما با سوزن و آب</a> — اگر قطب‌نما نداشتی</li>
-<li><a href="/camping-essential-checklist/">چک‌لیست کامل وسایل ضروری کمپینگ</a></li>
-<li><a href="/camping-lighting-guide/">وسایل روشنایی برای کمپ</a></li>
-<li><a href="/first-aid-kit-checklist/">کیف کمک‌های اولیه</a></li>
+<li><a href="/camping-essential-checklist/">چک‌لیست کامل وسایل ضروری کمپینگ</a> — برنامه و وسایل پیش از حرکت</li>
+<li><a href="/diy-compass/">ساخت قطب‌نمای ساده با سوزن و آب</a> — با محدودیت‌های روشنِ قطب‌نمای دست‌ساز</li>
+<li><a href="/camping-lighting-guide/">وسایل روشنایی برای کمپ</a> — چراغ و باتری برای علامت‌دهی</li>
+<li><a href="/first-aid-kit-checklist/">کیف کمک‌های اولیه</a> — آمادگی برای موقعیت اضطراری</li>
 <li><a href="/category/camping-survival/">هاب آموزش‌های کمپینگ</a></li>
 </ul>
 <h2>پیام پایانی</h2>
-<p>رفیق، داشتن بهترین GPS دنیا تو جیبت، به این معنی نیست که تمام مدت سرت تو صفحه نمایش باشه و به منظره‌ها نگاه نکنی.</p>
-<p>هوشیار باش، به عوارض زمین (صخره‌ها، درخت‌های خاص، تقاطع مسیرها) دقت کن و تو ذهنت یا روی کاغذ نشونه‌گذاری کن. بهترین مسیریاب‌ها اونایی هستن که هم ابزار دارن و هم تو حین راه رفتن، مسیر برگشت رو تو ذهنشون ثبت می‌کنن.</p>
-<p>مراقب خودت باش، همیشه مسیرت رو به کسی اطلاع بده و با اعتماد به نفس کامل تو دل طبیعت قدم بزن.</p>
+<p>GPS و گوشی ابزارهای کمک‌کننده‌اند، نه تضمینِ راه امن. نقشهٔ منطقه را از قبل بشناس، پشتیبان مستقل و برنامهٔ تماس داشته باش و اگر جای خودت را گم کردی، به‌جای حدس‌زدن و حرکت بی‌هدف، در جای امن بمان و کمک بخواه.</p>
 <p class="sa-article__note">این مقاله جنبهٔ آموزشی دارد و جایگزین توصیهٔ پزشکی، راهنمای محلی، آموزش عملی یا دستور سازندهٔ محصولات نیست.</p>
 SA_ART,
 	),
@@ -5000,22 +4842,13 @@ SA_ART,
 <p>زیرانداز را روی زمین صاف و خشک بینداز؛ سنگ و ریشه را کنار بزن و اگر زمین مرطوب است، اول یک لایه پلاستیک یا گونی زیر عایق بگذار. در چادر، زیرانداز را کامل زیر کیسه‌خواب بگذار، نه نصفه؛ بدن در خواب جابه‌جا می‌شود.</p>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> اضافه‌کردن لایهٔ عایق در شب سرد</h3>
 <p>برای شب‌های سرد، یک لایه زیر زیرانداز اضافه کن: فوم دوم، روزنامه‌های تا شده، گونی یا فویل اضطراری بازتابنده. قاعده ساده است: هر لایه، یک سد بین تو و زمین است؛ لایه‌های نازک زیاد، گاهی از یک لایه ضخیم بهتر کار می‌کنند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ground-insulation-sleeping-foam-pad.webp" alt="زیرانداز فومی بازشده زیر کیسه‌خواب باز داخل چادر" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فوم سلول‌بسته، عایق مطمئن</strong><span class="sa-topic-card__desc">زیرانداز فوم سلول‌بسته زیر کیسه‌خواب، حتی در زمین مرطوب هم عایق می‌ماند و پنچر نمی‌شود.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ground-insulation-sleeping-foam-pad.webp" alt="زیرانداز فومی بازشده زیر کیسه‌خواب باز داخل چادر" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فوم سلول‌بسته، عایق مطمئن</strong><span class="sa-guide-topic-card__description">زیرانداز فوم سلول‌بسته زیر کیسه‌خواب، حتی در زمین مرطوب هم عایق می‌ماند و پنچر نمی‌شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> استفاده از مواد موجود در طبیعت (اضطراری)</h3>
 <p>اگر زیرانداز نداری، برگ خشک و خاشاک تمیز را در لایه‌ای ضخیم (چند دست) زیر لایهٔ پلاستیکی یا گونی بریز؛ ضخامت مهم‌تر از ظرافت است. روزنامه و گونی، عایق‌های اضطراری خوبی‌اند؛ در <a href="/newspaper-insulation-bed/">تشک و بالش با روزنامه و گونی</a> روش ساختش آمده است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ground-insulation-sleeping-leaf-litter.webp" alt="لایه ضخیم برگ‌های خشک و خاشاک پهن‌شده روی زمین جنگل برای خواب" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">لایهٔ برگ خشک در اضطرار</strong><span class="sa-topic-card__desc">لایهٔ ضخیم برگ و خاشاک تمیز زیر پوشش پلاستیکی، در نبود زیرانداز، سرمای زمین را کم می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ground-insulation-sleeping-leaf-litter.webp" alt="لایه ضخیم برگ‌های خشک و خاشاک پهن‌شده روی زمین جنگل برای خواب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">لایهٔ برگ خشک در اضطرار</strong><span class="sa-guide-topic-card__description">لایهٔ ضخیم برگ و خاشاک تمیز زیر پوشش پلاستیکی، در نبود زیرانداز، سرمای زمین را کم می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> عایق اضطراری فویل و بازتابنده‌ها</h3>
 <p>فویل اضطراری را زیر زیرانداز یا داخل آن (سمت براق به بدن) بینداز تا گرمای تابشی بدن برگردد؛ صدای فویل آزاردهنده است، پس زیر لایهٔ نرم بگذار. این روش مکمل است و جای عایق اصلی را نمی‌گیرد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ground-insulation-sleeping-underlayer.webp" alt="پتوی اضطراری فویلی بازتابنده زیر زیرانداز خواب داخل چادر" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فویل اضطراری، مکمل بازتاب</strong><span class="sa-topic-card__desc">لایهٔ فویلی بازتابنده زیر زیرانداز، گرمای بدن را برمی‌گرداند و در شب‌های سرد مکمل خوبی است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ground-insulation-sleeping-underlayer.webp" alt="پتوی اضطراری فویلی بازتابنده زیر زیرانداز خواب داخل چادر" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فویل اضطراری، مکمل بازتاب</strong><span class="sa-guide-topic-card__description">لایهٔ فویلی بازتابنده زیر زیرانداز، گرمای بدن را برمی‌گرداند و در شب‌های سرد مکمل خوبی است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> مدیریت گرمای بدن تا صبح</h3>
 <p>با لباس خشک و تمیز بخواب؛ لباس روز، رطوبت عرق دارد و سرما می‌سازد. اگر شب سرد شد، کلاه سبک سر کن (سر، بخش بزرگی از گرما را از دست می‌دهد)، آب گرم در بطری دربسته داخل کیسه‌خواب (با احتیاط نشت) و حرکت ملایم انگشتان پا. صبح، زیرانداز را خشک و تا کن.</p>
 <h2>نکات ایمنی</h2>
@@ -5700,10 +5533,7 @@ SA_ART,
 <li>یه دایره به قطر یک متر رو کاملاً تمیز کن. برگ‌ها، خاک‌برگ و علف‌ها رو کنار بزن تا به خاک معدنی (سنگ یا خاک لخت) برسی.</li>
 <li>دور تا دورش رو با سنگ بچین تا باد شعله رو پخش نکنه و آتیش از محدوده خارج نشه.</li>
 </ul>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/campfire-existing-ring.webp" alt="آتش کوچک کنترل‌شده در حلقهٔ سنگی موجود در پاک‌سازی جنگل" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فقط در حلقهٔ سنگی موجود</strong><span class="sa-topic-card__desc">آتش کوچک در حلقهٔ سنگیِ از قبل موجود، امن‌ترین گزینه است؛ حلقهٔ تازه نساز مگر جایگاه مجاز باشد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/campfire-existing-ring.webp" alt="آتش کوچک کنترل‌شده در حلقهٔ سنگی موجود در پاک‌سازی جنگل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فقط در حلقهٔ سنگی موجود</strong><span class="sa-guide-topic-card__description">آتش کوچک در حلقهٔ سنگیِ از قبل موجود، امن‌ترین گزینه است؛ حلقهٔ تازه نساز مگر جایگاه مجاز باشد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> قانون طلایی سه سایز سوخت (مهم‌ترین بخش)</h3>
 <p>بزرگترین اشتباه آماتورها اینه که همون اول کار یه کنده بزرگ می‌ذارن رو آتیش و خفه‌اش می‌کنن. تو باید سه دسته سوخت آماده کنی:</p>
 <ul>
@@ -5724,10 +5554,7 @@ SA_ART,
 <li>اگه آتیش داره خاموش میشه، روش فوت نکن (چون خاکستر می‌پره و حرارت رو می‌بره). به جاش، با یه لوله توخالی (مثل ساقه گیاه) یا یه نی فلزی، آروم و پیوسته از پایین به ریشه آتیش دمیده کن تا اکسیژن برسه.</li>
 </ul>
 <p>جایگزین خلاقانه: اگه آتش‌گیره تجاری نداری و هوا هم مرطوبه، از طبیعت کمک بگیر. پوست درخت توس (Birch) به خاطر داشتن روغن طبیعی حتی وقتی خیس باشه آتیش می‌گیره. شیره خشک شده (صمغ) درختان کاج هم مثل بنزین عمل می‌کنه. حتی فضله کاملاً خشک شده حیوانات علف‌خوار (که تو کوهستان‌ها زیاد پیدا میشه) یه آتش‌گیره فوق‌العاده‌ست که بوی بدی هم موقع سوختن نداره.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/campfire-small-supervised.webp" alt="آتش کوچک زیر نظارت با دست‌های گرم‌کننده کنارش در کمپ جنگلی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">کوچک، زیر نظر، کنترل‌شده</strong><span class="sa-topic-card__desc">آتش کوچک و زیر نظرِ مداوم، گرما می‌دهد و هیزم کمتری می‌سوزاند؛ آتش بزرگ فقط خطر اضافه است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/campfire-small-supervised.webp" alt="آتش کوچک زیر نظارت با دست‌های گرم‌کننده کنارش در کمپ جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">کوچک، زیر نظر، کنترل‌شده</strong><span class="sa-guide-topic-card__description">آتش کوچک و زیر نظرِ مداوم، گرما می‌دهد و هیزم کمتری می‌سوزاند؛ آتش بزرگ فقط خطر اضافه است.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>بیشتر آتش‌سوزی‌های جنگل‌های زاگرس و هیرکانی و مراتع ایران از آتش انسانی و در فصل خشک شروع شده؛ از اواخر بهار تا پاییز، آتش روباز را گزینهٔ آخر بدان.</li>
@@ -5745,10 +5572,7 @@ SA_ART,
 <li>بچه‌ها را در شعاع یک قدمی آتش تنها نگذار و شب قبل از خواب آتش را کامل خاموش کن.</li>
 <li>در سوختگی، محل را ۱۰ تا ۲۰ دقیقه زیر آب خنک بگیر، چیزی رویش نمال و اگر بزرگ یا روی صورت و دست است با ۱۱۵ تماس بگیر.</li>
 </ol>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/campfire-water-extinguishing.webp" alt="ریختن آب روی اخگرهای آتش در حلقهٔ سنگی با بخار سفید" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">خاموش‌کردن با آب و هم‌زدن</strong><span class="sa-topic-card__desc">روی اخگرها آب بریز و خاکستر را هم بزن تا دستت گرما حس کند؛ خاموشی کامل یعنی نه دود، نه بخار.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/campfire-water-extinguishing.webp" alt="ریختن آب روی اخگرهای آتش در حلقهٔ سنگی با بخار سفید" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خاموش‌کردن با آب و هم‌زدن</strong><span class="sa-guide-topic-card__description">روی اخگرها آب بریز و خاکستر را هم بزن تا دستت گرما حس کند؛ خاموشی کامل یعنی نه دود، نه بخار.</span></figcaption></figure>
 <h2>باورهای غلط</h2>
 <p><strong>باور غلط:</strong> «اگه روی آتیش بنزین یا الکل بریزم، سریع روشن میشه.»</p>
 <p><strong>واقعیت:</strong> دست نگه دار! این کار یه گوله آتیشین (Flashback) ایجاد می‌کنه که مستقیم میره تو صورتت و ابروهات رو برای همیشه می‌سوزونه. هرگز مایعات اشتعال‌زا رو مستقیم روی آتیش نریز. اگه مجبوری، اول روی هیزم‌ها اسپری کن، صبر کن تبخیر بشه، بعد فاصله بگیر و آتیش بزن.</p>
@@ -6083,24 +5907,15 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> سه آتش در مثلث</h3>
 <p>سه آتش کوچک با فاصلهٔ زیاد به شکل مثلث بساز؛ این الگو، پیام اضطرار جهانی است. روزها با سوزاندن سبزهٔ مرطوب و چیزی که دود تیره می‌دهد، دید را بیشتر کن؛ شب‌ها آتش، خودش نشانه است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/international-distress-signals-three-fires.webp" alt="سه آتش کوچک با فاصله در دشت باز به شکل مثلث با دود" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سه آتش، مثلث اضطرار</strong><span class="sa-topic-card__desc">سه آتش با فاصله در مثلث، از هوا و دوردست به‌عنوان پیام اضطرار شناخته می‌شود.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/international-distress-signals-three-fires.webp" alt="سه آتش کوچک با فاصله در دشت باز به شکل مثلث با دود" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سه آتش، مثلث اضطرار</strong><span class="sa-guide-topic-card__description">سه آتش با فاصله در مثلث، از هوا و دوردست به‌عنوان پیام اضطرار شناخته می‌شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> نشانه‌های زمینی بزرگ</h3>
 <p>سه خط بزرگ موازی یا V بزرگ را با سنگ، شاخه یا چاله بساز؛ هرچه بزرگ‌تر و متضادتر، بهتر. از بالا خوانده می‌شوند؛ برای هواپیما و هلیکوپتر طراحی شده‌اند.</p>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> پرچم و پارچهٔ تکان‌داده‌شده</h3>
 <p>پرچم یا پارچهٔ روشن را آرام و ممتد تکان بده؛ حرکت منظم، بهتر از تکان‌های تند و بی‌قاعده دیده می‌شود. در نزدیکی جاده و رودخانه، این سیگنال بُرد خوبی دارد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/international-distress-signals-flags.webp" alt="پرچم نارنجی تکان‌داده‌شده در دست فرد در ساحل رودخانه" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">پرچم، اعلام حضور</strong><span class="sa-topic-card__desc">پارچهٔ روشن و تکان منظم، نشانهٔ دیداری ساده و مؤثر برای نجات‌دهندگان در فاصلهٔ نزدیک و متوسط است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/international-distress-signals-flags.webp" alt="پرچم نارنجی تکان‌داده‌شده در دست فرد در ساحل رودخانه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پرچم، اعلام حضور</strong><span class="sa-guide-topic-card__description">پارچهٔ روشن و تکان منظم، نشانهٔ دیداری ساده و مؤثر برای نجات‌دهندگان در فاصلهٔ نزدیک و متوسط است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> علامت‌های دست برای هواپیما</h3>
 <p>اگر هواپیما یا هلیکوپتر تو را دید، با دست جواب بده: دست بالا و پایین بردن آرام (یا درازکشیدن) یعنی «بله، کمک می‌خواهم»؛ دست ضربدری روی سر یا دراز نکردن، یعنی «نه». این علائم، ارتباط بدون صدا هستند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/international-distress-signals-arms-v.webp" alt="فردی با دو بازوی باز به شکل V بزرگ در دشت برای نشان‌دادن اضطرار" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">بازوهای باز، پیام کمک</strong><span class="sa-topic-card__desc">ایستادن با بازوهای باز به شکل V، نشانهٔ شناخته‌شدهٔ اضطرار برای نجات از هواست.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/international-distress-signals-arms-v.webp" alt="فردی با دو بازوی باز به شکل V بزرگ در دشت برای نشان‌دادن اضطرار" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بازوهای باز، پیام کمک</strong><span class="sa-guide-topic-card__description">ایستادن با بازوهای باز به شکل V، نشانهٔ شناخته‌شدهٔ اضطرار برای نجات از هواست.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> تکرار و ماندن</h3>
 <p>هر سیگنال را با الگوی سه‌تایی تکرار کن و در همان محل بمان؛ حرکت پس از سیگنال، جست‌وجو را سخت می‌کند. آب و گرما را مدیریت کن و با ۱۱۵ در صورت آنتن، تماس بگیر.</p>
 <h2>نکات ایمنی</h2>
@@ -6173,7 +5988,7 @@ SA_ART,
 		),
 		'meta'          => array(
 			'sa_seo_title' => 'راهنمای گره‌زدن در طبیعت | سه گرهٔ ضروری کمپ و بقا',
-			'sa_seo_description' => 'گره درست، جان می‌نجات و کار را ساده می‌کنه. تو این راهنما یاد می‌گیری گره پالیک (Bowline)، گره چوب‌بست (Clove Hitch) و گره تنظیمی (Taut-line) رو بزنی و کجاها به‌دردت می‌خورن.',
+			'sa_seo_description' => 'گره‌زدن در طبیعت با سه گرهٔ ضروری: پالیک، چوب‌بست و گره تنظیمی؛ کجا هر کدام را بزنید، چطور باز کنید و چه اشتباهی گره را بی‌فایده می‌کند.',
 			'sa_focus_keyword' => 'گره‌زدن در طبیعت',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
 			'sa_risk_level' => 'متوسط؛ مهارت فنی',
@@ -6237,22 +6052,13 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> گرهٔ پالیک (Bowline): حلقهٔ ثابت</h3>
 <p>«خرگوش از سوراخ بیرون آمد، دور درخت چرخید و دوباره به سوراخ برگشت»؛ این داستان، گرهٔ پالیک را می‌سازد. حلقه‌ای ثابت می‌دهد که زیر بار باز نمی‌شود اما بعد از کار، ساده باز می‌شود؛ برای نجات، آویزان‌کردن و حلقهٔ دور کمر کاربرد دارد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/knot-tying-guide-bowline.webp" alt="گرهٔ پالیک با حلقهٔ ثابت روی طناب نایلونی سفید" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">پالیک، حلقه‌ای که باز نمی‌شود</strong><span class="sa-topic-card__desc">گرهٔ پالیک، حلقهٔ ثابت و قابل‌اتکا می‌سازد؛ اولین گره‌ای که هر طبیعت‌گردی باید بلد باشد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/knot-tying-guide-bowline.webp" alt="گرهٔ پالیک با حلقهٔ ثابت روی طناب نایلونی سفید" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پالیک، حلقه‌ای که باز نمی‌شود</strong><span class="sa-guide-topic-card__description">گرهٔ پالیک، حلقهٔ ثابت و قابل‌اتکا می‌سازد؛ اولین گره‌ای که هر طبیعت‌گردی باید بلد باشد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> گرهٔ چوب‌بست (Clove Hitch): بستن به تیر</h3>
 <p>طناب را دو بار دور تیر بچرخان و از زیر خودش رد کن؛ گره‌ای سریع برای بستن چوب، بند رخت و شاخه. زیر بار یک‌نواخت محکم است، اما زیر بار متغیر ممکن است بلغزد؛ انتهایش را با گرهٔ ایمنی تکمیل کن.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/knot-tying-guide-clove-hitch.webp" alt="گرهٔ چوب‌بست دور تیر چوبی با طناب کم‌رنگ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">چوب‌بست، اتصال سریع</strong><span class="sa-topic-card__desc">گرهٔ چوب‌بست، طناب را سریع به تیر و شاخه می‌بندد؛ برای شروع کار و سازه‌های موقت عالی است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/knot-tying-guide-clove-hitch.webp" alt="گرهٔ چوب‌بست دور تیر چوبی با طناب کم‌رنگ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چوب‌بست، اتصال سریع</strong><span class="sa-guide-topic-card__description">گرهٔ چوب‌بست، طناب را سریع به تیر و شاخه می‌بندد؛ برای شروع کار و سازه‌های موقت عالی است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> گرهٔ تنظیمی (Taut-line): طناب قابل‌کشیدن</h3>
 <p>این گره، حلقه‌ای متحرک می‌سازد که با کشیدن، سفت و با شل‌کردن، آزاد می‌شود؛ برای طناب چادر، بند لباس و هر جایی که نیاز به تنظیم داری. مراقب باش زیر بار خیلی زیاد، لغزش دارد؛ برای بارهای حیاتی، پالیک بهتر است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/knot-tying-guide-tautline.webp" alt="گرهٔ تنظیمی روی طناب چادر با حلقهٔ متحرک نزدیک میخ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">تنظیمی، کشیدن و آزاد</strong><span class="sa-topic-card__desc">گرهٔ تنظیمی، طناب چادر را در باد قابل‌تنظیم نگه می‌دارد؛ گره‌ای که هر کمپ‌زنی لازمش می‌شود.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/knot-tying-guide-tautline.webp" alt="گرهٔ تنظیمی روی طناب چادر با حلقهٔ متحرک نزدیک میخ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">تنظیمی، کشیدن و آزاد</strong><span class="sa-guide-topic-card__description">گرهٔ تنظیمی، طناب چادر را در باد قابل‌تنظیم نگه می‌دارد؛ گره‌ای که هر کمپ‌زنی لازمش می‌شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> تمرین و تکرار</h3>
 <p>هر گره را چند بار با چشم باز و بسته تمرین کن؛ گره‌زدن مهارت دست است و بدون تکرار، فراموش می‌شود. در هر کمپ، یک بار با طناب واقعی تمرین کن؛ طناب‌های نازک و ضخیم، حس متفاوتی دارند.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> ایمنی و بازکردن</h3>
@@ -6397,22 +6203,13 @@ SA_ART,
 <p>اول مطمئن شو جایی که ایستاده‌اید خطر سقوط، ریزش یا آب بالا ندارد. به مصدوم بگو تا جایی که ممکن است پا را تکان ندهد؛ درد و ترس با آرام‌حرف‌زدن کم می‌شود. کفش و جوراب پای آسیب‌دیده را فقط اگر بدون حرکت‌دادن پا ممکن است دربیاور؛ در غیر این صورت همان‌ها را نگه دار.</p>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> آتل‌بندی با وسایل موجود</h3>
 <p>آتل را از بالا و پایین مفصل آسیب‌دیده بگذار؛ برای شکستگی ساق یا مچ، آتل باید از زانو تا زیر مچ برسد. آتل را با پارچهٔ پهن در سه تا چهار نقطه ببند: بالا، پایین و دو طرف آسیب، همه با فشار ملایم. جای خالی بین پا و آتل را با لباس یا پارچه پر کن تا تکان نخورد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/leg-fracture-first-aid-splint.webp" alt="آتل دست‌ساز از تخته و پارچهٔ پهن بسته‌شده روی ساق پا در دشت" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">آتل دست‌ساز با پارچهٔ پهن</strong><span class="sa-topic-card__desc">دو تکه تخته و پارچهٔ پهن، پای مشکوک به شکستگی را از بالا و پایین مفصل ثابت نگه می‌دارد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/leg-fracture-first-aid-splint.webp" alt="آتل دست‌ساز از تخته و پارچهٔ پهن بسته‌شده روی ساق پا در دشت" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آتل دست‌ساز با پارچهٔ پهن</strong><span class="sa-guide-topic-card__description">دو تکه تخته و پارچهٔ پهن، پای مشکوک به شکستگی را از بالا و پایین مفصل ثابت نگه می‌دارد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> استفاده از آتل قالب‌گیر اگر در کیت داری</h3>
 <p>آتل‌های قالب‌گیر فویلی (نوع رایج کیت‌های کوهنوردی) را می‌توانی به شکل پا خم کنی و با بند پهن ببندی؛ سبک‌تر و تمیزتر از تخته است. هر دو روش یک قانون دارند: ثابت‌کردن مفصل‌های بالا و پایین آسیب، بدون فشار زیاد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/leg-fracture-first-aid-moldable-splint.webp" alt="آتل قالب‌گیر فویلی خم‌شده دور زانو و ساق پای آسیب‌دیده" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">آتل قالب‌گیر، سبک‌تر و سریع‌تر</strong><span class="sa-topic-card__desc">آتل قالب‌گیر فویلی به شکل پا خم می‌شود و بدون تخته، زانو و مچ را ثابت نگه می‌دارد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/leg-fracture-first-aid-moldable-splint.webp" alt="آتل قالب‌گیر فویلی خم‌شده دور زانو و ساق پای آسیب‌دیده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آتل قالب‌گیر، سبک‌تر و سریع‌تر</strong><span class="sa-guide-topic-card__description">آتل قالب‌گیر فویلی به شکل پا خم می‌شود و بدون تخته، زانو و مچ را ثابت نگه می‌دارد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> بررسی نبض، حس و رنگ انگشت‌ها</h3>
 <p>بلافاصله بعد از بستن آتل، انگشت‌ها را نگاه کن: رنگ صورتی، گرمای عادی و حس لمس. از مصدوم بخواه انگشت‌هایش را تکان بدهد و بگو چه حسی دارد. هر ۱۰ دقیقه این بررسی را تکرار کن و نتیجه را یادداشت کن؛ بدترشدن حس یعنی بند زیادی سفت است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/leg-fracture-first-aid-check-pulse.webp" alt="دو انگشت در حال بررسی نبض و حس روی پا پس از آتل‌بندی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">هر ۱۰ دقیقه: نبض، حس، رنگ</strong><span class="sa-topic-card__desc">بررسی نبض و حس انگشت‌ها پایین‌تر از آسیب، جریان خون سالم را بعد از آتل‌بندی تأیید می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/leg-fracture-first-aid-check-pulse.webp" alt="دو انگشت در حال بررسی نبض و حس روی پا پس از آتل‌بندی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">هر ۱۰ دقیقه: نبض، حس، رنگ</strong><span class="sa-guide-topic-card__description">بررسی نبض و حس انگشت‌ها پایین‌تر از آسیب، جریان خون سالم را بعد از آتل‌بندی تأیید می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> گرم‌نگه‌داشتن و آماده‌سازی برای امداد</h3>
 <p>پا را کمی بالاتر از قلب بگذار (با کوله یا کیسه خواب)، رویش را بپوشان و از شوک جلوگیری کن: گرم، آرام و بدون نوشیدنی و غذای اضافه. موقعیت را به امداد بده و نشانه بگذار تا پیدایتان کنند؛ اگر انتقال ضروری است، فقط با آتل و چند نفر و با توقف‌های مکرر.</p>
 <h2>نکات ایمنی</h2>
@@ -6549,26 +6346,17 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> ایست (STOP): توقف کامل</h3>
 <p>بایست، چند نفس عمیق بکش و هیچ حرکتی نکن؛ ترس، اولین دشمن گم‌شدن است و هر قدم بی‌جهت، فاصله را بیشتر می‌کند. یک لیوان آب بخور و وضعیتت را بنویس: آخرین نشانهٔ مطمئن، زمان، آب باقی‌مانده، هوا.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/lost-in-nature-guide-stop-sit.webp" alt="فردی نشسته روی سنگ مسیر جنگلی با کوله، مکث‌کرده و آرام" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">اول بایست، بعد فکر کن</strong><span class="sa-topic-card__desc">نشستن و مکث‌کردن، اولین و مهم‌ترین قدم گم‌شدن است؛ حرکت از روی ترس، فاصله را بیشتر می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/lost-in-nature-guide-stop-sit.webp" alt="فردی نشسته روی سنگ مسیر جنگلی با کوله، مکث‌کرده و آرام" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول بایست، بعد فکر کن</strong><span class="sa-guide-topic-card__description">نشستن و مکث‌کردن، اولین و مهم‌ترین قدم گم‌شدن است؛ حرکت از روی ترس، فاصله را بیشتر می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> برگشت تا آخرین نشانهٔ مطمئن</h3>
 <p>اگر آخرین نشانهٔ مطمئن را می‌دانی و فاصله کم است، آرام و با نشانه‌گذاری برگرد؛ هر چند قدم، علامت بگذار تا مسیر برگشت ساخته شود. اگر مطمئن نیستی یا تاریکی نزدیک است، نرو؛ ماندن، تصمیم حرفه‌ای‌تری است.</p>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> نشانه‌گذاری و علائم کمک</h3>
 <p>در جای دیده‌شدن (روشن، باز، نزدیک آب) بمان؛ با سوت سه بار صدا بزن (قاعدهٔ سه، نشانهٔ کمک)، سنگ‌چین یا پارچهٔ رنگی بگذار و آتش در محل امن اگر ممکن است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/lost-in-nature-guide-whistle-signal.webp" alt="سوت اضطراری نارنجی با بند در دست فرد در روشنایی جنگل" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سوت، صدای نجات</strong><span class="sa-topic-card__desc">سوت سه‌تایی، نشانهٔ جهانی کمک‌خواستن است؛ صدای سوت از فریاد دورتر می‌رود و کمتر انرژی می‌گیرد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/lost-in-nature-guide-whistle-signal.webp" alt="سوت اضطراری نارنجی با بند در دست فرد در روشنایی جنگل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سوت، صدای نجات</strong><span class="sa-guide-topic-card__description">سوت سه‌تایی، نشانهٔ جهانی کمک‌خواستن است؛ صدای سوت از فریاد دورتر می‌رود و کمتر انرژی می‌گیرد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> گرم‌ماندن، آب و انرژی</h3>
 <p>در جای امن و گرم بمان؛ لباس اضافه بپوش، از زمین سرد فاصله بگیر و آب را جیره‌بندی کن. آتش کوچک و امن (کنترل‌شده و با مهار) هم گرما می‌دهد و هم دود، نشانه است.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> ماندن در دید و تصمیم‌گیری</h3>
 <p>اگر صدای ماشین یا هواپیما شنیدی، به‌جای دویدن، نشانه بده و در جای دید بمان؛ نجات، آسان‌تر از حدسزدن مسیر است. تصمیم بین ماندن و حرکت را با آرامش و بر اساس آب، هوا و اطلاعات بگیر، نه با ترس.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/lost-in-nature-guide-stay-visible.webp" alt="فرد با کاپشن نارنجی روشن در یال باز کوهستان، دیده‌شدنی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">در دید بمان</strong><span class="sa-topic-card__desc">لباس روشن و قرارگرفتن در جای باز، شانس دیده‌شدن را چند برابر می‌کند؛ نجات، دنبال نشانه می‌گردد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/lost-in-nature-guide-stay-visible.webp" alt="فرد با کاپشن نارنجی روشن در یال باز کوهستان، دیده‌شدنی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">در دید بمان</strong><span class="sa-guide-topic-card__description">لباس روشن و قرارگرفتن در جای باز، شانس دیده‌شدن را چند برابر می‌کند؛ نجات، دنبال نشانه می‌گردد.</span></figcaption></figure>
 <h2>نکات ایمنی</h2>
 <ol>
 <li>هشدار جدی: از ترس ندو؛ بیشتر گمشدگان جدی، کسانی‌اند که بدون نقشه دویده‌اند و فاصلهٔ زیادی از مسیر گرفته‌اند.</li>
@@ -6803,10 +6591,10 @@ SA_ART,
 SA_ART,
 	),
 	'multi-tool-knife-review' => array(
-		'title'          => 'معرفی چاقوهای چندکاره؛ آچار فرانسه طبیعت‌گردی رو چطور انتخاب کنیم؟',
+		'title'          => 'چاقوهای چندکارهٔ طبیعت‌گردی؛ چطور ابزار مناسب را انتخاب کنیم؟',
 		'type'           => 'post',
 		'slug'           => 'multi-tool-knife-review',
-		'excerpt'        => 'راهنمای جامع انتخاب بهترین چاقوی چندکاره (مولتی‌تول) برای طبیعت‌گردی و بقا. بررسی تفاوت چاقوی سوئیسی، مدل‌های انبردستی و ابزارهای بقا، جنس تیغه، و نکات ایمنی و نگهداری.',
+		'excerpt'        => 'تفاوت ابزار جیبی چندکاره، مولتی‌تول انبردستی و تیغه‌ثابت را بشناس؛ برای کار واقعی‌ات مدل مناسب را انتخاب کن، آن را طبق دستور سازنده نگه‌داری کن و از تعمیرهای بداهه یا استفاده برای کارهای سنگین پرهیز کن.',
 		'english'        => 'Multi-tools and Knives',
 		'kind'           => 'tent',
 		'category'      => array(
@@ -6816,147 +6604,128 @@ SA_ART,
 			'pro-gear' => 'تجهیزات حرفه‌ای',
 		),
 		'meta'          => array(
-			'sa_seo_title' => 'معرفی چاقوهای چندکاره | ابزار همه‌کارهٔ طبیعت‌گردی',
-			'sa_seo_description' => 'دنبال بهترین چاقوی چندکاره برای طبیعت‌گردی هستی؟ تو این مقاله انواع مولتی‌تول، چاقوی سوئیسی و ابزارهای بقا رو بررسی کردیم تا تو شرایط اضطراری کم نیاری.',
+			'sa_seo_title' => 'چاقوهای چندکارهٔ کمپینگ | راهنمای انتخاب و ایمنی',
+			'sa_seo_description' => 'مقایسهٔ چاقوی جیبی چندابزاره، ابزار انبردستی و تیغه‌ثابت؛ معیارهای انتخاب، نگهداری و استفادهٔ ایمن در طبیعت‌گردی.',
 			'sa_focus_keyword' => 'چاقوهای چندکاره',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
 			'sa_risk_level' => 'کم تا متوسط؛ ابزار تیز',
-			'sa_sources' => 'سرویس پارک‌های ملی آمریکا (NPS) — ایمنی ابزار و «ده اصل ضروری»
-راهنماهای ایمنی پیشاهنگی (Scouting) — اصول کار ایمن با چاقو در طبیعت',
+			'sa_sources' => 'Scouting America — Knives: Tools, Not Toys | https://www.scouting.org/wp-content/uploads/2024/01/Knives-Tools-not-toys.pdf
+Scouting America — General Safety Guidelines: Knives | https://www.scouting.org/health-and-safety/gss/gss08/',
 		),
-		'cover'         => array(
-			'file' => 'guides/multi-tool-knife-review.webp',
-			'alt' => 'اینفوگرافیک انتخاب چاقوهای چندکاره (مولتی‌تول): انواع و کاربردها، تفاوت مدل‌ها، جنس تیغه و نکات ایمنی و نگهداری',
-			'title' => 'اینفوگرافیک چاقوهای چندکاره',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
-				'q' => 'می‌تونم با مولتی‌تولم چوب بشکافم یا هیزم خرد کنم؟',
-				'a' => 'رفیق، اگه این کار رو بکنی، صدای شکستن لولای مولتی‌تول رو می‌شنوی که داره برات گریه می‌کنه. مولتی‌تول برای بریدن طناب، باز کردن کنسرو و کارهای ظریفه. برای خرد کردن چوب باید بری سراغ چاقوی فیکسد (Fixed Blade) یا تبر. به ابزار ظریفت فشار نیار.',
+				'q' => 'می‌توانم با مولتی‌تول چوب بشکافم یا هیزم خرد کنم؟',
+				'a' => 'نه. تیغه و مفصل ابزار جیبی برای ضربه و اهرم نیستند و ممکن است بشکنند یا بلغزند. برای چوب فقط ابزار مناسب و روش آموزش‌دیده را در محل مجاز به کار ببر؛ اگر مطمئن نیستی، دست‌کاری نکن.',
 			),
 			array(
-				'q' => 'لثرمن بخرم یا ویکتورینوکس (چاقوی سوئیسی)؟',
-				'a' => 'بستگی به دستات داره. اگه بیشتر درگیر تعمیر وسایل، باز کردن گره‌های سفت، و کارهای فنی هستی، لثرمن (مدل‌های انبردستی) پادشاهه. اگه بیشتر برای کمک‌های اولیه، آشپزی سبک، بریدن نخ و کارهای روزمره تو چادر می‌خوای، چاقوی سوئیسی انتخاب بهتریه.',
+				'q' => 'چاقوی جیبی چندابزاره بهتر است یا ابزار انبردستی؟',
+				'a' => 'برای بریدن بند و کارهای کوچک، مدل جیبی سبک کافی است؛ برای گرفتن قطعه و تعمیر محدود، انبردستی مناسب‌تر است. وزن و ظرفیت ابزار را با نیاز سفر بسنج.',
 			),
 			array(
-				'q' => 'وسط طبیعت تیغه چاقوم کند شد. چطور تیزش کنم؟',
-				'a' => 'نگران نباش، لازم نیست سنگ پا ببری. کف یه لیوان سرامیکی یا ماگ چای رو برگردون؛ اون حلقه زبر و بدون لعاب کف لیوان، یه سنگ تیزکن عالی برای چاقو و حتی قیچی مولتی‌توله. اگه لیوان هم نداری، شیشه پنجره ماشین (قسمت پایین که مات‌تره) یا یه سنگ صاف و سخت رودخونه‌ای هم کار رو راه می‌اندازه.',
+				'q' => 'تیغه را وسط طبیعت چطور تیز کنم؟',
+				'a' => 'اگر تیزکن مناسب و تجربه نداری، کار سنگین را متوقف کن و تیزکردن را به خانه موکول کن. از تیزکن مخصوص و دستور سازنده استفاده کن، نه شیشهٔ خودرو، سنگ یا کف ظرف.',
 			),
 			array(
-				'q' => 'حمل این چاقوها تو جاده و طبیعت قانونیه؟',
-				'a' => 'این سوال خیلی مهمه. قوانین حمل ابزار تیز سخت‌گیرانه‌ست و حمل چاقوی ضامن‌دار، نظامی یا تیغهٔ بزرگ می‌تونه مشکل قانونی و پلیسی درست کنه. یه چاقوی تاشوی کوچیک رو داخل کوله (نه در جیب یا روی کمر) حمل کن و موقع عبور از ایست بازرسی محترمانه توضیح بده که ابزار طبیعت‌گردیه. برای مقررات روز، از مراجع رسمی بپرس؛ این مقاله مشاورهٔ حقوقی نیست. از حمل چاقوهای نظامی و بزرگ تو شهر خودداری کن.',
+				'q' => 'حمل چاقوی چندکاره در سفر قانوناً مجاز است؟',
+				'a' => 'قانون به محل، مسیر، وسیلهٔ نقلیه و نوع ابزار بستگی دارد. مقررات رسمی مقصد را بررسی کن و از کوچک‌بودن یا پنهان‌بودن ابزار نتیجهٔ قانونی‌بودن نگیر.',
 			),
 			array(
-				'q' => 'لولای چاقوم شل شده و تیغه لق می‌زنه. چیکار کنم؟',
-				'a' => 'اکثر مولتی‌تول‌های باکیفیت یه پیچ ریز تنظیم لولا دارن. با یه پیچ‌گوشتی ستاره‌ای ریز، سفتش کن. اگه پیچ نداشت یا هرز شده بود، یه قطره خیلی خیلی کوچک لاک ناخن بی‌رنگ یا چسب قطره‌ای به لولا بزن و بذار خشک بشه. این کار اصطکاک رو بالا می‌بره و لقی رو می‌گیره.',
+				'q' => 'لولای چاقو شل شده و تیغه لق می‌زند؛ چه کنم؟',
+				'a' => 'استفاده را متوقف کن و ابزار را امن نگه دار. چسب یا لاک نزن؛ پیچ را فقط طبق دستور سازنده تنظیم کن، وگرنه از تعمیرکار کمک بگیر یا ابزار را تعویض کن.',
 			),
 		),
 		'content'       => <<<'SA_ART'
 <div class="sa-callout sa-callout--answer">
-<p><strong>پاسخ سریع:</strong> برای کمپ معمولی یک چاقوی تاشوی سبک با قفل تیغه و چند ابزار پرکاربرد (دربازکن، پیچ‌گوشتی، قیچی کوچک) کافی است؛ انبردست چندکاره برای تعمیرات و چاقوی تیغه‌ثابت برای کارهای سنگین با چوب. ابزار را تمیز، تیز و در غلاف نگه دار، با چاقوی تاشو چوب نشکاف و آن را دور از دسترس بچه‌ها بگذار.</p>
+<p><strong>پاسخ سریع:</strong> برای بسته‌بندی و کارهای کوچک، چاقوی جیبی چندابزاره سبک است؛ برای گرفتن قطعات و تعمیرهای محدود، ابزار انبردستی مناسب‌تر است. تیغهٔ ثابت فقط وقتی انتخاب خوبی است که به برش کنترل‌شده نیاز داشته باشی و حملش در محل مجاز باشد. هیچ‌کدام را برای اهرم‌کردن یا شکافتن هیزم با ضربه به کار نبر؛ اگر لولا یا قفل ایراد دارد، ابزار را کنار بگذار.</p>
 </div>
 <div class="sa-callout sa-callout--warning" role="note">
-<p class="sa-callout__title">⚠️ ابزار تیز، دست سالم</p>
-<p>بیشتر بریدگی‌های کمپ هنگام بستن چاقوی تاشو یا بریدن به سمت بدن اتفاق می‌افتد؛ همیشه از بدن به بیرون ببر و انگشت‌ها را از مسیر تیغه دور نگه دار. چاقوی تاشو برای شکافتن هیزم یا اهرم‌کردن ساخته نشده و می‌تواند روی دست بسته شود. بریدگی عمیقی که با فشار مستقیم چند دقیقه‌ای بند نمی‌آید، نیاز به تماس با ۱۱۵ و انتقال دارد.</p>
+<p class="sa-callout__title">⚠️ ابزار تیز را با دست سالم نگه دار</p>
+<p>چاقو را فقط در روشنایی کافی و روی سطح ثابت، دور از بدن و دیگران، و مطابق دستور سازنده به کار ببر؛ دست آزاد را بیرون مسیر تیغه نگه دار. تیغه، لولا یا قفل لق و آسیب‌دیده را به کار نبر و با چسب یا لاک تعمیر نکن. بریدگی شدید یا خونریزی‌ای که با فشار مستقیم مهار نمی‌شود، نیاز به تماس فوری با اورژانس دارد.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن وسط کمپ، دسته‌ی قابلمه شل شده، بستهٔ کنسرو باز نمی‌شود و بند کفش باید کوتاه شود؛ همهٔ این‌ها با یک ابزار جیبی چند دقیقه‌ای حل می‌شود، به شرطی که ابزار درستی خریده باشی و بلد باشی با آن کار کنی. پایین‌تر سه خانوادهٔ اصلی چاقوهای چندکاره را مقایسه می‌کنیم، می‌بینی برای سفر تو کدام کافی است و چطور نگه‌اش داری که سال‌ها کار کند.</p>
+<p>فرض کن در کمپ باید بسته‌ای را باز کنی، بندی را کوتاه کنی یا پیچی را تنظیم کنی. ابزار چندکاره این کارهای کوچک را ساده می‌کند، اما مدل بزرگ‌تر الزاماً بهتر نیست؛ وسیله‌ای را انتخاب کن که با کار واقعی سفرت متناسب و استفاده از آن برایت ایمن باشد.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
-<li>نوع کارهایت را مشخص کن: باز کردن بسته و تعمیرات کوچک (چاقوی سوئیسی) یا تعمیر اجاق، چادر و دوچرخه (انبردست چندکاره) یا کار با چوب و آتش (تیغه‌ثابت).</li>
-<li>وزن قابل حمل و جایی که ابزار را نگه می‌داری (جیب، کمر، کوله).</li>
-<li>قفل تیغه را امتحان کن؛ تیغهٔ بی‌قفل برای کارهای سنگین خطرناک است.</li>
-<li>یک سنگ یا میلهٔ تیزکن کوچک بردار؛ چاقوی کند خطرناک‌تر از چاقوی تیز است.</li>
-<li>قوانین حمل ابزار تیز در مسیر و ایست‌های بازرسی را رعایت کن؛ چاقو را در کوله حمل کن، نه آویزان و در معرض دید.</li>
+<li>کارهای محتمل سفرت را مشخص کن؛ برای نیروی زیاد یا کار تخصصی، ابزار همان کار را جداگانه ببر.</li>
+<li>وزن، اندازه و بازکردن ابزار با دستکش را بسنج.</li>
+<li>سلامت تیغه، لولا و قفل را بررسی کن و روش سازنده را یاد بگیر؛ قفل تضمین بی‌خطری نیست.</li>
+<li>مقررات محل و حمل را از مرجع رسمی بررسی کن؛ کوچک‌بودن ابزار دلیل مجازبودن آن نیست.</li>
+<li>تیزکن سازگار و وسایل تمیزکاری همراه داشته باش؛ از سنگ، شیشه یا ماگ بداهه استفاده نکن.</li>
 </ul>
-<h2>جدول مقایسه: کدام ابزار برای کدام کار</h2>
+<h2>جدول مقایسه: کدام ابزار برای کدام کار؟</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
-<thead><tr><th>نوع</th><th>کارهای مناسب</th><th>وزن</th><th>نقطهٔ قوت</th><th>محدودیت</th></tr></thead>
+<thead><tr><th>نوع</th><th>کارهای مناسب</th><th>نقطهٔ قوت</th><th>محدودیت</th><th>نکتهٔ انتخاب</th></tr></thead>
 <tbody>
-<tr><td>چاقوی سوئیسی (چندکارهٔ سبک)</td><td>بازکردن بسته، پیچ‌های کوچک، قیچی، پوست‌کندن</td><td>سبک</td><td>همیشه در جیب، قیمت مناسب</td><td>انبردست ندارد، تیغه کوچک</td></tr>
-<tr><td>انبردست چندکاره</td><td>تعمیر اجاق و چادر، خم‌کردن سیم، بریدن طناب</td><td>متوسط</td><td>انبردست و سیم‌چین واقعی</td><td>سنگین‌تر، قیمت بالاتر</td></tr>
-<tr><td>چاقوی تیغه‌ثابت</td><td>تراشیدن چوب، آماده‌سازی آتش، کارهای سنگین</td><td>متوسط تا سنگین</td><td>محکم، بی‌لولا</td><td>نیاز به غلاف، حمل حساس‌تر</td></tr>
-<tr><td>ترکیب سبک</td><td>چاقوی تاشو کوچک + انبردست کوچک جداگانه</td><td>سبک تا متوسط</td><td>ارزان و قابل تعویض</td><td>دو وسیله برای حمل</td></tr>
+<tr><td>چاقوی جیبی چندابزاره</td><td>بازکردن بسته، بریدن بند و کارهای ظریف</td><td>سبک و جمع‌وجور</td><td>تیغه و ابزارها کوچک‌اند</td><td>باز و بسته‌شدن ایمن و نگهداری آسان</td></tr>
+<tr><td>ابزار انبردستی چندکاره</td><td>گرفتن قطعه و تعمیرهای سبک</td><td>چند ابزار در یک وسیله</td><td>سنگین‌تر و دارای مفصل‌های بیشتر</td><td>ظرفیت هر ابزار و قفل آن را بررسی کن</td></tr>
+<tr><td>چاقوی تیغه‌ثابت</td><td>برش‌های کنترل‌شده با تیغهٔ ثابت</td><td>آماده‌به‌کار و بدون لولای تاشو</td><td>حمل و غلاف مناسب لازم دارد</td><td>تیغهٔ ثابت هم ممکن است بشکند یا آسیب ببیند</td></tr>
+<tr><td>ابزار جداگانه</td><td>کارهایی که نیروی زیاد یا ابزار تخصصی می‌خواهند</td><td>متناسب با همان کار</td><td>وزن و حجم بیشتر</td><td>برای اره‌کردن، بریدن سیم یا تعمیر حساس، ابزار درست را جداگانه انتخاب کن</td></tr>
 </tbody></table></figure>
-<h2>روش گام‌به‌گام: انواع چاقوهای چندکاره</h2>
+<h2>روش گام‌به‌گام: انتخاب ابزار چندکاره</h2>
 <ul class="sa-steps-meta">
-<li><strong>مناسب برای:</strong> انتخاب و نگهداری ابزار برش برای کمپ و پیمایش؛ نه کارهای فنی نجات یا کار حرفه‌ای با چوب.</li>
-<li><strong>لازم داری:</strong> یک چاقوی چندکاره با قفل تیغه، سنگ تیزکن کوچک، چند قطره روغن سبک، پارچهٔ خشک برای نگهداری.</li>
-<li><strong>زمان:</strong> انتخاب چند دقیقه؛ تیزکردن ساده در طبیعت ۵ تا ۱۰ دقیقه.</li>
-<li><strong>هشدار:</strong> چاقو را در حالت باز روی زمین یا میز رها نکن و هنگام کار، بچه‌ها و همسفران خارج از شعاع دست باشند.</li>
+<li><strong>مناسب برای:</strong> کارهای کوچک و انتخاب ابزار برش برای کمپ؛ نه نجات، اهرم‌کردن یا شکافتن هیزم.</li>
+<li><strong>لازم داری:</strong> فهرست کارهای سفر، مشخصات سازنده و جای نگهداری امن.</li>
+<li><strong>زمان:</strong> چند دقیقه برای بازبینی پیش از سفر؛ ابزار معیوب را همان‌جا تعمیرشده فرض نکن.</li>
+<li><strong>هشدار:</strong> با تیغهٔ باز راه نرو؛ آن را روی زمین رها نکن یا به سمت هم‌سفرانت نچرخان.</li>
 </ul>
-<p>هر مدلی برای یه سبک از طبیعت‌گردی ساخته شده. باید ببینی تو بیشتر به چی نیاز داری.</p>
-<h3 class="sa-step"><span class="sa-step__n">۱</span> چاقوهای سوئیسی (Swiss Army Knives)</h3>
-<p>همون مدل‌های کلاسیک با دسته قرمز و لوگوی صلیب سفید. پر از ابزارهای ریز مثل قیچی، خلال دندان، سوهان ناخن و بازکننده بطری.</p>
-<ul>
-<li>مزایا: فوق‌العاده سبک، ظریف، عالی برای کارهای دقیق (مثل کمک‌های اولیه، خارج کردن تیغ از پا، یا تعمیرات ریز).</li>
-<li>معایب: تیغه اصلی‌شون معمولاً ضعیفه و برای کارهای سنگین مثل بریدن چوب یا فشار دادن اصلاً ساخته نشده.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۲</span> انبردست‌های چندکاره (Plier-based Multi-tools)</h3>
-<p>این‌ها غول‌های جیبی‌ان. نمونه‌های معروفش رو احتمالاً تو دست کوهنوردها دیدی. ابزار اصلیشون یه انبردست محکمه که باز میشه و بقیه تیغه‌ها و ابزارها از دلش بیرون میان.</p>
-<ul>
-<li>مزایا: قدرت فوق‌العاده. می‌تونی باهاش سیم ببندی، میخ بکشی، پیچ سفت رو باز کنی و کارهای سنگین انجام بدی. برای تعمیر تجهیزات کمپ معجزه می‌کنن.</li>
-<li>معایب: سنگین‌ترن، جاگیرترن و کار کردن با تیغه اصلی‌شون به اندازه چاقوی معمولی راحت نیست.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۳</span> چاقوهای فیکسد یا بقا (Fixed Blade / Survival Knives)</h3>
-<p>این‌ها اصلاً چندکاره نیستن، فقط یه تیغه ثابت و محکم با دسته ergonomics دارن، ولی چون خیلیا موقع خرید با مولتی‌تول‌ها اشتباهشون می‌گیرن، باید معرفیشون کنم.</p>
-<ul>
-<li>مزایا: قدرت بی‌نهایت. می‌تونی باهاش چوب بشکافی (Batoning)، خیمه بسازی و کارهای سنگین انجام بدی. هرگز تو دسته نمی‌شکنه.</li>
-<li>معایب: فقط یه کار انجام می‌ده: بریدن و شکافتن. انبردست یا پیچ‌گوشتی نداره.</li>
-</ul>
-<p>جایگزین خلاقانه: اگه پول یا فضای کافی برای خرید یه مولتی‌تول گرون‌قیمت رو نداری، ترکیب طلایی کوهنوردهای قدیمی رو بساز: یه چاقوی جیبی ساده و تیز + یه حلقه نخ ماهیگیری (یا پاراکورد) + یه رول چسب نواری پهن (Duct Tape). این سه تا وسیله ارزان، ۹۰ درصد کارهایی رو انجام می‌دن که یه مولتی‌تول ۵۰ تکه انجام می‌ده، تازه با قدرت و اطمینان خیلی بیشتر.</p>
+<h3 class="sa-step"><span class="sa-step__n">۱</span> چاقوی جیبی چندابزاره</h3>
+<p>برای بریدن بند، بازکردن بسته و کارهای ریز مناسب است؛ تیغه و لولا را زیر فشار، ضربه یا اهرم نگذار.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/multi-tool-pocket.webp" alt="چاقوی جیبی چندابزارهٔ بی‌نام با چند ابزار باز، روی سنگ در فضای باز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چاقوی جیبی چندابزاره؛ سبک و کوچک</strong><span class="sa-guide-topic-card__description">برای برش‌های کنترل‌شده و کارهای ریز؛ ابزار ظریف را زیر فشار زیاد نگذار.</span></figcaption></figure>
+<h3 class="sa-step"><span class="sa-step__n">۲</span> ابزار انبردستی چندکاره</h3>
+<p>برای گرفتن قطعه و تعمیر سبک به‌درد می‌خورد، اما ظرفیت انبردست، سیم‌چین و پیچ‌گوشتی در هر مدل فرق دارد. با آن پیچ سفت، سیم برق یا قطعهٔ داغ را دست‌کاری نکن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/multi-tool-pliers.webp" alt="ابزار انبردستی چندکارهٔ فلزی و بی‌نام با چند ابزار باز، روی میز چوبی در فضای باز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ابزار انبردستی؛ برای تعمیرهای محدود</strong><span class="sa-guide-topic-card__description">برای گرفتن قطعات و کارهای سبک؛ ظرفیت و محدودیت هر ابزار را از سازنده بررسی کن.</span></figcaption></figure>
+<h3 class="sa-step"><span class="sa-step__n">۳</span> چاقوی تیغه‌ثابت</h3>
+<p>نداشتن لولا به‌معنای نشکستن تیغه یا دسته نیست. آن را فقط برای برش کنترل‌شده و با غلاف مناسب انتخاب کن؛ برای اره‌کردن چوب یا هیزم، ابزار مخصوص و روش آموزش‌دیده لازم است.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/multi-tool-fixed-blade.webp" alt="چاقوی تیغه‌ثابت ساده و بی‌نام همراه غلاف، روی سنگ در محیط جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">تیغه‌ثابت؛ بدون لولای تاشو</strong><span class="sa-guide-topic-card__description">برای برش کنترل‌شده با غلاف مناسب؛ ثابت‌بودن تیغه به‌معنای نشکستن آن نیست.</span></figcaption></figure>
+<p><strong>جایگزین خلاقانه و کم‌خطر:</strong> برای بستهٔ دارای زبانه یا بند سبک، از همان زبانه یا قیچی مناسبِ کیت استفاده کن و روی سطح ثابت کار کن. اگر ابزار مناسب نداری، کار را عقب بینداز؛ دندان، سنگ، شیشه و چوب وسیلهٔ برش یا اهرم نیستند. طناب و چسب معمولی هم جای ابزار یا قطعهٔ ایمنیِ تأییدشده را نمی‌گیرند.</p>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
-<li>در ایست‌های بازرسی جاده‌ای، چاقوی چندکارهٔ کوچک داخل کوله معمولاً ابزار سفر محسوب می‌شود؛ چاقوهای بزرگ، نظامی و ضامن‌دار می‌توانند مشکل قانونی ایجاد کنند. از حمل آن‌ها خودداری کن و برای مقررات روز از مراجع رسمی بپرس.</li>
-<li>رطوبت شمال و نمک ساحل جنوب تیغه را حتی اگر «ضدزنگ» باشد لکه می‌اندازد؛ بعد از هر سفر خشک و روغن‌کاری کن.</li>
-<li>ابزار چندکارهٔ ارزان بازار اغلب قفل ضعیف و فولاد نرم دارد؛ قبل از خرید قفل و لقی تیغه را امتحان کن.</li>
-<li>در مناطق حفاظت‌شده، بریدن شاخهٔ زنده ممنوع است؛ چاقو را برای چوب خشک افتاده استفاده کن.</li>
-<li>سنگ تیزکن طبیعی (سنگ رودخانه‌ای صاف و ریزدانه) در بیشتر مسیرها پیدا می‌شود و برای تیزکردن اضطراری کافی است.</li>
+<li>مقررات حمل با محل، مسیر و وسیلهٔ نقلیه فرق می‌کند؛ پیش از سفر مرجع رسمی مقصد را بررسی کن و اگر محدودیت روشن نیست، ابزار را نبر.</li>
+<li>پس از سفر ابزار را تمیز و خشک کن و روش نگهداری سازنده را به کار ببر؛ رطوبت و نمک به بعضی تیغه‌ها آسیب می‌زند.</li>
+<li>گیاه زنده را برای سوخت یا سازه نبر؛ جمع‌آوری چوب افتاده هم تابع مقررات محل است.</li>
+<li>ابزار دارای لقی یا قفل معیوب را کنار بگذار؛ با چسب یا لاک تعمیرش نکن.</li>
 </ul>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: چاقوی کند، از چاقوی تیز خطرناک‌تره. وقتی تیغه کنده، برای بریدن باید فشار بیشتری بیاری، و وقتی فشار میاری، اگه لیز بخوره، مستقیم میره تو گوشتت. تو طبیعت زخم عمیق یعنی عفونت و دردسر. همیشه تیغه رو تیز نگه دار.</li>
-<li>همیشه از بدن به سمت بیرون ببر و دست دیگرت را خارج از مسیر تیغه نگه دار.</li>
-<li>چاقو را فقط وقتی ایستاده‌ای و تعادل داری باز کن؛ در حال راه رفتن یا در تاریکی با چاقوی باز کار نکن.</li>
-<li>چاقو را دسته‌به‌جلو و بسته به دیگران بده.</li>
-<li>ابزار را دور از دسترس بچه‌ها و در غلاف یا جیب زیپ‌دار نگه دار.</li>
+<li>روی سطح ثابت و در روشنایی کافی کار کن؛ نه هنگام حرکت یا در تاریکی.</li>
+<li>برش را از بدن دور کن و دست آزاد را بیرون مسیر تیغه نگه دار؛ چیزی را روی پا یا در دست نبر.</li>
+<li>قفل را طبق دستور سازنده به کار ببر؛ قفل سالم هم مجوز فشار و اهرم‌کردن نیست.</li>
+<li>ابزار را بسته و دسته‌به‌جلو بده؛ اگر فرد آماده نیست، آن را روی سطح بگذار.</li>
+<li>وسیلهٔ استفاده‌نشده را ببند و در غلاف یا محفظهٔ امن، دور از دسترس کودک بگذار.</li>
+<li>اگر تیغه می‌لغزد، لولا لق است یا قفل عمل نمی‌کند، کار را متوقف کن.</li>
 </ol>
 <h2>باورهای غلط</h2>
-<p><strong>باور غلط:</strong> «هرچی ابزار بیشتری داشته باشه، بهتره.»</p>
-<p><strong>واقعیت:</strong> یه مولتی‌تول ۳۰ تکه، هم سنگینه، هم باز کردن ابزارهای ریزش تو هوای سرد و با دستکش سخته. یه مدل ۱۰ تا ۱۵ تکه که ابزارهاش واقعاً به درد می‌خورن (تیغه، انبردست، پیچ‌گوشتی دوسو، قیچی، اره کوچک) صد برابر بهتره.</p>
-<p><strong>باور غلط:</strong> «فولاد زنگ‌نزن (Stainless Steel) هرگز زنگ نمی‌زنه.»</p>
-<p><strong>واقعیت:</strong> فقط "دیرتر" زنگ می‌زنه. اگه بعد از بریدن میوه یا گوشت، تیغه رو تمیز نکنی و خشک نکنی، تو رطوبت شبانه زنگ می‌زنه. بعد از هر استفاده، تمیزش کن و یه قطره روغن بهش بزن.</p>
-<p><strong>باور غلط:</strong> «چاقوی کند امن‌تر از چاقوی تیز است.»</p>
-<p><strong>واقعیت:</strong> چاقوی کند نیروی بیشتری می‌خواهد و سر می‌خورد؛ بیشتر بریدگی‌های جدی با تیغهٔ کند اتفاق می‌افتد.</p>
+<p><strong>باور غلط:</strong> «هرچه ابزار بیشتری داشته باشد، بهتر است.»</p>
+<p><strong>واقعیت:</strong> ابزار اضافه وزن می‌آورد؛ مدلی را بردار که ابزارهایش واقعاً به کارت می‌آیند.</p>
+<p><strong>باور غلط:</strong> «فولاد زنگ‌نزن هیچ‌وقت زنگ نمی‌زند.»</p>
+<p><strong>واقعیت:</strong> مقاومت به خوردگی به جنس و شرایط بستگی دارد؛ تیغه را تمیز و خشک کن و روش سازنده را دنبال کن.</p>
+<p><strong>باور غلط:</strong> «با چاقوی محکم می‌شود هیزم را با ضربه شکافت.»</p>
+<p><strong>واقعیت:</strong> ضربه می‌تواند تیغه را بشکند یا منحرف کند؛ از چاقوی تاشو برای اهرم یا شکافتن استفاده نکن.</p>
+<p><strong>باور غلط:</strong> «سنگ، کف ماگ یا شیشهٔ ماشین جای تیزکن است.»</p>
+<p><strong>واقعیت:</strong> این سطح‌ها قابل پیش‌بینی نیستند و ممکن است تیغه را خراب یا هنگام تیزکردن باعث لغزش شوند؛ تیزکن مناسب به کار ببر.</p>
 <h2>عیب‌یابی و علائم خطر</h2>
 <ul>
-<li><strong>تیغه کند شده:</strong> با سنگ تیزکن یا سنگ صاف ریزدانهٔ خیس، با زاویهٔ ثابت حدود ۲۰ درجه چند بار از هر طرف بکش.</li>
-<li><strong>تیغه زنگ زده یا لولا سفت است:</strong> با پارچه و کمی روغن تمیز کن؛ زنگ سطحی را با سنباده بسیار نرم یا سنگ بردار.</li>
-<li><strong>لولا یا قفل لق می‌زند:</strong> از ابزار برای کار سنگین استفاده نکن تا در خانه پیچ را سفت یا ابزار را تعویض کنی.</li>
-<li><strong>علائم خطر:</strong> بریدگی عمیق با خونریزی که با فشار مستقیم بند نمی‌آید، بریدگی روی تاندون یا مفصل، یا بی‌حسی انگشت؛ فشار مستقیم، بالا نگه داشتن، پانسمان و تماس با ۱۱۵.</li>
+<li><strong>تیغه کند است:</strong> از کار سنگین دست بکش؛ در خانه با تیزکن مناسب و طبق روش سازنده تیزش کن، یا از تعمیرکار کمک بگیر.</li>
+<li><strong>لولا یا قفل لق/گیر است:</strong> با زور باز و بسته نکن. اگر ایراد بعد از تمیزکردن باقی ماند، استفاده را متوقف کن.</li>
+<li><strong>تیغه آزاد می‌شود یا بازی دارد:</strong> چسب قطره‌ای، لاک یا تنظیمِ بی‌دستور نزن؛ تعمیر استاندارد یا تعویض لازم است.</li>
+<li><strong>بریدگی عمیق یا خونریزی شدید:</strong> فشار مستقیم را آغاز کن و با اورژانس تماس بگیر؛ جسم فرورفته را بیرون نکش.</li>
 </ul>
 <h2>پیشگیری و کیت</h2>
 <ul>
-<li>چاقو را بعد از هر سفر تمیز، خشک و روغن‌کاری کن.</li>
-<li>قبل از هر سفر قفل و تیزی را چک کن؛ سنگ تیزکن کوچک همیشه در کیت باشد.</li>
-<li>برای هیزم از تبر کوچک یا ارهٔ تاشو استفاده کن، نه چاقوی تاشو.</li>
-<li>چند چسب زخم و پانسمان در همان جیبی که چاقو هست بگذار.</li>
+<li>پیش از سفر تیغه، لولا، قفل، دسته و غلاف را بررسی کن و ابزار آسیب‌دیده را جایگزین کن.</li>
+<li>پس از استفاده وسیله را تمیز و خشک کن؛ روان‌کاری را فقط طبق دستور سازنده انجام بده.</li>
+<li>تیزکن سازگار، پارچهٔ تمیز و دستکش مناسب را در کیت تعمیر بگذار.</li>
+<li>چاقو را بسته یا در غلاف و دور از دسترس کودک حمل کن؛ چند پانسمان ساده هم در کیت کمک‌های اولیه داشته باش.</li>
 </ul>
 <h2>چک‌لیست جمع‌بندی</h2>
-<p>وقتی می‌خوای چاقوی چندکاره بخری یا استفاده کنی، این فلوچارت رو تو ذهنت مرور کن:</p>
-<p>نیازت چیه؟</p>
 <ul class="sa-checklist">
-<li>کارهای ظریف، کمک‌های اولیه، آشپزی -&gt; چاقوی سوئیسی</li>
-<li>تعمیر تجهیزات، انبردست، کارهای سنگین جیبی -&gt; مولتی‌تول انبردستی</li>
-<li>بریدن چوب، ساخت سازه، بقای سنگین -&gt; چاقوی فیکسد (Fixed Blade)</li>
+<li>ابزار را برای کار واقعی سفر انتخاب کرده‌ام و قفل و غلاف آن سالم‌اند.</li>
+<li>چاقو را برای اهرم‌کردن یا شکافتن هیزم با ضربه به کار نمی‌برم.</li>
+<li>تیزکن مناسب دارم و از شیشه، ماگ یا سنگ تصادفی استفاده نمی‌کنم.</li>
+<li>مقررات حمل و محدودیت مقصد را بررسی کرده‌ام.</li>
+<li>ابزار بسته و دور از دسترس کودک است.</li>
 </ul>
-<p>ویژگی‌های ضروری:</p>
-<ul class="sa-checklist">
-<li>تیغه اصلی قفل‌شو (Locking blade) تا تو دستت بسته نشه.</li>
-<li>جنس بدنه استیل ضدزنگ باکیفیت.</li>
-<li>قابلیت حمل آسان (گیره کمربند یا غلاف).</li>
-</ul>
-<p>یادت باشه: ابزار زیاد = وزن زیاد. فقط چیزی رو بخر که واقعاً بلد باشی ازش استفاده کنی.</p>
 <h2>لینک‌های مرتبط</h2>
 <ul>
 <li><a href="/camping-essential-checklist/">چک‌لیست کامل وسایل ضروری کمپینگ</a></li>
@@ -6966,10 +6735,7 @@ SA_ART,
 <li><a href="/category/camping-survival/">هاب آموزش‌های کمپینگ</a></li>
 </ul>
 <h2>پیام پایانی</h2>
-<p>رفیق، چاقوی چندکاره مثل یه رفیق قدیمیه که تو هر شرایطی هوات رو داره، به شرطی که تو هم هوای اون رو داشته باشی.</p>
-<p>بعد از هر سفر، ابزارهاش رو باز کن، با یه مسواک کهنه و یه کم الکل تمیزش کن و لولاهاش رو با یه قطره روغن چرب کن.</p>
-<p>و یه قانون طلایی: هیچ‌وقت، تکرار می‌کنم هیچ‌وقت چاقوی تیزت رو به کسی که دستش لرزه یا بلد نیست چطور باهاش کار کنه قرض نده.</p>
-<p>مراقب دستات باش، ابزارت رو دوست داشته باش، و تو طبیعت همیشه آماده باش.</p>
+<p>ابزار چندکاره زمانی مفید است که با کار موردنیاز تناسب داشته باشد و سالم بماند. اگر تیغه، لولا یا قفل مطمئن نیست، استفاده را متوقف کن؛ تعمیر بداهه ارزش خطر بریدگی را ندارد.</p>
 <p class="sa-article__note">این مقاله جنبهٔ آموزشی دارد و جایگزین توصیهٔ پزشکی، راهنمای محلی، آموزش عملی یا دستور سازندهٔ محصولات نیست.</p>
 SA_ART,
 	),
@@ -7054,22 +6820,13 @@ USGS — ناوبری شبانه و ترکیب روش‌های آسمانی و �
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> یافتن خرس بزرگ (دب اکبر)</h3>
 <p>خرس بزرگ، همان «گاری» هفت‌ستاره‌ای است که در بیشتر شب‌های سال در آسمان شمالی دیده می‌شود؛ دو ستارهٔ جلوی کاسه (لبهٔ بیرونی) را پیدا کن.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-stars-big-dipper.webp" alt="صورت فلکی خرس بزرگ با هفت ستارهٔ روشن در آسمان شب کوهستان" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">خرس بزرگ، نقشهٔ آسمان</strong><span class="sa-topic-card__desc">هفت ستارهٔ خرس بزرگ، رایج‌ترین راهنمای یافتن ستاره قطبی در نیم‌کرهٔ شمالی‌اند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-stars-big-dipper.webp" alt="صورت فلکی خرس بزرگ با هفت ستارهٔ روشن در آسمان شب کوهستان" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خرس بزرگ، نقشهٔ آسمان</strong><span class="sa-guide-topic-card__description">هفت ستارهٔ خرس بزرگ، رایج‌ترین راهنمای یافتن ستاره قطبی در نیم‌کرهٔ شمالی‌اند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> امتداد به ستاره قطبی</h3>
 <p>فاصلهٔ بین دو ستارهٔ جلوی کاسه را پنج بار در همان جهت ادامه بده؛ به ستاره‌ای نسبتاً روشن می‌رسی که ستاره قطبی است. ستاره قطبی، نوک دنبالهٔ خرس کوچک (دب اصغر) است؛ اگر خرس کوچک را دیدی، نوک دنباله همان است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-stars-polaris.webp" alt="ستاره قطبی روشن در آسمان شب با ستاره‌های اطراف" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">ستاره قطبی، نشانهٔ شمال</strong><span class="sa-topic-card__desc">ستاره قطبی نزدیک‌ترین نقطه به شمال آسمان است؛ با امتداد دو ستارهٔ خرس بزرگ پیدا می‌شود.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-stars-polaris.webp" alt="ستاره قطبی روشن در آسمان شب با ستاره‌های اطراف" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ستاره قطبی، نشانهٔ شمال</strong><span class="sa-guide-topic-card__description">ستاره قطبی نزدیک‌ترین نقطه به شمال آسمان است؛ با امتداد دو ستارهٔ خرس بزرگ پیدا می‌شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> روش ذات‌الکرسی</h3>
 <p>صورت فلکی ذات‌الکرسی، حرف W یا M بزرگ آسمان است؛ دو ستارهٔ لبهٔ بیرونی «W» را پیدا کن و در جهتی که «W» باز می‌شود، پنج بار فاصله را ادامه بده تا به ستاره قطبی برسی. این روش وقتی خرس بزرگ پشت افق است، نجات‌بخش است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-stars-cassiopeia.webp" alt="صورت فلکی ذات‌الکرسی به شکل حرف W در آسمان شب" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">ذات‌الکرسی، راهنمای دوم</strong><span class="sa-topic-card__desc">وقتی خرس بزرگ پایین است، ذات‌الکرسی (W) ستاره قطبی را نشان می‌دهد؛ دو راهنما، یک ستاره.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-stars-cassiopeia.webp" alt="صورت فلکی ذات‌الکرسی به شکل حرف W در آسمان شب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ذات‌الکرسی، راهنمای دوم</strong><span class="sa-guide-topic-card__description">وقتی خرس بزرگ پایین است، ذات‌الکرسی (W) ستاره قطبی را نشان می‌دهد؛ دو راهنما، یک ستاره.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> حفظ جهت در حرکت</h3>
 <p>هر چند دقیقه، ستاره قطبی را چک کن و جهت حرکت را با آن بسنج؛ در مسیرهای پیچ‌درپیچ، «نگه‌داشتن ستاره در یک نقطهٔ ثابت آسمان» روش ساده‌ای است. با نور قرمز چراغ پیشانی، دید ستاره‌ای چشم را حفظ کن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> توقف و ارزیابی</h3>
@@ -7144,7 +6901,7 @@ SA_ART,
 		),
 		'meta'          => array(
 			'sa_seo_title' => 'مسیریابی با خورشید | تشخیص جهت بدون قطب‌نما در روز',
-			'sa_seo_description' => 'وقتی قطب‌نما و گوشی همراهت نیست، خورشید بهترین راهنمای جهت‌یابیه. تو این راهنما یاد می‌گیری با سایهٔ چوب، ساعت مچی و موقعیت خورشید، شمال و جنوب رو پیدا کنی و مسیرت رو تنظیم کنی.',
+			'sa_seo_description' => 'مسیریابی با خورشید وقتی قطب‌نما نداری: روش سایهٔ چوب، ساعت مچی و جهت‌های تقریبی صبح و عصر، همراه با خطاهای رایج و راه اصلاحشان.',
 			'sa_focus_keyword' => 'مسیریابی با خورشید',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
 			'sa_risk_level' => 'متوسط؛ ناوبری',
@@ -7210,22 +6967,13 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> چوب را عمود بگذار</h3>
 <p>چوب را در زمین صاف عمود بکن؛ سایه‌اش را با سنگ اول نشانه‌گذاری کن (نوک سایه). صبر کن ۱۵ دقیقه بگذرد و سایه جابه‌جا شود.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-sun-shadow-stick.webp" alt="چوب عمود کاشته‌شده در خاک مسطح با سایهٔ بلند در آفتاب صبح" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سایه‌سنج، ساده و دقیق</strong><span class="sa-topic-card__desc">چوب عمود و دو نشانهٔ سایه، جهت شرق‌غرب را روی زمین می‌کشند؛ میانهٔ سایه، جنوب است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-sun-shadow-stick.webp" alt="چوب عمود کاشته‌شده در خاک مسطح با سایهٔ بلند در آفتاب صبح" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سایه‌سنج، ساده و دقیق</strong><span class="sa-guide-topic-card__description">چوب عمود و دو نشانهٔ سایه، جهت شرق‌غرب را روی زمین می‌کشند؛ میانهٔ سایه، جنوب است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> سنگ دوم و خط شرق‌غرب</h3>
 <p>نوک سایهٔ جدید را با سنگ دوم نشانه‌گذاری کن؛ خط بین دو سنگ تقریباً شرق‌غرب است (سنگ اول غرب، سنگ دوم شرق در نیم‌کرهٔ شمالی). خط عمود بر آن، محور شمال‌جنوب است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-sun-noon-shadow.webp" alt="سایهٔ کوتاه چوب در ظهر روی زمین مسطح با سنگ‌های نشانه" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سایهٔ ظهر، جنوب را نشان می‌دهد</strong><span class="sa-topic-card__desc">کوتاه‌ترین سایهٔ روز تقریباً به‌سمت جنوب است؛ میانهٔ دو نشانه، محور شمال‌جنوب را می‌سازد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-sun-noon-shadow.webp" alt="سایهٔ کوتاه چوب در ظهر روی زمین مسطح با سنگ‌های نشانه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سایهٔ ظهر، جنوب را نشان می‌دهد</strong><span class="sa-guide-topic-card__description">کوتاه‌ترین سایهٔ روز تقریباً به‌سمت جنوب است؛ میانهٔ دو نشانه، محور شمال‌جنوب را می‌سازد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> روش ساعت مچی آنالوگ</h3>
 <p>ساعت عقربه‌دار را افقی نگه دار و عقربهٔ ساعت‌شمار را به‌سمت خورشید بگیر؛ نیم‌زاویهٔ بین عقربه و عدد ۱۲، جهت جنوب است. ساعت دیجیتال را با تصور صفحهٔ آنالوگ هم می‌شود به‌کار برد؛ این روش کمکی است و از سایه‌سنج خطای بیشتری دارد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-sun-watch-method.webp" alt="ساعت مچی عقربه‌دار نگه‌داشته‌شده در دست در آفتاب با صفحهٔ افقی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">ساعت مچی، قطب‌نما اضطراری</strong><span class="sa-topic-card__desc">نیم‌زاویهٔ بین عقربهٔ ساعت‌شمار و عدد ۱۲، در ساعت آنالوگ، جهت جنوب را تقریبی نشان می‌دهد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/navigation-by-sun-watch-method.webp" alt="ساعت مچی عقربه‌دار نگه‌داشته‌شده در دست در آفتاب با صفحهٔ افقی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ساعت مچی، قطب‌نما اضطراری</strong><span class="sa-guide-topic-card__description">نیم‌زاویهٔ بین عقربهٔ ساعت‌شمار و عدد ۱۲، در ساعت آنالوگ، جهت جنوب را تقریبی نشان می‌دهد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> تطبیق با نقشه و نشانه‌ها</h3>
 <p>جهت‌یافته را با نقشه، رودخانه، جاده و خط الراس تطبیق بده؛ «جنوب» به‌تنهایی مقصد نیست. اگر نقشه داری، قطب‌نمای روی نقشه را با جهت‌یافته هم‌راستا کن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> ثبت و به‌روزرسانی</h3>
@@ -7537,22 +7285,13 @@ Leave No Trace Center for Outdoor Ethics — اصول کمپ بدون جذب ح�
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> جمع‌کردن غذا و بو پیش از تاریکی</h3>
 <p>همهٔ غذا، زباله، ظرف‌های استفاده‌شده و حتی خمیردندان و کرم ضدآفتاب (بوهای تند) را در ظرف دربسته و دور از چادر بگذار؛ پخت‌وپز را چند متر دورتر از جای خواب انجام بده و زمین را تمیز کن.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/night-wildlife-defense-food-hung.webp" alt="کیسهٔ غذای آویزان از شاخهٔ بلند در شب با نور چراغ قوه" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">غذا بالا و دور از چادر</strong><span class="sa-topic-card__desc">آویز غذا از شاخهٔ بلند یا ظرف دربستهٔ دور از چادر، حیوان را از جای خواب دور نگه می‌دارد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/night-wildlife-defense-food-hung.webp" alt="کیسهٔ غذای آویزان از شاخهٔ بلند در شب با نور چراغ قوه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">غذا بالا و دور از چادر</strong><span class="sa-guide-topic-card__description">آویز غذا از شاخهٔ بلند یا ظرف دربستهٔ دور از چادر، حیوان را از جای خواب دور نگه می‌دارد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> نور و اعلام حضور</h3>
 <p>فانوس کم‌مصرف را کنار چادر روشن نگه دار یا هنگام صدای مشکوک، با چراغ پیشانی اطراف را ببین؛ آرام بلند حرف بزن یا سوت بزن. صدای انسان، بیشتر حیوانات را بدون درگیری دور می‌کند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/night-wildlife-defense-camp-lights.webp" alt="فانوس نرم‌تاب داخل چادر توری روشن در کمپ شبانهٔ جنگلی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">نور ملایم، اعلام حضور</strong><span class="sa-topic-card__desc">نور ملایم فانوس و صدای آرام انسان، بازدارنده‌های طبیعی حیوانات در شب‌های کمپ‌اند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/night-wildlife-defense-camp-lights.webp" alt="فانوس نرم‌تاب داخل چادر توری روشن در کمپ شبانهٔ جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نور ملایم، اعلام حضور</strong><span class="sa-guide-topic-card__description">نور ملایم فانوس و صدای آرام انسان، بازدارنده‌های طبیعی حیوانات در شب‌های کمپ‌اند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> ماندن در چادر هنگام نزدیکی</h3>
 <p>اگر صدای نزدیک شنیدی، درِ چادر را بسته نگه دار، آرام صدا کن و با چراغ از لای پنجره نگاه کن؛ بیرون‌پریدن، هم تو را غافلگیر می‌کند و هم حیوان را. اگر حیوان ضربه زد، صدای محکم‌تر و نور، معمولاً کافی است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/night-wildlife-defense-headlamp.webp" alt="پرتو چراغ پیشانی که درختان شب جنگل را روشن می‌کند" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">نور اول، بعد قضاوت</strong><span class="sa-topic-card__desc">نور چراغ پیشانی در شب، بیشتر صداها را به جانوران کوچک بی‌خطر تبدیل می‌کند و تصمیم را آرام می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/night-wildlife-defense-headlamp.webp" alt="پرتو چراغ پیشانی که درختان شب جنگل را روشن می‌کند" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نور اول، بعد قضاوت</strong><span class="sa-guide-topic-card__description">نور چراغ پیشانی در شب، بیشتر صداها را به جانوران کوچک بی‌خطر تبدیل می‌کند و تصمیم را آرام می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> فاصله و رهاکردن غذا</h3>
 <p>اگر حیوانی به غذا رسید، درگیر نشو و غذا را رها کن؛ فاصله بگیر و بگذار برود. بعد از رفتن، بقیهٔ بوها را جمع کن و کمپ را جابه‌جا کن اگر لازم است؛ حیوانِ غذاخورده، فردا شب هم برمی‌گردد.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> رفتار گروهی و بچه‌ها</h3>
@@ -8275,22 +8014,13 @@ Leave No Trace Center for Outdoor Ethics — پخت‌وپز بدون تأثیر
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> آماده‌سازی محل پخت</h3>
 <p>سطح صاف و مقاوم انتخاب کن؛ سنگ‌ها را برای محافظت آتش یا نگه‌داشتن قابلمه بچین، اما سنگ مرطوب نگذار. اگر اجاق داری، روی سطح صاف و بادگیر بگذار.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/outdoor-cooking-minimal-pot-on-stones.webp" alt="قابلمهٔ کوچک روی سنگ‌های چیده‌شده دور آتش مهارشده در کمپ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">قابلمه روی سنگ‌های امن</strong><span class="sa-topic-card__desc">سنگ‌های چیده‌شده دور آتش، قابلمه را ثابت و حرارت را متمرکز نگه می‌دارند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/outdoor-cooking-minimal-pot-on-stones.webp" alt="قابلمهٔ کوچک روی سنگ‌های چیده‌شده دور آتش مهارشده در کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">قابلمه روی سنگ‌های امن</strong><span class="sa-guide-topic-card__description">سنگ‌های چیده‌شده دور آتش، قابلمه را ثابت و حرارت را متمرکز نگه می‌دارند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> غذای ساده و سریع</h3>
 <p>غذاهای تک‌قابلمه‌ای (عدس‌پلو، سوپ، برنج با کنسرو) بهترین دوست کمپ‌اند؛ مواد خشک و سبک ببر و از مواد تازهٔ فاسدشدنی کمتر استفاده کن. آب را قبل از پخت اندازه بگیر؛ صرفه‌جویی در آب، هم سبک‌تر است و هم ظرف‌ها کمتر کثیف می‌شوند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/outdoor-cooking-minimal-foil-meal.webp" alt="غذای پیچیده‌شده در فویل روی زغال‌های خاموش‌شونده آتش" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فویل، آشپزخانهٔ جیبی</strong><span class="sa-topic-card__desc">غذای پیچیده در فویل روی ذغال، بدون قابلمهٔ اضافی پخته می‌شود و تمیزکاری‌اش ساده است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/outdoor-cooking-minimal-foil-meal.webp" alt="غذای پیچیده‌شده در فویل روی زغال‌های خاموش‌شونده آتش" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فویل، آشپزخانهٔ جیبی</strong><span class="sa-guide-topic-card__description">غذای پیچیده در فویل روی ذغال، بدون قابلمهٔ اضافی پخته می‌شود و تمیزکاری‌اش ساده است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> پخت در یک ظرف</h3>
 <p>قابلمه را روی حرارت ملایم نگه دار؛ جوشیدن سریع، غذا را می‌سوزاند و سوختن ظرف، یعنی شام بی‌نمک. بعد از پخت، قابلمه را روی سنگ سرد بگذار و خاکستر را از اطرافش دور کن.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/outdoor-cooking-minimal-one-pot.webp" alt="قابلمهٔ یک‌نفره با سوپ رنگارنگ روی اجاق سبک کمپینگ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">یک قابلمه، یک شام</strong><span class="sa-topic-card__desc">غذاهای تک‌قابلمه‌ای، هم سبک‌اند و هم تمیزکاری‌شان سریع؛ بهترین روش آشپزی کمپ.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/outdoor-cooking-minimal-one-pot.webp" alt="قابلمهٔ یک‌نفره با سوپ رنگارنگ روی اجاق سبک کمپینگ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">یک قابلمه، یک شام</strong><span class="sa-guide-topic-card__description">غذاهای تک‌قابلمه‌ای، هم سبک‌اند و هم تمیزکاری‌شان سریع؛ بهترین روش آشپزی کمپ.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> تمیزکاری و مدیریت بو</h3>
 <p>ظرف‌ها را با آب کم و دور از چشمه بشور؛ خرده‌غذا را جمع کن و زباله را در کیسهٔ درپوش‌دار بگذار. بوی غذا، حیوانات را به کمپ می‌کشد؛ غذا و زباله را دور از چادر نگه دار (جزئیات در <a href="/safe-food-storage-outdoor/">نگهداری ایمن غذا</a>).</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> خواب بعد از شام</h3>
@@ -8628,24 +8358,15 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> جهت‌دهی نقشه</h3>
 <p>نقشه را روی زمین صاف بگذار، قطب‌نما را رویش بگذار و نقشه را بچرخان تا شمال نقشه با شمال قطب‌نما هم‌راستا شود؛ حالا نقشه و زمین، یک تصویرند. این کار را هر بار که نقشه را درمی‌آوری، تکرار کن.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/paper-map-reading-orient.webp" alt="نقشه کاغذی روی زمین با قطب‌نما روی آن در طبیعت" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">اول نقشه را جهت بده</strong><span class="sa-topic-card__desc">جهت‌دهی نقشه با قطب‌نما، شمال نقشه و شمال زمین را یکی می‌کند؛ بدون این قدم، مقایسه‌ها برعکس می‌شوند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/paper-map-reading-orient.webp" alt="نقشه کاغذی روی زمین با قطب‌نما روی آن در طبیعت" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول نقشه را جهت بده</strong><span class="sa-guide-topic-card__description">جهت‌دهی نقشه با قطب‌نما، شمال نقشه و شمال زمین را یکی می‌کند؛ بدون این قدم، مقایسه‌ها برعکس می‌شوند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> خطوط تراز و شکل زمین</h3>
 <p>خطوط تراز، هم‌ارتفاع‌ها را نشان می‌دهند؛ هرچه به‌هم نزدیک‌ترند، شیب تندتر است. دره‌ها خطوط Vشکل می‌سازند (نوک V به‌سمت بالاست)، قله‌ها دایره‌های بسته‌اند و خط‌الرأس، مجموعهٔ نقاط بلند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/paper-map-reading-contours.webp" alt="بخشی از نقشه توپوگرافی با خطوط تراز نزدیک و دور" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">خطوط تراز، شیب را می‌گویند</strong><span class="sa-topic-card__desc">فاصلهٔ خطوط تراز، تندی شیب است؛ خواندن شکل خطوط، دره و قله را قبل از رسیدن نشان می‌دهد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/paper-map-reading-contours.webp" alt="بخشی از نقشه توپوگرافی با خطوط تراز نزدیک و دور" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خطوط تراز، شیب را می‌گویند</strong><span class="sa-guide-topic-card__description">فاصلهٔ خطوط تراز، تندی شیب است؛ خواندن شکل خطوط، دره و قله را قبل از رسیدن نشان می‌دهد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> مقیاس و فاصله‌ها</h3>
 <p>مقیاس را بخوان: مثلاً ۱:۲۵۰۰۰ یعنی ۱ سانتی‌متر روی نقشه = ۲۵۰ متر واقعی. با مقیاس، مسیر را تخمین بزن و برایش زمان بگذار؛ فاصلهٔ نقشه‌ای با فاصلهٔ پیمودنی فرق دارد (شیب، مسیر پیچ‌درپیچ).</p>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> تطبیق با زمین</h3>
 <p>هر چند کیلومتر، نقشه را با زمین تطبیق بده: رود سمت راست است؟ قله جلوتر است؟ جاده پیداست؟ اگر چیزی نمی‌خواند، بایست و دوباره جهت‌دهی کن؛ حدس‌زدن، دشمن نقشه‌خوانی است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/paper-map-reading-compass-on-map.webp" alt="قطب‌نما روی نقشه باز شده در دست کوهنورد با پس‌زمینهٔ دره" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">نقشه و قطب‌نما، یک تیم</strong><span class="sa-topic-card__desc">قطب‌نما، نقشه را جهت می‌دهد و نقشه، قطب‌نما را معنا می‌کند؛ بدون هیچ‌کدام، ناوبری ناقص است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/paper-map-reading-compass-on-map.webp" alt="قطب‌نما روی نقشه باز شده در دست کوهنورد با پس‌زمینهٔ دره" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نقشه و قطب‌نما، یک تیم</strong><span class="sa-guide-topic-card__description">قطب‌نما، نقشه را جهت می‌دهد و نقشه، قطب‌نما را معنا می‌کند؛ بدون هیچ‌کدام، ناوبری ناقص است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> ثبت مسیر و علامت‌گذاری</h3>
 <p>مسیرت را روی نقشه با مداد سبک علامت بزن؛ نقاط توقف، آب و کمپ احتمالی. اگر از مسیر منحرف شدی، بایست و با نقشه برگرد؛ ثبت مسیر، هم برنامه است و هم سند برای نجات.</p>
 <h2>نکات ایمنی</h2>
@@ -8785,22 +8506,13 @@ Leave No Trace Center for Outdoor Ethics — اصول بهداشت بدون آس
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> شستن دست، ساده‌ترین و مهم‌ترین کار</h3>
 <p>قبل از هر غذا، بعد از دستشویی و بعد از دست‌زدن به حیوان و زباله، دست‌ها را با آب و صابون بشور یا با ژل ضدعفونی کن؛ بیشتر بیماری‌های سفر، از دست‌های نشسته می‌آیند. دست‌ها را از آبِ در حال جریان دور نگه دار و آب را به زمین دورتر بریز.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/personal-hygiene-outdoor-hand-wash.webp" alt="شستن دست‌ها با کف صابون و آب قمقمه در کنار چادر کمپ" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">دست‌های تمیز، سفر سالم</strong><span class="sa-topic-card__desc">شست‌وشوی منظم دست با آب و صابون، ساده‌ترین و مؤثرترین اقدام بهداشتی در طبیعت است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/personal-hygiene-outdoor-hand-wash.webp" alt="شستن دست‌ها با کف صابون و آب قمقمه در کنار چادر کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">دست‌های تمیز، سفر سالم</strong><span class="sa-guide-topic-card__description">شست‌وشوی منظم دست با آب و صابون، ساده‌ترین و مؤثرترین اقدام بهداشتی در طبیعت است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> مراقبت از دندان‌ها</h3>
 <p>مسواک را با خمیر کم بزن و آب اضافی را در زمین دورتر از آب تف کن؛ خمیردندان هم بو دارد و هم برای آبزیان آلودگی است. مسواک را در ظرف تمیز نگه دار؛ گرد و خاک کمپ، روی مسواک باز، بیماری می‌آورد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/personal-hygiene-outdoor-tooth-brush.webp" alt="مسواک و خمیردندان روی سنگ تمیز کنار چادر در صبح کوهستان" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">مسواک، عادت همیشگی</strong><span class="sa-topic-card__desc">مسواک‌زدن با خمیر کم و تف دور از آب، هم دندان را سالم نگه می‌دارد و هم طبیعت را.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/personal-hygiene-outdoor-tooth-brush.webp" alt="مسواک و خمیردندان روی سنگ تمیز کنار چادر در صبح کوهستان" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">مسواک، عادت همیشگی</strong><span class="sa-guide-topic-card__description">مسواک‌زدن با خمیر کم و تف دور از آب، هم دندان را سالم نگه می‌دارد و هم طبیعت را.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> چالهٔ بهداشتی (کتهول)</h3>
 <p>در خاک مناسب، چاله‌ای حدود ۲۰ سانتی‌متر عمق حفر کن؛ حداقل ۶۰ متر (۷۰ قدم) از آب، چادر و مسیر فاصله بگذار. بعد از هر بار، با خاک بپوشان و در پایان سفر، کامل پر و علامت‌گذاری ملایم کن؛ بیلچه را فقط برای همین کار نگه دار.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/personal-hygiene-outdoor-cathole.webp" alt="بیلچهٔ کوچک کمپینگ کنار چالهٔ کوچک حفرشده در خاک جنگل دور از مسیر آب" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">چالهٔ بهداشتی، دور از آب</strong><span class="sa-topic-card__desc">چالهٔ ۲۰ سانتی‌متری در فاصلهٔ ۶۰ متری آب، استاندارد بهداشتی طبیعت است؛ بعد بپوشان.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/personal-hygiene-outdoor-cathole.webp" alt="بیلچهٔ کوچک کمپینگ کنار چالهٔ کوچک حفرشده در خاک جنگل دور از مسیر آب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چالهٔ بهداشتی، دور از آب</strong><span class="sa-guide-topic-card__description">چالهٔ ۲۰ سانتی‌متری در فاصلهٔ ۶۰ متری آب، استاندارد بهداشتی طبیعت است؛ بعد بپوشان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> بهداشت بدن و لباس</h3>
 <p>با دستمال مرطوب یا صابون زیستی و کاسهٔ کوچک، بدن را تمیز کن؛ لباس زیر و جوراب را عوض کن و لباس‌های خیس را در آفتاب خشک کن. لباس تمیز، هم بو را کم می‌کند و هم جلوی ساییدگی و عفونت پوست را می‌گیرد.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> زباله‌های بهداشتی</h3>
@@ -9063,11 +8775,7 @@ SA_ART,
 آژانس حفاظت از محیط‌زیست آمریکا (EPA) — تصفیهٔ اضطراری آب آشامیدنی | https://www.epa.gov/ground-water-and-drinking-water/emergency-disinfection-drinking-water
 سازمان جهانی بهداشت (WHO) — راهنمای کیفیت آب آشامیدنی و روش‌های تصفیه در خانوار',
 		),
-		'cover'         => array(
-			'file' => 'guides/portable-water-filter-review.webp',
-			'alt' => 'اینفوگرافیک فیلتر آب قابل‌حمل: انواع نی‌شکل، پمپی، بطری و UV، تفاوت فیلتر و پوریفایر و پیشگیری از بیماری‌های مربوط به آب',
-			'title' => 'اینفوگرافیک فیلتر آب قابل‌حمل',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
 				'q' => 'آیا می‌تونم مستقیم از چشمه کوهستان آب بخورم و فیلتر نبرم؟',
@@ -9128,24 +8836,28 @@ SA_ART,
 <p>همه فیلترها شبیه هم نیستن. بعضی‌ها فقط گل و لای رو می‌گیرن، بعضی‌ها باکتری‌ها رو، و بعضی‌ها ویروس‌ها رو. بذار انواعش رو برات کالبدشکافی کنم.</p>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> فیلترهای نی‌شکل (Straw Filters)</h3>
 <p>این‌ها دقیقاً شبیه یه نی بزرگ هستن. یه سرش رو می‌ذاری تو رودخونه، سر دیگه رو می‌مکی. آب از بین الیاف توخالی (Hollow Fiber) رد میشه و باکتری‌ها و انگل‌ها پشت در می‌مونن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-straw.webp" alt="فیلتر نی‌شکل آب با درپوش روی سنگ کنار رودخانه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فیلتر نی‌شکل؛ سبک و شخصی</strong><span class="sa-guide-topic-card__description">برای نوشیدن مستقیم در پیمایش سبک؛ ویروس و آلودگی شیمیایی را حذف نمی‌کند.</span></figcaption></figure>
 <ul>
 <li>مزایا: فوق‌العاده سبک، کوچک، ارزان، و سریع.</li>
 <li>معایب: فقط برای آب‌های نسبتاً زلال خوبه. تو آب‌های گل‌آلود سریع کیپ میشه. ویروس‌ها رو رد می‌کنه.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> فیلترهای پمپی (Pump Filters)</h3>
 <p>یه شلنگ می‌ذاری تو رودخونه، و با یه اهرم دستی، آب رو با فشار از داخل یه فیلتر سرامیکی یا کربنی عبور می‌دی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-pump.webp" alt="فیلتر پمپی دستی با دو شلنگ و بطری خروجی کنار آب جاری" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فیلتر پمپی؛ مناسب آب‌گیری گروهی</strong><span class="sa-guide-topic-card__description">آب خام را از ورودی بکش و خروجی را در ظرف تمیز جمع کن؛ نگهداری را طبق دفترچه انجام بده.</span></figcaption></figure>
 <ul>
 <li>مزایا: فیلتراسیون بسیار دقیق، قابلیت شست‌وشو و تمیز کردن فیلتر تو مسیر، عمر طولانی.</li>
 <li>معایب: سنگین، جاگیر، و نیاز به زور بازو داره. پمپاژ کردن هزار لیتر آب کم‌کم خسته‌ت می‌کنه.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> فیلترهای بطری و فشاری (Squeeze/Bottle Filters)</h3>
 <p>این‌ها محبوب‌ترین مدل‌های امروزی‌ان. یا مستقیم تو یه بطری نرم (مثل بطری دوچرخه) پیچ می‌شن و آب رو می‌مکی، یا مثل یه فرنچ پرس عمل می‌کنن و آب کثیف رو از بالا می‌ریزی و از پایین آب تمیز تحویل می‌گیری.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-squeeze.webp" alt="کیسهٔ فشاری آب با فیلتر خطی و بطری تمیز در کنار جوی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فیلتر فشاری یا بطری؛ سبک و سریع</strong><span class="sa-guide-topic-card__description">برای پیمایش سبک و پرکردن بطری؛ کیسه را از فشار زیاد و یخ‌زدگی حفظ کن.</span></figcaption></figure>
 <ul>
 <li>مزایا: استفاده آسان، سبک، مناسب برای پر کردن بطری‌های آب.</li>
 <li>معایب: بطری‌های پلاستیکی نرم ممکنه تو سرما یا فشار زیاد سوراخ بشن.</li>
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> تصفیه‌کننده‌های اشعه فرابنفش (UV Purifiers)</h3>
 <p>این‌ها فیلتر فیزیکی نیستن. یه میله شیشه‌ای دارن که با باتری کار می‌کنه و اشعه UV ساطع می‌کنه. این اشعه DNA میکروب‌ها رو نابود می‌کنه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/portable-water-filter-uv.webp" alt="دستگاه تصفیهٔ فرابنفش قابل‌حمل کنار بطری شفاف آب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">تصفیه‌کنندهٔ UV؛ وابسته به باتری</strong><span class="sa-guide-topic-card__description">این روش ذرات را فیلتر نمی‌کند؛ آب کدر را پیش‌تصفیه کن و دستور سازنده را رعایت کن.</span></figcaption></figure>
 <ul>
 <li>مزایا: ویروس‌ها رو هم از بین می‌بره (چون سوراخ فیلترها از ویروس بزرگتره)، طعم آب رو عوض نمی‌کنه.</li>
 <li>معایب: آب رو تصفیه فیزیکی نمی‌کنه (اگه آب گل‌آلود باشه، اشعه به میکروب‌های پشت گل نمی‌رسه). به باتری وابسته‌ست. تو هوای خیلی سرد باتریش زود تموم میشه.</li>
@@ -9217,10 +8929,10 @@ SA_ART,
 SA_ART,
 	),
 	'professional-rescue-kit' => array(
-		'title'          => 'معرفی کیت نجات حرفه‌ای؛ وقتی کمک‌های اولیه کافی نیست، باید نجات بدیم',
+		'title'          => 'کیت نجات حرفه‌ای؛ چه چیزهایی لازم است و کجا باید توقف کرد؟',
 		'type'           => 'post',
 		'slug'           => 'professional-rescue-kit',
-		'excerpt'        => 'راهنمای جامع آشنایی با کیت نجات حرفه‌ای، تفاوت آن با کمک‌های اولیه، و معرفی ابزارهای حیاتی برای ثابت‌سازی، انتقال مصدوم و شرایط اضطراری در طبیعت.',
+		'excerpt'        => 'راهنمای چیدن کیت امداد شخصی برای طبیعت‌گردی و تشخیص مرز آن با تجهیزات عملیات نجات؛ با تأکید بر تماس سریع با امداد، آموزش و پرهیز از جابه‌جایی بداههٔ مصدوم.',
 		'english'        => 'Professional Rescue Kit',
 		'kind'           => 'tent',
 		'category'      => array(
@@ -9230,173 +8942,136 @@ SA_ART,
 			'pro-gear' => 'تجهیزات حرفه‌ای',
 		),
 		'meta'          => array(
-			'sa_seo_title' => 'معرفی کیت نجات حرفه‌ای | تفاوتش با جعبه کمک‌های اولیه چیه؟',
-			'sa_seo_description' => 'کیت نجات حرفه‌ای چه فرقی با جعبه کمک‌های اولیه داره؟ تو این مقاله وسایل حیاتی برای نجات جان مصدوم، ثابت کردن شکستگی و انتقال امن رو بررسی کردیم.',
+			'sa_seo_title' => 'کیت نجات حرفه‌ای؛ تجهیزات، آموزش و مرز کمک شخصی',
+			'sa_seo_description' => 'کیت امداد شخصی با تجهیزات نجات فرق دارد. اقلام لازم سفر، موارد نیازمند آموزش و دلیل سپردن انتقال طنابی مصدوم به تیم تخصصی را بشناس.',
 			'sa_focus_keyword' => 'کیت نجات حرفه‌ای',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
-			'sa_risk_level' => 'بالا؛ تجهیزات امداد و خونریزی شدید',
-			'sa_sources' => 'هلال‌احمر جمهوری اسلامی ایران — دوره‌های کمک‌های اولیه و امداد کوهستان
-برنامهٔ Stop the Bleed (کالج جراحان آمریکا) — اصول کنترل خونریزی شدید و استفاده از گارو
-صلیب سرخ آمریکا (American Red Cross) — راهنمای کمک‌های اولیه در طبیعت',
+			'sa_risk_level' => 'بالا؛ خونریزی شدید و عملیات انتقال مصدوم',
+			'sa_sources' => 'جمعیت هلال‌احمر جمهوری اسلامی ایران — شمارهٔ ۱۱۲ و آموزش کمک‌های اولیه و امداد
+سازمان اورژانس کشور — شمارهٔ ۱۱۵ و درخواست کمک پزشکی
+صلیب سرخ آمریکا — اصول کمک‌های اولیه و آمادگی برای سفرهای دور از دسترس
+دستور سازندگان تجهیزات امدادی — محدودیت‌ها، استفاده، نگهداری و تاریخ مصرف',
 		),
-		'cover'         => array(
-			'file' => 'guides/professional-rescue-kit.webp',
-			'alt' => 'اینفوگرافیک کیت نجات حرفه‌ای: تفاوت با کمک‌های اولیه و ابزارهای حیاتی برای شرایط اضطراری، انتقال مصدوم و ثابت‌سازی',
-			'title' => 'اینفوگرافیک کیت نجات حرفه‌ای',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
-				'q' => 'فرق کیت نجات با جعبه کمک‌های اولیه چیه؟',
-				'a' => 'خیلی ساده‌ست: کمک‌های اولیه "زخم و درد" رو درمان می‌کنه، کیت نجات "جان مصدوم" رو از خطر مرگ یا نقص عضو نجات می‌ده و اون رو "جابجا" می‌کنه. جعبه کمک‌های اولیه برای مریضیه، کیت نجات برای فاجعه‌ست.',
+				'q' => 'تفاوت کیت نجات حرفه‌ای با جعبهٔ کمک‌های اولیه چیست؟',
+				'a' => 'برای طبیعت‌گردی، کیف شخصی معمولاً اقلام پایهٔ مراقبت، محافظت و ارتباط را دارد. تجهیزات عملیات نجات شامل ابزار و رویه‌هایی است که به تیم آموزش‌دیده و برنامهٔ فنی نیاز دارند؛ داشتن آن‌ها در کوله، فرد را متخصص نمی‌کند.',
 			),
 			array(
-				'q' => 'آیا واقعاً باید گارو (Tourniquet) همراه داشته باشم؟',
-				'a' => 'اگه تو مسیرهای صخره‌ای، جنگل‌های متراکم یا جاهایی که احتمال سقوط و بریدگی عمیق با چاقو هست میری، بله. ولی یه شرط بزرگ داره: باید قبل از سفر، تو یه دوره آموزشی یاد بگیری چطور با یک دست (روی خودت) یا روی مصدوم ببندیش. گارویی که بلد نیستی ببندی، فقط یه تیکه پلاستیک و پارچهٔ اضافه‌ست.',
+				'q' => 'آیا همراه‌داشتن گارو لازم است؟',
+				'a' => 'به مسیر، آموزش و دسترسی به کمک بستگی دارد. اگر آن را همراه می‌بری، آموزش عملی از مربی معتبر و یادگیری دستور همان وسیله ضروری است؛ بدون آموزش، دربارهٔ کاربردش حدس نزن و در حادثه با امداد تماس بگیر.',
 			),
 			array(
-				'q' => 'اگه کسی پاش شکست و باید از سربالایی بیاریمش پایین، چیکار کنیم؟',
-				'a' => 'اول آتل بزن و بی‌حرکتش کن. بعد اگه می‌تونه با باتوم راه بیاد، حمایتش کن. اگه اصلاً نمی‌تونه راه بره، با دو تا باتوم پیاده‌روی و زیپِ چند تا کاپشن یا پتو، یه برانکارد اضطراری بساز. تو سربالایی‌های تند، باید از سیستم طناب و قرقره برای بالا کشیدنش استفاده کنی، نه اینکه زور بازو به خرج بدی.',
+				'q' => 'آیا باید طناب و هارنس نجات در کوله داشته باشم؟',
+				'a' => 'برای کاربر عادی، این وسایل بدون آموزش و سامانهٔ سازگار می‌توانند خطرساز شوند. برنامهٔ سفر، ابزار ارتباطی، پوشش و کمک‌های اولیهٔ متناسب را آماده کن و تجهیزات فنی را به تیم متخصص بسپار.',
 			),
 			array(
-				'q' => 'آتل فومی (SAM Splint) به درد نمی‌خوره، میشه با چوب آتل بست؟',
-				'a' => 'چوب کار رو راه می‌اندازه، ولی چوب سفته و اگه مستقیم روی پوست یا حتی روی لباس نازک گذاشته بشه، تو مسیر حرکت باعث زخم بستر و فشار روی اعصاب میشه. آتل فومی هم سفته، هم پده، هم شکل مچ پا یا دست رو می‌گیره. اگه مجبوری از چوب استفاده کنی، حتماً دورش رو با لباس ضخیم بپوشون.',
+				'q' => 'اگر احتمال آسیب گردن یا ستون فقرات باشد، مصدوم را جابه‌جا کنم؟',
+				'a' => 'حرکت‌دادن را به حداقل برسان و با امداد تماس بگیر. فقط اگر خطر فوری و بزرگ‌تری در محل وجود دارد، دستور اپراتور یا فرد آموزش‌دیدهٔ حاضر را دنبال کن؛ خودسرانه مصدوم را حمل نکن.',
 			),
 			array(
-				'q' => 'سوت نجات چه فرقی با سوت معمولی پلاستیکی داره؟',
-				'a' => 'سوت‌های معمولی یه دونه توپ کوچیک (زبانه) داخلشون داره. اگه آب بره توش یا یخ بزنه، دیگه صدا نمیدن. سوت‌های نجات (Pealess) بدون زبانه‌اند، آب و یخ کارشان را مختل نمی‌کند و صدای تیزی دارند که در باد و باران و صدای رودخانه بهتر شنیده می‌شود؛ در شرایط آرام بردشان تا حدود یک‌ونیم کیلومتر می‌رسد و در باد شدید و آبشار خروشان کمتر می‌شود — پس سه سوت پیاپی و چراغ را هم به آن اضافه کن.',
+				'q' => 'هر چند وقت یک‌بار کیت را بررسی کنم؟',
+				'a' => 'پیش از هر سفر، دسترسی و کامل‌بودن کیت را مرور کن و اقلام تاریخ‌دار یا آسیب‌دیده را طبق بسته‌بندی تعویض کن. تمرین دوره‌ای هم کمک می‌کند وسایلی را که نمی‌شناسی به‌موقع تشخیص بدهی.',
 			),
 		),
 		'content'       => <<<'SA_ART'
 <div class="sa-callout sa-callout--answer">
-<p><strong>پاسخ سریع:</strong> کیت نجات حرفه‌ای برای وقتی است که کسی نمی‌تواند راه برود یا خونریزی با فشار مستقیم بند نمی‌آید: وسایل بی‌حرکت‌کردن (آتل)، کنترل خونریزی شدید، گرم نگه‌داشتن و سیگنال‌دهی. هر قلم این کیت بدون آموزش حضوری فقط وزن اضافه است؛ اولین و مهم‌ترین اقدام در هر حادثهٔ جدی تماس با ۱۱۵ یا ۱۱۲ است.</p>
+<p><strong>پاسخ سریع:</strong> کیت شخصی برای مراقبت اولیه و دوام‌آوردن تا رسیدن کمک است؛ تجهیزات فنی نجات برای تیم آموزش‌دیده‌اند و جایگزین یکدیگر نیستند. در حادثهٔ جدی، اول صحنه را امن کن، با امداد تماس بگیر، موقعیت را دقیق بفرست و تا حد توان از جابه‌جایی یا درمان بداهه پرهیز کن.</p>
 </div>
 <div class="sa-callout sa-callout--warning" role="note">
-<p class="sa-callout__title">⚠️ ابزار بدون آموزش خطرناک است</p>
-<p>این مقاله فهرست تجهیزات است، نه آموزش امداد؛ بستن گارو، آتل یا جابه‌جایی مصدوم را فقط پس از دورهٔ حضوری (مثل دوره‌های هلال‌احمر) انجام بده. مصدومی را که احتمال آسیب گردن یا ستون فقرات دارد جابه‌جا نکن مگر محل جانش را تهدید کند. در هر صحنه اول ایمنی خودت، بعد تماس با ۱۱۵/۱۱۲ و بعد کمک.</p>
+<p class="sa-callout__title">⚠️ طناب و ابزار نجات را بداهه به کار نبر</p>
+<p>این مقاله آموزش گارو، آتل‌بندی، احیا، ساخت برانکارد یا انتقال با طناب نیست. اگر مصدوم آسیب جدی دارد، به‌ویژه پس از سقوط یا در مسیر فنی، با امداد تماس بگیر و دستور اپراتور را دنبال کن؛ حرکت‌دادن نادرست می‌تواند خطر را بیشتر کند.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن در مسیر صخره‌ای، یکی از گروه چند متر سر می‌خورد، ساق پایش زاویهٔ غیرعادی گرفته و تا جاده سه ساعت راه است. جعبهٔ کمک‌های اولیهٔ معمولی برای تاول و خراش خوب است، اما این‌جا به چیزهای دیگری نیاز داری: آتل، وسیلهٔ گرم نگه‌داشتن، راهی برای سیگنال‌دادن و برنامه‌ای برای انتقال. پایین‌تر می‌بینی کیت نجات حرفه‌ای شامل چه چیزهایی است، کدام قلم بدون آموزش معنا ندارد و کِی باید فقط منتظر امداد بمانی.</p>
+<p>فرض کن در پیمایش دور از جاده یکی از هم‌گروهی‌ها آسیب می‌بیند و تا نزدیک‌ترین راه خودرو فاصله داری. داشتن یک کیف پر از ابزار به‌تنهایی تو را به تیم نجات تبدیل نمی‌کند؛ برنامهٔ تماس، آموزش و توان نگه‌داشتن صحنهٔ امن مهم‌ترند. در ادامه، مرز کیت شخصی، کمک‌های اولیه و تجهیزات تخصصی امداد روشن می‌شود.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
-<li>دست‌کم یک نفر از گروه دورهٔ کمک‌های اولیه یا امداد کوهستان (هلال‌احمر، فدراسیون کوهنوردی) گذرانده باشد.</li>
-<li>شماره‌های امداد (۱۱۵ اورژانس، ۱۱۲ امداد کوهستان) و روش اعلام موقعیت (مختصات، نشانه‌ها) را بلد باش.</li>
-<li>کیت را متناسب با مسیر بچین: مسیر صخره‌ای و دورافتاده نیاز بیشتری دارد تا کمپ کنار جاده.</li>
-<li>اقلام را قبل از سفر لمس و تمرین کن (باز و بسته کردن آتل، پیچیدن پتوی نجات).</li>
-<li>وزن کیت را بین اعضای گروه تقسیم کن تا کسی زیر بار اضافه مصدوم نشود.</li>
+<li>پیش از سفر مسیر، زمان بازگشت، وضعیت هوا و راه تماس اضطراری را به فردی بیرون از گروه اطلاع بده.</li>
+<li>شمارهٔ کمک‌رسانی هلال‌احمر ۱۱۲ و اورژانس ۱۱۵ را در ایران بشناس؛ پوشش ارتباطی و روش گزارش موقعیت را برای مسیر خودت از قبل بررسی کن.</li>
+<li>محتویات کیت را با طول سفر، دوری از جاده، فصل، تعداد افراد و آموزش واقعی گروه تنظیم کن.</li>
+<li>هر عضو باید بداند کیت کجاست و چگونه کمک می‌خواهد؛ اقلام پزشکی یا فنی را فقط در حد آموزش خود به کار ببر.</li>
 </ul>
-<h2>جدول تصمیم: چه چیزی در چه سفری لازم است</h2>
+<h2>جدول تصمیم: کیت شخصی یا تجهیزات تیم نجات؟</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
-<thead><tr><th>گروه اقلام</th><th>کمپ نزدیک جاده</th><th>پیمایش یک‌روزه</th><th>پیمایش چندروزهٔ دورافتاده</th><th>پیش‌نیاز</th></tr></thead>
+<thead><tr><th>گروه اقلام</th><th>نمونهٔ مناسب برای کیت شخصی</th><th>نکتهٔ استفاده</th><th>مرز مهم</th></tr></thead>
 <tbody>
-<tr><td>بی‌حرکت‌کردن (آتل قابل‌خم، باند کشی، مثلث)</td><td>باند کشی</td><td>+ آتل قابل‌خم</td><td>+ آتل و باند بیشتر</td><td>آموزش آتل‌بندی</td></tr>
-<tr><td>کنترل خونریزی شدید (گاز فشاری، بانداژ اضطراری، گارو)</td><td>گاز و بانداژ</td><td>+ بانداژ اضطراری</td><td>+ گارو (فقط با آموزش)</td><td>دورهٔ کنترل خونریزی</td></tr>
-<tr><td>گرم نگه‌داشتن (پتوی نجات، کیسهٔ بیواک)</td><td>پتوی نجات</td><td>پتوی نجات</td><td>کیسهٔ بیواک + پتوی نجات</td><td>—</td></tr>
-<tr><td>سیگنال و ارتباط (سوت، آینه، چراغ، پاوربانک)</td><td>سوت و چراغ</td><td>+ آینه</td><td>+ پاوربانک، ردیاب ماهواره‌ای در صورت امکان</td><td>دانستن سیگنال سه‌تایی</td></tr>
-<tr><td>انتقال (تسمه، برانکارد بداهه)</td><td>—</td><td>تسمه</td><td>تسمه و آموزش انتقال</td><td>دورهٔ انتقال مصدوم</td></tr>
+<tr><td>ارتباط و موقعیت</td><td>تلفن، باتری همراه، نقشهٔ آفلاین، سوت</td><td>پیش از حرکت شارژ و کارکرد را بررسی کن</td><td>جای پوشش ماهواره‌ای یا آنتن را تضمین نمی‌کند</td></tr>
+<tr><td>مراقبت اولیه</td><td>دستکش یک‌بارمصرف، گاز و پانسمان، چسب و قیچی ایمن</td><td>اقلام را متناسب با آموزش انتخاب کن</td><td>دارو و مداخلهٔ تخصصی نیازمند دانش فردی است</td></tr>
+<tr><td>محافظت از سرما و باران</td><td>لایهٔ خشک، عایق زیر بدن، پوشش باران یا بیواک</td><td>مصدوم را از زمین سرد و باد محافظت کن</td><td>پتوی نجات به‌تنهایی درمان یا پناهگاه کامل نیست</td></tr>
+<tr><td>اقلام آموزش‌محور</td><td>گارو تجاری، پانسمان‌های ویژه یا آتل</td><td>فقط طبق آموزش و دستور همان وسیله</td><td>خرید بدون تمرین، مهارت ایجاد نمی‌کند</td></tr>
+<tr><td>عملیات فنی</td><td>طناب، هارنس، قرقره و برانکارد تخصصی</td><td>متعلق به نیروهای دارای صلاحیت و برنامهٔ فنی است</td><td>با تسمه، پاراکورد یا کارابین متفرقه جایگزین نمی‌شود</td></tr>
 </tbody></table></figure>
-<h2>روش گام‌به‌گام: تجهیزات کیت نجات حرفه‌ای</h2>
+<h2>روش گام‌به‌گام: آماده‌شدن برای وضعیت اضطراری</h2>
 <ul class="sa-steps-meta">
-<li><strong>مناسب برای:</strong> گروه‌هایی که به مسیرهای دور از جاده می‌روند و دست‌کم یک عضو آموزش‌دیده دارند؛ برای کمپ خانوادگی کنار جاده، جعبهٔ کمک‌های اولیهٔ کامل کافی است.</li>
-<li><strong>لازم داری:</strong> کیسهٔ محکم و مشخص (رنگ روشن)، اقلام جدول بالا متناسب با مسیر، کارت اطلاعات اعضای گروه، و یک نفر آموزش‌دیده.</li>
-<li><strong>زمان:</strong> چیدن اولیه یک ساعت؛ مرور و تمرین قبل از هر سفر ۱۵ دقیقه.</li>
-<li><strong>هشدار:</strong> گارو فقط برای خونریزی شدید اندام که با فشار مستقیم بند نمی‌آید؛ زمان بستن را بنویس، آن را باز نکن و مصدوم را هرچه سریع‌تر به مرکز درمانی برسان.</li>
+<li><strong>مناسب برای:</strong> گروه طبیعت‌گردی که می‌خواهد پیش از حادثه برنامه و کیت متناسب داشته باشد؛ نه انجام عملیات نجات فنی.</li>
+<li><strong>لازم داری:</strong> فهرست مسیر و تماس‌ها، کیت متناسب با آموزش اعضا، پوشش محافظ و ابزار ارتباطی.</li>
+<li><strong>زمان:</strong> بازبینی کوتاه پیش از هر سفر و تمرین دوره‌ای کمک‌های اولیه؛ زمان دقیق به گروه و مسیر بستگی دارد.</li>
+<li><strong>هشدار:</strong> تمرین با وسایل واقعی را با آموزش‌گر واجدصلاحیت انجام بده؛ این مراحل جای دورهٔ کمک‌های اولیه نیست.</li>
 </ul>
-<p>این کیت رو به چهار دسته اصلی تقسیم می‌کنیم. هر کدوم یه ماموریت خاص دارن.</p>
-<h3 class="sa-step"><span class="sa-step__n">۱</span> ثابت‌سازی و بی‌حرکت کردن (Immobilization)</h3>
-<p>وقتی استخوانی می‌شکنه، تکون خوردنش یعنی درد وحشتناک، پارگی رگ و اعصاب.</p>
-<ul>
-<li><strong>آتل فومی شکل‌پذیر (SAM Splint):</strong> یه نوار فومی با مغزی آلومینیومی. می‌تونی هر شکلی بهش بدی (مچ پا، دست، گردن). سبکه و جای کمی می‌گیره.</li>
-<li><strong>باند مثلثی (Triangular Bandage):</strong> حداقل دو عدد. برای آویزون کردن دست (اسلینگ) یا ثابت کردن آتل‌ها.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۲</span> کنترل خونریزی‌های حیاتی (Severe Bleeding)</h3>
-<p>تو جعبه کمک‌های اولیه معمولی، باند استریل داری. تو کیت نجات، باید بتونی خونریزی شریانی (جهنده) رو تو کسری از ثانیه متوقف کنی.</p>
-<ul>
-<li><strong>گارو تجاری (Tourniquet):</strong> فقط برای خونریزی شدید دست یا پا که با فشار مستقیم بند نمیاد. این وسیله جریان خون اندام رو قطع می‌کنه و می‌تونه جون مصدوم رو نجات بده؛ فقط با آموزش حضوری.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۳</span> انتقال و جابجایی مصدوم (Extrication)</h3>
-<p>مصدوم رو نمی‌تونی تو کوه رها کنی. باید جابجاش کنی.</p>
-<ul>
-<li><strong>هارنس نجات (Rescue Harness):</strong> برای بالا کشیدن یا پایین فرستادن مصدوم با طناب.</li>
-<li><strong>تسمه‌های پهن (Webbing) و کارابین‌های اضافه:</strong> برای ساخت سیستم‌های قرقره یا بستن مصدوم به تخته‌سنگ یا درخت.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۴</span> بقا و سیگنال‌دهی (Survival &amp; Signaling)</h3>
-<p>مصدوم تو شوکه و ممکنه تو هوای سرد سریعاً دچار هیپوترمی بشه.</p>
-<ul>
-<li><strong>کیسه خواب اضطراری (Emergency Bivy):</strong> برخلاف پتوی نجات معمولی که پاره میشه، این مثل یه کیسه خواب واقعیه که مصدوم رو کامل می‌پوشونه و گرمای بدن رو حبس می‌کنه.</li>
-<li><strong>سوت نجات بدون زبانه (Pealess Whistle):</strong> صدای تیز و نافذی داره که تو صدای باد و طوفان گم نمیشه.</li>
-<li><strong>آینه سیگنال (Signal Mirror):</strong> برای روزهای آفتابی و دیده شدن توسط هلی‌کوپتر یا تیم‌های دور.</li>
-</ul>
-<p>جایگزین خلاقانه: اگه آتل فومی نداری، از دو تا باتوم پیاده‌روی (Trekking Poles) یا حتی شاخه‌های صاف درخت استفاده کن، ولی حتماً دورش رو با لباس یا فوم زیرانداز بپوشون تا به پوست فشار نیاره. اگه هارنس نجات نداری، می‌تونی با یه تکه تسمه بلند یا طناب پاراکورد، یه "صندلی اضطراری" (Seat Tie) دور کمر و ران‌های مصدوم ببندی و با کارابین به طناب اصلی وصلش کنی.</p>
-<h2>بومی‌سازی برای ایران</h2>
-<ul>
-<li>امداد کوهستان هلال‌احمر با شمارهٔ ۱۱۲ و اورژانس ۱۱۵ در دسترس‌اند؛ در بسیاری از دره‌ها آنتن قطع است، پس کسی باید برای تماس به نقطهٔ بلندتر برود و موقعیت دقیق (نام مسیر، مختصات، نشانه‌ها) را بدهد.</li>
-<li>زمان رسیدن امداد در کوهستان‌های ایران می‌تواند چند ساعت باشد؛ گرم نگه‌داشتن مصدوم و جلوگیری از شوک در این فاصله حیاتی است.</li>
-<li>دوره‌های کمک‌های اولیه و امداد کوهستان هلال‌احمر و فدراسیون کوهنوردی در مراکز استان‌ها برگزار می‌شود؛ کیت را بعد از دوره بچین.</li>
-<li>در مسیرهای پرتردد (مثل درکه، دربند، کلکچال) پایگاه‌های امداد وجود دارد؛ محل آن‌ها را قبل از سفر پیدا کن.</li>
-<li>پتوی نجات و باند کشی ارزان و در داروخانه‌ها موجودند؛ آتل قابل‌خم و بانداژ اضطراری را از فروشگاه‌های کوهنوردی و تجهیزات پزشکی تهیه کن.</li>
-</ul>
+<ol>
+<li><strong>پیش از سفر، مسیر و راه درخواست کمک را ثبت کن.</strong> نام مبدأ و مقصد، زمان برگشت، نقاط شناخته‌شده و راه تماس را به همراه مورد اعتماد بده. نقشهٔ آفلاین و موقعیت ذخیره‌شده مفیدند، اما باتری و نبود آنتن را هم در برنامه حساب کن.</li>
+<li><strong>کیت شخصی را به اقلامی محدود کن که می‌شناسی.</strong> وسایل پانسمان، دستکش، وسایل شخصی لازم، پوشش گرم و ابزار ارتباطی را در کیف مشخص و در دسترس بگذار. برای گارو، آتل یا پانسمان تخصصی، آموزش حضوری و دستور سازنده را مبنا قرار بده؛ اگر آموزش ندیده‌ای، آن را ابزار خوددرمانی فرض نکن.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-kit-first-aid.webp" alt="دستکش و اقلام پانسمان ساده در کنار کیف امداد بدون نوشته یا نشان تجاری" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">کیت شخصی و مراقبت اولیه</strong><span class="sa-guide-topic-card__description">اقلامی را همراه ببر که کاربردشان را می‌دانی و در آموزش با آن‌ها کار کرده‌ای.</span></figcaption></figure>
+<ol>
+<li><strong>برای سردی و خیس‌شدن برنامه داشته باش.</strong> یک لایهٔ خشک، عایق برای زیر بدن و پوشش در برابر باد و باران می‌تواند تا رسیدن کمک از اتلاف گرما کم کند. مراقبت را در محدودهٔ توان خود انجام بده و از خوراندن خوراکی یا نوشیدنی به فرد بیهوش یا گیج خودداری کن.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-kit-warmth.webp" alt="پتوی اضطراری و پوشش بیواک جمع‌شده در کنار لایهٔ خشک برای حفاظت از سرما" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">محافظت از سرما و رطوبت</strong><span class="sa-guide-topic-card__description">پوشش خشک و عایق را در جای در دسترس نگه دار؛ آن‌ها جای درمان را نمی‌گیرند.</span></figcaption></figure>
+<ol>
+<li><strong>در حادثه، کمک را زود خبر کن.</strong> از نزدیک‌شدن به ریزش سنگ، لبهٔ پرتگاه، جریان آب یا دود خودداری کن. با شمارهٔ مناسب تماس بگیر، موقعیت و نشانه‌های مسیر را واضح بگو و دستور اپراتور را دنبال کن. اگر پوشش تلفن نیست، برای یافتن راه ارتباطی فقط از مسیر امن و با توجه به وضعیت مصدوم اقدام کن.</li>
+<li><strong>تا رسیدن کمک، نقش خود را محدود و روشن نگه دار.</strong> اگر محل امن است، کنار مصدوم بمان، وضعیت را زیر نظر بگیر و او را در برابر سرما و باران محافظت کن. از جابه‌جایی، بستن به طناب، ساخت برانکارد یا جااندازی اندام خودداری کن، مگر اینکه اپراتور یا فرد آموزش‌دیدهٔ مسئول دستور دیگری بدهد. <strong>جایگزین خلاقانه:</strong> اگر آینه یا ابزار علامت‌دهی نداری، در محل امن لباس روشن را در دید قرار بده؛ این کار جای تماس اضطراری را نمی‌گیرد.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-kit-signaling.webp" alt="سوت، چراغ‌قوه، تلفن و باتری همراه برای علامت‌دهی و ارتباط در طبیعت" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ارتباط، موقعیت و علامت‌دهی</strong><span class="sa-guide-topic-card__description">ابزار را پیش از حرکت بررسی کن و نشانه‌های مسیر را برای امدادگر آماده داشته باش.</span></figcaption></figure>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: گارو (Tourniquet) اسباب‌بازی نیست. اگه شل یا جای غلط بسته بشه، خونریزی رو بدتر می‌کنه. فقط وقتی ببندیش که خونریزی با فشار مستقیم بند نمیاد و جون مصدوم در خطره؛ چند سانتی‌متر بالاتر از زخم و نه روی مفصل، زمان بستن رو یادداشت کن، بازش نکن و مصدوم رو هرچه سریع‌تر به مرکز درمانی برسون.</li>
-<li>اول صحنه را امن کن (ریزش سنگ، لبهٔ پرتگاه، آب) و بعد به مصدوم نزدیک شو؛ امدادگر دوم، مصدوم دوم است.</li>
-<li>دستکش بپوش و از تماس مستقیم با خون پرهیز کن.</li>
-<li>مصدوم با درد گردن یا کمر، بی‌هوشی یا سقوط از ارتفاع را بی‌حرکت نگه دار و منتظر امداد بمان، مگر خطر فوری (آتش، ریزش، آب) باشد.</li>
-<li>مصدوم را گرم نگه دار حتی در هوای معتدل؛ شوک و افت دما سریع پیش می‌آید.</li>
-<li>اگر فقط یک نفر آموزش‌دیده دارید، او کنار مصدوم بماند و دیگران تماس و سیگنال را به عهده بگیرند.</li>
+<li>وارد مسیر فنی، رود خروشان، محل ریزش یا آتش برای رسیدن به مصدوم نشو؛ امدادگر دوم شدن کمکی به مصدوم نمی‌کند.</li>
+<li>پس از سقوط، ضربه به سر، بیهوشی، درد گردن یا کمر، تنگی نفس یا خونریزی شدید، فوراً از خدمات امدادی راهنمایی بگیر.</li>
+<li>به مصدوم بیهوش، گیج یا دچار اختلال بلع خوراکی، آب یا دارو نده؛ درمان دارویی را خودسرانه شروع نکن.</li>
+<li>آتل، گارو و پانسمان تخصصی را فقط در محدودهٔ آموزش و دستور همان وسیله به کار ببر؛ دربارهٔ هر مورد مشکوک با اپراتور راهنمایی بگیر.</li>
+<li>انتقال با طناب، هارنس، قرقره یا برانکارد بداهه را به تیم واجدصلاحیت بسپار؛ کیت شخصی برای ساخت این سامانه‌ها نیست.</li>
 </ol>
 <h2>باورهای غلط</h2>
-<p><strong>باور غلط:</strong> «مصدوم رو می‌ذارم روی کولم و می‌برمش پایین.»</p>
-<p><strong>واقعیت:</strong> اگه مصدوم شکستگی لگن، ستون فقرات یا شکستگی باز پا داشته باشه، با این کار یا فلجش می‌کنی یا هر دو تو دره سقوط می‌کنید. تو کوه، مصدوم رو روی کول نمی‌برن؛ یا آتل می‌بندن و راه میرن، یا با سیستم طناب فرودش می‌دن، یا برانکارد می‌سازن.</p>
-<p><strong>باور غلط:</strong> «پتوی نجات (فویل طلایی) کافیه.»</p>
-<p><strong>واقعیت:</strong> پتوی نجات تو باد پاره میشه، تو سرما خشک و شکننده میشه و مصدوم رو کامل نمی‌پوشونه. برای نجات حرفه‌ای، کیسه خواب اضطراری (Bivy) یا حداقل یه کیسه زباله بزرگ و ضخیم که مصدوم بره توهاش، خیلی بهتره.</p>
-<p><strong>باور غلط:</strong> «با یک کیت کامل، می‌توانیم خودمان مصدوم را تا پایین ببریم و نیازی به امداد نیست.»</p>
-<p><strong>واقعیت:</strong> انتقال مصدوم با شکستگی یا آسیب ستون فقرات بدون برانکارد و تیم آموزش‌دیده معمولاً آسیب را بدتر می‌کند؛ کیت برای پایدار نگه‌داشتن مصدوم تا رسیدن امداد است.</p>
+<p><strong>باور غلط:</strong> «اگر ابزار زیاد داشته باشم، می‌توانم مصدوم را خودم تا پایین منتقل کنم.»</p>
+<p><strong>واقعیت:</strong> ابزار به‌تنهایی آموزش، ارزیابی صحنه و تیم هماهنگ را جایگزین نمی‌کند. انتقال نادرست می‌تواند آسیب را بدتر کند یا امدادگر دیگری را گرفتار کند؛ با امداد تماس بگیر و دستور بگیر.</p>
+<p><strong>باور غلط:</strong> «هر کیف نجاتی باید طناب، قرقره و هارنس داشته باشد.»</p>
+<p><strong>واقعیت:</strong> این اقلام در عملیات تخصصی و با سامانهٔ طراحی‌شده و فرد صلاحیت‌دار معنا دارند. برای بیشتر طبیعت‌گردان‌ها، برنامهٔ ارتباطی، پوشش، کمک‌های اولیهٔ متناسب و آموزش مهم‌تر است.</p>
+<p><strong>باور غلط:</strong> «پتوی نجات به‌تنهایی برای گرم‌کردن و درمان مصدوم کافی است.»</p>
+<p><strong>واقعیت:</strong> پتوی بازتابنده ممکن است در برخی شرایط بخشی از پوشش باشد، اما جای عایق زیر بدن، لباس خشک، محافظت از باد و ارزیابی پزشکی را نمی‌گیرد.</p>
 <h2>عیب‌یابی و علائم خطر</h2>
 <ul>
-<li><strong>خونریزی با فشار بند نمی‌آید:</strong> فشار مستقیم محکم با گاز ادامه، گاز اضافه روی قبلی، بانداژ فشاری؛ اگر از اندام است و همچنان شدید، گارو طبق آموزش، زمان را یادداشت کن و با ۱۱۵ تماس بگیر.</li>
-<li><strong>شکستگی مشکوک:</strong> اندام را در همان وضعیتی که هست با آتل و پارچه بی‌حرکت کن، مفصل بالا و پایین را بگیر، نبض و رنگ انگشت‌ها را چک کن؛ جا نینداز.</li>
-<li><strong>مصدوم سردش است و رنگ‌پریده:</strong> از زمین جدا کن (عایق زیر او)، پتوی نجات و لباس اضافه، سر را بپوشان؛ اگر هوشیار و بدون تهوع است مایع گرم بده.</li>
-<li><strong>علائم خطری که یعنی فقط منتظر امداد بمان:</strong> بی‌هوشی یا گیجی، درد گردن و کمر، تنگی نفس، خونریزی کنترل‌نشده، شکستگی باز، تشنج؛ تماس با ۱۱۵/۱۱۲ و پایدار نگه‌داشتن تا رسیدن تیم.</li>
+<li>اگر تماس برقرار نمی‌شود، موقعیت و آخرین نقطهٔ شناخته‌شده را ثبت کن و از اپراتور یا فرد بیرون گروه برای انتخاب گام امن کمک بخواه؛ گروه را بی‌برنامه از هم جدا نکن.</li>
+<li>اگر صحنه خطرناک است، از محدوده فاصله بگیر و امداد را از محل امن خبر کن؛ خودت برای رسیدن به مصدوم وارد خطر نشو.</li>
+<li>اگر وضعیت مصدوم بدتر می‌شود، این تغییر را دقیق و بدون حدس به اپراتور گزارش بده و دستور او را دنبال کن.</li>
+<li>کاهش هوشیاری، مشکل تنفس، آسیب پس از سقوط یا خونریزی مهارنشدنی نیازمند تماس فوری با خدمات امدادی است؛ خوددرمانی را جایگزین کمک حرفه‌ای نکن.</li>
 </ul>
 <h2>پیشگیری و کیت</h2>
 <ul>
-<li>آموزش قبل از خرید: دورهٔ کمک‌های اولیه و کنترل خونریزی، بعد تهیهٔ کیت.</li>
-<li>کارت اطلاعات گروه (بیماری‌ها، داروها، گروه خونی، تماس اضطراری) در کیت.</li>
-<li>هر شش ماه اقلام را چک کن و آتل و بانداژها را یک بار تمرین کن.</li>
-<li>برنامهٔ اضطراری هر سفر: نزدیک‌ترین جاده، پایگاه امداد، نقاط آنتن‌دهی.</li>
+<li>پیش از هر فصل، تاریخ مصرف و سلامت اقلام را طبق بسته‌بندی بررسی و جایگزین کن.</li>
+<li>وسایل را در کیسهٔ ضدآب یا محفظهٔ جدا نگه دار و اعضای گروه را از محل آن باخبر کن.</li>
+<li>آموزش کمک‌های اولیه و برنامهٔ اضطراری را به‌روز نگه دار؛ تمرین دوره‌ای از خرید وسایل بیشتر مفیدتر است.</li>
+<li>فهرست داروها، حساسیت‌ها و اطلاعات ضروری هر فرد را با رضایت او در دسترس مسئول گروه بگذار.</li>
+<li>مسئولیت تماس، راهنمایی گروه و مراقبت از مصدوم را در برنامهٔ سفر از قبل تقسیم کن.</li>
 </ul>
 <h2>چک‌لیست جمع‌بندی</h2>
-<p>وقتی داری کیت نجات رو می‌بندی یا چک می‌کنی، این چهار ستون رو تو ذهنت مرور کن:</p>
-<p>ثابت‌سازی:</p>
 <ul class="sa-checklist">
-<li>آتل فومی (SAM) + باند مثلثی + چسب نواری پهن</li>
+<li>مسیر، زمان برگشت و راه تماس اضطراری به فرد مورد اعتماد اعلام شده است.</li>
+<li>تلفن، باتری، نقشهٔ آفلاین و ابزار علامت‌دهی بررسی شده‌اند.</li>
+<li>کیت در دسترس، متناسب با سفر و شامل اقلام آشناست.</li>
+<li>برای سرما، باران و دورماندن از زمین سرد پوشش دارم.</li>
+<li>می‌دانم طناب، هارنس، قرقره و انتقال مصدوم کار تیم متخصص است.</li>
+<li>در حادثه، صحنه را امن می‌کنم، تماس می‌گیرم و دستور امداد را دنبال می‌کنم.</li>
 </ul>
-<p>خونریزی شدید:</p>
-<ul class="sa-checklist">
-<li>گارو تجاری (CAT) + گاز هموستاتیک (در صورت داشتن آموزش)</li>
-</ul>
-<p>انتقال و جابجایی:</p>
-<ul class="sa-checklist">
-<li>هارنس نجات + تسمه‌های پهن (Webbing) + کارابین پیچ‌دار</li>
-</ul>
-<p>بقا و سیگنال:</p>
-<ul class="sa-checklist">
-<li>کیسه خواب اضطراری (Bivy) + سوت بدون زبانه + آینه سیگنال</li>
-</ul>
-<p>یادت باشه: داشتن این وسایل بدون آموزش، مثل داشتن ماشین فرمول یک بدون گواهینامه‌ست. اول یاد بگیر، بعد بخر.</p>
-<h2>لینک‌های مرتبط</h2>
+<h2>پیوندهای مرتبط</h2>
 <ul>
-<li><a href="/first-aid-kit-checklist/">کیف کمک‌های اولیه</a></li>
-<li><a href="/rope-carabiner-guide/">معرفی طناب و کارابین</a></li>
-<li><a href="/gps-navigation-tools/">معرفی GPS و ابزار مسیریابی</a></li>
-<li><a href="/camping-lighting-guide/">وسایل روشنایی برای کمپ</a></li>
+<li><a href="/first-aid-kit-checklist/">چک‌لیست کیف کمک‌های اولیه</a></li>
+<li><a href="/rope-carabiner-guide/">راهنمای طناب و کارابین</a></li>
+<li><a href="/gps-navigation-tools/">GPS و ابزارهای مسیریابی</a></li>
+<li><a href="/camping-essential-checklist/">چک‌لیست کامل وسایل ضروری کمپینگ</a></li>
 <li><a href="/category/camping-survival/">هاب آموزش‌های کمپینگ</a></li>
 </ul>
 <h2>پیام پایانی</h2>
-<p>رفیق، کیت نجات حرفه‌ای، سنگین‌ترین و گرون‌ترین بخشی از وسایله که امیدوارم تا آخر عمرت مجبور نشی بازش کنی.</p>
-<p>ولی وقتی تو کوله‌ته، بهت یه آرامش خاطر عمیق می‌ده. می‌دونی که اگه خدای نکرده فاجعه‌ای رخ داد، تو دست‌بسته نیستی و می‌تونی رفیقت رو نجات بدی.</p>
-<p>قبل از هر سفر، یه بار وسایلش رو باز کن، دستت رو بهشون عادت بده و مطمئن شو که می‌دونی هر کدوم دقیقاً چطور کار می‌کنن.</p>
-<p>مراقب خودت و همسفرانت باش، ایمن بری و سالم برگردی.</p>
+<p>کیت خوب، برنامه و آموزش را کامل می‌کند؛ جای آن‌ها را نمی‌گیرد. در حادثهٔ جدی، امن بمان، موقعیت را گزارش کن و انتقال فنی را به تیم امداد بسپار.</p>
 <p class="sa-article__note">این مقاله جنبهٔ آموزشی دارد و جایگزین توصیهٔ پزشکی، راهنمای محلی، آموزش عملی یا دستور سازندهٔ محصولات نیست.</p>
 SA_ART,
 	),
@@ -9657,22 +9332,13 @@ SA_ART,
 <p>در جای باز، مرتفع و دور از سایهٔ درختان بمان؛ محل باید از آسمان و جاده دیده شود. اگر در دره‌ای، تا جای امن و مرتفع‌تر برو؛ نشانه در پنهان، نشانه نیست.</p>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> سوت، زبان نزدیک</h3>
 <p>سه بار سوت بزن، مکث کن و دوباره؛ صدای سوت از فریاد دورتر می‌رود و انرژی کمتری می‌گیرد. هرگاه صدایی شنیدی، سه‌تایی جواب بده؛ سوت، زبان مشترک امداد است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-signaling-guide-whistle.webp" alt="سوت اضطراری نارنجی با بند در دست فرد در منطقهٔ باز کوهستان" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سوت سه‌تایی، پیام جهانی</strong><span class="sa-topic-card__desc">سه سوت کوتاه با مکث، یعنی «کمک»؛ سوت سبک‌ترین و مؤثرترین ابزار نشانه‌گذاری صوتی است.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-signaling-guide-whistle.webp" alt="سوت اضطراری نارنجی با بند در دست فرد در منطقهٔ باز کوهستان" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سوت سه‌تایی، پیام جهانی</strong><span class="sa-guide-topic-card__description">سه سوت کوتاه با مکث، یعنی «کمک»؛ سوت سبک‌ترین و مؤثرترین ابزار نشانه‌گذاری صوتی است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> آینه و انعکاس نور</h3>
 <p>با آینه، قاشق یا صفحهٔ گوشی، پرتو نور خورشید را به‌سمت هواپیما، جاده یا هر نقطهٔ ممکن بتابان؛ حرکت آهسته و پیوسته بهتر از چشمک‌های بی‌هدف است. این روش، بُرد بالایی دارد و در روزهای آفتابی، سریع‌ترین پیام نجات است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-signaling-guide-mirror.webp" alt="آینهٔ کوچک نجات که پرتو نور خورشید را به آسمان بازتاب می‌دهد" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">آینه، پرتو نجات</strong><span class="sa-topic-card__desc">انعکاس نور خورشید با آینه، مسافت‌های بسیار دور را پوشش می‌دهد؛ نشانهٔ روزِ اضطرار.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-signaling-guide-mirror.webp" alt="آینهٔ کوچک نجات که پرتو نور خورشید را به آسمان بازتاب می‌دهد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آینه، پرتو نجات</strong><span class="sa-guide-topic-card__description">انعکاس نور خورشید با آینه، مسافت‌های بسیار دور را پوشش می‌دهد؛ نشانهٔ روزِ اضطرار.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> نشانه‌های زمینی بزرگ</h3>
 <p>روی زمین باز، سه خط بزرگ (V یا S) با سنگ، شاخه یا چاله بساز؛ پیام جهانی «کمک»، سه نشانهٔ یکسان است. از رنگ‌های متضاد استفاده کن: سنگ روشن روی خاک تیره، پارچهٔ نارنجی روی سبزی جنگل.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-signaling-guide-ground-signals.webp" alt="سه خط بزرگ سنگ‌چین‌شده در دشت باز به شکل V برای نشانهٔ نجات" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">سه نشانه، یک پیام</strong><span class="sa-topic-card__desc">سه خط بزرگ و متضاد روی زمین، از هوا و دوردست خوانده می‌شوند؛ زبان بصری امداد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rescue-signaling-guide-ground-signals.webp" alt="سه خط بزرگ سنگ‌چین‌شده در دشت باز به شکل V برای نشانهٔ نجات" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سه نشانه، یک پیام</strong><span class="sa-guide-topic-card__description">سه خط بزرگ و متضاد روی زمین، از هوا و دوردست خوانده می‌شوند؛ زبان بصری امداد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> آتش و دود</h3>
 <p>سه آتش در یک مثلث بزرگ (فاصلهٔ زیاد)، پیام اضطرار جهانی است؛ روزها با سوزاندن چیزی که دود تیره می‌دهد (لاستیک نه، سبزهٔ مرطوب) دود بساز. آتش را مهارشده نگه دار و فقط هنگام شنیدن/دیدن امداد، تقویتش کن.</p>
 <h2>نکات ایمنی</h2>
@@ -9731,10 +9397,10 @@ SA_ART,
 SA_ART,
 	),
 	'rope-alternatives-outdoor' => array(
-		'title'          => 'جایگزین طناب در طبیعت؛ چطور وقتی طناب نداریم، کارمون رو راه بندازیم؟',
+		'title'          => 'جایگزین طناب در طبیعت؛ چه چیزی فقط برای کار سبک مناسب است؟',
 		'type'           => 'post',
 		'slug'           => 'rope-alternatives-outdoor',
-		'excerpt'        => 'آموزش ساخت طناب‌های اضطراری و کاربردی در طبیعت با استفاده از لباس‌ها (تی‌شرت، شلوار، روسری) و الیاف گیاهی، همراه با بررسی مقاومت، گره‌های مناسب و کاربردهای آن‌ها.',
+		'excerpt'        => 'جایگزین‌های موجود برای دسته‌کردن وسایل سبک و غیرحیاتی در طبیعت، همراه با مرزبندی روشن دربارهٔ طناب‌کشی، چادر، بار معلق، گیاهان و هر کاری که شکست آن می‌تواند آسیب‌زا باشد.',
 		'english'        => 'Rope Alternatives Outdoors',
 		'kind'           => 'tent',
 		'category'      => array(
@@ -9744,170 +9410,144 @@ SA_ART,
 			'diy-outdoor' => 'کاردستی و جایگزین‌های DIY',
 		),
 		'meta'          => array(
-			'sa_seo_title' => 'جایگزین طناب در طبیعت | چطور بدون طناب حرفه‌ای گره بزنیم؟',
-			'sa_seo_description' => 'وسط طبیعت طناب نداری یا کم آوردی؟ تو این مقاله یاد می‌گیری چطور با روسری، تی‌شرت کهنه و حتی ساقه گیاهان، یه طناب محکم و کاربردی برای شرایط اضطراری بسازی.',
+			'sa_seo_title' => 'جایگزین طناب در طبیعت؛ فقط برای کارهای سبک و غیرحیاتی',
+			'sa_seo_description' => 'اگر طناب جا مانده، بند کوله یا کفش را فقط برای جمع‌کردن وسایل سبک به کار ببر؛ بند دست‌ساز برای انسان، چادر در باد یا بار معلق نیست.',
 			'sa_focus_keyword' => 'جایگزین طناب در طبیعت',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
-			'sa_risk_level' => 'کم تا متوسط؛ کارهای کمپ (نه وزن انسان)',
-			'sa_sources' => 'مرکز Leave No Trace — اصل «آنچه می‌یابی را دست‌نخورده بگذار» و پرهیز از آسیب به گیاهان و درختان
-راهنماهای پیشاهنگی (Scouting) — گره‌های پایه و اصول کار ایمن با طناب
-سازمان حفاظت محیط‌زیست ایران — مقررات مناطق حفاظت‌شده',
+			'sa_risk_level' => 'متوسط؛ خطر استفادهٔ نادرست از بندهای دست‌ساز',
+			'sa_sources' => 'مرکز Leave No Trace — حفاظت از گیاهان و پرهیز از برداشت مواد طبیعی
+سرویس پارک‌های ملی آمریکا (NPS) — برنامه‌ریزی مسیر و کاهش خطر در طبیعت
+دفترچهٔ سازندگان چادر، کوله و تسمه — کاربرد و محدودیت‌های وسیله',
 		),
-		'cover'         => array(
-			'file' => 'guides/rope-alternatives-outdoor.webp',
-			'alt' => 'اینفوگرافیک جایگزین طناب در طبیعت: ساخت طناب اضطراری از لباس و الیاف گیاهی، بررسی مقاومت، گره‌های مناسب و کاربردها',
-			'title' => 'اینفوگرافیک جایگزین طناب در طبیعت',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
-				'q' => 'آیا می‌تونم از این طناب‌های دست‌ساز برای پایین اومدن از یه پرتگاه کوتاه استفاده کنم؟',
-				'a' => 'رفیق، اگه می‌خوای زنده بمونی، نه. طناب‌های لباسی و گیاهی کش میان، ساییده می‌شن و زیر وزن یه انسان با ضربه ناگهانی پاره می‌شن. اینا فقط برای مهار بار، آویزون کردن وسایل یا ساخت سرپناه هستن. برای جابجایی انسان فقط از طناب استاندارد کوهنوردی استفاده میشه.',
+				'q' => 'آیا می‌توانم از بند لباس یا تی‌شرت برای پایین‌آمدن از شیب استفاده کنم؟',
+				'a' => 'نه. بند دست‌ساز برای مهار یا جابه‌جایی انسان نیست، حتی اگر شیب کوتاه به نظر برسد. مسیر امن‌تر را انتخاب کن و در صورت نیاز از امداد کمک بگیر.',
 			),
 			array(
-				'q' => 'بهترین گره برای وصل کردن دو تا تیکه لباس یا پارچه به هم چیه؟',
-				'a' => 'گره "Sheet bend" (گره خم) یا اگه پارچه‌ها لیز هستن "Water knot" (گره آب). این گره‌ها طوری طراحی شدن که وقتی کشیده می‌شن، محکم‌تر قفل می‌شن و باز نمی‌شن. از گره ساده (Overhand) برای وصل کردن دو سر استفاده نکن چون زیر بار باز میشه.',
+				'q' => 'بند کفش برای چه کاری قابل‌استفاده است؟',
+				'a' => 'فقط برای کارهای سبک و غیرحیاتی مثل مرتب‌کردن یک بستهٔ کوچک روی زمین، آن هم اگر بند سالم باشد. طول یا ظاهر بند نشانهٔ ظرفیت آن برای آویزان‌کردن یا مهار نیست.',
 			),
 			array(
-				'q' => 'آیا تی‌شرت خیس ضعیف‌تر میشه؟',
-				'a' => 'برعکس تصور عموم، پنبه (نخ) وقتی خیس میشه مقاومت کششیش کمی بیشتر هم میشه، ولی مشکل اینه که به شدت کش میاد و دیر خشک میشه. نایلون و پلی‌استر (مثل لباس‌های ورزشی) وقتی خیس میشن لیزتر می‌شن و گره‌هاشون شل میشه. پس اگه از لباس خیس استفاده می‌کنی، گره‌ها رو سفت‌تر ببند و مدام چکشون کن.',
+				'q' => 'اگر بند را با دست بکشم، می‌توانم از ایمنی‌اش مطمئن شوم؟',
+				'a' => 'نه. این آزمایش ظرفیت یا دوام را تعیین نمی‌کند و ممکن است بند ناگهانی رها شود. برای کاربرد حساس از بند طراحی‌شده و دستور سازنده استفاده کن.',
 			),
 			array(
-				'q' => 'چطور بفهمیم الیاف گیاهی که پیدا کردیم به اندازه کافی محکم هستن؟',
-				'a' => 'قبل از اینکه بهش اعتماد کنی، تست کشش انجام بده. دو سر الیاف رو دور دستت بپیچ و با تمام قدرت بکش. اگه با صدای "تق" پاره شد، به درد نمی‌خوره. اگه مقاومت کرد و فقط کمی کش اومد، می‌تونی ازش استفاده کنی. همیشه یه حاشیه امن برای بار در نظر بگیر.',
+				'q' => 'آیا می‌توانم برای طناب دست‌ساز از پوست درخت یا ساقهٔ گیاه استفاده کنم؟',
+				'a' => 'برای اتصال باربر یا ایمنی نه. گونه‌ها و قوانین متفاوت‌اند و برداشت ممکن است به طبیعت آسیب بزند؛ به گیاه ناشناخته هم دست نزن.',
 			),
 			array(
-				'q' => 'بند کفش‌ها به درد می‌خورن یا خیلی کوتاه‌ان؟',
-				'a' => 'بند کفش‌ها از محکم‌ترین و کاربردی‌ترین طناب‌های جیبی هستن. درسته کوتاه‌ان، ولی می‌تونی چند جفتشون رو با گره Water knot به هم وصل کنی. برای تعمیرات فوری کوله، بستن آتل‌های کوچک، یا درست کردن تلهٔ ماهیگیری خیلی سبک فوق‌العاده‌ان؛ تلهٔ ماهیگیری را فقط در شرایط بقا و در چارچوب مقررات محلی به کار ببر (در ایران پروانهٔ صید لازم است) و در آب‌های حفاظت‌شده هیچ‌وقت. همیشه یه جفت بند کفش اضافه تو کوله‌ت داشته باش.',
+				'q' => 'اگر بند چادر در باد پاره شد چه کنم؟',
+				'a' => 'از بند لباس یا پارچه برای مهار در باد استفاده نکن. اگر امکان نصب بند مناسب نداری، چادر را پایین بیاور یا به محل امن‌تر برو و از ادامهٔ اقامت در وضعیت خطرناک صرف‌نظر کن.',
 			),
 		),
 		'content'       => <<<'SA_ART'
 <div class="sa-callout sa-callout--answer">
-<p><strong>پاسخ سریع:</strong> اگر طناب نداری، برای بستن چادر، آویزان‌کردن وسایل یا بستن بار از بند کفش، تسمهٔ کوله، تی‌شرت نواری‌شده و بافته، یا الیاف گیاهی خشک تابیده استفاده کن. این طناب‌ها فقط برای کارهای سبک کمپ هستند؛ هیچ طناب دست‌سازی برای نگه‌داشتن یا پایین‌فرستادن آدم مناسب نیست.</p>
+<p><strong>پاسخ سریع:</strong> برای دسته‌کردن یک بستهٔ سبک روی زمین، بند کوله یا بند کفش ممکن است کار راه‌انداز باشد؛ ظرفیت و مقاومتشان را از ظاهر نمی‌شود فهمید. هیچ بند دست‌ساز یا پارچه‌ای را برای نگه‌داشتن انسان، چادر در باد، بار معلق، عبور از شیب یا عملیات نجات به کار نبر.</p>
 </div>
 <div class="sa-callout sa-callout--warning" role="note">
-<p class="sa-callout__title">⚠️ فقط برای وسایل، نه برای آدم</p>
-<p>طناب دست‌ساز از پارچه یا گیاه، زیر وزن انسان یا ضربه پاره می‌شود؛ برای عبور از شیب، پرتگاه یا رودخانه هرگز به آن تکیه نکن. در مناطق حفاظت‌شده پوست‌کندن درخت زنده و بریدن شاخهٔ سبز ممنوع و برای درخت کشنده است؛ از شاخه‌ها و الیاف افتاده و خشک استفاده کن.</p>
+<p class="sa-callout__title">⚠️ اگر شکست بند پیامد دارد، بداهه‌کاری نکن</p>
+<p>این مقاله دربارهٔ کارهای کم‌خطر و غیرحیاتی است، نه ساخت طناب باربر یا آموزش گره. اگر بند باید وزن را نگه دارد، بالای سر کسی قرار می‌گیرد یا جلوی سقوط را می‌گیرد، از وسیلهٔ طراحی‌شده و دستور سازنده استفاده کن؛ در نبود آن، کار را متوقف کن.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن به محل کمپ رسیده‌ای، باد بلند شده و طناب‌های مهار چادر یا جا مانده یا پاره شده. اطرافت تی‌شرت اضافه، بند کفش، تسمهٔ کوله و چند گیاه خشک هست؛ همین‌ها کافی است تا چادر را مهار کنی و وسایل را از زمین بلند کنی. پایین‌تر سه روش ساخت طناب جایگزین را قدم‌به‌قدم می‌بینی و همین‌طور حد و مرز روشن این طناب‌ها، چون جایی که وزن آدم وسط است، بداهه‌سازی جایی ندارد.</p>
+<p>فرض کن در کمپ می‌خواهی لباس اضافه را جمع کنی و متوجه می‌شوی طناب یدکی جا مانده. بند کوله یا بند کفش شاید برای مرتب‌کردن همان بسته کافی باشد، اما از این تجربه نمی‌شود برای مهار چادر، آویزان‌کردن بار یا نگه‌داشتن آدم نتیجه گرفت. این راهنما مرز کاربردهای سبک را روشن می‌کند و می‌گوید چه وقت باید وسیلهٔ مناسب پیدا کنی یا برنامه را عوض کنی.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
-<li>بدان طناب را برای چه می‌خواهی: مهار چادر، آویزان‌کردن غذا، بستن بار (کارهای سبک) یا چیزی که وزن انسان روی آن می‌افتد (این مقاله برای آن نیست).</li>
-<li>وسایل در دسترس را فهرست کن: بند کفش، تسمه‌ها، تی‌شرت و لباس اضافه، کیسهٔ زباله، بافر.</li>
-<li>چاقو یا قیچی کوچک برای بریدن پارچه و الیاف.</li>
-<li>در صورت استفاده از گیاه: ساقه‌های خشک و الیاف‌دار افتاده (نه گیاه زنده و نه گونه‌های حفاظت‌شده).</li>
-<li>چند گرهٔ ساده (گرهٔ مربع برای وصل‌کردن، گرهٔ بولین برای حلقه، گرهٔ کشویی برای مهار).</li>
+<li>پیش از انتخاب جایگزین، بپرس اگر بند باز یا پاره شود چه چیزی می‌افتد و چه کسی آسیب می‌بیند.</li>
+<li>بند موجود را فقط برای دسته‌کردن وسیلهٔ سبک و غیرحیاتی در سطح زمین در نظر بگیر؛ کشش یا ظرفیت ناشناخته را حدس نزن.</li>
+<li>اگر کاربرد به چادر، سایه‌بان، بار خودرو، بار معلق، فرد یا حیوان مربوط است، از بند طراحی‌شده برای همان کاربرد و دستور سازنده استفاده کن.</li>
+<li>در منطقهٔ حفاظت‌شده یا طبیعت، از بریدن شاخه، کندن ریشه یا پوست‌گرفتن درخت برای ساخت الیاف خودداری کن.</li>
 </ul>
-<h2>جدول مقایسه: جایگزین‌های طناب</h2>
+<h2>جدول تصمیم: جایگزین طناب برای کارهای کم‌خطر</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
-<thead><tr><th>جایگزین</th><th>استحکام نسبی</th><th>زمان ساخت</th><th>بهترین کاربرد</th><th>محدودیت</th></tr></thead>
+<thead><tr><th>وسیلهٔ در دسترس</th><th>کاربرد محدود</th><th>برای این کارها به آن تکیه نکن</th><th>نکته</th></tr></thead>
 <tbody>
-<tr><td>بند کفش و تسمهٔ کوله</td><td>خوب برای کارهای سبک</td><td>صفر</td><td>مهار چادر، بستن وسایل</td><td>کوتاه؛ کفش بی‌بند می‌ماند</td></tr>
-<tr><td>نوار تی‌شرت بافته (سه‌رشته)</td><td>متوسط</td><td>۱۰ تا ۲۰ دقیقه</td><td>بند رخت، آویزان‌کردن کیسهٔ غذا</td><td>با خیس‌شدن کش می‌آید</td></tr>
-<tr><td>کیسهٔ زباله نواری‌شده و تابیده</td><td>متوسط</td><td>۵ تا ۱۰ دقیقه</td><td>بستن بار، مهار موقت</td><td>در سرما شکننده، لغزنده</td></tr>
-<tr><td>الیاف گیاهی تابیده</td><td>متوسط تا خوب (با تمرین)</td><td>۳۰ دقیقه به بالا</td><td>بند و بستن اردوگاه</td><td>زمان‌بر، نیاز به مهارت</td></tr>
-<tr><td>شاخهٔ سبزِ افتاده / ریشهٔ خشکِ افتاده</td><td>خوب برای بستن ثابت</td><td>۵ دقیقه</td><td>بستن سازه و قاب</td><td>فقط از شاخه‌های افتاده؛ خشک که شد می‌شکند</td></tr>
+<tr><td>بند کوله</td><td>دسته‌کردن لباس یا بستهٔ سبک روی زمین</td><td>مهار چادر، بار خودرو یا انسان</td><td>قفل و سلامت بند را بررسی کن</td></tr>
+<tr><td>بند کفش یدکی</td><td>جمع‌کردن یک وسیلهٔ کوچک و سبک</td><td>آویزان‌کردن یا مهار بار</td><td>کوتاهی و گره‌خوردن ظرفیت را معلوم نمی‌کند</td></tr>
+<tr><td>نوار پارچهٔ اضافه</td><td>نگه‌داشتن موقت اجزای نرم کنار هم</td><td>کشیدن، نگه‌داشتن یا مهار تحت فشار</td><td>با رطوبت و سایش ممکن است بلغزد یا پاره شود</td></tr>
+<tr><td>تسمهٔ طراحی‌شده برای وسیله</td><td>بستن بار سبک طبق دفترچهٔ همان وسیله</td><td>کاربرد خارج از برچسب و روش سازنده</td><td>تسمهٔ کوله یا حمل بار جای تسمهٔ ایمنی نیست</td></tr>
+<tr><td>الیاف یا شاخهٔ گیاهی</td><td>در این راهنما پیشنهاد نمی‌شود</td><td>هر نوع اتصال باربر یا آسیب‌زا</td><td>گونه، مقاومت و اثر برداشت نامعلوم است</td></tr>
 </tbody></table></figure>
-<h2>روش‌های ساخت طناب جایگزین</h2>
+<h2>روش گام‌به‌گام: تصمیم‌گیری دربارهٔ جایگزین‌های طناب</h2>
 <ul class="sa-steps-meta">
-<li><strong>مناسب برای:</strong> کارهای سبک کمپ وقتی طناب نداری؛ نه برای عبور از موانع، فرود، حمایت یا بالا کشیدن افراد.</li>
-<li><strong>لازم داری:</strong> لباس یا پارچهٔ اضافه، بند کفش و تسمه، چاقو، چند گرهٔ ساده و ۱۰ تا ۳۰ دقیقه وقت.</li>
-<li><strong>زمان:</strong> روش لباس ۱۰ تا ۲۰ دقیقه؛ الیاف گیاهی نیم ساعت تا یک ساعت برای چند متر.</li>
-<li><strong>هشدار:</strong> هر طنابی که ساختی را قبل از استفاده با کشیدن محکم با دست امتحان کن و زیر بار، صورت و چشم را از مسیر پاره‌شدن دور نگه دار.</li>
+<li><strong>مناسب برای:</strong> مرتب‌کردن بسته‌های کوچک و سبک در کمپ، وقتی وسیلهٔ مناسب همان کار در دسترس است؛ نه اتصال سازه یا تحمل بار.</li>
+<li><strong>لازم داری:</strong> بند سالمی که از قبل برای همان وسیله طراحی شده، یا وسیلهٔ سبک و غیرحیاتی که روی زمین می‌ماند.</li>
+<li><strong>زمان:</strong> زمان بستن، ایمنی یک بند ناشناخته را ثابت نمی‌کند؛ برای کارهای حساس از وسیلهٔ استاندارد و روش سازنده استفاده کن.</li>
+<li><strong>هشدار:</strong> بند را با کشیدن شدید آزمایش نکن؛ چنین آزمایشی ظرفیت مجاز را مشخص نمی‌کند و ممکن است با رهاشدن ناگهانی به دست یا صورت آسیب بزند.</li>
 </ul>
-<p>ما طناب رو بر اساس جنس و منبعش به سه دسته تقسیم می‌کنیم. هر کدوم برای یه بار و فشار خاصی مناسبه.</p>
-<h3 class="sa-step"><span class="sa-step__n">۱</span> استفاده از لباس و تجهیزات شخصی (سریع‌ترین روش)</h3>
-<p>وقتی هیچ گیاه یا طنابی دم دستت نیست، بدنت و وسایلت بهترین منبعن.</p>
-<ul>
-<li><strong>تی‌شرت نخی یا پنبه‌ای:</strong> یه تی‌شرت کهنه رو بردار. آستین‌ها و یقه رو ببر دور. بدنه تی‌شرت رو به صورت نوارهای بلند (عرض ۵ تا ۱۰ سانت) برش بده. حالا این نوارها رو مثل موهای دخترانه محکم بباف (Plait/Braid). بافتن باعث میشه نوارها تو هم قفل بشن و مقاومتش چند برابر بشه.</li>
-<li><strong>شلوار جین یا پارچه‌های ضخیم:</strong> جین مقاومت کششی فوق‌العاده‌ای داره. می‌تونی پاهای شلوار رو به هم گره بزنی و به عنوان یه طناب کوتاه و بسیار محکم استفاده کنی.</li>
-<li><strong>کمربند، بند کوله و بند کفش:</strong> اینا از اول برای تحمل کشش ساخته شدن. می‌تونی با گره‌های مناسب (مثل گره Sheet bend) چند تا بند کفش یا کمربند رو به هم وصل کنی.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۲</span> استفاده از الیاف گیاهی (روش کلاسیک بقا)</h3>
-<p>طبیعت پر از طناب‌های رایگانه، فقط باید بلد باشی پیداشون کنی و آماده‌شون کنی.</p>
-<ul>
-<li><strong>پوست داخلی درختان:</strong> درخت‌هایی مثل بید (Willow)، نمدار (Linden) و توت، پوست داخلی (لایه سبز و مرطوب زیر پوست زبر بیرونی) بسیار مقاومی دارن. یه شاخه مرده رو بردار، پوستش رو بکن و لایه داخلی‌ش رو جدا کن.</li>
-<li><strong>گیاهان ساقه‌بلند:</strong> گزنه‌های وحشی (بعد از سوزوندن یا خشک کردن)، کنف وحشی و حتی برخی علف‌های بلند، الیاف بسیار محکمی دارن.</li>
-<li><strong>تکنیک ساخت (تابش معکوس):</strong> الیاف رو خشک کن. برای تبدیلش به طناب، باید از تکنیک "Reverse Wrap" استفاده کنی. یعنی دو دسته الیاف رو روی هم بپیچی و بعد هر کدوم رو در جهت عکسِ هم بپیچی. این اصطکاک باعث میشه طناب باز نشه.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۳</span> استفاده از شاخه‌های سبز و ریشه‌ها (برای بستن و لیگار)</h3>
-<p>اگه می‌خوای دو تا شاخه رو به هم ببندی (مثل ساخت سرپناه)، نیاز به طناب بلند نداری، نیاز به "بند" داری.</p>
-<ul>
-<li><strong>شاخه‌های سبز و انعطاف‌پذیر:</strong> شاخه‌های نازک و افتادهٔ درختانی مثل بید یا فندق را بردار. تا وقتی سبز و آبدارن، مثل چرم انعطاف‌دارن و نمی‌شکنن؛ شاخه را از درخت زنده نبر. می‌تونی دور تا دور دو تا تیرک بپیچی و گره بزنی.</li>
-<li><strong>ریشه‌های درختان:</strong> ریشه‌های نازک و بلندِ افتاده و خشکِ درختان کاج یا صنوبر که از خاک بیرون زده‌اند، به شدت محکم و گره‌خور هستن؛ ریشهٔ درخت زنده را نکَن.</li>
-</ul>
-<p>جایگزین خلاقانه: اگه می‌خوای چیزی رو آویزون کنی و هیچ طنابی نداری، می‌تونی از "گره‌های اصطکاکی" روی خود درخت استفاده کنی. یعنی شاخه‌ای که می‌خوای چیزی رو بهش آویزون کنی، زبری و شاخ و برگ داشته باشه که وزنه با گره‌های ساده (مثل Half hitch) دور خودش قفل بشه و لیز نخوره.</p>
-<h2>بومی‌سازی برای ایران</h2>
-<ul>
-<li>در مناطق حفاظت‌شده و جنگل‌های هیرکانی، بریدن شاخه و پوست‌کندن درخت تخلف است؛ فقط از شاخه‌ها و الیاف افتاده استفاده کن.</li>
-<li>گیاهان الیاف‌دار رایج در طبیعت ایران (مثل ساقهٔ خشک گزنه در شمال، گیاهان بیابانی با ساقهٔ رشته‌ای) الیاف قابل تابیدن دارند؛ گیاهان ناشناس را با دست لخت نگیر، بعضی‌ها پوست را می‌سوزانند.</li>
-<li>بند کفش کوهنوردی اغلب بیش از یک متر طول دارد و برای مهار چادر در باد شبانهٔ زاگرس و البرز کافی است؛ یک جفت بند یدک همیشه در کوله بگذار.</li>
-<li>کیسهٔ زبالهٔ ضخیم که برای جمع‌کردن زباله می‌بری، هم‌زمان منبع طناب اضطراری است.</li>
-<li>در سفرهای کویری، تسمه‌ها و پارچه برای مهار سایه‌بان در باد مهم‌تر از طناب نازک هستند.</li>
-</ul>
+<ol>
+<li>اول کاربرد و پیامد شکست را مشخص کن. اگر چیزی می‌تواند روی فرد بیفتد، چادر در باد رها شود، وسیله از خودرو جدا شود یا کسی به بند تکیه کند، این کار برای جایگزین دست‌ساز مناسب نیست.</li>
+<li>برای یک بستهٔ سبک، از سگک یا بند سالمی استفاده کن که سازنده برای همان وسیله در نظر گرفته است. بند را از لبهٔ تیز دور نگه دار و آن را طوری قرار بده که در صورت لغزش، به کسی برخورد نکند.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rope-alternatives-backpack-strap.webp" alt="بند کولهٔ سالم برای دسته‌کردن بستهٔ سبک روی زمین و دور از افراد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بند کوله فقط برای کار سبک</strong><span class="sa-guide-topic-card__description">بند طراحی‌شده برای کوله را به کاربرد ایمنی یا باربری دیگری تعمیم نده.</span></figcaption></figure>
+<ol>
+<li>اگر پارچهٔ اضافه داری، از آن فقط برای نگه‌داشتن موقت اجزای نرم کنار هم استفاده کن؛ نه برای آویزان‌کردن، کشیدن یا بستن چیزی بالای سر. با خیس‌شدن، ساییدگی یا حرکت، وضعیت پارچه تغییر می‌کند.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rope-alternatives-fabric-lashing.webp" alt="پارچهٔ اضافه دور یک بستهٔ نرم و سبک روی سطح صاف، بدون بار معلق" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پارچه برای دسته‌کردن، نه تحمل بار</strong><span class="sa-guide-topic-card__description">بافت یا گره‌زدن پارچه ظرفیت آن را برای مهار انسان و بار مشخص نمی‌کند.</span></figcaption></figure>
+<ol>
+<li>اگر بند یدکی در دسترس نیست، وسیله‌ها را داخل کوله یا کیسه بگذار و برنامه را ساده‌تر کن. <strong>جایگزین خلاقانه:</strong> برای نگه‌داشتن چند لباس سبک کنار هم، آن‌ها را در یک کیسهٔ پارچه‌ای قرار بده؛ نیازی به ساخت طناب یا برداشت گیاه نیست.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rope-alternatives-shoelace.webp" alt="بند کفش یدکی کنار بستهٔ کوچک و سبک تجهیزات روی زمینهٔ روشن" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بند کفش فقط برای بستهٔ کوچک</strong><span class="sa-guide-topic-card__description">از بند کوتاه برای مرتب‌کردن وسایل سبک استفاده کن، نه آویزان‌کردن یا مهار ایمنی.</span></figcaption></figure>
+<ol>
+<li>اگر بند مناسب نداری و شکست اتصال می‌تواند خطرساز شود، از آن کار صرف‌نظر کن، بار را پایین نگه دار، از منطقهٔ بادخیز دور شو یا وسیلهٔ درست تهیه کن. کشیدن بند با دست، گرهٔ بیشتر یا چندلایه‌کردن پارچه جای آزمون مهندسی را نمی‌گیرد.</li>
+</ol>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: وقتی داری دو تا جنس مختلف رو به هم گره می‌زنی (مثلاً نوار نخی تی‌شرت رو به بند نایلونی کوله)، گره‌های معمولی لیز می‌خورن و باز می‌شن. حتماً از گره‌های مخصوص اتصال دو طناب با جنس متفاوت (مثل گره اتصال دو طناب (Sheet bend) یا گره نواری (Water knot)) استفاده کن و انتهای گره رو حتماً با یه گره اضافه (Stopper knot) محکم کن.</li>
-<li>زیر بار، هیچ‌وقت صورتت را در امتداد طناب دست‌ساز قرار نده؛ پارگی ناگهانی ضربه می‌زند.</li>
-<li>با چاقو از بدن به بیرون ببر و پارچه را روی سطح سفت ببر، نه روی زانو.</li>
-<li>گیاهان ناشناس را با دستکش یا پارچه بگیر و با چشم و پوست تماس نده.</li>
-<li>شاخهٔ سبز خم‌شده مثل فنر عمل می‌کند؛ هنگام رها شدن می‌تواند به صورت بزند.</li>
+<li>هرگز بند لباس، بند کفش، پارچه یا الیاف گیاهی را برای صعود، فرود، حمایت، نجات یا نگه‌داشتن فرد به کار نبر.</li>
+<li>این جایگزین‌ها را برای چادر یا سایه‌بان در باد، بار خودرو، بار معلق، تخت آویز یا تکیه‌گاه استفاده نکن؛ شکست آن‌ها می‌تواند آسیب‌زا باشد.</li>
+<li>آزمایش کششی با دست، حتی اگر بند پاره نشود، ظرفیت ایمن یا دوام آن را نشان نمی‌دهد؛ در راستای احتمالی رهاشدن بند هم نایست.</li>
+<li>از شاخهٔ زنده، پوست درخت، ریشه یا گیاه ناشناخته برای تهیهٔ طناب استفاده نکن؛ ممکن است به طبیعت آسیب برسد، قانون محل را نقض کند یا پوست را تحریک کند.</li>
+<li>اگر بند لیز می‌خورد، می‌بریده یا نشانهٔ سایش دارد، آن را برای بار مهم محکم‌تر گره نزن؛ استفاده را متوقف کن و ابزار مناسب پیدا کن.</li>
 </ol>
 <h2>باورهای غلط</h2>
-<p><strong>باور غلط:</strong> «طناب ساخته شده از تی‌شرت یا گیاه، به اندازه پاراکورد محکمه.»</p>
-<p><strong>واقعیت:</strong> اصلاً و ابداً. طناب‌های دست‌ساز کش میان، ساییده می‌شن و تحت فشارهای ناگهانی پاره می‌شن. اینا فقط برای بارهای سبک تا متوسط (مثل مهار چادر، آویزون کردن غذا، یا آتل بستن) هستن. هرگز، تکرار می‌کنم هرگز، برای کارهای حیاتی مثل فرود از ارتفاع یا حمایت سنگنوردی ازشون استفاده نکن.</p>
-<p><strong>باور غلط:</strong> «برای به دست آوردن پوست درخت، باید یه درخت زنده رو پوست‌کنی.»</p>
-<p><strong>واقعیت:</strong> هرگز یه درخت زنده رو دور تا دور پوست نکن (Girdling)، چون آوندش قطع میشه و درخت می‌میره. فقط از شاخه‌های از قبل افتاده و مرده، یا شاخه‌هایی که از پهلو رشد کردن و نیازی بهشون نیست استفاده کن. طبیعت رو برای نجات خودت نکش.</p>
-<p><strong>باور غلط:</strong> «با چند لایه تی‌شرت که محکم بتابم، می‌تونم از شیب کوتاه پایین برم.»</p>
-<p><strong>واقعیت:</strong> استحکام پارچهٔ تابیده با گره و خیس‌شدن به‌شدت کم می‌شود و ضربهٔ یک لغزش ساده آن را پاره می‌کند؛ برای شیب و پرتگاه مسیر دیگری پیدا کن یا منتظر بمان.</p>
+<p><strong>باور غلط:</strong> «اگر چند نوار تی‌شرت را ببافم، مثل طناب واقعی محکم می‌شود.»</p>
+<p><strong>واقعیت:</strong> بافتن، ظرفیت طراحی‌شده و گواهی ایمنی ایجاد نمی‌کند. پارچهٔ دست‌ساز ممکن است بلغزد، کش بیاید یا ناگهانی پاره شود؛ برای بار یا انسان به آن اعتماد نکن.</p>
+<p><strong>باور غلط:</strong> «اگر بند را با تمام قدرت بکشم و پاره نشود، برای چادر یا بار امن است.»</p>
+<p><strong>واقعیت:</strong> کشیدن دستی، جهت بار، ضربه، رطوبت، سایش یا دوام اتصال را نمی‌سنجد و ممکن است خطرناک باشد. برای کاربرد حساس فقط از وسیلهٔ مناسب همان کار استفاده کن.</p>
+<p><strong>باور غلط:</strong> «شاخهٔ خشک یا پوست درخت همیشه جایگزین آماده‌ای برای طناب است.»</p>
+<p><strong>واقعیت:</strong> نوع گیاه، وضعیت الیاف، خشکی و آسیب محیطی متفاوت است؛ برداشت هم می‌تواند به زیستگاه آسیب بزند. در این راهنما از مواد گیاهی برای اتصال باربر استفاده نمی‌شود.</p>
 <h2>عیب‌یابی و علائم خطر</h2>
 <ul>
-<li><strong>بافت باز می‌شود:</strong> انتهای رشته‌ها را گره بزن و هنگام بافتن هر رشته را سفت نگه دار؛ سه رشته بافت پایدارتر از دو رشته است.</li>
-<li><strong>طناب لیز است (کیسهٔ زباله):</strong> گرهٔ دوبل بزن و دور تکیه‌گاه دو بار بپیچ.</li>
-<li><strong>الیاف گیاهی خشک می‌شکند:</strong> کمی خیس کن تا نرم شود، بعد بتاب؛ قبل از تابیدن الیاف را از هم جدا کن.</li>
-<li><strong>علائم خطر:</strong> صدای پاره‌شدن یا کش‌آمدن سریع زیر بار؛ بار را فوراً بردار. اگر کسی زیر بار سقوط کرد یا طناب به صورتش خورد، کمک‌های اولیه و در صورت نیاز ۱۱۵.</li>
+<li>بند می‌لغزد یا باز می‌شود: بار را پایین بگذار و برای همان کار وسیلهٔ مناسب تهیه کن؛ با افزودن گره یا فشار، اتصال را ایمن فرض نکن.</li>
+<li>پارچه خیس، ساییده یا کش‌آمده است: از آن برای نگه‌داشتن وسیله استفاده نکن؛ آب و سایش وضعیتش را تغییر می‌دهند.</li>
+<li>چادر یا سایه‌بان در باد مهار نمی‌شود: از محل خطر فاصله بگیر، آن را پایین بیاور یا به جای امن‌تر برو؛ بند لباس جای مهار طراحی‌شده نیست.</li>
+<li>اگر وسیله‌ای افتاد یا کسی آسیب دید، اول صحنه را امن کن و متناسب با شدت آسیب از امداد کمک بگیر؛ برای انتقال فرد از بند دست‌ساز استفاده نکن.</li>
 </ul>
 <h2>پیشگیری و کیت</h2>
 <ul>
-<li>چند متر پاراکورد واقعی (۱۰ تا ۱۵ متر) همیشه در کوله؛ سبک‌ترین بیمهٔ کمپ.</li>
-<li>یک جفت بند کفش یدک، که هم طناب اضطراری است هم بند کفش.</li>
-<li>تمرین گره‌های پایه در خانه با پاراکورد.</li>
-<li>فهرست وسایل را بعد از هر سفر به‌روز کن تا طناب دوباره جا نماند.</li>
+<li>بند یدکی و طنابچهٔ مناسب کارهای کمپ را از پیش در فهرست سفر بگذار و کاربرد هرکدام را مشخص نگه دار.</li>
+<li>بندها و سگک‌های چادر و کوله را طبق دستور سازنده بررسی و قطعهٔ آسیب‌دیده را تعویض کن.</li>
+<li>وسایل کوچک را در کیسه یا داخل کوله نگه دار تا برای هر بسته به بند بداهه نیاز نباشد.</li>
+<li>برای باد و باران، مسیر جایگزین یا امکان پایین‌آوردن چادر را در برنامه در نظر بگیر.</li>
+<li>اگر وسیله‌ای برای کار مشخص طراحی شده، از آن خارج از دستور سازنده استفاده نکن.</li>
 </ul>
 <h2>چک‌لیست جمع‌بندی</h2>
-<p>وقتی به طناب نیاز داری ولی طناب حرفه‌ای نداری، این مسیر رو تو ذهنت طی کن:</p>
-<p>بار و فشار چقدره؟</p>
 <ul class="sa-checklist">
-<li>سبک (مهار چادر، آویزون کردن غذا) -&gt; نوارهای بافته شده تی‌شرت، بند کفش، کمربند.</li>
-<li>متوسط (ساخت سرپناه، آتل بستن) -&gt; شاخه‌های سبز انعطاف‌پذیر، ریشه درختان، الیاف گیاهی تابیده شده.</li>
-<li>سنگین و حیاتی (فرود، حمایت) -&gt; هیچ کدوم! فقط طناب استاندارد کوهنوردی.</li>
+<li>شکست بند فقط یک بستهٔ سبک روی زمین را تحت‌تأثیر می‌گذارد.</li>
+<li>از بند سالم و طراحی‌شده برای همان وسیله استفاده می‌کنم.</li>
+<li>هیچ انسان، چادر در باد، بار خودرو یا بار معلق به آن وابسته نیست.</li>
+<li>برای آزمودن ظرفیت، بند را با دست نمی‌کشم.</li>
+<li>اگر وسیلهٔ درست ندارم، کاربرد خطرناک را متوقف می‌کنم.</li>
+<li>برای طناب‌سازی از گیاه زنده یا مواد ناشناخته برداشت نمی‌کنم.</li>
 </ul>
-<p>نکات کلیدی گره‌زنی:</p>
-<ul class="sa-checklist">
-<li>اتصال دو جنس متفاوت -&gt; گره Sheet bend یا Water knot.</li>
-<li>جلوگیری از باز شدن گره -&gt; زدن گره اضافه (Stopper) در انتهای کار.</li>
-<li>حفظ طبیعت -&gt; هرگز درخت زنده رو پوست نکن.</li>
-</ul>
-<h2>لینک‌های مرتبط</h2>
+<h2>پیوندهای مرتبط</h2>
 <ul>
-<li><a href="/rope-carabiner-guide/">معرفی طناب و کارابین</a> — طناب و کارابین واقعی و حد استفاده</li>
-<li><a href="/how-to-choose-camping-tent/">راهنمای انتخاب چادر مناسب</a></li>
+<li><a href="/rope-carabiner-guide/">معرفی طناب و کارابین</a></li>
 <li><a href="/camping-essential-checklist/">چک‌لیست کامل وسایل ضروری کمپینگ</a></li>
-<li><a href="/diy-emergency-torch/">ساخت مشعل اضطراری</a></li>
+<li><a href="/how-to-choose-camping-tent/">راهنمای انتخاب چادر مناسب</a></li>
 <li><a href="/category/camping-survival/">هاب آموزش‌های کمپینگ</a></li>
 </ul>
 <h2>پیام پایانی</h2>
-<p>رفیق، هنر بقا یعنی دیدن پتانسیل‌هایی که بقیه نمی‌بینن. وقتی بقیه به یه تی‌شرت کهنه یا یه شاخه خشک به چشم آشغال نگاه می‌کنن، تو به چشم یه ابزار نجات‌بخش نگاه می‌کنی.</p>
-<p>با این حال، این مهارت‌ها برای شرایط اضطراری و کمبود وسیله‌ست. تو سفرهای اصلیت، حتماً پاراکورد یا طناب استاندارد همراهت باشه تا مجبور نشی زیر فشار و استرس، دنبال تی‌شرت کهنه بگردی.</p>
-<p>مراقب خودت باش، گره‌هات رو محکم بزن و از خلاقیتت تو دل طبیعت لذت ببر.</p>
+<p>بند دم‌دستی می‌تواند یک بستهٔ کوچک را مرتب کند، اما طناب باربر نیست. اگر چیزی به ایمنی آدم‌ها وابسته است، وسیلهٔ درست را پیدا کن یا برنامه را عوض کن.</p>
 <p class="sa-article__note">این مقاله جنبهٔ آموزشی دارد و جایگزین توصیهٔ پزشکی، راهنمای محلی، آموزش عملی یا دستور سازندهٔ محصولات نیست.</p>
 SA_ART,
 	),
 	'rope-carabiner-guide' => array(
-		'title'          => 'معرفی طناب و کارابین حرفه‌ای؛ خط نجاتت تو طبیعت رو درست انتخاب کن',
+		'title'          => 'طناب و کارابین کوهنوردی؛ چطور کاربرد درست را بشناسیم؟',
 		'type'           => 'post',
 		'slug'           => 'rope-carabiner-guide',
-		'excerpt'        => 'راهنمای جامع انتخاب طناب و کارابین برای طبیعت‌گردی و کوهنوردی. بررسی تفاوت طناب‌های استاتیک و داینامیک، انواع کارابین، استانداردهای ایمنی و نکات حیاتی نگهداری.',
+		'excerpt'        => 'راهنمای تشخیص طناب داینامیک، طناب کم‌کشش و طنابچهٔ عمومی، انتخاب کارابین سازگار، بازرسی و نگهداری؛ بدون آموزش صعود، فرود یا نجات با طناب.',
 		'english'        => 'Ropes and Carabiners',
 		'kind'           => 'tent',
 		'category'      => array(
@@ -9917,170 +9557,132 @@ SA_ART,
 			'pro-gear' => 'تجهیزات حرفه‌ای',
 		),
 		'meta'          => array(
-			'sa_seo_title' => 'معرفی طناب و کارابین | راهنمای انتخاب برای کمپینگ و کوهنوردی',
-			'sa_seo_description' => 'طناب و کارابین مناسب طبیعت‌گردی کدومه؟ تفاوت طناب استاتیک، داینامیک و پاراکورد، انواع کارابین و معیارهای انتخاب ایمن، بدون برند و لینک خرید.',
+			'sa_seo_title' => 'طناب و کارابین کوهنوردی؛ تفاوت‌ها و انتخاب ایمن',
+			'sa_seo_description' => 'تفاوت طناب داینامیک، کم‌کشش و طنابچهٔ عمومی را بشناس؛ کارابین مناسب کاربردت را از روی برچسب و دستور سازنده انتخاب کن و نشانه‌های ازرده‌خارج‌کردن را یاد بگیر.',
 			'sa_focus_keyword' => 'طناب و کارابین حرفه‌ای',
 			'sa_byline' => 'تیم تحریریه آموزش‌های بقا',
-			'sa_risk_level' => 'بالا؛ تجهیزات تحمل وزن انسان',
-			'sa_sources' => 'اتحادیهٔ بین‌المللی انجمن‌های کوهنوردی (UIAA) — استانداردهای ایمنی طناب و کارابین
-فدراسیون کوهنوردی و صعودهای ورزشی ایران — دوره‌های آموزشی کار با طناب
-دفترچهٔ راهنمای سازندگان طناب — نگهداری، شست‌وشو و از رده خارج کردن طناب',
+			'sa_risk_level' => 'بالا؛ اتصال و مهار وزن انسان',
+			'sa_sources' => 'اتحادیهٔ بین‌المللی انجمن‌های کوهنوردی (UIAA) — اطلاعات ایمنی و استانداردهای تجهیزات کوهنوردی
+فدراسیون کوهنوردی و صعودهای ورزشی ایران — آموزش حضوری کار با طناب
+دفترچهٔ سازندهٔ طناب و کارابین — کاربرد، سازگاری، بازرسی، نگهداری و بازنشسته‌کردن',
 		),
-		'cover'         => array(
-			'file' => 'guides/rope-carabiner-guide.webp',
-			'alt' => 'اینفوگرافیک طناب و کارابین حرفه‌ای: تفاوت طناب استاتیک و داینامیک، انواع کارابین، استانداردهای ایمنی و نکات نگهداری',
-			'title' => 'اینفوگرافیک طناب و کارابین حرفه‌ای',
-		),
+		'remove_featured_image' => true,
 		'faq'           => array(
 			array(
-				'q' => 'عمر مفید یه طناب کوهنوردی چقدره؟',
-				'a' => 'دو حالت داره. اگه اصلاً ازش استفاده نکنی و تو کمد بمونه، عمر مفیدش حدود ۵ تا ۷ ساله (به خاطر اشعه UV و اکسیداسیون). اگه استفاده مداوم و سنگین داشته باشی، شاید ۱ سال هم دووم نیاره. اگه طنابت ضربه شدید (مثل سقوط سنگنورد) خورده، یا روکشش پاره شده و مغزش معلومه، همون لحظه باید قیچی‌اش کنی و دور بندازی. با جونت معامله نکن.',
+				'q' => 'تفاوت طناب داینامیک و کم‌کشش چیست؟',
+				'a' => 'طناب داینامیک در سامانه‌های طراحی‌شدهٔ کوهنوردی برای جذب انرژی سقوط به‌کار می‌رود. طناب کم‌کشش برای کاربردهای تخصصی دیگری ساخته شده و جای طناب مهار سقوط را نمی‌گیرد. نوع دقیق و سازگاری را از برچسب و دفترچهٔ سازنده بررسی کن.',
 			),
 			array(
-				'q' => 'چطور باید طناب رو بشوریم؟',
-				'a' => 'طناب رو تو یه تشت آب ولرم (حداکثر ۳۰ درجه) بریز. هیچ‌گونه صابون، شوینده، وایتکس یا نرم‌کننده‌ای اضافه نکن. فقط با دست آروم ماساژش بده تا شن و ماسه‌هاش خارج بشه. بعد با آب تمیز آبکشی کن و تو سایه، دور از نور مستقیم آفتاب و منبع حرارتی پهن کن تا خشک بشه.',
+				'q' => 'پاراکورد برای چه کاری مناسب است؟',
+				'a' => 'برای کارهای سبک مثل دسته‌کردن وسایل یا تعمیر موقت بندهای غیرحیاتی می‌تواند مفید باشد. برای حمایت، فرود، نجات یا هر کاری که وزن انسان را نگه دارد مناسب نیست.',
 			),
 			array(
-				'q' => 'تفاوت کارابین HMS با کارابین معمولی چیه؟',
-				'a' => 'کارابین‌های HMS گلابی‌شکل و دهانه‌بزرگ‌اند (استاندارد EN ۱۲۲۷۵ نوع H). این شکل مخصوص کار با گره مونتر (Munter hitch) در حمایت و فرود ساخته شده است. کارابین‌های D شکل (بیضی کشیده) برای تحمل بارهای سنگین و اتصال مستقیم به کارگاه طراحی شدن.',
+				'q' => 'کارابین قفل‌دار را چطور انتخاب کنم؟',
+				'a' => 'قفل‌دار بودن به‌تنهایی کافی نیست. کاربرد اعلام‌شده، استاندارد و نشان محصول، جهت بارگذاری و سازگاری با دیگر اجزای سامانه را طبق دستور سازنده بررسی کن؛ اگر موردی مبهم است، از مربی واجدصلاحیت بپرس.',
 			),
 			array(
-				'q' => 'اگه تو طبیعت طنابم رو گره زدم و بعد بازش کردم، ضعیف میشه؟',
-				'a' => 'گره زدن طناب، مقاومتش رو تا ۵۰ درصد کاهش میده (چون الیاف تو نقطه گره تحت فشار شدید خم میشن). اما اگه گره رو باز کنی و دوباره صاف بشه، همون مقاومت قبلی رو برمی‌گردونه. چیزی که طناب رو خراب می‌کنه، موندن طولانی‌مدت تو حالت گره خورده تحت کششه، نه خود گره زدن و بازش کردن.',
+				'q' => 'بعد از تماس طناب با مادهٔ شیمیایی چه کنم؟',
+				'a' => 'از آن در کاربرد حیاتی استفاده نکن. نوع تماس را ثبت کن و دستور سازنده یا نظر خدمات فنی را بگیر؛ شست‌وشوی خودسرانه ممکن است آسیب را پنهان کند یا بیشتر کند.',
 			),
 			array(
-				'q' => 'چطور بفهمم یه کارابین قلاب‌دار (Locking) واقعاً قفل شده؟',
-				'a' => 'وقتی در کارابین پیچ‌دار رو می‌بندی، باید صدای "تیک" ریز جا افتادنش رو بشنوی و با انگشتت چک کنی که حلقه پیچ کاملاً سفت شده باشه. تو کارابین‌های اتوماتیک (Auto-lock)، باید مطمئن بشی که فنر در رو کامل به عقب برگردونده و زبانه قفل کاملاً داخل شیار رفته. قبل از هر بار آویزون شدن، با دست در کارابین رو بکش تا از قفل شدنش مطمئن بشی.',
+				'q' => 'عمر مفید طناب چند سال است؟',
+				'a' => 'یک عدد ثابت برای همهٔ طناب‌ها وجود ندارد. عمر اعلام‌شدهٔ سازنده، شدت و دفعات استفاده، شرایط نگهداری و هرگونه آسیب را بررسی کن؛ دربارهٔ سابقهٔ نامعلوم یا آسیب مشکوک حدس نزن.',
 			),
 		),
 		'content'       => <<<'SA_ART'
 <div class="sa-callout sa-callout--answer">
-<p><strong>پاسخ سریع:</strong> برای کارهای کمپ (بستن چادر، بند رخت، آویزان کردن وسایل) پاراکورد و کارابین ساده کافی است؛ برای هر کاری که وزن انسان روی طناب می‌افتد فقط طناب و کارابین استاندارد (با نشان UIAA/CE)، گرهٔ درست و آموزش دیده لازم است. طناب را از آفتاب، مواد شیمیایی و لبهٔ تیز دور نگه دار و پس از سقوط سخت کنار بگذار.</p>
+<p><strong>پاسخ سریع:</strong> طناب و کارابین را فقط برای همان کاربردی انتخاب کن که سازنده روی برچسب و دفترچه مشخص کرده است. طنابچهٔ عمومی و پاراکورد برای بستن وسایل سبک‌اند، نه نگه‌داشتن انسان؛ استفادهٔ کوهنوردی یا نجات به تجهیزات سازگار، آموزش حضوری و بازرسی دقیق نیاز دارد.</p>
 </div>
 <div class="sa-callout sa-callout--warning" role="note">
-<p class="sa-callout__title">⚠️ وزن انسان روی طناب شوخی نیست</p>
-<p>این مقاله راهنمای انتخاب و نگهداری است، نه آموزش صعود یا فرود؛ کار با طناب برای نگه‌داشتن یا پایین‌فرستادن آدم بدون آموزش حضوری و تجهیزات استاندارد می‌تواند کشنده باشد. کارابین‌های تزئینی و جاکلیدی، پاراکورد و طناب‌های ابزارفروشی هرگز برای وزن انسان ساخته نشده‌اند.</p>
+<p class="sa-callout__title">⚠️ این راهنما آموزش صعود یا نجات نیست</p>
+<p>از توضیح‌های این مقاله برای ساخت کارگاه، حمایت، فرود یا بالا‌کشیدن فرد استفاده نکن. اگر احتمال دارد وزن انسان به سامانه بیفتد، از بداهه‌کاری پرهیز کن و کار را به فرد آموزش‌دیده با تجهیزات تأییدشده برای همان کاربرد بسپار.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن کنار یک شیب خاکی، همسفرت می‌خواهد با طنابی که از ابزارفروشی خریده پایین برود و می‌پرسد «این که محکمه، نه؟». تفاوت طناب داینامیک، استاتیک و پاراکورد، و تفاوت کارابین استاندارد با جاکلیدی، دقیقاً همان‌جایی است که یک تصمیم اشتباه گران تمام می‌شود. پایین‌تر این تفاوت‌ها را ساده می‌بینی، می‌فهمی برای کمپ چه چیزی کافی است و کجا باید سراغ آموزش و تجهیزات حرفه‌ای بروی.</p>
+<p>فرض کن برای بستن بار کمپ، طنابی در دست داری و هم‌سفرت می‌پرسد آیا می‌شود با همان طناب از شیب پایین رفت. ظاهر طناب یا عدد روی یک قطعه، پاسخ این پرسش نیست؛ نوع ساخت، کاربرد اعلام‌شده، سازگاری اجزا و وضعیت نگهداری همگی مهم‌اند. در ادامه تفاوت‌ها را می‌بینی و می‌فهمی چه وقت باید از استفاده صرف‌نظر کنی.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
-<li>کاربرد را مشخص کن: کارهای کمپ (وزن وسایل) یا تحمل وزن انسان؛ این دو دنیای متفاوتی هستند.</li>
-<li>برای تحمل وزن انسان: نشان استاندارد (UIAA/CE) روی طناب و کارابین، تاریخ ساخت و دفترچهٔ سازنده.</li>
-<li>دانستن چند گرهٔ پایه (هشت، بولین، گرهٔ کمری) و تمرین آن‌ها در خانه.</li>
-<li>یک کیسه یا پوشش برای حمل طناب، دور از آفتاب و خاک.</li>
-<li>اگر قصد فرود یا صعود داری: دورهٔ آموزشی حضوری نزد مربی دارای مجوز، نه ویدئو.</li>
+<li>پیش از خرید، کاربرد را مشخص کن: بستن وسایل سبک، فعالیت کوهنوردی، دسترسی با طناب یا عملیات امدادی یکسان نیستند.</li>
+<li>برچسب، دفترچه، نشان‌های تأیید و محدودیت‌های سازنده را برای همان کاربرد بخوان؛ اگر اطلاعات روشن نیست، از وسیله برای کار حساس استفاده نکن.</li>
+<li>طناب، کارابین، هارنس و ابزارهای یک سامانه باید با هم سازگار باشند؛ انتخاب تک‌تک قطعات جداگانه کافی نیست.</li>
+<li>برای استفاده‌ای که جان انسان به آن وابسته است، آموزش حضوری و بازرسی فرد واجدصلاحیت لازم است.</li>
 </ul>
-<h2>جدول مقایسه: طناب‌ها و کارابین‌ها</h2>
+<h2>جدول تصمیم: تفاوت طناب‌ها و کارابین‌ها</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
-<thead><tr><th>نوع</th><th>ویژگی اصلی</th><th>مناسب برای</th><th>نامناسب برای</th><th>نکتهٔ خرید</th></tr></thead>
+<thead><tr><th>وسیله</th><th>کاربردی که باید بررسی شود</th><th>محدودیت مهم</th><th>معیار انتخاب</th></tr></thead>
 <tbody>
-<tr><td>طناب داینامیک</td><td>کشسان؛ ضربهٔ سقوط را می‌گیرد</td><td>صعود و حمایت (با آموزش)</td><td>کشیدن بار سنگین ثابت</td><td>نشان UIAA/CE، قطر و تاریخ ساخت</td></tr>
-<tr><td>طناب استاتیک</td><td>کشسانی کم</td><td>فرود کنترل‌شده، کارگاه، حمل بار</td><td>نگه‌داشتن سقوط</td><td>نشان استاندارد، سازگاری با ابزار فرود</td></tr>
-<tr><td>پاراکورد</td><td>سبک، چندرشته</td><td>بند چادر، بند رخت، تعمیرات</td><td>وزن انسان</td><td>پاراکورد واقعی ۷ رشتهٔ داخلی دارد</td></tr>
-<tr><td>کارابین استاندارد (قفل‌دار)</td><td>مقاومت ثبت‌شده روی بدنه</td><td>اتصال در حمایت و کارگاه (با آموزش)</td><td>—</td><td>نشان CE/UIAA و عدد مقاومت (kN) روی بدنه</td></tr>
-<tr><td>کارابین جاکلیدی/تزئینی</td><td>بدون مقاومت ثبت‌شده</td><td>آویزان‌کردن لیوان و وسایل</td><td>هر کاری که آدم به آن متصل است</td><td>معمولاً نوشته «Not for climbing»</td></tr>
+<tr><td>طناب داینامیک</td><td>سامانه‌های کوهنوردی طراحی‌شده برای مهار سقوط، طبق دستور سازنده</td><td>جایگزین طناب کم‌کشش یا هر سامانهٔ دیگری نیست</td><td>نوع و سازگاری اعلام‌شده برای فعالیت</td></tr>
+<tr><td>طناب کم‌کشش</td><td>بعضی کاربردهای دسترسی، کار یا امداد تخصصی</td><td>برای مهار سقوط پویا طراحی نشده است</td><td>استاندارد، سامانه و ابزارهای سازگار</td></tr>
+<tr><td>طنابچه و پاراکورد</td><td>بستن یا دسته‌کردن وسایل سبک</td><td>برای حمایت یا جابه‌جایی انسان نیست</td><td>جنس، قطر و محدودیت‌های سازنده</td></tr>
+<tr><td>کارابین</td><td>اتصال مشخص در سامانهٔ تعریف‌شده</td><td>قفل‌دار بودن به‌تنهایی آن را مناسب هر کاربرد نمی‌کند</td><td>نشان، جهت بارگذاری، قفل و سازگاری</td></tr>
 </tbody></table></figure>
-<h2>روش گام‌به‌گام: انواع طناب و کارابین</h2>
+<h2>روش گام‌به‌گام: انتخاب و بررسی طناب و کارابین</h2>
 <ul class="sa-steps-meta">
-<li><strong>مناسب برای:</strong> انتخاب و نگهداری طناب و کارابین برای کمپ و آشنایی پایه؛ هر استفاده‌ای که وزن انسان روی سیستم بیفتد، آموزش حضوری می‌خواهد.</li>
-<li><strong>لازم داری:</strong> فهرست کاربردها، بودجه، آشنایی با نشان‌های استاندارد و یک کیسهٔ حمل.</li>
-<li><strong>زمان:</strong> انتخاب چند دقیقه؛ بازرسی طناب قبل از هر استفاده ۲ تا ۳ دقیقه (کشیدن دست در طول طناب برای یافتن نرمی، برجستگی یا سایش).</li>
-<li><strong>هشدار:</strong> طنابی که ضربهٔ سقوط سخت خورده، با مواد شیمیایی تماس داشته یا غلافش ساییده شده، از رده خارج است حتی اگر ظاهرش سالم باشد.</li>
+<li><strong>مناسب برای:</strong> شناخت برچسب‌ها، خرید آگاهانه و بررسی اولیهٔ وسایل کمپ؛ نه تمرین عملی صعود یا نجات.</li>
+<li><strong>لازم داری:</strong> شرح فعالیت، دفترچهٔ سازنده و امکان پرسیدن از مربی یا فروشندهٔ تخصصی معتبر.</li>
+<li><strong>زمان:</strong> برای بررسی هر وسیله زمان ثابت و همگانی وجود ندارد؛ پیش از سفر، وقت کافی برای خواندن دستور سازنده و بازرسی بگذار.</li>
+<li><strong>هشدار:</strong> هیچ آزمایش کششیِ دستی یا عدد درج‌شده روی قطعه، صلاحیت وسیله برای مهار انسان را ثابت نمی‌کند.</li>
 </ul>
-<p>هر وسیله‌ای برای یه بار و فشار خاصی مهندسی شده. نمی‌تونی با یه طناب نازک ماهیگیری، یه نفر رو از صخره پایین بفرستی.</p>
-<h3 class="sa-step"><span class="sa-step__n">۱</span> طناب‌های داینامیک (Dynamic Ropes)</h3>
-<p>این طناب‌ها خاصیت کشسانی دارن. یعنی وقتی نیرو بهشون وارد بشه، مثل یه فنر کمی کش میان و دوباره برمی‌گردن.</p>
-<ul>
-<li>کاربرد: فقط و فقط برای صعود و سنگنوردی. وقتی سنگنورد سقوط می‌کنه، این کشش باعث میشه ضربه سقوط جذب بشه و کمر سنگنورد نشکنه.</li>
-<li>نکته: برای فرود با طناب (رپل) یا بالا کشیدن بار اصلاً مناسب نیستن، چون تو رو مثل یه یویو بالا و پایین می‌برن و کنترلش سخته.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۲</span> طناب‌های استاتیک (Static Ropes)</h3>
-<p>این طناب‌ها اصلاً کش نمیان. سفت، محکم و پایدارن.</p>
-<ul>
-<li>کاربرد: فرود از ارتفاع (رپل)، صعود با طناب ثابت، غارنوردی، و نجات. چون کش نمیان، کنترل فرود خیلی راحته.</li>
-<li>نکته: اگه با این طناب سقوط آزاد کنی، چون ضربه رو جذب نمی‌کنه، هم طناب پاره میشه هم ستون فقراتت.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۳</span> طناب‌های پاراکورد (Paracord)</h3>
-<p>همون طناب‌های نایلونی سبک که مغزش از چندین رشته نازک تشکیل شده.</p>
-<ul>
-<li>کاربرد: برپایی چادر، بند رخت، آویزان کردن غذا دور از دسترس حیوانات، تعمیرات اضطراری، و ساخت کاردستی.</li>
-<li>نکته: پاراکورد (مخصوصاً نوع ۵۵۰) تحمل وزن بالایی داره، اما هرگز، تکرار می‌کنم هرگز برای فرود انسانی یا کارهای حیاتی روی پرتگاه ازش استفاده نکن. ساختار بافتش برای اصطکاک و حرارت ناشی از فرود طراحی نشده و در کسری از ثانیه ذوب میشه و پاره میشه.</li>
-</ul>
-<h3 class="sa-step"><span class="sa-step__n">۴</span> کارابین‌ها (Carabiners)</h3>
-<p>حلقه‌های فلزی با یه در باز و بسته شونده.</p>
-<ul>
-<li>کارابین پیچ‌دار (Locking): درش با چرخوندن یه حلقه قفل میشه. برای اتصال به هارنس، ساخت گره‌های حساس و نقاط اتصال حیاتی استفاده میشه.</li>
-<li>کارابین ساده (Non-locking): درش فنریه. برای اتصال سریع وسایل به حلقه‌ها، یا وصل کردن طناب به کارگاه (Quickdraw).</li>
-<li>جنس: آلومینیوم (سبک، برای کوهنوردی) یا فولاد (سنگین، برای غارنوردی و کارهای صنعتی که اصطکاک زیاده).</li>
-</ul>
-<p>جایگزین خلاقانه: اگه تو کمپ نیاز به طناب داری ولی طناب حرفه‌ای همراهت نیست، برای کارهای سبک مثل بند رخت یا بستن بار روی ماشین، می‌تونی از کمربند، شال‌های نخی ضخیم که به هم گره زدی، یا حتی کابل‌های ضخیم پلاستیکی استفاده کنی. اما یادت باشه، اینا فقط برای مهار بار هستن، نه برای آویزون کردن جان انسان.</p>
-<h2>بومی‌سازی برای ایران</h2>
-<ul>
-<li>طناب‌ها و کارابین‌های بی‌نام با ظاهر مشابه در بازار ایران زیادند؛ نشان استاندارد، عدد مقاومت و فروشندهٔ معتبر کوهنوردی را ملاک بگیر.</li>
-<li>باشگاه‌های کوهنوردی و فدراسیون کوهنوردی و صعودهای ورزشی دوره‌های کار با طناب برگزار می‌کنند؛ برای صعود و فرود از همین مسیر برو.</li>
-<li>آفتاب شدید فلات ایران و رها کردن طناب در صندوق عقب داغ، عمر طناب را کوتاه می‌کند؛ در کیسه و در سایه نگه دار.</li>
-<li>در مناطق سنگی زاگرس و البرز، لبه‌های تیز شایع است؛ محافظ لبه یا پارچهٔ تاشده زیر طناب بگذار.</li>
-<li>در کمپ‌های جنگلی شمال، طناب خیس را قبل از جمع‌کردن در سایه خشک کن تا کپک و پوسیدگی نگیرد.</li>
-</ul>
+<ol>
+<li><strong>کاربرد را پیش از انتخاب بنویس.</strong> مشخص کن وسیله فقط بار سبک را می‌بندد یا عضوی از سامانه‌ای است که ممکن است وزن انسان را بگیرد. برای مورد دوم، اگر آموزش و تجهیزات متناسب نداری، راه امن انتخاب‌کردن قطعهٔ بیشتر نیست؛ از فعالیت صرف‌نظر کن و کمک تخصصی بگیر.</li>
+<li><strong>نوع طناب را از روی برچسب و دفترچه بررسی کن.</strong> طناب داینامیک برای سامانه‌های کوهنوردیِ طراحی‌شده جهت مهار سقوط ساخته می‌شود؛ طناب کم‌کشش برای برخی کارهای تخصصی دیگر به کار می‌رود. این نام‌ها به‌تنهایی کافی نیستند: گونهٔ دقیق، سازگاری با ابزار و محدودیت‌های سازنده را بخوان.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rope-types.webp" alt="دو حلقه طناب کوهنوردی داینامیک و کم‌کشش برای مقایسهٔ ظاهری" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">دو نوع طناب، دو کاربرد</strong><span class="sa-guide-topic-card__description">ظاهر مشابه به معنی کاربرد یکسان نیست؛ برچسب و دستور سازنده را ملاک بگیر.</span></figcaption></figure>
+<ol>
+<li><strong>کارابین را به‌عنوان بخشی از سامانه بسنج.</strong> نوع قفل، جهت بارگذاری و سازگاری با طناب یا ابزار باید در دستور محصول آمده باشد. شکل D یا گلابی و وجود قفل، به‌تنهایی مجوز اتصال به هر سامانه‌ای نیست. کارابین را برای پیچاندن، اهرم‌کردن یا بستن روی لبهٔ نامناسب به کار نبر.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rope-carabiner-locked-carabiner.webp" alt="کارابین قفل‌دار بدون نشان تجاری با دروازهٔ بسته، روی زمینهٔ روشن" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">قفل و جهت بار مهم‌اند</strong><span class="sa-guide-topic-card__description">قفل را طبق راهنمای سازنده بررسی کن و از بار جانبی یا گیرکردن دروازه جلوگیری کن.</span></figcaption></figure>
+<ol>
+<li><strong>بازرسی را پیش از استفاده انجام بده.</strong> طبق دستور سازنده، طناب را در نور مناسب از نظر سایش، بریدگی، تغییر شکل، بخش تخت یا غیرعادی، آلودگی شیمیایی و آسیب روکش بررسی کن. کارابین را برای ترک، خوردگی، تغییر شکل و عملکرد نامطمئن دروازه و قفل نگاه کن. دربارهٔ وسیله‌ای که سابقه‌اش معلوم نیست یا به آن اطمینان نداری، از فرد واجدصلاحیت نظر بگیر و آن را وارد سامانهٔ حیاتی نکن.</li>
+<li><strong>کار سبک را از کار باربر جدا نگه دار.</strong> برای دسته‌کردن لباس یا بستن وسیلهٔ سبک به کوله، طنابچهٔ عمومی یا بند سازگار با همان کار به‌کار ببر؛ بار را بالای سر کسی آویزان نکن. <strong>جایگزین خلاقانه:</strong> اگر بند چادر جا مانده، برای بستن یک بستهٔ سبک می‌توانی از بند یدکی کوله استفاده کنی؛ این جایگزین برای مهار چادر در باد شدید یا نگه‌داشتن انسان نیست.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/rope-carabiner-utility-cord.webp" alt="طنابچهٔ عمومی کنار یک بستهٔ سبک که روی زمین با بند بسته شده است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">طنابچه برای وسایل سبک</strong><span class="sa-guide-topic-card__description">طنابچهٔ عمومی را از طناب باربر و تجهیزات مهار انسان جدا نگه دار.</span></figcaption></figure>
 <h2>نکات ایمنی</h2>
 <ol>
-<li>هشدار جدی: هرگز، تکرار می‌کنم هرگز، روی طناب کوهنوردی پا نذار. وقتی روی طناب پا می‌ذاری، سنگ‌ریزه‌ها و شن‌ها مثل سنبابه وارد بافت داخلی (مغزی) طناب میشن. موقع استفاده بعدی، این ذرات مثل تیغ عمل می‌کنن و الیاف داخلی رو می‌برن. طناب از بیرون سالمه، ولی از داخل پوسیده.</li>
-<li>قبل از هر استفاده طناب را از ابتدا تا انتها با دست و چشم بازرسی کن.</li>
-<li>کارابین قفل‌دار را بعد از بستن فشار بده و بچرخان تا مطمئن شوی قفل بسته است؛ دروازهٔ کارابین نباید روی لبه یا سنگ فشار بگیرد.</li>
-<li>روی طناب راه نرو و با پای کفش‌دار روی آن نایست؛ شن و خاک داخل غلاف الیاف را می‌برد.</li>
-<li>طناب را دور از بنزین، باتری، شوینده‌های قوی و حرارت نگه دار.</li>
-<li>بدون آموزش حضوری هیچ‌کس را با طناب حمایت یا فرود نده.</li>
+<li>روی پاراکورد، بند لباس یا کارابین تزئینی برای نگه‌داشتن یا جابه‌جایی انسان حساب نکن.</li>
+<li>عدد مقاومت روی بدنه معمولاً مشخصهٔ محصول در شرایط تعریف‌شده است؛ آن را به «وزن قابل‌تحمل انسان» تبدیل نکن و مبنای طراحی سامانه قرار نده.</li>
+<li>طناب را از لبهٔ تیز، اصطکاک کنترل‌نشده، مواد شیمیایی، گرما و آلودگی دور نگه دار؛ دستور سازنده دربارهٔ تمیزکردن و خشک‌کردن مقدم است.</li>
+<li>از کارابینی که دروازه یا قفلش درست عمل نمی‌کند استفاده نکن؛ از بسته‌بودن قفل و قرارگیری درست اتصال مطابق دفترچه مطمئن شو.</li>
+<li>اگر آموزش و سامانهٔ کامل نداری، هیچ‌کس را با طناب حمایت، پایین یا بالا نبر؛ برای امداد با نیروهای حرفه‌ای تماس بگیر.</li>
 </ol>
 <h2>باورهای غلط</h2>
-<p><strong>باور غلط:</strong> «هر کارابینی که از ابزارفروشی بخرم برای کوه کار می‌کنه.»</p>
-<p><strong>واقعیت:</strong> کارابین‌های ابزارفروشی هیچ استانداردی برای تحمل وزن انسان ندارن. ممکنه ظاهرشون شبیه باشه، ولی آلیاژشون با یه ضربه کوچک یا یه بار سنگین مثل شیشه خرد میشه. فقط و فقط کارابینی بخر که استاندارد UIAA یا CE روی خودش حک شده باشه.</p>
-<p><strong>باور غلط:</strong> «طناب ضخیم‌تر همیشه محکم‌تره.»</p>
-<p><strong>واقعیت:</strong> مقاومت طناب به ساختار بافتش (Kernmantle) و جنس الیافش بستگی داره، نه فقط قطرش. یه طناب ۹ میلی‌متری باکیفیت می‌تونه از یه طناب ۱۱ میلی‌متری بی‌کیفیت محکم‌تر باشه.</p>
-<p><strong>باور غلط:</strong> «پاراکورد ۵۵۰ یعنی ۵۵۰ کیلو تحمل می‌کنه، پس برای آدم هم خوبه.»</p>
-<p><strong>واقعیت:</strong> عدد ۵۵۰ به پوند و در شرایط آزمایشگاهی و بدون گره و ضربه است؛ گره و سقوط مقاومت را به‌شدت کم می‌کند و پاراکورد هرگز برای وزن انسان طراحی نشده.</p>
+<p><strong>باور غلط:</strong> «طناب ضخیم‌تر حتماً امن‌تر است.»</p>
+<p><strong>واقعیت:</strong> قطر به‌تنهایی کاربرد یا سلامت طناب را نشان نمی‌دهد. نوع ساخت، استاندارد اعلام‌شده، سازگاری با ابزار، شرایط نگهداری و آسیب‌های قبلی نیز مهم‌اند.</p>
+<p><strong>باور غلط:</strong> «عدد بزرگ روی کارابین یعنی برای هر بار انسانی مناسب است.»</p>
+<p><strong>واقعیت:</strong> عدد روی بدنه، مشخصه‌ای در شرایط آزمون تعریف‌شده است، نه تضمین برای هر جهت بارگذاری یا هر سامانه. انتخاب و استفاده باید با برچسب و دستور سازنده هماهنگ باشد.</p>
+<p><strong>باور غلط:</strong> «هر طناب داینامیک برای هر نوع صعود و هر طناب کم‌کشش برای هر نوع فرود مناسب است.»</p>
+<p><strong>واقعیت:</strong> نوع دقیق طناب و سازگاری آن با فعالیت، ابزار و شیوهٔ استفاده اهمیت دارد. کاربرد را از روی نام عمومی طناب حدس نزن.</p>
 <h2>عیب‌یابی و علائم خطر</h2>
 <ul>
-<li><strong>غلاف طناب ساییده یا الیاف داخلی دیده می‌شود:</strong> طناب از رده خارج است؛ فقط برای بند و بار سبک.</li>
-<li><strong>طناب خیس و سفت شده:</strong> آرام در سایه خشک کن؛ هرگز کنار اجاق یا در آفتاب مستقیم.</li>
-<li><strong>کارابین قفل نمی‌شود یا دروازه‌اش کند باز می‌شود:</strong> تمیز کن و قطره‌ای روان‌کنندهٔ خشک بزن؛ اگر درست نشد، کنار بگذار.</li>
-<li><strong>علائم خطر:</strong> صدای پاره‌شدن الیاف، طناب روی لبهٔ تیز زیر بار، کارابین با دروازهٔ باز زیر بار؛ بار را فوراً بردار. در سقوط یا مصدومیت با ۱۱۲ (امداد کوهستان) یا ۱۱۵ تماس بگیر.</li>
+<li>روکش بریده، مغزی نمایان، له‌شدگی، سطح براق یا سایش غیرعادی طناب: استفاده را متوقف کن و مطابق دستور سازنده دربارهٔ بازنشسته‌کردن آن تصمیم بگیر.</li>
+<li>تماس با مادهٔ ناشناخته، گرمای زیاد یا بارگذاری غیرعادی: وسیله را از سامانهٔ حیاتی خارج کن تا فرد واجدصلاحیت آن را بررسی کند.</li>
+<li>ترک، خوردگی، تغییر شکل یا قفل‌نشدن کارابین: آن را کنار بگذار؛ با زور یا ابزار دیگر تعمیرش نکن.</li>
+<li>اگر کسی روی طناب آسیب دید یا سقوط کرد، ابتدا صحنه را امن نگه دار و با امداد تماس بگیر؛ برای انتقال مصدوم از روش بداهه استفاده نکن.</li>
 </ul>
 <h2>پیشگیری و کیت</h2>
 <ul>
-<li>برای هر طناب یک برگهٔ کوچک: تاریخ خرید، تعداد سقوط، آخرین بازرسی.</li>
-<li>طناب را در کیسهٔ خودش و در سایه، به‌دور از مواد شیمیایی نگه دار.</li>
-<li>گره‌ها را در خانه با پاراکورد تمرین کن تا در طبیعت زیر استرس بلد باشی.</li>
-<li>هر کاری که آدم را به طناب وصل می‌کند با آموزش حضوری و تجهیزات استاندارد شروع شود.</li>
+<li>دستور نگهداری، بازرسی و بازنشسته‌کردن هر وسیله را همراه سوابق خرید و استفاده نگه دار.</li>
+<li>طناب را تمیز، خشک و دور از نور و مواد شیمیایی، طبق توصیهٔ سازنده حمل و انبار کن.</li>
+<li>تجهیزات حیاتی را بدون سابقهٔ روشن از فرد دیگری تحویل نگیر؛ ظاهر سالم برای تأیید کافی نیست.</li>
+<li>برای بستن وسایل کمپ، بندهای مناسب و جدا از تجهیزات کوهنوردی نگه دار تا اشتباه کاربردی پیش نیاید.</li>
 </ul>
 <h2>چک‌لیست جمع‌بندی</h2>
-<p>وقتی داری طناب و کارابین رو برای سفرت انتخاب می‌کنی، این فلوچارت رو تو ذهنت طی کن:</p>
-<p>نوع فعالیتت چیه؟</p>
+<p>پیش از برداشتن طناب یا کارابین، این موارد را مرور کن:</p>
 <ul class="sa-checklist">
-<li>صعود و سنگنوردی -&gt; طناب داینامیک + کارابین پیچ‌دار و D شکل</li>
-<li>فرود از ارتفاع و غارنوردی -&gt; طناب استاتیک + کارابین HMS و پیچ‌دار</li>
-<li>کمپینگ، برپایی چادر و کارهای سبک -&gt; پاراکورد یا طناب استاتیک نازک + کارابین سبک آلومینیومی</li>
+<li>کاربرد واقعی وسیله با برچسب و دفترچهٔ آن یکی است.</li>
+<li>طناب، کارابین و ابزارهای متصل به هم سازگارند.</li>
+<li>نشانهٔ آسیب، خوردگی، آلودگی یا عملکرد نامطمئن دیده نمی‌شود.</li>
+<li>برای استفادهٔ انسانی، آموزش حضوری و سامانهٔ کامل در اختیار فرد واجدصلاحیت است.</li>
+<li>اگر از ایمنی مطمئن نیستم، وسیله را به کار نمی‌گیرم و کمک تخصصی می‌خواهم.</li>
 </ul>
-<p>چک لیست ایمنی قبل از استفاده:</p>
-<ul class="sa-checklist">
-<li>بررسی روکش طناب برای پارگی یا سایش</li>
-<li>چک کردن در کارابین‌ها برای روان باز و بسته شدن</li>
-<li>اطمینان از وجود استاندارد UIAA/CE روی کارابین‌ها</li>
-<li>قفل کردن کامل کارابین‌های پیچ‌دار قبل از تحمل بار</li>
-</ul>
-<p>یادت باشه: تجهیزاتت رو مثل جونت دوست داشته باش، چون دقیقاً همون کار رو برات انجام می‌دن.</p>
-<h2>لینک‌های مرتبط</h2>
+<h2>پیوندهای مرتبط</h2>
 <ul>
-<li><a href="/rope-alternatives-outdoor/">جایگزین طناب در طبیعت</a> — جایگزین‌های طناب برای کارهای کمپ</li>
-<li><a href="/professional-rescue-kit/">معرفی کیت نجات حرفه‌ای</a></li>
-<li><a href="/how-to-choose-camping-tent/">راهنمای انتخاب چادر مناسب</a></li>
-<li><a href="/camping-essential-checklist/">چک‌لیست کامل وسایل ضروری کمپینگ</a></li>
+<li><a href="/rope-alternatives-outdoor/">جایگزین طناب برای کارهای سبک طبیعت‌گردی</a></li>
+<li><a href="/professional-rescue-kit/">معرفی کیت نجات و مرز تجهیزات تخصصی</a></li>
+<li><a href="/camping-essential-checklist/">چک‌لیست وسایل ضروری کمپینگ</a></li>
 <li><a href="/category/camping-survival/">هاب آموزش‌های کمپینگ</a></li>
 </ul>
 <h2>پیام پایانی</h2>
-<p>رفیق، طناب و کارابین سرمایه‌های عمر تو تو طبیعت هستن.</p>
-<p>قبل از هر بار استفاده، حتی اگه خسته‌ای، یه نگاه دقیق بهشون بنداز. یه ترک مویی روی کارابین یا یه رشته پاره شده تو طناب می‌تونه فاجعه بسازه. بعد از هر سفر، طنابت رو تمیز کن، تو یه کیسه پارچه‌ای (نه پلاستیکی) و تو جای خشک و خنک نگه‌اش دار.</p>
-<p>مراقب خودت و همسفراتت باش، گره‌هات رو درست بزن و با اعتماد به نفس کامل از ارتفاعات لذت ببر.</p>
+<p>طناب و کارابین را از روی ظاهر انتخاب نکن. برای کار سبک از بند متناسب استفاده کن و هر جا جان انسان در میان است، آموزش و تجهیزات درست را به بداهه‌کاری ترجیح بده.</p>
 <p class="sa-article__note">این مقاله جنبهٔ آموزشی دارد و جایگزین توصیهٔ پزشکی، راهنمای محلی، آموزش عملی یا دستور سازندهٔ محصولات نیست.</p>
 SA_ART,
 	),
@@ -10167,24 +9769,15 @@ Leave No Trace Center for Outdoor Ethics — اصول مدیریت غذا و ز�
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> جمع‌کردن همهٔ بوها در یک ظرف</h3>
 <p>غذا، ادویه، چای، خمیردندان و کرم‌ها را در یک ظرف دربسته یا کیسهٔ ضدبو بگذار؛ چک‌کردن «بو» به‌جای «خوراکی»، قاعدهٔ درست است. ظرف را در جای خنک و دور از چادر بگذار.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/safe-food-storage-outdoor-sealed-box.webp" alt="جعبهٔ غذای دربسته با قفل روی سنگ دور از چادر جنگلی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">ظرف دربسته، دور از چادر</strong><span class="sa-topic-card__desc">جعبهٔ غذای دربسته و دور از چادر، هم غذا را سالم نگه می‌دارد و هم حیوان را بی‌علاقه.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/safe-food-storage-outdoor-sealed-box.webp" alt="جعبهٔ غذای دربسته با قفل روی سنگ دور از چادر جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ظرف دربسته، دور از چادر</strong><span class="sa-guide-topic-card__description">جعبهٔ غذای دربسته و دور از چادر، هم غذا را سالم نگه می‌دارد و هم حیوان را بی‌علاقه.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> آویز غذا از شاخهٔ بلند</h3>
 <p>در جنگل، کیسهٔ غذا را با طناب از شاخه‌ای بلند و باریک آویزان کن؛ ارتفاع و فاصله از تنه باید طوری باشد که حیوانِ بالارونده نتواند برسد. اگر شاخهٔ مناسب نیست، از جعبهٔ مقاوم استفاده کن؛ آویز بد، بدتر از زمین است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/safe-food-storage-outdoor-hang-bag.webp" alt="کیسهٔ غذای آویزان از شاخهٔ بلند درخت در غروب جنگل" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">آویز از شاخهٔ دور</strong><span class="sa-topic-card__desc">آویز غذا از شاخهٔ بلند و باریک، دسترسی حیوانات را به غذای شب قطع می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/safe-food-storage-outdoor-hang-bag.webp" alt="کیسهٔ غذای آویزان از شاخهٔ بلند درخت در غروب جنگل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آویز از شاخهٔ دور</strong><span class="sa-guide-topic-card__description">آویز غذا از شاخهٔ بلند و باریک، دسترسی حیوانات را به غذای شب قطع می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> قاعدهٔ مثلث کمپ</h3>
 <p>جای پخت‌وپز، جای غذا و جای خواب را سه نقطهٔ دور از هم انتخاب کن؛ اگر حیوانی جذب شد، سمت آشپزخانه می‌رود نه چادر. بعد از هر وعده، زمین را از خرده‌نان و روغن پاک کن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> مدیریت زباله</h3>
 <p>زباله را در کیسهٔ درپوش‌دار و دور از چادر نگه دار و با خودت از طبیعت ببر؛ سوزاندن یا دفن‌کردن زباله، بو را پخش و حیوان را جذب می‌کند. ظرف‌ها را دور از چشمه و با آب کم بشور.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/safe-food-storage-outdoor-cooler-car.webp" alt="جعبهٔ خنک‌کننده و ظروف غذای دربسته در صندوق عقب خودرو" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">در کمپ خودرویی، صندوق امن‌تر است</strong><span class="sa-topic-card__desc">ظرف‌های دربسته در صندوق خودرو، در کمپ‌های جاده‌ای از چادر امن‌ترند و بو کمتر پخش می‌کنند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/safe-food-storage-outdoor-cooler-car.webp" alt="جعبهٔ خنک‌کننده و ظروف غذای دربسته در صندوق عقب خودرو" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">در کمپ خودرویی، صندوق امن‌تر است</strong><span class="sa-guide-topic-card__description">ظرف‌های دربسته در صندوق خودرو، در کمپ‌های جاده‌ای از چادر امن‌ترند و بو کمتر پخش می‌کنند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> رفتار با حیوانِ غذاخورده</h3>
 <p>اگر حیوانی به غذا رسید، درگیر نشو، فاصله بگیر و بگذار برود؛ بعد از رفتن، باقی‌مانده را جمع و کمپ را تمیز کن. اگر حیوان عادت کرده بود (هر شب می‌آید)، کمپ را جابه‌جا کن و به محیط‌بانی یا راهنمای محلی اطلاع بده.</p>
 <h2>نکات ایمنی</h2>
@@ -10269,7 +9862,7 @@ SA_ART,
 		),
 		'cover'         => array(
 			'file' => 'guides/self-rescue-drowning.webp',
-			'alt' => 'اینفوگرافیک آموزش نجات خویشتن در آب: کنترل تنفس در شوک سرما، شناور ماندن به پشت، وضعیت پا جلو در رودخانه و خروج ایمن از جریان',
+			'alt' => 'اینفوگرافیک آموزش نجات خویشتن در آب: علامت‌دادن برای کمک و وضعیت جمع‌شدن با جلیقهٔ نجات',
 			'title' => 'اینفوگرافیک آموزش نجات خویشتن در آب',
 		),
 		'faq'           => array(
@@ -10329,6 +9922,7 @@ SA_ART,
 <li><strong>زمان:</strong> قانون «۱-۱۰-۱»: حدود ۱ دقیقه تا شوک سرما آرام شود، حدود ۱۰ دقیقه حرکت مؤثر عضلات قبل از بی‌حس شدن دست‌وپا، و حدود ۱ ساعت تا افت خطرناک دمای بدن و از دست رفتن هوشیاری. اعداد تقریبی‌اند و با دمای آب و جثه فرق می‌کنند.</li>
 <li><strong>هشدار:</strong> در آب جاری هیچ‌وقت سعی نکن بایستی؛ گیرکردن پا بین سنگ‌ها در آب تا زانو هم می‌تواند تو را زیر آب نگه دارد. در دریا هرگز مستقیم مقابل جریان برگشتی شنا نکن.</li>
 </ul>
+<figure class="sa-guide-infographic"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/self-rescue-drowning.webp" alt="اینفوگرافیک آموزش نجات خویشتن در آب: علامت‌دادن برای کمک و وضعیت جمع‌شدن با جلیقهٔ نجات" loading="lazy" decoding="async" /></figure>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> دقیقهٔ اول: فقط نفس</h3>
 <p>برخورد ناگهانی با آب سرد چند واکنش بی‌اختیار می‌سازد: یک نفس عمیق ناگهانی، نفس‌های تند و کوتاه، تپش قلب و وحشت. به این حالت «شوک سرما» می‌گویند و خودش بی‌خطر است؛ خطر آنجاست که آن نفس ناگهانی زیر آب کشیده شود یا در همین حالت شنای شدید را شروع کنی.</p>
 <ul>
@@ -10678,22 +10272,13 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> دیدن مسیر، قبل از گذاشتن پا</h3>
 <p>در مسیرهای سنگی، علف‌زار و زیر تخته‌سنگ، جلوی پا را نگاه کن؛ مارها در گرما روی سنگ می‌خوابند و در سایه، زیر بوته پنهان می‌شوند. دستت را به جای ناشناخته نزن: زیر سنگ، لای هیزم و پشت بوته، جاهای محبوب مارند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-encounter-guide-boots-gaiters.webp" alt="کفش کوهنوردی ساق‌دار با گتر روی مسیر سنگی خشک" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">پا و مچ، همیشه پوشیده</strong><span class="sa-topic-card__desc">کفش ساق‌دار و گتر، بیشتر گزیدگی‌های پا و مچ را در مسیرهای پرمار بی‌خطر می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-encounter-guide-boots-gaiters.webp" alt="کفش کوهنوردی ساق‌دار با گتر روی مسیر سنگی خشک" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پا و مچ، همیشه پوشیده</strong><span class="sa-guide-topic-card__description">کفش ساق‌دار و گتر، بیشتر گزیدگی‌های پا و مچ را در مسیرهای پرمار بی‌خطر می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> ایستادن و عقب‌کشیدن آرام</h3>
 <p>مارِ دیده‌شده، معمولاً خودش می‌رود؛ بایست، آرام عقب بکش و مسیر را از دور دور بزن. اگر مار سر راه است، صبر کن تا برود؛ هل‌دادن با چوب و کوبیدن روی زمین، تنها راه‌هایی‌اند که مار را به گزش تحریک می‌کنند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-encounter-guide-distance.webp" alt="مار پیچیده روی تخته‌سنگ آفتابی مسیر با فاصله از چوب کوهنوردی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فاصله بگیر، مسیر را باز کن</strong><span class="sa-topic-card__desc">مار روی سنگ آفتابی، با فاصله و آرامش رها می‌شود؛ نزدیک‌شدن و هل‌دادن، گزش را قطعی می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-encounter-guide-distance.webp" alt="مار پیچیده روی تخته‌سنگ آفتابی مسیر با فاصله از چوب کوهنوردی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فاصله بگیر، مسیر را باز کن</strong><span class="sa-guide-topic-card__description">مار روی سنگ آفتابی، با فاصله و آرامش رها می‌شود؛ نزدیک‌شدن و هل‌دادن، گزش را قطعی می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> احتیاط شب و مناطق گرم</h3>
 <p>در شب‌های تابستان و غروب گرم، با چراغ پیشانی قدم بزن؛ مارها در تاریکی روی مسیرهای گرم می‌مانند. در مناطق جنوبی و کوهپایه‌های گرم، بیشتر مارگزیدگی‌ها در همین ساعت‌ها اتفاق می‌افتد.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-encounter-guide-night-light.webp" alt="پرتو چراغ پیشانی روی زمین مسیر در پیاده‌روی شبانه" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">شب، نور اولویت اول</strong><span class="sa-topic-card__desc">نور چراغ پیشانی در پیاده‌روی شبانه، غافلگیری مار روی مسیر گرم را تقریباً غیرممکن می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-encounter-guide-night-light.webp" alt="پرتو چراغ پیشانی روی زمین مسیر در پیاده‌روی شبانه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">شب، نور اولویت اول</strong><span class="sa-guide-topic-card__description">نور چراغ پیشانی در پیاده‌روی شبانه، غافلگیری مار روی مسیر گرم را تقریباً غیرممکن می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> اگر گزیده شدی: بی‌حرکتی و تماس</h3>
 <p>بی‌حرکت بمان و محل گزش را پایین‌تر از قلب نگه دار؛ انگشتر، ساعت و هر چیز تنگ را دربیاور (تورم می‌آید). زخم را با پانسمان تمیز و شل بپوشان و فوراً با ۱۱۵ تماس بگیر؛ مرکز اطلاعات داروها و سموم (۱۴۹۰) هم برای راهنمایی دارویی شبانه‌روزی در دسترس است.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> آماده‌سازی برای انتقال</h3>
@@ -11040,22 +10625,13 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> ایستادن و آرام‌حرف‌زدن</h3>
 <p>به‌محض نزدیک‌شدن سگ، بایست و آرام حرف بزن؛ صدای پایین و پایدار، بیشتر از سکوت یا جیغ سگ را آرام می‌کند. کنار برو و مسیر را باز کن؛ بیشتر سگ‌ها فقط می‌خواهند قلمروشان را نشان بدهند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/stray-dog-encounter-stand-still.webp" alt="سگی که در جادهٔ خاکی روستایی از فاصله به دوچرخه‌سوار ایستاده نگاه می‌کند" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">بایست، سگ می‌گذرد</strong><span class="sa-topic-card__desc">ایستادن و توقف حرکت، تعقیب سگ مسیر را خاموش می‌کند؛ دویدن دقیقاً برعکس عمل می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/stray-dog-encounter-stand-still.webp" alt="سگی که در جادهٔ خاکی روستایی از فاصله به دوچرخه‌سوار ایستاده نگاه می‌کند" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بایست، سگ می‌گذرد</strong><span class="sa-guide-topic-card__description">ایستادن و توقف حرکت، تعقیب سگ مسیر را خاموش می‌کند؛ دویدن دقیقاً برعکس عمل می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> مانع گذاشتن و عقب‌کشیدن آرام</h3>
 <p>کوله را جلوی بدن بگذار، چتر را آرام باز کن یا چوب را بین زمین و خودت نگه دار؛ مانع، هم فاصله می‌دهد و هم هدف گاز را از پا دور می‌کند. آرام عقب بکش و وارد حیاط یا فضای بسته نشو؛ ممکن است چند سگ دیگر هم باشند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/stray-dog-encounter-barrier.webp" alt="فردی پشت تنه درخت و سنگ بزرگ ایستاده و سگ در فاصلهٔ امن مسیر است" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">مانع بین تو و سگ</strong><span class="sa-topic-card__desc">درخت، سنگ یا کوله بین تو و سگ، هم ایمنی می‌دهد و هم به حیوان مسیر خروج می‌دهد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/stray-dog-encounter-barrier.webp" alt="فردی پشت تنه درخت و سنگ بزرگ ایستاده و سگ در فاصلهٔ امن مسیر است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">مانع بین تو و سگ</strong><span class="sa-guide-topic-card__description">درخت، سنگ یا کوله بین تو و سگ، هم ایمنی می‌دهد و هم به حیوان مسیر خروج می‌دهد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> دورنگه‌داشتن غذا و وسایل تحریک‌کننده</h3>
 <p>غذا را در کولهٔ بسته نگه دار، ساندویچ در دست نگیر و هنگام عبور از گله، دوچرخه را پیاده و آرام هدایت کن. حرکت سریع چرخ و بوی غذا، دو محرک قوی تعقیب‌اند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/stray-dog-encounter-food-away.webp" alt="کولهٔ بسته نگه‌داشته‌شده جلوی بدن فرد در مسیر روستایی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">غذا پنهان، کوله سپر</strong><span class="sa-topic-card__desc">کولهٔ بسته و غذای پنهان، محرک اصلی تعقیب سگ‌های مسیر را حذف می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/stray-dog-encounter-food-away.webp" alt="کولهٔ بسته نگه‌داشته‌شده جلوی بدن فرد در مسیر روستایی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">غذا پنهان، کوله سپر</strong><span class="sa-guide-topic-card__description">کولهٔ بسته و غذای پنهان، محرک اصلی تعقیب سگ‌های مسیر را حذف می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> هماهنگی با چوپان و سگ گله</h3>
 <p>سگ‌های گله با حضور چوپان آرام می‌شوند؛ از دور چوپان را صدا کن و منتظر بمان تا مسیر را باز کند. هرگز از وسط گله عبور نکن و به سگ‌های گله غذا نده؛ سگِ گله، کارش محافظت است.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> اگر گاز گرفته شدی</h3>
@@ -11558,20 +11134,11 @@ SA_ART,
 <p>بزرگسال ناظر در فاصله‌ای می‌ایستد که هر لحظه دستش به بچه برسد؛ نه روی صندلی، نه کنار چادر و نه هم‌زمان با پخت‌وپز. گوشی و گپ خانوادگی را همان لحظه کنار بگذار؛ نظارت یک شغل لحظه‌ای است. اگر ناظر خسته شد، نوبت را رسماً تحویل بده: «تا این لحظه من مراقب بودم، حالا نوبت توست».</p>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> تعیین محدوده و قوانین بازی</h3>
 <p>محدوده را با دو نشانه مشخص کن (دو سنگ بزرگ یا دو چتر): «بین این دو تا، فقط با جلیقه». قوانین کوتاه و روشن بگذار: دویدن لب آب ممنوع، شیرجه ممنوع، بدون جلیقه حتی دست‌به‌آب هم ممنوع. برای بچه‌های کوچک‌تر، بازی با سطل و آب کنار ساحل همان لذت را دارد بدون خطر غوطه.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/water-safety-children-life-jacket.webp" alt="جلیقه نجات کودک رنگ روشن روی اسکله چوبی کنار دریاچه" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">جلیقهٔ نجات، اولین شرط</strong><span class="sa-topic-card__desc">جلیقهٔ نجات مناسب سن و وزن، پیش از نزدیک‌شدن به آب بسته می‌شود، نه هنگام بازی.</span></figcaption>
-</figure>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/water-safety-children-shallow-play.webp" alt="کودکان در حال بازی در آب کم‌عمق ساحل با نظارت بزرگسال" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">بازی فقط در آب کم‌عمقِ سنجیده</strong><span class="sa-topic-card__desc">بازی در آب کم‌عمقِ از پیش سنجیده‌شده، با نظارت نزدیک بزرگسال، امن‌ترین تفریح آبی بچه‌هاست.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/water-safety-children-life-jacket.webp" alt="جلیقه نجات کودک رنگ روشن روی اسکله چوبی کنار دریاچه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">جلیقهٔ نجات، اولین شرط</strong><span class="sa-guide-topic-card__description">جلیقهٔ نجات مناسب سن و وزن، پیش از نزدیک‌شدن به آب بسته می‌شود، نه هنگام بازی.</span></figcaption></figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/water-safety-children-shallow-play.webp" alt="کودکان در حال بازی در آب کم‌عمق ساحل با نظارت بزرگسال" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بازی فقط در آب کم‌عمقِ سنجیده</strong><span class="sa-guide-topic-card__description">بازی در آب کم‌عمقِ از پیش سنجیده‌شده، با نظارت نزدیک بزرگسال، امن‌ترین تفریح آبی بچه‌هاست.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> جمع‌کردن بازی و خروج قبل از خستگی</h3>
 <p>بازی آبی را قبل از لب‌خشکی و خستگی جمع کن؛ خستگی یعنی تمرکز کمتر نظارت و لیزخوردن بیشتر. بعد از خروج، جلیقه را دربیاور، خشک کن و برای نوبت بعدی آماده بگذار؛ جلیقهٔ خیسِ رهاشده در آفتاب زود فرسوده می‌شود.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/water-safety-children-reach-assist.webp" alt="بزرگسال زانوزده کنار رودخانه در حال کمک با دست و چوب بلند" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">کمک از ساحل، نه ورود به آب</strong><span class="sa-topic-card__desc">برای کمک به بچه در آب، از ساحل دست، چوب یا طناب دراز کن؛ ورود ناگهانی به آب، ناجی را هم گرفتار می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/water-safety-children-reach-assist.webp" alt="بزرگسال زانوزده کنار رودخانه در حال کمک با دست و چوب بلند" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">کمک از ساحل، نه ورود به آب</strong><span class="sa-guide-topic-card__description">برای کمک به بچه در آب، از ساحل دست، چوب یا طناب دراز کن؛ ورود ناگهانی به آب، ناجی را هم گرفتار می‌کند.</span></figcaption></figure>
 <h2>نکات ایمنی</h2>
 <ol>
 <li>هشدار جدی: بچه‌ای که به‌تازگی آب خورده یا سرفهٔ مداوم دارد، حتی اگر «حالش خوب» به نظر می‌رسد، باید تا رسیدن امداد زیر نظر بماند؛ علائم تنفسی ممکن است دیرتر ظاهر شوند و ۱۱۵ باید در جریان باشد.</li>
@@ -11711,22 +11278,13 @@ SA_ART,
 </ul>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> توقف و ارزیابی فاصله</h3>
 <p>به‌محض دیدن یا شنیدن گراز، بایست و نگاه کن؛ اگر مسیر باز است، آرام کنار برو. گراز معمولاً اول بو می‌کشد و بعد تصمیم می‌گیرد؛ در همین چند ثانیه، حرکات تند تعیین‌کننده‌اند.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/wild-boar-encounter-distance.webp" alt="گراز وحشی با پوشش تیره در حال عبور از زیردرختان جنگل از فاصله" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">فاصله بگیر و بایست</strong><span class="sa-topic-card__desc">دیدن گراز از فاصله، یعنی توقف و کنارکشیدن آرام؛ حرکت تند، گراز را به فرار یا درگیری می‌کشاند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/wild-boar-encounter-distance.webp" alt="گراز وحشی با پوشش تیره در حال عبور از زیردرختان جنگل از فاصله" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فاصله بگیر و بایست</strong><span class="sa-guide-topic-card__description">دیدن گراز از فاصله، یعنی توقف و کنارکشیدن آرام؛ حرکت تند، گراز را به فرار یا درگیری می‌کشاند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> عقب‌کشیدن آرام و مانع گذاشتن</h3>
 <p>آرام و بدون فریاد عقب برو و درخت یا سنگ بزرگ بین خودت و گراز بگذار؛ مانع طبیعی، هم فاصله می‌سازد و هم مسیر فرار می‌دهد. اگر گراز شارژ ظاهری کرد (دویدن کوتاه و توقف)، بایست؛ بیشتر شارژها، آزمایش ترس است.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/wild-boar-encounter-path-retreat.webp" alt="فردی که آرام پشت تنه درخت بزرگ کنار مسیر ایستاده و فاصله گرفته" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">مانع طبیعی بین تو و گراز</strong><span class="sa-topic-card__desc">درخت یا سنگ بزرگ بین تو و گراز، هم ایمنی می‌دهد و هم به حیوان مسیر خروج می‌دهد.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/wild-boar-encounter-path-retreat.webp" alt="فردی که آرام پشت تنه درخت بزرگ کنار مسیر ایستاده و فاصله گرفته" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">مانع طبیعی بین تو و گراز</strong><span class="sa-guide-topic-card__description">درخت یا سنگ بزرگ بین تو و گراز، هم ایمنی می‌دهد و هم به حیوان مسیر خروج می‌دهد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> مدیریت کمپ و بوی غذا</h3>
 <p>غذا، زباله و بوهای تند را در ظرف دربسته و دور از چادر نگه دار؛ پخت‌وپز را دورتر از جای خواب انجام بده و ظرف‌ها را شب بشور و دور بگذار. گرازی که یک‌بار غذا پیدا کند، هر شب برمی‌گردد؛ ریشهٔ مشکل، بوست نه «شجاعت» حیوان.</p>
-<figure class="sa-topic-card">
-<img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/wild-boar-encounter-food-storage.webp" alt="جعبهٔ غذای دربسته با قفل روی میز کمپ جنگلی" loading="lazy" decoding="async" />
-<figcaption><strong class="sa-topic-card__title">درِ محکم، بوی کم</strong><span class="sa-topic-card__desc">ظرف غذای دربسته و دور از چادر، جذاب‌ترین دلیل نزدیکی گراز به کمپ را حذف می‌کند.</span></figcaption>
-</figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/wild-boar-encounter-food-storage.webp" alt="جعبهٔ غذای دربسته با قفل روی میز کمپ جنگلی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">درِ محکم، بوی کم</strong><span class="sa-guide-topic-card__description">ظرف غذای دربسته و دور از چادر، جذاب‌ترین دلیل نزدیکی گراز به کمپ را حذف می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> شب و مسیرهای تاریک</h3>
 <p>شب، با چراغ پیشانی و صدای ملایم حرکت کن؛ گراز در تاریکی زودتر می‌ترسد و ممکن است بی‌صدا از کنارت رد شود یا ناگهان فرار کند. از بوته‌زارهای انبوه و مسیرهای آبیاری مزرعه در تاریکی دوری کن؛ همان‌جاها رفت‌وآمد شبانهٔ گراز است.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> رفتار گروهی و خروج امن</h3>

@@ -45,6 +45,45 @@ function sa_featured_images_visible( $context = '' ) {
 }
 
 /**
+ * آیا رکورد همین مقاله به‌طور صریح تصویر شاخص را حذف کرده است؟
+ *
+ * رکورد قالب، حذف را حتی پیش از اجرای ابزار در پیشخوان اعمال می‌کند؛ متای
+ * نوشته نیز پس از import همان تصمیم را روی خود نوشته پایدار نگه می‌دارد.
+ * هیچ قاعده‌ای بر اساس دسته یا همهٔ مقاله‌ها اعمال نمی‌شود.
+ *
+ * @param int $post_id شناسهٔ نوشته.
+ * @return bool
+ */
+function sa_featured_image_suppressed( $post_id ) {
+	$post_id = absint( $post_id );
+	if ( ! $post_id ) {
+		return false;
+	}
+	$is_ready_guide_post = ! function_exists( 'get_post_type' ) || 'post' === get_post_type( $post_id );
+	if ( $is_ready_guide_post && function_exists( 'sa_ready_articles_data' ) && function_exists( 'get_post_field' ) ) {
+		$slug = (string) get_post_field( 'post_name', $post_id );
+		if ( '' !== $slug ) {
+			static $suppressed_slugs = null;
+			if ( null === $suppressed_slugs ) {
+				$suppressed_slugs = array();
+				$records          = sa_ready_articles_data();
+				if ( is_array( $records ) ) {
+					foreach ( $records as $item ) {
+						if ( is_array( $item ) && ! empty( $item['remove_featured_image'] ) && ! empty( $item['slug'] ) ) {
+							$suppressed_slugs[ (string) $item['slug'] ] = true;
+						}
+					}
+				}
+			}
+			if ( isset( $suppressed_slugs[ $slug ] ) ) {
+				return true;
+			}
+		}
+	}
+	return function_exists( 'get_post_meta' ) && '1' === (string) get_post_meta( $post_id, '_sa_ready_remove_featured_image', true );
+}
+
+/**
  * آیا برای این نوشته تصویر شاخصِ قابل نمایش وجود دارد؟
  *
  * سه شرط: کلید نمایش روشن باشد، نوشته تصویر شاخص داشته باشد، و فایل آن
@@ -56,7 +95,7 @@ function sa_featured_images_visible( $context = '' ) {
  */
 function sa_featured_image_available( $post_id = 0, $context = '' ) {
 	$post_id = $post_id ? absint( $post_id ) : (int) get_the_ID();
-	if ( ! $post_id || ! sa_featured_images_visible( $context ) ) {
+	if ( ! $post_id || sa_featured_image_suppressed( $post_id ) || ! sa_featured_images_visible( $context ) ) {
 		return false;
 	}
 	if ( ! has_post_thumbnail( $post_id ) ) {
@@ -79,17 +118,21 @@ function sa_featured_image_available( $post_id = 0, $context = '' ) {
  * دیگری است که مستقیم `the_post_thumbnail()` صدا می‌زنند. پیشخوان (فهرست
  * نوشته‌ها، ابزارها) دست‌نخورده می‌ماند تا مالک وضعیت تصویرها را ببیند.
  *
- * @param string $html خروجی تصویر.
+ * @param string $html    خروجی تصویر.
+ * @param int    $post_id شناسهٔ نوشتهٔ خود تصویر (در نبودش نوشتهٔ جاری).
  * @return string
  */
-function sa_featured_image_guard( $html ) {
+function sa_featured_image_guard( $html, $post_id = 0 ) {
 	if ( is_admin() || ( defined( 'REST_REQUEST' ) && REST_REQUEST ) || wp_doing_ajax() || is_feed() ) {
 		return $html;
+	}
+	$post_id = $post_id ? absint( $post_id ) : (int) get_the_ID();
+	if ( $post_id && sa_featured_image_suppressed( $post_id ) ) {
+		return '';
 	}
 	if ( ! sa_featured_images_visible( 'core' ) ) {
 		return '';
 	}
-	$post_id = (int) get_the_ID();
 	if ( $post_id && function_exists( 'sa_media_attachment_missing' ) ) {
 		$attachment_id = (int) get_post_thumbnail_id( $post_id );
 		if ( $attachment_id && sa_media_attachment_missing( $attachment_id ) ) {
@@ -98,7 +141,7 @@ function sa_featured_image_guard( $html ) {
 	}
 	return $html;
 }
-add_filter( 'post_thumbnail_html', 'sa_featured_image_guard', 20 );
+add_filter( 'post_thumbnail_html', 'sa_featured_image_guard', 20, 2 );
 
 /**
  * آیا جای‌گزینی تصویرهای گمشدهٔ داخل متن فعال است؟
