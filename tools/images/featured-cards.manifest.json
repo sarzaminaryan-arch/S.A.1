@@ -1,0 +1,261 @@
+{
+ "note": "تولیدشده با tools/images/make_featured_cards.py — دستی ویرایش نشود.",
+ "size": [
+  1200,
+  600
+ ],
+ "cards": {
+  "gahar-lake-dorud": {
+   "short_fa": "گهر",
+   "short_en": "Gahar",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/gahar-lake-dorud.webp",
+   "alt": "کارت تصویر شاخص دریاچه گهر: نقاشی آبرنگ دریاچهٔ کوهستانی با نام فارسی و انگلیسی دریاچه گهر — دورود، لرستان",
+   "title": "کارت تصویر شاخص دریاچه گهر (Gahar Lake)"
+  },
+  "bisheh-waterfall-dorud": {
+   "short_fa": "بیشه",
+   "short_en": "Bisheh",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/bisheh-waterfall-dorud.webp",
+   "alt": "کارت تصویر شاخص آبشار بیشه: نقاشی آبرنگ آبشار جنگلی با نام فارسی و انگلیسی آبشار بیشه — دورود، لرستان",
+   "title": "کارت تصویر شاخص آبشار بیشه (Bisheh Waterfall)"
+  },
+  "dorud-city": {
+   "short_fa": "دورود",
+   "short_en": "Dorud",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/dorud-city.webp",
+   "alt": "کارت تصویر شاخص دورود: نقاشی آبرنگ شهر کوهستانی با نام فارسی و انگلیسی دورود — دورود، لرستان",
+   "title": "کارت تصویر شاخص دورود (Dorud)"
+  },
+  "azgan-wetland-dorud": {
+   "short_fa": "ازگن",
+   "short_en": "Azgen",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/azgan-wetland-dorud.webp",
+   "alt": "کارت تصویر شاخص تالاب ازگن (قارون): نقاشی آبرنگ تالاب فصلی با نام فارسی و انگلیسی تالاب ازگن (قارون) — دورود، لرستان",
+   "title": "کارت تصویر شاخص تالاب ازگن (قارون) (Azgen Wetland)"
+  },
+  "aznadar-waterfall-doroud": {
+   "short_fa": "ازنادر",
+   "short_en": "Aznadar",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/aznadar-waterfall-doroud.webp",
+   "alt": "کارت تصویر شاخص آبشار ازنادر (دره اسپر): نقاشی آبرنگ آبشار فصلی با نام فارسی و انگلیسی آبشار ازنادر (دره اسپر) — دورود، لرستان",
+   "title": "کارت تصویر شاخص آبشار ازنادر (دره اسپر) (Aznadar Waterfall)"
+  },
+  "tangeh-lili-gorge-doroud": {
+   "short_fa": "لی‌لی",
+   "short_en": "Lili",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/tangeh-lili-gorge-doroud.webp",
+   "alt": "کارت تصویر شاخص تنگه لی لی (سورپیلو): نقاشی آبرنگ تنگه و دره با نام فارسی و انگلیسی تنگه لی لی (سورپیلو) — دورود، لرستان",
+   "title": "کارت تصویر شاخص تنگه لی لی (سورپیلو) (Tang-e Lili Gorge)"
+  },
+  "falak-ol-aflak-castle-khorramabad": {
+   "short_fa": "فلک‌الافلاک",
+   "short_en": "Falak-ol-Aflak",
+   "city_en": "Khorramabad",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/falak-ol-aflak-castle-khorramabad.webp",
+   "alt": "کارت تصویر شاخص قلعه فلک‌الافلاک (دژ شاپورخواست): نقاشی آبرنگ قلعهٔ تاریخی با نام فارسی و انگلیسی قلعه فلک‌الافلاک (دژ شاپورخواست) — خرم‌آباد، لرستان",
+   "title": "کارت تصویر شاخص قلعه فلک‌الافلاک (دژ شاپورخواست) (Falak-ol-Aflak Castle)"
+  },
+  "mount-damavand-guide": {
+   "short_fa": "دماوند",
+   "short_en": "Damavand",
+   "city_en": "Amol",
+   "province_en": "Mazandaran",
+   "file": "attraction-covers/mount-damavand-guide.webp",
+   "alt": "کارت تصویر شاخص قله دماوند: نقاشی آبرنگ قلهٔ آتشفشانی با نام فارسی و انگلیسی قله دماوند — آمل، مازندران",
+   "title": "کارت تصویر شاخص قله دماوند (Mount Damavand)"
+  },
+  "kuhrang-fritillaria-plain-guide": {
+   "short_fa": "کوهرنگ",
+   "short_en": "Kuhrang",
+   "city_en": "Kuhrang",
+   "province_en": "Chaharmahal and Bakhtiari",
+   "file": "attraction-covers/kuhrang-fritillaria-plain-guide.webp",
+   "alt": "کارت تصویر شاخص دشت لاله‌های واژگون کوهرنگ: نقاشی آبرنگ دشت و مرتع کوهستانی با نام فارسی و انگلیسی دشت لاله‌های واژگون کوهرنگ — کوهرنگ، چهارمحال و بختیاری",
+   "title": "کارت تصویر شاخص دشت لاله‌های واژگون کوهرنگ (Kuhrang Fritillaria Plain)"
+  },
+  "ali-sadr-cave-hamedan-guide": {
+   "short_fa": "علیصدر",
+   "short_en": "Ali Sadr",
+   "city_en": "Kabudarahang",
+   "province_en": "Hamadan",
+   "file": "attraction-covers/ali-sadr-cave-hamedan-guide.webp",
+   "alt": "کارت تصویر شاخص غار علیصدر: نقاشی آبرنگ غار آبی با نام فارسی و انگلیسی غار علیصدر — کبودرآهنگ، همدان",
+   "title": "کارت تصویر شاخص غار علیصدر (Ali Sadr Cave)"
+  },
+  "golestan-national-park-guide": {
+   "short_fa": "گلستان",
+   "short_en": "Golestan",
+   "city_en": "Galikash",
+   "province_en": "Golestan",
+   "file": "attraction-covers/golestan-national-park-guide.webp",
+   "alt": "کارت تصویر شاخص پارک ملی گلستان (جنگل گلستان): نقاشی آبرنگ جنگل هیرکانی با نام فارسی و انگلیسی پارک ملی گلستان (جنگل گلستان) — گالیکش، گلستان",
+   "title": "کارت تصویر شاخص پارک ملی گلستان (جنگل گلستان) (Golestan National Park)"
+  },
+  "qeshm-stars-valley-geopark": {
+   "short_fa": "ستارگان",
+   "short_en": "Stars",
+   "city_en": "Qeshm",
+   "province_en": "Hormozgan",
+   "file": "attraction-covers/qeshm-stars-valley-geopark.webp",
+   "alt": "کارت تصویر شاخص درهٔ ستارگان قشم: نقاشی آبرنگ درهٔ ژئوپارک با نام فارسی و انگلیسی درهٔ ستارگان قشم — قشم، هرمزگان",
+   "title": "کارت تصویر شاخص درهٔ ستارگان قشم (Stars Valley)"
+  },
+  "anzali-international-wetland-guide": {
+   "short_fa": "انزلی",
+   "short_en": "Anzali",
+   "city_en": "Bandar-e Anzali",
+   "province_en": "Gilan",
+   "file": "attraction-covers/anzali-international-wetland-guide.webp",
+   "alt": "کارت تصویر شاخص تالاب بین‌المللی انزلی: نقاشی آبرنگ تالاب بین‌المللی با نام فارسی و انگلیسی تالاب بین‌المللی انزلی — انزلی، گیلان",
+   "title": "کارت تصویر شاخص تالاب بین‌المللی انزلی (Anzali Lagoon)"
+  },
+  "shevi-waterfall-tele-zang": {
+   "short_fa": "شوی",
+   "short_en": "Shevi",
+   "city_en": "Dezful",
+   "province_en": "Khuzestan",
+   "file": "attraction-covers/shevi-waterfall-tele-zang.webp",
+   "alt": "کارت تصویر شاخص آبشار شوی (تله زنگ): نقاشی آبرنگ آبشار بلند با نام فارسی و انگلیسی آبشار شوی (تله زنگ) — دزفول، خوزستان",
+   "title": "کارت تصویر شاخص آبشار شوی (تله زنگ) (Shevi Waterfall)"
+  },
+  "babahur-forest-park-dorud": {
+   "short_fa": "باباهور",
+   "short_en": "Babahur",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/babahur-forest-park-dorud.webp",
+   "alt": "کارت تصویر شاخص تفرجگاه باباهور (بام دورود): نقاشی آبرنگ تفرجگاه بام با نام فارسی و انگلیسی تفرجگاه باباهور (بام دورود) — دورود، لرستان",
+   "title": "کارت تصویر شاخص تفرجگاه باباهور (بام دورود) (Babahur Forest Park)"
+  },
+  "nigah-valley-dorud": {
+   "short_fa": "نیگاه",
+   "short_en": "Nigah",
+   "city_en": "Dorud",
+   "province_en": "Lorestan",
+   "file": "attraction-covers/nigah-valley-dorud.webp",
+   "alt": "کارت تصویر شاخص دره نیگاه (دره نگار): نقاشی آبرنگ درهٔ کوهستانی با نام فارسی و انگلیسی دره نیگاه (دره نگار) — دورود، لرستان",
+   "title": "کارت تصویر شاخص دره نیگاه (دره نگار) (Nigah Valley)"
+  },
+  "qasem-anvar-shrine": {
+   "short_fa": "قاسم انوار",
+   "short_en": "Qasem Anvar",
+   "city_en": "Torbat-e Jam",
+   "province_en": "Razavi Khorasan",
+   "file": "attraction-covers/qasem-anvar-shrine.webp",
+   "alt": "کارت تصویر شاخص آرامگاه شاه قاسم انوار: نقاشی آبرنگ آرامگاه و بنای تاریخی با نام فارسی و انگلیسی آرامگاه شاه قاسم انوار — تربت جام، خراسان رضوی",
+   "title": "کارت تصویر شاخص آرامگاه شاه قاسم انوار (Qasem Anvar Shrine)"
+  },
+  "rig-e-jenn-desert": {
+   "short_fa": "ریگ جن",
+   "short_en": "Rig-e Jenn",
+   "city_en": "Garmsar",
+   "province_en": "Semnan",
+   "file": "attraction-covers/rig-e-jenn-desert.webp",
+   "alt": "کارت تصویر شاخص کویر ریگ جن: نقاشی آبرنگ کویر و ریگ با نام فارسی و انگلیسی کویر ریگ جن — گرمسار، سمنان",
+   "title": "کارت تصویر شاخص کویر ریگ جن (Rig-e Jenn Desert)"
+  },
+  "sar-agha-seyed-village": {
+   "short_fa": "سرآقا سید",
+   "short_en": "Sar Agha Seyed",
+   "city_en": "Kuhrang",
+   "province_en": "Chaharmahal and Bakhtiari",
+   "file": "attraction-covers/sar-agha-seyed-village.webp",
+   "alt": "کارت تصویر شاخص روستای سرآقا سید: نقاشی آبرنگ روستای پلکانی با نام فارسی و انگلیسی روستای سرآقا سید — کوهرنگ، چهارمحال و بختیاری",
+   "title": "کارت تصویر شاخص روستای سرآقا سید (Sar Agha Seyed Village)"
+  },
+  "tang-e-sayad-national-park": {
+   "short_fa": "تنگ صیاد",
+   "short_en": "Tang-e Sayyad",
+   "city_en": "Shahrekord",
+   "province_en": "Chaharmahal and Bakhtiari",
+   "file": "attraction-covers/tang-e-sayad-national-park.webp",
+   "alt": "کارت تصویر شاخص پارک ملی تنگ صیاد: نقاشی آبرنگ پارک ملی با نام فارسی و انگلیسی پارک ملی تنگ صیاد — شهرکرد، چهارمحال و بختیاری",
+   "title": "کارت تصویر شاخص پارک ملی تنگ صیاد (Tang-e Sayyad National Park)"
+  },
+  "tabas-attractions": {
+   "short_fa": "طبس",
+   "short_en": "Tabas",
+   "city_en": "Tabas",
+   "province_en": "South Khorasan",
+   "file": "attraction-covers/tabas-attractions.webp",
+   "alt": "کارت تصویر شاخص جاهای دیدنی طبس: نقاشی آبرنگ شهر واحه‌ای با نام فارسی و انگلیسی جاهای دیدنی طبس — طبس، خراسان جنوبی",
+   "title": "کارت تصویر شاخص جاهای دیدنی طبس (Tabas Attractions)"
+  },
+  "bagh-golshan-tabas": {
+   "short_fa": "گلشن",
+   "short_en": "Golshan",
+   "city_en": "Tabas",
+   "province_en": "South Khorasan",
+   "file": "attraction-covers/bagh-golshan-tabas.webp",
+   "alt": "کارت تصویر شاخص باغ گلشن طبس: نقاشی آبرنگ باغ ایرانی با نام فارسی و انگلیسی باغ گلشن طبس — طبس، خراسان جنوبی",
+   "title": "کارت تصویر شاخص باغ گلشن طبس (Golshan Garden of Tabas)"
+  },
+  "ghaleh-dokhtar-boshruyeh": {
+   "short_fa": "قلعه دختر",
+   "short_en": "Qaleh Dokhtar",
+   "city_en": "Boshruyeh",
+   "province_en": "South Khorasan",
+   "file": "attraction-covers/ghaleh-dokhtar-boshruyeh.webp",
+   "alt": "کارت تصویر شاخص قلعه دختر بشرویه: نقاشی آبرنگ قلعهٔ خشتی با نام فارسی و انگلیسی قلعه دختر بشرویه — بشرویه، خراسان جنوبی",
+   "title": "کارت تصویر شاخص قلعه دختر بشرویه (Qaleh Dokhtar of Boshruyeh)"
+  },
+  "persepolis-takht-jamshid": {
+   "short_fa": "تخت جمشید",
+   "short_en": "Persepolis",
+   "city_en": "Marvdasht",
+   "province_en": "Fars",
+   "file": "attraction-covers/persepolis-takht-jamshid.webp",
+   "alt": "کارت تصویر شاخص تخت جمشید: نقاشی آبرنگ میراث جهانی با نام فارسی و انگلیسی تخت جمشید — مرودشت، فارس",
+   "title": "کارت تصویر شاخص تخت جمشید (Persepolis)"
+  },
+  "naqsh-e-jahan-square-isfahan": {
+   "short_fa": "نقش جهان",
+   "short_en": "Naqsh-e Jahan",
+   "city_en": "Isfahan",
+   "province_en": "Isfahan",
+   "file": "attraction-covers/naqsh-e-jahan-square-isfahan.webp",
+   "alt": "کارت تصویر شاخص میدان نقش جهان: نقاشی آبرنگ میدان تاریخی با نام فارسی و انگلیسی میدان نقش جهان — اصفهان، اصفهان",
+   "title": "کارت تصویر شاخص میدان نقش جهان (Naqsh-e Jahan Square)"
+  },
+  "shahdad-kaluts-lut-desert": {
+   "short_fa": "کلوت",
+   "short_en": "Kaluts",
+   "city_en": "Kerman",
+   "province_en": "Kerman",
+   "file": "attraction-covers/shahdad-kaluts-lut-desert.webp",
+   "alt": "کارت تصویر شاخص کلوت‌های شهداد: نقاشی آبرنگ بیابان و کلوت با نام فارسی و انگلیسی کلوت‌های شهداد — کرمان، کرمان",
+   "title": "کارت تصویر شاخص کلوت‌های شهداد (Shahdad Kaluts)"
+  },
+  "fin-garden": {
+   "short_fa": "فین",
+   "short_en": "Fin",
+   "city_en": "Kashan",
+   "province_en": "Isfahan",
+   "file": "attraction-covers/fin-garden.webp",
+   "alt": "کارت تصویر شاخص باغ فین کاشان: نقاشی آبرنگ باغ ایرانی با نام فارسی و انگلیسی باغ فین کاشان — کاشان، اصفهان",
+   "title": "کارت تصویر شاخص باغ فین کاشان (Fin Garden)"
+  },
+  "masouleh": {
+   "short_fa": "ماسوله",
+   "short_en": "Masouleh",
+   "city_en": "Fuman",
+   "province_en": "Gilan",
+   "file": "attraction-covers/masouleh.webp",
+   "alt": "کارت تصویر شاخص ماسوله: نقاشی آبرنگ روستای پلکانی با نام فارسی و انگلیسی ماسوله — فومن، گیلان",
+   "title": "کارت تصویر شاخص ماسوله (Masouleh Historic Village)"
+  }
+ }
+}

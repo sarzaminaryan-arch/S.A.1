@@ -52,6 +52,8 @@ $sa_context = array(
 );
 $sa_default_modules = array( 'stats', 'geography', 'county-links' );
 $sa_modules         = apply_filters( 'sa_province_identity_modules', $sa_default_modules, $sa_id, $sa_profile );
+// v2.18.17 — «شناسنامهٔ استان» در فهرست مطالب مقاله بیاید.
+sa_toc_register( 'شناسنامهٔ استان', 'province-profile', 10 );
 ?>
 <section class="sa-province-profile" id="province-profile" aria-labelledby="sa-province-profile-title">
 	<header class="sa-province-profile__header">

@@ -14,6 +14,8 @@ $sa_map  = sa_map_url( $sa_id );
 if ( ! $sa_rows && ! $sa_map ) {
 	return;
 }
+// v2.18.17 — «اطلاعات کلیدی» در فهرست مطالب مقاله بیاید.
+sa_toc_register( 'اطلاعات کلیدی', 'facts', 10 );
 ?>
 <section class="sa-facts" id="facts">
 	<h2 class="sa-facts__title">اطلاعات کلیدی</h2>

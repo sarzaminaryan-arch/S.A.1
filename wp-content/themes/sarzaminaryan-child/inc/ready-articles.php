@@ -68,6 +68,10 @@ function sa_ready_article_normalize( $article ) {
 		'title'         => '',
 		'type'          => 'attraction',
 		'slug'          => '',
+		'short_fa'      => '', // v2.18.15 — نام کوتاه مکان (مثل «بیشه»)؛ از v2.18.18 کارت با نام کامل ساخته می‌شود.
+		'short_en'      => '',
+		'city_en'       => '', // نام انگلیسی شهرستان و استان برای سطر لاتین کارت.
+		'province_en'   => '',
 		'excerpt'       => '',
 		'english'       => '',
 		'kind'          => 'mountain',
@@ -175,11 +179,12 @@ function sa_ready_articles_assets( $hook ) {
 				'green' => '#0f5132',
 				'gold'  => '#9b6a16',
 				'mint'  => '#e8f6ee',
+				'line'  => '#dbe7f0',
 			),
 			'i18n'    => array(
-				'working'  => 'در حال ساخت کارت ۱۲۰۰×۶۰۰…',
+				'working'  => 'در حال ساخت کارت آبرنگی ۱۲۰۰×۶۰۰…',
 				'saving'   => 'ذخیرهٔ تصویر شاخص…',
-				'done'     => 'کارت سفید ساخته و به‌عنوان تصویر شاخص ثبت شد.',
+				'done'     => 'کارت آبرنگی ساخته و به‌عنوان تصویر شاخص ثبت شد.',
 				'failed'   => 'ساخت یا ذخیرهٔ کارت انجام نشد.',
 				'nocanvas' => 'مرورگر شما از ساخت تصویر پشتیبانی نمی‌کند؛ از Chrome، Edge یا Firefox جدید استفاده کنید.',
 			),
@@ -1334,7 +1339,13 @@ function sa_ready_articles_page() {
 							data-article="<?php echo esc_attr( $key ); ?>"
 							data-title="<?php echo esc_attr( $article['title'] ); ?>"
 							data-english="<?php echo esc_attr( $article['english'] ); ?>"
+							data-short-fa="<?php echo esc_attr( ! empty( $article['short_fa'] ) ? $article['short_fa'] : $article['title'] ); ?>"
+							data-short-en="<?php echo esc_attr( ! empty( $article['short_en'] ) ? $article['short_en'] : $article['english'] ); ?>"
 							data-kind="<?php echo esc_attr( $article['kind'] ); ?>"
+							data-chip-fa="<?php echo esc_attr( 'attraction' === $article['type'] ? 'نمای برتر' : ( $is_post ? 'آموزش کمپینگ' : 'شهرستان' ) ); ?>"
+							data-location="<?php echo esc_attr( implode( '، ', array_filter( array( $place_main, $place_sub ) ) ) ); ?>"
+							data-city-en="<?php echo esc_attr( ! empty( $article['city_en'] ) ? $article['city_en'] : '' ); ?>"
+							data-province-en="<?php echo esc_attr( ! empty( $article['province_en'] ) ? $article['province_en'] : '' ); ?>"
 							data-city="<?php echo esc_attr( $city_line ); ?>"
 							data-province="<?php echo esc_attr( $prov_line ); ?>"
 							<?php echo $post_id ? '' : 'disabled'; ?>>

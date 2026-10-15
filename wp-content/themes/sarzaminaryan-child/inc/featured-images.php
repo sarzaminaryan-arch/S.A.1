@@ -11,6 +11,11 @@
  *    نشان نمی‌دهند؛ حتی اگر بعداً روشن شود، تصویری که فایلش روی سرور نیست
  *    نمایش داده نمی‌شود (قالب به فایل زندهٔ روی سرور نگاه می‌کند، نه فقط به
  *    شناسهٔ پیوست).
+ *
+ *    v2.18.16 — «دیدنی‌ها» از همین قاعده جدا شدند: تصویر شاخص هر دیدنی فقط
+ *    داخل بدنهٔ همان مقاله نشان داده می‌شود (کلید مستقل
+ *    «sa_show_attraction_image»، پیش‌فرض روشن) و در هیچ محل دیگری — کارت‌های
+ *    فهرست، آرشیو، صفحهٔ اصلی، شناسنامهٔ بالای صفحه — دیده نمی‌شود.
  * 2) کلید «تصویرهای گمشدهٔ داخل متن» (پیش‌فرض: روشن). تصویرهای داخل متن که
  *    فایلشان روی سرور نیست، به کادر متنی ساده تبدیل می‌شوند تا بازدیدکننده
  *    به‌جای آیکون تصویر شکسته، یک کادر آرام ببیند. فایل هرگز دست‌کاری
@@ -42,6 +47,47 @@ function sa_featured_images_visible( $context = '' ) {
 	 * @param string $context محل.
 	 */
 	return (bool) apply_filters( 'sa_featured_images_visible', $show, $context );
+}
+
+/**
+ * آیا تصویر شاخص «دیدنی‌ها» داخل مقاله نمایش داده شود؟ (v2.18.16)
+ *
+ * جدا از کلید سراسری است تا تصویر شاخص دیدنی‌ها بدون روشن‌کردن نمایش
+ * سراسری، فقط داخل بدنهٔ همان مقاله دیده شود.
+ *
+ * @return bool
+ */
+function sa_attraction_images_visible() {
+	$show = (bool) get_theme_mod( 'sa_show_attraction_image', true );
+	/**
+	 * نمایش تصویر شاخص «دیدنی‌ها» داخل مقاله.
+	 *
+	 * @param bool $show وضعیت.
+	 */
+	return (bool) apply_filters( 'sa_attraction_images_visible', $show );
+}
+
+/**
+ * آیا نوشته از نوع «دیدنی» است؟
+ *
+ * @param int $post_id شناسهٔ نوشته.
+ * @return bool
+ */
+function sa_featured_image_is_attraction( $post_id ) {
+	$post_id = absint( $post_id );
+	if ( ! $post_id || ! function_exists( 'get_post_type' ) ) {
+		return false;
+	}
+	return 'attraction' === get_post_type( $post_id );
+}
+
+/**
+ * محل نمایش تصویر شاخص «دیدنی» داخل مقاله (تنها جای مجازِ دیدنی‌ها).
+ *
+ * @return string
+ */
+function sa_attraction_image_context() {
+	return 'attraction-content';
 }
 
 /**
@@ -95,7 +141,16 @@ function sa_featured_image_suppressed( $post_id ) {
  */
 function sa_featured_image_available( $post_id = 0, $context = '' ) {
 	$post_id = $post_id ? absint( $post_id ) : (int) get_the_ID();
-	if ( ! $post_id || sa_featured_image_suppressed( $post_id ) || ! sa_featured_images_visible( $context ) ) {
+	if ( ! $post_id || sa_featured_image_suppressed( $post_id ) ) {
+		return false;
+	}
+	if ( sa_featured_image_is_attraction( $post_id ) ) {
+		// v2.18.16 — دیدنی‌ها: فقط داخل بدنهٔ مقاله، با کلید مستقل خودشان؛
+		// کارت‌های فهرست، آرشیو، صفحهٔ اصلی و شناسنامه تصویر شاخص نمی‌گیرند.
+		if ( sa_attraction_image_context() !== $context || ! sa_attraction_images_visible() ) {
+			return false;
+		}
+	} elseif ( ! sa_featured_images_visible( $context ) ) {
 		return false;
 	}
 	if ( ! has_post_thumbnail( $post_id ) ) {
@@ -130,7 +185,14 @@ function sa_featured_image_guard( $html, $post_id = 0 ) {
 	if ( $post_id && sa_featured_image_suppressed( $post_id ) ) {
 		return '';
 	}
-	if ( ! sa_featured_images_visible( 'core' ) ) {
+	$sa_render_context = isset( $GLOBALS['sa_featured_image_render_context'] ) ? (string) $GLOBALS['sa_featured_image_render_context'] : '';
+	if ( $post_id && sa_featured_image_is_attraction( $post_id ) ) {
+		// v2.18.16 — تصویر شاخص دیدنی فقط وقتی مجاز است که همان قالبِ مقاله
+		// آن را در بدنه می‌کشد؛ هر جای دیگر (کارت، آرشیو، هیرو، ابزارک) پنهان است.
+		if ( sa_attraction_image_context() !== $sa_render_context || ! sa_attraction_images_visible() ) {
+			return '';
+		}
+	} elseif ( ! sa_featured_images_visible( 'core' ) ) {
 		return '';
 	}
 	if ( $post_id && function_exists( 'sa_media_attachment_missing' ) ) {
@@ -268,12 +330,63 @@ add_filter( 'the_content', 'sa_hide_missing_content_images', 12 );
  * @param string               $size اندازه.
  * @param array<string,string> $attr ویژگی‌های تصویر.
  * @param int                  $post_id شناسهٔ نوشته.
+ * @param string               $context محل نمایش (پیش‌فرض: helper).
  * @return string HTML ('' = نمایش نده).
  */
-function sa_get_featured_image( $size = 'post-thumbnail', $attr = array(), $post_id = 0 ) {
+function sa_get_featured_image( $size = 'post-thumbnail', $attr = array(), $post_id = 0, $context = 'helper' ) {
 	$post_id = $post_id ? absint( $post_id ) : (int) get_the_ID();
-	if ( ! sa_featured_image_available( $post_id, 'helper' ) ) {
+	if ( ! sa_featured_image_available( $post_id, $context ) ) {
 		return '';
 	}
-	return (string) get_the_post_thumbnail( $post_id, $size, $attr );
+	$mark = ( sa_attraction_image_context() === $context );
+	if ( $mark ) {
+		// نگهبانِ سراسری باید بداند این تصویر از بدنهٔ خودِ مقالهٔ دیدنی می‌آید.
+		$GLOBALS['sa_featured_image_render_context'] = $context;
+	}
+	$html = (string) get_the_post_thumbnail( $post_id, $size, $attr );
+	if ( $mark ) {
+		unset( $GLOBALS['sa_featured_image_render_context'] );
+	}
+	return $html;
+}
+
+/**
+ * تصویر شاخص داخل بدنهٔ مقالهٔ «دیدنی» (v2.18.16).
+ *
+ * تنها محلِ مجازِ نمایش تصویر شاخص دیدنی‌ها؛ بالای متن مقاله و با کپشنِ
+ * کوتاه (متن جانشین). اگر تصویر نداشته باشد یا فایلش روی سرور نباشد، هیچ
+ * خروجی‌ای تولید نمی‌شود.
+ *
+ * @param int    $post_id شناسهٔ نوشته (۰ = نوشتهٔ جاری).
+ * @param string $size    اندازهٔ تصویر.
+ * @return string
+ */
+function sa_attraction_featured_figure( $post_id = 0, $size = '' ) {
+	$post_id = $post_id ? absint( $post_id ) : (int) get_the_ID();
+	if ( ! $post_id || ! sa_featured_image_is_attraction( $post_id ) ) {
+		return '';
+	}
+	if ( '' === $size ) {
+		$size = function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $post_id ) : 'sa-attraction-cover';
+	}
+	$image = sa_get_featured_image(
+		$size,
+		array( 'loading' => 'eager', 'fetchpriority' => 'high', 'class' => 'sa-attraction-cover__img' ),
+		$post_id,
+		sa_attraction_image_context()
+	);
+	if ( '' === $image ) {
+		return '';
+	}
+	$alt = trim( (string) get_post_meta( (int) get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true ) );
+	ob_start();
+	?>
+	<figure class="sa-attraction-cover">
+		<?php echo $image; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+		<?php if ( '' !== $alt ) : ?>
+			<figcaption class="sa-attraction-cover__caption"><?php echo esc_html( $alt ); ?></figcaption>
+		<?php endif; ?>
+	</figure>
+	<?php
+	return trim( (string) ob_get_clean() );
 }

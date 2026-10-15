@@ -5082,3 +5082,213 @@ small {
 		line-height: 1.8;
 	}
 }
+
+/* ==========================================================================
+   v2.18.16 — تصویر شاخص «دیدنی‌ها» داخل مقاله (و فقط داخل مقاله)
+   ========================================================================== */
+.sa-attraction-cover {
+	position: relative;
+	margin: 0 auto clamp(18px, 3.4vw, 32px);
+	padding: clamp(10px, 2vw, 16px);
+	border: 1px solid rgba(15, 81, 50, .14);
+	border-radius: 26px;
+	background: linear-gradient(145deg, #ffffff, #f4fbf7);
+	box-shadow: 0 22px 54px rgba(1, 31, 61, .10);
+}
+
+.sa-attraction-cover__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 18px;
+	background: #fff;
+}
+
+.sa-attraction-cover__caption {
+	margin-top: 12px;
+	font-size: .92rem;
+	line-height: 1.8;
+	text-align: center;
+	color: #4d6b5a;
+}
+
+@media (max-width: 640px) {
+	.sa-attraction-cover {
+		border-radius: 18px;
+		padding: 8px;
+	}
+
+	.sa-attraction-cover__img {
+		border-radius: 12px;
+	}
+
+	.sa-attraction-cover__caption {
+		font-size: .85rem;
+	}
+}
+
+/* ==========================================================================
+   v2.18.17 — «فهرست مطالب» ابتدای همهٔ مقاله‌ها
+   ========================================================================== */
+.sa-toc {
+	margin: 0 0 clamp(20px, 3.2vw, 32px);
+	padding: clamp(16px, 3vw, 24px) clamp(16px, 3vw, 26px);
+	border: 1px solid rgba(15, 81, 50, .14);
+	border-radius: 24px;
+	background: linear-gradient(145deg, #ffffff 0%, #f4fbf7 100%);
+	box-shadow: 0 18px 44px rgba(1, 31, 61, .07), inset 0 1px 0 rgba(255, 255, 255, .8);
+	direction: rtl;
+}
+
+.sa-toc__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px dashed rgba(15, 81, 50, .2);
+}
+
+.sa-toc__title {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	margin: 0;
+	font-size: 1.08rem;
+	font-weight: 800;
+	line-height: 1.6;
+	color: #0f5132;
+}
+
+.sa-toc__title::before {
+	content: "";
+	width: 22px;
+	height: 22px;
+	border-radius: 7px;
+	background:
+		linear-gradient(145deg, #0f5132 0%, #1f7a4d 100%);
+	box-shadow: inset 0 0 0 3px #fff;
+}
+
+.sa-toc__count {
+	font-size: .82rem;
+	color: #3f6b55;
+	background: #e8f6ee;
+	border: 1px solid rgba(15, 81, 50, .12);
+	border-radius: 999px;
+	padding: 4px 11px;
+	white-space: nowrap;
+}
+
+.sa-toc__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 4px;
+	max-height: min(58vh, 22rem);
+	overflow: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(15, 81, 50, .35) transparent;
+}
+
+.sa-toc__list::-webkit-scrollbar {
+	width: 8px;
+}
+
+.sa-toc__list::-webkit-scrollbar-thumb {
+	background: rgba(15, 81, 50, .28);
+	border-radius: 99px;
+}
+
+.sa-toc__item--l2 {
+	padding-inline-start: 20px;
+}
+
+.sa-toc__item--l3 {
+	padding-inline-start: 40px;
+}
+
+.sa-toc__link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 10px;
+	border-radius: 12px;
+	font-size: .99rem;
+	line-height: 1.7;
+	color: #0b2b4a;
+	text-decoration: none;
+	transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.sa-toc__link:hover,
+.sa-toc__link:focus-visible {
+	background: #eef7f1;
+	color: #0f5132;
+	transform: translateX(-2px);
+}
+
+.sa-toc__num {
+	flex: 0 0 auto;
+	width: 26px;
+	height: 26px;
+	display: grid;
+	place-items: center;
+	border-radius: 9px;
+	background: #0f5132;
+	color: #fff;
+	font-size: .78rem;
+	font-weight: 700;
+}
+
+.sa-toc__item--l2 .sa-toc__num,
+.sa-toc__item--l3 .sa-toc__num {
+	background: #d8ece1;
+	color: #0f5132;
+}
+
+.sa-toc__label {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* پرش به سرفصل، زیر هدر چسبان نایستد. */
+.entry-content h2[id],
+.entry-content h3[id],
+.entry-content h4[id],
+.sa-facts[id],
+.sa-county__title[id],
+.sa-faq-section[id],
+.sa-sources[id] {
+	scroll-margin-top: 96px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+@media (max-width: 640px) {
+	.sa-toc {
+		border-radius: 18px;
+		padding: 14px 14px 12px;
+	}
+
+	.sa-toc__link {
+		font-size: .93rem;
+		padding: 7px 8px;
+	}
+
+	.sa-toc__item--l2 {
+		padding-inline-start: 14px;
+	}
+
+	.sa-toc__item--l3 {
+		padding-inline-start: 28px;
+	}
+}

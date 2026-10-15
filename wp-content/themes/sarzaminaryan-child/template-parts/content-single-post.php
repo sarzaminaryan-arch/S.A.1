@@ -54,6 +54,11 @@ $sa_policy = get_page_by_path( 'editorial-policy' );
 			<p class="sa-entity__lead"><?php echo esc_html( get_the_excerpt() ); ?></p>
 		<?php endif; ?>
 
+		<?php
+		// v2.18.17 — «سوالات متداول» و «منابع» این مقاله در فهرست مطالب بیایند.
+		sa_toc_register_tail( $sa_id );
+		?>
+
 		<div class="entry-content">
 			<?php
 			the_content();
