@@ -1,3 +1,18 @@
+## 2.18.4 — 1405-07-23 (2026-10-15)
+
+- **تکمیل مجموعهٔ آموزشی به ۶۷ مقاله — ۲۲ مقالهٔ تازه با ۶۶ کارت تصویری:** ۲۱ مقالهٔ باقی‌ماندهٔ برنامهٔ ۶۵ مقاله‌ای (`water-safety-children`، `leg-fracture-first-aid`، `diy-hammock-trees`، `choosing-campsite`، `ground-insulation-sleeping`، `bear-encounter-guide`، `wild-boar-encounter`، `snake-encounter-guide`، `stray-dog-encounter`، `night-wildlife-defense`، `safe-food-storage-outdoor`، `navigation-by-sun`، `navigation-by-stars`، `lost-in-nature-guide`، `paper-map-reading`، `rescue-signaling-guide`، `international-distress-signals`، `knot-tying-guide`، `outdoor-cooking-minimal`، `personal-hygiene-outdoor`، `children-outdoor-safety`) به‌همراه `diy-water-container` نوشته شدند؛ هر کدام با ۳ کارت `:::sa-topic-card`، اسکیمای `schema_build.py --write` و وضعیت «آمادهٔ انتشار».
+- **کیفیت محتوا:** هر ۶۷ مقاله از `content_lint.py` بدون هشدار می‌گذرند (۳۶۵ اطلاع؛ فقط یادآوری). نامک‌های تازه به `allowed_slugs` در `lint-config.json` اضافه شدند؛ پیوندهای داخلی فقط به همان فهرست می‌خورند.
+- **شاخه‌بندی مقاله‌ها:** آب و ایمنی آبی، کمک‌های اولیه، محل کمپ و سرپناه، حیات‌وحش (مواجههٔ گونه‌محور، بدون توصیهٔ «مقابله»)، مسیریابی (خورشید، ستاره، نقشه)، سیگنال‌دهی و مهارت‌های میدانی (گره، آشپزی، بهداشت، کودکان) — همه با پیوند متقابل و منابع سازمانی (NPS، WHO، CDC، IFRC، ۱۱۵ و ۱۴۹۰).
+- **مستندات:** [ARTICLE-STANDARD 1.2](../../docs/camping-education/ARTICLE-STANDARD.md) بخش «کارت‌های تصویری» و ۲۲ سطر نامک تازه گرفت؛ README/PLAN-65 به‌روز شدند و «در صف» بسته شد؛ `assets/img/guides/README.md` قرارداد `topic-cards/` را ثبت کرد.
+- **دادهٔ قالب:** بازسازی `data/ready-guides.php` (۶۷ رکورد) با تکمیل پردازش ۷۸ تصویر کارت انجام می‌شود؛ تا آن زمان `build_theme_data.py` به‌درستی از ساخت داده با تصویر جامانده خودداری می‌کند.
+
+## 2.18.3 — 1405-07-23 (2026-10-15)
+
+- **استاندارد کارت تصویری مقاله (`:::sa-topic-card`) — جایگزین «تصویری لازم نیست» برای مقاله‌های تازه:** قالب دستوری کارت (image/alt/title/description)، قواعد جای‌گذاری کنار هر ابزار/گام و رندر `figure.sa-topic-card` (تصویر یک‌سوم + متن دو‌سوم، شعاع ۱۸px، `img` تنبل با نشانی مطلق `assets/img/guides/` و `figcaption` عنوان‌دار) تعریف شد؛ استایل در انتهای `assets/css/child.css` تا بر سفارشی‌سازی‌های مالک مقدم نشود. آزمون `tests/test-ready-guides.php` مقدارهای خطرناک (`style=`، `**`، `](`، فنس، `{{`، کامنت، `script`/`iframe`) را رد می‌کند.
+- **ابزارها:** `article_model.py` بلوک‌های کارت را می‌شناسد و از فیلتر محتوا (به‌عنوان ناحیهٔ فنس‌مانند) جدا نگه می‌دارد؛ `build_theme_data.py` کارت‌ها را به HTML استاندارد تبدیل، فیلدهای الزامی و الگوی مسیر `^topic-cards/[a-z0-9][a-z0-9/_-]*\.webp$` را راستی‌آزمایی و نبودِ فایل WebP را خطای ساخت می‌کند.
+- **بازسازی دستهٔ ۱۷ تا ۲۱ (کار از‌دست‌رفتهٔ شاخهٔ 2.18.9، این‌جا دوباره روی شاخهٔ درست نشست):** `diy-compass`، `diy-emergency-torch`، `diy-water-container`، `how-to-start-campfire`، `fire-without-lighter` — هر کدام ۳ کارت تصویری (۱۵ کارت) و سطر «**تصویر:**» به‌روزشده.
+- **خط تولید تصویر کارت:** عکس واقع‌گرایانهٔ مستند (بدون متن/لوگو/واترمارک) ← برش مرکزی ۴:۳، تغییر اندازه به ۷۲۰×۵۴۰، واترمارک متنی `sarzaminaryan.ir` گوشهٔ پایین‌چپ، خروجی WebP کیفیت ۸۲ (`make_cards.py`). حجم هر کارت ۱۰ تا ۲۰۰ کیلوبایت.
+
 ## 2.18.2 — 1405-07-21 (2026-10-13)
 
 - **موج چهارم ممیزی — بستن پیوندهای ۴۰۴ با شاهد بیرونی:** گام ممیزی ۲۲ نشانی داخلی (۳۱ رخداد) را «نامعلوم» گذاشته بود، چون وضعیت انتشارشان فقط با دیدن سایت قطعی می‌شد. در این نسخه با `attraction-sitemap.xml` سایت (۲۰۲۶-۱۰-۱۲) و سه بازدید نمونه (۴۰۴) ثابت شد هیچ‌یک از آن صفحه‌ها منتشر نشده است؛ پس ۲۹ رخداد در ۶ مقاله به متن ساده تبدیل شد (متن لنگر عیناً حفظ شد) و ابزار `docs/content-audit/fixes/fix_2.18.2.py` کل عملیات را با شمارش و assert اجرا می‌کند.
