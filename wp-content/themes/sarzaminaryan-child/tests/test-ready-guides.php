@@ -204,6 +204,35 @@ foreach ( $shelter_cards as $slug => $topics ) {
 	}
 }
 
+/* Batch 8: every image belongs to its specific rendered step, not a stack at the end. */
+$batch_eight = array(
+	'sleeping-bag-guide' => array( 2 => 'insulated-pad', 3 => 'bag-shapes', 4 => 'fit-check' ),
+	'can-cookware-diy' => array( 1 => 'clean-can', 2 => 'rim-pliers', 3 => 'cold-handle-test' ),
+	'diy-bottle-lantern' => array( 1 => 'filled-bottle', 2 => 'inward-headlamp', 4 => 'reflector' ),
+);
+foreach ( $batch_eight as $slug => $topics ) {
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three batch-8 cards" );
+	preg_match_all( '/<h3 class="sa-step"><span class="sa-step__n">([^<]+)<\/span>.*?(?=<h3 class="sa-step">|<h2>|$)/su', $content, $matches, PREG_SET_ORDER );
+	$steps = array();
+	foreach ( $matches as $match ) {
+	 $steps[ (int) strtr( $match[1], array( '۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4', '۵' => '5' ) ) ] = $match[0];
+	}
+	foreach ( $topics as $number => $topic ) {
+	 $file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+	 $image = SA_CHILD_DIR . 'assets/img/' . $file;
+	 sa_guides_expect( isset( $steps[ $number ] ) && 1 === substr_count( $steps[ $number ], $file ), "{$slug}: {$topic} in its exact step {$number}" );
+	 sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+	 sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset size" );
+	 $dimensions = getimagesize( $image );
+	 sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is 720x540 WebP" );
+	}
+}
+sa_guides_expect( false !== strpos( $guides['can-cookware-diy']['content'], 'قوطی بسته را هرگز روی آتش نگذار' ), 'closed can must never be heated' );
+sa_guides_expect( false !== strpos( $guides['can-cookware-diy']['content'], 'پوشش داخلی یا بیرونی را نسوزان' ), 'can coatings must not be burned off' );
+sa_guides_expect( false !== strpos( $guides['diy-bottle-lantern']['content'], 'بطری پرآب را از سقف یا تیرک چادر آویزان نکن' ), 'no heavy bottle on tent roof' );
+sa_guides_expect( false !== strpos( $guides['sleeping-bag-guide']['faq'][4]['a'], 'کنار آتش، اجاق یا منبع حرارت مستقیم نگذار' ), 'wet sleeping bag must not be dried by fire' );
+
 /**
  * Minimal strip-tags shim (no WordPress here).
  *
