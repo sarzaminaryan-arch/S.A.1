@@ -3716,6 +3716,7 @@ SA_ART,
 <figure class="sa-guide-infographic"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/drowning-rescue-guide.webp" alt="اینفوگرافیک آموزش نجات غریق از ساحل: رساندن میله، پرتاب وسیلهٔ شناور، کمک از قایق و ورود فقط برای فرد آموزش‌دیده" loading="lazy" decoding="async" /></figure>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> اول از همه: نپر توی آب</h3>
 <p>جدی می‌گم. مگه اینکه شناگر حرفه‌ای باشی و آموزش نجات غریق دیده باشی. آدمی که داره غرق می‌شه، از شدت وحشت دست و پا می‌زنه و ناخودآگاه تو رو هم می‌کشه زیر آب. این غریزه‌ست، مقصر نیست. ولی نتیجه‌ش اینه که به جای یه نفر، دو نفر غرق می‌شن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drowning-rescue-guide-never-enter-water.webp" alt="نجات‌گر روی ساحل ایستاده و طناب را به سمت غریق پرت می‌کند، پایش را در آب نگذاشته" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول بکش، نپر</strong><span class="sa-guide-topic-card__description">آدمی که غرق می‌شود از وحشت هر چیزی را که نزدیکش برسد می‌گیرد و تو را هم زیر آب می‌بَرد؛ از ساحل کمک کن، مگر نجات‌غریقِ آموزش‌دیده باشی.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> داد بزن و کمک بخواه</h3>
 <ul>
 <li>فریاد بزن: <strong>«کمک! یه نفر داره غرق می‌شه!»</strong></li>
@@ -3747,6 +3748,7 @@ SA_ART,
 <blockquote>
 <p><strong>⚠️ نکته طلایی:</strong> همیشه یه چیزی بین خودت و فرد غرق‌شونده باشه. هیچ‌وقت دستت رو مستقیم دراز نکن مگه اینکه کاملاً روی زمین محکم خوابیده باشی و فقط دستش در دسترست باشه.</p>
 </blockquote>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drowning-rescue-guide-tie-shirts-rope.webp" alt="سه تی‌شرت که آستین‌هایشان را به هم گره زده‌اند و سر طناب به سنگ بسته شده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">طناب نداری؟ لباس‌ها را به هم گره بزن</strong><span class="sa-guide-topic-card__description">دو سه تی‌شرت را از آستین محکم به هم گره بزن؛ شال، کمربند و بند کوله هم کار می‌کند. یک سر را به سنگ یا درخت ببند و آروم و یکنواخت بکش، نه تند و یهویی.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> اگه توی دسترس نیست</h3>
 <p>فاصله‌ش زیاده و نمی‌تونی چیزی بگیری سمتش؟ یه چیز <strong>شناور</strong> پرت کن سمتش:</p>
 <ul>
@@ -3776,6 +3778,7 @@ SA_ART,
 <li><strong>هر ۳۰ ثانیه چک کن</strong> نفس داره یا نه (دستت رو جلوی بینی‌ش بگیر یا سینه‌ش رو نگاه کن بالا پایین می‌ره یا نه)</li>
 </ol>
 <p><strong>اگه نفس نمی‌کشه:</strong></p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drowning-rescue-guide-after-out-of-water.webp" alt="فرد نجات‌یافته لبِ آب نشسته، لباس چلانده‌شده تنش کرده و پتوی نجات روی شانه‌هایش است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">لب آب بنشین، نه سرپا</strong><span class="sa-guide-topic-card__description">بگذار بنشیند، لباس خیس را چلانده دوباره تنش کن و نوشیدنی گرم و شیرین بده؛ تا نیم ساعت زیر نظرش داشته باش، چون آب‌رفتن به ریه دیر علامت می‌دهد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۶</span> آموزش CPR ساده برای بزرگسال</h3>
 <blockquote>
 <p>این آموزش خلاصه‌ست. آموزش کامل‌تر رو در مقالهٔ جداگانهٔ CPR (به‌زودی) می‌آید</p>
@@ -9955,6 +9958,7 @@ SA_ART,
 <li>عمداً آهسته بازدم کن و تا سه بشمار. در کمتر از یک دقیقه نفس‌ها آرام می‌شود.</li>
 <li>در این دقیقه تصمیم نگیر و شنا نکن؛ فقط شناور بمان.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/self-rescue-drowning-float-star-position.webp" alt="فردی به پشت روی آب خوابیده، دست‌ها و پاها مثل ستاره باز و سر بالا" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">دقیقهٔ اول: فقط نفس و شناور ماندن</strong><span class="sa-guide-topic-card__description">سر بالا، به پشت بچرخ و دست‌ها و پاها را باز نگه دار؛ ریهٔ پر از هوا تو را نگه می‌دارد. بازدم را آهسته کن و تا سه بشمار و در این دقیقه تصمیم نگیر.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> نگاه کن و تصمیم بگیر</h3>
 <p>وقتی نفس آرام شد، سه چیز را پیدا کن: نزدیک‌ترین نقطهٔ خروج (ساحل کم‌شیب، کنارهٔ داخلی پیچ رودخانه)، جهت جریان و خطرهای پایین‌دست (درخت افتاده، صخره، سرریز). بعد یکی از سه مسیر را انتخاب کن: شنا به ساحل نزدیک، شناور ماندن تا رسیدن کمک، یا حرکت زاویه‌دار به سمت کنارهٔ رودخانه. اگر کسی در ساحل هست، با دست بلند و فریاد «کمک» خبرش کن و دوباره انرژی را ذخیره کن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> شناور ماندن و حفظ گرما</h3>
@@ -9971,6 +9975,7 @@ SA_ART,
 <li>وقتی آب آرام و زیر زانو شد، اول چهار دست و پا بیرون بخز، بعد بایست.</li>
 <li>درخت افتاده یا تودهٔ شاخه (صافی) جلوی مسیر است؟ دور زدنش اولویت است. اگر برخورد اجتناب‌ناپذیر شد، روی شکم بچرخ، با همهٔ توان و سر جلو به سمتش شنا کن و خودت را از رویش بالا بکش؛ آب از لای شاخه‌ها رد می‌شود ولی تو را نگه می‌دارد و زیر آب می‌برد.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/self-rescue-drowning-feet-first-in-river.webp" alt="شناور به پشت در رودخانه، سر به بالادست، نوک پا بیرون از آب و بدن با زاویه به سمت کناره" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پاها جلو، زاویه به کناره</strong><span class="sa-guide-topic-card__description">به پشت بخواب با پاها به پایین‌دست و نوک انگشتان بیرون از آب؛ با دست‌ها پارو بزن تا بدن با زاویه به کنارهٔ کم‌شیب برود، نه مستقیم مقابل جریان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> در دریا: با جریان برگشتی نجنگ</h3>
 <p>جریان برگشتی (شکافنده) نوار باریکی از آب است که از ساحل به سمت دریا می‌رود؛ تو را زیر آب نمی‌برد، فقط دور می‌کند. اگر با وجود شنا داری از ساحل دور می‌شوی: شناور بمان، موازی ساحل شنا کن تا از نوار جریان بیرون بیایی (معمولاً چند ده متر)، بعد با زاویه به ساحل برگرد. خسته‌ای؟ به پشت شناور بمان و دست تکان بده؛ جریان کمی دورتر ضعیف می‌شود.</p>
 <h3 class="sa-step"><span class="sa-step__n">۶</span> بیرون از آب: خطر هنوز تمام نشده</h3>
@@ -9980,6 +9985,7 @@ SA_ART,
 <li>لرزش قطع شده، گیجی یا خواب‌آلودی؟ این افت دمای بدن (هیپوترمی) است؛ راهنمای <a href="/hypothermia-first-aid/">کمک‌های اولیه سرمازدگی</a> را اجرا کن و ۱۱۵ را خبر کن.</li>
 <li>آب به ریه‌ات رفته، سرفهٔ مداوم یا تنگی نفس داری؟ حتی اگر حالت خوب است باید پزشک تو را ببیند؛ مشکل تنفسی می‌تواند ساعت‌ها بعد ظاهر شود.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/self-rescue-drowning-out-of-water-warm.webp" alt="خارج از آب: لباس خیس چلانده‌شده، کلاه و پتوی نجات روی سر و گردن و یک لیوان نوشیدنی گرم" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بیرون از آب خطر تمام نشده</strong><span class="sa-guide-topic-card__description">باد را پشت کن، لباس خیس را بچلان یا با خشک عوض کن و سر و گردن را بپوشان؛ نوشیدنی گرم فقط برای فرد کاملاً هوشیار. لرزشِ قطع‌شده با گیجی یعنی افت دمای بدن.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>رودخانه‌های کرج، هراز، سفیدرود، زاینده‌رود و ارمند در بهار با ذوب برف چند برابر پرآب می‌شوند؛ جایی که در پاییز تا زانو بود، در اردیبهشت آدم را می‌برد.</li>
@@ -10986,6 +10992,7 @@ SA_ART,
 <li>با چشم به او نگاه کن و شنای سر بالا برو تا گم‌اش نکنی.</li>
 <li>یک متر مانده بایست و وضعیت را بسنج: دمر است؟ تکان می‌خورد؟ اگر حرکت کرد، یعنی هوشیار است و باید با وسیله و از فاصله به او کمک کنی.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/unconscious-drowning-cpr-enter-with-plan.webp" alt="نجات‌گر بدون کفش و لباس سنگین، با وسیلهٔ شناور وارد آب کم‌عمق شده و چشم به فرد بی‌هوش دارد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ورود فقط با وسیله و نقشه</strong><span class="sa-guide-topic-card__description">کفش و لباس سنگین را دربیاور، وسیلهٔ شناور را بردار و از جایی وارد شو که کف را می‌شناسی؛ با سر شیرجه نزن و تا او را ندیده‌ای شنا را شروع نکن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> صورت را بالا بیاور و یدک بکش</h3>
 <ul>
 <li>از پشت یا پهلو نزدیک شو. یک دست را زیر چانه یا زیر بغل دورتر ببر و با یک چرخش قاطع او را به پشت بچرخان تا دهان و بینی بیرون از آب باشد. راه هوایی مقدم بر هر چیز است.</li>
@@ -10994,6 +11001,7 @@ SA_ART,
 <li>وسیلهٔ شناور را زیر پشت یا سینهٔ او بگذار تا وزن از دست تو برداشته شود. اگر آموزش دیده‌ای و در آب کم‌عمق ایستاده‌ای، دادن چند تنفس در همان آب مجاز است؛ در آب عمیق فقط سریع‌تر به ساحل برس.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: وسیلهٔ شناور نداری؟</strong> زیرانداز بادی یا فوم چادر، کولهٔ خالی با کیسهٔ ضدآب پر از هوا، دبهٔ آب دربسته با طناب، یا دو بطری بزرگ که با بند کوله به هم بسته‌ای، همه در چند ثانیه حلقهٔ نجات می‌شوند. قایق بادی بچه‌ها از شنای بی‌وسیله امن‌تر است.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/unconscious-drowning-cpr-tow-face-up.webp" alt="نجات‌گر از پشت به فرد بی‌هوش چسبیده، سر و شانه‌اش را با دست و سینه نگه داشته و صورت رو به بالا روی آب می‌کشد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">صورت بالا بماند؛ بقیه بعداً</strong><span class="sa-guide-topic-card__description">از پهلو یا پشت نزدیک شو و سر را چنان نگه دار که دهان و بینی بیرون از آب بماند؛ کف دست زیر چانه و انگشتان روی فک، نه روی گلو. برای مسیر کوتاه، یدک از زیر بغل هم مجاز است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> خروج از آب</h3>
 <ul>
 <li>در آب کم‌عمق دو نفری زیر بغل‌هایش را بگیرید و بکشید؛ تنها هستی، پشت سرش قرار بگیر، دست‌هایش را روی سینه‌اش ضربدری کن، مچ‌هایش را بگیر و با پا عقب‌عقب بکش.</li>
@@ -11008,6 +11016,7 @@ SA_ART,
 <li><strong>نفس نمی‌کشد:</strong> در غرق‌شدگی اول ۲ تا ۵ تنفس بده (شورای احیای اروپا ۵ تنفس را توصیه می‌کند)، بعد ۳۰ فشار قفسهٔ سینه با سرعت ۱۰۰ تا ۱۲۰ در دقیقه و عمق حدود ۵ سانتی‌متر، و دوباره ۲ تنفس. آموزش تنفس نداری؟ فشارها را بدون توقف ادامه بده. راهنمای کامل را در <a href="/cpr-complete-guide/">آموزش کامل CPR در طبیعت</a> ببین.</li>
 <li>بالا آورد؟ سریع به پهلو بچرخان، دهان را خالی کن و CPR را از سر بگیر. هر دو دقیقه با نفر دیگر عوض شو.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/unconscious-drowning-cpr-breaths-before-compressions.webp" alt="روی زمین سفت: دادن تنفس نجات پیش از شروع فشار قفسه سینه، لباس خیس درآمده و پتو کنار فرد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">در غرق‌شدگی، اول تنفس</strong><span class="sa-guide-topic-card__description">حداکثر ده ثانیه نگاه کن و گوش بده؛ اگر نفس ندارد اول دو تا پنج تنفس بده و بعد چرخهٔ فشار را شروع کن و هر دو دقیقه نفرات عوض شوند.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>در ایران بیشتر غرق‌شدگی‌ها در رودخانه‌ها، کانال‌های کشاورزی و سدها رخ می‌دهد، نه استخر؛ یعنی معمولاً آب گل‌آلود و بدون نجات‌غریق است و همین ورود به آب را خطرناک‌تر می‌کند.</li>
