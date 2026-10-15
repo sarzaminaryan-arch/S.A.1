@@ -2218,6 +2218,7 @@ SA_ART,
 <li>گونه‌ات را نزدیک دهانش ببر: حداکثر ده ثانیه نگاه کن که سینه بالا و پایین می‌رود، گوش بده و نفس را حس کن.</li>
 <li>نفس‌های تک‌تک، خرخرمانند یا شبیه ماهی بیرون از آب نفس عادی نیست؛ این «نفس احتضاری» در دقیقه‌های اول ایست قلبی شایع است و یعنی همین حالا CPR.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/cpr-complete-guide-airway-check.webp" alt="خم کردن سر مصدوم به عقب و بالا بردن چانه، همراه گوش گذاشتن روی دهان برای ده ثانیه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول راه هوا، بعد همه‌چیز</strong><span class="sa-guide-topic-card__description">یک دست روی پیشانی سر را عقب می‌برد و دو انگشت دیگر چانه را بالا؛ حالا ده ثانیه نگاه کن، گوش بده و نفس را روی گونه‌ات حس کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> تماس با اورژانس، بدون ترک مصدوم</h3>
 <ul>
 <li>گوشی را روی بلندگو بگذار و ۱۱۵ را بگیر؛ موقعیت را از نقشهٔ گوشی بخوان، بگو «ایست قلبی، CPR شروع شده» و بعد به حرف‌های اپراتور گوش بده، او قدم‌به‌قدم راهنمایی می‌کند.</li>
@@ -2231,6 +2232,7 @@ SA_ART,
 <li>بعد از هر فشار بگذار سینه کاملاً بالا بیاید؛ تکیه دادن روی سینه قلب را پر نمی‌کند.</li>
 <li>۳۰ بار بشمار، با صدای بلند.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/cpr-complete-guide-chest-compressions.webp" alt="دو دست قفل‌شده روی مرکز قفسه سینه، آرنج صاف و شانه دقیقاً بالای دست‌ها" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">محکم، سریع، بی‌وقفه</strong><span class="sa-guide-topic-card__description">پاشنهٔ دست روی نیمهٔ پایینی جناغ، بازو صاف و فشار از وزن بالاتنه؛ عمق پنج تا شش سانتی‌متر، ریتم صد تا صد و بیست در دقیقه و سی فشار با شمارش بلند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> دو تنفس که سینه را بالا بیاورد</h3>
 <ul>
 <li>سر را عقب، چانه بالا، بینی را با انگشت ببند، دهانت را دور دهانش مهر کن و یک ثانیه بدم؛ ببین سینه بالا آمد. نفس دوم را هم همین‌طور. دو تنفس نباید بیش از ۱۰ ثانیه وقفه بیندازد.</li>
@@ -2238,6 +2240,7 @@ SA_ART,
 <li>تنفس بلد نیستی یا نمی‌خواهی؟ فقط فشار بده و قطع نکن (CPR فقط با دست)؛ در بزرگسالی که ناگهان افتاده، این روش تقریباً به همان اندازه مؤثر است. در غرق‌شدگی، کودک و نوزاد تنفس مهم‌تر است.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: ماسک تنفس نداری؟</strong> یک تکه پلاستیک تمیز (نایلون فریزر) را با سوراخ کوچک وسط روی دهانش بگذار یا از لای یک دستمال نازک بدم؛ محافظ کامل نیست ولی تماس مستقیم را کم می‌کند. برای شمارش ریتم، یک نفر با ضربهٔ دست یا عصا روی سنگ، ۱۰۰ تا ۱۲۰ ضرب در دقیقه بزند.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/cpr-complete-guide-barrier-mask.webp" alt="پلاستیک تمیز با یک سوراخ کوچک روی دهان مصدوم هنگام تنفس نجات" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ماسک نداری؟ یک تکه پلاستیک</strong><span class="sa-guide-topic-card__description">نایلون فریزر تمیز را با یک سوراخ کوچک وسط دهان بگذار؛ محافظ کامل نیست ولی تماس مستقیم را کم می‌کند و وقفهٔ بین دو تنفس را کوتاه نگه می‌دارد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۶</span> ادامه، تعویض و تصمیم‌ها</h3>
 <ul>
 <li>چرخهٔ ۳۰ به ۲ را بدون وقفه ادامه بده. هر دو دقیقه (پنج چرخه) با نفر بعدی عوض شو؛ تعویض کمتر از پنج ثانیه طول بکشد.</li>
@@ -4510,6 +4513,7 @@ SA_ART,
 <li><strong>محلول ضدعفونی‌کننده:</strong> بتادین (در بطری پلاستیکی کوچک) یا کلرهگزیدین. الکل سفید فقط برای ضدعفونی ابزار (مثل موچین) خوبه، نه ریختن مستقیم روی زخم باز، چون بافت رو تخریب می‌کنه.</li>
 <li><strong>پد الکلی:</strong> چند عدد برای تمیز کردن اطراف زخم یا ضدعفونی ابزار.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-wound-supplies.webp" alt="چسب زخم، گاز استریل، باند کشی، بتادین و پد الکلی کنار یک کیف ضدآب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خط اول: پوشاندن و تمیز نگه‌داشتن</strong><span class="sa-guide-topic-card__description">چسب زخم در چند سایز، گاز استریل، دو حلقه باند کشی و یک بطری کوچک بتادین؛ الکل سفید را فقط برای ضدعفونی ابزار بردار، نه برای ریختن روی زخم باز.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> مدیریت درد و التهاب</h3>
 <ul>
 <li><strong>مسکن‌ها:</strong> استامینوفن (برای درد و تب) و ایبوپروفن یا ژلوفن (برای درد و التهاب عضلانی).</li>
@@ -4529,9 +4533,11 @@ SA_ART,
 <li><strong>سنجاق قفلی:</strong> برای محکم کردن بانداژ.</li>
 <li><strong>پتوی نجات (Space Blanket):</strong> برای جلوگیری از افت دمای بدن در شرایط اضطراری.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-tools.webp" alt="قیچی نوک‌گرد، موچین، دستکش نیتریل و سنجاق قفلی روی پارچه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ابزار کوچک، کار بزرگ</strong><span class="sa-guide-topic-card__description">قیچی نوک‌گرد برای بریدن باند و لباس، موچین برای خار و کنه، دو جفت دستکش نیتریل برای محافظت دوطرفه و چند سنجاق قفلی برای تثبیت پانسمان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> داروهای شخصی</h3>
 <p>اگر خودت یا همسفرت بیماری خاصی دارید (مثل آسم، دیابت، فشار خون)، داروهای همیشگی‌تون باید به مقدار کافی (به اضافه دو روز ذخیره) در این کیف باشه.</p>
 <p>جایگزین خلاقانه: اگه بتادین تمام شد یا نداشتی، بهترین کار شست‌وشوی کامل زخم با آب تمیز (ترجیحاً جوشیده و سرد شده) و صابون معمولی به مدت ۵ دقیقه است. اگه باند استریل نداری، یه تکه پارچه نخی تمیز و اتو شده (مثل یه تی‌شرت نخی شسته شده) می‌تونه به عنوان پانسمان موقت عمل کنه. فقط یادت باشه اینا موقتیه و به محض رسیدن به تمدن باید تعویض بشن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-personal-meds.webp" alt="بلیسترها و شیشهٔ دارو همراه یادداشت دوز، در جیب شفاف کیف کمک" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">داروی شخصی، با دو روز ذخیره</strong><span class="sa-guide-topic-card__description">داروی همیشگی خودت و همسفرانت به‌اندازهٔ روزهای سفر به‌اضافهٔ دو روز، همراه بروشور و یادداشت دوز؛ داروی بدون برچسب را به کسی نده.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>دورهٔ کمک‌های اولیهٔ هلال‌احمر در بیشتر شهرهای ایران برگزار می‌شود؛ گذراندنش بهترین سرمایه‌گذاری پیش از سفر است.</li>
@@ -5012,6 +5018,7 @@ SA_ART,
 <li>سایه نداری؟ با زیرانداز، چادر بدون دیواره، پتوی نجات (سمت نقره‌ای رو به آفتاب) یا حتی سایهٔ ایستادهٔ دو نفر، روی سر و تنه‌اش سایه بساز.</li>
 <li>کفش، جوراب، کلاه و لایه‌های اضافی را دربیاور و او را روی زمین خنک‌تر (نه سنگ داغ) بخوابان.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/heatstroke-first-aid-shade-wrap.webp" alt="خواباندن فرد گرمازده در سایه و گرفتن پتوی نجات مثل سقف بالای سرش" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سایه، همان لحظه</strong><span class="sa-guide-topic-card__description">حرکت را همان‌جا قطع کن، نه تا سایهٔ بعدی؛ با پتوی نجات (سمت براق رو به آفتاب) یا زیرانداز سایه بساز و کفش، جوراب و لایه‌های اضافی را دربیاور.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> سی ثانیه ارزیابی: هوشیار است یا نه</h3>
 <ul>
 <li>سه سؤال ساده بپرس: اسمت چیه، کجاییم، امروز چندشنبه‌ست. جواب کند، بی‌ربط یا پرخاشگرانه یعنی سکتهٔ گرمایی تا خلافش ثابت شود.</li>
@@ -5026,7 +5033,9 @@ SA_ART,
 <li>آب غیرآشامیدنی برای ریختن روی پوست کاملاً مجاز است؛ خطر گرمای مغز از میکروب بیشتر است.</li>
 <li>در سکتهٔ گرمایی خنک‌سازی را تا رسیدن اورژانس ادامه بده؛ لرز شروع شد و هوشیاری کامل برگشت، شدت را کم کن ولی سایه و پایش را ادامه بده.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/heatstroke-first-aid-water-and-fan.webp" alt="ریختن آب روی لباس و تنهٔ فرد گرمازده و باد زدن مداوم با زیرانداز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خیس کن، باد بزن، تکرار کن</strong><span class="sa-guide-topic-card__description">آب کم داری؟ تمام لباس و پوست را خیس کن و مدام باد بزن؛ تبخیر با باد چند برابر آب تنها خنک می‌کند و آب غیرآشامیدنی هم برای این کار مجاز است.</span></figcaption></figure>
 <p><strong>جایگزین خلاقانه: نه آب زیاد داری نه باد؟</strong> یک پیراهن نخی را با نصف بطری آب خیس کن و روی تنه‌اش بینداز؛ دو نفر دو طرف زیرانداز را بگیرند و مثل بادبزن بزرگ تکان بدهند. بطری‌های آب را در جوراب خیس بپیچ و روی گردن و کشاله بگذار؛ جوراب خیس در باد خودش یخ‌دان کوچک می‌شود. در شن کویر، سی سانت زیر سطح خنک‌تر است؛ گودالی کم‌عمق در سایه بکن و او را روی زیرانداز در آن بخوابان.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/heatstroke-first-aid-cool-points.webp" alt="بطری‌های آب سرد پیچیده در جوراب خیس روی گردن، زیر بغل و کشالهٔ ران" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نقاط خنک‌کننده را هدف بگیر</strong><span class="sa-guide-topic-card__description">پارچهٔ خیس یا بطری سرد را روی گردن، زیر بغل‌ها و کشالهٔ ران بگذار و مرتب عوض کن؛ بطری پیچیده در جوراب خیس، در باد خودش یخ‌دان کوچک می‌شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> جبران مایعات و املاح (فقط فرد کاملاً هوشیار)</h3>
 <ul>
 <li>محلول خوراکی جبران آب را طبق دستور بسته آماده کن؛ نداری، در یک لیتر آب تمیز شش قاشق چای‌خوری سرصاف شکر و نصف قاشق چای‌خوری سرصاف نمک حل کن.</li>
