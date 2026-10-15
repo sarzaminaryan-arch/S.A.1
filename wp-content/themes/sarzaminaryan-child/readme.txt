@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.18.9
+Stable tag: 2.18.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,10 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.18.10 — 2026-10-15 =
+* فاز دوم کارت‌های موضوعی: ۹ کارت تازه در ۳ مقالهٔ کمک‌های اولیه (پیچ‌خوردگی مچ پا، خونریزی شدید، سوختگی)؛ هر کارت کنار همان گام.
+* ابعاد ۷۲۰×۵۴۰، واترمارک `sarzaminaryan.ir`، WebP کیفیت ۸۲. مجموع: ۱۲۰ کارت در ۳۹ مقاله.
 
 = 2.18.9 — 2026-10-15 =
 * رفع تضاد شمارهٔ نسخه: دو خط موازی (خط انتشار 2.18.3 تا 2.18.8 و خط آموزش ۶۷ مقاله‌ای) یک شماره داشتند؛ نسخهٔ قالب بالاترین شمارهٔ موجود شد تا وردپرس آپدیت را نشان دهد.
