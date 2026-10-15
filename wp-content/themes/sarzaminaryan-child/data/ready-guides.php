@@ -1567,7 +1567,13 @@ CDC — بیماری و آسیب ناشی از مواد شیمیایی استخ�
 </ul>
 <ol>
 <li><strong>مسیر را بخش‌بندی کن</strong>. نقطه‌های آب و مدت هر بخش را بنویس و دسترسی همان روز را از مسئول محل بپرس.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-water-planning-map-water-points.webp" alt="نقشهٔ باز روی سنگ که نقطه‌های آب و زمان هر بخش با مداد روی آن علامت خورده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول مسیر را بخوان، بعد آب را ببند</strong><span class="sa-guide-topic-card__description">مسیر را به بخش‌هایی میان نقطه‌های آب بشکن؛ مدت هر بخش و وضعیت دسترسی همان روز را از مسئول محل بپرس و بعد بار را تعیین کن.</span></figcaption></figure>
+<ol>
 <li><strong>مصرف‌ها را جدا حساب کن</strong>. نوشیدن، غذا و نیاز گروه را با گرما، شیب، فعالیت و شرایط اعضا در نظر بگیر.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-water-planning-count-consumption.webp" alt="چند بطری و یک لیوان کنار اجاق کوچک، با کاغذ یادداشت شمار نفر و روز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نوشیدن، پخت‌وپز و نیاز گروه را جدا بشمار</strong><span class="sa-guide-topic-card__description">برای هر نفر سه مصرف را جدا حساب کن و گرما، شیب، شدت فعالیت و شرایط سلامتی اعضا را به آن اضافه کن؛ یک عدد ثابت برای همهٔ مسیرها کافی نیست.</span></figcaption></figure>
+<ol>
 <li><strong>آب امن و جایگزین تعیین کن</strong>. عدد همگانی یا سهم ذخیرهٔ خانگی را به مسیر تعمیم نده؛ اگر مصرف سفر مشابه را ثبت کرده‌ای، آن را با هوای امروز و فعالیت مسیر تطبیق بده. اگر آب کافی نمی‌توانی حمل کنی، برنامه را تغییر بده.</li>
 <li><strong>روش را با خطر هماهنگ کن</strong>. دستور محصول و توانایی فیلتر را بخوان؛ اگر احتمال نمک یا آلودگی شیمیایی هست، منبع دیگری پیدا کن.</li>
 <li><strong>آب خام را از آب آماده جدا نگه دار</strong>. ظرف‌ها را علامت بزن و ببند؛ برای نبودن یا ناامن‌بودن منبع، راه برگشت داشته باش.</li>
@@ -1576,6 +1582,7 @@ CDC — بیماری و آسیب ناشی از مواد شیمیایی استخ�
 <li><strong>زمان:</strong> به مسیر و روش وابسته است؛ برای قرص و قطره، زمان یا دوز ثابت حدس نزن.</li>
 <li><strong>هشدار:</strong> اگر سابقهٔ منبع یا روش تصفیه روشن نیست، آب را آشامیدنی فرض نکن. قرص استخر و فیلتر دست‌سازِ آزمایش‌نشده جای منبع امن را نمی‌گیرند.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-water-planning-label-two-containers.webp" alt="دو گالن درپوش‌دار کنار هم، یکی با نوار آبی برای آب آماده و دیگری با نوار قرمز برای آب خام" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">دو ظرف، دو علامت: خام و آماده</strong><span class="sa-guide-topic-card__description">ظرف آب تصفیه‌نشده را از ظرف آب آماده جدا نگه دار، هر دو را علامت بزن و درپوش‌دار ببند تا هیچ‌وقت اشتباهی نوشیده نشود.</span></figcaption></figure>
 <h2>روش‌های تصفیه و محدودیت هرکدام</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
 <thead><tr><th>روش</th><th>کاربرد کلی</th><th>محدودیت</th><th>نکتهٔ استفاده</th></tr></thead>
@@ -2218,6 +2225,7 @@ SA_ART,
 <li>گونه‌ات را نزدیک دهانش ببر: حداکثر ده ثانیه نگاه کن که سینه بالا و پایین می‌رود، گوش بده و نفس را حس کن.</li>
 <li>نفس‌های تک‌تک، خرخرمانند یا شبیه ماهی بیرون از آب نفس عادی نیست؛ این «نفس احتضاری» در دقیقه‌های اول ایست قلبی شایع است و یعنی همین حالا CPR.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/cpr-complete-guide-airway-check.webp" alt="خم کردن سر مصدوم به عقب و بالا بردن چانه، همراه گوش گذاشتن روی دهان برای ده ثانیه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول راه هوا، بعد همه‌چیز</strong><span class="sa-guide-topic-card__description">یک دست روی پیشانی سر را عقب می‌برد و دو انگشت دیگر چانه را بالا؛ حالا ده ثانیه نگاه کن، گوش بده و نفس را روی گونه‌ات حس کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> تماس با اورژانس، بدون ترک مصدوم</h3>
 <ul>
 <li>گوشی را روی بلندگو بگذار و ۱۱۵ را بگیر؛ موقعیت را از نقشهٔ گوشی بخوان، بگو «ایست قلبی، CPR شروع شده» و بعد به حرف‌های اپراتور گوش بده، او قدم‌به‌قدم راهنمایی می‌کند.</li>
@@ -2231,6 +2239,7 @@ SA_ART,
 <li>بعد از هر فشار بگذار سینه کاملاً بالا بیاید؛ تکیه دادن روی سینه قلب را پر نمی‌کند.</li>
 <li>۳۰ بار بشمار، با صدای بلند.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/cpr-complete-guide-chest-compressions.webp" alt="دو دست قفل‌شده روی مرکز قفسه سینه، آرنج صاف و شانه دقیقاً بالای دست‌ها" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">محکم، سریع، بی‌وقفه</strong><span class="sa-guide-topic-card__description">پاشنهٔ دست روی نیمهٔ پایینی جناغ، بازو صاف و فشار از وزن بالاتنه؛ عمق پنج تا شش سانتی‌متر، ریتم صد تا صد و بیست در دقیقه و سی فشار با شمارش بلند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> دو تنفس که سینه را بالا بیاورد</h3>
 <ul>
 <li>سر را عقب، چانه بالا، بینی را با انگشت ببند، دهانت را دور دهانش مهر کن و یک ثانیه بدم؛ ببین سینه بالا آمد. نفس دوم را هم همین‌طور. دو تنفس نباید بیش از ۱۰ ثانیه وقفه بیندازد.</li>
@@ -2238,6 +2247,7 @@ SA_ART,
 <li>تنفس بلد نیستی یا نمی‌خواهی؟ فقط فشار بده و قطع نکن (CPR فقط با دست)؛ در بزرگسالی که ناگهان افتاده، این روش تقریباً به همان اندازه مؤثر است. در غرق‌شدگی، کودک و نوزاد تنفس مهم‌تر است.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: ماسک تنفس نداری؟</strong> یک تکه پلاستیک تمیز (نایلون فریزر) را با سوراخ کوچک وسط روی دهانش بگذار یا از لای یک دستمال نازک بدم؛ محافظ کامل نیست ولی تماس مستقیم را کم می‌کند. برای شمارش ریتم، یک نفر با ضربهٔ دست یا عصا روی سنگ، ۱۰۰ تا ۱۲۰ ضرب در دقیقه بزند.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/cpr-complete-guide-barrier-mask.webp" alt="پلاستیک تمیز با یک سوراخ کوچک روی دهان مصدوم هنگام تنفس نجات" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ماسک نداری؟ یک تکه پلاستیک</strong><span class="sa-guide-topic-card__description">نایلون فریزر تمیز را با یک سوراخ کوچک وسط دهان بگذار؛ محافظ کامل نیست ولی تماس مستقیم را کم می‌کند و وقفهٔ بین دو تنفس را کوتاه نگه می‌دارد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۶</span> ادامه، تعویض و تصمیم‌ها</h3>
 <ul>
 <li>چرخهٔ ۳۰ به ۲ را بدون وقفه ادامه بده. هر دو دقیقه (پنج چرخه) با نفر بعدی عوض شو؛ تعویض کمتر از پنج ثانیه طول بکشد.</li>
@@ -3528,12 +3538,14 @@ SA_ART,
 <li><strong>آب راکد (برکه، مرداب، چاله‌های آب): </strong> این بدترین گزینه‌ست. آب راکد مثل یه سوپ میکروبی عمل می‌کنه. فقط و فقط در شرایط مرگ و زندگی و وقتی هیچ گزینه دیگه‌ای نداری، باید سراغش بری و اون هم فقط پس از تصفیه شدید.</li>
 <li><strong>نکته طلایی:</strong> همیشه منبع آب رو از بالا به پایین نگاه کن. اگه بالای دستت محل چرای دام، کمپ دیگران، یا لاشه حیوانات هست، اون آب آلوده‌ست، حتی اگه زلال‌ترین آب دنیا باشه.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drinking-water-in-nature-look-upstream.webp" alt="ایستادن روی سنگ‌های رودخانه و نگاه به بالادست: نهر زلال در برابر برکهٔ سبکِ راکد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">جاری را به راکد ترجیح بده</strong><span class="sa-guide-topic-card__description">آبِ در حرکت و از بالادست بهترین گزینه است و برکه یا چالهٔ راکد بدترین؛ قبل از برداشت ببین بالای منبع چراگاه دام، کمپ دیگران یا لاشهٔ حیوان هست یا نه.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> انتخاب نقطه برداشت</h3>
 <ul>
 <li>هیچ‌وقت آب رو از لبه رودخونه یا جایی که گل و لای داره برندار.</li>
 <li>کمی از ساحل فاصله بگیر و جایی رو انتخاب کن که آب عمیق‌تر و جریان داره.</li>
 <li>اگه آب کمی کدره، ظرفت رو آروم فرو ببر تا رسوبات کف ظرف ته‌نشین نشن، یا بذار ظرف پر از آب، چند دقیقه ساکن بمونه تا گل و لای ته‌نشین بشه، بعد آب زلال رویی رو با دقت بردار.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drinking-water-in-nature-draw-from-current.webp" alt="فرو بردن آرام ظرف در آبِ عمیق و در جریان، دور از لبهٔ گل‌ولایِ ساحل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">از عمق و جریان بردار، نه از لبه</strong><span class="sa-guide-topic-card__description">کمی از ساحل فاصله بگیر و ظرف را در آبِ عمیق‌تر و در جریان آرام فرو ببر تا رسوب کف بلند نشود؛ اگر آب کدر است، چند دقیقه ساکنش بگذار تا ته‌نشین شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> پیش‌تصفیه (فیلتراسیون فیزیکی اولیه)</h3>
 <p>قبل از اینکه آب رو بجوشونی یا قرص تصفیه توش بریزی، باید ذرات معلق بزرگ رو حذف کنی.</p>
 <ul>
@@ -3541,6 +3553,7 @@ SA_ART,
 <li>این کار باکتری‌ها رو از بین نمی‌بره، ولی گل و لای، حشرات و آشغال‌های ریز رو می‌گیره. چرا این مهمه؟ چون ذرات معلق می‌تونن دور باکتری‌ها رو بپوشونن و باعث بشن قرص کلر یا جوشاندن به درستی عمل نکنه.</li>
 </ul>
 <p>جایگزین خلاقانه: اگه تو منطقه‌ای هستی که هیچ آب سطحی‌ای نداری (مثل کویر یا تپه‌های خشک)، می‌تونی از "چاه جذب" (Seep Hole) استفاده کنی. کنار بستر خشک یه رودخانه یا پایین‌دست یه شیب سنگی، یه گودال کوچک بکن. صبر کن تا آب زیرزمینی آروم آروم تو گودال جمع بشه. این آب توسط خاک فیلتر شده و معمولاً زلال‌تر از آب‌های سطحیه. البته این آب هم حتماً باید تصفیه نهایی بشه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drinking-water-in-nature-cloth-prefilter.webp" alt="گذراندن آب گل‌آلود از دستمال نخی تمیزِ بستهٔ روی دهانهٔ گالن، درون یک ظرف پاکیزه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول ذرات را بگیر، بعد تصفیه کن</strong><span class="sa-guide-topic-card__description">پیش از جوشاندن یا قرص، آب را از دستمال نخی تمیز رد کن؛ ذرات معلق پشت میکروب‌ها را می‌گیرند و اثر حرارت و مادهٔ شیمیایی را کم می‌کنند.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>چشمه‌های ییلاقی البرز و زاگرس اغلب محل آب‌خوری دام هستند؛ از دهانهٔ چشمه یا بالاتر از محل دام برداشت کن و حتماً تصفیه کن.</li>
@@ -3713,6 +3726,7 @@ SA_ART,
 <figure class="sa-guide-infographic"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/drowning-rescue-guide.webp" alt="اینفوگرافیک آموزش نجات غریق از ساحل: رساندن میله، پرتاب وسیلهٔ شناور، کمک از قایق و ورود فقط برای فرد آموزش‌دیده" loading="lazy" decoding="async" /></figure>
 <h3 class="sa-step"><span class="sa-step__n">۱</span> اول از همه: نپر توی آب</h3>
 <p>جدی می‌گم. مگه اینکه شناگر حرفه‌ای باشی و آموزش نجات غریق دیده باشی. آدمی که داره غرق می‌شه، از شدت وحشت دست و پا می‌زنه و ناخودآگاه تو رو هم می‌کشه زیر آب. این غریزه‌ست، مقصر نیست. ولی نتیجه‌ش اینه که به جای یه نفر، دو نفر غرق می‌شن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drowning-rescue-guide-never-enter-water.webp" alt="نجات‌گر روی ساحل ایستاده و طناب را به سمت غریق پرت می‌کند، پایش را در آب نگذاشته" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول بکش، نپر</strong><span class="sa-guide-topic-card__description">آدمی که غرق می‌شود از وحشت هر چیزی را که نزدیکش برسد می‌گیرد و تو را هم زیر آب می‌بَرد؛ از ساحل کمک کن، مگر نجات‌غریقِ آموزش‌دیده باشی.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> داد بزن و کمک بخواه</h3>
 <ul>
 <li>فریاد بزن: <strong>«کمک! یه نفر داره غرق می‌شه!»</strong></li>
@@ -3744,6 +3758,7 @@ SA_ART,
 <blockquote>
 <p><strong>⚠️ نکته طلایی:</strong> همیشه یه چیزی بین خودت و فرد غرق‌شونده باشه. هیچ‌وقت دستت رو مستقیم دراز نکن مگه اینکه کاملاً روی زمین محکم خوابیده باشی و فقط دستش در دسترست باشه.</p>
 </blockquote>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drowning-rescue-guide-tie-shirts-rope.webp" alt="سه تی‌شرت که آستین‌هایشان را به هم گره زده‌اند و سر طناب به سنگ بسته شده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">طناب نداری؟ لباس‌ها را به هم گره بزن</strong><span class="sa-guide-topic-card__description">دو سه تی‌شرت را از آستین محکم به هم گره بزن؛ شال، کمربند و بند کوله هم کار می‌کند. یک سر را به سنگ یا درخت ببند و آروم و یکنواخت بکش، نه تند و یهویی.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> اگه توی دسترس نیست</h3>
 <p>فاصله‌ش زیاده و نمی‌تونی چیزی بگیری سمتش؟ یه چیز <strong>شناور</strong> پرت کن سمتش:</p>
 <ul>
@@ -3773,6 +3788,7 @@ SA_ART,
 <li><strong>هر ۳۰ ثانیه چک کن</strong> نفس داره یا نه (دستت رو جلوی بینی‌ش بگیر یا سینه‌ش رو نگاه کن بالا پایین می‌ره یا نه)</li>
 </ol>
 <p><strong>اگه نفس نمی‌کشه:</strong></p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drowning-rescue-guide-after-out-of-water.webp" alt="فرد نجات‌یافته لبِ آب نشسته، لباس چلانده‌شده تنش کرده و پتوی نجات روی شانه‌هایش است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">لب آب بنشین، نه سرپا</strong><span class="sa-guide-topic-card__description">بگذار بنشیند، لباس خیس را چلانده دوباره تنش کن و نوشیدنی گرم و شیرین بده؛ تا نیم ساعت زیر نظرش داشته باش، چون آب‌رفتن به ریه دیر علامت می‌دهد.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۶</span> آموزش CPR ساده برای بزرگسال</h3>
 <blockquote>
 <p>این آموزش خلاصه‌ست. آموزش کامل‌تر رو در مقالهٔ جداگانهٔ CPR (به‌زودی) می‌آید</p>
@@ -3979,6 +3995,7 @@ SA_ART,
 <li>از لحظه جوشیدن، حداقل ۱ دقیقه صبر کن. اگه تو ارتفاعات بالای ۲۰۰۰ متر هستی (جایی که آب در دمای پایین‌تری می‌جوشه)، این زمان رو به ۳ دقیقه برسون.</li>
 <li>بذار آب خنک بشه و بعد بخور. (آب جوشیده ممکنه طعم تخت و بی‌مزه‌ای داشته باشه، ولی امنه).</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/emergency-water-purification-rolling-boil.webp" alt="کتری و قابلمهٔ آبِ در حال جوش روی آتش، با حباب‌های درشتی که سطح آب را می‌شکنند" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">یک دقیقه از لحظهٔ جوش کامل</strong><span class="sa-guide-topic-card__description">صبر کن تا جوش کامل و حباب‌های درشت بیاید و از همان لحظه یک دقیقه بشمار؛ در ارتفاعات بالای دو هزار متر که آب ولرم‌تر می‌جوشد، این زمان سه دقیقه است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> تصفیه شیمیایی (قرص‌های کلر یا ید)</h3>
 <p>وقتی آتیش نداری یا نمی‌خوای وقت تلف کنی، مواد شیمیایی وارد عمل می‌شن.</p>
 <ul>
@@ -3993,6 +4010,7 @@ SA_ART,
 <li>دوز دقیق: برای هر یک لیتر آب زلال، فقط ۲ قطره وایتکس بریز. اگه آب کدره، ۴ قطره.</li>
 <li>هم بزن، ۳۰ دقیقه صبر کن. بعد از ۳۰ دقیقه، آب باید یه بوی خیلی ملایم کلر بده. اگه بو نداد، یعنی آب آلوده‌ست و مواد شیمیایی رو خنثی کرده؛ ۲ قطره دیگه بریز و ۱۵ دقیقه دیگه صبر کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/emergency-water-purification-bleach-drops.webp" alt="چکاندن سفیدکنندهٔ بدون افزودنی با قطره‌چکان در بطری آب زلال؛ بطری آب کدر در کنارش" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سفیدکنندهٔ ساده: دو قطره برای هر لیتر</strong><span class="sa-guide-topic-card__description">فقط سفیدکنندهٔ بدون عطر و افزودنی؛ برای آب زلال دو قطره و برای آب کدر چهار قطره، هم بزن و سی دقیقه صبر کن — اگر بو نداد، همان دوز را یک بار دیگر تکرار کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> روش SODIS (گندزدایی با نور خورشید)</h3>
 <p>یه روش علمی و تایید شده توسط سازمان بهداشت جهانی برای مناطق بدون امکانات.</p>
 <ul>
@@ -4001,6 +4019,7 @@ SA_ART,
 <li>اشعه فرابنفش (UV-A) خورشید به همراه حرارت ایجاد شده داخل بطری، میکروب‌ها رو نابود می‌کنه.</li>
 </ul>
 <p>جایگزین خلاقانه: اگه نه آتیش داری، نه قرص، نه وایتکس و نه آفتاب، و فقط یه آب کدر داری، باید از "زغال چوب خالص" استفاده کنی. زغال خاصیت جذب سطحی داره و می‌تونه بعضی از مواد شیمیایی و بوی بد رو بگیره. آب رو از یه لایه ضخیم زغال پودر شده (مثل همون فیلتر DIY که تو مقاله قبلی گفتیم) رد کن. این کار آب رو میکروب‌زدایی نمی‌کنه، ولی اگه مجبور باشی این آب رو بدون جوشاندن بخوری (که اصلاً توصیه نمی‌شه)، زغال حداقل سموم شیمیایی و فلزات سنگین رو تا حد زیادی کاهش می‌ده.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/emergency-water-purification-sodis-bottle.webp" alt="دو بطری پلاستیکی شفاف پر از آب، خوابیده روی پارچهٔ تیره در آفتاب مستقیم" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بطری شفاف، شش ساعت آفتاب مستقیم</strong><span class="sa-guide-topic-card__description">آب را در بطری پلاستیکی شفاف و بی‌رنگ بریز، بخوابان و حداقل شش ساعت زیر نور مستقیم بگذار؛ اگر آفتاب کامل نیست، همین کار تا دو روز طول می‌کشد.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>در ارتفاعات ایران (بسیاری از مسیرهای البرز و زاگرس بالای ۲۰۰۰ متر) آب در دمای پایین‌تر می‌جوشد؛ زمان جوش را به سه دقیقه برسان.</li>
@@ -4510,6 +4529,7 @@ SA_ART,
 <li><strong>محلول ضدعفونی‌کننده:</strong> بتادین (در بطری پلاستیکی کوچک) یا کلرهگزیدین. الکل سفید فقط برای ضدعفونی ابزار (مثل موچین) خوبه، نه ریختن مستقیم روی زخم باز، چون بافت رو تخریب می‌کنه.</li>
 <li><strong>پد الکلی:</strong> چند عدد برای تمیز کردن اطراف زخم یا ضدعفونی ابزار.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-wound-supplies.webp" alt="چسب زخم، گاز استریل، باند کشی، بتادین و پد الکلی کنار یک کیف ضدآب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خط اول: پوشاندن و تمیز نگه‌داشتن</strong><span class="sa-guide-topic-card__description">چسب زخم در چند سایز، گاز استریل، دو حلقه باند کشی و یک بطری کوچک بتادین؛ الکل سفید را فقط برای ضدعفونی ابزار بردار، نه برای ریختن روی زخم باز.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> مدیریت درد و التهاب</h3>
 <ul>
 <li><strong>مسکن‌ها:</strong> استامینوفن (برای درد و تب) و ایبوپروفن یا ژلوفن (برای درد و التهاب عضلانی).</li>
@@ -4529,9 +4549,11 @@ SA_ART,
 <li><strong>سنجاق قفلی:</strong> برای محکم کردن بانداژ.</li>
 <li><strong>پتوی نجات (Space Blanket):</strong> برای جلوگیری از افت دمای بدن در شرایط اضطراری.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-tools.webp" alt="قیچی نوک‌گرد، موچین، دستکش نیتریل و سنجاق قفلی روی پارچه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ابزار کوچک، کار بزرگ</strong><span class="sa-guide-topic-card__description">قیچی نوک‌گرد برای بریدن باند و لباس، موچین برای خار و کنه، دو جفت دستکش نیتریل برای محافظت دوطرفه و چند سنجاق قفلی برای تثبیت پانسمان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> داروهای شخصی</h3>
 <p>اگر خودت یا همسفرت بیماری خاصی دارید (مثل آسم، دیابت، فشار خون)، داروهای همیشگی‌تون باید به مقدار کافی (به اضافه دو روز ذخیره) در این کیف باشه.</p>
 <p>جایگزین خلاقانه: اگه بتادین تمام شد یا نداشتی، بهترین کار شست‌وشوی کامل زخم با آب تمیز (ترجیحاً جوشیده و سرد شده) و صابون معمولی به مدت ۵ دقیقه است. اگه باند استریل نداری، یه تکه پارچه نخی تمیز و اتو شده (مثل یه تی‌شرت نخی شسته شده) می‌تونه به عنوان پانسمان موقت عمل کنه. فقط یادت باشه اینا موقتیه و به محض رسیدن به تمدن باید تعویض بشن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-personal-meds.webp" alt="بلیسترها و شیشهٔ دارو با برچسب بی‌خط و یک کاغذ تا‌شده، در کیسهٔ زیپ‌دار شفاف روی درِ کوله" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">داروی شخصی، با دو روز ذخیره</strong><span class="sa-guide-topic-card__description">داروی همیشگی خودت و همسفرانت به‌اندازهٔ روزهای سفر به‌اضافهٔ دو روز، همراه بروشور و یادداشت دوز؛ داروی بدون برچسب را به کسی نده.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>دورهٔ کمک‌های اولیهٔ هلال‌احمر در بیشتر شهرهای ایران برگزار می‌شود؛ گذراندنش بهترین سرمایه‌گذاری پیش از سفر است.</li>
@@ -5012,6 +5034,7 @@ SA_ART,
 <li>سایه نداری؟ با زیرانداز، چادر بدون دیواره، پتوی نجات (سمت نقره‌ای رو به آفتاب) یا حتی سایهٔ ایستادهٔ دو نفر، روی سر و تنه‌اش سایه بساز.</li>
 <li>کفش، جوراب، کلاه و لایه‌های اضافی را دربیاور و او را روی زمین خنک‌تر (نه سنگ داغ) بخوابان.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/heatstroke-first-aid-shade-wrap.webp" alt="خواباندن فرد گرمازده در سایه و گرفتن پتوی نجات مثل سقف بالای سرش" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سایه، همان لحظه</strong><span class="sa-guide-topic-card__description">حرکت را همان‌جا قطع کن، نه تا سایهٔ بعدی؛ با پتوی نجات (سمت براق رو به آفتاب) یا زیرانداز سایه بساز و کفش، جوراب و لایه‌های اضافی را دربیاور.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> سی ثانیه ارزیابی: هوشیار است یا نه</h3>
 <ul>
 <li>سه سؤال ساده بپرس: اسمت چیه، کجاییم، امروز چندشنبه‌ست. جواب کند، بی‌ربط یا پرخاشگرانه یعنی سکتهٔ گرمایی تا خلافش ثابت شود.</li>
@@ -5026,7 +5049,9 @@ SA_ART,
 <li>آب غیرآشامیدنی برای ریختن روی پوست کاملاً مجاز است؛ خطر گرمای مغز از میکروب بیشتر است.</li>
 <li>در سکتهٔ گرمایی خنک‌سازی را تا رسیدن اورژانس ادامه بده؛ لرز شروع شد و هوشیاری کامل برگشت، شدت را کم کن ولی سایه و پایش را ادامه بده.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/heatstroke-first-aid-water-and-fan.webp" alt="ریختن آب روی لباس و تنهٔ فرد گرمازده و باد زدن مداوم با زیرانداز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">خیس کن، باد بزن، تکرار کن</strong><span class="sa-guide-topic-card__description">آب کم داری؟ تمام لباس و پوست را خیس کن و مدام باد بزن؛ تبخیر با باد چند برابر آب تنها خنک می‌کند و آب غیرآشامیدنی هم برای این کار مجاز است.</span></figcaption></figure>
 <p><strong>جایگزین خلاقانه: نه آب زیاد داری نه باد؟</strong> یک پیراهن نخی را با نصف بطری آب خیس کن و روی تنه‌اش بینداز؛ دو نفر دو طرف زیرانداز را بگیرند و مثل بادبزن بزرگ تکان بدهند. بطری‌های آب را در جوراب خیس بپیچ و روی گردن و کشاله بگذار؛ جوراب خیس در باد خودش یخ‌دان کوچک می‌شود. در شن کویر، سی سانت زیر سطح خنک‌تر است؛ گودالی کم‌عمق در سایه بکن و او را روی زیرانداز در آن بخوابان.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/heatstroke-first-aid-cool-points.webp" alt="بطری‌های آب سرد پیچیده در جوراب خیس روی گردن، زیر بغل و کشالهٔ ران" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نقاط خنک‌کننده را هدف بگیر</strong><span class="sa-guide-topic-card__description">پارچهٔ خیس یا بطری سرد را روی گردن، زیر بغل‌ها و کشالهٔ ران بگذار و مرتب عوض کن؛ بطری پیچیده در جوراب خیس، در باد خودش یخ‌دان کوچک می‌شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> جبران مایعات و املاح (فقط فرد کاملاً هوشیار)</h3>
 <ul>
 <li>محلول خوراکی جبران آب را طبق دستور بسته آماده کن؛ نداری، در یک لیتر آب تمیز شش قاشق چای‌خوری سرصاف شکر و نصف قاشق چای‌خوری سرصاف نمک حل کن.</li>
@@ -5738,6 +5763,7 @@ SA_ART,
 <li>لباس خیس را دربیاور و با خشک عوض کن، حتی اگر مجبوری لباس خودت را بدهی. خشک نداری؟ خیس‌ها را تا جایی که می‌شود بچلان، بپوشان و بیرونش را با لایهٔ ضدباد بپیچ.</li>
 <li>سر، گردن و دست‌ها را بپوشان؛ سر بی‌پوشش به‌تنهایی سهم مهمی از اتلاف گرما دارد.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/hypothermia-first-aid-cut-heat-loss.webp" alt="عایق زیر فرد لرزان: دو زیرانداز و کوله‌ها روی زمین یخ‌زده، لباس خشک به‌جای لباس خیس، دهانهٔ چادر پشت باد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول: باد و زمین را ببند</strong><span class="sa-guide-topic-card__description">زمین سرد بیشتر از هوا گرما می‌دزدد؛ دو لایه عایق زیرش بگذار، لباس خیس را با خشک عوض کن و سر، گردن و دست‌ها را بپوشان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> پیچ عایق هیپوترمی</h3>
 <ul>
 <li>از پایین به بالا: زیرانداز، روی آن پتوی نجات یا نایلون باز، روی آن کیسه‌خواب یا پتو؛ فرد را خوابیده داخل بگذار و لایه‌ها را مثل پیچیدن ساندویچ دورش ببند، صورت باز بماند.</li>
@@ -5745,6 +5771,7 @@ SA_ART,
 <li>در هیپوترمی متوسط و شدید، تمام جابه‌جایی‌ها افقی و بسیار آرام؛ به دیگران بگو «مثل بلور».</li>
 <li>اگر فرد در آب سرد افتاده بود، ابتدا افقی بیرونش بیاور، لباس خیس را سریع عوض کن و پیچ را ببند؛ راهنمای <a href="/unconscious-drowning-cpr/">کمک به غریق بیهوش</a> را هم بخوان.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/hypothermia-first-aid-layer-wrap.webp" alt="فرد خوابیده میان زیرانداز، پتوی نجات باز و کیسهٔ خواب؛ لایه‌ها مثل ساندویچ دورش پیچیده و فقط صورتش بیرون است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پیچ عایق، از پایین به بالا</strong><span class="sa-guide-topic-card__description">زیرانداز، بعد پتوی نجات، بعد کیسهٔ خواب یا پتو؛ لایه‌ها را دورش ببند و صورت باز بماند. در مرحلهٔ متوسط و شدید همه‌چیز را افقی و بسیار آرام جابه‌جا کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> گرم‌سازی مرکزی و سوخت‌رسانی</h3>
 <ul>
 <li>فقط اگر کاملاً هوشیار است، سرفه و بلع دارد و می‌تواند لیوان را خودش بگیرد: نوشیدنی گرم و شیرین (چای شیرین، شیرکاکائو، سوپ) و خوراکی پرکالری (خرما، شکلات، حلوا، مغزها)؛ لرز سوخت می‌خواهد.</li>
@@ -5753,6 +5780,7 @@ SA_ART,
 <li>اجاق را بیرون چادر یا با تهویهٔ کامل روشن کن؛ منوکسید کربن در فضای بسته همهٔ گروه را از پا درمی‌آورد.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: کیسهٔ گرم و کیسه‌خواب نداری؟</strong> بطری‌های پلاستیکی را با آب گرم (نه جوش) پر کن، در جوراب بگذار و روی تنه بچین. سنگ صاف را کنار آتش کمی گرم کن، در چند لایه پارچه بپیچ و با پشت دستت امتحان کن که فقط گرم باشد، بعد زیر بغل بگذار. کیسه‌های زبالهٔ بزرگ را از پا تا زیر بغل بپوشان و بالایش را ژاکت بگذار؛ هوای بین لایه‌ها را با برگ خشک یا کاغذ پر کن. آخرین راه وقتی هیچ گرماسازی نیست: یک نفر خشک و گرم زیر پتو و در تماس پوستی سینه‌به‌سینه با او بماند؛ آهسته و فقط به‌عنوان مکمل پیچ عایق.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/hypothermia-first-aid-warm-bottle-center.webp" alt="بطری آب گرم پیچیده در جوراب روی سینه و زیر بغلِ فرد داخل پیچ عایق" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">گرما فقط به مرکز بدن</strong><span class="sa-guide-topic-card__description">بطری‌های گرم (نه جوش) را در جوراب بپیچ و روی سینه، دو زیر بغل و دو طرف گردن بگذار؛ دست و پا را جداگانه گرم نکن، چون گرمای مرکزی را بی‌سروصدا جابه‌جا می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> مراقبت از انگشتان و صورت یخ‌زده</h3>
 <ul>
 <li>انگشتان سفید مومی، سخت و بی‌حس یعنی یخ‌زدگی؛ حلقه و ساعت را دربیاور، اندام را از سرما خارج کن و با دست خودت یا در زیر بغلت گرم نگه دار.</li>
@@ -8187,6 +8215,7 @@ SA_ART,
 <li>بسته‌ها، ورق‌های خالی، شیشه، یا نمونهٔ قارچ و گیاه را نگه دار تا با مصدوم به بیمارستان برود.</li>
 <li>ساعت دقیق مشاهده و هر تغییر (استفراغ، تشنج، توقف تنفس) را روی کاغذ بنویس.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/overdose-rescue-guide-pill-packaging.webp" alt="ورق‌های خالی و شیشهٔ دارو با برچسب بی‌خط کنار دفترچه و خودکار؛ فرد مصدوم نیمه‌نشسته در پس‌زمینه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بسته را نگه دار، زمان را بنویس</strong><span class="sa-guide-topic-card__description">نام ماده، مقدار کم‌شده، ساعت تقریبی و سن و وزن را روی کاغذ یادداشت کن و بسته‌ها، شیشه یا نمونهٔ قارچ را با خود به بیمارستان ببر.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> هوشیار است: بیدار نگه دار و چیزی نده</h3>
 <ul>
 <li>بنشان یا نیمه‌نشسته تکیه بده، با او حرف بزن، سؤال بپرس، نگذار بخوابد و تنها نماند.</li>
@@ -8194,6 +8223,7 @@ SA_ART,
 <li>زغال فعال، شیر، آب‌نمک و «پادزهرهای خانگی» را فراموش کن؛ زغال فعال فقط به تشخیص پزشک یا مرکز سموم و برای مواد خاص کاربرد دارد.</li>
 <li>اگر بی‌قرار یا داغ است، به جای خنک آرام ببر، لباس اضافی را دربیاور و با پارچهٔ خیس خنکش کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/overdose-rescue-guide-keep-awake.webp" alt="همراه نجات شانهٔ فرد نیمه‌نشسته را گرفته و با او حرف می‌زند؛ لیوان آب کنار گذاشته شده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بیدار نگهش دار، چیزی نده</strong><span class="sa-guide-topic-card__description">بنشانش، سؤال بپرس و نگذار بخوابد؛ آب، شیر، آب‌نمک، زغال فعال و واداشتن به استفراغ را فراموش کن، مگر اینکه اورژانس بگوید.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> بیهوش ولی نفس می‌کشد: وضعیت ریکاوری</h3>
 <ul>
 <li>کنار او زانو بزن، دست نزدیک را به شکل زاویهٔ قائمه کنار سرش بگذار، دست دور را روی سینه‌اش بیاور و پشت دست را زیر گونهٔ نزدیک به خودت بگذار، زانوی دور را خم کن و با کشیدن آن، او را به سمت خودت به پهلو بچرخان.</li>
@@ -8209,6 +8239,7 @@ SA_ART,
 <li>تا رسیدن اورژانس یا بازگشت تنفس عادی ادامه بده و هر دو دقیقه با نفر بعدی عوض شو.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: تنها هستی و باید او را به پهلو نگه داری؟</strong> کولهٔ پر یا کیسه‌خواب لوله‌شده را پشت کمرش بگذار تا به پشت برنگردد و یک لباس تاشده زیر سرش. برای ثبت زمان‌ها از ضبط صدای گوشی استفاده کن تا دست‌هایت آزاد بماند؛ همان فایل را بعداً برای تیم اورژانس پخش می‌کنی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/overdose-rescue-guide-backpack-support.webp" alt="فرد بیهوش به پهلو روی زیرانداز، زانوی خم جلوی غلتیدنش را گرفته و کت تاشده پشت کمرش است؛ سر کمی عقب و دهان رو به پایین" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">به پهلو، با تکیه‌گاه پشت کمر</strong><span class="sa-guide-topic-card__description">اگر تنها هستی کولهٔ پر یا کیسهٔ خواب لوله‌شده را پشت کمرش بگذار تا به پشت برنگردد؛ سر عقب و دهان رو به پایین تا استفراغ به ریه نرود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> تشنج و بی‌قراری</h3>
 <ul>
 <li>در تشنج چیزی در دهانش نگذار و او را مهار نکن؛ اطراف را از سنگ و وسایل خالی کن، زیر سرش لباس بگذار و زمان شروع و پایان را ثبت کن. بعد از تشنج به پهلو بچرخان.</li>
@@ -9940,6 +9971,7 @@ SA_ART,
 <li>عمداً آهسته بازدم کن و تا سه بشمار. در کمتر از یک دقیقه نفس‌ها آرام می‌شود.</li>
 <li>در این دقیقه تصمیم نگیر و شنا نکن؛ فقط شناور بمان.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/self-rescue-drowning-float-star-position.webp" alt="فردی به پشت روی آب خوابیده، دست‌ها و پاها مثل ستاره باز و سر بالا" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">دقیقهٔ اول: فقط نفس و شناور ماندن</strong><span class="sa-guide-topic-card__description">سر بالا، به پشت بچرخ و دست‌ها و پاها را باز نگه دار؛ ریهٔ پر از هوا تو را نگه می‌دارد. بازدم را آهسته کن و تا سه بشمار و در این دقیقه تصمیم نگیر.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> نگاه کن و تصمیم بگیر</h3>
 <p>وقتی نفس آرام شد، سه چیز را پیدا کن: نزدیک‌ترین نقطهٔ خروج (ساحل کم‌شیب، کنارهٔ داخلی پیچ رودخانه)، جهت جریان و خطرهای پایین‌دست (درخت افتاده، صخره، سرریز). بعد یکی از سه مسیر را انتخاب کن: شنا به ساحل نزدیک، شناور ماندن تا رسیدن کمک، یا حرکت زاویه‌دار به سمت کنارهٔ رودخانه. اگر کسی در ساحل هست، با دست بلند و فریاد «کمک» خبرش کن و دوباره انرژی را ذخیره کن.</p>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> شناور ماندن و حفظ گرما</h3>
@@ -9956,6 +9988,7 @@ SA_ART,
 <li>وقتی آب آرام و زیر زانو شد، اول چهار دست و پا بیرون بخز، بعد بایست.</li>
 <li>درخت افتاده یا تودهٔ شاخه (صافی) جلوی مسیر است؟ دور زدنش اولویت است. اگر برخورد اجتناب‌ناپذیر شد، روی شکم بچرخ، با همهٔ توان و سر جلو به سمتش شنا کن و خودت را از رویش بالا بکش؛ آب از لای شاخه‌ها رد می‌شود ولی تو را نگه می‌دارد و زیر آب می‌برد.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/self-rescue-drowning-feet-first-in-river.webp" alt="شناور به پشت در رودخانه، سر به بالادست، نوک پا بیرون از آب و بدن با زاویه به سمت کناره" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پاها جلو، زاویه به کناره</strong><span class="sa-guide-topic-card__description">به پشت بخواب با پاها به پایین‌دست و نوک انگشتان بیرون از آب؛ با دست‌ها پارو بزن تا بدن با زاویه به کنارهٔ کم‌شیب برود، نه مستقیم مقابل جریان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> در دریا: با جریان برگشتی نجنگ</h3>
 <p>جریان برگشتی (شکافنده) نوار باریکی از آب است که از ساحل به سمت دریا می‌رود؛ تو را زیر آب نمی‌برد، فقط دور می‌کند. اگر با وجود شنا داری از ساحل دور می‌شوی: شناور بمان، موازی ساحل شنا کن تا از نوار جریان بیرون بیایی (معمولاً چند ده متر)، بعد با زاویه به ساحل برگرد. خسته‌ای؟ به پشت شناور بمان و دست تکان بده؛ جریان کمی دورتر ضعیف می‌شود.</p>
 <h3 class="sa-step"><span class="sa-step__n">۶</span> بیرون از آب: خطر هنوز تمام نشده</h3>
@@ -9965,6 +9998,7 @@ SA_ART,
 <li>لرزش قطع شده، گیجی یا خواب‌آلودی؟ این افت دمای بدن (هیپوترمی) است؛ راهنمای <a href="/hypothermia-first-aid/">کمک‌های اولیه سرمازدگی</a> را اجرا کن و ۱۱۵ را خبر کن.</li>
 <li>آب به ریه‌ات رفته، سرفهٔ مداوم یا تنگی نفس داری؟ حتی اگر حالت خوب است باید پزشک تو را ببیند؛ مشکل تنفسی می‌تواند ساعت‌ها بعد ظاهر شود.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/self-rescue-drowning-out-of-water-warm.webp" alt="خارج از آب: لباس خیس چلانده‌شده، کلاه و پتوی نجات روی سر و گردن و یک لیوان نوشیدنی گرم" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بیرون از آب خطر تمام نشده</strong><span class="sa-guide-topic-card__description">باد را پشت کن، لباس خیس را بچلان یا با خشک عوض کن و سر و گردن را بپوشان؛ نوشیدنی گرم فقط برای فرد کاملاً هوشیار. لرزشِ قطع‌شده با گیجی یعنی افت دمای بدن.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>رودخانه‌های کرج، هراز، سفیدرود، زاینده‌رود و ارمند در بهار با ذوب برف چند برابر پرآب می‌شوند؛ جایی که در پاییز تا زانو بود، در اردیبهشت آدم را می‌برد.</li>
@@ -10414,7 +10448,7 @@ SA_ART,
 <p>برش، مکش، سوزاندن، گارو و یخ روی جای نیش مار، سم را کم نمی‌کنند و بافت، رگ و عصب را از بین می‌برند. تنها درمان مؤثر مارگزیدگی و نیش عقرب‌های خطرناک، پادزهر در بیمارستان است و هر ساعت تأخیر مهم است. آنافیلاکسی در چند دقیقه می‌کشد و تنها دارویش اپی‌نفرین است که فقط فرد دارای نسخه و آموزش باید بزند. این مقاله جایگزین اورژانس و پزشک نیست.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن غروب در دامنه‌های گرم زاگرس دستت را برای برداشتن هیزم زیر سنگی می‌بری و سوزشی تیز را حس می‌کنی؛ دو سوراخ ریز و تورمی که بالا می‌رود. تا نزدیک‌ترین بیمارستان دو ساعت راه است و آنچه در این دو ساعت می‌کنی، تفاوت بین یک شب تحت نظر و از دست دادن انگشتان است. پایین‌تر می‌بینی در گزیدگی مار، عقرب، زنبور و کنه چه کاری کمک می‌کند، کدام کارها ممنوع‌اند و شوک حساسیتی را در دقیقهٔ اول چطور بشناسی.</p>
+<p>فرض کن غروب در دامنه‌های گرم زاگرس دستت را برای برداشتن هیزم زیر سنگی می‌بری و سوزشی تیز را حس می‌کنی؛ دو سوراخ ریز و تورمی که بالا می‌رود. تا نزدیک‌ترین بیمارستان دو ساعت راه است و آنچه در این دو ساعت می‌کنی، تفاوت بین یک شب تحت نظر و از دست دادن انگشتان است. پایین‌تر می‌خوانی چه کاری کمک می‌کند، کدام کارها ممنوع است و شوک حساسیتی را در دقیقهٔ اول چطور بشناسی.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
 <li>شناخت منطقه: در دامنه‌های گرم، کویر و جنوب کشور احتمال مار و عقرب بیشتر است و نزدیک‌ترین بیمارستان دارای پادزهر را قبل از سفر باید بدانی. پادزهر مار و عقرب در همهٔ بیمارستان‌های ایران موجود نیست؛ با ۱۱۵ یا ۱۴۹۰ (مرکز اطلاعات داروها و سموم، شبانه‌روزی) نزدیک‌ترین مرکز دارای پادزهر را بپرس.</li>
@@ -10455,6 +10489,7 @@ SA_ART,
 <li>فرد راه نرود؛ با برانکارد اضطراری، کول یا خودرو منتقلش کن. راه رفتن فقط اگر هیچ راه دیگری نیست، آهسته و با توقف.</li>
 <li>فقط اگر مار قطعاً کبرا بوده و آموزش دیده‌ای، باند فشاری پهن از نوک اندام تا بالای مفصل بپیچ؛ برای افعی‌ها (بیشتر مارهای ایران) باند فشاری نپیچ.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-insect-bite-first-aid-mark-and-splint.webp" alt="خط ماژیک روی لبهٔ قرمزی ساعد، اندام در آتل چوبی و آویز گردنی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">علامت بزن، بی‌حرکت کن، پایین نگه دار</strong><span class="sa-guide-topic-card__description">لبهٔ قرمزی و تورم را با ماژیک علامت بزن و زمانش را بنویس؛ اندام را با آتل و باند نرم بی‌حرکت کن و هم‌سطح یا پایین‌تر از قلب نگه دار.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> عقرب‌گزیدگی</h3>
 <ul>
 <li>جای نیش را با آب و صابون بشوی، پارچهٔ خنک یا کمپرس سرد پیچیده در پارچه بگذار (برای نیش عقرب و حشره، نه مار)، و اندام را بی‌حرکت و پایین نگه دار.</li>
@@ -10462,6 +10497,7 @@ SA_ART,
 <li>گادیم اول کم‌درد است و فریب می‌دهد؛ علائم کلیوی و خونی ساعت‌ها بعد می‌آید. هر نیش عقرب در خوزستان، بوشهر، هرمزگان و سیستان، و هر نیش در کودک زیر ده سال، همان ساعت بیمارستان برای پادزهر.</li>
 <li>تعریق شدید، بی‌قراری، آبریزش، اختلال تنفس یا تشنج در هر منطقه‌ای یعنی انتقال فوری.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-insect-bite-first-aid-scorpion-cold.webp" alt="پارچهٔ خنک گرفتهٔ کمپرس روی ساق پای درازکش و بی‌حرکت" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">عقرب: سرد کن و بی‌حرکت بگذار</strong><span class="sa-guide-topic-card__description">جای نیش را با آب و صابون بشوی و کمپرس سردِ پیچیده در پارچه بگذار؛ رنگ و شکل عقرب را از دور ببین یا عکس بگیر؛ به آن دست نزن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> زنبور و حشرات: نیش را بتراش، سرد کن، شصت دقیقه نگاه کن</h3>
 <ul>
 <li>نیش زنبور عسل را با لبهٔ کارت یا ناخن از پهلو بتراش، نه با انگشت یا موچین که کیسهٔ زهر را می‌فشارد.</li>
@@ -10470,6 +10506,7 @@ SA_ART,
 <li>ده‌ها نیش هم‌زمان حتی بدون حساسیت سمی است؛ دور شو و به بیمارستان برسان.</li>
 <li>کنه را با موچین نوک‌باریک از نزدیک‌ترین نقطه به پوست بگیر و آرام و مستقیم بیرون بکش؛ نسوزان، روغن و الکل نزن و نچرخان. محل را بشوی و تاریخ را یادداشت کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-insect-bite-first-aid-scrape-sting.webp" alt="تراشیدن نیش زنبور با لبهٔ یک کارت روی پوست، بدون موچین" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نیش را بتراش، موچین نزن</strong><span class="sa-guide-topic-card__description">نیش را با لبهٔ کارت یا ناخن بتراش؛ فشار دادن با موچین کیسهٔ زهر را بیشتر خالی می‌کند. بعد سردش کن و یک ساعت به کهیر و تنفسش نگاه کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> آنافیلاکسی: دقیقه‌های اول</h3>
 <ul>
 <li>نشانه‌ها: کهیر دور از جای نیش، ورم لب و زبان، گرفتگی صدا، خس‌خس، درد شکم، سرگیجه و افت فشار.</li>
@@ -10968,6 +11005,7 @@ SA_ART,
 <li>با چشم به او نگاه کن و شنای سر بالا برو تا گم‌اش نکنی.</li>
 <li>یک متر مانده بایست و وضعیت را بسنج: دمر است؟ تکان می‌خورد؟ اگر حرکت کرد، یعنی هوشیار است و باید با وسیله و از فاصله به او کمک کنی.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/unconscious-drowning-cpr-enter-with-plan.webp" alt="نجات‌گر بدون کفش و لباس سنگین، با وسیلهٔ شناور وارد آب کم‌عمق شده و چشم به فرد بی‌هوش دارد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">ورود فقط با وسیله و نقشه</strong><span class="sa-guide-topic-card__description">کفش و لباس سنگین را دربیاور، وسیلهٔ شناور را بردار و از جایی وارد شو که کف را می‌شناسی؛ با سر شیرجه نزن و تا او را ندیده‌ای شنا را شروع نکن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> صورت را بالا بیاور و یدک بکش</h3>
 <ul>
 <li>از پشت یا پهلو نزدیک شو. یک دست را زیر چانه یا زیر بغل دورتر ببر و با یک چرخش قاطع او را به پشت بچرخان تا دهان و بینی بیرون از آب باشد. راه هوایی مقدم بر هر چیز است.</li>
@@ -10976,6 +11014,7 @@ SA_ART,
 <li>وسیلهٔ شناور را زیر پشت یا سینهٔ او بگذار تا وزن از دست تو برداشته شود. اگر آموزش دیده‌ای و در آب کم‌عمق ایستاده‌ای، دادن چند تنفس در همان آب مجاز است؛ در آب عمیق فقط سریع‌تر به ساحل برس.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: وسیلهٔ شناور نداری؟</strong> زیرانداز بادی یا فوم چادر، کولهٔ خالی با کیسهٔ ضدآب پر از هوا، دبهٔ آب دربسته با طناب، یا دو بطری بزرگ که با بند کوله به هم بسته‌ای، همه در چند ثانیه حلقهٔ نجات می‌شوند. قایق بادی بچه‌ها از شنای بی‌وسیله امن‌تر است.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/unconscious-drowning-cpr-tow-face-up.webp" alt="نجات‌گر از پشت به فرد بی‌هوش چسبیده، سر و شانه‌اش را با دست و سینه نگه داشته و صورت رو به بالا روی آب می‌کشد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">صورت بالا بماند؛ بقیه بعداً</strong><span class="sa-guide-topic-card__description">از پهلو یا پشت نزدیک شو و سر را چنان نگه دار که دهان و بینی بیرون از آب بماند؛ کف دست زیر چانه و انگشتان روی فک، نه روی گلو. برای مسیر کوتاه، یدک از زیر بغل هم مجاز است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> خروج از آب</h3>
 <ul>
 <li>در آب کم‌عمق دو نفری زیر بغل‌هایش را بگیرید و بکشید؛ تنها هستی، پشت سرش قرار بگیر، دست‌هایش را روی سینه‌اش ضربدری کن، مچ‌هایش را بگیر و با پا عقب‌عقب بکش.</li>
@@ -10990,6 +11029,7 @@ SA_ART,
 <li><strong>نفس نمی‌کشد:</strong> در غرق‌شدگی اول ۲ تا ۵ تنفس بده (شورای احیای اروپا ۵ تنفس را توصیه می‌کند)، بعد ۳۰ فشار قفسهٔ سینه با سرعت ۱۰۰ تا ۱۲۰ در دقیقه و عمق حدود ۵ سانتی‌متر، و دوباره ۲ تنفس. آموزش تنفس نداری؟ فشارها را بدون توقف ادامه بده. راهنمای کامل را در <a href="/cpr-complete-guide/">آموزش کامل CPR در طبیعت</a> ببین.</li>
 <li>بالا آورد؟ سریع به پهلو بچرخان، دهان را خالی کن و CPR را از سر بگیر. هر دو دقیقه با نفر دیگر عوض شو.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/unconscious-drowning-cpr-breaths-before-compressions.webp" alt="روی زمین سفت: دادن تنفس نجات پیش از شروع فشار قفسه سینه، لباس خیس درآمده و پتو کنار فرد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">در غرق‌شدگی، اول تنفس</strong><span class="sa-guide-topic-card__description">حداکثر ده ثانیه نگاه کن و گوش بده؛ اگر نفس ندارد اول دو تا پنج تنفس بده و بعد چرخهٔ فشار را شروع کن و هر دو دقیقه نفرات عوض شوند.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>در ایران بیشتر غرق‌شدگی‌ها در رودخانه‌ها، کانال‌های کشاورزی و سدها رخ می‌دهد، نه استخر؛ یعنی معمولاً آب گل‌آلود و بدون نجات‌غریق است و همین ورود به آب را خطرناک‌تر می‌کند.</li>
