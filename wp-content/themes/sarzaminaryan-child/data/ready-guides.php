@@ -117,6 +117,7 @@ return array(
 <li>نبض پشت پا و گرمی انگشتان را چک کن و بپرس انگشتانش را حس می‌کند و تکان می‌دهد.</li>
 <li>قانون ساده (قاعدهٔ اوتاوا): درد روی استخوان یا ناتوانی از برداشتن چهار قدم، یعنی عکس‌برداری لازم است و تا آن موقع «شکستگی» فرض می‌شود.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ankle-sprain-first-aid-bone-tenderness.webp" alt="معاینهٔ نقطه‌ای مچ پا: فشار انگشتان روی استخوان قوزک در مسیر کوهستان" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">درد روی استخوان = شکستگی فرضش کن</strong><span class="sa-guide-topic-card__description">فشار روی قوزک داخلی و خارجی و برجستگی کنارهٔ بیرونی کف پا؛ درد تیز روی خود استخوان یعنی عکس‌برداری لازم است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> دررفتگی یا شکستگی مشکوک: بی‌حرکت کن و خبر بده</h3>
 <ul>
 <li>مچ را دقیقاً در همان وضعیتی که هست نگه دار؛ جا انداختن، کشیدن و «امتحان کردن» ممنوع.</li>
@@ -131,6 +132,7 @@ return array(
 <li><strong>فشار:</strong> باند کشی را از انگشتان شروع کن و با پیچ هشت‌لاتین دور مچ و پاشنه بالا بیاور، هر دور نصف دور قبلی را بپوشاند؛ سفت ولی نه آن‌قدر که نبض برود. انگشتان بیرون بمانند تا رنگشان را ببینی.</li>
 <li><strong>بالا:</strong> پا بالاتر از سطح قلب روی کوله یا سنگ، تا جایی که می‌شود در ساعت‌های اول.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ankle-sprain-first-aid-cold-elevation.webp" alt="کیسهٔ برف پیچیده در جوراب روی مچ آسیب‌دیده و پای بالا رفته روی کوله" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سرما و ارتفاع، با هم و بی‌وقفه</strong><span class="sa-guide-topic-card__description">برف یا آب سرد در کیسهٔ پلاستیکی، پیچیده در پارچه، ۱۵ تا ۲۰ دقیقه؛ پا روی کوله بالاتر از سطح قلب.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> آتل‌سازی با وسایل کمپ</h3>
 <ul>
 <li>آتل تاشوی آلومینیومی را به شکل U زیر پاشنه و دو طرف ساق فرم بده (آتل رکابی)؛ نداری، زیرانداز فوم را دور مچ و ساق بپیچ یا دو عصای کوهنوردی و چند شاخهٔ صاف را دو طرف ساق بگذار.</li>
@@ -138,6 +140,7 @@ return array(
 <li>با باند، شال یا بند کوله در سه نقطه ببند: بالای مچ، وسط ساق و زیر زانو؛ کف پا در زاویهٔ ۹۰ درجه بماند.</li>
 <li>بعد از بستن، دوباره نبض، رنگ، حس و حرکت انگشتان را چک کن و هر ۱۵ دقیقه تکرار کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/ankle-sprain-first-aid-stirrup-bandage.webp" alt="باند کشی هشت‌لاتین دور مچ و کف پا با انگشتان بیرون‌مانده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">باند را طوری ببند که رنگ انگشتان دیده شود</strong><span class="sa-guide-topic-card__description">پیچ هشت‌لاتین از انگشتان به بالا، هم برای بانداژ فشاری و هم برای نگه‌داشتن آتل؛ سفت ولی نه تا حد رفتن نبض.</span></figcaption></figure>
 <p><strong>جایگزین خلاقانه: نه آتل داری، نه زیرانداز؟</strong> خود کفش کوهنوردی پس از شل کردن بند، بهترین آتل آماده است؛ رویش یک شال را به شکل هشت‌لاتین ببند. کولهٔ خالی‌شده را دور ساق بپیچ و با بندهایش محکم کن. یک بالش بادی یا کیسهٔ خواب لوله‌شده هم که با باند بسته شود، مچ را خوب نگه می‌دارد.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> تصمیم: راه برود یا حمل شود</h3>
 <ul>
@@ -460,6 +463,7 @@ SA_ART,
 <li>دست را برای نگاه کردن برندار. پانسمان خیس شد؟ لایهٔ جدید روی قبلی بگذار و محکم‌تر فشار بده.</li>
 <li>بعد از ۱۰ دقیقه فشار پیوسته، اگر خونریزی مهار شد، پانسمان را با باند کشی محکم ببند (پانسمان فشاری) و اندام را بالا نگه دار.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bleeding-wound-first-aid-direct-pressure.webp" alt="فشار پاشنهٔ دست روی گاز گذاشته‌شده روی زخم پای مصدوم در کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فشار مستقیم: پاشنهٔ دست، آرنج قفل</strong><span class="sa-guide-topic-card__description">با تمام وزن بالاتنه ده دقیقه بی‌وقفه فشار بده؛ دست را برای نگاه کردن برندار و روی پانسمان خیس لایهٔ جدید بگذار.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> زخم عمیق: پک کردن</h3>
 <ul>
 <li>زخم حفره‌دار ران، کشاله، زیر بغل یا گردن که خون از عمق می‌آید، با فشار سطحی بند نمی‌آید.</li>
@@ -474,6 +478,7 @@ SA_ART,
 <li>هنوز می‌آید؟ گاروی دوم را بالای اولی ببند.</li>
 <li>ساعت بستن را با ماژیک روی گارو یا پیشانی مصدوم بنویس و به اورژانس بگو. گارو را خودت باز یا شل نکن، حتی اگر دردناک است؛ تصمیم باز کردن با تیم درمان است.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bleeding-wound-first-aid-tourniquet.webp" alt="گاروی استاندارد با چوبک چرخان روی ران، بالاتر از زخم" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">گارو: روی ران یا بازو، تا قطع کامل خون</strong><span class="sa-guide-topic-card__description">پنج تا هشت سانتی‌متر بالاتر از زخم، اهرم را آن‌قدر بچرخان که خونریزی قطع شود؛ ساعت بستن را بنویس و خودت بازش نکن.</span></figcaption></figure>
 <p><strong>جایگزین خلاقانه: گاروی استاندارد نداری؟</strong> گاروی اضطراری فقط با پارچهٔ پهن و غیرکشسان (شال، آستین پیراهن تاشده به عرض ۵ سانتی‌متر) ساخته می‌شود: دو دور دور اندام بپیچ، گره بزن، یک چوب یا قاشق محکم روی گره بگذار و با گرهٔ دوم ثابت کن، بعد چوب را بچرخان تا خون قطع شود و سر چوب را با بند دیگری مهار کن. کمربند باریک، سیم و طناب نازک گارو نیستند و پوست و عصب را می‌برند بدون اینکه شریان را ببندند؛ از آن‌ها استفاده نکن. برای پانسمان فشاری، یک بطری آب کوچک یا بستهٔ گاز را روی پانسمان بگذار و باند را روی آن محکم کن تا فشار نقطه‌ای بماند.</p>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> جسم فرورفته و قطع عضو</h3>
 <ul>
@@ -487,6 +492,7 @@ SA_ART,
 <li>هر چند دقیقه رنگ پوست، تنفس و هوشیاری را چک کن و با او حرف بزن. پانسمان و گارو را دست نزن.</li>
 <li>اگر خونریزی مهار شده ولی کمک چند ساعت دور است، انتقال با برانکارد اضطراری؛ مصدوم با خونریزی شدید را راه نبر.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/bleeding-wound-first-aid-shock-warmth.webp" alt="مصدوم درازکشیده در پتوی نجات نارنجی روی زیرانداز فوم با پاها کمی بالا" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">شوک و سرما را جدی بگیر</strong><span class="sa-guide-topic-card__description">مصدوم را بخوابان و از زمین و باد عایق کن؛ خون‌رفتگی یعنی سرد شدن سریع و سرما انعقاد خون را خراب می‌کند.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>بیشتر بریدگی‌های شدید کمپ در ایران از چاقوی شکار بی‌غلاف، تبر هنگام هیزم‌شکنی و سقوط روی سنگ‌های تیز رخ می‌دهد؛ غلاف، دستکش و برش به سمت بیرون از بدن سه قانون ساده‌اند.</li>
@@ -829,6 +835,7 @@ SA_ART,
 <li>لباس خیس از آب جوش و زیورآلات (انگشتر، ساعت، دستبند) را سریع دربیاور، قبل از آنکه ورم کند؛ لباسی که به زخم چسبیده را نکش، دورش را قیچی کن.</li>
 <li>مادهٔ شیمیایی خشک (پودر، آهک) را اول با برس یا پارچه بتکان، بعد با آب فراوان بشوی؛ لباس آلوده را با دستکش دربیاور و خودت را آلوده نکن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/burn-injury-first-aid-smother-blanket.webp" alt="خاموش‌کردن شعلهٔ لباس با پتوی پشمی وقتی فرد روی زمین دراز کشیده است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بایست، بخواب، بغلت</strong><span class="sa-guide-topic-card__description">دویدن شعله را بزرگ‌تر می‌کند؛ فرد را روی زمین بینداز و با پتو یا زیرانداز آتش را خفه کن، بعد از منبع گرما دورش کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> بیست دقیقه آب خنک جاری</h3>
 <ul>
 <li>محل سوختگی را زیر آب خنک جاری (دمای حدود دمای آب چشمه، نه یخ) بگیر؛ از بطری، دبه یا جریان رودخانه با فشار ملایم. ۲۰ دقیقه، با ساعت.</li>
@@ -837,6 +844,7 @@ SA_ART,
 <li>همزمان بقیهٔ بدن را با پتو یا لباس بپوشان؛ لرز شروع شد، خنک‌سازی را کوتاه کن.</li>
 <li>در سوختگی شیمیایی مدت شست‌وشو را به ۳۰ دقیقه یا بیشتر برسان و اگر چشم درگیر است، از گوشهٔ داخلی به سمت بیرون بشوی.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/burn-injury-first-aid-cooling-water.webp" alt="گرفتن ساعد سوخته زیر آب خنک ریخته‌شده از بطری در محل کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بیست دقیقه آب خنک، نه یخ</strong><span class="sa-guide-topic-card__description">آب خنک جاری با بطری یا دبه، بیست دقیقه با ساعت؛ تا سه ساعت بعد از حادثه هم مفید است و بقیهٔ بدن را گرم بپوشان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> ارزیابی: درجه، وسعت، محل</h3>
 <ul>
 <li>عمق را از جدول بالا تشخیص بده؛ سوختگی سفید، چرمی یا بی‌درد یعنی عمیق، حتی اگر کوچک باشد.</li>
@@ -853,6 +861,7 @@ SA_ART,
 <li>عضو سوخته را بالاتر از سطح قلب نگه دار تا ورم کمتر شود.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: پانسمان نداری؟</strong> سلفون تمیز، کیسهٔ فریزر نو که از کنار باز کرده‌ای، یا داخل یک کیسهٔ پلاستیکی تمیز برای دست سوخته (دست را داخل کیسه بگذار و مچ را شل ببند) همه سطحی غیرچسبنده و تمیز می‌سازند و بعداً بدون درد جدا می‌شوند. برای خنک‌سازی طولانی وقتی آب کم است، پارچهٔ تمیز خیس را روی زخم بگذار و هر چند دقیقه دوباره خیسش کن.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/burn-injury-first-aid-nonstick-dressing.webp" alt="پوشاندن سوختگی ساعد با سلفون تمیز و باند شل در کمپ" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پانسمان شل، بدون پرز، بدون مرهم</strong><span class="sa-guide-topic-card__description">گاز بدون پرز یا سلفون تمیز را بدون کشیدن روی زخم بگذار و با باند شل نگه دار؛ تاول‌ها را نترکان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> درد، شوک و مراقبت تا رسیدن کمک</h3>
 <ul>
 <li>مسکن معمول کیف طبق برچسب و اگر مصدوم منع مصرف ندارد؛ خود خنک‌سازی بهترین ضددرد است.</li>
