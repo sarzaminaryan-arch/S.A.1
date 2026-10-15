@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""ساخت «کارت تصویر شاخص» سه‌دریک برای مقالات دیدنی‌ها (۱۲۰۰×۶۰۰).
+"""ساخت «کارت تصویر شاخص» دو‌نیمه برای مقالات دیدنی‌ها (۱۲۰۰×۶۰۰).
 
-هر کارت: زمینهٔ سفید، سه پنل کنار هم (نقاشی هندسی | نام انگلیسی | نام فارسی)،
-تیتر فارسی و انگلیسی نام کوتاه مکان، نام کامل، شهرستان/استان و المان‌های رنگی
-برگرفته از محتوای همان مقاله. خروجی WebP سبک برای `assets/img/attraction-covers/`.
+هر کارت: زمینهٔ سفید و لایت؛ نیمهٔ چپ نقاشی آبرنگ برگرفته از محتوای همان مقاله
+(آبشار، دریاچه، روستا، قلعه، …) و نیمهٔ راست متنِ نزدیک به وسط: نام فارسی با خط
+درشت و رنگ آبی ناوی، نام انگلیسی کوچک‌تر زیر آن با قلم «سایبری» Orbitron.
+خروجی WebP سبک برای `assets/img/attraction-covers/`.
 
 کاربرد:
     python3 tools/images/make_featured_cards.py                 # همهٔ مقاله‌ها
     python3 tools/images/make_featured_cards.py --only fin-garden --png
     python3 tools/images/make_featured_cards.py --preview .preview/featured-cards.html
 
-نیازمندی‌ها: Pillow، arabic-reshaper، python-bidi و قلم Vazirmatn (TTF).
-قلم به‌صورت خودکار از بستهٔ npm وازیرمتن (registry.npmjs.org) در
-`~/.cache/sa-fonts/` گذاشته می‌شود؛ هیچ فایل قلمی داخل مخزن نگه داشته نمی‌شود.
+نیازمندی‌ها: Pillow، arabic-reshaper، python-bidi و قلم‌ها (TTF).
+قلم Vazirmatn از بستهٔ npm وازیرمتن (registry.npmjs.org) و قلم نمایشی Orbitron
+از مخزن google/fonts در `~/.cache/sa-fonts/` گذاشته می‌شود؛ هیچ فایل قلمی داخل
+مخزن نگه داشته نمی‌شود. اگر Orbitron در دسترس نباشد، نام انگلیسی با Vazirmatn
+بولد نوشته می‌شود و ساخت متوقف نمی‌شود.
 
 @package Sarzaminaryan_Child
 """
@@ -24,15 +27,17 @@ import json
 import os
 import re
 import sys
+import base64
 import tarfile
 import urllib.request
+import zlib
 
 from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from featured_card_art import PAL, Canvas, mix, draw_motif  # noqa: E402
-from featured_card_scenes import draw_scene  # noqa: E402
+from featured_card_art import PAL, Canvas, mix  # noqa: E402
+from featured_card_watercolor import paint as paint_watercolor  # noqa: E402
 
 try:  # فارسی‌سازی و ترتیب نمایش
     import arabic_reshaper
@@ -51,8 +56,11 @@ SPEC_PATH = os.path.join(HERE, 'featured-cards.json')
 OUT_DIR = os.path.join(CHILD, 'assets', 'img', 'attraction-covers')
 
 CARD_W, CARD_H = 1200, 600
-PANELS = (54.0, 418.0, 782.0, 1146.0)   # مرز سه پنل: نقاشی | انگلیسی | فارسی
-PANEL_TOP, PANEL_BOTTOM = 54.0, 546.0
+CARD_BOX = (30.0, 30.0, 1170.0, 570.0)    # کادر سفید کارت
+ART_BOX = (58.0, 58.0, 588.0, 542.0)      # نیمهٔ نقاشی آبرنگ (چپ)
+TEXT_CX = 872.0                            # مرکز ستون نوشته (نیمهٔ راست، نزدیک وسط)
+NAVY = '#0d3a63'      # آبی ناوی نام فارسی
+CYBER = '#3d7ea6'     # آبی روشن‌تر نام انگلیسی و برچسب نوع
 
 VAZIR_VERSION = '33.0.3'
 VAZIR_TARBALL = 'https://registry.npmjs.org/vazirmatn/-/vazirmatn-%s.tgz' % VAZIR_VERSION
@@ -63,6 +71,12 @@ FONT_FILES = {
     700: 'Vazirmatn-Bold.ttf',
     800: 'Vazirmatn-ExtraBold.ttf',
 }
+
+ORBITRON_FILE = 'Orbitron-Variable.ttf'
+ORBITRON_URLS = (
+    'https://raw.githubusercontent.com/google/fonts/main/ofl/orbitron/Orbitron%5Bwght%5D.ttf',
+    'https://api.github.com/repos/google/fonts/contents/ofl/orbitron/Orbitron%5Bwght%5D.ttf',
+)
 
 
 # ------------------------------------------------------------------ fonts ---
@@ -106,6 +120,44 @@ class FontBook:
             path = os.path.join(self.dir, FONT_FILES[weight])
             self.cache[key] = ImageFont.truetype(path, int(round(size * 3)))
         return self.cache[key]
+
+    def latin(self, size, variation='Bold'):
+        """قلم نمایشی لاتین (Orbitron) با وزن دلخواه؛ در نبودش وزیرمتن بولد."""
+        path = os.path.join(self.dir, ORBITRON_FILE)
+        if not os.path.isfile(path):
+            return self.get(700, size)
+        key = ('latin', size, variation)
+        if key not in self.cache:
+            font = ImageFont.truetype(path, int(round(size * 3)))
+            try:
+                font.set_variation_by_name(variation)
+            except Exception:  # قلم ثابت یا قدیمی‌تر از پشتیبانی متغیر
+                pass
+            self.cache[key] = font
+        return self.cache[key]
+
+
+def ensure_orbitron(directory):
+    """دریافت قلم نمایشی Orbitron (OFL) در پوشهٔ قلم‌ها؛ بی‌خطا در نبود شبکه."""
+    target = os.path.join(directory, ORBITRON_FILE)
+    if os.path.isfile(target):
+        return True
+    for url in ORBITRON_URLS:
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'sarzaminaryan-build'})
+            with urllib.request.urlopen(req, timeout=60) as response:
+                blob = response.read()
+            if url.endswith('/contents/ofl/orbitron/Orbitron%5Bwght%5D.ttf'):
+                blob = base64.b64decode(json.loads(blob.decode('utf-8'))['content'])
+            if blob[:4] not in (b'\x00\x01\x00\x00', b'true', b'OTTO'):
+                continue
+            with open(target, 'wb') as dst:
+                dst.write(blob)
+            sys.stderr.write('قلم Orbitron دریافت شد: %s\n' % target)
+            return True
+        except Exception as exc:  # noqa: BLE001 — نبود شبکه نباید ساخت را متوقف کند
+            sys.stderr.write('دریافت Orbitron از %s ناموفق بود: %s\n' % (url, exc))
+    return False
 
 
 # ------------------------------------------------------------------- text ---
@@ -169,70 +221,108 @@ def soft_shadow(c, box, radius, spread=18, color='#b6c8d8', strength=0.30, offse
         c.rrect([x0 - i, y0 - i + offset_y, x1 + i, y1 + i + offset_y], radius + i * 0.8, fill=col)
 
 
-SCENE_BG = {
-    'waterfall': '#f2fbff', 'lake': '#f2fbff', 'wetland': '#f2fbff',
-    'city': '#f7fafc', 'mountain': '#f5fafe', 'gorge': '#f8f5f1',
-    'castle': '#fdf9f0', 'cave': '#f6f4fb', 'forest': '#f3fbf2',
-    'valley': '#faf5ff', 'desert': '#fffaf0', 'village': '#f7fbf1',
-    'garden': '#f4fbf3', 'monument': '#f7fbfd', 'columns': '#fdf8f0',
-    'square': '#f7fbfd', 'park': '#f6fbf3',
-}
+def card_seed(key):
+    """بذر پایدار هر مقاله تا نقاشی کارت تکرارپذیر بماند."""
+    return zlib.crc32(str(key).encode('utf-8')) & 0xffffffff
+
+
+def draw_fa_name(c, raw, cx, y, fonts, color, max_w, sizes, line_gap=1.06):
+    """نام فارسی: درشت و بولد؛ در صورت لزوم شکست به دو خط (پیش از شکل‌دهی)."""
+    shown = fa(raw)
+    size = sizes[-1]
+    for s in sizes:
+        w, _ = c.text_size(shown, fonts.get(800, s))
+        if w <= max_w:
+            size = s
+            break
+    best = split_two_lines(raw) if size < sizes[0] else None
+    if best and best[0] and best[1] and size <= sizes[0] * 0.72:
+        step = size * line_gap
+        for i, part in enumerate(best):
+            c.text((cx, y - step / 2 + i * step), fa(part), fonts.get(800, size), color,
+                   anchor='mm')
+        return size
+    c.text((cx, y), shown, fonts.get(800, size), color, anchor='mm')
+    return size
+
+
+def wrap_two_lines(txt):
+    """شکست متن لاتین به دو خط از نزدیک‌ترین فاصله به میانه."""
+    words = str(txt).split()
+    if len(words) < 2:
+        return None
+    best, best_diff = None, None
+    for i in range(1, len(words)):
+        left, right = ' '.join(words[:i]), ' '.join(words[i:])
+        diff = abs(len(left) - len(right))
+        if best_diff is None or diff < best_diff:
+            best, best_diff = (left, right), diff
+    return best
+
+
+def draw_latin_name(c, txt, cx, y, fonts, color, max_w, sizes, line_gap=1.14):
+    """نام انگلیسی با قلم نمایشی (Orbitron)؛ در صورت نیاز دو خط و کوچک‌تر."""
+    txt = str(txt).upper()
+
+    def fit(lines):
+        for s in sizes:
+            if all(c.text_size(ln, fonts.latin(s))[0] <= max_w for ln in lines):
+                return s
+        return None
+
+    size = fit([txt])
+    if size:
+        c.text((cx, y), txt, fonts.latin(size), color, anchor='mm')
+        return size
+    pair = wrap_two_lines(txt)
+    if not pair:
+        size = sizes[-1]
+        c.text((cx, y), txt, fonts.latin(size), color, anchor='mm')
+        return size
+    smalls = [max(17, int(s * 0.66)) for s in sizes]
+    size = fit(list(pair)) or smalls[-1]
+    step = size * line_gap
+    for i, line in enumerate(pair):
+        c.text((cx, y - step / 2 + i * step), line, fonts.latin(size), color, anchor='mm')
+    return size
+
+
+def paste_painting(c, image, xy, radius):
+    """چسباندن نقاشی آبرنگ با گوشه‌های گرد روی بوم ابرنمونه‌برداری‌شده."""
+    ss = c.ss
+    big = image.resize((image.width * ss, image.height * ss), Image.LANCZOS)
+    mask = Image.new('L', big.size, 0)
+    ImageDraw.Draw(mask).rounded_rectangle([0, 0, big.size[0] - 1, big.size[1] - 1],
+                                           radius=int(radius * ss), fill=255)
+    c.img.paste(big, (int(c.s(xy[0])), int(c.s(xy[1]))), mask)
 
 
 def draw_card(record, spec, fonts, png=False):
+    """کارت دو‌نیمه: نقاشی آبرنگ در چپ، نام فارسی/انگلیسی نزدیک وسط در راست."""
     c = Canvas(CARD_W, CARD_H, ss=3, bg='#ffffff')
+    soft_shadow(c, CARD_BOX, 38)
+    c.rrect(CARD_BOX, radius=38, fill='#ffffff', outline='#e7eef4', width=1.4)
 
-    card_box = (30, 30, 1170, 570)
-    soft_shadow(c, card_box, 38)
-    c.rrect(card_box, radius=38, fill='#ffffff', outline='#e7eef4', width=1.4)
-
-    # جداکنندهٔ منظم سه پنل
-    for x in (PANELS[1], PANELS[2]):
-        c.line([(x, PANEL_TOP + 18), (x, PANEL_BOTTOM - 18)], fill='#e3ecf3', width=1.5)
-
-    scene = spec.get('scene') or record['kind']
+    scene = spec.get('scene') or 'lake'
     flags = spec.get('flags') or []
+    art_w, art_h = int(ART_BOX[2] - ART_BOX[0]), int(ART_BOX[3] - ART_BOX[1])
 
-    # ---------------------------------------------------- پنل نقاشی (چپ) --
-    art_center = (PANELS[0] + PANELS[1]) / 2
-    frame = (art_center - 158, 118, art_center + 158, 434)
-    c.text((art_center, 88), spaced(spec.get('kind_en', record['english']).upper(), ' '),
-           fonts.get(500, 15), '#93a7b8', anchor='mm')
-    art = c.layer(int(frame[2] - frame[0]), int(frame[3] - frame[1]),
-                  bg=SCENE_BG.get(scene, '#f7fbff'))
-    art.grid([0, 0, art.w, art.h], step=52, fill=mix(SCENE_BG.get(scene, '#f7fbff'), '#8fa8bd', .075))
-    draw_scene(art, scene, art.w, art.h, flags)
-    c.paste(art, (frame[0], frame[1]), radius=22)
-    c.rrect(frame, radius=22, outline='#dfeaf2', width=1.6)
-    c.text((art_center, 486), 'sarzaminaryan.ir', fonts.get(500, 15), '#a9b8c6', anchor='mm')
+    # ------------------------------------------- نیمهٔ نقاشی آبرنگ (چپ) ---
+    painting = paint_watercolor(scene, flags, size=(art_w, art_h),
+                                seed=card_seed(record['key']))
+    paste_painting(c, painting, (ART_BOX[0], ART_BOX[1]), 26)
+    c.rrect(ART_BOX, radius=26, outline='#e3ecf3', width=1.5)
 
-    # -------------------------------------------------- پنل انگلیسی (وسط) --
-    en_center = (PANELS[1] + PANELS[2]) / 2
-    chip(c, en_center, 92, spaced(spec.get('kind_en', '').upper(), ' '), fonts.get(500, 15),
-         fill='#eef4fb', color='#3c5f7d')
-    draw_block(c, spec.get('short_en', record['english']), en_center, 196, fonts, PAL['gold'],
-               344, [86, 80, 74, 68, 62, 56, 50, 46])
-    divider(c, en_center, 262, '#dbe7f0')
-    draw_block(c, record['english'], en_center, 306, fonts, PAL['ink'], 344,
-               [26, 24, 22, 20, 18])
-    motif_row_at(c, spec.get('motifs_en', []), en_center, 372, 14, 30)
-    c.text((en_center, 424), spaced('%s · %s · IRAN' % (
-        spec.get('city_en', '').upper(), record['province_en'].upper()), ' '),
-        fonts.get(500, 13), '#8a9aa8', anchor='mm')
-
-    # --------------------------------------------------- پنل فارسی (راست) --
-    fa_center = (PANELS[2] + PANELS[3]) / 2
-    chip(c, fa_center, 92, fa(spec.get('kind_fa', '')), fonts.get(500, 17),
-         fill='#eaf6ee', color=PAL['green'])
-    draw_block(c, fa(spec.get('short_fa', '')), fa_center, 196, fonts, PAL['ink'],
-               344, [86, 80, 74, 68, 62, 56, 50, 46])
-    divider(c, fa_center, 262, '#e6dfd2')
-    draw_block(c, fa(record['title']), fa_center, 306, fonts, PAL['green'], 344,
-               [26, 24, 22, 20, 18])
-    motif_row_at(c, spec.get('motifs_fa', []), fa_center, 372, 14, 30)
-    c.text((fa_center, 424), fa('%s، %s' % (record['city_name'], record['province_name'])),
-           fonts.get(500, 19), '#4d6b5a', anchor='mm')
-
+    # ----------------------------------- نیمهٔ نوشته (راست، نزدیک وسط) ---
+    chip(c, TEXT_CX, 152, fa(spec.get('kind_fa', '')), fonts.get(500, 18),
+         fill='#eef4fb', color=CYBER)
+    draw_fa_name(c, record['title'], TEXT_CX, 258, fonts, NAVY, 470,
+                 [92, 86, 80, 74, 68, 62, 56, 50, 44])
+    draw_latin_name(c, record['english'], TEXT_CX, 344, fonts, CYBER, 452,
+                    [33, 30, 28, 26, 24, 22, 20])
+    c.text((TEXT_CX, 416), fa('%s، %s' % (record['city_name'], record['province_name'])),
+           fonts.get(500, 22), '#4d6b7d', anchor='mm')
+    c.text((TEXT_CX, 506), 'sarzaminaryan.ir', fonts.get(500, 15), '#a9b8c6', anchor='mm')
     return c
 
 
@@ -302,9 +392,9 @@ def load_provinces(path):
 # ------------------------------------------------------------------- main ---
 
 def cover_alt(record, spec):
-    return '%s: نقاشی هندسی %s، نام فارسی و انگلیسی %s — %s، %s' % (
+    return '%s: نقاشی آبرنگ %s با نام فارسی و انگلیسی %s — %s، %s' % (
         'کارت تصویر شاخص ' + record['title'], spec.get('kind_fa', ''),
-        spec.get('short_fa', record['title']), record['city_name'], record['province_name'])
+        record['title'], record['city_name'], record['province_name'])
 
 
 def cover_title(record):
@@ -396,7 +486,10 @@ def main():
         print('OK: کارت‌های تصویر شاخص با data/ready-articles.php هم‌خوان است.')
         return
 
-    fonts = FontBook(ensure_fonts())
+    font_dir = ensure_fonts()
+    if not ensure_orbitron(font_dir):
+        sys.stderr.write('هشدار: Orbitron در دسترس نبود؛ نام انگلیسی با Vazirmatn بولد.\n')
+    fonts = FontBook(font_dir)
     articles = load_articles(DATA_ARTICLES)
     provinces = load_provinces(DATA_PROVINCES)
     spec = json.load(open(args.spec, encoding='utf-8'))
@@ -436,7 +529,7 @@ def main():
         print('— %d کارت، میانگین %.1f KB، مجموع %.2f MB'
               % (len(rows), total_bytes / 1024 / len(rows), total_bytes / 1048576))
 
-    if rows:
+    if rows and not wanted:
         manifest = os.path.join(HERE, 'featured-cards.manifest.json')
         json.dump({'note': 'تولیدشده با tools/images/make_featured_cards.py — دستی ویرایش نشود.',
                    'size': [CARD_W, CARD_H],
@@ -476,7 +569,7 @@ def write_preview(path, rows, spec):
  figcaption span{color:#6b8296;font-size:12px}
 </style>
 <h1>کارت‌های تصویر شاخص «دیدنی‌ها» — %d کارت ۱۲۰۰×۶۰۰</h1>
-<p class="lead">سه‌دریک: نقاشی هندسی برگرفته از محتوای مقاله | نام انگلیسی | نام فارسی. زمینه روشن، خطوط منظم.</p>
+<p class="lead">دو‌نیمه: نقاشی آبرنگ برگرفته از محتوای مقاله در یک نیمه، نام فارسی (آبی ناوی) و نام انگلیسی کوچک‌تر زیر آن در نیمهٔ دیگر.</p>
 <div class="grid">%s</div></html>""" % (len(rows), ''.join(cards))
     open(path, 'w', encoding='utf-8').write(html)
     print('پیش‌نمایش: %s' % path)

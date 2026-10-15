@@ -1,13 +1,17 @@
 # فهرست کارت‌های تصویر شاخص «دیدنی‌ها» (۲۸ مقاله)
 
-نسخه: v2.18.15 — منبع داده: `wp-content/themes/sarzaminaryan-child/data/ready-articles.php`
+نسخه: v2.18.18 — منبع داده: `wp-content/themes/sarzaminaryan-child/data/ready-articles.php`
 
-هر مقالهٔ دیدنی یک کارت ۱۲۰۰×۶۰۰ دارد: زمینهٔ سفید، سه پنل (نقاشی هندسی | نام انگلیسی | نام فارسی)
-و تیتر کارت نام کوتاه مکان است. فایل‌ها در `wp-content/themes/sarzaminaryan-child/assets/img/attraction-covers/`
-هستند و با `python3 tools/images/make_featured_cards.py` بازتولید می‌شوند
+هر مقالهٔ دیدنی یک کارت ۱۲۰۰×۶۰۰ دارد: زمینهٔ سفید و لایت، **دو نیمه** — نیمهٔ چپ نقاشی آبرنگ همان
+مکان و نیمهٔ راست نوشتهٔ نزدیک وسط: نام کامل فارسی درشت و **آبی ناوی** و نام انگلیسی کوچک‌تر زیر آن.
+فایل‌ها در `wp-content/themes/sarzaminaryan-child/assets/img/attraction-covers/` هستند و با
+`python3 tools/images/make_featured_cards.py` بازتولید می‌شوند
 (سنجش: `python3 tools/images/make_featured_cards.py --check`).
 
-| مقاله | تیتر کوتاه (فا) | تیتر کوتاه (en) | نوع نما | صحنهٔ نقاشی | فایل |
+ستون‌های «نام کوتاه» مرجع دادهٔ هر رکورد در `data/ready-articles.php` هستند؛ متن روی کارت از خودِ
+رکورد مقاله می‌آید (نام کامل فارسی و نام کامل انگلیسی).
+
+| مقاله | نام کوتاه (فا) | نام کوتاه (en) | نوع نما | صحنهٔ نقاشی | فایل |
 | --- | --- | --- | --- | --- | --- |
 | دریاچه گهر | گهر | Gahar | lake | lake | `attraction-covers/gahar-lake-dorud.webp` |
 | آبشار بیشه | بیشه | Bisheh | waterfall | waterfall | `attraction-covers/bisheh-waterfall-dorud.webp` |

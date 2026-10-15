@@ -23,7 +23,7 @@ function sa_child_setup() {
 	add_image_size( 'sa-gallery-card', 720, 450, true );
 	add_image_size( 'sa-gallery-thumb', 360, 225, true );
 	add_image_size( 'sa-attraction-id', 520, 390, true );
-	add_image_size( 'sa-attraction-cover', 1200, 600, false ); // v2.18.16 — کارت سه‌دریک «دیدنی‌ها» بدون برش (تصویر شاخص داخل مقاله).
+	add_image_size( 'sa-attraction-cover', 1200, 600, false ); // v2.18.16 — کارت «دیدنی‌ها» بدون برش (تصویر شاخص داخل مقاله).
 
 	register_nav_menus(
 		array(

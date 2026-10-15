@@ -278,6 +278,43 @@ $GLOBALS['t']['current'] = 0;
 $GLOBALS['t']['mods']['sa_show_featured_images'] = true; // وضعیت پیش از این بخش، برای آزمون‌های پایین.
 
 /* ---------------------------------------------------------------------------
+ * 2c) جايگاه تصوير شاخص در قالب صفحهٔ «ديدني‌ها» (v2.18.18):
+ * نخستين چيزِ بدنهٔ مقاله — پيش از «شناسنامه»/اطلاعات کليدی و پيش از متن.
+ * ------------------------------------------------------------------------- */
+$template = file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/single.php' );
+sa_t_assert( false !== $template, 'the entity single template is readable' );
+if ( false !== $template ) {
+	$pos = array(
+		'figure'      => strpos( $template, 'sa_attraction_featured_figure' ),
+		'facts'       => strpos( $template, "get_template_part( 'template-parts/entity/facts' )" ),
+		'content'     => strpos( $template, 'class="entry-content"' ),
+		'rating'      => strpos( $template, 'CC_UI::rating_block' ),
+		'profile'     => strpos( $template, "get_template_part( 'template-parts/entity/province-identity' )" ),
+		'county'      => strpos( $template, "get_template_part( 'template-parts/entity/county-profile' )" ),
+	);
+	foreach ( $pos as $name => $position ) {
+		sa_t_assert( false !== $position, 'the template still prints the ' . $name . ' block' );
+	}
+	sa_t_assert( $pos['figure'] < $pos['facts'], 'the cover comes before the key-facts card (شناسنامه)' );
+	sa_t_assert( $pos['figure'] < $pos['content'], 'the cover comes before the article body text' );
+	sa_t_assert( $pos['figure'] < $pos['rating'], 'the cover comes before the city rating block' );
+	sa_t_assert( $pos['figure'] < $pos['profile'], 'the cover comes before the province identity card' );
+	sa_t_assert( $pos['figure'] < $pos['county'], 'the cover comes before the county profile block' );
+	/* تصوير شاخص فقط يک‌بار و فقط در همين قالب کشيده می‌شود (بدون توضيح‌های کامنت). */
+	$code = preg_replace( '~<\?php|\?>|/\*.*?\*/~s', '', $template );
+	sa_t_assert( 1 === substr_count( $code, 'echo sa_attraction_featured_figure' ), 'the cover is printed exactly once' );
+	$other_templates = glob( dirname( __DIR__ ) . '/template-parts/*.php' ) + glob( dirname( __DIR__ ) . '/template-parts/entity/*.php' );
+	$elsewhere       = 0;
+	foreach ( $other_templates as $file ) {
+		$body = preg_replace( '~/\*.*?\*/~s', '', file_get_contents( $file ) );
+		if ( false !== strpos( $body, 'sa_attraction_featured_figure' ) ) {
+			$elsewhere++;
+		}
+	}
+	sa_t_assert( 1 === $elsewhere, 'only the entity single template prints the cover' );
+}
+
+/* ---------------------------------------------------------------------------
  * 3) The helper used by the templates.
  * ------------------------------------------------------------------------- */
 sa_t_assert( '' !== sa_get_featured_image( 'sa-hero', array(), 5 ), 'the helper prints the image when everything checks out' );
@@ -339,4 +376,4 @@ sa_t_assert( false === sa_content_image_missing( SA_FEAT_ALT_URL ), 'a surviving
 @rmdir( $GLOBALS['t']['tmp'] . '/2026' ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 @rmdir( $GLOBALS['t']['tmp'] ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 
-echo "PASS: featured images (hidden by default, attraction covers in-article only, missing files never shown, in-content placeholder)\n";
+echo "PASS: featured images (hidden by default, attraction cover first in the article, missing files never shown, in-content placeholder)\n";
