@@ -184,6 +184,26 @@ foreach ( $recent_guides as $slug => $cards ) {
 	}
 }
 
+/* Shelter/bedding batch: keep exactly three cards beside the matching numbered steps. */
+$shelter_cards = array(
+	'build-shelter-branches' => array( 'branch-frame', 'leaf-roof', 'ground-insulation' ),
+	'newspaper-insulation-bed' => array( 'waterproof-base', 'crumpled-paper', 'sack-pillow' ),
+	'how-to-choose-camping-tent' => array( 'packed-tent', 'floor-space', 'mesh-ventilation' ),
+);
+foreach ( $shelter_cards as $slug => $topics ) {
+	sa_guides_expect( isset( $guides[ $slug ] ), "{$slug}: shelter/bedding guide exists" );
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three topic cards" );
+	foreach ( $topics as $topic ) {
+		$file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+		$image = SA_CHILD_DIR . 'assets/img/' . $file;
+		sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset exists and is compact" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is a 720x540 WebP" );
+	}
+}
+
 /**
  * Minimal strip-tags shim (no WordPress here).
  *
