@@ -5338,7 +5338,7 @@ SA_ART,
 			),
 			array(
 				'q' => 'قانون پشت دست دقیقاً یعنی چی و چطور انجامش بدیم؟',
-				'a' => 'یعنی تا وقتی پوست پشت دستت (که به حرارت حساست) داغی رو حس نکرده، یعنی آتیش هنوز زنده‌ست. دستت رو روی خاکسترها بذار. اگه گرم بود، یعنی هنوز یه جایی زغال داره می‌سوزه. باید انقدر آب بریزی و هم بزنی تا خاکسترها کاملاً هم‌دمای محیط بشن.',
+				'a' => 'پشت دست را چند سانتی‌متر بالاتر از خاکستر نگه دار، بدون تماس با زغال یا خاکستر. اگر گرما حس کردی، آب بریز و هم بزن و بررسی را در بخش‌های مختلف تکرار کن. تا سردشدن کامل محل را ترک نکن.',
 			),
 			array(
 				'q' => 'اگه شب بود و تاریک، چطور بفهمیم آتیش کاملاً خاموشه؟',
@@ -5392,14 +5392,17 @@ SA_ART,
 <li>هشدار: هرگز یه سطل آب رو یهو روی آتیش نریز. این کار باعث میشه یه ابر عظیم از بخار داغ و خاکستر مستقیم بپره تو صورتت و ممکنه باعث سوختگی شدید تنفسی و پوستی بشه.</li>
 <li>همزمان که آب می‌ریزی، با یه چوب بلند یا بیلچه، خاکسترها و زغال‌ها رو هم بزن تا آب به تمام لایه‌های زیرین برسه. صدای "جز و ول" باید کاملاً قطع بشه.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/how-to-extinguish-campfire-pour-water.webp" alt="ریختن آرام آب از ظرف فلزی روی زغال‌های بدون شعله در جایگاه آتش" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آب را آرام بریز</strong><span class="sa-guide-topic-card__description">آب از کنار روی زغال‌ها ریخته می‌شود؛ خاموش‌کردن را با هم‌زدن ادامه بده.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> هم بزن، هم بزن، هم بزن (مهم‌ترین مرحله)</h3>
 <p>وقتی آب رو ریختی و صدای جز و ول قطع شد، کار تموم نشده. با یه بیلچه یا یه چوب سبز، خاکسترها، زغال‌ها و خاک اطراف رو کاملاً هم بزن. لایه‌های زیرین رو بیار رو و لایه‌های رویی رو بفرست زیر. دوباره یه کم آب بریز و باز هم بزن. این کار رو انقدر ادامه بده تا یه گل و لای سرد و سیاه یکدست داشته باشی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/how-to-extinguish-campfire-stir-ashes.webp" alt="هم‌زدن زغال و خاکستر با بیل دسته‌بلند در حلقهٔ سنگی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">لایه‌های زیرین را هم بزن</strong><span class="sa-guide-topic-card__description">بیل دسته‌بلند خاکستر و زغال را جابه‌جا می‌کند تا لایه‌های زیرین هم خیس شوند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> قانون طلایی پشت دست (تست نهایی)</h3>
-<p>این قانون رو تو ذهنت حک کن: تا وقتی با پشت دستت حرارت رو حس نکردی، آتیش خاموش نشده.</p>
+<p>این قانون را به خاطر بسپار: اگر از فاصلهٔ چند سانتی‌متری با پشت دست گرما حس می‌کنی، خاموش‌کردن هنوز تمام نشده. پوست را به زغال یا خاکستر نزن.</p>
 <ul>
 <li>دستت رو چند سانتی‌متر بالاتر از خاکسترهای خیس نگه دار. اگه هیچ گرمایی حس نکردی، یعنی کار تمومه.</li>
-<li>برای اطمینان صد در صد، پشت دستت رو آروم روی خاکسترهای خیس بذار. پوست پشت دست به حرارت حساس‌تره. اگه حتی کوچکترین گرمایی حس کردی، یعنی هنوز یه زغال پنهان داره می‌سوزه. دوباره آب بریز و هم بزن.</li>
+<li>اگر حتی گرمای کمی حس کردی، دست را دور کن و دوباره آب بریز و هم بزن. آزمون را بالای بخش‌های مختلف جایگاه و بدون تماس تکرار کن؛ خاکستر خیس هم ممکن است داغ باشد.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/how-to-extinguish-campfire-check-heat.webp" alt="دست با کف رو به بالا و بدون تماس بالای خاکستر و زغال نگه داشته شده است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بررسی گرما بدون تماس</strong><span class="sa-guide-topic-card__description">پشت دست بالای خاکستر نگه داشته می‌شود؛ برای بررسی گرما پوست را به خاکستر نزن.</span></figcaption></figure>
 <p>جایگزین خلاقانه: اگه آب نداری (که تو کمپینگ‌های طولانی ممکنه پیش بیاد)، باید از روش "خاک و شن" استفاده کنی. خاک یا شن خشک رو روی زغال‌ها بریز و با چوب یا بیلچه مدام هم بزن. خاک اکسیژن رو قطع می‌کنه و حرارت رو جذب می‌کنه. انقدر هم بزن تا تمام زغال‌ها کاملاً سرد بشن و هیچ بخاری ازشون بلند نشه. این روش آب نمی‌خواد، ولی به بازوی قوی و حوصله زیاد نیاز داره.</p>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
@@ -5453,7 +5456,7 @@ SA_ART,
 </ul>
 <p>تست نهایی:</p>
 <ul class="sa-checklist">
-<li>قانون پشت دست: دستت رو روی خاکسترها بذار. باید کاملاً سرد باشه.</li>
+<li>پشت دست را بدون تماس بالای خاکستر بگیر؛ اگر گرما حس می‌کنی، دوباره آب بریز و هم بزن.</li>
 </ul>
 <p>پاکسازی:</p>
 <ul class="sa-checklist">
@@ -6542,18 +6545,21 @@ SA_ART,
 <li><strong>بادگیر مصنوعی:</strong> با سنگ‌ها، کنده‌های چوب یا حتی کوله‌پشتیت (با فاصله ایمن) یه دیوار نیم‌دایره دور تا دور سمت وزش باد بساز.</li>
 <li><strong>تکنیک داکوتا فایر هول (Dakota Fire Hole):</strong> این شاهکار مهندسی بومیان آمریکاست. دو تا چاله حفر کن. یکی به قطر ۳۰ سانت برای آتش، و دومی در فاصله ۵۰ سانتی برای ورود هوا. ته این دو تا چاله رو با یه تونل کوچک به هم وصل کن. باد مستقیم میره تو چاله دوم، از زیرزمین میاد تو چاله آتش و از بالا خارج میشه. نتیجه؟ آتیشی که هیچ بادی نمی‌تونه خاموشش کنه، حرارتش متمرکز به سمت قابلمه‌ست و مصرف سوختش نصف میشه.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/maintain-fire-in-rain-stone-windbreak.webp" alt="بادشکن سنگی در یک سمت آتش کوچک و سطل آب در کنار جایگاه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بادشکن در یک سمت</strong><span class="sa-guide-topic-card__description">سنگ‌ها در یک سمت جایگاه چیده شده‌اند و سمت دیگر برای جریان هوا باز است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> مقابله با باران (پیدا کردن سوخت خشک و سقف زدن)</h3>
 <p>وقتی همه چی خیسه، نمی‌تونی منتظر بمونی تا آفتاب بزنه. باید بری سراغ منابع پنهان.</p>
 <ul>
-<li><strong>پناهگاه سقف (Overhead Cover):</strong> اگه تارپ (Tarp) داری، بالای سر آتیش (با فاصله ایمن و زاویه‌دار) натяж کن تا بارون مستقیم روی هیزم‌ها نریزه. اگه نداری، شاخ و برگ‌های سبز درختان یا پوست‌های بزرگ درخت رو روی یه چوب بلند بذار و به عنوان سقف موقت استفاده کن.</li>
+<li><strong>پوشش ذخیرهٔ هیزم:</strong> هیزم خشک را زیر پوشش و دور از شعله و جرقه نگه دار. تارپ، پارچه و شاخ‌وبرگ را بالای آتش نکش؛ آتش داخل چادر یا زیر سایه‌بان روشن نشود؛ خطر آتش‌سوزی و مسمومیت با مونوکسید کربن وجود دارد. اگر باران اجازهٔ نگهداری ایمن آتش را نمی‌دهد، آن را خاموش کن.</li>
 <li><strong>هیزم‌های ضدآب (Fatwood):</strong> تو جنگل‌های کاج، دنبال تنه درختان مرده یا ریشه‌های کاج بگرد. چوبی که پر از صمغ و رزین باشه (بهش می‌گن Fatwood یا چوب چرب)، حتی اگه سال‌ها تو بارون مونده باشه، وقتی با چاقو می‌شکافیش، مغزش کاملاً خشک و به شدت اشتعال‌پذیره.</li>
 <li><strong>قانون لایه‌برداری:</strong> هیزم‌های خیس رو مستقیم تو آتش ننداز. اول با چاقو یا چاقوی تبر، لایه بیرونی و خیسش رو بتراش تا به مغز خشک داخلش برسی.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/maintain-fire-in-rain-dry-wood-core.webp" alt="چوب شکافته با پوست تیره و مغز روشن کنار تراشه‌ها و چاقوی در غلاف" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">مغز خشک چوب افتاده</strong><span class="sa-guide-topic-card__description">دو نیمهٔ چوب و تراشه‌ها، آماده‌سازی سوخت از بخش داخلی چوب را نشان می‌دهند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> چیدمان‌های خاص برای هوای بد</h3>
 <ul>
-<li><strong>آتش ستاره‌ای (Star Fire):</strong> چند تا کنده چوب ضخیم و بلند رو مثل پره‌های یه ستاره یا چرخ دوچرخه، از اطراف به سمت مرکز آتش بچین. مرکز می‌سوزه و هیزم‌ها آروم آروم ذغال میشن. هر وقت خواستی، چوب‌ها رو یه کم به سمت مرکز هل بده. این چیدمان برای شب‌های بارونی که می‌خوای بخوابی و آتیش روشن بمونه عالیه، چون نیاز به اضافه کردن مداوم هیزم نداره.</li>
+<li><strong>آتش ستاره‌ای (Star Fire):</strong> چند تا کنده چوب ضخیم و بلند رو مثل پره‌های یه ستاره یا چرخ دوچرخه، از اطراف به سمت مرکز آتش بچین. مرکز می‌سوزه و هیزم‌ها آروم آروم ذغال میشن. هر وقت خواستی، چوب‌ها رو یه کم به سمت مرکز هل بده. این چیدمان هم به مراقبت پیوسته نیاز دارد؛ پیش از خواب یا ترک محل، آتش را کاملاً خاموش و سرد کن.</li>
 <li><strong>آتش پلتفرمی (Platform Fire):</strong> اگه زمین خیس، گلی یا پوشیده از برفه، آتیش مستقیم روی زمین می‌میره (یا تو گل فرو میره یا برف رو ذوب می‌کنه و خیس میشه). اول یه پلتفرم از چوب‌های سبز و تر یا سنگ‌های تخت بساز، بعد آتیش رو روی اون پلتفرم روشن کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/maintain-fire-in-rain-star-fire.webp" alt="هیزم‌های شعاعی با شعلهٔ کوچک مرکزی، سطل آب و پاهای فرد مراقب" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">چیدمان ستاره‌ای با مراقبت</strong><span class="sa-guide-topic-card__description">سر هیزم‌ها به مرکز آتش می‌رسد؛ این چیدمان هم به مراقبت پیوسته نیاز دارد.</span></figcaption></figure>
 <p>جایگزین خلاقانه: اگه بارون می‌باره و هیچ سقفی نداری، می‌تونی از "آتش‌های بلند و باریک" استفاده کنی. به جای اینکه آتیش رو پهن کنی، هیزم‌ها رو به صورت یه برج یا تیپی خیلی فشرده و بلند بچین. نوک برج می‌سوزه و خشک می‌مونه، در حالی که پایینش در امانه. هر ساعت که سوخت تموم شد، برج رو با یه چوب به هم می‌ریزی و دوباره می‌چینی.</p>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
@@ -6603,13 +6609,13 @@ SA_ART,
 </ul>
 <p>مقابله با باران:</p>
 <ul class="sa-checklist">
-<li>ایجاد سقف موقت (تارپ، شاخ و برگ سبز)</li>
+<li>پوشاندن ذخیرهٔ هیزم دور از شعله؛ نه سقف‌زدن بالای آتش</li>
 <li>پیدا کردن هیزم‌های رزینی (Fatwood) یا لایه‌برداری از هیزم‌های خیس</li>
 <li>ساخت پلتفرم (اگه زمین گلی یا برفیه)</li>
 </ul>
-<p>چیدمان برای شب:</p>
+<p>پیش از خواب:</p>
 <ul class="sa-checklist">
-<li>آتش ستاره‌ای (Star Fire) برای مصرف کم و دوام بالا</li>
+<li>خاموش‌کردن کامل آتش و بررسی سردشدن خاکستر؛ آتش ستاره‌ای هم نباید بی‌مراقب بماند.</li>
 </ul>
 <h2>لینک‌های مرتبط</h2>
 <ul>
@@ -7489,6 +7495,7 @@ SA_ART,
 <li>برای پوشش زخم، اول گاز یا تمیزترین لایه را روی زخم بگذار، بعد نوار پارچه‌ای را روی آن ببند و گره را جایی بزن که فشار نیاورد.</li>
 <li>برای بند آتل و مهار بسته، همان نوار را دو دور بپیچ؛ اگر فشار را حس می‌کنی، شل کن — بند تنگ، خون‌رسانی را می‌بندد.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/old-clothes-bandage-wick-cotton-strips.webp" alt="پیراهن نخی بریده‌شده، نوارهای رول‌شده، قیچی و کیسهٔ نگهداری روی میز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">آماده‌کردن نوار پارچه‌ای</strong><span class="sa-guide-topic-card__description">نوارهای بریده‌شده برای نگهداری جدا آماده‌اند؛ پارچهٔ خانگی جای گاز استریل نیست.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> جوراب: دستکش، پوشش سرما و صافی</h3>
 <ul>
 <li>جوراب کهنه را از نوک ببر تا دستکش بی‌انگشت بسازی؛ برای سرما، سوراخ انگشت شست را جدا بزن.</li>
@@ -7496,6 +7503,7 @@ SA_ART,
 <li>جوراب نخی نازک را روی دهانهٔ ظرف ببند و آب را از آن بگذران؛ این صافی خاشاک را می‌گیرد و میکروب را نه؛ بعد حتماً آب را بجوشان.</li>
 <li>یک جوراب بلند را از ناحیهٔ ساق ببر و به‌عنوان پوشش گردن یا گوش در باد سرد استفاده کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/old-clothes-bandage-wick-sock-glove.webp" alt="دستکش بی‌انگشت ساخته‌شده از جوراب خاکستری کنار جوراب اضافه و قیچی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پوشش دست از جوراب اضافه</strong><span class="sa-guide-topic-card__description">جوراب برش‌خورده مچ و بخشی از دست را می‌پوشاند و انگشت‌ها آزاد می‌مانند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> فتیله، آتش‌زنه و پارچهٔ سوخته</h3>
 <ul>
 <li><strong>فتیله:</strong> نوار نخی باریک را به روغن خوراکی یا موم آغشته کن و در دهانهٔ چراغ کوچک قرار بده؛ شعله فقط در فضای باز و دور از چادر.</li>
@@ -7503,6 +7511,7 @@ SA_ART,
 <li><strong>پارچهٔ سوختهٔ آتش‌زنه (چارکلات):</strong> پارچهٔ نخی را در قوطی فلزی سربسته با سوراخ کوچک بگذار، روی شعلهٔ کوچک بگذار و بگذار دودش تمام شود؛ بعد سرد شدن کامل، درپوش را باز کن.</li>
 <li>پارچهٔ سوخته را در کیسهٔ خشک و بسته نگه دار؛ یک جرقه، آن را روشن می‌کند و همین، کارش است.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/old-clothes-bandage-wick-cotton-wick.webp" alt="چراغ فلزی خاموش با فتیلهٔ پارچه‌ای روی سینی و سطل آب در فضای باز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">فتیلهٔ نخی در چراغ خاموش</strong><span class="sa-guide-topic-card__description">فتیله در ظرف فلزی پایدار قرار دارد؛ شعلهٔ این وسیله فقط برای فضای باز است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> بهداشت، نگهداری و مرزها</h3>
 <ul>
 <li>پارچهٔ زخم را بعد از هر بار مصرف عوض کن؛ پارچهٔ خون‌آلود را جدا نگه دار و بعد از سفر با احتیاط دور بریز.</li>
