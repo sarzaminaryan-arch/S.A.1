@@ -30,6 +30,7 @@ function sa_customize_register( $wp_customize ) {
 			'url'      => 'esc_url_raw',
 			'email'    => 'sanitize_email',
 			'checkbox' => 'sa_sanitize_checkbox',
+			'number'   => 'absint',
 			'select'   => 'sanitize_key',
 			'image'    => 'esc_url_raw',
 		);
@@ -124,6 +125,23 @@ function sa_customize_register( $wp_customize ) {
 		'checkbox',
 		true,
 		array( 'description' => 'هر دیدنی تصویر شاخصش را فقط بالای بدنهٔ خودِ مقاله نشان می‌دهد؛ در کارت‌های فهرست، آرشیو، صفحهٔ اصلی و شناسنامهٔ بالای صفحه نمایش داده نمی‌شود. این کلید مستقل از کلید سراسری بالاست.' )
+	);
+	// «فهرست مطالب» (v2.18.17): درخواست مالک — همهٔ مقاله‌ها فهرست مطالب داشته باشند.
+	$add(
+		'sa_display',
+		'sa_show_toc',
+		'نمایش «فهرست مطالب» در ابتدای مقاله‌ها',
+		'checkbox',
+		true,
+		array( 'description' => 'فهرست از سرفصل‌های خودِ مقاله (H2 تا H4) ساخته می‌شود و بخش‌های قالب (اطلاعات کلیدی، تقسیمات شهرستان، سوالات متداول، منابع) هم به آن اضافه می‌شوند؛ برای جای دلخواه، نشان {{TOC}} را در متن بگذارید.' )
+	);
+	$add(
+		'sa_display',
+		'sa_toc_min',
+		'کمینهٔ سرفصل‌ها برای نمایش «فهرست مطالب»',
+		'number',
+		2,
+		array( 'description' => 'اگر مقاله‌ای کمتر از این تعداد سرفصل داشته باشد، کادر فهرست نمایش داده نمی‌شود (پیش‌فرض: ۲).', 'input_attrs' => array( 'min' => 1, 'max' => 10, 'step' => 1 ) )
 	);
 	$add(
 		'sa_display',

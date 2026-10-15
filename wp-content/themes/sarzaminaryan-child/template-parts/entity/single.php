@@ -53,6 +53,12 @@ $sa_type = get_post_type();
 
 		<?php get_template_part( 'template-parts/entity/county-profile' ); ?>
 
+		<?php
+		// v2.18.17 — بخش‌های پایینِ صفحه (سوالات متداول/منابع) پیش از بدنه اعلام می‌شوند
+		// تا در «فهرست مطالب» داخل بدنه حاضر باشند.
+		sa_toc_register_tail( $sa_id );
+		?>
+
 		<div class="entry-content">
 			<?php the_content(); ?>
 		</div>

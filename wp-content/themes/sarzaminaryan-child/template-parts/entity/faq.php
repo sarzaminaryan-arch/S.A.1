@@ -12,6 +12,8 @@ $sa_faq = sa_get_faq( get_the_ID() );
 if ( ! $sa_faq ) {
 	return;
 }
+// v2.18.17 — اگر قالبی این بخش را پیش از بدنه اعلام نکرده باشد، اینجا اعلام می‌شود.
+sa_toc_register( 'سوالات متداول', 'faq', 900 );
 ?>
 <section class="sa-faq-section" id="faq">
 	<h2>سوالات متداول</h2>

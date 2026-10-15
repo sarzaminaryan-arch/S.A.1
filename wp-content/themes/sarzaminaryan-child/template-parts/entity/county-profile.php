@@ -70,6 +70,7 @@ foreach ( $sa_life as $sa_key => $sa_label ) {
 <section class="sa-county" id="county-profile">
 
 	<?php if ( $sa_div_rows ) : ?>
+		<?php sa_toc_register( 'تقسیمات شهرستان', 'divisions', 12 ); // v2.18.17 ?>
 		<h2 class="sa-county__title" id="divisions">تقسیمات شهرستان</h2>
 		<ul class="sa-county__stats">
 			<?php foreach ( $sa_div_rows as $sa_label => $sa_value ) : ?>
@@ -82,6 +83,7 @@ foreach ( $sa_life as $sa_key => $sa_label ) {
 	<?php endif; ?>
 
 	<?php if ( $sa_neighbors ) : ?>
+		<?php sa_toc_register( 'همسایه‌های شهرستان', 'neighbors', 14 ); // v2.18.17 ?>
 		<h2 class="sa-county__title" id="neighbors">همسایه‌های شهرستان</h2>
 		<ul class="sa-county__chips">
 			<?php foreach ( $sa_neighbors as $sa_n ) : ?>
@@ -100,6 +102,7 @@ foreach ( $sa_life as $sa_key => $sa_label ) {
 	<?php endif; ?>
 
 	<?php if ( $sa_pois ) : ?>
+		<?php sa_toc_register( 'کجا برویم؟', 'where-to-go', 16 ); // v2.18.17 ?>
 		<h2 class="sa-county__title" id="where-to-go">کجا برویم؟</h2>
 		<?php foreach ( $sa_pois as $sa_group ) : ?>
 			<h3 class="sa-county__sub"><span aria-hidden="true"><?php echo esc_html( $sa_group['icon'] ); ?></span> <?php echo esc_html( $sa_group['title'] ); ?></h3>
@@ -120,6 +123,7 @@ foreach ( $sa_life as $sa_key => $sa_label ) {
 	<?php endif; ?>
 
 	<?php if ( $sa_life_rows ) : ?>
+		<?php sa_toc_register( 'مردم، معیشت و زمان سفر', 'people', 18 ); // v2.18.17 ?>
 		<h2 class="sa-county__title" id="people">مردم، معیشت و زمان سفر</h2>
 		<dl class="sa-county__list">
 			<?php foreach ( $sa_life_rows as $sa_label => $sa_value ) : ?>
