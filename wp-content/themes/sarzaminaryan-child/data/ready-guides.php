@@ -1567,7 +1567,13 @@ CDC — بیماری و آسیب ناشی از مواد شیمیایی استخ�
 </ul>
 <ol>
 <li><strong>مسیر را بخش‌بندی کن</strong>. نقطه‌های آب و مدت هر بخش را بنویس و دسترسی همان روز را از مسئول محل بپرس.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-water-planning-map-water-points.webp" alt="نقشهٔ باز روی سنگ که نقطه‌های آب و زمان هر بخش با مداد روی آن علامت خورده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول مسیر را بخوان، بعد آب را ببند</strong><span class="sa-guide-topic-card__description">مسیر را به بخش‌هایی میان نقطه‌های آب بشکن؛ مدت هر بخش و وضعیت دسترسی همان روز را از مسئول محل بپرس و بعد بار را تعیین کن.</span></figcaption></figure>
+<ol>
 <li><strong>مصرف‌ها را جدا حساب کن</strong>. نوشیدن، غذا و نیاز گروه را با گرما، شیب، فعالیت و شرایط اعضا در نظر بگیر.</li>
+</ol>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-water-planning-count-consumption.webp" alt="چند بطری و یک لیوان کنار اجاق کوچک، با کاغذ یادداشت شمار نفر و روز" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نوشیدن، پخت‌وپز و نیاز گروه را جدا بشمار</strong><span class="sa-guide-topic-card__description">برای هر نفر سه مصرف را جدا حساب کن و گرما، شیب، شدت فعالیت و شرایط سلامتی اعضا را به آن اضافه کن؛ یک عدد ثابت برای همهٔ مسیرها کافی نیست.</span></figcaption></figure>
+<ol>
 <li><strong>آب امن و جایگزین تعیین کن</strong>. عدد همگانی یا سهم ذخیرهٔ خانگی را به مسیر تعمیم نده؛ اگر مصرف سفر مشابه را ثبت کرده‌ای، آن را با هوای امروز و فعالیت مسیر تطبیق بده. اگر آب کافی نمی‌توانی حمل کنی، برنامه را تغییر بده.</li>
 <li><strong>روش را با خطر هماهنگ کن</strong>. دستور محصول و توانایی فیلتر را بخوان؛ اگر احتمال نمک یا آلودگی شیمیایی هست، منبع دیگری پیدا کن.</li>
 <li><strong>آب خام را از آب آماده جدا نگه دار</strong>. ظرف‌ها را علامت بزن و ببند؛ برای نبودن یا ناامن‌بودن منبع، راه برگشت داشته باش.</li>
@@ -1576,6 +1582,7 @@ CDC — بیماری و آسیب ناشی از مواد شیمیایی استخ�
 <li><strong>زمان:</strong> به مسیر و روش وابسته است؛ برای قرص و قطره، زمان یا دوز ثابت حدس نزن.</li>
 <li><strong>هشدار:</strong> اگر سابقهٔ منبع یا روش تصفیه روشن نیست، آب را آشامیدنی فرض نکن. قرص استخر و فیلتر دست‌سازِ آزمایش‌نشده جای منبع امن را نمی‌گیرند.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/camping-water-planning-label-two-containers.webp" alt="دو گالن درپوش‌دار کنار هم، یکی با نوار آبی برای آب آماده و دیگری با نوار قرمز برای آب خام" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">دو ظرف، دو علامت: خام و آماده</strong><span class="sa-guide-topic-card__description">ظرف آب تصفیه‌نشده را از ظرف آب آماده جدا نگه دار، هر دو را علامت بزن و درپوش‌دار ببند تا هیچ‌وقت اشتباهی نوشیده نشود.</span></figcaption></figure>
 <h2>روش‌های تصفیه و محدودیت هرکدام</h2>
 <figure class="wp-block-table sa-table-wrap"><table class="sa-table">
 <thead><tr><th>روش</th><th>کاربرد کلی</th><th>محدودیت</th><th>نکتهٔ استفاده</th></tr></thead>
@@ -3531,12 +3538,14 @@ SA_ART,
 <li><strong>آب راکد (برکه، مرداب، چاله‌های آب): </strong> این بدترین گزینه‌ست. آب راکد مثل یه سوپ میکروبی عمل می‌کنه. فقط و فقط در شرایط مرگ و زندگی و وقتی هیچ گزینه دیگه‌ای نداری، باید سراغش بری و اون هم فقط پس از تصفیه شدید.</li>
 <li><strong>نکته طلایی:</strong> همیشه منبع آب رو از بالا به پایین نگاه کن. اگه بالای دستت محل چرای دام، کمپ دیگران، یا لاشه حیوانات هست، اون آب آلوده‌ست، حتی اگه زلال‌ترین آب دنیا باشه.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drinking-water-in-nature-look-upstream.webp" alt="ایستادن روی سنگ‌های رودخانه و نگاه به بالادست: نهر زلال در برابر برکهٔ سبکِ راکد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">جاری را به راکد ترجیح بده</strong><span class="sa-guide-topic-card__description">آبِ در حرکت و از بالادست بهترین گزینه است و برکه یا چالهٔ راکد بدترین؛ قبل از برداشت ببین بالای منبع چراگاه دام، کمپ دیگران یا لاشهٔ حیوان هست یا نه.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> انتخاب نقطه برداشت</h3>
 <ul>
 <li>هیچ‌وقت آب رو از لبه رودخونه یا جایی که گل و لای داره برندار.</li>
 <li>کمی از ساحل فاصله بگیر و جایی رو انتخاب کن که آب عمیق‌تر و جریان داره.</li>
 <li>اگه آب کمی کدره، ظرفت رو آروم فرو ببر تا رسوبات کف ظرف ته‌نشین نشن، یا بذار ظرف پر از آب، چند دقیقه ساکن بمونه تا گل و لای ته‌نشین بشه، بعد آب زلال رویی رو با دقت بردار.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drinking-water-in-nature-draw-from-current.webp" alt="فرو بردن آرام ظرف در آبِ عمیق و در جریان، دور از لبهٔ گل‌ولایِ ساحل" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">از عمق و جریان بردار، نه از لبه</strong><span class="sa-guide-topic-card__description">کمی از ساحل فاصله بگیر و ظرف را در آبِ عمیق‌تر و در جریان آرام فرو ببر تا رسوب کف بلند نشود؛ اگر آب کدر است، چند دقیقه ساکنش بگذار تا ته‌نشین شود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> پیش‌تصفیه (فیلتراسیون فیزیکی اولیه)</h3>
 <p>قبل از اینکه آب رو بجوشونی یا قرص تصفیه توش بریزی، باید ذرات معلق بزرگ رو حذف کنی.</p>
 <ul>
@@ -3544,6 +3553,7 @@ SA_ART,
 <li>این کار باکتری‌ها رو از بین نمی‌بره، ولی گل و لای، حشرات و آشغال‌های ریز رو می‌گیره. چرا این مهمه؟ چون ذرات معلق می‌تونن دور باکتری‌ها رو بپوشونن و باعث بشن قرص کلر یا جوشاندن به درستی عمل نکنه.</li>
 </ul>
 <p>جایگزین خلاقانه: اگه تو منطقه‌ای هستی که هیچ آب سطحی‌ای نداری (مثل کویر یا تپه‌های خشک)، می‌تونی از "چاه جذب" (Seep Hole) استفاده کنی. کنار بستر خشک یه رودخانه یا پایین‌دست یه شیب سنگی، یه گودال کوچک بکن. صبر کن تا آب زیرزمینی آروم آروم تو گودال جمع بشه. این آب توسط خاک فیلتر شده و معمولاً زلال‌تر از آب‌های سطحیه. البته این آب هم حتماً باید تصفیه نهایی بشه.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/drinking-water-in-nature-cloth-prefilter.webp" alt="گذراندن آب گل‌آلود از دستمال نخی تمیزِ بستهٔ روی دهانهٔ گالن، درون یک ظرف پاکیزه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول ذرات را بگیر، بعد تصفیه کن</strong><span class="sa-guide-topic-card__description">پیش از جوشاندن یا قرص، آب را از دستمال نخی تمیز رد کن؛ ذرات معلق پشت میکروب‌ها را می‌گیرند و اثر حرارت و مادهٔ شیمیایی را کم می‌کنند.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>چشمه‌های ییلاقی البرز و زاگرس اغلب محل آب‌خوری دام هستند؛ از دهانهٔ چشمه یا بالاتر از محل دام برداشت کن و حتماً تصفیه کن.</li>
@@ -3985,6 +3995,7 @@ SA_ART,
 <li>از لحظه جوشیدن، حداقل ۱ دقیقه صبر کن. اگه تو ارتفاعات بالای ۲۰۰۰ متر هستی (جایی که آب در دمای پایین‌تری می‌جوشه)، این زمان رو به ۳ دقیقه برسون.</li>
 <li>بذار آب خنک بشه و بعد بخور. (آب جوشیده ممکنه طعم تخت و بی‌مزه‌ای داشته باشه، ولی امنه).</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/emergency-water-purification-rolling-boil.webp" alt="کتری و قابلمهٔ آبِ در حال جوش روی آتش، با حباب‌های درشتی که سطح آب را می‌شکنند" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">یک دقیقه از لحظهٔ جوش کامل</strong><span class="sa-guide-topic-card__description">صبر کن تا جوش کامل و حباب‌های درشت بیاید و از همان لحظه یک دقیقه بشمار؛ در ارتفاعات بالای دو هزار متر که آب ولرم‌تر می‌جوشد، این زمان سه دقیقه است.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> تصفیه شیمیایی (قرص‌های کلر یا ید)</h3>
 <p>وقتی آتیش نداری یا نمی‌خوای وقت تلف کنی، مواد شیمیایی وارد عمل می‌شن.</p>
 <ul>
@@ -3999,6 +4010,7 @@ SA_ART,
 <li>دوز دقیق: برای هر یک لیتر آب زلال، فقط ۲ قطره وایتکس بریز. اگه آب کدره، ۴ قطره.</li>
 <li>هم بزن، ۳۰ دقیقه صبر کن. بعد از ۳۰ دقیقه، آب باید یه بوی خیلی ملایم کلر بده. اگه بو نداد، یعنی آب آلوده‌ست و مواد شیمیایی رو خنثی کرده؛ ۲ قطره دیگه بریز و ۱۵ دقیقه دیگه صبر کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/emergency-water-purification-bleach-drops.webp" alt="چکاندن سفیدکنندهٔ بدون افزودنی با قطره‌چکان در بطری آب زلال؛ بطری آب کدر در کنارش" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">سفیدکنندهٔ ساده: دو قطره برای هر لیتر</strong><span class="sa-guide-topic-card__description">فقط سفیدکنندهٔ بدون عطر و افزودنی؛ برای آب زلال دو قطره و برای آب کدر چهار قطره، هم بزن و سی دقیقه صبر کن — اگر بو نداد، همان دوز را یک بار دیگر تکرار کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> روش SODIS (گندزدایی با نور خورشید)</h3>
 <p>یه روش علمی و تایید شده توسط سازمان بهداشت جهانی برای مناطق بدون امکانات.</p>
 <ul>
@@ -4007,6 +4019,7 @@ SA_ART,
 <li>اشعه فرابنفش (UV-A) خورشید به همراه حرارت ایجاد شده داخل بطری، میکروب‌ها رو نابود می‌کنه.</li>
 </ul>
 <p>جایگزین خلاقانه: اگه نه آتیش داری، نه قرص، نه وایتکس و نه آفتاب، و فقط یه آب کدر داری، باید از "زغال چوب خالص" استفاده کنی. زغال خاصیت جذب سطحی داره و می‌تونه بعضی از مواد شیمیایی و بوی بد رو بگیره. آب رو از یه لایه ضخیم زغال پودر شده (مثل همون فیلتر DIY که تو مقاله قبلی گفتیم) رد کن. این کار آب رو میکروب‌زدایی نمی‌کنه، ولی اگه مجبور باشی این آب رو بدون جوشاندن بخوری (که اصلاً توصیه نمی‌شه)، زغال حداقل سموم شیمیایی و فلزات سنگین رو تا حد زیادی کاهش می‌ده.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/emergency-water-purification-sodis-bottle.webp" alt="دو بطری پلاستیکی شفاف پر از آب، خوابیده روی پارچهٔ تیره در آفتاب مستقیم" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بطری شفاف، شش ساعت آفتاب مستقیم</strong><span class="sa-guide-topic-card__description">آب را در بطری پلاستیکی شفاف و بی‌رنگ بریز، بخوابان و حداقل شش ساعت زیر نور مستقیم بگذار؛ اگر آفتاب کامل نیست، همین کار تا دو روز طول می‌کشد.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>در ارتفاعات ایران (بسیاری از مسیرهای البرز و زاگرس بالای ۲۰۰۰ متر) آب در دمای پایین‌تر می‌جوشد؛ زمان جوش را به سه دقیقه برسان.</li>
