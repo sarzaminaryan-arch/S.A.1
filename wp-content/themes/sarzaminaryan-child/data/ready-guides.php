@@ -4537,7 +4537,7 @@ SA_ART,
 <h3 class="sa-step"><span class="sa-step__n">۵</span> داروهای شخصی</h3>
 <p>اگر خودت یا همسفرت بیماری خاصی دارید (مثل آسم، دیابت، فشار خون)، داروهای همیشگی‌تون باید به مقدار کافی (به اضافه دو روز ذخیره) در این کیف باشه.</p>
 <p>جایگزین خلاقانه: اگه بتادین تمام شد یا نداشتی، بهترین کار شست‌وشوی کامل زخم با آب تمیز (ترجیحاً جوشیده و سرد شده) و صابون معمولی به مدت ۵ دقیقه است. اگه باند استریل نداری، یه تکه پارچه نخی تمیز و اتو شده (مثل یه تی‌شرت نخی شسته شده) می‌تونه به عنوان پانسمان موقت عمل کنه. فقط یادت باشه اینا موقتیه و به محض رسیدن به تمدن باید تعویض بشن.</p>
-<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-personal-meds.webp" alt="بلیسترها و شیشهٔ دارو همراه یادداشت دوز، در جیب شفاف کیف کمک" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">داروی شخصی، با دو روز ذخیره</strong><span class="sa-guide-topic-card__description">داروی همیشگی خودت و همسفرانت به‌اندازهٔ روزهای سفر به‌اضافهٔ دو روز، همراه بروشور و یادداشت دوز؛ داروی بدون برچسب را به کسی نده.</span></figcaption></figure>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/first-aid-kit-checklist-personal-meds.webp" alt="بلیسترها و شیشهٔ دارو با برچسب بی‌خط و یک کاغذ تا‌شده، در کیسهٔ زیپ‌دار شفاف روی درِ کوله" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">داروی شخصی، با دو روز ذخیره</strong><span class="sa-guide-topic-card__description">داروی همیشگی خودت و همسفرانت به‌اندازهٔ روزهای سفر به‌اضافهٔ دو روز، همراه بروشور و یادداشت دوز؛ داروی بدون برچسب را به کسی نده.</span></figcaption></figure>
 <h2>بومی‌سازی برای ایران</h2>
 <ul>
 <li>دورهٔ کمک‌های اولیهٔ هلال‌احمر در بیشتر شهرهای ایران برگزار می‌شود؛ گذراندنش بهترین سرمایه‌گذاری پیش از سفر است.</li>
@@ -5747,6 +5747,7 @@ SA_ART,
 <li>لباس خیس را دربیاور و با خشک عوض کن، حتی اگر مجبوری لباس خودت را بدهی. خشک نداری؟ خیس‌ها را تا جایی که می‌شود بچلان، بپوشان و بیرونش را با لایهٔ ضدباد بپیچ.</li>
 <li>سر، گردن و دست‌ها را بپوشان؛ سر بی‌پوشش به‌تنهایی سهم مهمی از اتلاف گرما دارد.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/hypothermia-first-aid-cut-heat-loss.webp" alt="عایق زیر فرد لرزان: دو زیرانداز و کوله‌ها روی زمین یخ‌زده، لباس خشک به‌جای لباس خیس، دهانهٔ چادر پشت باد" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">اول: باد و زمین را ببند</strong><span class="sa-guide-topic-card__description">زمین سرد بیشتر از هوا گرما می‌دزدد؛ دو لایه عایق زیرش بگذار، لباس خیس را با خشک عوض کن و سر، گردن و دست‌ها را بپوشان.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> پیچ عایق هیپوترمی</h3>
 <ul>
 <li>از پایین به بالا: زیرانداز، روی آن پتوی نجات یا نایلون باز، روی آن کیسه‌خواب یا پتو؛ فرد را خوابیده داخل بگذار و لایه‌ها را مثل پیچیدن ساندویچ دورش ببند، صورت باز بماند.</li>
@@ -5754,6 +5755,7 @@ SA_ART,
 <li>در هیپوترمی متوسط و شدید، تمام جابه‌جایی‌ها افقی و بسیار آرام؛ به دیگران بگو «مثل بلور».</li>
 <li>اگر فرد در آب سرد افتاده بود، ابتدا افقی بیرونش بیاور، لباس خیس را سریع عوض کن و پیچ را ببند؛ راهنمای <a href="/unconscious-drowning-cpr/">کمک به غریق بیهوش</a> را هم بخوان.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/hypothermia-first-aid-layer-wrap.webp" alt="فرد خوابیده میان زیرانداز، پتوی نجات باز و کیسهٔ خواب؛ لایه‌ها مثل ساندویچ دورش پیچیده و فقط صورتش بیرون است" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">پیچ عایق، از پایین به بالا</strong><span class="sa-guide-topic-card__description">زیرانداز، بعد پتوی نجات، بعد کیسهٔ خواب یا پتو؛ لایه‌ها را دورش ببند و صورت باز بماند. در مرحلهٔ متوسط و شدید همه‌چیز را افقی و بسیار آرام جابه‌جا کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> گرم‌سازی مرکزی و سوخت‌رسانی</h3>
 <ul>
 <li>فقط اگر کاملاً هوشیار است، سرفه و بلع دارد و می‌تواند لیوان را خودش بگیرد: نوشیدنی گرم و شیرین (چای شیرین، شیرکاکائو، سوپ) و خوراکی پرکالری (خرما، شکلات، حلوا، مغزها)؛ لرز سوخت می‌خواهد.</li>
@@ -5762,6 +5764,7 @@ SA_ART,
 <li>اجاق را بیرون چادر یا با تهویهٔ کامل روشن کن؛ منوکسید کربن در فضای بسته همهٔ گروه را از پا درمی‌آورد.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: کیسهٔ گرم و کیسه‌خواب نداری؟</strong> بطری‌های پلاستیکی را با آب گرم (نه جوش) پر کن، در جوراب بگذار و روی تنه بچین. سنگ صاف را کنار آتش کمی گرم کن، در چند لایه پارچه بپیچ و با پشت دستت امتحان کن که فقط گرم باشد، بعد زیر بغل بگذار. کیسه‌های زبالهٔ بزرگ را از پا تا زیر بغل بپوشان و بالایش را ژاکت بگذار؛ هوای بین لایه‌ها را با برگ خشک یا کاغذ پر کن. آخرین راه وقتی هیچ گرماسازی نیست: یک نفر خشک و گرم زیر پتو و در تماس پوستی سینه‌به‌سینه با او بماند؛ آهسته و فقط به‌عنوان مکمل پیچ عایق.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/hypothermia-first-aid-warm-bottle-center.webp" alt="بطری آب گرم پیچیده در جوراب روی سینه و زیر بغلِ فرد داخل پیچ عایق" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">گرما فقط به مرکز بدن</strong><span class="sa-guide-topic-card__description">بطری‌های گرم (نه جوش) را در جوراب بپیچ و روی سینه، دو زیر بغل و دو طرف گردن بگذار؛ دست و پا را جداگانه گرم نکن، چون گرمای مرکزی را بی‌سروصدا جابه‌جا می‌کند.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> مراقبت از انگشتان و صورت یخ‌زده</h3>
 <ul>
 <li>انگشتان سفید مومی، سخت و بی‌حس یعنی یخ‌زدگی؛ حلقه و ساعت را دربیاور، اندام را از سرما خارج کن و با دست خودت یا در زیر بغلت گرم نگه دار.</li>
@@ -8196,6 +8199,7 @@ SA_ART,
 <li>بسته‌ها، ورق‌های خالی، شیشه، یا نمونهٔ قارچ و گیاه را نگه دار تا با مصدوم به بیمارستان برود.</li>
 <li>ساعت دقیق مشاهده و هر تغییر (استفراغ، تشنج، توقف تنفس) را روی کاغذ بنویس.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/overdose-rescue-guide-pill-packaging.webp" alt="ورق‌های خالی و شیشهٔ دارو با برچسب بی‌خط کنار دفترچه و خودکار؛ فرد مصدوم نیمه‌نشسته در پس‌زمینه" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بسته را نگه دار، زمان را بنویس</strong><span class="sa-guide-topic-card__description">نام ماده، مقدار کم‌شده، ساعت تقریبی و سن و وزن را روی کاغذ یادداشت کن و بسته‌ها، شیشه یا نمونهٔ قارچ را با خود به بیمارستان ببر.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۲</span> هوشیار است: بیدار نگه دار و چیزی نده</h3>
 <ul>
 <li>بنشان یا نیمه‌نشسته تکیه بده، با او حرف بزن، سؤال بپرس، نگذار بخوابد و تنها نماند.</li>
@@ -8203,6 +8207,7 @@ SA_ART,
 <li>زغال فعال، شیر، آب‌نمک و «پادزهرهای خانگی» را فراموش کن؛ زغال فعال فقط به تشخیص پزشک یا مرکز سموم و برای مواد خاص کاربرد دارد.</li>
 <li>اگر بی‌قرار یا داغ است، به جای خنک آرام ببر، لباس اضافی را دربیاور و با پارچهٔ خیس خنکش کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/overdose-rescue-guide-keep-awake.webp" alt="همراه نجات شانهٔ فرد نیمه‌نشسته را گرفته و با او حرف می‌زند؛ لیوان آب کنار گذاشته شده" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">بیدار نگهش دار، چیزی نده</strong><span class="sa-guide-topic-card__description">بنشانش، سؤال بپرس و نگذار بخوابد؛ آب، شیر، آب‌نمک، زغال فعال و واداشتن به استفراغ را فراموش کن، مگر اینکه اورژانس بگوید.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> بیهوش ولی نفس می‌کشد: وضعیت ریکاوری</h3>
 <ul>
 <li>کنار او زانو بزن، دست نزدیک را به شکل زاویهٔ قائمه کنار سرش بگذار، دست دور را روی سینه‌اش بیاور و پشت دست را زیر گونهٔ نزدیک به خودت بگذار، زانوی دور را خم کن و با کشیدن آن، او را به سمت خودت به پهلو بچرخان.</li>
@@ -8218,6 +8223,7 @@ SA_ART,
 <li>تا رسیدن اورژانس یا بازگشت تنفس عادی ادامه بده و هر دو دقیقه با نفر بعدی عوض شو.</li>
 </ul>
 <p><strong>جایگزین خلاقانه: تنها هستی و باید او را به پهلو نگه داری؟</strong> کولهٔ پر یا کیسه‌خواب لوله‌شده را پشت کمرش بگذار تا به پشت برنگردد و یک لباس تاشده زیر سرش. برای ثبت زمان‌ها از ضبط صدای گوشی استفاده کن تا دست‌هایت آزاد بماند؛ همان فایل را بعداً برای تیم اورژانس پخش می‌کنی.</p>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/overdose-rescue-guide-backpack-support.webp" alt="فرد بیهوش به پهلو روی زیرانداز، زانوی خم جلوی غلتیدنش را گرفته و کت تاشده پشت کمرش است؛ سر کمی عقب و دهان رو به پایین" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">به پهلو، با تکیه‌گاه پشت کمر</strong><span class="sa-guide-topic-card__description">اگر تنها هستی کولهٔ پر یا کیسهٔ خواب لوله‌شده را پشت کمرش بگذار تا به پشت برنگردد؛ سر عقب و دهان رو به پایین تا استفراغ به ریه نرود.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> تشنج و بی‌قراری</h3>
 <ul>
 <li>در تشنج چیزی در دهانش نگذار و او را مهار نکن؛ اطراف را از سنگ و وسایل خالی کن، زیر سرش لباس بگذار و زمان شروع و پایان را ثبت کن. بعد از تشنج به پهلو بچرخان.</li>
@@ -10423,7 +10429,7 @@ SA_ART,
 <p>برش، مکش، سوزاندن، گارو و یخ روی جای نیش مار، سم را کم نمی‌کنند و بافت، رگ و عصب را از بین می‌برند. تنها درمان مؤثر مارگزیدگی و نیش عقرب‌های خطرناک، پادزهر در بیمارستان است و هر ساعت تأخیر مهم است. آنافیلاکسی در چند دقیقه می‌کشد و تنها دارویش اپی‌نفرین است که فقط فرد دارای نسخه و آموزش باید بزند. این مقاله جایگزین اورژانس و پزشک نیست.</p>
 </div>
 <h2>مقدمه</h2>
-<p>فرض کن غروب در دامنه‌های گرم زاگرس دستت را برای برداشتن هیزم زیر سنگی می‌بری و سوزشی تیز را حس می‌کنی؛ دو سوراخ ریز و تورمی که بالا می‌رود. تا نزدیک‌ترین بیمارستان دو ساعت راه است و آنچه در این دو ساعت می‌کنی، تفاوت بین یک شب تحت نظر و از دست دادن انگشتان است. پایین‌تر می‌بینی در گزیدگی مار، عقرب، زنبور و کنه چه کاری کمک می‌کند، کدام کارها ممنوع‌اند و شوک حساسیتی را در دقیقهٔ اول چطور بشناسی.</p>
+<p>فرض کن غروب در دامنه‌های گرم زاگرس دستت را برای برداشتن هیزم زیر سنگی می‌بری و سوزشی تیز را حس می‌کنی؛ دو سوراخ ریز و تورمی که بالا می‌رود. تا نزدیک‌ترین بیمارستان دو ساعت راه است و آنچه در این دو ساعت می‌کنی، تفاوت بین یک شب تحت نظر و از دست دادن انگشتان است. پایین‌تر می‌خوانی چه کاری کمک می‌کند، کدام کارها ممنوع است و شوک حساسیتی را در دقیقهٔ اول چطور بشناسی.</p>
 <h2>پیش‌نیازها و شرایط</h2>
 <ul>
 <li>شناخت منطقه: در دامنه‌های گرم، کویر و جنوب کشور احتمال مار و عقرب بیشتر است و نزدیک‌ترین بیمارستان دارای پادزهر را قبل از سفر باید بدانی. پادزهر مار و عقرب در همهٔ بیمارستان‌های ایران موجود نیست؛ با ۱۱۵ یا ۱۴۹۰ (مرکز اطلاعات داروها و سموم، شبانه‌روزی) نزدیک‌ترین مرکز دارای پادزهر را بپرس.</li>
@@ -10464,6 +10470,7 @@ SA_ART,
 <li>فرد راه نرود؛ با برانکارد اضطراری، کول یا خودرو منتقلش کن. راه رفتن فقط اگر هیچ راه دیگری نیست، آهسته و با توقف.</li>
 <li>فقط اگر مار قطعاً کبرا بوده و آموزش دیده‌ای، باند فشاری پهن از نوک اندام تا بالای مفصل بپیچ؛ برای افعی‌ها (بیشتر مارهای ایران) باند فشاری نپیچ.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-insect-bite-first-aid-mark-and-splint.webp" alt="خط ماژیک روی لبهٔ قرمزی ساعد، اندام در آتل چوبی و آویز گردنی" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">علامت بزن، بی‌حرکت کن، پایین نگه دار</strong><span class="sa-guide-topic-card__description">لبهٔ قرمزی و تورم را با ماژیک علامت بزن و زمانش را بنویس؛ اندام را با آتل و باند نرم بی‌حرکت کن و هم‌سطح یا پایین‌تر از قلب نگه دار.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۳</span> عقرب‌گزیدگی</h3>
 <ul>
 <li>جای نیش را با آب و صابون بشوی، پارچهٔ خنک یا کمپرس سرد پیچیده در پارچه بگذار (برای نیش عقرب و حشره، نه مار)، و اندام را بی‌حرکت و پایین نگه دار.</li>
@@ -10471,6 +10478,7 @@ SA_ART,
 <li>گادیم اول کم‌درد است و فریب می‌دهد؛ علائم کلیوی و خونی ساعت‌ها بعد می‌آید. هر نیش عقرب در خوزستان، بوشهر، هرمزگان و سیستان، و هر نیش در کودک زیر ده سال، همان ساعت بیمارستان برای پادزهر.</li>
 <li>تعریق شدید، بی‌قراری، آبریزش، اختلال تنفس یا تشنج در هر منطقه‌ای یعنی انتقال فوری.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-insect-bite-first-aid-scorpion-cold.webp" alt="پارچهٔ خنک گرفتهٔ کمپرس روی ساق پای درازکش و بی‌حرکت" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">عقرب: سرد کن و بی‌حرکت بگذار</strong><span class="sa-guide-topic-card__description">جای نیش را با آب و صابون بشوی و کمپرس سردِ پیچیده در پارچه بگذار؛ رنگ و شکل عقرب را از دور ببین یا عکس بگیر؛ به آن دست نزن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۴</span> زنبور و حشرات: نیش را بتراش، سرد کن، شصت دقیقه نگاه کن</h3>
 <ul>
 <li>نیش زنبور عسل را با لبهٔ کارت یا ناخن از پهلو بتراش، نه با انگشت یا موچین که کیسهٔ زهر را می‌فشارد.</li>
@@ -10479,6 +10487,7 @@ SA_ART,
 <li>ده‌ها نیش هم‌زمان حتی بدون حساسیت سمی است؛ دور شو و به بیمارستان برسان.</li>
 <li>کنه را با موچین نوک‌باریک از نزدیک‌ترین نقطه به پوست بگیر و آرام و مستقیم بیرون بکش؛ نسوزان، روغن و الکل نزن و نچرخان. محل را بشوی و تاریخ را یادداشت کن.</li>
 </ul>
+<figure class="sa-guide-topic-card"><div class="sa-guide-topic-card__media"><img src="https://sarzaminaryan.ir/wp-content/themes/sarzaminaryan-child/assets/img/guides/topic-cards/snake-insect-bite-first-aid-scrape-sting.webp" alt="تراشیدن نیش زنبور با لبهٔ یک کارت روی پوست، بدون موچین" width="720" height="540" loading="lazy" decoding="async" /></div><figcaption class="sa-guide-topic-card__body"><strong class="sa-guide-topic-card__title">نیش را بتراش، موچین نزن</strong><span class="sa-guide-topic-card__description">نیش را با لبهٔ کارت یا ناخن بتراش؛ فشار دادن با موچین کیسهٔ زهر را بیشتر خالی می‌کند. بعد سردش کن و یک ساعت به کهیر و تنفسش نگاه کن.</span></figcaption></figure>
 <h3 class="sa-step"><span class="sa-step__n">۵</span> آنافیلاکسی: دقیقه‌های اول</h3>
 <ul>
 <li>نشانه‌ها: کهیر دور از جای نیش، ورم لب و زبان، گرفتگی صدا، خس‌خس، درد شکم، سرگیجه و افت فشار.</li>
