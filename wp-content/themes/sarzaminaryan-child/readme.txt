@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.18.13
+Stable tag: 2.18.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.18.14 — 2026-10-15 =
+* تکمیل بچ‌های ۹ و ۱۰: ۲۱ کارت تازه در ۷ مقاله؛ مجموع ۲۰۴ کارت در همهٔ ۶۷ مقاله.
+* اصلاح ایمنی ابزار سرد، پانچو، آب، خواب، روشنایی، پوشاک، سوخت و پخت‌وپز؛ تصویرسازی تولیدی، نه عکس مستند.
+* WebP ۷۲۰×۵۴۰، کیفیت ۸۲ و واترمارک؛ ۲۷ کاور و ۱۰ حذف موردی تصویر شاخص بدون تغییر.
 
 = 2.18.13 — 2026-10-15 =
 * انتشار تجمیعی بچ‌های ۶ تا ۸؛ ۲۷ کارت تازه در ۹ مقاله.

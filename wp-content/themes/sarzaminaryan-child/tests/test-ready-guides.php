@@ -313,6 +313,62 @@ sa_guides_expect( false === strpos( $guides['camping-essential-checklist']['cont
 $clothing_faq = implode( ' ', array_column( $guides['outdoor-clothing-guide']['faq'], 'a' ) );
 sa_guides_expect( false === strpos( $guides['outdoor-clothing-guide']['content'] . $clothing_faq, 'در عرض نیم ساعت' ), 'no invented hypothermia onset time in body or FAQ' );
 
+/* Batch 10b: the final three cards stay inside their exact rendered steps. */
+$batch_ten_b = array(
+	'outdoor-cooking-equipment' => array( 1 => 'stable-stove', 2 => 'lidded-pot', 5 => 'washup-kit' ),
+);
+foreach ( $batch_ten_b as $slug => $topics ) {
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three batch-10b cards" );
+	preg_match_all( '/<h3 class="sa-step"><span class="sa-step__n">([^<]+)<\/span>.*?(?=<h3 class="sa-step">|<h2>|$)/su', $content, $matches, PREG_SET_ORDER );
+	$steps = array();
+	foreach ( $matches as $match ) {
+		$steps[ (int) strtr( $match[1], array( '۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4', '۵' => '5' ) ) ] = $match[0];
+	}
+	foreach ( $topics as $number => $topic ) {
+		$file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+		$image = SA_CHILD_DIR . 'assets/img/' . $file;
+		sa_guides_expect( isset( $steps[ $number ] ) && 1 === substr_count( $steps[ $number ], $file ), "{$slug}: {$topic} in its exact step {$number}" );
+		sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset size" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is 720x540 WebP" );
+	}
+}
+$cooking = $guides['outdoor-cooking-equipment'];
+$cooking_text = $cooking['content'] . ' ' . implode( ' ', array_column( $cooking['faq'], 'a' ) );
+foreach ( array( 'کپسول را با آب گرم، شعله یا داخل لباس و کیسه‌خواب گرم نکن', 'عدد ثابت برای هر نفر و هر روز قابل‌اتکا نیست', 'ممنوعیت آتش ممکن است اجاق گاز را هم شامل شود', 'غذای آمادهٔ خوردن انتخاب کن', 'شویندهٔ زیست‌تخریب‌پذیر هم نباید مستقیم وارد آب طبیعی شود', 'لیوان فلزیِ دوجداره', 'منتظر علامت در همهٔ افراد نمان', 'برای نجات وارد فضای آلوده نشو' ) as $warning ) {
+	sa_guides_expect( false !== strpos( $cooking_text, $warning ), "cooking: reviewed body/FAQ warning retained: {$warning}" );
+}
+foreach ( array( 'راه‌حل کماندوها', 'حدود ۵۰ گرم', '۳ تا ۴ روزه کاملاً کافیه', 'تا خاک بتونه آب رو تصفیه کنه' ) as $claim ) {
+	sa_guides_expect( false === strpos( $cooking_text, $claim ), "cooking: no unsafe or invented claim: {$claim}" );
+}
+
+/* Final inventory is deliberate: all guides are carded, without a global cover-policy change. */
+sa_guides_expect( 67 === count( $guides ), 'final collection has exactly 67 guides' );
+$final_refs = array();
+$final_removed = 0;
+foreach ( $guides as $slug => $guide ) {
+	$count = substr_count( $guide['content'], '<figure class="sa-guide-topic-card">' );
+	sa_guides_expect( $count > 0, "{$slug}: no guide remains without topic cards" );
+	preg_match_all( '#<img[^>]+src="[^"]*/assets/img/guides/topic-cards/([a-z0-9-]+\.webp)"#', $guide['content'], $matches );
+	sa_guides_expect( count( $matches[1] ) === $count, "{$slug}: each figure references one local topic-card asset" );
+	$final_refs = array_merge( $final_refs, $matches[1] );
+	$final_removed += ! empty( $guide['remove_featured_image'] ) ? 1 : 0;
+}
+sa_guides_expect( 204 === count( $final_refs ) && 204 === count( array_unique( $final_refs ) ), 'exactly 204 unique topic-card references' );
+sa_guides_expect( 27 === $covers && 10 === $final_removed, 'keep exactly 27 covers and ten per-item removal flags' );
+$final_assets = array_map( 'basename', glob( SA_CHILD_DIR . 'assets/img/guides/topic-cards/*.webp' ) );
+sort( $final_refs );
+sort( $final_assets );
+sa_guides_expect( $final_refs === $final_assets, 'final topic-card inventory has no missing or orphan files' );
+foreach ( $final_assets as $file ) {
+	$path = SA_CHILD_DIR . 'assets/img/guides/topic-cards/' . $file;
+	$dimensions = getimagesize( $path );
+	sa_guides_expect( filesize( $path ) > 10 * 1024 && filesize( $path ) < 200 * 1024, "{$file}: final asset size" );
+	sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$file}: final 720x540 WebP format" );
+}
+
 /**
  * Minimal strip-tags shim (no WordPress here).
  *
