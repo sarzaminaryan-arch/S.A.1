@@ -4,12 +4,15 @@ on:
     branches: ["arena/4878663e-s-a-1"]
     paths: [".github/workflows/recover-card-batches.yml"]
 permissions:
-  contents: read
+  contents: write
 jobs:
   recover:
     runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Download public owner-provided archives and verify SHA-256
         shell: bash
         run: |
@@ -19,6 +22,18 @@ jobs:
           curl -fsSL --retry 3 --max-time 120 'https://drive.usercontent.google.com/download?id=1B6HSrf_qQZkLR-mfAWcmv8uZavEXLDGM&export=download' -o sa1-batches-2-5-v2.18.12.bundle
           curl -fsSL --retry 3 --max-time 120 'https://drive.usercontent.google.com/download?id=1g-u62W-hWL3j4FwZjqc8FUWtlt0faIeK&export=download' -o stage-cards-tools.tar.gz
           printf '%s\n' '29104db61c82d38e079340c8065d82f3c28f8a2face4181a63d9d840aa21c3fd  sa1-batches-2-5-v2.18.12.bundle' 'bb993b6be62b1f53a0842a6b308ff6642f1566939f9a501a5c3d6c6cda4f889e  stage-cards-tools.tar.gz' | sha256sum -c -
+      - name: Restore original commits on this session branch only
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git bundle verify transfer/sa1-batches-2-5-v2.18.12.bundle
+          git fetch transfer/sa1-batches-2-5-v2.18.12.bundle refs/heads/arena/1fa40e4b-s-a-1
+          git merge --no-ff FETCH_HEAD -m 'Restore seven original card-batch commits from verified owner bundle'
+          python3 tools/content-lint/build_theme_data.py --check
+          python3 tools/content-lint/content_lint.py --check-ready --quiet docs/camping-education/articles/
+          git push origin HEAD:refs/heads/arena/4878663e-s-a-1
       - name: Return verified transfer files (one-day retention)
         uses: actions/upload-artifact@v4
         with:
