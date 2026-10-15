@@ -1,11 +1,13 @@
 /**
- * «مقالات آمادهٔ دیدنی‌ها» — white featured-image card generator.
+ * «مقالات آمادهٔ دیدنی‌ها» — three-panel featured-image card generator.
  *
- * Draws the mandated card on a 1200×600 canvas: pure white background, one
- * colored corner icon, centered Persian/English text in navy / dark green /
- * dark gold and a deep shadow around the white cover — nothing else.  The
- * bitmap is rendered in the browser (correct Persian shaping) and posted to
- * the REST route that stores it as the post's featured image.
+ * Draws the 1200×600 card on a canvas so the result matches the bundled
+ * `assets/img/attraction-covers/*.webp` artwork: pure white background, three
+ * panels (geometric painting | English name | Persian name), the short place
+ * name as the big title in both languages (Bisheh / بیشه), the full name,
+ * district/province and a light grid inside the painting.  The bitmap is
+ * rendered in the browser (correct Persian shaping) and posted to the REST
+ * route that stores it as the post's featured image.
  *
  * @package Sarzaminaryan_Child
  */
@@ -35,6 +37,130 @@
 		ctx.lineTo( x, y + r );
 		ctx.quadraticCurveTo( x, y, x + r, y );
 		ctx.closePath();
+	}
+
+	/* --------------------------------------------------------------- layout */
+
+	var PANELS   = [ 54, 418, 782, 1146 ];
+	var TOP      = 54;
+	var BOTTOM   = 546;
+	var ART      = [ 78, 118, 316, 316 ];
+
+	var KIND_EN = {
+		waterfall: 'WATERFALL', lake: 'LAKE', wetland: 'WETLAND', city: 'CITY',
+		mountain: 'MOUNTAIN', castle: 'FORTRESS', cave: 'CAVE', forest: 'FOREST',
+		valley: 'VALLEY', desert: 'DESERT', village: 'VILLAGE', monument: 'SHRINE',
+		historical: 'HERITAGE', park: 'PARK'
+	};
+
+	var KIND_TINT = {
+		waterfall: '#f2fbff', lake: '#f2fbff', wetland: '#f2fbff', forest: '#f3fbf2',
+		valley: '#faf5ff', desert: '#fffaf0', village: '#f7fbf1', park: '#f6fbf3',
+		castle: '#fdf9f0', historical: '#fdf8f0', cave: '#f6f4fb', monument: '#f7fbfd',
+		city: '#f7fafc', mountain: '#f5fafe'
+	};
+
+	function spaced( text ) {
+		return String( text ).toUpperCase().split( '' ).join( ' ' );
+	}
+
+	function chip( ctx, cx, cy, text, size, fill, color ) {
+		ctx.save();
+		ctx.font = '500 ' + size + 'px ' + FONT;
+		var w = ctx.measureText( text ).width;
+		var padX = 16;
+		var padY = 9;
+		roundRect( ctx, cx - w / 2 - padX, cy - size * 0.5 - padY, w + padX * 2, size + padY * 2, 14 );
+		ctx.fillStyle = fill;
+		ctx.fill();
+		ctx.fillStyle = color;
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText( text, cx, cy + 1 );
+		ctx.restore();
+	}
+
+	function divider( ctx, cx, y, color, half, thick ) {
+		ctx.save();
+		ctx.fillStyle = color;
+		roundRect( ctx, cx - half, y, half * 2, thick, thick / 2 );
+		ctx.fill();
+		ctx.restore();
+	}
+
+	function panelArt( ctx, kind ) {
+		var x = ART[ 0 ];
+		var y = ART[ 1 ];
+		var w = ART[ 2 ];
+		var h = ART[ 3 ];
+
+		ctx.save();
+		roundRect( ctx, x, y, w, h, 22 );
+		ctx.fillStyle = KIND_TINT[ kind ] || '#f7fbff';
+		ctx.fill();
+		ctx.clip();
+		// خطوط منظم و روشن
+		ctx.strokeStyle = 'rgba(143,168,189,0.16)';
+		ctx.lineWidth = 1;
+		for ( var gx = x; gx <= x + w; gx += 52 ) {
+			ctx.beginPath();
+			ctx.moveTo( gx, y );
+			ctx.lineTo( gx, y + h );
+			ctx.stroke();
+		}
+		for ( var gy = y; gy <= y + h; gy += 52 ) {
+			ctx.beginPath();
+			ctx.moveTo( x, gy );
+			ctx.lineTo( x + w, gy );
+			ctx.stroke();
+		}
+		// زمینهٔ نقاشی: نوار زمین و کمان‌های تزئینی
+		ctx.fillStyle = 'rgba(111,208,242,0.35)';
+		ctx.fillRect( x, y + h * 0.78, w, h * 0.22 );
+		ctx.strokeStyle = 'rgba(15,134,196,0.35)';
+		ctx.lineWidth = 2;
+		for ( var i = 0; i < 3; i++ ) {
+			ctx.beginPath();
+			ctx.moveTo( x + 30 + i * 40, y + h * 0.86 );
+			ctx.quadraticCurveTo( x + 60 + i * 40, y + h * 0.80, x + 90 + i * 40, y + h * 0.86 );
+			ctx.stroke();
+		}
+		drawIcon( ctx, kind, x + w / 2, y + h * 0.44, 62 );
+		ctx.restore();
+
+		roundRect( ctx, x, y, w, h, 22 );
+		ctx.strokeStyle = '#dfeaf2';
+		ctx.lineWidth = 1.6;
+		ctx.stroke();
+	}
+
+	function panelTitle( ctx, cx, text, color, isRtl, maxWidth ) {
+		ctx.save();
+		ctx.direction = isRtl ? RTL : 'ltr';
+		var size = fitFontSize( ctx, text, maxWidth, 76, 40, '700' );
+		ctx.font = '700 ' + size + 'px ' + FONT;
+		ctx.fillStyle = color;
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText( text, cx, 196 );
+		ctx.restore();
+	}
+
+	function panelFull( ctx, cx, text, color, isRtl, maxWidth, y ) {
+		ctx.save();
+		ctx.direction = isRtl ? RTL : 'ltr';
+		var size = fitFontSize( ctx, text, maxWidth, 26, 17, '500' );
+		var lines = wrapLines( ctx, text, maxWidth, '500', size );
+		var step = size * 1.25;
+		var start = y - ( lines.length - 1 ) * step / 2;
+		ctx.font = '500 ' + size + 'px ' + FONT;
+		ctx.fillStyle = color;
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		lines.forEach( function ( line, index ) {
+			ctx.fillText( line, cx, start + index * step );
+		} );
+		ctx.restore();
 	}
 
 	/* ---------------------------------------------------------------- icons */
@@ -247,68 +373,93 @@
 		var navy = P.navy || '#011f3d';
 		var green = P.green || '#0f5132';
 		var gold = P.gold || '#9b6a16';
+		var kind = data.kind || 'mountain';
 
-		/* Pure white background — no pattern, no decoration. */
+		/* Pure white background. */
 		ctx.fillStyle = '#ffffff';
 		ctx.fillRect( 0, 0, W, H );
 
-		var x = 56;
-		var y = 40;
-		var w = W - 112;
-		var h = H - 80;
-		var radius = 44;
+		var x = 30;
+		var y = 30;
+		var w = W - 60;
+		var h = H - 60;
+		var radius = 38;
 
 		/* Deep shadow around the white cover. */
 		ctx.save();
 		ctx.shadowColor = 'rgba(1,31,61,0.30)';
 		ctx.shadowBlur = 72;
-		ctx.shadowOffsetY = 26;
+		ctx.shadowOffsetY = 20;
 		roundRect( ctx, x, y, w, h, radius );
 		ctx.fillStyle = '#ffffff';
 		ctx.fill();
-		ctx.shadowColor = 'rgba(1,31,61,0.18)';
-		ctx.shadowBlur = 20;
-		ctx.shadowOffsetY = 6;
-		roundRect( ctx, x, y, w, h, radius );
-		ctx.fill();
 		ctx.restore();
 
-		ctx.save();
 		roundRect( ctx, x, y, w, h, radius );
-		ctx.strokeStyle = 'rgba(1,31,61,0.07)';
-		ctx.lineWidth = 1.5;
+		ctx.strokeStyle = '#e7eef4';
+		ctx.lineWidth = 1.4;
 		ctx.stroke();
-		ctx.restore();
 
-		/* One colored corner icon (top of the reading side). */
-		drawIcon( ctx, data.kind, x + w - 96, y + 92, 62 );
-
-		var center = x + w / 2;
-		var title = data.title || '';
-		var titleWidth = w - 300;
-		var size = fitFontSize( ctx, title, titleWidth, 64, 40, '700' );
-		var lines = wrapLines( ctx, title, titleWidth, '700', size );
-		if ( lines.length > 2 ) {
-			size = fitFontSize( ctx, title, titleWidth, size - 4, 34, '700' );
-			lines = wrapLines( ctx, title, titleWidth, '700', size );
-		}
-		var firstY = lines.length > 1 ? 232 : 258;
-		lines.forEach( function ( line, index ) {
-			rtlText( ctx, line, center, firstY + index * ( size + 14 ), size, '700', navy );
+		/* جداکنندهٔ سه پنل */
+		ctx.strokeStyle = '#e3ecf3';
+		ctx.lineWidth = 1.5;
+		[ PANELS[ 1 ], PANELS[ 2 ] ].forEach( function ( px ) {
+			ctx.beginPath();
+			ctx.moveTo( px, TOP + 18 );
+			ctx.lineTo( px, BOTTOM - 18 );
+			ctx.stroke();
 		} );
 
-		var afterTitle = firstY + ( lines.length - 1 ) * ( size + 14 );
-		rtlText( ctx, data.city || '', center, afterTitle + 78, 34, '500', green );
-		rtlText( ctx, data.province || '', center, afterTitle + 122, 26, '400', green );
-
-		/* Thin gold divider between the Persian and the English line. */
+		/* پنل ۱ — نقاشی هندسی */
+		var artCenter = ( PANELS[ 0 ] + PANELS[ 1 ] ) / 2;
 		ctx.save();
-		ctx.fillStyle = gold;
-		roundRect( ctx, center - 44, afterTitle + 156, 88, 5, 3 );
-		ctx.fill();
+		ctx.font = '500 15px ' + FONT;
+		ctx.fillStyle = '#93a7b8';
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText( spaced( KIND_EN[ kind ] || 'LANDSCAPE' ), artCenter, 88 );
+		ctx.restore();
+		panelArt( ctx, kind );
+		ctx.save();
+		ctx.font = '500 15px ' + FONT;
+		ctx.fillStyle = '#a9b8c6';
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText( 'sarzaminaryan.ir', artCenter, 486 );
 		ctx.restore();
 
-		ltrText( ctx, data.english || '', center, Math.min( H - 74, afterTitle + 210 ), 27, '500', gold );
+		/* پنل ۲ — نام انگلیسی */
+		var enCenter = ( PANELS[ 1 ] + PANELS[ 2 ] ) / 2;
+		chip( ctx, enCenter, 92, spaced( KIND_EN[ kind ] || 'LANDSCAPE' ), 15, '#eef4fb', '#3c5f7d' );
+		panelTitle( ctx, enCenter, data.short || data.english || '', gold, false, 344 );
+		divider( ctx, enCenter, 262, P.line || '#dbe7f0', 36, 4 );
+		panelFull( ctx, enCenter, data.english || '', navy, false, 344, 306 );
+		ctx.save();
+		ctx.font = '500 13px ' + FONT;
+		ctx.fillStyle = '#8a9aa8';
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText( spaced( ( data.city || '' ) + ' · ' + ( data.province || '' ) + ' · IRAN' ),
+			enCenter, 424 );
+		ctx.restore();
+
+		/* پنل ۳ — نام فارسی */
+		var faCenter = ( PANELS[ 2 ] + PANELS[ 3 ] ) / 2;
+		chip( ctx, faCenter, 92, data.chipFa || 'نمای برتر', 17, '#eaf6ee', green );
+		ctx.save();
+		ctx.direction = RTL;
+		panelTitle( ctx, faCenter, data.shortFa || data.title || '', navy, true, 344 );
+		ctx.restore();
+		divider( ctx, faCenter, 262, '#e6dfd2', 36, 4 );
+		panelFull( ctx, faCenter, data.title || '', green, true, 344, 306 );
+		ctx.save();
+		ctx.direction = RTL;
+		ctx.font = '500 19px ' + FONT;
+		ctx.fillStyle = '#4d6b5a';
+		ctx.textAlign = 'center';
+		ctx.textBaseline = 'middle';
+		ctx.fillText( data.location || '', faCenter, 424 );
+		ctx.restore();
 	}
 
 	function ctxReset( canvas ) {
@@ -372,7 +523,7 @@
 					if ( row ) {
 						var badge = row.querySelector( '.sa-ready__badge--cover, .sa-ready__badge--none' );
 						if ( badge ) {
-							badge.textContent = 'کارت سفید قالب';
+							badge.textContent = 'کارت سه‌دریک قالب';
 							badge.className = 'sa-ready__badge sa-ready__badge--cover';
 						}
 					}
@@ -403,8 +554,14 @@
 		draw( canvas, {
 			title: button.getAttribute( 'data-title' ) || '',
 			english: button.getAttribute( 'data-english' ) || '',
+			short: button.getAttribute( 'data-short-en' ) || '',
+			shortFa: button.getAttribute( 'data-short-fa' ) || '',
+			chipFa: button.getAttribute( 'data-chip-fa' ) || 'نمای برتر',
 			city: button.getAttribute( 'data-city' ) || '',
 			province: button.getAttribute( 'data-province' ) || '',
+			cityEn: button.getAttribute( 'data-city-en' ) || '',
+			provinceEn: button.getAttribute( 'data-province-en' ) || '',
+			location: button.getAttribute( 'data-location' ) || '',
 			kind: button.getAttribute( 'data-kind' ) || 'mountain'
 		} );
 
