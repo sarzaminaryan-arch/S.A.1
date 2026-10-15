@@ -93,6 +93,7 @@ class Article:
     links: List[Tuple[int, str, str]] = field(default_factory=list) # (line, text, href)
     paragraphs: List[Paragraph] = field(default_factory=list)
     fences: List[Tuple[int, int, str]] = field(default_factory=list) # (start, end, lang)
+    cards: List[Tuple[int, int, Dict[str, str]]] = field(default_factory=list)  # (start, end, fields) کارت‌های تصویری درون مقاله
 
     # ----- کمکی‌ها -----
     def body_range(self) -> Tuple[int, int]:
@@ -102,7 +103,10 @@ class Article:
         return start, end
 
     def in_fence(self, i: int) -> bool:
-        return any(s <= i <= e for s, e, _ in self.fences)
+        """سطرهای فنس کد یا بلوک کارت تصویری (:::sa-topic-card) — متن آزاد نیستند."""
+        if any(s <= i <= e for s, e, _ in self.fences):
+            return True
+        return any(s <= i <= e for s, e, _ in self.cards)
 
     def section_by_key(self, key: str) -> Optional[Section]:
         for s in self.sections:
@@ -200,6 +204,24 @@ def parse(path: str, text: Optional[str] = None) -> Article:
                 in_fence = False
     if in_fence:
         art.fences.append((f_start, len(lines) - 1, f_lang + ' (بسته‌نشده)'))
+
+    # ---- کارت‌های تصویری درون مقاله (:::sa-topic-card … :::)
+    i = 0
+    while i < len(lines):
+        if lines[i].strip() == ':::sa-topic-card':
+            start = i
+            j = i + 1
+            fields: Dict[str, str] = {}
+            while j < len(lines) and lines[j].strip() != ':::':
+                m = re.match(r'^([A-Za-z]+)\s*:\s*(.*)$', lines[j].strip())
+                if m:
+                    fields[m.group(1).strip()] = m.group(2).strip()
+                j += 1
+            end = min(j, len(lines) - 1)
+            art.cards.append((start, end, fields))
+            i = j + 1
+            continue
+        i += 1
 
     # ---- تیترها و بخش‌ها
     heads: List[Tuple[int, int, str]] = []
