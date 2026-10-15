@@ -233,6 +233,43 @@ sa_guides_expect( false !== strpos( $guides['can-cookware-diy']['content'], 'پ�
 sa_guides_expect( false !== strpos( $guides['diy-bottle-lantern']['content'], 'بطری پرآب را از سقف یا تیرک چادر آویزان نکن' ), 'no heavy bottle on tent roof' );
 sa_guides_expect( false !== strpos( $guides['sleeping-bag-guide']['faq'][4]['a'], 'کنار آتش، اجاق یا منبع حرارت مستقیم نگذار' ), 'wet sleeping bag must not be dried by fire' );
 
+/* Batch 9: keep all three reviewed cards inside their exact numbered steps. */
+$batch_nine = array(
+	'plastic-bottle-shovel-funnel' => array( 2 => 'light-scoop', 3 => 'water-funnel', 4 => 'bottom-container' ),
+	'pull-tab-tools-diy' => array( 1 => 'intact-tabs', 3 => 'cord-zip-pull', 4 => 'collect-fragments' ),
+	'trash-bag-emergency-raincoat' => array( 1 => 'flat-bag', 2 => 'cut-openings', 3 => 'loose-poncho' ),
+);
+foreach ( $batch_nine as $slug => $topics ) {
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three batch-9 cards" );
+	preg_match_all( '/<h3 class="sa-step"><span class="sa-step__n">([^<]+)<\/span>.*?(?=<h3 class="sa-step">|<h2>|$)/su', $content, $matches, PREG_SET_ORDER );
+	$steps = array();
+	foreach ( $matches as $match ) {
+		$steps[ (int) strtr( $match[1], array( '۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4', '۵' => '5' ) ) ] = $match[0];
+	}
+	foreach ( $topics as $number => $topic ) {
+		$file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+		$image = SA_CHILD_DIR . 'assets/img/' . $file;
+		sa_guides_expect( isset( $steps[ $number ] ) && 1 === substr_count( $steps[ $number ], $file ), "{$slug}: {$topic} in its exact step {$number}" );
+		sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset size" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is 720x540 WebP" );
+	}
+}
+$batch_nine_safety = array(
+	'plastic-bottle-shovel-funnel' => array( 'ابزار حفاری یا نجات بهمن نیست', 'جوشاندن هم آلودگی شیمیایی را برطرف نمی‌کند', 'میخ داغ یا فروکردن چاقو در بدنهٔ لغزنده ایجاد نکن' ),
+	'pull-tab-tools-diy' => array( 'حلقهٔ قوطی هیچ تحمل بار عمومی و تضمین‌شده‌ای', 'فلز را نبر، سوراخ یا تیز نکن', 'کیف یا وسیله را از این دستگیره بلند نکن' ),
+	'trash-bag-emergency-raincoat' => array( 'گردن، مچ‌ها و پایین پوشش را نبند', 'سد رطوبت جای عایق کف و کیسه‌خواب را نمی‌گیرد', 'گودی خشک یا زیر درخت پناهگاه امن نیست', 'منتظر بهترشدن نمان' ),
+);
+foreach ( $batch_nine_safety as $slug => $warnings ) {
+	foreach ( $warnings as $warning ) {
+		sa_guides_expect( false !== strpos( (string) $guides[ $slug ]['content'], $warning ), "{$slug}: reviewed safety warning retained: {$warning}" );
+	}
+}
+sa_guides_expect( false === strpos( $guides['pull-tab-tools-diy']['content'], 'برای وسایل سبک، زیر ' ), 'no invented load rating for a beverage tab' );
+sa_guides_expect( false === strpos( $guides['trash-bag-emergency-raincoat']['content'], 'پناه‌گرفتن در گودی خشک' ), 'no lightning refuge in a hollow' );
+
 /**
  * Minimal strip-tags shim (no WordPress here).
  *
