@@ -27,6 +27,18 @@ $GLOBALS['t'] = array(
 	'ajax'      => false,
 	'tmp'       => rtrim( sys_get_temp_dir(), '/' ) . '/sa-feat-test-' . uniqid(),
 	'current'   => 0,
+	'ready_articles' => array(
+		'camping-lighting-guide'        => array( 'slug' => 'camping-lighting-guide', 'remove_featured_image' => true ),
+		'portable-water-filter-review' => array( 'slug' => 'portable-water-filter-review', 'remove_featured_image' => true ),
+		'camping-stove-review'         => array( 'slug' => 'camping-stove-review', 'remove_featured_image' => true ),
+		'multi-tool-knife-review'       => array( 'slug' => 'multi-tool-knife-review', 'remove_featured_image' => true ),
+		'gps-navigation-tools'          => array( 'slug' => 'gps-navigation-tools', 'remove_featured_image' => true ),
+		'rope-carabiner-guide'          => array( 'slug' => 'rope-carabiner-guide', 'remove_featured_image' => true ),
+		'professional-rescue-kit'       => array( 'slug' => 'professional-rescue-kit', 'remove_featured_image' => true ),
+		'diy-water-filter'              => array( 'slug' => 'diy-water-filter', 'remove_featured_image' => true ),
+		'diy-can-stove'                 => array( 'slug' => 'diy-can-stove', 'remove_featured_image' => true ),
+		'rope-alternatives-outdoor'     => array( 'slug' => 'rope-alternatives-outdoor', 'remove_featured_image' => true ),
+	),
 );
 @mkdir( $GLOBALS['t']['tmp'] . '/2026/10', 0777, true ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 
@@ -64,6 +76,15 @@ function is_feed() {
 }
 function get_the_ID() {
 	return (int) $GLOBALS['t']['current'];
+}
+function get_post_field( $field, $post_id ) {
+	if ( 'post_name' !== $field ) {
+		return '';
+	}
+	return isset( $GLOBALS['t']['posts'][ $post_id ]['slug'] ) ? $GLOBALS['t']['posts'][ $post_id ]['slug'] : '';
+}
+function sa_ready_articles_data() {
+	return $GLOBALS['t']['ready_articles'];
 }
 function has_post_thumbnail( $post_id ) {
 	return ! empty( $GLOBALS['t']['posts'][ $post_id ]['thumb'] );
@@ -125,6 +146,47 @@ sa_t_assert( false === sa_featured_image_available( 5 ), 'off switch hides even 
 $GLOBALS['t']['mods']['sa_show_featured_images'] = true;
 sa_t_assert( true === sa_featured_image_available( 5 ), 'on switch + existing file shows the thumbnail' );
 sa_t_assert( false === sa_featured_image_available( 6 ), 'a post without a thumbnail never shows one' );
+
+// Per-post flags hide only migrated guides' featured images; the global switch stays on.
+$GLOBALS['t']['posts'][7] = array( 'thumb' => 70, 'slug' => 'camping-lighting-guide' );
+$GLOBALS['t']['attached'][70] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 7 ), 'the lighting record suppresses only its own featured image' );
+sa_t_assert( false === sa_featured_image_available( 7 ), 'the lighting image stays hidden with the global switch on' );
+$GLOBALS['t']['posts'][8] = array( 'thumb' => 80, 'slug' => 'portable-water-filter-review' );
+$GLOBALS['t']['attached'][80] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 8 ), 'the water-filter record suppresses only its own featured image' );
+$GLOBALS['t']['posts'][9] = array( 'thumb' => 90, 'slug' => 'camping-stove-review' );
+$GLOBALS['t']['attached'][90] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 9 ), 'the stove record suppresses only its own featured image' );
+sa_t_assert( false === sa_featured_image_available( 9 ), 'the stove thumbnail stays hidden with the global switch on' );
+$GLOBALS['t']['posts'][10] = array( 'thumb' => 100, 'slug' => 'multi-tool-knife-review' );
+$GLOBALS['t']['attached'][100] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 10 ), 'the multi-tool record suppresses only its own featured image' );
+sa_t_assert( false === sa_featured_image_available( 10 ), 'the multi-tool thumbnail stays hidden with the global switch on' );
+$GLOBALS['t']['posts'][11] = array( 'thumb' => 110, 'slug' => 'gps-navigation-tools' );
+$GLOBALS['t']['attached'][110] = array( 'missing' => false );
+sa_t_assert( true === sa_featured_image_suppressed( 11 ), 'the GPS record suppresses only its own featured image' );
+sa_t_assert( false === sa_featured_image_available( 11 ), 'the GPS thumbnail stays hidden with the global switch on' );
+
+$new_slugs = array( 'rope-carabiner-guide', 'professional-rescue-kit', 'diy-water-filter', 'diy-can-stove', 'rope-alternatives-outdoor' );
+foreach ( $new_slugs as $index => $slug ) {
+	$post_id = 12 + $index;
+	$GLOBALS['t']['posts'][ $post_id ] = array( 'thumb' => 100 + $post_id, 'slug' => $slug );
+	$GLOBALS['t']['attached'][ 100 + $post_id ] = array( 'missing' => false );
+	sa_t_assert( true === sa_featured_image_suppressed( $post_id ), $slug . ': only its own featured image is suppressed' );
+	sa_t_assert( false === sa_featured_image_available( $post_id ), $slug . ': thumbnail stays hidden while the global switch is on' );
+}
+
+foreach ( array_merge( array( 7, 9, 10, 11 ), range( 12, 16 ) ) as $post_id ) {
+	$GLOBALS['t']['current'] = $post_id;
+	sa_t_assert( '' === sa_featured_image_guard( '<img>' ), "post {$post_id}: the current migrated article thumbnail is hidden" );
+	sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), "post {$post_id}: a nested image for another article is untouched" );
+}
+$GLOBALS['t']['current'] = 8;
+sa_t_assert( '' === sa_featured_image_guard( '<img>' ), 'the water-filter article hides its own current thumbnail' );
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), 'the water-filter flag does not hide another post thumbnail' );
+$GLOBALS['t']['current'] = 0;
+sa_t_assert( true === sa_featured_image_available( 5 ), 'all other articles remain visible under the same global setting' );
 
 $GLOBALS['t']['attached'][50]['missing'] = true;
 sa_t_assert( false === sa_featured_image_available( 5 ), 'a thumbnail whose file was deleted is not shown' );

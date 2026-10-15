@@ -81,8 +81,9 @@ function sa_ready_article_normalize( $article ) {
 		'meta'          => array(),
 		'faq'           => array(),
 		'gallery'       => array(),
-		'cover'         => array(), // v2.13.2 — تصویر شاخص همراه قالب: file (نسبت به assets/img/) + alt + title.
-		'content'       => '',
+		'cover'                 => array(), // v2.13.2 — تصویر شاخص همراه قالب: file (نسبت به assets/img/) + alt + title.
+		'remove_featured_image' => false, // حذفِ صریحِ تصویر شاخصِ همین نوشته؛ پیوست رسانه‌ای پاک نمی‌شود.
+		'content'               => '',
 	);
 	$article  = array_merge( $defaults, $article );
 	if ( 'post' === $article['type'] && '' === $article['kind'] ) {
@@ -390,6 +391,31 @@ function sa_ready_articles_sideload( $url, $post_id = 0 ) {
 	$attachment = absint( $attachment );
 	update_post_meta( $attachment, '_sa_source_url', $url );
 	return $attachment;
+}
+
+/**
+ * Apply the per-article featured-image policy from its ready-guide record.
+ *
+ * `remove_featured_image` is explicit and scoped to this post. It unsets only
+ * the thumbnail relationship; the attachment and its file remain in Media.
+ * For records without the flag, the existing bundled-cover policy is retained.
+ *
+ * @param int                 $post_id Post ID.
+ * @param array<string,mixed> $article Article record.
+ * @return int|WP_Error 0 when removed/no change, or the cover attachment result.
+ */
+function sa_ready_articles_apply_featured_image_policy( $post_id, $article ) {
+	$post_id = absint( $post_id );
+	if ( ! $post_id ) {
+		return 0;
+	}
+	if ( ! empty( $article['remove_featured_image'] ) ) {
+		delete_post_thumbnail( $post_id );
+		update_post_meta( $post_id, '_sa_ready_remove_featured_image', '1' );
+		return 0;
+	}
+	delete_post_meta( $post_id, '_sa_ready_remove_featured_image' );
+	return sa_ready_articles_attach_cover( $post_id, $article );
 }
 
 /**
@@ -756,9 +782,9 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 	$is_draft = ( '' === $status || in_array( $status, array( 'draft', 'auto-draft' ), true ) );
 
 	if ( $post_id && ! $is_draft && ! $overwrite_published ) {
-		// v2.13.2 — the bundled featured image is additive (no content change), so a
-		// published article still receives it; an owner-chosen image is left alone.
-		sa_ready_articles_attach_cover( $post_id, $article );
+		// Featured-image changes remain scoped to this article; an explicit removal
+		// unsets its thumbnail, while ordinary cover imports stay additive.
+		sa_ready_articles_apply_featured_image_policy( $post_id, $article );
 		return new WP_Error(
 			'published_locked',
 			'این مقاله وضعیت «' . $status . '» دارد. برای به‌روزرسانی، گزینهٔ «بازنویسی نسخهٔ منتشرشده» را تیک بزنید.'
@@ -831,8 +857,8 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 		}
 	}
 
-	// v2.13.2 — featured image shipped with the theme (alt text = focus keyword).
-	$cover = sa_ready_articles_attach_cover( $post_id, $article );
+	// Per-article policy: attach the bundled cover, or remove this post's thumbnail only.
+	$cover = sa_ready_articles_apply_featured_image_policy( $post_id, $article );
 	if ( is_wp_error( $cover ) ) {
 		return $cover;
 	}

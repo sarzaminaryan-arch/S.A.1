@@ -27,7 +27,7 @@ function sa_guides_expect( $condition, $message ) {
 }
 
 $guides = include SA_CHILD_DIR . 'data/ready-guides.php';
-sa_guides_expect( is_array( $guides ) && count( $guides ) >= 37, 'ready-guides.php must return at least 37 records' );
+sa_guides_expect( is_array( $guides ) && count( $guides ) >= 45, 'ready-guides.php must return at least 45 records' );
 
 $attractions = include SA_CHILD_DIR . 'data/ready-articles.php';
 sa_guides_expect( is_array( $attractions ) && ! array_intersect_key( $guides, $attractions ), 'guide keys must not collide with attraction keys' );
@@ -97,7 +97,92 @@ foreach ( $guides as $key => $g ) {
 		$covers = isset( $covers ) ? $covers + 1 : 1;
 	}
 }
-sa_guides_expect( isset( $covers ) && $covers >= 37, 'all 37 guides must ship a bundled cover (owner batches 1–4)' );
+sa_guides_expect( isset( $covers ) && $covers >= 27, 'the 27 remaining bundled-cover records must keep their covers after ten post-scoped migrations' );
+
+$lighting = $guides['camping-lighting-guide'];
+sa_guides_expect( ! empty( $lighting['remove_featured_image'] ), 'lighting guide explicitly opts out of its featured image' );
+sa_guides_expect( empty( $lighting['cover'] ), 'lighting guide does not carry a featured-cover record' );
+sa_guides_expect( 3 === substr_count( (string) $lighting['content'], '<figure class="sa-guide-topic-card">' ), 'lighting guide has exactly three in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $lighting['content'], 'camping-lighting-guide.webp' ), 'retired lighting infographic is not referenced in the imported body' );
+foreach ( array( 'headlamp', 'flashlight', 'lantern' ) as $tool ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/camping-lighting-' . $tool . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "lighting {$tool} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "lighting {$tool} card asset is a valid WebP" );
+}
+
+$water = $guides['portable-water-filter-review'];
+sa_guides_expect( ! empty( $water['remove_featured_image'] ), 'water-filter guide explicitly opts out of its featured image' );
+sa_guides_expect( empty( $water['cover'] ), 'water-filter guide does not carry a featured-cover record' );
+sa_guides_expect( 4 === substr_count( (string) $water['content'], '<figure class="sa-guide-topic-card">' ), 'water-filter guide has four in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $water['content'], 'portable-water-filter-review.webp' ), 'retired water-filter infographic is not referenced in the imported body' );
+foreach ( array( 'straw', 'pump', 'squeeze', 'uv' ) as $tool ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/portable-water-filter-' . $tool . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "water-filter {$tool} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "water-filter {$tool} card asset is a valid WebP" );
+}
+
+$stove = $guides['camping-stove-review'];
+sa_guides_expect( ! empty( $stove['remove_featured_image'] ), 'camping-stove guide explicitly opts out of its featured image' );
+sa_guides_expect( empty( $stove['cover'] ), 'camping-stove guide does not carry a featured-cover record' );
+sa_guides_expect( 4 === substr_count( (string) $stove['content'], '<figure class="sa-guide-topic-card">' ), 'camping-stove guide has exactly four in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $stove['content'], 'camping-stove-review.webp' ), 'retired camping-stove infographic is not referenced in the imported body' );
+foreach ( array( 'canister', 'integrated', 'multifuel', 'picnic' ) as $type ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/camping-stove-' . $type . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "camping-stove {$type} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "camping-stove {$type} card asset is a valid WebP" );
+	$dimensions = getimagesize( $image );
+	sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1], "camping-stove {$type} card asset is 720x540" );
+}
+
+$multi_tool = $guides['multi-tool-knife-review'];
+sa_guides_expect( ! empty( $multi_tool['remove_featured_image'] ), 'multi-tool guide opts out of its own featured image' );
+sa_guides_expect( empty( $multi_tool['cover'] ), 'multi-tool guide has no bundled featured cover' );
+sa_guides_expect( 3 === substr_count( (string) $multi_tool['content'], '<figure class="sa-guide-topic-card">' ), 'multi-tool guide has three in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $multi_tool['content'], 'multi-tool-knife-review.webp' ), 'retired multi-tool infographic is not referenced in the imported body' );
+sa_guides_expect( ! is_file( SA_CHILD_DIR . 'assets/img/guides/multi-tool-knife-review.webp' ), 'retired multi-tool infographic is not bundled in the theme' );
+foreach ( array( 'pocket', 'pliers', 'fixed-blade' ) as $tool ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/multi-tool-' . $tool . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "multi-tool {$tool} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "multi-tool {$tool} card asset is a valid WebP" );
+	$dimensions = getimagesize( $image );
+	sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1], "multi-tool {$tool} card asset is 720x540" );
+}
+
+$gps = $guides['gps-navigation-tools'];
+sa_guides_expect( ! empty( $gps['remove_featured_image'] ), 'GPS guide opts out of its own featured image' );
+sa_guides_expect( empty( $gps['cover'] ), 'GPS guide has no bundled featured cover' );
+sa_guides_expect( 4 === substr_count( (string) $gps['content'], '<figure class="sa-guide-topic-card">' ), 'GPS guide has four in-context topic cards' );
+sa_guides_expect( false === strpos( (string) $gps['content'], 'gps-navigation-tools.webp' ), 'retired GPS infographic is not referenced in the imported body' );
+sa_guides_expect( ! is_file( SA_CHILD_DIR . 'assets/img/guides/gps-navigation-tools.webp' ), 'retired GPS infographic is not bundled in the theme' );
+foreach ( array( 'handheld', 'offline-map-phone', 'paper-map-compass', 'natural-landmarks' ) as $tool ) {
+	$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/gps-' . $tool . '.webp';
+	sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "GPS {$tool} card asset exists and is compact" );
+	sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "GPS {$tool} card asset is a valid WebP" );
+	$dimensions = getimagesize( $image );
+	sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1], "GPS {$tool} card asset is 720x540" );
+}
+
+/* Five later education articles: hide only their own featured image and keep three local topic cards each. */
+$recent_guides = array(
+	'rope-carabiner-guide' => array( 'rope-types.webp', 'rope-carabiner-locked-carabiner.webp', 'rope-carabiner-utility-cord.webp' ),
+	'professional-rescue-kit' => array( 'rescue-kit-first-aid.webp', 'rescue-kit-warmth.webp', 'rescue-kit-signaling.webp' ),
+	'diy-water-filter' => array( 'diy-water-filter-demo.webp', 'diy-water-filter-layers.webp', 'diy-water-filter-safe-water.webp' ),
+	'diy-can-stove' => array( 'diy-can-stove-unlit.webp', 'diy-can-stove-commercial-stove.webp', 'diy-can-stove-fire-safety.webp' ),
+	'rope-alternatives-outdoor' => array( 'rope-alternatives-backpack-strap.webp', 'rope-alternatives-fabric-lashing.webp', 'rope-alternatives-shoelace.webp' ),
+);
+foreach ( $recent_guides as $slug => $cards ) {
+	$guide = $guides[ $slug ];
+	sa_guides_expect( ! empty( $guide['remove_featured_image'] ) && empty( $guide['cover'] ), "{$slug}: only its featured-image relation is removed" );
+	sa_guides_expect( 3 === substr_count( (string) $guide['content'], '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three in-context topic cards" );
+	sa_guides_expect( false === strpos( (string) $guide['content'], $slug . '.webp' ), "{$slug}: retired infographic is absent from imported content" );
+	foreach ( $cards as $card ) {
+		$image = SA_CHILD_DIR . 'assets/img/guides/topic-cards/' . $card;
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$card} exists and is compact" );
+		sa_guides_expect( 'WEBP' === substr( (string) file_get_contents( $image, false, null, 8, 4 ), 0, 4 ), "{$slug}: {$card} is a valid WebP" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1], "{$slug}: {$card} is 720x540" );
+	}
+}
 
 /**
  * Minimal strip-tags shim (no WordPress here).
