@@ -8,6 +8,9 @@
  * v2.11.0: بلوک امتیاز کاربران به بالای «اطلاعات کلیدی» آمد؛ بلوک مشارکت مردمی
  * از فوتر به داخل صفحه (پیش از منابع) منتقل شد و «منابع» آخرین بخش صفحه است.
  *
+ * v2.18.16: تصویر شاخص «دیدنی‌ها» بالای بدنهٔ مقاله نمایش داده می‌شود
+ * (sa_attraction_featured_figure)؛ در فهرست‌ها، آرشیو و شناسنامه خبری از آن نیست.
+ *
  * @package Sarzaminaryan_Child
  */
 
@@ -32,6 +35,13 @@ $sa_type = get_post_type();
 		<?php if ( has_excerpt() ) : ?>
 			<p class="sa-entity__lead"><?php echo esc_html( get_the_excerpt() ); ?></p>
 		<?php endif; ?>
+
+		<?php
+		// v2.18.16 — تصویر شاخص «دیدنی‌ها» فقط همین‌جا (داخل مقاله) دیده می‌شود.
+		if ( 'attraction' === $sa_type && function_exists( 'sa_attraction_featured_figure' ) ) {
+			echo sa_attraction_featured_figure( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+		?>
 
 		<?php if ( 'city' === $sa_type && class_exists( 'CC_UI' ) ) : ?>
 			<?php CC_UI::rating_block(); ?>

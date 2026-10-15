@@ -10,6 +10,10 @@
  * and an in-content image whose file is gone becomes a calm text box — while the
  * editor, the REST API and anything stored in the database stay untouched.
  *
+ * v2.18.16 — «دیدنی‌ها» از قاعدهٔ سراسری جدا شدند: تصویر شاخص هر دیدنی فقط
+ * داخل بدنهٔ همان مقاله دیده می‌شود و در کارت‌ها، آرشیو، هیرو و صفحهٔ اصلی
+ * پنهان می‌ماند، حتی اگر کلید سراسری روشن شود.
+ *
  * @package Sarzaminaryan_Child
  */
 
@@ -27,6 +31,7 @@ $GLOBALS['t'] = array(
 	'ajax'      => false,
 	'tmp'       => rtrim( sys_get_temp_dir(), '/' ) . '/sa-feat-test-' . uniqid(),
 	'current'   => 0,
+	'meta'      => array(),
 	'ready_articles' => array(
 		'camping-lighting-guide'        => array( 'slug' => 'camping-lighting-guide', 'remove_featured_image' => true ),
 		'portable-water-filter-review' => array( 'slug' => 'portable-water-filter-review', 'remove_featured_image' => true ),
@@ -85,6 +90,13 @@ function get_post_field( $field, $post_id ) {
 }
 function sa_ready_articles_data() {
 	return $GLOBALS['t']['ready_articles'];
+}
+function get_post_type( $post_id = 0 ) {
+	$post_id = $post_id ? (int) $post_id : (int) $GLOBALS['t']['current'];
+	return isset( $GLOBALS['t']['posts'][ $post_id ]['type'] ) ? (string) $GLOBALS['t']['posts'][ $post_id ]['type'] : 'post';
+}
+function get_post_meta( $post_id, $key, $single = false ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	return isset( $GLOBALS['t']['meta'][ $post_id ][ $key ] ) ? $GLOBALS['t']['meta'][ $post_id ][ $key ] : '';
 }
 function has_post_thumbnail( $post_id ) {
 	return ! empty( $GLOBALS['t']['posts'][ $post_id ]['thumb'] );
@@ -207,9 +219,70 @@ sa_t_assert( '<img>' === sa_featured_image_guard( '<img>' ), 'healthy thumbnails
 $GLOBALS['t']['current'] = 0;
 
 /* ---------------------------------------------------------------------------
+ * 2b) «دیدنی‌ها»: تصویر شاخص فقط داخل بدنهٔ مقاله (v2.18.16).
+ * ------------------------------------------------------------------------- */
+$GLOBALS['t']['posts'][40] = array( 'thumb' => 400, 'type' => 'attraction', 'slug' => 'bisheh-waterfall-dorud' );
+$GLOBALS['t']['attached'][400] = array( 'missing' => false );
+$GLOBALS['t']['meta'][400] = array( '_wp_attachment_image_alt' => 'کارت تصویر شاخص آبشار بیشه' );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false; // کلید سراسری هنوز خاموش است.
+
+sa_t_assert( true === sa_attraction_images_visible(), 'attraction covers are released by default' );
+sa_t_assert( true === sa_featured_image_is_attraction( 40 ), 'the attraction post is recognised' );
+sa_t_assert( true === sa_featured_image_available( 40, 'attraction-content' ), 'the attraction cover is available inside its own article while the global switch is off' );
+sa_t_assert( false === sa_featured_image_available( 40, 'card' ), 'the attraction cover never shows on list cards' );
+sa_t_assert( false === sa_featured_image_available( 40, 'hero' ), 'the attraction cover never shows in the page hero/identity card' );
+sa_t_assert( false === sa_featured_image_available( 40 ), 'the attraction cover is not available without the article context' );
+
+$GLOBALS['t']['mods']['sa_show_featured_images'] = true;
+sa_t_assert( false === sa_featured_image_available( 40, 'card' ), 'the global switch still keeps attraction covers off the cards' );
+sa_t_assert( false === sa_featured_image_available( 40, 'hero' ), 'the global switch still keeps attraction covers out of the hero' );
+sa_t_assert( true === sa_featured_image_available( 40, 'attraction-content' ), 'the article context stays the only allowed place' );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false;
+
+$GLOBALS['t']['attached'][400]['missing'] = true;
+sa_t_assert( false === sa_featured_image_available( 40, 'attraction-content' ), 'a deleted cover file is not printed inside the article either' );
+$GLOBALS['t']['attached'][400]['missing'] = false;
+
+$GLOBALS['t']['posts'][41] = array( 'thumb' => 410, 'type' => 'attraction', 'slug' => 'gahar-lake-dorud' );
+$GLOBALS['t']['attached'][410] = array( 'missing' => false );
+$GLOBALS['t']['mods']['sa_show_attraction_image'] = false;
+sa_t_assert( false === sa_attraction_images_visible(), 'the attraction key turns the in-article cover off' );
+sa_t_assert( false === sa_featured_image_available( 40, 'attraction-content' ), 'the attraction key is respected' );
+$GLOBALS['t']['mods']['sa_show_attraction_image'] = true;
+
+/* نگهبان: بیرون از بدنهٔ مقاله پنهان، از درون بدنه مجاز. */
+$GLOBALS['t']['current'] = 40;
+sa_t_assert( '' === sa_featured_image_guard( '<img>', 40 ), 'outside the article body the attraction cover is removed' );
+$GLOBALS['sa_featured_image_render_context'] = 'attraction-content';
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 40 ), 'inside the article body the attraction cover passes the guard' );
+unset( $GLOBALS['sa_featured_image_render_context'] );
+sa_t_assert( '' === sa_featured_image_guard( '<img>', 40 ), 'the guard hides it again once the article body is done' );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = true;
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), 'another post follows the global switch, not the attraction rule' );
+sa_t_assert( '' === sa_featured_image_guard( '<img>', 40 ), 'the attraction cover stays hidden outside the article even with the global switch on' );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false;
+
+/* شکلِ نهایی: شکلِ مقالهٔ دیدنی. */
+$figure = sa_attraction_featured_figure( 40 );
+sa_t_assert( false !== strpos( $figure, 'class="sa-attraction-cover"' ), 'the figure wraps the cover image' );
+sa_t_assert( false !== strpos( $figure, '<img' ), 'the figure prints the thumbnail' );
+sa_t_assert( false !== strpos( $figure, 'کارت تصویر شاخص آبشار بیشه' ), 'the figure carries the short caption' );
+sa_t_assert( '' === sa_attraction_featured_figure( 5 ), 'a non-attraction post never gets the figure' );
+$figure_no_caption = sa_attraction_featured_figure( 41 );
+sa_t_assert( false !== strpos( $figure_no_caption, '<img' ), 'an attraction without alt text still prints the image' );
+sa_t_assert( false === strpos( $figure_no_caption, '<figcaption' ), 'no caption is printed when the alt text is empty' );
+$GLOBALS['t']['mods']['sa_show_attraction_image'] = false;
+sa_t_assert( '' === sa_attraction_featured_figure( 41 ), 'the attraction key removes the in-article figure' );
+$GLOBALS['t']['mods']['sa_show_attraction_image'] = true;
+$GLOBALS['t']['current'] = 0;
+$GLOBALS['t']['mods']['sa_show_featured_images'] = true; // وضعیت پیش از این بخش، برای آزمون‌های پایین.
+
+/* ---------------------------------------------------------------------------
  * 3) The helper used by the templates.
  * ------------------------------------------------------------------------- */
 sa_t_assert( '' !== sa_get_featured_image( 'sa-hero', array(), 5 ), 'the helper prints the image when everything checks out' );
+sa_t_assert( '' === sa_get_featured_image( 'sa-attraction-cover', array(), 40 ), 'the helper refuses an attraction cover outside the article context' );
+sa_t_assert( '' !== sa_get_featured_image( 'sa-attraction-cover', array(), 40, 'attraction-content' ), 'the helper prints it for the article context' );
 sa_t_assert( '' === sa_get_featured_image( 'sa-hero', array(), 6 ), 'the helper prints nothing for a post without a thumbnail' );
 
 /* ---------------------------------------------------------------------------
@@ -266,4 +339,4 @@ sa_t_assert( false === sa_content_image_missing( SA_FEAT_ALT_URL ), 'a surviving
 @rmdir( $GLOBALS['t']['tmp'] . '/2026' ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 @rmdir( $GLOBALS['t']['tmp'] ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 
-echo "PASS: featured images (switch off by default, missing files never shown, in-content placeholder)\n";
+echo "PASS: featured images (hidden by default, attraction covers in-article only, missing files never shown, in-content placeholder)\n";

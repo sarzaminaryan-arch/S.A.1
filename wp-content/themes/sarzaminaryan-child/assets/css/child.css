@@ -5082,3 +5082,47 @@ small {
 		line-height: 1.8;
 	}
 }
+
+/* ==========================================================================
+   v2.18.16 — تصویر شاخص «دیدنی‌ها» داخل مقاله (و فقط داخل مقاله)
+   ========================================================================== */
+.sa-attraction-cover {
+	position: relative;
+	margin: 0 auto clamp(18px, 3.4vw, 32px);
+	padding: clamp(10px, 2vw, 16px);
+	border: 1px solid rgba(15, 81, 50, .14);
+	border-radius: 26px;
+	background: linear-gradient(145deg, #ffffff, #f4fbf7);
+	box-shadow: 0 22px 54px rgba(1, 31, 61, .10);
+}
+
+.sa-attraction-cover__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 18px;
+	background: #fff;
+}
+
+.sa-attraction-cover__caption {
+	margin-top: 12px;
+	font-size: .92rem;
+	line-height: 1.8;
+	text-align: center;
+	color: #4d6b5a;
+}
+
+@media (max-width: 640px) {
+	.sa-attraction-cover {
+		border-radius: 18px;
+		padding: 8px;
+	}
+
+	.sa-attraction-cover__img {
+		border-radius: 12px;
+	}
+
+	.sa-attraction-cover__caption {
+		font-size: .85rem;
+	}
+}
