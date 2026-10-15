@@ -1,3 +1,8 @@
+## 2.18.5 — 1405-07-23 (2026-10-15)
+
+- **تکمیل تمام ۷۸ کارت تصویری استاندارد موضوعی (`:::sa-topic-card`):** کل ۷۸ کارت تصویری مقالات ۲۶ مقالهٔ آموزشی جدید/بازسازی‌شده با رزولوشن دقیق ۷۲۰×۵۴۰، نسبت ۴:۳، کیفیت ۸۲ WebP و واترمارک گوشهٔ چپ `sarzaminaryan.ir` پردازش و در `assets/img/guides/topic-cards/` مستقر شدند (حجم هر فایل در بازهٔ استاندارد ۱۰ تا ۲۰۰ کیلوبایت).
+- **به‌روزرسانی دادهٔ قالب (`data/ready-guides.php`):** فایل منبع دادهٔ تم به **۶۷ رکورد کامل** (شامل ۴۵ مقالهٔ قبلی + ۲۲ مقالهٔ جدید) بازتولید شد. تمام ۲۲ مقالهٔ جدید شامل ۲۶ مقاله با ۳ کارت اختصاصی در متن (در مجموع ۷۸ کارت در قالب رندر شده و آمادهٔ ابزار ورود در تم) هستند. آزمون `build_theme_data.py --check` به‌طور کامل تأیید شد.
+
 ## 2.18.4 — 1405-07-23 (2026-10-15)
 
 - **تکمیل مجموعهٔ آموزشی به ۶۷ مقاله — ۲۲ مقالهٔ تازه با ۶۶ کارت تصویری:** ۲۱ مقالهٔ باقی‌ماندهٔ برنامهٔ ۶۵ مقاله‌ای (`water-safety-children`، `leg-fracture-first-aid`، `diy-hammock-trees`، `choosing-campsite`، `ground-insulation-sleeping`، `bear-encounter-guide`، `wild-boar-encounter`، `snake-encounter-guide`، `stray-dog-encounter`، `night-wildlife-defense`، `safe-food-storage-outdoor`، `navigation-by-sun`، `navigation-by-stars`، `lost-in-nature-guide`، `paper-map-reading`، `rescue-signaling-guide`، `international-distress-signals`، `knot-tying-guide`، `outdoor-cooking-minimal`، `personal-hygiene-outdoor`، `children-outdoor-safety`) به‌همراه `diy-water-container` نوشته شدند؛ هر کدام با ۳ کارت `:::sa-topic-card`، اسکیمای `schema_build.py --write` و وضعیت «آمادهٔ انتشار».
