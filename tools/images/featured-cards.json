@@ -1,0 +1,609 @@
+{
+ "_readme": "طراحی کارت تصویر شاخص هر مقالهٔ «دیدنی‌ها» (۲۸ رکورد در data/ready-articles.php). scene صحنهٔ نقاشی آبرنگ نیمهٔ چپ کارت، flags جزئیات برگرفته از محتوای مقاله (آبشار، قایق، چادر، کلوت، …)، kind_fa برچسب نوع مکان، short_fa/short_en کوتاه‌شدهٔ نام برای مرجع. متن کارت از خودِ رکورد مقاله می‌آید: نام کامل فارسی و نام کامل انگلیسی.",
+ "gahar-lake-dorud": {
+  "short_fa": "گهر",
+  "short_en": "Gahar",
+  "city_en": "Dorud",
+  "scene": "lake",
+  "flags": [
+   "two_lakes",
+   "tent",
+   "boat"
+  ],
+  "kind_fa": "دریاچهٔ کوهستانی",
+  "kind_en": "Mountain lake",
+  "motifs_fa": [
+   "tent",
+   "peak",
+   "snow"
+  ],
+  "motifs_en": [
+   "droplet",
+   "oak",
+   "sun"
+  ]
+ },
+ "bisheh-waterfall-dorud": {
+  "short_fa": "بیشه",
+  "short_en": "Bisheh",
+  "city_en": "Dorud",
+  "scene": "waterfall",
+  "flags": [
+   "rail",
+   "oak"
+  ],
+  "kind_fa": "آبشار جنگلی",
+  "kind_en": "Forest waterfall",
+  "motifs_fa": [
+   "rail",
+   "oak",
+   "droplet"
+  ],
+  "motifs_en": [
+   "bridge",
+   "wave",
+   "leaf"
+  ]
+ },
+ "dorud-city": {
+  "short_fa": "دورود",
+  "short_en": "Dorud",
+  "city_en": "Dorud",
+  "scene": "city",
+  "flags": [
+   "rail",
+   "rivers"
+  ],
+  "kind_fa": "شهر کوهستانی",
+  "kind_en": "Mountain city",
+  "motifs_fa": [
+   "rail",
+   "bridge",
+   "peak"
+  ],
+  "motifs_en": [
+   "wave",
+   "oak",
+   "sun"
+  ]
+ },
+ "azgan-wetland-dorud": {
+  "short_fa": "ازگن",
+  "short_en": "Azgen",
+  "city_en": "Dorud",
+  "scene": "wetland",
+  "flags": [
+   "mountains_back"
+  ],
+  "kind_fa": "تالاب فصلی",
+  "kind_en": "Seasonal lagoon",
+  "motifs_fa": [
+   "reed",
+   "bird",
+   "pool"
+  ],
+  "motifs_en": [
+   "lotus",
+   "wave",
+   "sun"
+  ]
+ },
+ "aznadar-waterfall-doroud": {
+  "short_fa": "ازنادر",
+  "short_en": "Aznadar",
+  "city_en": "Dorud",
+  "scene": "waterfall",
+  "flags": [
+   "spring",
+   "oak"
+  ],
+  "kind_fa": "آبشار فصلی",
+  "kind_en": "Seasonal waterfall",
+  "motifs_fa": [
+   "spring",
+   "oak",
+   "droplet"
+  ],
+  "motifs_en": [
+   "wave",
+   "leaf",
+   "sun"
+  ]
+ },
+ "tangeh-lili-gorge-doroud": {
+  "short_fa": "لی‌لی",
+  "short_en": "Lili",
+  "city_en": "Dorud",
+  "scene": "gorge",
+  "flags": [
+   "pools",
+   "inscription"
+  ],
+  "kind_fa": "تنگه و دره",
+  "kind_en": "Rocky gorge",
+  "motifs_fa": [
+   "pool",
+   "tablet",
+   "rock"
+  ],
+  "motifs_en": [
+   "wave",
+   "bird",
+   "sun"
+  ]
+ },
+ "falak-ol-aflak-castle-khorramabad": {
+  "short_fa": "فلک‌الافلاک",
+  "short_en": "Falak-ol-Aflak",
+  "city_en": "Khorramabad",
+  "scene": "castle",
+  "flags": [
+   "eight_towers"
+  ],
+  "kind_fa": "قلعهٔ تاریخی",
+  "kind_en": "Historic fortress",
+  "motifs_fa": [
+   "crenel",
+   "arch",
+   "brick"
+  ],
+  "motifs_en": [
+   "column",
+   "star",
+   "moon"
+  ]
+ },
+ "mount-damavand-guide": {
+  "short_fa": "دماوند",
+  "short_en": "Damavand",
+  "city_en": "Amol",
+  "scene": "mountain",
+  "flags": [
+   "volcano",
+   "snowpatch",
+   "tent"
+  ],
+  "kind_fa": "قلهٔ آتشفشانی",
+  "kind_en": "Volcanic peak",
+  "motifs_fa": [
+   "peak",
+   "snow",
+   "tent"
+  ],
+  "motifs_en": [
+   "sun",
+   "star",
+   "snow"
+  ]
+ },
+ "kuhrang-fritillaria-plain-guide": {
+  "short_fa": "کوهرنگ",
+  "short_en": "Kuhrang",
+  "city_en": "Kuhrang",
+  "scene": "mountain",
+  "flags": [
+   "tulips",
+   "snowpatch"
+  ],
+  "kind_fa": "دشت و مرتع کوهستانی",
+  "kind_en": "Alpine plain",
+  "motifs_fa": [
+   "tulip",
+   "flower",
+   "snow"
+  ],
+  "motifs_en": [
+   "sun",
+   "leaf",
+   "peak"
+  ]
+ },
+ "ali-sadr-cave-hamedan-guide": {
+  "short_fa": "علیصدر",
+  "short_en": "Ali Sadr",
+  "city_en": "Kabudarahang",
+  "scene": "cave",
+  "flags": [
+   "boat"
+  ],
+  "kind_fa": "غار آبی",
+  "kind_en": "Water cave",
+  "motifs_fa": [
+   "boat",
+   "droplet",
+   "pool"
+  ],
+  "motifs_en": [
+   "wave",
+   "rock",
+   "star"
+  ]
+ },
+ "golestan-national-park-guide": {
+  "short_fa": "گلستان",
+  "short_en": "Golestan",
+  "city_en": "Galikash",
+  "scene": "forest",
+  "flags": [
+   "climb",
+   "waterfall"
+  ],
+  "kind_fa": "جنگل هیرکانی",
+  "kind_en": "Hyrcanian forest",
+  "motifs_fa": [
+   "pine",
+   "oak",
+   "leaf"
+  ],
+  "motifs_en": [
+   "gazelle",
+   "bird",
+   "wave"
+  ]
+ },
+ "qeshm-stars-valley-geopark": {
+  "short_fa": "ستارگان",
+  "short_en": "Stars",
+  "city_en": "Qeshm",
+  "scene": "valley",
+  "flags": [
+   "sun"
+  ],
+  "kind_fa": "درهٔ ژئوپارک",
+  "kind_en": "Geopark valley",
+  "motifs_fa": [
+   "star",
+   "rock",
+   "strata"
+  ],
+  "motifs_en": [
+   "moon",
+   "sun",
+   "rock"
+  ]
+ },
+ "anzali-international-wetland-guide": {
+  "short_fa": "انزلی",
+  "short_en": "Anzali",
+  "city_en": "Bandar-e Anzali",
+  "scene": "wetland",
+  "flags": [
+   "boat",
+   "mountains_back"
+  ],
+  "kind_fa": "تالاب بین‌المللی",
+  "kind_en": "International wetland",
+  "motifs_fa": [
+   "reed",
+   "lotus",
+   "boat"
+  ],
+  "motifs_en": [
+   "bird",
+   "wave",
+   "sun"
+  ]
+ },
+ "shevi-waterfall-tele-zang": {
+  "short_fa": "شوی",
+  "short_en": "Shevi",
+  "city_en": "Dezful",
+  "scene": "waterfall",
+  "flags": [
+   "tall",
+   "karst",
+   "rail"
+  ],
+  "kind_fa": "آبشار بلند",
+  "kind_en": "Tall waterfall",
+  "motifs_fa": [
+   "droplet",
+   "rail",
+   "rock"
+  ],
+  "motifs_en": [
+   "wave",
+   "bridge",
+   "bird"
+  ]
+ },
+ "babahur-forest-park-dorud": {
+  "short_fa": "باباهور",
+  "short_en": "Babahur",
+  "city_en": "Dorud",
+  "scene": "park",
+  "flags": [
+   "sunset",
+   "city_lights",
+   "tent"
+  ],
+  "kind_fa": "تفرجگاه بام",
+  "kind_en": "Hilltop park",
+  "motifs_fa": [
+   "sun",
+   "oak",
+   "tent"
+  ],
+  "motifs_en": [
+   "house",
+   "star",
+   "pine"
+  ]
+ },
+ "nigah-valley-dorud": {
+  "short_fa": "نیگاه",
+  "short_en": "Nigah",
+  "city_en": "Dorud",
+  "scene": "mountain",
+  "flags": [
+   "stream",
+   "snowpatch",
+   "oak"
+  ],
+  "kind_fa": "درهٔ کوهستانی",
+  "kind_en": "Mountain valley",
+  "motifs_fa": [
+   "peak",
+   "wave",
+   "snow"
+  ],
+  "motifs_en": [
+   "oak",
+   "sun",
+   "rock"
+  ]
+ },
+ "qasem-anvar-shrine": {
+  "short_fa": "قاسم انوار",
+  "short_en": "Qasem Anvar",
+  "city_en": "Torbat-e Jam",
+  "scene": "monument",
+  "flags": [],
+  "kind_fa": "آرامگاه و بنای تاریخی",
+  "kind_en": "Historic shrine",
+  "motifs_fa": [
+   "dome",
+   "minaret",
+   "arch"
+  ],
+  "motifs_en": [
+   "column",
+   "star",
+   "flower"
+  ]
+ },
+ "rig-e-jenn-desert": {
+  "short_fa": "ریگ جن",
+  "short_en": "Rig-e Jenn",
+  "city_en": "Garmsar",
+  "scene": "desert",
+  "flags": [
+   "stars"
+  ],
+  "kind_fa": "کویر و ریگ",
+  "kind_en": "Desert sands",
+  "motifs_fa": [
+   "dune",
+   "star",
+   "sun"
+  ],
+  "motifs_en": [
+   "moon",
+   "gazelle",
+   "strata"
+  ]
+ },
+ "sar-agha-seyed-village": {
+  "short_fa": "سرآقا سید",
+  "short_en": "Sar Agha Seyed",
+  "city_en": "Kuhrang",
+  "scene": "village",
+  "flags": [
+   "stepped"
+  ],
+  "kind_fa": "روستای پلکانی",
+  "kind_en": "Stepped village",
+  "motifs_fa": [
+   "house",
+   "stair",
+   "oak"
+  ],
+  "motifs_en": [
+   "stair",
+   "pine",
+   "sun"
+  ]
+ },
+ "tang-e-sayad-national-park": {
+  "short_fa": "تنگ صیاد",
+  "short_en": "Tang-e Sayyad",
+  "city_en": "Shahrekord",
+  "scene": "park",
+  "flags": [
+   "gazelle"
+  ],
+  "kind_fa": "پارک ملی",
+  "kind_en": "National park",
+  "motifs_fa": [
+   "gazelle",
+   "oak",
+   "peak"
+  ],
+  "motifs_en": [
+   "sun",
+   "leaf",
+   "bird"
+  ]
+ },
+ "tabas-attractions": {
+  "short_fa": "طبس",
+  "short_en": "Tabas",
+  "city_en": "Tabas",
+  "scene": "city",
+  "flags": [
+   "palms"
+  ],
+  "kind_fa": "شهر واحه‌ای",
+  "kind_en": "Oasis city",
+  "motifs_fa": [
+   "palm",
+   "arch",
+   "sun"
+  ],
+  "motifs_en": [
+   "dome",
+   "house",
+   "star"
+  ]
+ },
+ "bagh-golshan-tabas": {
+  "short_fa": "گلشن",
+  "short_en": "Golshan",
+  "city_en": "Tabas",
+  "scene": "garden",
+  "flags": [
+   "palms"
+  ],
+  "kind_fa": "باغ ایرانی",
+  "kind_en": "Persian garden",
+  "motifs_fa": [
+   "cypress",
+   "flower",
+   "arch"
+  ],
+  "motifs_en": [
+   "pool",
+   "leaf",
+   "sun"
+  ]
+ },
+ "ghaleh-dokhtar-boshruyeh": {
+  "short_fa": "قلعه دختر",
+  "short_en": "Qaleh Dokhtar",
+  "city_en": "Boshruyeh",
+  "scene": "castle",
+  "flags": [
+   "mudbrick",
+   "ruins"
+  ],
+  "kind_fa": "قلعهٔ خشتی",
+  "kind_en": "Mudbrick fort",
+  "motifs_fa": [
+   "brick",
+   "crenel",
+   "sun"
+  ],
+  "motifs_en": [
+   "dune",
+   "rock",
+   "star"
+  ]
+ },
+ "persepolis-takht-jamshid": {
+  "short_fa": "تخت جمشید",
+  "short_en": "Persepolis",
+  "city_en": "Marvdasht",
+  "scene": "columns",
+  "flags": [
+   "climb"
+  ],
+  "kind_fa": "میراث جهانی",
+  "kind_en": "World heritage",
+  "motifs_fa": [
+   "column",
+   "stair",
+   "flower"
+  ],
+  "motifs_en": [
+   "column",
+   "star",
+   "sun"
+  ]
+ },
+ "naqsh-e-jahan-square-isfahan": {
+  "short_fa": "نقش جهان",
+  "short_en": "Naqsh-e Jahan",
+  "city_en": "Isfahan",
+  "scene": "square",
+  "flags": [
+   "square"
+  ],
+  "kind_fa": "میدان تاریخی",
+  "kind_en": "Historic square",
+  "motifs_fa": [
+   "arch",
+   "dome",
+   "minaret"
+  ],
+  "motifs_en": [
+   "pool",
+   "star",
+   "flower"
+  ]
+ },
+ "shahdad-kaluts-lut-desert": {
+  "short_fa": "کلوت",
+  "short_en": "Kaluts",
+  "city_en": "Kerman",
+  "scene": "desert",
+  "flags": [
+   "kaluts",
+   "stars"
+  ],
+  "kind_fa": "بیابان و کلوت",
+  "kind_en": "Desert yardangs",
+  "motifs_fa": [
+   "strata",
+   "dune",
+   "sun"
+  ],
+  "motifs_en": [
+   "gazelle",
+   "star",
+   "moon"
+  ]
+ },
+ "fin-garden": {
+  "short_fa": "فین",
+  "short_en": "Fin",
+  "city_en": "Kashan",
+  "scene": "garden",
+  "flags": [
+   "fin"
+  ],
+  "kind_fa": "باغ ایرانی",
+  "kind_en": "Persian garden",
+  "motifs_fa": [
+   "cypress",
+   "pool",
+   "flower"
+  ],
+  "motifs_en": [
+   "arch",
+   "leaf",
+   "sun"
+  ]
+ },
+ "masouleh": {
+  "short_fa": "ماسوله",
+  "short_en": "Masouleh",
+  "city_en": "Fuman",
+  "scene": "village",
+  "flags": [
+   "stepped",
+   "rooftop"
+  ],
+  "kind_fa": "روستای پلکانی",
+  "kind_en": "Stepped village",
+  "motifs_fa": [
+   "house",
+   "stair",
+   "pine"
+  ],
+  "motifs_en": [
+   "stair",
+   "oak",
+   "sun"
+  ]
+ }
+}

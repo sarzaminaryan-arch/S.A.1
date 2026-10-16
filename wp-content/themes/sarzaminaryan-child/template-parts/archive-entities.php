@@ -27,6 +27,17 @@ if ( is_post_type_archive( 'province' ) && function_exists( 'sa_province_bars_ht
 $sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_education_context' ) && sa_is_education_context();
 ?>
 <header class="sa-archive__head<?php echo $sa_top_views ? ' sa-archive__head--topviews' : ''; ?>">
+	<?php
+	/* v2.19.0 — نوار ناوبری ۴ بخش اصلی سایت (استان‌ها، شهرستان‌ها، دیدنی‌ها، آموزش طبیعت‌گردی و بقا). */
+	$sa_pillars = function_exists( 'sa_site_pillars' ) ? sa_site_pillars() : array();
+	?>
+	<?php if ( count( $sa_pillars ) > 1 ) : ?>
+		<nav class="sa-filters sa-pillars-nav" aria-label="بخش‌های اصلی سایت">
+			<?php foreach ( $sa_pillars as $sa_p ) : ?>
+				<a class="sa-chip<?php echo $sa_p['current'] ? ' is-active' : ''; ?>" href="<?php echo esc_url( $sa_p['url'] ); ?>"><?php echo esc_html( $sa_p['full_label'] ); ?></a>
+			<?php endforeach; ?>
+		</nav>
+	<?php endif; ?>
 	<h1 class="sa-archive__title">
 		<?php
 		if ( $sa_top_views ) {
@@ -35,6 +46,8 @@ $sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_educa
 			echo esc_html( get_theme_mod( 'sa_sec_prov_title', 'استان‌های ایران' ) );
 		} elseif ( 'city' === $sa_bars ) {
 			echo esc_html( get_theme_mod( 'sa_sec_city_title', 'شهرستان‌های ایران' ) );
+		} elseif ( $sa_edu_archive && is_category() ) {
+			echo esc_html( function_exists( 'sa_education_full_label' ) ? sa_education_full_label() : 'آموزش (طبیعت‌گردی و بقا)' );
 		} elseif ( is_post_type_archive() ) {
 			// «دیدنی‌ها» + « ایران» → «دیدنی‌های ایران» (v2.13.3: اضافهٔ «ی» برای جمع‌های «‌ها»).
 			$sa_plural = $sa_obj ? (string) $sa_obj->labels->name : post_type_archive_title( '', false );

@@ -46,6 +46,9 @@ function sa_register_post_types() {
 			'item_updated'          => $e['singular'] . ' به‌روزرسانی شد.',
 		);
 
+		$hidden_in_nav = function_exists( 'sa_nav_hidden_entity_types' ) ? sa_nav_hidden_entity_types() : array( 'travel_route', 'local_food', 'souvenir' );
+		$is_core_pillar = ! in_array( $type, $hidden_in_nav, true );
+
 		register_post_type(
 			$type,
 			array(
@@ -54,9 +57,9 @@ function sa_register_post_types() {
 				'public'              => true,
 				'publicly_queryable'  => true,
 				'show_ui'             => true,
-				'show_in_menu'        => 'sarzaminaryan',
-				'show_in_nav_menus'   => true,
-				'show_in_admin_bar'   => true,
+				'show_in_menu'        => $is_core_pillar ? 'sarzaminaryan' : false,
+				'show_in_nav_menus'   => $is_core_pillar,
+				'show_in_admin_bar'   => $is_core_pillar,
 				'show_in_rest'        => false,
 				'exclude_from_search' => false,
 				'has_archive'         => $e['url_base'],

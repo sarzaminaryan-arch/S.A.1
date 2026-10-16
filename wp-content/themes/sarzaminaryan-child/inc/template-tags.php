@@ -624,6 +624,8 @@ function sa_filter_header_menu_items( $items, $args ) {
 
 	$hidden          = sa_nav_hidden_entity_types();
 	$hidden_urls      = array();
+	$province_url     = untrailingslashit( sa_archive_url( 'province' ) );
+	$city_url         = untrailingslashit( sa_archive_url( 'city' ) );
 	$attraction_url   = untrailingslashit( sa_archive_url( 'attraction' ) );
 	foreach ( $hidden as $hidden_type ) {
 		$hidden_urls[] = untrailingslashit( sa_archive_url( $hidden_type ) );
@@ -636,7 +638,11 @@ function sa_filter_header_menu_items( $items, $args ) {
 		if ( in_array( $object, $hidden, true ) || in_array( $url, $hidden_urls, true ) ) {
 			continue;
 		}
-		if ( 'attraction' === $object || $url === $attraction_url ) {
+		if ( 'province' === $object || $url === $province_url ) {
+			$item->title = 'استان‌ها';
+		} elseif ( 'city' === $object || $url === $city_url ) {
+			$item->title = 'شهرستان‌ها';
+		} elseif ( 'attraction' === $object || $url === $attraction_url ) {
 			$item->title = 'دیدنی‌ها';
 		}
 		$out[] = $item;
@@ -645,6 +651,47 @@ function sa_filter_header_menu_items( $items, $args ) {
 	return $out;
 }
 add_filter( 'wp_nav_menu_objects', 'sa_filter_header_menu_items', 10, 2 );
+
+/**
+ * Canonical 4-pillar structure of the site:
+ * ۱) استان‌ها، ۲) شهرستان‌ها، ۳) دیدنی‌ها، ۴) آموزش (طبیعت‌گردی و بقا).
+ * Only pillars with published items are returned so no empty archive is linked.
+ *
+ * @return array<int,array{slug:string,label:string,full_label:string,url:string,current:bool}>
+ */
+function sa_site_pillars() {
+	$pillars    = array();
+	$nav_types  = sa_nav_entity_types();
+	$core_order = array(
+		'province'   => array( 'label' => 'استان‌ها', 'full_label' => 'استان‌ها' ),
+		'city'       => array( 'label' => 'شهرستان‌ها', 'full_label' => 'شهرستان‌ها' ),
+		'attraction' => array( 'label' => 'دیدنی‌ها', 'full_label' => 'دیدنی‌ها' ),
+	);
+	foreach ( $core_order as $type => $meta ) {
+		if ( ! in_array( $type, $nav_types, true ) ) {
+			continue;
+		}
+		$pillars[] = array(
+			'slug'       => $type,
+			'label'      => $meta['label'],
+			'full_label' => $meta['full_label'],
+			'url'        => sa_archive_url( $type ),
+			'current'    => is_post_type_archive( $type ) || is_singular( $type ) || ( 'attraction' === $type && is_tax( 'attraction_type' ) ),
+		);
+	}
+	$edu = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
+	if ( $edu ) {
+		$full_label = function_exists( 'sa_education_full_label' ) ? sa_education_full_label() : 'آموزش (طبیعت‌گردی و بقا)';
+		$pillars[]  = array(
+			'slug'       => 'education',
+			'label'      => $edu['label'],
+			'full_label' => $full_label,
+			'url'        => $edu['url'],
+			'current'    => ! empty( $edu['current'] ),
+		);
+	}
+	return $pillars;
+}
 
 /**
  * v2.3.0 — فقط نوع‌هایی که واقعاً محتوای منتشرشده دارند.
