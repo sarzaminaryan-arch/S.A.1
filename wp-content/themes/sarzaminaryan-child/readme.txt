@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.20.0
+Stable tag: 2.21.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,14 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.21.0 — 1405-07-24 (2026-10-16) =
+* ماژول شهرستان ← دیدنی‌های منتشرشده با کش کوتاه و پاک‌سازی کش در ذخیره/حذف؛ لینک برگشت از دیدنی به شهرستان و استان.
+* ایمن‌سازی ارجاع‌های `W_*` و افزودن fallback توضیح‌های Rank Math برای وبلاگ، درباره، تماس و taxonomy؛ عنوان ذخیره‌شدهٔ Rank Math اولویت دارد و `sa_seo_title` فقط fallback است.
+* آرشیوهای خالی noindex,follow و خارج از sitemap رنک‌مث می‌شوند؛ پس از انتشار اولین رکورد، به‌صورت خودکار indexable می‌گردند. معرفی taxonomyهای نوع جاذبه و فصل سفر با لینک مرتبط افزوده شد.
+* JSON-LD صفحات عادی/درباره/تماس به‌ترتیب WebPage/AboutPage/ContactPage؛ گره‌های تکراری با `@id` حذف می‌شوند و schema نوشته‌ها بدون تغییر می‌ماند.
+* تبدیل HTTP به HTTPS فقط برای میزبان‌های allowlist در محتوای رندرشده؛ `noopener` برای لینک‌های `_blank` و حفظ پیوندهای Wikipedia. redirect مبتنی بر `_wp_old_slug` فقط برای مقصد یکتای منتشرشده. موارد نامعلوم در گزارش pending باقی می‌مانند.
+* عنوان‌های «شهرستان خرمدره» و «شهرستان ایجرود» تغییر نکردند.
 
 = 2.20.0 — 1405-07-24 (2026-10-16) =
 * **گروه نخست مقالات جاذبه‌های شاخص داشبورد (۱۰ مقالهٔ تازه، مجموع ۳۸ مقالهٔ آمادهٔ دیدنی‌ها):** پاسارگاد، نقش رستم، باغ ارم، مجموعهٔ وکیل، حرم شاهچراغ، بیشاپور، آبشار مارگون، سی‌وسه‌پل، پل خواجو و کلیسای وانک با متن تحریری، جدول‌های مقایسه‌ای، پرسش‌های متداول، منابع و لینک‌سازی داخلی نوشته و در `data/ready-articles.php` ثبت شدند.

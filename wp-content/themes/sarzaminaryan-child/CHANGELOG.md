@@ -1,3 +1,13 @@
+## 2.21.0 — 1405-07-24 (2026-10-16)
+
+- Add published-only county-to-attraction navigation and attraction links back to county/province; short cache is purged on save/delete.
+- Harden `W_*` inline citation fragments; unresolved and duplicate IDs retain visible text without a broken href.
+- Add Rank Math description fallbacks for Blog/About/Contact and taxonomy counts; preserve explicit descriptions and Rank Math title precedence over the legacy `sa_seo_title` fallback.
+- Apply noindex,follow to empty public archives and omit empty archive entries from Rank Math sitemaps; first published record restores indexability automatically. Add `attraction_type` and `travel_season` archive introductions with related links.
+- Refine static-page JSON-LD to WebPage/AboutPage/ContactPage and deduplicate repeated top-level `@id` nodes; post/article schema is unchanged.
+- Upgrade only allowlisted rendered HTTP links, add `noopener` to `_blank` content links, and leave Wikipedia references intact. Add unique-slug 301 resolution using `_wp_old_slug`; ambiguous or unproven destinations remain pending.
+- No changes to the titles “شهرستان خرمدره” or “شهرستان ایجرود”.
+
 ## 2.20.0 — 1405-07-24 (2026-10-16)
 
 - **گروه نخست مقالات «جاذبه‌های شاخص داشبورد» — ۱۰ مقالهٔ تازه (مجموع ۳۸ مقالهٔ آمادهٔ دیدنی‌ها):** پاسارگاد، نقش رستم، باغ ارم، مجموعهٔ وکیل (بازار/مسجد/حمام)، حرم شاهچراغ، شهر ساسانی بیشاپور، آبشار مارگون، سی‌وسه‌پل، پل خواجو و کلیسای وانک. هر مقاله با ساختار استاندارد «دیدنی‌ها» (معرفی، مسیر دسترسی، پیشینه، بخش‌های شاخص، بهترین زمان، سطح دشواری، ایمنی و ماندگاری، برنامهٔ پیشنهادی، مقصدهای نزدیک)، ۸ سرفصل `h2`، جدول مقایسه‌ای، ۶ پرسش متداول، فهرست منابع و لینک‌سازی داخلی به سایر دیدنی‌ها، شهرستان‌ها و راهنماهای طبیعت‌گردی نوشته شد.
