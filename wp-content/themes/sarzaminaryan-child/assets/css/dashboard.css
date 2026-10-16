@@ -1,54 +1,49 @@
 /**
- * داشبورد جامع گردشگری ایران — سبک‌ها.
- * هویت بصری: سبز طبیعی + فیروزه‌ای با لهجه‌های طلایی/نارنجی/قرمز محدود.
- * تم روشن و تیره، راست‌به‌چپ، واکنش‌گرا، چاپ‌پسند و بدون انیمیشن اضافه.
+ * داشبورد سایبری و نقشهٔ تعاملی دومرحله‌ای شناسنامهٔ ایران (v2.19.3).
+ *
+ * هویت بصری: فضای سایبری و تکنولوژیک تیره (Dark Cyber-Tech Command Center)
+ * با نوشته‌ها و تله‌متری انگلیسی سبز نئونی (#00ff9d / #10b981)، نقشهٔ مرحلهٔ ۱ (۳۱ استان)
+ * و مرحلهٔ ۲ (شهرستان‌ها با نام انگلیسی ریز و خوانا) + کادر جدول‌بندی‌شدهٔ «شناسنامه».
  *
  * @package Sarzaminaryan_Child
  */
 
-/* ================== توکن‌ها ================== */
+/* ================== توکن‌های فضای سایبری تیره ================== */
 
-.sa-dash {
-	--d-bg: #f3f9f6;
-	--d-surface: #ffffff;
-	--d-surface2: #e9f4ef;
-	--d-ink: #12332b;
-	--d-ink-soft: #41635a;
-	--d-line: #d3e5dc;
-	--d-green: #177357;
-	--d-green-deep: #0e5b43;
-	--d-turq: #0e93a0;
-	--d-turq-soft: #d8f0f2;
-	--d-gold: #b7862b;
-	--d-orange: #c96a1f;
-	--d-red: #b5443c;
-	--d-track: #dcebe4;
-	--d-focus: 0 0 0 3px rgba(14, 147, 160, 0.35);
-	--d-shadow: 0 10px 28px rgba(18, 51, 43, 0.08);
+.sa-dash,
+.sa-cyber-dash {
+	--d-bg: #030914;
+	--d-bg-grid: rgba(0, 255, 157, 0.04);
+	--d-surface: #071324;
+	--d-surface2: #0b1c33;
+	--d-surface3: #0f2542;
+	--d-ink: #ecfdf5;
+	--d-ink-soft: #94a3b8;
+	--d-line: rgba(16, 185, 129, 0.26);
+	--d-line-strong: rgba(0, 255, 157, 0.52);
+	--d-green: #00ff9d;
+	--d-green-mid: #10b981;
+	--d-green-deep: #059669;
+	--d-turq: #06b6d4;
+	--d-cyan: #38bdf8;
+	--d-gold: #f59e0b;
+	--d-orange: #f97316;
+	--d-red: #f43f5e;
+	--d-track: #0d2238;
+	--d-mono: "JetBrains Mono", "Fira Code", Consolas, "Liberation Mono", Menlo, monospace;
+	--d-focus: 0 0 0 3px rgba(0, 255, 157, 0.35);
+	--d-shadow: 0 18px 42px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(0, 255, 157, 0.12);
 
-	background: var(--d-bg);
+	background-color: var(--d-bg);
+	background-image:
+		linear-gradient(to right, var(--d-bg-grid) 1px, transparent 1px),
+		linear-gradient(to bottom, var(--d-bg-grid) 1px, transparent 1px),
+		radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.14), transparent 58%);
+	background-size: 32px 32px, 32px 32px, 100% 100%;
 	color: var(--d-ink);
 	font-family: Vazirmatn, "Segoe UI", Tahoma, Arial, sans-serif;
-	line-height: 1.9;
-	padding: 20px 4px 56px;
-}
-
-.sa-dash[data-theme="dark"] {
-	--d-bg: #081613;
-	--d-surface: #0f211c;
-	--d-surface2: #16302a;
-	--d-ink: #e6f2ec;
-	--d-ink-soft: #a2c3b7;
-	--d-line: #23443b;
-	--d-green: #37b18d;
-	--d-green-deep: #8fd9c0;
-	--d-turq: #2ec4d4;
-	--d-turq-soft: #123537;
-	--d-gold: #e0b153;
-	--d-orange: #e89149;
-	--d-red: #e0716a;
-	--d-track: #1b3a32;
-	--d-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+	line-height: 1.8;
+	padding: 0 0 64px;
 }
 
 .sa-dash *,
@@ -59,12 +54,13 @@
 
 .sa-dash a {
 	color: var(--d-green);
+	text-decoration: none;
 }
 
 .sa-dash :focus-visible {
 	outline: none;
 	box-shadow: var(--d-focus);
-	border-radius: 8px;
+	border-radius: 6px;
 }
 
 .sa-visually-hidden {
@@ -79,517 +75,1463 @@
 	border: 0;
 }
 
-/* ================== سربرگ ================== */
-
-.sa-dash__top {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 16px;
-	align-items: flex-start;
-	justify-content: space-between;
-	background: linear-gradient(135deg, var(--d-green) 0%, var(--d-turq) 130%);
-	color: #fff;
-	border-radius: 18px;
-	padding: 26px 28px;
-	box-shadow: var(--d-shadow);
+.sa-dash__wrap {
+	max-width: 1320px;
+	margin: 0 auto;
+	padding: 0 16px;
 }
 
-.sa-dash[data-theme="dark"] .sa-dash__top {
-	background: linear-gradient(135deg, #10402f 0%, #0c3a40 130%);
+/* ================== هدر فرماندهی سایبری ================== */
+
+.sa-dash__hero {
+	position: relative;
+	padding: 22px 0 26px;
+	margin-bottom: 24px;
+	background:
+		radial-gradient(900px 320px at 80% 10%, rgba(0, 255, 157, 0.14), transparent 65%),
+		radial-gradient(700px 280px at 15% 85%, rgba(6, 182, 212, 0.14), transparent 60%),
+		linear-gradient(180deg, #040d1a 0%, #071527 100%);
+	border-bottom: 1px solid var(--d-line-strong);
+	box-shadow: 0 14px 36px rgba(0, 0, 0, 0.6);
+}
+
+.sa-cyber-hudbar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	padding: 7px 14px;
+	margin-bottom: 18px;
+	background: rgba(3, 12, 24, 0.88);
+	border: 1px solid rgba(0, 255, 157, 0.32);
+	border-radius: 8px;
+	font-family: var(--d-mono);
+	font-size: 0.74rem;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	color: var(--d-green);
+}
+
+.sa-cyber-hudbar__dot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--d-green);
+	box-shadow: 0 0 10px var(--d-green);
+}
+
+.sa-cyber-hudbar__sep {
+	color: rgba(0, 255, 157, 0.4);
+}
+
+.sa-cyber-hudbar__status {
+	margin-left: auto;
+	padding: 2px 8px;
+	background: rgba(0, 255, 157, 0.12);
+	border: 1px solid rgba(0, 255, 157, 0.4);
+	border-radius: 4px;
+	color: #a7f3d0;
+}
+
+.sa-dash__hero-grid {
+	display: grid;
+	grid-template-columns: 1.55fr 1fr;
+	gap: 20px;
+	align-items: center;
+}
+
+.sa-dash__eyebrow {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin: 0 0 8px;
+}
+
+.sa-dash__eyebrow-fa {
+	padding: 3px 10px;
+	border-radius: 6px;
+	background: rgba(16, 185, 129, 0.16);
+	border: 1px solid rgba(0, 255, 157, 0.35);
+	color: #a7f3d0;
+	font-size: 0.8rem;
+	font-weight: 800;
+}
+
+.sa-dash__eyebrow-en {
+	font-family: var(--d-mono);
+	font-size: 0.76rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	color: var(--d-green);
+	text-shadow: 0 0 12px rgba(0, 255, 157, 0.35);
 }
 
 .sa-dash__title {
-	margin: 0 0 6px;
-	font-size: clamp(1.4rem, 3.4vw, 2rem);
-	line-height: 1.4;
-	color: #fff;
+	margin: 0 0 10px;
+	font-size: clamp(1.4rem, 2.7vw, 2.05rem);
+	font-weight: 900;
+	line-height: 1.35;
+	color: #ffffff;
 }
 
-.sa-dash__sub {
+.sa-dash__subtitle {
 	margin: 0;
-	opacity: 0.95;
-	font-size: 0.95rem;
+	color: #cbd5e1;
+	font-size: 0.92rem;
+	line-height: 1.85;
 }
 
-.sa-dash__sub-site {
+.sa-dash__subtitle strong {
+	color: var(--d-green);
+}
+
+.sa-dash__hero-stats {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+}
+
+.sa-cyber-mini-stat {
+	padding: 11px 14px;
+	background: rgba(7, 22, 40, 0.88);
+	border: 1px solid rgba(0, 255, 157, 0.28);
+	border-left: 3px solid var(--d-green);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.sa-cyber-mini-stat__lbl {
+	font-family: var(--d-mono);
+	font-size: 0.68rem;
 	font-weight: 700;
+	color: var(--d-green);
+	letter-spacing: 0.04em;
 }
 
-.sa-dash__chips {
+.sa-cyber-mini-stat__val {
+	font-family: var(--d-mono);
+	font-size: 1.35rem;
+	font-weight: 900;
+	color: #ffffff;
+	line-height: 1.2;
+}
+
+.sa-cyber-mini-stat__sub {
+	font-family: var(--d-mono);
+	font-size: 0.65rem;
+	color: #64748b;
+	letter-spacing: 0.06em;
+}
+
+.sa-dash__subnav {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
-	margin: 12px 0 0;
+	margin-top: 18px;
+	padding-top: 14px;
+	border-top: 1px solid rgba(16, 185, 129, 0.2);
 }
 
-.sa-chip {
-	display: inline-block;
-	font-size: 0.74rem;
-	padding: 3px 12px;
-	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.16);
-	border: 1px solid rgba(255, 255, 255, 0.3);
-	color: #fff;
-}
-
-.sa-chip--warn {
-	background: rgba(255, 214, 102, 0.22);
-	border-color: rgba(255, 214, 102, 0.5);
-}
-
-.sa-dash__actions {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 8px;
-}
-
-/* دکمه‌ها */
-.sa-btn {
+.sa-dash__subnav a {
 	display: inline-flex;
 	align-items: center;
-	gap: 7px;
-	font: inherit;
-	font-size: 0.85rem;
-	color: var(--d-ink);
-	background: var(--d-surface);
-	border: 1px solid var(--d-line);
-	border-radius: 10px;
-	padding: 8px 14px;
-	cursor: pointer;
-	transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-}
-
-.sa-dash__top .sa-btn {
-	background: rgba(255, 255, 255, 0.92);
-	border-color: rgba(255, 255, 255, 0.6);
-	color: #10402f;
-}
-
-.sa-btn:hover {
-	box-shadow: 0 6px 16px rgba(14, 91, 67, 0.18);
-	transform: translateY(-1px);
-}
-
-.sa-btn--ghost {
-	background: transparent;
-}
-
-.sa-btn--gold {
-	background: var(--d-gold);
-	border-color: var(--d-gold);
-	color: #fff;
-}
-
-.sa-btn.is-on {
-	background: var(--d-green);
-	color: #fff;
-	border-color: var(--d-green);
-}
-
-.sa-btn[disabled] {
-	opacity: 0.45;
-	cursor: not-allowed;
-}
-
-.sa-btn__ico {
-	font-size: 1rem;
-	line-height: 1;
-}
-
-/* ناوبری بخش‌ها */
-.sa-dash__nav {
-	display: flex;
-	flex-wrap: wrap;
 	gap: 8px;
-	margin: 16px 0 0;
-}
-
-.sa-dash__nav a {
+	padding: 6px 13px;
+	background: rgba(11, 28, 51, 0.85);
+	border: 1px solid rgba(16, 185, 129, 0.28);
+	border-radius: 8px;
+	color: #e2e8f0;
 	font-size: 0.83rem;
-	text-decoration: none;
-	color: var(--d-ink);
-	background: var(--d-surface);
-	border: 1px solid var(--d-line);
-	border-radius: 999px;
-	padding: 6px 16px;
-	transition: background 0.15s ease, color 0.15s ease;
+	font-weight: 700;
+	transition: all 0.18s ease;
 }
 
-.sa-dash__nav a:hover {
-	background: var(--d-green);
-	color: #fff;
+.sa-dash__subnav a span {
+	font-family: var(--d-mono);
+	font-size: 0.72rem;
+	color: var(--d-green);
+}
+
+.sa-dash__subnav a.is-primary-pill,
+.sa-dash__subnav a:hover {
+	background: rgba(0, 255, 157, 0.14);
 	border-color: var(--d-green);
+	color: #ffffff;
+	box-shadow: 0 0 16px rgba(0, 255, 157, 0.2);
 }
 
-/* ================== فیلترها ================== */
+/* ================== بخش نقشهٔ ۲مرحله‌ای سایبری ================== */
 
-.sa-filters {
-	margin-top: 16px;
+.sa-dash__sec {
+	margin-top: 26px;
 }
 
-.sa-dash__panel {
-	background: var(--d-surface);
-	border: 1px solid var(--d-line);
-	border-radius: 16px;
-	padding: 18px 20px;
+.sa-cyber-stage-sec {
+	margin-top: 6px;
+	background: linear-gradient(180deg, rgba(7, 19, 36, 0.96) 0%, rgba(5, 14, 27, 0.98) 100%);
+	border: 1px solid var(--d-line-strong);
+	border-radius: 14px;
+	padding: 18px;
 	box-shadow: var(--d-shadow);
 }
 
-.sa-filters__grid {
+.sa-cyber-stage-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	justify-content: space-between;
+	gap: 14px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--d-line);
+}
+
+.sa-cyber-stage-tabs {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	gap: 14px 18px;
+	grid-template-columns: repeat(2, minmax(220px, 1fr));
+	gap: 10px;
+	flex: 1 1 480px;
+}
+
+.sa-cyber-stage-tab {
+	appearance: none;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 3px;
+	padding: 11px 16px;
+	background: rgba(11, 28, 51, 0.75);
+	border: 1px solid rgba(16, 185, 129, 0.28);
+	border-radius: 10px;
+	color: #cbd5e1;
+	font-family: inherit;
+	text-align: right;
+	cursor: pointer;
+	transition: all 0.18s ease;
+}
+
+.sa-cyber-stage-tab__code {
+	font-family: var(--d-mono);
+	font-size: 0.72rem;
+	font-weight: 800;
+	letter-spacing: 0.07em;
+	color: var(--d-green);
+}
+
+.sa-cyber-stage-tab__title {
+	font-size: 0.92rem;
+	font-weight: 800;
+	color: #f8fafc;
+}
+
+.sa-cyber-stage-tab:hover {
+	border-color: var(--d-green);
+	background: rgba(16, 185, 129, 0.12);
+}
+
+.sa-cyber-stage-tab.is-active {
+	background: linear-gradient(135deg, rgba(0, 255, 157, 0.18) 0%, rgba(6, 182, 212, 0.16) 100%);
+	border-color: var(--d-green);
+	box-shadow: 0 0 20px rgba(0, 255, 157, 0.22), inset 0 0 12px rgba(0, 255, 157, 0.08);
+}
+
+.sa-cyber-stage-tools {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+}
+
+.sa-field--cyber {
+	min-width: 210px;
+}
+
+.sa-field--cyber label {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.76rem;
+	font-weight: 700;
+	color: #cbd5e1;
+	margin-bottom: 4px;
+}
+
+.sa-field--cyber label small {
+	font-family: var(--d-mono);
+	font-size: 0.66rem;
+	color: var(--d-green);
+}
+
+.sa-cyber-stage-hint {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+	margin: 14px 0;
+	padding: 10px 14px;
+	background: rgba(4, 15, 29, 0.9);
+	border: 1px solid rgba(0, 255, 157, 0.28);
+	border-right: 4px solid var(--d-green);
+	border-radius: 8px;
+	font-size: 0.86rem;
+	color: #e2e8f0;
+}
+
+.sa-cyber-stage-hint__badge {
+	padding: 2px 8px;
+	background: rgba(0, 255, 157, 0.14);
+	border: 1px solid rgba(0, 255, 157, 0.45);
+	border-radius: 4px;
+	font-family: var(--d-mono);
+	font-size: 0.72rem;
+	font-weight: 800;
+	color: var(--d-green);
+	letter-spacing: 0.05em;
+}
+
+.sa-cyber-stage-hint strong {
+	color: var(--d-green);
+}
+
+/* ================== بوم نقشهٔ مرحلهٔ ۱ و ۲ ================== */
+
+.sa-mapgrid--stage1 {
+	display: grid;
+	grid-template-columns: 1.65fr 1fr;
+	gap: 16px;
+	align-items: stretch;
+}
+
+.sa-cyber-mapbox {
+	position: relative;
+	background:
+		radial-gradient(circle at 50% 45%, rgba(6, 182, 212, 0.12), rgba(3, 9, 20, 0.96) 75%);
+	border: 1px solid rgba(0, 255, 157, 0.35);
+	border-radius: 12px;
+	padding: 12px;
+	box-shadow: inset 0 0 32px rgba(0, 255, 157, 0.06);
+	overflow: hidden;
+}
+
+.sa-cyber-map-hud {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+	padding: 6px 10px;
+	margin-bottom: 8px;
+	background: rgba(2, 8, 18, 0.86);
+	border: 1px solid rgba(0, 255, 157, 0.24);
+	border-radius: 6px;
+	font-family: var(--d-mono);
+	font-size: 0.7rem;
+	font-weight: 700;
+	color: var(--d-green);
+	letter-spacing: 0.05em;
+}
+
+.sa-cyber-map-hud__right {
+	color: #38bdf8;
+}
+
+.sa-mapsvg.sa-cyber-svg {
+	width: 100%;
+	height: auto;
+	max-height: 600px;
+	display: block;
+}
+
+.sa-cyber-svg-grid line {
+	stroke: rgba(0, 255, 157, 0.07);
+	stroke-width: 0.6;
+	stroke-dasharray: 3 3;
+	vector-effect: non-scaling-stroke;
+}
+
+.sa-cyber-sea-en {
+	font-family: var(--d-mono);
+	font-size: 11px;
+	font-weight: 800;
+	fill: rgba(56, 189, 248, 0.65);
+	letter-spacing: 0.14em;
+}
+
+.sa-cyber-sea-fa {
+	font-family: Vazirmatn, Tahoma, sans-serif;
+	font-size: 10px;
+	font-weight: 700;
+	fill: rgba(56, 189, 248, 0.48);
+}
+
+/* استان‌ها در نقشهٔ مرحلهٔ ۱ */
+.sa-cyber-provinces-layer path {
+	stroke: rgba(0, 255, 157, 0.55);
+	stroke-width: 1.15;
+	vector-effect: non-scaling-stroke;
+	cursor: pointer;
+	transition: fill 0.18s ease, stroke 0.18s ease, filter 0.18s ease;
+}
+
+.sa-cyber-provinces-layer path:hover,
+.sa-cyber-provinces-layer path:focus {
+	fill: #0d9488 !important;
+	stroke: #00ff9d;
+	stroke-width: 2;
+	filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.55));
+	outline: none;
+}
+
+.sa-cyber-provinces-layer path.is-sel {
+	fill: #059669 !important;
+	stroke: #00ff9d;
+	stroke-width: 2.4;
+	filter: drop-shadow(0 0 12px rgba(0, 255, 157, 0.75));
+}
+
+.sa-cyber-provinces-layer path.is-out {
+	fill: #071220 !important;
+	stroke: rgba(148, 163, 184, 0.2);
+	opacity: 0.45;
+}
+
+/* برچسب انگلیسی سبز رنگ استان‌ها روی نقشهٔ ایران */
+.sa-prov-label {
+	pointer-events: none;
+}
+
+.sa-prov-label__dot {
+	fill: #00ff9d;
+	stroke: #020810;
+	stroke-width: 0.8;
+}
+
+.sa-prov-label__en {
+	font-family: var(--d-mono);
+	font-size: 8.2px;
+	font-weight: 800;
+	fill: #00ff9d;
+	paint-order: stroke fill;
+	stroke: #020810;
+	stroke-width: 2.4px;
+	stroke-linejoin: round;
+	letter-spacing: 0.03em;
+}
+
+.sa-prov-label__fa {
+	font-family: Vazirmatn, Tahoma, sans-serif;
+	font-size: 8.5px;
+	font-weight: 700;
+	fill: #e2e8f0;
+	paint-order: stroke fill;
+	stroke: #020810;
+	stroke-width: 2.4px;
+	stroke-linejoin: round;
+}
+
+.sa-prov-label.is-sel .sa-prov-label__en {
+	fill: #ffffff;
+	font-size: 9.5px;
+}
+
+.sa-prov-label.is-sel .sa-prov-label__dot {
+	fill: #ffffff;
+	r: 3.4;
+}
+
+.sa-maplegend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	margin-top: 10px;
+	padding-top: 8px;
+	border-top: 1px solid rgba(0, 255, 157, 0.18);
+	font-size: 0.76rem;
+	color: #cbd5e1;
+}
+
+.sa-maplegend__step {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	font-family: var(--d-mono);
+}
+
+.swatch {
+	display: inline-block;
+	width: 11px;
+	height: 11px;
+	border-radius: 3px;
+	border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* ================== ستون کناری تله‌متری استان (STAGE 1 QUICK PANEL) ================== */
+
+.sa-cyber-quickpanel {
+	background: rgba(5, 16, 31, 0.94);
+	border: 1px solid rgba(0, 255, 157, 0.35);
+	border-radius: 12px;
+	padding: 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.sa-cyber-qp__head {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(0, 255, 157, 0.22);
+	font-family: var(--d-mono);
+	font-size: 0.72rem;
+	font-weight: 800;
+	color: var(--d-green);
+}
+
+.sa-cyber-qp__rank {
+	padding: 2px 8px;
+	background: rgba(0, 255, 157, 0.14);
+	border: 1px solid rgba(0, 255, 157, 0.4);
+	border-radius: 4px;
+}
+
+.sa-mapinfo__name {
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 8px;
+	font-size: 1.28rem;
+	font-weight: 900;
+	color: #ffffff;
+}
+
+.sa-mapinfo__name small {
+	font-family: var(--d-mono);
+	font-size: 0.82rem;
+	font-weight: 700;
+	color: var(--d-green);
+}
+
+.sa-cyber-drill-btn {
+	appearance: none;
+	width: 100%;
+	padding: 12px 14px;
+	background: linear-gradient(135deg, #059669 0%, #047857 100%);
+	border: 1px solid #00ff9d;
+	border-radius: 10px;
+	color: #ffffff;
+	font-family: inherit;
+	text-align: right;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	box-shadow: 0 0 20px rgba(0, 255, 157, 0.28);
+	transition: all 0.18s ease;
+}
+
+.sa-cyber-drill-btn:hover {
+	background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+	box-shadow: 0 0 26px rgba(0, 255, 157, 0.48);
+	transform: translateY(-1px);
+}
+
+.sa-cyber-drill-btn__main {
+	font-size: 0.95rem;
+	font-weight: 900;
+	color: #ffffff;
+}
+
+.sa-cyber-drill-btn__sub {
+	font-family: var(--d-mono);
+	font-size: 0.7rem;
+	font-weight: 800;
+	color: #a7f3d0;
+	letter-spacing: 0.05em;
+}
+
+.sa-cyber-qp__bars {
+	display: flex;
+	flex-direction: column;
+	gap: 11px;
+	margin-top: 4px;
+}
+
+.sa-cyber-bar-item__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+	font-size: 0.76rem;
+	margin-bottom: 4px;
+}
+
+.sa-cyber-bar-item__top span {
+	font-family: var(--d-mono);
+	font-size: 0.68rem;
+	font-weight: 700;
+	color: var(--d-green);
+}
+
+.sa-cyber-bar-item__top strong {
+	color: #f1f5f9;
+	font-weight: 800;
+}
+
+.sa-cyber-bar-track {
+	height: 8px;
+	background: #091e34;
+	border: 1px solid rgba(0, 255, 157, 0.24);
+	border-radius: 99px;
+	overflow: hidden;
+}
+
+.sa-cyber-bar-track span {
+	display: block;
+	height: 100%;
+	background: linear-gradient(90deg, #06b6d4 0%, #00ff9d 100%);
+	border-radius: 99px;
+	box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.sa-cyber-qp__foot {
+	margin: auto 0 0;
+	padding-top: 8px;
+	border-top: 1px dashed rgba(0, 255, 157, 0.22);
+	font-size: 0.76rem;
+	color: #94a3b8;
+}
+
+/* ================== نقشهٔ مرحلهٔ ۲: شهرستان‌های استان با نام انگلیسی سبز ================== */
+
+.sa-cyber-stage2-bar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	margin-top: 14px;
+	padding: 12px 16px;
+	background: rgba(4, 15, 29, 0.94);
+	border: 1px solid rgba(0, 255, 157, 0.4);
+	border-radius: 10px;
+}
+
+.sa-cyber-stage2-bar__code {
+	display: block;
+	font-family: var(--d-mono);
+	font-size: 0.72rem;
+	font-weight: 800;
+	color: var(--d-green);
+	letter-spacing: 0.06em;
+}
+
+.sa-cyber-stage2-bar__h3 {
+	margin: 2px 0 0;
+	font-size: 1.18rem;
+	font-weight: 900;
+	color: #ffffff;
+}
+
+.sa-cyber-stage2-bar__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+}
+
+.sa-cyber-zoom-group {
+	display: inline-flex;
+	gap: 4px;
+}
+
+.sa-cyber-zoom-btn {
+	appearance: none;
+	padding: 7px 10px;
+	background: rgba(11, 28, 51, 0.9);
+	border: 1px solid rgba(0, 255, 157, 0.35);
+	border-radius: 6px;
+	color: var(--d-green);
+	font-family: var(--d-mono);
+	font-size: 0.7rem;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+.sa-cyber-zoom-btn:hover {
+	background: rgba(0, 255, 157, 0.16);
+	border-color: var(--d-green);
+}
+
+.sa-cyber-back-btn {
+	appearance: none;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 8px 14px;
+	background: rgba(0, 255, 157, 0.14);
+	border: 1px solid var(--d-green);
+	border-radius: 8px;
+	color: #ffffff;
+	font-family: inherit;
+	cursor: pointer;
+}
+
+.sa-cyber-back-btn span {
+	font-size: 0.85rem;
+	font-weight: 800;
+}
+
+.sa-cyber-back-btn small {
+	font-family: var(--d-mono);
+	font-size: 0.65rem;
+	color: var(--d-green);
+}
+
+.sa-cyber-mapbox--county {
+	padding: 14px;
+}
+
+.sa-cyber-county-svg {
+	width: 100%;
+	height: auto;
+	max-height: 620px;
+	display: block;
+}
+
+.sa-cyber-counties-layer path {
+	stroke: rgba(0, 255, 157, 0.68);
+	stroke-width: 1.25;
+	vector-effect: non-scaling-stroke;
+	cursor: pointer;
+	transition: fill 0.16s ease, stroke 0.16s ease, filter 0.16s ease;
+}
+
+.sa-cyber-counties-layer path:hover,
+.sa-cyber-counties-layer path:focus {
+	fill: #0d9488 !important;
+	stroke: #00ff9d;
+	stroke-width: 2.1;
+	filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.6));
+	outline: none;
+}
+
+.sa-cyber-counties-layer path.is-sel {
+	fill: #059669 !important;
+	stroke: #00ff9d;
+	stroke-width: 2.5;
+	filter: drop-shadow(0 0 12px rgba(0, 255, 157, 0.85));
+}
+
+/* نام انگلیسی سبز رنگ ریز و خوانا روی نقشهٔ شهرستان‌ها */
+.sa-county-label {
+	pointer-events: none;
+}
+
+.sa-county-label__dot {
+	fill: #00ff9d;
+	stroke: #020810;
+	stroke-width: 0.18px;
+}
+
+.sa-county-label__en {
+	font-family: var(--d-mono);
+	font-weight: 800;
+	fill: #00ff9d;
+	paint-order: stroke fill;
+	stroke: #020810;
+	stroke-linejoin: round;
+	letter-spacing: 0.015em;
+}
+
+.sa-county-label.is-sel .sa-county-label__en {
+	fill: #ffffff;
+}
+
+.sa-county-label.is-sel .sa-county-label__dot {
+	fill: #ffffff;
+}
+
+/* نوار تراشه‌های شهرستان‌ها در زیر نقشهٔ استان */
+.sa-cyber-county-strip {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 10px;
+	padding: 10px 12px;
+	background: rgba(4, 13, 25, 0.92);
+	border: 1px solid rgba(0, 255, 157, 0.26);
+	border-radius: 10px;
+}
+
+.sa-cyber-strip-btn {
+	appearance: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 10px;
+	background: rgba(11, 28, 51, 0.85);
+	border: 1px solid rgba(0, 255, 157, 0.25);
+	border-radius: 6px;
+	color: #e2e8f0;
+	font-family: inherit;
+	font-size: 0.76rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition: all 0.15s ease;
+}
+
+.sa-cyber-strip-btn__idx {
+	font-family: var(--d-mono);
+	font-size: 0.66rem;
+	color: #38bdf8;
+}
+
+.sa-cyber-strip-btn__en {
+	font-family: var(--d-mono);
+	font-size: 0.68rem;
+	font-weight: 800;
+	color: var(--d-green);
+}
+
+.sa-cyber-strip-btn:hover,
+.sa-cyber-strip-btn.is-sel {
+	background: rgba(0, 255, 157, 0.18);
+	border-color: var(--d-green);
+	color: #ffffff;
+	box-shadow: 0 0 12px rgba(0, 255, 157, 0.28);
+}
+
+/* ================== کادر «شناسنامهٔ استان» و «شناسنامهٔ شهرستان» (FRAMED IDENTITY CARDS) ================== */
+
+.sa-cyber-id-frame {
+	margin-top: 16px;
+}
+
+.sa-cyber-idcard {
+	background: linear-gradient(180deg, #061527 0%, #040e1b 100%);
+	border: 1.5px solid rgba(0, 255, 157, 0.55);
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 24px rgba(0, 255, 157, 0.12);
+}
+
+.sa-cyber-idcard--county {
+	border-color: rgba(56, 189, 248, 0.65);
+	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.6), 0 0 24px rgba(56, 189, 248, 0.14);
+}
+
+.sa-cyber-idcard__head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 12px;
+	padding: 14px 18px;
+	background: linear-gradient(90deg, rgba(0, 255, 157, 0.14) 0%, rgba(6, 182, 212, 0.08) 100%);
+	border-bottom: 1.5px solid rgba(0, 255, 157, 0.4);
+}
+
+.sa-cyber-idcard--county .sa-cyber-idcard__head {
+	background: linear-gradient(90deg, rgba(56, 189, 248, 0.16) 0%, rgba(0, 255, 157, 0.1) 100%);
+	border-bottom-color: rgba(56, 189, 248, 0.45);
+}
+
+.sa-cyber-idcard__titles {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 10px;
+}
+
+.sa-cyber-idcard__badge {
+	padding: 3px 10px;
+	background: #00ff9d;
+	color: #02100a;
+	border-radius: 5px;
+	font-size: 0.76rem;
+	font-weight: 900;
+}
+
+.sa-cyber-idcard__badge--county {
+	background: #38bdf8;
+	color: #02131f;
+}
+
+.sa-cyber-idcard__h3 {
+	margin: 0;
+	font-size: 1.15rem;
+	font-weight: 900;
+	color: #ffffff;
+}
+
+.sa-cyber-idcard__h3 small {
+	font-size: 0.85rem;
+	font-weight: 700;
+	color: #94a3b8;
+}
+
+.sa-cyber-idcard__en {
+	font-family: var(--d-mono);
+	font-size: 0.74rem;
+	font-weight: 800;
+	color: var(--d-green);
+	letter-spacing: 0.06em;
+}
+
+.sa-cyber-idcard__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.sa-cyber-action-btn {
+	appearance: none;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 8px 14px;
+	border-radius: 8px;
+	font-family: inherit;
+	font-size: 0.82rem;
+	font-weight: 800;
+	cursor: pointer;
+	transition: all 0.16s ease;
+}
+
+.sa-cyber-action-btn--primary {
+	background: linear-gradient(135deg, #059669 0%, #047857 100%);
+	border: 1px solid #00ff9d;
+	color: #ffffff !important;
+	box-shadow: 0 0 16px rgba(0, 255, 157, 0.25);
+}
+
+.sa-cyber-action-btn--primary:hover {
+	background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+	box-shadow: 0 0 22px rgba(0, 255, 157, 0.45);
+}
+
+.sa-cyber-action-btn--primary small {
+	font-family: var(--d-mono);
+	font-size: 0.64rem;
+	color: #a7f3d0;
+}
+
+.sa-cyber-action-btn--ghost {
+	background: rgba(11, 28, 51, 0.85);
+	border: 1px solid rgba(0, 255, 157, 0.35);
+	color: var(--d-green) !important;
+	justify-content: center;
+}
+
+/* جدول ۸خانه‌ای شناسنامه با خطوط مرزی مشخص */
+.sa-cyber-idcard__grid {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	background: rgba(0, 255, 157, 0.28);
+	gap: 1px;
+}
+
+.sa-cyber-idcard__cell {
+	background: #061425;
+	padding: 11px 13px;
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	min-width: 0;
+}
+
+.sa-cyber-idcard__cell--wide {
+	grid-column: 1 / -1;
+	background: #04101f;
+}
+
+.sa-cyber-idcard__k {
+	font-family: var(--d-mono);
+	font-size: 0.65rem;
+	font-weight: 800;
+	color: var(--d-green);
+	letter-spacing: 0.05em;
+}
+
+.sa-cyber-idcard__lbl {
+	font-size: 0.72rem;
+	font-weight: 700;
+	color: #94a3b8;
+}
+
+.sa-cyber-idcard__val {
+	font-size: 0.86rem;
+	font-weight: 800;
+	color: #f8fafc;
+	line-height: 1.45;
+	word-break: break-word;
+}
+
+.sa-cyber-idcard__val small {
+	font-size: 0.74rem;
+	font-weight: 700;
+	color: #38bdf8;
+}
+
+.sa-cyber-idcard__val--en {
+	font-family: var(--d-mono);
+	color: var(--d-green);
+}
+
+.sa-cyber-idcard__chips,
+.sa-cyber-idcard__counties {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-top: 4px;
+}
+
+.sa-cyber-id-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 4px 10px;
+	background: rgba(11, 28, 51, 0.9);
+	border: 1px solid rgba(0, 255, 157, 0.28);
+	border-radius: 6px;
+	font-size: 0.75rem;
+	font-weight: 700;
+	color: #e2e8f0;
+}
+
+.sa-cyber-id-chip strong {
+	color: var(--d-green);
+}
+
+.sa-cyber-id-chip--border {
+	border-color: #f59e0b;
+	color: #fde68a;
+}
+
+.sa-cyber-id-chip--attr {
+	border-color: #38bdf8;
+	color: #bae6fd;
+}
+
+.sa-cyber-county-pill {
+	appearance: none;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 5px 10px;
+	background: rgba(9, 25, 45, 0.92);
+	border: 1px solid rgba(0, 255, 157, 0.32);
+	border-radius: 6px;
+	color: #ffffff;
+	font-family: inherit;
+	font-size: 0.76rem;
+	font-weight: 800;
+	cursor: pointer;
+	transition: all 0.15s ease;
+}
+
+.sa-cyber-county-pill__en {
+	font-family: var(--d-mono);
+	font-size: 0.68rem;
+	font-weight: 800;
+	color: var(--d-green);
+}
+
+.sa-cyber-county-pill:hover {
+	background: rgba(0, 255, 157, 0.18);
+	border-color: var(--d-green);
+	box-shadow: 0 0 12px rgba(0, 255, 157, 0.28);
+}
+
+/* ================== فیلترها و سرخط بخش‌ها ================== */
+
+.sa-cyber-sec-head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 8px;
+	margin-bottom: 14px;
+}
+
+.sa-dash__h2 {
+	margin: 0;
+	font-size: 1.2rem;
+	font-weight: 900;
+	color: #ffffff;
+	border-right: 4px solid var(--d-green);
+	padding-right: 10px;
+}
+
+.sa-dash__h2 small {
+	display: block;
+	font-family: var(--d-mono);
+	font-size: 0.7rem;
+	color: var(--d-green);
+}
+
+.sa-cyber-sec-code {
+	font-family: var(--d-mono);
+	font-size: 0.72rem;
+	font-weight: 800;
+	color: var(--d-green);
+	letter-spacing: 0.06em;
+}
+
+.sa-filters {
+	margin-top: 24px;
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-radius: 12px;
+	padding: 16px;
+}
+
+.sa-filters__head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+	margin-bottom: 12px;
+}
+
+.sa-dash__scope {
+	margin: 0;
+	font-family: var(--d-mono);
+	font-size: 0.76rem;
+	font-weight: 700;
+	color: var(--d-green);
+}
+
+.sa-filters__row {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+	gap: 12px;
 	align-items: end;
 }
 
+.sa-field {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
 .sa-field label {
-	display: block;
-	font-size: 0.8rem;
-	color: var(--d-ink-soft);
-	margin-bottom: 6px;
+	font-size: 0.78rem;
+	font-weight: 700;
+	color: #cbd5e1;
 }
 
 .sa-field select,
 .sa-field input[type="search"] {
 	width: 100%;
+	padding: 8px 11px;
+	border: 1px solid rgba(0, 255, 157, 0.32);
+	border-radius: 8px;
+	background: #040d1a;
+	color: #f8fafc;
 	font: inherit;
-	font-size: 0.88rem;
-	color: var(--d-ink);
-	background: var(--d-surface2);
-	border: 1px solid var(--d-line);
-	border-radius: 10px;
-	padding: 9px 12px;
+	font-size: 0.84rem;
 }
 
 .sa-field input[type="range"] {
 	width: 100%;
 	accent-color: var(--d-green);
-}
-
-.sa-field output {
-	font-weight: 700;
-	color: var(--d-green);
-	font-variant-numeric: tabular-nums;
+	cursor: pointer;
 }
 
 .sa-field--check label {
-	display: flex;
-	align-items: center;
-	gap: 9px;
-	font-size: 0.88rem;
-	color: var(--d-ink);
-	cursor: pointer;
-}
-
-.sa-field--check input {
-	width: 18px;
-	height: 18px;
-	accent-color: var(--d-green);
-}
-
-.sa-check-inline {
 	display: inline-flex;
 	align-items: center;
-	gap: 7px;
-	font-size: 0.85rem;
+	gap: 8px;
 	cursor: pointer;
-	white-space: nowrap;
-}
-
-.sa-check-inline input {
-	width: 17px;
-	height: 17px;
-	accent-color: var(--d-green);
+	padding: 8px 0;
 }
 
 .sa-filters__note {
-	margin: 12px 0 0;
+	margin: 10px 0 0;
+	font-size: 0.76rem;
+	color: #94a3b8;
+}
+
+.sa-btn {
+	appearance: none;
+	border: 1px solid rgba(0, 255, 157, 0.4);
+	background: rgba(0, 255, 157, 0.14);
+	color: #ffffff;
+	font: inherit;
+	font-size: 0.82rem;
+	font-weight: 800;
+	padding: 8px 14px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+
+.sa-btn:hover {
+	background: rgba(0, 255, 157, 0.25);
+	border-color: var(--d-green);
+}
+
+/* ================== شاخص‌های کلیدی (KPIs) ================== */
+
+.sa-kpis {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	gap: 12px;
+}
+
+.sa-kpi {
+	background: var(--d-surface);
+	border: 1px solid var(--d-line);
+	border-top: 3px solid var(--d-green);
+	border-radius: 10px;
+	padding: 14px 16px;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.sa-kpi__top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.sa-kpi__code {
+	font-family: var(--d-mono);
+	font-size: 0.68rem;
+	font-weight: 800;
+	color: var(--d-green);
+}
+
+.sa-kpi__icon {
+	width: 28px;
+	height: 28px;
+	color: var(--d-green);
+}
+
+.sa-kpi__icon svg {
+	width: 22px;
+	height: 22px;
+}
+
+.sa-kpi__value {
+	display: block;
+	font-size: 1.35rem;
+	font-weight: 900;
+	color: #ffffff;
+}
+
+.sa-kpi__value small {
 	font-size: 0.78rem;
-	color: var(--d-ink-soft);
+	color: var(--d-green);
 }
 
-.sa-dash__scope {
-	margin: 14px 4px 0;
-	font-size: 0.85rem;
-	color: var(--d-ink-soft);
+.sa-kpi__label {
+	font-size: 0.8rem;
+	color: #94a3b8;
+	font-weight: 700;
 }
 
-/* ================== بخش‌ها و پنل‌ها ================== */
-
-.sa-dash__sec {
-	margin-top: 34px;
-	scroll-margin-top: 20px;
+.sa-dash__fineprint {
+	margin: 8px 0 0;
+	font-family: var(--d-mono);
+	font-size: 0.75rem;
+	color: #94a3b8;
 }
 
-.sa-dash__h2 {
-	font-size: 1.25rem;
-	line-height: 1.4;
-	margin: 0 0 14px;
-	color: var(--d-ink);
-	border-inline-start: 5px solid var(--d-green);
-	padding-inline-start: 12px;
-}
+/* ================== نمودارها و ستون‌های بصری ================== */
 
 .sa-charts {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 18px;
+	gap: 16px;
 }
 
 .sa-panel {
 	background: var(--d-surface);
 	border: 1px solid var(--d-line);
-	border-radius: 16px;
-	padding: 18px;
-	box-shadow: var(--d-shadow);
-	min-width: 0;
+	border-radius: 12px;
+	padding: 16px;
 }
 
 .sa-panel--wide {
 	grid-column: 1 / -1;
 }
 
+.sa-panel__head {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 12px;
+	padding-bottom: 8px;
+	border-bottom: 1px solid rgba(16, 185, 129, 0.18);
+}
+
 .sa-panel h3 {
-	margin: 0 0 14px;
+	margin: 0;
 	font-size: 0.98rem;
-	color: var(--d-ink);
+	font-weight: 800;
+	color: #ffffff;
 }
 
 .sa-panel h3 small {
-	font-weight: 400;
-	color: var(--d-ink-soft);
-	font-size: 0.76rem;
+	font-weight: 500;
+	color: #94a3b8;
+	font-size: 0.78rem;
 }
 
-/* ================== کارت‌های شاخص ================== */
-
-.sa-kpis {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-	gap: 14px;
-}
-
-.sa-kpi {
-	display: flex;
-	align-items: center;
-	gap: 14px;
-	background: var(--d-surface);
-	border: 1px solid var(--d-line);
-	border-radius: 14px;
-	padding: 16px 18px;
-	box-shadow: var(--d-shadow);
-	transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.sa-kpi:hover {
-	transform: translateY(-2px);
-}
-
-.sa-kpi__icon {
-	flex: none;
-	width: 46px;
-	height: 46px;
-	border-radius: 12px;
-	display: grid;
-	place-items: center;
-	color: #fff;
-	background: var(--d-green);
-}
-
-.sa-kpi__icon svg {
-	width: 26px;
-	height: 26px;
-}
-
-.sa-kpi--counties .sa-kpi__icon { background: var(--d-turq); }
-.sa-kpi--attractions .sa-kpi__icon { background: var(--d-gold); }
-.sa-kpi--area .sa-kpi__icon { background: var(--d-orange); }
-.sa-kpi--population .sa-kpi__icon { background: var(--d-red); }
-
-.sa-kpi__body {
-	display: flex;
-	flex-direction: column;
-	min-width: 0;
-}
-
-.sa-kpi__value {
-	font-size: 1.28rem;
-	font-weight: 800;
-	line-height: 1.5;
-	font-variant-numeric: tabular-nums;
-}
-
-.sa-kpi__value small {
+.sa-panel__tag {
+	font-family: var(--d-mono);
 	font-size: 0.68rem;
-	font-weight: 600;
-	color: var(--d-ink-soft);
+	font-weight: 800;
+	color: var(--d-green);
 }
-
-.sa-kpi__label {
-	font-size: 0.8rem;
-	color: var(--d-ink-soft);
-}
-
-.sa-dash__fineprint {
-	margin: 10px 2px 0;
-	font-size: 0.76rem;
-	color: var(--d-ink-soft);
-}
-
-/* ================== نمودار میله‌ای افقی ================== */
 
 .hbar {
 	display: grid;
-	grid-template-columns: 128px minmax(0, 1fr) 86px;
-	align-items: center;
+	grid-template-columns: 165px 1fr 105px;
 	gap: 10px;
-	padding: 3px 2px;
-	border-radius: 8px;
+	align-items: center;
+	padding: 4px 6px;
+	border-radius: 6px;
+	font-size: 0.8rem;
+	cursor: pointer;
 }
 
 .hbar:hover {
-	background: var(--d-surface2);
+	background: rgba(0, 255, 157, 0.08);
 }
 
 .hbar__name {
-	font-size: 0.8rem;
-	text-align: end;
-	color: var(--d-ink);
+	font-weight: 700;
+	color: #f1f5f9;
+	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
+}
+
+.hbar__name small {
+	font-family: var(--d-mono);
+	font-size: 0.66rem;
+	color: var(--d-green);
 }
 
 .hbar__track {
-	display: block;
-	height: 13px;
-	border-radius: 999px;
+	height: 11px;
 	background: var(--d-track);
+	border-radius: 99px;
 	overflow: hidden;
 }
 
 .hbar__fill {
 	display: block;
 	height: 100%;
-	border-radius: 999px;
-	background: linear-gradient(270deg, var(--d-green), var(--d-turq));
-	transition: width 0.5s ease;
+	background: linear-gradient(90deg, #06b6d4, #10b981);
+	border-radius: 99px;
+}
+
+.hbar.is-top .hbar__fill,
+.hbar.is-gold .hbar__fill {
+	background: linear-gradient(90deg, #10b981, #00ff9d);
+	box-shadow: 0 0 8px rgba(0, 255, 157, 0.45);
 }
 
 .hbar__val {
+	text-align: left;
+	direction: ltr;
+	font-family: var(--d-mono);
 	font-size: 0.76rem;
-	font-variant-numeric: tabular-nums;
-	color: var(--d-ink-soft);
-	text-align: start;
+	font-weight: 700;
+	color: var(--d-green);
 }
 
-.hbar.is-top-1 .hbar__fill { background: linear-gradient(270deg, var(--d-gold), #d8a94e); }
-.hbar.is-top-2 .hbar__fill { background: linear-gradient(270deg, #93a2a8, #b9c4c9); }
-.hbar.is-top-3 .hbar__fill { background: linear-gradient(270deg, #a4683c, #c98d5d); }
-.hbar.is-gold .hbar__fill { background: linear-gradient(270deg, var(--d-gold), #d8a94e); }
-
-/* ================== دونات ================== */
-
 .donut-wrap {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 18px;
+	display: grid;
+	grid-template-columns: 190px 1fr;
+	gap: 14px;
 	align-items: center;
-	justify-content: center;
 }
 
 .donut {
-	width: 200px;
-	height: 200px;
-	flex: none;
+	width: 100%;
+	max-width: 190px;
+	margin: 0 auto;
 }
 
 .donut__num {
-	font-size: 17px;
-	font-weight: 800;
-	fill: var(--d-ink);
+	font-size: 15px;
+	font-weight: 900;
+	fill: #ffffff;
 }
 
 .donut__cap {
-	font-size: 10px;
-	fill: var(--d-ink-soft);
+	font-family: var(--d-mono);
+	font-size: 9px;
+	fill: var(--d-green);
 }
 
 .donut-legend {
 	list-style: none;
 	margin: 0;
 	padding: 0;
-	display: flex;
-	flex-direction: column;
-	gap: 7px;
-	min-width: 220px;
-	flex: 1;
+	display: grid;
+	gap: 6px;
+	font-size: 0.8rem;
 }
 
 .donut-legend li {
-	display: flex;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 14px 1fr auto;
 	gap: 8px;
-	font-size: 0.82rem;
-}
-
-.donut-legend li.is-muted {
-	color: var(--d-ink-soft);
+	align-items: center;
 }
 
 .donut-legend__val {
-	margin-inline-start: auto;
-	font-variant-numeric: tabular-nums;
-	font-size: 0.78rem;
+	font-family: var(--d-mono);
+	color: var(--d-green);
+	font-size: 0.75rem;
 }
-
-.swatch {
-	display: inline-block;
-	width: 12px;
-	height: 12px;
-	border-radius: 4px;
-	flex: none;
-}
-
-.swatch--out {
-	background: var(--d-track);
-	border: 1px dashed var(--d-line);
-}
-
-/* ================== مرزها ================== */
 
 .border-rows {
-	display: flex;
-	flex-direction: column;
-	gap: 9px;
+	display: grid;
+	gap: 8px;
 }
 
 .border-row {
 	display: grid;
-	grid-template-columns: 150px 70px minmax(0, 1fr);
+	grid-template-columns: 130px 64px 1fr;
+	gap: 8px;
 	align-items: center;
-	gap: 10px;
-	padding: 8px 10px;
-	border: 1px solid var(--d-line);
-	border-radius: 12px;
+	padding: 7px 10px;
 	background: var(--d-surface2);
-}
-
-.border-row.is-empty {
-	opacity: 0.5;
+	border: 1px solid rgba(16, 185, 129, 0.2);
+	border-radius: 8px;
+	font-size: 0.82rem;
 }
 
 .border-row__country {
-	display: flex;
+	font-weight: 800;
+	display: inline-flex;
 	align-items: center;
-	gap: 8px;
-	font-weight: 700;
-	font-size: 0.86rem;
+	gap: 6px;
 }
 
 .border-row__count {
+	font-family: var(--d-mono);
+	color: var(--d-green);
 	font-size: 0.76rem;
-	color: var(--d-ink-soft);
 }
 
 .border-row__provs {
@@ -599,681 +1541,346 @@
 }
 
 .chip {
+	appearance: none;
 	display: inline-block;
-	font-size: 0.72rem;
-	background: var(--d-surface);
-	border: 1px solid var(--chipc, var(--d-line));
-	color: var(--d-ink);
-	border-radius: 999px;
-	padding: 2px 10px;
+	padding: 2px 9px;
+	border-radius: 6px;
+	font-family: inherit;
+	font-size: 0.74rem;
+	font-weight: 700;
+	background: rgba(0, 255, 157, 0.12);
+	color: #a7f3d0;
+	border: 1px solid rgba(0, 255, 157, 0.35);
+	cursor: pointer;
 }
-
-.chip--none {
-	border-style: dashed;
-	color: var(--d-ink-soft);
-}
-
-/* ================== پراکندگی ================== */
 
 .scatter {
 	width: 100%;
 	height: auto;
-	direction: ltr;
+	display: block;
 }
 
 .scatter .grid {
-	stroke: var(--d-line);
-	stroke-width: 1;
-	stroke-dasharray: 3 4;
+	stroke: rgba(0, 255, 157, 0.14);
+	stroke-dasharray: 3 3;
 }
 
-.scatter .tick {
-	font-size: 11px;
-	fill: var(--d-ink-soft);
-}
-
+.scatter .tick,
 .scatter .axis-label {
-	font-size: 12px;
-	fill: var(--d-ink);
+	font-family: var(--d-mono);
+	font-size: 10px;
+	fill: #94a3b8;
 }
 
 .scatter circle {
-	stroke: var(--d-surface);
-	stroke-width: 1.5;
 	cursor: pointer;
-	transition: r 0.15s ease;
-}
-
-.scatter circle:hover,
-.scatter circle:focus-visible {
-	r: 10;
+	stroke: #030914;
+	stroke-width: 1.5;
 }
 
 .scatter-legend {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px 16px;
-	margin: 10px 0 0;
-	font-size: 0.78rem;
-	color: var(--d-ink-soft);
-	align-items: center;
+	gap: 14px;
+	margin: 8px 0 0;
+	font-size: 0.76rem;
+	color: #cbd5e1;
 }
 
-.scatter-legend span {
-	display: inline-flex;
-	align-items: center;
-	gap: 6px;
-}
-
-.scatter-legend__th {
-	color: var(--d-ink-soft);
-}
-
-/* ================== جدول ================== */
+/* ================== جدول ماتریسی استان‌ها ================== */
 
 .sa-table-tools {
 	display: flex;
 	flex-wrap: wrap;
+	gap: 10px;
 	align-items: center;
-	gap: 12px 16px;
-	margin-bottom: 12px;
+	margin-bottom: 10px;
 }
 
 .sa-field--grow {
-	flex: 1 1 240px;
+	flex: 1 1 250px;
 }
 
 .sa-table-tools__hint {
-	flex-basis: 100%;
+	flex: 1 1 100%;
 	margin: 0;
-	font-size: 0.74rem;
-	color: var(--d-ink-soft);
+	font-size: 0.76rem;
+	color: #94a3b8;
 }
 
 .sa-table-wrap {
 	background: var(--d-surface);
 	border: 1px solid var(--d-line);
-	border-radius: 16px;
-	box-shadow: var(--d-shadow);
+	border-radius: 12px;
 	overflow-x: auto;
 }
 
 .sa-table {
 	width: 100%;
-	min-width: 880px;
 	border-collapse: collapse;
 	font-size: 0.84rem;
+	min-width: 820px;
 }
 
 .sa-table th,
 .sa-table td {
 	padding: 10px 12px;
+	border-bottom: 1px solid rgba(16, 185, 129, 0.16);
 	text-align: right;
-	border-bottom: 1px solid var(--d-line);
-	white-space: nowrap;
 }
 
 .sa-table thead th {
-	background: var(--d-surface2);
-	position: sticky;
-	top: 0;
-	z-index: 1;
+	background: #04101f;
+	color: var(--d-green);
+	font-weight: 800;
 }
 
 .sa-sort {
-	font: inherit;
-	font-weight: 700;
-	color: var(--d-ink);
-	background: none;
+	appearance: none;
 	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	font-weight: 800;
 	cursor: pointer;
 	padding: 0;
+}
+
+.sa-table-row {
+	cursor: pointer;
+}
+
+.sa-table-row:hover,
+.sa-table-row.is-active-row {
+	background: rgba(0, 255, 157, 0.08);
+}
+
+.sa-t-prov {
+	display: flex;
+	flex-direction: column;
+}
+
+.sa-t-prov small {
+	font-family: var(--d-mono);
+	font-size: 0.68rem;
+	color: var(--d-green);
+}
+
+.sa-table td.num {
+	font-family: var(--d-mono);
+	color: #e2e8f0;
+}
+
+.sa-t-actions {
 	display: inline-flex;
-	align-items: center;
-	gap: 4px;
+	gap: 6px;
 }
 
-.sa-sort::after {
-	content: "↕";
-	font-size: 0.7rem;
-	opacity: 0.45;
-}
-
-.sa-sort.is-asc::after {
-	content: "↑";
-	opacity: 1;
-	color: var(--d-green);
-}
-
-.sa-sort.is-desc::after {
-	content: "↓";
-	opacity: 1;
-	color: var(--d-green);
-}
-
-.sa-table tbody tr:nth-child(even) {
-	background: var(--d-surface2);
-}
-
-.sa-table tbody tr:hover {
-	background: var(--d-turq-soft);
-}
-
-.sa-table .num {
-	font-variant-numeric: tabular-nums;
-}
-
-.rank {
-	display: inline-grid;
-	place-items: center;
-	min-width: 30px;
-	height: 30px;
-	padding: 0 6px;
-	border-radius: 9px;
+.sa-t-btn {
+	appearance: none;
+	padding: 4px 8px;
+	border-radius: 5px;
+	font-family: inherit;
+	font-size: 0.72rem;
 	font-weight: 800;
-	background: var(--d-surface2);
-	border: 1px solid var(--d-line);
-	font-variant-numeric: tabular-nums;
+	cursor: pointer;
 }
 
-.rank.is-medal-1 {
-	background: linear-gradient(135deg, #f5d061, #c9962e);
-	border-color: #b7862b;
-	color: #3c2a05;
+.sa-t-btn--id {
+	background: rgba(6, 182, 212, 0.16);
+	border: 1px solid #06b6d4;
+	color: #bae6fd;
 }
 
-.rank.is-medal-2 {
-	background: linear-gradient(135deg, #e6ecf0, #a9b6bd);
-	border-color: #93a2a8;
-	color: #2b363b;
-}
-
-.rank.is-medal-3 {
-	background: linear-gradient(135deg, #e0a071, #a4683c);
-	border-color: #8f5730;
-	color: #351d0c;
-}
-
-.badge-badge {
-	display: inline-block;
-	font-size: 0.66rem;
-	font-weight: 700;
-	color: #fff;
-	background: var(--d-turq);
-	border-radius: 999px;
-	padding: 1px 9px;
-	vertical-align: middle;
+.sa-t-btn--counties {
+	background: rgba(0, 255, 157, 0.16);
+	border: 1px solid var(--d-green);
+	color: var(--d-green);
 }
 
 .pill {
 	display: inline-block;
+	padding: 2px 8px;
+	border-radius: 99px;
 	font-size: 0.72rem;
-	border-radius: 999px;
-	padding: 2px 10px;
-	background: var(--d-surface2);
-	border: 1px solid var(--d-line);
+	font-weight: 700;
 }
 
 .pill--yes {
-	color: #fff;
-	background: var(--d-green);
-	border-color: var(--d-green);
+	background: rgba(0, 255, 157, 0.14);
+	color: var(--d-green);
 }
 
 .pill--no {
-	color: var(--d-ink-soft);
+	background: rgba(148, 163, 184, 0.12);
+	color: #94a3b8;
 }
 
 .pill--gold {
-	color: #4a3505;
-	background: linear-gradient(135deg, #f5d061, #e0b153);
-	border-color: #c9962e;
-	font-weight: 700;
+	background: rgba(245, 158, 11, 0.18);
+	color: #fde68a;
 }
 
 .sa-pager {
 	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 8px;
+	gap: 6px;
+	justify-content: center;
 	margin-top: 12px;
 }
 
-.sa-pager__info {
-	font-size: 0.78rem;
-	color: var(--d-ink-soft);
-	margin-inline-start: auto;
-}
-
-/* ================== نقشه ================== */
-
-.sa-map-tools {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: end;
-	gap: 14px;
-	margin-bottom: 12px;
-}
-
-.sa-map-tools__hint {
-	flex: 1 1 280px;
-	margin: 0;
-	font-size: 0.74rem;
-	color: var(--d-ink-soft);
-}
-
-.sa-mapgrid {
-	display: grid;
-	grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr);
-	gap: 18px;
-	align-items: start;
-}
-
-.sa-mapbox {
-	position: relative;
-	background: var(--d-surface);
+.sa-pager__btn {
+	min-width: 34px;
+	height: 34px;
+	border-radius: 6px;
 	border: 1px solid var(--d-line);
-	border-radius: 16px;
-	box-shadow: var(--d-shadow);
-	padding: 16px;
-	min-height: 300px;
-}
-
-.sa-mapsvg {
-	width: 100%;
-	height: auto;
-	direction: ltr;
-	display: block;
-}
-
-.sa-mapsvg path {
-	stroke: var(--d-surface);
-	stroke-width: 1.4;
+	background: var(--d-surface);
+	color: #ffffff;
+	font: inherit;
+	font-weight: 800;
 	cursor: pointer;
-	transition: filter 0.15s ease, opacity 0.2s ease;
 }
 
-.sa-mapsvg path.is-out {
-	fill: var(--d-track) !important;
-	opacity: 0.55;
-	cursor: default;
+.sa-pager__btn.is-current {
+	background: var(--d-green);
+	color: #02100a;
+	border-color: var(--d-green);
 }
 
-.sa-mapsvg path:hover:not(.is-out),
-.sa-mapsvg path:focus-visible {
-	filter: brightness(1.14) saturate(1.1);
-}
-
-.sa-mapsvg path.is-sel {
-	stroke: var(--d-gold);
-	stroke-width: 2.6;
-}
-
-.sa-maplegend {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	gap: 8px 12px;
-	margin-top: 12px;
-	font-size: 0.74rem;
-	color: var(--d-ink-soft);
-	direction: rtl;
-}
-
-.sa-maplegend__step {
-	display: inline-flex;
-	align-items: center;
-	gap: 5px;
-	font-variant-numeric: tabular-nums;
-}
-
-.sa-mapinfo {
-	background: var(--d-surface);
-	border: 1px solid var(--d-line);
-	border-radius: 16px;
-	box-shadow: var(--d-shadow);
-	padding: 18px;
-	position: sticky;
-	top: 16px;
-}
-
-.sa-mapinfo__name {
-	margin: 0 0 12px;
-	font-size: 1.08rem;
-	color: var(--d-green);
-	border-bottom: 1px dashed var(--d-line);
-	padding-bottom: 10px;
-}
-
-.sa-mapinfo__name small {
-	color: var(--d-ink-soft);
-	font-weight: 400;
-}
-
-.sa-mapinfo__dl {
-	display: grid;
-	grid-template-columns: auto minmax(0, 1fr);
-	gap: 7px 14px;
-	margin: 0;
-	font-size: 0.84rem;
-}
-
-.sa-mapinfo__dl dt {
-	color: var(--d-ink-soft);
-	white-space: nowrap;
-}
-
-.sa-mapinfo__dl dd {
-	margin: 0;
-	font-variant-numeric: tabular-nums;
-	word-break: break-word;
-}
-
-/* ================== جاذبه‌ها ================== */
+/* ================== جاذبه‌ها و منابع ================== */
 
 .sa-attr-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-	gap: 14px;
+	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+	gap: 12px;
 }
 
 .sa-acard {
-	display: flex;
-	flex-direction: column;
 	background: var(--d-surface);
 	border: 1px solid var(--d-line);
-	border-radius: 14px;
-	overflow: hidden;
-	box-shadow: var(--d-shadow);
-	transition: transform 0.18s ease, box-shadow 0.18s ease;
-}
-
-.sa-acard:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 16px 34px rgba(18, 51, 43, 0.16);
+	border-radius: 10px;
+	padding: 14px;
+	display: grid;
+	grid-template-columns: 44px 1fr;
+	gap: 12px;
 }
 
 .sa-acard__media {
-	height: 96px;
-	display: grid;
-	place-items: center;
-	color: #fff;
-	background: linear-gradient(135deg, var(--d-green), var(--d-turq));
-}
-
-.sa-acard--natural .sa-acard__media { background: linear-gradient(135deg, #0e93a0, #2b6a8f); }
-.sa-acard--religious .sa-acard__media { background: linear-gradient(135deg, #b7862b, #8f5730); }
-.sa-acard--cultural .sa-acard__media { background: linear-gradient(135deg, #2b6a8f, #177357); }
-
-.sa-acard__media svg {
 	width: 44px;
 	height: 44px;
-	opacity: 0.95;
+	border-radius: 8px;
+	background: rgba(0, 255, 157, 0.12);
+	color: var(--d-green);
+	display: grid;
+	place-items: center;
 }
 
-.sa-acard__body {
-	padding: 14px 16px 16px;
-	display: flex;
-	flex-direction: column;
-	gap: 7px;
-	flex: 1;
+.sa-acard__media svg {
+	width: 24px;
+	height: 24px;
 }
 
 .sa-acard__body h3 {
-	margin: 0;
-	font-size: 0.95rem;
-	line-height: 1.6;
+	margin: 0 0 4px;
+	font-size: 0.94rem;
+	color: #ffffff;
 }
 
 .sa-acard__loc {
-	margin: 0;
-	font-size: 0.78rem;
-	color: var(--d-ink-soft);
-	display: flex;
-	gap: 6px;
-	flex-wrap: wrap;
+	margin: 0 0 6px;
+	font-size: 0.76rem;
+	color: #94a3b8;
 }
 
 .sa-acard__meta {
-	margin: auto 0 0;
-	display: flex;
-	flex-wrap: wrap;
-	gap: 6px;
+	margin: 0;
 }
 
 .sa-acard__note {
-	margin: 4px 0 0;
-	font-size: 0.72rem;
-	color: var(--d-ink-soft);
-	border-inline-start: 3px solid var(--d-gold);
-	padding-inline-start: 8px;
+	margin: 6px 0 0;
+	font-size: 0.76rem;
+	color: #cbd5e1;
 }
-
-/* ================== منابع، اسکلت، تولتیپ، توست ================== */
 
 .sa-dash__sources {
-	margin-top: 40px;
+	margin-top: 28px;
 	background: var(--d-surface);
 	border: 1px solid var(--d-line);
-	border-radius: 16px;
-	padding: 20px 22px;
+	border-radius: 12px;
+	padding: 16px 20px;
 	font-size: 0.82rem;
-	color: var(--d-ink-soft);
+	color: #cbd5e1;
 }
 
-.sa-dash__sources .sa-dash__h2 {
-	font-size: 1rem;
-}
-
-.sa-dash__sources ul {
-	margin: 0;
-	padding-inline-start: 20px;
-	display: flex;
-	flex-direction: column;
-	gap: 6px;
-}
-
-.sa-dash__noscript {
-	background: #fff3cd;
-	color: #4a3505;
-	border-radius: 12px;
-	padding: 14px 18px;
-	margin-top: 16px;
-}
-
-.sa-sk {
-	position: relative;
-	overflow: hidden;
-	background: var(--d-surface2);
-	border-radius: 10px;
-	min-height: 74px;
-}
-
-.sa-sk--tall {
-	min-height: 220px;
-	width: 100%;
-}
-
-.sa-sk::after {
-	content: "";
-	position: absolute;
-	inset: 0;
-	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-	animation: sa-shimmer 1.4s infinite;
-}
-
-.sa-dash[data-theme="dark"] .sa-sk::after {
-	background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
-}
-
-@keyframes sa-shimmer {
-	from { transform: translateX(100%); }
-	to { transform: translateX(-100%); }
-}
-
-.sa-empty {
-	text-align: center;
-	padding: 34px 18px;
-	color: var(--d-ink-soft);
-	background: var(--d-surface2);
-	border: 1px dashed var(--d-line);
-	border-radius: 12px;
-}
-
-.sa-empty p {
-	margin: 0 0 12px;
-	font-size: 0.9rem;
-}
+/* ================== تولتیپ و توست ================== */
 
 .sa-tooltip {
 	position: fixed;
 	z-index: 9999;
-	max-width: 280px;
-	background: #10302a;
-	color: #eafaf3;
+	max-width: 320px;
+	background: #020813;
+	color: var(--d-green);
+	border: 1px solid var(--d-green);
+	padding: 6px 11px;
+	border-radius: 6px;
 	font-size: 0.76rem;
-	line-height: 1.8;
-	padding: 8px 12px;
-	border-radius: 10px;
-	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+	font-weight: 700;
 	pointer-events: none;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
 }
 
 .sa-toast {
 	position: fixed;
-	bottom: 22px;
-	inset-inline-start: 50%;
-	transform: translateX(-50%) translateY(20px);
-	background: #10302a;
-	color: #eafaf3;
-	padding: 10px 20px;
-	border-radius: 12px;
-	font-size: 0.85rem;
-	opacity: 0;
-	transition: opacity 0.25s ease, transform 0.25s ease;
+	bottom: 20px;
+	left: 20px;
 	z-index: 9999;
+	background: #041527;
+	border: 1px solid var(--d-green);
+	color: var(--d-green);
+	padding: 10px 16px;
+	border-radius: 8px;
+	font-size: 0.82rem;
+	font-weight: 800;
+	opacity: 0;
+	transform: translateY(8px);
+	transition: opacity 0.2s ease, transform 0.2s ease;
 	pointer-events: none;
 }
 
 .sa-toast.is-on {
 	opacity: 1;
-	transform: translateX(-50%) translateY(0);
+	transform: translateY(0);
 }
 
-/* ================== واکنش‌گرایی ================== */
+/* ================== واکنش‌گرایی (حفظ ساختار جدول شناسنامه در موبایل) ================== */
 
-@media (max-width: 1020px) {
+@media (max-width: 980px) {
+	.sa-dash__hero-grid,
+	.sa-mapgrid--stage1,
 	.sa-charts {
 		grid-template-columns: 1fr;
 	}
-	.sa-mapgrid {
-		grid-template-columns: 1fr;
-	}
-	.sa-mapinfo {
-		position: static;
+	.sa-cyber-idcard__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
-@media (max-width: 640px) {
-	.sa-dash {
-		padding-inline: 0;
+@media (max-width: 600px) {
+	.sa-cyber-stage-tabs {
+		grid-template-columns: 1fr;
 	}
-	.sa-dash__top {
-		padding: 20px 18px;
+	.sa-cyber-idcard__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.sa-cyber-idcard__cell {
+		padding: 9px 10px;
+	}
+	.sa-cyber-idcard__val {
+		font-size: 0.78rem;
 	}
 	.hbar {
-		grid-template-columns: 92px minmax(0, 1fr) 74px;
-		gap: 7px;
-	}
-	.hbar__name {
-		font-size: 0.72rem;
-	}
-	.border-row {
-		grid-template-columns: 1fr;
-		gap: 6px;
+		grid-template-columns: 115px 1fr 78px;
 	}
 	.donut-wrap {
-		flex-direction: column;
-	}
-	.sa-filters__grid {
 		grid-template-columns: 1fr;
-	}
-}
-
-/* ================== حرکت کمتر ================== */
-
-@media (prefers-reduced-motion: reduce) {
-	.sa-dash *,
-	.sa-dash *::before,
-	.sa-dash *::after {
-		transition: none !important;
-		animation: none !important;
-	}
-}
-
-/* ================== چاپ ================== */
-
-@page {
-	margin: 14mm;
-}
-
-@media print {
-	.sa-dash__actions,
-	.sa-dash__nav,
-	.sa-filters,
-	.sa-table-tools,
-	.sa-map-tools,
-	.sa-pager,
-	.sa-tooltip,
-	.sa-toast {
-		display: none !important;
-	}
-
-	.sa-dash {
-		background: #fff;
-		color: #000;
-		padding: 0;
-	}
-
-	.sa-dash__top {
-		background: #fff;
-		color: #0e5b43;
-		box-shadow: none;
-		border: 2px solid #0e5b43;
-	}
-
-	.sa-chip {
-		color: #0e5b43;
-		border-color: #0e5b43;
-		background: #fff;
-	}
-
-	.sa-panel,
-	.sa-kpi,
-	.sa-table-wrap,
-	.sa-mapbox,
-	.sa-mapinfo,
-	.sa-acard,
-	.sa-dash__sources {
-		box-shadow: none;
-		break-inside: avoid;
-	}
-
-	.sa-charts {
-		grid-template-columns: 1fr;
-	}
-
-	.sa-table-wrap {
-		overflow: visible;
-	}
-
-	.sa-table {
-		min-width: 0;
-		font-size: 0.72rem;
-	}
-
-	a {
-		text-decoration: none;
-		color: inherit;
 	}
 }

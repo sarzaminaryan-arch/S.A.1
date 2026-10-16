@@ -96,10 +96,10 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 .sa-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .sa-chips a{padding:6px 16px;border-radius:99px;background:#edf6ff;border:1px solid #bdd8f1;color:var(--navy);font-size:14px;font-weight:600;text-decoration:none;transition:.25s}
 .sa-chips a:hover,.sa-chips a:focus-visible{background:var(--navy);border-color:var(--navy);color:#fff;outline:0}
-.sa-dash-cta{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:13px 28px;border-radius:99px;background:linear-gradient(135deg,#177357 0%,#0e93a0 130%);color:#fff;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(14,147,160,.55),0 2px 6px rgba(7,26,48,.2);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
-.sa-dash-cta svg{flex:none}
-.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(14,147,160,.65),0 3px 8px rgba(7,26,48,.24);filter:brightness(1.06);color:#fff;outline:0}
-.sa-dash-cta small{font-size:12px;font-weight:500;opacity:.85}
+.sa-dash-cta{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,#04101f 0%,#071f36 100%);border:1.5px solid #00ff9d;color:#fff;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(0,255,157,.38),0 2px 8px rgba(7,26,48,.35);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.sa-dash-cta svg{flex:none;color:#00ff9d}
+.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(0,255,157,.55),0 3px 8px rgba(7,26,48,.4);filter:brightness(1.08);color:#fff;outline:0}
+.sa-dash-cta small{font-family:Consolas,"JetBrains Mono",monospace;font-size:11.5px;font-weight:800;color:#00ff9d;letter-spacing:.05em}
 @media(prefers-reduced-motion:reduce){.sa-dash-cta{transition:none}.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:none}}
 .sa-map{position:relative}
 .sa-map:before{content:"";position:absolute;inset:8% 4%;border-radius:50%;background:radial-gradient(circle,rgba(36,109,168,.24),transparent 68%)}
@@ -189,9 +189,9 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 				<?php $sa_dash_url = function_exists( 'sa_dashboard_page_url' ) ? sa_dashboard_page_url() : ''; ?>
 				<?php if ( $sa_dash_url ) : ?>
 					<a class="sa-dash-cta" href="<?php echo esc_url( $sa_dash_url ); ?>">
-						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20V9M10 20V4M16 20v-8M21 20H3"/></svg>
-						<span>داشبورد جامع گردشگری ایران</span>
-						<small>۳۱ استان، نقشه و نمودارها</small>
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>
+						<span>داشبورد سایبری و نقشهٔ تعاملی شناسنامهٔ ایران</span>
+						<small dir="ltr">CYBER MAP // 31 PROVINCES · 483 COUNTIES</small>
 					</a>
 				<?php endif; ?>
 			</div>
