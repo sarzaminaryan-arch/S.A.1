@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SA Site Audit Exporter
  * Description: خروجی فقط‌خواندنی از صفحات عمومی، پیوندهای داخلی و متادیتای SEO برای ممیزی سرزمین آریان.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: Sarzamin Aryan
  * Requires at least: 5.8
  * Requires PHP: 7.4
@@ -71,7 +71,7 @@ function sa_audit_exporter_render_page() {
 			<li>نسخهٔ WordPress/PHP، قالب فعال و شمار محتوای منتشرشده به تفکیک نوع.</li>
 		</ul>
 		<h2>چه چیزهایی جمع نمی‌شود؟</h2>
-		<p>پیش‌نویس و محتوای خصوصی، حساب‌های کاربری، ایمیل/رمز/تنظیمات، دیدگاه‌ها، سفارش‌ها، فرم‌ها، همهٔ metaها و داده‌های Analytics جمع نمی‌شوند. ابزار فقط یک فایل JSON می‌سازد و آن را به مدیر سایت می‌دهد.</p>
+		<p>پیش‌نویس و محتوای خصوصی، حساب‌های کاربری، ایمیل/رمز/تنظیمات، دیدگاه‌ها، سفارش‌ها، فرم‌ها، همهٔ metaها و داده‌های Analytics جمع نمی‌شوند. هر عملیات، یک فایل JSON را فقط برای دانلود مدیر سایت می‌سازد.</p>
 		<p><strong>نکته:</strong> متن HTML ذخیره‌شده در نوشته‌ها صادر می‌شود؛ خروجیِ نهاییِ ساخته‌شده توسط قالب (مثلاً شناسنامه‌های داینامیک یا HTML واقعی پس از اجرا) مستقیماً در این فایل نیست و باید در گام بعد با crawl زنده بررسی شود.</p>
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="sa_audit_exporter_download">
@@ -80,8 +80,8 @@ function sa_audit_exporter_render_page() {
 		</form>
 		<hr>
 		<h2>۲) نمونه‌برداری از HTML زنده</h2>
-		<p>این گزینه فقط در مرورگر شما و فقط روی دامنهٔ همین سایت کار می‌کند؛ `robots.txt`، چند مسیر sitemap، صفحهٔ اصلی، آرشیوها، استان‌های منتشرشده، دیدنی‌های منتشرشده، یک شهرستان نمونه از هر استان و حداکثر پنج نوشتهٔ آموزشی را بررسی می‌کند. متن کامل HTML را ذخیره نمی‌کند؛ فقط title، description، canonical، robots، H1/H2، schema، شمار/مقصد لینک‌های داخلی و وضعیت پاسخ را ثبت می‌کند. درخواست‌ها به ترتیب و با فاصلهٔ کوتاه ارسال می‌شوند.</p>
-		<p><button type="button" class="button" id="sa-audit-crawl-start">شروع بررسی HTML زنده</button> <button type="button" class="button" id="sa-audit-crawl-cancel" disabled>توقف</button></p>
+		<p>این گزینه در مرورگر شما و فقط روی دامنهٔ همین سایت کار می‌کند؛ همهٔ URLهای پست‌های منتشرشده در همهٔ post typeهای عمومی، آرشیوها، taxonomyهای عمومیِ دارای محتوا، `robots.txt` و مسیرهای sitemap را تا سقف ۵۰۰۰ پست/۱۰٬۰۰۰ URL بررسی می‌کند. خروجی ساختاریافته شامل SEO meta، هدینگ‌ها، schema، لینک‌های داخلی/خارجی و تصویرهاست؛ HTML کامل یا دادهٔ فرم‌ها را ذخیره نمی‌کند. redirect دنبال نمی‌شود. اجرا ممکن است برای سایت بزرگ چند دقیقه طول بکشد؛ تعداد پیشرفت نمایش داده می‌شود.</p>
+		<p><button type="button" class="button" id="sa-audit-crawl-start">شروع ممیزی کامل صفحات عمومی</button> <button type="button" class="button" id="sa-audit-crawl-cancel" disabled>توقف</button></p>
 		<div id="sa-audit-crawl-status" role="status" aria-live="polite"></div>
 		<hr>
 		<p><strong>ارسال برای تحلیل:</strong> هر دو فایل JSON (فهرست محتوا و نمونهٔ HTML زنده) را در همین گفت‌وگو پیوست کنید. ابزار چیزی را به بیرون ارسال نمی‌کند؛ دانلود فقط روی رایانهٔ شما انجام می‌شود. پیش از ارسال، اگر صفحه‌ای دادهٔ عمومی دارد که نمی‌خواهید به اشتراک گذاشته شود، فایل را بازبینی و آن رکورد را حذف کنید.</p>
@@ -213,8 +213,19 @@ function sa_audit_exporter_download() {
 	foreach ( $public_type_names as $post_type ) {
 		$remaining = $max_items - count( $items );
 		if ( $remaining <= 0 ) {
-			$truncated = true;
-			break;
+			$probe = get_posts(
+				array(
+					'post_type'      => $post_type,
+					'post_status'    => 'publish',
+					'posts_per_page' => 1,
+					'no_found_rows'  => true,
+				)
+			);
+			if ( $probe ) {
+				$truncated = true;
+				break;
+			}
+			continue;
 		}
 		$posts = get_posts(
 			array(
@@ -317,7 +328,7 @@ function sa_audit_exporter_enqueue_crawler( $hook ) {
 		'sa-audit-exporter-crawler',
 		plugins_url( 'assets/audit-crawler.js', __FILE__ ),
 		array(),
-		'1.0.0',
+		'1.1.0',
 		true
 	);
 	wp_localize_script(
@@ -333,8 +344,8 @@ function sa_audit_exporter_enqueue_crawler( $hook ) {
 add_action( 'admin_enqueue_scripts', 'sa_audit_exporter_enqueue_crawler' );
 
 /**
- * Return a limited same-site crawl manifest: all published provinces/attractions,
- * one published county per province when available, and a few educational posts.
+ * Return a full same-site manifest of published public posts and public archives.
+ * The manifest contains URLs and labels only; the browser crawler reads them later.
  */
 function sa_audit_exporter_crawl_manifest() {
 	if ( ! current_user_can( 'manage_options' ) ) {
@@ -343,6 +354,10 @@ function sa_audit_exporter_crawl_manifest() {
 	check_ajax_referer( 'sa_audit_exporter_crawl', 'nonce' );
 
 	$urls = array();
+	$truncated = false;
+	$max_posts = 5000;
+	$max_urls = 10000;
+	$published_count = 0;
 	$add_url = static function ( $url, $type, $label ) use ( &$urls ) {
 		if ( ! is_string( $url ) || '' === $url ) {
 			return;
@@ -362,100 +377,101 @@ function sa_audit_exporter_crawl_manifest() {
 
 	$add_url( home_url( '/' ), 'front_page', get_bloginfo( 'name' ) );
 	$add_url( home_url( '/robots.txt' ), 'robots', 'robots.txt' );
-	$add_url( home_url( '/wp-sitemap.xml' ), 'sitemap', 'WordPress sitemap' );
-	$add_url( home_url( '/sitemap_index.xml' ), 'sitemap', 'SEO sitemap index' );
-	$add_url( home_url( '/attraction-sitemap.xml' ), 'sitemap', 'Attraction sitemap' );
-	foreach ( array( 'province', 'city', 'attraction', 'post' ) as $type ) {
-		$archive = get_post_type_archive_link( $type );
-		if ( $archive ) {
-			$type_object = get_post_type_object( $type );
-			$archive_label = $type_object ? $type_object->labels->name : $type;
-			$add_url( $archive, 'archive:' . $type, $archive_label );
-		}
+	foreach ( array( '/wp-sitemap.xml', '/sitemap_index.xml', '/attraction-sitemap.xml' ) as $sitemap_path ) {
+		$add_url( home_url( $sitemap_path ), 'sitemap', ltrim( $sitemap_path, '/' ) );
 	}
 
-	$provinces = get_posts(
-		array(
-			'post_type'      => 'province',
-			'post_status'    => 'publish',
-			'posts_per_page' => 100,
-			'orderby'        => 'title',
-			'order'          => 'ASC',
-			'no_found_rows'  => true,
-		)
-	);
-	foreach ( $provinces as $post ) {
-		$add_url( get_permalink( $post ), 'province', get_the_title( $post ) );
-	}
-
-	$attractions = get_posts(
-		array(
-			'post_type'      => 'attraction',
-			'post_status'    => 'publish',
-			'posts_per_page' => 500,
-			'orderby'        => 'title',
-			'order'          => 'ASC',
-			'no_found_rows'  => true,
-		)
-	);
-	foreach ( $attractions as $post ) {
-		$add_url( get_permalink( $post ), 'attraction', get_the_title( $post ) );
-	}
-
-	$counties = get_posts(
-		array(
-			'post_type'      => 'city',
-			'post_status'    => 'publish',
-			'posts_per_page' => 1000,
-			'orderby'        => 'title',
-			'order'          => 'ASC',
-			'no_found_rows'  => true,
-		)
-	);
-	$county_by_province = array();
-	$unassigned_counties = array();
-	foreach ( $counties as $post ) {
-		$province_id = (int) get_post_meta( $post->ID, 'sa_province_id', true );
-		$province_slug = $province_id ? (string) get_post_field( 'post_name', $province_id ) : '';
-		if ( '' === $province_slug ) {
-			$terms = wp_get_post_terms( $post->ID, 'province_tax', array( 'fields' => 'slugs' ) );
-			if ( ! is_wp_error( $terms ) && $terms ) {
-				$province_slug = (string) reset( $terms );
+	$public_types = get_post_types( array( 'public' => true ), 'objects' );
+	unset( $public_types['attachment'] );
+	foreach ( $public_types as $post_type => $object ) {
+		if ( ! empty( $object->has_archive ) ) {
+			$archive = get_post_type_archive_link( $post_type );
+			if ( $archive ) {
+				$add_url( $archive, 'archive:' . $post_type, $object->labels->name );
 			}
 		}
-		if ( '' !== $province_slug && ! isset( $county_by_province[ $province_slug ] ) ) {
-			$county_by_province[ $province_slug ] = $post;
-		} elseif ( '' === $province_slug && count( $unassigned_counties ) < 10 ) {
-			$unassigned_counties[] = $post;
+		$remaining = $max_posts - $published_count;
+		if ( $remaining <= 0 ) {
+			$probe = get_posts(
+				array(
+					'post_type'      => $post_type,
+					'post_status'    => 'publish',
+					'posts_per_page' => 1,
+					'no_found_rows'  => true,
+				)
+			);
+			if ( $probe ) {
+				$truncated = true;
+				break;
+			}
+			continue;
+		}
+		$posts = get_posts(
+			array(
+				'post_type'              => $post_type,
+				'post_status'            => 'publish',
+				'posts_per_page'         => $remaining + 1,
+				'orderby'                => array( 'post_type' => 'ASC', 'ID' => 'ASC' ),
+				'no_found_rows'          => true,
+				'ignore_sticky_posts'    => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+			)
+		);
+		if ( count( $posts ) > $remaining ) {
+			$truncated = true;
+			$posts = array_slice( $posts, 0, $remaining );
+		}
+		foreach ( $posts as $post ) {
+			$add_url( get_permalink( $post ), $post_type, get_the_title( $post ) );
+			++$published_count;
 		}
 	}
-	foreach ( $county_by_province as $post ) {
-		$add_url( get_permalink( $post ), 'county_sample', get_the_title( $post ) );
-	}
-	foreach ( $unassigned_counties as $post ) {
-		$add_url( get_permalink( $post ), 'county_sample_unassigned', get_the_title( $post ) );
+
+	$public_taxonomies = get_taxonomies( array( 'public' => true ), 'objects' );
+	foreach ( $public_taxonomies as $taxonomy => $taxonomy_object ) {
+		$terms = get_terms(
+			array(
+				'taxonomy'   => $taxonomy,
+				'hide_empty' => true,
+				'number'     => 1001,
+				'orderby'    => 'name',
+				'order'      => 'ASC',
+			)
+		);
+		if ( is_wp_error( $terms ) ) {
+			continue;
+		}
+		if ( count( $terms ) > 1000 ) {
+			$truncated = true;
+			$terms = array_slice( $terms, 0, 1000 );
+		}
+		foreach ( $terms as $term ) {
+			$term_url = get_term_link( $term );
+			if ( ! is_wp_error( $term_url ) ) {
+				$add_url( $term_url, 'taxonomy:' . $taxonomy, $term->name );
+			}
+		}
 	}
 
-	$guides = get_posts(
-		array(
-			'post_type'      => 'post',
-			'post_status'    => 'publish',
-			'posts_per_page' => 5,
-			'orderby'        => 'modified',
-			'order'          => 'DESC',
-			'no_found_rows'  => true,
-		)
-	);
-	foreach ( $guides as $post ) {
-		$add_url( get_permalink( $post ), 'educational_sample', get_the_title( $post ) );
+	if ( count( $urls ) > $max_urls ) {
+		$truncated = true;
+		$urls = array_slice( $urls, 0, $max_urls, true );
 	}
 
 	wp_send_json_success(
 		array(
-			'origin'         => untrailingslashit( home_url( '/' ) ),
-			'generated_utc'  => gmdate( 'c' ),
-			'sample_strategy'=> 'front page + public archives + all published provinces and attractions + one published county per province + up to five recent published posts',
-			'urls'           => array_values( $urls ),
+			'origin'            => untrailingslashit( home_url( '/' ) ),
+			'generated_utc'     => gmdate( 'c' ),
+			'coverage_strategy' => 'front page + robots/sitemap endpoints + every published post in every public post type (excluding attachments) + public archives and non-empty public taxonomy terms',
+			'limits'            => array(
+				'max_published_posts' => $max_posts,
+				'published_posts'     => $published_count,
+				'max_urls'            => $max_urls,
+				'url_count'           => count( $urls ),
+				'truncated'           => $truncated,
+			),
+			'urls'              => array_values( $urls ),
 		)
 	);
 }

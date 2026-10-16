@@ -52,21 +52,46 @@
     const description = doc.querySelector('meta[name="description"]');
     const robots = Array.from(doc.querySelectorAll('meta[name="robots"], meta[name="googlebot"]'))
       .map((node) => ({ name: node.getAttribute('name'), content: node.getAttribute('content') || '' }));
+    const socialMeta = Array.from(doc.querySelectorAll('meta[property^="og:"], meta[name^="twitter:"]'))
+      .map((node) => ({
+        key: node.getAttribute('property') || node.getAttribute('name') || '',
+        content: node.getAttribute('content') || ''
+      }));
     const headings = {};
     ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].forEach((tag) => {
       headings[tag] = doc.querySelectorAll(tag).length;
     });
+    const headingTexts = Array.from(doc.querySelectorAll('h1, h2, h3, h4, h5, h6')).slice(0, 150)
+      .map((node) => ({ level: node.tagName.toLowerCase(), text: cleanText(node).slice(0, 300) }));
+    const images = Array.from(doc.querySelectorAll('img'));
+    const imageSamples = images.slice(0, 100).map((node) => ({
+      src: node.currentSrc || node.getAttribute('src') || '',
+      alt: node.getAttribute('alt'),
+      loading: node.getAttribute('loading') || ''
+    }));
+    const missingAltCount = images.filter((node) => !node.hasAttribute('alt') || !cleanText({ textContent: node.getAttribute('alt') })).length;
 
     const pageOrigin = new URL(pageUrl).origin;
     const internalTargets = new Set();
+    const externalTargets = new Set();
     const internalLinkCounts = { province: 0, city: 0, attraction: 0, other: 0 };
+    let externalLinkCount = 0;
     const linkTargets = [];
+    const externalLinkSamples = [];
     doc.querySelectorAll('a[href]').forEach((anchor) => {
       try {
         const target = new URL(anchor.getAttribute('href'), pageUrl);
-        if (target.origin !== pageOrigin || !/^https?:$/.test(target.protocol)) return;
+        if (!/^https?:$/.test(target.protocol)) return;
         target.hash = '';
         const normalized = target.href.replace(/\/$/, '');
+        if (target.origin !== pageOrigin) {
+          externalLinkCount += 1;
+          externalTargets.add(normalized);
+          if (externalLinkSamples.length < 100) {
+            externalLinkSamples.push({ url: target.href, anchor: cleanText(anchor).slice(0, 180) });
+          }
+          return;
+        }
         internalTargets.add(normalized);
         const path = target.pathname;
         if (/\/province\//.test(path)) internalLinkCounts.province += 1;
@@ -105,13 +130,18 @@
       resource_excerpt: resourceExcerpt,
       title: cleanText(doc.querySelector('title')),
       meta_description: description ? description.getAttribute('content') || '' : '',
+      social_meta: socialMeta,
       canonical: canonical ? canonical.href : '',
       robots,
       language: doc.documentElement ? doc.documentElement.getAttribute('lang') || '' : '',
       dir: doc.documentElement ? doc.documentElement.getAttribute('dir') || '' : '',
       body_classes: doc.body ? String(doc.body.className || '').slice(0, 500) : '',
       h1_texts: Array.from(doc.querySelectorAll('h1')).slice(0, 10).map(cleanText),
+      heading_texts: headingTexts,
       heading_counts_document: headings,
+      image_count: images.length,
+      images_missing_alt_count: missingAltCount,
+      image_samples: imageSamples,
       heading_counts_content: contentHeadings,
       body_approx_word_count: countWords(bodyText),
       content_approx_word_count: countWords(cleanText(contentRoot)),
@@ -120,7 +150,11 @@
       internal_link_counts: internalLinkCounts,
       unique_internal_target_count: internalTargets.size,
       internal_targets: Array.from(internalTargets).slice(0, 250),
-      link_targets: linkTargets
+      internal_link_samples: linkTargets,
+      external_link_count: externalLinkCount,
+      unique_external_target_count: externalTargets.size,
+      external_targets: Array.from(externalTargets).slice(0, 100),
+      external_link_samples: externalLinkSamples
     };
   }
 
@@ -203,13 +237,15 @@
     cancel.disabled = false;
     const results = [];
     try {
-      say('در حال آماده‌سازی فهرست نمونه‌ها…');
+      say('در حال ساخت فهرست کامل URLهای عمومی منتشرشده…');
       const manifest = await getManifest();
       const expectedOrigin = new URL(manifest.origin).origin;
       if (window.location.origin !== expectedOrigin) {
         throw new Error('نشانی پیشخوان و دامنهٔ اصلی یکی نیستند. از همان دامنهٔ اصلی وارد پیشخوان شوید و دوباره اجرا کنید.');
       }
       const pages = manifest.urls;
+      say('در فهرست ' + pages.length + ' URL عمومی پیدا شد.' + (manifest.limits && manifest.limits.truncated ? ' هشدار: سقف خروجی فعال شده است.' : ''));
+      await sleep(700);
       for (let index = 0; index < pages.length; index += 1) {
         if (stopRequested) break;
         const item = pages[index];
@@ -221,7 +257,8 @@
         export_format: 'sa-rendered-audit-v1',
         generated_utc: new Date().toISOString(),
         site_origin: expectedOrigin,
-        sample_strategy: manifest.sample_strategy,
+        coverage_strategy: manifest.coverage_strategy,
+        limits: manifest.limits,
         requested_count: pages.length,
         completed_count: results.length,
         stopped_by_admin: stopRequested,
@@ -229,7 +266,7 @@
         pages: results
       };
       downloadJson(payload);
-      say('تمام شد: ' + results.length + ' صفحه بررسی شد. فایل JSON دانلود شد؛ آن را کنار فایل فهرست محتوا نگه دارید.');
+      say('تمام شد: ' + results.length + ' از ' + pages.length + ' URL بررسی شد. فایل JSON دانلود شد؛ آن را کنار فایل فهرست محتوا نگه دارید.' + (manifest.limits && manifest.limits.truncated ? ' هشدار: بخشی از URLها به‌دلیل سقف مجاز در این نسخه جا افتاد.' : ''));
     } catch (error) {
       say('خطا: ' + String(error && error.message ? error.message : error));
     } finally {
