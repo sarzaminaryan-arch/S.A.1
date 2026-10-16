@@ -38,6 +38,7 @@ $sa_child_includes = array(
 	'inc/jalali.php',
 	'inc/seo.php',
 	'inc/citations.php',
+	'inc/w-citations.php',
 	'inc/redirects.php', // تغییر مسیر ۳۰۱ صفحه‌های تکراری (ادغام‌های تأییدشدهٔ مالک)
 	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / دیدنی
 	'inc/region-map.php',
