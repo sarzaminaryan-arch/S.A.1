@@ -1,6 +1,11 @@
 <?php
 /**
- * Entity hero: featured image + title + parent line.
+ * Entity header dispatcher (v2.19.1).
+ *
+ * - Attractions render the full-width Cyber-Tech Attraction Identity Card (`identity-attraction.php`).
+ * - Provinces and Counties render the breadcrumb bar here, followed immediately by their
+ *   dedicated Cyber-Tech Identity Card (`province-identity.php` / `county-profile.php`) at the
+ *   top of `.sa-entity__main` without duplicating titles or key facts.
  *
  * @package Sarzaminaryan_Child
  */
@@ -8,55 +13,49 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$sa_id       = get_the_ID();
-$sa_type     = get_post_type();
+
+$sa_id   = get_the_ID();
+$sa_type = get_post_type( $sa_id );
+
 if ( 'attraction' === $sa_type ) {
 	get_template_part( 'template-parts/entity/identity-attraction' );
 	return;
 }
-$sa_city     = sa_get_parent( $sa_id, 'city' );
-$sa_province = sa_get_parent( $sa_id, 'province' );
-$sa_title    = 'city' === $sa_type && function_exists( 'sa_county_name' ) ? sa_county_name( $sa_id, true ) : get_the_title( $sa_id );
-$sa_kicker   = sa_entity_label( $sa_type );
-if ( 'city' === $sa_type && $sa_province ) {
-	$sa_kicker .= 'ی در استان ' . sa_province_name_for_post( $sa_province );
-} elseif ( $sa_city && ! in_array( $sa_type, array( 'province', 'city' ), true ) ) {
-	$sa_city_name = function_exists( 'sa_county_name' ) ? sa_county_name( $sa_city, true ) : get_the_title( $sa_city );
-	$sa_kicker .= ' در ' . $sa_city_name . ( $sa_province ? '، استان ' . sa_province_name_for_post( $sa_province ) : '' );
-} elseif ( 'province' === $sa_type ) {
-	$sa_kicker = 'راهنمای سفر به استان';
+
+if ( in_array( $sa_type, array( 'province', 'city' ), true ) ) {
+	?>
+	<div class="sa-id-card__crumbs sa-id-card__crumbs--<?php echo esc_attr( $sa_type ); ?>">
+		<div class="sa-container">
+			<?php sa_breadcrumbs(); ?>
+		</div>
+	</div>
+	<?php
+	return;
 }
+
+$sa_label = sa_entity_label( $sa_type );
+$sa_en    = get_post_meta( $sa_id, 'sa_english_name', true );
+$sa_thumb = sa_featured_image_available( $sa_id, 'hero' );
 ?>
-<?php /* v2.15.0: تصویر شاخص هیروی موجودیت‌ها تا بازگشت فایل‌های رسانه پنهان است. */ ?>
-<?php $sa_hero_image = function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $sa_id, 'hero' ); ?>
-<header class="sa-entity__hero<?php echo $sa_hero_image ? ' has-image' : ''; ?>">
-	<?php if ( $sa_hero_image ) : ?>
-		<figure class="sa-entity__hero-media">
-			<?php the_post_thumbnail( 'full', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'class' => 'sa-entity__hero-img' ) ); ?>
-		</figure>
+<header class="sa-entity-hero sa-entity-hero--<?php echo esc_attr( $sa_type ); ?><?php echo $sa_thumb ? ' has-media' : ''; ?>">
+	<?php if ( $sa_thumb ) : ?>
+		<div class="sa-entity-hero__media" aria-hidden="true">
+			<?php echo sa_get_featured_image( 'sa-hero', array( 'loading' => 'eager', 'fetchpriority' => 'high' ), $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<span class="sa-entity-hero__scrim"></span>
+		</div>
 	<?php endif; ?>
-	<div class="container sa-entity__hero-text">
-		<p class="sa-entity__kicker"><?php echo esc_html( $sa_kicker ); ?></p>
-		<h1 class="entry-title sa-entity__title"><?php echo esc_html( $sa_title ); ?></h1>
-		<?php
-		$sa_terms_html = array();
-		if ( 'city' === $sa_type && $sa_province ) {
-			$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_permalink( $sa_province ) ) . '">' . esc_html( 'استان ' . sa_province_name_for_post( $sa_province ) ) . '</a>';
-		}
-		foreach ( sa_entity( $sa_type )['taxonomies'] as $sa_tax ) {
-			if ( 'province_tax' === $sa_tax && 'province' !== $sa_type ) {
-				continue; // shown via parent line.
-			}
-			$sa_terms = get_the_terms( $sa_id, $sa_tax );
-			if ( $sa_terms && ! is_wp_error( $sa_terms ) ) {
-				foreach ( $sa_terms as $sa_t ) {
-					$sa_terms_html[] = '<a class="sa-chip" href="' . esc_url( get_term_link( $sa_t ) ) . '">' . esc_html( $sa_t->name ) . '</a>';
-				}
-			}
-		}
-		if ( $sa_terms_html ) {
-			echo '<p class="sa-entity__chips">' . implode( ' ', $sa_terms_html ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		}
-		?>
+
+	<div class="sa-container sa-entity-hero__inner">
+		<?php sa_breadcrumbs(); ?>
+
+		<div class="sa-entity-hero__meta">
+			<span class="sa-badge sa-badge--<?php echo esc_attr( $sa_type ); ?>"><?php echo esc_html( $sa_label ); ?></span>
+			<?php sa_updated_badge( $sa_id ); ?>
+		</div>
+
+		<h1 class="sa-entity-hero__title">
+			<?php the_title(); ?>
+			<?php if ( $sa_en ) : ?><small class="sa-entity-hero__en" dir="ltr"><?php echo esc_html( $sa_en ); ?></small><?php endif; ?>
+		</h1>
 	</div>
 </header>

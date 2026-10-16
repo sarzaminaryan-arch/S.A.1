@@ -58,9 +58,9 @@ function sa_featured_images_visible( $context = '' ) {
  * @return bool
  */
 function sa_attraction_images_visible() {
-	$show = (bool) get_theme_mod( 'sa_show_attraction_image', true );
+	$show = (bool) get_theme_mod( 'sa_show_attraction_image', false );
 	/**
-	 * نمایش تصویر شاخص «دیدنی‌ها» داخل مقاله.
+	 * نمایش تصویر شاخص «دیدنی‌ها» داخل مقاله (پیش‌فرض خاموش — v2.19.1).
 	 *
 	 * @param bool $show وضعیت.
 	 */
@@ -105,8 +105,9 @@ function sa_featured_image_suppressed( $post_id ) {
 	if ( ! $post_id ) {
 		return false;
 	}
-	$is_ready_guide_post = ! function_exists( 'get_post_type' ) || 'post' === get_post_type( $post_id );
-	if ( $is_ready_guide_post && function_exists( 'sa_ready_articles_data' ) && function_exists( 'get_post_field' ) ) {
+	$post_type          = function_exists( 'get_post_type' ) ? (string) get_post_type( $post_id ) : 'post';
+	$is_ready_candidate = in_array( $post_type, array( 'post', 'attraction', 'city', '' ), true );
+	if ( $is_ready_candidate && function_exists( 'sa_ready_articles_data' ) && function_exists( 'get_post_field' ) ) {
 		$slug = (string) get_post_field( 'post_name', $post_id );
 		if ( '' !== $slug ) {
 			static $suppressed_slugs = null;

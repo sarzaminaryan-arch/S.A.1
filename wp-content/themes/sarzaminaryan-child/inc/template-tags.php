@@ -747,3 +747,421 @@ function sa_fallback_menu() {
 	}
 	echo '</ul>';
 }
+
+/**
+ * Tiny review badge for any unpopulated slot in the Cyber-Tech Identity Cards (v2.19.1).
+ *
+ * @return string HTML span.
+ */
+function sa_cyber_id_review_badge() {
+	return '<span class="sa-cyber-id__review" title="این مورد در نوبت تکمیل و بازبینی تحریریه است">نیازمند بازبینی</span>';
+}
+
+/**
+ * Render a cell value or the tiny «نیازمند بازبینی» badge when empty (v2.19.1).
+ *
+ * @param string $value      Raw text or pre-escaped HTML.
+ * @param bool   $allow_html Whether $value is already safe HTML.
+ * @return string Safe HTML.
+ */
+function sa_cyber_id_value_or_review( $value, $allow_html = false ) {
+	$plain = trim( wp_strip_all_tags( (string) $value ) );
+	if ( '' === $plain ) {
+		return sa_cyber_id_review_badge();
+	}
+	return $allow_html ? (string) $value : esc_html( (string) $value );
+}
+
+/**
+ * Official English name for a province slug from data/provinces.php (v2.19.1).
+ *
+ * @param string $province_slug Province ASCII slug.
+ * @return string English province name (e.g. "Lorestan").
+ */
+function sa_cyber_id_province_en( $province_slug ) {
+	static $map = null;
+	if ( null === $map ) {
+		$map  = array();
+		$file = SA_CHILD_DIR . 'data/provinces.php';
+		if ( is_readable( $file ) ) {
+			foreach ( (array) include $file as $row ) {
+				if ( ! empty( $row['slug'] ) && ! empty( $row['en'] ) ) {
+					$map[ sanitize_key( (string) $row['slug'] ) ] = (string) $row['en'];
+				}
+			}
+		}
+	}
+	$slug = sanitize_key( (string) $province_slug );
+	if ( isset( $map[ $slug ] ) ) {
+		return $map[ $slug ];
+	}
+	return function_exists( 'sa_province_profile_english_name' ) ? sa_province_profile_english_name( $slug ) : '';
+}
+
+/**
+ * Fallback record for an attraction post from data/ready-articles.php or data/attractions.php (v2.19.1).
+ *
+ * Ensures that even before re-running the importer in WP Admin, all ready attractions
+ * display 100% of their Cyber-Tech Identity Card fields.
+ *
+ * @param int $post_id Post ID.
+ * @return array<string,mixed>
+ */
+function sa_cyber_id_attraction_fallback( $post_id ) {
+	static $catalog = null;
+	if ( null === $catalog ) {
+		$catalog = array();
+		$ready   = SA_CHILD_DIR . 'data/ready-articles.php';
+		if ( is_readable( $ready ) ) {
+			foreach ( (array) include $ready as $k => $row ) {
+				if ( is_array( $row ) ) {
+					$s             = ! empty( $row['slug'] ) ? (string) $row['slug'] : (string) $k;
+					$catalog[ $s ] = $row;
+				}
+			}
+		}
+	}
+	$slug = (string) get_post_field( 'post_name', $post_id );
+	return ( '' !== $slug && isset( $catalog[ $slug ] ) ) ? $catalog[ $slug ] : array();
+}
+
+/**
+ * Fallback county telemetry from data/region-facts.php and curated county profiles (v2.19.1).
+ *
+ * @param string $county_slug   County slug.
+ * @param string $province_slug Parent province slug.
+ * @return array<string,string>
+ */
+function sa_cyber_id_county_fallback( $county_slug, $province_slug = '' ) {
+	static $region_facts = null;
+	if ( null === $region_facts ) {
+		$file         = SA_CHILD_DIR . 'data/region-facts.php';
+		$region_facts = is_readable( $file ) ? (array) include $file : array();
+	}
+
+	$slug  = sanitize_key( (string) $county_slug );
+	$base  = preg_replace( '/-(?:city|county)$/', '', $slug );
+	$pslug = sanitize_key( (string) $province_slug );
+
+	$curated = array(
+		'dorud'          => array(
+			'population' => '۱۷۴٬۵۰۸ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۴۵۷ متر',
+			'area'       => '۱٬۳۲۶ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۵ دهستان · ۲ شهر · ۱۳۵ آبادی',
+			'climate'    => 'کوهستانی معتدل (زاگرس میانی)',
+			'season'     => 'بهار (فروردین تا خرداد)، تابستان و پاییز',
+			'language'   => 'لری (بختیاری، سیلاخوری و خرم‌آبادی) و فارسی',
+			'livelihood' => 'کشاورزی (برنج و گندم)، صنعت سیمان و سنگ، دامداری و گردشگری طبیعی',
+			'access'     => 'راه‌آهن سراسری تهران–جنوب + محور جاده‌ای بروجرد–دورود–ازنا و خرم‌آباد',
+			'neighbors'  => 'بروجرد (شمال) · ازنا (شرق) · الیگودرز (جنوب‌شرق) · خرم‌آباد (غرب) · شازند (شمال‌شرق)',
+		),
+		'khorramabad'    => array(
+			'population' => '۵۰۶٬۴۷۱ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۱۴۷ متر',
+			'area'       => '۴٬۹۶۸ کیلومتر مربع',
+			'divisions'  => '۴ بخش · ۱۷ دهستان · ۵ شهر · ۵۳۰ آبادی',
+			'climate'    => 'معتدل کوهستانی و مدیترانه‌ای زاگرس',
+			'season'     => 'بهار (فروردین و اردیبهشت) و پاییز',
+			'language'   => 'لری خرم‌آبادی، لکی و فارسی',
+			'livelihood' => 'خدمات شهری، کشاورزی، باغداری، دامپروری و گردشگری تاریخی–طبیعی',
+			'access'     => 'آزادراه خرم‌آباد–پل‌زال و خرم‌آباد–بروجرد + فرودگاه خرم‌آباد',
+			'neighbors'  => 'بروجرد و سلسله (شمال) · دورود و الیگودرز (شرق) · چگنی و کوهدشت (غرب) · اندیمشک (جنوب)',
+		),
+		'amol'           => array(
+			'population' => '۴۰۱٬۶۳۹ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۷۶ متر (مرکز) تا ۵٬۶۱۰ متر (قله دماوند)',
+			'area'       => '۳٬۰۷۴ کیلومتر مربع',
+			'divisions'  => '۵ بخش · ۱۲ دهستان · ۶ شهر · ۳۶۰ آبادی',
+			'climate'    => 'معتدل خزری در جلگه و سرد کوهستانی در بخش لاریجان',
+			'season'     => 'بهار، پاییز و تابستان (برای ارتفاعات لاریجان و دماوند)',
+			'language'   => 'مازندرانی (طبری آملی) و فارسی',
+			'livelihood' => 'برنج‌کاری، مرکبات، صنایع غذایی و لبنی، گردشگری کوهستانی و جنگلی',
+			'access'     => 'محور شریانی هراز (جاده ۷۷ تهران–آمل) و بزرگراه کناره خزر',
+			'neighbors'  => 'محمودآباد (شمال) · بابل (شرق) · نور (غرب) · تهران و دماوند (جنوب)',
+		),
+		'kuhrang'        => array(
+			'population' => '۴۱٬۵۲۸ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۲٬۳۶۵ متر (چلگرد) تا ۴٬۲۲۱ متر (زردکوه)',
+			'area'       => '۳٬۷۹۱ کیلومتر مربع',
+			'divisions'  => '۳ بخش · ۷ دهستان · ۳ شهر · ۲۰۰ آبادی',
+			'climate'    => 'سرد و برف‌گیر کوهستانی (سرچشمه کارون و زاینده‌رود)',
+			'season'     => 'نیمه دوم بهار و تابستان',
+			'language'   => 'لری بختیاری و فارسی',
+			'livelihood' => 'دامداری عشایری، زنبورداری، گیاهان دارویی و طبیعت‌گردی',
+			'access'     => 'محور شهرکرد–فارسان–چلگرد و مسیر کوهستانی بازفت–مسجدسلیمان',
+			'neighbors'  => 'الیگودرز و دزفول (شمال و غرب) · فارسان و اردل (شرق) · مسجدسلیمان و اندیکا (جنوب)',
+		),
+		'kabutarahang'   => array(
+			'population' => '۱۲۶٬۰۶۲ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۶۷۰ متر (مرکز) تا ۱٬۹۸۰ متر (علیصدر)',
+			'area'       => '۳٬۹۵۰ کیلومتر مربع',
+			'divisions'  => '۳ بخش · ۱۰ دهستان · ۳ شهر · ۱۲۸ آبادی',
+			'climate'    => 'سرد و نیمه‌خشک کوهستانی',
+			'season'     => 'بهار، تابستان و اوایل پاییز',
+			'language'   => 'ترکی آذربایجانی، فارسی و کردی',
+			'livelihood' => 'کشاورزی، گردشگری غار علیصدر، صنایع دستی و دامپروری',
+			'access'     => 'محور همدان–بیجار/زنجان و آزادراه تهران–همدان + ایستگاه راه‌آهن',
+			'neighbors'  => 'خدابنده و ایجرود (شمال) · رزن و فامنین (شرق) · بهار و همدان (جنوب) · بیجار (غرب)',
+		),
+		'galikash'       => array(
+			'population' => '۶۳٬۱۷۳ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۲۷۰ متر (مرکز) تا ۲٬۴۱۱ متر (پارک ملی گلستان)',
+			'area'       => '۸۵۰ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۴ دهستان · ۲ شهر · ۶۵ آبادی',
+			'climate'    => 'معتدل هیرکانی در غرب و نیمه‌خشک کوهستانی در شرق',
+			'season'     => 'بهار (فروردین و اردیبهشت) و پاییز (آبان و آذر)',
+			'language'   => 'فارسی، طبری، ترکمنی و ترکی',
+			'livelihood' => 'کشاورزی، باغداری، پرورش ابریشم و بوم‌گردی حاشیه پارک ملی گلستان',
+			'access'     => 'بزرگراه سراسری تهران–گرگان–مشهد (گذرگاه تنگراه)',
+			'neighbors'  => 'کلاله (شمال) · مینودشت (غرب) · سملقان و جاجرم (شرق) · شاهرود (جنوب)',
+		),
+		'qeshm'          => array(
+			'population' => '۱۴۸٬۹۹۳ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱۰ تا ۳۹۷ متر (بام قشم / کیش‌کوه)',
+			'area'       => '۱٬۴۹۱ کیلومتر مربع (بزرگ‌ترین جزیره ایران)',
+			'divisions'  => '۳ بخش · ۷ دهستان · ۴ شهر · ۶۶ آبادی',
+			'climate'    => 'گرم و مرطوب ساحلی (خلیج فارس و تنگه هرمز)',
+			'season'     => 'پاییز و زمستان (آبان تا اواخر فروردین)',
+			'language'   => 'فارسی با گویش بندری و جزیره‌ای',
+			'livelihood' => 'تجارت دریایی، صیادی، ژئوتوریسم جهانی و بوم‌گردی، صنایع دریایی',
+			'access'     => 'فرودگاه بین‌المللی قشم + اسکله شهید حقانی بندرعباس و اسکله لافت/پل',
+			'neighbors'  => 'بندرعباس و بندرخمیر (شمال؛ مرز آبی تنگه خوران) · خلیج فارس و تنگه هرمز',
+		),
+		'bandar-e-anzali' => array(
+			'population' => '۱۳۹٬۰۱۶ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => 'منفی ۲۶ متر (تراز ساحلی دریای خزر)',
+			'area'       => '۲۹۹ کیلومتر مربع',
+			'divisions'  => '۱ بخش · ۲ دهستان · ۱ شهر · ۲۷ آبادی',
+			'climate'    => 'معتدل و پربارش خزری',
+			'season'     => 'بهار، تابستان (فصل لاله تالابی) و پاییز (پرنده‌نگری)',
+			'language'   => 'گیلکی و فارسی',
+			'livelihood' => 'بندرگاه و تجارت دریایی، شیلات، گردشگری تالاب بین‌المللی انزلی و منطقه آزاد',
+			'access'     => 'بزرگراه رشت–انزلی، محور ساحلی انزلی–آستارا و فرودگاه نزدیک رشت',
+			'neighbors'  => 'دریای خزر (شمال) · خمام و رشت (شرق) · صومعه‌سرا (جنوب) · رضوانشهر (غرب)',
+		),
+		'tabas'          => array(
+			'population' => '۷۲٬۶۱۷ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۶۹۰ متر',
+			'area'       => '۵۵٬۴۶۰ کیلومتر مربع (پهناورترین شهرستان ایران)',
+			'divisions'  => '۳ بخش · ۸ دهستان · ۳ شهر · ۲۰۰ آبادی',
+			'climate'    => 'خشک و بیابانی در دشت و معتدل در دره‌های کوهستانی',
+			'season'     => 'پاییز، زمستان و اوایل بهار (آبان تا فروردین)',
+			'language'   => 'فارسی با گویش طبسی و خراسانی',
+			'livelihood' => 'معادن زغال‌سنگ، نخل‌داری و مرکبات، کشاورزی قنات‌پایه و کویرگردی',
+			'access'     => 'فرودگاه طبس + ایستگاه راه‌آهن طبس + محورهای یزد–طبس و بیرجند–طبس–مشهد',
+			'neighbors'  => 'بردسکن و بجستان (شمال) · بشرویه و سرایان (شرق) · راور و کرمان (جنوب) · خور و اردکان (غرب)',
+		),
+		'boshruyeh'      => array(
+			'population' => '۲۶٬۰۶۴ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۸۸۰ متر',
+			'area'       => '۶٬۹۱۵ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۴ دهستان · ۲ شهر · ۴۵ آبادی',
+			'climate'    => 'گرم و خشک کویری',
+			'season'     => 'پاییز، زمستان و اوایل بهار',
+			'language'   => 'فارسی با گویش خراسانی',
+			'livelihood' => 'کشاورزی (پسته، زعفران، پنبه)، دامپروری و گردشگری بافت تاریخی و کویر',
+			'access'     => 'محور طبس–بشرویه–فردوس و ایستگاه راه‌آهن مسیر مشهد–بافق',
+			'neighbors'  => 'بردسکن و بجستان (شمال) · فردوس و سرایان (شرق) · طبس (غرب و جنوب)',
+		),
+		'marvdasht'      => array(
+			'population' => '۳۲۳٬۴۳۴ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۶۲۰ متر',
+			'area'       => '۳٬۹۳۱ کیلومتر مربع',
+			'divisions'  => '۴ بخش · ۱۴ دهستان · ۵ شهر · ۲۴۰ آبادی',
+			'climate'    => 'معتدل کوهستانی در شمال و نیمه‌خشک در دشت مرودشت',
+			'season'     => 'بهار (فروردین و اردیبهشت) و پاییز (مهر و آبان)',
+			'language'   => 'فارسی، لری و ترکی قشقایی',
+			'livelihood' => 'کشاورزی قطب گندم و برنج، صنایع پتروشیمی و غذایی، و گردشگری میراث جهانی تخت‌جمشید',
+			'access'     => 'بزرگراه شیراز–مرودشت–اصفهان (۴۵ کیلومتری شمال شیراز)',
+			'neighbors'  => 'پاسارگاد و اقلید (شمال) · ارسنجان (شرق) · شیراز و زرقان (جنوب) · سپیدان و بیضا (غرب)',
+		),
+		'isfahan'        => array(
+			'population' => '۲٬۲۴۳٬۲۴۹ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۵۷۰ متر',
+			'area'       => '۱۵٬۲۵۸ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۷ دهستان · ۶ شهر · ۱۵۰ آبادی',
+			'climate'    => 'معتدل و خشک فلات مرکزی',
+			'season'     => 'بهار (فروردین تا خرداد) و پاییز (مهر و آبان)',
+			'language'   => 'فارسی با لهجه اصفهانی',
+			'livelihood' => 'صنایع دستی و گردشگری جهانی، صنعت و فناوری، خدمات و کشاورزی حوضه زاینده‌رود',
+			'access'     => 'فرودگاه بین‌المللی اصفهان + راه‌آهن و آزادراه‌های شمال–جنوب و شرق–غرب',
+			'neighbors'  => 'برخوار و شاهین‌شهر (شمال) · کوهپایه و ورزنه (شرق) · شهرضا (جنوب) · خمینی‌شهر و فلاورجان (غرب)',
+		),
+		'kashan'         => array(
+			'population' => '۳۶۴٬۴۸۲ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۹۸۲ متر (مرکز) تا ۳٬۸۹۵ متر (کرکس)',
+			'area'       => '۴٬۳۹۲ کیلومتر مربع',
+			'divisions'  => '۴ بخش · ۷ دهستان · ۷ شهر · ۷۵ آبادی',
+			'climate'    => 'گرم و خشک در دشت و معتدل کوهستانی در نیاسر و قمصر',
+			'season'     => 'بهار (فصل گلاب‌گیری) و پاییز',
+			'language'   => 'فارسی و گویش‌های راجی در روستاهای کهن',
+			'livelihood' => 'فرش ماشینی و دستباف، گلاب و عرقیات گیاهی، گردشگری باغ فین و خانه‌های تاریخی',
+			'access'     => 'آزادراه تهران–قم–کاشان–اصفهان و ایستگاه راه‌آهن کاشان',
+			'neighbors'  => 'قم و دلیجان (شمال و غرب) · آران و بیدگل (شرق) · نطنز و میمه (جنوب)',
+		),
+		'fuman'          => array(
+			'population' => '۹۲٬۳۱۰ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۳۴ متر (مرکز) تا ۱٬۰۵۰ متر (شهر تاریخی ماسوله)',
+			'area'       => '۱٬۰۰۲ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۶ دهستان · ۳ شهر · ۱۵۸ آبادی',
+			'climate'    => 'معتدل خزری در جلگه و خنک مهتابی در ارتفاعات ماسوله و قلعه رودخان',
+			'season'     => 'بهار، تابستان و پاییز هزاررنگ',
+			'language'   => 'گیلکی، تالشی و فارسی',
+			'livelihood' => 'برنج‌کاری، چای‌کاری، صنایع دستی و گردشگری ماسوله و قلعه رودخان',
+			'access'     => 'بزرگراه رشت–فومن (۲۵ کیلومتری غرب رشت) و محورهای فومن–ماسوله و فومن–قلعه رودخان',
+			'neighbors'  => 'صومعه‌سرا و ماسال (شمال) · رشت و شفت (شرق) · طارم و خلخال (جنوب و غرب)',
+		),
+		'kerman'         => array(
+			'population' => '۷۳۸٬۷۲۴ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۷۵۵ متر (مرکز) تا ۲۰۰ متر (کلوت‌های شهداد در لوت)',
+			'area'       => '۴۵٬۴۰۱ کیلومتر مربع',
+			'divisions'  => '۶ بخش · ۲۰ دهستان · ۱۳ شهر · ۴۵۰ آبادی',
+			'climate'    => 'نیمه‌خشک کوهستانی در کرمان و فراخشک بیابانی در بخش شهداد و لوت',
+			'season'     => 'پاییز و زمستان (برای کلوت‌های شهداد) و بهار (برای شهر کرمان و ماهان)',
+			'language'   => 'فارسی با لهجه کرمانی',
+			'livelihood' => 'پسته‌کاری، معادن و صنایع، گردشگری جهانی بیابان لوت و باغ شازده ماهان',
+			'access'     => 'فرودگاه بین‌المللی کرمان + راه‌آهن سراسری + محور کرمان–شهداد',
+			'neighbors'  => 'راور و طبس (شمال) · بیرجند و زاهدان (شرق) · بم و جیرفت (جنوب) · زرند و بردسیر (غرب)',
+		),
+		'dezful'         => array(
+			'population' => '۴۴۳٬۹۷۱ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱۴۳ متر (مرکز) تا ارتفاعات زاگرس در بخش شهیون و سالندکوه',
+			'area'       => '۴٬۷۶۲ کیلومتر مربع',
+			'divisions'  => '۴ بخش · ۱۱ دهستان · ۱۱ شهر · ۳۶۰ آبادی',
+			'climate'    => 'نیمه‌گرمسیری در دشت و معتدل کوهستانی در بخش شهیون (آبشار شوی)',
+			'season'     => 'زمستان و اوایل بهار (بهمن تا اواسط فروردین)',
+			'language'   => 'فارسی با گویش دزفولی و لری بختیاری',
+			'livelihood' => 'قطب کشاورزی و کشت و صنعت، باغداری مرکبات، بازرگانی و گردشگری طبیعی–تاریخی',
+			'access'     => 'فرودگاه دزفول + راه‌آهن سراسری (ایستگاه اندیمشک/تله‌زنگ) + بزرگراه اندیمشک–اهواز',
+			'neighbors'  => 'اندیمشک و لرستان (شمال) · لالی و مسجدسلیمان (شرق) · شوشتر و گتوند (جنوب) · شوش (غرب)',
+		),
+		'torbatjam'      => array(
+			'population' => '۲۶۷٬۶۷۱ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۹۲۸ متر',
+			'area'       => '۸٬۱۸۴ کیلومتر مربع',
+			'divisions'  => '۵ بخش · ۱۳ دهستان · ۵ شهر · ۱۷۰ آبادی',
+			'climate'    => 'نیمه‌خشک و معتدل دشتی',
+			'season'     => 'بهار (فروردین و اردیبهشت) و پاییز',
+			'language'   => 'فارسی خراسانی (گویش جامی) و ترکمنی/بلوچی در برخی آبادی‌ها',
+			'livelihood' => 'کشاورزی (خربزه، زعفران، گندم، پسته)، دامپروری و گردشگری عرفانی–تاریخی',
+			'access'     => 'بزرگراه مشهد–فریمان–تربت جام–تایباد (۱۶۰ کیلومتری جنوب‌شرق مشهد) و ایستگاه راه‌آهن',
+			'neighbors'  => 'سرخس و مشهد (شمال) · تایباد و مرز افغانستان (شرق و جنوب) · باخرز و فریمان (غرب)',
+		),
+		'aran-bidgol'    => array(
+			'population' => '۱۰۳٬۵۱۷ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۹۱۲ متر (مرکز) تا بند ریگ و ریگ جن در دشت کویر',
+			'area'       => '۶٬۰۵۱ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۳ دهستان · ۴ شهر · ۱۵ آبادی',
+			'climate'    => 'گرم و خشک کویری (همجوار پارک ملی کویر و ریگ جن)',
+			'season'     => 'پاییز و زمستان (آبان تا اسفند) و اوایل بهار',
+			'language'   => 'فارسی و گویش‌های کهن کویری (آرانی و بیدگلی)',
+			'livelihood' => 'قطب فرش ماشینی، صنایع نساجی، پسته و کویرگردی (مرنجاب و ریگ جن)',
+			'access'     => 'آزادراه تهران–قم–کاشان و جاده کاشان–آران و بیدگل (۱۰ کیلومتری شمال کاشان)',
+			'neighbors'  => 'دریاچه نمک و گرمسار (شمال) · اردکان و نائین (شرق) · نطنز (جنوب) · کاشان (غرب)',
+		),
+		'sharekurd'      => array(
+			'population' => '۳۱۵٬۹۸۰ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۲٬۰۶۶ متر (بلندترین مرکز استان ایران — بام ایران)',
+			'area'       => '۲٬۰۰۶ کیلومتر مربع',
+			'divisions'  => '۳ بخش · ۴ دهستان · ۷ شهر · ۴۵ آبادی',
+			'climate'    => 'سرد و نیمه‌مرطوب کوهستانی',
+			'season'     => 'بهار (اردیبهشت و خرداد) و تابستان',
+			'language'   => 'فارسی (گویش دهکردی)، لری بختیاری و ترکی قشقایی',
+			'livelihood' => 'خدمات، دانشگاه و فناوری، صنایع غذایی و گز، کشاورزی و دامپروری',
+			'access'     => 'فرودگاه شهرکرد + بزرگراه اصفهان–شهرکرد و محورهای خوزستان و لرستان',
+			'neighbors'  => 'بن و سامان (شمال) · فرخشهر و اصفهان (شرق) · کیار و بروجن (جنوب) · فارسان (غرب)',
+		),
+		'rasht'          => array(
+			'population' => '۹۵۶٬۹۷۱ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => 'منفی ۷ تا مثبت ۲۰ متر',
+			'area'       => '۱٬۲۱۵ کیلومتر مربع',
+			'divisions'  => '۵ بخش · ۱۴ دهستان · ۵ شهر · ۲۹۰ آبادی',
+			'climate'    => 'معتدل و مرطوب خزری',
+			'season'     => 'بهار، پاییز و زمستان (شهر خلاق خوراک یونسکو)',
+			'language'   => 'گیلکی و فارسی',
+			'livelihood' => 'برنج‌کاری، صنایع غذایی، بازرگانی، خدمات و گردشگری شهری و خوراک',
+			'access'     => 'فرودگاه بین‌المللی سردار جنگل رشت + راه‌آهن قزوین–رشت + آزادراه قزوین–رشت',
+			'neighbors'  => 'دریای خزر و خمام (شمال) · آستانه اشرفیه و سیاهکل (شرق) · رودبار (جنوب) · شفت و فومن (غرب)',
+		),
+		'semnan'         => array(
+			'population' => '۱۹۶٬۵۲۱ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۱۳۰ متر',
+			'area'       => '۲۰٬۰۰۰ کیلومتر مربع',
+			'divisions'  => '۱ بخش · ۱ دهستان · ۱ شهر · ۳۵ آبادی',
+			'climate'    => 'خشک و نیمه‌خشک در کوهپایه البرز جنوبی و کویری در جنوب',
+			'season'     => 'پاییز، زمستان و بهار',
+			'language'   => 'فارسی و زبان سمنانی (از زبان‌های کهن ایرانی شمال‌غربی)',
+			'livelihood' => 'صنعت و معدن، کشاورزی و پسته، خدمات دانشگاهی و گردشگری جاده ابریشم و کویر',
+			'access'     => 'بزرگراه تهران–مشهد + راه‌آهن سراسری تهران–مشهد + فرودگاه سمنان',
+			'neighbors'  => 'مهدی‌شهر و سرخه (شمال و غرب) · دامغان (شرق) · دشت کویر و آران و بیدگل (جنوب)',
+		),
+		'damavand'       => array(
+			'population' => '۱۲۵٬۴۸۰ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۹۵۰ متر',
+			'area'       => '۱٬۸۸۸ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۵ دهستان · ۵ شهر · ۱۱۵ آبادی',
+			'climate'    => 'معتدل و سرد کوهستانی در دامنه جنوبی البرز',
+			'season'     => 'بهار، تابستان و پاییز (فصل باغ‌های سیب)',
+			'language'   => 'فارسی و گویش دماوندی / تاتی',
+			'livelihood' => 'باغداری (سیب و گردو)، زنبورداری، صنایع تبدیلی و گردشگری ییلاقی',
+			'access'     => 'بزرگراه تهران–جاجرود–دماوند–فیروزکوه و محور هراز (۴۵ کیلومتری شرق تهران)',
+			'neighbors'  => 'آمل (شمال) · فیروزکوه (شرق) · گرمسار و ورامین (جنوب) · پردیس و شمیرانات (غرب)',
+		),
+		'hamedan'        => array(
+			'population' => '۶۷۶٬۱۰۵ نفر (سرشماری ۱۳۹۵)',
+			'elevation'  => '۱٬۸۵۰ متر (دامنه الوند)',
+			'area'       => '۲٬۸۳۱ کیلومتر مربع',
+			'divisions'  => '۲ بخش · ۶ دهستان · ۴ شهر · ۱۰۵ آبادی',
+			'climate'    => 'سرد و کوهستانی (دامنه رشته‌کوه الوند)',
+			'season'     => 'بهار و تابستان (خرداد تا شهریور)',
+			'language'   => 'فارسی با لهجه همدانی و ترکی در بخش‌هایی از شهرستان',
+			'livelihood' => 'گردشگری تاریخی و طبیعی (هگمتانه، بوعلی‌سینا، گنجنامه)، سفال و چرم، کشاورزی و خدمات',
+			'access'     => 'آزادراه تهران–ساوه–همدان + راه‌آهن تهران–همدان + فرودگاه همدان',
+			'neighbors'  => 'کبودرآهنگ و فامنین (شمال) · ملایر و کمیجان (جنوب و شرق) · تویسرکان، اسدآباد و بهار (غرب)',
+		),
+	);
+
+	$out = isset( $curated[ $base ] ) ? $curated[ $base ] : ( isset( $curated[ $slug ] ) ? $curated[ $slug ] : array() );
+
+	// Coordinates from data/region-facts.php if available.
+	if ( '' !== $pslug && isset( $region_facts['counties'][ $pslug ] ) && is_array( $region_facts['counties'][ $pslug ] ) ) {
+		$prov_counties = $region_facts['counties'][ $pslug ];
+		$crow          = isset( $prov_counties[ $slug ] ) ? $prov_counties[ $slug ] : ( isset( $prov_counties[ $base ] ) ? $prov_counties[ $base ] : null );
+		if ( is_array( $crow ) && ! empty( $crow['lat'] ) && ! empty( $crow['lng'] ) ) {
+			$out['lat'] = (string) $crow['lat'];
+			$out['lng'] = (string) $crow['lng'];
+		}
+	}
+	if ( '' === ( isset( $out['climate'] ) ? $out['climate'] : '' ) && '' !== $pslug && ! empty( $region_facts['provinces'][ $pslug ]['climate'] ) ) {
+		$out['climate'] = (string) $region_facts['provinces'][ $pslug ]['climate'];
+	}
+
+	return $out;
+}
+
+/**
+ * Strip legacy duplicate «شناسنامه سریع ...» bullet sections from entity body content (v2.19.1).
+ *
+ * Runs at priority 8 (before sa_toc_filter at 11) so that even database posts imported
+ * before v2.19.1 never repeat the top Cyber-Tech Identity Card in the body or TOC.
+ *
+ * @param string $content Post content HTML.
+ * @return string Filtered HTML.
+ */
+function sa_strip_duplicate_body_identity( $content ) {
+	if ( is_admin() || ! is_singular( array( 'province', 'city', 'attraction' ) ) ) {
+		return $content;
+	}
+	if ( false === strpos( $content, 'شناسنامه سریع' ) ) {
+		return $content;
+	}
+	$cleaned = preg_replace(
+		'~<h2[^>]*>[^<]*شناسنامه\s+سریع[^<]*</h2>\s*<ul[^>]*>.*?</ul>~isu',
+		'',
+		(string) $content
+	);
+	return is_string( $cleaned ) ? $cleaned : $content;
+}
+add_filter( 'the_content', 'sa_strip_duplicate_body_identity', 8 );
+

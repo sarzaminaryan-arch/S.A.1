@@ -219,19 +219,25 @@ sa_t_assert( '<img>' === sa_featured_image_guard( '<img>' ), 'healthy thumbnails
 $GLOBALS['t']['current'] = 0;
 
 /* ---------------------------------------------------------------------------
- * 2b) «دیدنی‌ها»: تصویر شاخص فقط داخل بدنهٔ مقاله (v2.18.16).
+ * 2b) «دیدنی‌ها»: تصاویر شاخص به‌طور کامل مخفی به صورت پیش‌فرض (v2.19.1).
  * ------------------------------------------------------------------------- */
-$GLOBALS['t']['posts'][40] = array( 'thumb' => 400, 'type' => 'attraction', 'slug' => 'bisheh-waterfall-dorud' );
+$GLOBALS['t']['posts'][40] = array( 'thumb' => 400, 'type' => 'attraction', 'slug' => 'custom-attraction-test' );
 $GLOBALS['t']['attached'][400] = array( 'missing' => false );
 $GLOBALS['t']['meta'][400] = array( '_wp_attachment_image_alt' => 'کارت تصویر شاخص آبشار بیشه' );
-$GLOBALS['t']['mods']['sa_show_featured_images'] = false; // کلید سراسری هنوز خاموش است.
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false; // کلید سراسری خاموش است.
 
-sa_t_assert( true === sa_attraction_images_visible(), 'attraction covers are released by default' );
+sa_t_assert( false === sa_attraction_images_visible(), 'attraction covers are hidden by default in v2.19.1' );
 sa_t_assert( true === sa_featured_image_is_attraction( 40 ), 'the attraction post is recognised' );
-sa_t_assert( true === sa_featured_image_available( 40, 'attraction-content' ), 'the attraction cover is available inside its own article while the global switch is off' );
+sa_t_assert( false === sa_featured_image_available( 40, 'attraction-content' ), 'the attraction cover is hidden inside its own article by default' );
 sa_t_assert( false === sa_featured_image_available( 40, 'card' ), 'the attraction cover never shows on list cards' );
 sa_t_assert( false === sa_featured_image_available( 40, 'hero' ), 'the attraction cover never shows in the page hero/identity card' );
 sa_t_assert( false === sa_featured_image_available( 40 ), 'the attraction cover is not available without the article context' );
+sa_t_assert( '' === sa_attraction_featured_figure( 40 ), 'no attraction figure is printed by default' );
+
+/* Opt-in test when sa_show_attraction_image is explicitly enabled for a custom attraction. */
+$GLOBALS['t']['mods']['sa_show_attraction_image'] = true;
+sa_t_assert( true === sa_attraction_images_visible(), 'the attraction key can be toggled in tests' );
+sa_t_assert( true === sa_featured_image_available( 40, 'attraction-content' ), 'the attraction cover is available when explicitly enabled' );
 
 $GLOBALS['t']['mods']['sa_show_featured_images'] = true;
 sa_t_assert( false === sa_featured_image_available( 40, 'card' ), 'the global switch still keeps attraction covers off the cards' );
@@ -243,14 +249,14 @@ $GLOBALS['t']['attached'][400]['missing'] = true;
 sa_t_assert( false === sa_featured_image_available( 40, 'attraction-content' ), 'a deleted cover file is not printed inside the article either' );
 $GLOBALS['t']['attached'][400]['missing'] = false;
 
-$GLOBALS['t']['posts'][41] = array( 'thumb' => 410, 'type' => 'attraction', 'slug' => 'gahar-lake-dorud' );
+$GLOBALS['t']['posts'][41] = array( 'thumb' => 410, 'type' => 'attraction', 'slug' => 'custom-attraction-no-alt' );
 $GLOBALS['t']['attached'][410] = array( 'missing' => false );
 $GLOBALS['t']['mods']['sa_show_attraction_image'] = false;
 sa_t_assert( false === sa_attraction_images_visible(), 'the attraction key turns the in-article cover off' );
 sa_t_assert( false === sa_featured_image_available( 40, 'attraction-content' ), 'the attraction key is respected' );
 $GLOBALS['t']['mods']['sa_show_attraction_image'] = true;
 
-/* نگهبان: بیرون از بدنهٔ مقاله پنهان، از درون بدنه مجاز. */
+/* نگهبان: بیرون از بدنهٔ مقاله پنهان، از درون بدنه مجاز (در صورت فعال‌سازی). */
 $GLOBALS['t']['current'] = 40;
 sa_t_assert( '' === sa_featured_image_guard( '<img>', 40 ), 'outside the article body the attraction cover is removed' );
 $GLOBALS['sa_featured_image_render_context'] = 'attraction-content';
@@ -278,40 +284,35 @@ $GLOBALS['t']['current'] = 0;
 $GLOBALS['t']['mods']['sa_show_featured_images'] = true; // وضعیت پیش از این بخش، برای آزمون‌های پایین.
 
 /* ---------------------------------------------------------------------------
- * 2c) جايگاه تصوير شاخص در قالب صفحهٔ «ديدني‌ها» (v2.18.18):
- * نخستين چيزِ بدنهٔ مقاله — پيش از «شناسنامه»/اطلاعات کليدی و پيش از متن.
+ * 2c) قالب صفحهٔ موجودیت‌ها و ۳ کارت «شناسنامه» سایبری (v2.19.1):
+ * استان، شهرستان و دیدنی هر کدام جدول شناسنامهٔ اختصاصی دارند و اطلاعات کلیدی تکراری ندارند.
  * ------------------------------------------------------------------------- */
 $template = file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/single.php' );
 sa_t_assert( false !== $template, 'the entity single template is readable' );
 if ( false !== $template ) {
 	$pos = array(
-		'figure'      => strpos( $template, 'sa_attraction_featured_figure' ),
-		'facts'       => strpos( $template, "get_template_part( 'template-parts/entity/facts' )" ),
-		'content'     => strpos( $template, 'class="entry-content"' ),
-		'rating'      => strpos( $template, 'CC_UI::rating_block' ),
-		'profile'     => strpos( $template, "get_template_part( 'template-parts/entity/province-identity' )" ),
-		'county'      => strpos( $template, "get_template_part( 'template-parts/entity/county-profile' )" ),
+		'hero'    => strpos( $template, "get_template_part( 'template-parts/entity/hero' )" ),
+		'profile' => strpos( $template, "get_template_part( 'template-parts/entity/province-identity' )" ),
+		'county'  => strpos( $template, "get_template_part( 'template-parts/entity/county-profile' )" ),
+		'facts'   => strpos( $template, "get_template_part( 'template-parts/entity/facts' )" ),
+		'content' => strpos( $template, 'entry-content' ),
 	);
 	foreach ( $pos as $name => $position ) {
-		sa_t_assert( false !== $position, 'the template still prints the ' . $name . ' block' );
+		sa_t_assert( false !== $position, 'the template still contains the ' . $name . ' reference' );
 	}
-	sa_t_assert( $pos['figure'] < $pos['facts'], 'the cover comes before the key-facts card (شناسنامه)' );
-	sa_t_assert( $pos['figure'] < $pos['content'], 'the cover comes before the article body text' );
-	sa_t_assert( $pos['figure'] < $pos['rating'], 'the cover comes before the city rating block' );
-	sa_t_assert( $pos['figure'] < $pos['profile'], 'the cover comes before the province identity card' );
-	sa_t_assert( $pos['figure'] < $pos['county'], 'the cover comes before the county profile block' );
-	/* تصوير شاخص فقط يک‌بار و فقط در همين قالب کشيده می‌شود (بدون توضيح‌های کامنت). */
-	$code = preg_replace( '~<\?php|\?>|/\*.*?\*/~s', '', $template );
-	sa_t_assert( 1 === substr_count( $code, 'echo sa_attraction_featured_figure' ), 'the cover is printed exactly once' );
-	$other_templates = glob( dirname( __DIR__ ) . '/template-parts/*.php' ) + glob( dirname( __DIR__ ) . '/template-parts/entity/*.php' );
-	$elsewhere       = 0;
-	foreach ( $other_templates as $file ) {
-		$body = preg_replace( '~/\*.*?\*/~s', '', file_get_contents( $file ) );
-		if ( false !== strpos( $body, 'sa_attraction_featured_figure' ) ) {
-			$elsewhere++;
-		}
+	sa_t_assert( $pos['profile'] < $pos['content'], 'province identity card comes before body content' );
+	sa_t_assert( $pos['county'] < $pos['content'], 'county identity card comes before body content' );
+
+	foreach ( array(
+		'province-identity.php'   => 'sa-cyber-id--province',
+		'county-profile.php'      => 'sa-cyber-id--county',
+		'identity-attraction.php' => 'sa-cyber-id--attraction',
+	) as $id_file => $expected_class ) {
+		$id_tpl = file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/' . $id_file );
+		sa_t_assert( false !== $id_tpl && false !== strpos( $id_tpl, $expected_class ), $id_file . ' renders its distinct cyber-tech class ' . $expected_class );
+		sa_t_assert( false !== strpos( $id_tpl, '<span class="sa-cyber-id__badge">شناسنامه</span>' ), $id_file . ' carries the «شناسنامه» badge' );
+		sa_t_assert( false !== strpos( $id_tpl, 'sa_cyber_id_value_or_review' ), $id_file . ' uses sa_cyber_id_value_or_review for «نیازمند بازبینی» fallback' );
 	}
-	sa_t_assert( 1 === $elsewhere, 'only the entity single template prints the cover' );
 }
 
 /* ---------------------------------------------------------------------------
