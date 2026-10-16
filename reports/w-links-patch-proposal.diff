@@ -1,0 +1,20 @@
+# PROPOSAL ONLY — not applied to the theme.
+# Preconditions: apply only after owner confirms these W_* references are option «ج»
+# (plain text, no link). If an occurrence is «الف» or «ب», first obtain its exact
+# fragment id / external URL and implement that explicit mapping instead.
+# Candidate: php -l could not be run in this environment because PHP CLI is absent.
+
+--- a/wp-content/themes/sarzaminaryan-child/inc/citations.php
++++ b/wp-content/themes/sarzaminaryan-child/inc/citations.php
+@@ -173,0 +174,11 @@
++	// شناسهٔ W_* مقصدِ تأییدشده نیست؛ تا وقتی منبع/fragment مشخص نشده، href نساز.
++	// این fallback فقط برای مواردی است که مالک آن‌ها را «متن ساده» اعلام کرده باشد.
++	$content = preg_replace_callback(
++		'#<sup\b[^>]*class=(["\'])[^"\']*\bsa-cite\b[^"\']*\1[^>]*>\s*<a\b[^>]*href=(["\'])W_[A-Z]{3}\2[^>]*>(.*?)</a>\s*</sup>#isu',
++		function ( $m ) {
++			$id = wp_unique_id( 'sa-cite-' );
++			return '<sup class="sa-cite" id="' . esc_attr( $id ) . '">' . $m[3] . '</sup>';
++		},
++		$content
++	);
++
