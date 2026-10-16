@@ -1,5 +1,25 @@
 # Change log — ممیزی SEO و محتوا
 
+## [1.9] — 2026-10-16 — تطبیق کامل خروجی‌ها و تکمیل ممیزی زنده
+
+- سه فایل Drive (inventory، crawl رندرشده، WXR) در workspace خصوصی پردازش شدند؛ 622 رکورد منتشرشده در پنج نوع محتوا بین inventory و WXR از نظر ID/slug/URL/date تطبیق کامل دارند.
+- Crawl 692/692 URL تحلیل شد: 655 پاسخ 200، 33 redirect و 4 timeout؛ موارد unresolved به‌عنوان خطاهای قطعی گزارش نشده‌اند.
+- 617/617 صفحهٔ محتوایی 200 title/canonical/H1/schema دارند؛ canonicalها منطبق، 616/617 meta description دارند؛ سه archive بدون رکورد منتشرشده indexable هستند.
+- اختلاف baseline 483 شهرستان با 487 صفحهٔ زنده با slug diff تحلیل شد؛ 482 مشترک، پنج live-only و یک baseline-only (جایگزینی dorud/dorud-city محتمل اما نه قطعی).
+- شکاف county→attraction در HTML زنده تأیید شد: از 20 شهرستان دارای جاذبه، 10 صفحه هیچ لینک مستقیم به فرزندها ندارند.
+- 8,361 رخداد لینک داخلی query-free بررسی شد؛ 91 رخداد به 17 مقصد خارج از crawl manifest می‌روند. status آن‌ها نامعلوم است و broken تلقی نشده‌اند.
+- Crawl افزونهٔ 1.1.0 در context مدیر، URLهای admin و queryهای موقت وارد خروجی کرده بود. مقدارهای حساس بازنشر نمی‌شوند؛ Drive folder در زمان بررسی فقط permission مالک داشت و باید خصوصی بماند.
+- سورس exporter به 1.2.0 به‌روزرسانی شد: fetch HTML با credentials omit، query/fragment stripping، فیلتر مسیرهای admin/login و تفکیک شمار alt خالی/بدون attribute. `node --check`, `git diff --check`, ZIP integrity و تطبیق فایل‌های ZIP با source موفق‌اند؛ `php -l` در دسترس نیست چون PHP CLI نصب نشده. ZIP نصب‌پذیر آمادهٔ push در branch همین session است.
+- `PROGRESS-2026-10-16-v1.9.md` و `ANALYSIS-REGISTER-v1.9.md` جاری شدند؛ تغییر سایت زنده صفر.
+
+## [1.8] — 2026-10-16 — دریافت خروجی افزونه و inventory زنده (مرحلهٔ میانی؛ تکمیل‌شده در 1.9)
+
+- از پوشه Drive هر دو JSON نسخهٔ افزونه پیدا شد: inventory 20,217,756 بایت و rendered crawl 26,830,316 بایت.
+- Summary inventory: WP 7.1.3 / PHP 8.4.26 / قالب child 2.20.0؛ شمار publishها: post 67، page 8، province 31، city 487، attraction 29؛ مجموع 622، بدون truncation.
+- اختلاف 487 رکورد `city` در export جدید در برابر baseline پروژه 483 ثبت شد؛ تا تطبیق slug/URL خطای قطعی تلقی نمی‌شود.
+- در گام اولیهٔ 1.8، reader محدودیت 25 MB داشت و crawl هنوز تحلیل نشده بود؛ این محدودیت در 1.9 با دانلود خامِ workspace حل شد و crawl کامل اکنون تحلیل شده است.
+- `PROGRESS-2026-10-16-v1.8.md` و `ANALYSIS-REGISTER-v1.8.md` ثبت شدند. هیچ تغییری در سایت ایجاد نشده است.
+
 ## [1.7] — 2026-10-16 — شناسایی WXR جدید در Drive
 
 - `WordPress.2026-10-16.xml` در پوشهٔ Export WordPress پیدا شد؛ WXR 1.2، حدود 26.1 MB، ساخته/به‌روزشده در 2026-10-16 15:04 UTC.

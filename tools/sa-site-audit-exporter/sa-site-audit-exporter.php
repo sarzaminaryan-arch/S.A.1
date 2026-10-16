@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SA Site Audit Exporter
  * Description: خروجی فقط‌خواندنی از صفحات عمومی، پیوندهای داخلی و متادیتای SEO برای ممیزی سرزمین آریان.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Sarzamin Aryan
  * Requires at least: 5.8
  * Requires PHP: 7.4
@@ -80,7 +80,7 @@ function sa_audit_exporter_render_page() {
 		</form>
 		<hr>
 		<h2>۲) نمونه‌برداری از HTML زنده</h2>
-		<p>این گزینه در مرورگر شما و فقط روی دامنهٔ همین سایت کار می‌کند؛ همهٔ URLهای پست‌های منتشرشده در همهٔ post typeهای عمومی، آرشیوها، taxonomyهای عمومیِ دارای محتوا، `robots.txt` و مسیرهای sitemap را تا سقف ۵۰۰۰ پست/۱۰٬۰۰۰ URL بررسی می‌کند. خروجی ساختاریافته شامل SEO meta، هدینگ‌ها، schema، لینک‌های داخلی/خارجی و تصویرهاست؛ HTML کامل یا دادهٔ فرم‌ها را ذخیره نمی‌کند. redirect دنبال نمی‌شود. اجرا ممکن است برای سایت بزرگ چند دقیقه طول بکشد؛ تعداد پیشرفت نمایش داده می‌شود.</p>
+		<p>این گزینه در مرورگر شما و فقط روی دامنهٔ همین سایت کار می‌کند؛ همهٔ URLهای پست‌های منتشرشده در همهٔ post typeهای عمومی، آرشیوها، taxonomyهای عمومیِ دارای محتوا، `robots.txt` و مسیرهای sitemap را تا سقف ۵۰۰۰ پست/۱۰٬۰۰۰ URL بررسی می‌کند. خروجی ساختاریافته شامل SEO meta، هدینگ‌ها، schema، لینک‌های داخلی/خارجی و تصویرهاست؛ HTML کامل یا دادهٔ فرم‌ها را ذخیره نمی‌کند. درخواست HTML صفحات عمومی بدون cookie مدیر اجرا می‌شود، لینک‌های پیشخوان/ورود و لینک‌های queryدار از نمونه‌های crawl حذف می‌شوند و redirect دنبال نمی‌شود. درخواست داخلی ساخت manifest همچنان با نشست مدیر و nonce انجام می‌شود. اجرا ممکن است برای سایت بزرگ چند دقیقه یا بیشتر طول بکشد؛ تعداد پیشرفت نمایش داده می‌شود.</p>
 		<p><button type="button" class="button" id="sa-audit-crawl-start">شروع ممیزی کامل صفحات عمومی</button> <button type="button" class="button" id="sa-audit-crawl-cancel" disabled>توقف</button></p>
 		<div id="sa-audit-crawl-status" role="status" aria-live="polite"></div>
 		<hr>
@@ -137,6 +137,7 @@ function sa_audit_exporter_content_summary( $content ) {
 			if ( '' === $url || preg_match( '/^(?:javascript|data|vbscript):/i', $url ) ) {
 				continue;
 			}
+			$url = preg_replace( '/[?#].*$/', '', $url );
 			$links[] = array(
 				'url'    => esc_url_raw( $url ),
 				'anchor' => trim( wp_strip_all_tags( $match[3] ) ),
@@ -286,7 +287,7 @@ function sa_audit_exporter_download() {
 	}
 
 	$payload = array(
-		'export_format' => 'sa-site-audit-v1',
+		'export_format' => 'sa-site-audit-v2',
 		'generated_utc' => gmdate( 'c' ),
 		'notice'        => 'Published public content only. No drafts, private data, comments, users, credentials, arbitrary meta or analytics are included. Stored post content only; theme-rendered HTML is not captured.',
 		'site'          => sa_audit_exporter_site_summary( $post_types ),
@@ -328,7 +329,7 @@ function sa_audit_exporter_enqueue_crawler( $hook ) {
 		'sa-audit-exporter-crawler',
 		plugins_url( 'assets/audit-crawler.js', __FILE__ ),
 		array(),
-		'1.1.0',
+		'1.2.0',
 		true
 	);
 	wp_localize_script(

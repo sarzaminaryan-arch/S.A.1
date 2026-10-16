@@ -69,7 +69,8 @@
       alt: node.getAttribute('alt'),
       loading: node.getAttribute('loading') || ''
     }));
-    const missingAltCount = images.filter((node) => !node.hasAttribute('alt') || !cleanText({ textContent: node.getAttribute('alt') })).length;
+    const imagesMissingAltAttributeCount = images.filter((node) => !node.hasAttribute('alt')).length;
+    const imagesEmptyAltCount = images.filter((node) => node.hasAttribute('alt') && !(node.getAttribute('alt') || '').trim()).length;
 
     const pageOrigin = new URL(pageUrl).origin;
     const internalTargets = new Set();
@@ -82,6 +83,8 @@
       try {
         const target = new URL(anchor.getAttribute('href'), pageUrl);
         if (!/^https?:$/.test(target.protocol)) return;
+        if (target.search) return;
+        if (/\/(?:wp-admin|wp-login\.php|wp-signup\.php|wp-cron\.php)(?:\/|$)/i.test(target.pathname)) return;
         target.hash = '';
         const normalized = target.href.replace(/\/$/, '');
         if (target.origin !== pageOrigin) {
@@ -140,7 +143,8 @@
       heading_texts: headingTexts,
       heading_counts_document: headings,
       image_count: images.length,
-      images_missing_alt_count: missingAltCount,
+      images_missing_alt_attribute_count: imagesMissingAltAttributeCount,
+      images_empty_alt_count: imagesEmptyAltCount,
       image_samples: imageSamples,
       heading_counts_content: contentHeadings,
       body_approx_word_count: countWords(bodyText),
@@ -187,7 +191,7 @@
     try {
       const response = await fetch(url.href, {
         method: 'GET',
-        credentials: 'same-origin',
+        credentials: 'omit',
         cache: 'no-store',
         redirect: 'manual',
         signal: controller.signal
@@ -254,7 +258,7 @@
         await sleep(250);
       }
       const payload = {
-        export_format: 'sa-rendered-audit-v1',
+        export_format: 'sa-rendered-audit-v2',
         generated_utc: new Date().toISOString(),
         site_origin: expectedOrigin,
         coverage_strategy: manifest.coverage_strategy,
@@ -262,7 +266,7 @@
         requested_count: pages.length,
         completed_count: results.length,
         stopped_by_admin: stopRequested,
-        notice: 'Rendered public pages fetched from this same site in the administrator browser. No page HTML is uploaded or stored by the plugin.',
+        notice: 'Public pages fetched anonymously from this same site in the administrator browser; cookies are omitted and admin/login links and query-bearing links are excluded. No page HTML is uploaded or stored by the plugin.',
         pages: results
       };
       downloadJson(payload);
