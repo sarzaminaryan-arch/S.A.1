@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function sa_schema_organization() {
-	$node = array(
+	$node    = array(
 		'@type' => 'Organization',
 		'@id'   => home_url( '/#organization' ),
 		'name'  => get_bloginfo( 'name' ),
@@ -153,7 +153,7 @@ function sa_schema_entity( $post ) {
 		'url'         => get_permalink( $id ),
 		'description' => wp_strip_all_tags( sa_summary( $id, 50 ) ),
 	);
-	$img = sa_schema_image( $id );
+	$img  = sa_schema_image( $id );
 	if ( $img ) {
 		$node['image'] = $img;
 	}
@@ -166,15 +166,29 @@ function sa_schema_entity( $post ) {
 
 	switch ( $type ) {
 		case 'province':
-			$node['@type']          = array( 'AdministrativeArea', 'TouristDestination' );
-			$node['containedInPlace'] = array( '@type' => 'Country', 'name' => 'ایران', 'sameAs' => 'https://www.wikidata.org/wiki/Q794' );
-			$cities = array_slice( sa_get_children( $id, 'city' ), 0, 20 );
+			$node['@type']            = array( 'AdministrativeArea', 'TouristDestination' );
+			$node['containedInPlace'] = array(
+				'@type'  => 'Country',
+				'name'   => 'ایران',
+				'sameAs' => 'https://www.wikidata.org/wiki/Q794',
+			);
+			$cities                   = array_slice( sa_get_children( $id, 'city' ), 0, 20 );
 			if ( $cities ) {
-				$node['containsPlace'] = array_map( function ( $c ) { return sa_schema_ref( $c, 'AdministrativeArea' ); }, $cities );
+				$node['containsPlace'] = array_map(
+					function ( $city ) {
+						return sa_schema_ref( $city, 'AdministrativeArea' );
+					},
+					$cities
+				);
 			}
 			$attractions = array_slice( sa_get_children( $id, 'attraction' ), 0, 20 );
 			if ( $attractions ) {
-				$node['includesAttraction'] = array_map( function ( $a ) { return sa_schema_ref( $a, 'TouristAttraction' ); }, $attractions );
+				$node['includesAttraction'] = array_map(
+					function ( $attraction ) {
+						return sa_schema_ref( $attraction, 'TouristAttraction' );
+					},
+					$attractions
+				);
 			}
 			break;
 
@@ -186,7 +200,12 @@ function sa_schema_entity( $post ) {
 			}
 			$attractions = array_slice( sa_get_children( $id, 'attraction' ), 0, 20 );
 			if ( $attractions ) {
-				$node['includesAttraction'] = array_map( function ( $a ) { return sa_schema_ref( $a, 'TouristAttraction' ); }, $attractions );
+				$node['includesAttraction'] = array_map(
+					function ( $attraction ) {
+						return sa_schema_ref( $attraction, 'TouristAttraction' );
+					},
+					$attractions
+				);
 			}
 			$map = get_post_meta( $id, 'sa_google_map_url', true );
 			if ( $map ) {
@@ -206,7 +225,7 @@ function sa_schema_entity( $post ) {
 					'streetAddress'  => $address,
 					'addressCountry' => 'IR',
 				);
-				$locality = $city ? trim( (string) get_post_meta( $city->ID, 'sa_cty_center', true ) ) : '';
+				$locality       = $city ? trim( (string) get_post_meta( $city->ID, 'sa_cty_center', true ) ) : '';
 				if ( $locality ) {
 					$postal_address['addressLocality'] = $locality;
 				}
@@ -232,7 +251,7 @@ function sa_schema_entity( $post ) {
 			if ( ! is_wp_error( $types ) && $types ) {
 				$node['touristType'] = $types;
 			}
-			$official = get_post_meta( $id, 'sa_official_website', true ); // v1.1
+			$official = get_post_meta( $id, 'sa_official_website', true ); // v1.1.
 			if ( $official ) {
 				$node['sameAs'] = array( esc_url_raw( $official ) );
 			}
@@ -286,7 +305,10 @@ function sa_schema_entity( $post ) {
 
 		case 'souvenir':
 			$node['@type']           = 'Product';
-			$node['countryOfOrigin'] = array( '@type' => 'Country', 'name' => 'IR' );
+			$node['countryOfOrigin'] = array(
+				'@type' => 'Country',
+				'name'  => 'IR',
+			);
 			$where                   = get_post_meta( $id, 'sa_purchase_location', true );
 			if ( $where ) {
 				$node['additionalProperty'] = array(
@@ -367,6 +389,7 @@ function sa_schema_article( $post ) {
  * @return null
  */
 function sa_schema_faq( $post_id ) {
+	unset( $post_id );
 	return null;
 }
 
@@ -397,6 +420,98 @@ function sa_schema_breadcrumbs() {
 		'itemListElement' => $list,
 	);
 }
+
+/**
+ * Return the appropriate schema type for a normal static page.
+ *
+ * @param WP_Post $post Page post.
+ * @return string
+ */
+function sa_schema_static_page_type( $post ) {
+	if ( 'page' !== $post->post_type ) {
+		return 'WebPage';
+	}
+	if ( 'about' === $post->post_name ) {
+		return 'AboutPage';
+	}
+	if ( 'contact' === $post->post_name ) {
+		return 'ContactPage';
+	}
+	return 'WebPage';
+}
+
+/**
+ * Remove repeated top-level JSON-LD nodes sharing the same @id.
+ *
+ * @param array $nodes JSON-LD nodes.
+ * @return array
+ */
+function sa_schema_dedupe_nodes( $nodes ) {
+	$seen = array();
+	foreach ( $nodes as $key => $node ) {
+		if ( '@graph' === $key && is_array( $node ) ) {
+			$nodes[ $key ] = sa_schema_dedupe_nodes( $node );
+			continue;
+		}
+		if ( ! is_array( $node ) || empty( $node['@id'] ) ) {
+			continue;
+		}
+		$id = (string) $node['@id'];
+		if ( isset( $seen[ $id ] ) ) {
+			unset( $nodes[ $key ] );
+			continue;
+		}
+		$seen[ $id ] = true;
+	}
+	return $nodes;
+}
+
+/**
+ * Correct Rank Math static page types without changing post/article schema.
+ *
+ * @param array $data Rank Math JSON-LD nodes.
+ * @return array
+ */
+function sa_rank_math_static_page_schema( $data ) {
+	if ( ! is_page() ) {
+		return $data;
+	}
+	$type      = sa_schema_static_page_type( get_queried_object() );
+	$container = isset( $data['@graph'] ) && is_array( $data['@graph'] ) ? '@graph' : '';
+	$node_list = '' !== $container ? $data[ $container ] : $data;
+	$has_page  = false;
+	foreach ( $node_list as $key => $node ) {
+		if ( ! is_array( $node ) ) {
+			continue;
+		}
+		$types = isset( $node['@type'] ) ? (array) $node['@type'] : array();
+		if ( false !== stripos( (string) $key, 'webpage' ) || array_intersect( $types, array( 'WebPage', 'AboutPage', 'ContactPage' ) ) ) {
+			$node_list[ $key ]['@type'] = $type;
+
+			$has_page = true;
+		}
+	}
+	if ( ! $has_page ) {
+		$post = get_queried_object();
+		$url  = get_permalink( $post );
+
+		$node_list['sa_static_page'] = array(
+			'@type'      => $type,
+			'@id'        => $url . '#webpage',
+			'url'        => $url,
+			'name'       => get_the_title( $post ),
+			'inLanguage' => 'fa-IR',
+			'isPartOf'   => array( '@id' => home_url( '/#website' ) ),
+		);
+	}
+	if ( '' !== $container ) {
+		$data[ $container ] = $node_list;
+	} else {
+		$data = $node_list;
+	}
+	return sa_schema_dedupe_nodes( $data );
+}
+add_filter( 'rank_math/json_ld', 'sa_rank_math_static_page_schema', 99 );
 
 /**
  * Build and print the graph.
@@ -436,7 +551,7 @@ function sa_schema_output() {
 			$graph[] = sa_schema_article( $post );
 		} elseif ( ! $plugin ) {
 			$graph[] = array(
-				'@type'       => 'WebPage',
+				'@type'       => sa_schema_static_page_type( $post ),
 				'@id'         => get_permalink( $post ) . '#webpage',
 				'url'         => get_permalink( $post ),
 				'name'        => get_the_title( $post ),
@@ -456,6 +571,7 @@ function sa_schema_output() {
 	}
 
 	$graph = apply_filters( 'sa_schema_graph', $graph );
+	$graph = sa_schema_dedupe_nodes( (array) $graph );
 	if ( ! $graph ) {
 		return;
 	}

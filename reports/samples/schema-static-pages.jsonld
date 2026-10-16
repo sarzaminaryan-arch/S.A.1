@@ -1,0 +1,51 @@
+{
+  "about": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://sarzaminaryan.ir/#organization",
+        "name": "سرزمین آریان"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sarzaminaryan.ir/#website",
+        "url": "https://sarzaminaryan.ir/"
+      },
+      {
+        "@type": "AboutPage",
+        "@id": "https://sarzaminaryan.ir/about/#webpage",
+        "url": "https://sarzaminaryan.ir/about/",
+        "name": "دربارهٔ ما",
+        "inLanguage": "fa-IR",
+        "isPartOf": {
+          "@id": "https://sarzaminaryan.ir/#website"
+        }
+      }
+    ]
+  },
+  "contact": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "@id": "https://sarzaminaryan.ir/contact/#webpage",
+        "url": "https://sarzaminaryan.ir/contact/",
+        "name": "تماس با ما",
+        "inLanguage": "fa-IR"
+      }
+    ]
+  },
+  "ordinary_page": {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://sarzaminaryan.ir/example/#webpage",
+        "url": "https://sarzaminaryan.ir/example/",
+        "name": "صفحهٔ نمونه",
+        "inLanguage": "fa-IR"
+      }
+    ]
+  }
+}
