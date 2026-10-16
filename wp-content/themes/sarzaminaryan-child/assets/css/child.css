@@ -5852,3 +5852,39 @@ small {
 		padding: 1px 5px;
 	}
 }
+
+/* Related entity links: accessible county→attraction and attraction→parent navigation. */
+.sa-city-attractions,
+.sa-attraction-parents {
+	margin-block: 1.5rem;
+	padding: clamp(1rem, 2.5vw, 1.5rem);
+	border: 1px solid rgba(11, 42, 74, 0.14);
+	border-radius: 1rem;
+	background: #fff;
+}
+.sa-city-attractions h2 {
+	margin: 0 0 0.9rem;
+	font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+}
+.sa-city-attractions ul,
+.sa-attraction-parents ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+	gap: 0.55rem 1rem;
+	margin: 0;
+	padding-inline-start: 1.25rem;
+}
+.sa-city-attractions a,
+.sa-attraction-parents a {
+	color: #064b75;
+	text-underline-offset: 0.18em;
+}
+.sa-city-attractions a:focus-visible,
+.sa-attraction-parents a:focus-visible {
+	outline: 3px solid #d18b00;
+	outline-offset: 3px;
+	border-radius: 0.15rem;
+}
+.sa-attraction-parents {
+	padding-block: 0.8rem;
+}

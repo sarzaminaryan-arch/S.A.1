@@ -33,6 +33,7 @@ $sa_child_includes = array(
 	'inc/taxonomies.php',
 	'inc/meta-fields.php',
 	'inc/relations.php',
+	'inc/city-attractions.php',
 	'inc/publish-gate.php',
 	'inc/jalali.php',
 	'inc/seo.php',

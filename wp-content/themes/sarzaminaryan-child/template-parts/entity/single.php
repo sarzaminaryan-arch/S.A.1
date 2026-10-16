@@ -30,6 +30,7 @@ $sa_type = get_post_type( $sa_id );
 			get_template_part( 'template-parts/entity/province-identity' );
 		} elseif ( 'city' === $sa_type ) {
 			get_template_part( 'template-parts/entity/county-profile' );
+			get_template_part( 'template-parts/entity/city-attractions' );
 		} elseif ( 'attraction' !== $sa_type ) {
 			if ( has_excerpt() ) {
 				echo '<p class="sa-entity__lead">' . esc_html( get_the_excerpt() ) . '</p>';
@@ -57,6 +58,10 @@ $sa_type = get_post_type( $sa_id );
 		</div>
 
 		<?php get_template_part( 'template-parts/entity/faq' ); ?>
+
+		<?php if ( 'attraction' === $sa_type ) : ?>
+			<?php get_template_part( 'template-parts/entity/attraction-parents' ); ?>
+		<?php endif; ?>
 
 		<?php get_template_part( 'template-parts/entity/county-siblings' ); ?>
 
