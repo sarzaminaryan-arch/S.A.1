@@ -1748,6 +1748,83 @@
 
 /* ================== جاذبه‌ها و منابع ================== */
 
+/* پوشش مقالات جاذبه‌ها (v2.20.0) */
+.sa-attr-coverage {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	margin: 0 0 14px;
+	padding: 10px 14px;
+	border: 1px solid rgba(0, 255, 157, 0.28);
+	border-radius: 10px;
+	background: linear-gradient(90deg, rgba(0, 255, 157, 0.10), rgba(3, 9, 20, 0.35));
+	font-size: 0.82rem;
+	color: #d7f8ea;
+}
+
+.sa-attr-coverage__num {
+	font-family: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: var(--d-green);
+}
+
+.sa-attr-coverage__label {
+	flex: 1 1 auto;
+}
+
+.sa-attr-coverage__tick {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	display: grid;
+	place-items: center;
+	background: var(--d-green);
+	color: #032014;
+	font-weight: 700;
+}
+
+.sa-acard {
+	position: relative;
+}
+
+.sa-acard.is-ready {
+	border-color: rgba(0, 255, 157, 0.34);
+}
+
+.sa-acard__tick {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 8px;
+	padding: 3px 9px;
+	border-radius: 999px;
+	font-size: 0.72rem;
+	text-decoration: none;
+	border: 1px solid transparent;
+}
+
+a.sa-acard__tick {
+	cursor: pointer;
+}
+
+.sa-acard__tick.is-ready {
+	background: rgba(0, 255, 157, 0.14);
+	border-color: rgba(0, 255, 157, 0.42);
+	color: var(--d-green);
+}
+
+a.sa-acard__tick.is-ready:hover,
+a.sa-acard__tick.is-ready:focus-visible {
+	background: rgba(0, 255, 157, 0.24);
+}
+
+.sa-acard__tick.is-todo {
+	background: rgba(148, 163, 184, 0.12);
+	border-color: rgba(148, 163, 184, 0.3);
+	color: #cbd5e1;
+}
+
 .sa-attr-grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));

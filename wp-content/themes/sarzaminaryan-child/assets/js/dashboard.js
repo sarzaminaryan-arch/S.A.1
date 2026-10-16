@@ -194,6 +194,7 @@
 		countySel: '',
 		countyZoom: 1,
 		attrCat: 'all',
+		attrArticle: 'all',
 		attrSort: 'name'
 	};
 
@@ -250,6 +251,12 @@
 		population: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c.6-3.5 2.8-5.2 5.5-5.2s4.9 1.7 5.5 5.2"/><circle cx="17" cy="9.5" r="2.5"/><path d="M15.8 14.9c2.3.2 4.2 1.7 4.7 4.6"/></svg>'
 	};
 
+	function readyArticles() {
+		return ( DATA.attractions || [] ).filter( function ( a ) {
+			return !! a.has_article;
+		} ).length;
+	}
+
 	function renderKpis( list ) {
 		var box = byId( 'sa-kpis' );
 		if ( ! box ) {
@@ -266,7 +273,7 @@
 		var cards = [
 			{ key: 'provinces', code: 'KPI.01 // PROVINCES', label: 'استان‌های فعال', value: faN( list.length ), unit: 'استان', tip: 'شمار استان‌های داخل فیلتر جاری' },
 			{ key: 'counties', code: 'KPI.02 // COUNTIES', label: 'شهرستان‌های کشور', value: faN( counties ), unit: 'شهرستان', tip: 'مجموع شهرستان‌های استان‌های فیلترشده از فهرست رسمی ۴۸۳تایی' },
-			{ key: 'attractions', code: 'KPI.03 // SITES', label: 'جاذبه‌های شاخص', value: faN( attrs ), unit: 'پرونده', tip: 'گزینش تحریریه؛ فهرست کامل در بخش جاذبه‌ها' },
+			{ key: 'attractions', code: 'KPI.03 // SITES', label: 'جاذبه‌های شاخص', value: faN( attrs ), unit: 'پرونده', tip: 'گزینش تحریریه؛ ' + faN( readyArticles() ) + ' جاذبه در این فهرست مقالهٔ کامل دارد' },
 			{ key: 'area', code: 'KPI.04 // AREA_KM2', label: 'مساحت کل پهنه', value: faN( area ), unit: 'km²', tip: 'مجموع مساحت استان‌های فیلترشده' },
 			{ key: 'population', code: 'KPI.05 // POPULATION', label: 'جمعیت ثبت‌شده', value: faN( pop ), unit: 'نفر', tip: 'مجموع جمعیت استان‌های فیلترشده؛ مبنا سرشماری ۱۳۹۵' }
 		];
@@ -1717,6 +1724,15 @@
 				return a.cat === state.attrCat;
 			} );
 		}
+		if ( state.attrArticle === 'ready' ) {
+			list = list.filter( function ( a ) {
+				return !! a.has_article;
+			} );
+		} else if ( state.attrArticle === 'missing' ) {
+			list = list.filter( function ( a ) {
+				return ! a.has_article;
+			} );
+		}
 		list.sort( function ( a, b ) {
 			if ( state.attrSort === 'name' ) {
 				return faSort( a.name, b.name );
@@ -1737,12 +1753,32 @@
 			return;
 		}
 
+		var ready = 0;
+		DATA.attractions.forEach( function ( a ) {
+			if ( a.has_article ) {
+				ready++;
+			}
+		} );
+		var coverage = byId( 'sa-attr-coverage' );
+		if ( coverage ) {
+			coverage.innerHTML =
+				'<span class="sa-attr-coverage__num">' + faN( ready ) + '</span>' +
+				'<span class="sa-attr-coverage__label">جاذبه از ' + faN( DATA.attractions.length ) + ' جاذبهٔ شاخص، مقالهٔ کامل دارد</span>' +
+				'<span class="sa-attr-coverage__tick" aria-hidden="true">✓</span>';
+		}
+
 		grid.innerHTML = list.map( function ( a ) {
 			var p = PROV_BY_SLUG[ a.province ];
-			return '<article class="sa-acard sa-acard--' + esc( a.cat ) + '">' +
+			var tick = a.has_article
+				? ( a.article_url
+					? '<a class="sa-acard__tick is-ready" href="' + esc( a.article_url ) + '">✓ <span>مقالهٔ کامل</span></a>'
+					: '<span class="sa-acard__tick is-ready" title="مقالهٔ کامل در قالب آماده است">✓ <span>مقالهٔ کامل</span></span>' )
+				: '<span class="sa-acard__tick is-todo">در نوبت نوشتن</span>';
+			return '<article class="sa-acard sa-acard--' + esc( a.cat ) + ( a.has_article ? ' is-ready' : '' ) + '">' +
 				'<div class="sa-acard__media" aria-hidden="true">' + ( CAT_ICONS[ a.cat ] || '' ) + '</div>' +
 				'<div class="sa-acard__body">' +
 					'<h3>' + esc( a.name ) + '</h3>' +
+					tick +
 					'<p class="sa-acard__loc">' +
 						'<span>' + esc( p ? p.name : a.province ) + '</span> · <span>شهرستان ' + esc( a.county ) + '</span>' +
 					'</p>' +
@@ -1802,6 +1838,11 @@
 	}
 
 	function resetFilters() {
+		state.attrArticle = 'all';
+		var aArticle = byId( 'sa-a-article' );
+		if ( aArticle ) {
+			aArticle.value = 'all';
+		}
 		state.province = 'all';
 		state.popMin = 0;
 		state.popMax = POP_LIMIT;
@@ -1978,6 +2019,13 @@
 			state.attrSort = e.target.value;
 			renderAttractions();
 		} );
+		var aArticleSel = byId( 'sa-a-article' );
+		if ( aArticleSel ) {
+			aArticleSel.addEventListener( 'change', function ( e ) {
+				state.attrArticle = e.target.value;
+				renderAttractions();
+			} );
+		}
 	}
 
 	var toastEl = null;

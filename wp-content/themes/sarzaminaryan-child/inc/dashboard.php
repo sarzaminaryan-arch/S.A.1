@@ -184,12 +184,13 @@ function sa_dashboard_dataset() {
 			'provinces'   => count( $provinces ),
 			'counties'    => is_array( $registry ) ? count( $registry ) : 0,
 			'attractions' => is_array( $attr['items'] ) ? count( $attr['items'] ) : 0,
+			'article_ready' => count( array_filter( sa_dashboard_attractions_with_articles( (array) $attr['items'] ), function ( $row ) { return ! empty( $row['has_article'] ); } ) ),
 			'area'        => $area_total,
 			'population'  => $pop_total,
 		),
 		'countries'     => isset( $borders['countries'] ) ? array_values( $borders['countries'] ) : array(),
 		'provinces'     => $provinces,
-		'attractions'   => array_values( (array) $attr['items'] ),
+		'attractions'   => sa_dashboard_attractions_with_articles( (array) $attr['items'] ),
 		'province_urls' => $province_urls,
 		'county_urls'   => $county_urls,
 	);
@@ -200,6 +201,114 @@ function sa_dashboard_dataset() {
 	 * @param array $data مجموعه‌داده.
 	 */
 	return apply_filters( 'sa_dashboard_data', $cache );
+}
+
+/**
+ * کلید تطبیق نام فارسی (حذف پرانتز، نیم‌فاصله و نویسه‌های هم‌ارز).
+ *
+ * @param string $text نام یا عنوان.
+ * @return string
+ */
+function sa_dashboard_match_key( $text ) {
+	$text = wp_strip_all_tags( (string) $text );
+	$text = preg_replace( '/\([^)]*\)/u', ' ', $text );
+	$text = str_replace( array( 'ۀ', 'ة', 'ي', 'ك', "\xE2\x80\x8C" ), array( 'ه', 'ه', 'ی', 'ک', ' ' ), (string) $text );
+	$text = preg_replace( '/[^\p{L}\p{N}]+/u', ' ', (string) $text );
+	return trim( (string) preg_replace( '/\s+/u', ' ', (string) $text ) );
+}
+
+/**
+ * فهرست مقالات آمادهٔ دیدنی‌ها برای تطبیق با رکوردهای داشبورد (v2.20.0).
+ *
+ * هر جاذبهٔ داشبورد با نام فارسی، سپس با نامک، با یکی از ۲۸ مقالهٔ آمادهٔ قالب
+ * تطبیق می‌شود تا «جاذبه‌های دارای مقاله» در کارت‌ها تیک بخورند و به برگهٔ
+ * منتشرشده (اگر وجود داشته باشد) پیوند داده شوند.
+ *
+ * @return array{by_name:array<string,string>,by_slug:array<string,string>,urls:array<string,string>}
+ */
+function sa_dashboard_ready_articles() {
+	static $map = null;
+	if ( null !== $map ) {
+		return $map;
+	}
+	$map = array(
+		'by_name' => array(),
+		'by_slug' => array(),
+		'urls'    => array(),
+	);
+	if ( ! function_exists( 'sa_ready_attractions_data' ) ) {
+		return $map;
+	}
+	foreach ( sa_ready_attractions_data() as $key => $article ) {
+		if ( ! is_array( $article ) ) {
+			continue;
+		}
+		$slug = ! empty( $article['slug'] ) ? (string) $article['slug'] : (string) $key;
+		if ( '' === $slug ) {
+			continue;
+		}
+		$map['by_slug'][ $slug ] = $slug;
+		$title = isset( $article['title'] ) ? (string) $article['title'] : '';
+		if ( '' !== $title ) {
+			$map['by_name'][ sa_dashboard_match_key( $title ) ] = $slug;
+		}
+	}
+
+	// برگه‌های منتشرشدهٔ همان نامک‌ها (اگر وارد شده باشند) یک‌جا خوانده می‌شوند.
+	if ( function_exists( 'get_posts' ) && $map['by_slug'] ) {
+		$posts = get_posts(
+			array(
+				'post_type'              => 'attraction',
+				'post_status'            => 'publish',
+				'post_name__in'          => array_values( $map['by_slug'] ),
+				'posts_per_page'         => count( $map['by_slug'] ) + 5,
+				'no_found_rows'          => true,
+				'update_post_term_cache' => false,
+				'update_post_meta_cache' => false,
+				'fields'                 => 'ids',
+			)
+		);
+		foreach ( (array) $posts as $post_id ) {
+			$name = (string) get_post_field( 'post_name', $post_id );
+			if ( '' === $name ) {
+				continue;
+			}
+			$perma = get_permalink( (int) $post_id );
+			if ( $perma ) {
+				$map['urls'][ $name ] = (string) $perma;
+			}
+		}
+	}
+	return $map;
+}
+
+/**
+ * افزودن وضعیت مقاله به هر رکورد جاذبهٔ داشبورد.
+ *
+ * @param array<int,array<string,mixed>> $items رکوردهای خام جاذبه.
+ * @return array<int,array<string,mixed>> رکوردها با کلیدهای article_slug/article_url/has_article.
+ */
+function sa_dashboard_attractions_with_articles( $items ) {
+	$ready = sa_dashboard_ready_articles();
+	$out   = array();
+	foreach ( (array) $items as $item ) {
+		if ( ! is_array( $item ) ) {
+			continue;
+		}
+		$slug = isset( $item['slug'] ) ? (string) $item['slug'] : '';
+		$key  = sa_dashboard_match_key( isset( $item['name'] ) ? (string) $item['name'] : '' );
+		$as   = '';
+		if ( '' !== $key && isset( $ready['by_name'][ $key ] ) ) {
+			$as = (string) $ready['by_name'][ $key ];
+		} elseif ( '' !== $slug && isset( $ready['by_slug'][ $slug ] ) ) {
+			$as = (string) $ready['by_slug'][ $slug ];
+		}
+		$item['article_slug'] = $as;
+		$item['article_url']  = ( '' !== $as && isset( $ready['urls'][ $as ] ) ) ? (string) $ready['urls'][ $as ] : '';
+		$item['has_article']  = ( '' !== $as );
+		$out[]                = $item;
+	}
+	return $out;
 }
 
 /**

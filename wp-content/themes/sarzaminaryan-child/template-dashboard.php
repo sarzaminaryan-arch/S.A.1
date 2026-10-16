@@ -350,6 +350,7 @@ get_header();
 				<h2 class="sa-dash__h2">جاذبه‌های شاخص گردشگری</h2>
 				<span class="sa-cyber-sec-code" dir="ltr">SYS.SITES // CURATED ATTRACTIONS</span>
 			</div>
+			<div class="sa-attr-coverage" id="sa-attr-coverage" dir="auto"><div class="sa-sk sa-sk--line"></div></div>
 			<div class="sa-table-tools">
 				<div class="sa-field">
 					<label for="sa-a-cat">دسته</label>
@@ -362,6 +363,14 @@ get_header();
 					</select>
 				</div>
 				<div class="sa-field">
+					<label for="sa-a-article">وضعیت مقاله</label>
+					<select id="sa-a-article">
+						<option value="all">همهٔ جاذبه‌ها</option>
+						<option value="ready">✓ دارای مقالهٔ کامل</option>
+						<option value="missing">بدون مقاله (در نوبت نوشتن)</option>
+					</select>
+				</div>
+				<div class="sa-field">
 					<label for="sa-a-sort">مرتب‌سازی</label>
 					<select id="sa-a-sort">
 						<option value="name">نام (الفبا)</option>
@@ -370,7 +379,7 @@ get_header();
 						<option value="cat">دسته</option>
 					</select>
 				</div>
-				<p class="sa-table-tools__hint">فهرست جاذبه‌های شاخص به تفکیک استان و شهرستان به همراه وضعیت ثبت ملی و جهانی.</p>
+				<p class="sa-table-tools__hint">فهرست جاذبه‌های شاخص به تفکیک استان و شهرستان؛ تیک سبز یعنی مقالهٔ کامل آن جاذبه در قالب آماده و قابل درج است.</p>
 			</div>
 			<div class="sa-attr-grid" id="sa-attr-grid"><div class="sa-sk sa-sk--tall"></div></div>
 		</section>
