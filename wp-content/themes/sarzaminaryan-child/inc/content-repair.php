@@ -572,14 +572,24 @@ add_action( 'admin_post_sa_selflink_unwrap', 'sa_selflink_handle' );
  * ---------------------------------------------------------------------- */
 
 /**
- * حذفِ عبارتِ تحریریِ آغازین از متن (تابع خالص).
+ * فهرست نشانگرهای یادداشتِ تحریریه / پیش‌نویس که باید از متنِ منتشرشده پاک شوند.
  *
- * @param string $content   محتوای خام.
- * @param int    $removed   (مرجع) شمار عبارت‌های برداشته‌شده.
- * @param int    $remaining (مرجع) شمار رخدادهایی که برداشته نشدند (میانِ جمله).
- * @param bool   $guarded   (مرجع) اگر برداشتنِ عبارت ساختارِ پیوندها را خراب کند، true.
- * @return string
+ * @return array<int,string>
  */
+function sa_repair_editorial_markers() {
+	return array(
+		'برای بازبینی و ویرایش انسانی',
+		'برای انتشار نهایی',
+		'داده‌ها پیش از انتشار',
+		'داده ها پیش از انتشار',
+		'نیاز به بررسی',
+		'تأیید شود',
+		'تایید شود',
+		'منبع رسمی بازبینی شود',
+		'google.com',
+	);
+}
+
 function sa_repair_editorial_phrase( $content, &$removed = null, &$remaining = null, &$guarded = null ) {
 	$content   = (string) $content;
 	$removed   = 0;
@@ -588,20 +598,52 @@ function sa_repair_editorial_phrase( $content, &$removed = null, &$remaining = n
 	if ( '' === $content ) {
 		return $content;
 	}
-	if ( false === strpos( $content, 'برای' ) ) {
+
+	$markers = sa_repair_editorial_markers();
+	$has_marker = false;
+	foreach ( $markers as $mk ) {
+		if ( false !== stripos( $content, $mk ) ) {
+			$has_marker = true;
+			break;
+		}
+	}
+	if ( ! $has_marker ) {
 		return $content;
 	}
 
-	// فقط جایی که جمله/پاراگراف تازه شروع می‌شود (پس از تگ، نقطه/علامت پرسش یا خطِ نو).
-	$pattern = '/(^|[>\.!\?؟\n\r]\s{0,3})(?:برای\s+انتشار\s+نهایی)[،,]?\s*/u';
-	$count   = 0;
-	$out     = preg_replace( $pattern, '$1', $content, -1, $count );
-	if ( ! is_string( $out ) ) {
-		return $content;
+	$out = $content;
+
+	// ۱) حذفِ خطوطی که حاوی google.com هستند (منابع بی‌ارزش).
+	$lines = preg_split( '/\r\n|\r|\n/', $out );
+	$kept  = array();
+	$line_removed = 0;
+	foreach ( $lines as $ln ) {
+		if ( false !== stripos( $ln, 'google.com' ) ) {
+			++$line_removed;
+			continue;
+		}
+		$kept[] = $ln;
+	}
+	$out = implode( "\n", $kept );
+
+	// ۲) حذفِ جمله‌هایی که نشانگرِ یادداشتِ تحریریه دارند.
+	$quoted = array();
+	foreach ( $markers as $mk ) {
+		if ( 'google.com' === $mk ) {
+			continue;
+		}
+		$quoted[] = preg_quote( $mk, '/' );
+	}
+	$marker_alt = implode( '|', $quoted );
+	$sentence_re = '/[^.!?؟؛<>\n]*(' . $marker_alt . ')[^.!?؟؛<>\n]*[.!?؟؛]?/u';
+	$count = 0;
+	$out2 = preg_replace( $sentence_re, '', $out, -1, $count );
+	if ( is_string( $out2 ) ) {
+		$out = $out2;
+		$removed += (int) $count;
 	}
 
-	// محافظ: اگر برداشتنِ عبارت، ساختارِ پیوندها را به هم بزند (مثلاً متنِ خودِ لینک
-	// باشد) دست‌نخورده برمی‌گردانیم تا یک ایراد جای ایرادِ دیگری نگذارد.
+	// محافظ: اگر برداشتن، ساختارِ پیوندها را به هم بزند، دست‌نخورده برمی‌گردانیم.
 	$links_before = preg_match_all( '/<a\b/iu', $content );
 	$empty_before = preg_match_all( '/>\s*<\/a>/iu', $content );
 	$links_after  = preg_match_all( '/<a\b/iu', $out );
@@ -610,29 +652,22 @@ function sa_repair_editorial_phrase( $content, &$removed = null, &$remaining = n
 		$guarded   = true;
 		$removed   = 0;
 		$remaining = 0;
-		if ( preg_match_all( '/برای\s+انتشار\s+نهایی/u', $content, $m ) ) {
-			$remaining = count( $m[0] );
-		}
 		return $content;
 	}
 
-	$removed = (int) $count;
+	$removed += $line_removed;
 
 	$left = 0;
-	if ( preg_match_all( '/برای\s+انتشار\s+نهایی/u', $out, $matches ) ) {
-		$left = count( $matches[0] );
+	foreach ( $markers as $mk ) {
+		if ( preg_match_all( '/' . preg_quote( $mk, '/' ) . '/u', $out, $m ) ) {
+			$left += count( $m[0] );
+		}
 	}
 	$remaining = (int) $left;
 
 	return $out;
 }
 
-/**
- * نامزدهای تعمیر سوم: موجودیت‌هایی که عبارتِ تحریری در متنشان هست.
- *
- * @param int $limit سقف بررسی در این اجرا.
- * @return array<int,int> شناسه‌ها.
- */
 function sa_repair_editorial_candidates( $limit = 0 ) {
 	$types = array_values( array_filter( array_map( 'strval', (array) sa_entity_types() ) ) );
 	if ( ! $types ) {
@@ -642,26 +677,35 @@ function sa_repair_editorial_candidates( $limit = 0 ) {
 		$limit = sa_repair_batch_size();
 	}
 
-	// جست‌وجوی واژه‌ایِ وردپرس، بعد بازبینیِ دقیق با الگوی خودمان.
+	// پویشِ همهٔ نوشته‌ها (جست‌وجوی وردپرس فقط یک عبارت را پشتیبانی می‌کند).
 	$q = new WP_Query(
 		array(
 			'post_type'              => $types,
 			'post_status'            => array( 'publish', 'draft', 'pending' ),
-			'posts_per_page'         => $limit,
+			'posts_per_page'         => -1,
 			'no_found_rows'          => true,
 			'fields'                 => 'ids',
 			'update_post_term_cache' => false,
 			'orderby'                => 'ID',
 			'order'                  => 'ASC',
-			's'                      => 'برای انتشار نهایی',
 		)
 	);
 
 	$out = array();
 	foreach ( $q->posts as $pid ) {
 		$content = (string) get_post_field( 'post_content', $pid );
-		if ( false !== strpos( $content, 'برای انتشار نهایی' ) || preg_match( '/برای\s+انتشار\s+نهایی/u', $content ) ) {
+		$hit = false;
+		foreach ( sa_repair_editorial_markers() as $mk ) {
+			if ( false !== stripos( $content, $mk ) ) {
+				$hit = true;
+				break;
+			}
+		}
+		if ( $hit ) {
 			$out[] = (int) $pid;
+			if ( count( $out ) >= $limit ) {
+				break;
+			}
 		}
 	}
 
@@ -799,10 +843,11 @@ function sa_repair_editorial_section() {
 	$last    = sa_repair_editorial_last();
 	$done    = isset( $_GET['sa_editorial'] ) ? sanitize_key( wp_unslash( $_GET['sa_editorial'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
-	echo '<h2>حذفِ عبارتِ تحریریِ جامانده («برای انتشار نهایی»)</h2>';
-	echo '<p>دروازهٔ انتشار این عبارت را «یادداشتِ تحریریه» می‌شناسد و تا پاک نشدنش اجازهٔ انتشار نمی‌دهد؛ در متنِ ذخیره‌شدهٔ ۳۱ صفحهٔ شهرستان و مقالهٔ «آبشار بیشه» بود. '
-		. 'این ابزار فقط همان عبارتِ آغازین را از سرِ جمله برمی‌دارد و باقیِ متن را دست‌نخورده نگه می‌دارد (هر تغییر نسخهٔ بازبینی دارد). '
-		. 'رخدادهای میانِ جمله برداشته نمی‌شوند و در گزارش «بررسی‌نشده» می‌مانند.</p>';
+	echo '<h2>حذفِ یادداشت‌های تحریریه و پیش‌نویس (هوش مصنوعی)</h2>';
+	echo '<p>این ابزار عبارت‌های تحریریِ جامانده را از متنِ ذخیره‌شدهٔ صفحه‌های شهرستان پاک می‌کند: '
+		. '«برای بازبینی و ویرایش انسانی»، «برای انتشار نهایی»، «داده‌ها پیش از انتشار»، «نیاز به بررسی»، '
+		. '«تأیید شود»، «منبع رسمی بازبینی شود» و خطوط حاوی google.com. '
+		. 'هر جملهٔ حاوی این نشانگرها به‌طور کامل حذف می‌شود و باقیِ متن دست‌نخورده می‌ماند (هر تغییر نسخهٔ بازبینی دارد).</p>';
 
 	if ( $done && $last ) {
 		if ( 'dry' === $last['mode'] ) {
