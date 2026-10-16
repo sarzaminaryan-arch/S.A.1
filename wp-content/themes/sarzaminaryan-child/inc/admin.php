@@ -10,19 +10,52 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Top-level menu that hosts all entity CPTs (show_in_menu = 'sarzaminaryan').
+ * Top-level menu that hosts the 4 core pillars of the site:
+ * ۱) استان‌ها، ۲) شهرستان‌ها، ۳) دیدنی‌ها، ۴) آموزش (طبیعت‌گردی و بقا) (در بخش نوشته‌ها).
  */
 function sa_admin_menu() {
 	add_menu_page( 'سرزمین آریان', 'سرزمین آریان', 'edit_posts', 'sarzaminaryan', 'sa_admin_dashboard_page', 'dashicons-location-alt', 4 );
-	add_submenu_page( 'sarzaminaryan', 'داشبورد محتوا', 'داشبورد محتوا', 'edit_posts', 'sarzaminaryan', 'sa_admin_dashboard_page' );
+	add_submenu_page( 'sarzaminaryan', 'داشبورد محتوا (۴ بخش اصلی)', 'داشبورد محتوا', 'edit_posts', 'sarzaminaryan', 'sa_admin_dashboard_page' );
 
-	// Taxonomy screens under the same menu (CPT submenus are added automatically by WordPress).
+	// Pillar 4: آموزش (طبیعت‌گردی و بقا) — located in WordPress Posts («نوشته‌ها»).
+	$edu_slug = function_exists( 'sa_education_category_slug' ) ? sa_education_category_slug() : 'camping-survival';
+	add_submenu_page(
+		'sarzaminaryan',
+		'آموزش (طبیعت‌گردی و بقا) — نوشته‌ها',
+		'آموزش (طبیعت‌گردی و بقا)',
+		'edit_posts',
+		'edit.php?category_name=' . rawurlencode( $edu_slug )
+	);
+
+	// Also add a direct filter link inside the WordPress «نوشته‌ها» (edit.php) menu.
+	add_submenu_page(
+		'edit.php',
+		'نوشته‌های آموزش (طبیعت‌گردی و بقا)',
+		'آموزش (طبیعت‌گردی و بقا)',
+		'edit_posts',
+		'edit.php?category_name=' . rawurlencode( $edu_slug )
+	);
+
+	// Shortcut to Ready Educational Guides inside «سرزمین آریان» as well (main entry is under نوشته‌ها).
+	add_submenu_page(
+		'sarzaminaryan',
+		'مقالات آمادهٔ آموزش (طبیعت‌گردی و بقا)',
+		'مقالات آماده (آموزشی)',
+		'edit_posts',
+		'edit.php?page=sa-ready-guides'
+	);
+
+	// Taxonomy screens under the same menu — only for the active core pillars (استان، شهرستان، دیدنی).
+	$hidden_cpts = function_exists( 'sa_nav_hidden_entity_types' ) ? sa_nav_hidden_entity_types() : array( 'travel_route', 'local_food', 'souvenir' );
 	foreach ( sa_taxonomies_config() as $tax => $t ) {
 		if ( ! taxonomy_exists( $tax ) ) {
 			continue;
 		}
 		$first = null;
 		foreach ( $t['applies_to'] as $type ) {
+			if ( in_array( $type, $hidden_cpts, true ) ) {
+				continue;
+			}
 			if ( post_type_exists( $type ) ) {
 				$first = $type;
 				break;
@@ -53,30 +86,54 @@ function sa_admin_parent_file( $parent_file ) {
 add_filter( 'parent_file', 'sa_admin_parent_file' );
 
 /**
- * Dashboard page: counts, incomplete entities, quick links.
+ * Dashboard page: 4 core pillars (استان‌ها، شهرستان‌ها، دیدنی‌ها، آموزش طبیعت‌گردی و بقا),
+ * separated Ready Articles tools, incomplete entities, and quick links.
  */
 function sa_admin_dashboard_page() {
-	echo '<div class="wrap sa-dash"><h1>سرزمین آریان — داشبورد محتوا</h1>';
-	echo '<p>مدل داده نسخه ' . esc_html( sa_fa_digits( SA_MODEL_VERSION ) ) . ' · قالب فرزند نسخه ' . esc_html( sa_fa_digits( SA_CHILD_VERSION ) ) . ' · حالت دروازه‌ی انتشار: <strong>' . ( 'hard' === sa_gate_mode() ? 'سخت‌گیر (اختیاری)' : 'یادآوری — شرط انتشار فقط تأیید مالک است' ) . '</strong></p>';
+	$core_cpts    = array( 'province', 'city', 'attraction' );
+	$edu_slug     = function_exists( 'sa_education_category_slug' ) ? sa_education_category_slug() : 'camping-survival';
+	$edu_term     = function_exists( 'sa_education_category' ) ? sa_education_category() : get_term_by( 'slug', $edu_slug, 'category' );
+	$edu_pub      = ( $edu_term && ! is_wp_error( $edu_term ) ) ? (int) $edu_term->count : 0;
+	$ready_attr   = function_exists( 'sa_ready_attractions_data' ) ? count( sa_ready_attractions_data() ) : 28;
+	$ready_guides = function_exists( 'sa_ready_guides_data' ) ? count( sa_ready_guides_data() ) : 67;
+
+	echo '<div class="wrap sa-dash"><h1>سرزمین آریان — داشبورد محتوا (۴ بخش اصلی سایت)</h1>';
+	echo '<p>تقسیم‌بندی اصلی سایت: <strong>۱) استان‌ها</strong> · <strong>۲) شهرستان‌ها</strong> · <strong>۳) دیدنی‌ها</strong> · <strong>۴) آموزش (طبیعت‌گردی و بقا)</strong> (در بخش نوشته‌ها) — قالب فرزند نسخه ' . esc_html( sa_fa_digits( SA_CHILD_VERSION ) ) . ' · حالت دروازه‌ی انتشار: <strong>' . ( 'hard' === sa_gate_mode() ? 'سخت‌گیر (اختیاری)' : 'یادآوری — شرط انتشار فقط تأیید مالک است' ) . '</strong></p>';
 	echo '<div class="sa-dash__cards">';
-	foreach ( sa_entity_types() as $type ) {
+	foreach ( $core_cpts as $type ) {
 		$c   = wp_count_posts( $type );
 		$obj = get_post_type_object( $type );
+		if ( ! $obj ) {
+			continue;
+		}
 		printf(
-			'<a class="sa-dash__card" href="%s"><span class="dashicons %s"></span><strong>%s</strong><span>%s منتشرشده · %s پیش‌نویس</span><em>+ افزودن</em></a>',
-			esc_url( admin_url( 'post-new.php?post_type=' . $type ) ),
+			'<a class="sa-dash__card" href="%s"><span class="dashicons %s"></span><strong>%s</strong><span>%s منتشرشده · %s پیش‌نویس</span><em>مدیریت %s</em></a>',
+			esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
 			esc_attr( $obj->menu_icon ),
 			esc_html( $obj->labels->name ),
 			esc_html( sa_fa_digits( (int) $c->publish ) ),
-			esc_html( sa_fa_digits( (int) $c->draft ) )
+			esc_html( sa_fa_digits( (int) $c->draft ) ),
+			esc_html( $obj->labels->name )
 		);
 	}
+	// Pillar 4 card: آموزش (طبیعت‌گردی و بقا) در بخش نوشته‌ها.
+	printf(
+		'<a class="sa-dash__card" href="%s"><span class="dashicons dashicons-welcome-learn-more"></span><strong>آموزش (طبیعت‌گردی و بقا)</strong><span>%s منتشرشده در بخش نوشته‌ها</span><em>مدیریت نوشته‌های آموزشی</em></a>',
+		esc_url( admin_url( 'edit.php?category_name=' . rawurlencode( $edu_slug ) ) ),
+		esc_html( sa_fa_digits( $edu_pub ) )
+	);
 	echo '</div>';
+
+	echo '<h2>ابزار مقالات آماده (تفکیک‌شده به دیدنی‌ها و آموزشی‌ها)</h2>';
+	echo '<p>';
+	echo '<a class="button button-primary" href="' . esc_url( admin_url( 'admin.php?page=sa-ready-articles' ) ) . '">مقالات آمادهٔ دیدنی‌ها (' . esc_html( sa_fa_digits( $ready_attr ) ) . ' دیدنی)</a> ';
+	echo '<a class="button button-primary" href="' . esc_url( admin_url( 'edit.php?page=sa-ready-guides' ) ) . '">مقالات آمادهٔ آموزشی — طبیعت‌گردی و بقا در بخش نوشته‌ها (' . esc_html( sa_fa_digits( $ready_guides ) ) . ' آموزش)</a>';
+	echo '</p>';
 
 	// Incomplete drafts.
 	$drafts = get_posts(
 		array(
-			'post_type'      => sa_entity_types(),
+			'post_type'      => $core_cpts,
 			'post_status'    => array( 'draft', 'pending' ),
 			'posts_per_page' => 20,
 			'orderby'        => 'modified',
@@ -101,9 +158,10 @@ function sa_admin_dashboard_page() {
 		echo '</tbody></table>';
 	}
 
-	echo '<h2>ترتیب پیشنهادی تولید محتوا (سطح ۶ — لینک‌های داخلی همیشه مقصد داشته باشند)</h2>';
-	echo '<ol><li>۳۱ استان (صفحه‌های هاب)</li><li>شهرهای هر استان</li><li>دیدنی هر شهر</li><li>غذاها و سوغات هر شهر</li><li>مسیرهای سفر</li></ol>';
+	echo '<h2>ساختار چهارگانهٔ سایت (استان‌ها · شهرستان‌ها · دیدنی‌ها · آموزش طبیعت‌گردی و بقا)</h2>';
+	echo '<ol><li><strong>استان‌ها</strong> (۳۱ استان — صفحه‌های هاب استانی)</li><li><strong>شهرستان‌ها</strong> (راهنمای جامع شهرستان‌های هر استان)</li><li><strong>دیدنی‌ها</strong> (جاذبه‌های طبیعی و تاریخی متصل به شهرستان و استان)</li><li><strong>آموزش (طبیعت‌گردی و بقا)</strong> (مقالات آموزشی کمپینگ و بقا در بخش «نوشته‌ها»ی سایت)</li></ol>';
 	echo '<p><a class="button" href="' . esc_url( admin_url( 'admin.php?page=sa-ready-articles' ) ) . '">مقالات آمادهٔ دیدنی‌ها</a> ';
+	echo '<a class="button" href="' . esc_url( admin_url( 'edit.php?page=sa-ready-guides' ) ) . '">مقالات آمادهٔ آموزشی (نوشته‌ها)</a> ';
 	echo '<a class="button button-primary" href="' . esc_url( admin_url( 'customize.php?autofocus[panel]=sa_panel' ) ) . '">تنظیمات قالب (سفارشی‌ساز)</a> ';
 	echo '<a class="button" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">فهرست‌ها</a> ';
 	echo '<a class="button" href="' . esc_url( admin_url( 'options-permalink.php' ) ) . '">پیوندهای یکتا (در صورت خطای ۴۰۴ یک‌بار ذخیره کنید)</a></p>';
