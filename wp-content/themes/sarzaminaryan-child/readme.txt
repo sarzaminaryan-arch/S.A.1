@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.18.12
+Stable tag: 2.18.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,12 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.18.13 — 2026-10-16 =
+* ارتقا، غنی‌سازی و تکمیل سئویی تمام ۲۸ مقالهٔ آمادهٔ گردشگری در `data/ready-articles.php` (مجموع ۴۲٬۲۳۱ واژه، میانگین ۱٬۵۰۸ واژه در هر مقاله؛ هیچ مقاله‌ای کمتر از ۱٬۲۰۰ واژه نیست).
+* افزودن جدول‌های HTML مقایسه‌ای و شناسنامهٔ سریع به تمام ۲۸ مقاله، بخش‌های اختصاصی فرهنگ بومی، خوراک محلی و سوغات، برنامهٔ پیشنهادی سفر (Itinerary) و راهنمای عکاسی.
+* تکمیل پیوندسازی داخلی ۴ لایه (استان، شهرستان، جاذبه‌های هم‌خانواده و راهنماهای آموزشی کمپینگ و بقا در `data/ready-guides.php`) و ارجاع درون‌متنی شماره‌دار (`<sup class="sa-cite">`) به منابع رسمی و معتبر (`whc.unesco.org`, `unesco.org`, `mcth.ir`, `doe.ir`, `gsi.ir`, `rai.ir`, `iranicaonline.org`, `britannica.com`).
+* تکمیل مختصات جغرافیایی (`sa_latitude`, `sa_longitude`)، ارتفاع از سطح دریا (`sa_elevation`)، تاریخ بازبینی (`sa_last_verified_date = 2026-10-16`) و پرسش‌های متداول (۸ تا ۱۲ FAQ در هر مقاله).
 
 = 2.18.12 — 2026-10-15 =
 * این انتشار نسبت به نسخهٔ منتشرشدهٔ 2.18.10 شامل ۳۶ کارت تازه در ۱۲ مقالهٔ بچ‌های دوم تا پنجم است.
