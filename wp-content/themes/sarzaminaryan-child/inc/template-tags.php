@@ -758,6 +758,32 @@ function sa_cyber_id_review_badge() {
 }
 
 /**
+ * Compact HUD updated/verified badge inside Cyber-Tech Identity Cards (v2.19.2).
+ *
+ * @param int $post_id Post ID.
+ */
+function sa_updated_badge( $post_id = 0 ) {
+	$post_id  = $post_id ? absint( $post_id ) : (int) get_the_ID();
+	if ( ! $post_id ) {
+		return;
+	}
+	$verified = trim( (string) get_post_meta( $post_id, 'sa_last_verified_date', true ) );
+	if ( '' === $verified ) {
+		$verified = trim( (string) get_post_meta( $post_id, 'sa_facts_checked', true ) );
+	}
+	$ts = $verified ? strtotime( $verified ) : false;
+	if ( $ts ) {
+		echo '<span class="sa-cyber-id__type-tag"><time datetime="' . esc_attr( $verified ) . '">بازبینی: ' . esc_html( wp_date( 'Y/m/d', $ts ) ) . '</time></span>';
+		return;
+	}
+	$mod_iso = get_the_modified_date( 'Y-m-d', $post_id );
+	$mod_lbl = get_the_modified_date( 'Y/m/d', $post_id );
+	if ( $mod_lbl ) {
+		echo '<span class="sa-cyber-id__type-tag"><time datetime="' . esc_attr( (string) $mod_iso ) . '">به‌روزرسانی: ' . esc_html( (string) $mod_lbl ) . '</time></span>';
+	}
+}
+
+/**
  * Render a cell value or the tiny «نیازمند بازبینی» badge when empty (v2.19.1).
  *
  * @param string $value      Raw text or pre-escaped HTML.
@@ -823,6 +849,41 @@ function sa_cyber_id_attraction_fallback( $post_id ) {
 	}
 	$slug = (string) get_post_field( 'post_name', $post_id );
 	return ( '' !== $slug && isset( $catalog[ $slug ] ) ) ? $catalog[ $slug ] : array();
+}
+
+/**
+ * Read attraction meta with automatic fallback to data/ready-articles.php (v2.19.2).
+ *
+ * @param int                  $post_id Post ID.
+ * @param string               $key     Meta key.
+ * @param array<string,string> $fb_meta Fallback meta array.
+ * @return string
+ */
+function sa_cyber_id_read_meta( $post_id, $key, $fb_meta = array() ) {
+	$val = trim( (string) get_post_meta( $post_id, $key, true ) );
+	if ( '' === $val && is_array( $fb_meta ) && isset( $fb_meta[ $key ] ) ) {
+		$val = trim( (string) $fb_meta[ $key ] );
+	}
+	return $val;
+}
+
+/**
+ * Read attraction taxonomy terms with automatic fallback to data/ready-articles.php (v2.19.2).
+ *
+ * @param int                 $post_id  Post ID.
+ * @param string              $taxonomy Taxonomy slug.
+ * @param array<string,mixed> $fb       Fallback article array.
+ * @return string
+ */
+function sa_cyber_id_read_terms( $post_id, $taxonomy, $fb = array() ) {
+	$terms = get_the_terms( $post_id, $taxonomy );
+	if ( is_array( $terms ) && ! is_wp_error( $terms ) && ! empty( $terms ) ) {
+		return implode( '، ', wp_list_pluck( $terms, 'name' ) );
+	}
+	if ( is_array( $fb ) && ! empty( $fb['terms'][ $taxonomy ] ) && is_array( $fb['terms'][ $taxonomy ] ) ) {
+		return implode( '، ', array_values( $fb['terms'][ $taxonomy ] ) );
+	}
+	return '';
 }
 
 /**

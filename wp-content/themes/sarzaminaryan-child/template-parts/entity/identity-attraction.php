@@ -1,12 +1,10 @@
 <?php
 /**
- * Cyber-Tech Light-Mode Attraction Identity Card — «شناسنامه دیدنی» (v2.19.1).
+ * Cyber-Tech Light-Mode Attraction Identity Card — «شناسنامه دیدنی» (v2.19.2).
  *
  * Dedicated Emerald-Teal technological 2-tier telemetry card for attractions (`attraction` CPT).
- * Renders 12 fixed vital slots in a custom bordered cyber grid (Tier A: 4-col identity strip,
- * Tier B: 3x2 technical telemetry, Tier C: full-width route & safety protocol rows), preserving
- * a 2-column tabular grid on mobile screens. Any unpopulated slot displays a tiny
- * «نیازمند بازبینی» badge.
+ * Note: `header.php` already prints `<div class="container"><?php sa_breadcrumbs(); ?></div>`,
+ * so this template does not output a second breadcrumb bar.
  *
  * @package Sarzaminaryan_Child
  */
@@ -25,16 +23,8 @@ if ( function_exists( 'sa_toc_register' ) ) {
 $sa_fb      = function_exists( 'sa_cyber_id_attraction_fallback' ) ? sa_cyber_id_attraction_fallback( $sa_id ) : array();
 $sa_fb_meta = isset( $sa_fb['meta'] ) && is_array( $sa_fb['meta'] ) ? $sa_fb['meta'] : array();
 
-$sa_get_meta = function ( $key ) use ( $sa_id, $sa_fb_meta ) {
-	$val = trim( (string) get_post_meta( $sa_id, $key, true ) );
-	if ( '' === $val && isset( $sa_fb_meta[ $key ] ) ) {
-		$val = trim( (string) $sa_fb_meta[ $key ] );
-	}
-	return $val;
-};
-
 // 1) English Name.
-$sa_en = $sa_get_meta( 'sa_english_name' );
+$sa_en = sa_cyber_id_read_meta( $sa_id, 'sa_english_name', $sa_fb_meta );
 if ( '' === $sa_en && ! empty( $sa_fb['english'] ) ) {
 	$sa_en = trim( (string) $sa_fb['english'] );
 }
@@ -45,9 +35,11 @@ if ( '' === $sa_en && function_exists( 'sa_province_profile_english_name' ) ) {
 	$sa_en = sa_province_profile_english_name( $sa_slug );
 }
 
-// 2) Province & County (Persian + English, linked).
-$sa_province_id = function_exists( 'sa_get_attraction_province' ) ? (int) sa_get_attraction_province( $sa_id ) : 0;
-$sa_city_id     = function_exists( 'sa_get_attraction_city' ) ? (int) sa_get_attraction_city( $sa_id ) : 0;
+// 2) Province & County (Persian + English, linked via canonical sa_get_parent).
+$sa_prov_post   = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'province' ) : null;
+$sa_city_post   = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'city' ) : null;
+$sa_province_id = ( $sa_prov_post instanceof WP_Post ) ? (int) $sa_prov_post->ID : ( is_numeric( $sa_prov_post ) ? (int) $sa_prov_post : 0 );
+$sa_city_id     = ( $sa_city_post instanceof WP_Post ) ? (int) $sa_city_post->ID : ( is_numeric( $sa_city_post ) ? (int) $sa_city_post : 0 );
 
 $sa_prov_slug = $sa_province_id ? (string) get_post_field( 'post_name', $sa_province_id ) : ( ! empty( $sa_fb['province'] ) ? (string) $sa_fb['province'] : '' );
 $sa_prov_name = $sa_province_id
@@ -79,33 +71,23 @@ if ( '' !== $sa_city_name ) {
 $sa_loc_html = implode( ' · ', $sa_loc_parts );
 
 // 3) Attraction Type & 4) Best Season.
-$sa_term_names = function ( $taxonomy ) use ( $sa_id, $sa_fb ) {
-	$terms = get_the_terms( $sa_id, $taxonomy );
-	if ( is_array( $terms ) && ! is_wp_error( $terms ) && ! empty( $terms ) ) {
-		return implode( '، ', wp_list_pluck( $terms, 'name' ) );
-	}
-	if ( ! empty( $sa_fb['terms'][ $taxonomy ] ) && is_array( $sa_fb['terms'][ $taxonomy ] ) ) {
-		return implode( '، ', array_values( $sa_fb['terms'][ $taxonomy ] ) );
-	}
-	return '';
-};
-$sa_kind_val   = $sa_term_names( 'attraction_type' );
-$sa_season_val = $sa_term_names( 'travel_season' );
+$sa_kind_val   = sa_cyber_id_read_terms( $sa_id, 'attraction_type', $sa_fb );
+$sa_season_val = sa_cyber_id_read_terms( $sa_id, 'travel_season', $sa_fb );
 
 // 5-12) Technical Telemetry Fields.
-$sa_age_val      = $sa_get_meta( 'sa_attraction_age' );
-$sa_area_val     = $sa_get_meta( 'sa_attraction_area' );
-$sa_elev_raw     = $sa_get_meta( 'sa_elevation' );
+$sa_age_val      = sa_cyber_id_read_meta( $sa_id, 'sa_attraction_age', $sa_fb_meta );
+$sa_area_val     = sa_cyber_id_read_meta( $sa_id, 'sa_attraction_area', $sa_fb_meta );
+$sa_elev_raw     = sa_cyber_id_read_meta( $sa_id, 'sa_elevation', $sa_fb_meta );
 $sa_elev_val     = '' !== $sa_elev_raw ? ( sa_fa_digits( $sa_elev_raw ) . ( false === mb_strpos( $sa_elev_raw, 'متر' ) ? ' متر' : '' ) ) : '';
-$sa_duration_val = $sa_get_meta( 'sa_visit_duration' );
-$sa_access_val   = $sa_get_meta( 'sa_access_level' );
-$sa_trail_val    = $sa_get_meta( 'sa_trail_note' );
-$sa_safety_val   = $sa_get_meta( 'sa_safety_note' );
+$sa_duration_val = sa_cyber_id_read_meta( $sa_id, 'sa_visit_duration', $sa_fb_meta );
+$sa_access_val   = sa_cyber_id_read_meta( $sa_id, 'sa_access_level', $sa_fb_meta );
+$sa_trail_val    = sa_cyber_id_read_meta( $sa_id, 'sa_trail_note', $sa_fb_meta );
+$sa_safety_val   = sa_cyber_id_read_meta( $sa_id, 'sa_safety_note', $sa_fb_meta );
 
-$sa_lat        = $sa_get_meta( 'sa_latitude' );
-$sa_lng        = $sa_get_meta( 'sa_longitude' );
+$sa_lat        = sa_cyber_id_read_meta( $sa_id, 'sa_latitude', $sa_fb_meta );
+$sa_lng        = sa_cyber_id_read_meta( $sa_id, 'sa_longitude', $sa_fb_meta );
 $sa_coords_str = ( '' !== $sa_lat && '' !== $sa_lng ) ? ( $sa_lat . '° N, ' . $sa_lng . '° E' ) : '';
-$sa_map_url    = $sa_get_meta( 'sa_google_map_url' );
+$sa_map_url    = function_exists( 'sa_map_url' ) ? sa_map_url( $sa_id ) : sa_cyber_id_read_meta( $sa_id, 'sa_google_map_url', $sa_fb_meta );
 if ( '' === $sa_map_url && '' !== $sa_lat && '' !== $sa_lng ) {
 	$sa_map_url = 'https://www.google.com/maps?q=' . rawurlencode( $sa_lat . ',' . $sa_lng );
 }
@@ -188,13 +170,7 @@ $sa_en_loc_ribbon = implode(
 );
 ?>
 <header class="sa-id-card-wrap">
-	<div class="sa-id-card__crumbs sa-id-card__crumbs--attraction">
-		<div class="sa-container">
-			<?php sa_breadcrumbs(); ?>
-		</div>
-	</div>
-
-	<div class="sa-container">
+	<div class="container">
 		<section class="sa-cyber-id sa-cyber-id--attraction" id="attraction-identity" aria-labelledby="sa-attraction-identity-title">
 			<div class="sa-cyber-id__hud-bar">
 				<div class="sa-cyber-id__badges">
@@ -221,7 +197,11 @@ $sa_en_loc_ribbon = implode(
 							<small dir="ltr">GPS</small>
 						</a>
 					<?php endif; ?>
-					<?php sa_updated_badge( $sa_id ); ?>
+					<?php
+					if ( function_exists( 'sa_updated_badge' ) ) {
+						sa_updated_badge( $sa_id );
+					}
+					?>
 				</div>
 			</div>
 

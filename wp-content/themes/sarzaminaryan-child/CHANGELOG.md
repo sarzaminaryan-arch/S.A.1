@@ -1,3 +1,9 @@
+## 2.19.2 — 1405-07-24 (2026-10-16)
+
+- **رفع خطای Fatal Error در صفحات استان، شهرستان و دیدنی (`province-identity.php`، `county-profile.php`، `identity-attraction.php`، `single.php`):**
+  - تعریف تابع `sa_updated_badge()`، `sa_cyber_id_read_meta()` و `sa_cyber_id_read_terms()` در `inc/template-tags.php` و تطبیق تمامی فراخوانی‌ها با توابع استاندارد موجود در `inc/province-profile.php`، `inc/geo-counties.php` و `inc/relations.php` (`sa_get_parent()`، `sa_region_province()`، `sa_province_profile_place_english()`، `sa_county_lines()`، `sa_county_parse_neighbor()` و `sa_county_parse_poi()`).
+  - حذف نوار مسیر راهنمای تکراری (`sa_breadcrumbs()`) از هدر موجودیت‌ها (چون `header.php` خودش نوار مسیر راهنما را چاپ می‌کند) و یکدست‌سازی کلاس `.container` در تمام قالب‌ها.
+
 ## 2.19.1 — 1405-07-24 (2026-10-16)
 
 - **حذف و مخفی‌سازی کامل تصاویر شاخص «دیدنی‌ها» (درخواست مالک):**

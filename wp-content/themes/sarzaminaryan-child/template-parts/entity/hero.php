@@ -1,11 +1,13 @@
 <?php
 /**
- * Entity header dispatcher (v2.19.1).
+ * Entity header dispatcher (v2.19.2).
+ *
+ * Note: `header.php` already prints `<div class="container"><?php sa_breadcrumbs(); ?></div>`
+ * on all non-front pages, so entity headers must not print a duplicate breadcrumb bar.
  *
  * - Attractions render the full-width Cyber-Tech Attraction Identity Card (`identity-attraction.php`).
- * - Provinces and Counties render the breadcrumb bar here, followed immediately by their
- *   dedicated Cyber-Tech Identity Card (`province-identity.php` / `county-profile.php`) at the
- *   top of `.sa-entity__main` without duplicating titles or key facts.
+ * - Provinces and Counties render their dedicated Cyber-Tech Identity Card
+ *   (`province-identity.php` / `county-profile.php`) at the top of `.sa-entity__layout`.
  *
  * @package Sarzaminaryan_Child
  */
@@ -23,39 +25,25 @@ if ( 'attraction' === $sa_type ) {
 }
 
 if ( in_array( $sa_type, array( 'province', 'city' ), true ) ) {
-	?>
-	<div class="sa-id-card__crumbs sa-id-card__crumbs--<?php echo esc_attr( $sa_type ); ?>">
-		<div class="sa-container">
-			<?php sa_breadcrumbs(); ?>
-		</div>
-	</div>
-	<?php
 	return;
 }
 
-$sa_label = sa_entity_label( $sa_type );
-$sa_en    = get_post_meta( $sa_id, 'sa_english_name', true );
-$sa_thumb = sa_featured_image_available( $sa_id, 'hero' );
+$sa_city       = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'city' ) : null;
+$sa_province   = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'province' ) : null;
+$sa_title      = get_the_title( $sa_id );
+$sa_kicker     = function_exists( 'sa_entity_label' ) ? sa_entity_label( $sa_type ) : '';
+$sa_hero_image = function_exists( 'sa_featured_image_available' ) && sa_featured_image_available( $sa_id, 'hero' );
 ?>
-<header class="sa-entity-hero sa-entity-hero--<?php echo esc_attr( $sa_type ); ?><?php echo $sa_thumb ? ' has-media' : ''; ?>">
-	<?php if ( $sa_thumb ) : ?>
-		<div class="sa-entity-hero__media" aria-hidden="true">
-			<?php echo sa_get_featured_image( 'sa-hero', array( 'loading' => 'eager', 'fetchpriority' => 'high' ), $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-			<span class="sa-entity-hero__scrim"></span>
-		</div>
+<header class="sa-entity__hero<?php echo $sa_hero_image ? ' has-image' : ''; ?>">
+	<?php if ( $sa_hero_image ) : ?>
+		<figure class="sa-entity__hero-media">
+			<?php the_post_thumbnail( 'full', array( 'loading' => 'eager', 'fetchpriority' => 'high', 'class' => 'sa-entity__hero-img' ) ); ?>
+		</figure>
 	<?php endif; ?>
-
-	<div class="sa-container sa-entity-hero__inner">
-		<?php sa_breadcrumbs(); ?>
-
-		<div class="sa-entity-hero__meta">
-			<span class="sa-badge sa-badge--<?php echo esc_attr( $sa_type ); ?>"><?php echo esc_html( $sa_label ); ?></span>
-			<?php sa_updated_badge( $sa_id ); ?>
-		</div>
-
-		<h1 class="sa-entity-hero__title">
-			<?php the_title(); ?>
-			<?php if ( $sa_en ) : ?><small class="sa-entity-hero__en" dir="ltr"><?php echo esc_html( $sa_en ); ?></small><?php endif; ?>
-		</h1>
+	<div class="container sa-entity__hero-text">
+		<?php if ( $sa_kicker ) : ?>
+			<p class="sa-entity__kicker"><?php echo esc_html( $sa_kicker ); ?></p>
+		<?php endif; ?>
+		<h1 class="entry-title sa-entity__title"><?php echo esc_html( $sa_title ); ?></h1>
 	</div>
 </header>

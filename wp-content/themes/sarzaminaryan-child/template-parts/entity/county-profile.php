@@ -1,10 +1,9 @@
 <?php
 /**
- * Cyber-Tech Light-Mode County Identity Card — «شناسنامه شهرستان» (v2.19.1).
+ * Cyber-Tech Light-Mode County Identity Card — «شناسنامه شهرستان» (v2.19.2).
  *
  * Dedicated Indigo-Violet technological tabular card for Iran's 483 counties (`city` CPT).
- * Renders 10 fixed vital slots in a custom bordered cyber grid (3-col desktop / 2-col mobile),
- * with English place names and a tiny «نیازمند بازبینی» badge for any unpopulated slot.
+ * Uses only canonical helpers from `inc/geo-counties.php`, `inc/relations.php`, and `inc/template-tags.php`.
  *
  * @package Sarzaminaryan_Child
  */
@@ -27,7 +26,8 @@ $sa_reg         = function_exists( 'sa_county_of_post' ) ? sa_county_of_post( $s
 $sa_county_bare = function_exists( 'sa_county_name' ) ? sa_county_name( $sa_id, false ) : get_the_title( $sa_id );
 $sa_county_full = function_exists( 'sa_county_name' ) ? sa_county_name( $sa_id, true ) : ( 'شهرستان ' . $sa_county_bare );
 
-$sa_prov_id   = function_exists( 'sa_get_city_province' ) ? (int) sa_get_city_province( $sa_id ) : 0;
+$sa_prov_post = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'province' ) : null;
+$sa_prov_id   = ( $sa_prov_post instanceof WP_Post ) ? (int) $sa_prov_post->ID : ( is_numeric( $sa_prov_post ) ? (int) $sa_prov_post : 0 );
 $sa_prov_slug = '';
 $sa_prov_name = '';
 if ( is_array( $sa_reg ) && ! empty( $sa_reg['province'] ) ) {
@@ -120,7 +120,7 @@ if ( '' === $sa_lng && ! empty( $sa_fallback['lng'] ) ) {
 	$sa_lng = (string) $sa_fallback['lng'];
 }
 $sa_coords_str = ( '' !== $sa_lat && '' !== $sa_lng ) ? ( $sa_lat . '° N, ' . $sa_lng . '° E' ) : '';
-$sa_map_url    = trim( (string) get_post_meta( $sa_id, 'sa_google_map_url', true ) );
+$sa_map_url    = function_exists( 'sa_map_url' ) ? sa_map_url( $sa_id ) : '';
 if ( '' === $sa_map_url && '' !== $sa_lat && '' !== $sa_lng ) {
 	$sa_map_url = 'https://www.google.com/maps?q=' . rawurlencode( $sa_lat . ',' . $sa_lng );
 }
@@ -143,7 +143,7 @@ $sa_div_val = ! empty( $sa_div_parts )
 	: ( ! empty( $sa_fallback['divisions'] ) ? (string) $sa_fallback['divisions'] : '' );
 
 // 8) Climate & Best Season.
-$sa_climate  = trim( (string) get_post_meta( $sa_id, 'sa_cty_climate', true ) );
+$sa_climate = trim( (string) get_post_meta( $sa_id, 'sa_cty_climate', true ) );
 if ( '' === $sa_climate && ! empty( $sa_fallback['climate'] ) ) {
 	$sa_climate = (string) $sa_fallback['climate'];
 }
@@ -171,15 +171,19 @@ if ( '' === $sa_live && ! empty( $sa_fallback['livelihood'] ) ) {
 $sa_cult_pts = array_filter( array( $sa_lang, $sa_live ), 'strlen' );
 $sa_cult_val = implode( ' — ', $sa_cult_pts );
 
-// 10) Access & Neighbors.
-$sa_nb_items  = function_exists( 'sa_county_parse_neighbors' ) ? sa_county_parse_neighbors( get_post_meta( $sa_id, 'sa_cty_neighbors', true ) ) : array();
+// 10) Access & Neighbors (using canonical sa_county_lines + sa_county_parse_neighbor).
 $sa_nb_labels = array();
-foreach ( $sa_nb_items as $sa_nb ) {
-	$sa_nb_lbl = (string) $sa_nb['label'];
-	if ( ! empty( $sa_nb['dir'] ) ) {
-		$sa_nb_lbl .= ' (' . (string) $sa_nb['dir'] . ')';
+if ( function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_neighbor' ) ) {
+	foreach ( sa_county_lines( get_post_meta( $sa_id, 'sa_cty_neighbors', true ) ) as $sa_nb_line ) {
+		$sa_nb = sa_county_parse_neighbor( $sa_nb_line );
+		if ( ! empty( $sa_nb['label'] ) ) {
+			$sa_nb_lbl = (string) $sa_nb['label'];
+			if ( ! empty( $sa_nb['dir'] ) ) {
+				$sa_nb_lbl .= ' (' . (string) $sa_nb['dir'] . ')';
+			}
+			$sa_nb_labels[] = $sa_nb_lbl;
+		}
 	}
-	$sa_nb_labels[] = $sa_nb_lbl;
 }
 $sa_nb_str = ! empty( $sa_nb_labels )
 	? implode( ' · ', $sa_nb_labels )
@@ -277,11 +281,17 @@ $sa_poi_buckets = array(
 	'sa_cty_poi_heritage'   => 'آثار تاریخی و زیارتی',
 );
 $sa_pois = array();
-if ( function_exists( 'sa_county_parse_poi' ) ) {
+if ( function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_poi' ) ) {
 	foreach ( $sa_poi_buckets as $sa_pkey => $sa_ptitle ) {
-		$sa_parsed = sa_county_parse_poi( get_post_meta( $sa_id, $sa_pkey, true ) );
-		if ( ! empty( $sa_parsed ) ) {
-			$sa_pois[ $sa_ptitle ] = $sa_parsed;
+		$sa_items = array();
+		foreach ( sa_county_lines( get_post_meta( $sa_id, $sa_pkey, true ) ) as $sa_pline ) {
+			$sa_pitem = sa_county_parse_poi( $sa_pline );
+			if ( ! empty( $sa_pitem['name'] ) ) {
+				$sa_items[] = $sa_pitem;
+			}
+		}
+		if ( ! empty( $sa_items ) ) {
+			$sa_pois[ $sa_ptitle ] = $sa_items;
 		}
 	}
 }
@@ -306,7 +316,11 @@ if ( function_exists( 'sa_county_parse_poi' ) ) {
 					<small dir="ltr">MAP</small>
 				</a>
 			<?php endif; ?>
-			<?php sa_updated_badge( $sa_id ); ?>
+			<?php
+			if ( function_exists( 'sa_updated_badge' ) ) {
+				sa_updated_badge( $sa_id );
+			}
+			?>
 		</div>
 	</div>
 
@@ -354,15 +368,15 @@ if ( function_exists( 'sa_county_parse_poi' ) ) {
 				<?php foreach ( $sa_pois as $sa_ptitle => $sa_plist ) : ?>
 					<div class="sa-cyber-grid__cell sa-cyber-grid__cell--neighbor">
 						<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_ptitle ); ?></span>
-						<ul class="sa-county-poi__list">
+						<ul class="sa-county__poi">
 							<?php foreach ( $sa_plist as $sa_poi ) : ?>
 								<li>
 									<strong><?php echo esc_html( $sa_poi['name'] ); ?></strong>
-									<?php if ( '' !== $sa_poi['distance'] ) : ?>
-										<span class="sa-county-poi__dist"><?php echo esc_html( sa_fa_digits( $sa_poi['distance'] ) ); ?></span>
+									<?php if ( ! empty( $sa_poi['distance'] ) ) : ?>
+										<span class="sa-county__dist"><?php echo esc_html( sa_fa_digits( $sa_poi['distance'] ) ); ?></span>
 									<?php endif; ?>
-									<?php if ( '' !== $sa_poi['why'] ) : ?>
-										<p><?php echo esc_html( $sa_poi['why'] ); ?></p>
+									<?php if ( ! empty( $sa_poi['note'] ) ) : ?>
+										<p><?php echo esc_html( $sa_poi['note'] ); ?></p>
 									<?php endif; ?>
 								</li>
 							<?php endforeach; ?>
