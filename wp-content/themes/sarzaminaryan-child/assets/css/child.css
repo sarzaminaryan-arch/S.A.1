@@ -5888,3 +5888,30 @@ small {
 .sa-attraction-parents {
 	padding-block: 0.8rem;
 }
+
+/* Taxonomy guidance with related-content links. */
+.sa-taxonomy-intro {
+	margin-block: 1rem 1.5rem;
+	padding: clamp(1rem, 2.5vw, 1.5rem);
+	border-inline-start: 0.25rem solid #0f5132;
+	border-radius: 0.75rem;
+	background: #f7faf8;
+}
+.sa-taxonomy-intro h2,
+.sa-taxonomy-intro h3 {
+	margin-block: 0 0.65rem;
+	font-size: 1.1rem;
+}
+.sa-taxonomy-intro p {
+	margin-block: 0 0.75rem;
+}
+.sa-taxonomy-intro ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.25rem;
+	margin: 0;
+	padding-inline-start: 1.25rem;
+}
+.sa-taxonomy-intro a {
+	text-underline-offset: 0.18em;
+}

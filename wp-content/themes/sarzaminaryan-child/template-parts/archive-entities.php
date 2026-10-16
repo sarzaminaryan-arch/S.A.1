@@ -12,7 +12,7 @@ $sa_type = is_post_type_archive() ? get_query_var( 'post_type' ) : ( get_post_ty
 if ( is_array( $sa_type ) ) {
 	$sa_type = reset( $sa_type );
 }
-$sa_obj = get_post_type_object( $sa_type );
+$sa_obj       = get_post_type_object( $sa_type );
 $sa_top_views = is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type' );
 /* v2.13.3 — آرشیو استان‌ها و شهرستان‌ها به‌جای کارت‌های تصویردار، نوارهای مینیمال سفید را نشان می‌دهند (طرحی که تا ۲٫۱۳٫۲ در صفحهٔ اول بود). */
 $sa_bars = '';
@@ -63,8 +63,18 @@ $sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_educa
 		echo '<div class="sa-archive__desc">' . wp_kses_post( wpautop( $sa_desc ) ) . '</div>';
 	}
 	?>
+	<?php if ( is_tax( array( 'attraction_type', 'travel_season' ) ) ) : ?>
+		<?php get_template_part( 'template-parts/archive-taxonomy-intro' ); ?>
+	<?php endif; ?>
 	<?php if ( is_post_type_archive( 'attraction' ) || is_tax( 'attraction_type' ) ) : ?>
-		<?php $sa_types = get_terms( array( 'taxonomy' => 'attraction_type', 'hide_empty' => true ) ); ?>
+		<?php
+		$sa_types = get_terms(
+			array(
+				'taxonomy'   => 'attraction_type',
+				'hide_empty' => true,
+			)
+		);
+		?>
 		<?php if ( $sa_types && ! is_wp_error( $sa_types ) ) : ?>
 			<nav class="sa-filters" aria-label="فیلتر بر اساس نوع دیدنی">
 				<a class="sa-chip<?php echo is_post_type_archive( 'attraction' ) ? ' is-active' : ''; ?>" href="<?php echo esc_url( sa_archive_url( 'attraction' ) ); ?>">همه</a>
@@ -96,10 +106,26 @@ $sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_educa
 	<?php echo sa_city_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
 <?php elseif ( 'attraction' === $sa_bars && have_posts() ) : ?>
 	<?php echo sa_attraction_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
-	<?php the_posts_pagination( array( 'prev_text' => 'قبلی', 'next_text' => 'بعدی', 'mid_size' => 2 ) ); ?>
+	<?php
+	the_posts_pagination(
+		array(
+			'prev_text' => 'قبلی',
+			'next_text' => 'بعدی',
+			'mid_size'  => 2,
+		)
+	);
+	?>
 <?php elseif ( $sa_edu_archive && have_posts() && function_exists( 'sa_education_bars_html' ) ) : ?>
 	<?php echo sa_education_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
-	<?php the_posts_pagination( array( 'prev_text' => 'قبلی', 'next_text' => 'بعدی', 'mid_size' => 2 ) ); ?>
+	<?php
+	the_posts_pagination(
+		array(
+			'prev_text' => 'قبلی',
+			'next_text' => 'بعدی',
+			'mid_size'  => 2,
+		)
+	);
+	?>
 <?php elseif ( have_posts() ) : ?>
 	<div class="sa-grid-cards">
 		<?php
@@ -109,7 +135,15 @@ $sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_educa
 		}
 		?>
 	</div>
-	<?php the_posts_pagination( array( 'prev_text' => 'قبلی', 'next_text' => 'بعدی', 'mid_size' => 2 ) ); ?>
+	<?php
+	the_posts_pagination(
+		array(
+			'prev_text' => 'قبلی',
+			'next_text' => 'بعدی',
+			'mid_size'  => 2,
+		)
+	);
+	?>
 <?php else : ?>
 	<?php get_template_part( 'template-parts/content', 'none' ); ?>
 <?php endif; ?>

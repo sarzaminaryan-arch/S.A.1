@@ -42,10 +42,10 @@ function sa_city_attractions_html( $city_id ) {
 			'update_post_term_cache' => false,
 			'meta_query'             => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 				array(
-					'key'     => 'sa_city_id',
-					'value'   => $city_id,
-				'compare' => '=',
-				'type'    => 'NUMERIC',
+					'key'   => 'sa_city_id',
+					'value' => $city_id,
+				'compare'   => '=',
+				'type'      => 'NUMERIC',
 				),
 			),
 		)
