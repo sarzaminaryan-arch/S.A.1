@@ -9,7 +9,7 @@
 - شکاف county→attraction در HTML زنده تأیید شد: از 20 شهرستان دارای جاذبه، 10 صفحه هیچ لینک مستقیم به فرزندها ندارند.
 - 8,361 رخداد لینک داخلی query-free بررسی شد؛ 91 رخداد به 17 مقصد خارج از crawl manifest می‌روند. status آن‌ها نامعلوم است و broken تلقی نشده‌اند.
 - Crawl افزونهٔ 1.1.0 در context مدیر، URLهای admin و queryهای موقت وارد خروجی کرده بود. مقدارهای حساس بازنشر نمی‌شوند؛ Drive folder در زمان بررسی فقط permission مالک داشت و باید خصوصی بماند.
-- سورس exporter به 1.2.0 به‌روزرسانی شد: fetch HTML با credentials omit، query/fragment stripping، فیلتر مسیرهای admin/login و تفکیک شمار alt خالی/بدون attribute. `node --check`, `git diff --check`, ZIP integrity و تطبیق فایل‌های ZIP با source موفق‌اند؛ `php -l` در دسترس نیست چون PHP CLI نصب نشده. ZIP نصب‌پذیر آمادهٔ push در branch همین session است.
+- سورس exporter به 1.2.0 به‌روزرسانی شد: fetch HTML با credentials omit، query/fragment stripping، فیلتر مسیرهای admin/login و تفکیک شمار alt خالی/بدون attribute. `node --check`, `git diff --check`, ZIP integrity و تطبیق فایل‌های ZIP با source موفق‌اند؛ `php -l` در دسترس نیست چون PHP CLI نصب نشده. ZIP نصب‌پذیر در commit `4e86857` روی branch همین session push شد؛ لینک مستقیم در README افزونه و گزارش پیشرفت درج شده است.
 - `PROGRESS-2026-10-16-v1.9.md` و `ANALYSIS-REGISTER-v1.9.md` جاری شدند؛ تغییر سایت زنده صفر.
 
 ## [1.8] — 2026-10-16 — دریافت خروجی افزونه و inventory زنده (مرحلهٔ میانی؛ تکمیل‌شده در 1.9)
