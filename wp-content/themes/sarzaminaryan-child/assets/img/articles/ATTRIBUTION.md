@@ -40,3 +40,25 @@ These sixteen images are referenced by their Wikimedia URLs in `data/ready-artic
 | Masouleh / `panorama` | Far-gh, [MasulehView.JPG](https://commons.wikimedia.org/wiki/File:MasulehView.JPG) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | Masouleh / `rooftop` | Blondinrikard Fröberg (Göteborg, Sweden), [Masouleh, rooftop village (42207998385)](https://commons.wikimedia.org/wiki/File:Masouleh,_rooftop_village_(42207998385).jpg) | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
 | Masouleh / `approach` | Mardetanha, [In the way of masuleh](https://commons.wikimedia.org/wiki/File:In_the_way_of_masuleh.JPG) | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) |
+
+## AI-generated drone-view illustrations (v2.20.0 onward)
+
+The illustrated 16:9 covers of the newly written featured-site articles live in
+`assets/img/articles/<slug>/01-drone-view.webp`. They are **AI-generated images,
+not third-party photographs**: each is an elevated aerial (drone-like) view of the
+site, produced with vivid, lively colours, then cropped to 1080×608, adjusted with
+Pillow (`ImageEnhance` colour ×1.10, contrast ×1.04, sharpness ×1.08) and saved as
+WebP (quality 82, method 6). A narrow white bar sits on the **right side of the
+lower third** of every image and carries the English site name `sarzaminaryan.ir`
+with a thin emerald accent on its inner edge.
+
+Because they are synthesised rather than photographed, they are **not** evidence of
+the current condition of a monument: they are used as in-article illustrations only
+(the featured-image slot of attractions stays disabled, see `inc/featured-images.php`),
+and every figure carries a caption that says the view is an AI reconstruction. No
+rights from Wikimedia Commons or any other photographer are involved in these files.
+
+| Folder | Article | Note |
+|---|---|---|
+| `pasargadae/`, `naqsh-e-rostam/`, `eram-garden/`, `vakil-complex/`, `shah-cheragh/` | Fars group 1 | AI drone-view, watermarked `sarzaminaryan.ir` |
+| `bishapur/`, `margoon-falls/`, `si-o-se-pol/`, `khaju-bridge/`, `vank-cathedral/` | Fars/Isfahan group 2 | AI drone-view, watermarked `sarzaminaryan.ir` |

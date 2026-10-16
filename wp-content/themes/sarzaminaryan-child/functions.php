@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.18.12' );
+define( 'SA_CHILD_VERSION', '2.21.0' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -25,28 +25,33 @@ if ( ! defined( 'SA_ENABLE_ACCOMMODATION' ) ) {
 }
 
 $sa_child_includes = array(
-	'inc/entities-config.php',   // generated from data-model.yaml
+	'inc/entities-config.php',   // generated from data-model.yaml.
 	'inc/helpers.php',
-	'inc/system-diagnostics.php', // نگهبانِ REST (جلوگیری از خطای ۵۰۰ کالبکِ خصوصی) + گزارشِ تعارضِ نسخه
+	'inc/system-diagnostics.php', // نگهبانِ REST (جلوگیری از خطای ۵۰۰ کالبکِ خصوصی) + گزارشِ تعارضِ نسخه.
 	'inc/setup.php',
 	'inc/post-types.php',
 	'inc/taxonomies.php',
 	'inc/meta-fields.php',
 	'inc/relations.php',
+	'inc/city-attractions.php',
 	'inc/publish-gate.php',
 	'inc/jalali.php',
 	'inc/seo.php',
+	'inc/rank-math-fixes.php',
+	'inc/https-links.php',
 	'inc/citations.php',
-	'inc/redirects.php', // تغییر مسیر ۳۰۱ صفحه‌های تکراری (ادغام‌های تأییدشدهٔ مالک)
-	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / دیدنی
+	'inc/w-citations.php',
+	'inc/redirects.php', // تغییر مسیر ۳۰۱ صفحه‌های تکراری (ادغام‌های تأییدشدهٔ مالک).
+	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / دیدنی.
 	'inc/region-map.php',
 	'inc/schema.php',
 	'inc/breadcrumbs.php',
 	'inc/template-tags.php',
-	'inc/featured-images.php', // v2.15.0: کلید «نمایش تصویر شاخص» + جای‌گزین تصویرهای گمشدهٔ داخل متن
-	'inc/education.php', // بخش «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار استان/شهرستان/دیدنی در منو، صفحهٔ اول و فوتر
-	'inc/entity-bars.php', // v2.13.3: فهرست ۳۱ استان + نوارهای مینیمال استان/شهرستان برای آرشیوها (و نقشهٔ هیرو)
-	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
+	'inc/featured-images.php', // v2.15.0: کلید «نمایش تصویر شاخص» + جای‌گزین تصویرهای گمشدهٔ داخل متن.
+	'inc/toc.php', // v2.18.17: «فهرست مطالب» ابتدای همهٔ مقاله‌ها (سرفصل‌های بدنه + بخش‌های قالب).
+	'inc/education.php', // بخش «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار استان/شهرستان/دیدنی در منو، صفحهٔ اول و فوتر.
+	'inc/entity-bars.php', // v2.13.3: فهرست ۳۱ استان + نوارهای مینیمال استان/شهرستان برای آرشیوها (و نقشهٔ هیرو).
+	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP.
 	'inc/geo-counties.php',
 	'inc/province-profile.php',
 	'inc/geo-import.php',
@@ -55,15 +60,15 @@ $sa_child_includes = array(
 	'inc/customizer.php',
 	'inc/admin.php',
 	'inc/content-health.php',
-	'inc/content-repair.php', // تعمیر مکانیکیِ محتوای منتشرشده (H1 بدنه → H2) — پیش‌نمایش + اعمال با nonce
-	'inc/site-cleanup.php', // پاک‌سازی صفحه‌های خالیِ شهرستان + یکسان‌سازی نامِ «دیدنی‌ها» در متن
-	'inc/dashboard.php', // داشبورد جامع گردشگری ایران (قالب صفحه‌ی جدا)
-	'inc/ready-articles.php', // مقالات آمادهٔ دیدنی‌ها — درج فقط پیش‌نویس + کارت سفید تصویر شاخص
-	'inc/media-restore.php', // v2.15.0: گزارش و بازگردانی فایل‌های تصویریِ گمشدهٔ پوشهٔ رسانه (منبع/قالب/پشتیبان)
-	'inc/city-contrib.php', // مشارکت مردمی «شهر من» — داخلی قالب، بدون نیاز به افزونه
-	'inc/contact-form.php', // فرم تماس داخلی قالب (ارسال به ایمیل تماس سایت)
-	'inc/social-publish.php', // انتشار خودکار در تلگرام و اینستاگرام — داخلی قالب، بدون افزونه
-	'inc/telegram-bot.php',   // ربات راهنمای تلگرام (استان ← شهر ← دیدنی) — داخلی قالب، بدون افزونه
+	'inc/content-repair.php', // تعمیر مکانیکیِ محتوای منتشرشده (H1 بدنه → H2) — پیش‌نمایش + اعمال با nonce.
+	'inc/site-cleanup.php', // پاک‌سازی صفحه‌های خالیِ شهرستان + یکسان‌سازی نامِ «دیدنی‌ها» در متن.
+	'inc/dashboard.php', // داشبورد جامع گردشگری ایران (قالب صفحه‌ی جدا).
+	'inc/ready-articles.php', // مقالات آمادهٔ دیدنی‌ها — درج فقط پیش‌نویس + کارت سفید تصویر شاخص.
+	'inc/media-restore.php', // v2.15.0: گزارش و بازگردانی فایل‌های تصویریِ گمشدهٔ پوشهٔ رسانه (منبع/قالب/پشتیبان).
+	'inc/city-contrib.php', // مشارکت مردمی «شهر من» — داخلی قالب، بدون نیاز به افزونه.
+	'inc/contact-form.php', // فرم تماس داخلی قالب (ارسال به ایمیل تماس سایت).
+	'inc/social-publish.php', // انتشار خودکار در تلگرام و اینستاگرام — داخلی قالب، بدون افزونه.
+	'inc/telegram-bot.php',   // ربات راهنمای تلگرام (استان ← شهر ← دیدنی) — داخلی قالب، بدون افزونه.
 	'inc/github-updater.php',
 	'inc/activation.php',
 );

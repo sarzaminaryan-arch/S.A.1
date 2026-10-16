@@ -127,6 +127,9 @@ function sa_seo_description() {
 		if ( $term && $term->description ) {
 			return wp_trim_words( wp_strip_all_tags( $term->description ), 28, '…' );
 		}
+		if ( $term instanceof WP_Term && function_exists( 'sa_taxonomy_auto_description' ) ) {
+			return sa_taxonomy_auto_description( $term );
+		}
 		if ( is_tax( 'province_tax' ) ) {
 			return sprintf( 'همه‌چیز درباره‌ی سفر به استان %s: شهرها، دیدنی‌ها، تصاویر و راهنمای به‌روز.', $term->name );
 		}
@@ -323,11 +326,12 @@ add_filter(
 /**
  * Image alt fallback: use the post title when an editor forgot the alt text (never empty alt on content images).
  *
- * @param array $attr Attributes.
+ * @param array   $attr Attributes.
  * @param WP_Post $attachment Attachment.
  * @return array
  */
 function sa_seo_thumbnail_alt( $attr, $attachment ) {
+	unset( $attachment );
 	if ( empty( $attr['alt'] ) && in_the_loop() ) {
 		$attr['alt'] = get_the_title();
 	}

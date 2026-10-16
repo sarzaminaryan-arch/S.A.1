@@ -70,7 +70,8 @@ function sa_redirect_map() {
 	 *
 	 * @param array<string,string> $map مسیرِ قدیمی => مسیرِ مقصد.
 	 */
-	return $map = (array) apply_filters( 'sa_redirect_map', $map );
+	$map = (array) apply_filters( 'sa_redirect_map', $map );
+	return $map;
 }
 
 /**
@@ -185,6 +186,50 @@ function sa_redirect_source_ids( $post_type = 'city' ) {
 }
 
 /**
+ * Resolve a unique published target using WordPress's recorded _wp_old_slug metadata.
+ *
+ * @param string $path Requested path.
+ * @return string
+ */
+function sa_redirect_old_slug_target_for_path( $path ) {
+	$parts = array_values( array_filter( explode( '/', trim( sa_redirect_normalize_path( $path ), '/' ) ) ) );
+	if ( ! $parts || ! function_exists( 'get_post_types' ) || ! function_exists( 'get_posts' ) ) {
+		return '';
+	}
+	$public_types = (array) get_post_types( array( 'public' => true ), 'names' );
+	if ( 1 === count( $parts ) && in_array( 'page', $public_types, true ) ) {
+		$post_types = array( 'page' );
+	} elseif ( in_array( $parts[0], $public_types, true ) ) {
+		$post_types = array( $parts[0] );
+	} else {
+		return '';
+	}
+	$matches = get_posts(
+		array(
+			'post_type'              => $post_types,
+			'post_status'            => 'publish',
+			'posts_per_page'         => 2,
+			'fields'                 => 'ids',
+			'no_found_rows'          => true,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+			'meta_query'             => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+				array(
+					'key'   => '_wp_old_slug',
+					'value' => (string) end( $parts ),
+				'compare'   => '=',
+				),
+			),
+		)
+	);
+	if ( 1 !== count( $matches ) ) {
+		return '';
+	}
+	$target = get_permalink( (int) $matches[0] );
+	return $target && sa_redirect_normalize_path( $target ) !== sa_redirect_normalize_path( $path ) ? (string) $target : '';
+}
+
+/**
  * فرستادنِ ۳۰۱ برای مسیرهای قدیمی.
  *
  * فقط درخواست‌های GET/HEAD، بیرون از پیشخوان/پیش‌نمایش، و بدونِ زنجیره.
@@ -206,7 +251,11 @@ function sa_redirect_handle_request() {
 		return;
 	}
 
-	$target = sa_redirect_target_for_path( sa_redirect_request_path() );
+	$request_path = sa_redirect_request_path();
+	$target       = sa_redirect_target_for_path( $request_path );
+	if ( '' === $target ) {
+		$target = sa_redirect_old_slug_target_for_path( $request_path );
+	}
 	if ( '' === $target || ! sa_redirect_target_exists( $target ) ) {
 		return;
 	}

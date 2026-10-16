@@ -368,5 +368,11 @@ function sa_attraction_diagram_markup( $post_id = 0, $context = 'identity' ) {
  */
 function sa_cover_image_size( $post_id = 0 ) {
 	$post_id = $post_id ? (int) $post_id : get_the_ID();
-	return 'post' === get_post_type( $post_id ) ? 'sa-guide-cover' : 'sa-hero';
+	if ( 'post' === get_post_type( $post_id ) ) {
+		return 'sa-guide-cover'; // آموزش‌ها: ۱۶:۹ بدون برش.
+	}
+	if ( 'attraction' === get_post_type( $post_id ) ) {
+		return 'sa-attraction-cover'; // v2.18.16 — دیدنی‌ها: کارت ۱۲۰۰×۶۰۰ بدون برش.
+	}
+	return 'sa-hero';
 }

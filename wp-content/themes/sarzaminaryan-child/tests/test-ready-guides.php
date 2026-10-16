@@ -184,6 +184,191 @@ foreach ( $recent_guides as $slug => $cards ) {
 	}
 }
 
+/* Shelter/bedding batch: keep exactly three cards beside the matching numbered steps. */
+$shelter_cards = array(
+	'build-shelter-branches' => array( 'branch-frame', 'leaf-roof', 'ground-insulation' ),
+	'newspaper-insulation-bed' => array( 'waterproof-base', 'crumpled-paper', 'sack-pillow' ),
+	'how-to-choose-camping-tent' => array( 'packed-tent', 'floor-space', 'mesh-ventilation' ),
+);
+foreach ( $shelter_cards as $slug => $topics ) {
+	sa_guides_expect( isset( $guides[ $slug ] ), "{$slug}: shelter/bedding guide exists" );
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three topic cards" );
+	foreach ( $topics as $topic ) {
+		$file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+		$image = SA_CHILD_DIR . 'assets/img/' . $file;
+		sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset exists and is compact" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is a 720x540 WebP" );
+	}
+}
+
+/* Batch 8: every image belongs to its specific rendered step, not a stack at the end. */
+$batch_eight = array(
+	'sleeping-bag-guide' => array( 2 => 'insulated-pad', 3 => 'bag-shapes', 4 => 'fit-check' ),
+	'can-cookware-diy' => array( 1 => 'clean-can', 2 => 'rim-pliers', 3 => 'cold-handle-test' ),
+	'diy-bottle-lantern' => array( 1 => 'filled-bottle', 2 => 'inward-headlamp', 4 => 'reflector' ),
+);
+foreach ( $batch_eight as $slug => $topics ) {
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three batch-8 cards" );
+	preg_match_all( '/<h3 class="sa-step"><span class="sa-step__n">([^<]+)<\/span>.*?(?=<h3 class="sa-step">|<h2>|$)/su', $content, $matches, PREG_SET_ORDER );
+	$steps = array();
+	foreach ( $matches as $match ) {
+	 $steps[ (int) strtr( $match[1], array( '۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4', '۵' => '5' ) ) ] = $match[0];
+	}
+	foreach ( $topics as $number => $topic ) {
+	 $file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+	 $image = SA_CHILD_DIR . 'assets/img/' . $file;
+	 sa_guides_expect( isset( $steps[ $number ] ) && 1 === substr_count( $steps[ $number ], $file ), "{$slug}: {$topic} in its exact step {$number}" );
+	 sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+	 sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset size" );
+	 $dimensions = getimagesize( $image );
+	 sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is 720x540 WebP" );
+	}
+}
+sa_guides_expect( false !== strpos( $guides['can-cookware-diy']['content'], 'قوطی بسته را هرگز روی آتش نگذار' ), 'closed can must never be heated' );
+sa_guides_expect( false !== strpos( $guides['can-cookware-diy']['content'], 'پوشش داخلی یا بیرونی را نسوزان' ), 'can coatings must not be burned off' );
+sa_guides_expect( false !== strpos( $guides['diy-bottle-lantern']['content'], 'بطری پرآب را از سقف یا تیرک چادر آویزان نکن' ), 'no heavy bottle on tent roof' );
+sa_guides_expect( false !== strpos( $guides['sleeping-bag-guide']['faq'][4]['a'], 'کنار آتش، اجاق یا منبع حرارت مستقیم نگذار' ), 'wet sleeping bag must not be dried by fire' );
+
+/* Batch 9: keep all three reviewed cards inside their exact numbered steps. */
+$batch_nine = array(
+	'plastic-bottle-shovel-funnel' => array( 2 => 'light-scoop', 3 => 'water-funnel', 4 => 'bottom-container' ),
+	'pull-tab-tools-diy' => array( 1 => 'intact-tabs', 3 => 'cord-zip-pull', 4 => 'collect-fragments' ),
+	'trash-bag-emergency-raincoat' => array( 1 => 'flat-bag', 2 => 'cut-openings', 3 => 'loose-poncho' ),
+);
+foreach ( $batch_nine as $slug => $topics ) {
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three batch-9 cards" );
+	preg_match_all( '/<h3 class="sa-step"><span class="sa-step__n">([^<]+)<\/span>.*?(?=<h3 class="sa-step">|<h2>|$)/su', $content, $matches, PREG_SET_ORDER );
+	$steps = array();
+	foreach ( $matches as $match ) {
+		$steps[ (int) strtr( $match[1], array( '۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4', '۵' => '5' ) ) ] = $match[0];
+	}
+	foreach ( $topics as $number => $topic ) {
+		$file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+		$image = SA_CHILD_DIR . 'assets/img/' . $file;
+		sa_guides_expect( isset( $steps[ $number ] ) && 1 === substr_count( $steps[ $number ], $file ), "{$slug}: {$topic} in its exact step {$number}" );
+		sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset size" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is 720x540 WebP" );
+	}
+}
+$batch_nine_safety = array(
+	'plastic-bottle-shovel-funnel' => array( 'ابزار حفاری یا نجات بهمن نیست', 'جوشاندن هم آلودگی شیمیایی را برطرف نمی‌کند', 'میخ داغ یا فروکردن چاقو در بدنهٔ لغزنده ایجاد نکن' ),
+	'pull-tab-tools-diy' => array( 'حلقهٔ قوطی هیچ تحمل بار عمومی و تضمین‌شده‌ای', 'فلز را نبر، سوراخ یا تیز نکن', 'کیف یا وسیله را از این دستگیره بلند نکن' ),
+	'trash-bag-emergency-raincoat' => array( 'گردن، مچ‌ها و پایین پوشش را نبند', 'سد رطوبت جای عایق کف و کیسه‌خواب را نمی‌گیرد', 'گودی خشک یا زیر درخت پناهگاه امن نیست', 'منتظر بهترشدن نمان' ),
+);
+foreach ( $batch_nine_safety as $slug => $warnings ) {
+	foreach ( $warnings as $warning ) {
+		sa_guides_expect( false !== strpos( (string) $guides[ $slug ]['content'], $warning ), "{$slug}: reviewed safety warning retained: {$warning}" );
+	}
+}
+sa_guides_expect( false === strpos( $guides['pull-tab-tools-diy']['content'], 'برای وسایل سبک، زیر ' ), 'no invented load rating for a beverage tab' );
+sa_guides_expect( false === strpos( $guides['trash-bag-emergency-raincoat']['content'], 'پناه‌گرفتن در گودی خشک' ), 'no lightning refuge in a hollow' );
+
+/* Batch 10a: three cards per article, in their reviewed numbered steps. */
+$batch_ten_a = array(
+	'camping-essential-checklist' => array( 1 => 'sleep-system', 3 => 'water-food', 4 => 'safety-light' ),
+	'essential-camping-equipment' => array( 1 => 'route-planning', 3 => 'core-gear', 4 => 'pretrip-test' ),
+	'outdoor-clothing-guide' => array( 1 => 'base-layer', 2 => 'insulation-layer', 3 => 'rain-shell' ),
+);
+foreach ( $batch_ten_a as $slug => $topics ) {
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three batch-10a cards" );
+	preg_match_all( '/<h3 class="sa-step"><span class="sa-step__n">([^<]+)<\/span>.*?(?=<h3 class="sa-step">|<h2>|$)/su', $content, $matches, PREG_SET_ORDER );
+	$steps = array();
+	foreach ( $matches as $match ) {
+		$steps[ (int) strtr( $match[1], array( '۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4', '۵' => '5' ) ) ] = $match[0];
+	}
+	foreach ( $topics as $number => $topic ) {
+		$file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+		$image = SA_CHILD_DIR . 'assets/img/' . $file;
+		sa_guides_expect( isset( $steps[ $number ] ) && 1 === substr_count( $steps[ $number ], $file ), "{$slug}: {$topic} in its exact step {$number}" );
+		sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset size" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is 720x540 WebP" );
+	}
+}
+$batch_ten_a_safety = array(
+	'camping-essential-checklist' => array( 'هر تشک بادی عایق نیست', 'نه یک حداقل ثابت برای همه', 'جوشاندن، شوری و آلودگی شیمیایی را برطرف نمی‌کند', 'نه چراغ و باتری پشتیبان یا عایق ضروری', 'ممنوعیت کلیِ وسایل باتری‌دار در چادر درست نیست', 'بطری و چراغ، نور تازه تولید نمی‌کنند', 'گردن، مچ و پایین پوشش را نبند' ),
+	'essential-camping-equipment' => array( 'چراغ تلفن را تنها منبع نور نگذار', 'جوشاندن یا قرص ضدعفونی، آلودگی شیمیایی', 'پارچهٔ گره‌خورده برای نجات یا تحمل وزن قابل‌اعتماد نیست', 'نه نقشهٔ قابل‌استفاده برای راه‌یابی' ),
+	'outdoor-clothing-guide' => array( 'زمان ثابتی برای ایجاد هیپوترمی نمی‌شود تعیین کرد', 'منتظر قطع تعریق نمان', 'بادگیر ساده فقط برای باد است', 'هیچ نیم‌سایز ثابتی برای همه درست نیست', 'برای کودک یا پوشاندن سر و صورت به کار نبر', 'هیچ لباس خیس را معادل عایق خشک ندان' ),
+);
+foreach ( $batch_ten_a_safety as $slug => $warnings ) {
+	$reviewed_text = (string) $guides[ $slug ]['content'];
+	foreach ( $guides[ $slug ]['faq'] as $entry ) {
+		$reviewed_text .= ' ' . $entry['q'] . ' ' . $entry['a'];
+	}
+	foreach ( $warnings as $warning ) {
+		sa_guides_expect( false !== strpos( $reviewed_text, $warning ), "{$slug}: reviewed batch-10a warning retained in body or imported FAQ: {$warning}" );
+	}
+}
+sa_guides_expect( false === strpos( $guides['camping-essential-checklist']['content'], 'اقلام تکراری (دو چراغ' ), 'do not delete backup lighting as redundant gear' );
+sa_guides_expect( false === strpos( $guides['camping-essential-checklist']['content'], 'حداقل ۲ لیتر' ), 'no universal daily water minimum' );
+$clothing_faq = implode( ' ', array_column( $guides['outdoor-clothing-guide']['faq'], 'a' ) );
+sa_guides_expect( false === strpos( $guides['outdoor-clothing-guide']['content'] . $clothing_faq, 'در عرض نیم ساعت' ), 'no invented hypothermia onset time in body or FAQ' );
+
+/* Batch 10b: the final three cards stay inside their exact rendered steps. */
+$batch_ten_b = array(
+	'outdoor-cooking-equipment' => array( 1 => 'stable-stove', 2 => 'lidded-pot', 5 => 'washup-kit' ),
+);
+foreach ( $batch_ten_b as $slug => $topics ) {
+	$content = (string) $guides[ $slug ]['content'];
+	sa_guides_expect( 3 === substr_count( $content, '<figure class="sa-guide-topic-card">' ), "{$slug}: exactly three batch-10b cards" );
+	preg_match_all( '/<h3 class="sa-step"><span class="sa-step__n">([^<]+)<\/span>.*?(?=<h3 class="sa-step">|<h2>|$)/su', $content, $matches, PREG_SET_ORDER );
+	$steps = array();
+	foreach ( $matches as $match ) {
+		$steps[ (int) strtr( $match[1], array( '۰' => '0', '۱' => '1', '۲' => '2', '۳' => '3', '۴' => '4', '۵' => '5' ) ) ] = $match[0];
+	}
+	foreach ( $topics as $number => $topic ) {
+		$file = 'guides/topic-cards/' . $slug . '-' . $topic . '.webp';
+		$image = SA_CHILD_DIR . 'assets/img/' . $file;
+		sa_guides_expect( isset( $steps[ $number ] ) && 1 === substr_count( $steps[ $number ], $file ), "{$slug}: {$topic} in its exact step {$number}" );
+		sa_guides_expect( 1 === substr_count( $content, $file ), "{$slug}: {$topic} is rendered once" );
+		sa_guides_expect( is_file( $image ) && filesize( $image ) > 10 * 1024 && filesize( $image ) < 200 * 1024, "{$slug}: {$topic} asset size" );
+		$dimensions = getimagesize( $image );
+		sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$slug}: {$topic} is 720x540 WebP" );
+	}
+}
+$cooking = $guides['outdoor-cooking-equipment'];
+$cooking_text = $cooking['content'] . ' ' . implode( ' ', array_column( $cooking['faq'], 'a' ) );
+foreach ( array( 'کپسول را با آب گرم، شعله یا داخل لباس و کیسه‌خواب گرم نکن', 'عدد ثابت برای هر نفر و هر روز قابل‌اتکا نیست', 'ممنوعیت آتش ممکن است اجاق گاز را هم شامل شود', 'غذای آمادهٔ خوردن انتخاب کن', 'شویندهٔ زیست‌تخریب‌پذیر هم نباید مستقیم وارد آب طبیعی شود', 'لیوان فلزیِ دوجداره', 'منتظر علامت در همهٔ افراد نمان', 'برای نجات وارد فضای آلوده نشو' ) as $warning ) {
+	sa_guides_expect( false !== strpos( $cooking_text, $warning ), "cooking: reviewed body/FAQ warning retained: {$warning}" );
+}
+foreach ( array( 'راه‌حل کماندوها', 'حدود ۵۰ گرم', '۳ تا ۴ روزه کاملاً کافیه', 'تا خاک بتونه آب رو تصفیه کنه' ) as $claim ) {
+	sa_guides_expect( false === strpos( $cooking_text, $claim ), "cooking: no unsafe or invented claim: {$claim}" );
+}
+
+/* Final inventory is deliberate: all guides are carded, without a global cover-policy change. */
+sa_guides_expect( 67 === count( $guides ), 'final collection has exactly 67 guides' );
+$final_refs = array();
+$final_removed = 0;
+foreach ( $guides as $slug => $guide ) {
+	$count = substr_count( $guide['content'], '<figure class="sa-guide-topic-card">' );
+	sa_guides_expect( $count > 0, "{$slug}: no guide remains without topic cards" );
+	preg_match_all( '#<img[^>]+src="[^"]*/assets/img/guides/topic-cards/([a-z0-9-]+\.webp)"#', $guide['content'], $matches );
+	sa_guides_expect( count( $matches[1] ) === $count, "{$slug}: each figure references one local topic-card asset" );
+	$final_refs = array_merge( $final_refs, $matches[1] );
+	$final_removed += ! empty( $guide['remove_featured_image'] ) ? 1 : 0;
+}
+sa_guides_expect( 204 === count( $final_refs ) && 204 === count( array_unique( $final_refs ) ), 'exactly 204 unique topic-card references' );
+sa_guides_expect( 27 === $covers && 10 === $final_removed, 'keep exactly 27 covers and ten per-item removal flags' );
+$final_assets = array_map( 'basename', glob( SA_CHILD_DIR . 'assets/img/guides/topic-cards/*.webp' ) );
+sort( $final_refs );
+sort( $final_assets );
+sa_guides_expect( $final_refs === $final_assets, 'final topic-card inventory has no missing or orphan files' );
+foreach ( $final_assets as $file ) {
+	$path = SA_CHILD_DIR . 'assets/img/guides/topic-cards/' . $file;
+	$dimensions = getimagesize( $path );
+	sa_guides_expect( filesize( $path ) > 10 * 1024 && filesize( $path ) < 200 * 1024, "{$file}: final asset size" );
+	sa_guides_expect( is_array( $dimensions ) && 720 === $dimensions[0] && 540 === $dimensions[1] && 'image/webp' === $dimensions['mime'], "{$file}: final 720x540 WebP format" );
+}
+
 /**
  * Minimal strip-tags shim (no WordPress here).
  *
