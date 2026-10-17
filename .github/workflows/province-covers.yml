@@ -1,0 +1,47 @@
+name: Validate province covers plugin
+
+on:
+  push:
+    branches:
+      - 'arena/**'
+      - main
+    paths:
+      - 'wp-content/plugins/sa-province-covers/**'
+      - 'tools/province-covers/**'
+      - '.github/workflows/province-covers.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lint plugin PHP
+        run: find wp-content/plugins/sa-province-covers -name '*.php' -print0 | xargs -0 -n 1 php -l
+      - name: Run plugin security, recovery and display regressions
+        run: php wp-content/plugins/sa-province-covers/tests/test-plugin.php
+      - name: Validate admin JavaScript
+        run: node --check wp-content/plugins/sa-province-covers/assets/admin.js
+      - name: Preserve theme behavior
+        shell: bash
+        run: |
+          set -euo pipefail
+          for test in wp-content/themes/sarzaminaryan-child/tests/test-*.php; do php "$test"; done
+          node wp-content/themes/sarzaminaryan-child/tests/test-home-js.js
+      - name: Install image QA dependencies
+        run: python3 -m pip install -r tools/province-covers/requirements.txt
+      - name: Test conservative cropping and complete package assembly
+        run: python3 tools/province-covers/test_images.py
+      - name: Check whitespace and leaked token patterns
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          if grep -RIlE '(github_pat_[A-Za-z0-9_]{20,}|ghp_[A-Za-z0-9]{20,})' wp-content/plugins/sa-province-covers tools/province-covers; then
+            echo 'Credential-like value detected' >&2
+            exit 1
+          fi

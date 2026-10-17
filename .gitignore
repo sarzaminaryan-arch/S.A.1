@@ -52,3 +52,6 @@ image-search/
 
 # پیش‌نویس‌های خام Drive (متن ماشینی اولیه) فقط برای پیگیری مالک در ورک‌اسپیس می‌مانند.
 docs/camping-education/incoming/
+
+# Province-cover binaries are bundled from external assets only, never tracked.
+/wp-content/plugins/sa-province-covers/assets/images/
