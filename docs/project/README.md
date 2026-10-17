@@ -10,7 +10,7 @@
 | # | فایل | موضوع |
 |---|------|-------|
 | ۰۰ | [00-PROJECT.md](00-PROJECT.md) | شناسنامهٔ پروژه |
-| ۰۱ | [01-ARCHITECTURE.md](01-ARCHITECTURE.md) | معماری فنی |
+| ۰۱ | [../../ARCHITECTURE.md](../../ARCHITECTURE.md) | معماری فنی (مرجع یکتا در ریشهٔ مخزن) |
 | ۰۲ | [02-THEME.md](02-THEME.md) | قالب‌ها (والد و فرزند) |
 | ۰۳ | [03-PLUGINS.md](03-PLUGINS.md) | افزونه‌ها |
 | ۰۴ | [04-DATA-MODEL.md](04-DATA-MODEL.md) | مدل داده |
