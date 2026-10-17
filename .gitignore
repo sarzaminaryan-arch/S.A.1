@@ -9,6 +9,9 @@ progress.json
 reports/
 .pytest_cache/
 
+# پشتیبان‌های پست‌های زندهٔ وردپرس (پیش از هر نوشتن روی سایت) هرگز کامیت نمی‌شوند.
+/backup/
+
 # Generated packages and media must not live in the repository tree.
 # Publish installable ZIPs as GitHub Release assets instead.
 *.zip
