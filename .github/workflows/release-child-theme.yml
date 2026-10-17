@@ -91,6 +91,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-toc.php"
 
+      - name: Run county identity-card tests (کلیدهای کانونی شناسنامه + قوانین خروجی کارت)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-profile.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

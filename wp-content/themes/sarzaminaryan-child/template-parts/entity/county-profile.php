@@ -1,9 +1,14 @@
 <?php
 /**
- * Cyber-Tech Light-Mode County Identity Card — «شناسنامه شهرستان» (v2.19.2).
+ * Cyber-Tech Light-Mode County Identity Card — «شناسنامه شهرستان».
  *
- * Dedicated Indigo-Violet technological tabular card for Iran's 483 counties (`city` CPT).
- * Uses only canonical helpers from `inc/geo-counties.php`, `inc/relations.php`, and `inc/template-tags.php`.
+ * Dedicated Indigo-Violet technological tabular card for Iran's 483 counties (`city` CPT):
+ * tiles `01 // EN_NAME` … `11 // MAIN_CITY`, the attractions table, the same-province chips
+ * and the three short under-card notes. Values come from the canonical meta layer in
+ * `inc/county-profile.php` (legacy `sa_cty_*` / `sa_city_*` keys as fallback, registry last).
+ * Output rules: an empty field removes its tile completely, population is printed only with
+ * its census year, invalid coordinates build no map link, and neighbours / the main city are
+ * linked only when a published page exists. See `docs/county-identity-roadmap.md`.
  *
  * @package Sarzaminaryan_Child
  */
@@ -50,8 +55,29 @@ $sa_fallback = function_exists( 'sa_cyber_id_county_fallback' )
 	? sa_cyber_id_county_fallback( $sa_slug, $sa_prov_slug )
 	: array();
 
+// Canonical identity-card data layer (inc/county-profile.php): every tile below
+// reads the canonical keys first and the legacy sa_cty_* / sa_city_* keys second.
+// An empty value never invents data — its tile is dropped before rendering.
+$sa_profile_ext = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $sa_id ) : array();
+$sa_pget        = function ( $sa_key ) use ( $sa_profile_ext ) {
+	return isset( $sa_profile_ext[ $sa_key ] ) ? $sa_profile_ext[ $sa_key ] : '';
+};
+$sa_num = function ( $sa_value, $sa_decimals = 1 ) {
+	if ( '' === $sa_value || null === $sa_value ) {
+		return '';
+	}
+	$sa_value = function_exists( 'sa_en_digits' ) ? sa_en_digits( $sa_value ) : $sa_value;
+	if ( ! is_numeric( $sa_value ) ) {
+		return function_exists( 'sa_digits' ) ? sa_digits( (string) $sa_value ) : (string) $sa_value;
+	}
+	return function_exists( 'sa_number' ) ? sa_number( $sa_value, $sa_decimals ) : (string) $sa_value;
+};
+
 // 1) English Name.
-$sa_en_raw = trim( (string) get_post_meta( $sa_id, 'sa_english_name', true ) );
+$sa_en_raw = trim( (string) $sa_pget( 'name_en' ) );
+if ( '' === $sa_en_raw ) {
+	$sa_en_raw = trim( (string) get_post_meta( $sa_id, 'sa_english_name', true ) );
+}
 if ( '' === $sa_en_raw && function_exists( 'sa_province_profile_english_name' ) ) {
 	$sa_en_raw = sa_province_profile_english_name( $sa_slug );
 }
@@ -74,80 +100,119 @@ if ( '' !== $sa_prov_name ) {
 	}
 }
 
-// 3) Center City.
-$sa_center = trim( (string) get_post_meta( $sa_id, 'sa_cty_center', true ) );
-if ( '' === $sa_center && '' !== $sa_county_bare ) {
-	$sa_center = $sa_county_bare . ( '' !== $sa_en_short ? ' (' . $sa_en_short . ')' : '' );
+// 3) Center City (canonical center_fa / center_en — never inferred from the county name).
+$sa_center    = trim( (string) $sa_pget( 'center_fa' ) );
+$sa_center_en = trim( (string) $sa_pget( 'center_en' ) );
+$sa_center_html = '';
+if ( '' !== $sa_center ) {
+	$sa_center_html = esc_html( $sa_center );
+}
+if ( '' !== $sa_center_en ) {
+	$sa_center_html .= ( '' !== $sa_center_html ? ' ' : '' )
+		. '<span class="sa-cyber-id__en-inline" dir="ltr">(' . esc_html( $sa_center_en ) . ')</span>';
 }
 
-// 4) Population.
+// 4) Population — shown only together with its census year (قانون خروجی شناسنامه).
 $sa_pop_val  = '';
-$sa_cty_pop  = (int) get_post_meta( $sa_id, 'sa_cty_population', true );
-$sa_city_pop = trim( (string) get_post_meta( $sa_id, 'sa_city_population', true ) );
-$sa_pop_year = (int) get_post_meta( $sa_id, 'sa_cty_census_year', true );
-if ( $sa_cty_pop > 0 ) {
-	$sa_pop_val = sa_fa_digits( number_format( $sa_cty_pop ) ) . ' نفر' . ( $sa_pop_year ? ' (سرشماری ' . sa_fa_digits( (string) $sa_pop_year ) . ')' : '' );
-} elseif ( '' !== $sa_city_pop ) {
-	$sa_pop_num = (int) preg_replace( '/[^\d]/', '', $sa_city_pop );
-	$sa_pop_val = $sa_pop_num > 0 ? ( sa_fa_digits( number_format( $sa_pop_num ) ) . ' نفر' ) : sa_fa_digits( $sa_city_pop );
-} elseif ( ! empty( $sa_fallback['population'] ) ) {
+$sa_pop_num  = (int) preg_replace( '/[^\d]/', '', function_exists( 'sa_en_digits' ) ? sa_en_digits( (string) $sa_pget( 'population' ) ) : (string) $sa_pget( 'population' ) );
+$sa_pop_year = (int) preg_replace( '/[^\d]/', '', function_exists( 'sa_en_digits' ) ? sa_en_digits( (string) $sa_pget( 'population_year' ) ) : (string) $sa_pget( 'population_year' ) );
+if ( $sa_pop_num > 0 && $sa_pop_year > 0 ) {
+	$sa_pop_val = $sa_num( $sa_pop_num, 0 ) . ' نفر (سرشماری ' . ( function_exists( 'sa_digits' ) ? sa_digits( (string) $sa_pop_year ) : sa_fa_digits( (string) $sa_pop_year ) ) . ')';
+} elseif ( ! empty( $sa_fallback['population'] ) && preg_match( '/سرشماری\s*[0-9۰-۹٠-٩]{4}/u', (string) $sa_fallback['population'] ) ) {
+	// Curated registry value that already carries its own census year.
 	$sa_pop_val = (string) $sa_fallback['population'];
 }
 
 // 5) Elevation & Area.
-$sa_elev     = trim( (string) get_post_meta( $sa_id, 'sa_city_elevation', true ) );
-$sa_area     = (float) get_post_meta( $sa_id, 'sa_cty_area', true );
+$sa_elev     = trim( (string) $sa_pget( 'elevation_m' ) );
+$sa_area     = trim( (string) $sa_pget( 'area_km2' ) );
 $sa_elev_pts = array();
 if ( '' !== $sa_elev ) {
-	$sa_elev_pts[] = 'ارتفاع ' . sa_fa_digits( $sa_elev ) . ( false === mb_strpos( $sa_elev, 'متر' ) ? ' متر' : '' );
+	$sa_elev_pts[] = 'ارتفاع ' . $sa_num( $sa_elev, 0 ) . ( false === mb_strpos( $sa_elev, 'متر' ) ? ' متر' : '' );
 } elseif ( ! empty( $sa_fallback['elevation'] ) ) {
 	$sa_elev_pts[] = 'ارتفاع ' . (string) $sa_fallback['elevation'];
 }
-if ( $sa_area > 0 ) {
-	$sa_elev_pts[] = 'مساحت ' . sa_fa_digits( number_format( $sa_area ) ) . ' کیلومتر مربع';
+if ( '' !== $sa_area ) {
+	$sa_elev_pts[] = 'مساحت ' . $sa_num( $sa_area, 1 ) . ' کیلومتر مربع';
 } elseif ( ! empty( $sa_fallback['area'] ) ) {
 	$sa_elev_pts[] = 'مساحت ' . (string) $sa_fallback['area'];
 }
 $sa_elev_area_val = implode( ' · ', $sa_elev_pts );
 
-// 6) Coordinates.
-$sa_lat = trim( (string) get_post_meta( $sa_id, 'sa_city_latitude', true ) );
-$sa_lng = trim( (string) get_post_meta( $sa_id, 'sa_city_longitude', true ) );
-if ( '' === $sa_lat && ! empty( $sa_fallback['lat'] ) ) {
-	$sa_lat = (string) $sa_fallback['lat'];
+// 6) Coordinates — validated first; invalid coordinates produce no map link at all.
+$sa_coord_valid = static function ( $sa_lat, $sa_lng ) {
+	return '' !== $sa_lat && '' !== $sa_lng && is_numeric( $sa_lat ) && is_numeric( $sa_lng )
+		&& (float) $sa_lat >= -90 && (float) $sa_lat <= 90
+		&& (float) $sa_lng >= -180 && (float) $sa_lng <= 180;
+};
+if ( ! empty( $sa_profile_ext ) ) {
+	$sa_lat = ( null !== $sa_pget( 'lat' ) ) ? (string) $sa_pget( 'lat' ) : '';
+	$sa_lng = ( null !== $sa_pget( 'lng' ) ) ? (string) $sa_pget( 'lng' ) : '';
+} else {
+	$sa_lat = trim( (string) get_post_meta( $sa_id, 'sa_city_latitude', true ) );
+	$sa_lng = trim( (string) get_post_meta( $sa_id, 'sa_city_longitude', true ) );
+	if ( '' === $sa_lat && ! empty( $sa_fallback['lat'] ) ) {
+		$sa_lat = (string) $sa_fallback['lat'];
+	}
+	if ( '' === $sa_lng && ! empty( $sa_fallback['lng'] ) ) {
+		$sa_lng = (string) $sa_fallback['lng'];
+	}
 }
-if ( '' === $sa_lng && ! empty( $sa_fallback['lng'] ) ) {
-	$sa_lng = (string) $sa_fallback['lng'];
+if ( ! $sa_coord_valid( $sa_lat, $sa_lng ) ) {
+	$sa_lat = '';
+	$sa_lng = '';
 }
-$sa_coords_str = ( '' !== $sa_lat && '' !== $sa_lng ) ? ( $sa_lat . '° N, ' . $sa_lng . '° E' ) : '';
-$sa_map_url    = function_exists( 'sa_map_url' ) ? sa_map_url( $sa_id ) : '';
-if ( '' === $sa_map_url && '' !== $sa_lat && '' !== $sa_lng ) {
-	$sa_map_url = 'https://www.google.com/maps?q=' . rawurlencode( $sa_lat . ',' . $sa_lng );
+$sa_coords_str = ( '' !== $sa_lat && '' !== $sa_lng )
+	? ( rtrim( rtrim( number_format( (float) $sa_lat, 4, '.', '' ), '0' ), '.' ) . '° N, '
+		. rtrim( rtrim( number_format( (float) $sa_lng, 4, '.', '' ), '0' ), '.' ) . '° E' )
+	: '';
+$sa_map_url = '';
+if ( '' !== $sa_lat && '' !== $sa_lng ) {
+	$sa_map_url = function_exists( 'sa_map_url' ) ? sa_map_url( $sa_id ) : '';
+	if ( '' === $sa_map_url ) {
+		$sa_map_url = 'https://www.google.com/maps?q=' . rawurlencode( $sa_lat . ',' . $sa_lng );
+	}
 }
 
-// 7) Divisions.
+// 7) Divisions — canonical divisions_* keys first, legacy sa_cty_* counters
+// second (both resolved by the data layer), curated registry text last.
 $sa_div_parts = array();
-foreach ( array(
-	'sa_cty_districts'       => 'بخش',
-	'sa_cty_rural_districts' => 'دهستان',
-	'sa_cty_cities'          => 'شهر',
-	'sa_cty_villages'        => 'آبادی',
-) as $sa_dkey => $sa_dunit ) {
-	$sa_dval = (int) get_post_meta( $sa_id, $sa_dkey, true );
-	if ( $sa_dval > 0 ) {
-		$sa_div_parts[] = sa_fa_digits( number_format( $sa_dval ) ) . ' ' . $sa_dunit;
+foreach ( (array) $sa_pget( 'divisions' ) as $sa_dunit => $sa_dval ) {
+	$sa_dval = trim( (string) $sa_dval );
+	if ( '' === $sa_dval ) {
+		continue;
+	}
+	$sa_div_parts[] = $sa_num( $sa_dval, 0 ) . ' ' . $sa_dunit;
+}
+if ( empty( $sa_div_parts ) ) {
+	foreach ( array(
+		'sa_cty_districts'       => 'بخش',
+		'sa_cty_rural_districts' => 'دهستان',
+		'sa_cty_cities'          => 'شهر',
+		'sa_cty_villages'        => 'روستا',
+	) as $sa_dkey => $sa_dunit ) {
+		$sa_dval = (int) get_post_meta( $sa_id, $sa_dkey, true );
+		if ( $sa_dval > 0 ) {
+			$sa_div_parts[] = $sa_num( $sa_dval, 0 ) . ' ' . $sa_dunit;
+		}
 	}
 }
 $sa_div_val = ! empty( $sa_div_parts )
 	? implode( ' · ', $sa_div_parts )
 	: ( ! empty( $sa_fallback['divisions'] ) ? (string) $sa_fallback['divisions'] : '' );
 
-// 8) Climate & Best Season.
-$sa_climate = trim( (string) get_post_meta( $sa_id, 'sa_cty_climate', true ) );
+// 8) Climate & Best Season (climate_short / best_season with legacy fallback).
+$sa_climate = trim( (string) $sa_pget( 'climate' ) );
+if ( '' === $sa_climate ) {
+	$sa_climate = trim( (string) get_post_meta( $sa_id, 'sa_cty_climate', true ) );
+}
 if ( '' === $sa_climate && ! empty( $sa_fallback['climate'] ) ) {
 	$sa_climate = (string) $sa_fallback['climate'];
 }
-$sa_best_time = trim( (string) get_post_meta( $sa_id, 'sa_cty_best_time', true ) );
+$sa_best_time = trim( (string) $sa_pget( 'best_season' ) );
+if ( '' === $sa_best_time ) {
+	$sa_best_time = trim( (string) get_post_meta( $sa_id, 'sa_cty_best_time', true ) );
+}
 if ( '' === $sa_best_time ) {
 	$sa_seasons = get_the_terms( $sa_id, 'travel_season' );
 	if ( is_array( $sa_seasons ) && ! is_wp_error( $sa_seasons ) && ! empty( $sa_seasons ) ) {
@@ -159,35 +224,60 @@ if ( '' === $sa_best_time ) {
 $sa_clim_season_pts = array_filter( array( $sa_climate, $sa_best_time ? 'فصل سفر: ' . $sa_best_time : '' ), 'strlen' );
 $sa_clim_season_val = implode( ' | ', $sa_clim_season_pts );
 
-// 9) Language & Livelihood.
-$sa_lang = trim( (string) get_post_meta( $sa_id, 'sa_cty_language', true ) );
+// 9) Language & Livelihood (language_main / economy_main with legacy fallback).
+$sa_lang = trim( (string) $sa_pget( 'language' ) );
+if ( '' === $sa_lang ) {
+	$sa_lang = trim( (string) get_post_meta( $sa_id, 'sa_cty_language', true ) );
+}
 if ( '' === $sa_lang && ! empty( $sa_fallback['language'] ) ) {
 	$sa_lang = (string) $sa_fallback['language'];
 }
-$sa_live = trim( (string) get_post_meta( $sa_id, 'sa_cty_livelihood', true ) );
+$sa_live = trim( (string) $sa_pget( 'economy' ) );
+if ( '' === $sa_live ) {
+	$sa_live = trim( (string) get_post_meta( $sa_id, 'sa_cty_livelihood', true ) );
+}
 if ( '' === $sa_live && ! empty( $sa_fallback['livelihood'] ) ) {
 	$sa_live = (string) $sa_fallback['livelihood'];
 }
 $sa_cult_pts = array_filter( array( $sa_lang, $sa_live ), 'strlen' );
 $sa_cult_val = implode( ' — ', $sa_cult_pts );
 
-// 10) Access & Neighbors (using canonical sa_county_lines + sa_county_parse_neighbor).
-$sa_nb_labels = array();
-if ( function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_neighbor' ) ) {
+// 10) Distance, access & neighbours. Canonical direction keys (neighbors_n/s/e/w)
+// are linked only when the neighbour county really has a published page; the
+// legacy free-form lines fill the gaps and the curated registry text is last.
+$sa_nb_html = array();
+foreach ( (array) $sa_pget( 'neighbors' ) as $sa_nb ) {
+	if ( empty( $sa_nb['label'] ) ) {
+		continue;
+	}
+	$sa_nb_lbl = esc_html( (string) $sa_nb['label'] );
+	if ( ! empty( $sa_nb['direction'] ) ) {
+		$sa_nb_lbl .= ' (' . esc_html( (string) $sa_nb['direction'] ) . ')';
+	}
+	$sa_nb_html[] = ! empty( $sa_nb['url'] )
+		? '<a class="sa-cyber-id__cell-link" href="' . esc_url( (string) $sa_nb['url'] ) . '">' . $sa_nb_lbl . '</a>'
+		: $sa_nb_lbl;
+}
+$sa_nb_str = implode( ' · ', $sa_nb_html );
+if ( '' === $sa_nb_str && function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_neighbor' ) ) {
+	$sa_nb_labels = array();
 	foreach ( sa_county_lines( get_post_meta( $sa_id, 'sa_cty_neighbors', true ) ) as $sa_nb_line ) {
 		$sa_nb = sa_county_parse_neighbor( $sa_nb_line );
 		if ( ! empty( $sa_nb['label'] ) ) {
-			$sa_nb_lbl = (string) $sa_nb['label'];
+			$sa_nb_lbl = esc_html( (string) $sa_nb['label'] );
 			if ( ! empty( $sa_nb['dir'] ) ) {
-				$sa_nb_lbl .= ' (' . (string) $sa_nb['dir'] . ')';
+				$sa_nb_lbl .= ' (' . esc_html( (string) $sa_nb['dir'] ) . ')';
 			}
-			$sa_nb_labels[] = $sa_nb_lbl;
+			$sa_nb_labels[] = ! empty( $sa_nb['url'] )
+				? '<a class="sa-cyber-id__cell-link" href="' . esc_url( (string) $sa_nb['url'] ) . '">' . $sa_nb_lbl . '</a>'
+				: $sa_nb_lbl;
 		}
 	}
+	$sa_nb_str = implode( ' · ', $sa_nb_labels );
 }
-$sa_nb_str = ! empty( $sa_nb_labels )
-	? implode( ' · ', $sa_nb_labels )
-	: ( ! empty( $sa_fallback['neighbors'] ) ? (string) $sa_fallback['neighbors'] : '' );
+if ( '' === $sa_nb_str && ! empty( $sa_fallback['neighbors'] ) ) {
+	$sa_nb_str = esc_html( (string) $sa_fallback['neighbors'] );
+}
 
 $sa_acc_pts = array();
 foreach ( array( 'sa_access_road' => 'جاده‌ای', 'sa_access_rail' => 'ریلی', 'sa_access_air' => 'هوایی' ) as $sa_akey => $sa_albl ) {
@@ -199,7 +289,35 @@ foreach ( array( 'sa_access_road' => 'جاده‌ای', 'sa_access_rail' => 'ر�
 $sa_acc_str = ! empty( $sa_acc_pts )
 	? ( 'مسیرهای فعال: ' . implode( '، ', $sa_acc_pts ) )
 	: ( ! empty( $sa_fallback['access'] ) ? (string) $sa_fallback['access'] : '' );
-$sa_acc_nb_val = implode( ' | ', array_filter( array( $sa_acc_str, $sa_nb_str ? 'همسایه‌ها: ' . $sa_nb_str : '' ), 'strlen' ) );
+
+$sa_dist_raw = function_exists( 'sa_en_digits' ) ? sa_en_digits( (string) $sa_pget( 'distance_km' ) ) : (string) $sa_pget( 'distance_km' );
+$sa_dist_km  = (int) preg_replace( '/[^\d]/', '', $sa_dist_raw );
+$sa_dist_str = $sa_dist_km > 0 ? ( 'فاصله تا مرکز استان: ' . $sa_num( $sa_dist_km, 0 ) . ' کیلومتر' ) : '';
+
+$sa_acc_nb_val = implode(
+	' | ',
+	array_filter( array( $sa_dist_str, $sa_acc_str, $sa_nb_str ? 'همسایه‌ها: ' . $sa_nb_str : '' ), 'strlen' )
+);
+
+// 11) Main city (مهم‌ترین شهر شهرستان) — canonical main_city / main_city_en,
+// linked only when that city has a published page; empty meta means no tile.
+$sa_main_city = function_exists( 'sa_county_profile_main_city' )
+	? sa_county_profile_main_city( $sa_id )
+	: array(
+		'fa'  => trim( (string) get_post_meta( $sa_id, 'main_city', true ) ),
+		'en'  => trim( (string) get_post_meta( $sa_id, 'main_city_en', true ) ),
+		'url' => '',
+	);
+$sa_main_city_html = '';
+if ( '' !== $sa_main_city['fa'] ) {
+	$sa_main_city_html = '' !== $sa_main_city['url']
+		? '<a class="sa-cyber-id__cell-link" href="' . esc_url( (string) $sa_main_city['url'] ) . '">' . esc_html( (string) $sa_main_city['fa'] ) . '</a>'
+		: esc_html( (string) $sa_main_city['fa'] );
+}
+if ( '' !== $sa_main_city['en'] ) {
+	$sa_main_city_html .= ( '' !== $sa_main_city_html ? ' ' : '' )
+		. '<span class="sa-cyber-id__en-inline" dir="ltr">(' . esc_html( (string) $sa_main_city['en'] ) . ')</span>';
+}
 
 $sa_county_cells = array(
 	array(
@@ -219,8 +337,8 @@ $sa_county_cells = array(
 	array(
 		'code'  => '03 // CENTER_CITY',
 		'label' => 'مرکز شهرستان',
-		'value' => $sa_center,
-		'html'  => false,
+		'value' => $sa_center_html,
+		'html'  => true,
 		'span'  => '',
 	),
 	array(
@@ -269,9 +387,27 @@ $sa_county_cells = array(
 		'code'  => '10 // ACCESS_NEIGHBORS',
 		'label' => 'راه‌های دسترسی و همسایه‌های شهرستان',
 		'value' => $sa_acc_nb_val,
-		'html'  => false,
+		'html'  => true,
 		'span'  => 'full',
 	),
+	array(
+		'code'  => '11 // MAIN_CITY',
+		'label' => 'مهم‌ترین شهر شهرستان',
+		'value' => $sa_main_city_html,
+		'html'  => true,
+		'span'  => '',
+	),
+);
+
+// قانون خروجی شناسنامه: هر فیلد خالی یعنی حذف کامل همان خانه — هیچ «نامشخص»،
+// «-» یا نشان فرایندی در کارت چاپ نمی‌شود.
+$sa_county_cells = array_values(
+	array_filter(
+		$sa_county_cells,
+		function ( $sa_cell ) {
+			return '' !== trim( wp_strip_all_tags( (string) $sa_cell['value'] ) );
+		}
+	)
 );
 
 $sa_poi_buckets = array(
@@ -297,8 +433,8 @@ if ( function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_p
 }
 // Attractions table (canonical meta layer): published دیدنی posts of this
 // county appear automatically and linked; sibling counties of the same
-// province plus the short under-card prose come from the same data layer.
-$sa_profile_ext = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $sa_id ) : array();
+// province plus the short under-card prose come from the same data layer
+// ($sa_profile_ext is built once, above, for the identity-card tiles).
 $sa_attractions = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id ) : array();
 $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id ) : array();
 $sa_linked_names = array();

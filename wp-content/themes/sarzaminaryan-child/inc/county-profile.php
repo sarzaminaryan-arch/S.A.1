@@ -22,10 +22,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function sa_county_profile_fields() {
 	return array(
-		'county_en'              => array( 'label' => 'نام انگلیسی شهرستان', 'type' => 'string', 'legacy' => '' ),
+		'county_en'              => array( 'label' => 'نام انگلیسی شهرستان', 'type' => 'string', 'legacy' => 'sa_english_name' ),
 		'province_id'            => array( 'label' => 'شناسهٔ پست استان', 'type' => 'integer', 'legacy' => 'sa_province_id' ),
 		'center_fa'              => array( 'label' => 'مرکز شهرستان (فارسی)', 'type' => 'string', 'legacy' => 'sa_cty_center' ),
 		'center_en'              => array( 'label' => 'مرکز شهرستان (انگلیسی)', 'type' => 'string', 'legacy' => '' ),
+		'main_city'              => array( 'label' => 'مهم‌ترین شهر شهرستان (فارسی)', 'type' => 'string', 'legacy' => '' ),
+		'main_city_en'           => array( 'label' => 'مهم‌ترین شهر شهرستان (انگلیسی)', 'type' => 'string', 'legacy' => '' ),
 		'population'             => array( 'label' => 'جمعیت شهرستان', 'type' => 'integer', 'legacy' => 'sa_cty_population' ),
 		'population_year'        => array( 'label' => 'سال سرشماری جمعیت', 'type' => 'integer', 'legacy' => 'sa_cty_census_year' ),
 		'area_km2'               => array( 'label' => 'مساحت (کیلومتر مربع)', 'type' => 'number', 'legacy' => 'sa_cty_area' ),
@@ -100,6 +102,65 @@ function sa_county_profile_province_post( $post_id ) {
 		}
 	}
 	return null;
+}
+
+/**
+ * Permalink of a city/county page, but only when that page is really published.
+ *
+ * Accepts a post ID, a registry slug, a post slug or a Persian name, so the
+ * canonical keys can be filled with whatever the source document used.
+ *
+ * @param string|int $raw Raw value.
+ * @return string Permalink, '' when no published page exists.
+ */
+function sa_county_profile_city_url( $raw ) {
+	$raw = trim( (string) $raw );
+	if ( '' === $raw ) {
+		return '';
+	}
+	if ( is_numeric( $raw ) ) {
+		$post = get_post( (int) $raw );
+		return ( $post && 'city' === $post->post_type && 'publish' === $post->post_status ) ? (string) get_permalink( $post ) : '';
+	}
+	if ( function_exists( 'sa_county_permalink' ) ) {
+		$url = sa_county_permalink( $raw );
+		if ( '' !== $url ) {
+			return $url;
+		}
+	}
+	if ( function_exists( 'sa_counties' ) ) {
+		foreach ( sa_counties() as $row ) {
+			if ( ! isset( $row['slug'], $row['name'] ) ) {
+				continue;
+			}
+			if ( $row['name'] === $raw || $row['slug'] === $raw ) {
+				$url = function_exists( 'sa_county_permalink' ) ? sa_county_permalink( $row['slug'] ) : '';
+				if ( '' !== $url ) {
+					return $url;
+				}
+			}
+		}
+	}
+	$post = get_page_by_path( sanitize_title( $raw ), OBJECT, 'city' );
+	return ( $post && 'publish' === $post->post_status ) ? (string) get_permalink( $post ) : '';
+}
+
+/**
+ * «مهم‌ترین شهر» of the county: name (fa/en) plus a link only when a
+ * published page exists for it. Empty meta stays empty — the card then omits
+ * the whole MAIN_CITY tile.
+ *
+ * @param int $post_id County post ID.
+ * @return array{fa:string,en:string,url:string}
+ */
+function sa_county_profile_main_city( $post_id ) {
+	$fa = sa_county_profile_meta( $post_id, 'main_city' );
+	$en = sa_county_profile_meta( $post_id, 'main_city_en' );
+	return array(
+		'fa'  => $fa,
+		'en'  => $en,
+		'url' => '' !== $fa ? sa_county_profile_city_url( $fa ) : '',
+	);
 }
 
 /**
@@ -220,8 +281,13 @@ function sa_county_profile_data( $post_id ) {
 		'province_url'  => $province_post ? (string) get_permalink( $province_post ) : '',
 		'center_fa'     => $get( 'center_fa' ),
 		'center_en'     => $get( 'center_en' ),
+		'main_city'     => $get( 'main_city' ),
+		'main_city_en'  => $get( 'main_city_en' ),
+		'main_city_url' => sa_county_profile_city_url( $get( 'main_city' ) ),
 		'population'    => $get( 'population' ),
 		'population_year' => $get( 'population_year' ),
+		/* جمعیت بدون سال سرشماری نمایش داده نمی‌شود (قانون خروجی شناسنامه). */
+		'population_shown' => ( '' !== $get( 'population' ) && '' !== $get( 'population_year' ) ),
 		'area_km2'      => $get( 'area_km2' ),
 		'elevation_m'   => $get( 'elevation_m' ),
 		'divisions'     => array_filter(
@@ -249,7 +315,7 @@ function sa_county_profile_data( $post_id ) {
 		'lng'           => $has_coords ? (float) $lng : null,
 		'map_url'       => $has_coords ? 'https://www.openstreetmap.org/?mlat=' . rawurlencode( (string) $lat ) . '&mlon=' . rawurlencode( (string) $lng ) . '#map=10/' . rawurlencode( (string) $lat ) . '/' . rawurlencode( (string) $lng ) : '',
 	);
-	$data['has_data'] = '' !== $data['center_fa'] || '' !== $data['population'] || '' !== $data['area_km2']
+	$data['has_data'] = '' !== $data['center_fa'] || '' !== $data['main_city'] || '' !== $data['population'] || '' !== $data['area_km2']
 		|| '' !== $data['elevation_m'] || ! empty( $data['divisions'] ) || '' !== $data['climate']
 		|| '' !== $data['best_season'] || ! empty( $data['neighbors'] ) || '' !== $data['language']
 		|| '' !== $data['economy'] || '' !== $data['distance_km'] || null !== $data['lat']
