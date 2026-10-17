@@ -212,6 +212,11 @@ function sa_county_content_filter( $content ) {
 	}
 	$parts = sa_county_split_content( $content );
 	$GLOBALS['sa_county_page_parts'][ get_the_ID() ] = $parts;
+	if ( function_exists( 'sa_toc_register' ) ) {
+		if ( $parts['facts'] ) { sa_toc_register( 'حقایق جالب', 'county-fun-facts', 880 ); }
+		if ( $parts['faq'] ) { sa_toc_register( 'سوالات متداول', 'faq', 900 ); }
+		if ( $parts['urls'] ) { sa_toc_register( 'منابع و پانویس‌ها', 'sources', 990 ); }
+	}
 	return $parts['content'];
 }
 add_filter( 'the_content', 'sa_county_content_filter', 10 );
