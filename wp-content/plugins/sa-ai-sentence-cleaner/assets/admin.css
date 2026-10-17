@@ -1,0 +1,11 @@
+.sa-ai-wrap .sa-ai-intro{max-width:900px;color:#3c434a}
+.sa-ai-card{background:#fff;border:1px solid #dcdcde;padding:16px 20px;margin:16px 0;max-width:1200px}
+.sa-ai-check{display:inline-block;margin:2px 0 2px 14px}
+.sa-ai-progress{height:10px;background:#f0f0f1;border-radius:5px;overflow:hidden;max-width:520px}
+.sa-ai-progress span{display:block;height:100%;background:#2271b1}
+.sa-ai-table .sa-ai-sentence{min-width:280px;white-space:normal;line-height:1.9}
+.sa-ai-badge{display:inline-block;padding:1px 7px;border-radius:3px;background:#f0f0f1;font-size:11px}
+.sa-ai-badge.sa-ai-delete{background:#f8d7da;color:#842029}
+.sa-ai-badge.sa-ai-flag{background:#fff3cd;color:#664d03}
+.sa-ai-active{font-weight:700}
+.sa-ai-inline{display:inline-block}
