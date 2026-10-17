@@ -52,10 +52,36 @@ $sa_type = get_post_type( $sa_id );
 		}
 		?>
 
+		<?php if ( 'city' === $sa_type ) {
+			sa_county_google_map( $sa_id );
+			get_template_part( 'template-parts/entity/gallery' );
+		} ?>
+
 		<div class="sa-entity__content entry-content">
 			<?php the_content(); ?>
 		</div>
 
+		<?php if ( 'city' === $sa_type ) : ?>
+			<?php
+			$sa_county_parts = isset( $GLOBALS['sa_county_page_parts'][ $sa_id ] ) ? $GLOBALS['sa_county_page_parts'][ $sa_id ] : array();
+			if ( ! empty( $sa_county_parts['facts'] ) ) {
+				echo '<section class="sa-county-fun-facts" id="county-fun-facts"><h2>' . esc_html__( 'حقایق جالب', 'sarzaminaryan-child' ) . '</h2>' . wp_kses_post( $sa_county_parts['facts'] ) . '</section>';
+			}
+			if ( ! empty( $sa_county_parts['faq'] ) ) {
+				echo '<section class="sa-faq-section" id="faq"><h2>' . esc_html__( 'سوالات متداول', 'sarzaminaryan-child' ) . '</h2>' . wp_kses_post( $sa_county_parts['faq'] ) . '</section>';
+			} else {
+				ob_start();
+				get_template_part( 'template-parts/entity/faq' );
+				echo wp_kses_post( sa_county_clean_references( ob_get_clean() ) );
+			}
+			if ( class_exists( 'CC_UI' ) ) {
+				CC_UI::contrib_block();
+			}
+			sa_county_related_articles( $sa_id );
+			sa_entity_navigation( $sa_id, $sa_type );
+			sa_county_sources_section( $sa_id );
+			?>
+		<?php else : ?>
 		<?php get_template_part( 'template-parts/entity/faq' ); ?>
 
 		<?php get_template_part( 'template-parts/entity/county-siblings' ); ?>
@@ -80,6 +106,7 @@ $sa_type = get_post_type( $sa_id );
 			sa_facts_checked_note( $sa_id );
 		}
 		?>
+		<?php endif; ?>
 	</div>
 
 </article>

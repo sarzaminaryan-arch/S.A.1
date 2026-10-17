@@ -144,6 +144,9 @@ function sa_citation_is_external( $url ) {
  * @return string
  */
 function sa_citations_filter( $content ) {
+	if ( function_exists( 'sa_county_page_context' ) && sa_county_page_context() ) {
+		return $content; // County sources are consolidated below navigation.
+	}
 	$content = (string) $content;
 
 	if ( is_admin() || is_feed() || ! sa_citations_enabled() ) {
@@ -240,6 +243,9 @@ add_filter( 'the_content', 'sa_citations_filter', 13 );
  * @return string
  */
 function sa_community_box_filter( $content ) {
+	if ( function_exists( 'sa_county_page_context' ) && sa_county_page_context() ) {
+		return $content;
+	}
 	$content = (string) $content;
 	if ( is_admin() || is_feed() || ! is_singular() ) {
 		return $content;

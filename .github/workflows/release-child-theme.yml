@@ -95,6 +95,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"
 
+      - name: Run county presentation and five-star regression tests
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-page.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

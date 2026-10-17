@@ -37,7 +37,7 @@ class CC_REST {
 	public static function routes() {
 		register_rest_route( 'cc/v1', '/ping', array( 'methods' => 'GET', 'callback' => function () { global $wpdb; $t = CC_DB::table(); return array( 'ok' => true, 'version' => CC_VERSION, 'tables' => ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $t ) ) === $t ), 'php' => PHP_VERSION ); }, 'permission_callback' => '__return_true' ) );
 		register_rest_route( 'cc/v1', '/cities/(?P<id>\d+)/rating', array( 'methods' => 'GET', 'callback' => function ( $r ) { return self::get_rating( $r ); }, 'permission_callback' => '__return_true' ) );
-		register_rest_route( 'cc/v1', '/cities/(?P<id>\d+)/rating', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::post_rating( $r ); }, 'permission_callback' => '__return_true' ) );
+		register_rest_route( 'cc/v1', '/cities/(?P<id>\d+)/rating', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::post_rating( $r ); }, 'permission_callback' => array( __CLASS__, 'rating_permission' ) ) );
 		register_rest_route( 'cc/v1', '/submissions', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::submission( $r ); }, 'permission_callback' => function () { return self::has_submission_permission(); } ) );
 		register_rest_route( 'cc/v1', '/submissions/(?P<id>\d+)/resubmit', array( 'methods' => 'POST', 'callback' => function ( $r ) { return self::resubmit( $r ); }, 'permission_callback' => function () { return self::has_permission(); } ) );
 		register_rest_route( 'cc/v1', '/leaderboard', array( 'methods' => 'GET', 'callback' => function ( $r ) { return CC_Gamification::leaderboard( absint( $r->get_param( 'city_id' ) ) ); }, 'permission_callback' => '__return_true' ) );
@@ -89,7 +89,7 @@ class CC_REST {
 	public static function get_rating( $r ) {
 		try {
 			$id = absint( $r['id'] );
-			if ( 'city' !== get_post_type( $id ) ) {
+			if ( 'city' !== get_post_type( $id ) || 'publish' !== get_post_status( $id ) ) {
 				return new WP_Error( 'invalid_city', 'شهر معتبر نیست', array( 'status' => 404 ) );
 			}
 			return CC_Rating::get( $id, self::voter_key( $r ) );
@@ -98,16 +98,23 @@ class CC_REST {
 		}
 	}
 
+	/** Public guest voting is intentional; verify CSRF and published target, not edit_posts. */
+	public static function rating_permission() {
+		$nonce = isset( $_SERVER['HTTP_X_WP_NONCE'] ) && is_string( $_SERVER['HTTP_X_WP_NONCE'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_WP_NONCE'] ) ) : '';
+		return (bool) wp_verify_nonce( $nonce, 'wp_rest' );
+	}
+
 	public static function post_rating( $r ) {
 		try {
 			$id = absint( $r['id'] );
-			if ( 'city' !== get_post_type( $id ) ) {
+			if ( 'city' !== get_post_type( $id ) || 'publish' !== get_post_status( $id ) ) {
 				return new WP_Error( 'invalid_city', 'شهر معتبر نیست', array( 'status' => 404 ) );
 			}
 			$stars = filter_var( $r->get_param( 'stars' ), FILTER_VALIDATE_INT );
-			if ( false === $stars || $stars < 1 || $stars > 7 ) {
-				return new WP_Error( 'invalid_stars', 'امتیاز باید بین ۱ تا ۷ باشد', array( 'status' => 400 ) );
+			if ( false === $stars || $stars < 1 || $stars > 5 ) {
+				return new WP_Error( 'invalid_stars', 'امتیاز باید بین ۱ تا ۵ باشد', array( 'status' => 400 ) );
 			}
+			$stars = CC_Rating::storage_stars( $stars );
 			$key = self::voter_key( $r );
 			if ( ! is_user_logged_in() ) {
 				$ipk = 'cc_rate_' . md5( isset( $_SERVER['REMOTE_ADDR'] ) ? $_SERVER['REMOTE_ADDR'] : '' );
@@ -133,6 +140,10 @@ class CC_REST {
 				$uid = is_user_logged_in() ? get_current_user_id() : 0;
 				$wpdb->insert( $t, array( 'city_id' => $id, 'user_id' => $uid, 'voter_key' => $key, 'stars' => $stars, 'created_at' => $now, 'updated_at' => $now ), array( '%d', '%d', '%s', '%d', '%s', '%s' ) );
 			}
+			if ( '' !== (string) $wpdb->last_error ) {
+				return new WP_Error( 'vote_save_failed', 'ثبت رأی انجام نشد؛ دوباره تلاش کنید.', array( 'status' => 500 ) );
+			}
+			delete_site_transient( 'cc_ranking_5' );
 			CC_DB::recalc( $id );
 			$data            = CC_Rating::get( $id, $key );
 			$data['success'] = true;

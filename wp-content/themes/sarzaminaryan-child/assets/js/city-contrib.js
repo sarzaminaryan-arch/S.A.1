@@ -5,7 +5,7 @@
  window.ccVoter=()=>get()||set();
 })();
 
-(()=>{ /* امتیازدهی ۱ تا ۷ — انتخاب ستاره، پیش‌نمایش زنده، ثبت با دکمه، تغییر فقط پس از یک روز */
+(()=>{ /* امتیازدهی ۱ تا ۵ — انتخاب ستاره، پیش‌نمایش زنده، ثبت با دکمه، تغییر فقط پس از یک روز */
  const cfg=window.CC_CONFIG;const root=document.querySelector('[data-cc-rating]');if(!cfg||!root)return;
  const id=root.dataset.city,status=root.querySelector('[data-cc-status]'),submit=root.querySelector('[data-cc-submit]'),stars=[...root.querySelectorAll('[data-cc-star]')];
  let pending=0;
@@ -15,6 +15,10 @@
  const light=n=>stars.forEach(b=>b.classList.toggle('is-on',+b.dataset.ccStar<=n));
  const lockUI=x=>{stars.forEach(b=>b.disabled=true);if(submit)submit.hidden=true;if(x.changeable_at)say('✅ رأی شما: '+fa(x.user_rating)+' ستاره ثبت شده است. تا '+faDate(x.changeable_at)+' نمی‌توانید آن را تغییر دهید.',true);else say('✅ رأی شما: '+fa(x.user_rating)+' ستاره ثبت شده است؛ تا ۲۴ ساعت آینده قابل تغییر نیست.',true)};
  const paint=x=>{
+  const summary=root.querySelector('.cc-rating__heading .cc-stars');
+  if(summary&&Number.isFinite(+x.average)){const n=Math.max(0,Math.min(5,Math.round(+x.average)));summary.textContent='★'.repeat(n)+'☆'.repeat(5-n);summary.classList.toggle('cc-stars--empty',!x.count)}
+  const average=root.querySelector('.cc-rating__avg');
+  if(average&&x.count){average.classList.remove('cc-rating__avg--empty');average.textContent=fa(x.average)+' از ۵ · '+fa(x.count)+' رأی'}
   if(x.user_rating>0){light(x.user_rating);if(x.locked){lockUI(x);}else{if(submit){submit.hidden=false;submit.disabled=true;submit.textContent='تغییر رأی'}say('رأی شما: '+fa(x.user_rating)+' ستاره است. می‌توانید آن را تغییر دهید — ستاره‌ای را لمس کنید.')}}
   else if(submit){submit.hidden=false;submit.disabled=true;submit.textContent='ثبت امتیاز'}
  };
@@ -23,10 +27,10 @@
   const b=e.target.closest('[data-cc-star]');
   if(b&&!b.disabled){pending=+b.dataset.ccStar;light(pending);if(submit){submit.hidden=false;submit.disabled=false}say('امتیاز '+fa(pending)+' انتخاب شد؛ اگر همین است، دکمهٔ «ثبت امتیاز» را بزنید.',true);return}
   if(e.target.closest('[data-cc-submit]')){
-   if(!pending){say('ابتدا یک ستاره (۱ تا ۷) را لمس کنید.');return}
+   if(!pending){say('ابتدا یک ستاره (۱ تا ۵) را لمس کنید.');return}
    submit.disabled=true;say('در حال ثبت امتیاز…');
    fetch(cfg.api+'cc/v1/cities/'+id+'/rating',{method:'POST',headers:{'Content-Type':'application/json','X-WP-Nonce':cfg.nonce},body:JSON.stringify({stars:pending,voter:window.ccVoter()})}).then(r=>r.json().then(x=>({x}))).then(({x})=>{
-    if(x.success){pending=0;light(x.user_rating);stars.forEach(s=>s.disabled=true);if(submit)submit.hidden=true;say('✅ '+x.message+(x.rank?(' رتبهٔ این شهر اکنون '+fa(x.rank)+' از '+fa(x.total)+' شهرستان است.'):'')+' تا ۲۴ ساعت آینده نمی‌توانید آن را تغییر دهید.',true);}
+    if(x.success){paint(x);pending=0;light(x.user_rating);stars.forEach(s=>s.disabled=true);if(submit)submit.hidden=true;say('✅ '+x.message+(x.rank?(' رتبهٔ این شهر اکنون '+fa(x.rank)+' از '+fa(x.total)+' شهرستان است.'):'')+' تا ۲۴ ساعت آینده نمی‌توانید آن را تغییر دهید.',true);}
     else if(x.code==='vote_locked'){pending=0;if(submit)submit.hidden=true;const d=new Date((x.data&&x.data.changeable_at||0)*1000).toLocaleDateString('fa-IR');fetch(cfg.api+'cc/v1/cities/'+id+'/rating?voter='+window.ccVoter()).then(r=>r.json()).then(g=>{if(g&&g.user_rating){light(g.user_rating);stars.forEach(s=>s.disabled=true);say('✅ رأی شما: '+fa(g.user_rating)+' ستاره پیش‌تر ثبت شده است.'+(d?' تغییر آن از '+d+' ممکن است.':''),true)}else say('✅ رأی شما پیش‌تر ثبت شده است.'+(d?' تغییر آن از '+d+' ممکن است.':''),true)}).catch(()=>say('✅ رأی شما پیش‌تر ثبت شده است؛ تا ۲۴ ساعت بعد قابل تغییر نیست.',true));}
     else{submit.disabled=false;say((x.message||'خطایی رخ داد.')+(x.data&&x.data.changeable_at?(' تغییر رأی از '+faDate(x.data.changeable_at)+' ممکن است.'):''),false)}
    }).catch(()=>{submit.disabled=false;say('اتصال برقرار نشد؛ دوباره تلاش کنید.')});
