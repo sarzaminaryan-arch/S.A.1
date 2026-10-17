@@ -130,3 +130,5 @@ jobs:
           fi
           cat publish.log
           gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fx "$ASSET" >/dev/null
+
+# retry: create immutable release together with assets
