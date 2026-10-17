@@ -1,0 +1,58 @@
+name: 🛡️ Protect Critical Files
+
+# مانعِ ادغامِ هر Pull Request می‌شود که فایل‌های ممنوعه را لمس کند:
+#   - wp-config.php و .htaccess (هرگز نباید در مخزن باشند)
+#   - کلِ قالب والد wp-content/themes/sarzaminaryan/ (تغییرات فقط در قالب فرزند)
+# نام پوشهٔ والد بر اساس واقعیت مخزن همان sarzaminaryan است؛ قالب فعال sarzaminaryan-child است.
+#
+# برای فعال‌شدنِ واقعی این گارد، در تنظیمات گیت‌هاب روی شاخهٔ مقصد
+# «Require status checks to pass before merging» را با انتخاب همین چک
+# (check-protected-files) فعال کنید — راهنما: docs/GITHUB_SETUP.md
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+
+jobs:
+  check-protected-files:
+    name: check-protected-files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check for restricted file modifications
+        run: |
+          echo "🔍 Checking modified or added files..."
+          
+          RESTRICTED=(
+            "wp-config.php"
+            ".htaccess"
+          )
+          
+          CHANGED=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
+          VIOLATION=false
+          
+          for file in "${RESTRICTED[@]}"; do
+            if echo "$CHANGED" | grep -q "$file"; then
+              echo "❌ VIOLATION: $file was modified or added!"
+              VIOLATION=true
+            fi
+          done
+          
+          # بررسی عدم تغییر قالب والد (نام پوشه والد: sarzaminaryan)
+          if echo "$CHANGED" | grep -q "wp-content/themes/sarzaminaryan/"; then
+            echo "❌ VIOLATION: Parent theme modified! Changes must be in child theme."
+            VIOLATION=true
+          fi
+          
+          if [ "$VIOLATION" = true ]; then
+            echo "🚫 Restricted files were touched. PR blocked."
+            exit 1
+          fi
+          
+          echo "✅ All protected files are safe."

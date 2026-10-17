@@ -52,3 +52,31 @@ image-search/
 
 # پیش‌نویس‌های خام Drive (متن ماشینی اولیه) فقط برای پیگیری مالک در ورک‌اسپیس می‌مانند.
 docs/camping-education/incoming/
+
+# ===== WordPress core (اگر روزی در این مخزن کپی شود، هرگز کامیت نشود) =====
+# wp-admin/
+# wp-includes/
+/wp-config.php
+/wp-config-sample.php
+
+# ===== تنظیمات حساس، لاگ‌ها و پشتیبان‌ها =====
+wp-config.php
+wp-config-sample.php
+.htaccess
+*.sql
+*.sql.gz
+*.bak
+error_log
+
+# ===== سیستم‌عامل و ویرایشگر =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===== رسانه و کش وردپرس =====
+wp-content/uploads/
+wp-content/cache/
+
+# ===== Node =====
+node_modules/
