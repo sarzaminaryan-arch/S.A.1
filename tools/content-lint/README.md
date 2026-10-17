@@ -8,7 +8,8 @@
 
 | فایل | کار |
 |---|---|
-| `content_lint.py` | فیلتر اصلی. `python3 content_lint.py [--fix] [--mark-ready] [--check-ready] [--format text\|md\|json] [--quiet] FILES_OR_DIRS` |
+| `content_lint.py` | فیلتر اصلی مقالات آموزشی. `python3 content_lint.py [--fix] [--mark-ready] [--check-ready] [--format text\|md\|json] [--quiet] FILES_OR_DIRS` |
+| `editorial_cleanup.py` | پاک‌سازی محافظه‌کارانهٔ مقاله‌های Markdown و متن‌های heredoc کلید `content` در PHP: حذف بند عیناً تکراری در همان مقاله، یادداشت مستقل ویراستاری و مدخل `google.com` در منابع Markdown؛ بندها و جمله‌های عیناً مشترک میان مقاله‌ها فقط گزارش می‌شوند تا داده یا هشدار ایمنی اشتباهاً حذف نشود. پیش‌نمایش: `python3 tools/content-lint/editorial_cleanup.py PATH`; اعمال اصلاح‌های امن: افزودن `--fix`. |
 | `lint-config.json` | پیکربندی: `site_url`، بایلاین، مقادیر «وضعیت»، فهرست پیوندهای مجاز (`allowed_slugs`)، الگوهای نشانه‌های ماشینی (`machine_patterns`)، واژگان خارج از حوزه، قاعده‌های ایمنی (`safety_rules`) و آستانهٔ ربط (`relevance_threshold`) |
 | `article_model.py` | تجزیهٔ مقاله به بلوک سئو، بخش‌های H2، سطرهای گام‌به‌گام، FAQ و اسکیما؛ مشترک میان همهٔ ابزارها |
 | `schema_build.py` | ساخت `@graph` (Article، BreadcrumbList، HowTo، FAQPage) از متن نهایی؛ `--write FILE` فنس اسکیما را جایگزین می‌کند |
