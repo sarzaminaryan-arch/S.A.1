@@ -82,7 +82,7 @@
 
 | # | شدت | فایل/محل | مشکل |
 |---|---|---|---|
-| ۱ | 🔴 | `wp-content/themes/sarzaminaryan-child/inc/entities-config.php` | سرآیندِ فایل «model **v1.2**» است در حالی که مرجع (`MASTER_DATA_MODEL.md`، `data-model.yaml/json` و `SA_MODEL_VERSION`) **۱.۳** است؛ فایل با مولد round-trip نمی‌شود و بازتولید آن فیلدها را بازنویسی می‌کند (آخرین تغییر: ۲۰۲۶-۱۰-۰۹). |
+| ۱ | 🔴 | `wp-content/themes/sarzaminaryan-child/inc/entities-config.php` | سرآیند «model v1.2» در برابر مرجع ۱.۳. **تحلیل کامل در `docs/MODEL_DRIFT_ANALYSIS.md`:** بازتولیدِ ساده ⇒ ۳ پسرفت (حذف ۷ فیلدِ شناسنامهٔ دیدنی، خاموش‌شدنِ بی‌صدای `sa_content_hygiene_checks()`، بازگشتِ دو blockerِ مغایر با سیاست مالک). **توصیه: ارتقای مدل به ۱.۴ سپس بازتولید** (آخرین تغییر: ۲۰۲۶-۱۰-۰۹، `f04e113`). |
 | ۲ | ~~🔴~~ ✅ | `imagetool (23).zip` (ریشهٔ مخزن، ۱.۹MB) | **حل‌شده در ۱۴۰۵/۰۷/۲۵:** با `git rm --cached` از ردیابی گیت خارج شد (فایل فیزیکی باقی مانده) و حالا توسط `.gitignore` نادیده گرفته می‌شود. |
 | ۳ | 🔴 | تگ‌ها و ریلیزهای گیت‌هاب | `sarzaminaryan-child-v2.22.1` دو رکورد ریلیز (یکی Draft) **بدون تگ گیت**؛ `v2.21.0` دو رکورد؛ `v2.22.0` رها‌شده به‌صورت Draft — گاردِ «نسخهٔ ازپیش‌منتشرشده» در workflow دور زده می‌شود. |
 | ۴ | 🔴 | PR #21 / #22 / #23 | سه شاخهٔ بازِ موازی روی خطوط قدیمی (۲.۱۸.x و ۲.۲۱.۰)؛ خطر تکرار تضاد نسخهٔ ۲.۱۸.۹. |
@@ -109,7 +109,7 @@
 | `wp-content/themes/sarzaminaryan-child/style.css` | ✅ سالم | ۲۰۲۶-۱۰-۱۷ (`1f0fd29`) | فقط سربرگ؛ نسخه ۲.۲۲.۲ هم‌راستا با `SA_CHILD_VERSION` و `Stable tag` در readme (workflow همین را اجبار می‌کند) |
 | `wp-content/themes/sarzaminaryan-child/header.php` | ✅ سالم | ۲۰۲۶-۱۰-۰۱ (`e0732c9`) | نوار تیرهٔ v2، لوگو + شعار از سفارشی‌ساز، منوی `primary` با `fallback_cb` و عمق ۲، منوی `secondary`، بردکرامب در همه‌جا جز صفحهٔ اول |
 | `wp-content/themes/sarzaminaryan-child/footer.php` | ✅ سالم | ۲۰۲۶-۱۰-۱۶ (`bed249c`) | سه ستون با الگوریتم حذف لینک تکراری؛ بدون لینک حدسی به برگه‌های ناموجود؛ کپی‌رایت با سال شمسی |
-| `wp-content/themes/sarzaminaryan-child/inc/entities-config.php` | ⚠️ نیاز به بازنگری | ۲۰۲۶-۱۰-۰۹ (`f04e113`) | **فایل تولیدی** — سرآیند «model v1.2» در برابر مرجع ۱.۳ (مشکل شمارهٔ ۱) |
+| `wp-content/themes/sarzaminaryan-child/inc/entities-config.php` | ⚠️ بازتولید ممنوع | ۲۰۲۶-۱۰-۰۹ (`f04e113`) | **فایل تولیدی** — سرآیند «model v1.2» در برابر مرجع ۱.۳؛ پیش از هر بازتولید `docs/MODEL_DRIFT_ANALYSIS.md` را بخوان (مشکل شمارهٔ ۱) |
 | `wp-content/themes/sarzaminaryan-child/inc/publish-gate.php` | ✅ سالم | ۲۰۲۶-۱۰-۱۱ (`5633b1d`) | دروازهٔ انتشار Level 7 در حالت advisory؛ فقط تأیید مالک شرط انتشار است (منطبق با `AGENTS.md`) |
 | `wp-content/themes/sarzaminaryan-child/inc/county-profile.php` | ✅ سالم | ۲۰۲۶-۱۰-۱۷ (`1f0fd29`) | ۲۸ کلید کانونی شناسنامهٔ شهرستان با fallback به `sa_cty_*`/`sa_city_*` و ثبت متا برای REST |
 | `wp-content/themes/sarzaminaryan-child/data/counties.php` | ⚠️ اختلاف داده | ۲۰۲۶-۱۰-۰۹ (`f04e113`) | ۴۸۳ رکورد در برابر ۴۸۴ رسمی و ۴۷۸ در نقشه (مشکل شمارهٔ ۷) |
