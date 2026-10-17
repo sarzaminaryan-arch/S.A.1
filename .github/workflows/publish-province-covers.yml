@@ -1,0 +1,133 @@
+name: Publish verified province covers package
+
+# The package is external to Git. Its short-lived transfer URL is read only
+# from an unpublished draft release, never committed or published in release notes.
+on:
+  push:
+    branches: ['arena/a32fb27a-s-a-1']
+    paths: ['.github/workflows/publish-province-covers.yml']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-sa-province-covers-v1.0.0
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: sa-province-covers-v1.0.0
+      PACKAGE_SHA: 345956d337beca1509f276e5f3ecf7317bbed33941f3fd7e674d59515638a484
+      PACKAGE_BYTES: '11386890'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install package verification dependencies
+        run: python3 -m pip install -r tools/province-covers/requirements.txt
+      - name: Test plugin and image tooling before publication
+        run: |
+          php wp-content/plugins/sa-province-covers/tests/test-plugin.php
+          node --check wp-content/plugins/sa-province-covers/assets/admin.js
+          python3 tools/province-covers/test_images.py
+      - name: Read unpublished transfer information
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          gh release view "$TAG" --json body,isDraft > "$RUNNER_TEMP/province-transfer.json"
+      - name: Download and verify exact approved package and committed source
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, importlib.util, json, os, re, tempfile, urllib.parse, urllib.request, zipfile
+          from pathlib import Path
+          transfer = Path(os.environ['RUNNER_TEMP']) / 'province-transfer.json'
+          data = json.loads(transfer.read_text())
+          transfer.unlink()
+          if data['isDraft'] is not True or not data['body'].startswith('SA_PC_TRANSFER_V1\n'):
+              raise ValueError('An explicitly staged, unpublished transfer draft is required')
+          url = data['body'].removeprefix('SA_PC_TRANSFER_V1\n').strip()
+          print('::add-mask::' + url, flush=True)
+          parsed = urllib.parse.urlsplit(url)
+          if (parsed.scheme != 'https' or parsed.username or parsed.password or parsed.port
+                  or not re.fullmatch(r'[0-9]+-[a-zA-Z0-9-]+\.e2b\.app', parsed.hostname or '')
+                  or not re.fullmatch(r'/[a-zA-Z0-9_-]{43}/sa-province-covers-1\.0\.0\.zip', parsed.path)
+                  or parsed.query or parsed.fragment):
+              raise ValueError('Unexpected transfer URL')
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, *args, **kwargs):
+                  raise ValueError('Transfer redirects are not allowed')
+          output = Path('release/sa-province-covers-1.0.0.zip')
+          output.parent.mkdir(exist_ok=True)
+          expected_size = int(os.environ['PACKAGE_BYTES'])
+          with urllib.request.build_opener(NoRedirect).open(url, timeout=120) as response:
+              payload = response.read(expected_size + 1)
+          if len(payload) != expected_size or hashlib.sha256(payload).hexdigest() != os.environ['PACKAGE_SHA']:
+              raise ValueError('Approved package checksum/size mismatch')
+          output.write_bytes(payload)
+          spec = importlib.util.spec_from_file_location('package_builder', 'tools/province-covers/build.py')
+          builder = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(builder)
+          rows = json.loads((builder.PLUGIN / 'data/provinces.json').read_text())
+          prefix = 'sa-province-covers/'
+          image_names = ['manifest.json'] + [row['file'] for row in rows]
+          expected = {prefix + name for name in builder.FILES}
+          expected |= {prefix + 'assets/images/' + name for name in image_names}
+          with zipfile.ZipFile(output) as archive, tempfile.TemporaryDirectory() as directory:
+              if len(archive.infolist()) != len(expected) or set(archive.namelist()) != expected:
+                  raise ValueError('Unexpected or duplicate archive entries')
+              if any(item.file_size > 3 * 1024 * 1024 for item in archive.infolist()) or archive.testzip():
+                  raise ValueError('Invalid or oversized archive entry')
+              for name in builder.FILES:
+                  if archive.read(prefix + name) != (builder.PLUGIN / name).read_bytes():
+                      raise ValueError('Package source differs from checkout: ' + name)
+              assets = Path(directory) / 'images'
+              assets.mkdir()
+              for name in image_names:
+                  (assets / name).write_bytes(archive.read(prefix + 'assets/images/' + name))
+              builder.build(assets, Path(directory) / 'verified-rebuild.zip')
+          output.with_suffix('.zip.sha256').write_text(os.environ['PACKAGE_SHA'] + '  ' + output.name + '\n')
+          print('Approved ZIP, ten committed runtime files, 31 WebPs and manifest verified.')
+          PY
+      - name: Upload assets to existing draft without overwriting
+        run: gh release upload "$TAG" release/sa-province-covers-1.0.0.zip release/sa-province-covers-1.0.0.zip.sha256
+      - name: Verify hosted assets before publication
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" > "$RUNNER_TEMP/province-release.json"
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          data = json.loads((Path(os.environ['RUNNER_TEMP']) / 'province-release.json').read_text())
+          assets = {item['name']: item for item in data['assets']}
+          names = {'sa-province-covers-1.0.0.zip', 'sa-province-covers-1.0.0.zip.sha256'}
+          if data['draft'] is not True or len(data['assets']) != 2 or set(assets) != names:
+              raise ValueError('Unexpected draft or release assets')
+          for name, item in assets.items():
+              file = Path('release') / name
+              if item['size'] != file.stat().st_size or item.get('digest') != 'sha256:' + hashlib.sha256(file.read_bytes()).hexdigest():
+                  raise ValueError('GitHub asset size/digest mismatch: ' + name)
+          print('Both hosted asset sizes and SHA-256 digests verified.')
+          PY
+      - name: Replace private transfer notes and publish as non-latest
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat > "$RUNNER_TEMP/province-notes.md" <<'NOTES'
+          ## افزونهٔ تصاویر ۳۱ استان — ۱٫۰٫۰
+          - بستهٔ مستقل نصب وردپرس با هر ۳۱ تصویر؛ ۲۳ تصویر تیره روشن‌تر شده‌اند و اصل تصاویر تغییر نکرده است.
+          - برش محافظه‌کارانهٔ حاشیهٔ بیرونی ۱۲ تصویر؛ کاهش مجموع حجم تصاویر حدود ۷٫۷٪.
+          - نگاشت و پیش‌نمایش در رسانه ← تصاویر ۳۱ استان، جایگزینی قابل بازگردانی، بدون حذف فایل قدیمی.
+          - نمایش فقط در مقالهٔ استان و متادیتای اشتراک‌گذاری؛ ممنوعیت عمومی تصاویر شاخص قالب حفظ شده است.
+          - فعال‌سازی به‌تنهایی هیچ تصویری وارد یا جایگزین نمی‌کند؛ پیش از اعمال، مقصدها را بررسی کنید.
+          - آزمون‌ها و صحت بایت‌به‌بایت ZIP، کد، تصاویر و دارایی‌های میزبانی‌شده بررسی شده‌اند؛ نصب روی سایت زنده انجام نشده است.
+          
+          **نصب:** فایل `sa-province-covers-1.0.0.zip` را دریافت کنید، نه Source code.zip؛ فایل SHA-256 نیز پیوست است.
+          ریلیز اصلی قالب ۲٫۲۲٫۷ همچنان Latest می‌ماند. گزارش کامل: `docs/PROVINCE_COVERS_1.0.0_QA.md`.
+          NOTES
+          gh release edit "$TAG" --notes-file "$RUNNER_TEMP/province-notes.md" --draft=false --latest=false
