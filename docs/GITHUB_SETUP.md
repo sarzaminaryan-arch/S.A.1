@@ -32,6 +32,27 @@
 - **پیشنهاد:** Rulesetها (در `Settings > Rules > Rulesets`) جایگزین مدرن‌تری برای Branch protection هستند
   و در صورت تمایل می‌توان همان چهار قانون را آن‌جا تعریف کرد.
 
+## 🌱 ایجاد شاخهٔ `develop` (توسط مالک)
+
+ایجنت‌ها در این محیط اجازهٔ push روی شاخه‌ای جز شاخهٔ کاریِ خود را ندارند؛ بنابراین ساخت `develop`
+و ادغام در `main` باید توسط شما انجام شود:
+
+```bash
+# ۱) ادغام شاخهٔ جلسه در main (یا با یک کلیک روی دکمهٔ Merge در PR #26)
+git checkout main
+git pull origin main
+git merge arena/6b44d15d-s-a-1     # fast-forward، بدون تداخل
+git push origin main
+
+# ۲) ساخت شاخهٔ توسعه از روی main
+git checkout main && git pull origin main
+git checkout -b develop
+git push -u origin develop
+```
+
+پس از ساخت `develop`، در تنظیمات گیت‌هاب برای آن **Do not allow force pushes** را فعال کنید.
+توجه: workflow محافظت (`protect.yml`) روی هر دو شاخهٔ `main` و `develop` اجرا می‌شود.
+
 ## 🔐 محافظتِ تکمیلیِ پیشنهادی
 
 | مورد | مسیر در گیت‌هاب | پیشنهاد |

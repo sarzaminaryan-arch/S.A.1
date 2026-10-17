@@ -35,6 +35,33 @@
 | ۵ — حذف افزونگی | حذف `docs/project/01-ARCHITECTURE.md` و ارجاع ایندکس به فایل ریشه | `f629e66` |
 | ۶ — رهگیری و سنجش | `docs/CHANGELOG.md`، `docs/KNOWN_ISSUES.md`، `docs/DECISIONS.md`، `docs/AGENT_TEST.md` | یک کامیت یکجا |
 
+---
+
+### ۱۴۰۵/۰۷/۲۵ (۲۰۲۶-۱۰-۱۷) — Session #0 · بخش پایانی (ادغام و ممیزی اتصالات)
+
+- **Agent:** تکمیل حلقهٔ مستندسازی و آماده‌سازی زیرساخت
+
+- **Branch:** `arena/6b44d15d-s-a-1` · **PR:** [#26](https://github.com/sarzaminaryan-arch/S.A.1/pull/26) (OPEN · MERGEABLE)
+
+- **تغییرات:**
+
+  - خروجِ `imagetool (23).zip` از ردیابی گیت با `git rm --cached` (فایل فیزیکی باقی ماند) — کامیت `ed1ccb6`
+
+  - ایجاد `TESTING_CHECKLIST.md` در ریشه و `docs/START_PROMPT.txt` برای ایجنت‌های آینده
+
+  - **ممیزی اتصالات خارجی:** بررسی ۶۸۶ فایل برای `notion` · `linear` · `drive.google` · `docs.google` · `webhook` · `api_key`
+    → نتیجه: **هیچ اتصال کدی به Notion / Linear / Google Drive / Google Docs وجود ندارد**؛
+    گزارش کامل در `docs/CONNECTORS_AUDIT.md`، و دو موردِ کم‌اهمیت با شماره‌های ۱۶ و ۱۷ به `KNOWN_ISSUES.md` افزوده شد
+
+  - به‌روزرسانی `PROJECT_STATUS.md`، `CLAUDE.md` و `KNOWN_ISSUES.md` با وضعیتِ پایانِ جلسه
+
+- **نتیجه:** ✅ موفق — ۹ کامیت پوش‌شده روی شاخه؛ ادغام در `main` توسط مالک (یک کلیک روی PR #26)
+
+**نکتهٔ مهم برای جلسهٔ بعد:** ایجنت در این محیط **اجازهٔ push روی `main` و `develop` ندارد**؛
+بنابراین ادغام و ساخت شاخهٔ `develop` باید توسط مالک انجام شود (دستورات در `docs/GITHUB_SETUP.md`).
+
+---
+
 **نکتهٔ فنی جلسه:** کلون اولیه shallow (عمق ۱) بود و فقط یک کامیت دیده می‌شد؛ با
 `git fetch --deepen=60` تاریخچه تا ۲۶۷ کامیت بازیابی شد و گزارشِ مرحلهٔ ۱ روی آن بنا شد.
 همچنین شمارش دوبارهٔ توابع نشان داد عدد واقعی **۶۳۹** تابع با پیشوند `sa_` است (از ۷۳۰ تابع کل فرزند).
