@@ -108,6 +108,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          echo "TAG=$TAG TAG_EXISTS=$TAG_EXISTS ASSET=$ASSET"
+          ls -l release/
           publish() {
             if [[ "$TAG_EXISTS" != 'true' ]]; then
               gh release create "$TAG" "release/$ASSET" "release/$ASSET.sha256" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
@@ -121,5 +123,10 @@ jobs:
                 --notes "افزونهٔ قابل نصب وردپرس برای پاک‌سازی جمله‌های هوش مصنوعی از مقاله‌های منتشرشده."
             fi
           }
-          publish
+          if ! publish >publish.log 2>&1; then
+            echo "::error title=Publish failed::$(tail -c 1500 publish.log | tr '\n' ' ')"
+            cat publish.log
+            exit 1
+          fi
+          cat publish.log
           gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fx "$ASSET" >/dev/null
