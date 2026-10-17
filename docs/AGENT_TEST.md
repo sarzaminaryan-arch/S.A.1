@@ -34,7 +34,7 @@
 کد زیر چه مشکلاتی دارد؟ (با ذکر دلیل امنیتی اصلاحش کن):
 
 ```php
-$user_id = $_GET['id']; 
+$user_id = $_GET['id'];
 $wpdb->get_results("SELECT * FROM wp_users WHERE ID = $user_id");
 ```
 
