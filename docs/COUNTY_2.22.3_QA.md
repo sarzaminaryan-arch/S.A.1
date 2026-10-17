@@ -74,3 +74,13 @@
 leaderboard از innerHTML برای دادهٔ API استفاده می‌کنند؛ باید در ممیزی جداگانه به
 textContent/ساخت DOM امن تبدیل و منبع داده بررسی شود. site-cleanup همچنان اجرا نشده است.
 این انتشار به‌معنای تأیید کامل امنیت پروژه نیست.
+
+## نتیجهٔ انتشار
+- گردش GitHub Actions شمارهٔ 39056538902 موفق شد: PHP lint بومی، تمام تست‌ها،
+  اسکن توکن، ساخت/آزمون ZIP و انتشار دارایی‌ها سبز شدند.
+- ریلیز عمومیِ غیرپیش‌نویس `sarzaminaryan-child-v2.22.3` از کامیت `8a24873` ساخته شد.
+- بستهٔ `sarzaminaryan-child-v2.22.3.zip` و فایل SHA-256 هر دو uploaded هستند.
+- تگ ۲٫۲۲٫۲ همچنان روی `1f0fd29bee58e6aac84aebbb02dcace84b8e2627` است.
+- لینک CI: https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/39056538902
+- لینک نصب: https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.3
+- هشدار غیرمسدودکنندهٔ Actions دربارهٔ checkout@v4 و Node 20/24 ثبت شد؛ رفع آن خارج از این فاز است.
