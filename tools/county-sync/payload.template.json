@@ -1,0 +1,53 @@
+{
+  "_comment": [
+    "قالبِ فایل دادهٔ شناسنامهٔ شهرستان. هر شهرستان یک رکورد در counties است.",
+    "قاعدهٔ اصلی: هر کلید داخل meta باید همان کلید داخل sources را با منبع معتبر پر داشته باشد؛",
+    "کلید بی‌منبع توسط sync_county_meta.py رد می‌شود و روی سایت نوشته نمی‌شود.",
+    "کلید خالی یا حذف‌شده یعنی آن خانه در کارت شناسنامه نمایش داده نمی‌شود (نه «نامشخص»).",
+    "population فقط با population_year نوشته می‌شود؛ lat و lng فقط با هم و در بازهٔ معتبر.",
+    "فهرست کلیدهای مجاز مستقیماً از inc/county-profile.php قالب خوانده می‌شود."
+  ],
+  "batch": "samples",
+  "modified_date": "",
+  "counties": [
+    {
+      "slug": "dorud",
+      "meta": {
+        "county_en": "",
+        "province_id": "",
+        "center_fa": "",
+        "center_en": "",
+        "main_city": "",
+        "main_city_en": "",
+        "population": "",
+        "population_year": "",
+        "area_km2": "",
+        "elevation_m": "",
+        "divisions_bakhsh": "",
+        "divisions_shahr": "",
+        "divisions_dehestan": "",
+        "divisions_rosta": "",
+        "climate_short": "",
+        "best_season": "",
+        "neighbors_n": "",
+        "neighbors_s": "",
+        "neighbors_e": "",
+        "neighbors_w": "",
+        "language_main": "",
+        "economy_main": "",
+        "distance_to_capital_km": "",
+        "lat": "",
+        "lng": "",
+        "history_now": "",
+        "industry_main": "",
+        "agriculture_main": ""
+      },
+      "sources": {
+        "county_en": "",
+        "population": "مرکز آمار ایران — نتایج سرشماری عمومی نفوس و مسکن ۱۳۹۵ (جدول شهرستان‌ها)",
+        "divisions_bakhsh": "تقسیمات کشوری وزارت کشور — فهرست رسمی بخش‌ها و دهستان‌ها"
+      },
+      "notes": "منابع مجاز: مرکز آمار ایران، استانداری/فرمانداری، میراث فرهنگی استان، هواشناسی، کتاب/پژوهش منتشرشده. ویکی‌پدیا فقط سرنخ است."
+    }
+  ]
+}

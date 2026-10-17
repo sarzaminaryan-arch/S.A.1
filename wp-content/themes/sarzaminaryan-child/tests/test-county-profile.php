@@ -10,6 +10,11 @@
  * link only when a county page exists, invalid coordinates produce no
  * map link, and the empty-field report lists exactly the missing keys.
  *
+ * Phase 1.5 adds: the «مهم‌ترین شهر» tile (`11 // MAIN_CITY`, keys
+ * main_city / main_city_en, linked only to a published page), the rule that
+ * population is never shown without its census year, and static source checks
+ * that the card template drops empty tiles instead of printing a placeholder.
+ *
  * @package Sarzaminaryan_Child
  */
 
@@ -248,5 +253,44 @@ $GLOBALS['t']['meta'][22] = array( 'sa_cty_villages' => '41', 'industry_main' =>
 $d6 = sa_county_profile_data( 22 );
 sa_t_eq( '41', $d6['divisions']['روستا'], 'villages fall back to sa_cty_villages' );
 sa_t_eq( 'متن نمونه صنعت', $d6['industry_main'], 'industry text carried to the under-card note' );
+
+/* 10 — main city (مهم‌ترین شهر): canonical keys, link only to a published page. */
+sa_t_post( 24, 'city', 'dezpart', 'دزپارت', 'draft' );
+$GLOBALS['t']['meta'][22] = array( 'main_city' => 'ریوش', 'main_city_en' => 'Riyesh' );
+$d7 = sa_county_profile_data( 22 );
+sa_t_eq( 'ریوش', $d7['main_city'], 'main city comes from the canonical main_city key' );
+sa_t_eq( 'Riyesh', $d7['main_city_en'], 'main city english name from main_city_en' );
+sa_t_eq( '', $d7['main_city_url'], 'a main city without its own page gets no link' );
+sa_t_eq( true, $d7['has_data'], 'the main city alone makes the card render' );
+$GLOBALS['t']['meta'][21] = array( 'main_city' => 'ازنا' );
+sa_t_eq( 'https://example.test/city/azna/', sa_county_profile_data( 21 )['main_city_url'], 'a registry name links to its published page' );
+$GLOBALS['t']['meta'][20]['main_city'] = 'borujerd';
+sa_t_eq( 'https://example.test/city/borujerd/', sa_county_profile_data( 20 )['main_city_url'], 'a slug links to its published page' );
+$GLOBALS['t']['meta'][24] = array( 'main_city' => 'dezpart' );
+sa_t_eq( '', sa_county_profile_data( 24 )['main_city_url'], 'a draft page is never linked' );
+$GLOBALS['t']['meta'][23] = array();
+sa_t_eq( '', sa_county_profile_data( 23 )['main_city'], 'no main city is invented when the meta is empty' );
+
+/* 11 — population is shown only together with its census year. */
+$GLOBALS['t']['meta'][20]['population'] = '174508';
+sa_t_eq( false, sa_county_profile_data( 20 )['population_shown'], 'population without a census year stays hidden' );
+$GLOBALS['t']['meta'][20]['population_year'] = '1395';
+$d8 = sa_county_profile_data( 20 );
+sa_t_eq( true, $d8['population_shown'], 'population with its census year is shown' );
+sa_t_eq( '174508', $d8['population'], 'population value is kept exactly as stored' );
+sa_t_eq( '1395', $d8['population_year'], 'census year is kept exactly as stored' );
+$GLOBALS['t']['meta'][22] = array( 'population' => '31903' );
+sa_t_eq( false, sa_county_profile_data( 22 )['population_shown'], 'a number without its year is never printed' );
+
+/* 12 — the card template obeys the output rules (static source checks). */
+$sa_tpl = (string) file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/county-profile.php' );
+sa_t_assert( '' !== $sa_tpl, 'the county identity-card template is readable' );
+sa_t_assert( false !== strpos( $sa_tpl, "'11 // MAIN_CITY'" ), 'the card renders the MAIN_CITY tile' );
+sa_t_assert( false !== strpos( $sa_tpl, 'sa_county_profile_main_city' ), 'the MAIN_CITY tile reads the canonical keys' );
+sa_t_assert( false !== strpos( $sa_tpl, 'wp_strip_all_tags' ) && false !== strpos( $sa_tpl, '$sa_county_cells = array_values(' ), 'empty tiles are removed instead of printed' );
+sa_t_assert( false !== strpos( $sa_tpl, '$sa_pop_num > 0 && $sa_pop_year > 0' ), 'population is printed only with its census year' );
+sa_t_assert( false === strpos( $sa_tpl, 'sa_city_population' ), 'the card never mixes a city number with the county one' );
+sa_t_assert( false !== strpos( $sa_tpl, '$sa_coord_valid' ), 'coordinates are validated before any map link' );
+sa_t_assert( false === strpos( $sa_tpl, '$sa_center = $sa_county_bare' ), 'the centre city is never inferred from the county name' );
 
 echo "ALL TESTS PASSED\n";
