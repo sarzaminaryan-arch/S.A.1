@@ -1,0 +1,80 @@
+# الگوهای پاک‌سازی جمله‌های هوش مصنوعی — این فایل را مالک ویرایش می‌کند.
+# هر الگو: id یکتا، regex، سطح (DELETE = حذف خودکار جمله | FLAG = فقط گزارش)، توضیح.
+# تطبیق روی متن نرمال‌شده انجام می‌شود (ی/ک عربی، نیم‌فاصله، اعراب و رقم‌ها یکسان‌اند)
+# پس لازم نیست شکل‌های مختلف یک عبارت را جدا بنویسید.
+# واحد حذف همیشه «کل جمله» است، نه کلمه. اگر شک دارید الگویی جملهٔ سالم را می‌گیرد،
+# سطحش را FLAG بگذارید، نه DELETE.
+patterns:
+  # ---------- DELETE: حذف خودکار ----------
+  - id: human-review-phrase
+    regex: 'برای بازبینی و ویرایش انسانی'
+    level: DELETE
+    description: 'برچسب بازبینی و ویرایش انسانی روی پیش‌نویس'
+
+  - id: human-edit-or-review
+    regex: '(ویرایش انسانی|بازبینی انسانی)'
+    level: DELETE
+    description: 'اشاره به ویرایش/بازبینی انسانی'
+
+  - id: before-final-publish
+    regex: 'پیش از (انتشار|ویرایش) نهایی'
+    level: DELETE
+    description: 'جملهٔ فرایندی پیش از انتشار/ویرایش نهایی'
+
+  - id: must-match-official-sources
+    regex: 'باید با .{0,60}(مرکز آمار|وزارت کشور|منابع رسمی).{0,60} تطبیق داده شو(د|ند)'
+    level: DELETE
+    description: 'دستور تطبیق با مرکز آمار/وزارت کشور/منابع رسمی — جملهٔ فرایندی، نه محتوای مقاله'
+
+  - id: needs-check-or-source
+    regex: '(نیاز به|نیازمند) (بررسی|تأیید|بازبینی|منبع)'
+    level: DELETE
+    description: 'نیاز به بررسی/تأیید/بازبینی/منبع'
+
+  - id: this-article-introduces
+    regex: 'این مقاله .{0,120} را .{0,40}معرفی می‌کند'
+    level: DELETE
+    description: 'جملهٔ متای «این مقاله … را معرفی می‌کند»'
+
+  - id: documented-approach
+    regex: 'با رویکرد مستند'
+    level: DELETE
+    description: 'عبارت قالبی «با رویکرد مستند»'
+
+  - id: as-ai-language-model
+    regex: 'به عنوان (یک )?(مدل زبانی|هوش مصنوعی)'
+    level: DELETE
+    description: 'خودمعرفی مدل زبانی/هوش مصنوعی'
+
+  - id: placeholder-fa
+    regex: '(\[نیاز به منبع\]|\[منبع\]|\bTODO\b|\bTBD\b|\bXXX\b|\{\{[^}]+\}\})'
+    level: DELETE
+    description: 'عبارت جایگزین: [نیاز به منبع]، [منبع]، TODO، TBD، XXX، {{...}}'
+
+  - id: english-ai-traces
+    regex: '(as an AI|language model|I hope this helps|placeholder|lorem ipsum)'
+    level: DELETE
+    description: 'ردپای انگلیسی هوش مصنوعی'
+
+  # ---------- FLAG: فقط گزارش، بدون حذف ----------
+  - id: in-this-article-we-review
+    regex: 'در این مقاله به بررسی .{0,60} می‌پردازیم'
+    level: FLAG
+    description: '«در این مقاله به بررسی … می‌پردازیم» — ممکن است در متن سالم هم بیاید'
+
+  - id: hope-this-article
+    regex: 'امیدوارم این (مقاله|مطلب)'
+    level: FLAG
+    description: '«امیدوارم این مقاله/مطلب …»'
+
+  - id: generic-filler
+    regex: '(لازم به ذکر است|به طور کلی|در پایان می‌توان گفت)'
+    level: FLAG
+    description: 'پیونددهنده‌های کلی و پرکننده'
+
+  # جمله‌ای که عیناً در بیش از ۳ مقاله تکرار شده باشد با همین id گزارش می‌شود؛
+  # regex ندارد و موتور تکرار بین‌مقاله‌ای آن را فعال می‌کند (حذف نمی‌شود).
+  - id: duplicate-sentence
+    regex: ''
+    level: FLAG
+    description: 'جملهٔ تکراری عیناً در بیش از ۳ مقاله (فقط گزارش)'

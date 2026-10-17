@@ -1,12 +1,14 @@
 <?php
 /**
  * Generic entity page (province/city/attraction/route/food/souvenir).
- * Province pages begin with the source-aware identity card; other entities use the
- * shared key-facts card. Remaining order: hero → lead → rating (city) → content →
- * FAQ → county blocks → public contribution (city) → related → nav → sources (last).
  *
- * v2.11.0: بلوک امتیاز کاربران به بالای «اطلاعات کلیدی» آمد؛ بلوک مشارکت مردمی
- * از فوتر به داخل صفحه (پیش از منابع) منتقل شد و «منابع» آخرین بخش صفحه است.
+ * v2.19.2:
+ * - Attraction featured images are hidden by default.
+ * - Each of the 3 primary entities (`province`, `city`, `attraction`) displays its own
+ *   Cyber-Tech Light-Mode Tabular Identity Card (`شناسنامه`) at the top of the page.
+ * - Duplicate lead paragraphs and duplicate `اطلاعات کلیدی` (`facts.php`) boxes are
+ *   omitted on `province`, `city`, and `attraction` so information inside the `شناسنامه`
+ *   is never repeated outside it.
  *
  * @package Sarzaminaryan_Child
  */
@@ -14,36 +16,43 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
 $sa_id   = get_the_ID();
-$sa_type = get_post_type();
+$sa_type = get_post_type( $sa_id );
 ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'sa-entity-page' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class( 'sa-entity-page sa-entity sa-entity--' . esc_attr( $sa_type ) ); ?>>
 
 	<?php get_template_part( 'template-parts/entity/hero' ); ?>
 
 	<div class="container sa-entity__layout">
 		<?php
-		$sa_profile = 'province' === $sa_type ? sa_province_profile( get_post_field( 'post_name', $sa_id ) ) : null;
-		if ( $sa_profile ) {
+		if ( 'province' === $sa_type ) {
 			get_template_part( 'template-parts/entity/province-identity' );
+		} elseif ( 'city' === $sa_type ) {
+			get_template_part( 'template-parts/entity/county-profile' );
+		} elseif ( 'attraction' !== $sa_type ) {
+			if ( has_excerpt() ) {
+				echo '<p class="sa-entity__lead">' . esc_html( get_the_excerpt() ) . '</p>';
+			}
+			get_template_part( 'template-parts/entity/facts' );
 		}
 		?>
-
-		<?php if ( has_excerpt() ) : ?>
-			<p class="sa-entity__lead"><?php echo esc_html( get_the_excerpt() ); ?></p>
-		<?php endif; ?>
 
 		<?php if ( 'city' === $sa_type && class_exists( 'CC_UI' ) ) : ?>
 			<?php CC_UI::rating_block(); ?>
 		<?php endif; ?>
 
-		<?php if ( ! $sa_profile ) : ?>
-			<?php get_template_part( 'template-parts/entity/facts' ); ?>
+		<?php if ( 'attraction' === $sa_type && function_exists( 'sa_attraction_featured_figure' ) && function_exists( 'sa_attraction_images_visible' ) && sa_attraction_images_visible() ) : ?>
+			<?php echo sa_attraction_featured_figure( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php endif; ?>
 
-		<?php get_template_part( 'template-parts/entity/county-profile' ); ?>
+		<?php
+		if ( function_exists( 'sa_toc_register_tail' ) ) {
+			sa_toc_register_tail( $sa_id );
+		}
+		?>
 
-		<div class="entry-content">
+		<div class="sa-entity__content entry-content">
 			<?php the_content(); ?>
 		</div>
 
@@ -51,20 +60,26 @@ $sa_type = get_post_type();
 
 		<?php get_template_part( 'template-parts/entity/county-siblings' ); ?>
 
-
 		<?php get_template_part( 'template-parts/entity/gallery' ); ?>
 
 		<?php if ( 'city' === $sa_type && class_exists( 'CC_UI' ) ) : ?>
 			<?php CC_UI::contrib_block(); ?>
 		<?php endif; ?>
 
-		<?php sa_related_articles( $sa_id, $sa_type ); ?>
-
-		<?php sa_entity_navigation( $sa_id, $sa_type ); ?>
-
-		<?php sa_sources_section( $sa_id ); ?>
-
-		<?php sa_facts_checked_note( $sa_id ); ?>
+		<?php
+		if ( function_exists( 'sa_related_articles' ) ) {
+			sa_related_articles( $sa_id, $sa_type );
+		}
+		if ( function_exists( 'sa_entity_navigation' ) ) {
+			sa_entity_navigation( $sa_id, $sa_type );
+		}
+		if ( function_exists( 'sa_sources_section' ) ) {
+			sa_sources_section( $sa_id );
+		}
+		if ( function_exists( 'sa_facts_checked_note' ) ) {
+			sa_facts_checked_note( $sa_id );
+		}
+		?>
 	</div>
 
 </article>

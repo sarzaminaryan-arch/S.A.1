@@ -45,23 +45,23 @@ $sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر ی�
    اگر در سفارشی‌سازی عدد دستی گذاشته باشید، همان اولویت دارد. */
 $sa_counts    = function_exists( 'sa_entity_counts' ) ? (array) sa_entity_counts() : array();
 $sa_stat1_num = get_theme_mod( 'sa_stat1_num', isset( $sa_counts['province'] ) ? (string) (int) $sa_counts['province'] : '31' );
-$sa_stat1_lb  = get_theme_mod( 'sa_stat1_label', 'استان' );
+$sa_stat1_lb  = get_theme_mod( 'sa_stat1_label', 'استان‌ها' );
 $sa_stat2_num = get_theme_mod( 'sa_stat2_num', isset( $sa_counts['city'] ) ? (string) (int) $sa_counts['city'] : '0' );
 $sa_stat2_suf = get_theme_mod( 'sa_stat2_suffix', '' );
-$sa_stat2_lb  = get_theme_mod( 'sa_stat2_label', 'شهرستان' );
+$sa_stat2_lb  = get_theme_mod( 'sa_stat2_label', 'شهرستان‌ها' );
+$sa_stat_attr = isset( $sa_counts['attraction'] ) ? (int) $sa_counts['attraction'] : 0;
 $sa_latest_h2 = get_theme_mod( 'sa_sec_latest_title', 'آخرین مقالات' );
 /* v2.13.5: بخش «پست‌های معروف» به درخواست مالک از صفحهٔ اول حذف شد. */
-/* v2.13.1: «آموزش‌ها» (دستهٔ آموزش‌های ضروری کمپینگ و بقا) کنار استان‌ها، شهرستان‌ها و دیدنی‌ها:
-   چیپ هیرو، کارت آمار سوم و یک بخش جدا با آخرین آموزش‌ها. تا وقتی آموزشی منتشر نشده
-   (پیش‌نویس‌ها در انتظار تأیید مالک)، هیچ‌کدام نشان داده نمی‌شوند تا لینکِ آرشیو خالی نسازیم. */
+/* v2.13.1 / v2.19.0: ساختار چهارگانهٔ سایت: استان‌ها، شهرستان‌ها، دیدنی‌ها، آموزش (طبیعت‌گردی و بقا). */
 $sa_edu_nav   = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
 $sa_edu_term  = function_exists( 'sa_education_category' ) ? sa_education_category() : null;
+$sa_edu_full  = function_exists( 'sa_education_full_label' ) ? sa_education_full_label() : 'آموزش (طبیعت‌گردی و بقا)';
 $sa_edu_h2    = get_theme_mod( 'sa_sec_edu_title', '' );
 if ( '' === trim( (string) $sa_edu_h2 ) ) {
-	$sa_edu_h2 = $sa_edu_term ? $sa_edu_term->name : 'آموزش‌های ضروری کمپینگ و بقا';
+	$sa_edu_h2 = $sa_edu_full;
 }
 $sa_edu_intro = get_theme_mod( 'sa_sec_edu_intro', 'پیش از سفر به طبیعت بخوانید: تجهیزات، آتش، آب آشامیدنی، کاردستی‌های اضطراری و نجات غریق — گام‌به‌گام، با منابع رسمی و هشدارهای ایمنی.' );
-$sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
+$sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گردی و بقا)' );
 ?>
 
 <style>
@@ -96,10 +96,10 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .sa-chips a{padding:6px 16px;border-radius:99px;background:#edf6ff;border:1px solid #bdd8f1;color:var(--navy);font-size:14px;font-weight:600;text-decoration:none;transition:.25s}
 .sa-chips a:hover,.sa-chips a:focus-visible{background:var(--navy);border-color:var(--navy);color:#fff;outline:0}
-.sa-dash-cta{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:13px 28px;border-radius:99px;background:linear-gradient(135deg,#177357 0%,#0e93a0 130%);color:#fff;font-size:16px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(14,147,160,.55),0 2px 6px rgba(7,26,48,.2);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
-.sa-dash-cta svg{flex:none}
-.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(14,147,160,.65),0 3px 8px rgba(7,26,48,.24);filter:brightness(1.06);color:#fff;outline:0}
-.sa-dash-cta small{font-size:12px;font-weight:500;opacity:.85}
+.sa-dash-cta{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,#04101f 0%,#071f36 100%);border:1.5px solid #00ff9d;color:#fff;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(0,255,157,.38),0 2px 8px rgba(7,26,48,.35);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.sa-dash-cta svg{flex:none;color:#00ff9d}
+.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(0,255,157,.55),0 3px 8px rgba(7,26,48,.4);filter:brightness(1.08);color:#fff;outline:0}
+.sa-dash-cta small{font-family:Consolas,"JetBrains Mono",monospace;font-size:11.5px;font-weight:800;color:#00ff9d;letter-spacing:.05em}
 @media(prefers-reduced-motion:reduce){.sa-dash-cta{transition:none}.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:none}}
 .sa-map{position:relative}
 .sa-map:before{content:"";position:absolute;inset:8% 4%;border-radius:50%;background:radial-gradient(circle,rgba(36,109,168,.24),transparent 68%)}
@@ -146,13 +146,15 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 .sa-chips a.sa-chip--edu{background:#e8f6ee;border-color:#9bd1b3;color:#0f5132}
 .sa-chips a.sa-chip--edu:hover,.sa-chips a.sa-chip--edu:focus-visible{background:#0f5132;border-color:#0f5132;color:#fff}
 .sa-stats .sa-wrap--3{max-width:980px;grid-template-columns:repeat(3,1fr)}
+.sa-stats .sa-wrap--4{max-width:1180px;grid-template-columns:repeat(4,1fr)}
 .sa-stats a.sa-st{color:inherit;text-decoration:none;transition:transform .3s}.sa-stats a.sa-st:hover,.sa-stats a.sa-st:focus-visible{transform:translateY(-3px)}
 .sa-sec--edu .sa-head{border-inline-start-color:#177357}
 .sa-sec__intro{margin:-12px 0 26px;max-width:720px;color:var(--mut);font-size:16px}
 .sa-post .sa-tag{display:inline-block;margin-inline-start:8px;padding:1px 9px;border-radius:99px;background:#e8f6ee;color:#0f5132;font-size:11.5px;font-weight:700}
 /* v2.15.0: بخش آموزش‌ها با نوارهای سفید سایه‌دار (مانند فهرست استان‌ها/شهرستان‌ها) — بدون تصویر زمینه. */
 .sa-sec--edu .sa-bars{margin-top:2px}
-@media(max-width:640px){.sa-stats .sa-wrap--3{gap:10px}.sa-wrap--3 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span{font-size:13px}}
+@media(max-width:900px){.sa-stats .sa-wrap--4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.sa-stats .sa-wrap--3,.sa-stats .sa-wrap--4{gap:10px}.sa-wrap--3 .sa-st,.sa-wrap--4 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b,.sa-wrap--4 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span,.sa-wrap--4 .sa-st span{font-size:13px}}
 </style>
 
 <div class="sa-home" id="sa-home">
@@ -181,15 +183,15 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 						<a href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>"><?php echo esc_html( sa_entity_label( $sa_type, true ) ); ?></a>
 					<?php endforeach; ?>
 					<?php if ( $sa_edu_nav ) : ?>
-						<a class="sa-chip--edu" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><?php echo esc_html( $sa_edu_nav['label'] ); ?></a>
+						<a class="sa-chip--edu" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><?php echo esc_html( $sa_edu_full ); ?></a>
 					<?php endif; ?>
 				</div>
 				<?php $sa_dash_url = function_exists( 'sa_dashboard_page_url' ) ? sa_dashboard_page_url() : ''; ?>
 				<?php if ( $sa_dash_url ) : ?>
 					<a class="sa-dash-cta" href="<?php echo esc_url( $sa_dash_url ); ?>">
-						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 20V9M10 20V4M16 20v-8M21 20H3"/></svg>
-						<span>داشبورد جامع گردشگری ایران</span>
-						<small>۳۱ استان، نقشه و نمودارها</small>
+						<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3z"/><path d="M9 3v15M15 6v15"/></svg>
+						<span>داشبورد سایبری و نقشهٔ تعاملی شناسنامهٔ ایران</span>
+						<small dir="ltr">CYBER MAP // 31 PROVINCES · 483 COUNTIES</small>
 					</a>
 				<?php endif; ?>
 			</div>
@@ -228,10 +230,29 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 	}
 	?>
 
-	<section class="sa-stats" id="sa-stats">
-		<div class="sa-wrap<?php echo $sa_edu_nav ? ' sa-wrap--3' : ''; ?>">
-			<div class="sa-st" style="--c:#123f73"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b><span><?php echo esc_html( $sa_stat1_lb ); ?></span></div>
-			<div class="sa-st" style="--c:#246da8"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b><span><?php echo esc_html( $sa_stat2_lb ); ?></span></div>
+	<?php
+	$sa_nav_types   = sa_nav_entity_types();
+	$sa_has_prov    = in_array( 'province', $sa_nav_types, true );
+	$sa_has_city    = in_array( 'city', $sa_nav_types, true );
+	$sa_has_attr    = in_array( 'attraction', $sa_nav_types, true ) && $sa_stat_attr > 0;
+	$sa_stats_cols  = 2 + ( $sa_has_attr ? 1 : 0 ) + ( $sa_edu_nav ? 1 : 0 );
+	$sa_stats_class = 4 === $sa_stats_cols ? ' sa-wrap--4' : ( 3 === $sa_stats_cols ? ' sa-wrap--3' : '' );
+	?>
+	<section class="sa-stats" id="sa-stats" aria-label="چهار بخش اصلی سرزمین آریان">
+		<div class="sa-wrap<?php echo esc_attr( $sa_stats_class ); ?>">
+			<?php if ( $sa_has_prov ) : ?>
+				<a class="sa-st" style="--c:#123f73" href="<?php echo esc_url( sa_archive_url( 'province' ) ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b><span><?php echo esc_html( $sa_stat1_lb ); ?></span></a>
+			<?php else : ?>
+				<div class="sa-st" style="--c:#123f73"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b><span><?php echo esc_html( $sa_stat1_lb ); ?></span></div>
+			<?php endif; ?>
+			<?php if ( $sa_has_city ) : ?>
+				<a class="sa-st" style="--c:#246da8" href="<?php echo esc_url( sa_archive_url( 'city' ) ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b><span><?php echo esc_html( $sa_stat2_lb ); ?></span></a>
+			<?php else : ?>
+				<div class="sa-st" style="--c:#246da8"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b><span><?php echo esc_html( $sa_stat2_lb ); ?></span></div>
+			<?php endif; ?>
+			<?php if ( $sa_has_attr ) : ?>
+				<a class="sa-st" style="--c:#0b7285" href="<?php echo esc_url( sa_archive_url( 'attraction' ) ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_stat_attr ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat_attr ) ); ?></b><span>دیدنی‌ها</span></a>
+			<?php endif; ?>
 			<?php if ( $sa_edu_nav ) : ?>
 				<a class="sa-st" style="--c:#177357" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_edu_nav['count'] ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_edu_nav['count'] ) ); ?></b><span><?php echo esc_html( $sa_stat3_lb ); ?></span></a>
 			<?php endif; ?>
@@ -239,6 +260,30 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش' );
 	</section>
 
 	<?php /* v2.13.3: بخش «استان‌های ایران» (نوارهای سفید) به درخواست مالک از صفحهٔ اول حذف و به آرشیو استان‌ها (/province/) منتقل شد. */ ?>
+
+	<?php
+	/* ---- بخش ۳ از ۴ ستون سایت: دیدنی‌ها (v2.19.0) ---- */
+	$sa_attr_q = $sa_has_attr ? new WP_Query(
+		array(
+			'post_type'           => 'attraction',
+			'post_status'         => 'publish',
+			'posts_per_page'      => 12,
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
+		)
+	) : null;
+	if ( $sa_attr_q && $sa_attr_q->have_posts() && function_exists( 'sa_attraction_bars_html' ) ) :
+		$sa_attr_bars = sa_attraction_bars_html( $sa_attr_q->posts );
+		?>
+		<?php if ( '' !== $sa_attr_bars ) : ?>
+		<section class="sa-sec sa-sec--attr" id="sa-attractions">
+			<div class="sa-wrap">
+				<div class="sa-head"><h2>دیدنی‌های ایران</h2><a href="<?php echo esc_url( sa_archive_url( 'attraction' ) ); ?>">همه‌ی دیدنی‌ها</a></div>
+				<?php echo $sa_attr_bars; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
+			</div>
+		</section>
+		<?php endif; ?>
+	<?php endif; wp_reset_postdata(); ?>
 
 	<?php
 	/* ---- آموزش‌ها (v2.13.1): آخرین آموزش‌های منتشرشدهٔ دستهٔ کمپینگ و بقا ----
