@@ -260,7 +260,7 @@ function sa_county_sources( $post_id ) {
 /** Render the single consolidated source list at the bottom of the county page. */
 function sa_county_sources_section( $post_id ) {
 	$sources = sa_county_sources( $post_id );
-	if ( ! $sources ) {
+	if ( ! $sources && ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
 	}
 	echo '<section class="sa-sources" id="sources"><h2>' . esc_html__( 'منابع و پانویس‌ها', 'sarzaminaryan-child' ) . '</h2><ol>';
