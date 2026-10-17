@@ -311,29 +311,61 @@ function sa_county_google_map( $post_id ) {
 	echo '<section class="sa-county-map" aria-label="' . esc_attr__( 'نقشه شهرستان', 'sarzaminaryan-child' ) . '"><iframe src="' . esc_url( $url ) . '" title="' . esc_attr( get_the_title( $post_id ) ) . '" width="640" height="240" loading="lazy" referrerpolicy="no-referrer" allowfullscreen></iframe></section>';
 }
 
-/** Known provinces only: no same-province or unknown-province fallback. */
-function sa_county_related_articles( $post_id ) {
-	$province = sa_county_profile_province_post( $post_id );
-	if ( ! $province ) {
-		return;
-	}
-	$query = new WP_Query( array(
-		'post_type' => 'city', 'post_status' => 'publish', 'posts_per_page' => 3,
-		'orderby' => 'rand', 'post__not_in' => array( (int) $post_id ), 'no_found_rows' => true,
-		'meta_query' => array(
-			'relation' => 'OR',
-			array( 'relation' => 'AND',
-				array( 'key' => 'province_id', 'value' => (int) $province->ID, 'compare' => '!=', 'type' => 'NUMERIC' ),
-				array( 'key' => 'province_id', 'value' => 0, 'compare' => '>', 'type' => 'NUMERIC' ),
-			),
-			array( 'relation' => 'AND',
-				array( 'relation' => 'OR', array( 'key' => 'province_id', 'compare' => 'NOT EXISTS' ), array( 'key' => 'province_id', 'value' => '', 'compare' => '=' ) ),
-				array( 'key' => 'sa_province_id', 'value' => (int) $province->ID, 'compare' => '!=', 'type' => 'NUMERIC' ),
-				array( 'key' => 'sa_province_id', 'value' => 0, 'compare' => '>', 'type' => 'NUMERIC' ),
-			),
-		),
+/**
+ * Read only province relations with a single bounded join, not a meta self-join
+ * for each OR/NOT EXISTS/range clause. First stored value matches get_post_meta.
+ * No persistent cache: publication/relation edits are visible on the next request.
+ *
+ * @return int[] Counties with a positive relation to a different province.
+ */
+function sa_county_related_candidates( $post_id, $province_id ) {
+	global $wpdb;
+	$started = microtime( true );
+	$rows = $wpdb->get_results( $wpdb->prepare(
+		"SELECT p.ID, m.meta_key, m.meta_value FROM {$wpdb->posts} p
+		INNER JOIN {$wpdb->postmeta} m ON m.post_id = p.ID AND m.meta_key IN (%s, %s)
+		WHERE p.post_type = %s AND p.post_status = %s ORDER BY m.meta_id ASC",
+		'province_id', 'sa_province_id', 'city', 'publish'
 	) );
-	sa_cards_section( $query->posts, __( 'مقالات مرتبط', 'sarzaminaryan-child' ), '', 'related-articles' );
+	if ( function_exists( 'sa_county_timing' ) ) { sa_county_timing( 'related_relations', $started ); }
+	$relations = array();
+	foreach ( (array) $rows as $row ) {
+		$id = (int) $row->ID;
+		if ( ! isset( $relations[ $id ] ) ) { $relations[ $id ] = array(); }
+		if ( ! array_key_exists( $row->meta_key, $relations[ $id ] ) ) {
+			$relations[ $id ][ $row->meta_key ] = trim( (string) $row->meta_value );
+		}
+	}
+	$ids = array();
+	foreach ( $relations as $id => $values ) {
+		$province = isset( $values['province_id'] ) ? $values['province_id'] : '';
+		if ( '' === $province ) { $province = isset( $values['sa_province_id'] ) ? $values['sa_province_id'] : ''; }
+		if ( $id !== (int) $post_id && ctype_digit( $province ) && (int) $province > 0 && (int) $province !== (int) $province_id ) {
+			$ids[] = (int) $id;
+		}
+	}
+	return $ids;
+}
+
+/** Random counties from a different known province, without SQL RAND/meta fan-out. */
+function sa_county_related_articles( $post_id ) {
+	$started = microtime( true );
+	try {
+		$province = sa_county_profile_province_post( $post_id );
+		if ( ! $province ) { return; }
+		$ids = sa_county_related_candidates( $post_id, $province->ID );
+		if ( ! $ids ) { return; } // WP_Query treats post__in=[] as unrestricted.
+		shuffle( $ids );
+		$cards_started = microtime( true );
+		$query = new WP_Query( array(
+			'post_type' => 'city', 'post_status' => 'publish', 'posts_per_page' => 3,
+			'post__in' => $ids, 'orderby' => 'post__in', 'no_found_rows' => true,
+		) );
+		sa_cards_section( $query->posts, __( 'مقالات مرتبط', 'sarzaminaryan-child' ), '', 'related-articles' );
+		if ( function_exists( 'sa_county_timing' ) ) { sa_county_timing( 'related_cards', $cards_started ); }
+	} finally {
+		if ( function_exists( 'sa_county_timing' ) ) { sa_county_timing( 'related_total', $started ); }
+	}
 }
 
 /** Late stylesheet, isolated from other entity types and the parent. */

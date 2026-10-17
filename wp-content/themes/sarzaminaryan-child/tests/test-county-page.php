@@ -77,8 +77,15 @@ $GLOBALS['context'] = true;
 sa_check( sa_citations_filter( 'county prose' ) === 'county prose', 'no duplicate automatic footnote section' );
 for ( $i = 1; $i <= 5; ++$i ) { sa_check( CC_Rating::display_stars( CC_Rating::storage_stars( $i ) ) === $i, 'five-star round trip ' . $i ); }
 foreach ( range( 1, 7 ) as $legacy ) { sa_check( CC_Rating::display_stars( $legacy ) >= 1 && CC_Rating::display_stars( $legacy ) <= 5, 'legacy rating remains bounded' ); }
+class SA_County_Relation_DB {
+	public $posts = 'IR_posts';
+	public $postmeta = 'IR_postmeta';
+	public function prepare( $sql, ...$args ) { return $sql; }
+	public function get_results( $sql ) { return array( (object) array( 'ID' => 43, 'meta_key' => 'province_id', 'meta_value' => '9' ), (object) array( 'ID' => 44, 'meta_key' => 'province_id', 'meta_value' => '8' ) ); }
+}
+$GLOBALS['wpdb'] = new SA_County_Relation_DB();
 sa_county_related_articles( 42 );
-sa_check( $GLOBALS['query_args']['orderby'] === 'rand' && $GLOBALS['query_args']['meta_query'][0][0]['value'] === 9 && $GLOBALS['query_args']['meta_query'][1][1]['compare'] === '!=', 'random query excludes current province' );
+sa_check( $GLOBALS['query_args']['orderby'] === 'post__in' && $GLOBALS['query_args']['post__in'] === array( 44 ) && empty( $GLOBALS['query_args']['meta_query'] ), 'random candidates exclude current province without SQL meta joins' );
 sa_check( $GLOBALS['cards_heading'] === 'مقالات مرتبط', 'exact related heading' );
 $template = file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/single.php' );
 $city_tail = substr( $template, strpos( $template, '$sa_county_parts =' ), strpos( $template, '<?php else : ?>', strpos( $template, '$sa_county_parts =' ) ) - strpos( $template, '$sa_county_parts =' ) );
