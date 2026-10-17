@@ -1,6 +1,14 @@
 __pycache__/
 *.pyc
 
+# ai_cleaner: توکن و وضعیت محلی هرگز کامیت نمی‌شوند
+.env
+.env.*
+!.env.example
+progress.json
+reports/
+.pytest_cache/
+
 # Generated packages and media must not live in the repository tree.
 # Publish installable ZIPs as GitHub Release assets instead.
 *.zip
