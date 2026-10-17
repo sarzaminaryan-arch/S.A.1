@@ -6,8 +6,8 @@ post type `city`)؛ جایی که ابزار خط فرمان `ai_cleaner` به �
 
 ## نصب
 
-1. از GitHub Release با برچسب `ai-cleaner-plugin-v1.0.0` فایل
-   `sa-ai-sentence-cleaner-1.0.0.zip` را بگیرید.
+1. از GitHub Release با برچسب `ai-cleaner-plugin-v1.0.1` فایل
+   `sa-ai-sentence-cleaner-1.0.1.zip` را بگیرید.
 2. پیشخوان وردپرس ← **افزونه‌ها ← افزودن ← بارگذاری افزونه** ← انتخاب ZIP ← نصب و فعال‌سازی.
 3. منوی تازهٔ **«پاک‌سازی AI»** در پیشخوان ظاهر می‌شود. قالب لازم نیست عوض شود.
 
@@ -43,7 +43,7 @@ post type `city`)؛ جایی که ابزار خط فرمان `ai_cleaner` به �
 
 ```bash
 python3 tools/build-ai-cleaner-plugin.py
-# خروجی: /tmp/sa-ai-sentence-cleaner-1.0.0.zip (خارج از درخت مخزن، طبق سیاست مخزن)
+# خروجی: /tmp/sa-ai-sentence-cleaner-1.0.1.zip (خارج از درخت مخزن، طبق سیاست مخزن)
 ```
 
 ## تست موتور

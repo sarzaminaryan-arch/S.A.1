@@ -4,7 +4,7 @@ Tags: ai, content, cleanup, persian, duplicate
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 اسکن مقاله‌های منتشرشده و حذف جمله‌های پیش‌نویس و ردپای هوش مصنوعی و جمله‌های تکراری بین مقاله‌ها، با پشتیبان و بازگردانی.

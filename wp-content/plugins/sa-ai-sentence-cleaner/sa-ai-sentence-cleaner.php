@@ -3,7 +3,7 @@
  * Plugin Name:       پاک‌سازی جمله‌های هوش مصنوعی (سرزمین آریان)
  * Plugin URI:        https://github.com/sarzaminaryan-arch/S.A.1
  * Description:       اسکن مقاله‌های منتشرشده، پیدا کردن جمله‌های پیش‌نویس و ردپای هوش مصنوعی و جمله‌های تکراری بین مقاله‌ها، و حذف کاملِ جمله‌های تأییدشده از همهٔ مقاله‌ها — فقط جمله، با پشتیبان و بازگردانی. هیچ نوشته، تیتر، جدول، تصویر، لینک یا منبع معتبری حذف نمی‌شود.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Requires at least: 6.4
  * Tested up to:      7.1
  * Requires PHP:      7.4
@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_AI_CLEANER_VERSION', '1.0.0' );
+define( 'SA_AI_CLEANER_VERSION', '1.0.1' );
 define( 'SA_AI_CLEANER_FILE', __FILE__ );
 define( 'SA_AI_CLEANER_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SA_AI_CLEANER_URL', plugin_dir_url( __FILE__ ) );
