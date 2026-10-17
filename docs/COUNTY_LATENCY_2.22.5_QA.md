@@ -56,5 +56,13 @@ FAQ، `wp_http_validate_url()` را در درخواست بازدیدکننده �
 
 ## انتشار
 
-نسخهٔ سه‌گانه ۲٫۲۲٫۵؛ انتشار و CI پس از push ثبت می‌شود. نسخه‌های قبلی محفوظ‌اند؛
-PR/merge انجام نمی‌شود.
+- CI [39071485215](https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/39071485215)
+  با نتیجهٔ success در ۱۹ ثانیه کامل شد؛ lint بومی PHP، همهٔ آزمون‌ها، اسکن
+  توکن و ساخت و انتشار ZIP/checksum موفق بودند.
+- [ریلیز ۲٫۲۲٫۵](https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.5)
+  غیرپیش‌نویس، از `3a248c5866b722178fff3a314e836c77fda7cb3a` منتشر شد؛ ZIP
+  نصب (asset `651661144`، حجم ۲۶٬۴۰۹٬۶۱۰ بایت) و SHA-256 (asset `651661143`)
+  در وضعیت uploaded تأیید شدند.
+- تگ اصلی ۲٫۲۲٫۲ همچنان `1f0fd29bee58e6aac84aebbb02dcace84b8e2627` است؛
+  نسخه‌های قبل محفوظ‌اند و PR/merge انجام نشد. هشدار مهاجرت Node در checkout@v4
+  غیرمسدودکننده بود. نصب و سنجش سرعت سایت زنده همچنان انجام نشده است.
