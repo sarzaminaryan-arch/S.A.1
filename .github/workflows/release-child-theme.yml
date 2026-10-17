@@ -87,6 +87,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-article-cards.php"
 
+      - name: Run table-of-contents tests (every article, stable anchors, no editor/feed output)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-toc.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

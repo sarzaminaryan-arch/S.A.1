@@ -25,22 +25,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Ready-article definitions.
  *
- * Two data files are merged (v2.13.0):
- * - data/ready-articles.php — attraction entities (province/city aware);
- * - data/ready-guides.php   — camping/survival guides imported as ordinary
- *   posts in the «آموزش‌های ضروری کمپینگ و بقا» category (generated from
- *   docs/camping-education/articles by tools/content-lint/build_theme_data.py).
+ * Two data files exist (v2.13.0; separated in admin UI in v2.19.0):
+ * - data/ready-articles.php — attraction/city entities («دیدنی‌ها»، 28 records);
+ * - data/ready-guides.php   — camping/survival guides («آموزش طبیعت‌گردی و بقا»،
+ *   67 records) imported as ordinary WordPress posts («نوشته‌ها») in the
+ *   «آموزش‌های ضروری کمپینگ و بقا» category.
  *
- * Every record is normalised so the importer and the admin table can rely on
- * the same keys regardless of the source file.
- *
+ * @param string $scope 'all' (default, merged for backwards compatibility/REST/tests),
+ *                      'attractions' (only دیدنی‌ها), or 'guides' (only آموزش‌ها در بخش نوشته‌ها).
  * @return array<string,array<string,mixed>>
  */
-function sa_ready_articles_data() {
-	static $data = null;
-	if ( null === $data ) {
-		$data = array();
-		foreach ( array( 'data/ready-articles.php', 'data/ready-guides.php' ) as $rel ) {
+function sa_ready_articles_data( $scope = 'all' ) {
+	static $buckets = null;
+	if ( null === $buckets ) {
+		$buckets = array(
+			'attractions' => array(),
+			'guides'      => array(),
+			'all'         => array(),
+		);
+		$sources = array(
+			'attractions' => 'data/ready-articles.php',
+			'guides'      => 'data/ready-guides.php',
+		);
+		foreach ( $sources as $bucket => $rel ) {
 			$file = SA_CHILD_DIR . $rel;
 			$set  = file_exists( $file ) ? include $file : array();
 			if ( ! is_array( $set ) ) {
@@ -50,11 +57,37 @@ function sa_ready_articles_data() {
 				if ( ! is_array( $article ) || empty( $article['slug'] ) ) {
 					continue;
 				}
-				$data[ $key ] = sa_ready_article_normalize( $article );
+				$normalized                    = sa_ready_article_normalize( $article );
+				$buckets[ $bucket ][ $key ]    = $normalized;
+				$buckets['all'][ $key ]        = $normalized;
 			}
 		}
 	}
-	return $data;
+	if ( 'attractions' === $scope ) {
+		return $buckets['attractions'];
+	}
+	if ( 'guides' === $scope ) {
+		return $buckets['guides'];
+	}
+	return $buckets['all'];
+}
+
+/**
+ * Only the 28 attraction/city ready articles («دیدنی‌ها»).
+ *
+ * @return array<string,array<string,mixed>>
+ */
+function sa_ready_attractions_data() {
+	return sa_ready_articles_data( 'attractions' );
+}
+
+/**
+ * Only the 67 camping & survival educational guides («آموزش طبیعت‌گردی و بقا» در بخش نوشته‌ها).
+ *
+ * @return array<string,array<string,mixed>>
+ */
+function sa_ready_guides_data() {
+	return sa_ready_articles_data( 'guides' );
 }
 
 /**
@@ -68,6 +101,10 @@ function sa_ready_article_normalize( $article ) {
 		'title'         => '',
 		'type'          => 'attraction',
 		'slug'          => '',
+		'short_fa'      => '', // v2.18.15 — نام کوتاه مکان (مثل «بیشه»)؛ از v2.18.18 کارت با نام کامل ساخته می‌شود.
+		'short_en'      => '',
+		'city_en'       => '', // نام انگلیسی شهرستان و استان برای سطر لاتین کارت.
+		'province_en'   => '',
 		'excerpt'       => '',
 		'english'       => '',
 		'kind'          => 'mountain',
@@ -119,27 +156,46 @@ function sa_ready_article_place( $article ) {
 }
 
 /**
- * Menu entry under the unified «سرزمین آریان» menu.
+ * Menu entries in WordPress Admin (v2.19.0):
+ * 1) «مقالات آماده (دیدنی‌ها)» under «سرزمین آریان» and «دیدنی‌ها» — exclusively the 28 attraction/city articles.
+ * 2) «مقالات آمادهٔ آموزشی» under «نوشته‌ها» (edit.php) — exclusively the 67 camping & survival educational posts.
  */
 function sa_ready_articles_menu() {
 	add_submenu_page(
 		'sarzaminaryan',
-		'مقالات آماده (دیدنی‌ها و آموزش‌ها)',
-		'مقالات آماده',
+		'مقالات آمادهٔ دیدنی‌ها',
+		'مقالات آماده (دیدنی‌ها)',
 		'edit_posts',
 		'sa-ready-articles',
 		'sa_ready_articles_page'
+	);
+	add_submenu_page(
+		'edit.php?post_type=attraction',
+		'مقالات آمادهٔ دیدنی‌ها',
+		'مقالات آمادهٔ دیدنی‌ها',
+		'edit_posts',
+		'sa-ready-articles',
+		'sa_ready_articles_page'
+	);
+	add_submenu_page(
+		'edit.php',
+		'مقالات آمادهٔ آموزش (طبیعت‌گردی و بقا)',
+		'مقالات آمادهٔ آموزشی',
+		'edit_posts',
+		'sa-ready-guides',
+		'sa_ready_guides_page'
 	);
 }
 add_action( 'admin_menu', 'sa_ready_articles_menu', 20 );
 
 /**
- * Admin assets for the tool screen only.
+ * Admin assets for the ready-attractions and ready-guides screens.
  *
  * @param string $hook Current admin page hook.
  */
 function sa_ready_articles_assets( $hook ) {
-	if ( 'sarzaminaryan_page_sa-ready-articles' !== $hook ) {
+	$hook = (string) $hook;
+	if ( false === strpos( $hook, 'sa-ready-articles' ) && false === strpos( $hook, 'sa-ready-guides' ) ) {
 		return;
 	}
 
@@ -175,11 +231,12 @@ function sa_ready_articles_assets( $hook ) {
 				'green' => '#0f5132',
 				'gold'  => '#9b6a16',
 				'mint'  => '#e8f6ee',
+				'line'  => '#dbe7f0',
 			),
 			'i18n'    => array(
-				'working'  => 'در حال ساخت کارت ۱۲۰۰×۶۰۰…',
+				'working'  => 'در حال ساخت کارت آبرنگی ۱۲۰۰×۶۰۰…',
 				'saving'   => 'ذخیرهٔ تصویر شاخص…',
-				'done'     => 'کارت سفید ساخته و به‌عنوان تصویر شاخص ثبت شد.',
+				'done'     => 'کارت آبرنگی ساخته و به‌عنوان تصویر شاخص ثبت شد.',
 				'failed'   => 'ساخت یا ذخیرهٔ کارت انجام نشد.',
 				'nocanvas' => 'مرورگر شما از ساخت تصویر پشتیبانی نمی‌کند؛ از Chrome، Edge یا Firefox جدید استفاده کنید.',
 			),
@@ -957,6 +1014,21 @@ function sa_ready_articles_term_ids( $taxonomy, $pairs ) {
 }
 
 /**
+ * Admin URL for either the attractions ready-articles screen (under سرزمین آریان)
+ * or the educational guides ready-articles screen (under نوشته‌ها / edit.php).
+ *
+ * @param string               $scope 'attractions' or 'guides'.
+ * @param array<string,scalar> $args  Extra query args.
+ * @return string
+ */
+function sa_ready_articles_screen_url( $scope = 'attractions', $args = array() ) {
+	if ( 'guides' === $scope ) {
+		return add_query_arg( array_merge( array( 'page' => 'sa-ready-guides' ), $args ), admin_url( 'edit.php' ) );
+	}
+	return add_query_arg( array_merge( array( 'page' => 'sa-ready-articles' ), $args ), admin_url( 'admin.php' ) );
+}
+
+/**
  * admin-post handler: import one ready article.
  */
 function sa_ready_articles_handle_import() {
@@ -966,15 +1038,21 @@ function sa_ready_articles_handle_import() {
 	$key = isset( $_POST['sa_article'] ) ? sanitize_key( wp_unslash( $_POST['sa_article'] ) ) : '';
 	check_admin_referer( 'sa_ready_import_' . $key, 'sa_ready_nonce' );
 
+	$all   = sa_ready_articles_data( 'all' );
+	$scope = isset( $_POST['sa_scope'] ) && 'guides' === $_POST['sa_scope'] ? 'guides' : 'attractions';
+	if ( isset( $all[ $key ] ) && sa_ready_article_is_post( $all[ $key ] ) ) {
+		$scope = 'guides';
+	}
+
 	$overwrite = ! empty( $_POST['sa_overwrite_published'] );
 	$publish   = sa_ready_articles_publish_requested();
 	$result    = sa_ready_article_import( $key, $overwrite, $publish );
 
-	$args = array( 'page' => 'sa-ready-articles' );
+	$args = array();
 	if ( is_wp_error( $result ) ) {
 		$args['sa-ready'] = 'error';
 		$args['sa-msg']   = rawurlencode( $result->get_error_message() );
-		wp_safe_redirect( add_query_arg( $args, admin_url( 'admin.php' ) ) );
+		wp_safe_redirect( sa_ready_articles_screen_url( $scope, $args ) );
 		exit;
 	}
 
@@ -990,7 +1068,7 @@ function sa_ready_articles_handle_import() {
 	if ( sa_ready_articles_cover_log() ) {
 		$args['sa-cover'] = 1; // v2.13.2
 	}
-	wp_safe_redirect( add_query_arg( $args, admin_url( 'admin.php' ) ) );
+	wp_safe_redirect( sa_ready_articles_screen_url( $scope, $args ) );
 	exit;
 }
 add_action( 'admin_post_sa_ready_article', 'sa_ready_articles_handle_import' );
@@ -1008,7 +1086,8 @@ function sa_ready_articles_publish_requested() {
 }
 
 /**
- * v2.12.7 — admin-post handler: import/update every ready article in one run.
+ * v2.12.7 / v2.19.0 — admin-post handler: import/update ready articles in one run,
+ * scoped to either «دیدنی‌ها» (attractions) or «آموزش‌ها» (guides in نوشته‌ها).
  *
  * Published articles are skipped unless «بازنویسی نسخه‌های منتشرشده» is ticked;
  * «تأیید مالک» publishes new/draft articles. A summary is kept in a short-lived
@@ -1020,6 +1099,7 @@ function sa_ready_articles_handle_import_all() {
 	}
 	check_admin_referer( 'sa_ready_import_all', 'sa_ready_nonce_all' );
 
+	$scope     = isset( $_POST['sa_scope'] ) && 'guides' === $_POST['sa_scope'] ? 'guides' : 'attractions';
 	$overwrite = ! empty( $_POST['sa_overwrite_published'] );
 	$publish   = sa_ready_articles_publish_requested();
 
@@ -1028,6 +1108,7 @@ function sa_ready_articles_handle_import_all() {
 	}
 
 	$summary = array(
+		'scope'     => $scope,
 		'published' => array(),
 		'updated'   => array(),
 		'draft'     => array(),
@@ -1039,7 +1120,7 @@ function sa_ready_articles_handle_import_all() {
 		'overwrite' => $overwrite,
 	);
 
-	foreach ( sa_ready_articles_data() as $key => $article ) {
+	foreach ( sa_ready_articles_data( $scope ) as $key => $article ) {
 		$title  = (string) $article['title'];
 		$result = sa_ready_article_import( $key, $overwrite, $publish );
 		if ( is_wp_error( $result ) ) {
@@ -1071,15 +1152,7 @@ function sa_ready_articles_handle_import_all() {
 	// گزارش گروهی جای نوار تک‌مقاله‌ایِ دروازه را می‌گیرد.
 	delete_transient( 'sa_gate_' . get_current_user_id() );
 	set_transient( 'sa_ready_bulk_' . get_current_user_id(), $summary, 5 * MINUTE_IN_SECONDS );
-	wp_safe_redirect(
-		add_query_arg(
-			array(
-				'page'     => 'sa-ready-articles',
-				'sa-ready' => 'bulk',
-			),
-			admin_url( 'admin.php' )
-		)
-	);
+	wp_safe_redirect( sa_ready_articles_screen_url( $scope, array( 'sa-ready' => 'bulk' ) ) );
 	exit;
 }
 add_action( 'admin_post_sa_ready_article_all', 'sa_ready_articles_handle_import_all' );
@@ -1127,27 +1200,73 @@ function sa_ready_articles_render_bulk_summary() {
 }
 
 /**
- * Render the tool screen.
+ * Render the «دیدنی‌ها» ready-articles tool screen (سرزمین آریان → مقالات آماده (دیدنی‌ها)).
  */
 function sa_ready_articles_page() {
+	sa_ready_articles_render_screen( 'attractions' );
+}
+
+/**
+ * Render the «آموزش (طبیعت‌گردی و بقا)» ready-guides tool screen under «نوشته‌ها» (edit.php?page=sa-ready-guides).
+ */
+function sa_ready_guides_page() {
+	sa_ready_articles_render_screen( 'guides' );
+}
+
+/**
+ * Shared renderer for the separated «دیدنی‌ها» and «آموزش (طبیعت‌گردی و بقا)» ready-article screens.
+ *
+ * @param string $scope 'attractions' or 'guides'.
+ */
+function sa_ready_articles_render_screen( $scope = 'attractions' ) {
 	if ( ! current_user_can( 'edit_posts' ) ) {
 		wp_die( esc_html( 'برای دیدن این صفحه دسترسی کافی ندارید.' ) );
 	}
-	$data        = sa_ready_articles_data();
-	$can_publish = current_user_can( 'publish_posts' );
-	$advisory    = function_exists( 'sa_gate_is_advisory' ) ? sa_gate_is_advisory() : true;
-	$state       = isset( $_GET['sa-ready'] ) ? sanitize_key( wp_unslash( $_GET['sa-ready'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	$is_guides        = ( 'guides' === $scope );
+	$data             = sa_ready_articles_data( $is_guides ? 'guides' : 'attractions' );
+	$attractions_cnt  = count( sa_ready_articles_data( 'attractions' ) );
+	$guides_cnt       = count( sa_ready_articles_data( 'guides' ) );
+	$can_publish      = current_user_can( 'publish_posts' );
+	$advisory         = function_exists( 'sa_gate_is_advisory' ) ? sa_gate_is_advisory() : true;
+	$state            = isset( $_GET['sa-ready'] ) ? sanitize_key( wp_unslash( $_GET['sa-ready'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	$edu_cat_slug     = function_exists( 'sa_education_category_slug' ) ? sa_education_category_slug() : 'camping-survival';
 	?>
 	<div class="wrap sa-ready">
-		<h1>مقالات آماده — دیدنی‌ها و آموزش‌های کمپینگ</h1>
-		<p class="sa-ready__lead">
-			<strong>دو دسته مقاله در این فهرست است:</strong> «دیدنی» (نوع محتوای جاذبه، با استان و شهرستان) و «آموزش» (نوشتهٔ معمول وردپرس در دستهٔ <strong>آموزش‌های ضروری کمپینگ و بقا</strong> با برچسب شاخه؛ از نسخهٔ ۲٫۱۳٫۰). متن آموزش‌ها با فیلتر محتوای تحریریه بررسی شده و پرسش‌های رایج و منابع آن‌ها در بخش‌های جداگانهٔ صفحه نمایش داده می‌شوند.
-		</p>
+		<h1><?php echo esc_html( $is_guides ? 'مقالات آمادهٔ آموزشی — آموزش (طبیعت‌گردی و بقا) در بخش نوشته‌ها' : 'مقالات آمادهٔ دیدنی‌ها — سرزمین آریان' ); ?></h1>
+
+		<nav class="nav-tab-wrapper" style="margin:12px 0 18px" aria-label="بخش‌های مقالات آماده">
+			<a href="<?php echo esc_url( sa_ready_articles_screen_url( 'attractions' ) ); ?>" class="nav-tab <?php echo ! $is_guides ? 'nav-tab-active' : ''; ?>">
+				مقالات آمادهٔ دیدنی‌ها (<?php echo esc_html( sa_fa_digits( $attractions_cnt ) ); ?>)
+			</a>
+			<a href="<?php echo esc_url( sa_ready_articles_screen_url( 'guides' ) ); ?>" class="nav-tab <?php echo $is_guides ? 'nav-tab-active' : ''; ?>">
+				مقالات آمادهٔ آموزشی — طبیعت‌گردی و بقا در بخش نوشته‌ها (<?php echo esc_html( sa_fa_digits( $guides_cnt ) ); ?>)
+			</a>
+			<?php if ( $is_guides ) : ?>
+				<a href="<?php echo esc_url( admin_url( 'edit.php?category_name=' . rawurlencode( $edu_cat_slug ) ) ); ?>" class="nav-tab">
+					مشاهدهٔ نوشته‌های آموزشی منتشرشده در «نوشته‌ها» ↗
+				</a>
+			<?php else : ?>
+				<a href="<?php echo esc_url( admin_url( 'edit.php?post_type=attraction' ) ); ?>" class="nav-tab">
+					مشاهدهٔ همهٔ دیدنی‌ها ↗
+				</a>
+			<?php endif; ?>
+		</nav>
+
+		<?php if ( $is_guides ) : ?>
+			<p class="sa-ready__lead">
+				<strong>بخش آموزش (طبیعت‌گردی و بقا) — در قسمت «نوشته‌ها» (`post`):</strong>
+				این صفحه مخصوص <strong><?php echo esc_html( sa_fa_digits( $guides_cnt ) ); ?> مقالهٔ آموزشی طبیعت‌گردی، کمپینگ و بقا</strong> است که در بخش <strong>نوشته‌ها</strong>ی وردپرس و در دستهٔ <strong>آموزش‌های ضروری کمپینگ و بقا</strong> (با برچسب شاخهٔ تخصصی) ثبت می‌شوند و از بخش «دیدنی‌ها» کاملاً جدا هستند. برای مدیریت مقالات دیدنی‌ها به تب <a href="<?php echo esc_url( sa_ready_articles_screen_url( 'attractions' ) ); ?>">مقالات آمادهٔ دیدنی‌ها</a> بروید.
+			</p>
+		<?php else : ?>
+			<p class="sa-ready__lead">
+				<strong>بخش دیدنی‌ها (`attraction` / `city`):</strong>
+				این صفحه مخصوص <strong><?php echo esc_html( sa_fa_digits( $attractions_cnt ) ); ?> مقالهٔ آمادهٔ دیدنی‌ها</strong> (متصل به استان و شهرستان) است و از مقالات آموزشی کاملاً جدا شده است. مقالات آموزشی طبیعت‌گردی و بقا در قسمت <strong>نوشته‌ها → <a href="<?php echo esc_url( sa_ready_articles_screen_url( 'guides' ) ); ?>">مقالات آمادهٔ آموزشی</a></strong> قرار دارند.
+			</p>
+		<?php endif; ?>
 		<p class="sa-ready__lead">
 			<strong>سیاست انتشار (از نسخهٔ ۲٫۱۲٫۷):</strong> شرط انتشار فقط <strong>تأیید مالک</strong> است.
 			درج یا به‌روزرسانی بدون تیک «تأیید مالک» مقاله را <strong>پیش‌نویس</strong> نگه می‌دارد؛ با تیک «تأیید مالک» همان‌جا منتشر می‌شود.
 			کمبودهای سطح ۷ (رابطه، سئو، منابع، تصویر شاخص، طبقه‌بندی، بهداشت محتوا…) فقط به‌صورت <strong>یادآوری</strong> در ستون «وضعیت» و در جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر نشان داده می‌شوند و مانع انتشار نیستند.
-			برای هر مقاله می‌توانید کارت سفید تصویر شاخص (۱۲۰۰×۶۰۰) را بسازید: زمینهٔ کاملاً سفید، یک آیکون رنگی گوشه‌ای، نوشته‌های مرکزچین با رنگ‌های آبی ناوی، سبز تیره و طلایی تیره و سایهٔ عمیق دور کاور.
 		</p>
 		<?php if ( ! $advisory ) : ?>
 			<div class="notice notice-warning"><p>دروازهٔ انتشار در سفارشی‌ساز روی حالت <strong>سخت‌گیر</strong> است؛ در این حالت مقالهٔ ناقص حتی با تیک «تأیید مالک» پیش‌نویس می‌ماند. برای اجرای سیاست «فقط تأیید مالک» حالت را به «یادآوری» برگردانید (سفارشی‌ساز → سرزمین آریان → قوانین انتشار).</p></div>
@@ -1188,9 +1307,10 @@ function sa_ready_articles_page() {
 
 		<form class="sa-ready__bulk" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="sa_ready_article_all">
+			<input type="hidden" name="sa_scope" value="<?php echo esc_attr( $is_guides ? 'guides' : 'attractions' ); ?>">
 			<?php wp_nonce_field( 'sa_ready_import_all', 'sa_ready_nonce_all' ); ?>
-			<strong>اجرای گروهی روی هر <?php echo esc_html( sa_fa_digits( count( $data ) ) ); ?> مقاله:</strong>
-			<button type="submit" class="button button-primary">درج/به‌روزرسانی همه از منبع قالب</button>
+			<strong><?php echo esc_html( $is_guides ? 'اجرای گروهی روی هر ' . sa_fa_digits( count( $data ) ) . ' مقالهٔ آموزشی (بخش نوشته‌ها):' : 'اجرای گروهی روی هر ' . sa_fa_digits( count( $data ) ) . ' مقالهٔ دیدنی‌ها:' ); ?></strong>
+			<button type="submit" class="button button-primary"><?php echo esc_html( $is_guides ? 'درج/به‌روزرسانی همهٔ آموزش‌ها از منبع قالب' : 'درج/به‌روزرسانی همهٔ دیدنی‌ها از منبع قالب' ); ?></button>
 			<label class="sa-ready__check">
 				<input type="checkbox" name="sa_overwrite_published" value="1">
 				بازنویسی نسخه‌های منتشرشده
@@ -1215,7 +1335,7 @@ function sa_ready_articles_page() {
 				<tr>
 					<th>مقاله</th>
 					<th>نوع</th>
-					<th>موقعیت</th>
+					<th><?php echo esc_html( $is_guides ? 'شاخه و دسته‌بندی (در نوشته‌ها)' : 'شهرستان و استان' ); ?></th>
 					<th>وضعیت</th>
 					<th>تصویر شاخص</th>
 					<th>اقدام‌ها</th>
@@ -1242,7 +1362,7 @@ function sa_ready_articles_page() {
 				if ( 'attraction' === $article['type'] ) {
 					$type_label = 'دیدنی';
 				} elseif ( $is_post ) {
-					$type_label = 'آموزش';
+					$type_label = 'آموزش (نوشته)';
 				} else {
 					$type_label = 'شهرستان';
 				}
@@ -1310,6 +1430,7 @@ function sa_ready_articles_page() {
 					<td class="sa-ready__actions">
 						<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 							<input type="hidden" name="action" value="sa_ready_article">
+							<input type="hidden" name="sa_scope" value="<?php echo esc_attr( $is_guides ? 'guides' : 'attractions' ); ?>">
 							<input type="hidden" name="sa_article" value="<?php echo esc_attr( $key ); ?>">
 							<?php wp_nonce_field( 'sa_ready_import_' . $key, 'sa_ready_nonce' ); ?>
 							<button type="submit" class="button <?php echo $post_id ? '' : 'button-primary'; ?>">
@@ -1334,7 +1455,13 @@ function sa_ready_articles_page() {
 							data-article="<?php echo esc_attr( $key ); ?>"
 							data-title="<?php echo esc_attr( $article['title'] ); ?>"
 							data-english="<?php echo esc_attr( $article['english'] ); ?>"
+							data-short-fa="<?php echo esc_attr( ! empty( $article['short_fa'] ) ? $article['short_fa'] : $article['title'] ); ?>"
+							data-short-en="<?php echo esc_attr( ! empty( $article['short_en'] ) ? $article['short_en'] : $article['english'] ); ?>"
 							data-kind="<?php echo esc_attr( $article['kind'] ); ?>"
+							data-chip-fa="<?php echo esc_attr( 'attraction' === $article['type'] ? 'نمای برتر' : ( $is_post ? 'آموزش کمپینگ' : 'شهرستان' ) ); ?>"
+							data-location="<?php echo esc_attr( implode( '، ', array_filter( array( $place_main, $place_sub ) ) ) ); ?>"
+							data-city-en="<?php echo esc_attr( ! empty( $article['city_en'] ) ? $article['city_en'] : '' ); ?>"
+							data-province-en="<?php echo esc_attr( ! empty( $article['province_en'] ) ? $article['province_en'] : '' ); ?>"
 							data-city="<?php echo esc_attr( $city_line ); ?>"
 							data-province="<?php echo esc_attr( $prov_line ); ?>"
 							<?php echo $post_id ? '' : 'disabled'; ?>>

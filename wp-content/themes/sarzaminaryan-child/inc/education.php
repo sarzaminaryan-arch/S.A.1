@@ -75,6 +75,19 @@ function sa_education_label() {
 }
 
 /**
+ * Full descriptive label for the 4th pillar of the site: «آموزش (طبیعت‌گردی و بقا)».
+ *
+ * @return string
+ */
+function sa_education_full_label() {
+	$custom = trim( (string) get_theme_mod( 'sa_education_nav_label', '' ) );
+	if ( '' !== $custom && 'آموزش‌ها' !== $custom ) {
+		return $custom;
+	}
+	return 'آموزش (طبیعت‌گردی و بقا)';
+}
+
+/**
  * Archive URL of the education category ('' when the category is missing).
  *
  * @return string

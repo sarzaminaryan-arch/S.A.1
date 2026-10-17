@@ -5083,147 +5083,808 @@ small {
 	}
 }
 
-/* -------------------------------------------------------------------------
-   Cyber county identity card (شناسنامهٔ سایبری شهرستان) v2.
-   Dark HUD panel, green mono EN micro-labels, Persian values.
-   mobile-first, RTL, pure grid; empty slots are omitted by the template.
-   ------------------------------------------------------------------------- */
-.sa-cid,
-.sa-cid *,
-.sa-cid-note,
-.sa-cid-note * { box-sizing: border-box; }
-.sa-cid {
-  --cid-green: #3ddc84;
-  --cid-dim: #8fa9c4;
-  margin: 0 0 1rem;
-  padding: .8rem .85rem .85rem;
-  border: 1px solid #1d3a56;
-  border-radius: 14px;
-  color: #eaf2fa;
-  background:
-    linear-gradient(rgba(61, 220, 132, .05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(61, 220, 132, .05) 1px, transparent 1px),
-    linear-gradient(180deg, #0c2138, #081729);
-  background-size: 26px 26px, 26px 26px, 100% 100%;
-  box-shadow: 0 10px 28px rgba(4, 18, 34, .35);
+/* ==========================================================================
+   v2.18.16 — تصویر شاخص «دیدنی‌ها» داخل مقاله (و فقط داخل مقاله)
+   ========================================================================== */
+.sa-attraction-cover {
+	position: relative;
+	margin: 0 auto clamp(18px, 3.4vw, 32px);
+	padding: clamp(10px, 2vw, 16px);
+	border: 1px solid rgba(15, 81, 50, .14);
+	border-radius: 26px;
+	background: linear-gradient(145deg, #ffffff, #f4fbf7);
+	box-shadow: 0 22px 54px rgba(1, 31, 61, .10);
 }
-.sa-cid [lang="en"] {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
-  color: var(--cid-green);
-  letter-spacing: .06em;
-}
-.sa-cid__head {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: .6rem; flex-wrap: wrap; padding-bottom: .6rem;
-  border-bottom: 1px dashed rgba(61, 220, 132, .35);
-}
-.sa-cid__tag { margin: 0 0 .3rem; font-size: .74rem; font-weight: 800; color: #fff; }
-.sa-cid__tag [lang="en"] { font-size: .66rem; }
-.sa-cid__dot {
-  display: inline-block; width: .5rem; height: .5rem; margin-inline-end: .4rem;
-  border-radius: 50%; background: var(--cid-green);
-  box-shadow: 0 0 8px var(--cid-green);
-}
-.sa-cid__title { margin: 0 0 .15rem; font-size: 1.28rem; line-height: 1.4; color: #fff; }
-.sa-cid__en { margin: 0; font-size: .78rem; font-weight: 700; }
-.sa-cid__province {
-  flex-shrink: 0; display: inline-flex; flex-direction: column; gap: .1rem;
-  padding: .35rem .65rem; border: 1px solid rgba(61, 220, 132, .55); border-radius: 9px;
-  background: rgba(61, 220, 132, .08); color: #fff; font-size: .8rem; font-weight: 800;
-  text-decoration: none;
-}
-.sa-cid__province [lang="en"] { font-size: .58rem; }
-.sa-cid__province:hover, .sa-cid__province:focus-visible { background: rgba(61, 220, 132, .18); }
-.sa-cid__metrics {
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .45rem; margin: .65rem 0 0;
-}
-.sa-cid__metric {
-  min-width: 0; padding: .5rem .6rem; border: 1px solid rgba(143, 169, 196, .25);
-  border-radius: 10px; background: rgba(255, 255, 255, .04);
-}
-.sa-cid__metric dt { font-size: .68rem; line-height: 1.9; color: var(--cid-dim); margin-bottom: .15rem; }
-.sa-cid__metric dt [lang="en"] { font-size: .62rem; }
-.sa-cid__num { font-weight: 700; }
-.sa-cid__metric dd { margin: 0; font-size: .86rem; color: #fff; }
-.sa-cid__metric dd strong { font-size: 1.04rem; font-weight: 900; overflow-wrap: anywhere; }
-.sa-cid__metric dd [lang="en"] { font-size: .68rem; }
-.sa-cid__info {
-  display: grid; grid-template-columns: minmax(0, 1fr);
-  gap: .4rem; margin: .55rem 0 0;
-}
-.sa-cid__row {
-  min-width: 0; padding: .42rem .6rem; border-inline-start: 2px solid var(--cid-green);
-  border-radius: 6px; background: rgba(255, 255, 255, .03);
-}
-.sa-cid__row dt { font-size: .68rem; color: var(--cid-dim); margin-bottom: .1rem; }
-.sa-cid__row dt [lang="en"] { font-size: .6rem; margin-inline-end: .45rem; }
-.sa-cid__row dd { margin: 0; font-size: .86rem; line-height: 1.75; color: #fff; overflow-wrap: anywhere; }
-.sa-cid__row dd small { font-size: .72rem; }
-.sa-cid__sub { margin: .8rem 0 .4rem; font-size: .86rem; color: #fff; }
-.sa-cid__sub [lang="en"] { font-size: .62rem; margin-inline-end: .5rem; }
-.sa-cid__table-wrap { overflow-x: auto; border: 1px solid rgba(143, 169, 196, .25); border-radius: 10px; }
-.sa-cid__table-wrap .sa-cid__sub { margin: .55rem .6rem .35rem; }
-.sa-cid__table { width: 100%; border-collapse: collapse; font-size: .8rem; min-width: 420px; }
-.sa-cid__table th, .sa-cid__table td {
-  padding: .38rem .55rem; text-align: right; vertical-align: top;
-  border-top: 1px solid rgba(143, 169, 196, .16);
-}
-.sa-cid__table thead th { border-top: 0; color: var(--cid-dim); font-size: .68rem; background: rgba(255, 255, 255, .03); }
-.sa-cid__table thead th [lang="en"] { font-size: .58rem; }
-.sa-cid__table td { color: #dbe7f3; overflow-wrap: anywhere; }
-.sa-cid__table td a { color: #fff; font-weight: 700; text-decoration: none; }
-.sa-cid__table td a:hover, .sa-cid__table td a:focus-visible { color: var(--cid-green); text-decoration: underline; }
-.sa-cid__table td small { font-size: .68rem; }
-.sa-cid__go { font-size: .72rem; white-space: nowrap; }
-.sa-cid__links { margin-top: .2rem; }
-.sa-cid__chips {
-  display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: 0; list-style: none;
-}
-.sa-cid__chips li { display: inline-flex; align-items: center; gap: .35rem; min-width: 0; }
-.sa-cid__dir { font-size: .68rem; color: var(--cid-dim); }
-.sa-cid__chips a, .sa-cid__plain {
-  padding: .2rem .55rem; border: 1px solid rgba(143, 169, 196, .4); border-radius: 999px;
-  color: #eaf2fa; font-size: .74rem; font-weight: 700; text-decoration: none;
-  overflow-wrap: anywhere;
-}
-.sa-cid__chips a:hover, .sa-cid__chips a:focus-visible { border-color: var(--cid-green); color: var(--cid-green); }
-.sa-cid__plain { border-style: dashed; font-weight: 400; color: var(--cid-dim); }
-.sa-cid__coords {
-  margin: .65rem 0 0; padding-top: .5rem; border-top: 1px dashed rgba(143, 169, 196, .3);
-  font-size: .74rem; color: var(--cid-dim);
-}
-.sa-cid__coords [lang="en"] { font-size: .6rem; margin-inline-end: .4rem; }
-.sa-cid__coords a { color: var(--cid-green); font-weight: 700; }
 
-/* Short prose block under the card. */
-.sa-cid-note { margin: 0 0 1.25rem; display: grid; gap: .55rem; }
+.sa-attraction-cover__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 18px;
+	background: #fff;
+}
+
+.sa-attraction-cover__caption {
+	margin-top: 12px;
+	font-size: .92rem;
+	line-height: 1.8;
+	text-align: center;
+	color: #4d6b5a;
+}
+
+@media (max-width: 640px) {
+	.sa-attraction-cover {
+		border-radius: 18px;
+		padding: 8px;
+	}
+
+	.sa-attraction-cover__img {
+		border-radius: 12px;
+	}
+
+	.sa-attraction-cover__caption {
+		font-size: .85rem;
+	}
+}
+
+/* ==========================================================================
+   v2.18.17 — «فهرست مطالب» ابتدای همهٔ مقاله‌ها
+   ========================================================================== */
+.sa-toc {
+	margin: 0 0 clamp(20px, 3.2vw, 32px);
+	padding: clamp(16px, 3vw, 24px) clamp(16px, 3vw, 26px);
+	border: 1px solid rgba(15, 81, 50, .14);
+	border-radius: 24px;
+	background: linear-gradient(145deg, #ffffff 0%, #f4fbf7 100%);
+	box-shadow: 0 18px 44px rgba(1, 31, 61, .07), inset 0 1px 0 rgba(255, 255, 255, .8);
+	direction: rtl;
+}
+
+.sa-toc__head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	flex-wrap: wrap;
+	margin-bottom: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px dashed rgba(15, 81, 50, .2);
+}
+
+.sa-toc__title {
+	display: flex;
+	align-items: center;
+	gap: 9px;
+	margin: 0;
+	font-size: 1.08rem;
+	font-weight: 800;
+	line-height: 1.6;
+	color: #0f5132;
+}
+
+.sa-toc__title::before {
+	content: "";
+	width: 22px;
+	height: 22px;
+	border-radius: 7px;
+	background:
+		linear-gradient(145deg, #0f5132 0%, #1f7a4d 100%);
+	box-shadow: inset 0 0 0 3px #fff;
+}
+
+.sa-toc__count {
+	font-size: .82rem;
+	color: #3f6b55;
+	background: #e8f6ee;
+	border: 1px solid rgba(15, 81, 50, .12);
+	border-radius: 999px;
+	padding: 4px 11px;
+	white-space: nowrap;
+}
+
+.sa-toc__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 4px;
+	max-height: min(58vh, 22rem);
+	overflow: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(15, 81, 50, .35) transparent;
+}
+
+.sa-toc__list::-webkit-scrollbar {
+	width: 8px;
+}
+
+.sa-toc__list::-webkit-scrollbar-thumb {
+	background: rgba(15, 81, 50, .28);
+	border-radius: 99px;
+}
+
+.sa-toc__item--l2 {
+	padding-inline-start: 20px;
+}
+
+.sa-toc__item--l3 {
+	padding-inline-start: 40px;
+}
+
+.sa-toc__link {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 8px 10px;
+	border-radius: 12px;
+	font-size: .99rem;
+	line-height: 1.7;
+	color: #0b2b4a;
+	text-decoration: none;
+	transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+
+.sa-toc__link:hover,
+.sa-toc__link:focus-visible {
+	background: #eef7f1;
+	color: #0f5132;
+	transform: translateX(-2px);
+}
+
+.sa-toc__num {
+	flex: 0 0 auto;
+	width: 26px;
+	height: 26px;
+	display: grid;
+	place-items: center;
+	border-radius: 9px;
+	background: #0f5132;
+	color: #fff;
+	font-size: .78rem;
+	font-weight: 700;
+}
+
+.sa-toc__item--l2 .sa-toc__num,
+.sa-toc__item--l3 .sa-toc__num {
+	background: #d8ece1;
+	color: #0f5132;
+}
+
+.sa-toc__label {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+/* پرش به سرفصل، زیر هدر چسبان نایستد. */
+.entry-content h2[id],
+.entry-content h3[id],
+.entry-content h4[id],
+.sa-facts[id],
+.sa-county__title[id],
+.sa-faq-section[id],
+.sa-sources[id] {
+	scroll-margin-top: 96px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}
+
+@media (max-width: 640px) {
+	.sa-toc {
+		border-radius: 18px;
+		padding: 14px 14px 12px;
+	}
+
+	.sa-toc__link {
+		font-size: .93rem;
+		padding: 7px 8px;
+	}
+
+	.sa-toc__item--l2 {
+		padding-inline-start: 14px;
+	}
+
+	.sa-toc__item--l3 {
+		padding-inline-start: 28px;
+	}
+}
+
+/* ==========================================================================
+   v2.19.1 — Cyber-Tech Light-Mode Tabular Identity Cards («شناسنامه»)
+   - Province (`--province`): Cyber Cyan-Blue
+   - County (`--county`): Cyber Indigo-Violet
+   - Attraction (`--attraction`): Cyber Emerald-Teal (2-Tier Telemetry Model)
+   ========================================================================== */
+
+#province-identity,
+#county-identity,
+#attraction-identity {
+	scroll-margin-top: 96px;
+}
+
+.sa-id-card-wrap {
+	margin-bottom: 18px;
+}
+
+.sa-id-card__crumbs--province {
+	background: #edf7ff;
+	border-bottom: 1px solid #bae6fd;
+}
+
+.sa-id-card__crumbs--city {
+	background: #f1effe;
+	border-bottom: 1px solid #c7d2fe;
+}
+
+.sa-id-card__crumbs--attraction {
+	background: #ebfefb;
+	border-bottom: 1px solid #99f6e4;
+}
+
+.sa-cyber-id {
+	--cyber-bg: linear-gradient(155deg, #f4faff 0%, #ebf6ff 52%, #f8fcff 100%);
+	--cyber-grid-line: rgba(2, 132, 199, 0.065);
+	--cyber-accent: #0284c7;
+	--cyber-accent-dark: #075985;
+	--cyber-accent-soft: #e0f2fe;
+	--cyber-border: #0284c7;
+	--cyber-cell-border: #38bdf8;
+	--cyber-cell-bg: rgba(255, 255, 255, 0.94);
+	--cyber-cell-alt: rgba(240, 249, 255, 0.92);
+	--cyber-badge-bg: #0284c7;
+	--cyber-badge-fg: #ffffff;
+
+	position: relative;
+	direction: rtl;
+	margin: 14px 0 22px;
+	padding: 14px;
+	border-radius: 16px;
+	border: 2px solid var(--cyber-border);
+	background-image:
+		linear-gradient(90deg, var(--cyber-grid-line) 1px, transparent 1px),
+		linear-gradient(180deg, var(--cyber-grid-line) 1px, transparent 1px),
+		var(--cyber-bg);
+	background-size: 20px 20px, 20px 20px, 100% 100%;
+	box-shadow:
+		0 10px 28px rgba(15, 23, 42, 0.07),
+		0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+	color: #0b192c;
+	overflow: hidden;
+}
+
+/* Distinct Palette 1: شناسنامه استان — Cyber Cyan-Blue */
+.sa-cyber-id--province {
+	--cyber-bg: linear-gradient(155deg, #f2f9ff 0%, #e4f3fe 52%, #f7fcff 100%);
+	--cyber-grid-line: rgba(2, 132, 199, 0.07);
+	--cyber-accent: #0284c7;
+	--cyber-accent-dark: #0c4a6e;
+	--cyber-accent-soft: #e0f2fe;
+	--cyber-border: #0284c7;
+	--cyber-cell-border: #38bdf8;
+	--cyber-cell-bg: rgba(255, 255, 255, 0.95);
+	--cyber-cell-alt: rgba(240, 249, 255, 0.95);
+	--cyber-badge-bg: #0284c7;
+}
+
+/* Distinct Palette 2: شناسنامه شهرستان — Cyber Indigo-Violet */
+.sa-cyber-id--county {
+	--cyber-bg: linear-gradient(155deg, #f5f3ff 0%, #e9e4ff 52%, #faf8ff 100%);
+	--cyber-grid-line: rgba(79, 70, 229, 0.07);
+	--cyber-accent: #4f46e5;
+	--cyber-accent-dark: #312e81;
+	--cyber-accent-soft: #e0e7ff;
+	--cyber-border: #4f46e5;
+	--cyber-cell-border: #818cf8;
+	--cyber-cell-bg: rgba(255, 255, 255, 0.95);
+	--cyber-cell-alt: rgba(238, 242, 255, 0.95);
+	--cyber-badge-bg: #4f46e5;
+}
+
+/* Distinct Palette 3: شناسنامه دیدنی — Cyber Emerald-Teal */
+.sa-cyber-id--attraction {
+	--cyber-bg: linear-gradient(155deg, #f0fdfa 0%, #dcfce7 48%, #f4fffe 100%);
+	--cyber-grid-line: rgba(13, 148, 136, 0.075);
+	--cyber-accent: #0d9488;
+	--cyber-accent-dark: #115e59;
+	--cyber-accent-soft: #ccfbf1;
+	--cyber-border: #0d9488;
+	--cyber-cell-border: #2dd4bf;
+	--cyber-cell-bg: rgba(255, 255, 255, 0.96);
+	--cyber-cell-alt: rgba(240, 253, 250, 0.95);
+	--cyber-badge-bg: #0d9488;
+}
+
+/* HUD Top Ribbon */
+.sa-cyber-id__hud-bar {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 7px 10px;
+	margin-bottom: 10px;
+	border-radius: 10px;
+	background: var(--cyber-accent-soft);
+	border: 1.5px solid var(--cyber-cell-border);
+}
+
+.sa-cyber-id__badges {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+}
+
+.sa-cyber-id__badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 6px;
+	background: var(--cyber-badge-bg);
+	color: var(--cyber-badge-fg);
+	font-size: 0.75rem;
+	font-weight: 800;
+	letter-spacing: 0.01em;
+	line-height: 1.4;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.sa-cyber-id__type-tag {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	border-radius: 6px;
+	background: rgba(255, 255, 255, 0.88);
+	border: 1px solid var(--cyber-cell-border);
+	color: var(--cyber-accent-dark);
+	font-size: 0.72rem;
+	font-weight: 800;
+}
+
+.sa-cyber-id__sys-code {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 7px;
+	border-radius: 5px;
+	background: rgba(15, 23, 42, 0.06);
+	color: var(--cyber-accent-dark);
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.65rem;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+}
+
+.sa-cyber-id__hud-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+}
+
+.sa-cyber-id__hud-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 3px 9px;
+	border-radius: 6px;
+	background: #ffffff;
+	border: 1.5px solid var(--cyber-cell-border);
+	color: var(--cyber-accent-dark);
+	font-size: 0.72rem;
+	font-weight: 800;
+	text-decoration: none;
+	transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.sa-cyber-id__hud-btn small {
+	padding: 1px 4px;
+	border-radius: 4px;
+	background: var(--cyber-accent-soft);
+	color: var(--cyber-accent-dark);
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.6rem;
+	font-weight: 800;
+}
+
+.sa-cyber-id__hud-btn:hover,
+.sa-cyber-id__hud-btn:focus-visible {
+	background: var(--cyber-accent);
+	border-color: var(--cyber-accent);
+	color: #ffffff;
+}
+
+/* Header & Bilingual Titles */
+.sa-cyber-id__header {
+	padding: 4px 4px 10px;
+}
+
+.sa-cyber-id__title-group {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 10px;
+}
+
+.sa-cyber-id__title {
+	margin: 0;
+	font-size: clamp(1.22rem, 2.1vw, 1.58rem);
+	font-weight: 900;
+	line-height: 1.35;
+	color: #091526;
+}
+
+.sa-cyber-id__en-pill {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 7px;
+	background: #ffffff;
+	border: 1.5px solid var(--cyber-border);
+	color: var(--cyber-accent-dark);
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.74rem;
+	font-weight: 800;
+	letter-spacing: 0.06em;
+	line-height: 1.3;
+}
+
+.sa-cyber-id__loc-ribbon {
+	display: inline-flex;
+	align-items: center;
+	padding: 2px 8px;
+	border-radius: 6px;
+	background: var(--cyber-accent-soft);
+	border: 1px solid var(--cyber-cell-border);
+	color: var(--cyber-accent-dark);
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.66rem;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+}
+
+.sa-cyber-id__summary {
+	margin: 7px 0 0;
+	font-size: 0.82rem;
+	font-weight: 700;
+	line-height: 1.65;
+	color: #1e293b;
+}
+
+/* Cyber Tabular Grid — Crisp Visible Cell Borders */
+.sa-cyber-id__table-wrap {
+	border-radius: 11px;
+	border: 2px solid var(--cyber-border);
+	background: var(--cyber-border);
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.sa-cyber-grid {
+	display: grid;
+	gap: 1.5px;
+	background: var(--cyber-cell-border);
+}
+
+/* Model 1: Province 4-Column Macro Matrix */
+.sa-cyber-grid--province {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Model 2: County 3-Column Administrative Matrix */
+.sa-cyber-grid--county {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sa-cyber-grid--county .sa-cyber-grid__cell--wide {
+	grid-column: span 1;
+}
+
+.sa-cyber-grid--county .sa-cyber-grid__cell--full {
+	grid-column: 1 / -1;
+}
+
+/* Model 3: Attraction 2-Tier Telemetry Matrix */
+.sa-cyber-grid--attraction-top {
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.sa-cyber-grid--attraction-specs {
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sa-cyber-grid--attraction-footer {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Individual Table Cells */
+.sa-cyber-grid__cell {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 3px;
+	padding: 9px 11px;
+	background: var(--cyber-cell-bg);
+	min-width: 0;
+}
+
+.sa-cyber-grid__cell:nth-child(even) {
+	background: var(--cyber-cell-alt);
+}
+
+.sa-cyber-grid__cell--safety {
+	background: #fffbeb !important;
+	border-inline-start: 3px solid #d97706;
+}
+
+.sa-cyber-grid__code {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.6rem;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+	color: var(--cyber-accent);
+	line-height: 1.2;
+}
+
+.sa-cyber-grid__label {
+	font-size: 0.72rem;
+	font-weight: 800;
+	color: var(--cyber-accent-dark);
+	line-height: 1.35;
+}
+
+.sa-cyber-grid__value {
+	font-size: 0.82rem;
+	font-weight: 800;
+	color: #0b192c;
+	line-height: 1.5;
+	word-break: break-word;
+}
+
+.sa-cyber-id__ltr {
+	display: inline-block;
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.79rem;
+	font-weight: 800;
+	letter-spacing: 0.02em;
+	color: var(--cyber-accent-dark);
+}
+
+.sa-cyber-id__en-inline {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.72rem;
+	font-weight: 800;
+	color: var(--cyber-accent);
+}
+
+.sa-cyber-id__cell-link {
+	color: #0b192c;
+	text-decoration: underline;
+	text-decoration-color: var(--cyber-cell-border);
+	text-underline-offset: 3px;
+	font-weight: 800;
+}
+
+.sa-cyber-id__cell-link:hover,
+.sa-cyber-id__cell-link:focus-visible {
+	color: var(--cyber-accent);
+	text-decoration-color: var(--cyber-accent);
+}
+
+/* Tiny «نیازمند بازبینی» Badge for Unpopulated Slots */
+.sa-cyber-id__review {
+	display: inline-flex;
+	align-items: center;
+	padding: 1px 6px;
+	border-radius: 4px;
+	background: rgba(100, 116, 139, 0.12);
+	border: 1px dashed rgba(100, 116, 139, 0.45);
+	color: #475569;
+	font-size: 0.62rem;
+	font-weight: 700;
+	line-height: 1.35;
+}
+
+/* Subtables (Neighbors & POIs) */
+.sa-cyber-id__subtable {
+	margin-top: 10px;
+	border-radius: 10px;
+	border: 1.5px solid var(--cyber-border);
+	background: var(--cyber-cell-border);
+	overflow: hidden;
+}
+
+.sa-cyber-id__subtable-head {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 6px 11px;
+	background: var(--cyber-accent-soft);
+	border-bottom: 1.5px solid var(--cyber-cell-border);
+}
+
+.sa-cyber-id__subtable-title {
+	font-size: 0.76rem;
+	font-weight: 800;
+	color: var(--cyber-accent-dark);
+}
+
+.sa-cyber-id__subtable-code {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.62rem;
+	font-weight: 800;
+	letter-spacing: 0.05em;
+	color: var(--cyber-accent);
+}
+
+.sa-cyber-grid--neighbors {
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sa-cyber-grid--single {
+	grid-template-columns: 1fr;
+}
+
+.sa-cyber-id__chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+	margin-top: 2px;
+}
+
+.sa-cyber-id__chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 2px 8px;
+	border-radius: 6px;
+	background: #ffffff;
+	border: 1px solid var(--cyber-cell-border);
+	color: #0b192c;
+	font-size: 0.74rem;
+	font-weight: 800;
+	text-decoration: none;
+}
+
+.sa-cyber-id__chip small {
+	font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+	font-size: 0.65rem;
+	font-weight: 800;
+	color: var(--cyber-accent);
+}
+
+.sa-cyber-id__chip:hover {
+	border-color: var(--cyber-accent);
+	color: var(--cyber-accent-dark);
+}
+
+.sa-cyber-id__counties {
+	margin-top: 10px;
+}
+
+/* Responsive Tablet & Mobile — Preserves 2-Column Bordered Tabular Structure */
+@media (max-width: 920px) {
+	.sa-cyber-grid--province,
+	.sa-cyber-grid--county,
+	.sa-cyber-grid--attraction-top,
+	.sa-cyber-grid--attraction-specs {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.sa-cyber-grid--county .sa-cyber-grid__cell--wide {
+		grid-column: span 1;
+	}
+
+	.sa-cyber-grid--county .sa-cyber-grid__cell--full {
+		grid-column: 1 / -1;
+	}
+}
+
+@media (max-width: 640px) {
+	.sa-cyber-id {
+		padding: 10px;
+		margin: 10px 0 18px;
+		border-radius: 13px;
+	}
+
+	.sa-cyber-id__hud-bar {
+		padding: 6px 8px;
+		gap: 6px;
+	}
+
+	.sa-cyber-id__title {
+		font-size: 1.15rem;
+	}
+
+	.sa-cyber-id__en-pill {
+		font-size: 0.68rem;
+		padding: 2px 7px;
+	}
+
+	.sa-cyber-id__summary {
+		font-size: 0.77rem;
+		line-height: 1.55;
+	}
+
+	/* Preserve 2-column bordered table on mobile screens */
+	.sa-cyber-grid--province,
+	.sa-cyber-grid--county,
+	.sa-cyber-grid--attraction-top,
+	.sa-cyber-grid--attraction-specs,
+	.sa-cyber-grid--neighbors {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.sa-cyber-grid--attraction-footer {
+		grid-template-columns: 1fr;
+	}
+
+	.sa-cyber-grid__cell {
+		padding: 7px 8px;
+		gap: 2px;
+	}
+
+	.sa-cyber-grid__code {
+		font-size: 0.55rem;
+	}
+
+	.sa-cyber-grid__label {
+		font-size: 0.68rem;
+	}
+
+	.sa-cyber-grid__value {
+		font-size: 0.76rem;
+		line-height: 1.42;
+	}
+
+	.sa-cyber-id__ltr {
+		font-size: 0.72rem;
+	}
+
+	.sa-cyber-id__review {
+		font-size: 0.58rem;
+		padding: 1px 5px;
+	}
+}
+
+
+/* County identity extensions (v2.21.0): linked attractions table,
+   same-province chips and the short prose block under the cyber card. */
+.sa-cyber-id__attrs { width: 100%; border-collapse: collapse; font-size: .82rem; }
+.sa-cyber-id__attrs th, .sa-cyber-id__attrs td {
+  padding: .4rem .55rem; text-align: right; vertical-align: top;
+  border-top: 1px solid rgba(29, 42, 90, .12);
+}
+.sa-cyber-id__attrs thead th {
+  border-top: 0; font-size: .68rem; color: #5b6b8c;
+  font-family: ui-monospace, Menlo, Consolas, monospace; letter-spacing: .05em;
+}
+.sa-cyber-id__attrs td a { font-weight: 700; text-decoration: none; }
+.sa-cyber-id__attrs td a:hover, .sa-cyber-id__attrs td a:focus-visible { text-decoration: underline; }
+.sa-cyber-id__attrs td small { color: #5b6b8c; font-size: .7rem; }
+.sa-cyber-id__chips {
+  display: flex; flex-wrap: wrap; gap: .35rem; margin: 0; padding: .2rem 0 .4rem; list-style: none;
+}
+.sa-cyber-id__chips a {
+  display: inline-block; padding: .22rem .6rem; border: 1px solid rgba(29, 42, 90, .25);
+  border-radius: 999px; font-size: .76rem; font-weight: 700; text-decoration: none;
+}
+.sa-cyber-id__chips a:hover, .sa-cyber-id__chips a:focus-visible { border-color: currentColor; }
+.sa-cid-note, .sa-cid-note * { box-sizing: border-box; }
+.sa-cid-note { max-width: 100%; margin: 0 auto 1.25rem; display: grid; gap: .55rem; }
 .sa-cid-note__item {
   border: 1px solid #dfe8f1; border-inline-start: 3px solid #1d9e5f;
   border-radius: 10px; background: #fbfdff; padding: .6rem .8rem;
 }
 .sa-cid-note__item h3 { margin: 0 0 .25rem; font-size: .9rem; }
 .sa-cid-note__item h3 [lang="en"] {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New", monospace;
+  font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace;
   color: #1d9e5f; font-size: .6rem; letter-spacing: .06em; margin-inline-end: .5rem;
 }
 .sa-cid-note__item p { margin: 0; font-size: .88rem; line-height: 1.95; }
-
-@media (min-width: 768px) {
-  .sa-cid { padding: .9rem 1rem .95rem; }
-  .sa-cid__metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .sa-cid__info { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .sa-cid__row:only-child { grid-column: 1 / -1; }
-}
-
-@media (min-width: 1024px) {
-  .sa-cid__metric dd strong { font-size: 1.12rem; }
-}
-
-@media (max-width: 360px) {
-  .sa-cid { padding: .65rem .6rem .7rem; border-radius: 11px; }
-  .sa-cid__metrics { gap: .35rem; }
-  .sa-cid__metric { padding: .42rem .5rem; }
-  .sa-cid__title { font-size: 1.14rem; }
-  .sa-cid__table { min-width: 360px; }
-}

@@ -86,7 +86,8 @@ foreach ( sa_nav_entity_types() as $sa_type ) {
 }
 $sa_edu_nav = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
 if ( $sa_edu_nav ) {
-	sa_footer_add_link( $sa_explore_links, $sa_seen, $sa_edu_nav['url'], $sa_edu_nav['label'] ); // v2.13.1
+	$sa_edu_foot_label = function_exists( 'sa_education_full_label' ) ? sa_education_full_label() : $sa_edu_nav['label'];
+	sa_footer_add_link( $sa_explore_links, $sa_seen, $sa_edu_nav['url'], $sa_edu_foot_label ); // v2.19.0
 }
 
 /* ستون ۳ — ارتباط با ما: برگه‌های سایت (ادغام‌شده) + ایمیل. */
