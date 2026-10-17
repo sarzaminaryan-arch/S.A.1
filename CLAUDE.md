@@ -200,6 +200,8 @@
 | ۱۳ | 🟡 | `load_child_theme_textdomain` به پوشهٔ `languages/` اشاره می‌کند که در قالب فرزند وجود ندارد. |
 | ۱۴ | 🟡 | CPTها و طبقه‌بندی‌ها `show_in_rest = false` دارند (تصمیم آگاهانه؛ اما با ویرایشگر بلوکی و REST سازگار نیست). |
 | ۱۵ | 🟡 | محدودیت محیط توسعه: PHP، `pytest` و `PyYAML` در دسترس نیستند → lint و تست‌ها فقط در CI اجرا می‌شوند. |
+| ۱۶ | 🟠 | `inc/city-contrib/includes/class-cc-rest.php` | `cc/v1/ping` به‌صورت عمومی `PHP_VERSION` و وجود جدول سفارشی را برمی‌گرداند (افشای اطلاعات) و `cc/v1/cities/{id}/rating` یک مسیر **نوشتنِ عمومی بدون احراز هویت** است — یافته‌های F2 و F3 در `docs/SECURITY_AUDIT_INVENTORY.md` |
+| ۱۷ | 🟡 | `inc/city-contrib/includes/class-cc-dashboard.php` | ۴ کوئری مستقیم بدون `prepare` (بدون ورودی کاربر؛ ریسک عملی پایین) — یافتهٔ F4 در `docs/SECURITY_AUDIT_INVENTORY.md` |
 
 ---
 
