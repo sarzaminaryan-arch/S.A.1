@@ -29,7 +29,9 @@ $sa_type = get_post_type( $sa_id );
 		if ( 'province' === $sa_type ) {
 			get_template_part( 'template-parts/entity/province-identity' );
 		} elseif ( 'city' === $sa_type ) {
+			$sa_stage_started = microtime( true );
 			get_template_part( 'template-parts/entity/county-profile' );
+			sa_county_timing( 'identity', $sa_stage_started );
 		} elseif ( 'attraction' !== $sa_type ) {
 			if ( has_excerpt() ) {
 				echo '<p class="sa-entity__lead">' . esc_html( get_the_excerpt() ) . '</p>';
@@ -39,7 +41,11 @@ $sa_type = get_post_type( $sa_id );
 		?>
 
 		<?php if ( 'city' === $sa_type && class_exists( 'CC_UI' ) ) : ?>
-			<?php CC_UI::rating_block(); ?>
+			<?php
+			$sa_stage_started = microtime( true );
+			CC_UI::rating_block();
+			sa_county_timing( 'rating', $sa_stage_started );
+			?>
 		<?php endif; ?>
 
 		<?php if ( 'attraction' === $sa_type && function_exists( 'sa_attraction_featured_figure' ) && function_exists( 'sa_attraction_images_visible' ) && sa_attraction_images_visible() ) : ?>
@@ -53,8 +59,10 @@ $sa_type = get_post_type( $sa_id );
 		?>
 
 		<?php if ( 'city' === $sa_type ) {
+			$sa_stage_started = microtime( true );
 			sa_county_google_map( $sa_id );
 			get_template_part( 'template-parts/entity/gallery' );
+			sa_county_timing( 'map_gallery', $sa_stage_started );
 		} ?>
 
 		<div class="sa-entity__content entry-content">
@@ -78,8 +86,12 @@ $sa_type = get_post_type( $sa_id );
 				CC_UI::contrib_block();
 			}
 			sa_county_related_articles( $sa_id );
+			$sa_stage_started = microtime( true );
 			sa_entity_navigation( $sa_id, $sa_type );
+			sa_county_timing( 'navigation', $sa_stage_started );
+			$sa_stage_started = microtime( true );
 			sa_county_sources_section( $sa_id );
+			sa_county_timing( 'sources', $sa_stage_started );
 			?>
 		<?php else : ?>
 		<?php get_template_part( 'template-parts/entity/faq' ); ?>
