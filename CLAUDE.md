@@ -1,22 +1,223 @@
-# Sarzamin Aryan (S.A.1) — project conventions
-
 @AGENTS.md
 @data-model/MASTER_DATA_MODEL.md
 @skill-SA-agent/SKILL.md
 
-## Commands
-- JS syntax: `node --check path/to/file.js`
-- PHP lint when PHP is available: `find wp-content/themes/sarzaminaryan-child -name '*.php' -print0 | xargs -0 -n1 php -l`
-- Release packaging: GitHub Actions workflow `.github/workflows/release-child-theme.yml`
+# 🧠 CLAUDE.md — فایل هوش پروژه
 
-## Active structure
-- `.github/` — release automation for the active theme only.
-- `wp-content/themes/sarzaminaryan-child/` — active WordPress child theme and all runtime code.
-- `docs/` — small operational documentation only; generated article drafts/assets are not retained.
-- `data-model/` — canonical data model and schema source.
-- `skill-SA-agent/` — operating procedure and references.
+> ⚠️ هر Agent موظف است قبل از هر کاری این فایل را کامل بخواند.
+> آخرین به‌روزرسانی: ۱۴۰۵/۰۷/۲۵ (۲۰۲۶-۱۰-۱۷) — بر پایهٔ اسکن کامل مرحلهٔ ۱.
+> هر مقداری که از خودِ مخزن قابل استخراج نبوده، با نشان **[نیاز به تأیید کاربر]** مشخص شده است؛ حدس نزنید، بپرسید.
 
-## Repository policy
-- Do not commit generated ZIPs, release archives, raw image packs, temporary delivery files or one-off importer source trees after their releases are published.
-- Installable ZIPs must be published as GitHub Release assets.
-- Keep the tree source-first so Arena and GitHub operations stay light.
+---
+
+## ۱. معرفی پروژه
+
+| مورد | مقدار |
+|---|---|
+| **نام پروژه** | سرزمین آریان (Sarzamin Aryan) — کد پروژه/مخزن: `S.A.1` |
+| **نوع** | وردپرس — دانشنامهٔ محتوایی سفر ایران (نه شرکتی، نه فروشگاهی)؛ موجودیت‌ها: استان، شهرستان، جاذبه (دیدنی)، آموزش‌های طبیعت‌گردی |
+| **آدرس** | https://sarzaminaryan.ir |
+| **مخزن** | https://github.com/sarzaminaryan-arch/S.A.1 |
+| **مالک / توسعه‌دهنده** | محمدرضا لک (`mrlak`) |
+| **زبان** | فارسی (`fa_IR`)، راست‌چین (RTL)، تاریخ شمسی، اعداد فارسی |
+| **هاست** | **[نیاز به تأیید کاربر]** (در مخزن نیست؛ دامپ بررسی‌شده مربوط به پایگاه‌دادهٔ `haftpair_SA` است) |
+
+> نکتهٔ معماری: مخزن فقط **سورس** است — هستهٔ وردپرس، `wp-config.php`، `.htaccess` و `wp-content/uploads` در آن نیستند (سیاست `docs/repository-retention-policy.md`).
+
+---
+
+## ۲. مشخصات فنی
+
+| مورد | مقدار |
+|---|---|
+| **WordPress** | اعلامی در تم: «Requires at least 6.4 / Tested up to 7.1»؛ زنده تست‌شده روی **7.1.2** (CHANGELOG 1.0.0). نسخهٔ واقعیِ هاست: **[نیاز به تأیید کاربر]** |
+| **PHP** | اعلامی در تم: «Requires PHP 7.4»؛ روی **8.4** تست‌شده و در یک اجرای شبیه‌سازی‌شده روی 8.5.10 بررسی شده. نسخهٔ واقعیِ هاست: **[نیاز به تأیید کاربر]** (ماتریس آزمونِ اسناد ممیزی 8.1+ را می‌خواهد) |
+| **Theme Parent** | `sarzaminaryan` — نسخهٔ **1.1.0** (فورک بازبینی‌شدهٔ Quantum Pedia؛ ۲۰ ایراد F1–F20 در آن رفع شده) |
+| **Theme Child (فعال)** | `sarzaminaryan-child` — نسخهٔ **2.22.2**؛ `Template: sarzaminaryan` |
+| **مدل داده** | `SA_MODEL_VERSION = 1.3` (مرجع: `data-model/MASTER_DATA_MODEL.md` و `data-model/schema/data-model.yaml`) |
+| **Database Prefix** | **`IR_`** — بر پایهٔ نام جداول `IR_options` و `IR_iaa_*` در دامپ `haftpair_SA.sql.gz` (گزارش `docs/technical-audit-checklist.md`). **[نیاز به تأیید کاربر]** با خروجی واقعی `wp config get table_prefix` |
+| **شاخهٔ فعلی این جلسه** | `arena/6b44d15d-s-a-1` |
+
+---
+
+## ۳. پلاگین‌های فعال
+
+### ۳-۱. پلاگین‌های داخل مخزن (سورس رسمی پروژه)
+
+| پلاگین | نسخه | نقش |
+|---|---|---|
+| `sa-ai-sentence-cleaner` | 1.0.1 | پاک‌ساز جمله‌های هوش مصنوعی/قالبی/تکراری از مقالات منتشرشده؛ اسکن، تأیید دستی، حذف با پشتیبان و بازگردانی. شامل موتور الگو (`includes/patterns.php`)، فروشگاه (`class-sa-ai-store.php`)، صفحهٔ مدیریت و تست PHP. |
+
+### ۳-۲. پلاگین‌های فعال روی سایت زنده (طبق snapshot دامپ ۲۰۲۶-۱۰-۰۸)
+
+| پلاگین | نقش | وضعیت |
+|---|---|---|
+| LiteSpeed Cache | کش و بهینه‌سازی سمت هاست | **[نیاز به تأیید کاربر]** — فقط از `active_plugins` دامپ |
+| Rank Math Pro | سئو (title/description/schema/…) | **[نیاز به تأیید کاربر]** — تداخل بالقوه با خروجی `inc/seo.php` (مورد TG-01 در `docs/theme-gaps.md` باز است) |
+| Rank Math | سئو (نسخهٔ رایگان، هم‌زمان فعال) | **[نیاز به تأیید کاربر]** — فعال‌بودن هم‌زمانِ Pro و معمولی نیازمند بررسی |
+
+> ⚠️ هیچ‌کدام از این سه در مخزن نیستند و ممکن است تغییر کرده باشند. قبل از هر تصمیم، خروجی زندهٔ `wp plugin list --status=active` لازم است.
+
+---
+
+## ۴. قوانین مطلق (نقض = شکست فوری)
+
+1. هرگز **Parent Theme** را تغییر نده (`wp-content/themes/sarzaminaryan/`) — مگر اجازهٔ کتبی و صریح مالک برای یک موردِ unavoidable.
+2. هرگز **`wp-config.php`** را تغییر نده (حتی اگر در مخزن نباشد؛ روی هاست هم ممنوع).
+3. هرگز **`.htaccess`** را تغییر نده.
+4. هرگز پلاگینی را **حذف یا غیرفعال** نکن (نه در پیشخوان، نه با WP-CLI، نه با ویرایش `active_plugins`).
+5. هرگز مستقیم روی **branch `main`** کار نکن (هر تغییر روی شاخهٔ اختصاصی + Pull Request).
+6. هرگز **force push** نکن (`--force` / `--force-with-lease` / history rewrite ممنوع).
+7. قبل از تغییر هر فایل، **اول محتوایش را کامل بخوان**.
+8. هر **تغییر منطقی = یک commit جدا** با پیام **فارسی** و واضح.
+9. اگر مطمئن نیستی → **بپرس، حدس نزن**.
+10. بعد از اتمام کار، **مستندات را آپدیت کن** (`docs/project/`، CHANGELOG مربوطه، و در صورت نیاز همین فایل).
+11. *(افزودهٔ پروژه)* هیچ فایل تولیدی را دستی ویرایش نکن (بند ۶) و هیچ ZIP/بستهٔ نصب را در مخزن commit نکن.
+12. *(افزودهٔ پروژه)* در این جلسه فقط روی شاخهٔ `arena/6b44d15d-s-a-1` کار کن (قانون شمارهٔ ۱۰ در `AGENTS.md`).
+
+---
+
+## ۵. Prefix استاندارد پروژه
+
+| لایه | الگو | واقعیت مخزن |
+|---|---|---|
+| توابع قالب فرزند | `sa_[function_name]` | ✅ استخراج‌شده از `functions.php` و `inc/` — **۶۳۹ تابع یکتا** با این پیشوند (مثلاً `sa_breadcrumbs()`, `sa_archive_url()`, `sa_publish_gate()`) |
+| توابع قالب والد | `sarzaminaryan_[function_name]` | ۱۴ تابع (مثلاً `sarzaminaryan_setup()`) — فقط در والد |
+| ثابت‌ها | `SA_[CONST_NAME]` | `SA_CHILD_VERSION`, `SA_CHILD_DIR`, `SA_MODEL_VERSION`, `SA_ENABLE_ACCOMMODATION` , `SA_GITHUB_TOKEN` |
+| کلیدهای متا/تنظیمات | `sa_[key]` | `sa_province_id`, `sa_city_id`, `sa_seo_title`, `sa_show_attraction_image`, … |
+| کلاس‌ها (ماژول مشارکت مردمی) | `SA_CC_[Class]` | `class-cc-otp.php`, `class-cc-rating.php` … در `inc/city-contrib/` |
+| افزونهٔ پاک‌ساز | `SA_AI_CLEANER_*` / `sa_ai_*` | `SA_AI_CLEANER_VERSION`, `class-sa-ai-engine.php` |
+
+**قانون:** هیچ تابع/ثابت/متای تازه‌ای بدون پیشوند `sa_` اضافه نشود؛ پیشوند والد (`sarzaminaryan_`) فقط مخصوص والد است.
+
+---
+
+## ۶. فایل‌های ممنوعه (دست نزن 🚫)
+
+| مسیر/فایل | دلیل |
+|---|---|
+| `wp-config.php`، `.htaccess` | تنظیمات محیطی/هاست — در مخزن هم نیستند |
+| هستهٔ وردپرس (`wp-admin/`، `wp-includes/`، فایل‌های ریشهٔ WP) | خارج از مخزن؛ دست‌کاری = شکست قطعی |
+| `wp-content/themes/sarzaminaryan/**` (**کل والد**) | قانون ۴-۱ |
+| `wp-content/plugins/**` | قانون ۴-۴ (نصب/حذف/ویرایش ممنوع) |
+| `wp-content/themes/sarzaminaryan-child/inc/entities-config.php` | **تولیدی** — از `data-model/schema/data-model.yaml` توسط `build_child_config.py` ساخته می‌شود |
+| `wp-content/themes/sarzaminaryan-child/data/ready-guides.php` | **تولیدی** — خروجی `tools/content-lint/build_theme_data.py` از `docs/camping-education/articles/` |
+| `data-model/schema/data-model.json` | **تولیدی** — خروجی `build_json.py` از `data-model.yaml` |
+| `.env` و هر فایل حاوی توکن/کلید | `.gitignore` شده؛ توکن فقط در `wp-config.php` هاست با ثابت `SA_GITHUB_TOKEN` |
+| `imagetool (23).zip` و هر ZIP/بستهٔ نصب | باید از مخزن حذف و در GitHub Release منتشر شود (در انتظار تأیید مالک برای حذف) |
+| تاریخچهٔ گیت | بدون rebase/force-push؛ پاک‌سازی حجم فقط با تأیید صریح مالک |
+
+---
+
+## ۷. فایل‌های مجاز (اینجا کار کن ✅)
+
+| مسیر | توضیح |
+|---|---|
+| `wp-content/themes/sarzaminaryan-child/**` | کد فعال پروژه (به‌جز دو فایل تولیدیِ بند ۶): `inc/*.php` (۳۹ ماژول)، `template-parts/**`، `template-home.php`، `template-dashboard.php`، `single-*.php`، `archive-*.php`، `header.php`، `footer.php`، `style.css`، `assets/css|js|svg`، `tests/*.php` |
+| `wp-content/themes/sarzaminaryan-child/data/*.php` | فقط فایل‌های دستی (`counties.php`، `provinces.php`، `attractions.php`، `region-facts.php`، `redirects.php`، `borders.php`) — **نه** `ready-guides.php` |
+| `docs/**` | مستندات عملیاتی و `docs/project/**` (۱۳ فایل ایجادشده در مرحلهٔ ۲) |
+| `data-model/MASTER_DATA_MODEL.md` و `data-model/schema/data-model.yaml` | منابع دستی مدل داده (تغییر مدل = نسخه‌برداری + ثبت در `data-model/CHANGELOG.md`) |
+| `skill-SA-agent/**` | رویهٔ عملیاتی و مراجع استاندارد |
+| `tools/**` و `ai_cleaner/**` | ابزارهای خط فرمان و مولدها |
+| `.github/workflows/**` | فقط با بررسی دقیق (هر تغییر CI می‌تواند انتشار را متوقف کند) |
+| فایل‌های ریشه | `AGENTS.md`، این فایل، `readme.txt`ها، `CHANGELOG.md`ها — فقط هم‌زمان با تغییر نسخه |
+
+---
+
+## ۸. کارهای انجام شده ✅
+
+بر اساس `git log` (۲۶۷ کامیت؛ ۳۰ کامیت آخر بررسی شد) و ریلیزهای گیت‌هاب:
+
+**زیرساخت و انتشار**
+- قالب والد `sarzaminaryan` ۱.۱.۰ (رفع ۲۰ ایراد نسخهٔ Quantum Pedia: فونت‌های گمشده، RTL معکوسِ دوبار، escape خروجی، `$content_width`، …).
+- راه‌اندازی ۴ workflow: انتشار خودکار قالب فرزند، انتشار افزونهٔ پاک‌ساز، آنالیز محتوای کمپینگ، دریافت پیش‌نویس از Drive.
+- به‌روزرسان گیت‌هاب با مخزن خصوصی + `Update URI` + بررسی SHA-256.
+- افزونهٔ `sa-ai-sentence-cleaner` ۱.۰.۱ و ابزار معادلِ پایتون `ai_cleaner/`.
+
+**قالب فرزند — خط اصلی (۲.۱۸.x → ۲.۲۲.۲)**
+- ۲.۱۸.x: مجموعهٔ ۶۷ مقالهٔ آموزش کمپینگ/بقا، ۲۰۴ کارت موضوعی، کارت‌های آبرنگی ۲۸ دیدنی، فهرست مطالب خودکار (`inc/toc.php`)، تصویر شاخص به‌عنوان نخستین عنصر مقاله.
+- ۲.۱۹.۰: تفکیک «دیدنی‌ها» از «آموزشی‌ها» در پیشخوان، ساختار ۴ ستون (استان‌ها/شهرستان‌ها/دیدنی‌ها/آموزش)، ارتقای سئوی ۲۸ مقالهٔ آماده.
+- ۲.۱۹.۱–۲.۱۹.۳: مخفی‌سازی تصویر شاخص دیدنی‌ها، ۳ کارت شناسنامهٔ سایبری، داشبورد سایبری + نقشهٔ تعاملی ۲مرحله‌ای ایران/شهرستان‌ها، رفع Fatal Error صفحات موجودیت.
+- ۲.۲۰.۰: ۱۰ مقالهٔ جاذبهٔ شاخص (مجموع ۳۸ مقالهٔ آماده) + تصاویر drone-view + نشان «✓ مقالهٔ کامل» در داشبورد.
+- ۲.۲۱.۰: ادغام دو خط موازی؛ لایهٔ متای استاندارد شهرستان (۲۵ کلید) + جدول جاذبه‌ها و شهرهای هم‌استانی.
+- ۲.۲۲.۲ (آخرین): خانهٔ `11 // MAIN_CITY` در شناسنامهٔ شهرستان، اجرای قوانین خروجی کارت (حذف خانه‌های خالی، جمعیت بدون سال، اعتبارسنجی مختصات، همسایه‌های جهت‌دار)، سند `docs/county-identity-roadmap.md` و تست‌های تازه در CI.
+- ابزار `tools/county-sync` برای همگام‌سازی شناسنامه‌ها روی REST.
+
+---
+
+## ۹. کارهای در حال انجام 🔄
+
+- **شاخهٔ جاری این جلسه:** `arena/6b44d15d-s-a-1` — مرحلهٔ ۱ (اسکن کامل) انجام شد، مرحلهٔ ۲ (ساخت `docs/project/`) انجام شد، مرحلهٔ ۳ (تکمیل این فایل) در حال انجام.
+- **PRهای بازِ دیگر (خارج از این شاخه):**
+  | PR | عنوان | وضعیت |
+  |---|---|---|
+  | #23 | Clean editorial notes in ready articles | OPEN |
+  | #22 | Theme 2.21.0 SEO and navigation fixes | DRAFT |
+  | #21 | کارت آبرنگی ۲۸ دیدنی + فهرست مطالب (۲.۱۸.۱۷/۱۸) | OPEN |
+- **خطوط نیمه‌تمامِ شناسایی‌شده:** نقشهٔ راهِ شناسنامهٔ شهرستان (فاز ۲ و ۳: انتشار دسته‌ای ۲۰تایی استان‌به‌استان)، پوشش مقالات دیدنی‌ها (۳۸ از ۸۰ جاذبهٔ داشبورد)، پیشنهاد مدل ۱.۲/۱.۳ (منتظر تصمیم مالک).
+
+---
+
+## ۱۰. کارهای باقی‌مانده 📋
+
+**تعیین تکلیف‌شده توسط اسکن (آمادهٔ اجرا با تأیید شما):**
+1. ~~حذف `imagetool (23).zip` از درخت مخزن~~ — ✅ **انجام شد** (`ed1ccb6`).
+2. بازتولید یا اصلاح سرآیند `inc/entities-config.php` (اکنون «model v1.2» در برابر مرجع ۱.۳).
+3. مرتب‌سازی تگ‌ها/ریلیزهای تکراری (`v2.22.1` دو رکورد بدون تگ، `v2.21.0` دو رکورد، `v2.22.0` Draft).
+4. بستن یا ادغام PRهای #21، #22، #23.
+5. یکسان‌سازی تعداد شهرستان‌ها (۴۸۳ در `data/counties.php` در برابر ۴۸۴ رسمی و ۴۷۸ در نقشه).
+6. به‌روزرسانی مستندات عقب‌مانده (`docs/model-v1.2-proposal.md`، `docs/theme-gaps.md` مربوط به ۲.۱۱.۲۶، تبلیغ «۶ نوع محتوا» در `readme.txt`).
+7. ایجاد پوشهٔ `languages/` در قالب فرزند یا حذف فراخوان `load_child_theme_textdomain()`.
+8. یکسان‌سازی نسخهٔ PHP اعلامی (۷.۴) با ماتریس آزمون (۸.۱+).
+
+**سؤال‌هایی که باید از شما بپرسم (پاسخ = ورودی مراحل بعد):**
+1. نسخهٔ دقیق **وردپرس** و **PHP** روی هاست چیست؟
+2. پیشوند جداول (`IR_`) تأیید می‌شود؟
+3. کدام پلاگین‌ها **الان** واقعاً فعال‌اند؟ (و آیا Rank Math قرار است بماند یا خروجی سئوی قالب مالکِ یگانه باشد؟)
+4. نام/نوع هاست و دسترسی staging داریم؟
+5. ~~آیا `imagetool (23).zip` را حذف کنم؟~~ — ✅ مجوز صادر شد و با `git rm --cached` انجام شد (۱۴۰۵/۰۷/۲۵).
+6. PRهای #21/#22/#23 را ببندم یا ادغام کنم؟
+7. اولویت مرحلهٔ بعدی کدام است: رفع مشکلات مخزن، یا ادامهٔ فاز ۲/۳ شناسنامهٔ شهرستان؟
+
+---
+
+## ۱۱. مشکلات شناخته‌شده ⚠️
+
+| # | شدت | مشکل |
+|---|---|---|
+| ۱ | 🔴 | `inc/entities-config.php` سرآیند «model v1.2» دارد در حالی که مدل مرجع ۱.۳ است؛ فایل با مولد round-trip نمی‌شود (خطر بازنویسی فیلدها). |
+| ۲ | ✅ حل‌شده | ~~`imagetool (23).zip`~~ — با `git rm --cached` از ردیابی گیت خارج شد (۱۴۰۵/۰۷/۲۵)؛ فایل فیزیکی باقی مانده است. |
+| ۳ | 🔴 | ناهماهنگی تگ/ریلیز: `v2.22.1` دو رکورد ریلیز بدون تگ گیت؛ `v2.21.0` دو رکورد؛ `v2.22.0` Draft رها‌شده. |
+| ۴ | 🔴 | سه PR بازِ موازی روی خطوط قدیمی (#21، #22، #23) — خطر ادغام دوبارهٔ خطوط (سابقه: ۲.۱۸.۹). **PR #26** (مستندات این جلسه) هم باز است و منتظر ادغام مالک. |
+| ۵ | 🔴 | دو اجرای ناموفق CI در ۱۳ ساعت گذشته روی «Release child theme». |
+| ۶ | 🟠 | حجم `.git` ≈ ۱۹۷MB در برابر ۳۷MB درخت کاری + ۷۲ تگ (تاریخچهٔ سنگین). |
+| ۷ | 🟠 | تعداد شهرستان‌ها سه‌گانه است: ۴۸۳ (مخزن) / ۴۸۴ (رسمی ۱۴۰۴) / ۴۷۸ (نقشهٔ شهرستان‌ها). |
+| ۸ | 🟠 | مستندات عقب‌مانده از کد (مدل ۱.۱ در پیشنهاد v1.2، `theme-gaps.md` برای ۲.۱۱.۲۶، «۶ نوع محتوا» در readme). |
+| ۹ | 🟠 | داده‌های حجیم در کد قالب: `data/ready-guides.php` (۱.۵MB) و `data/ready-articles.php` (۰.۹۷MB). |
+| ۱۰ | 🟠 | ۲۸۲ فایل WebP در درخت قالب (مرز سیاست «بسته‌های تصویری در Release»). |
+| ۱۱ | 🟠 | دوگانگی ابزار پاک‌ساز (افزونهٔ PHP در برابر `ai_cleaner/` پایتون) با دو مجموعه الگو. |
+| ۱۲ | 🟠 | تداخل احتمالی Rank Math با خروجی سئوی قالب (مورد باز TG-01) — خروجی زنده بررسی نشده. |
+| ۱۳ | 🟡 | `load_child_theme_textdomain` به پوشهٔ `languages/` اشاره می‌کند که در قالب فرزند وجود ندارد. |
+| ۱۴ | 🟡 | CPTها و طبقه‌بندی‌ها `show_in_rest = false` دارند (تصمیم آگاهانه؛ اما با ویرایشگر بلوکی و REST سازگار نیست). |
+| ۱۵ | 🟡 | محدودیت محیط توسعه: PHP، `pytest` و `PyYAML` در دسترس نیستند → lint و تست‌ها فقط در CI اجرا می‌شوند. |
+| ۱۶ | 🟠 | `inc/city-contrib/includes/class-cc-rest.php` | `cc/v1/ping` به‌صورت عمومی `PHP_VERSION` و وجود جدول سفارشی را برمی‌گرداند (افشای اطلاعات) و `cc/v1/cities/{id}/rating` یک مسیر **نوشتنِ عمومی بدون احراز هویت** است — یافته‌های F2 و F3 در `docs/SECURITY_AUDIT_INVENTORY.md` |
+| ۱۷ | 🟡 | `inc/city-contrib/includes/class-cc-dashboard.php` | ۴ کوئری مستقیم بدون `prepare` (بدون ورودی کاربر؛ ریسک عملی پایین) — یافتهٔ F4 در `docs/SECURITY_AUDIT_INVENTORY.md` |
+
+---
+
+## ۱۲. ساختار Branch‌ها
+
+| شاخه | نقش | وضعیت فعلی |
+|---|---|---|
+| `main` | تولید (محافظت‌شده) — فقط از طریق Pull Request و پس از سبز شدن CI | ✅ وجود دارد و محافظت می‌شود |
+| `develop` | توسعهٔ اصلی | ❌ **در مخزن وجود ندارد** — **[نیاز به تأیید کاربر]** برای ایجاد |
+| `feature/*` | فیچرهای جدید | ❌ تاکنون استفاده نشده |
+| `fix/*` | رفع باگ | ❌ تاکنون استفاده نشده |
+| `backup/*` | پشتیبان قبل از هر session | ❌ تاکنون استفاده نشده |
+| `arena/<session-id>-s-a-1` | عملاً شاخهٔ کار جاری (ساختهٔ محیط Arena) | ✅ الگوی واقعی و جاری پروژه |
+
+> ⚠️ **تضادِ در حال حاضر:** عملکرد واقعی مخزن بر پایهٔ `main` + شاخه‌های `arena/*` است و طبق `AGENTS.md` بند ۱۰، هر جلسه فقط روی شاخهٔ اختصاصیِ همان جلسه کار می‌کند. اگر ساختار `develop` / `feature/*` / `fix/*` / `backup/*` را می‌خواهید، باید صریحاً تأیید کنید تا (الف) از این پس رعایت شود و (ب) شاخهٔ `develop` ساخته شود.
+
+---
+
+> این فایل پس از هر تغییرِ مهم باید به‌روزرسانی شود (قانون ۴-۱۰). منبع حقیقت برای کد: خودِ مخزن؛ برای محیط زنده: خروجی هاست و تأیید مالک.
