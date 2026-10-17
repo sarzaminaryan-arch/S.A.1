@@ -99,6 +99,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-page.php"
 
+      - name: Run county source no-network performance regression
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-source-performance.php"
+
       - name: Run public editorial cleanup and preservation tests
         shell: bash
         run: php "$THEME_DIR/tests/test-public-editorial.php"

@@ -221,7 +221,37 @@ function sa_county_content_filter( $content ) {
 }
 add_filter( 'the_content', 'sa_county_content_filter', 10 );
 
-/** Public HTTP(S) sources only; no HTTP probes on a visitor request (SSRF/latency). */
+/**
+ * Validate a displayed citation syntactically, without DNS or HTTP requests.
+ * This is NOT an SSRF validator for fetching URLs: outbound requests must still
+ * use WordPress's safe HTTP API. A citation is a link, not a server-side fetch.
+ *
+ * @param string $candidate Source URL.
+ * @return string Normalized HTTP(S) URL or an empty string.
+ */
+function sa_county_source_url( $candidate ) {
+	if ( ! is_string( $candidate ) || preg_match( '/[\x00-\x20\x7f\\\\]/', $candidate ) ) {
+		return '';
+	}
+	$url = esc_url_raw( $candidate, array( 'http', 'https' ) );
+	$parts = wp_parse_url( $url );
+	if ( ! is_array( $parts ) || empty( $parts['host'] ) || empty( $parts['scheme'] )
+		|| ! in_array( strtolower( $parts['scheme'] ), array( 'http', 'https' ), true )
+		|| isset( $parts['user'] ) || isset( $parts['pass'] )
+		|| ( isset( $parts['port'] ) && ! in_array( (int) $parts['port'], array( 80, 443, 8080 ), true ) ) ) {
+		return '';
+	}
+	$host = rtrim( strtolower( $parts['host'] ), '.' );
+	if ( false === strpos( $host, '.' ) || filter_var( $host, FILTER_VALIDATE_IP )
+		|| ! filter_var( $host, FILTER_VALIDATE_DOMAIN, FILTER_FLAG_HOSTNAME )
+		|| ! preg_match( '/\.[a-z][a-z0-9-]*$/i', $host )
+		|| preg_match( '/\.(?:local|localhost|internal|lan|home|intranet|home\.arpa)$/i', $host ) ) {
+		return '';
+	}
+	return $url;
+}
+
+/** Public HTTP(S) sources only; never resolve hosts or probe HTTP on visitor requests. */
 function sa_county_sources( $post_id ) {
 	$parts = isset( $GLOBALS['sa_county_page_parts'][ $post_id ] ) ? $GLOBALS['sa_county_page_parts'][ $post_id ] : sa_county_split_content( get_post_field( 'post_content', $post_id ) );
 	$rows = array_merge( sa_get_sources( $post_id ), $parts['urls'] );
@@ -233,9 +263,9 @@ function sa_county_sources( $post_id ) {
 	}
 	$valid = array();
 	foreach ( $rows as $row ) {
-		$url = esc_url_raw( $row['url'], array( 'http', 'https' ) );
+		$url = sa_county_source_url( $row['url'] );
 		$host = rtrim( strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) ), '.' );
-		if ( ! $url || ! wp_http_validate_url( $url ) || sa_county_host_is( $host, 'google.com' ) ) {
+		if ( ! $url || sa_county_host_is( $host, 'google.com' ) ) {
 			continue;
 		}
 		$url = preg_replace( '/#.*$/', '', $url );

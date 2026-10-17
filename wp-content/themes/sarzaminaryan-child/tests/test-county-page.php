@@ -15,7 +15,7 @@ function is_main_query() { return true; }
 function get_the_ID() { return 42; }
 function get_queried_object_id() { return 42; }
 function wp_strip_all_tags( $s ) { return strip_tags( $s ); }
-function wp_parse_url( $url, $part ) { return parse_url( $url, $part ); }
+function wp_parse_url( $url, $part = -1 ) { return parse_url( $url, $part ); }
 function home_url() { return 'https://sarzaminaryan.ir'; }
 function get_post_field() { return ''; }
 function sa_get_sources() { return $GLOBALS['meta_sources']; }
