@@ -33,6 +33,10 @@ function sa_county_profile_fields() {
 		'divisions_bakhsh'       => array( 'label' => 'تعداد بخش', 'type' => 'integer', 'legacy' => 'sa_cty_districts' ),
 		'divisions_shahr'        => array( 'label' => 'تعداد شهر', 'type' => 'integer', 'legacy' => 'sa_cty_cities' ),
 		'divisions_dehestan'     => array( 'label' => 'تعداد دهستان', 'type' => 'integer', 'legacy' => 'sa_cty_rural_districts' ),
+		'divisions_rosta'        => array( 'label' => 'تعداد روستا', 'type' => 'integer', 'legacy' => 'sa_cty_villages' ),
+		'history_now'            => array( 'label' => 'قدمت و امروز (متن کوتاه زیر شناسنامه)', 'type' => 'text', 'legacy' => '' ),
+		'industry_main'          => array( 'label' => 'صنعت و کارخانه‌های مشهور (با سال تأسیس، کارکرد، تولیدات)', 'type' => 'text', 'legacy' => '' ),
+		'agriculture_main'       => array( 'label' => 'کشاورزی و دامداری', 'type' => 'text', 'legacy' => '' ),
 		'climate_short'          => array( 'label' => 'اقلیم (یک خط)', 'type' => 'string', 'legacy' => 'sa_cty_climate' ),
 		'best_season'            => array( 'label' => 'بهترین فصل سفر', 'type' => 'string', 'legacy' => 'sa_cty_best_time' ),
 		'neighbors_n'            => array( 'label' => 'همسایهٔ شمال (نامک یا نام)', 'type' => 'string', 'legacy' => '' ),
@@ -225,11 +229,16 @@ function sa_county_profile_data( $post_id ) {
 				'بخش'     => $get( 'divisions_bakhsh' ),
 				'شهر'     => $get( 'divisions_shahr' ),
 				'دهستان'  => $get( 'divisions_dehestan' ),
+				'روستا'   => $get( 'divisions_rosta' ),
 			),
 			function ( $v ) {
 				return '' !== (string) $v;
 			}
 		),
+		'history_now'   => $get( 'history_now' ),
+		'industry_main' => $get( 'industry_main' ),
+		'agriculture_main' => $get( 'agriculture_main' ),
+		'province_slug' => $province_post ? (string) $province_post->post_name : '',
 		'climate'       => $get( 'climate_short' ),
 		'best_season'   => $get( 'best_season' ),
 		'neighbors'     => sa_county_profile_neighbors( $post_id ),
@@ -243,7 +252,8 @@ function sa_county_profile_data( $post_id ) {
 	$data['has_data'] = '' !== $data['center_fa'] || '' !== $data['population'] || '' !== $data['area_km2']
 		|| '' !== $data['elevation_m'] || ! empty( $data['divisions'] ) || '' !== $data['climate']
 		|| '' !== $data['best_season'] || ! empty( $data['neighbors'] ) || '' !== $data['language']
-		|| '' !== $data['economy'] || '' !== $data['distance_km'] || null !== $data['lat'];
+		|| '' !== $data['economy'] || '' !== $data['distance_km'] || null !== $data['lat']
+		|| '' !== $data['history_now'] || '' !== $data['industry_main'] || '' !== $data['agriculture_main'];
 	return $data;
 }
 
@@ -261,6 +271,107 @@ function sa_county_profile_empty_fields( $post_id ) {
 		}
 	}
 	return $empty;
+}
+
+/**
+ * Important attractions for the identity-card table.
+ *
+ * Source of truth is the existing relation (attraction.sa_city_id → this
+ * county), so anything published as a دیدنی of this county appears here
+ * automatically; legacy POI lines fill in places that have no post yet.
+ * Each linked attraction also knows its province through the county, so
+ * county → attraction → province linking needs no extra fields.
+ *
+ * @param int $post_id County post ID.
+ * @param int $limit   Max rows.
+ * @return array<int,array{name:string,en:string,type:string,url:string}>
+ */
+function sa_county_profile_attractions( $post_id, $limit = 8 ) {
+	$rows = array();
+	$seen = array();
+	if ( function_exists( 'sa_get_children' ) ) {
+		foreach ( (array) sa_get_children( (int) $post_id, 'attraction' ) as $post ) {
+			if ( ! $post || 'publish' !== $post->post_status ) {
+				continue;
+			}
+			$name = get_the_title( $post );
+			if ( '' === $name || isset( $seen[ $name ] ) ) {
+				continue;
+			}
+			$seen[ $name ] = true;
+			$type           = '';
+			if ( function_exists( 'get_the_terms' ) ) {
+				$terms = get_the_terms( $post->ID, 'attraction_type' );
+				if ( is_array( $terms ) && $terms ) {
+					$type = $terms[0]->name;
+				}
+			}
+			$rows[] = array(
+				'name' => $name,
+				'en'   => trim( (string) get_post_meta( $post->ID, 'sa_english_name', true ) ),
+				'type' => $type,
+				'url'  => (string) get_permalink( $post ),
+			);
+		}
+	}
+	$groups = array(
+		'sa_cty_poi_nature'     => 'طبیعت‌گردی',
+		'sa_cty_poi_offbeat'    => 'بکر و کمتر دیده‌شده',
+		'sa_cty_poi_recreation' => 'تفریحی و خانوادگی',
+		'sa_cty_poi_heritage'   => 'تاریخی و زیارتی',
+	);
+	foreach ( $groups as $key => $label ) {
+		if ( ! function_exists( 'sa_county_lines' ) || ! function_exists( 'sa_county_parse_poi' ) ) {
+			break;
+		}
+		foreach ( sa_county_lines( get_post_meta( (int) $post_id, $key, true ) ) as $line ) {
+			$poi = sa_county_parse_poi( $line );
+			if ( empty( $poi['name'] ) || isset( $seen[ $poi['name'] ] ) ) {
+				continue;
+			}
+			$seen[ $poi['name'] ] = true;
+			$rows[]               = array(
+				'name' => $poi['name'],
+				'en'   => '',
+				'type' => $label,
+				'url'  => '',
+			);
+		}
+	}
+	return array_slice( $rows, 0, max( 1, (int) $limit ) );
+}
+
+/**
+ * Published counties of the same province (for the هم‌استانی chips row).
+ *
+ * @param int $post_id County post ID.
+ * @param int $limit   Max chips.
+ * @return array<int,array{label:string,url:string}>
+ */
+function sa_county_profile_sibling_cities( $post_id, $limit = 12 ) {
+	$out  = array();
+	$data = sa_county_profile_data( $post_id );
+	if ( ! function_exists( 'sa_counties' ) || '' === $data['province_slug'] ) {
+		return $out;
+	}
+	foreach ( sa_counties() as $row ) {
+		if ( ! isset( $row['province'], $row['slug'], $row['name'] ) || $row['province'] !== $data['province_slug'] ) {
+			continue;
+		}
+		$current = function_exists( 'sa_county_of_post' ) ? sa_county_of_post( $post_id ) : null;
+		if ( $current && $current['slug'] === $row['slug'] ) {
+			continue;
+		}
+		$url = function_exists( 'sa_county_permalink' ) ? sa_county_permalink( $row['slug'] ) : '';
+		if ( '' === $url ) {
+			continue; // Only counties that really have a published page are linked.
+		}
+		$out[] = array( 'label' => 'شهرستان ' . $row['name'], 'url' => $url );
+		if ( count( $out ) >= max( 1, (int) $limit ) ) {
+			break;
+		}
+	}
+	return $out;
 }
 
 /* -------------------------------------------------------------------------
@@ -300,6 +411,16 @@ function sa_county_profile_render_box( $post ) {
 	echo '<table class="form-table"><tbody>';
 	foreach ( sa_county_profile_fields() as $key => $field ) {
 		$value = get_post_meta( $post->ID, $key, true );
+		if ( 'text' === $field['type'] ) {
+			printf(
+				'<tr><th scope="row"><label for="%1$s">%2$s</label><br><code>%1$s</code></th>'
+				. '<td><textarea id="%1$s" name="%1$s" rows="3" class="large-text">%3$s</textarea></td></tr>',
+				esc_attr( $key ),
+				esc_html( $field['label'] ),
+				esc_textarea( (string) $value )
+			);
+			continue;
+		}
 		printf(
 			'<tr><th scope="row"><label for="%1$s">%2$s</label><br><code>%1$s</code></th>'
 			. '<td><input type="text" id="%1$s" name="%1$s" value="%3$s" class="regular-text" dir="%4$s"></td></tr>',
@@ -331,6 +452,8 @@ function sa_county_profile_save( $post_id ) {
 			$value = '' === trim( (string) $raw ) ? '' : (string) absint( $raw );
 		} elseif ( 'number' === $field['type'] ) {
 			$value = '' === trim( (string) $raw ) ? '' : (string) (float) $raw;
+		} elseif ( 'text' === $field['type'] ) {
+			$value = sanitize_textarea_field( $raw );
 		} else {
 			$value = sanitize_text_field( $raw );
 		}

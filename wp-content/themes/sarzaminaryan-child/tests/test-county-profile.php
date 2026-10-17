@@ -119,7 +119,26 @@ function sa_county_parse_neighbor( $line ) {
 	}
 	return array( 'dir' => trim( $parts[0] ), 'label' => trim( $parts[1] ), 'url' => $url );
 }
+function sa_county_parse_poi( $line ) {
+	$bits = array_map( 'trim', explode( '|', trim( (string) $line ) ) );
+	return array( 'name' => isset( $bits[0] ) ? $bits[0] : '', 'distance' => isset( $bits[1] ) ? $bits[1] : '', 'note' => isset( $bits[2] ) ? $bits[2] : '' );
+}
 function sa_get_parent( $id, $type ) { return null; }
+function sa_get_children( $id, $type ) {
+	return isset( $GLOBALS['t']['children'][ $id ][ $type ] ) ? $GLOBALS['t']['children'][ $id ][ $type ] : array();
+}
+function get_the_terms( $id, $taxonomy ) {
+	if ( empty( $GLOBALS['t']['terms'][ $id ] ) ) {
+		return false;
+	}
+	$out = array();
+	foreach ( $GLOBALS['t']['terms'][ $id ] as $name ) {
+		$term       = new stdClass();
+		$term->name = $name;
+		$out[]      = $term;
+	}
+	return $out;
+}
 
 function sa_t_post( $id, $type, $slug, $title, $status = 'publish' ) {
 	$post              = new stdClass();
@@ -201,5 +220,33 @@ sa_t_eq( '', $d4['neighbors']['n']['url'], 'page-less neighbour has no link' );
 $GLOBALS['t']['meta'][21] = array( 'sa_cty_neighbors' => "شمال: دورود\nجنوب: بروجرد" );
 $d5 = sa_county_profile_data( 21 );
 sa_t_assert( isset( $d5['neighbors']['n'], $d5['neighbors']['s'] ), 'legacy lines map to directions' );
+
+/* 7 — attractions table: relation feeds it automatically, legacy POIs fill gaps. */
+$lake = sa_t_post( 30, 'attraction', 'gahar-lake', 'دریاچه گهر' );
+$GLOBALS['t']['children'][20]['attraction'] = array( $lake );
+$GLOBALS['t']['terms'][30]                  = array( 'طبیعی' );
+$GLOBALS['t']['meta'][30]                   = array( 'sa_english_name' => 'Gahar Lake' );
+$GLOBALS['t']['meta'][20]['sa_cty_poi_heritage'] = 'محوطه باستانی نمونه';
+$rows = sa_county_profile_attractions( 20 );
+sa_t_eq( 'دریاچه گهر', $rows[0]['name'], 'related attraction appears automatically' );
+sa_t_eq( 'https://example.test/attraction/gahar-lake/', $rows[0]['url'], 'attraction links to its page' );
+sa_t_eq( 'Gahar Lake', $rows[0]['en'], 'attraction english name kept' );
+sa_t_eq( 'طبیعی', $rows[0]['type'], 'attraction type from taxonomy' );
+sa_t_eq( '', $rows[1]['url'], 'legacy POI without a page stays unlinked' );
+sa_t_eq( 'تاریخی و زیارتی', $rows[1]['type'], 'legacy POI group becomes the type' );
+
+/* 8 — same-province cities: only published county pages, current excluded. */
+$province = get_post( 20 );
+$GLOBALS['t']['meta'][20]['province_id'] = '10';
+$sibs = sa_county_profile_sibling_cities( 20 );
+$labels = array_column( $sibs, 'label' );
+sa_t_assert( in_array( 'شهرستان ازنا', $labels, true ) && in_array( 'شهرستان بروجرد', $labels, true ), 'same-province counties listed' );
+sa_t_assert( ! in_array( 'شهرستان دورود', $labels, true ), 'current county excluded from siblings' );
+
+/* 9 — villages count and the short prose block fields. */
+$GLOBALS['t']['meta'][22] = array( 'sa_cty_villages' => '41', 'industry_main' => 'متن نمونه صنعت' );
+$d6 = sa_county_profile_data( 22 );
+sa_t_eq( '41', $d6['divisions']['روستا'], 'villages fall back to sa_cty_villages' );
+sa_t_eq( 'متن نمونه صنعت', $d6['industry_main'], 'industry text carried to the under-card note' );
 
 echo "ALL TESTS PASSED\n";

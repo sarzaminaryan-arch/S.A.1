@@ -77,6 +77,7 @@ if ( $sa_has_identity ) {
 	$sa_div_rows  = array();
 	$sa_neighbors = array();
 	$sa_life_rows = array();
+	$sa_pois      = array(); // Attractions now live in the identity-card table.
 }
 ?>
 <section class="sa-county" id="county-profile">
