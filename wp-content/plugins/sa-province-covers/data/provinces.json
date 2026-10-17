@@ -1,0 +1,219 @@
+[
+  {
+    "slug": "east-azerbaijan",
+    "name": "آذربایجان شرقی",
+    "source": "Azerbaijan sharghi",
+    "file": "east-azerbaijan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان آذربایجان شرقی"
+  },
+  {
+    "slug": "west-azerbaijan",
+    "name": "آذربایجان غربی",
+    "source": "Azerbaijan gharbi",
+    "file": "west-azerbaijan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان آذربایجان غربی"
+  },
+  {
+    "slug": "ardabil",
+    "name": "اردبیل",
+    "source": "Ardabil",
+    "file": "ardabil.webp",
+    "alt": "تابلوی گرافیکی معرفی استان اردبیل"
+  },
+  {
+    "slug": "isfahan",
+    "name": "اصفهان",
+    "source": "Isfahan",
+    "file": "isfahan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان اصفهان"
+  },
+  {
+    "slug": "alborz",
+    "name": "البرز",
+    "source": "Alborz",
+    "file": "alborz.webp",
+    "alt": "تابلوی گرافیکی معرفی استان البرز"
+  },
+  {
+    "slug": "ilam",
+    "name": "ایلام",
+    "source": "Ilam",
+    "file": "ilam.webp",
+    "alt": "تابلوی گرافیکی معرفی استان ایلام"
+  },
+  {
+    "slug": "bushehr",
+    "name": "بوشهر",
+    "source": "Bushehr",
+    "file": "bushehr.webp",
+    "alt": "تابلوی گرافیکی معرفی استان بوشهر"
+  },
+  {
+    "slug": "tehran",
+    "name": "تهران",
+    "source": "Tehran",
+    "file": "tehran.webp",
+    "alt": "تابلوی گرافیکی معرفی استان تهران"
+  },
+  {
+    "slug": "chaharmahal-bakhtiari",
+    "name": "چهارمحال و بختیاری",
+    "source": "Charmahal",
+    "file": "chaharmahal-bakhtiari.webp",
+    "alt": "تابلوی گرافیکی معرفی استان چهارمحال و بختیاری"
+  },
+  {
+    "slug": "south-khorasan",
+    "name": "خراسان جنوبی",
+    "source": "Khorasan jonubi",
+    "file": "south-khorasan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان خراسان جنوبی"
+  },
+  {
+    "slug": "razavi-khorasan",
+    "name": "خراسان رضوی",
+    "source": "Korasan razavi",
+    "file": "razavi-khorasan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان خراسان رضوی"
+  },
+  {
+    "slug": "north-khorasan",
+    "name": "خراسان شمالی",
+    "source": "Khorasan shomali",
+    "file": "north-khorasan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان خراسان شمالی"
+  },
+  {
+    "slug": "khuzestan",
+    "name": "خوزستان",
+    "source": "Khuzestan",
+    "file": "khuzestan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان خوزستان"
+  },
+  {
+    "slug": "zanjan",
+    "name": "زنجان",
+    "source": "Zanjan",
+    "file": "zanjan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان زنجان"
+  },
+  {
+    "slug": "semnan",
+    "name": "سمنان",
+    "source": "Semnan",
+    "file": "semnan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان سمنان"
+  },
+  {
+    "slug": "sistan-baluchestan",
+    "name": "سیستان و بلوچستان",
+    "source": "Sistan",
+    "file": "sistan-baluchestan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان سیستان و بلوچستان"
+  },
+  {
+    "slug": "fars",
+    "name": "فارس",
+    "source": "Fars",
+    "file": "fars.webp",
+    "alt": "تابلوی گرافیکی معرفی استان فارس"
+  },
+  {
+    "slug": "qazvin",
+    "name": "قزوین",
+    "source": "Ghazvin",
+    "file": "qazvin.webp",
+    "alt": "تابلوی گرافیکی معرفی استان قزوین"
+  },
+  {
+    "slug": "qom",
+    "name": "قم",
+    "source": "Qom",
+    "file": "qom.webp",
+    "alt": "تابلوی گرافیکی معرفی استان قم"
+  },
+  {
+    "slug": "kurdistan",
+    "name": "کردستان",
+    "source": "Kordestan",
+    "file": "kurdistan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان کردستان"
+  },
+  {
+    "slug": "kerman",
+    "name": "کرمان",
+    "source": "Kerman",
+    "file": "kerman.webp",
+    "alt": "تابلوی گرافیکی معرفی استان کرمان"
+  },
+  {
+    "slug": "kermanshah",
+    "name": "کرمانشاه",
+    "source": "Kermanshah",
+    "file": "kermanshah.webp",
+    "alt": "تابلوی گرافیکی معرفی استان کرمانشاه"
+  },
+  {
+    "slug": "kohgiluyeh-boyer-ahmad",
+    "name": "کهگیلویه و بویراحمد",
+    "source": "Kohgiloyeh",
+    "file": "kohgiluyeh-boyer-ahmad.webp",
+    "alt": "تابلوی گرافیکی معرفی استان کهگیلویه و بویراحمد"
+  },
+  {
+    "slug": "golestan",
+    "name": "گلستان",
+    "source": "Golestan",
+    "file": "golestan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان گلستان"
+  },
+  {
+    "slug": "gilan",
+    "name": "گیلان",
+    "source": "Gilan",
+    "file": "gilan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان گیلان"
+  },
+  {
+    "slug": "lorestan",
+    "name": "لرستان",
+    "source": "Lorestan",
+    "file": "lorestan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان لرستان"
+  },
+  {
+    "slug": "mazandaran",
+    "name": "مازندران",
+    "source": "Mazandaran",
+    "file": "mazandaran.webp",
+    "alt": "تابلوی گرافیکی معرفی استان مازندران"
+  },
+  {
+    "slug": "markazi",
+    "name": "مرکزی",
+    "source": "Markazi",
+    "file": "markazi.webp",
+    "alt": "تابلوی گرافیکی معرفی استان مرکزی"
+  },
+  {
+    "slug": "hormozgan",
+    "name": "هرمزگان",
+    "source": "Hormozgan",
+    "file": "hormozgan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان هرمزگان"
+  },
+  {
+    "slug": "hamadan",
+    "name": "همدان",
+    "source": "Hamedan",
+    "file": "hamadan.webp",
+    "alt": "تابلوی گرافیکی معرفی استان همدان"
+  },
+  {
+    "slug": "yazd",
+    "name": "یزد",
+    "source": "Yazd",
+    "file": "yazd.webp",
+    "alt": "تابلوی گرافیکی معرفی استان یزد"
+  }
+]
