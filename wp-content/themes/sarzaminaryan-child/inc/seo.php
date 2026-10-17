@@ -99,6 +99,12 @@ function sa_seo_title() {
  * @return string
  */
 function sa_seo_description() {
+	$description = sa_seo_description_raw();
+	return function_exists( 'sa_public_editorial_text' ) ? sa_public_editorial_text( $description ) : $description;
+}
+
+/** Build the description before applying the public editorial policy. */
+function sa_seo_description_raw() {
 	if ( is_front_page() ) {
 		$custom = is_singular() ? get_post_meta( get_queried_object_id(), 'sa_seo_description', true ) : '';
 		if ( $custom ) {
@@ -224,6 +230,10 @@ function sa_seo_head() {
 			$img      = wp_get_attachment_image_src( $sa_thumb_id, function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $id ) : 'sa-hero' );
 			$og_image = $img ? $img[0] : $og_image;
 		}
+	}
+	if ( function_exists( 'sa_public_editorial_text' ) ) {
+		$og_title = sa_public_editorial_text( $og_title );
+		$og_desc  = sa_public_editorial_text( $og_desc );
 	}
 	echo '<meta property="og:locale" content="fa_IR">' . "\n";
 	echo '<meta property="og:type" content="' . esc_attr( $og_type ) . '">' . "\n";

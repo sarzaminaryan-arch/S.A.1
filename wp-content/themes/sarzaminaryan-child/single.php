@@ -16,14 +16,14 @@ if ( sa_is_entity() ) {
 	echo '<main id="primary" class="site-main sa-main--entity">';
 	while ( have_posts() ) {
 		the_post();
-		get_template_part( 'template-parts/entity/single' );
+		sa_public_article_template( 'template-parts/entity/single' );
 	}
 	echo '</main>';
 } elseif ( is_singular( 'post' ) ) {
 	echo '<main id="primary" class="site-main container sa-main--post">';
 	while ( have_posts() ) {
 		the_post();
-		get_template_part( 'template-parts/content-single', 'post' );
+		sa_public_article_template( 'template-parts/content-single', 'post' );
 	}
 	echo '</main>';
 } else {

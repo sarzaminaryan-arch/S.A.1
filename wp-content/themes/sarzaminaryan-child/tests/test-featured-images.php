@@ -311,7 +311,7 @@ if ( false !== $template ) {
 		$id_tpl = file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/' . $id_file );
 		sa_t_assert( false !== $id_tpl && false !== strpos( $id_tpl, $expected_class ), $id_file . ' renders its distinct cyber-tech class ' . $expected_class );
 		sa_t_assert( false !== strpos( $id_tpl, '<span class="sa-cyber-id__badge">شناسنامه</span>' ), $id_file . ' carries the «شناسنامه» badge' );
-		sa_t_assert( false !== strpos( $id_tpl, 'sa_cyber_id_value_or_review' ), $id_file . ' uses sa_cyber_id_value_or_review for «نیازمند بازبینی» fallback' );
+		sa_t_assert( false !== strpos( $id_tpl, 'sa_cyber_id_value_or_review' ), $id_file . ' uses the compatible identity value helper' );
 	}
 }
 
@@ -339,7 +339,7 @@ $GLOBALS['t']['mods']['sa_hide_missing_images'] = false;
 sa_t_assert( false === sa_hide_missing_images(), 'the customizer can turn the placeholder off' );
 $GLOBALS['t']['mods']['sa_hide_missing_images'] = true;
 
-sa_t_assert( 'تصویر این بخش در دست بازبینی است' === sa_missing_image_label(), 'the default label is the owner-facing text' );
+sa_t_assert( 'تصویر در دسترس نیست' === sa_missing_image_label(), 'the default label is the owner-facing text' );
 $GLOBALS['t']['mods']['sa_missing_image_label'] = 'عکس به‌زودی';
 sa_t_assert( 'عکس به‌زودی' === sa_missing_image_label(), 'the label is editable' );
 unset( $GLOBALS['t']['mods']['sa_missing_image_label'] );
@@ -348,7 +348,7 @@ $broken = '<figure class="wp-block-image"><img src="https://example.test/wp-cont
 $fixed  = sa_hide_missing_content_images( $broken );
 sa_t_assert( false === strpos( $fixed, '<img' ), 'the broken image tag is gone' );
 sa_t_assert( false !== strpos( $fixed, 'class="sa-media-missing"' ), 'the placeholder box is printed instead' );
-sa_t_assert( false !== strpos( $fixed, 'تصویر این بخش در دست بازبینی است' ), 'the placeholder carries the label' );
+sa_t_assert( false !== strpos( $fixed, 'تصویر در دسترس نیست' ), 'the placeholder carries the label' );
 sa_t_assert( false !== strpos( $fixed, 'زیرنویس می‌ماند' ), 'the caption survives' );
 sa_t_assert( false !== strpos( $fixed, 'title="نمای گمشده"' ), 'the alt text is kept as a tooltip' );
 

@@ -99,6 +99,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-page.php"
 
+      - name: Run public editorial cleanup and preservation tests
+        shell: bash
+        run: php "$THEME_DIR/tests/test-public-editorial.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

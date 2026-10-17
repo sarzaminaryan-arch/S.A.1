@@ -248,7 +248,8 @@ function sa_county_sources( $post_id ) {
 				break;
 			}
 		}
-		$row = array( 'url' => $url, 'title' => $row['title'], 'score' => $score );
+		$title = function_exists( 'sa_public_editorial_text' ) ? sa_public_editorial_text( $row['title'] ) : $row['title'];
+		$row = array( 'url' => $url, 'title' => trim( $title ), 'score' => $score );
 		if ( ! isset( $valid[ $key ] ) || $score > $valid[ $key ]['score'] ) {
 			$valid[ $key ] = $row;
 		}
@@ -260,7 +261,7 @@ function sa_county_sources( $post_id ) {
 /** Render the single consolidated source list at the bottom of the county page. */
 function sa_county_sources_section( $post_id ) {
 	$sources = sa_county_sources( $post_id );
-	if ( ! $sources && ! current_user_can( 'edit_post', $post_id ) ) {
+	if ( ! $sources ) {
 		return;
 	}
 	echo '<section class="sa-sources" id="sources"><h2>' . esc_html__( 'منابع و پانویس‌ها', 'sarzaminaryan-child' ) . '</h2><ol>';
@@ -269,9 +270,6 @@ function sa_county_sources_section( $post_id ) {
 		echo '<li><a dir="auto" href="' . esc_url( $source['url'] ) . '" target="_blank" rel="nofollow noopener noreferrer">' . esc_html( $source['title'] ?: $host ) . '</a> <bdi>' . esc_html( $host ) . '</bdi></li>';
 	}
 	echo '</ol>';
-	if ( count( $sources ) < 5 && current_user_can( 'edit_post', $post_id ) ) {
-		echo '<p class="sa-source-warning">' . esc_html__( 'برای تکمیل حداقل پنج منبع، منابع واقعی بیشتری ثبت کنید. سلامت HTTP لینک‌ها هنوز بررسی نشده است.', 'sarzaminaryan-child' ) . '</p>';
-	}
 	echo '</section>';
 }
 

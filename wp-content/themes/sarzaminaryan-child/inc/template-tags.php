@@ -229,21 +229,8 @@ function sa_posted_on() {
  * @param int $post_id Post ID.
  */
 function sa_facts_checked_note( $post_id ) {
-	$parts = array();
-	$date  = get_post_meta( $post_id, 'sa_facts_checked', true );
-	$ts    = $date ? strtotime( $date ) : false;
-	if ( $ts ) {
-		$parts[] = 'آخرین بازبینی اطلاعات: <time datetime="' . esc_attr( $date ) . '">' . esc_html( wp_date( 'j F Y', $ts ) ) . '</time>';
-	}
-	$verified = get_post_meta( $post_id, 'sa_last_verified_date', true ); // v1.1 (attraction).
-	$vts      = $verified ? strtotime( $verified ) : false;
-	if ( $vts ) {
-		$stale   = ( time() - $vts ) > sa_stale_after_days() * DAY_IN_SECONDS;
-		$parts[] = 'آخرین راستی‌آزمایی ساعات بازدید، قیمت و دسترسی: <time datetime="' . esc_attr( $verified ) . '">' . esc_html( wp_date( 'j F Y', $vts ) ) . '</time>' . ( $stale ? ' <span class="sa-flag sa-flag--stale">ممکن است تغییر کرده باشد</span>' : '' );
-	}
-	if ( $parts ) {
-		echo '<p class="sa-facts-checked">' . implode( ' · ', $parts ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-	}
+	// Kept as a compatibility API; verification workflow is never public.
+	return;
 }
 
 /**
@@ -280,6 +267,10 @@ function sa_get_sources( $post_id ) {
 			$cols[0] = trim( str_replace( $url, '', $cols[0] ) );
 		}
 		$cols  = array_values( $cols );
+		if ( function_exists( 'sa_public_editorial_text' ) ) {
+			$cols = array_map( 'sa_public_editorial_text', $cols );
+			if ( ! $url && '' === trim( implode( '', $cols ) ) ) { continue; }
+		}
 		$out[] = array(
 			'title' => isset( $cols[0] ) ? $cols[0] : $url,
 			'org'   => isset( $cols[1] ) ? $cols[1] : '',
@@ -502,20 +493,13 @@ function sa_count_markers( $text ) {
 }
 
 /**
- * Render uncertainty markers as visible badges (transparency instead of guessing).
+ * Remove internal uncertainty annotations; never claim they were verified.
  *
  * @param string $html Content.
  * @return string
  */
 function sa_render_markers( $html ) {
-	if ( false === strpos( $html, '[' ) ) {
-		return $html;
-	}
-	foreach ( sa_uncertainty_markers() as $m ) {
-		$label = trim( $m, '[]' );
-		$html  = str_replace( $m, '<mark class="sa-flag sa-flag--review" title="این داده هنوز با منبع معتبر تایید نشده است">' . esc_html( $label ) . '</mark>', $html );
-	}
-	return $html;
+	return function_exists( 'sa_public_editorial_html' ) ? sa_public_editorial_html( $html ) : str_replace( sa_uncertainty_markers(), '', $html );
 }
 
 /**
@@ -749,31 +733,22 @@ function sa_fallback_menu() {
 }
 
 /**
- * Tiny review badge for any unpopulated slot in the Cyber-Tech Identity Cards (v2.19.1).
+ * Compatibility helper for absent identity-card fields (no public workflow badge).
  *
  * @return string HTML span.
  */
 function sa_cyber_id_review_badge() {
-	return '<span class="sa-cyber-id__review" title="این مورد در نوبت تکمیل و بازبینی تحریریه است">نیازمند بازبینی</span>';
+	return ''; // An absent value must not become a public editorial notice.
 }
 
 /**
- * Compact HUD updated/verified badge inside Cyber-Tech Identity Cards (v2.19.2).
+ * Ordinary modification date only; never display verification metadata.
  *
  * @param int $post_id Post ID.
  */
 function sa_updated_badge( $post_id = 0 ) {
 	$post_id  = $post_id ? absint( $post_id ) : (int) get_the_ID();
 	if ( ! $post_id ) {
-		return;
-	}
-	$verified = trim( (string) get_post_meta( $post_id, 'sa_last_verified_date', true ) );
-	if ( '' === $verified ) {
-		$verified = trim( (string) get_post_meta( $post_id, 'sa_facts_checked', true ) );
-	}
-	$ts = $verified ? strtotime( $verified ) : false;
-	if ( $ts ) {
-		echo '<span class="sa-cyber-id__type-tag"><time datetime="' . esc_attr( $verified ) . '">بازبینی: ' . esc_html( wp_date( 'Y/m/d', $ts ) ) . '</time></span>';
 		return;
 	}
 	$mod_iso = get_the_modified_date( 'Y-m-d', $post_id );
@@ -784,13 +759,16 @@ function sa_updated_badge( $post_id = 0 ) {
 }
 
 /**
- * Render a cell value or the tiny «نیازمند بازبینی» badge when empty (v2.19.1).
+ * Render a cell value, leaving unavailable fields empty without editorial labels.
  *
  * @param string $value      Raw text or pre-escaped HTML.
  * @param bool   $allow_html Whether $value is already safe HTML.
  * @return string Safe HTML.
  */
 function sa_cyber_id_value_or_review( $value, $allow_html = false ) {
+	if ( function_exists( 'sa_public_editorial_html' ) ) {
+		$value = $allow_html ? sa_public_editorial_html( $value ) : sa_public_editorial_text( $value );
+	}
 	$plain = trim( wp_strip_all_tags( (string) $value ) );
 	if ( '' === $plain ) {
 		return sa_cyber_id_review_badge();

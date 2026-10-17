@@ -180,6 +180,10 @@ function sa_get_faq( $post_id ) {
 	}
 	$clean = array();
 	foreach ( $faq as $row ) {
+		if ( function_exists( 'sa_public_editorial_html' ) && ! is_admin() && is_array( $row ) ) {
+			$row['q'] = sa_public_editorial_text( isset( $row['q'] ) ? $row['q'] : '' );
+			$row['a'] = sa_public_editorial_html( isset( $row['a'] ) ? $row['a'] : '' );
+		}
 		if ( ! empty( $row['q'] ) && ! empty( $row['a'] ) ) {
 			$clean[] = array(
 				'q' => (string) $row['q'],
@@ -236,6 +240,10 @@ function sa_summary( $post, $words = 30 ) {
 		return '';
 	}
 	$text = has_excerpt( $post ) ? $post->post_excerpt : wp_strip_all_tags( strip_shortcodes( $post->post_content ) );
+	if ( function_exists( 'sa_public_editorial_html' ) ) {
+		$text = sa_public_editorial_html( has_excerpt( $post ) ? $post->post_excerpt : strip_shortcodes( $post->post_content ) );
+		$text = wp_strip_all_tags( $text );
+	}
 	return wp_trim_words( $text, $words, '…' );
 }
 /**

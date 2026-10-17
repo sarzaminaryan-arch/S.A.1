@@ -26,6 +26,7 @@ if ( ! defined( 'SA_ENABLE_ACCOMMODATION' ) ) {
 
 $sa_child_includes = array(
 	'inc/entities-config.php',   // generated from data-model.yaml
+	'inc/public-editorial.php', // display-only editorial cleanup, no data writes
 	'inc/helpers.php',
 	'inc/system-diagnostics.php', // نگهبانِ REST (جلوگیری از خطای ۵۰۰ کالبکِ خصوصی) + گزارشِ تعارضِ نسخه
 	'inc/setup.php',

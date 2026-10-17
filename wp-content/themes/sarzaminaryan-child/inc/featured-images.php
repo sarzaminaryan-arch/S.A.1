@@ -227,16 +227,20 @@ function sa_hide_missing_images() {
  * @return string
  */
 function sa_missing_image_label() {
-	$label = trim( (string) get_theme_mod( 'sa_missing_image_label', 'تصویر این بخش در دست بازبینی است' ) );
+	$label = trim( (string) get_theme_mod( 'sa_missing_image_label', 'تصویر در دسترس نیست' ) );
 	if ( '' === $label ) {
-		$label = 'تصویر این بخش در دست بازبینی است';
+		$label = 'تصویر در دسترس نیست';
 	}
 	/**
 	 * متن کادر جای‌گزین.
 	 *
 	 * @param string $label متن.
 	 */
-	return (string) apply_filters( 'sa_missing_image_label', $label );
+	$label = (string) apply_filters( 'sa_missing_image_label', $label );
+	if ( function_exists( 'sa_public_editorial_text' ) ) {
+		$label = trim( sa_public_editorial_text( $label ) );
+	}
+	return '' !== $label ? $label : 'تصویر در دسترس نیست';
 }
 
 /**
