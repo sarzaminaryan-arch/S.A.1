@@ -5082,3 +5082,101 @@ small {
 		line-height: 1.8;
 	}
 }
+
+/* -------------------------------------------------------------------------
+   County identity card (شناسنامهٔ شهرستان) — مرحلهٔ شهرستان از فازِ پروفایل.
+   زبانِ طراحیِ کارتِ استان، در ابعادِ جمع‌وجورتر. mobile-first، RTL،
+   گرید خالص؛ بدون اسکریپت. فیلدِ خالی اصلاً رندر نمی‌شود.
+   ------------------------------------------------------------------------- */
+.sa-county-id,
+.sa-county-id * { box-sizing: border-box; }
+.sa-county-id {
+  margin: 0 0 1rem;
+  padding: .75rem .85rem .8rem;
+  border: 2px solid #0b2a4a;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fff, #f4f8fc);
+}
+.sa-county-id__header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: .6rem; flex-wrap: wrap;
+}
+.sa-county-id__eyebrow {
+  margin: 0 0 .3rem; color: #0b2a4a; font-size: .68rem; font-weight: 800;
+  letter-spacing: .02em;
+}
+.sa-county-id__eyebrow span { color: #69809a; font-size: .62rem; letter-spacing: .09em; }
+.sa-county-id__title { margin: 0 0 .15rem; font-size: 1.25rem; line-height: 1.35; }
+.sa-county-id__english { margin: 0; color: #69809a; font-size: .78rem; font-weight: 700; }
+.sa-county-id__province {
+  flex-shrink: 0; padding: .3rem .6rem; border: 1px solid #0b2a4a; border-radius: 999px;
+  background: #fff; color: #0b2a4a; font-size: .76rem; font-weight: 800; text-decoration: none;
+}
+.sa-county-id__province:hover, .sa-county-id__province:focus-visible { background: #0b2a4a; color: #fff; }
+.sa-county-id__metrics {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .45rem; margin: .7rem 0 0;
+}
+.sa-county-id__metric {
+  min-width: 0; border: 1px solid #dfe8f1; border-radius: 12px;
+  background: #fff; padding: .5rem .6rem; box-shadow: 0 2px 8px rgba(11, 42, 74, .05);
+}
+.sa-county-id__metric dt { color: #69809a; font-size: .7rem; font-weight: 700; margin-bottom: .2rem; }
+.sa-county-id__metric dd { margin: 0; font-size: .88rem; }
+.sa-county-id__metric dd strong { font-size: 1.02rem; font-weight: 900; overflow-wrap: anywhere; }
+.sa-county-id__metric dd span { color: #69809a; font-size: .72rem; }
+.sa-county-id__info {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  gap: .45rem; margin: .45rem 0 0;
+}
+.sa-county-id__info-row {
+  min-width: 0; border-inline-start: 3px solid #9db1c5;
+  background: #fff; border-radius: 8px; padding: .45rem .6rem;
+}
+.sa-county-id__info-row dt { color: #69809a; font-size: .7rem; font-weight: 700; margin-bottom: .15rem; }
+.sa-county-id__info-row dd { margin: 0; font-size: .86rem; line-height: 1.7; overflow-wrap: anywhere; }
+.sa-county-id__info-row dd small { color: #69809a; font-size: .74rem; }
+.sa-county-id__neighbors { margin-top: .7rem; }
+.sa-county-id__neighbors h3 { margin: 0 0 .4rem; font-size: .86rem; }
+.sa-county-id__neighbors ul {
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  gap: .4rem; margin: 0; padding: 0; list-style: none;
+}
+.sa-county-id__neighbors li { display: flex; align-items: center; gap: .45rem; min-width: 0; flex-wrap: wrap; }
+.sa-county-id__direction { color: #69809a; font-size: .72rem; font-weight: 700; }
+.sa-county-id__chip {
+  padding: .22rem .55rem; border: 1px solid #9db1c5; border-radius: 999px;
+  background: #fff; color: #0b2a4a; font-size: .76rem; font-weight: 700;
+  text-decoration: none; overflow-wrap: anywhere;
+}
+a.sa-county-id__chip:hover, a.sa-county-id__chip:focus-visible { border-color: #0b2a4a; background: #eef3f9; }
+.sa-county-id__chip--plain { border-style: dashed; font-weight: 400; }
+.sa-county-id__footer {
+  display: flex; flex-wrap: wrap; gap: .35rem .9rem; margin: .7rem 0 0;
+  padding: .5rem 0 0; border-top: 1px dashed #dfe8f1;
+  list-style: none; font-size: .76rem; line-height: 1.9; color: #42566d;
+}
+.sa-county-id__footer li { overflow-wrap: anywhere; }
+.sa-county-id__footer li span:first-child { color: #69809a; font-weight: 700; }
+.sa-county-id__footer a { color: #0b2a4a; font-weight: 700; }
+
+@media (min-width: 768px) {
+  .sa-county-id { padding: .85rem 1rem .9rem; }
+  .sa-county-id__metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sa-county-id__info { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .sa-county-id__info-row:only-child { grid-column: 1 / -1; }
+  .sa-county-id__neighbors ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .sa-county-id__neighbors ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .sa-county-id__neighbors li { flex-direction: column; align-items: flex-start; gap: .25rem; }
+  .sa-county-id__metric dd strong { font-size: 1.1rem; }
+}
+
+@media (max-width: 360px) {
+  .sa-county-id { padding: .6rem .6rem .65rem; border-radius: 13px; }
+  .sa-county-id__metrics, .sa-county-id__neighbors ul { gap: .35rem; }
+  .sa-county-id__metric { padding: .42rem .5rem; }
+  .sa-county-id__title { font-size: 1.12rem; }
+}

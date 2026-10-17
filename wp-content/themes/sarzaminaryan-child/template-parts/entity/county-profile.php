@@ -15,6 +15,12 @@ if ( 'city' !== get_post_type( $sa_id ) || ! sa_county_has_profile( $sa_id ) ) {
 	return;
 }
 
+// The county identity card (county-identity.php) is the single source of
+// county numbers; when it carries data, this block keeps only the POI
+// sections so divisions/neighbours/life are never shown twice.
+$sa_identity_data = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $sa_id ) : array();
+$sa_has_identity  = ! empty( $sa_identity_data['has_data'] );
+
 /* ---- تقسیمات کشوری ---- */
 $sa_div = array(
 	'sa_cty_districts'       => 'بخش',
@@ -65,6 +71,12 @@ foreach ( $sa_life as $sa_key => $sa_label ) {
 	if ( '' !== (string) $sa_val ) {
 		$sa_life_rows[ $sa_label ] = $sa_val;
 	}
+}
+
+if ( $sa_has_identity ) {
+	$sa_div_rows  = array();
+	$sa_neighbors = array();
+	$sa_life_rows = array();
 }
 ?>
 <section class="sa-county" id="county-profile">

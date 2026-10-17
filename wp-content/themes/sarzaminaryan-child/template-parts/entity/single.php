@@ -27,6 +27,10 @@ $sa_type = get_post_type();
 		if ( $sa_profile ) {
 			get_template_part( 'template-parts/entity/province-identity' );
 		}
+		if ( 'city' === $sa_type ) {
+			// County identity card first: the single source of county numbers.
+			get_template_part( 'template-parts/entity/county-identity' );
+		}
 		?>
 
 		<?php if ( has_excerpt() ) : ?>
@@ -37,7 +41,7 @@ $sa_type = get_post_type();
 			<?php CC_UI::rating_block(); ?>
 		<?php endif; ?>
 
-		<?php if ( ! $sa_profile ) : ?>
+		<?php if ( ! $sa_profile && 'city' !== $sa_type ) : ?>
 			<?php get_template_part( 'template-parts/entity/facts' ); ?>
 		<?php endif; ?>
 

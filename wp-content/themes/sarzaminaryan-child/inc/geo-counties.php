@@ -666,7 +666,7 @@ function sa_county_schema_graph( $graph ) {
 	}
 	$id  = get_the_ID();
 	$reg = sa_county_of_post( $id );
-	if ( ! $reg ) {
+	if ( ! $reg && ! function_exists( 'sa_county_profile_data' ) ) {
 		return $graph;
 	}
 
@@ -683,8 +683,9 @@ function sa_county_schema_graph( $graph ) {
 	}
 	$node = $graph[ $node_index ];
 
-	$lat = get_post_meta( $id, 'sa_city_latitude', true );
-	$lng = get_post_meta( $id, 'sa_city_longitude', true );
+	$profile = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $id ) : array();
+	$lat     = ! empty( $profile['lat'] ) ? $profile['lat'] : get_post_meta( $id, 'sa_city_latitude', true );
+	$lng     = ! empty( $profile['lng'] ) ? $profile['lng'] : get_post_meta( $id, 'sa_city_longitude', true );
 	if ( empty( $node['geo'] ) && $lat && $lng ) {
 		$node['geo'] = array(
 			'@type'     => 'GeoCoordinates',
@@ -692,11 +693,18 @@ function sa_county_schema_graph( $graph ) {
 			'longitude' => (float) $lng,
 		);
 	}
+	if ( ! empty( $node['geo'] ) && ! empty( $profile['elevation_m'] ) && empty( $node['geo']['elevation'] ) ) {
+		$node['geo']['elevation'] = (float) $profile['elevation_m'];
+	}
 	if ( empty( $node['containedInPlace'] ) ) {
 		$node['containedInPlace'] = array(
 			'@type' => 'AdministrativeArea',
-			'name'  => 'استان ' . sa_province_name( $reg['province'] ),
+			'name'  => ! empty( $profile['province_name'] ) ? $profile['province_name'] : 'استان ' . sa_province_name( $reg ? $reg['province'] : '' ),
 		);
+		if ( ! empty( $profile['province_url'] ) ) {
+			$node['containedInPlace']['@id'] = $profile['province_url'] . '#place';
+			$node['containedInPlace']['url'] = $profile['province_url'];
+		}
 	}
 
 	$borders = array();

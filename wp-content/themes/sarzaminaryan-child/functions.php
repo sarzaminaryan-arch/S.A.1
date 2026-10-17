@@ -48,6 +48,7 @@ $sa_child_includes = array(
 	'inc/entity-bars.php', // v2.13.3: فهرست ۳۱ استان + نوارهای مینیمال استان/شهرستان برای آرشیوها (و نقشهٔ هیرو)
 	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
 	'inc/geo-counties.php',
+	'inc/county-profile.php', // شناسنامهٔ شهرستان: کلیدهای استاندارد + کارت county-identity
 	'inc/province-profile.php',
 	'inc/geo-import.php',
 	'inc/security.php',
