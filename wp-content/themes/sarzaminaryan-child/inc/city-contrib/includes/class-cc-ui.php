@@ -56,14 +56,14 @@ class CC_UI {
   $top=CC_Rating::top((int)$limit);
   echo '<section class="sa-topcities" id="sa-topcities" aria-label="هفت اقلیم برتر سرزمین آریان"><div class="sa-wrap">';
   echo '<div class="cc-topbox">';
-  echo '<div class="cc-topbox__head"><img class="cc-topbox__logo" src="'.esc_url(CC_URL.'assets/img/logo.webp').'" alt="سرزمین آریایی ها" loading="lazy"><div class="cc-topbox__intro"><h2 class="cc-topbox__title">۷ اقلیم برتر سرزمین آریان</h2><p class="cc-topbox__desc">هفت شهر برتر ایران از نگاه مخاطبان وب‌سایت <b>سرزمین آریایی ها</b><span>مجموع ستاره‌های ۱ تا ۵ خوانندگان، بدون نیاز به ثبت‌نام</span></p></div></div>';
+  echo '<div class="cc-topbox__head"><div class="cc-topbox__intro"><h2 class="cc-topbox__title">هفت اقلیم برتر ایران از نگاه مخاطبان</h2><p class="cc-topbox__desc">بر پایهٔ امتیازهای خوانندگان سرزمین آریان</p></div></div>';
   if(empty($top)){echo '<p class="sa-topcities__empty">هنوز رأیی ثبت نشده است — نخستین نفر باشید! در صفحهٔ هر شهر ستارهٔ خود (۱ تا ۵) را انتخاب و ثبت کنید تا جدول اقلیم‌های برتر همین‌جا ساخته شود.</p>';}
   else{
-   echo '<table class="cc-toptable"><thead><tr><th>رتبه</th><th>شهر</th><th>استان</th><th>امتیاز</th></tr></thead><tbody>';
+   echo '<table class="cc-toptable"><thead><tr><th scope="col">رتبه</th><th scope="col">شهر</th><th scope="col">استان</th><th scope="col">امتیاز</th></tr></thead><tbody>';
    foreach($top as $i=>$c){
     echo '<tr>';
     echo '<td><span class="cc-toplist__num">'.esc_html(self::fa_num($c['rank'])).'</span></td>';
-    echo '<td><a class="cc-toptable__city" href="'.esc_url($c['url']).'">'.esc_html($c['title']).'</a></td>';
+    echo '<td><a class="cc-toptable__city" href="'.esc_url($c['url']).'">'.'<span class="cc-city-beacon" aria-hidden="true"></span>'.esc_html($c['title']).'</a></td>';
     echo '<td>'.($c['province']?esc_html($c['province']):'—').'</td>';
     echo '<td class="cc-toptable__score"><b>'.esc_html(self::fa_num($c['total'])).'</b><em>('.esc_html(self::fa_num(number_format($c['avg'],1))).' از ۵)</em></td>';
     echo '</tr>';

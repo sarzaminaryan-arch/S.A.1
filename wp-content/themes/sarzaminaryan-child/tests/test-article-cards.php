@@ -190,13 +190,10 @@ sa_t_assert( false !== strpos( $js, "'--sa-i'" ), 'the script sets the per-box d
 sa_t_assert( false !== strpos( $js, "querySelectorAll( '.sa-bars, .sa-grid-cards' )" ), 'bars and card grids are the animated groups' );
 
 /* ---------------------------------------------------------------------------
- * 5) Home page: bigger article boxes with a colourful hover.
+ * 5) Home feeds removed at the owner's request; archive/related cards above stay.
  * ------------------------------------------------------------------------- */
 $home = (string) file_get_contents( SA_CHILD_DIR . 'template-home.php' );
-sa_t_assert( 1 === preg_match( '/\.sa-pb\{padding:26px 24px 24px/', $home ), 'home article boxes are bigger' );
-sa_t_assert( 1 === preg_match( '/\.sa-pb h3\{[^}]*font-size:18px/', $home ), 'home article titles are bigger' );
-sa_t_assert( 1 === preg_match( '/\.sa-pb p\{[^}]*font-size:14\.5px/', $home ), 'home excerpts are bigger' );
-sa_t_assert( false !== strpos( $home, '.sa-post:active' ), 'home cards show a pressed state' );
-sa_t_assert( false !== strpos( $home, '.sa-post:hover,.sa-post:focus-visible{background:color-mix' ), 'home cards tint on hover' );
+sa_t_assert( false === strpos( $home, 'new WP_Query' ), 'homepage no longer queries article feeds' );
+sa_t_assert( false === strpos( $home, 'class="sa-post ' ), 'homepage no longer renders latest article cards' );
 
 echo "PASS: article cards (text-only related posts, bigger boxes, colourful hover/press, staggered slide-in)\n";
