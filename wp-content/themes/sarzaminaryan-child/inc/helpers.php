@@ -276,6 +276,133 @@ function sa_get_faq( $post_id ) {
 }
 
 /**
+ * فاز ۷: آیا پاسخِ FAQ برای نمایش معتبر است؟
+ * خالی یا حاوی نشانه‌های ناقص بودن («نیازمند»، «تطبیق»، «در بخش … آمده»، «باید … بررسی شود») => نامعتبر.
+ *
+ * @param string $answer پاسخ.
+ * @return bool
+ */
+function sa_is_valid_faq_answer( $answer ) {
+	$a = trim( (string) $answer );
+	if ( '' === $a ) {
+		return false;
+	}
+	if ( false !== mb_strpos( $a, 'نیازمند' ) ) {
+		return false;
+	}
+	if ( false !== mb_strpos( $a, 'تطبیق' ) ) {
+		return false;
+	}
+	// «در بخش … آمده» — هر دو تکه در یک پاسخ باشد.
+	if ( false !== mb_strpos( $a, 'در بخش' ) && false !== mb_strpos( $a, 'آمده' ) ) {
+		return false;
+	}
+	// «باید … بررسی شود»
+	if ( false !== mb_strpos( $a, 'باید' ) && false !== mb_strpos( $a, 'بررسی شود' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * فهرستِ FAQ معتبر برای رندر (فیلتر شرط ۱).
+ *
+ * @param int $post_id Post ID.
+ * @return array[]
+ */
+function sa_get_valid_faq( $post_id ) {
+	$all = sa_get_faq( $post_id );
+	if ( ! $all ) {
+		return array();
+	}
+	$out = array();
+	foreach ( $all as $row ) {
+		if ( ! isset( $row['q'], $row['a'] ) ) {
+			continue;
+		}
+		if ( '' === trim( (string) $row['q'] ) ) {
+			continue;
+		}
+		if ( ! sa_is_valid_faq_answer( (string) $row['a'] ) ) {
+			continue;
+		}
+		$out[] = $row;
+	}
+	return $out;
+}
+
+/**
+ * فاز ۷: شمارش واژه‌های محتوای اصلی شهرستان (برای noindex).
+ *
+ * @param int $post_id Post ID.
+ * @return int
+ */
+function sa_city_word_count( $post_id ) {
+	$content = (string) get_post_field( 'post_content', (int) $post_id );
+	if ( '' === trim( $content ) ) {
+		return 0;
+	}
+	$text = strip_shortcodes( $content );
+	$text = wp_strip_all_tags( $text );
+	$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
+	if ( preg_match_all( '/\p{L}+/u', $text, $m ) ) {
+		return count( $m[0] );
+	}
+	return 0;
+}
+
+/**
+ * آیا شهرستان بخش «جاهای دیدنی» دارد؟
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
+function sa_city_has_attractions( $post_id ) {
+	$post_id = (int) $post_id;
+	if ( function_exists( 'sa_county_profile_attractions' ) ) {
+		$atts = sa_county_profile_attractions( $post_id );
+		if ( ! empty( $atts ) ) {
+			return true;
+		}
+	}
+	if ( function_exists( 'sa_get_children' ) ) {
+		$children = sa_get_children( $post_id, 'attraction' );
+		if ( ! empty( $children ) ) {
+			return true;
+		}
+	}
+	foreach ( array( 'sa_cty_poi_nature', 'sa_cty_poi_offbeat', 'sa_cty_poi_recreation', 'sa_cty_poi_heritage' ) as $k ) {
+		$v = get_post_meta( $post_id, $k, true );
+		if ( '' !== trim( (string) $v ) ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+ * آیا صفحه‌ی شهرستان نازک است و باید noindex بگیرد؟
+ * شرط ۵: کمتر از ۳۰۰ واژه محتوای اصلی یا بدون بخش «جاهای دیدنی».
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
+function sa_city_is_thin( $post_id ) {
+	$post_id = (int) $post_id;
+	if ( 'city' !== get_post_type( $post_id ) ) {
+		return false;
+	}
+	$words = sa_city_word_count( $post_id );
+	if ( $words < 300 ) {
+		return true;
+	}
+	if ( ! sa_city_has_attractions( $post_id ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
  * Site-wide archive URL for an entity type.
  *
  * @param string $type CPT slug.
