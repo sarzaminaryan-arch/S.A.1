@@ -6168,9 +6168,9 @@ body.bg-lines::before {
 /* Reading surface with the same quiet 16px dot mask as Phase 1. */
 .profile-page {
 	/* Profile-only shadow/halo values; no new non-navy accent is introduced. */
-	--profile-box-shadow: 0 3px 0 rgba(10, 25, 47, 0.16), 0 8px 16px rgba(10, 25, 47, 0.10);
-	--profile-link-ring: rgba(255, 200, 0, 0.35);
-	--profile-link-halo: rgba(255, 200, 0, 0.18);
+	--profile-box-shadow: 0 6px 0 rgba(10, 25, 47, 0.20), 0 16px 30px rgba(10, 25, 47, 0.16);
+	--profile-link-ring: rgba(255, 200, 0, 0.45);
+	--profile-link-halo: rgba(255, 200, 0, 0.28);
 	position: relative;
 	isolation: isolate;
 	min-height: 100vh;
@@ -6605,10 +6605,10 @@ body.bg-lines::before {
 .profile-page .profile-link {
 	position: relative;
 	isolation: isolate;
-	background: var(--navy-50);
-	border-color: var(--navy-200);
-	color: var(--navy-700);
-	box-shadow: 0 0 0 1px var(--profile-link-ring), 0 4px 10px var(--profile-link-halo);
+	background: var(--navy-700);
+	border-color: var(--navy-900);
+	color: var(--navy-50);
+	box-shadow: 0 0 0 2px var(--profile-link-ring), 0 6px 0 var(--navy-900), 0 14px 24px var(--profile-link-halo);
 	text-decoration: none;
 	line-height: 1.8;
 	transition: none;
@@ -6641,9 +6641,9 @@ body.bg-lines::before {
 
 .profile-page .profile-link:hover,
 .profile-page .profile-link:focus-visible {
-	background: var(--navy-50);
-	border-color: var(--navy-200);
-	color: var(--navy-900);
+	background: var(--navy-900);
+	border-color: var(--navy-900);
+	color: var(--navy-50);
 	text-decoration: none;
 }
 
@@ -6679,5 +6679,184 @@ body.bg-lines::before {
 
 	.profile-page .sa-cyber-id__subtable .sa-cyber-grid {
 		padding: 12px;
+	}
+}
+
+/*
+   Phase 3 refinement — deeper navy relief, compact lists and mobile layouts.
+   The list surfaces use navy-700 with navy-100 highlights; only actual
+   profile links retain the yellow interaction glow.
+   ========================================================================== */
+
+.profile-page .sa-cyber-id__subtable.profile-box,
+.profile-page .sa-province-profile__county-details.profile-box {
+	overflow: visible;
+}
+
+.profile-page .sa-cyber-id__subtable-head,
+.profile-page .sa-province-profile__county-details summary {
+	border-radius: 15px 15px 0 0;
+}
+
+.profile-page .sa-cyber-id__chips,
+.profile-page .sa-province-profile__county-list {
+	gap: 8px;
+	padding: 10px;
+	background: var(--navy-700);
+	border: 1px solid var(--navy-700);
+	border-radius: 12px;
+	box-shadow: var(--profile-box-shadow);
+}
+
+.profile-page .sa-province-profile__county-list {
+	padding-block-start: 10px;
+}
+
+.profile-page .sa-cyber-id__chips .profile-link,
+.profile-page .sa-province-profile__county-list .profile-link {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-900);
+	box-shadow: 0 0 0 1px var(--profile-link-ring), 0 4px 0 var(--navy-500), 0 10px 18px var(--profile-link-halo);
+}
+
+.profile-page .sa-cyber-id__chips .profile-link small,
+.profile-page .sa-province-profile__county-list .profile-link .sa-province-profile__county-en {
+	color: var(--navy-700);
+}
+
+.profile-page .sa-province-profile__county-list .sa-province-profile__county-label--plain {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-700);
+	box-shadow: none;
+}
+
+.profile-page .sa-cyber-id__chips .profile-link:hover,
+.profile-page .sa-cyber-id__chips .profile-link:focus-visible,
+.profile-page .sa-province-profile__county-list .profile-link:hover,
+.profile-page .sa-province-profile__county-list .profile-link:focus-visible {
+	background: var(--navy-50);
+	border-color: var(--navy-200);
+	color: var(--navy-900);
+}
+
+.profile-page .sa-province-profile__place.profile-link small {
+	color: var(--navy-100);
+}
+
+@media (max-width: 720px) {
+	.profile-page .sa-entity__layout {
+		gap: 12px;
+		padding: 10px 8px 16px;
+	}
+
+	.profile-page .sa-id-card-wrap {
+		padding: 10px 8px 16px;
+	}
+
+	.profile-page .sa-cyber-id__hud-bar {
+		align-items: stretch;
+		gap: 10px;
+	}
+
+	.profile-page .sa-cyber-id__hud-meta {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+	}
+
+	.profile-page .sa-cyber-id__hud-meta .profile-link {
+		min-width: 0;
+		justify-content: space-between;
+		padding-inline: 8px;
+	}
+
+	.profile-page .sa-cyber-id__subtable-head {
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 4px 8px;
+	}
+
+	.profile-page .sa-cyber-id__chips,
+	.profile-page .sa-province-profile__county-list {
+		gap: 8px;
+		padding: 8px;
+	}
+
+	.profile-page .sa-cyber-id__chips > .profile-link,
+	.profile-page .sa-cyber-id__chips > li,
+	.profile-page .sa-province-profile__county-list > li {
+		min-width: 0;
+	}
+
+	.profile-page .sa-cyber-id__chips > li {
+		flex: 1 1 calc(50% - 4px);
+	}
+
+	.profile-page .sa-cyber-id__chips > li .profile-link,
+	.profile-page .sa-cyber-id__chips > .profile-link {
+		width: 100%;
+		justify-content: center;
+		padding-inline: 8px;
+	}
+
+	.profile-page .sa-province-profile__county-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.profile-page .sa-province-profile__county-label {
+		min-height: 2.75rem;
+		padding: 6px 8px;
+	}
+
+	.profile-page .sa-province-profile__county-name,
+	.profile-page .sa-province-profile__county-en {
+		line-height: 1.6;
+	}
+
+	.profile-page .sa-cyber-grid--province,
+	.profile-page .sa-cyber-grid--county,
+	.profile-page .sa-cyber-grid--attraction-top,
+	.profile-page .sa-cyber-grid--attraction-specs,
+	.profile-page .sa-cyber-grid--neighbors {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-page .sa-cyber-grid--county .sa-cyber-grid__cell--wide,
+	.profile-page .sa-cyber-grid--county .sa-cyber-grid__cell--full {
+		grid-column: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.profile-page .sa-cyber-id__hud-meta {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-page .sa-cyber-id__chips > li {
+		flex-basis: 100%;
+	}
+
+	.profile-page .sa-province-profile__county-list {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-page .profile-box.sa-cyber-id,
+	.profile-page .profile-box.sa-cyber-id__header,
+	.profile-page .sa-cyber-grid__cell.profile-box,
+	.profile-page .sa-province-profile__module.profile-box,
+	.profile-page .profile-box.sa-cid-note__item {
+		padding: 10px;
+	}
+
+	.profile-page .sa-cyber-id__subtable .sa-cyber-grid {
+		padding: 10px;
+	}
+
+	.profile-page .profile-link {
+		min-height: 40px;
+		padding-block: 6px;
 	}
 }
