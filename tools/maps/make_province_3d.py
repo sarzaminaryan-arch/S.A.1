@@ -514,7 +514,7 @@ def render(province, counties, out_dir, args, fonts, prov_geom):
 
     _fit(ax, drawn, args.margin)
     _labels(ax, counties, heights, iso, fonts, args, unit)
-    _title(fig, province, fonts, len(counties))
+    _title(fig, province, fonts, args, len(counties))
     _footer(fig, fonts, args)
 
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -547,9 +547,21 @@ def _gradient_bg(fig):
     fig.figimage(np.repeat(img, 8, axis=1), xo=0, yo=0, origin='lower', zorder=-10)
 
 
+_COUNTY_SUFFIX = re.compile(r'\s+(county|province|shahrestan)\.?$', re.I)
+
+
+def county_label(row, lang):
+    """نام شهرستان برای نمایش؛ در انگلیسی پسوند «County» حذف می‌شود تا جای برچسب باز شود."""
+    if lang == 'en':
+        return _COUNTY_SUFFIX.sub('', str(row.get('name_en') or '').strip())
+    return row.get('name_fa') or ''
+
+
 def _labels(ax, counties, heights, iso, fonts, args, unit):
-    """نام فارسی شهرستان روی نمای بالا؛ شهرستان‌های خیلی کوچک بی‌برچسب می‌مانند."""
-    if args.no_labels or not fonts.ready():
+    """نام شهرستان روی نمای بالا؛ شهرستان‌های خیلی کوچک بی‌برچسب می‌مانند."""
+    if args.no_labels:
+        return
+    if args.label_lang == 'fa' and not fonts.ready():
         return
     total = counties['area_m2'].sum()
     lift = args.height * unit * 0.12
@@ -557,23 +569,30 @@ def _labels(ax, counties, heights, iso, fonts, args, unit):
         share = counties['area_m2'].iloc[i] / total
         if share < args.min_label:
             continue
-        shaped = fa(counties['name_fa'].iloc[i])
-        if not shaped:
+        raw = county_label(counties.iloc[i], args.label_lang)
+        text = fa(raw) if args.label_lang == 'fa' else raw
+        if not text:
             continue
         c = counties.geometry.iloc[i].representative_point()
         x, y = iso.project(c.x, c.y, float(heights.iloc[i]) + lift)
         size = args.label_size * (0.78 + 0.60 * min(1.0, share / 0.05))
-        ax.text(x, y, shaped, fontproperties=fonts.props(size, 'regular'),
+        ax.text(x, y, text,
+                fontproperties=fonts.props(size, 'regular') if fonts.ready() else None,
                 color=LABEL, ha='center', va='center', zorder=8)
 
 
-def _title(fig, province, fonts, n_counties):
-    shaped = fa(province['name_fa']) if fonts.ready() else None
-    fig.text(0.5, 0.972, shaped or province['name_fa'], ha='center', va='top',
+def _title(fig, province, fonts, args, n_counties):
+    ready = fonts.ready()
+    if args.label_lang == 'en':
+        main, sub = '%s Province' % province['en'], 'Iran  ·  %d counties' % n_counties
+    else:
+        main = fa(province['name_fa']) if ready else province['name_fa']
+        sub = '%s  ·  %d counties' % (province['en'], n_counties)
+    fig.text(0.5, 0.972, main, ha='center', va='top',
              color=TITLE_FA, zorder=10,
-             fontproperties=fonts.props(21, 'bold') if fonts.ready() else None)
-    fig.text(0.5, 0.918, '%s  ·  %d counties' % (province['en'], n_counties),
-             ha='center', va='top', color=LABEL_DIM, fontsize=10, zorder=10)
+             fontproperties=fonts.props(21, 'bold') if ready else None)
+    fig.text(0.5, 0.918, sub, ha='center', va='top',
+             color=LABEL_DIM, fontsize=10, zorder=10)
 
 
 def _footer(fig, fonts, args):
@@ -599,6 +618,8 @@ def build_parser():
     p.add_argument('--margin', type=float, default=0.06)
     p.add_argument('--min-label', type=float, default=0.004,
                    help='کمینهٔ سهم مساحت برای نمایش نام')
+    p.add_argument('--label-lang', choices=('en', 'fa'), default='en',
+                   help='زبان برچسب شهرستان‌ها و عنوان: انگلیسی (پیش‌فرض) یا فارسی')
     p.add_argument('--no-labels', action='store_true')
     p.add_argument('--attribution', default=None)
     p.add_argument('--check', action='store_true')

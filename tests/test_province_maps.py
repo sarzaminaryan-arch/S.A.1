@@ -142,3 +142,19 @@ def test_county_prefix_is_stripped_before_matching():
 def test_repo_registry_has_31_provinces_and_483_counties():
     assert len(m3d.load_provinces()) == 31
     assert len(m3d.load_counties()) == 483
+
+
+def test_english_county_label_drops_county_suffix():
+    row = {'name_en': 'Abadeh County', 'name_fa': 'آباده'}
+    assert m3d.county_label(row, 'en') == 'Abadeh'
+    assert m3d.county_label(row, 'fa') == 'آباده'
+    # نام انگلیسی نبود، نام فارسی جایگزین می‌شود تا برچسب بی‌نام نماند.
+    assert m3d.county_label({'name_en': '', 'name_fa': 'قم'}, 'en') == ''
+
+
+def test_label_lang_default_is_english_and_accepts_persian():
+    args = m3d.build_parser().parse_args([])
+    assert args.label_lang == 'en'
+    assert m3d.build_parser().parse_args(['--label-lang', 'fa']).label_lang == 'fa'
+    with pytest.raises(SystemExit):
+        m3d.build_parser().parse_args(['--label-lang', 'de'])
