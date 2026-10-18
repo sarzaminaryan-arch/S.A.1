@@ -89,6 +89,91 @@ function sa_en_digits( $value ) {
 }
 
 /**
+ * آیا نشانی متعلق به گوگل/نقشه است و نباید به‌عنوان منبع ذخیره شود؟
+ *
+ * @param string $url نشانی.
+ * @return bool
+ */
+function sa_is_google_source_url( $url ) {
+	$host = strtolower( (string) wp_parse_url( (string) $url, PHP_URL_HOST ) );
+	$host = (string) preg_replace( '/^www\\./', '', $host );
+	if ( '' === $host ) {
+		return false;
+	}
+	if ( 'google.com' === $host || 'maps.google.com' === $host || 'goo.gl' === $host || 'maps.app.goo.gl' === $host ) {
+		return true;
+	}
+	if ( substr( $host, -11 ) === '.google.com' ) {
+		return true;
+	}
+	if ( substr( $host, -7 ) === '.goo.gl' ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * آیا نشانی فقط دامنه است بدون مسیر صفحه؟
+ *
+ * مثال: https://www.doe.ir/  یا  https://fa.wikipedia.org  → بله (باید لینک دقیق افزوده شود).
+ *       https://www.doe.ir/portal/file/?123 → خیر.
+ *
+ * @param string $url نشانی.
+ * @return bool
+ */
+function sa_is_domain_only_url( $url ) {
+	$parts = wp_parse_url( (string) $url );
+	if ( empty( $parts['host'] ) ) {
+		return false;
+	}
+	$path  = isset( $parts['path'] ) ? trim( (string) $parts['path'], '/' ) : '';
+	$query = isset( $parts['query'] ) ? trim( (string) $parts['query'] ) : '';
+	$frag  = isset( $parts['fragment'] ) ? trim( (string) $parts['fragment'] ) : '';
+	if ( '' === $path && '' === $query && '' === $frag ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * نرمال‌سازی نشانی برای تشخیص تکرار (حذف www، یکسان‌سازی http/https، حذف / انتهایی، دیکد درصدها).
+ *
+ * @param string $url نشانی.
+ * @return string کلید یکتا.
+ */
+function sa_normalize_source_url( $url ) {
+	$url = trim( html_entity_decode( (string) $url, ENT_QUOTES, 'UTF-8' ) );
+	$parts = wp_parse_url( $url );
+	if ( ! isset( $parts['host'] ) || '' === $parts['host'] ) {
+		return strtolower( $url );
+	}
+	$host = strtolower( (string) $parts['host'] );
+	$host = (string) preg_replace( '/^www\\./', '', $host );
+	$path = isset( $parts['path'] ) ? rawurldecode( (string) $parts['path'] ) : '';
+	$path = rtrim( (string) $path, '/' );
+	$path = strtolower( $path );
+	$key  = $host . $path;
+	if ( ! empty( $parts['query'] ) ) {
+		$key .= '?' . strtolower( (string) $parts['query'] );
+	}
+	return $key;
+}
+
+/**
+ * استخراج اعداد (فارسی/لاتین) از رشته — برای تشخیص «۳۱ ۴۹)» و «۲ ۲».
+ *
+ * @param string $text متن.
+ * @return int[] فهرست اعداد.
+ */
+function sa_extract_citation_numbers( $text ) {
+	$en = sa_en_digits( (string) $text );
+	if ( preg_match_all( '/\d+/', $en, $m ) ) {
+		return array_map( 'intval', $m[0] );
+	}
+	return array();
+}
+
+/**
  * Format a number for display (thousand separators + Persian digits when enabled).
  *
  * @param int|float|string $number   Number.

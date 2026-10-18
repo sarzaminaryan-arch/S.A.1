@@ -323,6 +323,7 @@ function sa_get_sources( $post_id ) {
 	$public = preg_split( '/^\s*-{3,}.*$/mu', $raw, 2 );
 	$lines  = preg_split( '/\r\n|\r|\n/', $public[0] );
 	$out    = array();
+	$seen   = array();
 	foreach ( $lines as $line ) {
 		$line = trim( $line );
 		if ( '' === $line ) {
@@ -344,6 +345,16 @@ function sa_get_sources( $post_id ) {
 		if ( $url && sa_is_forbidden_source_url( $url ) ) {
 			continue;
 		}
+		if ( $url && function_exists( 'sa_is_google_source_url' ) && sa_is_google_source_url( $url ) ) {
+			continue;
+		}
+		if ( $url ) {
+			$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $url ) : strtolower( trim( $url ) );
+			if ( isset( $seen[ $norm ] ) ) {
+				continue;
+			}
+			$seen[ $norm ] = true;
+		}
 		$cols  = array_values( $cols );
 		$out[] = array(
 			'title' => isset( $cols[0] ) ? $cols[0] : $url,
@@ -356,14 +367,153 @@ function sa_get_sources( $post_id ) {
 }
 
 /**
- * Number of public source lines that carry a URL (publish gate).
+ * زیرمجموعهٔ منابعِ دامنه-تنها (فقط https://example.com/ بدون مسیر).
+ * برای گزارش سلامت — ویرایشگر باید لینک دقیق صفحه را جایگزین کند.
+ *
+ * @param int $post_id Post ID.
+ * @return array[] منابعِ دامنه-تنها
+ */
+function sa_get_domain_only_sources( $post_id ) {
+	$all  = sa_get_sources( $post_id );
+	$out  = array();
+	foreach ( $all as $src ) {
+		if ( ! empty( $src['url'] ) && function_exists( 'sa_is_domain_only_url' ) && sa_is_domain_only_url( $src['url'] ) ) {
+			$out[] = $src;
+		}
+	}
+	return $out;
+}
+
+/**
+ * ساخت فهرست یکپارچهٔ منابع از روی متا + لینک‌های درون متن (ترتیبِ نخستین حضور، بدون تکرار).
+ *
+ * @param int    $post_id Post ID.
+ * @param string $content محتوای خام (اختیاری — برای استخراج لینک‌های درون‌متن).
+ * @return array[] فهرست یکتا به ترتیب ظهور
+ */
+function sa_build_unified_sources( $post_id, $content = '' ) {
+	$meta = sa_get_sources( $post_id );
+	// نگاشتِ نرمال → رکورد متا (برای یافتن عنوان/سازمان هنگام برخورد با لینک درون‌متن).
+	$meta_by_norm = array();
+	foreach ( $meta as $src ) {
+		if ( empty( $src['url'] ) ) {
+			continue;
+		}
+		$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $src['url'] ) : strtolower( $src['url'] );
+		if ( ! isset( $meta_by_norm[ $norm ] ) ) {
+			$meta_by_norm[ $norm ] = $src;
+		}
+	}
+
+	$unified = array();
+	$seen    = array();
+
+	// اگر محتوا داده شده، لینک‌های درون‌متن را به ترتیبِ حضورشان برداریم.
+	if ( '' !== (string) $content ) {
+		$inline_urls = array();
+		// ترکیبِ sa-cite و <a> — ترتیبِ ظهور حفظ می‌شود.
+		if ( preg_match_all( '#<sup\b[^>]*class=([\"\\'])[^\"\\']*\bsa-cite\b[^\"\\']*\1[^>]*>\s*<a\b[^>]*href=([\"\\'])([^\"\\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\\'])([^\"\\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
+			foreach ( $mm as $hit ) {
+				$u = ! empty( $hit[3] ) ? $hit[3] : ( ! empty( $hit[5] ) ? $hit[5] : '' );
+				if ( '' !== $u ) {
+					$inline_urls[] = $u;
+				}
+			}
+		}
+		foreach ( $inline_urls as $url ) {
+			$url = html_entity_decode( trim( (string) $url ), ENT_QUOTES, 'UTF-8' );
+			if ( '' === $url ) {
+				continue;
+			}
+			if ( function_exists( 'sa_citation_is_external' ) && ! sa_citation_is_external( $url ) ) {
+				continue;
+			}
+			if ( function_exists( 'sa_is_forbidden_source_url' ) && sa_is_forbidden_source_url( $url ) ) {
+				continue;
+			}
+			if ( function_exists( 'sa_is_google_source_url' ) && sa_is_google_source_url( $url ) ) {
+				continue;
+			}
+			$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $url ) : strtolower( $url );
+			if ( isset( $seen[ $norm ] ) ) {
+				continue;
+			}
+			$seen[ $norm ] = true;
+			if ( isset( $meta_by_norm[ $norm ] ) ) {
+				$unified[] = $meta_by_norm[ $norm ];
+			} else {
+				$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+				$host = (string) preg_replace( '/^www\\./', '', $host );
+				$unified[] = array(
+					'title' => $host ? $host : $url,
+					'org'   => $host,
+					'url'   => $url,
+					'date'  => '',
+				);
+			}
+		}
+	}
+
+	// باقیِ متا که در متن نیامده — به انتها افزوده شود (بدون تکرار).
+	foreach ( $meta as $src ) {
+		if ( empty( $src['url'] ) ) {
+			// بدون URL هم اضافه کن (منبعِ عنوان‌محور).
+			$key = strtolower( trim( (string) $src['title'] ) );
+			if ( isset( $seen[ $key ] ) ) {
+				continue;
+			}
+			$seen[ $key ] = true;
+			$unified[]    = $src;
+			continue;
+		}
+		$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $src['url'] ) : strtolower( $src['url'] );
+		if ( isset( $seen[ $norm ] ) ) {
+			continue;
+		}
+		$seen[ $norm ] = true;
+		$unified[]     = $src;
+	}
+
+	return $unified;
+}
+
+/**
+ * Number of public source lines that carry a URL (publish gate) — بدونِ احتسابِ منابعِ ممنوعه/گوگل و بدونِ تکرار.
  *
  * @param string $raw Raw sources text.
  * @return int
  */
 function sa_count_sources( $raw ) {
 	$public = preg_split( '/^\s*-{3,}.*$/mu', (string) $raw, 2 );
-	return preg_match_all( '#https?://#i', $public[0] );
+	$lines  = preg_split( '/\r\n|\r|\n/', $public[0] );
+	$seen   = array();
+	$count  = 0;
+	foreach ( (array) $lines as $line ) {
+		$line = trim( (string) $line );
+		if ( '' === $line ) {
+			continue;
+		}
+		$url = '';
+		if ( preg_match( '#https?://\S+#i', $line, $m ) ) {
+			$url = trim( $m[0], '.,;\"\'<> ' );
+		}
+		if ( '' === $url ) {
+			continue;
+		}
+		if ( function_exists( 'sa_is_forbidden_source_url' ) && sa_is_forbidden_source_url( $url ) ) {
+			continue;
+		}
+		if ( function_exists( 'sa_is_google_source_url' ) && sa_is_google_source_url( $url ) ) {
+			continue;
+		}
+		$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $url ) : strtolower( $url );
+		if ( isset( $seen[ $norm ] ) ) {
+			continue;
+		}
+		$seen[ $norm ] = true;
+		++$count;
+	}
+	return $count;
 }
 
 /**
@@ -389,6 +539,11 @@ function sa_source_rel( $url ) {
  * @param int $post_id Post ID.
  */
 function sa_sources_section( $post_id ) {
+	// فاز ۶: وقتی پانویس‌ها فعال‌اند، یک فهرستِ یکپارچه در the_content ساخته می‌شود؛
+	// این تابع دیگر بخشِ جدا نسازد تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
+	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		return;
+	}
 	$sources = sa_get_sources( $post_id );
 	if ( ! $sources ) {
 		return;
@@ -415,6 +570,9 @@ function sa_sources_section( $post_id ) {
  * @param int $post_id Post ID.
  */
 function sa_guide_sources_section( $post_id ) {
+	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		return;
+	}
 	$sources = sa_get_sources( $post_id );
 	if ( ! $sources ) {
 		return;
