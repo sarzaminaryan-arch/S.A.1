@@ -98,6 +98,10 @@ jobs:
           node --check "$THEME_DIR/assets/js/home.js"
           node "$THEME_DIR/tests/test-home-js.js"
 
+      - name: Run province identity named-media pilot regression
+        shell: bash
+        run: php "$THEME_DIR/tests/test-province-identity-media.php"
+
       - name: Run county identity-card tests (کلیدهای کانونی شناسنامه + قوانین خروجی کارت)
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"
