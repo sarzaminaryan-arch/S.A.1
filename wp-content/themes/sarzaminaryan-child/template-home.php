@@ -76,8 +76,9 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 .sa-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .sa-chips a{padding:6px 16px;border-radius:99px;background:#edf6ff;border:1px solid #bdd8f1;color:var(--navy);font-size:14px;font-weight:600;text-decoration:none;transition:.25s}
 .sa-chips a:hover,.sa-chips a:focus-visible{background:var(--navy);border-color:var(--navy);color:#fff;outline:0}
-.sa-dash-cta{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,#04101f 0%,#071f36 100%);border:1.5px solid #00ff9d;color:#fff;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(0,255,157,.38),0 2px 8px rgba(7,26,48,.35);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.sa-dash-cta{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;max-width:100%;margin-top:22px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,#04101f 0%,#071f36 100%);border:1.5px solid #00ff9d;color:#fff;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(0,255,157,.38),0 2px 8px rgba(7,26,48,.35);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
 .sa-dash-cta svg{flex:none;color:#00ff9d}
+.sa-dash-cta span{min-width:0}
 .sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(0,255,157,.55),0 3px 8px rgba(7,26,48,.4);filter:brightness(1.08);color:#fff;outline:0}
 .sa-dash-cta small{font-family:Consolas,"JetBrains Mono",monospace;font-size:11.5px;font-weight:800;color:#00ff9d;letter-spacing:.05em}
 @media(prefers-reduced-motion:reduce){.sa-dash-cta{transition:none}.sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:none}}
@@ -93,27 +94,27 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 .sa-scroll i{position:absolute;top:8px;left:50%;width:4px;height:8px;margin-left:-2px;border-radius:2px;background:var(--blue);animation:saw 1.8s infinite}
 @keyframes saw{0%{opacity:0;transform:translateY(0)}30%{opacity:1}100%{opacity:0;transform:translateY(14px)}}
 .sa-off *{animation-play-state:paused!important}
-.sa-stats .sa-wrap{position:relative;max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-.sa-st{text-align:center;padding:12px 10px;background:linear-gradient(155deg,#fff,#edf6ff);border:1px solid #bdd8f1;border-radius:28px;box-shadow:0 2px 0 #fff inset,0 40px 64px -28px color-mix(in srgb,var(--c) 72%,transparent),0 10px 22px -16px rgba(11,42,74,.35)}
+.sa-stats .sa-wrap{position:relative;max-width:760px;margin:0 auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.sa-st{min-width:0;text-align:center;padding:12px 10px;background:linear-gradient(155deg,#fff,#edf6ff);border:1px solid #bdd8f1;border-radius:28px;box-shadow:0 2px 0 #fff inset,0 40px 64px -28px color-mix(in srgb,var(--c) 72%,transparent),0 10px 22px -16px rgba(11,42,74,.35)}
 .sa-st b{display:block;font-size:clamp(36px,5.2vw,52px);line-height:1.3;font-weight:700;color:var(--c)}
-.sa-st span{color:var(--mut);font-weight:500}
+.sa-st .counter-label{color:var(--mut);font-weight:500}
 .js .rv{opacity:0;transform:translateY(26px)}
 .js .rv.in{opacity:1;transform:none}
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-map{max-width:380px;margin:10px auto 0}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
 @media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}}
-@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
+@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-st{padding:10px 8px;border-radius:20px}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:14.5px;padding:12px 14px}.sa-dash-cta span{flex:1 1 0;text-align:center}.sa-dash-cta small{flex-basis:100%;text-align:center;font-size:10.5px;letter-spacing:.03em;overflow-wrap:anywhere}}
 /* zir-e 430px, dokme be radif-e dovom miravad */
-@media(max-width:430px){.sa-search{height:auto;padding:8px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;font-size:16px}.sa-search svg{order:2;margin:0}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
+@media(max-width:430px){.sa-search{height:auto;padding:10px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;min-height:36px;padding-inline:6px;font-size:16px}.sa-search svg{order:2;margin:0 4px}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
 /* v2.13.1 — آموزش‌ها کنار استان/شهرستان/دیدنی */
 .sa-chips a.sa-chip--edu{background:#e8f6ee;border-color:#9bd1b3;color:#0f5132}
 .sa-chips a.sa-chip--edu:hover,.sa-chips a.sa-chip--edu:focus-visible{background:#0f5132;border-color:#0f5132;color:#fff}
-.sa-stats .sa-wrap--3{max-width:980px;grid-template-columns:repeat(3,1fr)}
-.sa-stats .sa-wrap--4{max-width:1180px;grid-template-columns:repeat(4,1fr)}
+.sa-stats .sa-wrap--3{max-width:980px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.sa-stats .sa-wrap--4{max-width:1180px;grid-template-columns:repeat(4,minmax(0,1fr))}
 .sa-stats a.sa-st{color:inherit;text-decoration:none;transition:transform .3s}.sa-stats a.sa-st:hover,.sa-stats a.sa-st:focus-visible{transform:translateY(-3px)}
-@media(max-width:900px){.sa-stats .sa-wrap--4{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:640px){.sa-stats .sa-wrap--3,.sa-stats .sa-wrap--4{gap:10px}.sa-wrap--3 .sa-st,.sa-wrap--4 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b,.sa-wrap--4 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span,.sa-wrap--4 .sa-st span{font-size:13px}}
+@media(max-width:900px){.sa-stats .sa-wrap--4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.sa-stats .sa-wrap--3,.sa-stats .sa-wrap--4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sa-stats .sa-wrap--3>.sa-st:last-child:nth-child(odd){grid-column:1/-1}.sa-home .sa-stats .sa-wrap--3 .counter-btn,.sa-home .sa-stats .sa-wrap--4 .counter-btn{padding:12px 8px;border-radius:20px}.sa-home .sa-stats .sa-wrap--3 .counter-circle b,.sa-home .sa-stats .sa-wrap--4 .counter-circle b{font-size:clamp(1.2rem,4.5vw,1.6rem)}.sa-home .sa-stats .sa-wrap--3 .counter-label,.sa-home .sa-stats .sa-wrap--4 .counter-label{font-size:13px}}
 </style>
 
 <div class="sa-home" id="sa-home">

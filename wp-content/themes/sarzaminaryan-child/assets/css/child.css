@@ -621,6 +621,16 @@
 	overflow: hidden;
 }
 
+@media (max-width: 640px) {
+	.sa-entity__layout .entry-content table:not(.sa-cyber-id__attrs) {
+		display: block;
+		max-width: 100%;
+		min-width: 0;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+}
+
 .sa-entity__layout .entry-content table thead th {
 	background: var(--sa-navy-700);
 	color: #fff;
@@ -5467,8 +5477,11 @@ small {
 
 .sa-cyber-id__hud-btn {
 	display: inline-flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 5px;
+	max-width: 100%;
+	min-width: 0;
 	padding: 3px 9px;
 	border-radius: 6px;
 	background: #ffffff;
@@ -5520,6 +5533,7 @@ small {
 .sa-cyber-id__en-pill {
 	display: inline-flex;
 	align-items: center;
+	max-width: 100%;
 	padding: 3px 10px;
 	border-radius: 7px;
 	background: #ffffff;
@@ -5530,11 +5544,14 @@ small {
 	font-weight: 800;
 	letter-spacing: 0.06em;
 	line-height: 1.3;
+	white-space: normal;
+	overflow-wrap: anywhere;
 }
 
 .sa-cyber-id__loc-ribbon {
 	display: inline-flex;
 	align-items: center;
+	max-width: 100%;
 	padding: 2px 8px;
 	border-radius: 6px;
 	background: var(--cyber-accent-soft);
@@ -5544,6 +5561,8 @@ small {
 	font-size: 0.66rem;
 	font-weight: 800;
 	letter-spacing: 0.05em;
+	white-space: normal;
+	overflow-wrap: anywhere;
 }
 
 .sa-cyber-id__summary {
@@ -5740,8 +5759,11 @@ small {
 
 .sa-cyber-id__chip {
 	display: inline-flex;
+	flex-wrap: wrap;
 	align-items: center;
 	gap: 4px;
+	max-width: 100%;
+	min-width: 0;
 	padding: 2px 8px;
 	border-radius: 6px;
 	background: #ffffff;
@@ -5757,6 +5779,7 @@ small {
 	font-size: 0.65rem;
 	font-weight: 800;
 	color: var(--cyber-accent);
+	overflow-wrap: anywhere;
 }
 
 .sa-cyber-id__chip:hover {
@@ -5877,8 +5900,9 @@ small {
 }
 .sa-cyber-id__chips a:hover, .sa-cyber-id__chips a:focus-visible { border-color: currentColor; }
 .sa-cid-note, .sa-cid-note * { box-sizing: border-box; }
-.sa-cid-note { max-width: 100%; margin: 0 auto 1.25rem; display: grid; gap: .55rem; }
+.sa-cid-note { max-width: 100%; margin: 0 auto 1.25rem; display: grid; grid-template-columns: minmax(0, 1fr); gap: .55rem; }
 .sa-cid-note__item {
+  min-width: 0;
   border: 1px solid #dfe8f1; border-inline-start: 3px solid #1d9e5f;
   border-radius: 10px; background: #fbfdff; padding: .6rem .8rem;
 }
@@ -6119,9 +6143,11 @@ body.bg-lines::before {
 .sa-home .sa-stats .counter-label {
 	position: relative;
 	z-index: 2;
+	min-width: 0;
 	color: var(--navy-700);
 	font-weight: 600;
 	line-height: 1.6;
+	overflow-wrap: anywhere;
 }
 
 /* Keyboard focus remains visible without changing the pressed shadow contract. */
@@ -6208,10 +6234,19 @@ body.bg-lines::before {
 	background: transparent;
 }
 
+.profile-page .sa-id-card-wrap > .container {
+	padding-inline: 0;
+}
+
 .profile-page .sa-entity__layout {
 	display: grid;
+	grid-template-columns: minmax(0, 1fr);
 	gap: 14px;
 	padding-block: 14px 18px;
+}
+
+.profile-page .sa-entity__layout > * {
+	min-width: 0;
 }
 
 .profile-page .sa-id-card-wrap {
@@ -6341,7 +6376,9 @@ body.bg-lines::before {
 	border-radius: 0;
 	background: transparent;
 	overflow: visible;
-	display: block;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
 }
 
 .profile-page .sa-cyber-grid {
@@ -6745,6 +6782,12 @@ body.bg-lines::before {
 	color: var(--navy-100);
 }
 
+@media (max-width: 780px) {
+	.profile-page .sa-cyber-grid--neighbors {
+		grid-template-columns: 1fr;
+	}
+}
+
 @media (max-width: 720px) {
 	.profile-page .sa-entity__layout {
 		gap: 12px;
@@ -6752,7 +6795,12 @@ body.bg-lines::before {
 	}
 
 	.profile-page .sa-id-card-wrap {
-		padding: 10px 8px 16px;
+		padding: 10px 12px 16px;
+	}
+
+	.profile-page .sa-cyber-id__table-wrap,
+	.profile-page .sa-cyber-grid {
+		gap: 12px;
 	}
 
 	.profile-page .sa-cyber-id__hud-bar {
@@ -6785,6 +6833,7 @@ body.bg-lines::before {
 		padding: 8px;
 	}
 
+	.profile-page .sa-cyber-id__chips > .sa-cyber-id__chip,
 	.profile-page .sa-cyber-id__chips > .profile-link,
 	.profile-page .sa-cyber-id__chips > li,
 	.profile-page .sa-province-profile__county-list > li {
@@ -6796,10 +6845,25 @@ body.bg-lines::before {
 	}
 
 	.profile-page .sa-cyber-id__chips > li .profile-link,
-	.profile-page .sa-cyber-id__chips > .profile-link {
+	.profile-page .sa-cyber-id__chips > .profile-link,
+	.profile-page .sa-cyber-id__chips > .sa-cyber-id__chip {
 		width: 100%;
+		display: inline-flex;
 		justify-content: center;
+		text-align: center;
 		padding-inline: 8px;
+	}
+
+	.profile-page .sa-cyber-id__attrs th,
+	.profile-page .sa-cyber-id__attrs td {
+		padding: 0.45rem 0.4rem;
+		font-size: 0.78rem;
+	}
+
+	.profile-page .sa-cyber-id__attrs .profile-link {
+		white-space: nowrap;
+		padding: 0.2rem 0.45rem;
+		font-size: 0.72rem;
 	}
 
 	.profile-page .sa-province-profile__county-list {

@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.12
+Stable tag: 2.22.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,12 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.13 — 1405-07-26 (2026-10-18) =
+* **رفع مشکلات نمایش واکنش‌گرا در موبایل (`320`، `360`، `390`، `430`، `640` و `768px`):**
+  * **صفحهٔ اول (`template-home.php` و `child.css`):** رفع سرریز شبکهٔ شمارنده‌ها (`.sa-stats .sa-wrap--3` و `.sa-wrap--4`) در عرض‌های موبایل با تبدیل به شبکهٔ دو ستونهٔ `minmax(0, 1fr)` (و تمام‌عرض شدن کارت سوم در حالت ۳ شمارنده) و هماهنگ‌سازی اختصاصیت انتخابگرهای `.counter-btn`، `.counter-circle b` و `.counter-label`؛ رفع شکستگی چیدمان دکمهٔ داشبورد سایبری (`.sa-dash-cta`) در عرض‌های زیر `480px` تا آیکون SVG در سطر جداگانه تنها نماند و زیرنویس انگلیسی در `320px` سرریز نکند؛ بهبود ارتفاع لمسی و فاصلهٔ درونی فیلد جست‌وجو (`.sa-search input`) در عرض‌های زیر `430px`.
+  * **پروفایل‌های استان، شهرستان و دیدنی (`child.css`):** افزودن `grid-template-columns: minmax(0, 1fr)` و `min-width: 0` به `.profile-page .sa-entity__layout` و `.sa-cid-note` تا جدول‌های عریض داخل بدنهٔ مقاله (`min-width: 520px`) باعث کشیده‌شدن کل ستون صفحه و بریده‌شدن `100` تا `224` پیکسل از سمت چپ در موبایل نشوند؛ فعال‌سازی اسکرول افقی مستقل برای جدول‌های بدون wrapper در `.entry-content` در موبایل؛ حذف پدینگ مضاعف `.profile-page .sa-id-card-wrap > .container` و افزودن فاصلهٔ عمودی (`gap`) بین طبقات `.sa-cyber-grid` در `.sa-cyber-id__table-wrap` در صفحهٔ دیدنی؛ امکان شکستن خط (`white-space: normal; overflow-wrap: anywhere; flex-wrap: wrap`) برای تگ‌های انگلیسی (`.sa-cyber-id__en-pill` و `.sa-cyber-id__loc-ribbon`)، دکمه‌های هدر شناسنامه (`.sa-cyber-id__hud-btn`) و چیپ‌های همسایه‌ها (`.sa-cyber-id__chip`) و تک‌ستونه‌شدن `.sa-cyber-grid--neighbors` در عرض‌های تا `780px`.
+  * **رتبه‌بندی شهرها و مشارکت شهری (`city-contrib.css`):** چیدمان ۷ ستونهٔ یکنواخت برای ستاره‌های امتیازدهی (`.cc-rating__stars`) در موبایل تا ستاره‌های ۶ و ۷ به سطر دوم نیفتند، افزودن `box-sizing: border-box; width: 100%; max-width: 100%` به فیلدهای متنی و فایل فرم مشارکت، و تنظیم پدینگ جدول برترین شهرها در عرض‌های زیر `420px`.
 
 = 2.22.12 — 1405-07-26 (2026-10-18) =
 * صفحه اول تغییر کرده: فهرست آخرین/مقالات مرتبط، آموزش‌ها و دیدنی‌ها از صفحهٔ اول حذف شدند؛ لوگوهای داخلی هیرو و رتبه‌بندی شهرها حذف شدند و لوگوهای هدر و فوتر باقی ماندند.

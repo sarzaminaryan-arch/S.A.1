@@ -35,7 +35,7 @@
 .cc-btn--ghost{background:transparent;color:#5b7590;border:1px solid #c9d6e4}
 .cc-contrib__hint{color:#41597a;margin:.2rem 0 .8rem}
 .cc-contrib form label{display:block;margin:.8rem 0;color:#0b2a4a;font-weight:600}
-.cc-contrib textarea,.cc-contrib select{display:block;width:100%;min-height:44px;margin-top:.35rem;padding:.65rem;border:1px solid #b9cde3;border-radius:9px;background:#fff;font:inherit}
+.cc-contrib textarea,.cc-contrib select,.cc-contrib input[type="text"],.cc-contrib input[type="file"]{box-sizing:border-box;display:block;width:100%;max-width:100%;min-height:44px;margin-top:.35rem;padding:.65rem;border:1px solid #b9cde3;border-radius:9px;background:#fff;font:inherit}
 .cc-contrib textarea{min-height:110px}
 .cc-contrib [data-cc-message]{color:#123f73;font-weight:700;margin-top:.6rem}
 .cc-hp{position:absolute;right:-9999px;width:1px;height:1px}
@@ -89,6 +89,18 @@
 
  .cc-rating__stars button{min-width:40px}
  .cc-rating__stars button .cc-rating__glyph{font-size:1.4rem}
+}
+@media(max-width:640px){
+ .cc-block{margin:1.25rem 0;padding:1rem .85rem}
+ .cc-rating__picker{padding:.75rem;gap:.65rem}
+ .cc-rating__stars{width:100%;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.25rem}
+ .cc-rating__stars button{min-width:0;padding:.35rem .15rem .4rem}
+ .cc-rating__submit{width:100%}
+}
+@media(max-width:420px){
+ .cc-toptable thead th,.cc-toptable tbody td{padding:.5rem .35rem}
+ .cc-toptable__rank{gap:.35rem}
+ .cc-toplist__num{min-width:26px;height:26px;font-size:.85rem}
 }
 
 /* مشارکت‌های من و برترین‌ها */
