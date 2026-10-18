@@ -89,6 +89,91 @@ function sa_en_digits( $value ) {
 }
 
 /**
+ * آیا نشانی متعلق به گوگل/نقشه است و نباید به‌عنوان منبع ذخیره شود؟
+ *
+ * @param string $url نشانی.
+ * @return bool
+ */
+function sa_is_google_source_url( $url ) {
+	$host = strtolower( (string) wp_parse_url( (string) $url, PHP_URL_HOST ) );
+	$host = (string) preg_replace( '/^www\\./', '', $host );
+	if ( '' === $host ) {
+		return false;
+	}
+	if ( 'google.com' === $host || 'maps.google.com' === $host || 'goo.gl' === $host || 'maps.app.goo.gl' === $host ) {
+		return true;
+	}
+	if ( substr( $host, -11 ) === '.google.com' ) {
+		return true;
+	}
+	if ( substr( $host, -7 ) === '.goo.gl' ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * آیا نشانی فقط دامنه است بدون مسیر صفحه؟
+ *
+ * مثال: https://www.doe.ir/  یا  https://fa.wikipedia.org  → بله (باید لینک دقیق افزوده شود).
+ *       https://www.doe.ir/portal/file/?123 → خیر.
+ *
+ * @param string $url نشانی.
+ * @return bool
+ */
+function sa_is_domain_only_url( $url ) {
+	$parts = wp_parse_url( (string) $url );
+	if ( empty( $parts['host'] ) ) {
+		return false;
+	}
+	$path  = isset( $parts['path'] ) ? trim( (string) $parts['path'], '/' ) : '';
+	$query = isset( $parts['query'] ) ? trim( (string) $parts['query'] ) : '';
+	$frag  = isset( $parts['fragment'] ) ? trim( (string) $parts['fragment'] ) : '';
+	if ( '' === $path && '' === $query && '' === $frag ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * نرمال‌سازی نشانی برای تشخیص تکرار (حذف www، یکسان‌سازی http/https، حذف / انتهایی، دیکد درصدها).
+ *
+ * @param string $url نشانی.
+ * @return string کلید یکتا.
+ */
+function sa_normalize_source_url( $url ) {
+	$url = trim( html_entity_decode( (string) $url, ENT_QUOTES, 'UTF-8' ) );
+	$parts = wp_parse_url( $url );
+	if ( ! isset( $parts['host'] ) || '' === $parts['host'] ) {
+		return strtolower( $url );
+	}
+	$host = strtolower( (string) $parts['host'] );
+	$host = (string) preg_replace( '/^www\\./', '', $host );
+	$path = isset( $parts['path'] ) ? rawurldecode( (string) $parts['path'] ) : '';
+	$path = rtrim( (string) $path, '/' );
+	$path = strtolower( $path );
+	$key  = $host . $path;
+	if ( ! empty( $parts['query'] ) ) {
+		$key .= '?' . strtolower( (string) $parts['query'] );
+	}
+	return $key;
+}
+
+/**
+ * استخراج اعداد (فارسی/لاتین) از رشته — برای تشخیص «۳۱ ۴۹)» و «۲ ۲».
+ *
+ * @param string $text متن.
+ * @return int[] فهرست اعداد.
+ */
+function sa_extract_citation_numbers( $text ) {
+	$en = sa_en_digits( (string) $text );
+	if ( preg_match_all( '/\d+/', $en, $m ) ) {
+		return array_map( 'intval', $m[0] );
+	}
+	return array();
+}
+
+/**
  * Format a number for display (thousand separators + Persian digits when enabled).
  *
  * @param int|float|string $number   Number.
@@ -188,6 +273,133 @@ function sa_get_faq( $post_id ) {
 		}
 	}
 	return $clean;
+}
+
+/**
+ * فاز ۷: آیا پاسخِ FAQ برای نمایش معتبر است؟
+ * خالی یا حاوی نشانه‌های ناقص بودن («نیازمند»، «تطبیق»، «در بخش … آمده»، «باید … بررسی شود») => نامعتبر.
+ *
+ * @param string $answer پاسخ.
+ * @return bool
+ */
+function sa_is_valid_faq_answer( $answer ) {
+	$a = trim( (string) $answer );
+	if ( '' === $a ) {
+		return false;
+	}
+	if ( false !== mb_strpos( $a, 'نیازمند' ) ) {
+		return false;
+	}
+	if ( false !== mb_strpos( $a, 'تطبیق' ) ) {
+		return false;
+	}
+	// «در بخش … آمده» — هر دو تکه در یک پاسخ باشد.
+	if ( false !== mb_strpos( $a, 'در بخش' ) && false !== mb_strpos( $a, 'آمده' ) ) {
+		return false;
+	}
+	// «باید … بررسی شود»
+	if ( false !== mb_strpos( $a, 'باید' ) && false !== mb_strpos( $a, 'بررسی شود' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
+ * فهرستِ FAQ معتبر برای رندر (فیلتر شرط ۱).
+ *
+ * @param int $post_id Post ID.
+ * @return array[]
+ */
+function sa_get_valid_faq( $post_id ) {
+	$all = sa_get_faq( $post_id );
+	if ( ! $all ) {
+		return array();
+	}
+	$out = array();
+	foreach ( $all as $row ) {
+		if ( ! isset( $row['q'], $row['a'] ) ) {
+			continue;
+		}
+		if ( '' === trim( (string) $row['q'] ) ) {
+			continue;
+		}
+		if ( ! sa_is_valid_faq_answer( (string) $row['a'] ) ) {
+			continue;
+		}
+		$out[] = $row;
+	}
+	return $out;
+}
+
+/**
+ * فاز ۷: شمارش واژه‌های محتوای اصلی شهرستان (برای noindex).
+ *
+ * @param int $post_id Post ID.
+ * @return int
+ */
+function sa_city_word_count( $post_id ) {
+	$content = (string) get_post_field( 'post_content', (int) $post_id );
+	if ( '' === trim( $content ) ) {
+		return 0;
+	}
+	$text = strip_shortcodes( $content );
+	$text = wp_strip_all_tags( $text );
+	$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
+	if ( preg_match_all( '/\p{L}+/u', $text, $m ) ) {
+		return count( $m[0] );
+	}
+	return 0;
+}
+
+/**
+ * آیا شهرستان بخش «جاهای دیدنی» دارد؟
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
+function sa_city_has_attractions( $post_id ) {
+	$post_id = (int) $post_id;
+	if ( function_exists( 'sa_county_profile_attractions' ) ) {
+		$atts = sa_county_profile_attractions( $post_id );
+		if ( ! empty( $atts ) ) {
+			return true;
+		}
+	}
+	if ( function_exists( 'sa_get_children' ) ) {
+		$children = sa_get_children( $post_id, 'attraction' );
+		if ( ! empty( $children ) ) {
+			return true;
+		}
+	}
+	foreach ( array( 'sa_cty_poi_nature', 'sa_cty_poi_offbeat', 'sa_cty_poi_recreation', 'sa_cty_poi_heritage' ) as $k ) {
+		$v = get_post_meta( $post_id, $k, true );
+		if ( '' !== trim( (string) $v ) ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+ * آیا صفحه‌ی شهرستان نازک است و باید noindex بگیرد؟
+ * شرط ۵: کمتر از ۳۰۰ واژه محتوای اصلی یا بدون بخش «جاهای دیدنی».
+ *
+ * @param int $post_id Post ID.
+ * @return bool
+ */
+function sa_city_is_thin( $post_id ) {
+	$post_id = (int) $post_id;
+	if ( 'city' !== get_post_type( $post_id ) ) {
+		return false;
+	}
+	$words = sa_city_word_count( $post_id );
+	if ( $words < 300 ) {
+		return true;
+	}
+	if ( ! sa_city_has_attractions( $post_id ) ) {
+		return true;
+	}
+	return false;
 }
 
 /**

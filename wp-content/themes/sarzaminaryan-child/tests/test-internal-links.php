@@ -294,7 +294,7 @@ $article_links  = array(
 	'shahdad-kaluts-lut-desert' => array(
 		'/province/kerman/'                => 'استان کرمان',
 		'/city/kerman/'                    => 'شهرستان کرمان',
-		'/attraction/tabas-attractions/' => 'راهنمای دیدنی‌های طبس',
+		'/city/tabas/'                    => 'شهرستان طبس',
 	),
 );
 foreach ( $article_links as $article_key => $links ) {

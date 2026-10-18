@@ -1,0 +1,9 @@
+﻿slug,post_id,post_type,field,stage,pattern_id,level,type_change,before_text,after_text,suggestion,status
+kuhsorkh,9001,city,post_content,8,stray-code-fence,DELETE,حذف بخش,```,,,would-delete
+kuhsorkh,9001,city,population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete
+kuhsorkh,9001,city,sa_cty_population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete
+ahvaz-city,9003,city,post_content,8,stray-code-fence,DELETE,حذف بخش,```,,,would-delete
+ahvaz-city,9003,city,post_content,9,ahvaz-unrelated-najafabad-nain,FLAG,حذف بخش,-- wp:paragraph --><p>در پایان، شهرستان نجف‌آباد با مرکزیت نجف‌آباد در استان اصفهان با جمعیت ۳۰۰ هزار نفر و شهرستان نائین با روستاهای تاریخی‌اش از جاذبه‌های کویری برخوردار است.,,کل پاراگراف انتهایی نجف‌آباد/نائین حذف شود — هیچ ارتباطی با اهواز ندارد (احتمالاً چسبیدن محتوای شهر دیگر).,flagged
+ahvaz-city,9003,city,post_content,9,ahvaz-unrelated-najafabad-nain,FLAG,حذف بخش,در پایان، شهرستان نجف‌آباد با مرکزیت نجف‌آباد در استان اصفهان با جمعیت ۳۰۰ هزار نفر و شهرستان نائین با روستاهای تاریخی‌اش از جاذبه‌های کویری برخوردار است.,,کل پاراگراف انتهاییِ نجف‌آباد/نائین حذف شود — هیچ ارتباطی با اهواز ندارد.,flagged
+ahvaz-city,9003,city,population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete
+ahvaz-city,9003,city,sa_cty_population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete

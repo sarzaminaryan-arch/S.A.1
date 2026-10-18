@@ -35,6 +35,9 @@ function sa_entity_facts( $post_id ) {
 
 	// Taxonomy enums.
 	foreach ( $e['enums'] as $enum ) {
+		if ( 'city' === $type && 'travel_season' === $enum['taxonomy'] && '' !== trim( (string) get_post_meta( $post_id, 'sa_cty_best_time', true ) ) ) {
+			continue;
+		}
 		$terms = get_the_terms( $post_id, $enum['taxonomy'] );
 		if ( $terms && ! is_wp_error( $terms ) ) {
 			$links = array();
@@ -47,6 +50,12 @@ function sa_entity_facts( $post_id ) {
 
 	// Scalar fields.
 	foreach ( $e['fields'] as $f ) {
+		if ( 'city' === $type && 'sa_city_population' === $f['key'] && ( '' !== trim( (string) get_post_meta( $post_id, 'sa_cty_population', true ) ) || '' !== trim( (string) get_post_meta( $post_id, 'population', true ) ) ) ) {
+			continue;
+		}
+		if ( 'city' === $type && 'sa_best_season' === $f['key'] && '' !== trim( (string) get_post_meta( $post_id, 'sa_cty_best_time', true ) ) ) {
+			continue;
+		}
 		$raw = get_post_meta( $post_id, $f['key'], true );
 		if ( '' === $raw || null === $raw ) {
 			continue;
@@ -247,6 +256,59 @@ function sa_facts_checked_note( $post_id ) {
 }
 
 /**
+ * Check whether a source URL belongs to a domain disallowed by the Editorial Policy
+ * (wikis, commercial booking blogs, or unverified travel blogs).
+ *
+ * @param string $url Source URL.
+ * @return bool
+ */
+function sa_is_forbidden_source_url( $url ) {
+	$host = strtolower( (string) wp_parse_url( (string) $url, PHP_URL_HOST ) );
+	$host = (string) preg_replace( '/^www\./', '', $host );
+	if ( '' === $host ) {
+		return false;
+	}
+	$forbidden = array(
+		'wikipedia.org',
+		'wikidata.org',
+		'wikimedia.org',
+		'kojaro.com',
+		'koohbist.com',
+		'irantripadviser.ir',
+		'karnaval.ir',
+		'alibaba.ir',
+		'lastsecond.ir',
+		'flytoday.ir',
+		'lahzeakhar.com',
+		'eligasht.com',
+		'snapptrip.com',
+		'jabama.com',
+		'utravs.com',
+		'mrbilit.com',
+		'safarmarket.com',
+		'tripyar.com',
+		'gardeshgari724.com',
+		'seeiran.ir',
+		'anyja.ir',
+		'otaghak.com',
+		'shab.ir',
+		'mihmansho.com',
+		'pinorest.com',
+		'hamsafar.org',
+		'offdecor.com',
+		'bartarinha.ir',
+		'namnak.com',
+		'beytoote.com',
+	);
+	foreach ( $forbidden as $domain ) {
+		if ( $host === $domain || substr( $host, -strlen( '.' . $domain ) ) === '.' . $domain ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
  * Parse the sources box: one source per line "title | organisation | URL | access date".
  * Lines after a "---" separator are private editor notes (FACT CHECK REPORT) and are never output.
  *
@@ -261,6 +323,7 @@ function sa_get_sources( $post_id ) {
 	$public = preg_split( '/^\s*-{3,}.*$/mu', $raw, 2 );
 	$lines  = preg_split( '/\r\n|\r|\n/', $public[0] );
 	$out    = array();
+	$seen   = array();
 	foreach ( $lines as $line ) {
 		$line = trim( $line );
 		if ( '' === $line ) {
@@ -279,6 +342,19 @@ function sa_get_sources( $post_id ) {
 			$url     = $m[0];
 			$cols[0] = trim( str_replace( $url, '', $cols[0] ) );
 		}
+		if ( $url && sa_is_forbidden_source_url( $url ) ) {
+			continue;
+		}
+		if ( $url && function_exists( 'sa_is_google_source_url' ) && sa_is_google_source_url( $url ) ) {
+			continue;
+		}
+		if ( $url ) {
+			$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $url ) : strtolower( trim( $url ) );
+			if ( isset( $seen[ $norm ] ) ) {
+				continue;
+			}
+			$seen[ $norm ] = true;
+		}
 		$cols  = array_values( $cols );
 		$out[] = array(
 			'title' => isset( $cols[0] ) ? $cols[0] : $url,
@@ -291,14 +367,153 @@ function sa_get_sources( $post_id ) {
 }
 
 /**
- * Number of public source lines that carry a URL (publish gate).
+ * زیرمجموعهٔ منابعِ دامنه-تنها (فقط https://example.com/ بدون مسیر).
+ * برای گزارش سلامت — ویرایشگر باید لینک دقیق صفحه را جایگزین کند.
+ *
+ * @param int $post_id Post ID.
+ * @return array[] منابعِ دامنه-تنها
+ */
+function sa_get_domain_only_sources( $post_id ) {
+	$all  = sa_get_sources( $post_id );
+	$out  = array();
+	foreach ( $all as $src ) {
+		if ( ! empty( $src['url'] ) && function_exists( 'sa_is_domain_only_url' ) && sa_is_domain_only_url( $src['url'] ) ) {
+			$out[] = $src;
+		}
+	}
+	return $out;
+}
+
+/**
+ * ساخت فهرست یکپارچهٔ منابع از روی متا + لینک‌های درون متن (ترتیبِ نخستین حضور، بدون تکرار).
+ *
+ * @param int    $post_id Post ID.
+ * @param string $content محتوای خام (اختیاری — برای استخراج لینک‌های درون‌متن).
+ * @return array[] فهرست یکتا به ترتیب ظهور
+ */
+function sa_build_unified_sources( $post_id, $content = '' ) {
+	$meta = sa_get_sources( $post_id );
+	// نگاشتِ نرمال → رکورد متا (برای یافتن عنوان/سازمان هنگام برخورد با لینک درون‌متن).
+	$meta_by_norm = array();
+	foreach ( $meta as $src ) {
+		if ( empty( $src['url'] ) ) {
+			continue;
+		}
+		$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $src['url'] ) : strtolower( $src['url'] );
+		if ( ! isset( $meta_by_norm[ $norm ] ) ) {
+			$meta_by_norm[ $norm ] = $src;
+		}
+	}
+
+	$unified = array();
+	$seen    = array();
+
+	// اگر محتوا داده شده، لینک‌های درون‌متن را به ترتیبِ حضورشان برداریم.
+	if ( '' !== (string) $content ) {
+		$inline_urls = array();
+		// ترکیبِ sa-cite و <a> — ترتیبِ ظهور حفظ می‌شود.
+		if ( preg_match_all( '#<sup\b[^>]*class=([\"\\'])[^\"\\']*\bsa-cite\b[^\"\\']*\1[^>]*>\s*<a\b[^>]*href=([\"\\'])([^\"\\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\\'])([^\"\\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
+			foreach ( $mm as $hit ) {
+				$u = ! empty( $hit[3] ) ? $hit[3] : ( ! empty( $hit[5] ) ? $hit[5] : '' );
+				if ( '' !== $u ) {
+					$inline_urls[] = $u;
+				}
+			}
+		}
+		foreach ( $inline_urls as $url ) {
+			$url = html_entity_decode( trim( (string) $url ), ENT_QUOTES, 'UTF-8' );
+			if ( '' === $url ) {
+				continue;
+			}
+			if ( function_exists( 'sa_citation_is_external' ) && ! sa_citation_is_external( $url ) ) {
+				continue;
+			}
+			if ( function_exists( 'sa_is_forbidden_source_url' ) && sa_is_forbidden_source_url( $url ) ) {
+				continue;
+			}
+			if ( function_exists( 'sa_is_google_source_url' ) && sa_is_google_source_url( $url ) ) {
+				continue;
+			}
+			$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $url ) : strtolower( $url );
+			if ( isset( $seen[ $norm ] ) ) {
+				continue;
+			}
+			$seen[ $norm ] = true;
+			if ( isset( $meta_by_norm[ $norm ] ) ) {
+				$unified[] = $meta_by_norm[ $norm ];
+			} else {
+				$host = strtolower( (string) wp_parse_url( $url, PHP_URL_HOST ) );
+				$host = (string) preg_replace( '/^www\\./', '', $host );
+				$unified[] = array(
+					'title' => $host ? $host : $url,
+					'org'   => $host,
+					'url'   => $url,
+					'date'  => '',
+				);
+			}
+		}
+	}
+
+	// باقیِ متا که در متن نیامده — به انتها افزوده شود (بدون تکرار).
+	foreach ( $meta as $src ) {
+		if ( empty( $src['url'] ) ) {
+			// بدون URL هم اضافه کن (منبعِ عنوان‌محور).
+			$key = strtolower( trim( (string) $src['title'] ) );
+			if ( isset( $seen[ $key ] ) ) {
+				continue;
+			}
+			$seen[ $key ] = true;
+			$unified[]    = $src;
+			continue;
+		}
+		$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $src['url'] ) : strtolower( $src['url'] );
+		if ( isset( $seen[ $norm ] ) ) {
+			continue;
+		}
+		$seen[ $norm ] = true;
+		$unified[]     = $src;
+	}
+
+	return $unified;
+}
+
+/**
+ * Number of public source lines that carry a URL (publish gate) — بدونِ احتسابِ منابعِ ممنوعه/گوگل و بدونِ تکرار.
  *
  * @param string $raw Raw sources text.
  * @return int
  */
 function sa_count_sources( $raw ) {
 	$public = preg_split( '/^\s*-{3,}.*$/mu', (string) $raw, 2 );
-	return preg_match_all( '#https?://#i', $public[0] );
+	$lines  = preg_split( '/\r\n|\r|\n/', $public[0] );
+	$seen   = array();
+	$count  = 0;
+	foreach ( (array) $lines as $line ) {
+		$line = trim( (string) $line );
+		if ( '' === $line ) {
+			continue;
+		}
+		$url = '';
+		if ( preg_match( '#https?://\S+#i', $line, $m ) ) {
+			$url = trim( $m[0], '.,;\"\'<> ' );
+		}
+		if ( '' === $url ) {
+			continue;
+		}
+		if ( function_exists( 'sa_is_forbidden_source_url' ) && sa_is_forbidden_source_url( $url ) ) {
+			continue;
+		}
+		if ( function_exists( 'sa_is_google_source_url' ) && sa_is_google_source_url( $url ) ) {
+			continue;
+		}
+		$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $url ) : strtolower( $url );
+		if ( isset( $seen[ $norm ] ) ) {
+			continue;
+		}
+		$seen[ $norm ] = true;
+		++$count;
+	}
+	return $count;
 }
 
 /**
@@ -324,6 +539,11 @@ function sa_source_rel( $url ) {
  * @param int $post_id Post ID.
  */
 function sa_sources_section( $post_id ) {
+	// فاز ۶: وقتی پانویس‌ها فعال‌اند، یک فهرستِ یکپارچه در the_content ساخته می‌شود؛
+	// این تابع دیگر بخشِ جدا نسازد تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
+	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		return;
+	}
 	$sources = sa_get_sources( $post_id );
 	if ( ! $sources ) {
 		return;
@@ -350,6 +570,9 @@ function sa_sources_section( $post_id ) {
  * @param int $post_id Post ID.
  */
 function sa_guide_sources_section( $post_id ) {
+	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		return;
+	}
 	$sources = sa_get_sources( $post_id );
 	if ( ! $sources ) {
 		return;
@@ -911,7 +1134,7 @@ function sa_cyber_id_county_fallback( $county_slug, $province_slug = '' ) {
 			'area'       => '۱٬۳۲۶ کیلومتر مربع',
 			'divisions'  => '۲ بخش · ۵ دهستان · ۲ شهر · ۱۳۵ آبادی',
 			'climate'    => 'کوهستانی معتدل (زاگرس میانی)',
-			'season'     => 'بهار (فروردین تا خرداد)، تابستان و پاییز',
+			'season'     => 'بهار و اوایل تابستان (فروردین تا اوایل تیر)؛ پاییز برای طبیعت‌گردی خنک',
 			'language'   => 'لری (بختیاری، سیلاخوری و خرم‌آبادی) و فارسی',
 			'livelihood' => 'کشاورزی (برنج و گندم)، صنعت سیمان و سنگ، دامداری و گردشگری طبیعی',
 			'access'     => 'راه‌آهن سراسری تهران–جنوب + محور جاده‌ای بروجرد–دورود–ازنا و خرم‌آباد',

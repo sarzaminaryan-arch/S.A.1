@@ -91,9 +91,24 @@ $sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_educa
 </header>
 
 <?php if ( 'province' === $sa_bars ) : ?>
-	<?php echo sa_province_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
-<?php elseif ( 'city' === $sa_bars && have_posts() ) : ?>
-	<?php echo sa_city_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
+	<article class="sa-archive__article entry-content">
+		<?php echo sa_province_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
+		<?php
+		if ( function_exists( 'sa_archive_crawlable_directory_html' ) ) {
+			echo sa_archive_crawlable_directory_html( 'province', $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
+		}
+		?>
+	</article>
+<?php elseif ( 'city' === $sa_bars ) : ?>
+	<article class="sa-archive__article entry-content">
+		<?php
+		$sa_city_posts = ! empty( $GLOBALS['wp_query']->posts ) ? $GLOBALS['wp_query']->posts : null;
+		echo sa_city_bars_html( $sa_city_posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
+		if ( function_exists( 'sa_archive_crawlable_directory_html' ) ) {
+			echo sa_archive_crawlable_directory_html( 'city', $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
+		}
+		?>
+	</article>
 <?php elseif ( 'attraction' === $sa_bars && have_posts() ) : ?>
 	<?php echo sa_attraction_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside. ?>
 	<?php the_posts_pagination( array( 'prev_text' => 'قبلی', 'next_text' => 'بعدی', 'mid_size' => 2 ) ); ?>

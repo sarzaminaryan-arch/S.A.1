@@ -1,0 +1,35 @@
+﻿slug,post_id,post_type,field,stage,pattern_id,level,type_change,before_text,after_text,suggestion,status
+kuhsorkh,9001,city,post_content,8,stray-code-fence,DELETE,حذف بخش,```,,,would-delete
+kuhsorkh,9001,city,post_content,6,this-article-introduces,DELETE,حذف جمله,این مقاله شهرستان کوهسرخ را با رویکرد مستند معرفی می‌کند.,,,would-delete
+kuhsorkh,9001,city,post_content,2,must-match-official-sources,FLAG,بازنویسی پیشنهادی,جمعیت این شهرستان باید با مرکز آمار ایران تطبیق داده شود.,,عدد/واقعیت بماند؛ بند «باید تطبیق داده شود» حذف و به یادداشت داخلی یا کامنت ویرایشی منتقل شود.,flagged
+kuhsorkh,9001,city,post_content,1,human-review-phrase,DELETE,حذف جمله,برای بازبینی و ویرایش انسانی، اطلاعات ارتفاع نیازمند بررسی است.,,,would-delete
+kuhsorkh,9001,city,post_content,4,as-ai-language-model,DELETE,حذف جمله,به عنوان یک مدل زبانی، می‌توان گفت که این منطقه کوهستانی است.,,,would-delete
+kuhsorkh,9001,city,post_content,3,generic-filler,FLAG,بازنویسی پیشنهادی,لازم به ذکر است که اقلیم آن سرد و خشک است.,,پیونددهنده را حذف و دو جمله را مستقیم به هم وصل کن.,flagged
+kuhsorkh,9001,city,post_content,8,stray-code-fence,DELETE,حذف بخش,کد نمونه ``` برای نمایش باقی مانده است.,,,would-delete
+kuhsorkh,9001,city,population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete
+kuhsorkh,9001,city,sa_cty_population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete
+kuhsorkh,9001,city,sa_seo_description,1,human-edit-or-review,DELETE,حذف جمله,این مقاله شهرستان کوهسرخ را معرفی می‌کند. برای بازبینی انسانی نیاز به بررسی دارد.,,,would-delete
+kuhsorkh,9001,city,post_content,7,bad-source-only,DELETE,حذف ردیف منبع,[۳] https://www.google.com/search?q=kuhsorkh — گوگل,,,would-delete
+kuhsorkh,9001,city,post_content,7,utm-source-chatgpt,DELETE,حذف بخش از لینک,utm_source=chatgpt.com,,,would-delete
+kashmar,9002,city,post_content,2,must-match-official-sources,FLAG,بازنویسی پیشنهادی,این شهرستان باید با منابع رسمی تطبیق داده شود.,,عدد/واقعیت بماند؛ بند «باید تطبیق داده شود» حذف و به یادداشت داخلی یا کامنت ویرایشی منتقل شود.,flagged
+kashmar,9002,city,post_content,3,in-this-article-we-review,FLAG,بازنویسی پیشنهادی,در این مقاله به بررسی جاذبه‌های کاشمر می‌پردازیم.,,حذف حشو «در این مقاله ...» و شروع مستقیم با واقعیت: «... در شهرستان X ... است.»,flagged
+kashmar,9002,city,post_content,3,hope-this-article,FLAG,بازنویسی پیشنهادی,امیدوارم این مقاله برای شما مفید باشد.,,حذف جملهٔ آرزویی؛ اطلاعات بماند.,flagged
+kashmar,9002,city,post_content,1,before-final-publish,DELETE,حذف جمله,پیش از انتشار نهایی، اطلاعات مسیر نیازمند تأیید است.,,,would-delete
+kashmar,9002,city,post_content,1,placeholder-fa,DELETE,حذف جمله,به طور کلی، کاشمر آب‌وهوایی معتدل دارد و به عنوان یک مدل زبانی می‌توان افزود که [نیاز به منبع] دربارهٔ قدمت آن باید بررسی شود.,,,would-delete
+kashmar,9002,city,sa_seo_description,6,documented-approach,DELETE,حذف بخش,کاشمر با رویکرد مستند معرفی می‌شود.,,,would-delete
+kashmar,9002,city,sa_faq,2,must-match-official-sources,FLAG,بازنویسی پیشنهادی,"[{""q"":""بهترین فصل سفر به کاشمر؟"",""a"":""بهار و پاییز.""},{""q"":""جمعیت کاشمر؟"",""a"":""باید با مرکز آمار تطبیق داده شود.""}]",,عدد/واقعیت بماند؛ بند «باید تطبیق داده شود» حذف و به یادداشت داخلی یا کامنت ویرایشی منتقل شود.,flagged
+kashmar,9002,city,post_content,7,bad-source-only,DELETE,حذف ردیف منبع,[۲] https://www.google.com/maps/place/Kashmar — گوگل مپ,,,would-delete
+kashmar,9002,city,post_content,7,bad-source-only,DELETE,حذف ردیف منبع,[۳] https://chat.openai.com/c/abc — چت‌جی‌پی‌تی,,,would-delete
+ahvaz-city,9003,city,post_content,8,stray-code-fence,DELETE,حذف بخش,```,,,would-delete
+ahvaz-city,9003,city,post_content,9,ahvaz-unrelated-najafabad-nain,FLAG,حذف بخش,-- wp:paragraph --><p>در پایان، شهرستان نجف‌آباد با مرکزیت نجف‌آباد در استان اصفهان با جمعیت ۳۰۰ هزار نفر و شهرستان نائین با روستاهای تاریخی‌اش از جاذبه‌های کویری برخوردار است.,,کل پاراگراف انتهایی نجف‌آباد/نائین حذف شود — هیچ ارتباطی با اهواز ندارد (احتمالاً چسبیدن محتوای شهر دیگر).,flagged
+ahvaz-city,9003,city,post_content,6,this-article-introduces,DELETE,حذف جمله,این مقاله شهرستان اهواز را با رویکرد مستند معرفی می‌کند.,,,would-delete
+ahvaz-city,9003,city,post_content,1,human-review-phrase,DELETE,حذف جمله,برای بازبینی و ویرایش انسانی، اطلاعات پل‌ها باید با منابع رسمی تطبیق داده شود.,,,would-delete
+ahvaz-city,9003,city,post_content,8,stray-code-fence,DELETE,حذف بخش,نمونه کد سرگردان برای نمایش باقی مانده: ``` اهواز گرم‌ترین شهر ایران است.,,,would-delete
+ahvaz-city,9003,city,post_content,8,stray-code-fence,DELETE,حذف بخش,```,,,would-delete
+ahvaz-city,9003,city,post_content,4,english-ai-traces,DELETE,حذف جمله,"as an AI language model, I can say this is a warm city.",,,would-delete
+ahvaz-city,9003,city,post_content,3,generic-filler,FLAG,بازنویسی پیشنهادی,به طور کلی، اهواز تابستان‌های بسیار گرمی دارد.,,پیونددهنده را حذف و دو جمله را مستقیم به هم وصل کن.,flagged
+ahvaz-city,9003,city,post_content,9,ahvaz-unrelated-najafabad-nain,FLAG,حذف بخش,در پایان، شهرستان نجف‌آباد با مرکزیت نجف‌آباد در استان اصفهان با جمعیت ۳۰۰ هزار نفر و شهرستان نائین با روستاهای تاریخی‌اش از جاذبه‌های کویری برخوردار است.,,کل پاراگراف انتهاییِ نجف‌آباد/نائین حذف شود — هیچ ارتباطی با اهواز ندارد.,flagged
+ahvaz-city,9003,city,population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete
+ahvaz-city,9003,city,sa_cty_population,9,ahvaz-population-zero,DELETE,خالی‌سازی فیلد,0,,,would-delete
+ahvaz-city,9003,city,sa_seo_description,6,documented-approach,DELETE,حذف بخش,اهواز با رویکرد مستند معرفی می‌شود و باید با مرکز آمار تطبیق داده شود.,,,would-delete
+ahvaz-city,9003,city,post_content,7,bad-source-only,DELETE,حذف ردیف منبع,[۲] https://www.google.com/search?q=ahvaz — گوگل,,,would-delete

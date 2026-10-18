@@ -1,0 +1,413 @@
+﻿slug,post_id,post_type,field,stage,pattern_id,level,type_change,before_text,after_text,suggestion,status
+kuhsorkh,9000,province,post_content,1,pat-0,DELETE,حذف جمله,نمونه جمله 0 با الگوی تستی,,,would-delete
+kashmar,9001,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 1 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9002,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 2 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9003,city,post_content,4,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 3 با الگوی تستی,,,would-delete
+alborz,9004,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 4 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9005,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 5 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9006,city,post_content,3,pat-1,DELETE,حذف جمله,نمونه جمله 6 با الگوی تستی,,,would-delete
+city-003,9007,province,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 7 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9008,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 8 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9009,city,post_content,2,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 9 با الگوی تستی,,,would-delete
+city-006,9010,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 10 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9011,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 11 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9012,city,post_content,1,pat-2,DELETE,حذف جمله,نمونه جمله 12 با الگوی تستی,,,would-delete
+city-009,9013,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 13 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9014,province,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 14 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9015,city,post_content,4,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 15 با الگوی تستی,,,would-delete
+city-012,9016,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 16 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9017,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 17 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9018,city,post_content,3,pat-3,DELETE,حذف جمله,نمونه جمله 18 با الگوی تستی,,,would-delete
+city-015,9019,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 19 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9020,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 20 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9021,province,post_content,2,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 21 با الگوی تستی,,,would-delete
+city-018,9022,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 22 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9023,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 23 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9024,city,post_content,1,pat-4,DELETE,حذف جمله,نمونه جمله 24 با الگوی تستی,,,would-delete
+city-021,9025,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 25 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9026,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 26 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9027,city,post_content,4,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 27 با الگوی تستی,,,would-delete
+city-024,9028,province,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 28 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9029,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 29 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9030,city,post_content,3,pat-0,DELETE,حذف جمله,نمونه جمله 30 با الگوی تستی,,,would-delete
+city-027,9031,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 31 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9032,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 32 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9033,city,post_content,2,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 33 با الگوی تستی,,,would-delete
+kuhsorkh,9034,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 34 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9035,province,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 35 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9036,city,post_content,1,pat-1,DELETE,حذف جمله,نمونه جمله 36 با الگوی تستی,,,would-delete
+mashhad,9037,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 37 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9038,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 38 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9039,city,post_content,4,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 39 با الگوی تستی,,,would-delete
+city-002,9040,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 40 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9041,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 41 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9042,province,post_content,3,pat-2,DELETE,حذف جمله,نمونه جمله 42 با الگوی تستی,,,would-delete
+city-005,9043,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 43 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9044,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 44 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9045,city,post_content,2,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 45 با الگوی تستی,,,would-delete
+city-008,9046,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 46 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9047,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 47 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9048,city,post_content,1,pat-3,DELETE,حذف جمله,نمونه جمله 48 با الگوی تستی,,,would-delete
+city-011,9049,province,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 49 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9050,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 50 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9051,city,post_content,4,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 51 با الگوی تستی,,,would-delete
+city-014,9052,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 52 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9053,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 53 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9054,city,post_content,3,pat-4,DELETE,حذف جمله,نمونه جمله 54 با الگوی تستی,,,would-delete
+city-017,9055,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 55 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9056,province,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 56 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9057,city,post_content,2,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 57 با الگوی تستی,,,would-delete
+city-020,9058,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 58 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9059,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 59 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9060,city,post_content,1,pat-0,DELETE,حذف جمله,نمونه جمله 60 با الگوی تستی,,,would-delete
+city-023,9061,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 61 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9062,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 62 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9063,province,post_content,4,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 63 با الگوی تستی,,,would-delete
+city-026,9064,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 64 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9065,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 65 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9066,city,post_content,3,pat-1,DELETE,حذف جمله,نمونه جمله 66 با الگوی تستی,,,would-delete
+city-029,9067,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 67 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9068,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 68 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9069,city,post_content,2,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 69 با الگوی تستی,,,would-delete
+ahvaz-city,9070,province,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 70 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9071,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 71 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9072,city,post_content,1,pat-2,DELETE,حذف جمله,نمونه جمله 72 با الگوی تستی,,,would-delete
+city-001,9073,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 73 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9074,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 74 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9075,city,post_content,4,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 75 با الگوی تستی,,,would-delete
+city-004,9076,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 76 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9077,province,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 77 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9078,city,post_content,3,pat-3,DELETE,حذف جمله,نمونه جمله 78 با الگوی تستی,,,would-delete
+city-007,9079,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 79 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9080,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 80 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9081,city,post_content,2,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 81 با الگوی تستی,,,would-delete
+city-010,9082,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 82 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9083,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 83 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9084,province,post_content,1,pat-4,DELETE,حذف جمله,نمونه جمله 84 با الگوی تستی,,,would-delete
+city-013,9085,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 85 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9086,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 86 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9087,city,post_content,4,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 87 با الگوی تستی,,,would-delete
+city-016,9088,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 88 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9089,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 89 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9090,city,post_content,3,pat-0,DELETE,حذف جمله,نمونه جمله 90 با الگوی تستی,,,would-delete
+city-019,9091,province,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 91 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9092,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 92 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9093,city,post_content,2,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 93 با الگوی تستی,,,would-delete
+city-022,9094,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 94 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9095,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 95 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9096,city,post_content,1,pat-1,DELETE,حذف جمله,نمونه جمله 96 با الگوی تستی,,,would-delete
+city-025,9097,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 97 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9098,province,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 98 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9099,city,post_content,4,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 99 با الگوی تستی,,,would-delete
+city-028,9100,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 100 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9101,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 101 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9102,city,post_content,3,pat-2,DELETE,حذف جمله,نمونه جمله 102 با الگوی تستی,,,would-delete
+kashmar,9103,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 103 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9104,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 104 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9105,province,post_content,2,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 105 با الگوی تستی,,,would-delete
+alborz,9106,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 106 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9107,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 107 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9108,city,post_content,1,pat-3,DELETE,حذف جمله,نمونه جمله 108 با الگوی تستی,,,would-delete
+city-003,9109,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 109 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9110,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 110 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9111,city,post_content,4,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 111 با الگوی تستی,,,would-delete
+city-006,9112,province,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 112 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9113,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 113 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9114,city,post_content,3,pat-4,DELETE,حذف جمله,نمونه جمله 114 با الگوی تستی,,,would-delete
+city-009,9115,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 115 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9116,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 116 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9117,city,post_content,2,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 117 با الگوی تستی,,,would-delete
+city-012,9118,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 118 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9119,province,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 119 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9120,city,post_content,1,pat-0,DELETE,حذف جمله,نمونه جمله 120 با الگوی تستی,,,would-delete
+city-015,9121,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 121 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9122,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 122 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9123,city,post_content,4,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 123 با الگوی تستی,,,would-delete
+city-018,9124,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 124 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9125,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 125 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9126,province,post_content,3,pat-1,DELETE,حذف جمله,نمونه جمله 126 با الگوی تستی,,,would-delete
+city-021,9127,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 127 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9128,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 128 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9129,city,post_content,2,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 129 با الگوی تستی,,,would-delete
+city-024,9130,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 130 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9131,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 131 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9132,city,post_content,1,pat-2,DELETE,حذف جمله,نمونه جمله 132 با الگوی تستی,,,would-delete
+city-027,9133,province,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 133 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9134,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 134 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9135,city,post_content,4,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 135 با الگوی تستی,,,would-delete
+kuhsorkh,9136,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 136 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9137,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 137 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9138,city,post_content,3,pat-3,DELETE,حذف جمله,نمونه جمله 138 با الگوی تستی,,,would-delete
+mashhad,9139,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 139 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9140,province,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 140 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9141,city,post_content,2,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 141 با الگوی تستی,,,would-delete
+city-002,9142,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 142 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9143,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 143 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9144,city,post_content,1,pat-4,DELETE,حذف جمله,نمونه جمله 144 با الگوی تستی,,,would-delete
+city-005,9145,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 145 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9146,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 146 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9147,province,post_content,4,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 147 با الگوی تستی,,,would-delete
+city-008,9148,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 148 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9149,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 149 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9150,city,post_content,3,pat-0,DELETE,حذف جمله,نمونه جمله 150 با الگوی تستی,,,would-delete
+city-011,9151,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 151 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9152,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 152 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9153,city,post_content,2,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 153 با الگوی تستی,,,would-delete
+city-014,9154,province,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 154 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9155,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 155 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9156,city,post_content,1,pat-1,DELETE,حذف جمله,نمونه جمله 156 با الگوی تستی,,,would-delete
+city-017,9157,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 157 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9158,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 158 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9159,city,post_content,4,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 159 با الگوی تستی,,,would-delete
+city-020,9160,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 160 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9161,province,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 161 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9162,city,post_content,3,pat-2,DELETE,حذف جمله,نمونه جمله 162 با الگوی تستی,,,would-delete
+city-023,9163,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 163 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9164,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 164 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9165,city,post_content,2,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 165 با الگوی تستی,,,would-delete
+city-026,9166,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 166 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9167,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 167 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9168,province,post_content,1,pat-3,DELETE,حذف جمله,نمونه جمله 168 با الگوی تستی,,,would-delete
+city-029,9169,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 169 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9170,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 170 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9171,city,post_content,4,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 171 با الگوی تستی,,,would-delete
+ahvaz-city,9172,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 172 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9173,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 173 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9174,city,post_content,3,pat-4,DELETE,حذف جمله,نمونه جمله 174 با الگوی تستی,,,would-delete
+city-001,9175,province,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 175 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9176,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 176 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9177,city,post_content,2,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 177 با الگوی تستی,,,would-delete
+city-004,9178,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 178 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9179,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 179 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9180,city,post_content,1,pat-0,DELETE,حذف جمله,نمونه جمله 180 با الگوی تستی,,,would-delete
+city-007,9181,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 181 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9182,province,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 182 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9183,city,post_content,4,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 183 با الگوی تستی,,,would-delete
+city-010,9184,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 184 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9185,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 185 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9186,city,post_content,3,pat-1,DELETE,حذف جمله,نمونه جمله 186 با الگوی تستی,,,would-delete
+city-013,9187,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 187 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9188,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 188 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9189,province,post_content,2,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 189 با الگوی تستی,,,would-delete
+city-016,9190,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 190 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9191,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 191 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9192,city,post_content,1,pat-2,DELETE,حذف جمله,نمونه جمله 192 با الگوی تستی,,,would-delete
+city-019,9193,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 193 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9194,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 194 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9195,city,post_content,4,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 195 با الگوی تستی,,,would-delete
+city-022,9196,province,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 196 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9197,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 197 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9198,city,post_content,3,pat-3,DELETE,حذف جمله,نمونه جمله 198 با الگوی تستی,,,would-delete
+city-025,9199,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 199 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9200,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 200 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9201,city,post_content,2,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 201 با الگوی تستی,,,would-delete
+city-028,9202,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 202 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9203,province,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 203 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9204,city,post_content,1,pat-4,DELETE,حذف جمله,نمونه جمله 204 با الگوی تستی,,,would-delete
+kashmar,9205,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 205 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9206,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 206 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9207,city,post_content,4,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 207 با الگوی تستی,,,would-delete
+alborz,9208,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 208 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9209,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 209 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9210,province,post_content,3,pat-0,DELETE,حذف جمله,نمونه جمله 210 با الگوی تستی,,,would-delete
+city-003,9211,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 211 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9212,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 212 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9213,city,post_content,2,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 213 با الگوی تستی,,,would-delete
+city-006,9214,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 214 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9215,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 215 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9216,city,post_content,1,pat-1,DELETE,حذف جمله,نمونه جمله 216 با الگوی تستی,,,would-delete
+city-009,9217,province,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 217 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9218,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 218 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9219,city,post_content,4,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 219 با الگوی تستی,,,would-delete
+city-012,9220,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 220 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9221,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 221 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9222,city,post_content,3,pat-2,DELETE,حذف جمله,نمونه جمله 222 با الگوی تستی,,,would-delete
+city-015,9223,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 223 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9224,province,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 224 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9225,city,post_content,2,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 225 با الگوی تستی,,,would-delete
+city-018,9226,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 226 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9227,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 227 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9228,city,post_content,1,pat-3,DELETE,حذف جمله,نمونه جمله 228 با الگوی تستی,,,would-delete
+city-021,9229,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 229 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9230,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 230 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9231,province,post_content,4,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 231 با الگوی تستی,,,would-delete
+city-024,9232,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 232 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9233,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 233 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9234,city,post_content,3,pat-4,DELETE,حذف جمله,نمونه جمله 234 با الگوی تستی,,,would-delete
+city-027,9235,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 235 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9236,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 236 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9237,city,post_content,2,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 237 با الگوی تستی,,,would-delete
+kuhsorkh,9238,province,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 238 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9239,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 239 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9240,city,post_content,1,pat-0,DELETE,حذف جمله,نمونه جمله 240 با الگوی تستی,,,would-delete
+mashhad,9241,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 241 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9242,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 242 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9243,city,post_content,4,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 243 با الگوی تستی,,,would-delete
+city-002,9244,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 244 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9245,province,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 245 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9246,city,post_content,3,pat-1,DELETE,حذف جمله,نمونه جمله 246 با الگوی تستی,,,would-delete
+city-005,9247,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 247 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9248,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 248 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9249,city,post_content,2,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 249 با الگوی تستی,,,would-delete
+city-008,9250,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 250 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9251,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 251 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9252,province,post_content,1,pat-2,DELETE,حذف جمله,نمونه جمله 252 با الگوی تستی,,,would-delete
+city-011,9253,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 253 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9254,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 254 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9255,city,post_content,4,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 255 با الگوی تستی,,,would-delete
+city-014,9256,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 256 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9257,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 257 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9258,city,post_content,3,pat-3,DELETE,حذف جمله,نمونه جمله 258 با الگوی تستی,,,would-delete
+city-017,9259,province,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 259 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9260,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 260 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9261,city,post_content,2,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 261 با الگوی تستی,,,would-delete
+city-020,9262,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 262 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9263,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 263 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9264,city,post_content,1,pat-4,DELETE,حذف جمله,نمونه جمله 264 با الگوی تستی,,,would-delete
+city-023,9265,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 265 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9266,province,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 266 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9267,city,post_content,4,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 267 با الگوی تستی,,,would-delete
+city-026,9268,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 268 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9269,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 269 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9270,city,post_content,3,pat-0,DELETE,حذف جمله,نمونه جمله 270 با الگوی تستی,,,would-delete
+city-029,9271,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 271 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9272,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 272 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9273,province,post_content,2,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 273 با الگوی تستی,,,would-delete
+ahvaz-city,9274,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 274 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9275,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 275 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9276,city,post_content,1,pat-1,DELETE,حذف جمله,نمونه جمله 276 با الگوی تستی,,,would-delete
+city-001,9277,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 277 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9278,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 278 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9279,city,post_content,4,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 279 با الگوی تستی,,,would-delete
+city-004,9280,province,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 280 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9281,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 281 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9282,city,post_content,3,pat-2,DELETE,حذف جمله,نمونه جمله 282 با الگوی تستی,,,would-delete
+city-007,9283,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 283 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9284,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 284 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9285,city,post_content,2,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 285 با الگوی تستی,,,would-delete
+city-010,9286,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 286 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9287,province,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 287 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9288,city,post_content,1,pat-3,DELETE,حذف جمله,نمونه جمله 288 با الگوی تستی,,,would-delete
+city-013,9289,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 289 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9290,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 290 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9291,city,post_content,4,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 291 با الگوی تستی,,,would-delete
+city-016,9292,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 292 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9293,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 293 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9294,province,post_content,3,pat-4,DELETE,حذف جمله,نمونه جمله 294 با الگوی تستی,,,would-delete
+city-019,9295,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 295 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9296,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 296 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9297,city,post_content,2,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 297 با الگوی تستی,,,would-delete
+city-022,9298,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 298 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9299,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 299 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9300,city,post_content,1,pat-0,DELETE,حذف جمله,نمونه جمله 300 با الگوی تستی,,,would-delete
+city-025,9301,province,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 301 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9302,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 302 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9303,city,post_content,4,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 303 با الگوی تستی,,,would-delete
+city-028,9304,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 304 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9305,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 305 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9306,city,post_content,3,pat-1,DELETE,حذف جمله,نمونه جمله 306 با الگوی تستی,,,would-delete
+kashmar,9307,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 307 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9308,province,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 308 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9309,city,post_content,2,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 309 با الگوی تستی,,,would-delete
+alborz,9310,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 310 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9311,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 311 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9312,city,post_content,1,pat-2,DELETE,حذف جمله,نمونه جمله 312 با الگوی تستی,,,would-delete
+city-003,9313,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 313 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9314,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 314 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9315,province,post_content,4,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 315 با الگوی تستی,,,would-delete
+city-006,9316,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 316 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9317,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 317 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9318,city,post_content,3,pat-3,DELETE,حذف جمله,نمونه جمله 318 با الگوی تستی,,,would-delete
+city-009,9319,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 319 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9320,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 320 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9321,city,post_content,2,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 321 با الگوی تستی,,,would-delete
+city-012,9322,province,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 322 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9323,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 323 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9324,city,post_content,1,pat-4,DELETE,حذف جمله,نمونه جمله 324 با الگوی تستی,,,would-delete
+city-015,9325,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 325 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9326,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 326 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9327,city,post_content,4,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 327 با الگوی تستی,,,would-delete
+city-018,9328,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 328 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9329,province,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 329 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9330,city,post_content,3,pat-0,DELETE,حذف جمله,نمونه جمله 330 با الگوی تستی,,,would-delete
+city-021,9331,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 331 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9332,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 332 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9333,city,post_content,2,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 333 با الگوی تستی,,,would-delete
+city-024,9334,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 334 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9335,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 335 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9336,province,post_content,1,pat-1,DELETE,حذف جمله,نمونه جمله 336 با الگوی تستی,,,would-delete
+city-027,9337,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 337 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9338,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 338 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9339,city,post_content,4,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 339 با الگوی تستی,,,would-delete
+kuhsorkh,9340,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 340 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9341,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 341 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9342,city,post_content,3,pat-2,DELETE,حذف جمله,نمونه جمله 342 با الگوی تستی,,,would-delete
+mashhad,9343,province,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 343 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9344,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 344 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-001,9345,city,post_content,2,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 345 با الگوی تستی,,,would-delete
+city-002,9346,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 346 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9347,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 347 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-004,9348,city,post_content,1,pat-3,DELETE,حذف جمله,نمونه جمله 348 با الگوی تستی,,,would-delete
+city-005,9349,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 349 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9350,province,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 350 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-007,9351,city,post_content,4,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 351 با الگوی تستی,,,would-delete
+city-008,9352,city,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 352 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9353,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 353 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-010,9354,city,post_content,3,pat-4,DELETE,حذف جمله,نمونه جمله 354 با الگوی تستی,,,would-delete
+city-011,9355,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 355 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9356,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 356 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-013,9357,province,post_content,2,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 357 با الگوی تستی,,,would-delete
+city-014,9358,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 358 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9359,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 359 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-016,9360,city,post_content,1,pat-0,DELETE,حذف جمله,نمونه جمله 360 با الگوی تستی,,,would-delete
+city-017,9361,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 361 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9362,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 362 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-019,9363,city,post_content,4,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 363 با الگوی تستی,,,would-delete
+city-020,9364,province,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 364 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9365,city,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 365 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-022,9366,city,post_content,3,pat-1,DELETE,حذف جمله,نمونه جمله 366 با الگوی تستی,,,would-delete
+city-023,9367,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 367 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9368,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 368 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-025,9369,city,post_content,2,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 369 با الگوی تستی,,,would-delete
+city-026,9370,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 370 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9371,province,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 371 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-028,9372,city,post_content,1,pat-2,DELETE,حذف جمله,نمونه جمله 372 با الگوی تستی,,,would-delete
+city-029,9373,city,post_content,2,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 373 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9374,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 374 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kashmar,9375,city,post_content,4,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 375 با الگوی تستی,,,would-delete
+ahvaz-city,9376,city,post_content,1,pat-1,FLAG,حذف جمله,نمونه جمله 376 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9377,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 377 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+alborz,9378,province,post_content,3,pat-3,DELETE,حذف جمله,نمونه جمله 378 با الگوی تستی,,,would-delete
+city-001,9379,city,post_content,4,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 379 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-002,9380,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 380 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-003,9381,city,post_content,2,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 381 با الگوی تستی,,,would-delete
+city-004,9382,city,post_content,3,pat-2,FLAG,حذف جمله,نمونه جمله 382 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-005,9383,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 383 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-006,9384,city,post_content,1,pat-4,DELETE,حذف جمله,نمونه جمله 384 با الگوی تستی,,,would-delete
+city-007,9385,province,post_content,2,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 385 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-008,9386,city,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 386 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-009,9387,city,post_content,4,pat-2,DELETE,بازنویسی پیشنهادی,نمونه جمله 387 با الگوی تستی,,,would-delete
+city-010,9388,city,post_content,1,pat-3,FLAG,حذف جمله,نمونه جمله 388 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-011,9389,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 389 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-012,9390,city,post_content,3,pat-0,DELETE,حذف جمله,نمونه جمله 390 با الگوی تستی,,,would-delete
+city-013,9391,city,post_content,4,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 391 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-014,9392,province,post_content,1,pat-2,FLAG,حذف جمله,نمونه جمله 392 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-015,9393,city,post_content,2,pat-3,DELETE,بازنویسی پیشنهادی,نمونه جمله 393 با الگوی تستی,,,would-delete
+city-016,9394,city,post_content,3,pat-4,FLAG,حذف جمله,نمونه جمله 394 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-017,9395,city,post_content,4,pat-0,FLAG,بازنویسی پیشنهادی,نمونه جمله 395 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-018,9396,city,post_content,1,pat-1,DELETE,حذف جمله,نمونه جمله 396 با الگوی تستی,,,would-delete
+city-019,9397,city,post_content,2,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 397 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-020,9398,city,post_content,3,pat-3,FLAG,حذف جمله,نمونه جمله 398 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-021,9399,province,post_content,4,pat-4,DELETE,بازنویسی پیشنهادی,نمونه جمله 399 با الگوی تستی,,,would-delete
+city-022,9400,city,post_content,1,pat-0,FLAG,حذف جمله,نمونه جمله 400 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-023,9401,city,post_content,2,pat-1,FLAG,بازنویسی پیشنهادی,نمونه جمله 401 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-024,9402,city,post_content,3,pat-2,DELETE,حذف جمله,نمونه جمله 402 با الگوی تستی,,,would-delete
+city-025,9403,city,post_content,4,pat-3,FLAG,بازنویسی پیشنهادی,نمونه جمله 403 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-026,9404,city,post_content,1,pat-4,FLAG,حذف جمله,نمونه جمله 404 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-027,9405,city,post_content,2,pat-0,DELETE,بازنویسی پیشنهادی,نمونه جمله 405 با الگوی تستی,,,would-delete
+city-028,9406,province,post_content,3,pat-1,FLAG,حذف جمله,نمونه جمله 406 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+city-029,9407,city,post_content,4,pat-2,FLAG,بازنویسی پیشنهادی,نمونه جمله 407 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+kuhsorkh,9408,city,post_content,1,pat-3,DELETE,حذف جمله,نمونه جمله 408 با الگوی تستی,,,would-delete
+kashmar,9409,city,post_content,2,pat-4,FLAG,بازنویسی پیشنهادی,نمونه جمله 409 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+ahvaz-city,9410,city,post_content,3,pat-0,FLAG,حذف جمله,نمونه جمله 410 با الگوی تستی,,پیشنهاد بازنویسی,flagged
+mashhad,9411,city,post_content,4,pat-1,DELETE,بازنویسی پیشنهادی,نمونه جمله 411 با الگوی تستی,,,would-delete

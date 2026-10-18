@@ -92,7 +92,7 @@ function sa_create_default_pages() {
 		'blog'      => array( 'title' => 'وبلاگ', 'status' => 'publish', 'content' => '' ),
 		'dashboard' => array( 'title' => 'داشبورد جامع گردشگری ایران', 'status' => 'publish', 'content' => '' ),
 		'about'     => array( 'title' => 'درباره ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سرزمین آریان دانشنامه‌ی سفر ایران است. این متن را با معرفی واقعی تیم، هدف سایت و سیاست تحریریه جایگزین کنید (برای E-E-A-T مهم است).</p>\n<!-- /wp:paragraph -->" ),
-		'contact'   => array( 'title' => 'تماس با ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>ایمیل و راه‌های تماس را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
+		'contact'   => array( 'title' => 'تماس با ما', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>برای ارتباط با تحریریهٔ سرزمین آریان، ثبت اصلاحات جغرافیایی، ارسال روایت و عکس محلی یا پیشنهاد همکاری، از فرم زیر یا نشانی ایمیل رسمی سایت استفاده کنید.</p>\n<!-- /wp:paragraph -->" ),
 		'privacy'   => array( 'title' => 'حریم خصوصی', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>سیاست حفظ حریم خصوصی سایت (کوکی‌ها، آمار، اطلاعات تماس) را اینجا بنویسید.</p>\n<!-- /wp:paragraph -->" ),
 		'policy'    => array( 'title' => 'سیاست تحریریه و منابع', 'status' => 'draft', 'content' => "<!-- wp:paragraph -->\n<p>توضیح دهید اطلاعات (ساعات، قیمت‌ها، مسافت‌ها) از چه منابعی گردآوری و هر چند وقت یک‌بار بازبینی می‌شود.</p>\n<!-- /wp:paragraph -->" ),
 	);
