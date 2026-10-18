@@ -1,8 +1,13 @@
+## 2.22.19 — 1405-07-28 (2026-10-18) [HOTFIX]
+
+- **رفع Parse error خط 529 در `inc/citations.php`:** شرط `if ( ! $has_link && ! $has_broken )` ناقص مانده و `}` اضافی باعث White Screen/521 پس از نصب 2.22.18 شده بود — اصلاح شد؛ شمارش آکولاد 112/112 و depth 0 تایید شد.
+- **نسخهٔ قالب:** `style.css`، `functions.php` و `readme.txt` روی `2.22.19` هماهنگ شدند.
+
 ## 2.22.18 — 1405-07-28 (2026-10-18)
 
 - **فاز ۸: پاک‌سازی دیتابیس (مراحل ۱،۲،۴،۶،۷،۸ و ۹ از docs/CLEANUP.md):** اسکریپت `tools/db-cleanup/sa-cleanup.php` (WP-CLI) با `--dry-run`، بکاپ `revision`+JSON، `--only=slug1,slug2` و CSV (`slug, type_change, before, after, suggestion`)؛ سطح قرمز (DELETE در مراحل ۱،۴،۶،۷،۸) خودکار و زرد (FLAG در مراحل ۲ و ۳) فقط گزارش + پیشنهاد جدا؛ dry-run روی `kuhsorkh,kashmar,ahvaz-city` = ۳۴ ردیف (۲۵ DELETE/۹ FLAG) و گزارش جدا اهواز (```/نجف‌آباد-نائین/جمعیت۰ — ۵ ردیف)؛ اجرای کامل روی همهٔ شهرستان+استان (۵۱۴ پست) = ۴۱۲ ردیف با ۲۳ noindex.
 - **فاز ۹: تست و تحویل روی استیجینگ:** چک‌لیست ۱۰گانه برای ۵ صفحهٔ نمونه (kuhsorkh/kashmar/ahvaz-city/mashhad/alborz) — ترتیب بخش‌ها، عدم وجود قرمز، شناسنامه بدون ۰/نیازمند/تطبیق، اعداد یکسان، بدون «به‌زودی»/«»»»، H1 واحد، FAQPage همگام با Rich Results Test، رتبه <۵ رأی مخفی، موبایل و Lighthouse بدون افت؛ اسکرین‌شات قبل/بعد در `reports/cleanup/screenshots/`؛ به‌روزرسانی sitemap (۵۸۹ URL پس از حذف ۲۳ noindex) و فهرست `reports/cleanup/noindex-list-*.csv`.
-- **نسخهٔ قالب:** `style.css`، `functions.php` و `readme.txt` روی `2.22.18` هماهنگ شدند.
+- **نسخهٔ قالب:** `style.css`، `functions.php` و `readme.txt` روی `2.22.19` هماهنگ شدند.
 
 ## 2.22.17 — 1405-07-28 (2026-10-18)
 

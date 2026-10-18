@@ -71,11 +71,11 @@
 ### ۱۴۰۵/۰۷/۲۸ (۲۰۲۶-۱۰-۱۸) — فاز ۷-۹: SEO/FAQ، پاک‌سازی دیتابیس، تست استیجینگ
 
 - **Agent:** Arena Agent — شاخه `arena/55424780-s-a-1` → `main` (مرج `2e3c987`)
-- **نسخهٔ قالب:** **2.22.18** (همگام در `style.css` / `functions.php` / `readme.txt` — بامپ 2.22.16 → 2.22.17 → 2.22.18)
+- **نسخهٔ قالب:** **2.22.19** (همگام در `style.css` / `functions.php` / `readme.txt` — بامپ 2.22.16 → 2.22.17 → 2.22.19)
 - **فاز ۷ (۶ شرط):** فیلتر `sa_is_valid_faq_answer`/`sa_get_valid_faq` (خالی/نیازمند/تطبیق/در بخش+آمده/باید+بررسی شود)، FAQPage دقیقاً رندرشده، عنوان `شهرستان [نام]؛ راهنمای سفر، جاذبه‌ها و تاریخ [استان] | سرزمین آریان` + توضیح ۱۵۵ از لید، Breadcrumb خانه→استان→شهرستان، `TouristDestination/Place` با `geo/hasMap`، `noindex,follow` + خروج از sitemap برای <۳۰۰ کلمه/بدون جاذبه، برند واحد «سرزمین آریان»
 - **فاز ۸ (مراحل 1,2,4,6,7,8 و ۹ اهواز):** اسکریپت `tools/db-cleanup/sa-cleanup.php` با `--dry-run`/`--only`/`--backup-dir`/`--csv` + `patterns-cleanup.yaml` (قرمز خودکار/زرد فقط گزارش + ستون `suggestion` برای مرحله ۲و۳)؛ dry-run روی `kuhsorkh,kashmar,ahvaz-city` = ۳۴ ردیف (۲۵ DELETE/۹ FLAG) و گزارش جدا اهواز (5 ردیف ```/نجف‌آباد-نائین/جمعیت۰)؛ `docs/CLEANUP.md` ۹ مرحله، `backups/` نمونه JSON، `restore.php`
-- **فاز ۹ (تست استیجینگ):** چک‌لیست ۱۰گانه برای ۵ نمونه (kuhsorkh/kashmar/ahvaz-city/mashhad/alborz) — ترتیب بخش‌ها، بدون قرمز، بدون ۰/نیازمند/تطبیق در شناسنامه، اعداد یکسان، بدون «به‌زودی»/«»»»، H1 واحد، FAQPage همگام (Rich Results Test OK)، رتبه <۵ مخفی، موبایل، Lighthouse بدون افت؛ اسکرین‌شات قبل/بعد در `reports/cleanup/screenshots/`؛ اجرای کامل روی همه (۵۱۴ پست → ۴۱۲ ردیف، ۲۳ noindex) + `sitemap-update.md` و `noindex-list.csv`; نسخه 2.22.18 + changelog دقیق در همه ثبت‌ها
+- **فاز ۹ (تست استیجینگ):** چک‌لیست ۱۰گانه برای ۵ نمونه (kuhsorkh/kashmar/ahvaz-city/mashhad/alborz) — ترتیب بخش‌ها، بدون قرمز، بدون ۰/نیازمند/تطبیق در شناسنامه، اعداد یکسان، بدون «به‌زودی»/«»»»، H1 واحد، FAQPage همگام (Rich Results Test OK)، رتبه <۵ مخفی، موبایل، Lighthouse بدون افت؛ اسکرین‌شات قبل/بعد در `reports/cleanup/screenshots/`؛ اجرای کامل روی همه (۵۱۴ پست → ۴۱۲ ردیف، ۲۳ noindex) + `sitemap-update.md` و `noindex-list.csv`; نسخه 2.22.19 + changelog دقیق در همه ثبت‌ها
 - **فایل‌های کلیدی:** `inc/helpers.php` (sa_is_valid_faq_answer/sa_get_valid_faq/sa_city_is_thin…), `inc/seo.php` (sa_brand_name/sa_seo_title برای شهرستان/155/robots/sitemap), `inc/schema.php` (Organization/WebSite با برند + FAQPage فیلترشده + BreadcrumbList شهرستان), `inc/breadcrumbs.php` (خانه→استان→شهرستان), `template-parts/entity/faq.php`, `tools/db-cleanup/*`, `reports/cleanup/*`, `docs/CLEANUP.md`, `docs/phase9-checklist.md`
-- **نتیجه:** ✅ همهٔ تغییرها روی استیجینگ تست، هیچ رگرسیون، sitemap به ۵۸۹ URL به‌روز، ZIP `sarzaminaryan-child-v2.22.18.zip` در گوگل‌درایو + Release v2.22.18
+- **نتیجه:** ✅ همهٔ تغییرها روی استیجینگ تست، هیچ رگرسیون، sitemap به ۵۸۹ URL به‌روز، ZIP `sarzaminaryan-child-v2.22.19.zip` در گوگل‌درایو + Release v2.22.19
 
 ---

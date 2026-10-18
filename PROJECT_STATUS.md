@@ -104,7 +104,7 @@
 
 | فایل | وضعیت | آخرین تغییر | توضیح |
 |------|--------|------------|-------|
-| `wp-content/themes/sarzaminaryan-child/functions.php` | ✅ سالم | ۲۰۲۶-۱۰-۱۸ (`2e3c987`) | نقطهٔ ورود قالب؛ تعریف `SA_CHILD_VERSION 2.22.18` و `SA_MODEL_VERSION 1.3` و بارگذاری ۳۹ ماژول از `inc/` |
+| `wp-content/themes/sarzaminaryan-child/functions.php` | ✅ سالم | ۲۰۲۶-۱۰-۱۸ (`2e3c987`) | نقطهٔ ورود قالب؛ تعریف `SA_CHILD_VERSION 2.22.19` و `SA_MODEL_VERSION 1.3` و بارگذاری ۳۹ ماژول از `inc/` |
 | `wp-content/themes/sarzaminaryan-child/` (کل پوشه) | ✅ سالم | ۲۰۲۶-۱۰-۱۷ | ۱۳۶ فایل PHP، **۵۱٬۸۶۷ خط**، **۷۳۰ تابع** که **۶۳۹** تای آن‌ها با پیشوند استاندارد `sa_` هستند |
 | `wp-content/themes/sarzaminaryan-child/style.css` | ✅ سالم | ۲۰۲۶-۱۰-۱۸ (`2e3c987`) | فقط سربرگ؛ نسخه ۲.۲۲.۱۸ هم‌راستا با `SA_CHILD_VERSION` و `Stable tag` در readme (workflow همین را اجبار می‌کند) |
 | `wp-content/themes/sarzaminaryan-child/header.php` | ✅ سالم | ۲۰۲۶-۱۰-۰۱ (`e0732c9`) | نوار تیرهٔ v2، لوگو + شعار از سفارشی‌ساز، منوی `primary` با `fallback_cb` و عمق ۲، منوی `secondary`، بردکرامب در همه‌جا جز صفحهٔ اول |

@@ -376,9 +376,9 @@ function sa_citations_filter( $content ) {
 		return $content;
 	}
 	// زود برگرد فقط اگر مطمئناً هیچ لینک و هیچ ارجاعِ شکسته‌ای نیست.
-	$has_link  = false !== stripos( $content, '<a' ) || false !== stripos( $content, '<sup' );
+	$has_link   = false !== stripos( $content, '<a' ) || false !== stripos( $content, '<sup' );
 	$has_broken = false !== strpos( $content, ')' ) && (bool) preg_match( '/[0-9۰-۹]\s+[0-9۰-۹]/u', $content );
-	$has_broken = (bool) preg_match( '/[0-9۰-۹]\\s+[0-9۰-۹]/u', $content );
+	if ( ! $has_link && ! $has_broken ) {
 		return $content;
 	}
 
