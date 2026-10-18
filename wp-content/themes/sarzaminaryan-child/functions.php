@@ -74,3 +74,32 @@ foreach ( $sa_child_includes as $sa_child_file ) {
 	require_once SA_CHILD_DIR . $sa_child_file;
 }
 unset( $sa_child_includes, $sa_child_file );
+
+/**
+ * Add the default Phase 1 background texture class to <body>.
+ *
+ * The variant filter accepts only: dots, grid or lines. The default is dots;
+ * a project-specific setting can switch it without touching the CSS:
+ *
+ * add_filter( 'sa_child_background_variant', function () {
+ *     return 'grid';
+ * } );
+ *
+ * @param string[] $classes Existing body classes.
+ * @return string[]
+ */
+function sa_child_background_class( $classes ) {
+	$classes = array_diff( $classes, array( 'bg-dots', 'bg-grid', 'bg-lines' ) );
+
+	$variant = apply_filters( 'sa_child_background_variant', 'dots' );
+	$variant = is_string( $variant ) ? sanitize_key( $variant ) : 'dots';
+	$variant = preg_replace( '/^bg-/', '', $variant );
+
+	if ( ! in_array( $variant, array( 'dots', 'grid', 'lines' ), true ) ) {
+		$variant = 'dots';
+	}
+
+	$classes[] = 'bg-' . $variant;
+	return array_values( array_unique( $classes ) );
+}
+add_filter( 'body_class', 'sa_child_background_class', 20 );
