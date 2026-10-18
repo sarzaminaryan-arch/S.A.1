@@ -51,6 +51,14 @@ function get_post( $id ) {
 }
 function get_permalink( $id ) { return 'https://fixture.invalid/city/synthetic-' . $id . '/'; }
 function get_post_meta( $id, $key, $single ) {
+	global $sa_test_mode;
+	if ( 'sa_faq' === $key ) {
+		if ( 'empty-faq' === $sa_test_mode ) { return ''; }
+		if ( 'malformed-faq' === $sa_test_mode ) { return '{invalid-json'; }
+		if ( 'array-faq' === $sa_test_mode ) { return array( array( 'q' => 'ناقص', 'a' => '' ) ); }
+		return '[{"q":"پرسش ساختگی؟","a":"فقط دادهٔ آزمون، نه واقعیت یک شهر."},{"q":"ردیف ناقص؟","a":""}]';
+	}
+	if ( 'sa_facts_checked' === $key ) { return ''; }
 	return 'sa_sources' === $key ? 'منبع ساختگی | فقط تست | https://fixture.invalid/source | 2026-10-19' : $key . '-fixture';
 }
 function sa_county_profile_fields() {
@@ -98,10 +106,13 @@ try {
 		foreach ( array_slice( $sa_test_rows, 1, 51 ) as $sa_test_row ) {
 			sa_test_assert( hash( 'sha256', $sa_test_row->content ) === $sa_test_row->content_sha256, 'unaltered UTF-8 body hash' );
 			sa_test_assert( false !== strpos( $sa_test_row->sources, 'fixture.invalid/source' ), 'source exported' );
+			sa_test_assert( '' === $sa_test_row->facts_checked, 'missing verification date remains empty, never auto-filled' );
+			$sa_test_original_faq = get_post_meta( $sa_test_row->id, 'sa_faq', true );
+			sa_test_assert( json_encode( $sa_test_original_faq ) === json_encode( $sa_test_row->faq_raw ), 'FAQ values and types preserved, including empty/malformed/incomplete data' );
 		}
 		sa_test_assert( 51 === $sa_test_rows[52]->articles && true === $sa_test_rows[52]->complete, 'complete footer' );
 		sa_test_assert( false === $sa_test_rows[52]->consistent_database_snapshot, 'no false snapshot guarantee' );
-		sa_test_assert( ( 'normal' === $sa_test_mode ) === $sa_test_rows[52]->count_matches_expected, 'coverage mismatch explicit' );
+		sa_test_assert( ( 'mismatch' !== $sa_test_mode ) === $sa_test_rows[52]->count_matches_expected, 'coverage mismatch explicit' );
 		sa_test_assert( 'mismatch' !== $sa_test_mode || false !== strpos( $sa_test_log, 'WARNING' ), 'count mismatch warning' );
 		sa_test_assert( 0 === ( fileperms( $sa_test_dir . '/export.jsonl' ) & 0077 ), 'export has no group/other permissions' );
 	}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Read-only phase-3 source export. Never updates posts, meta, or theme options.
+ * Read-only phase-3/5 source export. Never updates posts, meta, or theme options.
  * wp --user=ADMIN_LOGIN eval-file tools/article-review/export.php -- --output=/private/path/articles.jsonl
  * The destination must already have a private parent directory outside ABSPATH.
  */
@@ -106,6 +106,10 @@ try {
 				'url' => get_permalink( $sa_review_id ), 'modified_gmt' => $sa_review_post->post_modified_gmt,
 				'content' => $sa_review_post->post_content, 'content_sha256' => hash( 'sha256', $sa_review_post->post_content ),
 				'excerpt' => $sa_review_post->post_excerpt, 'sources' => get_post_meta( $sa_review_id, 'sa_sources', true ),
+				// Preserve raw FAQ, including malformed/empty values, for editorial review.
+				// Do not call sa_get_faq(): it silently drops malformed/incomplete rows.
+				'faq_raw' => get_post_meta( $sa_review_id, 'sa_faq', true ),
+				'facts_checked' => get_post_meta( $sa_review_id, 'sa_facts_checked', true ),
 				'identity_fields' => $sa_review_identity,
 				'identity_coverage' => empty( $sa_review_identity ) ? 'unavailable' : 'county_canonical_and_legacy_meta_only',
 			) );
