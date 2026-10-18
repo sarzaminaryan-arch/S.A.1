@@ -30,8 +30,8 @@ S.A.1/                                            (۶۸۶ فایل · ۷۴ پو�
 │   │   ├── 🚫 assets/fonts/fa/Vazirmatn-{Regular,Medium,Bold}.woff2
 │   │   └── 🚫 languages/fa_IR.po|.mo · template-parts/ · screenshot.png · readme.txt
 │   │
-│   ├── themes/sarzaminaryan-child/               ✅ قالب فعال — ۲.۲۲.۲ (۱۳۶ PHP · ۵۱٬۸۶۷ خط · ۷۳۰ تابع)
-│   │   ├── functions.php                         نقطهٔ ورود: SA_CHILD_VERSION 2.22.2، SA_MODEL_VERSION 1.3
+│   ├── themes/sarzaminaryan-child/               ✅ قالب فعال — ۲.۲۲.۱۸ (۱۳۶ PHP · ۵۱٬۸۶۷ خط · ۷۳۰ تابع)
+│   │   ├── functions.php                         نقطهٔ ورود: SA_CHILD_VERSION 2.22.18، SA_MODEL_VERSION 1.3
 │   │   │                                         و require_once ی ۳۹ ماژول از inc/
 │   │   ├── style.css                             فقط سربرگ (Template: sarzaminaryan)
 │   │   ├── header.php · footer.php               override کامل والد (نوار تیره v2 + فوتر سه‌ستونه)
@@ -178,7 +178,7 @@ data/ready-articles.php (۳۸ مقالهٔ دیدنی) ────────�
 | تقسیم نقش | والد: پایهٔ استاندارد (supports، منوها، اندازه‌های تصویر، enqueue، فونت محلی). فرزند: **تمام** امکانات پروژه |
 | Overrideها | فرزند `header.php`، `footer.php`، `single*`، `archive*`، `taxonomy*`، `page.php`، `404.php`، `search*` را کاملاً جایگزین کرده است |
 | دارایی‌ها | والد: `fonts.css` → `main.css` (+`main-rtl.css` خودکار) → `style.css`. فرزند: `child.css` با وابستگی به `sarzaminaryan-style` و اولویت ۲۰؛ `child.js` با `defer` در فوتر |
-| یکپارچگی نسخه | `Version` در `style.css` = `SA_CHILD_VERSION` در `functions.php` = `Stable tag` در `readme.txt` = **2.22.2** (workflow این برابری را اجبار می‌کند) |
+| یکپارچگی نسخه | `Version` در `style.css` = `SA_CHILD_VERSION` در `functions.php` = `Stable tag` در `readme.txt` = **2.22.18** (workflow این برابری را اجبار می‌کند) |
 | سلامت فعلی | هیچ نشانی از خرابی یا ویرایش مخرب در والد نیست؛ ۲۰ ایراد نسخهٔ قبلی (Quantum Pedia) در ۱.۱.۰ رفع شده است |
 
 ---
