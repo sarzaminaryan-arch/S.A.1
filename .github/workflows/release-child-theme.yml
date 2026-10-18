@@ -95,9 +95,21 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-toc.php"
 
+      - name: Run retired article section tests (phase 2, identity unchanged)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-article-sections.php"
+
+      - name: Run final article sources tests (phase 6, preserved citation targets)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-article-sources.php"
+
       - name: Run county identity-card tests (کلیدهای کانونی شناسنامه + قوانین خروجی کارت)
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"
+
+      - name: Run county destination grid tests (phase 4)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-destinations.php"
 
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash

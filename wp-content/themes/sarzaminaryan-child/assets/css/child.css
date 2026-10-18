@@ -6886,3 +6886,231 @@ body.bg-lines::before {
 		padding-block: 6px;
 	}
 }
+
+/* ==========================================================================
+   Template cleanup — phase 1: compact rating and TOC, below identity cards only.
+   Scoped selectors also win when city-contrib.css is enqueued after child.css.
+   ========================================================================== */
+.cc-rating .cc-rating__status.cc-status--ok {
+	display: inline-block;
+	box-sizing: border-box;
+	width: fit-content;
+	max-width: min(100%, 32rem);
+	margin-block: .5rem 0;
+	padding: .3rem .55rem;
+	font-size: .78rem;
+	line-height: 1.6;
+	text-align: start;
+	overflow-wrap: anywhere;
+	border-radius: 6px;
+}
+
+.sa-toc .sa-toc__list {
+	margin: 0;
+	padding: 0;
+	gap: 1px;
+}
+
+.sa-toc .sa-toc__item {
+	margin-block: 0;
+	padding-block: 0;
+}
+
+.sa-toc .sa-toc__link {
+	padding-block: 2px;
+	line-height: 1.5;
+	min-height: 28px;
+}
+
+.sa-toc .sa-toc__num {
+	width: 22px;
+	height: 22px;
+	border-radius: 7px;
+}
+
+@media (max-width: 760px) {
+	.cc-rating.cc-block {
+		padding: .75rem .6rem;
+	}
+
+	.cc-rating .cc-block__title {
+		font-size: clamp(.82rem, 3.4vw, 1.05rem);
+		line-height: 1.5;
+		gap: .35rem;
+		margin-block: 0 .5rem;
+	}
+
+	.cc-rating .cc-block__title::before {
+		flex: 0 0 7px;
+		width: 7px;
+		height: 7px;
+	}
+
+	.cc-rating .cc-rating__row {
+		gap: .35rem .5rem;
+	}
+
+	.cc-rating .cc-rating__avg {
+		font-size: .8rem;
+		line-height: 1.6;
+	}
+
+	.cc-rating .cc-rating__avg b {
+		font-size: 1rem;
+	}
+
+	.cc-rating .cc-rating__avg span {
+		font-size: .75rem;
+	}
+
+	.cc-rating .cc-stars {
+		letter-spacing: 0;
+		white-space: nowrap;
+	}
+
+	.cc-rating .cc-rating__rank {
+		font-size: .75rem;
+		padding: .2rem .5rem;
+	}
+
+	.cc-rating .cc-rating__picker {
+		gap: .5rem;
+		padding: .55rem;
+		min-width: 0;
+	}
+
+	.cc-rating .cc-rating__picker-label {
+		font-size: .8rem;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	/* All seven choices stay on one line; retain a 44px-high touch target. */
+	.cc-rating .cc-rating__stars {
+		display: grid;
+		grid-template-columns: repeat(7, minmax(0, 1fr));
+		flex: 1 1 100%;
+		min-width: 0;
+		gap: .2rem;
+	}
+
+	.cc-rating .cc-rating__stars button {
+		min-width: 0;
+		width: 100%;
+		min-height: 44px;
+		justify-content: center;
+		padding: .25rem .1rem;
+		border-radius: 7px;
+	}
+
+	.cc-rating .cc-rating__stars button .cc-rating__num {
+		font-size: .7rem;
+	}
+
+	.cc-rating .cc-rating__stars button .cc-rating__glyph {
+		font-size: 1.15rem;
+	}
+
+	.cc-rating .cc-rating__submit {
+		font-size: .8rem;
+		min-height: 44px;
+		padding: .4rem .85rem;
+	}
+}
+
+/* Phase 4: compact linked destinations below the unchanged identity tiles. */
+.sa-destination-section {
+	margin-block: 1.25rem;
+	min-width: 0;
+}
+.sa-destination-section > h2 {
+	margin-block: 0 .75rem;
+	font-size: 1.1rem;
+	line-height: 1.7;
+}
+.sa-destination-section .sa-destination-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: .75rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.sa-destination-section .sa-destination-grid > li {
+	display: flex;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+}
+.sa-destination-section .sa-destination-card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: .2rem;
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 0;
+	min-height: 64px;
+	padding: .7rem .75rem;
+	border: 0;
+	border-radius: 9px;
+	background: #101f3d;
+	color: #fff;
+	font-size: .9rem;
+	line-height: 1.7;
+	text-align: start;
+	text-decoration: none;
+	overflow-wrap: anywhere;
+	box-shadow: 0 2px 6px rgb(16 31 61 / 15%);
+}
+.sa-destination-section .sa-destination-card::after {
+	content: "";
+	position: absolute;
+	inset-inline: 0;
+	inset-block-end: 0;
+	height: 2px;
+	background: #ffe568;
+	box-shadow: 0 0 7px #ffe568, 0 2px 12px rgb(255 229 104 / 55%);
+	border-radius: 0 0 9px 9px;
+	pointer-events: none;
+}
+.sa-destination-section .sa-destination-card:visited,
+.sa-destination-section .sa-destination-card:hover,
+.sa-destination-section .sa-destination-card:focus-visible {
+	color: #fff;
+	text-decoration: none;
+}
+.sa-destination-section .sa-destination-card:hover {
+	background: #192e53;
+}
+.sa-destination-section .sa-destination-card:focus-visible {
+	outline: 3px solid #977100;
+	outline-offset: 4px;
+}
+.sa-destination-card > strong,
+.sa-destination-card > small,
+.sa-destination-card > .sa-destination-card__detail {
+	color: inherit;
+}
+.sa-destination-card > small,
+.sa-destination-card > .sa-destination-card__detail {
+	font-size: .78rem;
+}
+.sa-destination-section .sa-destination-notes {
+	margin-block: .85rem 0;
+	padding-inline-start: 1.2rem;
+	font-size: .88rem;
+	line-height: 1.8;
+	overflow-wrap: anywhere;
+}
+.sa-destination-notes > li { margin-block: .3rem; }
+@media (min-width: 600px) {
+	.sa-destination-section .sa-destination-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1000px) {
+	.sa-destination-section .sa-destination-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 300px) {
+	.sa-destination-section .sa-destination-grid { grid-template-columns: minmax(0, 1fr); }
+}

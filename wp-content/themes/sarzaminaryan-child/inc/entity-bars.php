@@ -159,38 +159,11 @@ function sa_province_bars_html( $posts = null ) {
  * @param WP_Post[] $posts City posts.
  * @return string
  */
-function sa_city_bars_html( $posts = null ) {
-	if ( null === $posts ) {
-		$found = get_posts(
-			array(
-				'post_type'      => 'city',
-				'post_status'    => 'publish',
-				'posts_per_page' => -1,
-				'orderby'        => 'title',
-				'order'          => 'ASC',
-			)
-		);
-		$posts = array();
-		foreach ( (array) $found as $item ) {
-			if ( $item instanceof WP_Post ) {
-				$posts[] = $item;
-			} elseif ( is_numeric( $item ) && function_exists( 'get_post' ) ) {
-				$p = get_post( (int) $item );
-				if ( $p instanceof WP_Post ) {
-					$posts[] = $p;
-				}
-			} elseif ( is_numeric( $item ) && isset( $GLOBALS['t']['posts'][ (int) $item ] ) ) {
-				$posts[] = $GLOBALS['t']['posts'][ (int) $item ];
-			}
-		}
-	}
+function sa_city_bars_html( $posts ) {
 	$colors = sa_bar_colors();
 	$ids    = array();
 	foreach ( (array) $posts as $p ) {
 		if ( $p instanceof WP_Post ) {
-			if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'city' ) ) {
-				continue;
-			}
 			$ids[] = (int) $p->ID;
 		}
 	}
@@ -212,9 +185,6 @@ function sa_city_bars_html( $posts = null ) {
 	$i   = 0;
 	foreach ( (array) $posts as $p ) {
 		if ( ! $p instanceof WP_Post ) {
-			continue;
-		}
-		if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'city' ) ) {
 			continue;
 		}
 		$pid  = (int) get_post_meta( $p->ID, 'sa_province_id', true );
@@ -239,9 +209,6 @@ function sa_attraction_bars_html( $posts ) {
 	$ids    = array();
 	foreach ( (array) $posts as $p ) {
 		if ( $p instanceof WP_Post ) {
-			if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'attraction' ) ) {
-				continue;
-			}
 			$ids[] = (int) $p->ID;
 		}
 	}
@@ -267,9 +234,6 @@ function sa_attraction_bars_html( $posts ) {
 		if ( ! $p instanceof WP_Post ) {
 			continue;
 		}
-		if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'attraction' ) ) {
-			continue;
-		}
 		$sub = '';
 		foreach ( array( 'sa_city_id', 'sa_province_id' ) as $key ) {
 			$pid = (int) get_post_meta( $p->ID, $key, true );
@@ -283,76 +247,6 @@ function sa_attraction_bars_html( $posts ) {
 	}
 	$out .= '</div>';
 	return $out;
-}
-
-/**
- * Semantic, crawlable prose + grouped index for /province/ and /city/ archives so
- * search engines and Readability/Markdown extractors never treat the directory
- * as a pure-link navigation widget.
- *
- * @param string         $type  province|city|attraction.
- * @param WP_Post[]|null $posts Posts from the main archive query.
- * @return string HTML.
- */
-function sa_archive_crawlable_directory_html( $type, $posts = null ) {
-	if ( 'province' === $type ) {
-		$provinces = sa_iran_provinces();
-		$published = sa_published_provinces_by_slug( $posts );
-		$links     = array();
-		foreach ( $provinces as $row ) {
-			list( $fa, $slug, $en ) = $row;
-			if ( isset( $published[ $slug ] ) ) {
-				$links[] = '<a href="' . esc_url( $published[ $slug ] ) . '">استان ' . esc_html( $fa ) . '</a> (' . esc_html( $en ) . ')';
-			} else {
-				$links[] = 'استان ' . esc_html( $fa ) . ' (' . esc_html( $en ) . ')';
-			}
-		}
-		$out  = '<section class="sa-archive__seo-index" aria-label="راهنمای متنی استان‌های ایران">';
-		$out .= '<h2>مرور متنی ۳۱ استان ایران</h2>';
-		$out .= '<p>در اطلس جغرافیایی سرزمین آریان، مشخصات، نقشه، تقسیمات کشوری، جمعیت سرشماری، همسایه‌ها و دیدنی‌های هر ۳۱ استان کشور گردآوری شده است: ' . implode( '، ', $links ) . '.</p>';
-		$out .= '</section>';
-		return $out;
-	}
-
-	if ( 'city' === $type ) {
-		$grouped = array();
-		foreach ( (array) $posts as $p ) {
-			if ( ! ( $p instanceof WP_Post ) || 'publish' !== $p->post_status ) {
-				continue;
-			}
-			if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'city' ) ) {
-				continue;
-			}
-			$pid       = (int) get_post_meta( $p->ID, 'sa_province_id', true );
-			$prov_name = ( $pid > 0 && 'publish' === get_post_status( $pid ) ) ? (string) get_the_title( $pid ) : 'سایر شهرستان‌ها';
-			$prov_name = trim( (string) preg_replace( '/^استان\s+/u', '', $prov_name ) );
-			if ( '' === $prov_name ) {
-				$prov_name = 'سایر شهرستان‌ها';
-			}
-			$title = function_exists( 'sa_county_name' ) ? (string) sa_county_name( $p->ID, true ) : 'شهرستان ' . trim( (string) preg_replace( '/^(?:(?:شهرستان|شهر)\s+)+/u', '', (string) get_the_title( $p ) ) );
-			$grouped[ $prov_name ][] = '<a href="' . esc_url( (string) get_permalink( $p ) ) . '">' . esc_html( $title ) . '</a>';
-		}
-		if ( empty( $grouped ) ) {
-			return '';
-		}
-		ksort( $grouped, SORT_LOCALE_STRING );
-		$total_cnt = 0;
-		foreach ( $grouped as $items ) {
-			$total_cnt += count( $items );
-		}
-		$out  = '<section class="sa-archive__seo-index" aria-label="فهرست شهرستان‌های ایران به تفکیک استان">';
-		$out .= '<h2>فهرست شهرستان‌های ایران به تفکیک استان (' . esc_html( number_format_i18n( $total_cnt ) ) . ' شهرستان)</h2>';
-		$out .= '<p>برای دسترسی سریع و نمایه‌سازی کامل، فهرست همهٔ شهرستان‌های منتشرشدهٔ ایران در ادامه به تفکیک استان آمده است و هر پیوند به شناسنامهٔ رسمی همان شهرستان متصل می‌شود:</p>';
-		foreach ( $grouped as $prov => $links ) {
-			$heading = ( 'سایر شهرستان‌ها' === $prov ) ? $prov : 'شهرستان‌های استان ' . $prov;
-			$out    .= '<h3>' . esc_html( $heading ) . '</h3>';
-			$out    .= '<p>شامل ' . esc_html( number_format_i18n( count( $links ) ) ) . ' شهرستان: ' . implode( '، ', $links ) . '.</p>';
-		}
-		$out .= '</section>';
-		return $out;
-	}
-
-	return '';
 }
 
 /**

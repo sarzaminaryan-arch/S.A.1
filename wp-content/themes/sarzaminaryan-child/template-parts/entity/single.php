@@ -53,12 +53,11 @@ $sa_type = get_post_type( $sa_id );
 		?>
 
 		<div class="sa-entity__content entry-content">
-			<?php the_content(); ?>
+			<?php sa_article_content_with_sources(); ?>
 		</div>
 
 		<?php get_template_part( 'template-parts/entity/faq' ); ?>
 
-		<?php get_template_part( 'template-parts/entity/county-siblings' ); ?>
 
 		<?php get_template_part( 'template-parts/entity/gallery' ); ?>
 
@@ -73,12 +72,10 @@ $sa_type = get_post_type( $sa_id );
 		if ( function_exists( 'sa_entity_navigation' ) ) {
 			sa_entity_navigation( $sa_id, $sa_type );
 		}
-		if ( function_exists( 'sa_sources_section' ) ) {
-			sa_sources_section( $sa_id );
-		}
 		if ( function_exists( 'sa_facts_checked_note' ) ) {
 			sa_facts_checked_note( $sa_id );
 		}
+		sa_article_final_sources( $sa_id );
 		?>
 	</div>
 

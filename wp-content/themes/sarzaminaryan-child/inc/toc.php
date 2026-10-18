@@ -112,7 +112,7 @@ function sa_toc_reset() {
 function sa_toc_register( $label, $id, $weight = 100 ) {
 	$label = trim( wp_strip_all_tags( (string) $label ) );
 	$id    = trim( (string) $id );
-	if ( '' === $label || '' === $id ) {
+	if ( '' === $label || '' === $id || ( function_exists( 'sa_article_section_is_retired' ) && sa_article_section_is_retired( $label ) ) ) {
 		return;
 	}
 	if ( ! isset( $GLOBALS['sa_toc_registry'] ) || ! is_array( $GLOBALS['sa_toc_registry'] ) ) {
@@ -348,6 +348,9 @@ function sa_toc_sort( $items ) {
  * @return string ('' = نمایش نده).
  */
 function sa_toc_markup( $items ) {
+	if ( function_exists( 'sa_article_section_is_retired' ) ) {
+		$items = array_filter( $items, function ( $item ) { return ! sa_article_section_is_retired( $item['label'] ); } );
+	}
 	$items = sa_toc_sort( $items );
 	if ( count( $items ) < sa_toc_min_items() ) {
 		return '';

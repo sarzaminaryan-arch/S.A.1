@@ -64,14 +64,12 @@ return array(
 	'/city/galikesh/' => '/city/galikash/',
 	'/city/kabudarahang-city/' => '/city/kabutarahang/',
 	'/city/shahdad/' => '/city/kerman/',
-	'/city/borazjan/' => '/city/dashtestan/',
 
 	/*
-	 * انتقال مقالهٔ فهرستی «جاهای دیدنی طبس» به صفحهٔ «شهرستان طبس» (۱۴۰۵-۰۷-۲۶):
-	 * مقالهٔ فهرستی در نوعِ نوشتهٔ جاذبه نمی‌ماند و به شناسنامهٔ رسمی شهرستان طبس منتقل می‌شود.
+	 * نامکِ تازهٔ «جاهای دیدنی طبس» (۱۴۰۵-۰۷-۲۱): شناسهٔ خروجیِ وردپرس از نشانی برداشته شد؛
+	 * نامکِ معنادار جای آن نشست و مسیرِ قدیمی با ۳۰۱ به آن می‌رود.
 	 */
-	'/attraction/308149-attraction-tabas/' => '/city/tabas/',
-	'/attraction/tabas-attractions/' => '/city/tabas/',
+	'/attraction/308149-attraction-tabas/' => '/attraction/tabas-attractions/',
 
 	/*
 	 * نامک‌های تازهٔ دو صفحهٔ شناسه‌دار (۱۴۰۵-۰۷-۲۱): شناسهٔ خروجیِ وردپرس از نشانی
@@ -88,10 +86,10 @@ return array(
 	'/attraction/6789-باغ-گلشن-طبس/' => '/attraction/bagh-golshan-tabas/',
 
 	/*
-	 * یکسان‌سازی نشانی «شهرستان دورود» روی مسیرِ استانداردِ شهرستان (`/city/dorud/`).
+	 * یکسان‌سازی نامکِ «شهرستان دورود» با کلیدِ رکورد (۱۴۰۵-۰۷-۲۱): صفحه هنوز منتشر نشده
+	 * است؛ این ردیف برای هر پیوند یا نشانیِ قدیمیِ فرضی، مسیر را به نامکِ تازه می‌رساند.
 	 */
-	'/attraction/dorud/' => '/city/dorud/',
-	'/attraction/dorud-city/' => '/city/dorud/',
+	'/attraction/dorud/' => '/attraction/dorud-city/',
 
 	/*
 	 * نامک‌های تازهٔ سه رکورد شناسه‌دارِ زنده (۱۴۰۵-۰۷-۲۱): نامکِ زندهٔ سایت شناسهٔ خروجی داشت و

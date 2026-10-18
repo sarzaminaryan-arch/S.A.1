@@ -1,6 +1,6 @@
 <?php
 /**
- * Built-in SEO (Level 5) + Phase 7 county rules: document title, meta description, canonical, robots, Open Graph / Twitter.
+ * Built-in SEO (Level 5): document title, meta description, canonical, robots, Open Graph / Twitter.
  * Steps aside automatically if a dedicated SEO plugin is ever activated.
  *
  * @package Sarzaminaryan_Child
@@ -11,41 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Brand name — single source of truth for Phase 7 §6.
- *
- * @return string
- */
-function sa_brand_name() {
-	return 'سرزمین آریان';
-}
-
-/**
- * Ensure site title (blogname) and logo alt use the unified brand.
- * Filters option and bloginfo display.
- */
-function sa_brand_filter_blogname( $value ) {
-	// Only enforce when value is the old variant or empty; otherwise return unified brand
-	// to guarantee consistency across title, logo alt, and Organization schema.
-	if ( is_string( $value ) && '' !== trim( $value ) ) {
-		// Normalize both old and new variants to canonical.
-		$norm = trim( $value );
-		// If value contains old brand with "ها", replace.
-		if ( false !== mb_strpos( $norm, 'سرزمین آریایی' ) ) {
-			return sa_brand_name();
-		}
-	}
-	return $value;
-}
-add_filter( 'pre_option_blogname', 'sa_brand_filter_blogname' );
-add_filter( 'option_blogname', 'sa_brand_filter_blogname' );
-
-/**
  * Another SEO plugin active?
  *
  * @return bool
  */
 function sa_seo_plugin_active() {
-	return defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) || defined( 'AIOSEO_VERSION' ) || defined( 'SEOPRESS_VERSION' ) || class_exists( 'The_SEO_Framework\\Load' );
+	return defined( 'WPSEO_VERSION' ) || defined( 'RANK_MATH_VERSION' ) || defined( 'AIOSEO_VERSION' ) || defined( 'SEOPRESS_VERSION' ) || class_exists( 'The_SEO_Framework\Load' );
 }
 
 /**
@@ -54,11 +25,7 @@ function sa_seo_plugin_active() {
  * @return string
  */
 function sa_seo_title() {
-	$site = sa_brand_name();
-	// Fallback to filtered blogname if somehow empty
-	if ( '' === $site ) {
-		$site = get_bloginfo( 'name' );
-	}
+	$site = get_bloginfo( 'name' );
 	if ( is_front_page() ) {
 		$custom = is_singular() ? get_post_meta( get_queried_object_id(), 'sa_seo_title', true ) : '';
 		if ( $custom ) {
@@ -68,31 +35,11 @@ function sa_seo_title() {
 		return $desc ? $site . ' | ' . $desc : $site;
 	}
 	if ( is_singular() ) {
-		$id   = get_queried_object_id();
-		$post = get_queried_object();
-		// Phase 7 §3: county title is strictly formatted, not custom
-		if ( $post && 'city' === $post->post_type ) {
-			$county_name = function_exists( 'sa_county_name' ) ? sa_county_name( $post->ID, false ) : get_the_title( $post );
-			$county_name = trim( (string) $county_name );
-			if ( '' === $county_name ) {
-				$county_name = get_the_title( $post );
-			}
-			$province = sa_get_parent( $post->ID, 'province' );
-			$province_name = '';
-			if ( $province ) {
-				$province_name = function_exists( 'sa_province_name_for_post' ) ? sa_province_name_for_post( $province, false ) : get_the_title( $province );
-				$province_name = trim( (string) $province_name );
-			}
-			if ( '' === $province_name ) {
-				$province_name = 'ایران';
-			}
-			// Exact format: «شهرستان [نام]؛ راهنمای سفر، جاذبه‌ها و تاریخ [استان] | سرزمین آریان»
-			return sprintf( 'شهرستان %s؛ راهنمای سفر، جاذبه‌ها و تاریخ %s | %s', $county_name, $province_name, $site );
-		}
-		$custom = get_post_meta( $id, 'sa_seo_title', true );
+		$custom = get_post_meta( get_queried_object_id(), 'sa_seo_title', true );
 		if ( $custom ) {
 			return $custom;
 		}
+		$post = get_queried_object();
 		$name = get_the_title( $post );
 		if ( sa_is_entity( $post ) ) {
 			$parent = null;
@@ -147,59 +94,6 @@ function sa_seo_title() {
 }
 
 /**
- * Lead text for a city post (for meta description, Phase 7 §3).
- *
- * @param int $post_id Post ID.
- * @return string
- */
-function sa_get_city_lead( $post_id ) {
-	$post_id = (int) $post_id;
-	// Prefer excerpt (lead paragraph in county profile)
-	if ( has_excerpt( $post_id ) ) {
-		$ex = get_the_excerpt( $post_id );
-		$ex = wp_strip_all_tags( strip_shortcodes( $ex ) );
-		$ex = trim( (string) $ex );
-		if ( '' !== $ex ) {
-			return $ex;
-		}
-	}
-	$content = (string) get_post_field( 'post_content', $post_id );
-	if ( '' === trim( $content ) ) {
-		return '';
-	}
-	$text = strip_shortcodes( $content );
-	$text = wp_strip_all_tags( $text );
-	$text = html_entity_decode( $text, ENT_QUOTES, 'UTF-8' );
-	$text = trim( preg_replace( '/\s+/u', ' ', $text ) );
-	return $text;
-}
-
-/**
- * Truncate to 155 chars with word boundary (Phase 7 §3).
- *
- * @param string $text Text.
- * @return string
- */
-function sa_truncate_to_155( $text ) {
-	$text = trim( (string) $text );
-	if ( '' === $text ) {
-		return '';
-	}
-	// Normalize whitespace
-	$text = preg_replace( '/\s+/u', ' ', $text );
-	if ( mb_strlen( $text ) <= 155 ) {
-		return $text;
-	}
-	$cut = mb_substr( $text, 0, 155 );
-	// Try to cut at last space to avoid half-word
-	$last_space = mb_strrpos( $cut, ' ' );
-	if ( false !== $last_space && $last_space > 100 ) {
-		$cut = mb_substr( $cut, 0, $last_space );
-	}
-	return trim( $cut );
-}
-
-/**
  * Meta description for the current view.
  *
  * @return string
@@ -208,40 +102,22 @@ function sa_seo_description() {
 	if ( is_front_page() ) {
 		$custom = is_singular() ? get_post_meta( get_queried_object_id(), 'sa_seo_description', true ) : '';
 		if ( $custom ) {
-			// Enforce 155 max even on front
-			$custom = sa_truncate_to_155( $custom );
-			if ( '' !== $custom ) {
-				return $custom;
-			}
+			return $custom;
 		}
 		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و دیدنی‌های طبیعت ایران با اطلاعات دقیق و به‌روز.' );
 	}
 	if ( is_singular() ) {
-		$id   = get_queried_object_id();
-		$post = get_queried_object();
-		// Phase 7 §3: for city, description from lead, max 155, ignore custom that may be outdated
-		if ( $post && 'city' === $post->post_type ) {
-			$lead = sa_get_city_lead( $id );
-			if ( '' !== $lead ) {
-				return sa_truncate_to_155( $lead );
-			}
-			// Fallback to custom if lead empty, but still truncate
-			$custom = get_post_meta( $id, 'sa_seo_description', true );
-			if ( $custom ) {
-				return sa_truncate_to_155( $custom );
-			}
-			return sa_truncate_to_155( sa_summary( $id, 28 ) );
-		}
+		$id     = get_queried_object_id();
 		$custom = get_post_meta( $id, 'sa_seo_description', true );
 		if ( $custom ) {
-			return sa_truncate_to_155( $custom );
+			return $custom;
 		}
-		return sa_truncate_to_155( sa_summary( $id, 28 ) );
+		return sa_summary( $id, 28 );
 	}
 	if ( is_home() && ! is_front_page() ) {
 		$blog = (int) get_option( 'page_for_posts' );
 		$text = $blog ? sa_summary( $blog, 28 ) : '';
-		return $text ? sa_truncate_to_155( $text ) : 'تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ ' . sa_brand_name() . '.';
+		return $text ? $text : 'تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ ' . get_bloginfo( 'name' ) . '.';
 	}
 	if ( is_front_page() ) {
 		return get_theme_mod( 'sa_home_description', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و دیدنی‌های طبیعت ایران با اطلاعات دقیق و به‌روز.' );
@@ -249,17 +125,15 @@ function sa_seo_description() {
 	if ( is_tax() || is_category() || is_tag() ) {
 		$term = get_queried_object();
 		if ( $term && $term->description ) {
-			return sa_truncate_to_155( wp_trim_words( wp_strip_all_tags( $term->description ), 28, '…' ) );
+			return wp_trim_words( wp_strip_all_tags( $term->description ), 28, '…' );
 		}
 		if ( is_tax( 'province_tax' ) ) {
 			return sprintf( 'همه‌چیز درباره‌ی سفر به استان %s: شهرها، دیدنی‌ها، تصاویر و راهنمای به‌روز.', $term->name );
 		}
 	}
 	if ( is_post_type_archive() ) {
-		$obj   = get_queried_object();
-		$label = ( $obj && isset( $obj->labels->name ) ) ? trim( (string) $obj->labels->name ) : '';
-		$label = (string) preg_replace( '/ها$/u', 'های', $label );
-		return sprintf( 'فهرست کامل %s ایران در سرزمین آریان، همراه با اطلاعات کلیدی و راهنمای بازدید.', $label );
+		$obj = get_queried_object();
+		return sprintf( 'فهرست کامل %s ایران در سرزمین آریان، همراه با اطلاعات کلیدی و راهنمای بازدید.', $obj->labels->name );
 	}
 	return '';
 }
@@ -353,7 +227,7 @@ function sa_seo_head() {
 	}
 	echo '<meta property="og:locale" content="fa_IR">' . "\n";
 	echo '<meta property="og:type" content="' . esc_attr( $og_type ) . '">' . "\n";
-	echo '<meta property="og:site_name" content="' . esc_attr( sa_brand_name() ) . '">' . "\n";
+	echo '<meta property="og:site_name" content="' . esc_attr( get_bloginfo( 'name' ) ) . '">' . "\n";
 	echo '<meta property="og:title" content="' . esc_attr( $og_title ) . '">' . "\n";
 	if ( $og_desc ) {
 		echo '<meta property="og:description" content="' . esc_attr( wp_strip_all_tags( $og_desc ) ) . '">' . "\n";
@@ -412,13 +286,6 @@ function sa_seo_robots( $robots ) {
 	if ( is_singular() && '1' === get_post_meta( get_queried_object_id(), 'sa_noindex', true ) ) {
 		$noindex = true;
 	}
-	// Phase 7 §5: auto noindex for thin county pages
-	if ( is_singular( 'city' ) ) {
-		$pid = get_queried_object_id();
-		if ( $pid && function_exists( 'sa_city_is_thin' ) && sa_city_is_thin( $pid ) ) {
-			$noindex = true;
-		}
-	}
 	if ( $noindex ) {
 		$robots['noindex'] = true;
 		$robots['follow']  = true;
@@ -452,56 +319,6 @@ add_filter(
 	10,
 	2
 );
-
-/**
- * Phase 7 §5: exclude thin county pages from sitemap
- *
- * @param array  $args      Query args.
- * @param string $post_type Post type.
- * @return array
- */
-function sa_seo_sitemap_exclude_thin_city( $args, $post_type ) {
-	if ( 'city' !== $post_type ) {
-		return $args;
-	}
-	// Build list of thin city IDs to exclude. Query all city IDs and filter.
-	// Use transient to avoid heavy query on every sitemap request.
-	$exclude = get_transient( 'sa_sitemap_thin_city' );
-	if ( false === $exclude ) {
-		$exclude = array();
-		$q = new WP_Query(
-			array(
-				'post_type'      => 'city',
-				'post_status'    => 'publish',
-				'posts_per_page' => 2000,
-				'fields'         => 'ids',
-				'no_found_rows'  => true,
-			)
-		);
-		foreach ( (array) $q->posts as $pid ) {
-			if ( function_exists( 'sa_city_is_thin' ) && sa_city_is_thin( $pid ) ) {
-				$exclude[] = (int) $pid;
-			}
-		}
-		set_transient( 'sa_sitemap_thin_city', $exclude, 12 * HOUR_IN_SECONDS );
-	}
-	if ( $exclude ) {
-		$args['post__not_in'] = array_merge( isset( $args['post__not_in'] ) ? (array) $args['post__not_in'] : array(), $exclude );
-	}
-	return $args;
-}
-add_filter( 'wp_sitemaps_posts_query_args', 'sa_seo_sitemap_exclude_thin_city', 15, 2 );
-
-/**
- * Flush sitemap thin cache on city save.
- */
-function sa_sitemap_thin_flush_cache() {
-	delete_transient( 'sa_sitemap_thin_city' );
-}
-add_action( 'save_post', 'sa_sitemap_thin_flush_cache' );
-add_action( 'deleted_post', 'sa_sitemap_thin_flush_cache' );
-add_action( 'transition_post_status', 'sa_sitemap_thin_flush_cache' );
-add_action( 'edited_term', 'sa_sitemap_thin_flush_cache' );
 
 /**
  * Image alt fallback: use the post title when an editor forgot the alt text (never empty alt on content images).

@@ -1,11 +1,10 @@
 <?php
 /**
- * سرزمین آریان → سلامت محتوا (v2.2.0 — فاز ۶: منابع)
+ * سرزمین آریان → سلامت محتوا (v2.1.0)
  *
  * گزارش زنده‌ی چیزهایی که یک‌بار پروژه را زمین زدند، تا دوباره بی‌سروصدا برنگردند:
  * لینک داخلی به صفحه‌ی منتشرنشده، تراکم لینک بیرونی، تمرکز روی یک منبع،
  * H1 داخل بدنه، و موجودیت‌های آماده‌ی انتشار که هنوز پیش‌نویس‌اند.
- * فاز ۶: منابعِ دامنه-تنها، ارجاع‌های شکسته، و تکرارِ منابع.
  *
  * @package Sarzaminaryan_Child
  */
@@ -114,7 +113,7 @@ function sa_health_scan_post( $pid, $brx, $bases, $map, $home, &$dead, &$domains
 	$ext     = 0;
 	$int     = 0;
 	$seen    = array();
-	if ( preg_match_all( '/href=[\"\']([^\"\']+)[\"\']/i', $content, $m ) ) {
+	if ( preg_match_all( '/href=["\']([^"\']+)["\']/i', $content, $m ) ) {
 		foreach ( $m[1] as $href ) {
 			if ( function_exists( 'sa_citation_is_external' ) && sa_citation_is_external( $href ) ) {
 				++$ext;
@@ -128,7 +127,7 @@ function sa_health_scan_post( $pid, $brx, $bases, $map, $home, &$dead, &$domains
 	}
 
 	$post_dead = 0;
-	if ( $brx && preg_match_all( '#href=[\"\'](?:https?://' . preg_quote( $home, '#' ) . ')?/(' . $brx . ')/([^/\"\']?\\#]+)/?[\"\']#i', $content, $mm, PREG_SET_ORDER ) ) {
+	if ( $brx && preg_match_all( '#href=["\'](?:https?://' . preg_quote( $home, '#' ) . ')?/(' . $brx . ')/([^/"\'?\#]+)/?["\']#i', $content, $mm, PREG_SET_ORDER ) ) {
 		foreach ( $mm as $hit ) {
 			$cpt  = isset( $bases[ $hit[1] ] ) ? $bases[ $hit[1] ] : '';
 			$slug = rawurldecode( $hit[2] );
@@ -145,100 +144,10 @@ function sa_health_scan_post( $pid, $brx, $bases, $map, $home, &$dead, &$domains
 		'ext'    => $ext,
 		'int'    => $int,
 		'uniq'   => count( $seen ),
-		'h1'     => (bool) preg_match( '/<h1[\\s>]/i', $content ),
+		'h1'     => (bool) preg_match( '/<h1[\s>]/i', $content ),
 		'dead'   => $post_dead,
 		'status' => get_post_status( $pid ),
 	);
-}
-
-/**
- * فاز ۶: منابعِ دامنه-تنها / گوگلِ حذف‌شده / تکراری / ارجاعِ شکسته برای یک نوشته.
- *
- * @param int $post_id Post ID.
- * @return array{domain_only:array, google_filtered:array, duplicates:array, broken:array}
- */
-function sa_health_source_issues_for_post( $post_id ) {
-	$post_id = (int) $post_id;
-	$raw     = (string) get_post_meta( $post_id, 'sa_sources', true );
-	$out     = array(
-		'domain_only'     => array(),
-		'google_filtered' => array(),
-		'duplicates'      => array(),
-		'broken'          => array(),
-	);
-	if ( '' === trim( $raw ) && '' === trim( (string) get_post_field( 'post_content', $post_id ) ) ) {
-		return $out;
-	}
-	// --- منابعِ متا: تحلیلِ خام برای تشخیصِ تکرار و گوگل و دامنه-تنها.
-	if ( '' !== trim( $raw ) ) {
-		$public = preg_split( '/^\s*-{3,}.*$/mu', $raw, 2 );
-		$lines  = preg_split( '/\r\n|\r|\n/', $public[0] );
-		$seen_norm = array();
-		foreach ( (array) $lines as $line ) {
-			$line = trim( (string) $line );
-			if ( '' === $line ) {
-				continue;
-			}
-			$url = '';
-			if ( preg_match( '#https?://\S+#i', $line, $m ) ) {
-				$url = trim( $m[0], '.,;\"\'<> ' );
-			}
-			if ( '' === $url ) {
-				continue;
-			}
-			// گوگلِ خام (قبل از فیلتر).
-			if ( function_exists( 'sa_is_google_source_url' ) && sa_is_google_source_url( $url ) ) {
-				$out['google_filtered'][] = array( 'url' => $url, 'line' => $line );
-				continue;
-			}
-			// تکرارِ خام (نرمال‌شده).
-			$norm = function_exists( 'sa_normalize_source_url' ) ? sa_normalize_source_url( $url ) : strtolower( $url );
-			if ( isset( $seen_norm[ $norm ] ) ) {
-				$out['duplicates'][] = array( 'url' => $url, 'line' => $line, 'first' => $seen_norm[ $norm ] );
-			} else {
-				$seen_norm[ $norm ] = $url;
-			}
-		}
-		// دامنه-تنها (روی منابعِ فیلترشدهٔ نهایی).
-		if ( function_exists( 'sa_get_sources' ) ) {
-			$filtered = sa_get_sources( $post_id );
-			foreach ( $filtered as $src ) {
-				if ( ! empty( $src['url'] ) && function_exists( 'sa_is_domain_only_url' ) && sa_is_domain_only_url( $src['url'] ) ) {
-					$out['domain_only'][] = $src;
-				}
-			}
-		}
-	}
-
-	// --- ارجاع‌های شکسته در بدنه.
-	$content = (string) get_post_field( 'post_content', $post_id );
-	if ( '' !== $content && function_exists( 'sa_detect_broken_citations' ) ) {
-		$total = null;
-		if ( function_exists( 'sa_get_sources' ) ) {
-			$total = count( sa_get_sources( $post_id ) );
-			// اگر unified بزرگ‌تر است، از آن استفاده کن (دقیق‌تر برای out_of_range).
-			if ( function_exists( 'sa_build_unified_sources' ) ) {
-				$unified = sa_build_unified_sources( $post_id, $content );
-				$total   = max( $total, count( $unified ) );
-			}
-		}
-		$broken = sa_detect_broken_citations( $content, $total );
-		if ( ! empty( $broken ) ) {
-			$out['broken'] = $broken;
-		}
-	} elseif ( '' !== $content ) {
-		// fallback اگر citations.php بار نشده (تستِ مستقل): الگوی ساده.
-		if ( preg_match_all( '#<sup\b[^>]*>(.*?)</sup>#isu', $content, $mm ) ) {
-			foreach ( $mm[1] as $inner ) {
-				$text = trim( wp_strip_all_tags( $inner ) );
-				if ( '' !== $text && preg_match( '/[0-9۰-۹]\s+[0-9۰-۹]/u', $text ) ) {
-					$out['broken'][] = array( 'snippet' => mb_substr( $text, 0, 80 ), 'numbers' => array(), 'kind' => 'sup' );
-				}
-			}
-		}
-	}
-
-	return $out;
 }
 
 /**
@@ -261,9 +170,12 @@ function sa_health_scan( $force = false ) {
 	$brx   = $bases ? implode( '|', array_map( 'preg_quote', array_keys( $bases ) ) ) : '';
 	$home  = strtolower( (string) wp_parse_url( home_url(), PHP_URL_HOST ) );
 
+	// صفحه‌بندی‌شده اسکن می‌شود تا سقفِ پیشینِ ۵۰۰ نوشته (که با ۵۴۱ موجودیت
+	// منتشرشده دور زده می‌شد) حذف شود؛ سقف ایمنی فقط برای جلوگیری از حلقه‌ی
+	// بی‌پایان روی نصب‌های غول‌آسا است.
 	$per_page    = (int) apply_filters( 'sa_health_per_page', 200 );
 	$per_page    = $per_page > 0 ? $per_page : 200;
-	$max_pages   = (int) apply_filters( 'sa_health_max_pages', 25 );
+	$max_pages   = (int) apply_filters( 'sa_health_max_pages', 25 ); // سقف ایمنی: ۲۵ × ۲۰۰ = ۵۰۰۰ نوشته.
 	$max_pages   = $max_pages > 0 ? $max_pages : 25;
 	$page        = 1;
 	$total_pages = 1;
@@ -272,27 +184,17 @@ function sa_health_scan( $force = false ) {
 	$dead   = array();
 	$ready  = array();
 	$totals = array(
-		'posts'       => 0,
-		'ext'         => 0,
-		'int'         => 0,
-		'uniq'        => 0,
-		'h1'          => 0,
-		'dead'        => 0,
-		'pages'       => 0,
-		'per_page'    => $per_page,
-		'truncated'   => false,
-		'domain_only' => 0,
-		'broken_refs' => 0,
-		'duplicates'  => 0,
-		'google_src'  => 0,
+		'posts'     => 0,
+		'ext'       => 0,
+		'int'       => 0,
+		'uniq'      => 0,
+		'h1'        => 0,
+		'dead'      => 0,
+		'pages'     => 0,
+		'per_page'  => $per_page,
+		'truncated' => false,
 	);
 	$domains = array();
-
-	// فاز ۶: انباشتِ گزارش‌های منبع.
-	$domain_only_posts = array();
-	$broken_posts      = array();
-	$duplicate_posts   = array();
-	$google_posts      = array();
 
 	do {
 		$q = new WP_Query(
@@ -319,25 +221,6 @@ function sa_health_scan( $force = false ) {
 			++$totals['posts'];
 			if ( $row['h1'] ) {
 				++$totals['h1'];
-			}
-
-			// فاز ۶: منابع.
-			$src_issues = sa_health_source_issues_for_post( (int) $pid );
-			if ( ! empty( $src_issues['domain_only'] ) ) {
-				$totals['domain_only'] += count( $src_issues['domain_only'] );
-				$domain_only_posts[]    = array( 'id' => (int) $pid, 'items' => $src_issues['domain_only'] );
-			}
-			if ( ! empty( $src_issues['broken'] ) ) {
-				$totals['broken_refs'] += count( $src_issues['broken'] );
-				$broken_posts[]         = array( 'id' => (int) $pid, 'items' => $src_issues['broken'] );
-			}
-			if ( ! empty( $src_issues['duplicates'] ) ) {
-				$totals['duplicates'] += count( $src_issues['duplicates'] );
-				$duplicate_posts[]     = array( 'id' => (int) $pid, 'items' => $src_issues['duplicates'] );
-			}
-			if ( ! empty( $src_issues['google_filtered'] ) ) {
-				$totals['google_src'] += count( $src_issues['google_filtered'] );
-				$google_posts[]        = array( 'id' => (int) $pid, 'items' => $src_issues['google_filtered'] );
 			}
 
 			if ( 'publish' !== $row['status'] ) {
@@ -367,16 +250,12 @@ function sa_health_scan( $force = false ) {
 	);
 
 	$out = array(
-		'generated'       => time(),
-		'totals'          => $totals,
-		'domains'         => $domains,
-		'dead'            => $dead,
-		'ready'           => $ready,
-		'rows'            => $rows,
-		'domain_only'     => $domain_only_posts,
-		'broken_refs'     => $broken_posts,
-		'duplicates'      => $duplicate_posts,
-		'google_filtered' => $google_posts,
+		'generated' => time(),
+		'totals'    => $totals,
+		'domains'   => $domains,
+		'dead'      => $dead,
+		'ready'     => $ready,
+		'rows'      => $rows,
 	);
 	set_transient( 'sa_health_scan', $out, 15 * MINUTE_IN_SECONDS );
 	return $out;
@@ -412,8 +291,6 @@ function sa_health_page() {
 		array( 'لینک داخلی', $fa( (string) $t['int'] ), $t['int'] < $t['ext'] ? 'warn' : 'ok' ),
 		array( 'H1 داخل بدنه', $fa( (string) $t['h1'] ), $t['h1'] ? 'warn' : 'ok' ),
 		array( 'لینک به صفحه‌ی منتشرنشده', $fa( (string) $t['dead'] ), $t['dead'] ? 'bad' : 'ok' ),
-		array( 'منابعِ فقط-دامنه', $fa( (string) ( $t['domain_only'] ?? 0 ) ), ! empty( $t['domain_only'] ) ? 'warn' : 'ok' ),
-		array( 'ارجاع‌های شکسته', $fa( (string) ( $t['broken_refs'] ?? 0 ) ), ! empty( $t['broken_refs'] ) ? 'bad' : 'ok' ),
 	);
 	echo '<div class="sa-health__cards">';
 	foreach ( $cards as $c ) {
@@ -484,84 +361,6 @@ function sa_health_page() {
 				. esc_html( $fa( (string) round( $t['ext'] ? ( $c / $t['ext'] ) * 100 : 0, 1 ) ) ) . '٪</td></tr>';
 		}
 		echo '</tbody></table>';
-	}
-
-	/* --- فاز ۶: منابعِ فقط-دامنه --- */
-	echo '<h2>منابعِ فقط-دامنه (نیاز به لینکِ دقیقِ صفحه)</h2>';
-	if ( empty( $scan['domain_only'] ) ) {
-		echo '<p>موردی نیست. ✓</p>';
-	} else {
-		echo '<p class="description">این منابع فقط به صفحهٔ اصلیِ سایت اشاره می‌کنند (مثل <code>https://www.doe.ir/</code>). لطفاً نشانیِ دقیقِ صفحهٔ مرتبط را جایگزین کنید.</p>';
-		echo '<table class="widefat striped"><thead><tr><th>نوشته</th><th>نشانیِ دامنه-تنها</th></tr></thead><tbody>';
-		$shown = 0;
-		foreach ( $scan['domain_only'] as $entry ) {
-			$pid = (int) $entry['id'];
-			foreach ( array_slice( (array) $entry['items'], 0, 3 ) as $it ) {
-				if ( ++$shown > 50 ) {
-					break 2;
-				}
-				$url = $it['url'] ?? '';
-				echo '<tr><td><a href="' . esc_url( (string) get_edit_post_link( $pid ) ) . '">' . esc_html( (string) get_the_title( $pid ) ) . '</a></td><td><code dir="ltr">' . esc_html( $url ) . '</code></td></tr>';
-			}
-		}
-		echo '</tbody></table>';
-		echo '<p class="description">نمایش تا ۵۰ مورد — باقی در اسکنِ کامل موجود است.</p>';
-	}
-
-	/* --- فاز ۶: ارجاع‌های شکسته --- */
-	echo '<h2>ارجاع‌های شکسته (مثل «۳۱ ۴۹)» یا «۲ ۲»)</h2>';
-	if ( empty( $scan['broken_refs'] ) ) {
-		echo '<p>موردی نیست. ✓</p>';
-	} else {
-		echo '<p class="description">این ارجاع‌ها در رندر به چند پانویسِ جدا تبدیل شده‌اند، اما بهتر است متنِ اصلی اصلاح شود (هر ارجاع یک <code>&lt;sup&gt;</code>).</p>';
-		echo '<table class="widefat striped"><thead><tr><th>نوشته</th><th>قطعهٔ شکسته</th><th>اعداد</th></tr></thead><tbody>';
-		$shown = 0;
-		foreach ( $scan['broken_refs'] as $entry ) {
-			$pid = (int) $entry['id'];
-			foreach ( array_slice( (array) $entry['items'], 0, 3 ) as $it ) {
-				if ( ++$shown > 50 ) {
-					break 2;
-				}
-				$snip = $it['snippet'] ?? '';
-				$nums = isset( $it['numbers'] ) ? implode( '، ', array_map( $fa, (array) $it['numbers'] ) ) : '—';
-				echo '<tr><td><a href="' . esc_url( (string) get_edit_post_link( $pid ) ) . '">' . esc_html( (string) get_the_title( $pid ) ) . '</a></td><td><code>' . esc_html( $snip ) . '</code></td><td>' . esc_html( $nums ) . '</td></tr>';
-			}
-		}
-		echo '</tbody></table>';
-	}
-
-	/* --- فاز ۶: تکرارِ منابع و گوگلِ حذف‌شده (اطلاعی) --- */
-	if ( ! empty( $scan['duplicates'] ) || ! empty( $scan['google_filtered'] ) ) {
-		echo '<h2>تکرارِ منابع و لینک‌های گوگلِ حذف‌شده (اطلاعی)</h2>';
-		echo '<p class="description">منابعِ تکراری به‌صورت خودکار یک‌بار نمایش داده می‌شوند و لینک‌های <code>google.com / maps.google.com</code> از فهرستِ منابع حذف و فقط در بخشِ نقشه می‌مانند.</p>';
-		if ( ! empty( $scan['duplicates'] ) ) {
-			echo '<h3>منابعِ تکراری (پیش از یکتاسازی)</h3><table class="widefat striped"><thead><tr><th>نوشته</th><th>نشانیِ تکراری</th></tr></thead><tbody>';
-			$shown = 0;
-			foreach ( $scan['duplicates'] as $entry ) {
-				$pid = (int) $entry['id'];
-				foreach ( array_slice( (array) $entry['items'], 0, 2 ) as $it ) {
-					if ( ++$shown > 30 ) {
-						break 2;
-					}
-					echo '<tr><td><a href="' . esc_url( (string) get_edit_post_link( $pid ) ) . '">' . esc_html( (string) get_the_title( $pid ) ) . '</a></td><td><code dir="ltr">' . esc_html( $it['url'] ) . '</code></td></tr>';
-				}
-			}
-			echo '</tbody></table>';
-		}
-		if ( ! empty( $scan['google_filtered'] ) ) {
-			echo '<h3>لینک‌های گوگلِ حذف‌شده از منابع</h3><table class="widefat striped"><thead><tr><th>نوشته</th><th>نشانی</th></tr></thead><tbody>';
-			$shown = 0;
-			foreach ( $scan['google_filtered'] as $entry ) {
-				$pid = (int) $entry['id'];
-				foreach ( array_slice( (array) $entry['items'], 0, 2 ) as $it ) {
-					if ( ++$shown > 30 ) {
-						break 2;
-					}
-					echo '<tr><td><a href="' . esc_url( (string) get_edit_post_link( $pid ) ) . '">' . esc_html( (string) get_the_title( $pid ) ) . '</a></td><td><code dir="ltr">' . esc_html( $it['url'] ) . '</code></td></tr>';
-				}
-			}
-			echo '</tbody></table>';
-		}
 	}
 
 	/* --- بدترین صفحه‌ها --- */
