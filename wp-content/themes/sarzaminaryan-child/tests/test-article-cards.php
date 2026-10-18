@@ -4,11 +4,12 @@
  *
  * Run with: php wp-content/themes/sarzaminaryan-child/tests/test-article-cards.php
  *
- * Owner's request: «مقالات مرتبط» and the other article lists must render without
- * a featured-image box, the boxes must be bigger (the posts are long) with a
- * colourful hover/press, and the boxes must slide in calmly. This test renders the
- * real card template with WordPress shims and checks the CSS/JS the effect relies
- * on, so a later edit cannot silently bring the image box back or drop the effect.
+ * The archive/article-card contract keeps related cards text-safe, roomy and
+ * animated without restoring a featured-image box. The homepage no longer
+ * renders article, education or attraction lists; its source-level contract is
+ * checked below separately. This test renders the real card template with
+ * WordPress shims and checks the CSS/JS the effect relies on, so a later edit
+ * cannot silently bring the image box back or drop the effect.
  *
  * @package Sarzaminaryan_Child
  */
@@ -190,13 +191,15 @@ sa_t_assert( false !== strpos( $js, "'--sa-i'" ), 'the script sets the per-box d
 sa_t_assert( false !== strpos( $js, "querySelectorAll( '.sa-bars, .sa-grid-cards' )" ), 'bars and card grids are the animated groups' );
 
 /* ---------------------------------------------------------------------------
- * 5) Home page: bigger article boxes with a colourful hover.
+ * 5) Home page: content lists are intentionally archive-only.
  * ------------------------------------------------------------------------- */
 $home = (string) file_get_contents( SA_CHILD_DIR . 'template-home.php' );
-sa_t_assert( 1 === preg_match( '/\.sa-pb\{padding:26px 24px 24px/', $home ), 'home article boxes are bigger' );
-sa_t_assert( 1 === preg_match( '/\.sa-pb h3\{[^}]*font-size:18px/', $home ), 'home article titles are bigger' );
-sa_t_assert( 1 === preg_match( '/\.sa-pb p\{[^}]*font-size:14\.5px/', $home ), 'home excerpts are bigger' );
-sa_t_assert( false !== strpos( $home, '.sa-post:active' ), 'home cards show a pressed state' );
-sa_t_assert( false !== strpos( $home, '.sa-post:hover,.sa-post:focus-visible{background:color-mix' ), 'home cards tint on hover' );
+foreach ( array( 'new WP_Query', '$sa_latest', '$sa_edu_q', '$sa_attr_q', 'sa-attractions', 'sa-education', 'sa-posts', 'sa-post', 'sa-logo' ) as $removed ) {
+	sa_t_assert( false === strpos( $home, $removed ), 'homepage does not restore removed content: ' . $removed );
+}
+foreach ( array( 'sa-hero', 'sa-map', 'sa-search', 'sa-chips', 'sa-stats', 'CC_UI::top_cities_block( 7 )' ) as $preserved ) {
+	sa_t_assert( false !== strpos( $home, $preserved ), 'homepage preserves intended feature: ' . $preserved );
+}
+sa_t_assert( false !== strpos( $home, 'get_header();' ) && false !== strpos( $home, 'get_footer();' ), 'homepage keeps the header and footer' );
 
-echo "PASS: article cards (text-only related posts, bigger boxes, colourful hover/press, staggered slide-in)\n";
+echo "PASS: article cards (archive cards stay text-safe; homepage content lists stay removed)\n";
