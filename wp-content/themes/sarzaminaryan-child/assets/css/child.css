@@ -6886,3 +6886,134 @@ body.bg-lines::before {
 		padding-block: 6px;
 	}
 }
+
+/* ==========================================================================
+   Template cleanup — phase 1: compact rating and TOC, below identity cards only.
+   Scoped selectors also win when city-contrib.css is enqueued after child.css.
+   ========================================================================== */
+.cc-rating .cc-rating__status.cc-status--ok {
+	display: inline-block;
+	box-sizing: border-box;
+	width: fit-content;
+	max-width: min(100%, 32rem);
+	margin-block: .5rem 0;
+	padding: .3rem .55rem;
+	font-size: .78rem;
+	line-height: 1.6;
+	text-align: start;
+	overflow-wrap: anywhere;
+	border-radius: 6px;
+}
+
+.sa-toc .sa-toc__list {
+	margin: 0;
+	padding: 0;
+	gap: 1px;
+}
+
+.sa-toc .sa-toc__item {
+	margin-block: 0;
+	padding-block: 0;
+}
+
+.sa-toc .sa-toc__link {
+	padding-block: 2px;
+	line-height: 1.5;
+	min-height: 28px;
+}
+
+.sa-toc .sa-toc__num {
+	width: 22px;
+	height: 22px;
+	border-radius: 7px;
+}
+
+@media (max-width: 760px) {
+	.cc-rating.cc-block {
+		padding: .75rem .6rem;
+	}
+
+	.cc-rating .cc-block__title {
+		font-size: clamp(.82rem, 3.4vw, 1.05rem);
+		line-height: 1.5;
+		gap: .35rem;
+		margin-block: 0 .5rem;
+	}
+
+	.cc-rating .cc-block__title::before {
+		flex: 0 0 7px;
+		width: 7px;
+		height: 7px;
+	}
+
+	.cc-rating .cc-rating__row {
+		gap: .35rem .5rem;
+	}
+
+	.cc-rating .cc-rating__avg {
+		font-size: .8rem;
+		line-height: 1.6;
+	}
+
+	.cc-rating .cc-rating__avg b {
+		font-size: 1rem;
+	}
+
+	.cc-rating .cc-rating__avg span {
+		font-size: .75rem;
+	}
+
+	.cc-rating .cc-stars {
+		letter-spacing: 0;
+		white-space: nowrap;
+	}
+
+	.cc-rating .cc-rating__rank {
+		font-size: .75rem;
+		padding: .2rem .5rem;
+	}
+
+	.cc-rating .cc-rating__picker {
+		gap: .5rem;
+		padding: .55rem;
+		min-width: 0;
+	}
+
+	.cc-rating .cc-rating__picker-label {
+		font-size: .8rem;
+		line-height: 1.6;
+		margin: 0;
+	}
+
+	/* All seven choices stay on one line; retain a 44px-high touch target. */
+	.cc-rating .cc-rating__stars {
+		display: grid;
+		grid-template-columns: repeat(7, minmax(0, 1fr));
+		flex: 1 1 100%;
+		min-width: 0;
+		gap: .2rem;
+	}
+
+	.cc-rating .cc-rating__stars button {
+		min-width: 0;
+		width: 100%;
+		min-height: 44px;
+		justify-content: center;
+		padding: .25rem .1rem;
+		border-radius: 7px;
+	}
+
+	.cc-rating .cc-rating__stars button .cc-rating__num {
+		font-size: .7rem;
+	}
+
+	.cc-rating .cc-rating__stars button .cc-rating__glyph {
+		font-size: 1.15rem;
+	}
+
+	.cc-rating .cc-rating__submit {
+		font-size: .8rem;
+		min-height: 44px;
+		padding: .4rem .85rem;
+	}
+}
