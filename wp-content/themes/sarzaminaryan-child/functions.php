@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.2' );
+define( 'SA_CHILD_VERSION', '2.22.14' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -74,3 +74,110 @@ foreach ( $sa_child_includes as $sa_child_file ) {
 	require_once SA_CHILD_DIR . $sa_child_file;
 }
 unset( $sa_child_includes, $sa_child_file );
+
+/**
+ * Add the default Phase 1 background texture class to <body>.
+ *
+ * The variant filter accepts only: dots, grid or lines. The default is dots;
+ * a project-specific setting can switch it without touching the CSS:
+ *
+ * add_filter( 'sa_child_background_variant', function () {
+ *     return 'grid';
+ * } );
+ *
+ * @param string[] $classes Existing body classes.
+ * @return string[]
+ */
+function sa_child_background_class( $classes ) {
+	$classes = array_diff( $classes, array( 'bg-dots', 'bg-grid', 'bg-lines' ) );
+
+	$variant = apply_filters( 'sa_child_background_variant', 'dots' );
+	$variant = is_string( $variant ) ? sanitize_key( $variant ) : 'dots';
+	$variant = preg_replace( '/^bg-/', '', $variant );
+
+	if ( ! in_array( $variant, array( 'dots', 'grid', 'lines' ), true ) ) {
+		$variant = 'dots';
+	}
+
+	$classes[] = 'bg-' . $variant;
+	return array_values( array_unique( $classes ) );
+}
+add_filter( 'body_class', 'sa_child_background_class', 20 );
+
+/**
+ * Return a cache-busting version for a child-theme asset.
+ *
+ * @param string $relative_path Path relative to the child-theme directory.
+ * @return int|string
+ */
+function sa_child_asset_version( $relative_path ) {
+	$relative_path = ltrim( (string) $relative_path, '/' );
+	$asset_path    = SA_CHILD_DIR . $relative_path;
+	$asset_mtime   = file_exists( $asset_path ) ? filemtime( $asset_path ) : false;
+
+	return false !== $asset_mtime ? $asset_mtime : SA_CHILD_VERSION;
+}
+
+/**
+ * Enqueue the child stylesheet after the parent stylesheet and load front-end
+ * scripts only where their templates need them.
+ */
+function sa_child_assets() {
+	wp_enqueue_style(
+		'sarzaminaryan-child',
+		SA_CHILD_URI . 'assets/css/child.css',
+		array( 'sarzaminaryan-style' ),
+		sa_child_asset_version( 'assets/css/child.css' )
+	);
+	wp_enqueue_script(
+		'sarzaminaryan-child',
+		SA_CHILD_URI . 'assets/js/child.js',
+		array( 'sarzaminaryan-main' ),
+		sa_child_asset_version( 'assets/js/child.js' ),
+		array( 'in_footer' => true, 'strategy' => 'defer' )
+	);
+
+	if ( is_front_page() ) {
+		wp_enqueue_script(
+			'sarzaminaryan-counter-buttons',
+			SA_CHILD_URI . 'assets/js/counter-buttons.js',
+			array(),
+			sa_child_asset_version( 'assets/js/counter-buttons.js' ),
+			array( 'in_footer' => true, 'strategy' => 'defer' )
+		);
+	}
+
+	if ( is_singular( array( 'province', 'city' ) ) ) {
+		wp_enqueue_style(
+			'sarzaminaryan-gallery',
+			SA_CHILD_URI . 'assets/css/gallery.css',
+			array( 'sarzaminaryan-child' ),
+			sa_child_asset_version( 'assets/css/gallery.css' )
+		);
+		wp_enqueue_script(
+			'sarzaminaryan-gallery',
+			SA_CHILD_URI . 'assets/js/gallery.js',
+			array(),
+			sa_child_asset_version( 'assets/js/gallery.js' ),
+			array( 'in_footer' => true, 'strategy' => 'defer' )
+		);
+	}
+}
+add_action( 'wp_enqueue_scripts', 'sa_child_assets', 20 );
+
+/**
+ * Add the shared profile-page scope only to province, county and attraction
+ * single templates. These are CPT singles, so is_singular() is the correct
+ * conditional rather than a page-template check.
+ *
+ * @param string[] $classes Existing body classes.
+ * @return string[]
+ */
+function sa_child_profile_body_class( $classes ) {
+	if ( is_singular( 'province' ) || is_singular( 'city' ) || is_singular( 'attraction' ) ) {
+		$classes[] = 'profile-page';
+	}
+
+	return array_values( array_unique( $classes ) );
+}
+add_filter( 'body_class', 'sa_child_profile_body_class', 20 );

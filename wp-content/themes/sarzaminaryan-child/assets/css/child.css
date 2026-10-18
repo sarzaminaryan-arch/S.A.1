@@ -613,6 +613,17 @@
 	box-shadow: var(--sa-shadow);
 }
 
+/* Direct HTML tables in article bodies have no Gutenberg <figure> wrapper. */
+.sa-table-scroll {
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	overscroll-behavior-x: contain;
+	-webkit-overflow-scrolling: touch;
+}
+
 .sa-entity__layout .entry-content table {
 	width: 100%;
 	min-width: 520px;
@@ -5888,3 +5899,990 @@ small {
   color: #1d9e5f; font-size: .6rem; letter-spacing: .06em; margin-inline-end: .5rem;
 }
 .sa-cid-note__item p { margin: 0; font-size: .88rem; line-height: 1.95; }
+
+/* ==========================================================================
+   Phase 1 — Soft UI foundation
+   Design tokens, switchable RTL-safe texture, opt-in cards and static accent.
+   ========================================================================== */
+
+:root {
+	/* Soft UI palette: the same tokens are reused by every Phase 1 rule. */
+	--bg: #ECF0F5;
+	--bg-reading: #F8FAFC;
+	--text: #0A192F;
+	--shadow-dark: rgba(163, 177, 198, 0.6);
+	--shadow-light: rgba(255, 255, 255, 1);
+	--glow: rgba(255, 200, 0, 0.85);
+	--radius: 20px;
+	--navy-900: #0A192F;
+	--navy-700: #1B2F4E;
+	--navy-500: #3A4F6E; /* WCAG AA on --bg-reading. */
+	--navy-200: #CCD6E6;
+	--navy-100: #E6ECF5;
+	--navy-50: #F4F7FB;
+
+	/* Non-colour controls for the low-noise paper texture. */
+	--bg-pattern-opacity: 0.08;
+}
+
+/*
+ * The SVGs below are monochrome masks rather than coloured images. This keeps
+ * the actual ink colour controlled by --text, while retaining an inline SVG
+ * data-URI and avoiding a hard-coded background colour in each variant.
+ */
+body {
+	position: relative;
+	isolation: isolate;
+	min-height: 100vh;
+	color: var(--text);
+	background-color: var(--bg);
+	background-image: none;
+}
+
+body::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background-color: var(--text);
+	opacity: var(--bg-pattern-opacity);
+	-webkit-mask-repeat: repeat;
+	mask-repeat: repeat;
+	-webkit-mask-position: 0 0;
+	mask-position: 0 0;
+}
+
+/* Default: approximately 1px dots on a 16px grid. */
+body::before,
+body.bg-dots::before {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='1' cy='1' r='0.7' fill='%23ffffff'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='1' cy='1' r='0.7' fill='%23ffffff'/%3E%3C/svg%3E");
+	-webkit-mask-size: 16px 16px;
+	mask-size: 16px 16px;
+}
+
+/* Fine 18px grid lines. */
+body.bg-grid::before {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M18 0H0V18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M18 0H0V18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	-webkit-mask-size: 18px 18px;
+	mask-size: 18px 18px;
+}
+
+/* Fine, evenly spaced parallel lines. */
+body.bg-lines::before {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M0 9H18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M0 9H18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	-webkit-mask-size: 18px 18px;
+	mask-size: 18px 18px;
+}
+
+/*
+ * Opt-in extruded surface. Add class="soft-card" to a deliberate card in a
+ * PHP template; it is intentionally not attached to every div or article.
+ * Extra bottom space reserves a quiet area for the permanent underline.
+ */
+.soft-card {
+	position: relative;
+	padding-block-end: 1.25rem;
+	background: var(--bg);
+	color: var(--text);
+	border-radius: var(--radius);
+	box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+}
+
+/* A card inside a card is inset/flat, not a second floating outer surface. */
+.soft-card .soft-card {
+	box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+}
+
+/* Static yellow accent; it never captures input and never animates. */
+.soft-card::after {
+	content: '';
+	position: absolute;
+	inset-inline-start: 18%;
+	inset-inline-end: 18%;
+	inset-block-end: 0.65rem;
+	height: 2px;
+	border-radius: 2px;
+	background: linear-gradient(90deg, transparent, var(--glow), transparent);
+	box-shadow: 0 0 6px var(--glow);
+	pointer-events: none;
+}
+
+/*
+ * Optional selector mapping — deliberately disabled. If a whole WordPress
+ * component should use the surface, add .soft-card in its PHP template (or
+ * uncomment and narrow this list); do not apply it to every div globally.
+ *
+ * article.hentry,
+ * .widget-area .widget,
+ * .comment-list .comment,
+ * .sidebar,
+ * .search-form {
+ *     position: relative;
+ *     background: var(--bg);
+ *     color: var(--text);
+ *     border-radius: var(--radius);
+ *     box-shadow: 8px 8px 16px var(--shadow-dark),
+ *                 -8px -8px 16px var(--shadow-light);
+ * }
+ */
+
+/* ==========================================================================
+   Phase 2 — Homepage counter buttons
+   Only the four .counter-btn elements in the homepage stats block use this.
+   ========================================================================== */
+
+:root {
+	/* Counter-specific colours remain tokens so the component is themeable. */
+	--counter-hole: var(--navy-900);
+	--counter-hole-text: #FFFFFF;
+	--counter-hole-shadow-dark: rgba(0, 0, 0, 0.6);
+	--counter-hole-shadow-light: rgba(255, 255, 255, 0.08);
+	--counter-hole-highlight: rgba(255, 255, 255, 0.6);
+	--counter-light: rgba(255, 215, 0, 0.40);
+}
+
+/* The existing .sa-st class is retained for the homepage layout contract. */
+.sa-home .sa-stats .counter-btn {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.65rem;
+	padding: 1rem 0.75rem 1.35rem;
+	background: var(--bg);
+	color: var(--text);
+	border: 0;
+	border-radius: var(--radius);
+	box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+	text-decoration: none;
+}
+
+/* The yellow underline is the same permanent accent used by .soft-card. */
+.sa-home .sa-stats .counter-btn::after {
+	content: '';
+	position: absolute;
+	inset-inline-start: 18%;
+	inset-inline-end: 18%;
+	inset-block-end: 0.65rem;
+	height: 2px;
+	border-radius: 2px;
+	background: linear-gradient(90deg, transparent, var(--glow), transparent);
+	box-shadow: 0 0 6px var(--glow);
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* Inner radial light: an overlay, so the base --bg surface is not replaced. */
+.sa-home .sa-stats .counter-btn::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border-radius: inherit;
+	background: radial-gradient(circle at center, var(--counter-light) 0%, transparent 70%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Pressing is an instant shadow swap; no box-shadow transition is declared. */
+.sa-home .sa-stats .counter-btn:active,
+.sa-home .sa-stats .counter-btn.light-up {
+	box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+.sa-home .sa-stats .counter-btn:active::before,
+.sa-home .sa-stats .counter-btn.light-up::before {
+	opacity: 1;
+}
+
+/* The circle is above the light and remains a pressed dark hole. */
+.sa-home .sa-stats .counter-circle {
+	position: relative;
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	flex: 0 0 auto;
+	width: clamp(4.25rem, 7vw, 5.25rem);
+	height: clamp(4.25rem, 7vw, 5.25rem);
+	background: var(--counter-hole);
+	color: var(--counter-hole-text);
+	border-radius: 50%;
+	box-shadow: inset 3px 3px 6px var(--counter-hole-shadow-dark),
+		inset -2px -2px 4px var(--counter-hole-shadow-light),
+		0 1px 1px var(--counter-hole-highlight);
+}
+
+.sa-home .sa-stats .counter-circle b {
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	color: inherit;
+	font-size: clamp(1.35rem, 3vw, 2rem);
+	line-height: 1.1;
+	font-weight: 700;
+}
+
+.sa-home .sa-stats .counter-label {
+	position: relative;
+	z-index: 2;
+	color: var(--navy-700);
+	font-weight: 600;
+	line-height: 1.6;
+}
+
+/* Keyboard focus remains visible without changing the pressed shadow contract. */
+.sa-home .sa-stats .counter-btn:focus-visible {
+	outline: 3px solid var(--glow);
+	outline-offset: 4px;
+	box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+}
+
+/* Keyboard focus must not cancel the active pressed state. */
+.sa-home .sa-stats .counter-btn:focus-visible.light-up,
+.sa-home .sa-stats .counter-btn:focus-visible:active {
+	box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	/* Only opacity and transform transition; box-shadow remains instantaneous. */
+	.sa-home .sa-stats .counter-btn::before {
+		transition: opacity 0.3s ease;
+	}
+
+	.sa-home .sa-stats .counter-btn {
+		transition: transform 0.2s ease;
+	}
+
+	.sa-home .sa-stats .counter-btn:hover,
+	.sa-home .sa-stats .counter-btn:focus-visible {
+		transform: translateY(-3px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-home .sa-stats .counter-btn {
+		transition: none;
+		transform: none;
+	}
+}
+
+/* ==========================================================================
+   Phase 3 — Shared profile pages (province, county and attraction)
+   All visual rules in this section are scoped to .profile-page.
+   ========================================================================== */
+
+/* Reading surface with the same quiet 16px dot mask as Phase 1. */
+.profile-page {
+	/* Profile-only shadow/halo values; no new non-navy accent is introduced. */
+	--profile-box-shadow: 0 6px 0 rgba(10, 25, 47, 0.20), 0 16px 30px rgba(10, 25, 47, 0.16);
+	--profile-link-ring: rgba(255, 200, 0, 0.45);
+	--profile-link-halo: rgba(255, 200, 0, 0.28);
+	position: relative;
+	isolation: isolate;
+	min-height: 100vh;
+	direction: rtl;
+	color: var(--navy-900);
+	background-color: var(--bg-reading);
+	background-image: none;
+	border: 0;
+	border-radius: 0;
+	box-shadow: none;
+	overflow: visible;
+}
+
+.profile-page::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background-color: var(--navy-900);
+	opacity: var(--bg-pattern-opacity);
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='1' cy='1' r='0.7' fill='%23ffffff'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='1' cy='1' r='0.7' fill='%23ffffff'/%3E%3C/svg%3E");
+	-webkit-mask-repeat: repeat;
+	mask-repeat: repeat;
+	-webkit-mask-size: 16px 16px;
+	mask-size: 16px 16px;
+}
+
+.profile-page .sa-entity__layout,
+.profile-page .sa-id-card-wrap > .container {
+	width: 100%;
+	max-width: none;
+	margin-inline: 0;
+	background: transparent;
+}
+
+/* A bare content table has min-width:520px; never let its grid item widen the page. */
+.profile-page .sa-entity__layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 14px;
+	padding-block: 14px 18px;
+}
+
+.profile-page .sa-entity__layout > * {
+	min-width: 0;
+}
+
+.profile-page .sa-id-card-wrap > .container {
+	padding-inline: 0;
+}
+
+.profile-page .sa-id-card-wrap {
+	margin: 0;
+	padding: 14px 0 18px;
+	background: transparent;
+}
+
+/* One shared, delicate extruded treatment for every marked field/section. */
+.profile-page .profile-box {
+	position: relative;
+	margin: 0;
+	background: var(--navy-50);
+	color: var(--navy-900);
+	border: 1px solid var(--navy-200);
+	border-radius: 16px;
+	box-shadow: var(--profile-box-shadow);
+	line-height: 1.8;
+}
+
+/* Profile cards do not inherit Phase 1's yellow underline. */
+.profile-page .profile-box::after {
+	display: none;
+}
+
+.profile-page .profile-box h1,
+.profile-page .profile-box h2,
+.profile-page .profile-box h3,
+.profile-page .profile-box h4,
+.profile-page .profile-box p {
+	color: var(--navy-900);
+	line-height: 1.8;
+}
+
+/* The old cyber card becomes one neutral navy profile box in all three cases. */
+.profile-page .profile-box.sa-cyber-id {
+	width: 100%;
+	margin-block: 0;
+	padding: clamp(12px, 2vw, 16px);
+	background: var(--navy-50);
+	border: 1px solid var(--navy-200);
+	border-radius: 16px;
+	box-shadow: var(--profile-box-shadow);
+	overflow: visible;
+}
+
+/* Neutralize legacy profile variables so province, county and attraction match. */
+.profile-page .sa-cyber-id--province,
+.profile-page .sa-cyber-id--county,
+.profile-page .sa-cyber-id--attraction {
+	--cyber-bg: var(--navy-50);
+	--cyber-grid-line: transparent;
+	--cyber-accent: var(--navy-700);
+	--cyber-accent-dark: var(--navy-700);
+	--cyber-accent-soft: var(--navy-100);
+	--cyber-border: var(--navy-200);
+	--cyber-cell-border: var(--navy-200);
+	--cyber-cell-bg: var(--navy-50);
+	--cyber-cell-alt: var(--navy-50);
+	--cyber-badge-bg: var(--navy-700);
+	--cyber-badge-fg: var(--navy-50);
+}
+
+.profile-page .sa-province-profile {
+	--sa-profile-navy: var(--navy-700);
+	--sa-profile-line: var(--navy-200);
+}
+
+.profile-page .sa-cyber-id__hud-bar {
+	margin-block-end: 14px;
+	padding: 8px 10px;
+	background: var(--navy-100);
+	border: 1px solid var(--navy-200);
+	border-radius: 12px;
+	box-shadow: none;
+}
+
+.profile-page .sa-cyber-id__hud-meta {
+	gap: 12px;
+}
+
+.profile-page .sa-cyber-id__badge {
+	background: var(--navy-700);
+	color: var(--navy-50);
+	box-shadow: none;
+}
+
+.profile-page .sa-cyber-id__type-tag,
+.profile-page .sa-cyber-id__sys-code {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-500);
+}
+
+.profile-page .sa-cyber-id__sys-code {
+	background: var(--navy-50);
+}
+
+.profile-page .sa-cyber-id__header.profile-box {
+	margin-block-end: 14px;
+	padding: 14px 16px;
+	background: var(--navy-50);
+}
+
+.profile-page .sa-cyber-id__title {
+	color: var(--navy-900);
+	line-height: 1.8;
+}
+
+.profile-page .sa-cyber-id__en-pill,
+.profile-page .sa-cyber-id__loc-ribbon {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-700);
+}
+
+.profile-page .sa-cyber-id__summary {
+	color: var(--navy-500);
+	line-height: 1.8;
+}
+
+/* Grid wrappers are layout-only; each field cell carries the visible box. */
+.profile-page .sa-cyber-id__table-wrap {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+	overflow: visible;
+	display: block;
+}
+
+.profile-page .sa-cyber-grid {
+	gap: 14px;
+	background: transparent;
+}
+
+.profile-page .sa-cyber-grid__cell.profile-box {
+	min-width: 0;
+	padding: 12px 14px;
+	background: var(--navy-50);
+	border: 1px solid var(--navy-200);
+	border-radius: 16px;
+	box-shadow: var(--profile-box-shadow);
+}
+
+.profile-page .sa-cyber-grid__cell:nth-child(even).profile-box,
+.profile-page .sa-cyber-grid__cell--safety.profile-box {
+	background: var(--navy-50) !important;
+}
+
+.profile-page .sa-cyber-grid__cell--safety.profile-box {
+	border-inline-start: 1px solid var(--navy-200);
+}
+
+.profile-page .sa-cyber-grid__code,
+.profile-page .sa-cyber-grid__label,
+.profile-page .sa-cyber-id__subtable-code {
+	color: var(--navy-500);
+	line-height: 1.8;
+}
+
+.profile-page .sa-cyber-grid__value {
+	color: var(--navy-900);
+	line-height: 1.8;
+}
+
+.profile-page .sa-cyber-id__ltr,
+.profile-page .sa-cyber-id__en-inline {
+	color: var(--navy-700);
+}
+
+.profile-page .sa-cyber-id__review {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-500);
+}
+
+/* Section headers use the permitted light navy tint rather than an accent. */
+.profile-page .sa-cyber-id__subtable.profile-box {
+	margin-block-start: 14px;
+	padding: 0;
+	background: var(--navy-50);
+	border: 1px solid var(--navy-200);
+	border-radius: 16px;
+	box-shadow: var(--profile-box-shadow);
+	overflow: hidden;
+}
+
+.profile-page .sa-cyber-id__subtable-head {
+	padding: 8px 12px;
+	background: var(--navy-100);
+	border-bottom: 1px solid var(--navy-200);
+}
+
+.profile-page .sa-cyber-id__subtable-title {
+	color: var(--navy-700);
+	line-height: 1.8;
+}
+
+.profile-page .sa-cyber-id__subtable .sa-cyber-grid {
+	padding: 14px;
+}
+
+.profile-page .sa-cyber-id__chips {
+	gap: 14px;
+	margin: 0;
+	padding-block: 14px;
+}
+
+.profile-page .sa-cyber-id__chip,
+.profile-page .sa-cyber-id__chip--plain {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-900);
+}
+
+.profile-page .sa-cyber-id__chip small {
+	color: var(--navy-500);
+}
+
+.profile-page .sa-cyber-id__cell-link,
+.profile-page .sa-cyber-id__attrs a {
+	color: var(--navy-700);
+	text-decoration-color: var(--navy-200);
+}
+
+.profile-page .sa-cyber-id__cell-link:hover,
+.profile-page .sa-cyber-id__cell-link:focus-visible,
+.profile-page .sa-cyber-id__attrs a:hover,
+.profile-page .sa-cyber-id__attrs a:focus-visible {
+	color: var(--navy-900);
+	text-decoration-color: var(--navy-500);
+}
+
+.profile-page .sa-cyber-id__attrs th,
+.profile-page .sa-cyber-id__attrs td {
+	color: var(--navy-900);
+	border-color: var(--navy-200);
+}
+
+.profile-page .sa-cyber-id__attrs thead th,
+.profile-page .sa-cyber-id__attrs td small {
+	color: var(--navy-500);
+}
+
+/* Province county list and county notes use the same profile-box contract. */
+.profile-page .sa-province-profile__module.profile-box,
+.profile-page .profile-box.sa-cid-note__item {
+	padding: 14px;
+	background: var(--navy-50);
+	border: 1px solid var(--navy-200);
+	border-radius: 16px;
+	box-shadow: var(--profile-box-shadow);
+}
+
+.profile-page .sa-province-profile__module-heading {
+	margin-block-end: 12px;
+}
+
+.profile-page .sa-province-profile__section-kicker,
+.profile-page .sa-province-profile__county-en,
+.profile-page .sa-cid-note__item h3 [lang="en"] {
+	color: var(--navy-500);
+}
+
+.profile-page .sa-province-profile__section-title,
+.profile-page .sa-province-profile__neighbors h4,
+.profile-page .sa-cid-note__item h3 {
+	color: var(--navy-900);
+	line-height: 1.8;
+}
+
+.profile-page .sa-province-profile__count-badge {
+	background: var(--navy-700);
+	border-color: var(--navy-700);
+	color: var(--navy-50);
+}
+
+.profile-page .sa-province-profile__county-details.profile-box {
+	padding: 0;
+	background: var(--navy-50);
+	border-color: var(--navy-200);
+	box-shadow: var(--profile-box-shadow);
+	overflow: hidden;
+}
+
+.profile-page .sa-province-profile__county-details summary {
+	background: var(--navy-100);
+	color: var(--navy-900);
+}
+
+.profile-page .sa-province-profile__county-list {
+	gap: 14px;
+	border-block-start-color: var(--navy-200);
+}
+
+.profile-page .sa-province-profile__county-label.profile-link,
+.profile-page .sa-province-profile__county-label--plain {
+	background: var(--navy-50);
+	border-color: var(--navy-200);
+	color: var(--navy-900);
+	line-height: 1.8;
+}
+
+.profile-page .sa-province-profile__county-name,
+.profile-page .sa-province-profile__county-en {
+	line-height: 1.8;
+}
+
+.profile-page .sa-cid-note {
+	grid-template-columns: minmax(0, 1fr);
+	gap: 14px;
+	margin-block: 0 14px;
+}
+
+.profile-page .sa-cid-note__item {
+	min-width: 0;
+}
+
+.profile-page .sa-cid-note__item p {
+	color: var(--navy-500);
+}
+
+/* Legacy province submodules keep the same box contract when they are rendered. */
+.profile-page .sa-province-profile__identity-facts,
+.profile-page .sa-province-profile__metrics {
+	display: grid;
+	gap: 14px;
+	margin: 0;
+}
+
+.profile-page .sa-province-profile__identity-fact.profile-box,
+.profile-page .sa-province-profile__metric.profile-box,
+.profile-page .sa-province-profile__neighbors.profile-box,
+.profile-page .sa-province-profile__neighbors li.profile-box {
+	padding: 14px;
+	background: var(--navy-50);
+	border: 1px solid var(--navy-200);
+	border-radius: 16px;
+	box-shadow: var(--profile-box-shadow);
+}
+
+.profile-page .sa-province-profile__identity-fact dt,
+.profile-page .sa-province-profile__metric dt {
+	color: var(--navy-500);
+	line-height: 1.8;
+}
+
+.profile-page .sa-province-profile__identity-fact dd,
+.profile-page .sa-province-profile__metric dd strong {
+	color: var(--navy-900);
+	line-height: 1.8;
+}
+
+.profile-page .sa-province-profile__identity-fact dd a {
+	color: var(--navy-700);
+	text-decoration-color: var(--navy-200);
+}
+
+.profile-page .sa-province-profile__english-inline,
+.profile-page .sa-province-profile__metric dd > span,
+.profile-page .sa-province-profile__direction,
+.profile-page .sa-province-profile__separator,
+.profile-page .sa-province-profile__place small {
+	color: var(--navy-500);
+}
+
+.profile-page .sa-province-profile__neighbors ul {
+	gap: 14px;
+}
+
+.profile-page .sa-province-profile__place,
+.profile-page .sa-province-profile__place--border {
+	background: var(--navy-50);
+	border-color: var(--navy-200);
+	color: var(--navy-700);
+}
+
+.profile-page .sa-province-profile__place--border {
+	background: var(--navy-100);
+	color: var(--navy-500);
+}
+
+.profile-page .sa-province-profile__module--sources p {
+	color: var(--navy-500);
+	line-height: 1.8;
+}
+
+.profile-page .sa-province-profile__module--sources a {
+	color: var(--navy-700);
+	text-decoration-color: var(--navy-200);
+}
+
+/* Yellow is reserved for actual linked buttons. Plain boxes have no glow. */
+.profile-page .profile-link {
+	position: relative;
+	isolation: isolate;
+	background: var(--navy-700);
+	border-color: var(--navy-900);
+	color: var(--navy-50);
+	box-shadow: 0 0 0 2px var(--profile-link-ring), 0 6px 0 var(--navy-900), 0 14px 24px var(--profile-link-halo);
+	text-decoration: none;
+	line-height: 1.8;
+	transition: none;
+}
+
+.profile-page .profile-link::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	border-radius: inherit;
+	background: radial-gradient(circle at center, var(--profile-link-halo), transparent 72%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.profile-page .profile-link::after {
+	content: '';
+	position: absolute;
+	inset-inline-start: 18%;
+	inset-inline-end: 18%;
+	inset-block-end: 0.35rem;
+	height: 2px;
+	border-radius: 2px;
+	background: linear-gradient(90deg, transparent, var(--glow), transparent);
+	box-shadow: 0 0 6px var(--glow);
+	pointer-events: none;
+	z-index: 2;
+}
+
+.profile-page .profile-link:hover,
+.profile-page .profile-link:focus-visible {
+	background: var(--navy-900);
+	border-color: var(--navy-900);
+	color: var(--navy-50);
+	text-decoration: none;
+}
+
+.profile-page .profile-link:hover::before,
+.profile-page .profile-link:focus-visible::before {
+	opacity: 1;
+}
+
+.profile-page .profile-link > * {
+	position: relative;
+	z-index: 1;
+}
+
+.profile-page .profile-link:focus-visible {
+	outline: 2px solid var(--glow);
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.profile-page .profile-link::before {
+		transition: opacity 0.2s ease;
+	}
+}
+
+@media (max-width: 640px) {
+	.profile-page .profile-box.sa-cyber-id,
+	.profile-page .profile-box.sa-cyber-id__header,
+	.profile-page .sa-cyber-grid__cell.profile-box,
+	.profile-page .sa-province-profile__module.profile-box,
+	.profile-page .profile-box.sa-cid-note__item {
+		padding: 12px;
+	}
+
+	.profile-page .sa-cyber-id__subtable .sa-cyber-grid {
+		padding: 12px;
+	}
+}
+
+/*
+   Phase 3 refinement — deeper navy relief, compact lists and mobile layouts.
+   The list surfaces use navy-700 with navy-100 highlights; only actual
+   profile links retain the yellow interaction glow.
+   ========================================================================== */
+
+.profile-page .sa-cyber-id__subtable.profile-box,
+.profile-page .sa-province-profile__county-details.profile-box {
+	overflow: visible;
+}
+
+.profile-page .sa-cyber-id__subtable-head,
+.profile-page .sa-province-profile__county-details summary {
+	border-radius: 15px 15px 0 0;
+}
+
+.profile-page .sa-cyber-id__chips,
+.profile-page .sa-province-profile__county-list {
+	gap: 8px;
+	padding: 10px;
+	background: var(--navy-700);
+	border: 1px solid var(--navy-700);
+	border-radius: 12px;
+	box-shadow: var(--profile-box-shadow);
+}
+
+.profile-page .sa-province-profile__county-list {
+	padding-block-start: 10px;
+}
+
+.profile-page .sa-cyber-id__chips .profile-link,
+.profile-page .sa-province-profile__county-list .profile-link {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-900);
+	box-shadow: 0 0 0 1px var(--profile-link-ring), 0 4px 0 var(--navy-500), 0 10px 18px var(--profile-link-halo);
+}
+
+.profile-page .sa-cyber-id__chips .profile-link small,
+.profile-page .sa-province-profile__county-list .profile-link .sa-province-profile__county-en {
+	color: var(--navy-700);
+}
+
+.profile-page .sa-province-profile__county-list .sa-province-profile__county-label--plain {
+	background: var(--navy-100);
+	border-color: var(--navy-200);
+	color: var(--navy-700);
+	box-shadow: none;
+}
+
+.profile-page .sa-cyber-id__chips .profile-link:hover,
+.profile-page .sa-cyber-id__chips .profile-link:focus-visible,
+.profile-page .sa-province-profile__county-list .profile-link:hover,
+.profile-page .sa-province-profile__county-list .profile-link:focus-visible {
+	background: var(--navy-50);
+	border-color: var(--navy-200);
+	color: var(--navy-900);
+}
+
+.profile-page .sa-province-profile__place.profile-link small {
+	color: var(--navy-100);
+}
+
+@media (max-width: 720px) {
+	.profile-page .sa-entity__layout {
+		gap: 12px;
+		padding: 10px 8px 16px;
+	}
+
+	.profile-page .sa-id-card-wrap {
+		padding: 10px 8px 16px;
+	}
+
+	.profile-page .sa-cyber-id__hud-bar {
+		align-items: stretch;
+		gap: 10px;
+	}
+
+	.profile-page .sa-cyber-id__hud-meta {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 8px;
+	}
+
+	.profile-page .sa-cyber-id__hud-meta .profile-link {
+		min-width: 0;
+		justify-content: space-between;
+		padding-inline: 8px;
+	}
+
+	.profile-page .sa-cyber-id__subtable-head {
+		align-items: flex-start;
+		flex-wrap: wrap;
+		gap: 4px 8px;
+	}
+
+	.profile-page .sa-cyber-id__chips,
+	.profile-page .sa-province-profile__county-list {
+		gap: 8px;
+		padding: 8px;
+	}
+
+	.profile-page .sa-cyber-id__chips > .profile-link,
+	.profile-page .sa-cyber-id__chips > li,
+	.profile-page .sa-province-profile__county-list > li {
+		min-width: 0;
+	}
+
+	.profile-page .sa-cyber-id__chips > li {
+		flex: 1 1 calc(50% - 4px);
+	}
+
+	.profile-page .sa-cyber-id__chips > li .profile-link,
+	.profile-page .sa-cyber-id__chips > .profile-link {
+		width: 100%;
+		justify-content: center;
+		padding-inline: 8px;
+	}
+
+	.profile-page .sa-province-profile__county-list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.profile-page .sa-province-profile__county-label {
+		min-height: 2.75rem;
+		padding: 6px 8px;
+	}
+
+	.profile-page .sa-province-profile__county-name,
+	.profile-page .sa-province-profile__county-en {
+		line-height: 1.6;
+	}
+
+	.profile-page .sa-cyber-grid--province,
+	.profile-page .sa-cyber-grid--county,
+	.profile-page .sa-cyber-grid--attraction-top,
+	.profile-page .sa-cyber-grid--attraction-specs,
+	.profile-page .sa-cyber-grid--neighbors {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-page .sa-cyber-grid--county .sa-cyber-grid__cell--wide,
+	.profile-page .sa-cyber-grid--county .sa-cyber-grid__cell--full {
+		grid-column: auto;
+	}
+}
+
+@media (max-width: 480px) {
+	.profile-page .sa-cyber-id__hud-meta {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-page .sa-cyber-id__chips > li {
+		flex-basis: 100%;
+	}
+
+	.profile-page .sa-province-profile__county-list {
+		grid-template-columns: 1fr;
+	}
+
+	.profile-page .profile-box.sa-cyber-id,
+	.profile-page .profile-box.sa-cyber-id__header,
+	.profile-page .sa-cyber-grid__cell.profile-box,
+	.profile-page .sa-province-profile__module.profile-box,
+	.profile-page .profile-box.sa-cid-note__item {
+		padding: 10px;
+	}
+
+	.profile-page .sa-cyber-id__subtable .sa-cyber-grid {
+		padding: 10px;
+	}
+
+	.profile-page .profile-link {
+		min-height: 40px;
+		padding-block: 6px;
+	}
+}

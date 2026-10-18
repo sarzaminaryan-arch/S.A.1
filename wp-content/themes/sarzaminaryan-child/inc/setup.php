@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme setup: assets, supports, menus, widget areas, search scope.
+ * Theme setup: supports, menus, widget areas, search scope.
  *
  * @package Sarzaminaryan_Child
  */
@@ -76,20 +76,6 @@ function sa_child_widgets() {
 	}
 }
 add_action( 'widgets_init', 'sa_child_widgets', 11 );
-
-/**
- * Enqueue child assets after parent.
- */
-function sa_child_assets() {
-	wp_enqueue_style( 'sarzaminaryan-child', SA_CHILD_URI . 'assets/css/child.css', array( 'sarzaminaryan-style' ), SA_CHILD_VERSION );
-	wp_enqueue_script( 'sarzaminaryan-child', SA_CHILD_URI . 'assets/js/child.js', array( 'sarzaminaryan-main' ), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
-
-	if ( is_singular( array( 'province', 'city' ) ) ) {
-		wp_enqueue_style( 'sarzaminaryan-gallery', SA_CHILD_URI . 'assets/css/gallery.css', array( 'sarzaminaryan-child' ), SA_CHILD_VERSION );
-		wp_enqueue_script( 'sarzaminaryan-gallery', SA_CHILD_URI . 'assets/js/gallery.js', array(), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'sa_child_assets', 20 );
 
 /**
  * Body classes: layout hints.

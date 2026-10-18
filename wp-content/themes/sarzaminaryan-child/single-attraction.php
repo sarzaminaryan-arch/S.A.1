@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 ?>
-<main id="primary" class="site-main sa-main--entity">
+<main id="primary" class="site-main sa-main--entity profile-page">
 	<?php
 	while ( have_posts() ) {
 		the_post();
