@@ -240,22 +240,40 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 	?>
 	<section class="sa-stats" id="sa-stats" aria-label="چهار بخش اصلی سرزمین آریان">
 		<div class="sa-wrap<?php echo esc_attr( $sa_stats_class ); ?>">
-			<?php if ( $sa_has_prov ) : ?>
-				<a class="sa-st" style="--c:#123f73" href="<?php echo esc_url( sa_archive_url( 'province' ) ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b><span><?php echo esc_html( $sa_stat1_lb ); ?></span></a>
-			<?php else : ?>
-				<div class="sa-st" style="--c:#123f73"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b><span><?php echo esc_html( $sa_stat1_lb ); ?></span></div>
-			<?php endif; ?>
-			<?php if ( $sa_has_city ) : ?>
-				<a class="sa-st" style="--c:#246da8" href="<?php echo esc_url( sa_archive_url( 'city' ) ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b><span><?php echo esc_html( $sa_stat2_lb ); ?></span></a>
-			<?php else : ?>
-				<div class="sa-st" style="--c:#246da8"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b><span><?php echo esc_html( $sa_stat2_lb ); ?></span></div>
-			<?php endif; ?>
-			<?php if ( $sa_has_attr ) : ?>
-				<a class="sa-st" style="--c:#0b7285" href="<?php echo esc_url( sa_archive_url( 'attraction' ) ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_stat_attr ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat_attr ) ); ?></b><span>دیدنی‌ها</span></a>
-			<?php endif; ?>
-			<?php if ( $sa_edu_nav ) : ?>
-				<a class="sa-st" style="--c:#177357" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>"><b data-n="<?php echo esc_attr( (int) $sa_edu_nav['count'] ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_edu_nav['count'] ) ); ?></b><span><?php echo esc_html( $sa_stat3_lb ); ?></span></a>
-			<?php endif; ?>
+				<?php if ( $sa_has_prov ) : ?>
+					<a class="counter-btn sa-st" style="--c:#123f73" href="<?php echo esc_url( sa_archive_url( 'province' ) ); ?>">
+						<span class="counter-circle"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b></span>
+						<span class="counter-label"><?php echo esc_html( $sa_stat1_lb ); ?></span>
+					</a>
+				<?php else : ?>
+					<div class="counter-btn sa-st" style="--c:#123f73">
+						<span class="counter-circle"><b data-n="<?php echo esc_attr( (int) $sa_stat1_num ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat1_num ) ); ?></b></span>
+						<span class="counter-label"><?php echo esc_html( $sa_stat1_lb ); ?></span>
+					</div>
+				<?php endif; ?>
+				<?php if ( $sa_has_city ) : ?>
+					<a class="counter-btn sa-st" style="--c:#246da8" href="<?php echo esc_url( sa_archive_url( 'city' ) ); ?>">
+						<span class="counter-circle"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b></span>
+						<span class="counter-label"><?php echo esc_html( $sa_stat2_lb ); ?></span>
+					</a>
+				<?php else : ?>
+					<div class="counter-btn sa-st" style="--c:#246da8">
+						<span class="counter-circle"><b data-n="<?php echo esc_attr( (int) $sa_stat2_num ); ?>" data-s="<?php echo esc_attr( $sa_stat2_suf ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat2_num ) . $sa_stat2_suf ); ?></b></span>
+						<span class="counter-label"><?php echo esc_html( $sa_stat2_lb ); ?></span>
+					</div>
+				<?php endif; ?>
+				<?php if ( $sa_has_attr ) : ?>
+					<a class="counter-btn sa-st" style="--c:#0b7285" href="<?php echo esc_url( sa_archive_url( 'attraction' ) ); ?>">
+						<span class="counter-circle"><b data-n="<?php echo esc_attr( (int) $sa_stat_attr ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_stat_attr ) ); ?></b></span>
+						<span class="counter-label">دیدنی‌ها</span>
+					</a>
+				<?php endif; ?>
+				<?php if ( $sa_edu_nav ) : ?>
+					<a class="counter-btn sa-st" style="--c:#177357" href="<?php echo esc_url( $sa_edu_nav['url'] ); ?>">
+						<span class="counter-circle"><b data-n="<?php echo esc_attr( (int) $sa_edu_nav['count'] ); ?>"><?php echo esc_html( number_format_i18n( (int) $sa_edu_nav['count'] ) ); ?></b></span>
+						<span class="counter-label"><?php echo esc_html( $sa_stat3_lb ); ?></span>
+					</a>
+				<?php endif; ?>
 		</div>
 	</section>
 

@@ -5888,3 +5888,274 @@ small {
   color: #1d9e5f; font-size: .6rem; letter-spacing: .06em; margin-inline-end: .5rem;
 }
 .sa-cid-note__item p { margin: 0; font-size: .88rem; line-height: 1.95; }
+
+/* ==========================================================================
+   Phase 1 — Soft UI foundation
+   Design tokens, switchable RTL-safe texture, opt-in cards and static accent.
+   ========================================================================== */
+
+:root {
+	/* Soft UI palette: the same tokens are reused by every Phase 1 rule. */
+	--bg: #ECF0F5;
+	--bg-reading: #F8FAFC;
+	--text: #0A192F;
+	--shadow-dark: rgba(163, 177, 198, 0.6);
+	--shadow-light: rgba(255, 255, 255, 1);
+	--glow: rgba(255, 200, 0, 0.85);
+	--radius: 20px;
+	--navy-900: #0A192F;
+	--navy-700: #1B2F4E;
+	--navy-500: #3A4F6E; /* WCAG AA on --bg-reading. */
+	--navy-200: #CCD6E6;
+	--navy-100: #E6ECF5;
+	--navy-50: #F4F7FB;
+
+	/* Non-colour controls for the low-noise paper texture. */
+	--bg-pattern-opacity: 0.08;
+}
+
+/*
+ * The SVGs below are monochrome masks rather than coloured images. This keeps
+ * the actual ink colour controlled by --text, while retaining an inline SVG
+ * data-URI and avoiding a hard-coded background colour in each variant.
+ */
+body {
+	position: relative;
+	isolation: isolate;
+	min-height: 100vh;
+	color: var(--text);
+	background-color: var(--bg);
+	background-image: none;
+}
+
+body::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	background-color: var(--text);
+	opacity: var(--bg-pattern-opacity);
+	-webkit-mask-repeat: repeat;
+	mask-repeat: repeat;
+	-webkit-mask-position: 0 0;
+	mask-position: 0 0;
+}
+
+/* Default: approximately 1px dots on a 16px grid. */
+body::before,
+body.bg-dots::before {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='1' cy='1' r='0.7' fill='%23ffffff'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Ccircle cx='1' cy='1' r='0.7' fill='%23ffffff'/%3E%3C/svg%3E");
+	-webkit-mask-size: 16px 16px;
+	mask-size: 16px 16px;
+}
+
+/* Fine 18px grid lines. */
+body.bg-grid::before {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M18 0H0V18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M18 0H0V18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	-webkit-mask-size: 18px 18px;
+	mask-size: 18px 18px;
+}
+
+/* Fine, evenly spaced parallel lines. */
+body.bg-lines::before {
+	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M0 9H18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18'%3E%3Cpath d='M0 9H18' fill='none' stroke='%23ffffff' stroke-width='0.7'/%3E%3C/svg%3E");
+	-webkit-mask-size: 18px 18px;
+	mask-size: 18px 18px;
+}
+
+/*
+ * Opt-in extruded surface. Add class="soft-card" to a deliberate card in a
+ * PHP template; it is intentionally not attached to every div or article.
+ * Extra bottom space reserves a quiet area for the permanent underline.
+ */
+.soft-card {
+	position: relative;
+	padding-block-end: 1.25rem;
+	background: var(--bg);
+	color: var(--text);
+	border-radius: var(--radius);
+	box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+}
+
+/* A card inside a card is inset/flat, not a second floating outer surface. */
+.soft-card .soft-card {
+	box-shadow: inset 2px 2px 5px var(--shadow-dark), inset -2px -2px 5px var(--shadow-light);
+}
+
+/* Static yellow accent; it never captures input and never animates. */
+.soft-card::after {
+	content: '';
+	position: absolute;
+	inset-inline-start: 18%;
+	inset-inline-end: 18%;
+	inset-block-end: 0.65rem;
+	height: 2px;
+	border-radius: 2px;
+	background: linear-gradient(90deg, transparent, var(--glow), transparent);
+	box-shadow: 0 0 6px var(--glow);
+	pointer-events: none;
+}
+
+/*
+ * Optional selector mapping — deliberately disabled. If a whole WordPress
+ * component should use the surface, add .soft-card in its PHP template (or
+ * uncomment and narrow this list); do not apply it to every div globally.
+ *
+ * article.hentry,
+ * .widget-area .widget,
+ * .comment-list .comment,
+ * .sidebar,
+ * .search-form {
+ *     position: relative;
+ *     background: var(--bg);
+ *     color: var(--text);
+ *     border-radius: var(--radius);
+ *     box-shadow: 8px 8px 16px var(--shadow-dark),
+ *                 -8px -8px 16px var(--shadow-light);
+ * }
+ */
+
+/* ==========================================================================
+   Phase 2 — Homepage counter buttons
+   Only the four .counter-btn elements in the homepage stats block use this.
+   ========================================================================== */
+
+:root {
+	/* Counter-specific colours remain tokens so the component is themeable. */
+	--counter-hole: var(--navy-900);
+	--counter-hole-text: #FFFFFF;
+	--counter-hole-shadow-dark: rgba(0, 0, 0, 0.6);
+	--counter-hole-shadow-light: rgba(255, 255, 255, 0.08);
+	--counter-hole-highlight: rgba(255, 255, 255, 0.6);
+	--counter-light: rgba(255, 215, 0, 0.40);
+}
+
+/* The existing .sa-st class is retained for the homepage layout contract. */
+.sa-home .sa-stats .counter-btn {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.65rem;
+	padding: 1rem 0.75rem 1.35rem;
+	background: var(--bg);
+	color: var(--text);
+	border: 0;
+	border-radius: var(--radius);
+	box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+	text-decoration: none;
+}
+
+/* The yellow underline is the same permanent accent used by .soft-card. */
+.sa-home .sa-stats .counter-btn::after {
+	content: '';
+	position: absolute;
+	inset-inline-start: 18%;
+	inset-inline-end: 18%;
+	inset-block-end: 0.65rem;
+	height: 2px;
+	border-radius: 2px;
+	background: linear-gradient(90deg, transparent, var(--glow), transparent);
+	box-shadow: 0 0 6px var(--glow);
+	pointer-events: none;
+	z-index: 2;
+}
+
+/* Inner radial light: an overlay, so the base --bg surface is not replaced. */
+.sa-home .sa-stats .counter-btn::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	border-radius: inherit;
+	background: radial-gradient(circle at center, var(--counter-light) 0%, transparent 70%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* Pressing is an instant shadow swap; no box-shadow transition is declared. */
+.sa-home .sa-stats .counter-btn:active,
+.sa-home .sa-stats .counter-btn.light-up {
+	box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+.sa-home .sa-stats .counter-btn:active::before,
+.sa-home .sa-stats .counter-btn.light-up::before {
+	opacity: 1;
+}
+
+/* The circle is above the light and remains a pressed dark hole. */
+.sa-home .sa-stats .counter-circle {
+	position: relative;
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	flex: 0 0 auto;
+	width: clamp(4.25rem, 7vw, 5.25rem);
+	height: clamp(4.25rem, 7vw, 5.25rem);
+	background: var(--counter-hole);
+	color: var(--counter-hole-text);
+	border-radius: 50%;
+	box-shadow: inset 3px 3px 6px var(--counter-hole-shadow-dark),
+		inset -2px -2px 4px var(--counter-hole-shadow-light),
+		0 1px 1px var(--counter-hole-highlight);
+}
+
+.sa-home .sa-stats .counter-circle b {
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	color: inherit;
+	font-size: clamp(1.35rem, 3vw, 2rem);
+	line-height: 1.1;
+	font-weight: 700;
+}
+
+.sa-home .sa-stats .counter-label {
+	position: relative;
+	z-index: 2;
+	color: var(--navy-700);
+	font-weight: 600;
+	line-height: 1.6;
+}
+
+/* Keyboard focus remains visible without changing the pressed shadow contract. */
+.sa-home .sa-stats .counter-btn:focus-visible {
+	outline: 3px solid var(--glow);
+	outline-offset: 4px;
+	box-shadow: 8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light);
+}
+
+/* Keyboard focus must not cancel the active pressed state. */
+.sa-home .sa-stats .counter-btn:focus-visible.light-up,
+.sa-home .sa-stats .counter-btn:focus-visible:active {
+	box-shadow: inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	/* Only opacity and transform transition; box-shadow remains instantaneous. */
+	.sa-home .sa-stats .counter-btn::before {
+		transition: opacity 0.3s ease;
+	}
+
+	.sa-home .sa-stats .counter-btn {
+		transition: transform 0.2s ease;
+	}
+
+	.sa-home .sa-stats .counter-btn:hover,
+	.sa-home .sa-stats .counter-btn:focus-visible {
+		transform: translateY(-3px);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-home .sa-stats .counter-btn {
+		transition: none;
+		transform: none;
+	}
+}

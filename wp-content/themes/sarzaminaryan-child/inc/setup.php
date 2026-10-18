@@ -84,6 +84,10 @@ function sa_child_assets() {
 	wp_enqueue_style( 'sarzaminaryan-child', SA_CHILD_URI . 'assets/css/child.css', array( 'sarzaminaryan-style' ), SA_CHILD_VERSION );
 	wp_enqueue_script( 'sarzaminaryan-child', SA_CHILD_URI . 'assets/js/child.js', array( 'sarzaminaryan-main' ), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 
+	if ( is_front_page() || is_page_template( 'template-home.php' ) ) {
+		wp_enqueue_script( 'sarzaminaryan-counter-buttons', SA_CHILD_URI . 'assets/js/counter-buttons.js', array(), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
+	}
+
 	if ( is_singular( array( 'province', 'city' ) ) ) {
 		wp_enqueue_style( 'sarzaminaryan-gallery', SA_CHILD_URI . 'assets/css/gallery.css', array( 'sarzaminaryan-child' ), SA_CHILD_VERSION );
 		wp_enqueue_script( 'sarzaminaryan-gallery', SA_CHILD_URI . 'assets/js/gallery.js', array(), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
