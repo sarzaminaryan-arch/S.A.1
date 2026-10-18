@@ -63,6 +63,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-internal-links.php"
 
+      - name: Run unified-source extraction regression tests (single/double-quoted attributes)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-unified-sources.php"
+
       - name: Run publish-gate policy tests (owner approval is the only publish condition)
         shell: bash
         run: php "$THEME_DIR/tests/test-publish-gate.php"
