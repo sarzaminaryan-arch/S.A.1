@@ -112,8 +112,15 @@ CONTACT_COLS = 6             # تعداد ستون برگهٔ تماس (سطر �
 
 # ------------------------------------------------------------ متن فارسی -----
 
+ZWNJ = '‌'
+# reshape نیم‌فاصله را کامل حذف می‌کند و دو واژه را به هم می‌چسباند
+# («کهگیلویه و بویراحمد» / «چنگه‌ماغانه»)، پس موقتاً به نویسهٔ نامتغیر می‌رود
+# و در پایان برگردانده می‌شود.
+_ZWNJ_SENTINEL = '\ue000'
+
+
 def fa(text):
-    """آماده‌سازی متن فارسی برای matplotlib (اتصال حروف + ترتیب دوسویه)."""
+    """آماده‌سازی متن فارسی برای matplotlib (اتصال حروف + ترتیب دوسویه + نیم‌فاصله)."""
     if not text:
         return ''
     try:
@@ -121,7 +128,9 @@ def fa(text):
         from bidi.algorithm import get_display
     except ImportError:  # pragma: no cover — نبودش فقط برچسب فارسی را حذف می‌کند
         return None
-    return get_display(arabic_reshaper.reshape(text))
+    guarded = text.replace(ZWNJ, _ZWNJ_SENTINEL)
+    shaped = get_display(arabic_reshaper.reshape(guarded))
+    return shaped.replace(_ZWNJ_SENTINEL, ZWNJ)
 
 
 # ------------------------------------------------------- نرمال‌سازی نام -----

@@ -15,6 +15,7 @@ REPO = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / 'tools' / 'maps'))
 
 import make_province_maps as maps  # noqa: E402
+import make_province_3d as m3d  # noqa: E402
 
 
 # ۱ ------------------------------------------------------- مرجع استان‌ها -----
@@ -116,3 +117,28 @@ def test_unsupported_format_exits_with_code_2():
 
 def test_check_reports_missing_output(tmp_path):
     assert maps.main(['--check', '--out', str(tmp_path)]) == 1
+
+# ۵ ------------------------------------------- ابزار سه‌بعدی: نگه‌داشتن نیم‌فاصله
+def test_fa_keeps_zero_width_non_joiner():
+    # reshape نیم‌فاصله را حذف می‌کند و دو واژه را می‌چسباند؛ ابزار باید برگرداندش.
+    shaped3d = m3d.fa('چنگه‌ماغانه')
+    shaped2d = maps.fa('چنگه‌ماغانه')
+    assert shaped3d.count('‌') == 1
+    assert shaped2d.count('‌') == 1
+
+
+def test_fa_shapes_persian_without_reversing_words():
+    # ترتیب دوسویه باید انجام شود؛ متن خامِ معکوس نشده نباید برگردد.
+    assert m3d.fa('لرستان') != 'لرستان'
+    assert m3d.fa('') is None
+
+
+def test_county_prefix_is_stripped_before_matching():
+    assert m3d._strip_county_prefix('شهرستان قم') == 'قم'
+    assert m3d._strip_county_prefix('شهرستان بندر انزلی') == 'بندر انزلی'
+    assert m3d._strip_county_prefix('قم') == 'قم'
+
+
+def test_repo_registry_has_31_provinces_and_483_counties():
+    assert len(m3d.load_provinces()) == 31
+    assert len(m3d.load_counties()) == 483
