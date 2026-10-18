@@ -90,8 +90,28 @@ LABEL_DIM = '#8fa3b5'
 GRID = '#12283a'
 TITLE_FA = '#ffffff'
 
+# ---------------------------------------------- پالت سایبری (سبک cyber) ----
+CY_BG_TOP = '#030a17'        # سرمه‌ای تیره
+CY_BG_BOT = '#07182e'
+CY_GRID = '#0d2b48'
+CY_GRID_HOT = '#17496f'
+CY_NAVY = '#16417f'          # نمای بالا — آبی ناوی
+CY_NAVY_LO = '#0d2a56'      # سوراخ داخلی شهرستان
+CY_SIDE = '#08182f'         # دیوارهٔ ضخامت
+CY_GOLD = '#f3c455'         # خط طلایی
+CY_GOLD_HI = '#ffe493'
+CY_GOLD_SOFT = '#a97b30'
+CY_CYAN = '#3fe0ff'
+CY_TEXT = '#e6f6ff'
+CY_TEXT_DIM = '#6d95b3'
+CY_MONO = 'DejaVu Sans Mono'  # قلم تکنولوژیک همراه خود matplotlib
+# سر و ته خط هر شهرستان هم‌رنگ؛ هر شهر یک رنگ از این فهرست می‌گیرد.
+CY_CALL = ('#3fe0ff', '#57f7c8', '#ffc24d', '#7fcdff', '#b39bff')
+
 FIG_SIZE = (11.0, 9.0)
+CY_FIG_SIZE = (16.0, 8.0)   # مقیاس دو در یک
 DPI = 200
+MAX_LABEL_ROWS = 44          # بیش از این، کوچک‌ترین شهرستان‌ها بی‌برچسب می‌مانند
 
 # ------------------------------------------------------------------ قلم ----
 VAZIR_VERSION = '33.0.3'
@@ -360,15 +380,66 @@ def _shade(base, amount):
     return tuple(np.clip(rgb * (1.0 + amount), 0, 1))
 
 
-def draw_county(ax, geom, height, iso, base_z=0.0, tone=0.0):
+def _clip_halfplane(poly, nx, ny, c):
+    """برش ساترمن-هاوگمن: فقط نقاطی با nx·x + ny·y ≤ c نگه داشته می‌شوند."""
+    out = []
+    for i in range(len(poly)):
+        cur, nxt = poly[i], poly[(i + 1) % len(poly)]
+        dc = nx * cur[0] + ny * cur[1] - c
+        dn = nx * nxt[0] + ny * nxt[1] - c
+        if dc <= 0:
+            out.append(cur)
+        if (dc < 0 < dn) or (dc > 0 > dn):
+            t = dc / (dc - dn)
+            out.append((cur[0] + (nxt[0] - cur[0]) * t,
+                        cur[1] + (nxt[1] - cur[1]) * t))
+    return out
+
+
+def hatch_wall(b0, b1, lift, ratio=0.34, angle=45.0):
+    """هاشور مورب طلایی روی یک دیوارهٔ عمودی، برای نشان دادن ضخامت ستون.
+
+    دیواره همیشه یک بالابری عمودیِ ثابت `lift` است (چون تصویر ایزومتریک فقط
+    ارتفاع را روی محور عمودی جابه‌جا می‌کند)، پس هاشور در فضای خودِ صفحه و با
+    زاویهٔ ثابت کشیده و به چهارضلعی برش می‌خورد.
+    """
+    if abs(lift[1]) < 1e-9:
+        return []
+    quad = [b0, b1, (b1[0] + lift[0], b1[1] + lift[1]),
+            (b0[0] + lift[0], b0[1] + lift[1])]
+    rad = np.radians(angle)
+    dx, dy = np.cos(rad), np.sin(rad)
+    nx, ny = -dy, dx
+    values = [nx * p[0] + ny * p[1] for p in quad]
+    lo, hi = min(values), max(values)
+    spacing = abs(lift[1]) * ratio
+    if spacing <= 0:
+        return []
+    segs = []
+    step = 1
+    while lo + step * spacing < hi:
+        clipped = _clip_halfplane(quad, nx, ny, lo + step * spacing)
+        if len(clipped) >= 2:
+            proj = [dx * p[0] + dy * p[1] for p in clipped]
+            i0, i1 = int(np.argmin(proj)), int(np.argmax(proj))
+            segs.append([clipped[i0], clipped[i1]])
+        step += 1
+    return segs
+
+
+def draw_county(ax, geom, height, iso, base_z=0.0, tone=0.0, style='cyber'):
     """ستون سه‌بعدی یک شهرستان: نمای کناری با سایه‌روشن، سپس نمای بالا."""
     import matplotlib.collections as mc
+
+    cyber = style == 'cyber'
+    top_hi, top_lo = (CY_NAVY, CY_NAVY_LO) if cyber else (TOP_FACE_HI, TOP_FACE_LO)
+    side_base = CY_SIDE if cyber else SIDE_FACE
 
     outers, inners = _rings(geom)
     if not outers:
         return []
 
-    sides, colors = [], []
+    sides, colors, hatches = [], [], []
     light = np.array([-0.55, -0.83])          # نور از بالا-چپ صفحه
     for ring in outers:
         pts = ring[:-1]
@@ -379,33 +450,44 @@ def draw_county(ax, geom, height, iso, base_z=0.0, tone=0.0):
             length = (dx * dx + dy * dy) ** 0.5 or 1.0
             normal = np.array([dy / length, -dx / length])
             facing = float(np.dot(normal, light))
-            sides.append([iso.project(x0, y0, base_z),
-                          iso.project(x1, y1, base_z),
-                          iso.project(x1, y1, base_z + height),
-                          iso.project(x0, y0, base_z + height)])
-            colors.append(_shade(SIDE_FACE, 0.55 * facing))
+            a = iso.project(x0, y0, base_z)
+            b = iso.project(x1, y1, base_z)
+            c = iso.project(x1, y1, base_z + height)
+            d = iso.project(x0, y0, base_z + height)
+            sides.append([a, b, c, d])
+            colors.append(_shade(side_base, 0.55 * facing))
+            if cyber and height > 0:
+                hatches += hatch_wall(a, b, (c[0] - b[0], c[1] - b[1]))
     if sides:
         ax.add_collection(mc.PolyCollection(sides, facecolors=colors,
                                             edgecolors='none', zorder=2))
+    if hatches:
+        ax.add_collection(mc.LineCollection(hatches, colors=CY_GOLD,
+                                            linewidths=0.45, alpha=0.40,
+                                            zorder=3))
     tops = [[iso.project(x, y, base_z + height) for x, y in ring] for ring in outers]
     holes = [[iso.project(x, y, base_z + height) for x, y in ring] for ring in inners]
     if holes:
         for hole in holes:
-            ax.add_collection(mc.PolyCollection([hole], facecolors=TOP_FACE_LO,
-                                                edgecolors='none', zorder=3))
-    ax.add_collection(mc.PolyCollection(tops, facecolors=_shade(TOP_FACE_HI, tone),
-                                        edgecolors='none', zorder=4))
+            ax.add_collection(mc.PolyCollection([hole], facecolors=top_lo,
+                                                edgecolors='none', zorder=4))
+    ax.add_collection(mc.PolyCollection(tops, facecolors=_shade(top_hi, tone),
+                                        edgecolors='none', zorder=5))
     return tops + sides
 
 
-def draw_rim(ax, geom, height, iso, color=RIM, lw=1.1, args_slab=0.0):
-    """خط لبهٔ نارنجی روی نمای بالا و خط‌های عمودی لبه."""
+def draw_rim(ax, geom, height, iso, args_slab=0.0, style='cyber'):
+    """خط لبهٔ طلایی روی نمای بالا و خط‌های عمودی لبه — «سیم‌کشی» سه‌بعدی."""
     outers, _ = _rings(geom)
     import matplotlib.collections as mc
+    cyber = style == 'cyber'
+    rim = CY_GOLD if cyber else RIM
+    rim_soft = CY_GOLD_SOFT if cyber else RIM_SOFT
     for ring in outers:
         top = [iso.project(x, y, height) for x, y in ring]
-        ax.add_collection(mc.LineCollection([top], colors=color, linewidths=lw,
-                                            zorder=5))
+        ax.add_collection(mc.LineCollection([top], colors=rim,
+                                            linewidths=1.7 if cyber else 1.1,
+                                            zorder=7))
         pts = ring[:-1]
         verticals = []
         for i in range(len(pts)):
@@ -413,13 +495,14 @@ def draw_rim(ax, geom, height, iso, color=RIM, lw=1.1, args_slab=0.0):
             verticals.append([iso.project(x0, y0, -args_slab),
                               iso.project(x0, y0, height)])
         if verticals:
-            ax.add_collection(mc.LineCollection(verticals, colors=RIM_SOFT,
-                                                linewidths=lw * 0.6, zorder=2))
+            ax.add_collection(mc.LineCollection(verticals, colors=rim_soft,
+                                                linewidths=1.0 if cyber else 0.7,
+                                                zorder=6))
 
 
-def draw_base_slab(ax, geom, iso, z=0.0, height=1.0):
+def draw_base_slab(ax, geom, iso, height=1.0, style='cyber'):
     """صفحهٔ زیرین استان — پایهٔ نمایش سه‌بعدی."""
-    return draw_county(ax, geom, height, iso, base_z=-height)
+    return draw_county(ax, geom, height, iso, base_z=-height, style=style)
 
 
 # ------------------------------------------------------------------ قلم -----
@@ -496,26 +579,36 @@ def render(province, counties, out_dir, args, fonts, prov_geom):
     order = np.argsort([iso.depth(c.x, c.y) for c in centroids])  # دورترین اول
 
     fig = plt.figure(figsize=args.size, facecolor=BG_TOP)
-    ax = fig.add_axes([0, 0, 1, 1])
-    ax.set_facecolor(BG_TOP)
+    if args.style == 'cyber':
+        cyber_bg(fig)
+        ax = fig.add_axes([0.006, 0.062, 0.694, 0.822], zorder=2)
+    else:
+        ax = fig.add_axes([0, 0, 1, 1])
+        _gradient_bg(fig)
+    ax.set_facecolor('none')
     ax.axis('off')
-    _gradient_bg(fig)
 
-    slab = args.height * unit * 0.18
-    draw_base_slab(ax, prov_geom, iso, height=slab)
+    slab = args.height * unit * 0.20
+    draw_base_slab(ax, prov_geom, iso, height=slab, style=args.style)
 
     drawn = []
     for i in order:
         drawn += draw_county(ax, counties.geometry.iloc[i], float(heights.iloc[i]),
-                             iso, tone=0.10 * ((i % 3) - 1))
+                             iso, tone=0.10 * ((i % 3) - 1), style=args.style)
     for i in order:
         draw_rim(ax, counties.geometry.iloc[i], float(heights.iloc[i]), iso,
-                 args_slab=slab)
+                 args_slab=slab, style=args.style)
 
-    _fit(ax, drawn, args.margin)
-    _labels(ax, counties, heights, iso, fonts, args, unit)
-    _title(fig, province, fonts, args, len(counties))
-    _footer(fig, fonts, args)
+    _fit(ax, drawn, args.margin, equal=args.style == 'cyber')
+    if args.style == 'cyber':
+        fig.canvas.draw()
+        labelled = cyber_callouts(fig, ax, counties, heights, iso, fonts, args)
+        cyber_hud(fig, province, args, labelled or len(counties))
+        cyber_footer(fig, args)
+    else:
+        _labels(ax, counties, heights, iso, fonts, args, unit)
+        _title(fig, province, fonts, args, len(counties))
+        _footer(fig, fonts, args)
 
     out_dir.mkdir(parents=True, exist_ok=True)
     path = out_dir / ('%s%s.png' % (args.prefix, province['slug']))
@@ -524,7 +617,26 @@ def render(province, counties, out_dir, args, fonts, prov_geom):
     return path
 
 
-def _fit(ax, polygons, margin=0.06):
+def cyber_footer(fig, args):
+    """خط‌کش پایین صفحه، منبع داده و شناسهٔ نسخه."""
+    from matplotlib.lines import Line2D
+    fig.add_artist(Line2D([0.012, 0.688], [0.038, 0.038], color=CY_CYAN, lw=0.7,
+                          alpha=0.6, zorder=20))
+    for i in range(21):                       # خط‌کش فنی زیر نقشه
+        x = 0.012 + i * 0.0338
+        long_tick = (i % 5 == 0)
+        fig.add_artist(Line2D([x, x], [0.038, 0.038 + (0.013 if long_tick else 0.007)],
+                              color=CY_GOLD if long_tick else CY_GRID_HOT,
+                              lw=0.7, alpha=0.8, zorder=20))
+    fig.text(0.012, 0.020, args.attribution, ha='left', va='center',
+             color=CY_TEXT_DIM, fontsize=7.5, fontproperties=_mono(None, 7.5),
+             zorder=20)
+    fig.text(0.688, 0.020, 'RENDERED BY tools/maps/make_province_3d.py  ·  v2',
+             ha='right', va='center', color=CY_TEXT_DIM, fontsize=7.5,
+             fontproperties=_mono(None, 7.5), zorder=20)
+
+
+def _fit(ax, polygons, margin=0.06, equal=False):
     """کادر نقشه را روی شکل رسم‌شده می‌نشاند تا حاشیهٔ یکنواخت بماند."""
     if not polygons:
         return
@@ -532,10 +644,14 @@ def _fit(ax, polygons, margin=0.06):
     ys = [p[1] for poly in polygons for p in poly]
     dx, dy = max(xs) - min(xs), max(ys) - min(ys)
     pad_x = dx * margin
-    pad_top = dy * margin * 2.6          # بالا جای عنوان
-    pad_bottom = dy * margin * 1.1
+    pad_top = dy * margin * (0.35 if equal else 2.6)      # بالا جای عنوان
+    pad_bottom = dy * margin * (0.35 if equal else 1.1)
     ax.set_xlim(min(xs) - pad_x, max(xs) + pad_x)
     ax.set_ylim(min(ys) - pad_bottom, max(ys) + pad_top)
+    if equal:
+        # تصویر ایزومتری نباید کشیده شود؛ کادر محور با نسبت درست تنظیم می‌شود.
+        ax.set_aspect('equal', adjustable='box')
+        ax.set_anchor('C')
 
 
 def _gradient_bg(fig):
@@ -547,13 +663,161 @@ def _gradient_bg(fig):
     fig.figimage(np.repeat(img, 8, axis=1), xo=0, yo=0, origin='lower', zorder=-10)
 
 
+# ------------------------------------------------------------- سبک سایبری --
+def cyber_bg(fig, cell=0.021):
+    """پس‌زمینهٔ سرمه‌ای با شبکهٔ فنی و خطوط ریز اسکن."""
+    import matplotlib.pyplot as plt
+    bg = fig.add_axes([0, 0, 1, 1], zorder=0)
+    bg.set_xlim(0, 1)
+    bg.set_ylim(0, 1)
+    bg.set_axis_off()
+    grad = np.linspace(0, 1, 256).reshape(-1, 1)
+    rgb_top = np.array(matplotlib_colors_to_rgb(CY_BG_TOP))
+    rgb_bot = np.array(matplotlib_colors_to_rgb(CY_BG_BOT))
+    img = (rgb_top * (1 - grad) + rgb_bot * grad).reshape(256, 1, 3)
+    bg.imshow(img, extent=(0, 1, 0, 1), aspect='auto', origin='upper',
+              interpolation='bilinear', zorder=0)
+    for x in np.arange(0, 1 + cell, cell):
+        bg.axvline(x, color=CY_GRID, lw=0.5, zorder=1)
+    for y in np.arange(0, 1 + cell, cell):
+        bg.axhline(y, color=CY_GRID, lw=0.5, zorder=1)
+    for x in np.arange(0, 1 + cell * 5, cell * 5):
+        bg.axvline(x, color=CY_GRID_HOT, lw=0.8, alpha=0.8, zorder=2)
+    for y in np.arange(0, 1 + cell * 5, cell * 5):
+        bg.axhline(y, color=CY_GRID_HOT, lw=0.8, alpha=0.8, zorder=2)
+    for y in np.arange(0, 1, 0.006):          # خطوط اسکن
+        bg.axhline(y, color='#0b2138', lw=0.3, alpha=0.35, zorder=3)
+    plt.setp(bg, frame_on=False)
+    return bg
+
+
+def matplotlib_colors_to_rgb(value):
+    from matplotlib.colors import to_rgb
+    return to_rgb(value)
+
+
+def _mono(fonts, size, bold=False):
+    """قلم تکنولوژیک تک‌عرض؛ اگر در دسترس نبود به قلم پیش‌فرض می‌افتد."""
+    if fonts is not None and fonts.ready():
+        return fonts.props(size, 'bold' if bold else 'regular')
+    from matplotlib.font_manager import FontProperties
+    return FontProperties(family=CY_MONO, size=size,
+                          weight='bold' if bold else 'normal')
+
+
+def cyber_hud(fig, province, args, n_counties):
+    """قاب و نوشته‌های تکنولوژیک بالای نقشه."""
+    from matplotlib.lines import Line2D
+    title = ('%s PROVINCE' % province['en']).upper()
+    fig.text(0.014, 0.962, 'IRAN // %s' % title, ha='left', va='top',
+             color=CY_TEXT, fontsize=15, fontproperties=_mono(None, 15, True),
+             zorder=20)
+    fig.text(0.014, 0.912, 'COUNTY TOPOLOGY  ·  ISO 3166-2: IR-%s' % _iso_code(province),
+             ha='left', va='top', color=CY_TEXT_DIM, fontsize=8.5,
+             fontproperties=_mono(None, 8.5), zorder=20)
+    fig.text(0.688, 0.962, 'NODES %02d' % n_counties, ha='right', va='top',
+             color=CY_GOLD, fontsize=11, fontproperties=_mono(None, 11, True),
+             zorder=20)
+    fig.text(0.688, 0.912, 'DEPTH  EXTRUDED  ·  GOLD EDGES', ha='right', va='top',
+             color=CY_TEXT_DIM, fontsize=8.5, fontproperties=_mono(None, 8.5),
+             zorder=20)
+    # خط زیر عنوان و گوشه‌های تزئینی
+    fig.add_artist(Line2D([0.012, 0.688], [0.898, 0.898], color=CY_GOLD,
+                          lw=1.0, alpha=0.75, zorder=20))
+    for x, dx, y, dy in ((0.012, 0.016, 0.975, 0.0), (0.688, -0.016, 0.975, 0.0)):
+        fig.add_artist(Line2D([x, x + dx], [y, y], color=CY_CYAN, lw=1.4, zorder=20))
+    fig.text(0.702, 0.962, 'COUNTIES', ha='left', va='top', color=CY_CYAN,
+             fontsize=11, fontproperties=_mono(None, 11, True), zorder=20)
+
+
+def _iso_code(province):
+    """کد دو حرفی استان از روی نام انگلیسی، فقط برای نمایش."""
+    table = {
+        'alborz': 'AL', 'ardabil': 'AR', 'bushehr': 'BS', 'chaharmahal-bakhtiari': 'CB',
+        'east-azerbaijan': 'EA', 'fars': 'FA', 'gilan': 'GI', 'golestan': 'GO',
+        'hamadan': 'HD', 'hormozgan': 'HR', 'ilam': 'IL', 'isfahan': 'ES',
+        'kerman': 'KM', 'kermanshah': 'KS', 'khuzestan': 'KH',
+        'kohgiluyeh-boyer-ahmad': 'KB', 'kurdistan': 'KD', 'lorestan': 'LO',
+        'markazi': 'MK', 'mazandaran': 'MZ', 'north-khorasan': 'NK', 'qazvin': 'QZ',
+        'qom': 'QM', 'razavi-khorasan': 'RK', 'semnan': 'SM',
+        'sistan-baluchestan': 'SB', 'south-khorasan': 'SK', 'tehran': 'TH',
+        'west-azerbaijan': 'WA', 'yazd': 'YZ', 'zanjan': 'ZJ',
+    }
+    return table.get(province['slug'], '--')
+
+
+def cyber_callouts(fig, ax, counties, heights, iso, fonts, args):
+    """نقطه در مرکز هر شهرستان + خط منظم تا ستون راست + فهرست نام‌ها.
+
+    سرِ خط (مرکز شهرستان) و تهِ خط (ابتدای فهرست) با یک رنگ رسم می‌شوند.
+    فهرست از بالا به پایین بر اساس جای عمودی نقطه‌ها مرتب می‌شود تا خطوط
+    یکدیگر را قطع نکنند.
+    """
+    from matplotlib.lines import Line2D
+    if args.no_labels:
+        return 0
+    rows = counties if len(counties) <= MAX_LABEL_ROWS else \
+        counties.nlargest(MAX_LABEL_ROWS, 'area_m2')
+    inv = fig.transFigure.inverted()
+    items = []
+    for i, (label, row) in enumerate(rows.iterrows()):
+        point = row.geometry.representative_point()
+        sx, sy = iso.project(point.x, point.y, float(heights.loc[label]))
+        fx, fy = inv.transform(ax.transData.transform((sx, sy)))
+        items.append({'y': fy, 'x': fx, 'text': county_label(row, args.label_lang),
+                      'color': CY_CALL[i % len(CY_CALL)]})
+    items = [it for it in items if it['text']]
+    items.sort(key=lambda it: -it['y'])
+    n = len(items)
+    if not n:
+        return 0
+    top, bottom = 0.875, 0.055
+    rows_y = np.linspace(top, bottom, n)
+    text_x = 0.736
+    row_h = (top - bottom) / n
+    size = max(4.6, min(9.5, row_h * fig.get_figheight() * 72 * 0.52))
+    tick = min(row_h * 0.30, 0.008)            # فاصله‌ها ثابت‌اند تا هم‌تراز بمانند
+    num_gap, name_gap = 0.010, 0.024
+    elbow = max(0.700, min(0.717, max(it['x'] for it in items) + 0.010))
+    for rank, (it, ty) in enumerate(zip(items, rows_y), 1):
+        color = it['color']
+        # بخش روی نقشه خط‌چین و کم‌رنگ است تا شلوغ نشود؛ از آرنج به بعد توپر.
+        fig.add_artist(Line2D([it['x'], elbow], [it['y'], it['y']], color=color,
+                              lw=0.7, alpha=0.45, linestyle=(0, (2.2, 2.4)),
+                              zorder=17))
+        fig.add_artist(Line2D([elbow, elbow, text_x], [it['y'], ty, ty],
+                              color=color, lw=0.9, alpha=0.9,
+                              solid_joinstyle='miter', zorder=18))
+        for px, py in ((it['x'], it['y']), (text_x, ty)):
+            fig.add_artist(Line2D([px, px], [py - tick, py + tick],
+                                  color=color, lw=0.7, alpha=0.45, zorder=18))
+            fig.add_artist(Line2D([px], [py], marker='o', markersize=4.4,
+                                  color=color, markeredgecolor=CY_BG_TOP,
+                                  markeredgewidth=0.7, zorder=19))
+        fig.text(text_x + num_gap, ty, '%02d' % rank, ha='left', va='center',
+                 color=CY_GOLD, fontsize=size * 0.85,
+                 fontproperties=_mono(fonts, size * 0.85), zorder=19)
+        fig.text(text_x + name_gap, ty, it['text'], ha='left',
+                 va='center', color=CY_TEXT, fontsize=size,
+                 fontproperties=_mono(fonts, size), zorder=19)
+    fig.add_artist(Line2D([text_x - num_gap * 0.55, text_x - num_gap * 0.55],
+                          [bottom - 0.010, top + 0.012], color=CY_CYAN, lw=0.7,
+                          alpha=0.5, zorder=17))
+    return n
+
+
 _COUNTY_SUFFIX = re.compile(r'\s+(county|province|shahrestan)\.?$', re.I)
+# سه شهرستان در OSM تگ name:en ندارند؛ نام رومنی استانداردشان دستی گذاشته می‌شود
+# تا هیچ شهرستانی در نقشه بی‌برچسب نماند.
+FALLBACK_EN = {'گنبکی': 'Gonbaki', 'جازموریان': 'Jazmurian', 'مروست': 'Marvast'}
 
 
 def county_label(row, lang):
     """نام شهرستان برای نمایش؛ در انگلیسی پسوند «County» حذف می‌شود تا جای برچسب باز شود."""
     if lang == 'en':
-        return _COUNTY_SUFFIX.sub('', str(row.get('name_en') or '').strip())
+        name = str(row.get('name_en') or '').strip() or \
+            FALLBACK_EN.get(str(row.get('name_fa') or '').strip(), '')
+        return _COUNTY_SUFFIX.sub('', name)
     return row.get('name_fa') or ''
 
 
@@ -606,14 +870,18 @@ def build_parser():
     p.add_argument('--only', default='', help='فقط این نامک‌ها، جدا شده با ویرگول')
     p.add_argument('--out', default=str(REPO / 'outputs' / 'province-3d'))
     p.add_argument('--prefix', default='iran-')
-    p.add_argument('--size', type=float, nargs=2, default=FIG_SIZE, metavar=('W', 'H'))
+    p.add_argument('--size', type=float, nargs=2, default=None, metavar=('W', 'H'),
+                   help='اندازهٔ بوم؛ پیش‌فرض سبک سایبری ۱۶×۸ (نسبت دو در یک)')
     p.add_argument('--dpi', type=int, default=DPI)
     p.add_argument('--azimuth', type=float, default=38.0)
-    p.add_argument('--elevation', type=float, default=34.0)
-    p.add_argument('--height', type=float, default=0.11,
+    p.add_argument('--elevation', type=float, default=38.0)
+    p.add_argument('--height', type=float, default=0.075,
                    help='ارتفاع ستون بزرگ‌ترین شهرستان، نسبت به بزرگی استان')
     p.add_argument('--height-power', type=float, default=0.5,
                    help='توان ارتفاع: ۰ یکنواخت، ۰٫۵ متناسب با مساحت')
+    p.add_argument('--style', choices=('cyber', 'classic'), default='cyber',
+                   help='cyber: چیدمان سایبری با ستون فهرست (پیش‌فرض)؛ '
+                        'classic: نقشهٔ قبلی بدون فهرست')
     p.add_argument('--label-size', type=float, default=9.5)
     p.add_argument('--margin', type=float, default=0.06)
     p.add_argument('--min-label', type=float, default=0.004,
@@ -641,6 +909,8 @@ def main(argv=None):
     if args.attribution is None:
         args.attribution = '%s · %s' % (PROVINCE_SOURCE['attribution'],
                                          PROVINCE_SOURCE['data_licence'])
+    if args.size is None:
+        args.size = CY_FIG_SIZE if args.style == 'cyber' else FIG_SIZE
 
     provinces = load_provinces()
     if args.only:

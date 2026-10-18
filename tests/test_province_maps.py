@@ -158,3 +158,33 @@ def test_label_lang_default_is_english_and_accepts_persian():
     assert m3d.build_parser().parse_args(['--label-lang', 'fa']).label_lang == 'fa'
     with pytest.raises(SystemExit):
         m3d.build_parser().parse_args(['--label-lang', 'de'])
+
+
+def test_english_label_falls_back_when_osm_has_no_english_name():
+    # سه شهرستان در OSM تگ name:en ندارند؛ نباید بی‌برچسب بمانند.
+    assert m3d.county_label({'name_en': '', 'name_fa': 'گنبکی'}, 'en') == 'Gonbaki'
+    assert m3d.county_label({'name_en': '', 'name_fa': 'مروست'}, 'en') == 'Marvast'
+    assert m3d.county_label({'name_en': 'Baft County', 'name_fa': 'بافت'}, 'en') == 'Baft'
+
+
+def test_cyber_defaults_are_two_to_one():
+    # بوم پیش‌فرض سبک سایبری باید دقیقاً نسبت دو در یین باشد.
+    width, height = m3d.CY_FIG_SIZE
+    assert width / height == 2
+    assert m3d.build_parser().parse_args([]).style == 'cyber'
+
+
+def test_gold_hatch_is_clipped_inside_the_wall():
+    # دیواره یک چهارضلعی با بالابری عمودی است؛ هاشور باید داخل همان چهارضلعی بماند.
+    wall = [(0.0, 0.0), (10.0, 0.0)]
+    lift = (0.0, 4.0)
+    segs = m3d.hatch_wall(wall[0], wall[1], lift)
+    assert segs, 'هاشور باید حداقل یک خط بدهد'
+    for a, b in segs:
+        for point in (a, b):
+            assert 0.0 <= point[0] <= 10.0
+            assert 0.0 <= point[1] <= 4.0
+
+
+def test_hatch_returns_nothing_for_a_flat_wall():
+    assert m3d.hatch_wall((0.0, 0.0), (5.0, 0.0), (0.0, 0.0)) == []
