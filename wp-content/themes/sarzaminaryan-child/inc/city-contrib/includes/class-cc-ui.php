@@ -56,7 +56,7 @@ class CC_UI {
   $top=CC_Rating::top((int)$limit);
   echo '<section class="sa-topcities" id="sa-topcities" aria-label="هفت اقلیم برتر سرزمین آریان"><div class="sa-wrap">';
   echo '<div class="cc-topbox">';
-  echo '<div class="cc-topbox__head"><img class="cc-topbox__logo" src="'.esc_url(CC_URL.'assets/img/logo.webp').'" alt="سرزمین آریایی ها" loading="lazy"><div class="cc-topbox__intro"><h2 class="cc-topbox__title">۷ اقلیم برتر سرزمین آریان</h2><p class="cc-topbox__desc">هفت شهر برتر ایران از نگاه مخاطبان وب‌سایت <b>سرزمین آریایی ها</b><span>مجموع ستاره‌های ۱ تا ۷ خوانندگان، بدون نیاز به ثبت‌نام</span></p></div></div>';
+  echo '<div class="cc-topbox__head"><div class="cc-topbox__intro"><h2 class="cc-topbox__title">۷ اقلیم برتر سرزمین آریان</h2><p class="cc-topbox__desc">هفت شهر برتر ایران از نگاه مخاطبان وب‌سایت <b>سرزمین آریایی ها</b><span>مجموع ستاره‌های ۱ تا ۷ خوانندگان، بدون نیاز به ثبت‌نام</span></p></div></div>';
   if(empty($top)){echo '<p class="sa-topcities__empty">هنوز رأیی ثبت نشده است — نخستین نفر باشید! در صفحهٔ هر شهر ستارهٔ خود (۱ تا ۷) را انتخاب و ثبت کنید تا جدول اقلیم‌های برتر همین‌جا ساخته شود.</p>';}
   else{
    echo '<table class="cc-toptable"><thead><tr><th>رتبه</th><th>شهر</th><th>استان</th><th>امتیاز</th></tr></thead><tbody>';

@@ -51,15 +51,10 @@ function sa_customize_register( $wp_customize ) {
 
 	// Home / hero.
 	$wp_customize->add_section( 'sa_home', array( 'title' => 'صفحه‌ی اول', 'panel' => 'sa_panel' ) );
-	$add( 'sa_home', 'sa_hero_title', 'عنوان بزرگ هیرو', 'text', 'ایران را استان به استان بشناسید' );
-	$add( 'sa_home', 'sa_hero_subtitle', 'زیرعنوان هیرو', 'textarea', '۳۱ استان، صدها شهر و دیدنی‌های طبیعت ایران — با اطلاعات دقیق و به‌روز.' );
-	$add( 'sa_home', 'sa_hero_image', 'تصویر پس‌زمینه‌ی هیرو (اختیاری)', 'image' );
 	$add( 'sa_home', 'sa_home_description', 'توضیحات متای صفحه‌ی اول (۷۰ تا ۱۵۵ کاراکتر)', 'textarea', 'راهنمای کامل سفر به ایران: استان‌ها، شهرها و دیدنی‌های طبیعت ایران با اطلاعات دقیق و به‌روز.' );
-	$add( 'sa_home', 'sa_show_stats', 'نمایش آمار (تعداد استان/شهر/دیدنی…) ', 'checkbox', true );
-	$add( 'sa_home', 'sa_home_sections', 'بخش‌های صفحه‌ی اول (به ترتیب، با ویرگول)', 'text', 'provinces,attractions,routes,foods,souvenirs,posts', array( 'description' => 'گزینه‌ها: provinces, cities, attractions, routes, foods, souvenirs, posts' ) );
 
 	// صفحه اصلی (طرح v2) — قالب برگه «صفحه اصلی سرزمین آریان (طرح v2)».
-	$wp_customize->add_section( 'sa_home_v2', array( 'title' => 'صفحه اصلی (طرح v2)', 'panel' => 'sa_panel', 'description' => 'تنظیمات دستی صفحه‌ی خانه (برگه‌ی «خانه» با قالب «صفحه اصلی سرزمین آریان (طرح v2)»). لوگو از بخش «هویت سایت → لوگو» قابل تغییر است؛ اگر لوگویی انتخاب نشود لوگوی اصلی سایت استفاده می‌شود.' ) );
+	$wp_customize->add_section( 'sa_home_v2', array( 'title' => 'صفحه اصلی (طرح v2)', 'panel' => 'sa_panel', 'description' => 'تنظیمات دستی صفحه‌ی خانه (برگه‌ی «خانه» با قالب «صفحه اصلی سرزمین آریان (طرح v2)»). لوگوی هویت سایت فقط در هدر و فوتر نمایش داده می‌شود؛ هیروی صفحهٔ اول لوگوی جداگانه ندارد.' ) );
 	$add( 'sa_home_v2', 'sa_home_slogan', 'شعار سایت (حماسی — زیر نام سایت، هدر و فوتر)', 'text', 'چو ایران نباشد، تن من مباد' );
 	$add( 'sa_home_v2', 'sa_hero_text', 'متن معرفی زیر شعار', 'textarea', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و دیدنی‌ها طبیعت ایران.' );
 	$add( 'sa_home_v2', 'sa_search_placeholder', 'متن جایگزین جعبه‌ی جست‌وجو', 'text', 'استان، شهر یا دیدنی…' );
@@ -71,15 +66,11 @@ function sa_customize_register( $wp_customize ) {
 	$add( 'sa_home_v2', 'sa_sec_prov_title', 'عنوان برگهٔ استان‌ها (/province/؛ از ۲٫۱۳٫۳ نوارهای استان از صفحهٔ اول به آن‌جا رفته‌اند)', 'text', 'استان‌های ایران' );
 	$add( 'sa_home_v2', 'sa_sec_city_title', 'عنوان برگهٔ شهرستان‌ها (/city/)', 'text', 'شهرستان‌های ایران' );
 	$add( 'sa_home_v2', 'sa_stat3_label', 'آمار ۳ — برچسب آموزش‌ها (عدد خودکار = آموزش‌های منتشرشده)', 'text', 'آموزش' );
-	$add( 'sa_home_v2', 'sa_sec_edu_title', 'عنوان بخش آموزش‌ها (خالی = نام دسته)', 'text', '' );
-	$add( 'sa_home_v2', 'sa_sec_edu_intro', 'متن کوتاه زیر عنوان بخش آموزش‌ها', 'textarea', 'پیش از سفر به طبیعت بخوانید: تجهیزات، آتش، آب آشامیدنی، کاردستی‌های اضطراری و نجات غریق — گام‌به‌گام، با منابع رسمی و هشدارهای ایمنی.' );
-	$add( 'sa_home_v2', 'sa_sec_latest_title', 'عنوان بخش آخرین مقالات', 'text', 'آخرین مقالات' );
 
 	// آموزش‌ها (v2.13.1) — دستهٔ هاب که کنار استان‌ها/شهرستان‌ها/دیدنی‌ها در منو، صفحهٔ اول و پابرگ می‌نشیند.
 	$wp_customize->add_section( 'sa_education', array( 'title' => 'آموزش‌ها (کمپینگ و بقا)', 'panel' => 'sa_panel', 'description' => 'لینک «آموزش‌ها» در منوی اصلی، چیپ‌های صفحهٔ اول، آمار و پابرگ به‌طور خودکار پس از انتشار نخستین آموزش (تیک «تأیید مالک» در ابزار «مقالات آماده») ظاهر می‌شود؛ تا آن زمان به آرشیو خالی لینک داده نمی‌شود.' ) );
 	$add( 'sa_education', 'sa_education_category', 'نامک دستهٔ آموزش‌ها', 'text', 'camping-survival', array( 'description' => 'پیش‌فرض: camping-survival («آموزش‌های ضروری کمپینگ و بقا»).' ) );
 	$add( 'sa_education', 'sa_education_nav_label', 'برچسب لینک در منو، چیپ‌ها و پابرگ', 'text', 'آموزش‌ها' );
-	$add( 'sa_home_v2', 'sa_sec_edu_count', 'تعداد نوارهای آموزش‌ها در صفحهٔ اول (۰ = همه)', 'text', '10' );
 
 	// Footer.
 	$wp_customize->add_section( 'sa_footer', array( 'title' => 'پابرگ', 'panel' => 'sa_panel' ) );
