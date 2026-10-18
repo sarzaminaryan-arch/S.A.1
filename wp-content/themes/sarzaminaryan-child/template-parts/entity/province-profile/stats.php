@@ -43,13 +43,13 @@ $sa_metrics = array(
 	),
 );
 ?>
-<section class="sa-province-profile__module sa-province-profile__module--stats" aria-label="<?php esc_attr_e( 'اطلاعات کلی استان', 'sarzaminaryan-child' ); ?>">
+<section class="profile-box sa-province-profile__module sa-province-profile__module--stats" aria-label="<?php esc_attr_e( 'اطلاعات کلی استان', 'sarzaminaryan-child' ); ?>">
 	<dl class="sa-province-profile__metrics">
 		<?php foreach ( $sa_metrics as $sa_metric ) : ?>
 			<?php if ( '' === $sa_metric['value'] ) : ?>
 				<?php continue; ?>
 			<?php endif; ?>
-			<div class="sa-province-profile__metric sa-province-profile__metric--<?php echo esc_attr( $sa_metric['class'] ); ?>">
+			<div class="profile-box sa-province-profile__metric sa-province-profile__metric--<?php echo esc_attr( $sa_metric['class'] ); ?>">
 				<dt><?php echo esc_html( $sa_metric['label'] ); ?></dt>
 				<dd>
 					<strong><?php echo esc_html( $sa_metric['value'] ); ?></strong>

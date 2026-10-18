@@ -1226,3 +1226,87 @@ function sa_strip_duplicate_body_identity( $content ) {
 }
 add_filter( 'the_content', 'sa_strip_duplicate_body_identity', 8 );
 
+/**
+ * Keep standalone article tables from widening the mobile document.
+ *
+ * The theme gives entity-content tables a 520px minimum width. Gutenberg table
+ * blocks already have an overflow-scrolling <figure>, but bundled/legacy article
+ * HTML often emits a bare <table>; those tables widen the RTL page and are then
+ * clipped by the document's overflow guard. Wrap only tables that do not already
+ * sit inside a known table scroller. The table itself remains intact and scrolls
+ * inside its own bounded region on narrow screens.
+ *
+ * @param string $content Main-query post content.
+ * @return string
+ */
+function sa_wrap_uncontained_content_tables( $content ) {
+	if (
+		is_admin()
+		|| is_feed()
+		|| ( defined( 'REST_REQUEST' ) && REST_REQUEST )
+		|| ! is_singular()
+		|| ! in_the_loop()
+		|| ! is_main_query()
+		|| false === stripos( (string) $content, '<table' )
+	) {
+		return $content;
+	}
+
+	$parts = preg_split(
+		'~(<(?:div|figure)\b[^>]*>|</(?:div|figure)\s*>|<table\b[^>]*>.*?</table\s*>)~is',
+		(string) $content,
+		-1,
+		PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY
+	);
+	if ( ! is_array( $parts ) ) {
+		return $content;
+	}
+
+	$stack = array();
+	$output = '';
+	foreach ( $parts as $part ) {
+		if ( preg_match( '~^<(div|figure)\b([^>]*)>\s*$~is', $part, $tag_match ) ) {
+			$class = '';
+			if ( preg_match( '~\bclass\s*=\s*(["\'])(.*?)\1~is', $tag_match[2], $class_match ) ) {
+				$class = $class_match[2];
+			}
+			$stack[] = array(
+				'tag'   => strtolower( $tag_match[1] ),
+				'class' => $class,
+			);
+			$output .= $part;
+			continue;
+		}
+
+		if ( preg_match( '~^</(div|figure)\s*>$~is', $part, $tag_match ) ) {
+			$closing_tag = strtolower( $tag_match[1] );
+			for ( $i = count( $stack ) - 1; $i >= 0; --$i ) {
+				if ( $closing_tag === $stack[ $i ]['tag'] ) {
+					array_splice( $stack, $i, 1 );
+					break;
+				}
+			}
+			$output .= $part;
+			continue;
+		}
+
+		if ( preg_match( '~^<table\b~i', $part ) ) {
+			$has_scroller = false;
+			foreach ( $stack as $ancestor ) {
+				if ( preg_match( '~(?:^|\s)(?:wp-block-table|sa-table-scroll|sa-table-wrap|table-responsive)(?:\s|$)~i', $ancestor['class'] ) ) {
+					$has_scroller = true;
+					break;
+				}
+			}
+			if ( ! $has_scroller ) {
+				$part = '<div class="sa-table-scroll" role="region" aria-label="جدول با پیمایش افقی" tabindex="0">' . $part . '</div>';
+			}
+		}
+
+		$output .= $part;
+	}
+
+	return $output;
+}
+add_filter( 'the_content', 'sa_wrap_uncontained_content_tables', 15 );
+

@@ -208,7 +208,7 @@ add_action( 'set_object_terms', 'sa_education_flush_cache' );
 add_action( 'deleted_post', 'sa_education_flush_cache' );
 
 /**
- * Latest published guides for the home page.
+ * Latest published guides used as a fallback by the education bar renderer.
  *
  * @param int $limit How many.
  * @return WP_Query|null
@@ -313,30 +313,11 @@ function sa_education_menu_item( $items, $args ) {
 add_filter( 'wp_nav_menu_objects', 'sa_education_menu_item', 20, 2 );
 
 /**
- * v2.15.0 — شمار آموزش‌های بخش صفحهٔ اول (۰ = همهٔ آموزش‌ها).
- *
- * پیش‌فرض ۱۰ است؛ با فیلتر `sa_education_home_count` یا از سفارشی‌ساز
- * («سرزمین آریان → صفحه اصلی (طرح v2) → تعداد آموزش‌های صفحهٔ اول») عوض می‌شود.
- *
- * @return int
- */
-function sa_education_home_count() {
-	$count = (int) get_theme_mod( 'sa_sec_edu_count', 10 );
-	/**
-	 * شمار کارت/نوار آموزش در صفحهٔ اول.
-	 *
-	 * @param int $count شمار (۰ = همه).
-	 */
-	$count = (int) apply_filters( 'sa_education_home_count', $count );
-	return max( 0, $count );
-}
-
-/**
  * v2.15.0 — نوارهای «آموزش‌ها» به سبک فهرست استان‌ها/شهرستان‌ها.
  *
  * همان طراحی محبوب مالک: کادرهای کوچک سفید با سایهٔ عمیق رنگی، تیتر روی خود
  * کادر و برچسب دومِ کوچک (شاخهٔ آموزش = نخستین برچسب نوشته). بدون تصویر
- * زمینه. روی صفحهٔ اول و روی آرشیو دستهٔ آموزش‌ها (و برچسب‌هایش) استفاده می‌شود.
+ * زمینه. روی آرشیو دستهٔ آموزش‌ها (و برچسب‌هایش) استفاده می‌شود.
  *
  * @param WP_Post[]|null $posts نوشته‌ها (خالی = تازه‌ترین آموزش‌ها).
  * @param int            $limit سقف نوارها (۰ = بی‌سقف).

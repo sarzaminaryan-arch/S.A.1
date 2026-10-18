@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $sa_entries = isset( $args['county_entries'] ) && is_array( $args['county_entries'] ) ? $args['county_entries'] : array();
 $sa_count   = count( $sa_entries );
 ?>
-<section class="sa-province-profile__module sa-province-profile__module--counties" aria-labelledby="sa-province-profile-counties-title">
+<section class="profile-box sa-province-profile__module sa-province-profile__module--counties" aria-labelledby="sa-province-profile-counties-title">
 	<div class="sa-province-profile__module-heading">
 		<div>
 			<p class="sa-province-profile__section-kicker" lang="en" dir="ltr">COUNTY LIST</p>
@@ -22,7 +22,7 @@ $sa_count   = count( $sa_entries );
 	</div>
 
 	<?php if ( $sa_entries ) : ?>
-		<details class="sa-province-profile__county-details" open>
+		<details class="profile-box sa-province-profile__county-details" open>
 			<summary><?php esc_html_e( 'نمایش فهرست شهرستان‌ها', 'sarzaminaryan-child' ); ?></summary>
 			<nav aria-label="<?php esc_attr_e( 'فهرست دوزبانهٔ شهرستان‌های استان', 'sarzaminaryan-child' ); ?>">
 				<ul class="sa-province-profile__county-list">
@@ -37,7 +37,7 @@ $sa_count   = count( $sa_entries );
 						?>
 						<li>
 							<?php if ( $sa_url ) : ?>
-								<a class="sa-province-profile__county-label" href="<?php echo esc_url( $sa_url ); ?>">
+								<a class="profile-link sa-province-profile__county-label" href="<?php echo esc_url( $sa_url ); ?>">
 							<?php else : ?>
 								<span class="sa-province-profile__county-label sa-province-profile__county-label--plain">
 							<?php endif; ?>
