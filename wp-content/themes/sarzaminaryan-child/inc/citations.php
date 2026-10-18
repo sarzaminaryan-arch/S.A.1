@@ -184,6 +184,9 @@ function sa_citations_filter( $content ) {
 			if ( ! sa_citation_is_external( $url ) ) {
 				return $m[0];
 			}
+			if ( function_exists( 'sa_is_forbidden_source_url' ) && sa_is_forbidden_source_url( $url ) ) {
+				return '';
+			}
 			return $marker( $register( $url ) );
 		},
 		$content
@@ -196,6 +199,9 @@ function sa_citations_filter( $content ) {
 			$url = html_entity_decode( $m[2], ENT_QUOTES, 'UTF-8' );
 			if ( ! sa_citation_is_external( $url ) ) {
 				return $m[0];
+			}
+			if ( function_exists( 'sa_is_forbidden_source_url' ) && sa_is_forbidden_source_url( $url ) ) {
+				return $m[3];
 			}
 			return $m[3] . $marker( $register( $url ) );
 		},
@@ -296,3 +302,35 @@ function sa_single_h1_filter( $content ) {
 	return ( is_string( $out ) && '' !== $out ) ? $out : $content;
 }
 add_filter( 'the_content', 'sa_single_h1_filter', 11 );
+
+/**
+ * حذف بخش تکراری «سوالات متداول» از داخل بدنهٔ مقاله زمانی که بخش ساختاریافتهٔ FAQ
+ * (`sa_faq` در `template-parts/entity/faq.php`) برای همان نوشته فعال است.
+ *
+ * @param string $content محتوا.
+ * @return string
+ */
+function sa_strip_duplicate_inline_faq_filter( $content ) {
+	$content = (string) $content;
+	if ( is_admin() || is_feed() || ! is_singular() ) {
+		return $content;
+	}
+	if ( false === strpos( $content, 'سوالات متداول' ) && false === strpos( $content, 'پرسش‌های متداول' ) ) {
+		return $content;
+	}
+	$post_id = function_exists( 'get_the_ID' ) ? (int) get_the_ID() : 0;
+	if ( $post_id <= 0 || ! function_exists( 'sa_get_faq' ) ) {
+		return $content;
+	}
+	$faq = sa_get_faq( $post_id );
+	if ( empty( $faq ) ) {
+		return $content;
+	}
+	$cleaned = preg_replace(
+		'#<h2\b[^>]*>\s*(?:سوالات|سؤالات|پرسش‌های)\s+متداول[^<]*</h2>.*?(?=<h2\b|<aside\b|<section\b[^>]*class=["\'][^"\']*sa-(?:footnotes|sources)|\z)#isu',
+		'',
+		$content
+	);
+	return is_string( $cleaned ) ? $cleaned : $content;
+}
+add_filter( 'the_content', 'sa_strip_duplicate_inline_faq_filter', 9 );

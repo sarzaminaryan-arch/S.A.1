@@ -423,6 +423,9 @@ if ( function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_p
 		foreach ( sa_county_lines( get_post_meta( $sa_id, $sa_pkey, true ) ) as $sa_pline ) {
 			$sa_pitem = sa_county_parse_poi( $sa_pline );
 			if ( ! empty( $sa_pitem['name'] ) ) {
+				if ( 'sa_cty_poi_offbeat' === $sa_pkey && preg_match( '/آبشار\s+بیشه|دریاچه(?:\s+ٔ|ی)?\s+گهر/u', (string) $sa_pitem['name'] ) ) {
+					continue;
+				}
 				$sa_items[] = $sa_pitem;
 			}
 		}
@@ -440,6 +443,12 @@ $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_
 $sa_linked_names = array();
 foreach ( $sa_attractions as $sa_attr_row ) {
 	$sa_linked_names[ $sa_attr_row['name'] ] = true;
+	if ( '' !== $sa_county_bare ) {
+		$sa_short_attr = trim( (string) preg_replace( '/\s+' . preg_quote( $sa_county_bare, '/' ) . '$/u', '', (string) $sa_attr_row['name'] ) );
+		if ( '' !== $sa_short_attr ) {
+			$sa_linked_names[ $sa_short_attr ] = true;
+		}
+	}
 }
 if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 	foreach ( $sa_pois as $sa_ptitle => $sa_plist ) {

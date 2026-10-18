@@ -132,8 +132,10 @@ function sa_seo_description() {
 		}
 	}
 	if ( is_post_type_archive() ) {
-		$obj = get_queried_object();
-		return sprintf( 'فهرست کامل %s ایران در سرزمین آریان، همراه با اطلاعات کلیدی و راهنمای بازدید.', $obj->labels->name );
+		$obj   = get_queried_object();
+		$label = ( $obj && isset( $obj->labels->name ) ) ? trim( (string) $obj->labels->name ) : '';
+		$label = (string) preg_replace( '/ها$/u', 'های', $label );
+		return sprintf( 'فهرست کامل %s ایران در سرزمین آریان، همراه با اطلاعات کلیدی و راهنمای بازدید.', $label );
 	}
 	return '';
 }

@@ -25,8 +25,6 @@ $sa_sources_gahar = implode(
 				'ویزیت ایران، غار چشمه وقت ساعت دورود | https://www.visitiran.ir/fa/attraction/%D8%BA%D8%A7%D8%B1-%DA%86%D8%B4%D9%85%D9%87-%D9%88%D9%82%D8%AA%D9%90-%D8%B3%D8%A7%D8%B9%D8%AA-%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
 				'اداره فرهنگ و ارشاد اسلامی دورود، دریاچه گهر | https://doroud.farhang.gov.ir/fa/tabiat/gahar',
 				'فرمانداری دورود، دریاچه گهر دورود | http://dorood-gov.ir/index.php/2020-11-14-07-44-58/87-2022-01-14-12-59-01',
-				'کجارو، دریاچه گهر | https://www.kojaro.com/attraction/22723-%D8%AF%D8%B1%DB%8C%D8%A7%DA%86%D9%87-%DA%AF%D9%87%D8%B1/',
-				'کارناوال، دریاچه گهر دورود | https://www.karnaval.ir/things-to-do/gahar-lake-dorud',
 				'سازمان حفاظت محیط زیست، منطقه حفاظت‌شده اشترانکوه و دریاچه گهر | https://www.doe.ir/',
 				'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
 			)
@@ -41,8 +39,9 @@ $sa_sources_dorud = implode(
 				'ویزیت ایران، آبشار شوی (تله زنگ) | https://www.visitiran.ir/fa/attraction/%D8%A2%D8%A8%D8%B4%D8%A7%D8%B1-%D8%B4%D9%88%DB%8C-%D8%AA%D9%84%D9%87-%D8%B2%D9%86%DA%AF',
 				'ویزیت ایران، غار چشمه وقت ساعت دورود | https://www.visitiran.ir/fa/attraction/%D8%BA%D8%A7%D8%B1-%DA%86%D8%B4%D9%85%D9%87-%D9%88%D9%82%D8%AA%D9%90-%D8%B3%D8%A7%D8%B9%D8%AA-%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
 				'ویزیت ایران، استان لرستان | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D9%84%D8%B1%D8%B3%D8%AA%D8%A7%D9%86',
-				'کجارو، راهنمای سفر به دورود و آمار جمعیت شهری در سرشماری ۱۳۹۵ | https://www.kojaro.com/dir/dorud-388-ci/',
+				'فرمانداری شهرستان دورود، معرفی جاذبه‌ها و جغرافیای شهرستان | https://dorood-gov.ir/',
 				'مرکز آمار ایران، نتایج سرشماری عمومی نفوس و مسکن ۱۳۹۵ | https://amar.org.ir/population-and-housing-census',
+				'اداره‌کل میراث‌فرهنگی، گردشگری و صنایع‌دستی استان لرستان | https://lorestan.mcth.ir/',
 				'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
 				'سازمان حفاظت محیط زیست | https://www.doe.ir/',
 			)
@@ -53,13 +52,8 @@ $sa_sources_azgen = implode(
 			array(
 				'فرمانداری دورود، تالاب ازگن دورود | https://dorood-gov.ir/index.php/2020-11-14-07-44-58/102-2022-01-19-06-47-48',
 				'خبرگزاری راسا، سفر به تالاب ازگن لرستان | https://rasanews.ir/fa/news/791683/',
-				'شیدرخ تراول، تالاب ازگن | https://www.shidrokh-travel.ir/blog/categories/articles/articleDetail/277',
-				'کجارو، تالاب ازگن | https://www.kojaro.com/attraction/27887-%D8%AA%D8%A7%D9%84%D8%A7%D8%A8-%D8%A7%D8%B2%DA%AF%D9%86/',
-				'ویلاجار، تالاب ازگن دورود | https://www.vilajar.com/Place/952',
-				'راه‌آهن ایران، قطار گردشگری لرستان | https://rah-ahan.ir/%D9%82%D8%B7%D8%A7%D8%B1-%DA%AF%D8%B1%D8%AF%D8%B4%DA%AF%D8%B1%DB%8C-%D9%84%D8%B1%D8%B3%D8%AA%D8%A7%D9%86/',
-				'لحظه آخر، جاهای دیدنی دورود | https://lahzeakhar.com/Blog/Tourist-Attractions/41776-%D8%AC%D8%A7%D9%87%D8%A7%DB%8C-%D8%AF%DB%8C%D8%AF%D9%86%DB%8C-%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
-				'ویکی‌پدیا فارسی، جاذبه‌های گردشگری استان لرستان | https://fa.wikipedia.org/wiki/%D8%AC%D8%A7%D8%B0%D8%A8%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C_%DA%AF%D8%B1%D8%AF%D8%B4%DA%AF%D8%B1%DB%8C_%D8%A7%D8%B3%D8%AA%D8%A7%D9%86_%D9%84%D8%B1%D8%B3%D8%AA%D8%A7%D9%86',
 				'ویزیت ایران، دورود | https://www.visitiran.ir/fa/destination/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
+				'اداره‌کل میراث‌فرهنگی، گردشگری و صنایع‌دستی استان لرستان | https://lorestan.mcth.ir/',
 				'سازمان حفاظت محیط زیست | https://www.doe.ir/',
 			)
 		);
@@ -67,16 +61,12 @@ $sa_sources_azgen = implode(
 $sa_sources_aznadar = implode(
 			"\n",
 			array(
-				'کویرها و بیابان‌های ایران، آبشار ازنادر (دره اسپر)، دورود | https://www.irandeserts.com/article/%D8%A2%D8%A8%D8%B4%D8%A7%D8%B1-%D8%A7%D8%B2%D9%86%D8%A7%D8%AF%D8%B1-%D8%AF%D8%B1%D9%87-%D8%A7%D8%B3%D9%BE%D8%B1%D8%8C-%D8%AF%D9%88%D8%B1%D9%88%D8%AF/',
 				'صدا و سیمای لرستان، دورود | http://lorestan.irib.ir/dorud',
 				'مشرق نیوز، عکس/ آبشار دره اسپر در لرستان | https://www.mashreghnews.ir/photo/1817456/',
-				'کجارو، آبشار ازنادر | https://kojaro.com/attraction/27885-%D8%A7%D8%A8%D8%B4%D8%A7%D8%B1-%D8%A7%D8%B2%D9%86%D8%A7%D8%AF%D8%B1',
-				'آخرین خبر، آبشار عروس ازنا در طبیعت ناب لرستان | https://akharinkhabar.ir/interestings/9575948/',
-				'لحظه آخر، جاهای دیدنی دورود | https://lahzeakhar.com/Blog/Tourist-Attractions/41776-%D8%AC%D8%A7%D9%87%D8%A7%DB%8C-%D8%AF%DB%8C%D8%AF%D9%86%DB%8C-%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
-				'یوتوپین، جاهای دیدنی دورود | https://youtopin.com/mag/dorud-attractions/',
 				'ویزیت ایران، دورود | https://www.visitiran.ir/fa/destination/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
+				'فرمانداری شهرستان دورود | https://dorood-gov.ir/',
+				'اداره‌کل میراث‌فرهنگی، گردشگری و صنایع‌دستی استان لرستان | https://lorestan.mcth.ir/',
 				'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
-				'ویکی‌پدیا فارسی، دورود | https://fa.wikipedia.org/wiki/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
 			)
 		);
 	$seo_title_aznadar = 'آبشار ازنادر دره اسپر دورود | راهنمای کامل بازدید';
@@ -87,14 +77,9 @@ $sa_sources_aznadar = implode(
 	$sa_sources_tangeh = implode(
 			"\n",
 			array(
-				'کویرها و بیابان‌های ایران، تنگه لی لی، دورود | https://www.irandeserts.com/article/%D8%AA%D9%86%DA%AF%D9%87-%D9%84%DB%8C-%D9%84%DB%8C-%D8%AF%D9%88%D8%B1%D9%88%D8%AF/',
 				'ایرانوهلنیکا (بنیاد پژوهش‌های تاریخی آتن)، کتیبه یونانی تنگه لی لی | https://iranohellenica.eie.gr/content/catalogue/tang-e-lili',
 				'ZPE 228 (2023)، مقاله کتیبه یونانی تنگه لی لی، لرستان | https://www.academia.edu/119918362/A_NEWLY_FOUND_GREEK_INSCRIPTION_FROM_TANG_E_LILI_LORESTAN_WESTERN_IRAN',
 				'خبرگزاری میراث آریا، تنگه لی لی دورود لرستان | https://www.chtn.ir/news/1403112501893/',
-				'کارناوال، تنگه لی لی دورود | https://www.karnaval.ir/things-to-do/tange-lili-dorud',
-				'تاپ تراول، تنگه لی لی یا سورپیلو دورود | https://www.top-travel.ir/%D8%AA%D9%86%DA%AF%D9%87-%D9%84%DB%8C-%D9%84%DB%8C/',
-				'فان‌هالیدی، تنگه لی لی | http://funholiday.ir/contents/98822/%D8%AA%D9%86%DA%AF%D9%87%20%D9%84%DB%8C%E2%80%8C%D9%84%DB%8C',
-				'کایت، تنگ لی لی کجاست؟ راهنمای سفر | https://kite.ir/blog/1250/%D8%AA%D9%86%DA%AF%D9%87-%D9%84%DB%8C-%D9%84%DB%8C-%DA%A9%D8%AC%D8%A7%D8%B3%D8%AA',
 				'ویزیت ایران، دورود | https://www.visitiran.ir/fa/destination/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
 				'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
 			)
@@ -107,16 +92,11 @@ $sa_sources_aznadar = implode(
 	$sa_sources_falak = implode(
 			"\n",
 			array(
-				'ماهبان تور، قلعه فلک‌الافلاک (دژی ساسانی در خرم‌آباد) | https://www.mahbantour.com/attraction/falak-ol-Aflak-castle',
 				'خبرگزاری برنا، قلعه فلک‌الافلاک خرم‌آباد تاج درخشان گردشگری لرستان | https://borna.news/fa/news/1447454/',
-				'کارناوال، قلعه فلک‌الافلاک خرم‌آباد | https://www.karnaval.ir/things-to-do/falak-ol-aflak-castle-khorramabad',
-				'لست‌سکند، قلعه فلک‌الافلاک خرم‌آباد | https://lastsecond.ir/attractions/4419-falak-ol-aflak-castle-khorramabad',
-				'علاءالدین تراول، قلعه فلک‌الافلاک خرم‌آباد | https://www.alaedin.travel/attractions/iran/khorramabad/falak-ol-aflak-castle',
-				'ویکی‌مدیا کامنز، رده قلعه فلک‌الافلاک (منبع و مجوز تصاویر) | https://commons.wikimedia.org/wiki/Category:Falak-ol-Aflak',
-				'ویکی‌پدیا انگلیسی، Falak-ol-Aflak | https://en.wikipedia.org/wiki/Falak-ol-Aflak',
 				'مرکز میراث جهانی یونسکو، دره خرم‌آباد و قلعه فلک‌الافلاک | https://whc.unesco.org/en/tentativelists/5209/',
 				'ویزیت ایران، قلعه فلک‌الافلاک | https://www.visitiran.ir/fa/attraction/%D9%82%D9%84%D8%B9%D9%87-%D9%81%D9%84%DA%A9-%D8%A7%D9%84%D8%A7%D9%81%D9%84%D8%A7%DA%A9',
 				'دانشنامه‌ی ایرانیکا، Khorramabad | https://www.iranicaonline.org/articles/korramabad',
+				'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
 			)
 		);
 	$seo_title_falak = 'قلعه فلک‌الافلاک خرم‌آباد | راهنمای کامل بازدید';
@@ -129,9 +109,6 @@ $sa_sources_aznadar = implode(
 			array(
 				'سازمان حفاظت محیط زیست، اثر طبیعی ملی دماوند | https://nh.doe.ir/portal/home/?news/646304/674987/1022451/%D8%AF%DB%8C%D9%88-%D8%B3%D9%81%DB%8C%D8%AF-%D8%AF%D9%85%D8%A7%D9%88%D9%86%D8%AF-%D8%A7%D8%B2-%D8%AF%D8%B3%D8%AA-%D8%B7%D8%A8%DB%8C%D8%B9%D8%AA%E2%80%8C%D8%B3%D8%AA%DB%8C%D8%B2%D8%A7%D9%86-%D8%B1%D9%87%D8%A7-%D9%85%DB%8C%E2%80%8C%D8%B4%D9%88%D8%AF%D8%9F',
 				'فدراسیون کوهنوردی و صعودهای ورزشی، الزامات صعود به قله دماوند | https://msfi.ir/ArticleView/Index/51429',
-				'باشگاه کوهنوردی توچال، راهنمای صعود به چکاد دماوند | https://tochalclub.com/step-by-step-climbing-damavand-peak-from-the-northwest-side/',
-				'ویکی‌پدیا انگلیسی، Mount Damavand | https://en.wikipedia.org/wiki/Mount_Damavand',
-				'ویکی‌مدیا کامنز، رده کوه دماوند (منبع و مجوز تصاویر) | https://commons.wikimedia.org/wiki/Category:Mount_Damavand',
 				'دانشنامه‌ی بریتانیکا، Mount Damavand | https://www.britannica.com/place/Mount-Damavand',
 				'دانشنامه‌ی ایرانیکا، Damavand | https://www.iranicaonline.org/articles/damavand',
 				'مرکز میراث جهانی یونسکو، پروندهٔ دماوند | https://whc.unesco.org/en/tentativelists/5278/',
@@ -145,18 +122,11 @@ $sa_sources_aznadar = implode(
 	$sa_sources_kuhrang = implode(
 				"\n",
 				array(
-					'ویکی‌پدیا فارسی، دشت لاله‌های واژگون کوهرنگ | https://fa.wikipedia.org/wiki/%D8%AF%D8%B4%D8%AA_%D9%84%D8%A7%D9%84%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C_%D9%88%D8%A7%DA%98%DA%AF%D9%88%D9%86_%DA%A9%D9%88%D9%87%D8%B1%D9%86%DA%AF',
 					'خبرگزاری صدا و سیما، رخ‌نمایی لاله‌های واژگون در ارتفاعات چهارمحال و بختیاری | https://www.yjc.ir/fa/news/9079676/',
 					'خبرگزاری صدا و سیما، سفر به دشت لاله‌های واژگون کوهرنگ | https://www.yjc.ir/fa/news/8715559/',
-					'فرادید، قُرق؛ ناجی دشت لاله‌های واژگون کوهرنگ | https://faradeed.ir/%D8%A8%D8%AE%D8%B4-%D9%88%DB%8C%D8%AF%DB%8C%D9%88-35/296775-%D8%A8%D8%A8%DB%8C%D9%86%DB%8C%D8%AF-%D8%B1%D9%82-%D9%86%D8%A7%D8%AC%DB%8C-%D8%AF%D8%B4%D8%AA-%D9%84%D8%A7%D9%84%D9%87-%D9%87%D8%A7%DB%8C-%D9%88%D8%A7%DA%98%DA%AF%D9%88%D9%86-%DA%A9%D9%88%D9%87%D8%B1%D9%86%DA%AF',
-					'فرادید، پایان گل‌دهی و تفاوت محدوده‌های لالهٔ واژگون کوهرنگ | https://faradeed.ir/%D8%A8%D8%AE%D8%B4-%D8%AC%D8%A7%D9%85%D8%B9%D9%87-7/304303-%D9%BE%D8%A7%DB%8C%D8%A7%D9%86-%DA%AF%D9%84-%D8%AF%D9%87%DB%8C-%D9%84%D8%A7%D9%84%D9%87-%D9%87%D8%A7%DB%8C-%D9%88%D8%A7%DA%98%DA%AF%D9%88%D9%86-%D8%A2%D8%BA%D8%A7%D8%B2-%D8%AC%D9%86%D8%AC%D8%A7%D9%84-%D9%85%D8%AC%D8%A7%D8%B2%DB%8C',
 					'Tehran Times, Iran’s precious crown imperial on the brink of extinction | https://www.tehrantimes.com/news/435186/Iran-s-precious-crown-imperial-on-the-brink-of-extinction',
-					'کجارو، دشت لاله‌های واژگون کوهرنگ | https://www.kojaro.com/attraction/25444-reversed-tulips-plain-of-koohrang/',
-					'راهبال، دشت لاله‌های واژگون کوهرنگ | https://blog.rahbal.com/plain-of-overturned-tulips/',
-					'ایرانگرد، دشت لاله‌های واژگون کجاست؟ | https://irangard.com/overturned-tulips-plain',
-					'ویکی‌مدیا کامنز، رده دشت لاله‌های واژگون کوهرنگ (منبع و مجوز تصاویر) | https://commons.wikimedia.org/wiki/Category:Fritillaria_Plain,_Koohrang',
-				'سازمان حفاظت محیط زیست، اثر طبیعی ملی لاله واژگون | https://www.doe.ir/',
-				'ویزیت ایران، چهارمحال و بختیاری | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%86%D9%87%D8%A7%D8%B1%D9%85%D8%AD%D8%A7%D9%84-%D9%88-%D8%A8%D8%AE%D8%AA%DB%8C%D8%A7%D8%B1%DB%8C',
+					'سازمان حفاظت محیط زیست، اثر طبیعی ملی لاله واژگون | https://www.doe.ir/',
+					'ویزیت ایران، چهارمحال و بختیاری | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%86%D9%87%D8%A7%D8%B1%D9%85%D8%AD%D8%A7%D9%84-%D9%88-%D8%A8%D8%AE%D8%AA%DB%8C%D8%A7%D8%B1%DB%8C',
 				)
 			);
 	$seo_title_kuhrang = 'دشت لاله واژگون کوهرنگ | راهنمای بازدید و زمان گلدهی';
@@ -167,15 +137,9 @@ $sa_sources_aznadar = implode(
 $sa_sources_alisadr = implode(
 			"\n",
 			array(
-				'ویکی‌پدیا فارسی، غار علیصدر | https://fa.wikipedia.org/wiki/%D8%BA%D8%A7%D8%B1_%D8%B9%D9%84%DB%8C%E2%80%8C%D8%B5%D8%AF%D8%B1',
 				'مجتمع تفریحی توریستی علیصدر (سایت رسمی)، معرفی غار | https://alisadr.com/%D8%BA%D8%A7%D8%B1-%D8%B9%D9%84%DB%8C%D8%B5%D8%AF%D8%B1/',
 				'خبرگزاری صدا و سیما، غار علیصدر و نکاتی که پیش از سفر باید بدانیم | https://www.yjc.ir/fa/news/8927772/%D8%BA%D8%A7%D8%B1-%D8%B9%D9%84%DB%8C%D8%B5%D8%AF%D8%B1-%D9%88-%D9%86%DA%A9%D8%A7%D8%AA%DB%8C-%DA%A9%D9%87-%D9%82%D8%A8%D9%84-%D8%A7%D8%B2-%D8%B3%D9%81%D8%B1-%D8%A8%D8%A7%DB%8C%D8%AF-%D8%A8%D8%AF%D8%A7%D9%86%DB%8C%D9%85',
-				'خبرگزاری صدا و سیما، غاری بی‌انتها و شگفت‌انگیز در دل زمین | https://www.yjc.ir/fa/news/6880963/%D8%B9%D9%84%DB%8C%D8%B5%D8%AF%D8%B1-%D8%BA%D8%A7%D8%B1%DB%8C-%D8%A8%DB%8C-%D8%A7%D9%86%D8%AA%D9%87%D8%A7-%D9%88-%D8%B4%DA%AF%D9%81%D8%AA-%D8%A7%D9%86%DA%AF%DB%8C%D8%B2-%D8%AF%D8%B1-%D8%AF%D9%84%D9%90-%D8%B2%D9%85%DB%8C%D9%86',
-				'فلای تودی، غار علیصدر همدان؛ راهنمای کامل بازدید + آدرس | https://www.flytoday.ir/blog/ali-sadr-cave/',
-				'راهینو، غار علیصدر همدان؛ قیمت بلیط، عکس و آدرس | https://www.raheeno.com/article/35/',
 				'ویزیت ایران، غار علیصدر | https://www.visitiran.ir/fa/attraction/%D8%BA%D8%A7%D8%B1-%D8%B9%D9%84%DB%8C%D8%B5%D8%AF%D8%B1',
-				'توری‌گردان، غار علیصدر همدان؛ همه آنچه قبل از رفتن باید بدانید | https://tourgardan.com/blog/detail/750/',
-				'ویکی‌مدیا کامنز، رده غار علی‌صدر (منبع و مجوز تصاویر) | https://commons.wikimedia.org/wiki/Category:Ali_Sadr_Cave',
 				'مرکز میراث جهانی یونسکو، پروندهٔ غار علیصدر | https://whc.unesco.org/en/tentativelists/5220/',
 				'سازمان زمین‌شناسی و اکتشافات معدنی کشور | https://gsi.ir/',
 			)
@@ -188,14 +152,11 @@ $og_desc_alisadr = 'راهنمای بازدید از غار علیصدر همد�
 $sa_sources_golestan = implode(
 			"\n",
 			array(
-				'ویکی‌پدیا فارسی، پارک ملی گلستان | https://fa.wikipedia.org/wiki/%D9%BE%D8%A7%D8%B1%DA%A9_%D9%85%D9%84%DB%8C_%DA%AF%D9%84%D8%B3%D8%AA%D8%A7%D9%86',
 				'یونسکو، ذخیره‌گاه زیست‌کره گلستان | https://www.unesco.org/en/mab/golestan',
 				'میراث جهانی یونسکو، جنگل‌های هیرکانی | https://whc.unesco.org/en/list/1584/',
 				'سازمان حفاظت محیط زیست گلستان، پارک ملی و ذخیره‌گاه زیست‌کره گلستان | https://golestan.doe.ir/portal/home/?generaltext/1019635/1019753/159403/%D9%BE%D8%A7%D8%B1%DA%A9-%D9%85%D9%84%DB%8C-%DA%AF%D9%84%D8%B3%D8%AA%D8%A7%D9%86%D9%BE%D8%A7%D8%B1%DA%A9-%D9%85%D9%84%DB%8C-%D9%88-%D8%B0%D8%AE%DB%8C%D8%B1%D9%87-%DA%AF%D8%A7%D9%87-%D8%B2%DB%8C%D8%B3%D8%AA-%DA%A9%D8%B1%D9%87-%DA%AF%D9%84%D8%B3%D8%AA%D8%A7%D9%86',
 				'خبرگزاری مهر، پارک ملی گلستان و گونه‌های جانوری | https://www.mehrnews.com/news/5660109/%D9%BE%D8%A7%D8%B1%DA%A9-%D9%85%D9%84%DB%8C-%DA%AF%D9%84%D8%B3%D8%AA%D8%A7%D9%86-%DB%8C%DA%A9%DB%8C-%D8%A7%D8%B2-%D8%A7%D9%84%DA%AF%D9%88%D9%87%D8%A7%DB%8C-%D9%85%D8%AF%DB%8C%D8%B1%DB%8C%D8%AA-%D9%85%D8%AD%DB%8C%D8%B7-%D8%B2%DB%8C%D8%B3%D8%AA%DB%8C-%DA%A9%D8%B4%D9%88%D8%B1-%D9%88-%D8%AC%D9%87%D8%A7%D9%86',
-				'خبرگزاری ایمنا، تنوع زیستی مناطق حفاظت‌شده و پارک ملی گلستان | https://www.imna.ir/news/977079/%D8%AA%D9%86%D9%88%D8%B9-%D8%B2%DB%8C%D8%B3%D8%AA%DB%8C-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86-%D8%AF%D8%B1-%D9%82%D8%A7%D8%A8-%D9%85%D9%86%D8%A7%D8%B7%D9%82-%D8%AD%D9%81%D8%A7%D8%B8%D8%AA-%D8%B4%D8%AF%D9%87',
 				'ویزیت ایران، استان گلستان | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%AF%D9%84%D8%B3%D8%AA%D8%A7%D9%86',
-				'ویکی‌مدیا کامنز، رده پارک ملی گلستان | https://commons.wikimedia.org/wiki/Category:Golestan_National_Park',
 			)
 		);
 $seo_title_golestan = 'پارک ملی گلستان | راهنمای بازدید، مسیر و بهترین زمان سفر';
@@ -206,17 +167,11 @@ $og_desc_golestan = 'راهنمای سفر به پارک ملی گلستان: م
 $sa_sources_qeshm_stars = implode(
 			"\n",
 			array(
-				'ویکی‌پدیا فارسی، دره ستارگان | https://fa.wikipedia.org/wiki/%D8%AF%D8%B1%D9%87_%D8%B3%D8%AA%D8%A7%D8%B1%DA%AF%D8%A7%D9%86',
 				'ژئوپارک جهانی قشم، فهرست ژئوسایت‌ها (دره ستارگان G01) | https://qeshmgeopark.ir/geosites',
-				'ویکی‌پدیا فارسی، ژئوپارک قشم | https://fa.wikipedia.org/wiki/%DA%98%D8%A6%D9%88%D9%BE%D8%A7%D8%B1%DA%A9_%D9%82%D8%B4%D9%85',
 				'یونسکو، ژئوپارک‌های جهانی | https://www.unesco.org/en/iggp/geoparks',
-				'کجارو، ژئوپارک قشم و ژئوسایت‌ها | https://www.kojaro.com/attraction/11460-%DA%98%DB%8C%D9%88%D9%BE%D8%A7%D8%B1%DA%A9-%D9%82%D8%B4%D9%85/',
-				'لحظه آخر، دره ستارگان قشم | https://lahzeakhar.com/Tourist-attractions-full-information/25139-%D8%AF%D8%B1%D9%87-%D8%B3%D8%AA%D8%A7%D8%B1%DA%AF%D8%A7%D9%86',
-				'دستینیشن ایران، سفر به دره ستارگان قشم | https://www.destinationiran.com/fa/%D8%AF%D8%B1%D9%87-%D8%B3%D8%AA%D8%A7%D8%B1%DA%AF%D8%A7%D9%86-%D9%82%D8%B4%D9%85.htm',
-				'خبرگزاری فارس، عکس‌های دره ستارگان | https://www.farsnews.ir/photo/13990106000041/',
-				'ویکی‌مدیا کامنز، رده جزیره قشم | https://commons.wikimedia.org/wiki/Category:Qeshm_Island',
 				'ویزیت ایران، جزیره قشم و دره ستارگان | https://www.visitiran.ir/fa/destination/%D9%82%D8%B4%D9%85',
 				'مرکز میراث جهانی یونسکو، جزیره قشم | https://whc.unesco.org/en/tentativelists/5215/',
+				'سازمان زمین‌شناسی و اکتشافات معدنی کشور | https://gsi.ir/',
 			)
 		);
 $seo_title_qeshm_stars = 'دره ستارگان قشم | راهنمای بازدید، مسیر و بهترین ساعت';
@@ -227,14 +182,10 @@ $og_desc_qeshm_stars = 'هر آنچه برای بازدید از دره ستار
 $sa_sources_anzali = implode(
 			"\n",
 			array(
-				'ویکی‌پدیا فارسی، تالاب انزلی | https://fa.wikipedia.org/wiki/%D9%85%D8%B1%D8%AF%D8%A7%D8%A8_%D8%A7%D9%86%D8%B2%D9%84%DB%8C',
 				'کنوانسیون رامسر، تالاب انزلی (سایت شماره ۴۰) | https://rsis.ramsar.org/ris/40',
 				'سازمان حفاظت محیط زیست گیلان، پناهگاه‌های حیات‌وحش سلکه و سرخانکل | https://gilan.doe.ir/portal/home/?167642%2F%D9%BE%D9%86%D8%A7%D9%87%DA%AF%D8%A7%D9%87-%D8%AD%DB%8C%D8%A7%D8%AA-%D9%88%D8%AD%D8%B4=',
 				'ویزیت ایران، استان گیلان | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%AF%DB%8C%D9%84%D8%A7%D9%86',
-				'کجارو، تالاب انزلی کجاست؟ | https://www.kojaro.com/attraction/8470-%D8%AA%D8%A7%D9%84%D8%A7%D8%A8-%D8%A7%D9%86%D8%B2%D9%84%DB%8C/',
-				'رسانه رشت‌چی، تالاب انزلی و لاله مردابی | https://rashtchi.ir/plus/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8-%D8%A7%D9%86%D8%B2%D9%84%DB%8C/',
-				'خبرگزاری تابناک، تالاب انزلی | https://www.tabnak.ir/fa/tags/10786/1/%D8%AA%D8%A7%D9%84%D8%A7%D8%A8-%D8%A7%D9%86%D8%B2%D9%84%DB%8C',
-				'ویکی‌مدیا کامنز، رده تالاب انزلی | https://commons.wikimedia.org/wiki/Category:Anzali_Lagoon',
+				'دانشنامه‌ی ایرانیکا، Anzali Lagoon | https://www.iranicaonline.org/articles/anzali-lagoon-or-mordab-e-anzali',
 			)
 		);
 $seo_title_anzali = 'تالاب انزلی | راهنمای قایق‌سواری، نیلوفر و پرنده‌نگری';
@@ -245,14 +196,10 @@ $og_desc_anzali = 'راهنمای سفر به تالاب انزلی: مسیر د
 $sa_sources_shevi = implode(
 			"\n",
 			array(
-				'ویکی‌پدیا فارسی، آبشار شوی | https://fa.wikipedia.org/wiki/%D8%A2%D8%A8%D8%B4%D8%A7%D8%B1_%D8%B4%D9%88%DB%8C',
-				'ویکی‌پدیا فارسی، تله زنگ | https://fa.wikipedia.org/wiki/%D8%AA%D9%84%D9%87_%D8%B2%D9%86%DA%AF',
-				'ویکی‌پدیا فارسی، دورود | https://fa.wikipedia.org/wiki/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
 				'ویزیت ایران، آبشار شوی (تله زنگ) | https://www.visitiran.ir/fa/attraction/%D8%A2%D8%A8%D8%B4%D8%A7%D8%B1-%D8%B4%D9%88%DB%8C-%D8%AA%D9%84%D9%87-%D8%B2%D9%86%DA%AF',
 				'راه‌آهن جمهوری اسلامی ایران، صفحهٔ سفرهای مسافری و برنامهٔ حرکت قطار | https://www.rai.ir/Index.aspx?page_=form&lang=1&sub=0&tempname=showPassenger&PageID=4869&methodName=ShowModuleContent',
-				'ویکی‌مدیا کامنز، پرونده‌های آبشار شوی | https://commons.wikimedia.org/wiki/File:Shevi.jpg',
 				'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
-				'سازمان حفاظت محیط زیست | https://www.doe.ir/',
+				'سازمان حفاظت محیط زیست، اثر طبیعی ملی آبشار شوی | https://www.doe.ir/',
 			)
 		);
 $seo_title_shevi = 'آبشار شوی در خوزستان | مسیر تله‌زنگ و نکات بازدید';
@@ -263,14 +210,10 @@ $og_desc_shevi = 'راهنمای بازدید از آبشار شوی در خوز
 $sa_sources_babahur = implode(
 			"\n",
 			array(
-				'ویکی‌پدیا فارسی، دورود | https://fa.wikipedia.org/wiki/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
-				'کجارو، جاهای دیدنی دورود — تفرجگاه باباهور | https://www.kojaro.com/dorud/',
-				'لحظه آخر، جاهای دیدنی دورود | https://lahzeakhar.com/Blog/Tourist-Attractions/41776-%D8%AC%D8%A7%D9%87%D8%A7%DB%8C-%D8%AF%DB%8C%D8%AF%D9%86%DB%8C-%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
-				'یوتوپین، جاهای دیدنی دورود | https://youtopin.com/mag/dorud-attractions/',
-				'علاءالدین تراول، راهنمای سفر به دورود | https://www.alaedin.travel/travelguide/iran/dorud',
-				'ویکی‌مدیا کامنز، ردهٔ دورود | https://commons.wikimedia.org/wiki/Category:Dorud',
 				'ویزیت ایران، دورود | https://www.visitiran.ir/fa/destination/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
 				'فرمانداری شهرستان دورود | https://dorood-gov.ir/',
+				'اداره‌کل میراث‌فرهنگی، گردشگری و صنایع‌دستی استان لرستان | https://lorestan.mcth.ir/',
+				'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
 			)
 		);
 $seo_title_babahur = 'تفرجگاه باباهور (بام دورود) | مسیر، بهترین ساعت و چشم‌انداز شب';
@@ -282,13 +225,10 @@ $sa_sources_nigah = implode(
 			"\n",
 			array(
 				'فرمانداری شهرستان دورود، درهٔ نیگاه دورود | https://dorood-gov.ir/index.php/2020-11-14-07-44-58/99-2022-01-19-06-08-32',
-				'ویکی‌پدیا فارسی، دورود (بخش دره نی گا) | https://fa.wikipedia.org/wiki/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
-				'ویکی‌پدیا فارسی، اشترانکوه | https://fa.wikipedia.org/wiki/%D8%A7%D8%B4%D8%AA%D8%B1%D8%A7%D9%86%DA%A9%D9%88%D9%87',
-				'ایران تریپ ادوایزر، دره نیگاه/نگار/گردو | https://irantripadviser.ir/attraction.php?id=350',
-				'کوه‌بیست، همه چیز درباره دره نی گاه در لرستان | https://koohbist.com/blog/neygah-valley/',
-				'ویکی‌مدیا کامنز، پروندهٔ دره نگار | https://commons.wikimedia.org/wiki/File:Negar_Valley.jpg',
 				'سازمان حفاظت محیط زیست، منطقه حفاظت‌شده اشترانکوه | https://www.doe.ir/',
 				'ویزیت ایران، دورود | https://www.visitiran.ir/fa/destination/%D8%AF%D9%88%D8%B1%D9%88%D8%AF',
+				'اداره‌کل میراث‌فرهنگی، گردشگری و صنایع‌دستی استان لرستان | https://lorestan.mcth.ir/',
+				'سازمان زمین‌شناسی و اکتشافات معدنی کشور | https://gsi.ir/',
 			)
 		);
 $seo_title_nigah = 'درهٔ نیگاه دورود | مسیرهای دسترسی و نکات ایمنی';
@@ -674,7 +614,7 @@ SA_ART,
 
 <h2>جاذبه‌های مرتبط برای تکمیل سفر لرستان</h2>
 <ul>
-<li><a href="/attraction/dorud-city/">راهنمای جامع جاهای دیدنی دورود</a> و صفحهٔ <a href="/city/dorud/">شهرستان دورود</a></li>
+<li><a href="/city/dorud/">شهرستان دورود</a> — راهنمای رسمی و شناسنامه شهرستان دورود</li>
 <li><a href="/attraction/gahar-lake-dorud/">دریاچه گهر دورود</a>؛ نگین فیروزه‌ای اشترانکوه برای علاقه‌مندان کوه‌پیمایی و کمپینگ</li>
 <li><a href="/attraction/shevi-waterfall-tele-zang/">آبشار شوی (تله زنگ)</a>؛ دیگر آبشار تماشایی در ادامهٔ همین مسیر ریلی دورود–اندیمشک</li>
 <li><a href="/attraction/tangeh-lili-gorge-doroud/">تنگه لی لی (سورپیلو)</a> و <a href="/attraction/aznadar-waterfall-doroud/">آبشار ازنادر (دره اسپر)</a> در اطراف دورود</li>
@@ -697,10 +637,10 @@ SA_ART,
 <p>جریان آب، عمق و لغزندگی سنگ‌ها با فصل و بارندگی تغییر می‌کند. در این راهنما ورود به آب توصیه نمی‌شود؛ از لبه‌ها و نقاط لغزنده فاصله بگیرید و هشدارهای محلی را رعایت کنید.</p>
 SA_ART,
 	),
-	'dorud-city' => array(
+	'dorud' => array(
 		'title'        => 'دورود',
 		'type'         => 'city',
-		'slug'         => 'dorud-city',
+		'slug'         => 'dorud',
 		'short_fa'     => 'دورود',
 		'short_en'     => 'Dorud',
 		'city_en'      => 'Dorud',
@@ -718,7 +658,7 @@ SA_ART,
 		),
 		'meta'         => array(
 			'sa_english_name'      => 'Dorud County',
-			'sa_city_population'   => '174508',
+			'sa_city_population'   => '121638',
 			'sa_city_elevation'    => '1457',
 			'sa_city_latitude'     => '33.5270',
 			'sa_city_longitude'    => '49.1199',
@@ -782,14 +722,14 @@ shazand - شمال‌شرق",
 <h2>شناخت سریع جاذبه‌های دورود</h2>
 <ul>
 <li><strong>شاخص‌ترین مقصد کوهستانی:</strong> دریاچه گهر در منطقه حفاظت‌شده اشترانکوه.</li>
-<li><strong>شاخص‌ترین آبشارهای سفر:</strong> بیشه، شوی/تله‌زنگ، آب‌گرمه، <a href="/attraction/aznadar-waterfall-doroud/">ازنادر</a>، حشوید/هشوید و عزیزآباد.</li>
+<li><strong>شاخص‌ترین آبشارهای شهرستان دورود:</strong> بیشه، آب‌گرمه/چم‌چیت، <a href="/attraction/aznadar-waterfall-doroud/">ازنادر</a>، حشوید/هشوید و عزیزآباد. (آبشار شوی/تله‌زنگ در خوزستان است و در جدول زیر به‌صورت جداگانه با توضیح موقعیت آمده.)</li>
 <li><strong>بهترین مسیرهای دره‌ای:</strong> دره نی‌گاه، دره اسپر، دره شوی و <a href="/attraction/tangeh-lili-gorge-doroud/">تنگه لی لی (سورپیلو)</a>.</li>
 <li><strong>دیدنی‌های غاری و کوهستانی:</strong> غار منو، غار وقت ساعت، غار مرده‌ها/مردگان، کوه قارون و <a href="/attraction/azgan-wetland-dorud/">تالاب ازگن</a>.</li>
 <li><strong>گزینه‌های نزدیک‌تر برای خانواده:</strong> پارک دانشجو، پارک جنگلی باباهور، بلندی باباهور و مسیرهای سبک اطراف شهر.</li>
 </ul>
 
 <h2>دریاچه گهر؛ نگین فیروزه‌ای اشترانکوه</h2>
-<p>دریاچهٔ گهر از مقصدهای شاخص طبیعی شهرستان دورود است؛ دریاچه‌ای کوهستانی در منطقهٔ حفاظت‌شدهٔ اشترانکوه که منابع گردشگری فاصلهٔ آن را حدود ۳۵ کیلومتر در جنوب‌شرقی دورود ذکر می‌کنند. ارتفاع دریاچه حدود ۲۳۵۰ متر است و وسعت آن در منابع مختلف نزدیک به ۸۸ تا ۱۰۰ هکتار آمده است. این اختلاف عددی برای کاربر نهایی مهم‌تر از اصل موضوع نیست: گهر یک مقصد جدی طبیعت‌گردی است، نه یک توقف کوتاه کنار جاده.</p>
+<p>دریاچهٔ گهر از مقصدهای شاخص طبیعی شهرستان دورود است؛ دریاچه‌ای کوهستانی در منطقهٔ حفاظت‌شدهٔ اشترانکوه که منابع گردشگری فاصلهٔ جاده‌ای تا دورود را حدود ۳۵ کیلومتر برآورد می‌کنند<sup class="sa-cite"><a href="https://www.visitiran.ir/fa/attraction/%D8%AF%D8%B1%DB%8C%D8%A7%DA%86%D9%87-%DB%8C-%DA%AF%D9%87%D8%B1">۱</a></sup>. ارتفاع تراز آب و مساحت پهنه بسته به نقطهٔ اندازه‌گیری و سطح آب فصلی متفاوت گزارش می‌شود؛ برای برنامه‌ریزی سفر، وضعیت راه و آب همان روز را از منابع رسمی یا محلی استعلام کنید<sup class="sa-cite"><a href="https://www.doe.ir/">۲</a></sup>.</p>
 <p>مسیر رایج دسترسی، از دورود به سمت درب آستانه و چشمه خیه است و بعد از آن پیاده‌روی/مسیر مالرو آغاز می‌شود. در فصل‌های شلوغ، باید وضعیت محیط‌زیست، امکان کمپ، حمل بار، آب‌وهوا و ظرفیت منطقه بررسی شود. برای خانواده‌ها، سفر به گهر زمانی لذت‌بخش است که برنامه رفت‌وبرگشت، کفش مناسب، لباس گرم و توان پیاده‌روی در نظر گرفته شده باشد.</p>
 
 <h2>آبشارهای دورود؛ از بیشه تا مسیرهای بکرتر</h2>
@@ -813,7 +753,7 @@ shazand - شمال‌شرق",
 
 
 <h2>کوه‌ها، تالاب‌ها و غارهای دورود</h2>
-<p>کوه قارون یکی از نشانه‌های طبیعی جنوب دورود است؛ کوهی منفرد و دیدنی که در برخی فهرست‌های گردشگری ارتفاع آن حدود ۲۵۵۰ متر ذکر شده است؛ زمان و امکان صعود به وضعیت هوا و مسیر بستگی دارد. <a href="/attraction/azgan-wetland-dorud/">تالاب ازگن یا قارون</a> نیز تالابی فصلی در دامنه کوه پریز و کوه قارون است که معمولاً تا اواخر بهار آب دارد و سپس خشک می‌شود؛ راهنمای کامل آن در صفحه تالاب ازگن آمده است. <a href="/attraction/tangeh-lili-gorge-doroud/">تنگه لی لی (سورپیلو)</a> هم در حدود ۲۰ کیلومتری شرق دورود، بین روستاهای چمنار و سیره، دره‌ای صخره‌ای با حوضچه‌های طبیعی و کتیبه یونانی است.</p>
+<p>کوه قارون یکی از نشانه‌های طبیعی جنوب دورود است؛ کوهی منفرد و دیدنی که ارتفاع دقیق قلهٔ آن نیازمند نقشهٔ رسمی توپوگرافی است و در منابع مختلف اعداد متفاوتی آمده؛ زمان و امکان صعود را با توجه به وضع هوا و مسیر بسنجید. <a href="/attraction/azgan-wetland-dorud/">تالاب ازگن یا قارون</a> نیز تالابی فصلی در دامنه کوه پریز و کوه قارون است که معمولاً تا اواخر بهار آب دارد و سپس خشک می‌شود؛ راهنمای کامل آن در صفحه تالاب ازگن آمده است. <a href="/attraction/tangeh-lili-gorge-doroud/">تنگه لی لی (سورپیلو)</a> هم در حدود ۲۰ کیلومتری شرق دورود، بین روستاهای چمنار و سیره، دره‌ای صخره‌ای با حوضچه‌های طبیعی و کتیبه یونانی است.</p>
 <p>غار منو نزدیک روستای گورکش، غار وقت ساعت در دامنه جنوبی کوه پریز و نزدیک ایستگاه راه‌آهن چم‌چید، و غار مرده‌ها یا مردگان نزدیک روستای دریژان از غارهای مطرح دورود هستند. نکته مشترک همه این غارها این است که نباید مثل یک مقصد تفریحی ساده با آن‌ها برخورد کرد. چراغ، کفش مناسب، همراه باتجربه، راهنمای محلی و پرهیز از ورود در بارندگی یا تاریکی، حداقل احتیاط لازم است.</p>
 
 <h2>فضاهای شهری و خانوادگی</h2>
@@ -858,7 +798,7 @@ shazand - شمال‌شرق",
 <h2>فرهنگ بومی، خوراک محلی و سوغات دورود</h2>
 <p>دورود در محل تلاقی فرهنگ لری و بختیاری در دشت سیلاخور قرار گرفته است؛ شهری که موسیقی محلی، مهمان‌نوازی صمیمانه و بازارهای پررونق محلی آن، حال‌وهوایی گرم به سفر می‌بخشند. پس از بازگشت از آبشارها و تنگه‌ها، گشت‌وگذار در شهر و چشیدن طعم غذاهای محلی بهترین پاداش خستگی مسیر است:</p>
 <ul>
-<li><strong>غذاهای محلی دورود:</strong> <strong>کباب سنتی دورود</strong> با گوشت تازهٔ دام‌های مراتع زاگرس، <strong>خورشت زیربرنجی</strong>، <strong>چزنک رغو</strong> (نوعی نان فطیر محلی آغشته به روغن حیوانی و شیره یا عسل)، <strong>آش ترخینه</strong> و <strong>کوفته نخودچی</strong> از محبوب‌ترین طعم‌های بومی منطقه هستند.</li>
+<li><strong>غذاهای محلی دورود:</strong> در بازار و رستوران‌های شهر می‌توانید خوراک‌های رایج لرستان مانند کباب بختیاری، آش ترخینه، خورش‌هایی بر پایه سبزی و حبوبات و نان‌های تازه تنوری را بچشید؛ نام دقیق هر غذا و مواد آن ممکن است در گویش محلی متفاوت تلفظ شود و بهتر است جزئیات را از میزبان محلی بپرسید.</li>
 <li><strong>سوغات خوراکی:</strong> <strong>برنج خوش‌عطر دشت سیلاخور</strong>، <strong>عسل طبیعی اشترانکوه</strong>، <strong>روغن حیوانی لرستان</strong>، کشک، ترخینهٔ خشک و گردوی باغ‌های پیرامون شهر.</li>
 <li><strong>صنایع دستی:</strong> گلیم، جاجیم، ورشوسازی (در همسایگی با <a href="/city/borujerd/">بروجرد</a>) و بافته‌های پشمی عشایری.</li>
 </ul>
@@ -1229,7 +1169,7 @@ SA_ART,
 <table>
 <thead><tr><th>ویژگی</th><th>جزئیات کاربردی برای مسافر</th></tr></thead>
 <tbody>
-<tr><td>موقعیت و فاصله</td><td>جنوب شرقی دورود، روستای گردشگری دره اسپر (حدود ۷ تا ۱۵ کیلومتر بسته به مبدأ شهری)<sup class="sa-cite"><a href="https://kojaro.com/attraction/27885-%D8%A7%D8%A8%D8%B4%D8%A7%D8%B1-%D8%A7%D8%B2%D9%86%D8%A7%D8%AF%D8%B1">۳</a></sup></td></tr>
+<tr><td>موقعیت و فاصله</td><td>جنوب شرقی دورود، روستای گردشگری دره اسپر (حدود ۷ تا ۱۵ کیلومتر بسته به مبدأ شهری)</td></tr>
 <tr><td>مدت پیاده‌روی</td><td>حدود ۱ ساعت پیاده‌روی ملایم تا متوسط در پاکوب جنگلی بلوط و بادام کوهی</td></tr>
 <tr><td>بهترین زمان سفر</td><td>فروردین تا اوایل خرداد (اوج پرآبی آبشار فصلی و سرسبزی دره اسپر)</td></tr>
 <tr><td>چشمه‌های شاخص مسیر</td><td>چشمه هیزاله اسپر و چشمه‌های فصلی و دائمی دامنه‌های زاگرس</td></tr>
@@ -3199,7 +3139,7 @@ SA_ART,
 <table>
 <thead><tr><th>سطح برنامه</th><th>محدودهٔ ارتفاعی</th><th>مدت زمان و نوع دسترسی</th><th>مناسب برای</th></tr></thead>
 <tbody>
-<tr><td>گردش در پارک جنگلی و بام دورود</td><td>حدود ۱٬۶۰۰ تا ۲٬۰۰۰ متر</td><td>دسترسی خودرویی از محلهٔ حسین‌آباد + پیاده‌روی کوتاه (۱ تا ۲ ساعت)</td><td>خانواده‌ها، عکاسی غروب و چشم‌انداز شبانهٔ شهر دورود<sup class="sa-cite"><a href="https://www.kojaro.com/dorud/">۳</a></sup></td></tr>
+<tr><td>گردش در پارک جنگلی و بام دورود</td><td>حدود ۱٬۶۰۰ تا ۲٬۰۰۰ متر</td><td>دسترسی خودرویی از محلهٔ حسین‌آباد + پیاده‌روی کوتاه (۱ تا ۲ ساعت)</td><td>خانواده‌ها، عکاسی غروب و چشم‌انداز شبانهٔ شهر دورود</td></tr>
 <tr><td>کوه‌پیمایی تا جان‌پناه و قلهٔ باباهور</td><td>جان‌پناه در ۲٬۵۰۰ متر و قله در ۲٬۷۹۵ متر</td><td>۴ تا ۶ ساعت کوه‌پیمایی رفت‌وبرگشت در پاکوب جنگل بلوط</td><td>کوهنوردان و گروه‌های آماده با <a href="/ankle-sprain-first-aid/">کفش کوهنوردی</a> و <a href="/outdoor-clothing-guide/">پوشش مناسب فصل</a></td></tr>
 </tbody>
 </table>
@@ -3365,7 +3305,7 @@ SA_ART,
 <table>
 <thead><tr><th>مسیر دسترسی</th><th>نقطهٔ شروع و پایان</th><th>نوع پیمایش</th><th>نکتهٔ کلیدی ایمنی</th></tr></thead>
 <tbody>
-<tr><td>مسیر شمالی (از روستای تی)</td><td>دورود ← امامزاده پیرعبدالله ← روستای تی ← دهانهٔ دره نیگاه</td><td>ورود از پایین‌دست دره در خلاف جهت جریان گهررود</td><td>هماهنگی با پاسگاه محیط‌بانی پیش از روستای تی و بازگشت پیش از تاریکی<sup class="sa-cite"><a href="https://koohbist.com/blog/neygah-valley/">۳</a></sup></td></tr>
+<tr><td>مسیر شمالی (از روستای تی)</td><td>دورود ← امامزاده پیرعبدالله ← روستای تی ← دهانهٔ دره نیگاه</td><td>ورود از پایین‌دست دره در خلاف جهت جریان گهررود</td><td>هماهنگی با پاسگاه محیط‌بانی پیش از روستای تی و بازگشت پیش از تاریکی</td></tr>
 <tr><td>مسیر بالادست (از مسیر دریاچه گهر)</td><td>درب آستانه / چشمه خیه ← چشمه زیر پنبه‌کار ← دره نیگاه ← روستای تی</td><td>پیمایش خطی و سنگین در امتداد سنگ‌چین‌ها و حاشیهٔ رود</td><td>پرهیز مطلق از زدن به آب در جریان تند؛ نیازمند راهنمای مجرب و برنامهٔ ۲ روزه</td></tr>
 <tr><td>مسیر فرعی دره گردو</td><td>چشمه خرم ← گردنه سلام‌گاه ← دره گردو ← تلاقی با دره نیگاه</td><td>کوهنوردی و دره‌پیمایی نیمه‌سنگین</td><td>نیازمند <a href="/gps-navigation-tools/">نقشه آفلاین GPS</a>، <a href="/ankle-sprain-first-aid/">کفش کوهنوردی</a> و استعلام وضعیت آب</td></tr>
 </tbody>
@@ -3422,7 +3362,7 @@ SA_ART,
 <li><a href="/attraction/bisheh-waterfall-dorud/">آبشار بیشه</a>؛ دسترسی آسان‌تر و مناسب برنامه‌های کوتاه‌تر در همین شهرستان.</li>
 <li><a href="/attraction/tangeh-lili-gorge-doroud/">تنگهٔ لی‌لی (سورپیلو)</a>؛ دره‌ای صخره‌ای در محدودهٔ دورود با شرایط دسترسی متفاوت از نی‌گاه.</li>
 <li><a href="/attraction/shevi-waterfall-tele-zang/">آبشار شوی (تله‌زنگ)</a>؛ آبشاری در خوزستان با مسیر ریلیِ شناخته‌شده از ایستگاه تله‌زنگ.</li>
-<li><a href="/attraction/dorud-city/">شهرستان دورود</a>؛ راهنمای خودِ شهر و مقصدهای نزدیکِ همین خوشهٔ سفر.</li>
+<li><a href="/city/dorud/">شهرستان دورود</a>؛ راهنمای رسمی شهرستان و شناسنامهٔ آن.</li>
 <li><a href="/attraction/babahur-forest-park-dorud/">تفرجگاه باباهور (بام دورود)</a> و <a href="/attraction/azgan-wetland-dorud/">تالاب ازگن</a>؛ دو مقصد آسان‌تر برای روزهای استراحتِ برنامهٔ لرستان.</li>
 </ul>
 SA_ART,
@@ -3481,7 +3421,6 @@ SA_ART,
 				array(
 					'دانشکده علوم پزشکی تربت جام، اماکن تاریخی | http://www.trjums.ac.ir/fa/page/6/%D8%A7%D9%85%D8%A7%DA%A9%D9%86-%D8%AA%D8%A7%D8%B1%DB%8C%D8%AE%DB%8C',
 					'خبرگزاری میراث آریا، آغاز مرمت آرامگاه شاه قاسم انوار در روستای لنگر | https://www.chtn.ir/news/1404041600442/%D8%A2%D8%BA%D8%A7%D8%B2-%D9%85%D8%B1%D9%85%D8%AA-%D8%A8%D9%86%D8%A7%DB%8C-%D8%A2%D8%B1%D8%A7%D9%85%DA%AF%D8%A7%D9%87-%D8%B4%D8%A7%D9%87-%D9%82%D8%A7%D8%B3%D9%85-%D8%A7%D9%86%D9%88%D8%A7%D8%B1-%D8%AF%D8%B1-%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C-%D9%84%D9%86%DA%AF%D8%B1-%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86',
-					'کجارو، آرامگاه شاه قاسم انوار | https://www.kojaro.com/attraction/6976-%D8%A7%D8%B1%D8%A7%D9%85%DA%AF%D8%A7%D9%87-%D9%82%D8%A7%D8%B3%D9%85-%D8%A7%D9%86%D9%88%D8%A7%D8%B1/',
 					'دانشنامه‌ی ایرانیکا، Qasem-e Anvar | https://www.iranicaonline.org/articles/qasem-e-anvar',
 					'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
 					'ویزیت ایران، خراسان رضوی | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86-%D8%B1%D8%B6%D9%88%DB%8C',
@@ -3625,10 +3564,9 @@ SA_ART,
 			'sa_sources' => implode(
 				"\n",
 				array(
-					'مسیر پنهان، داستان کویر ریگ جن | https://hidpath.com/the-story-of-rig-gen-desert-scary-and-mysterious/',
-					'کوه بیست، راهنمای سفر به کویر ریگ جن | https://koohbist.com/blog/rig-gen-desert/',
 					'کویرها و بیابان‌های ایران، آشنایی با ریگ جن (منبع قدیمی) | https://www.irandeserts.com/article/%D8%A2%D8%B4%D9%86%D8%A7%DB%8C%DB%8C-%D8%A8%D8%A7-%D8%B1%D9%8A%DA%AF-%D8%AC%D9%86/',
 					'دانشنامه‌ی ایرانیکا، Kavir | https://www.iranicaonline.org/articles/kavir-2',
+					'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
 					'سازمان حفاظت محیط زیست، پارک ملی کویر | https://www.doe.ir/',
 					'سازمان زمین‌شناسی و اکتشافات معدنی کشور | https://gsi.ir/',
 				)
@@ -3716,7 +3654,7 @@ SA_ART,
 <ul>
 <li><a href="/city/garmsar/">شهرستان گرمسار</a>؛ نزدیک‌ترین خدمات و نقطهٔ شروع مسیرِ غربی.</li>
 <li><a href="/province/semnan/">استان سمنان</a>، <a href="/city/semnan-city/">شهرستان سمنان</a> و در جبههٔ جنوبی <a href="/city/khur-biabanak/">شهرستان خور و بیابانک</a> و <a href="/city/nain/">نائین</a> در <a href="/province/isfahan/">استان اصفهان</a>.</li>
-<li>مقایسه با دیگر مقصدهای کویری ایران: <a href="/attraction/shahdad-kaluts-lut-desert/">کلوت‌های شهداد در کویر لوت</a> و <a href="/attraction/tabas-attractions/">جاهای دیدنی طبس</a>.</li>
+<li>مقایسه با دیگر مقصدهای کویری ایران: <a href="/attraction/shahdad-kaluts-lut-desert/">کلوت‌های شهداد در کویر لوت</a> و <a href="/city/tabas/">جاهای دیدنی طبس</a>.</li>
 <li>راهنماهای آموزشی حیاتی پیش از کویرنوردی: <a href="/camping-water-planning/">محاسبه و مدیریت آب در کویر</a>، <a href="/gps-navigation-tools/">ابزارهای ناوبری و GPS آفلاین</a>، <a href="/lost-in-nature-guide/">واکنش اضطراری در زمان گم‌شدن</a>، <a href="/heatstroke-first-aid/">پیشگیری و درمان گرمازدگی</a> و <a href="/snake-insect-bite-first-aid/">کمک‌های اولیه عقرب‌گزیدگی</a>.</li>
 </ul>
 SA_ART,
@@ -3765,11 +3703,9 @@ SA_ART,
 			'sa_sources' => implode(
 				"\n",
 				array(
-					'کجارو، روستای سر آقا سید | https://www.kojaro.com/attraction/23328-sar-agha-seyed-village/',
-					'کارناوال، روستای سرآقاسید چهارمحال و بختیاری | https://www.karnaval.ir/things-to-do/sar-agha-seyed-village',
-					'علاءالدین تراول، روستای سرآقا سید کوهرنگ | https://www.alaedin.travel/attractions/iran/kuhrang/saraghaseyed-village',
 					'ویزیت ایران، چهارمحال و بختیاری | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%86%D9%87%D8%A7%D8%B1%D9%85%D8%AD%D8%A7%D9%84-%D9%88-%D8%A8%D8%AE%D8%AA%DB%8C%D8%A7%D8%B1%DB%8C',
 					'وزارت میراث‌فرهنگی، گردشگری و صنایع‌دستی | https://www.mcth.ir/',
+					'سازمان حفاظت محیط زیست | https://www.doe.ir/',
 				)
 			),
 			'sa_facts_checked' => '',
@@ -3858,7 +3794,7 @@ SA_ART,
 <tbody>
 <tr><td><a href="/city/sharekurd/">شهرکرد</a> تا چلگرد (مرکز <a href="/city/kuhrang/">کوهرنگ</a>)</td><td>جاده آسفالته کوهستانی (حدود ۸۵ کیلومتر)</td><td>۱ تا ۱٫۵ ساعت</td><td>عبور از فارسان و دسترسی به چشمه دیمه و تونل کوهرنگ<sup class="sa-cite"><a href="https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%DA%86%D9%87%D8%A7%D8%B1%D9%85%D8%AD%D8%A7%D9%84-%D9%88-%D8%A8%D8%AE%D8%AA%DB%8C%D8%A7%D8%B1%DB%8C">۱</a></sup></td></tr>
 <tr><td>چلگرد تا روستای شیخ علی‌خان</td><td>جاده آسفالته (حدود ۱۲ کیلومتر)</td><td>۱۵ تا ۲۰ دقیقه</td><td>نزدیک به آبشار شیخ علی‌خان و مسیر غار یخی چما</td></tr>
-<tr><td>شیخ علی‌خان تا گردنه عسل‌کشان و سرآقا سید</td><td>جاده خاکی و شوسهٔ پرپیچ‌وخم کوهستانی (حدود ۳۵ تا ۴۵ کیلومتر)</td><td>۱٫۵ تا ۲٫۵ ساعت</td><td>نیازمند خودروی سالم، سوخت کافی و رانندگی در روشنایی روز<sup class="sa-cite"><a href="https://www.kojaro.com/attraction/23328-sar-agha-seyed-village/">۲</a></sup></td></tr>
+<tr><td>شیخ علی‌خان تا گردنه عسل‌کشان و سرآقا سید</td><td>جاده خاکی و شوسهٔ پرپیچ‌وخم کوهستانی (حدود ۳۵ تا ۴۵ کیلومتر)</td><td>۱٫۵ تا ۲٫۵ ساعت</td><td>نیازمند خودروی سالم، سوخت کافی و رانندگی در روشنایی روز</td></tr>
 </tbody>
 </table>
 
@@ -4051,177 +3987,6 @@ SA_ART,
 SA_ART,
 	),
 
-	'tabas-attractions' => array(
-		'title'        => 'جاهای دیدنی طبس',
-		'type'         => 'attraction',
-		'slug'         => 'tabas-attractions',
-		'short_fa'     => 'طبس',
-		'short_en'     => 'Tabas',
-		'city_en'      => 'Tabas',
-		'province_en'  => 'South Khorasan',
-		'remove_featured_image' => true,
-		'excerpt'      => 'راهنمای دیدنی‌های شهرستان طبس: از باغ گلشن و ارگ کهن در شهر تا چشمهٔ مرتضی علی، درهٔ کال سردر، کال جنی، نخلستان‌های نایبند و کویر حلوان؛ به‌همراهِ فصل سفر، ترتیب بازدید و نکات کویرگردی.',
-		'english'      => 'Tabas Attractions',
-		'kind'         => 'city',
-		'province'     => 'south-khorasan',
-		'province_name'=> 'خراسان جنوبی',
-		'city'         => 'tabas',
-		'city_name'    => 'طبس',
-		'terms'        => array(
-			'attraction_type' => array( 'nature' => 'طبیعی', 'historical' => 'تاریخی', 'desert' => 'کویری', 'ecotourism' => 'بوم‌گردی' ),
-			'travel_season'   => array( 'spring' => 'بهار', 'autumn' => 'پاییز', 'winter' => 'زمستان' ),
-		),
-		'meta'         => array(
-			'sa_english_name' => 'Tabas',
-			'sa_attraction_age' => 'شهر طبس هستهٔ کهنی دارد و لایه‌های تاریخیِ ساسانی، اسماعیلی و صفوی در آن دیده می‌شود؛ باغ گلشن از اواخر زندیه/اوایل قاجار و طاق شاه‌عباسی در منابع حدود ۷۰۰ سال قدمت دارد. روایت‌های «۱۰۰۰ ساله» برای سد کریت در برخی منابع آمده و شمارهٔ دقیق سال ساخت را سند رسمی تعیین می‌کند.',
-			'sa_attraction_area' => 'شهر طبس و پهنهٔ شهرستان: کال سردر و چشمهٔ مرتضی علی در شرق، نایبند و پناهگاه حیات‌وحش نایبندان در جنوب، اصفهک و ازمیغان در بخش دیهوک و کویر حلوان در شمال‌غربی',
-			'sa_access_level' => 'شهر و باغ گلشن آسان؛ جاذبه‌های کویری و کوهستانی (نایبندان، دیگ رستم، کال جنی) نیازمندِ خودروی مناسب، راهنمای محلی و برنامهٔ آب و سوخت',
-			'sa_trail_note' => 'طبس روی محورهای تهران–طبس، مشهد–طبس و یزد–طبس قرار دارد و فرودگاه هم دارد. برای جاذبه‌های اطراف، جاده‌های آسفالته تا نزدیک مقصد می‌رسد و بخش پایانی بعضی مسیرها خاکی است؛ مسیرهای داخل پناهگاه حیات‌وحش نایبندان و کویر حلوان را بدون راهنما نروید.',
-			'sa_visit_duration' => 'دو تا سه روز برای شهر و جاذبه‌های نزدیک؛ سفر یک‌هفته‌ای اگر نایبند، اصفهک و کویر حلوان را هم برنامه‌ریزی کنید',
-			'sa_elevation' => '690',
-			'sa_safety_note' => 'اقلیم طبس بیابانی است: آب کافی، کلاه و لباس پوشیده لازم است و در تابستان سفر به جاذبه‌های روباز در ساعات میانی روز توصیه نمی‌شود. در دره‌ها و کنار چشمه‌های آب گرم، لبه‌های سنگی لغزنده است و در کویر، آنتن و مسیرِ نشانه‌گذاری‌شده وجود ندارد؛ تورِ مسئول یا راهنمای محلی را جدی بگیرید.',
-			'sa_latitude' => '33.5959',
-			'sa_longitude' => '56.9244',
-			'sa_address' => 'استان خراسان جنوبی، شهرستان طبس — شهر طبس و جاذبه‌های پیرامون',
-			'sa_opening_hours' => 'ساعات دسترسی در طبس به نوع جاذبه و متولی آن بستگی دارد؛ باغ‌ها، بناهای تاریخی، موزه‌ها و محدوده‌های حفاظت‌شده برنامه‌ها و مقررات جداگانه دارند. زمان پذیرش همان روز را پیش از حرکت از مرجع رسمی یا محلی استعلام کنید.',
-			'sa_ticket_price' => 'هزینهٔ ورود و خدمات برای هر جاذبه جداگانه تعیین می‌شود و در داده‌های موجود نرخ روز تأیید نشده است؛ پیش از بازدید، از متولی همان مجموعه یا مرجع محلی استعلام کنید.',
-			'sa_last_verified_date' => '2026-10-16',
-			'sa_seo_title' => 'جاهای دیدنی طبس | باغ گلشن، کال جنی، چشمه مرتضی علی و نایبند',
-			'sa_seo_description' => 'راهنمای دیدنی‌های شهرستان طبس: باغ گلشن، ارگ کهن، چشمهٔ مرتضی علی و کال سردر، کال جنی، روستای نایبند، اصفهک و کویر حلوان؛ بهترین فصل سفر و نکات ایمنی.',
-			'sa_focus_keyword' => 'جاهای دیدنی طبس',
-			'sa_og_title' => 'جاهای دیدنی طبس؛ از باغ گلشن تا ماسولهٔ کویر',
-			'sa_og_description' => 'شهری در میان دو کویر با باغ ایرانی، دره‌های آبی و روستای پلکانی؛ راهنمای کوتاه دیدنی‌های طبس و ترتیب بازدید.',
-			'sa_sources' => implode(
-				"\n",
-				array(
-					'کجارو، جاهای دیدنی طبس | https://www.kojaro.com/attraction/308149-attraction-tabas/',
-					'لست‌سکند، جاهای دیدنی طبس با آدرس | https://lastsecond.ir/blog/4675-tabas-desert',
-					'رادیو گردش، گردشگری طبس | https://radiogardesh.com/tabas-tourism/',
-					'ژئوپارک جهانی طبس (یونسکو) | https://www.unesco.org/en/iggp/geoparks/tabas',
-					'دانشنامه‌ی ایرانیکا، Tabas | https://www.iranicaonline.org/articles/tabas',
-					'ویزیت ایران، خراسان جنوبی | https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86-%D8%AC%D9%86%D9%88%D8%A8%DB%8C',
-				)
-			),
-			'sa_facts_checked' => '',
-			'rank_math_title' => 'جاهای دیدنی طبس | راهنمای کامل جاذبه‌های تاریخی و طبیعی',
-			'rank_math_description' => 'راهنمای دیدنی‌های شهرستان طبس: باغ گلشن، ارگ کهن، چشمهٔ مرتضی علی و کال سردر، کال جنی، روستای نایبند، اصفهک و کویر حلوان؛ بهترین فصل سفر و نکات ایمنی.',
-			'rank_math_focus_keyword' => 'جاهای دیدنی طبس',
-			'rank_math_facebook_title' => 'جاهای دیدنی طبس؛ شهر میان دو کویر',
-			'rank_math_facebook_description' => 'باغ گلشن، طاق شاه‌عباسی، کال سردر و نایبند؛ فهرست کوتاه دیدنی‌های طبس برای سفر پاییز و زمستان.',
-		),
-		'faq'          => array(
-			array( 'q' => 'طبس کجاست و چگونه به آن برویم؟', 'a' => 'طبس در استان خراسان جنوبی است و روی محورهای تهران–طبس، مشهد–طبس و یزد–طبس قرار دارد؛ فرودگاه هم دارد. از بیرجند تا طبس جادهٔ اصلی و خدمات بین‌راهی در دسترس است.' ),
-			array( 'q' => 'شاخص‌ترین دیدنی طبس کدام است؟', 'a' => 'باغ گلشن. باغی نزدیک به هفت هکتار در دل اقلیم بیابانی که از اواخر زندیه/اوایل قاجار به جا مانده و در فهرست آثار ملی ثبت شده است. پس از آن، چشمهٔ مرتضی علی و کال سردر بیشترین شهرت را دارند.' ),
-			array( 'q' => 'بهترین فصل سفر به طبس چه زمانی است؟', 'a' => 'مهر و آبان و همچنین اسفند و فروردین؛ در این بازه‌ها هوا معتدل است. تابستان برای جاذبه‌های روباز سخت و پرخطر است.' ),
-			array( 'q' => 'آیا بازدید از طبس نیاز به راهنما دارد؟', 'a' => 'دیدنی‌های شهری نه؛ اما برای کویر حلوان، پناهگاه حیات‌وحش نایبندان و مسیرهای دورافتاده، راهنمای محلی و خودروی مناسب لازم است.' ),
-			array( 'q' => 'اقامت در طبس کجاست؟', 'a' => 'شهر طبس هتل و اقامتگاه دارد و روستاهای نایبند، اصفهک و ازمیغان هم اقامتگاه بوم‌گردی دارند؛ در فصل اوج سفر، رزرو پیش از حرکت لازم است.' ),
-			array( 'q' => 'چه غذاهای محلی را امتحان کنیم؟', 'a' => 'آش جوش‌پره، اشکنهٔ زرشک و کباب نارنجکی از غذاهای شناخته‌شدهٔ این منطقه‌اند؛ خرما و مرکبات هم سوغات اصلی طبس است.' ),
-			array( 'q' => 'چرا طبس در فهرست ژئوپارک‌های جهانی یونسکو ثبت شده است؟', 'a' => 'به دلیل پیوستگی منحصربه‌فرد لایه‌های زمین‌شناسی از دوران دیرینه‌زیستی (پالئوزوئیک) تا نوزیستی، دره‌های فرسایشی مانند کال جنی و کال سردر و پناهگاه نایبندان، «ژئوپارک طبس» در سال ۲۰۲۳ میلادی در شبکهٔ ژئوپارک‌های جهانی یونسکو ثبت شد.' ),
-			array( 'q' => 'تفاوت روستای ازمیغان و اصفهک در طبس چیست؟', 'a' => 'ازمیغان در حدود ۴۰ کیلومتری شرق طبس به هم‌نشینی شگفت‌انگیز نخلستان و شالیزار برنج در دل کویر شهرت دارد، در حالی که اصفهک در ۳۸ کیلومتری جنوب شرقی طبس یک روستای تاریخی خشتی است که پس از زلزلهٔ ۱۳۵۷ به الگوی جهانی بوم‌گردی و معماری گلی تبدیل شد.' ),
-		),
-		'gallery'      => array(
-			'golshan' => array(
-				'url'          => 'https://upload.wikimedia.org/wikipedia/commons/d/d1/Golshan_Garden_-_Tabas_2011.jpg',
-				'caption'      => 'باغ گلشن، باغ تاریخی شهر طبس در دل اقلیم بیابانی.',
-				'alt'          => 'نمایی از باغ گلشن طبس و درختان و فضای سبز آن',
-				'credit'       => 'Alichenir',
-				'source_url'   => 'https://commons.wikimedia.org/wiki/File:Golshan_Garden_-_Tabas_2011.jpg',
-				'license_name' => 'CC BY-SA 4.0',
-				'license_url'  => 'https://creativecommons.org/licenses/by-sa/4.0/',
-				'edit_note'    => 'هنگام واردکردن مقاله به رسانهٔ وردپرس منتقل می‌شود؛ وردپرس اندازه‌های نمایشی را تولید می‌کند.',
-			),
-			'cliffs' => array(
-				'url'          => 'https://upload.wikimedia.org/wikipedia/commons/d/d7/Cliffs_in_Tabas_in_Iran.jpg',
-				'caption'      => 'دیواره‌های سنگی درهٔ کال سردر و مسیر چشمهٔ مرتضی علی در حوالی طبس.',
-				'alt'          => 'دیواره‌های سنگی درهٔ کال سردر در حوالی طبس',
-				'credit'       => 'Mahdi Kalhor',
-				'source_url'   => 'https://commons.wikimedia.org/wiki/File:Cliffs_in_Tabas_in_Iran.jpg',
-				'license_name' => 'CC BY 3.0',
-				'license_url'  => 'https://creativecommons.org/licenses/by/3.0/',
-				'edit_note'    => 'هنگام واردکردن مقاله به رسانهٔ وردپرس منتقل می‌شود؛ وردپرس اندازه‌های نمایشی را تولید می‌کند.',
-			),
-			'nayband' => array(
-				'url'          => 'https://upload.wikimedia.org/wikipedia/commons/c/c4/Nayband.JPG',
-				'caption'      => 'نمای کلی روستای تاریخی نایبند در شهرستان طبس؛ این تصویر از خود شهر طبس نیست.',
-				'alt'          => 'نمای کلی روستای تاریخی نایبند در شهرستان طبس',
-				'credit'       => 'مهدی مخلصیان (Mahdi Mokhlisian)',
-				'source_url'   => 'https://commons.wikimedia.org/wiki/File:Nayband.JPG',
-				'license_name' => 'CC BY-SA 4.0',
-				'license_url'  => 'https://creativecommons.org/licenses/by-sa/4.0/',
-				'edit_note'    => 'هنگام واردکردن مقاله به رسانهٔ وردپرس منتقل می‌شود؛ وردپرس اندازه‌های نمایشی را تولید می‌کند.',
-			),
-		),
-		'content'      => <<<'SA_ART'
-<p><strong>طبس</strong>، مرکز <a href="/city/tabas/">شهرستان طبس</a> در <a href="/province/south-khorasan/">استان خراسان جنوبی</a>، شهری در اقلیم خشک است و جاذبه‌های شهرستان در یک نقطه جمع نشده‌اند: باغ گلشن و ارگ کهن در بافت شهرند، اما دره‌ها، چشمه‌ها و روستاهایی مانند خرو، اصفهک و نایبند بیرون از شهر قرار دارند. برای برنامه‌ریزی سفر، فاصلهٔ جاده‌ای و زمان رفت‌وبرگشت را در نظر بگیرید؛ فهرست دیدنی‌ها را نمی‌توان بدون توجه به گستردگی شهرستان در یک روز گنجاند.</p>
-
-{{GALLERY:golshan}}
-
-<h2>دیدنی‌های داخل شهر طبس</h2>
-<ul>
-<li><strong><a href="/attraction/bagh-golshan-tabas/">باغ گلشن</a>:</strong> باغی تاریخی با طرح چهارباغ، دو محور اصلی متقاطع و حوضی مرکزی. این فضای سبز در اقلیم خشک شهر، یکی از شاخص‌ترین مقصدهای داخل طبس است؛ برای تاریخ، معماری و اطلاعات بازدید، راهنمای جداگانهٔ باغ گلشن را ببینید.</li>
-<li><strong>ارگ کهن یا کهن‌دژ:</strong> از بخش‌های قدیمی بافت شهر که در روایت‌های محلی و گردشگری به هستهٔ تاریخی طبس نسبت داده می‌شود. تاریخ دقیق لایه‌های بنا را از تابلوها یا مرجع میراث فرهنگی بررسی کنید و وارد بخش‌های بسته نشوید.</li>
-<li><strong>امامزاده حسین بن موسی الکاظم (ع):</strong> زیارتگاهی شناخته‌شده در شهر؛ هنگام بازدید پوشش، سکوت و مقررات مذهبی محل را رعایت کنید.</li>
-<li><strong>کاروانسراهای پیرامون:</strong> بناهایی مانند کاروانسرای خان و کلمرد در مسیرهای بیرون شهر قرار دارند؛ پیش از رفتن از بازبودن، راه دسترسی و امکان ورود به بنا مطمئن شوید.</li>
-</ul>
-
-<h2>دره‌ها و چشمه‌های اطراف</h2>
-<p>در مسیرهای شرقی شهر، جاذبه‌های طبیعیِ شناخته‌شده‌ای مانند چشمهٔ مرتضی علی، درهٔ کال سردر و طاق شاه‌عباسی قرار دارند. در بعضی قسمت‌های رودخانه اختلاف دمای آب احساس می‌شود، اما جریان، عمق و لغزندگی مسیر به فصل و بارندگی بستگی دارد. برای پیاده‌روی کفش مناسب آب و سنگ بپوشید، در نقاط ناشناخته وارد آب نشوید و هنگام بارندگی یا احتمال سیلاب از ورود به بستر دره خودداری کنید.</p>
-<p>دیواره‌های فرسایشی کال جنی نیز مقصدی جداگانه است. شکل زمین و مسیرهای فرعی ممکن است گمراه‌کننده باشد؛ مسیر مجاز و وضعیت روز را از راهنمای محلی بپرسید و برای رفت‌وآمد در دره به تاریکی نخورید. دربارهٔ قدمت طاق شاه‌عباسی عددهای مختلفی در منابع گردشگری آمده است؛ در این راهنما قدمت قطعی یا عنوان «قدیمی‌ترین سد قوسی جهان» به‌عنوان واقعیت بی‌چون‌وچرا تکرار نمی‌شود.</p>
-
-{{GALLERY:cliffs}}
-
-<h2>روستاها و مقصدهای دورتر</h2>
-<p><strong>اصفهک</strong> با بافت خشتی و تجربهٔ بازسازی پس از زلزلهٔ ۱۳۵۷، مقصدی برای آشنایی با میراث و زندگی روستایی است. <strong>نایبند</strong> در بخش جنوبی شهرستان، بافت پلکانی، نخلستان و باغ‌های روستایی دارد؛ روستا محل زندگی مردم است، پس بدون اجازه وارد حیاط‌ها نشوید و از ساکنان عکس نگیرید. پناهگاه حیات‌وحش نایبندان و چشمهٔ آب گرم دیگ‌رستم نیز در همین پهنهٔ گسترده قرار می‌گیرند و برای ورود به مسیرهای دورافتاده باید مقررات محیط‌زیست و راهنمای محلی را جدی گرفت.</p>
-
-{{GALLERY:nayband}}
-
-<p>کویر حلوان در بخش دیگری از شهرستان است و به‌دلیل فاصله، بی‌نشانی بعضی مسیرها و پوشش نامطمئن تلفن همراه، مقصدی برای حرکت خودسرانه نیست. اگر قصد کویرگردی یا شب‌مانی دارید، با راهنمای مجاز و خودروی مناسب برنامه‌ریزی کنید و زمان بازگشت را از پیش مشخص نگه دارید.</p>
-
-<h2>بهترین فصل سفر و زمان‌بندی</h2>
-<p>پاییز و بهار معمولاً برای گشت در فضای باز مناسب‌ترند؛ در تابستان گرمای طبس را جدی بگیرید و بازدید از دره‌ها و کویر را به ساعات خنک‌تر محدود کنید. برای سفر شهری و مقصدهای نزدیک، دو تا سه روز برنامهٔ فشرده اما شدنی است؛ اگر نایبند، اصفهک یا کویر حلوان را هم می‌خواهید ببینید، روزهای بیشتری اختصاص دهید. این مقصدها را فقط بر اساس نقشه کنار هم نچینید و زمان رانندگی، استراحت و وضعیت راه را بسنجید.</p>
-
-<h2>دسترسی و نکات ایمنی</h2>
-<ul>
-<li>طبس از چند محور جاده‌ای قابل دسترسی است و فرودگاه هم دارد؛ وضعیت پرواز و راه را نزدیک تاریخ سفر بررسی کنید.</li>
-<li>در فصل گرم آب کافی، پوشش مناسب آفتاب و کفش پیاده‌روی همراه داشته باشید؛ ساعات میانی روز برای دره و کویر مناسب نیست.</li>
-<li>در مسیرهای سنگی و کنار چشمه‌ها مراقب لغزندگی باشید و از شنا در بخش‌هایی که عمق و جریانشان را نمی‌دانید خودداری کنید.</li>
-<li>برای کویر حلوان و مسیرهای داخل پناهگاه حیات‌وحش، راهنمای محلی، خودروی مناسب و هماهنگی با مرجع مربوط لازم است.</li>
-<li>ساعت ورود، بلیت موزه‌ها و مقررات جاذبه‌ها ممکن است تغییر کند؛ پیش از حرکت از میراث فرهنگی یا محیط‌زیست شهرستان استعلام کنید.</li>
-</ul>
-<h2>جدول برنامه‌ریزی و دسته‌بندی جاهای دیدنی طبس (ژئوپارک جهانی یونسکو)</h2>
-<p>پهنهٔ <a href="/city/tabas/">شهرستان طبس</a> که در سال ۲۰۲۳ میلادی به عنوان <strong>ژئوپارک جهانی طبس</strong> در فهرست یونسکو ثبت شد<sup class="sa-cite"><a href="https://www.unesco.org/en/iggp/geoparks/tabas">۱</a></sup> و در تاریخ ایران با لقب «عروس کویر ایران» شناخته می‌شود<sup class="sa-cite"><a href="https://www.iranicaonline.org/articles/tabas">۲</a></sup>، بسیار وسیع است. جدول زیر به شما کمک می‌کند دیدنی‌ها را بر اساس محور جغرافیایی دسته‌بندی کنید:</p>
-<table>
-<thead><tr><th>محور گردشگری</th><th>جاذبه‌های شاخص</th><th>فاصله از مرکز شهر طبس</th><th>زمان پیشنهادی بازدید</th></tr></thead>
-<tbody>
-<tr><td>محور داخل شهر طبس</td><td><a href="/attraction/bagh-golshan-tabas/">باغ گلشن طبس</a>، ارگ کهن طبس، امامزاده حسین بن موسی الکاظم (ع)، مدرسه دو منار</td><td>در بافت مرکزی شهر</td><td>نیم‌روز (صبح یا عصر)</td></tr>
-<tr><td>محور شرقی (کوهستان شتری)</td><td>دره کال سردر، چشمه آبگرم و سرد مرتضی علی، طاق شاه‌عباسی، روستای خرو و روستای ازمیغان (نخل و شالیزار)</td><td>۲۷ تا ۴۵ کیلومتر</td><td>یک روز کامل (پیاده‌روی در آب و دره)<sup class="sa-cite"><a href="https://www.visitiran.ir/fa/province/%D8%A7%D8%B3%D8%AA%D8%A7%D9%86-%D8%AE%D8%B1%D8%A7%D8%B3%D8%A7%D9%86-%D8%AC%D9%86%D9%88%D8%A8%DB%8C">۳</a></sup></td></tr>
-<tr><td>محور شمالی</td><td>دره کال جنی (ژئوسایت فرسایشی و دودکش‌های جن) و چشمه ازمیغان</td><td>۳۵ کیلومتر</td><td>نیم‌روز (صبح زود یا عصر با راهنما)</td></tr>
-<tr><td>محور جنوب شرقی و جنوبی</td><td>روستای جهانی خشتی اصفهک، سد تاریخی کریت، روستای پلکانی نایبند، آبگرم دیگ رستم و پناهگاه یوزپلنگ نایبندان</td><td>۳۸ کیلومتر (اصفهک) تا ۲۲۰ کیلومتر (نایبند)</td><td>۱ تا ۲ روز (با اقامت بوم‌گردی در اصفهک یا نایبند)</td></tr>
-<tr><td>محور شمال غربی</td><td>کویر حلوان و رمل‌های شنی پیرحاجات</td><td>۷۵ تا ۹۰ کیلومتر</td><td>یک روز کامل با تجهیزات کویرنوردی</td></tr>
-</tbody>
-</table>
-
-<h2>برنامهٔ پیشنهادی سفر ۳ روزه به طبس (مسیر طلایی ژئوپارک جهانی)</h2>
-<p>اگر برای نخستین بار به طبس سفر می‌کنید، این برنامهٔ سه روزه به شما کمک می‌کند بدون خستگی مفرط در جاده‌ها، مهم‌ترین شگفتی‌های تاریخی و طبیعی شهرستان را ببینید:</p>
-<ul>
-<li><strong>روز اول (قلب شهر و درهٔ کال جنی):</strong> صبح بازدید از <a href="/attraction/bagh-golshan-tabas/">باغ گلشن طبس</a> و موزهٔ زمین‌شناسی، ارگ کهن طبس، مدرسهٔ دو منار و زیارت امامزاده حسین بن موسی الکاظم (ع). عصر حرکت به سمت شمال شهر برای تماشای دیواره‌های رازآلود <strong>درهٔ کال جنی</strong> و دودکش‌های جن در نور طلایی پیش از غروب.</li>
-<li><strong>روز دوم (کال سردر، چشمهٔ مرتضی علی، خرو و ازمیغان):</strong> حرکت صبح زود به سمت شرق طبس، پیاده‌روی در بستر رودخانهٔ درهٔ کال سردر، تجربهٔ شگفت‌انگیز هم‌نشینی آب گرم و آب سرد در <strong>چشمهٔ مرتضی علی</strong> و تماشای <strong>طاق شاه‌عباسی</strong>. ظهر ادامهٔ مسیر به سمت <strong>روستای ازمیغان</strong> (تلاقی نخلستان و شالیزار برنج و آبشار تخت عروس) و صرف ناهار در اقامتگاه بوم‌گردی.</li>
-<li><strong>روز سوم (روستای جهانی اصفهک، سد کریت و نایبند):</strong> حرکت به سمت جنوب شرقی، گشت در بافت خشتی و نخلستان‌های <strong>روستای اصفهک</strong> (ثبت‌شده در فهرست بهترین روستاهای گردشگری جهان UNWTO)، تماشای سد تاریخی کریت و در صورت داشتن یک روز اضافه، ادامهٔ مسیر به سمت جنوب تا روستای پلکانی <strong>نایبند</strong> (ماسولهٔ کویر) و چشمهٔ آبگرم دیگ رستم.</li>
-</ul>
-
-<h2>فرهنگ بومی، خوراک محلی و سوغات شیرین طبس</h2>
-<p>طبس در میان کویرهای مرکزی ایران، واحه‌ای سرسبز از نخل و بهارنارنج است. خانه‌های بوم‌گردی در روستاهای اصفهک، ازمیغان و خرو با معماری گنبدی و بادگیرهای خشتی، بهترین مکان برای چشیدن دست‌پخت محلی و شنیدن قصه‌های قنات و کویرند.</p>
-<ul>
-<li><strong>خوراک‌های محلی طبس:</strong> <strong>خورشت نخود (قیمهٔ طبسی)</strong>، <strong>آش جوش‌پره</strong>، <strong>کباب نارنجکی</strong>، <strong>اشکنهٔ زرشک و اشکنهٔ اوجز</strong> و نان تفتان محلی داغ.</li>
-<li><strong>مشهورترین سوغات طبس:</strong> <strong>مربای بهارنارنج و مربای بالنگ طبس</strong> (که شهرت ملی دارد)، <strong>قطاب و روغنی طبسی</strong>، <strong>عرق بهارنارنج</strong>، <strong>خرمای طبس و نایبند</strong>، پسته، زعفران و گلیم‌بافی و سبدبافی با برگ نخل (حصیربافی).</li>
-</ul>
-
-<h2>ادامهٔ مسیر در خراسان جنوبی و راهنماهای آموزشی مرتبط</h2>
-<p>اگر برنامه‌تان چندروزه است و به سمت شمال یا شرق استان حرکت می‌کنید، بازدید از <a href="/attraction/ghaleh-dokhtar-boshruyeh/">قلعه دختر بشرویه</a> در <a href="/city/boshruyeh/">شهرستان بشرویه</a>، بافت تاریخی <a href="/city/ferdows/">فردوس</a> و مرکز استان یعنی <a href="/city/birjand/">بیرجند</a> سفر شما را در <a href="/province/south-khorasan/">خراسان جنوبی</a> کامل می‌کند. همچنین برای مقایسه با دیگر مقصدهای کویری ایران، راهنمای <a href="/attraction/shahdad-kaluts-lut-desert/">کلوت‌های شهداد در کویر لوت</a> و <a href="/attraction/qeshm-stars-valley-geopark/">درهٔ ستارگان قشم</a> را بخوانید و پیش از ورود به کال جنی یا کویر حلوان، نکات <a href="/camping-water-planning/">مدیریت آب آشامیدنی</a>، <a href="/gps-navigation-tools/">مسیریابی آفلاین</a> و <a href="/heatstroke-first-aid/">پیشگیری از گرمازدگی</a> را مرور کنید.</p>
-
-SA_ART,
-	),
-
 	'bagh-golshan-tabas' => array(
 		'title'        => 'باغ گلشن طبس',
 		'type'         => 'attraction',
@@ -4309,7 +4074,7 @@ SA_ART,
 </ul>
 
 <h2>اطلاعات بازدید</h2>
-<p>آدرس باغ در شهر طبس و محور بلوار امام خمینی (ره) است. فاصله تا <a href="/attraction/tabas-attractions/">دیگر دیدنی‌های شهر</a> — مانند ارگ کهن و بافت قدیم — کوتاه است و می‌توان آن‌ها را در یک برنامه گنجاند. ساعات بازدید و تعرفهٔ باغ و موزه ممکن است متفاوت باشد و تغییر کند؛ پیش از رفتن، برنامهٔ روز و هزینه را از مرجع رسمی یا نگهبانیِ مجموعه بپرسید.</p>
+<p>آدرس باغ در شهر طبس و محور بلوار امام خمینی (ره) است. فاصله تا <a href="/city/tabas/">دیگر دیدنی‌های شهر</a> — مانند ارگ کهن و بافت قدیم — کوتاه است و می‌توان آن‌ها را در یک برنامه گنجاند. ساعات بازدید و تعرفهٔ باغ و موزه ممکن است متفاوت باشد و تغییر کند؛ پیش از رفتن، برنامهٔ روز و هزینه را از مرجع رسمی یا نگهبانیِ مجموعه بپرسید.</p>
 
 <h2>تناسب بازدید برای خانواده‌ها، سالمندان و کودکان</h2>
 <p>باغ گلشن طبس به دلیل قرارگیری در بافت مسطح شهری، داشتن مسیرهای عریض سنگ‌فرش‌شده، نیمکت‌های متعدد در سایهٔ درختان کهنسال و دسترسی نزدیک به سرویس‌های بهداشتی و پارکینگ در میدان گلشن، یکی از مناسب‌ترین جاذبه‌های خراسان جنوبی برای خانواده‌های دارای کودک، سالمندان و افراد کم‌توان حرکتی است. تنها بخش دارای پله، طبقهٔ بالای عمارت سردر است، در حالی که تمام محوطهٔ چهارباغ، کنار حوض بزرگ سه‌فواره و مسیرهای پیاده‌روی در تراز هم‌سطح و با شیب بسیار ملایم قابل پیمایش است.</p>
@@ -4347,7 +4112,7 @@ SA_ART,
 <li><strong>فصل طلایی:</strong> اسفند و فروردین (فصل شکوفهٔ بهارنارنج و پرآب‌ترین حالت باغ) و مهر تا آذر (هوای خنک پاییزی).</li>
 <li><strong>ساعت طلایی عکاسی:</strong> یک ساعت پس از طلوع آفتاب یا یک ساعت پیش از غروب، زمانی که تصویر عمارت سردر سفیدرنگ و نخل‌ها در حوض بزرگ مرکزی منعکس می‌شود.</li>
 <li><strong>ایمنی و احترام:</strong> لبهٔ حوض و جوی‌ها لغزنده است؛ رعایت <a href="/water-safety-children/">ایمنی کودکان در کنار آب</a>، پرهیز از پرتاب خوراکی به سمت پلیکان‌ها و پایبندی به <a href="/choosing-campsite/">اصول گردشگری مسئولانه</a> به حفظ این میراث کمک می‌کند.</li>
-<li><strong>مقصدهای مکمل:</strong> برای مقایسهٔ باغ گلشن با یکی از مشهورترین باغ‌های ثبت جهانی ایران، راهنمای <a href="/attraction/fin-garden/">باغ فین کاشان</a> را بخوانید و برای ادامهٔ گشت در طبس و استان، به صفحهٔ <a href="/attraction/tabas-attractions/">جاهای دیدنی طبس</a> و <a href="/attraction/ghaleh-dokhtar-boshruyeh/">قلعه دختر بشرویه</a> سر بزنید.</li>
+<li><strong>مقصدهای مکمل:</strong> برای مقایسهٔ باغ گلشن با یکی از مشهورترین باغ‌های ثبت جهانی ایران، راهنمای <a href="/attraction/fin-garden/">باغ فین کاشان</a> را بخوانید و برای ادامهٔ گشت در طبس و استان، به صفحهٔ <a href="/city/tabas/">جاهای دیدنی طبس</a> و <a href="/attraction/ghaleh-dokhtar-boshruyeh/">قلعه دختر بشرویه</a> سر بزنید.</li>
 </ul>
 SA_ART,
 	),
@@ -4482,7 +4247,7 @@ SA_ART,
 <h2>مسیرهای پیشنهادی برای ادامهٔ سفر و راهنماهای آموزشی</h2>
 <ul>
 <li><a href="/city/boshruyeh/">شهرستان بشرویه</a> و <a href="/city/ferdows/">شهرستان فردوس</a> (شهر تاریخی تون با حمام و قنات جهانی بلده) در شمال و شرق.</li>
-<li><a href="/city/tabas/">شهرستان طبس</a>، <a href="/attraction/tabas-attractions/">دیدنی‌های طبس</a> و <a href="/attraction/bagh-golshan-tabas/">باغ گلشن طبس</a> در جنوب غربی بشرویه.</li>
+<li><a href="/city/tabas/">شهرستان طبس</a>، <a href="/city/tabas/">دیدنی‌های طبس</a> و <a href="/attraction/bagh-golshan-tabas/">باغ گلشن طبس</a> در جنوب غربی بشرویه.</li>
 <li><a href="/province/south-khorasan/">استان خراسان جنوبی</a> و <a href="/city/birjand/">شهرستان بیرجند</a>؛ نمای کلی استان و قلعه‌های تاریخی آن و همچنین مقایسه با <a href="/attraction/falak-ol-aflak-castle-khorramabad/">قلعه فلک‌الافلاک خرم‌آباد</a>.</li>
 <li>راهنماهای آموزشی ضروری پیش از صعود: <a href="/ankle-sprain-first-aid/">انتخاب کفش کوهستان با زیرهٔ عاج‌دار</a>، <a href="/rope-carabiner-guide/">استفاده از باتوم در شیب‌های سنگی</a>، <a href="/camping-water-planning/">همراه داشتن آب کافی</a> و <a href="/choosing-campsite/">حفاظت از ابنیهٔ تاریخی</a>.</li>
 </ul>
@@ -4972,7 +4737,7 @@ SA_ART,
 </ul>
 
 <h2>ادامهٔ سفر در پهنهٔ کویر و راهنماهای آموزشی بقا</h2>
-<p>اگر مسیرتان چندروزه است و مقصدهای بیابانی دیگر را هم بررسی می‌کنید، <a href="/attraction/tabas-attractions/">راهنمای دیدنی‌های طبس</a> را بخوانید؛ طبس در استان خراسان جنوبی است و سفر به آن باید با برآورد جداگانهٔ مسافت و وضعیت جاده برنامه‌ریزی شود. اگر پهنه‌های ماسه‌ای دیگر را هم می‌پسندید، <a href="/attraction/rig-e-jenn-desert/">کویر ریگ جن</a> در مرز سمنان و اصفهان و <a href="/attraction/qeshm-stars-valley-geopark/">درهٔ ستارگان قشم</a> مقصدهای زمین‌گردشگری دیگری هستند. در درون استان نیز می‌توانید مسیر سفر را به سمت ارگ تاریخی در <a href="/city/bam/">شهرستان بم</a> یا باغ‌ها و خانه‌های تاریخی <a href="/city/rafsanjan/">رفسنجان</a> و <a href="/city/sirjan/">سیرجان</a> ادامه دهید. پیش از هرگونه ورود به بیابان لوت، راهنماهای <a href="/camping-water-planning/">مدیریت حیاتی آب در کویر</a>، <a href="/gps-navigation-tools/">ابزارهای ناوبری و GPS آفلاین</a>، <a href="/lost-in-nature-guide/">اقدامات اضطراری هنگام گم‌شدن</a> و <a href="/heatstroke-first-aid/">پیشگیری از گرمازدگی</a> را با دقت مطالعه کنید.</p>
+<p>اگر مسیرتان چندروزه است و مقصدهای بیابانی دیگر را هم بررسی می‌کنید، <a href="/city/tabas/">راهنمای دیدنی‌های طبس</a> را بخوانید؛ طبس در استان خراسان جنوبی است و سفر به آن باید با برآورد جداگانهٔ مسافت و وضعیت جاده برنامه‌ریزی شود. اگر پهنه‌های ماسه‌ای دیگر را هم می‌پسندید، <a href="/attraction/rig-e-jenn-desert/">کویر ریگ جن</a> در مرز سمنان و اصفهان و <a href="/attraction/qeshm-stars-valley-geopark/">درهٔ ستارگان قشم</a> مقصدهای زمین‌گردشگری دیگری هستند. در درون استان نیز می‌توانید مسیر سفر را به سمت ارگ تاریخی در <a href="/city/bam/">شهرستان بم</a> یا باغ‌ها و خانه‌های تاریخی <a href="/city/rafsanjan/">رفسنجان</a> و <a href="/city/sirjan/">سیرجان</a> ادامه دهید. پیش از هرگونه ورود به بیابان لوت، راهنماهای <a href="/camping-water-planning/">مدیریت حیاتی آب در کویر</a>، <a href="/gps-navigation-tools/">ابزارهای ناوبری و GPS آفلاین</a>، <a href="/lost-in-nature-guide/">اقدامات اضطراری هنگام گم‌شدن</a> و <a href="/heatstroke-first-aid/">پیشگیری از گرمازدگی</a> را با دقت مطالعه کنید.</p>
 SA_ART,
 	),
 

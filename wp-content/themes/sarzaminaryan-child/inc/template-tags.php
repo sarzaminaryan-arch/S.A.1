@@ -35,6 +35,9 @@ function sa_entity_facts( $post_id ) {
 
 	// Taxonomy enums.
 	foreach ( $e['enums'] as $enum ) {
+		if ( 'city' === $type && 'travel_season' === $enum['taxonomy'] && '' !== trim( (string) get_post_meta( $post_id, 'sa_cty_best_time', true ) ) ) {
+			continue;
+		}
 		$terms = get_the_terms( $post_id, $enum['taxonomy'] );
 		if ( $terms && ! is_wp_error( $terms ) ) {
 			$links = array();
@@ -47,6 +50,12 @@ function sa_entity_facts( $post_id ) {
 
 	// Scalar fields.
 	foreach ( $e['fields'] as $f ) {
+		if ( 'city' === $type && 'sa_city_population' === $f['key'] && ( '' !== trim( (string) get_post_meta( $post_id, 'sa_cty_population', true ) ) || '' !== trim( (string) get_post_meta( $post_id, 'population', true ) ) ) ) {
+			continue;
+		}
+		if ( 'city' === $type && 'sa_best_season' === $f['key'] && '' !== trim( (string) get_post_meta( $post_id, 'sa_cty_best_time', true ) ) ) {
+			continue;
+		}
 		$raw = get_post_meta( $post_id, $f['key'], true );
 		if ( '' === $raw || null === $raw ) {
 			continue;
@@ -247,6 +256,59 @@ function sa_facts_checked_note( $post_id ) {
 }
 
 /**
+ * Check whether a source URL belongs to a domain disallowed by the Editorial Policy
+ * (wikis, commercial booking blogs, or unverified travel blogs).
+ *
+ * @param string $url Source URL.
+ * @return bool
+ */
+function sa_is_forbidden_source_url( $url ) {
+	$host = strtolower( (string) wp_parse_url( (string) $url, PHP_URL_HOST ) );
+	$host = (string) preg_replace( '/^www\./', '', $host );
+	if ( '' === $host ) {
+		return false;
+	}
+	$forbidden = array(
+		'wikipedia.org',
+		'wikidata.org',
+		'wikimedia.org',
+		'kojaro.com',
+		'koohbist.com',
+		'irantripadviser.ir',
+		'karnaval.ir',
+		'alibaba.ir',
+		'lastsecond.ir',
+		'flytoday.ir',
+		'lahzeakhar.com',
+		'eligasht.com',
+		'snapptrip.com',
+		'jabama.com',
+		'utravs.com',
+		'mrbilit.com',
+		'safarmarket.com',
+		'tripyar.com',
+		'gardeshgari724.com',
+		'seeiran.ir',
+		'anyja.ir',
+		'otaghak.com',
+		'shab.ir',
+		'mihmansho.com',
+		'pinorest.com',
+		'hamsafar.org',
+		'offdecor.com',
+		'bartarinha.ir',
+		'namnak.com',
+		'beytoote.com',
+	);
+	foreach ( $forbidden as $domain ) {
+		if ( $host === $domain || substr( $host, -strlen( '.' . $domain ) ) === '.' . $domain ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
  * Parse the sources box: one source per line "title | organisation | URL | access date".
  * Lines after a "---" separator are private editor notes (FACT CHECK REPORT) and are never output.
  *
@@ -278,6 +340,9 @@ function sa_get_sources( $post_id ) {
 		if ( ! $url && preg_match( '#https?://\S+#i', $line, $m ) ) {
 			$url     = $m[0];
 			$cols[0] = trim( str_replace( $url, '', $cols[0] ) );
+		}
+		if ( $url && sa_is_forbidden_source_url( $url ) ) {
+			continue;
 		}
 		$cols  = array_values( $cols );
 		$out[] = array(
@@ -911,7 +976,7 @@ function sa_cyber_id_county_fallback( $county_slug, $province_slug = '' ) {
 			'area'       => '۱٬۳۲۶ کیلومتر مربع',
 			'divisions'  => '۲ بخش · ۵ دهستان · ۲ شهر · ۱۳۵ آبادی',
 			'climate'    => 'کوهستانی معتدل (زاگرس میانی)',
-			'season'     => 'بهار (فروردین تا خرداد)، تابستان و پاییز',
+			'season'     => 'بهار و اوایل تابستان (فروردین تا اوایل تیر)؛ پاییز برای طبیعت‌گردی خنک',
 			'language'   => 'لری (بختیاری، سیلاخوری و خرم‌آبادی) و فارسی',
 			'livelihood' => 'کشاورزی (برنج و گندم)، صنعت سیمان و سنگ، دامداری و گردشگری طبیعی',
 			'access'     => 'راه‌آهن سراسری تهران–جنوب + محور جاده‌ای بروجرد–دورود–ازنا و خرم‌آباد',
