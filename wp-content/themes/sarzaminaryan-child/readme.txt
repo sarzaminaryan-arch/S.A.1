@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.8
+Stable tag: 2.22.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -40,6 +40,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.9 — 1405-07-26 (2026-10-18) =
+* تصویر نام‌محور WebP در قاب ۲:۱ شناسنامهٔ تهران/البرز؛ نبود رسانه قاب خالی، بدون حذف یا تغییر شاخص.
 
 = 2.22.8 — 1405-07-26 (2026-10-18) =
 * فاصلهٔ منظم دسکتاپ زیر داشبورد و هفت اقلیم، دایره و داشبورد ناوی، حذف نشانگر تایپ.

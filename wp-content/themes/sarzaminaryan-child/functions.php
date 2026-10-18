@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.8' );
+define( 'SA_CHILD_VERSION', '2.22.9' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -54,6 +54,8 @@ $sa_child_includes = array(
 	'inc/county-page.php', // county presentation, sources and map (v2.22.3)
 	'inc/county-profile.php', // شناسنامهٔ شهرستان: کلیدهای استاندارد + کارت county-identity
 	'inc/province-profile.php',
+	'inc/province-identity-media.php', // تصویر نام‌محورِ داخل شناسنامه؛ نمونهٔ تهران/البرز
+
 	'inc/geo-import.php',
 	'inc/security.php',
 	'inc/performance.php',

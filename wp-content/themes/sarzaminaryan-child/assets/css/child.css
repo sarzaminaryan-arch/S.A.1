@@ -5888,3 +5888,27 @@ small {
   color: #1d9e5f; font-size: .6rem; letter-spacing: .06em; margin-inline-end: .5rem;
 }
 .sa-cid-note__item p { margin: 0; font-size: .88rem; line-height: 1.95; }
+
+/* v2.22.9 — named WebP inside Alborz/Tehran identity cards, not a new hero. */
+.sa-cyber-id--province .sa-province-identity-intro {
+ display:grid;
+ grid-template-columns:minmax(0,320px) minmax(0,1fr);
+ direction:rtl;
+ align-items:start;
+ gap:16px;
+ margin:4px 0 14px;
+}
+.sa-cyber-id--province .sa-province-identity-intro > .sa-cyber-id__header {min-width:0;padding:4px 0 0;overflow-wrap:anywhere}
+.sa-cyber-id--province .sa-province-identity-media {
+ width:100%;aspect-ratio:2 / 1;min-width:0;align-self:start;
+ border:1px solid var(--cyber-cell-border);border-radius:10px;
+ overflow:hidden;background:var(--cyber-cell-bg);box-sizing:border-box;
+}
+.sa-cyber-id--province .sa-province-identity-media__image {
+ display:block;width:100%;height:100%;max-width:100%;max-height:none;
+ object-fit:contain;object-position:center;margin:0;border:0;border-radius:0;
+}
+@media(max-width:600px) {
+ .sa-cyber-id--province .sa-province-identity-intro {grid-template-columns:minmax(0,1fr);gap:12px}
+ .sa-cyber-id--province .sa-province-identity-media {max-width:320px;justify-self:start}
+}

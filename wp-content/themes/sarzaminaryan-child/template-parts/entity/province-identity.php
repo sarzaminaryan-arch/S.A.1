@@ -190,6 +190,7 @@ $sa_province_cells = array(
 	),
 );
 
+$sa_identity_media = function_exists( 'sa_province_identity_media_enabled' ) && sa_province_identity_media_enabled( $sa_id );
 $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_profile['neighbor_groups'] ) ? $sa_profile['neighbor_groups'] : array();
 ?>
 <section class="sa-cyber-id sa-cyber-id--province sa-province-profile" id="province-identity" aria-labelledby="sa-province-profile-title">
@@ -214,6 +215,10 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 		</div>
 	</div>
 
+	<?php if ( $sa_identity_media ) : ?>
+	<div class="sa-province-identity-intro">
+		<?php echo sa_province_identity_media_html( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+	<?php endif; ?>
 	<div class="sa-cyber-id__header">
 		<div class="sa-cyber-id__title-group">
 			<h1 class="sa-cyber-id__title" id="sa-province-profile-title"><?php echo esc_html( $sa_province_title ); ?></h1>
@@ -225,6 +230,8 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 			<p class="sa-cyber-id__summary"><?php echo esc_html( get_the_excerpt( $sa_id ) ); ?></p>
 		<?php endif; ?>
 	</div>
+
+	<?php if ( $sa_identity_media ) : ?></div><?php endif; ?>
 
 	<div class="sa-cyber-id__table-wrap" role="region" aria-label="جدول شناسنامه استان">
 		<div class="sa-cyber-grid sa-cyber-grid--province">
