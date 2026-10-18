@@ -25,7 +25,17 @@ function get_the_ID() { return $GLOBALS['pid']; }
 function get_queried_object_id() { return $GLOBALS['pid']; }
 function get_post_field( $key, $id ) { return $GLOBALS['posts'][ $id ][ $key ] ?? ''; }
 function get_post_type( $id ) { return get_post_field( 'post_type', $id ); }
-function get_post_status( $id ) { return get_post_field( 'post_status', $id ); }
+// Exercise the actual pinned core function, not a raw-status lookalike shim.
+if ( ! function_exists('get_post_status') ) { require __DIR__.'/fixtures/wp-get-post-status.php'; }
+if ( ! function_exists('get_post') ) {
+ function get_post($id) {
+  if (is_object($id)) { return $id; }
+  return isset($GLOBALS['posts'][$id]) ? (object)array_merge(array('ID'=>(int)$id,'post_parent'=>0),$GLOBALS['posts'][$id]) : null;
+ }
+}
+if ( ! function_exists('apply_filters') ) {
+ function apply_filters($hook, $value, ...$args) { return $value; }
+}
 function wp_get_post_parent_id( $id ) { return get_post_field( 'post_parent', $id ); }
 function get_post_mime_type( $id ) { return get_post_field( 'post_mime_type', $id ); }
 function post_password_required( $id ) { return ! empty( $GLOBALS['posts'][ $id ]['password'] ); }
@@ -77,7 +87,11 @@ foreach ( array( 20 => '2026/10/alborz.webp', 21 => '2026/09/alborz.webp', 22 =>
  $GLOBALS['files'][$id] = $file; $GLOBALS['urls'][$id] = '/uploads/' . $name;
 }
 $GLOBALS['candidates'] = array(22,23,24,20,21);
+check('inherit' === get_post_field('post_status',20) && 'publish' === get_post_status(20), 'Unattached media: raw inherit, resolved publish as real WordPress');
 check( 20 === sa_province_identity_media_attachment(1), 'Reject prefixes, -1 and uppercase; newest exact name wins' );
+$GLOBALS['posts'][20]['post_parent'] = 1;
+check('publish' === get_post_status(20) && 20 === sa_province_identity_media_attachment(1), 'Media attached to a published province is accepted despite resolved publish');
+$GLOBALS['posts'][20]['post_parent'] = 0;
 $GLOBALS['files'][20] = $file . '-missing';
 check( 21 === sa_province_identity_media_attachment(1), 'Missing local file skipped, previous valid duplicate used' );
 $GLOBALS['posts'][21]['post_parent'] = 3; $GLOBALS['posts'][3]['post_status'] = 'private';
