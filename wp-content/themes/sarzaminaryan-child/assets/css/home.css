@@ -2,7 +2,7 @@
 .sa-home{--sa-green:#61ffb5;--sa-ink:#0b2a4a;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--sa-ink);background:#f3f8fc;line-height:1.8}
 .sa-home *, .sa-home *::before,.sa-home *::after{box-sizing:border-box}
 .sa-home .sa-wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:clamp(16px,3vw,36px)}
-.sa-home .sa-hero{position:relative;display:flex;align-items:stretch;min-height:calc(100vh - 82px);min-height:calc(100svh - 82px);padding:clamp(24px,4vh,44px) 0 28px;color:var(--sa-ink);background:radial-gradient(ellipse at 15% 25%,#dcecf5 0,transparent 56%),linear-gradient(180deg,#fff,#eef6fc);overflow:hidden}
+.sa-home .sa-hero{position:relative;display:flex;align-items:stretch;min-height:0;padding:clamp(24px,4vh,44px) 0 28px;color:var(--sa-ink);background:radial-gradient(ellipse at 15% 25%,#dcecf5 0,transparent 56%),linear-gradient(180deg,#fff,#eef6fc);overflow:hidden}
 .sa-home .sa-hero::after{content:none}
 .sa-home .sa-hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#456c8a24 1px,transparent 1px);background-size:20px 20px;opacity:.6}
 .sa-home .sa-hero__layout{position:relative;display:flex;flex-direction:column;gap:20px}
@@ -26,29 +26,28 @@
 .sa-home .sa-search:focus-within{outline:3px solid #28749c66;outline-offset:3px}
 .sa-home .sa-search button{flex:none;min-height:52px;border:1px solid #071a30;border-radius:13px;padding:8px 32px;background:linear-gradient(135deg,#174f7a,#071a30);color:#fff;font:800 16px/1.5 Vazirmatn,Tahoma,sans-serif;cursor:pointer;box-shadow:0 6px 14px #071a3026}
 .sa-home .sa-search button:hover{background:#123f73}
-.sa-home .sa-dash-cta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;align-self:center;width:min(100%,780px);margin:0;padding:15px 24px;border:1.5px solid #00e899;border-radius:14px;background:linear-gradient(135deg,#04101f,#071f36);color:#fff;font-size:16px;font-weight:800;text-decoration:none;text-align:center;box-shadow:0 12px 26px -14px #00ad7770;transition:transform .2s,box-shadow .2s}
+.sa-home .sa-dash-cta{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;align-self:center;width:min(100%,780px);margin:0;padding:15px 24px;border:1.5px solid #406a9e;border-radius:14px;background:linear-gradient(135deg,#142f56,#081a35);color:#fff;font-size:16px;font-weight:800;text-decoration:none;text-align:center;box-shadow:0 12px 26px -14px #102d5770;transition:transform .2s,box-shadow .2s}
 .sa-home .sa-dash-cta svg{flex:none;color:#61ffb5}
 .sa-home .sa-dash-cta small{font:800 11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:1px;color:#61ffb5}
-.sa-home .sa-dash-cta:hover{transform:translateY(-2px);box-shadow:0 15px 30px -12px #00ad7780}
+.sa-home .sa-dash-cta:hover{transform:translateY(-2px);box-shadow:0 15px 30px -12px #102d5780}
 .sa-home a:focus-visible,.sa-home button:focus-visible{outline:3px solid #248366;outline-offset:5px}
 .sa-home .sa-scroll{align-self:center;display:grid;place-items:center;width:36px;height:40px;margin-top:auto;border:1px solid #aac8d9;border-radius:24px;color:#245779;text-decoration:none;font:700 22px/1 monospace}
 .sa-home .sa-scroll span{animation:sa-scroll-nudge 2.5s ease-in-out infinite}
 
-/* Next screen: four linked, dark green globes. Only the surface rings rotate. */
+/* Four linked navy globes follow the dashboard; only surface rings rotate. */
 .sa-home .sa-stats{scroll-margin-top:90px;margin:0;padding:54px 0 42px;background:linear-gradient(180deg,#eef6fc,#eff8f5)}
 .sa-home .sa-orb-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:clamp(6px,2.4vw,30px)}
-.sa-home .sa-st{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;padding:0;aspect-ratio:1;border:1px solid #268361;border-radius:50%;--sa-orb-bg:radial-gradient(circle at 30% 24%,#24513d 0,#0d291f 26%,#041510 60%,#010a08 100%);background:var(--sa-orb-bg);box-shadow:inset -12px -16px 28px #0009,inset 3px 3px 10px #a9ffcd26,0 14px 26px -14px #062c21aa,0 0 0 5px #1f795b08;color:var(--sa-green);text-decoration:none;overflow:hidden;transition:border-color .25s,box-shadow .25s}
-.sa-home .sa-st:hover,.sa-home .sa-st:focus-visible{background:var(--sa-orb-bg);border-color:#83ffcc;box-shadow:inset -12px -16px 28px #0009,0 14px 26px -12px #062c21aa,0 0 22px #3dffa333;color:#b1ffda}
+.sa-home .sa-st{position:relative;isolation:isolate;display:flex;align-items:center;justify-content:center;width:100%;padding:0;aspect-ratio:1;border:1px solid #406a9e;border-radius:50%;--sa-orb-bg:radial-gradient(circle at 30% 24%,#315587 0,#172f57 26%,#0b1c38 60%,#060e22 100%);background:var(--sa-orb-bg);box-shadow:inset -12px -16px 28px #0009,inset 3px 3px 10px #afcfff26,0 14px 26px -14px #0b214aaa,0 0 0 5px #335f9908;color:var(--sa-green);text-decoration:none;overflow:hidden;transition:border-color .25s,box-shadow .25s}
+.sa-home .sa-st:hover,.sa-home .sa-st:focus-visible{background:var(--sa-orb-bg);border-color:#8ebcff;box-shadow:inset -12px -16px 28px #0009,0 14px 26px -12px #0b214aaa,0 0 22px #508bdb33;color:#b1ffda}
 .sa-home .sa-st--unavailable{opacity:.65}
 .sa-home .sa-orbits{position:absolute;inset:0;z-index:-1;border-radius:inherit;overflow:hidden;pointer-events:none;perspective:600px}
-.sa-home .sa-orbits::before{content:"";position:absolute;inset:5%;border-radius:50%;border:1px solid #51e59a2b;box-shadow:0 0 0 8px #51e59a08,inset 0 0 12px #51e59a14}
-.sa-home .sa-orbits i{--angle:0deg;position:absolute;inset:7%;border:1px solid #7bffbb70;border-radius:50%;animation:sa-orbit-spin 24s linear infinite}
+.sa-home .sa-orbits::before{content:"";position:absolute;inset:5%;border-radius:50%;border:1px solid #7ca9e02b;box-shadow:0 0 0 8px #7ca9e008,inset 0 0 12px #7ca9e014}
+.sa-home .sa-orbits i{--angle:0deg;position:absolute;inset:7%;border:1px solid #a1c5ff70;border-radius:50%;animation:sa-orbit-spin 24s linear infinite}
 .sa-home .sa-orbits i:nth-child(2){--angle:45deg;animation-delay:-6s}
 .sa-home .sa-orbits i:nth-child(3){--angle:90deg;animation-delay:-12s}
 .sa-home .sa-orbits i:nth-child(4){--angle:135deg;animation-delay:-18s}
 .sa-home .sa-st__content{display:flex;align-items:center;justify-content:center;flex-direction:column;width:86%;padding:10px 0;text-align:center;gap:8px;text-shadow:0 2px 4px #000,0 0 12px #000}
 .sa-home .sa-st b{display:block;white-space:nowrap;direction:ltr;font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:clamp(23px,4.5vw,58px);font-weight:900;font-variant-numeric:tabular-nums;line-height:1.15;letter-spacing:-1.5px;color:#7bffc1}
-.sa-home .sa-st b::after{content:"";display:inline-block;width:2px;height:.65em;margin-inline-start:3px;background:#7bffc1;animation:sa-cursor 1.4s steps(1,end) infinite}
 .sa-home .sa-st b.sa-st__number--compact{font-size:clamp(20px,3.3vw,44px)}
 .sa-home .sa-st__label{font-size:clamp(12px,1.7vw,21px);font-weight:900;line-height:1.5;color:#a3ffcf;overflow-wrap:anywhere}
 
@@ -74,10 +73,16 @@
 .sa-home .sa-topcities__empty{margin:12px 16px;padding:10px 12px;font-size:13px;border:1px dashed #bdd7cb;border-radius:10px;color:#3f6152;background:#f5faf7}
 .sa-home .is-offscreen .sa-orbits i,.sa-home.is-paused *{animation-play-state:paused}
 @keyframes sa-orbit-spin{from{transform:rotate(var(--angle)) rotateY(0deg)}to{transform:rotate(var(--angle)) rotateY(360deg)}}
-@keyframes sa-cursor{0%,65%{opacity:1}66%,100%{opacity:0}}
 @keyframes sa-city-pulse{0%,100%{opacity:1;box-shadow:0 0 0 2px #16a96b18}50%{opacity:.4;box-shadow:0 0 0 4px #16a96b08}}
 @keyframes sa-map-pulse{0%,100%{opacity:.45}50%{opacity:1}}
 @keyframes sa-scroll-nudge{0%,100%{transform:translateY(-2px)}50%{transform:translateY(3px)}}
+/* Desktop sections flow naturally instead of reserving a full hero screen. */
+@media(min-width:701px){
+ .sa-home .sa-hero{padding-bottom:16px}
+ .sa-home .sa-scroll{display:none}
+ .sa-home .sa-stats{padding:16px 0 24px}
+ .sa-home .sa-topcities{padding-top:8px}
+}
 @media(min-width:1600px){.sa-home .sa-hero{padding-top:40px}.sa-home .sa-hero__layout{gap:26px}}
 @media(max-width:700px){
  .sa-home .sa-hero{padding-top:24px;min-height:calc(100svh - 72px)}
@@ -98,7 +103,6 @@
  .sa-home .sa-st b{font-size:clamp(20px,4.8vw,34px);letter-spacing:-1px}
  .sa-home .sa-st b.sa-st__number--compact{font-size:clamp(16px,3.9vw,28px)}
  .sa-home .sa-st__label{font-size:clamp(11px,2.3vw,15px)}
- .sa-home .sa-st b::after{width:1px;margin-inline-start:2px}
  .sa-home .cc-topbox__head{padding:12px 14px}
  .sa-home .cc-toptable thead th,.sa-home .cc-toptable tbody td{padding:7px 9px}
  .sa-home .cc-toptable{font-size:13px}

@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.7
+Stable tag: 2.22.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -40,6 +40,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.8 — 1405-07-26 (2026-10-18) =
+* فاصلهٔ منظم دسکتاپ زیر داشبورد و هفت اقلیم، دایره و داشبورد ناوی، حذف نشانگر تایپ.
 
 = 2.22.7 — 1405-07-26 (2026-10-18) =
 * بازطراحی صفحهٔ اول: حذف لوگوی داخل هیرو/جدول، متن بالاتر، جستجوی تمام‌عرض با حاشیهٔ امن و نوار داشبورد وسط زیر آن؛ حذف واژهٔ سایبری از نام نوار.

@@ -75,6 +75,11 @@ sa_home_assert( false !== strpos( $css, 'grid-template-columns:repeat(4,minmax(0
 sa_home_assert( false !== strpos( $css, 'aspect-ratio:1' ) && false !== strpos( $css, 'border-radius:50%' ), 'True circular globes' );
 sa_home_assert( false !== strpos( $css, '.sa-home .sa-search{width:100%;max-width:none' ) && false !== strpos( $css, 'padding-inline:clamp(16px,3vw,36px)' ), 'Full-width search with safe side gutters' );
 sa_home_assert( false !== strpos( $css, 'prefers-reduced-motion:reduce' ), 'Reduced-motion CSS fallback' );
+sa_home_assert( false !== strpos( $css, 'min-height:0;' ) && false === strpos( $css, '100vh - 82px' ) && false === strpos( $css, '100svh - 82px' ), 'Desktop hero follows content, not viewport height' );
+sa_home_assert( false !== strpos( $css, '@media(min-width:701px)' ) && false !== strpos( $css, '.sa-home .sa-stats{padding:16px 0 24px}' ) && false !== strpos( $css, '.sa-home .sa-topcities{padding-top:8px}' ), 'Desktop counters and ranking use compact standard gaps' );
+sa_home_assert( false !== strpos( $css, '#315587 0,#172f57 26%,#0b1c38 60%,#060e22 100%' ) && false !== strpos( $css, 'linear-gradient(135deg,#142f56,#081a35)' ), 'Globe and dashboard surfaces are navy' );
+sa_home_assert( false === strpos( $css, 'sa-cursor' ) && false === strpos( $css, '.sa-st b::after' ), 'No typing cursor in counters at any breakpoint' );
+
 $js = file_get_contents( dirname( __DIR__ ) . '/assets/js/home.js' );
 sa_home_assert( false !== strpos( $js, "Intl.NumberFormat('en-US'" ) && false !== strpos( $js, 'prefers-reduced-motion: reduce' ), 'English animated digits and reduced-motion handling' );
 sa_home_assert( ! preg_match( '/fetch\(|XMLHttpRequest|setInterval|\.sa-hero/', $js ), 'No AJAX counter queries, timers, or hero-based pausing of lower sections' );
