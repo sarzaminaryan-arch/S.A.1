@@ -457,7 +457,7 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 	}
 }
 ?>
-<section class="sa-cyber-id sa-cyber-id--county" id="county-identity" aria-labelledby="sa-county-identity-title">
+<section class="profile-box sa-cyber-id sa-cyber-id--county" id="county-identity" aria-labelledby="sa-county-identity-title">
 	<div class="sa-cyber-id__hud-bar">
 		<div class="sa-cyber-id__badges">
 			<span class="sa-cyber-id__badge">شناسنامه</span>
@@ -466,13 +466,13 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 		</div>
 		<div class="sa-cyber-id__hud-meta">
 			<?php if ( $sa_prov_id && 'publish' === get_post_status( $sa_prov_id ) ) : ?>
-				<a class="sa-cyber-id__hud-btn" href="<?php echo esc_url( get_permalink( $sa_prov_id ) ); ?>">
+				<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( get_permalink( $sa_prov_id ) ); ?>">
 					<span>استان <?php echo esc_html( $sa_prov_name ); ?></span>
 					<?php if ( '' !== $sa_prov_en ) : ?><small dir="ltr"><?php echo esc_html( strtoupper( $sa_prov_en ) ); ?></small><?php endif; ?>
 				</a>
 			<?php endif; ?>
 			<?php if ( '' !== $sa_map_url ) : ?>
-				<a class="sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
+				<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
 					<span>نقشه</span>
 					<small dir="ltr">MAP</small>
 				</a>
@@ -485,7 +485,7 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 		</div>
 	</div>
 
-	<div class="sa-cyber-id__header">
+	<div class="profile-box sa-cyber-id__header">
 		<div class="sa-cyber-id__title-group">
 			<h1 class="sa-cyber-id__title" id="sa-county-identity-title"><?php echo esc_html( $sa_county_full ); ?></h1>
 			<?php if ( '' !== $sa_en_county ) : ?>
@@ -501,7 +501,7 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 		<div class="sa-cyber-grid sa-cyber-grid--county">
 			<?php foreach ( $sa_county_cells as $sa_cell ) : ?>
 				<?php
-				$sa_cell_cls = 'sa-cyber-grid__cell';
+				$sa_cell_cls = 'profile-box sa-cyber-grid__cell';
 				if ( 'wide' === $sa_cell['span'] ) {
 					$sa_cell_cls .= ' sa-cyber-grid__cell--wide';
 				} elseif ( 'full' === $sa_cell['span'] ) {
@@ -520,14 +520,14 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 	</div>
 
 	<?php if ( ! empty( $sa_pois ) ) : ?>
-		<div class="sa-cyber-id__subtable" id="county-visit">
+		<div class="profile-box sa-cyber-id__subtable" id="county-visit">
 			<div class="sa-cyber-id__subtable-head">
 				<span class="sa-cyber-id__subtable-title">کجا برویم؟ (مقصدهای منتخب شهرستان)</span>
 				<span class="sa-cyber-id__subtable-code" dir="ltr">DESTINATIONS &amp; POIS</span>
 			</div>
 			<div class="sa-cyber-grid sa-cyber-grid--neighbors">
 				<?php foreach ( $sa_pois as $sa_ptitle => $sa_plist ) : ?>
-					<div class="sa-cyber-grid__cell sa-cyber-grid__cell--neighbor">
+					<div class="profile-box sa-cyber-grid__cell sa-cyber-grid__cell--neighbor">
 						<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_ptitle ); ?></span>
 						<ul class="sa-county__poi">
 							<?php foreach ( $sa_plist as $sa_poi ) : ?>
@@ -548,7 +548,7 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 		</div>
 	<?php endif; ?>
 	<?php if ( ! empty( $sa_attractions ) ) : ?>
-		<div class="sa-cyber-id__subtable" id="county-attractions">
+		<div class="profile-box sa-cyber-id__subtable" id="county-attractions">
 			<div class="sa-cyber-id__subtable-head">
 				<span class="sa-cyber-id__subtable-title">جاذبه‌های مهم شهرستان</span>
 				<span class="sa-cyber-id__subtable-code" dir="ltr">TOP ATTRACTIONS</span>
@@ -570,14 +570,14 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 	<?php endif; ?>
 
 	<?php if ( ! empty( $sa_sibling_cities ) ) : ?>
-		<div class="sa-cyber-id__subtable" id="county-siblings">
+		<div class="profile-box sa-cyber-id__subtable" id="county-siblings">
 			<div class="sa-cyber-id__subtable-head">
 				<span class="sa-cyber-id__subtable-title">شهرهای هم‌استانی</span>
 				<span class="sa-cyber-id__subtable-code" dir="ltr">SAME PROVINCE</span>
 			</div>
 			<ul class="sa-cyber-id__chips">
 				<?php foreach ( $sa_sibling_cities as $sa_sib ) : ?>
-					<li><a href="<?php echo esc_url( $sa_sib['url'] ); ?>"><?php echo esc_html( $sa_sib['label'] ); ?></a></li>
+					<li><a class="profile-link" href="<?php echo esc_url( $sa_sib['url'] ); ?>"><?php echo esc_html( $sa_sib['label'] ); ?></a></li>
 				<?php endforeach; ?>
 			</ul>
 		</div>
@@ -599,7 +599,7 @@ if ( ! empty( $sa_profile_ext['agriculture_main'] ) ) {
 <?php if ( $sa_cid_notes ) : ?>
 	<section class="sa-cid-note" aria-label="توضیح کوتاه شهرستان">
 		<?php foreach ( $sa_cid_notes as $sa_note ) : ?>
-			<div class="sa-cid-note__item">
+			<div class="profile-box sa-cid-note__item">
 				<h3><span lang="en" dir="ltr"><?php echo esc_html( $sa_note['tag'] ); ?></span><?php echo esc_html( $sa_note['title'] ); ?></h3>
 				<p><?php echo esc_html( $sa_note['text'] ); ?></p>
 			</div>

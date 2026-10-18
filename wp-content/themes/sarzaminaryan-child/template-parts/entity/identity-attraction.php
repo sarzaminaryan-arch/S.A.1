@@ -171,7 +171,7 @@ $sa_en_loc_ribbon = implode(
 ?>
 <header class="sa-id-card-wrap">
 	<div class="container">
-		<section class="sa-cyber-id sa-cyber-id--attraction" id="attraction-identity" aria-labelledby="sa-attraction-identity-title">
+		<section class="profile-box sa-cyber-id sa-cyber-id--attraction" id="attraction-identity" aria-labelledby="sa-attraction-identity-title">
 			<div class="sa-cyber-id__hud-bar">
 				<div class="sa-cyber-id__badges">
 					<span class="sa-cyber-id__badge">شناسنامه</span>
@@ -180,19 +180,19 @@ $sa_en_loc_ribbon = implode(
 				</div>
 				<div class="sa-cyber-id__hud-meta">
 					<?php if ( '' !== $sa_city_url ) : ?>
-						<a class="sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_city_url ); ?>">
+						<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_city_url ); ?>">
 							<span>شهرستان <?php echo esc_html( $sa_city_name ); ?></span>
 							<?php if ( '' !== $sa_city_en ) : ?><small dir="ltr"><?php echo esc_html( strtoupper( $sa_city_en ) ); ?></small><?php endif; ?>
 						</a>
 					<?php endif; ?>
 					<?php if ( '' !== $sa_prov_url ) : ?>
-						<a class="sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_prov_url ); ?>">
+						<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_prov_url ); ?>">
 							<span>استان <?php echo esc_html( $sa_prov_name ); ?></span>
 							<?php if ( '' !== $sa_prov_en ) : ?><small dir="ltr"><?php echo esc_html( strtoupper( $sa_prov_en ) ); ?></small><?php endif; ?>
 						</a>
 					<?php endif; ?>
 					<?php if ( '' !== $sa_map_url ) : ?>
-						<a class="sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
+						<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
 							<span>نقشه گوگل</span>
 							<small dir="ltr">GPS</small>
 						</a>
@@ -205,7 +205,7 @@ $sa_en_loc_ribbon = implode(
 				</div>
 			</div>
 
-			<div class="sa-cyber-id__header">
+			<div class="profile-box sa-cyber-id__header">
 				<div class="sa-cyber-id__title-group">
 					<h1 class="sa-cyber-id__title" id="sa-attraction-identity-title"><?php the_title(); ?></h1>
 					<?php if ( '' !== $sa_en ) : ?>
@@ -223,7 +223,7 @@ $sa_en_loc_ribbon = implode(
 			<div class="sa-cyber-id__table-wrap" role="region" aria-label="جدول شناسنامه دیدنی">
 				<div class="sa-cyber-grid sa-cyber-grid--attraction-top">
 					<?php foreach ( $sa_tier_a_cells as $sa_cell ) : ?>
-						<div class="sa-cyber-grid__cell">
+						<div class="profile-box sa-cyber-grid__cell">
 							<span class="sa-cyber-grid__code" dir="ltr"><?php echo esc_html( $sa_cell['code'] ); ?></span>
 							<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_cell['label'] ); ?></span>
 							<strong class="sa-cyber-grid__value">
@@ -235,7 +235,7 @@ $sa_en_loc_ribbon = implode(
 
 				<div class="sa-cyber-grid sa-cyber-grid--attraction-specs">
 					<?php foreach ( $sa_tier_b_cells as $sa_cell ) : ?>
-						<div class="sa-cyber-grid__cell">
+						<div class="profile-box sa-cyber-grid__cell">
 							<span class="sa-cyber-grid__code" dir="ltr"><?php echo esc_html( $sa_cell['code'] ); ?></span>
 							<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_cell['label'] ); ?></span>
 							<strong class="sa-cyber-grid__value">
@@ -246,14 +246,14 @@ $sa_en_loc_ribbon = implode(
 				</div>
 
 				<div class="sa-cyber-grid sa-cyber-grid--attraction-footer">
-					<div class="sa-cyber-grid__cell sa-cyber-grid__cell--route">
+					<div class="profile-box sa-cyber-grid__cell sa-cyber-grid__cell--route">
 						<span class="sa-cyber-grid__code" dir="ltr">11 // ROUTE_SPEC</span>
 						<span class="sa-cyber-grid__label">مسیر و نحوهٔ دسترسی</span>
 						<strong class="sa-cyber-grid__value">
 							<?php echo sa_cyber_id_value_or_review( $sa_trail_val, false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</strong>
 					</div>
-					<div class="sa-cyber-grid__cell sa-cyber-grid__cell--safety">
+					<div class="profile-box sa-cyber-grid__cell sa-cyber-grid__cell--safety">
 						<span class="sa-cyber-grid__code" dir="ltr">12 // SAFETY_PROTOCOL</span>
 						<span class="sa-cyber-grid__label">نکتهٔ حیاتی و ایمنی بازدید</span>
 						<strong class="sa-cyber-grid__value">

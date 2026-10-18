@@ -20,13 +20,13 @@ if ( ! $sa_center && '' === $sa_climate && ! $sa_groups ) {
 	return;
 }
 ?>
-<section class="sa-province-profile__module sa-province-profile__module--geography" aria-labelledby="sa-province-profile-geo-title">
+<section class="profile-box sa-province-profile__module sa-province-profile__module--geography" aria-labelledby="sa-province-profile-geo-title">
 	<h3 class="sa-province-profile__section-title" id="sa-province-profile-geo-title"><?php esc_html_e( 'مرکز استان و همسایه‌ها', 'sarzaminaryan-child' ); ?></h3>
 
 	<?php if ( $sa_center || '' !== $sa_climate ) : ?>
 		<dl class="sa-province-profile__identity-facts">
 			<?php if ( $sa_center ) : ?>
-				<div class="sa-province-profile__identity-fact">
+				<div class="profile-box sa-province-profile__identity-fact">
 					<dt><?php esc_html_e( 'مرکز استان', 'sarzaminaryan-child' ); ?></dt>
 					<dd>
 						<?php if ( $sa_center_post ) : ?>
@@ -42,7 +42,7 @@ if ( ! $sa_center && '' === $sa_climate && ! $sa_groups ) {
 			<?php endif; ?>
 
 			<?php if ( '' !== $sa_climate ) : ?>
-				<div class="sa-province-profile__identity-fact">
+				<div class="profile-box sa-province-profile__identity-fact">
 					<dt><?php esc_html_e( 'آب‌وهوا', 'sarzaminaryan-child' ); ?></dt>
 					<dd><?php echo esc_html( $sa_climate ); ?></dd>
 				</div>
@@ -51,7 +51,7 @@ if ( ! $sa_center && '' === $sa_climate && ! $sa_groups ) {
 	<?php endif; ?>
 
 	<?php if ( $sa_groups ) : ?>
-		<div class="sa-province-profile__neighbors">
+		<div class="profile-box sa-province-profile__neighbors">
 			<h4><?php esc_html_e( 'استان‌ها و مرزهای پیرامونی', 'sarzaminaryan-child' ); ?></h4>
 			<ul>
 				<?php foreach ( $sa_groups as $sa_group ) : ?>
@@ -62,7 +62,7 @@ if ( ! $sa_center && '' === $sa_climate && ! $sa_groups ) {
 						continue;
 					}
 					?>
-					<li>
+					<li class="profile-box">
 						<span class="sa-province-profile__direction"><?php echo esc_html( $sa_direction ); ?></span>
 						<span class="sa-province-profile__places">
 							<?php foreach ( $sa_places as $sa_place_index => $sa_place ) : ?>
@@ -73,7 +73,7 @@ if ( ! $sa_center && '' === $sa_climate && ! $sa_groups ) {
 								?>
 								<?php if ( $sa_place_index > 0 ) : ?><span class="sa-province-profile__separator" aria-hidden="true">،</span><?php endif; ?>
 								<?php if ( $sa_target_id ) : ?>
-									<a class="sa-province-profile__place" href="<?php echo esc_url( get_permalink( $sa_target_id ) ); ?>">
+									<a class="profile-link sa-province-profile__place" href="<?php echo esc_url( get_permalink( $sa_target_id ) ); ?>">
 										<span><?php echo esc_html( $sa_clean_place ); ?></span>
 										<?php if ( $sa_place_en ) : ?><small lang="en" dir="ltr"><?php echo esc_html( $sa_place_en ); ?></small><?php endif; ?>
 									</a>

@@ -192,7 +192,7 @@ $sa_province_cells = array(
 
 $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_profile['neighbor_groups'] ) ? $sa_profile['neighbor_groups'] : array();
 ?>
-<section class="sa-cyber-id sa-cyber-id--province sa-province-profile" id="province-identity" aria-labelledby="sa-province-profile-title">
+<section class="profile-box sa-cyber-id sa-cyber-id--province sa-province-profile" id="province-identity" aria-labelledby="sa-province-profile-title">
 	<div class="sa-cyber-id__hud-bar">
 		<div class="sa-cyber-id__badges">
 			<span class="sa-cyber-id__badge">شناسنامه</span>
@@ -201,7 +201,7 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 		</div>
 		<div class="sa-cyber-id__hud-meta">
 			<?php if ( '' !== $sa_map_url ) : ?>
-				<a class="sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
+				<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
 					<span>نقشه ماهواره‌ای</span>
 					<small dir="ltr">MAP</small>
 				</a>
@@ -214,7 +214,7 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 		</div>
 	</div>
 
-	<div class="sa-cyber-id__header">
+	<div class="profile-box sa-cyber-id__header">
 		<div class="sa-cyber-id__title-group">
 			<h1 class="sa-cyber-id__title" id="sa-province-profile-title"><?php echo esc_html( $sa_province_title ); ?></h1>
 			<?php if ( '' !== $sa_en_full ) : ?>
@@ -229,7 +229,7 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 	<div class="sa-cyber-id__table-wrap" role="region" aria-label="جدول شناسنامه استان">
 		<div class="sa-cyber-grid sa-cyber-grid--province">
 			<?php foreach ( $sa_province_cells as $sa_cell ) : ?>
-				<div class="sa-cyber-grid__cell">
+				<div class="profile-box sa-cyber-grid__cell">
 					<span class="sa-cyber-grid__code" dir="ltr"><?php echo esc_html( $sa_cell['code'] ); ?></span>
 					<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_cell['label'] ); ?></span>
 					<strong class="sa-cyber-grid__value">
@@ -240,7 +240,7 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 		</div>
 	</div>
 
-	<div class="sa-cyber-id__subtable">
+	<div class="profile-box sa-cyber-id__subtable">
 		<div class="sa-cyber-id__subtable-head">
 			<span class="sa-cyber-id__subtable-title">همسایه‌ها و مرزهای پیرامونی استان</span>
 			<span class="sa-cyber-id__subtable-code" dir="ltr">BORDER &amp; NEIGHBOR MATRIX</span>
@@ -255,7 +255,7 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 						continue;
 					}
 					?>
-					<div class="sa-cyber-grid__cell sa-cyber-grid__cell--neighbor">
+					<div class="profile-box sa-cyber-grid__cell sa-cyber-grid__cell--neighbor">
 						<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_dir ); ?></span>
 						<div class="sa-cyber-id__chips">
 							<?php foreach ( $sa_places as $sa_place ) : ?>
@@ -265,7 +265,7 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 								$sa_place_en    = function_exists( 'sa_province_profile_place_english' ) ? sa_province_profile_place_english( $sa_place ) : '';
 								?>
 								<?php if ( $sa_neighbor_id ) : ?>
-									<a class="sa-cyber-id__chip" href="<?php echo esc_url( get_permalink( $sa_neighbor_id ) ); ?>">
+									<a class="profile-link sa-cyber-id__chip" href="<?php echo esc_url( get_permalink( $sa_neighbor_id ) ); ?>">
 										<span><?php echo esc_html( $sa_place ); ?></span>
 										<?php if ( '' !== $sa_place_en ) : ?><small dir="ltr"><?php echo esc_html( $sa_place_en ); ?></small><?php endif; ?>
 									</a>
@@ -282,7 +282,7 @@ $sa_neighbor_groups = isset( $sa_profile['neighbor_groups'] ) && is_array( $sa_p
 			</div>
 		<?php else : ?>
 			<div class="sa-cyber-grid sa-cyber-grid--single">
-				<div class="sa-cyber-grid__cell">
+				<div class="profile-box sa-cyber-grid__cell">
 					<span class="sa-cyber-grid__label">استان‌ها و مرزهای همجوار</span>
 					<strong class="sa-cyber-grid__value">
 						<?php
