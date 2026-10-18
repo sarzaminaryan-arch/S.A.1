@@ -99,6 +99,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-article-sections.php"
 
+      - name: Run final article sources tests (phase 6, preserved citation targets)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-article-sources.php"
+
       - name: Run county identity-card tests (کلیدهای کانونی شناسنامه + قوانین خروجی کارت)
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"

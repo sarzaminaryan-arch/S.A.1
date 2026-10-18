@@ -3,8 +3,8 @@
  * Single blog post (educational guides, e.g. «آموزش‌های ضروری کمپینگ و بقا»).
  *
  * Order: header (category chips, title, byline) → featured image → lead (excerpt)
- * → body → FAQ accordion (sa_faq meta, no FAQPage JSON-LD) → sources (sa_sources)
- * → related guides from the same category.
+ * → body → FAQ accordion (sa_faq meta, no FAQPage JSON-LD) → tags/related guides
+ * → unified sources (last article section).
  *
  * @since 2.13.0
  * @package Sarzaminaryan_Child
@@ -61,14 +61,13 @@ $sa_policy = get_page_by_path( 'editorial-policy' );
 
 		<div class="entry-content">
 			<?php
-			the_content();
+			sa_article_content_with_sources();
 			wp_link_pages( array( 'before' => '<div class="page-links">صفحه‌ها:', 'after' => '</div>' ) );
 			?>
 		</div>
 
 		<?php get_template_part( 'template-parts/entity/faq' ); ?>
 
-		<?php sa_guide_sources_section( $sa_id ); ?>
 
 		<?php if ( $sa_tags && ! is_wp_error( $sa_tags ) ) : ?>
 			<p class="sa-article__tags">
@@ -80,5 +79,6 @@ $sa_policy = get_page_by_path( 'editorial-policy' );
 		<?php endif; ?>
 
 		<?php sa_guide_related( $sa_id ); ?>
+		<?php sa_article_final_sources( $sa_id ); ?>
 	</div>
 </article>
