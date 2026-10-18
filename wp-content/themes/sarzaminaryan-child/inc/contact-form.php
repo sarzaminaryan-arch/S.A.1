@@ -93,23 +93,11 @@ function sa_contact_autoload( $content ) {
 		return $content;
 	}
 	$post = get_post();
-	if ( ! $post ) {
+	if ( ! $post || false !== strpos( $content, 'sa-contact-form' ) || has_shortcode( $content, 'sa_contact_form' ) ) {
 		return $content;
 	}
 	$is_contact = in_array( $post->post_name, array( 'contact', 'contact-us', 'tamaskhodmai' ), true ) || false !== mb_strpos( get_the_title( $post ), 'تماس' );
-	if ( ! $is_contact ) {
-		return $content;
-	}
-	$content = (string) preg_replace(
-		'#<p[^>]*>\s*ایمیل و راه‌های تماس را اینجا بنویسید\.?\s*</p>#isu',
-		'',
-		(string) $content
-	);
-	$content = str_replace( 'ایمیل و راه‌های تماس را اینجا بنویسید.', '', $content );
-	if ( false !== strpos( $content, 'sa-contact-form' ) || has_shortcode( $content, 'sa_contact_form' ) ) {
-		return $content;
-	}
-	return $content . sa_contact_form_html();
+	return $is_contact ? $content . sa_contact_form_html() : $content;
 }
 add_filter( 'the_content', 'sa_contact_autoload', 30 );
 

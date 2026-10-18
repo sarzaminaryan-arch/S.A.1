@@ -739,21 +739,16 @@ function sa_gallery_album_payload( $province_id, $city_id ) {
  * @return bool
  */
 function sa_gallery_album_has_images( $province_id, $city_id ) {
-	$ids = sa_gallery_image_ids( $province_id, $city_id, 10 );
-	foreach ( (array) $ids as $id ) {
-		if ( sa_gallery_image_payload( $id ) ) {
-			return true;
-		}
-	}
-	return false;
+	return ! empty( sa_gallery_image_ids( $province_id, $city_id, 1 ) );
 }
 
 /**
  * Render gallery section for province pages or the current city page.
  *
- * The block appears when at least one album holds an approved image
- * whose file exists on disk. When no approved images exist yet, only a
- * compact CTA button is rendered (no empty album cards or "no images" copy).
+ * The block appears only when at least one album holds an approved image
+ * (added by an admin, or sent by a visitor and approved by an admin).
+ * Albums without any image stay hidden, while the image-submission section
+ * remains active on its own.
  *
  * @param int    $post_id Entity post ID.
  * @param string $context province|city.
@@ -801,21 +796,12 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 			continue;
 		}
 		sa_gallery_ensure_album_terms( $province_id, $city->ID );
-		$payload = sa_gallery_album_payload( $province_id, $city->ID );
-		if ( $hide_empty && empty( $payload['count'] ) ) {
-			$empty++;
-			continue;
-		}
-		$albums[] = $payload;
+		$albums[] = sa_gallery_album_payload( $province_id, $city->ID );
 	}
 
-	$upload_to = 'city' === $type ? get_permalink( $post_id ) . '#cc-contrib' : '#cc-contrib';
-
-	// هیچ آلبومِ دارای تصویری نیست → فقط یک دکمهٔ جمع‌وجور «ارسال تصویر» نمایش داده می‌شود.
+	// هیچ آلبومِ دارای تصویری نیست → بلوکِ گالری نمایش داده نمی‌شود
+	// (بخشِ «ارسال تصویر» در جای خودش فعال می‌ماند).
 	if ( ! $albums ) {
-		if ( 'city' === $type && $upload_to ) {
-			echo '<div class="sa-gallery-compact-cta" id="' . esc_attr( $section_id ) . '"><a class="sa-btn sa-btn--ghost sa-gallery__upload" href="' . esc_url( $upload_to ) . '">📷 ارسال تصویر از دیدنی‌های ' . esc_html( get_the_title( $post_id ) ) . '</a></div>';
-		}
 		return;
 	}
 
@@ -859,7 +845,7 @@ function sa_gallery_render_section( $post_id = 0, $context = '' ) {
 					</div>
 					<div class="sa-gallery-card__body">
 						<h3><?php echo esc_html( $album['cityTitle'] ); ?></h3>
-						<p><?php echo $album['count'] ? esc_html( sprintf( '%s تصویر آماده نمایش', sa_fa_digits( $album['count'] ) ) ) : esc_html__( 'ارسال نخستین تصویر برای این آلبوم', 'sarzaminaryan-child' ); ?></p>
+						<p><?php echo $album['count'] ? esc_html( sprintf( '%s تصویر آماده نمایش', sa_fa_digits( $album['count'] ) ) ) : esc_html__( 'هنوز تصویری تأیید نشده؛ آلبوم آماده دریافت تصویر است.', 'sarzaminaryan-child' ); ?></p>
 						<?php if ( ! empty( $album['uploadUrl'] ) ) : ?>
 							<a class="sa-gallery-card__upload" data-sa-gallery-stop href="<?php echo esc_url( $album['uploadUrl'] ); ?>"><?php esc_html_e( 'ارسال عکس', 'sarzaminaryan-child' ); ?></a>
 						<?php endif; ?>

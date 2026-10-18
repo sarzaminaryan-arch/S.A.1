@@ -15,11 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function sa_schema_organization() {
-	$brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
 	$node = array(
 		'@type' => 'Organization',
 		'@id'   => home_url( '/#organization' ),
-		'name'  => $brand,
+		'name'  => get_bloginfo( 'name' ),
 		'url'   => home_url( '/' ),
 	);
 	$logo_id = get_theme_mod( 'custom_logo' );
@@ -57,12 +56,11 @@ function sa_schema_organization() {
  * @return array
  */
 function sa_schema_website() {
-	$brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
 	$node = array(
 		'@type'      => 'WebSite',
 		'@id'        => home_url( '/#website' ),
 		'url'        => home_url( '/' ),
-		'name'       => $brand,
+		'name'       => get_bloginfo( 'name' ),
 		'inLanguage' => 'fa-IR',
 		'publisher'  => array( '@id' => home_url( '/#organization' ) ),
 	);
@@ -193,8 +191,6 @@ function sa_schema_entity( $post ) {
 			$map = get_post_meta( $id, 'sa_google_map_url', true );
 			if ( $map ) {
 				$node['hasMap'] = $map;
-			} elseif ( $geo && isset( $geo['latitude'], $geo['longitude'] ) ) {
-				$node['hasMap'] = sprintf( 'https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=12/%s/%s', $geo['latitude'], $geo['longitude'], $geo['latitude'], $geo['longitude'] );
 			}
 			break;
 
@@ -361,40 +357,17 @@ function sa_schema_article( $post ) {
 }
 
 /**
- * FAQPage node — only valid answers (Phase 7 §1+§2: filtered, 1:1 with rendered).
+ * Legacy FAQPage helper retained for compatibility; FAQPage output is disabled.
  *
- * @param int $post_id Post ID.
- * @return array|null
+ * The FAQ accordion remains visible to readers, but the theme intentionally emits no
+ * FAQPage JSON-LD. Do not restore structured output solely to seek a Google rich result.
+ *
+ * @deprecated data-model v1.2 — no longer outputs structured data.
+ * @param int $post_id Post ID (unused).
+ * @return null
  */
 function sa_schema_faq( $post_id ) {
-	$faq = function_exists( 'sa_get_valid_faq' ) ? sa_get_valid_faq( (int) $post_id ) : array();
-	if ( ! $faq ) {
-		return null;
-	}
-	$entities = array();
-	foreach ( $faq as $row ) {
-		$q = isset( $row['q'] ) ? trim( (string) $row['q'] ) : '';
-		$a = isset( $row['a'] ) ? trim( (string) $row['a'] ) : '';
-		if ( '' === $q || '' === $a ) {
-			continue;
-		}
-		$entities[] = array(
-			'@type'          => 'Question',
-			'name'           => $q,
-			'acceptedAnswer' => array(
-				'@type' => 'Answer',
-				'text'  => wp_strip_all_tags( $a ),
-			),
-		);
-	}
-	if ( ! $entities ) {
-		return null;
-	}
-	return array(
-		'@type'      => 'FAQPage',
-		'@id'        => get_permalink( (int) $post_id ) . '#faq',
-		'mainEntity' => $entities,
-	);
+	return null;
 }
 
 /**
@@ -453,25 +426,12 @@ function sa_schema_output() {
 		if ( $bc ) {
 			$graph[] = $bc;
 		}
-	} else {
-		// Phase 7 §4: BreadcrumbList must exist for county even when SEO plugin owns site nodes
-		if ( is_singular( 'city' ) || is_singular( 'province' ) ) {
-			$bc = sa_schema_breadcrumbs();
-			if ( $bc ) {
-				$graph[] = $bc;
-			}
-		}
 	}
 
 	if ( is_singular() ) {
 		$post = get_queried_object();
 		if ( sa_is_entity( $post ) ) {
 			$graph[] = sa_schema_entity( $post );
-			// Phase 7 §2: FAQPage exactly matches rendered FAQ (filtered via sa_get_valid_faq), even with plugin
-			$faq_node = sa_schema_faq( $post->ID );
-			if ( $faq_node ) {
-				$graph[] = $faq_node;
-			}
 		} elseif ( ! $plugin && 'post' === $post->post_type ) {
 			$graph[] = sa_schema_article( $post );
 		} elseif ( ! $plugin ) {

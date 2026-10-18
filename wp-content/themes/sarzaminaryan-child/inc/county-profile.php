@@ -355,33 +355,16 @@ function sa_county_profile_empty_fields( $post_id ) {
 function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 	$rows = array();
 	$seen = array();
-	$norm = static function ( $s ) {
-		$s = trim( (string) preg_replace( '/\s*\(.*?\)\s*/u', ' ', (string) $s ) );
-		$s = str_replace( array( 'ي', 'ك', "\xE2\x80\x8C" ), array( 'ی', 'ک', ' ' ), $s );
-		return trim( (string) preg_replace( '/\s+/u', ' ', $s ) );
-	};
-	$county_bare = function_exists( 'sa_county_name' ) ? trim( (string) sa_county_name( (int) $post_id, false ) ) : '';
-	$mark_seen   = static function ( $name ) use ( &$seen, $norm, $county_bare ) {
-		$seen[ $name ]          = true;
-		$n                      = $norm( $name );
-		$seen[ $n ]             = true;
-		if ( '' !== $county_bare ) {
-			$short = trim( (string) preg_replace( '/\s+' . preg_quote( $norm( $county_bare ), '/' ) . '$/u', '', $n ) );
-			if ( '' !== $short ) {
-				$seen[ $short ] = true;
-			}
-		}
-	};
 	if ( function_exists( 'sa_get_children' ) ) {
 		foreach ( (array) sa_get_children( (int) $post_id, 'attraction' ) as $post ) {
 			if ( ! $post || 'publish' !== $post->post_status ) {
 				continue;
 			}
 			$name = get_the_title( $post );
-			if ( '' === $name || isset( $seen[ $name ] ) || isset( $seen[ $norm( $name ) ] ) ) {
+			if ( '' === $name || isset( $seen[ $name ] ) ) {
 				continue;
 			}
-			$mark_seen( $name );
+			$seen[ $name ] = true;
 			$type           = '';
 			if ( function_exists( 'get_the_terms' ) ) {
 				$terms = get_the_terms( $post->ID, 'attraction_type' );
@@ -409,13 +392,10 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 		}
 		foreach ( sa_county_lines( get_post_meta( (int) $post_id, $key, true ) ) as $line ) {
 			$poi = sa_county_parse_poi( $line );
-			if ( empty( $poi['name'] ) || isset( $seen[ $poi['name'] ] ) || isset( $seen[ $norm( $poi['name'] ) ] ) ) {
+			if ( empty( $poi['name'] ) || isset( $seen[ $poi['name'] ] ) ) {
 				continue;
 			}
-			if ( 'sa_cty_poi_offbeat' === $key && preg_match( '/آبشار\s+بیشه|دریاچه(?:\s+ٔ|ی)?\s+گهر/u', (string) $poi['name'] ) ) {
-				continue;
-			}
-			$mark_seen( $poi['name'] );
+			$seen[ $poi['name'] ] = true;
 			$rows[]               = array(
 				'name' => $poi['name'],
 				'en'   => '',

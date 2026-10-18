@@ -273,29 +273,15 @@ function sa_redirect_archive_exclusion( $query ) {
 	if ( ! is_object( $query ) || ! method_exists( $query, 'is_main_query' ) || ! $query->is_main_query() ) {
 		return;
 	}
-	if ( ! method_exists( $query, 'set' ) || ! method_exists( $query, 'get' ) ) {
+	if ( ! method_exists( $query, 'is_post_type_archive' ) || ! $query->is_post_type_archive( 'city' ) ) {
 		return;
 	}
 
-	$target_type = '';
-	if ( method_exists( $query, 'is_post_type_archive' ) ) {
-		if ( $query->is_post_type_archive( 'city' ) ) {
-			$target_type = 'city';
-		} elseif ( $query->is_post_type_archive( 'attraction' ) ) {
-			$target_type = 'attraction';
-		} elseif ( $query->is_post_type_archive( 'province' ) ) {
-			$target_type = 'province';
-		}
-	}
-	if ( '' === $target_type && method_exists( $query, 'is_tax' ) && $query->is_tax( 'attraction_type' ) ) {
-		$target_type = 'attraction';
-	}
-	if ( '' === $target_type ) {
-		return;
-	}
-
-	$ids = sa_redirect_source_ids( $target_type );
+	$ids = sa_redirect_source_ids( 'city' );
 	if ( ! $ids ) {
+		return;
+	}
+	if ( ! method_exists( $query, 'set' ) || ! method_exists( $query, 'get' ) ) {
 		return;
 	}
 
@@ -311,10 +297,10 @@ add_action( 'pre_get_posts', 'sa_redirect_archive_exclusion' );
  * @return array
  */
 function sa_redirect_sitemap_exclusion( $args, $post_type ) {
-	if ( ! in_array( (string) $post_type, array( 'city', 'attraction', 'province' ), true ) ) {
+	if ( 'city' !== (string) $post_type ) {
 		return $args;
 	}
-	$ids = sa_redirect_source_ids( (string) $post_type );
+	$ids = sa_redirect_source_ids( 'city' );
 	if ( ! $ids ) {
 		return $args;
 	}

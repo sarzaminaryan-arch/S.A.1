@@ -266,7 +266,7 @@ function sa_render_faq_box( $post ) {
 	echo '<template id="sa-faq-template">';
 	sa_faq_row_html( '', '' );
 	echo '</template>';
-	echo '<p><button type="button" class="button" id="sa-faq-add">+ افزودن پرسش</button> <span class="description">فقط پرسش‌های واقعی و مفید کاربران را با پاسخی کوتاه و دقیق اضافه کنید؛ تعداد حداقلی یا امتیاز رتبه‌ای ندارد. پاسخ‌های خالی یا ناقص («نیازمند …»، «تطبیق …»، «در بخش … آمده» و «باید … بررسی شود») نمایش داده نمی‌شود و فقط پرسش‌های معتبرِ رندرشده، FAQPage هم‌زمان می‌سازند.</span></p>';
+	echo '<p><button type="button" class="button" id="sa-faq-add">+ افزودن پرسش</button> <span class="description">فقط پرسش‌های واقعی و مفید کاربران را با پاسخی کوتاه و دقیق اضافه کنید؛ تعداد حداقلی یا امتیاز رتبه‌ای ندارد. این متن روی صفحه دیده می‌شود و FAQPage JSON-LD تولید نمی‌شود.</span></p>';
 }
 
 /**

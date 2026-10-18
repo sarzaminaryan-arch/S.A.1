@@ -1,6 +1,6 @@
 <?php
 /**
- * Optional, visible FAQ accordion (native <details>); FAQPage schema syncs with visible items.
+ * Optional, visible FAQ accordion (native <details>); no FAQPage JSON-LD is emitted.
  *
  * @package Sarzaminaryan_Child
  */
@@ -8,7 +8,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$sa_faq = function_exists( 'sa_get_valid_faq' ) ? sa_get_valid_faq( get_the_ID() ) : sa_get_faq( get_the_ID() );
+$sa_faq = sa_get_faq( get_the_ID() );
 if ( ! $sa_faq ) {
 	return;
 }

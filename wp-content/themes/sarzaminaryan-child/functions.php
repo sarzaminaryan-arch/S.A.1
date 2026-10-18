@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.19' );
+define( 'SA_CHILD_VERSION', '2.22.22' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -44,6 +44,7 @@ $sa_child_includes = array(
 	'inc/breadcrumbs.php',
 	'inc/template-tags.php',
 	'inc/featured-images.php', // v2.15.0: کلید «نمایش تصویر شاخص» + جای‌گزین تصویرهای گمشدهٔ داخل متن
+	'inc/article-sections.php', // فاز ۲: حذف پنج بخش پیش از فهرست مطالب، بدون تغییر شناسنامه
 	'inc/toc.php', // v2.18.17: «فهرست مطالب» ابتدای همهٔ مقاله‌ها (سرفصل‌های بدنه + بخش‌های قالب)
 	'inc/education.php', // بخش «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار استان/شهرستان/دیدنی در منو، صفحهٔ اول و فوتر
 	'inc/entity-bars.php', // v2.13.3: فهرست ۳۱ استان + نوارهای مینیمال استان/شهرستان برای آرشیوها (و نقشهٔ هیرو)

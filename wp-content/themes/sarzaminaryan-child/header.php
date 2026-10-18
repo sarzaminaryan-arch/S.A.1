@@ -38,11 +38,10 @@ $sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن
 	<div class="sa-hf-bar">
 		<div class="container sa-hf-in">
 
-			<?php $sa_brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' ); ?>
 			<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_url ); ?>" width="96" height="96" alt="<?php echo esc_attr( $sa_brand ); ?>" decoding="async"></span>
+				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_url ); ?>" width="96" height="96" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" decoding="async"></span>
 				<span class="sa-hf-text">
-					<span class="site-title"><?php echo esc_html( $sa_brand ); ?></span>
+					<span class="site-title"><?php bloginfo( 'name' ); ?></span>
 					<span class="sa-hf-slogan"><?php echo esc_html( $sa_slogan ); ?></span>
 				</span>
 			</a>

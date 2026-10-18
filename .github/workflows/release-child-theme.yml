@@ -95,6 +95,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-toc.php"
 
+      - name: Run retired article section tests (phase 2, identity unchanged)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-article-sections.php"
+
       - name: Run county identity-card tests (کلیدهای کانونی شناسنامه + قوانین خروجی کارت)
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"

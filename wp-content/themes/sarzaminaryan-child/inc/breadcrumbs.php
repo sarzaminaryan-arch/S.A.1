@@ -31,25 +31,15 @@ function sa_get_breadcrumb_items() {
 		$type = $post->post_type;
 
 		if ( sa_is_entity( $post ) ) {
+			$items[] = array( 'name' => sa_entity_label( $type, true ), 'url' => sa_archive_url( $type ) );
 			$province = sa_get_parent( $post->ID, 'province' );
 			$city     = sa_get_parent( $post->ID, 'city' );
-			// Phase 7 §4: County breadcrumb is exactly Home → Province → County (no archive label)
-			if ( 'city' === $type ) {
-				if ( $province ) {
-					$items[] = array( 'name' => get_the_title( $province ), 'url' => get_permalink( $province ) );
-				}
-			} elseif ( 'province' === $type ) {
-				// Province page: Home → Province (no archive)
-			} else {
-				// Other entities: keep archive label for context, but ensure hierarchy follows province→city chain
-				$items[] = array( 'name' => sa_entity_label( $type, true ), 'url' => sa_archive_url( $type ) );
-				if ( 'province' !== $type && $province ) {
-					$items[] = array( 'name' => get_the_title( $province ), 'url' => get_permalink( $province ) );
-				}
-				if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
-					$city_name = function_exists( 'sa_county_name' ) ? sa_county_name( $city, true ) : get_the_title( $city );
-					$items[]   = array( 'name' => $city_name, 'url' => get_permalink( $city ) );
-				}
+			if ( 'province' !== $type && $province ) {
+				$items[] = array( 'name' => get_the_title( $province ), 'url' => get_permalink( $province ) );
+			}
+			if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
+				$city_name = function_exists( 'sa_county_name' ) ? sa_county_name( $city, true ) : get_the_title( $city );
+				$items[]   = array( 'name' => $city_name, 'url' => get_permalink( $city ) );
 			}
 		} elseif ( 'post' === $type ) {
 			$blog = (int) get_option( 'page_for_posts' );

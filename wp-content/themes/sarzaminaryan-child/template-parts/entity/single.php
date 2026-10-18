@@ -58,7 +58,6 @@ $sa_type = get_post_type( $sa_id );
 
 		<?php get_template_part( 'template-parts/entity/faq' ); ?>
 
-		<?php get_template_part( 'template-parts/entity/county-siblings' ); ?>
 
 		<?php get_template_part( 'template-parts/entity/gallery' ); ?>
 
