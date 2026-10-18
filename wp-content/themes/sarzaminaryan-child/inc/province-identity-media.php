@@ -36,7 +36,9 @@ function sa_province_identity_media_attachment( $post_id ) {
 	) );
 	foreach ( (array) $ids as $id ) {
 		$id = (int) $id;
-		if ( 'attachment' !== get_post_type( $id ) || 'inherit' !== get_post_status( $id ) || post_password_required( $id ) || 'image/webp' !== get_post_mime_type( $id ) ) { continue; }
+		// get_post_status() resolves inherit to publish/parent status for attachments.
+		// Validate the stored field instead; keep the separate parent privacy checks.
+		if ( 'attachment' !== get_post_type( $id ) || 'inherit' !== get_post_field( 'post_status', $id, 'raw' ) || post_password_required( $id ) || 'image/webp' !== get_post_mime_type( $id ) ) { continue; }
 		$parent = (int) wp_get_post_parent_id( $id );
 		if ( $parent && ( 'publish' !== get_post_status( $parent ) || post_password_required( $parent ) ) ) { continue; }
 		$relative = (string) get_post_meta( $id, '_wp_attached_file', true );
