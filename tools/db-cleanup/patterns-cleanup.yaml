@@ -1,0 +1,163 @@
+# نگاشت مرحله‌های docs/CLEANUP.md به الگوها — فاز ۸ فقط 1,2,4,6,7,8 اجرا (9 جدا گزارش)
+# level: DELETE = قرمز (حذف خودکار) | FLAG = زرد (فقط گزارش + پیشنهاد)
+patterns:
+  # مرحله ۱ — یادداشت داخلی / پیش‌نویس
+  - id: human-review-phrase
+    stage: 1
+    regex: 'برای بازبینی و ویرایش انسانی'
+    level: DELETE
+    description: 'برچسب بازبینی انسانی'
+    type_change: 'حذف جمله'
+    suggestion: ''
+
+  - id: human-edit-or-review
+    stage: 1
+    regex: '(ویرایش انسانی|بازبینی انسانی)'
+    level: DELETE
+    description: 'اشاره به ویرایش/بازبینی انسانی'
+    type_change: 'حذف جمله'
+    suggestion: ''
+
+  - id: before-final-publish
+    stage: 1
+    regex: 'پیش از (انتشار|ویرایش) نهایی'
+    level: DELETE
+    description: 'جملهٔ فرایندی پیش از انتشار'
+    type_change: 'حذف جمله'
+    suggestion: ''
+
+  - id: placeholder-fa
+    stage: 1
+    regex: '(\[نیاز به منبع\]|\[منبع\]|\bTODO\b|\bTBD\b|\bXXX\b|\{\{[^}]+\}\})'
+    level: DELETE
+    description: 'جایگزین [نیاز به منبع]/TODO/TBD/XXX/{{...}}'
+    type_change: 'حذف جمله'
+    suggestion: ''
+
+  # مرحله ۲ — جداسازی واقعیت از بند ویرایشی (زرد)
+  - id: must-match-official-sources
+    stage: 2
+    regex: 'باید با .{0,60}(مرکز آمار|وزارت کشور|منابع رسمی).{0,60} تطبیق داده شو(د|ند)'
+    level: FLAG
+    description: 'دستور تطبیق با مرکز آمار/وزارت کشور — باید به یادداشت داخلی منتقل شود'
+    type_change: 'بازنویسی پیشنهادی'
+    suggestion: 'عدد/واقعیت بماند؛ بند «باید تطبیق داده شود» حذف و به یادداشت داخلی یا کامنت ویرایشی منتقل شود.'
+
+  - id: needs-check-or-source
+    stage: 2
+    regex: '(نیاز به|نیازمند) (بررسی|تأیید|بازبینی|منبع)'
+    level: FLAG
+    description: 'نیاز به بررسی/تأیید/بازبینی/منبع — نیازمند قضاوت'
+    type_change: 'بازنویسی پیشنهادی'
+    suggestion: 'جمله را به دو بخش تقسیم کن: «واقعیت: ...» + «منبع پیشنهادی: ...»؛ بند نیازمند را از متن کاربر حذف کن.'
+
+  # مرحله ۴ — ردپای AI
+  - id: as-ai-language-model
+    stage: 4
+    regex: 'به عنوان (یک )?(مدل زبانی|هوش مصنوعی)'
+    level: DELETE
+    description: 'خودمعرفی مدل زبانی/هوش مصنوعی'
+    type_change: 'حذف جمله'
+    suggestion: ''
+
+  - id: english-ai-traces
+    stage: 4
+    regex: '(as an AI|language model|I hope this helps|placeholder|lorem ipsum)'
+    level: DELETE
+    description: 'ردپای انگلیسی هوش مصنوعی'
+    type_change: 'حذف جمله'
+    suggestion: ''
+
+  # مرحله ۶ — جملهٔ متای «این مقاله ...» و «با رویکرد مستند»
+  - id: this-article-introduces
+    stage: 6
+    regex: 'این مقاله .{0,120} را .{0,40}معرفی می‌کند'
+    level: DELETE
+    description: 'جملهٔ متای این مقاله را معرفی می‌کند'
+    type_change: 'حذف جمله'
+    suggestion: ''
+
+  - id: documented-approach
+    stage: 6
+    regex: 'با رویکرد مستند'
+    level: DELETE
+    description: 'عبارت قالبی با رویکرد مستند'
+    type_change: 'حذف بخش'
+    suggestion: ''
+
+  # مرحله ۷ — منابع بد / فقط دامنه
+  - id: bad-source-only
+    stage: 7
+    regex: ''
+    level: DELETE
+    description: 'منبع فقط google.com/chatgpt.com (ردیف <li> حذف + مرتب‌سازی [n])'
+    type_change: 'حذف ردیف منبع'
+    suggestion: ''
+
+  - id: utm-source-chatgpt
+    stage: 7
+    regex: ''
+    level: DELETE
+    description: 'پارامتر utm_source=chatgpt.com'
+    type_change: 'حذف بخش از لینک'
+    suggestion: ''
+
+  # مرحله ۸ — پاک‌سازی ساختاری post_content
+  - id: stray-code-fence
+    stage: 8
+    regex: '```'
+    level: DELETE
+    description: 'بک‌تیک سرگردان ``` (مرحله ۸/۹)'
+    type_change: 'حذف بخش'
+    suggestion: ''
+
+  - id: duplicate-sentence
+    stage: 8
+    regex: ''
+    level: FLAG
+    description: 'جملهٔ تکراری عیناً در >۳ شهرستان — فقط گزارش'
+    type_change: 'بازنویسی پیشنهادی'
+    suggestion: 'جمله را برای همین شهرستان اختصاصی کن یا با تأیید مالک از همه‌جا حذف کن.'
+
+  # مرحله ۳ — حشو متا-مقاله‌ای (زرد، پیشنهاد)
+  - id: in-this-article-we-review
+    stage: 3
+    regex: 'در این مقاله به بررسی .{0,60} می‌پردازیم'
+    level: FLAG
+    description: 'در این مقاله به بررسی … می‌پردازیم'
+    type_change: 'بازنویسی پیشنهادی'
+    suggestion: 'حذف حشو «در این مقاله ...» و شروع مستقیم با واقعیت: «... در شهرستان X ... است.»'
+
+  - id: hope-this-article
+    stage: 3
+    regex: 'امیدوارم این (مقاله|مطلب)'
+    level: FLAG
+    description: 'امیدوارم این مقاله/مطلب'
+    type_change: 'بازنویسی پیشنهادی'
+    suggestion: 'حذف جملهٔ آرزویی؛ اطلاعات بماند.'
+
+  - id: generic-filler
+    stage: 3
+    regex: '(لازم به ذکر است|به طور کلی|در پایان می‌توان گفت)'
+    level: FLAG
+    description: 'پیونددهنده کلی'
+    type_change: 'بازنویسی پیشنهادی'
+    suggestion: 'پیونددهنده را حذف و دو جمله را مستقیم به هم وصل کن.'
+
+  # مرحله ۹ — اهواز خاص (گزارش جدا)
+  - id: ahvaz-population-zero
+    stage: 9
+    regex: '^0$'
+    level: DELETE
+    description: 'جمعیت ۰ در متای اهواز — باید خالی شود'
+    type_change: 'خالی‌سازی فیلد'
+    suggestion: ''
+
+  - id: ahvaz-unrelated-najafabad-nain
+    stage: 9
+    regex: '(نجف‌آباد|نائین)'
+    level: FLAG
+    description: 'متن بی‌ربط نجف‌آباد/نائین در انتهای اهواز'
+    type_change: 'حذف بخش'
+    suggestion: 'کل پاراگراف انتهاییِ نجف‌آباد/نائین حذف شود — هیچ ارتباطی با اهواز ندارد.'
+
