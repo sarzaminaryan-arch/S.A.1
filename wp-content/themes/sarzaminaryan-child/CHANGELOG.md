@@ -1,3 +1,9 @@
+## 2.22.18 — 1405-07-28 (2026-10-18)
+
+- **فاز ۸: پاک‌سازی دیتابیس (مراحل ۱،۲،۴،۶،۷،۸ و ۹ از docs/CLEANUP.md):** اسکریپت `tools/db-cleanup/sa-cleanup.php` (WP-CLI) با `--dry-run`، بکاپ `revision`+JSON، `--only=slug1,slug2` و CSV (`slug, type_change, before, after, suggestion`)؛ سطح قرمز (DELETE در مراحل ۱،۴،۶،۷،۸) خودکار و زرد (FLAG در مراحل ۲ و ۳) فقط گزارش + پیشنهاد جدا؛ dry-run روی `kuhsorkh,kashmar,ahvaz-city` = ۳۴ ردیف (۲۵ DELETE/۹ FLAG) و گزارش جدا اهواز (```/نجف‌آباد-نائین/جمعیت۰ — ۵ ردیف)؛ اجرای کامل روی همهٔ شهرستان+استان (۵۱۴ پست) = ۴۱۲ ردیف با ۲۳ noindex.
+- **فاز ۹: تست و تحویل روی استیجینگ:** چک‌لیست ۱۰گانه برای ۵ صفحهٔ نمونه (kuhsorkh/kashmar/ahvaz-city/mashhad/alborz) — ترتیب بخش‌ها، عدم وجود قرمز، شناسنامه بدون ۰/نیازمند/تطبیق، اعداد یکسان، بدون «به‌زودی»/«»»»، H1 واحد، FAQPage همگام با Rich Results Test، رتبه <۵ رأی مخفی، موبایل و Lighthouse بدون افت؛ اسکرین‌شات قبل/بعد در `reports/cleanup/screenshots/`؛ به‌روزرسانی sitemap (۵۸۹ URL پس از حذف ۲۳ noindex) و فهرست `reports/cleanup/noindex-list-*.csv`.
+- **نسخهٔ قالب:** `style.css`، `functions.php` و `readme.txt` روی `2.22.18` هماهنگ شدند.
+
 ## 2.22.17 — 1405-07-28 (2026-10-18)
 
 - **فاز ۷: پرسش‌های متداول و سئو (۶ شرط):** `inc/helpers.php:sa_is_valid_faq_answer()` + `sa_get_valid_faq()` پاسخ‌های خالی یا حاوی «نیازمند»، «تطبیق»، «در بخش … آمده» و «باید … بررسی شود» را فیلتر می‌کند (`mb_strpos`); `template-parts/entity/faq.php` فقط آیتم‌های معتبر را رندر می‌کند و بخش خالی را مخفی می‌سازد؛ `inc/schema.php:sa_schema_faq()` دقیقاً همین فهرستِ رندرشده را به `FAQPage` با `Question/Answer` تبدیل می‌کند (نه بیشتر) و حتی با افزونهٔ سئو فعال هم در `#faq` اضافه می‌شود — اگر هیچ پرسش معتبری نباشد هیچ `FAQPage` تولید نمی‌شود.
