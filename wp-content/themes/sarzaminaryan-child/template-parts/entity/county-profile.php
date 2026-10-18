@@ -3,8 +3,8 @@
  * Cyber-Tech Light-Mode County Identity Card — «شناسنامه شهرستان».
  *
  * Dedicated Indigo-Violet technological tabular card for Iran's 483 counties (`city` CPT):
- * tiles `01 // EN_NAME` … `11 // MAIN_CITY`, the attractions table, the same-province chips
- * and the three short under-card notes. Values come from the canonical meta layer in
+ * tiles `01 // EN_NAME` … `11 // MAIN_CITY` and the three short under-card notes.
+ * Destination links are rendered separately below the identity card. Values come from the canonical meta layer in
  * `inc/county-profile.php` (legacy `sa_cty_*` / `sa_city_*` keys as fallback, registry last).
  * Output rules: an empty field removes its tile completely, population is printed only with
  * its census year, invalid coordinates build no map link, and neighbours / the main city are
@@ -410,52 +410,6 @@ $sa_county_cells = array_values(
 	)
 );
 
-$sa_poi_buckets = array(
-	'sa_cty_poi_nature'     => 'طبیعت‌گردی (آبشار، تنگه، غار، دریاچه، جنگل)',
-	'sa_cty_poi_offbeat'    => 'نقاط بکر و کمتر دیده‌شده',
-	'sa_cty_poi_recreation' => 'جاهای تفریحی و خانوادگی',
-	'sa_cty_poi_heritage'   => 'آثار تاریخی و زیارتی',
-);
-$sa_pois = array();
-if ( function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_poi' ) ) {
-	foreach ( $sa_poi_buckets as $sa_pkey => $sa_ptitle ) {
-		$sa_items = array();
-		foreach ( sa_county_lines( get_post_meta( $sa_id, $sa_pkey, true ) ) as $sa_pline ) {
-			$sa_pitem = sa_county_parse_poi( $sa_pline );
-			if ( ! empty( $sa_pitem['name'] ) ) {
-				$sa_items[] = $sa_pitem;
-			}
-		}
-		if ( ! empty( $sa_items ) ) {
-			$sa_pois[ $sa_ptitle ] = $sa_items;
-		}
-	}
-}
-// Attractions table (canonical meta layer): published دیدنی posts of this
-// county appear automatically and linked; sibling counties of the same
-// province plus the short under-card prose come from the same data layer
-// ($sa_profile_ext is built once, above, for the identity-card tiles).
-$sa_attractions = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id ) : array();
-$sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id ) : array();
-$sa_linked_names = array();
-foreach ( $sa_attractions as $sa_attr_row ) {
-	$sa_linked_names[ $sa_attr_row['name'] ] = true;
-}
-if ( $sa_linked_names && ! empty( $sa_pois ) ) {
-	foreach ( $sa_pois as $sa_ptitle => $sa_plist ) {
-		$sa_pois[ $sa_ptitle ] = array_values(
-			array_filter(
-				$sa_plist,
-				function ( $sa_pitem ) use ( $sa_linked_names ) {
-					return empty( $sa_linked_names[ $sa_pitem['name'] ] );
-				}
-			)
-		);
-		if ( empty( $sa_pois[ $sa_ptitle ] ) ) {
-			unset( $sa_pois[ $sa_ptitle ] );
-		}
-	}
-}
 ?>
 <section class="profile-box sa-cyber-id sa-cyber-id--county" id="county-identity" aria-labelledby="sa-county-identity-title">
 	<div class="sa-cyber-id__hud-bar">
@@ -519,70 +473,9 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 		</div>
 	</div>
 
-	<?php if ( ! empty( $sa_pois ) ) : ?>
-		<div class="profile-box sa-cyber-id__subtable" id="county-visit">
-			<div class="sa-cyber-id__subtable-head">
-				<span class="sa-cyber-id__subtable-title">کجا برویم؟ (مقصدهای منتخب شهرستان)</span>
-				<span class="sa-cyber-id__subtable-code" dir="ltr">DESTINATIONS &amp; POIS</span>
-			</div>
-			<div class="sa-cyber-grid sa-cyber-grid--neighbors">
-				<?php foreach ( $sa_pois as $sa_ptitle => $sa_plist ) : ?>
-					<div class="profile-box sa-cyber-grid__cell sa-cyber-grid__cell--neighbor">
-						<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_ptitle ); ?></span>
-						<ul class="sa-county__poi">
-							<?php foreach ( $sa_plist as $sa_poi ) : ?>
-								<li>
-									<strong><?php echo esc_html( $sa_poi['name'] ); ?></strong>
-									<?php if ( ! empty( $sa_poi['distance'] ) ) : ?>
-										<span class="sa-county__dist"><?php echo esc_html( sa_fa_digits( $sa_poi['distance'] ) ); ?></span>
-									<?php endif; ?>
-									<?php if ( ! empty( $sa_poi['note'] ) ) : ?>
-										<p><?php echo esc_html( $sa_poi['note'] ); ?></p>
-									<?php endif; ?>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	<?php endif; ?>
-	<?php if ( ! empty( $sa_attractions ) ) : ?>
-		<div class="profile-box sa-cyber-id__subtable" id="county-attractions">
-			<div class="sa-cyber-id__subtable-head">
-				<span class="sa-cyber-id__subtable-title">جاذبه‌های مهم شهرستان</span>
-				<span class="sa-cyber-id__subtable-code" dir="ltr">TOP ATTRACTIONS</span>
-			</div>
-			<table class="sa-cyber-id__attrs">
-				<thead><tr><th scope="col" dir="ltr">#</th><th scope="col">جاذبه</th><th scope="col">نوع</th><th scope="col" dir="ltr">LINK</th></tr></thead>
-				<tbody>
-					<?php foreach ( $sa_attractions as $sa_ai => $sa_a ) : ?>
-						<tr>
-							<td dir="ltr"><?php echo esc_html( str_pad( (string) ( $sa_ai + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></td>
-							<td><?php if ( '' !== $sa_a['url'] ) : ?><a href="<?php echo esc_url( $sa_a['url'] ); ?>"><?php echo esc_html( $sa_a['name'] ); ?></a><?php else : ?><?php echo esc_html( $sa_a['name'] ); ?><?php endif; ?><?php if ( '' !== $sa_a['en'] ) : ?> <small dir="ltr"><?php echo esc_html( $sa_a['en'] ); ?></small><?php endif; ?></td>
-							<td><?php echo esc_html( $sa_a['type'] ); ?></td>
-							<td><?php if ( '' !== $sa_a['url'] ) : ?><a href="<?php echo esc_url( $sa_a['url'] ); ?>">مشاهده ←</a><?php endif; ?></td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
-		</div>
-	<?php endif; ?>
-
-	<?php if ( ! empty( $sa_sibling_cities ) ) : ?>
-		<div class="profile-box sa-cyber-id__subtable" id="county-siblings">
-			<div class="sa-cyber-id__subtable-head">
-				<span class="sa-cyber-id__subtable-title">شهرهای هم‌استانی</span>
-				<span class="sa-cyber-id__subtable-code" dir="ltr">SAME PROVINCE</span>
-			</div>
-			<ul class="sa-cyber-id__chips">
-				<?php foreach ( $sa_sibling_cities as $sa_sib ) : ?>
-					<li><a class="profile-link" href="<?php echo esc_url( $sa_sib['url'] ); ?>"><?php echo esc_html( $sa_sib['label'] ); ?></a></li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-	<?php endif; ?>
 </section>
+
+<?php get_template_part( 'template-parts/entity/county-destinations' ); ?>
 
 <?php
 $sa_cid_notes = array();
