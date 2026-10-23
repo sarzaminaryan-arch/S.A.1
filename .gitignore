@@ -80,3 +80,6 @@ wp-content/cache/
 
 # ===== Node =====
 node_modules/
+
+# GSC exports pulled from Google Drive (analysis input, not source)
+google_drive/
