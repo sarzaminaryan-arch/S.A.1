@@ -1,12 +1,38 @@
-php bin: /usr/bin/php
 PHP 8.1.2-1ubuntu2.26 (cli) (built: Sep  2 2026 12:42:10) (NTS)
-Copyright (c) The PHP Group
---- per-file non-zero results ---
-EXIT=255 FILE=wp-content/themes/sarzaminaryan-child/inc/template-tags.php
-PHP Parse error:  Unclosed '(' does not match ']' in wp-content/themes/sarzaminaryan-child/inc/template-tags.php on line 415
-Errors parsing wp-content/themes/sarzaminaryan-child/inc/template-tags.php
---- also lint xargs the same way as release workflow ---
-xargs exit: 124
-PHP Parse error:  Unclosed '(' does not match ']' in wp-content/themes/sarzaminaryan-child/inc/template-tags.php on line 415
-xargs: php: exited with status 255; aborting
+=== internal-links ===
+exit=1
+FAIL: expected one exact internal link in shahdad-kaluts-lut-desert: /city/tabas/
+=== publish-gate ===
+exit=0
+PASS: publish gate policy tests (owner approval is the only publish condition)
+=== education-nav ===
+exit=0
+PASS: education navigation (empty-archive rule, customizer overrides, header menu placement)
+=== entity-bars ===
+exit=0
+PASS: entity bars (31 provinces, published-only links, city bars with province label, attraction bars with city/province label)
+=== media-restore ===
+exit=0
+PASS: media restore (URL↔path, discovery, source fallbacks, dry/apply, image safety, backup tails)
+=== featured-images ===
+exit=0
+PASS: featured images (hidden by default, attraction cover first in the article, missing files never shown, in-content placeholder)
+=== article-cards ===
+exit=0
+PASS: article cards (archive cards stay text-safe; homepage content lists stay removed)
+=== responsive-tables ===
+exit=0
+PASS: responsive tables (raw entity tables scroll within their wrapper; existing wrappers and non-main contexts stay untouched)
+=== toc ===
+exit=0
+PASS: table of contents (all 104 bundled articles, stable anchors, template sections in page order, no editor/feed/archive output)
+=== county-profile ===
+exit=0
+ALL TESTS PASSED
+=== ready-guides ===
+exit=0
+PASS: ready-guides data (67 guides, 27 bundled covers, category camping-survival)
+=== ready-covers ===
+exit=0
+PASS: ready-articles bundled covers (27 files; attach/replace/keep/reuse/remove rules)
 --- done ---
