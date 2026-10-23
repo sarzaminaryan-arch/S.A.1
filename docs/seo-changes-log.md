@@ -45,3 +45,5 @@
 | ۲۰۲۶-۱۰-۲۴ | A8/T4 | content-guard | `inc/citations.php` | href مردهٔ `W_*` رندر می‌شد | `sa_citation_strip_invalid_hrefs` روی the_content | حذف فیلتر |
 | ۲۰۲۶-۱۰-۲۴ | A13 | feat | `inc/seo-dashboard.php` | وجود نداشت | داشبورد سئو پیشخوان (امتیاز ۱۰۰، رتبه، دونات، نوار دسته‌ها) | حذف فایل + خط include |
 | ۲۰۲-۱۰-۴ | A12 | release | سه‌گانهٔ نسخه | 2.22.19 | **2.22.32** (بالای نصب‌شدهٔ 2.22.31) | — |
+| 2026-10-23 | fix پایه | رفع Parse error خط ۴۱۵ inc/template-tags.php (گریز نادرست `\\'` در رشتهٔ الگو) — باگ ارثی از base شعبه که lint نسخه‌سازی را می‌شکست؛ اصلاح عیناً برابر نسخهٔ تأییدشدهٔ ۲٫۲۲٫۲۱ | inc/template-tags.php | CI سبز شد |
+| 2026-10-23 | fix داده | هم‌ترازی data/ready-articles.php با نسخهٔ سبز ۲٫۲۲٫۲۱: برچسب کانونی پیوند `/city/tabas/` در مقالهٔ کلوت‌های شهداد (تست رگرسیون لینک‌های داخلی) — یک خط | data/ready-articles.php | آزمون internal-links سبز شد |
