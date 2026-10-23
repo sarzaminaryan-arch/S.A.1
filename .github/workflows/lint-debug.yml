@@ -17,32 +17,28 @@ concurrency:
 jobs:
   lint:
     runs-on: ubuntu-22.04
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Lint each PHP file individually
+      - name: Run theme tests individually and capture output
         shell: bash
         run: |
           set +e
           THEME_DIR=wp-content/themes/sarzaminaryan-child
           {
-            echo "php bin: $(command -v php)"
-            php -v | head -2
-            echo "--- per-file non-zero results ---"
-            while IFS= read -r -d '' f; do
-              out="$(timeout 20 php -l "$f" 2>&1)"
-              code=$?
-              if [ "$code" -ne 0 ]; then
-                echo "EXIT=$code FILE=$f"
-                echo "$out" | head -6
+            php -v | head -1
+            for t in internal-links publish-gate education-nav entity-bars media-restore featured-images article-cards responsive-tables toc county-profile ready-guides ready-covers; do
+              f="$THEME_DIR/tests/test-$t.php"
+              if [ -f "$f" ]; then
+                echo "=== $t ==="
+                out="$(timeout 60 php "$f" 2>&1)"
+                code=$?
+                echo "exit=$code"
+                echo "$out" | tail -25
               fi
-            done < <(find "$THEME_DIR" -type f -name '*.php' -print0)
-            echo "--- also lint xargs the same way as release workflow ---"
-            find "$THEME_DIR" -type f -name '*.php' -print0 | xargs -0 -n 1 php -l >/dev/null 2>/tmp/xargs-err.txt
-            echo "xargs exit: $?"
-            head -20 /tmp/xargs-err.txt
+            done
             echo "--- done ---"
           } > lint-debug.txt 2>&1
 
@@ -55,6 +51,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "no changes"
           else
-            git commit -m "chore(ci): گزارش موقت خطای lint قالب [skip ci]"
+            git commit -m "chore(ci): گزارش موقت خروجی آزمون‌های قالب [skip ci]"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
