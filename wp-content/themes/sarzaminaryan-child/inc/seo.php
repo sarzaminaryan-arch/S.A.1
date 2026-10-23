@@ -400,14 +400,32 @@ function sa_seo_robots( $robots ) {
 	if ( is_search() || is_attachment() || is_date() || is_404() ) {
 		$noindex = true;
 	}
-	if ( is_author() && (int) get_query_var( 'paged' ) > 1 ) {
+	// Author archives never index (single-author site; GSC 2026-10 reported 7 URLs).
+	if ( is_author() ) {
 		$noindex = true;
 	}
+	// Any archive sub-page (season/category/tag/CPT/home pagination): noindex,follow ONLY.
+	// Never canonical+noindex together — see docs/seo/FIX-PLAN-2026-10-23.md (T8).
+	if ( ( is_home() || is_archive() ) && (int) get_query_var( 'paged' ) > 1 ) {
+		$noindex = true;
+	}
+	// Tag archives indexable only when they gather enough posts (owner rule: <5 merge/delete).
 	if ( is_tag() ) {
 		$term = get_queried_object();
-		if ( $term && $term->count < 3 ) {
+		if ( $term && $term->count < 5 ) {
 			$noindex = true;
 		}
+	}
+	// Empty term archives (leftover attraction_type/province_tax terms) carry no value.
+	if ( ( is_tax() || is_category() ) && ! is_post_type_archive() ) {
+		$term = get_queried_object();
+		if ( $term && isset( $term->count ) && 0 === (int) $term->count ) {
+			$noindex = true;
+		}
+	}
+	// Helper CPT archives are navigational hubs, not landing pages.
+	if ( is_post_type_archive( array( 'local_food', 'travel_route', 'souvenir' ) ) ) {
+		$noindex = true;
 	}
 	if ( is_singular() && '1' === get_post_meta( get_queried_object_id(), 'sa_noindex', true ) ) {
 		$noindex = true;
@@ -440,10 +458,84 @@ add_filter( 'wp_robots', 'sa_seo_robots', 20 );
 add_filter(
 	'wp_sitemaps_taxonomies',
 	function ( $taxonomies ) {
-		unset( $taxonomies['travel_season'], $taxonomies['travel_budget'], $taxonomies['travel_duration'], $taxonomies['post_tag'] );
+		// Helper taxonomies, tag archives and the two OLD province/attraction archive
+		// patterns must never enter the sitemap (GSC 2026-10: 31 /ostan/ + 13
+		// /attraction-type/ URLs discovered from the Rank Math sitemap).
+		unset(
+			$taxonomies['travel_season'],
+			$taxonomies['travel_budget'],
+			$taxonomies['travel_duration'],
+			$taxonomies['post_tag'],
+			$taxonomies['province_tax'],
+			$taxonomies['attraction_type'],
+			$taxonomies['post_format']
+		);
 		return $taxonomies;
 	}
 );
+add_filter(
+	'wp_sitemaps_post_types',
+	function ( $types ) {
+		unset( $types['attachment'] );
+		return $types;
+	}
+);
+add_filter(
+	'wp_sitemaps_posts_query_args',
+	function ( $args, $post_type ) {
+		if ( 'page' !== $post_type ) {
+			return $args;
+		}
+		// Internal/utility pages stay out of the sitemap: the public stats dashboard,
+		// the posts index page and the redirected /policy/ page.
+		$skip  = array();
+		$pages = (array) get_option( 'sa_default_pages', array() );
+		foreach ( array( 'dashboard', 'blog', 'policy' ) as $key ) {
+			if ( ! empty( $pages[ $key ] ) ) {
+				$skip[] = (int) $pages[ $key ];
+			}
+		}
+		$posts_page = (int) get_option( 'page_for_posts' );
+		if ( $posts_page ) {
+			$skip[] = $posts_page;
+		}
+		$skip = array_unique( array_filter( $skip ) );
+		if ( $skip ) {
+			$args['post__not_in'] = array_merge( isset( $args['post__not_in'] ) ? (array) $args['post__not_in'] : array(), $skip );
+		}
+		return $args;
+	},
+	16,
+	2
+);
+add_filter(
+	'wp_sitemaps_terms_query_args',
+	function ( $args ) {
+		$args['hide_empty'] = true;
+		return $args;
+	}
+);
+
+/**
+ * robots.txt: complete and definitive for the post-Rank-Math era.
+ *
+ * Images stay crawlable (uploads are explicitly allowed); search feeds, WP feeds
+ * and parametric junk stay out. No wildcard Disallow lines ever (they produced
+ * the 404 patterns in the GSC export), and no Disallow on URLs we noindex via
+ * meta — Google must be able to crawl them to see the noindex.
+ *
+ * @param string $output Core robots.txt body.
+ * @return string
+ */
+function sa_seo_robots_txt( $output ) {
+	$extra  = "Allow: /wp-content/uploads/\n";
+	$extra .= "Disallow: /feed/\n";
+	$extra .= "Disallow: /?s=\n";
+	$extra .= "Disallow: /?page_id=\n";
+	$extra .= 'Sitemap: ' . home_url( '/wp-sitemap.xml' ) . "\n";
+	return $output . $extra;
+}
+add_filter( 'robots_txt', 'sa_seo_robots_txt' );
 add_filter(
 	'wp_sitemaps_add_provider',
 	function ( $provider, $name ) {
