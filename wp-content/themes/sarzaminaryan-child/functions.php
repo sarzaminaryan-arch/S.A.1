@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.19' );
+define( 'SA_CHILD_VERSION', '2.22.32' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -36,6 +36,7 @@ $sa_child_includes = array(
 	'inc/publish-gate.php',
 	'inc/jalali.php',
 	'inc/seo.php',
+	'inc/seo-dashboard.php', // v2.22.32: داشبورد سئو در پیشخوان (امتیاز/رتبه/توزیع بصری)
 	'inc/citations.php',
 	'inc/redirects.php', // تغییر مسیر ۳۰۱ صفحه‌های تکراری (ادغام‌های تأییدشدهٔ مالک)
 	'inc/internal-links.php', // لینک‌سازی داخلی خودکارِ یکتا: استان / شهرستان / دیدنی
