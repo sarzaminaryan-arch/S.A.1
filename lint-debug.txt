@@ -1,0 +1,12 @@
+php bin: /usr/bin/php
+PHP 8.1.2-1ubuntu2.26 (cli) (built: Sep  2 2026 12:42:10) (NTS)
+Copyright (c) The PHP Group
+--- per-file non-zero results ---
+EXIT=255 FILE=wp-content/themes/sarzaminaryan-child/inc/template-tags.php
+PHP Parse error:  Unclosed '(' does not match ']' in wp-content/themes/sarzaminaryan-child/inc/template-tags.php on line 415
+Errors parsing wp-content/themes/sarzaminaryan-child/inc/template-tags.php
+--- also lint xargs the same way as release workflow ---
+xargs exit: 124
+PHP Parse error:  Unclosed '(' does not match ']' in wp-content/themes/sarzaminaryan-child/inc/template-tags.php on line 415
+xargs: php: exited with status 255; aborting
+--- done ---
