@@ -528,11 +528,12 @@ add_filter(
  * @return string
  */
 function sa_seo_robots_txt( $output ) {
+	// هستهٔ وردپرس خودش خط «Sitemap:» را در انتهای robots.txt چاپ می‌کند؛
+	// افزودن دوبارهٔ آن باعث تکرار خط در خروجی می‌شد (رصد بازرس ۲۰۲۶-۱۰-۲۴).
 	$extra  = "Allow: /wp-content/uploads/\n";
 	$extra .= "Disallow: /feed/\n";
 	$extra .= "Disallow: /?s=\n";
 	$extra .= "Disallow: /?page_id=\n";
-	$extra .= 'Sitemap: ' . home_url( '/wp-sitemap.xml' ) . "\n";
 	return $output . $extra;
 }
 add_filter( 'robots_txt', 'sa_seo_robots_txt' );
@@ -558,7 +559,7 @@ function sa_seo_sitemap_exclude_thin_city( $args, $post_type ) {
 	}
 	// Build list of thin city IDs to exclude. Query all city IDs and filter.
 	// Use transient to avoid heavy query on every sitemap request.
-	$exclude = get_transient( 'sa_sitemap_thin_city' );
+	$exclude = get_transient( 'sa_sitemap_thin_city_v2' );
 	if ( false === $exclude ) {
 		$exclude = array();
 		$q = new WP_Query(
@@ -575,7 +576,7 @@ function sa_seo_sitemap_exclude_thin_city( $args, $post_type ) {
 				$exclude[] = (int) $pid;
 			}
 		}
-		set_transient( 'sa_sitemap_thin_city', $exclude, 12 * HOUR_IN_SECONDS );
+		set_transient( 'sa_sitemap_thin_city_v2', $exclude, 12 * HOUR_IN_SECONDS );
 	}
 	if ( $exclude ) {
 		$args['post__not_in'] = array_merge( isset( $args['post__not_in'] ) ? (array) $args['post__not_in'] : array(), $exclude );
@@ -588,7 +589,7 @@ add_filter( 'wp_sitemaps_posts_query_args', 'sa_seo_sitemap_exclude_thin_city', 
  * Flush sitemap thin cache on city save.
  */
 function sa_sitemap_thin_flush_cache() {
-	delete_transient( 'sa_sitemap_thin_city' );
+	delete_transient( 'sa_sitemap_thin_city_v2' );
 }
 add_action( 'save_post', 'sa_sitemap_thin_flush_cache' );
 add_action( 'deleted_post', 'sa_sitemap_thin_flush_cache' );

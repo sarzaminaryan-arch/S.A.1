@@ -392,14 +392,11 @@ function sa_city_is_thin( $post_id ) {
 	if ( 'city' !== get_post_type( $post_id ) ) {
 		return false;
 	}
-	$words = sa_city_word_count( $post_id );
-	if ( $words < 300 ) {
-		return true;
-	}
-	if ( ! sa_city_has_attractions( $post_id ) ) {
-		return true;
-	}
-	return false;
+	// 2.22.33: معیار «جاذبهٔ پیوسته ندارد» حذف شد. با تنها ۳۳ دیدنی در کل سایت،
+	// این شرط ۱۴۸ شهر کاملاً پرمحتوا (همگی بالای ۱۰ هزار نویسه) را به‌ناحق
+	// از سایت‌مپ حذف و noindex می‌کرد (رصد بازرس پس از حذف Rank Math).
+	// نازکی فقط با شمار واژه‌های متن سنجیده می‌شود.
+	return sa_city_word_count( $post_id ) < 300;
 }
 
 /**
