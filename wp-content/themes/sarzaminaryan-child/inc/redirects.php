@@ -129,7 +129,37 @@ function sa_redirect_target_for_path( $path ) {
 		return '';
 	}
 	$map = sa_redirect_map();
-	return isset( $map[ $path ] ) ? (string) $map[ $path ] : '';
+	if ( isset( $map[ $path ] ) ) {
+		return (string) $map[ $path ];
+	}
+
+	/*
+	 * قوانین پیشوندی (۱۴۰۵-۰۸-۰۲): دو الگوی قدیمیِ استان.
+	 * هر دو مسیرِ `/provinces/{slug}/` (الگوی سومِ بدونِ منبع در ریپو که در محتوای دو
+	 * مقالهٔ استان لینک شده و در GSC ایندکس شده) و `/ostan/{slug}/` (آرشیو تکسونومی)
+	 * به الگوی یکتای `/province/{slug}/` می‌روند. وجودِ مقصد را فراخوان بررسی می‌کند،
+	 * پس برای استانِ نیامده هرگز ۳۰۱ ساخته نمی‌شود. صفحه‌بندیِ این الگوها هم به صفحهٔ
+	 * اولِ مقصد می‌رود تا زنجیره نخورد.
+	 */
+	foreach ( array( '/provinces/', '/ostan/' ) as $prefix ) {
+		if ( 0 === strpos( $path, $prefix ) ) {
+			$rest = trim( substr( $path, strlen( $prefix ) ), '/' );
+			if ( preg_match( '#^([a-z0-9\-]+)(?:/page/[0-9]+/?)?$#', $rest, $m ) ) {
+				return '/province/' . $m[1] . '/';
+			}
+		}
+	}
+
+	/*
+	 * نامک‌های شناسه‌دار (۱۴۰۵-۰۸-۰۲): هر مسیرِ `/attraction/{id}-{slug}/` به
+	 * `/attraction/{slug}/` می‌رود، بدونِ فهرست‌کردنیِ موردبه‌مورد؛ پوششِ کاملِ
+	 * اسلاگ‌های عددیِ گذشته و آینده. نگهبانِ وجودِ مقصد، فعال‌شدن را مشروط می‌کند.
+	 */
+	if ( preg_match( '#^/attraction/[0-9]+-([a-z0-9\-]+)/$#', $path, $m ) ) {
+		return '/attraction/' . $m[1] . '/';
+	}
+
+	return '';
 }
 
 /**

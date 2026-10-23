@@ -51,20 +51,40 @@ return array(
 
 	/*
 	 * پیش‌نویس‌های تکراریِ شهرستان (۱۴۰۵-۰۷-۱۵).
-	 * سه پیش‌نویسِ خالیِ سایت (`isfahan`، `galikesh`، `kabudarahang-city`) نسخهٔ
-	 * نامکِ قدیمیِ صفحه‌های منتشرشدهٔ `isfahan-city`، `galikash` و `kabutarahang`
-	 * هستند (هم‌نام و هم‌استان در رجیستری). این نقشه، هر پیوند یا نشانیِ قدیمی را
-	 * به صفحهٔ منتشرشدهٔ درست می‌رساند؛ تکلیفِ خودِ پیش‌نویس‌ها از «سلامت محتوا →
-	 * تعیین تکلیفِ شهرستان‌های بی‌متن» روشن می‌شود.
-	 * چهارمین پیش‌نویس خالی (`shahdad`) ردیفِ رجیستری ندارد؛ شهداد شهرستان نیست،
-	 * شهرِ شهرستان کرمان است. پس نشانیِ قدیمی‌اش به «شهرستان کرمان» می‌رود —
-	 * همان مقصدی که ارجاعِ مقالهٔ «کلوت‌های شهداد» هم به آن منتقل می‌شود.
+	 * سه پیش‌نویسِ خالیِ سایت (`galikesh`، `kabudarahang-city` و `shahdad`) نسخهٔ
+	 * نامکِ قدیمیِ صفحه‌های منتشرشدهٔ `galikash`، `kabutarang→kabutarahang` و کرمان
+	 * هستند. این نقشه، هر پیوند یا نشانیِ قدیمی را به صفحهٔ منتشرشدهٔ درست می‌رساند.
+	 *
+	 * بازنگری ۱۴۰۵-۰۸-۰۲ (تصمیم مالک: نشانیِ پایه بدونِ پسوند یکتاست):
+	 * ردیفِ معکوسِ پیشین (`/city/isfahan/` ← `/city/isfahan-city/`) برداشته شد و جایش
+	 * همهٔ اسلاگ‌های با پسوندِ `-city/-county` به اسلاگِ پایه می‌روند. تا زمانی که
+	 * تغییرِ نامِ اسلاگ در دیتابیس (تسک B2) انجام نشده، نگهبانِ «وجودِ مقصد» این
+	 * ردیف‌ها را غیرفعال نگه می‌دارد؛ پس هیچ ۳۰۱ِ شکسته‌ای ساخته نمی‌شود.
 	 */
-	'/city/isfahan/' => '/city/isfahan-city/',
 	'/city/galikesh/' => '/city/galikash/',
 	'/city/kabudarahang-city/' => '/city/kabutarahang/',
 	'/city/shahdad/' => '/city/kerman/',
 	'/city/borazjan/' => '/city/dashtestan/',
+	'/city/isfahan-city/' => '/city/isfahan/',
+	'/city/ahvaz-city/' => '/city/ahvaz/',
+	'/city/ardabil-city/' => '/city/ardabil/',
+	'/city/ilam-city/' => '/city/ilam/',
+	'/city/qazvin-city/' => '/city/qazvin/',
+	'/city/qom-city/' => '/city/qom/',
+	'/city/semnan-city/' => '/city/semnan/',
+	'/city/tehran-city/' => '/city/tehran/',
+	'/city/zanjan-city/' => '/city/zanjan/',
+	'/city/dorud-city/' => '/city/dorud/',
+	'/city/bushehr-city/' => '/city/bushehr/',
+	'/city/bushehr-county/' => '/city/bushehr/',
+
+	/*
+	 * نام‌های مستعارِ شهرستان (۱۴۰۵-۰۸-۰۲، از exportهای GSC):
+	 * هر دو نشانی در گزارشِ «Valid» بودند یعنی هر دو ایندکس شده‌اند؛ مقصد، ردیفِ
+	 * رجیستریِ `data/counties.php` است.
+	 */
+	'/city/torbat-jam/' => '/city/torbatjam/',
+	'/city/khorramdarreh/' => '/city/kharadere/',
 
 	/*
 	 * انتقال مقالهٔ فهرستی «جاهای دیدنی طبس» به صفحهٔ «شهرستان طبس» (۱۴۰۵-۰۷-۲۶):
