@@ -40,3 +40,8 @@
 | ۲۰۲۶-۱۰-۲۳ | T0a | ابزار | `sa-seo-inspector` v1.1.0 | v1.0.0 | افزودن theme_fingerprints/mtimes، db_tables، rank_math_tables، cron_hooks، updraft | حذف پوشه/zip |
 | ۲۰۲۶-۱۰-۲۳ | تصمیم | — | Rank Math | فعال (مالک robots/sitemap) | **تصمیم مالک: حذف کامل + پاک‌سازی ردپا** (پیاده‌سازی: C1/B9) | تا اجرا: بدون تغییر |
 | ۲۰۲۶-۱۰-۲۳ | یافته | — | نسخهٔ نصب‌شده | نامشخص | **2.22.31** (بدون تگ/Release در گیت‌هاب؛ آخرین Release = 2.22.24) ⇒ کف نسخهٔ بعدی 2.22.32 | — |
+| ۲۰۲۶-۱۰-۲۴ | A1/A2 | noindex/sitemap | `inc/seo.php` (نسخهٔ 2.22.32) | robots: نویسنده paged>1، برچسب <۳ | robots: نویسنده همیشه، صفحهٔ ۲+ هر آرشیو/خانه noindex,follow، برچسب <۵، ترم خالی، food/route/souvenir؛ سایت‌مپ: بدون attachment/term خالی/برگه‌های داخلی/province_tax/attraction_type/post_format؛ robots.txt کامل + Sitemap | برگشت: commit معکوس |
+| ۲۰۲۶-۱۰-۲۴ | A3/A5 | 301 | `inc/redirects.php` + `data/redirects.php` | — | پیشوند `/provinces/`+`/ostan/`→`/province/`، قاعدهٔ اسلاگ عددی جاذبه، ۱۴ ردیف نقشه (جهت اسلاگ پسونددار برگشت؛ torbat-jam/khorramdarreh افزوده) | حذف ردیف/قاعده |
+| ۲۰۲۶-۱۰-۲۴ | A8/T4 | content-guard | `inc/citations.php` | href مردهٔ `W_*` رندر می‌شد | `sa_citation_strip_invalid_hrefs` روی the_content | حذف فیلتر |
+| ۲۰۲۶-۱۰-۲۴ | A13 | feat | `inc/seo-dashboard.php` | وجود نداشت | داشبورد سئو پیشخوان (امتیاز ۱۰۰، رتبه، دونات، نوار دسته‌ها) | حذف فایل + خط include |
+| ۲۰۲-۱۰-۴ | A12 | release | سه‌گانهٔ نسخه | 2.22.19 | **2.22.32** (بالای نصب‌شدهٔ 2.22.31) | — |
