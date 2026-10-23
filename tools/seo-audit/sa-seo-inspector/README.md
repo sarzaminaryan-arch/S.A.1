@@ -40,6 +40,14 @@ python3 tools/seo-audit/build_inspector_zip.py
 | `content_scan` | جست‌وجوی الگو در محتوای منتشر: `W_*`، `/editorial-policy`، `/ostan/`، `/provinces/`، `-city/`، `-county/`، `page_id=`، صفحه‌بندی `/season/…/page/…`، اسلاگ‌های عددی جاذبه — به‌تفکیک پست + نمونهٔ متن؛ به‌علاوهٔ **همهٔ آیتم‌های منوها** و ویجت‌های متنی | لینک‌های خراب از کدام پست/منو تولید می‌شوند؟ |
 | `redirections` | نقشهٔ ۳۰۱ قالب (`data/redirects.php`)، جدول `wp_rank_math_redirections`، افزونه‌های ریدایرکت | منبع 301 روی `/provinces/ardabil/` چیست؟ نقشهٔ قالب روی سایت فعال است یا نه؟ |
 
+## تغییرات نسخه
+
+- **1.1.0**: افزودن `theme_fingerprints` (md5 و اندازهٔ همهٔ فایل‌های `inc/` و `data/` و `style.css`)،
+  `theme_fingerprints_mtime` (تاریخ تغییر فایل‌های کلیدی روی سرور)، `db_tables` (همهٔ جدول‌ها)،
+  `rank_math_tables` (با شمار ردیف)، `cron_hooks` و `updraft` — برای شناسایی نژادِ نسخهٔ نصب‌شده
+  (نسخهٔ 2.22.31 روی سایت در گیت‌هاب وجود ندارد) و برنامه‌ریزی حذف کامل Rank Math.
+- **1.0.0**: نسخهٔ اول.
+
 ## نکات ایمنی
 
 - فقط مدیر کل (`manage_options`) با nonce می‌تواند گزارش بگیرد.

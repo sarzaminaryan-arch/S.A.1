@@ -3,7 +3,7 @@
  * Plugin Name: SA SEO Inspector (one-shot)
  * Plugin URI:  https://github.com/sarzaminaryan-arch/S.A.1
  * Description: گزارشِ یک‌بارمصرف و فقط‌خواندنی برای ممیزی sitemap/ایندکس «سرزمین آریان». هیچ داده‌ای را تغییر نمی‌دهد؛ فقط اطلاعات سایت را به یک فایل JSON خروجی می‌دهد تا بیرون از سایت تحلیل شود. پس از گرفتن گزارش، افزونه را حذف کنید.
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Sarzamin Aryan / Arena agent
  * License:     GPL-2.0-or-later
  * Text Domain: sa-seo-inspector
@@ -24,7 +24,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_INSPECTOR_VERSION', '1.0.0' );
+define( 'SA_INSPECTOR_VERSION', '1.1.0' );
 define( 'SA_INSPECTOR_CAP', 'manage_options' );
 
 /* =========================================================================
@@ -180,6 +180,76 @@ function sa_insp_environment() {
 	$out['rewrite_rules_total']   = count( $rules );
 	$out['rewrite_rules_entity']  = $filtered;
 
+	// ---- Live theme fingerprints -------------------------------------------------
+	// The installed theme can differ from every commit in the repository (manual
+	// edits, out-of-band zips). md5 + size + mtime of every inc/data file lets the
+	// analyst match the live tree against candidate commits/branches.
+	$fingerprints = array();
+	$mtimes       = array();
+	$child_dir    = get_stylesheet_directory();
+	$scan_dirs    = array( '' => array( 'style.css', 'functions.php', 'readme.txt' ), 'inc/' => array(), 'data/' => array() );
+	foreach ( $scan_dirs as $sub => $fixed ) {
+		$files = $fixed;
+		foreach ( (array) glob( $child_dir . '/' . $sub . '*.php' ) as $abs ) {
+			$files[] = $sub . basename( $abs );
+		}
+		foreach ( array_unique( $files ) as $rel ) {
+			$abs = $child_dir . '/' . $rel;
+			if ( ! is_file( $abs ) ) {
+				continue;
+			}
+			$fingerprints[ $rel ] = array(
+				'md5'  => (string) md5_file( $abs ),
+				'size' => (int) filesize( $abs ),
+			);
+			if ( in_array( $rel, array( 'style.css', 'functions.php', 'inc/seo.php', 'inc/redirects.php', 'inc/citations.php', 'data/redirects.php', 'data/counties.php', 'inc/entities-config.php' ), true ) ) {
+				$mtimes[ $rel ] = date( 'c', (int) filemtime( $abs ) );
+			}
+		}
+	}
+	$parent = wp_get_theme()->parent();
+	if ( $parent ) {
+		$pdir = get_template_directory();
+		if ( is_file( $pdir . '/style.css' ) ) {
+			$fingerprints['PARENT/style.css'] = array( 'md5' => (string) md5_file( $pdir . '/style.css' ), 'size' => (int) filesize( $pdir . '/style.css' ) );
+			$mtimes['PARENT/style.css']       = date( 'c', (int) filemtime( $pdir . '/style.css' ) );
+		}
+	}
+	$out['theme_fingerprints']      = $fingerprints;
+	$out['theme_fingerprints_mtime'] = $mtimes;
+	$out['theme_dir_mtime']         = is_dir( $child_dir ) ? date( 'c', (int) filemtime( $child_dir ) ) : '';
+
+	// ---- Full table list (detects rank_math_*, updraft, redirection plugins) -----
+	$tables = $wpdb->get_col( 'SHOW TABLES' );
+	$out['db_tables']               = (array) $tables;
+	$out['db_tables_extra']         = array_values(
+		array_filter(
+			(array) $tables,
+			function ( $t ) use ( $wpdb ) {
+				return 0 !== strpos( (string) $t, $wpdb->prefix ) || (bool) preg_match( '/rank_math|redirection|updraft|litespeed|wpseo|aioseo|seopress/', (string) $t );
+			}
+		)
+	);
+
+	// ---- Scheduled cron hooks (stale Rank Math / updater crons) ------------------
+	$cron  = (array) _get_cron_array();
+	$hooks = array();
+	foreach ( $cron as $ts => $events ) {
+		foreach ( (array) $events as $hook => $buckets ) {
+			if ( preg_match( '/rank_math|updraft|litespeed|sitemap|sa_|github/i', (string) $hook ) ) {
+				$hooks[] = array( 'hook' => (string) $hook, 'next' => date( 'c', (int) $ts ), 'count' => count( (array) $buckets ) );
+			}
+		}
+	}
+	$out['cron_hooks'] = $hooks;
+
+	// ---- Backup plugin state (helps date the 2026-10-12 change) ------------------
+	$out['updraft'] = array(
+		'last_backup_time' => get_option( 'updraft_last_backup_time', null ),
+		'backups'          => sa_insp_cut( (string) wp_json_encode( get_option( 'updraft_backups', array() ), JSON_UNESCAPED_SLASHES ), 4000 ),
+		'version'          => defined( 'UPDRAFTPLUS_VERSION' ) ? UPDRAFTPLUS_VERSION : null,
+	);
+
 	return $out;
 }
 
@@ -222,6 +292,15 @@ function sa_insp_seo_plugins() {
 	}
 	$out['rank_math_options'] = $opts;
 	$out['rank_math_option_names_skipped'] = count( (array) $names ) - count( $opts );
+
+	// Rank Math tables with row counts (needed to plan a trace-free removal).
+	$rm_tables = array();
+	foreach ( (array) $wpdb->get_col( 'SHOW TABLES' ) as $t ) {
+		if ( false !== strpos( (string) $t, 'rank_math' ) ) {
+			$rm_tables[ $t ] = (int) $wpdb->get_var( "SELECT COUNT(*) FROM `{$t}`" ); // phpcs:ignore WordPress.DB.PreparedSQL
+		}
+	}
+	$out['rank_math_tables'] = $rm_tables;
 
 	// Theme-side SEO option/meta footprint (so we can see the double ownership).
 	$out['theme_options'] = array(
