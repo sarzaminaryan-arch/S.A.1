@@ -1,0 +1,60 @@
+name: Lint debug (temporary)
+
+on:
+  push:
+    branches:
+      - "arena/**"
+    paths:
+      - ".github/workflows/lint-debug.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: lint-debug-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Lint each PHP file individually
+        shell: bash
+        run: |
+          set +e
+          THEME_DIR=wp-content/themes/sarzaminaryan-child
+          {
+            echo "php bin: $(command -v php)"
+            php -v | head -2
+            echo "--- per-file non-zero results ---"
+            while IFS= read -r -d '' f; do
+              out="$(timeout 20 php -l "$f" 2>&1)"
+              code=$?
+              if [ "$code" -ne 0 ]; then
+                echo "EXIT=$code FILE=$f"
+                echo "$out" | head -6
+              fi
+            done < <(find "$THEME_DIR" -type f -name '*.php' -print0)
+            echo "--- also lint xargs the same way as release workflow ---"
+            find "$THEME_DIR" -type f -name '*.php' -print0 | xargs -0 -n 1 php -l >/dev/null 2>/tmp/xargs-err.txt
+            echo "xargs exit: $?"
+            head -20 /tmp/xargs-err.txt
+            echo "--- done ---"
+          } > lint-debug.txt 2>&1
+
+      - name: Push report back to the branch
+        shell: bash
+        run: |
+          git config user.name "arena-agent"
+          git config user.email "arena-agent@users.noreply.github.com"
+          git add lint-debug.txt
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore(ci): گزارش موقت خطای lint قالب [skip ci]"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
