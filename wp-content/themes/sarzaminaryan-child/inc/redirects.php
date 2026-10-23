@@ -205,6 +205,17 @@ function sa_redirect_source_ids( $post_type = 'city' ) {
 			}
 			$post = get_page_by_path( $slug, OBJECT, $post_type );
 			if ( $post && isset( $post->ID ) ) {
+				/*
+				 * هم‌ترازی با نگهبانِ موتورِ ۳۰۱ (۱۴۰۵-۰۸-۰۲): مبدأ تنها وقتی از
+				 * آرشیو و نقشهٔ سایت بیرون می‌ماند که تغییرمسیرش واقعاً برقرار باشد
+				 * (مقصد وجود داشته باشد). پیش از این، مبدأهایِ مقصد-نادرست (مثل
+				 * نامک‌های پسونددار پیش از تغییر نام B2) صفحه‌های زنده و ۲۰۰ را از
+				 * نقشهٔ سایت یتیم می‌کردند بدون آنکه ۳۰۱ شوند.
+				 */
+				$target = sa_redirect_target_for_path( (string) $from );
+				if ( '' === $target || ! sa_redirect_target_exists( $target ) ) {
+					continue;
+				}
 				$ids[] = (int) $post->ID;
 			}
 		}
