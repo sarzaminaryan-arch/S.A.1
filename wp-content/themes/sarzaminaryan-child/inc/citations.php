@@ -618,3 +618,28 @@ function sa_strip_duplicate_inline_faq_filter( $content ) {
 	return is_string( $cleaned ) ? $cleaned : $content;
 }
 add_filter( 'the_content', 'sa_strip_duplicate_inline_faq_filter', 9 );
+/**
+ * Neutralise dead relative hrefs (the `W_*` county-code leftovers).
+ *
+ * The AI-cleaning pipeline left anchors like `<a href="W_FER">` inside published
+ * city content. Browsers resolve them against the current page (`/city/fereydan/W_FER`)
+ * and Google reported them as fresh 404s (GSC 2026-10-16/17). Any href that is
+ * neither an external URL nor a root-relative/internal address is stripped: the
+ * visible marker text stays, the link dies.
+ *
+ * @param string $content Post content.
+ * @return string
+ */
+function sa_citation_strip_invalid_hrefs( $content ) {
+	if ( ! is_string( $content ) || '' === $content || false === stripos( $content, 'href=' ) ) {
+		return $content;
+	}
+	return (string) preg_replace_callback(
+		'#<a\b[^>]*?href=(["\'])(?!(?:https?://|/|\#|\?|mailto:|tel:))([^"\']*)\1[^>]*>(.*?)</a>#isu',
+		function ( $m ) {
+			return '<span class="sa-cite-plain">' . $m[3] . '</span>';
+		},
+		$content
+	);
+}
+add_filter( 'the_content', 'sa_citation_strip_invalid_hrefs', 999 );
