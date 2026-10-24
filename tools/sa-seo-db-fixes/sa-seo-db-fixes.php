@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: SA SEO DB Fixes (one-shot)
- * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو، ۳+۴) تغییر نام نامک‌های پسونددار + بازنویسی پیوندها، ۵) تکمیل: جابه‌جایی مانع غیرمنتشرِ نامک پایه + بازنویسی پیوندهای باقیمانده. با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
- * Version: 1.2.0
+ * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو، ۳+۴) تغییر نام نامک‌های پسونددار + بازنویسی پیوندها، ۵) تکمیل: جابه‌جایی مانع غیرمنتشرِ نامک پایه + بازنویسی پیوندهای باقیمانده، ۶) پاک‌سازی ارجاع‌های مردهٔ W_* (حذف href مرده، نگه‌داشتن شمارهٔ ارجاع). با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
+ * Version: 1.3.0
  * Author: S.A. Agent
  * License: GPL-2.0-or-later
  *
@@ -540,6 +540,97 @@ function sa_dbf_op5_apply() {
 }
 
 /**
+ * الگوی ارجاع مردهٔ W_* داخل <sup> (href نسبیِ بدون مقصد).
+ *
+ * @return string
+ */
+function sa_dbf_wstar_sup_regex() {
+	return '~<sup([^>]*)>\s*<a[^>]*\bhref=(["\'])W_[A-Za-z0-9_]+\2[^>]*>(.*?)</a>\s*</sup>~s';
+}
+
+/**
+ * الگوی برهنهٔ ارجاع مردهٔ W_* (بیرون از <sup>).
+ *
+ * @return string
+ */
+function sa_dbf_wstar_bare_regex() {
+	return '~<a[^>]*\bhref=(["\'])W_[A-Za-z0-9_]+\1[^>]*>(.*?)</a>~s';
+}
+
+/**
+ * گزارش خشک عملیات ۶: فهرست نوشته‌های دارای ارجاع مردهٔ W_*.
+ *
+ * @return array
+ */
+function sa_dbf_op6_state() {
+	$rows  = array();
+	$total = 0;
+	foreach ( sa_dbf_rewrite_ids( array( 'publish', 'draft', 'pending', 'private' ) ) as $pid ) {
+		$content = (string) get_post_field( 'post_content', $pid );
+		if ( '' === $content || false === strpos( $content, 'href="W_' ) && false === strpos( $content, "href='W_" ) ) {
+			continue;
+		}
+		$occ = substr_count( $content, 'href="W_' ) + substr_count( $content, "href='W_" );
+		if ( $occ < 1 ) {
+			continue;
+		}
+		$post     = get_post( $pid );
+		$rows[]   = array(
+			'id'     => (int) $pid,
+			'type'   => (string) $post->post_type,
+			'slug'   => (string) $post->post_name,
+			'status' => (string) $post->post_status,
+			'occ'    => $occ,
+		);
+		$total   += $occ;
+	}
+	return array( 'rows' => $rows, 'total' => $total );
+}
+
+/**
+ * اجرای عملیات ۶: حذف href مردهٔ W_* و نگه‌داشتن شمارهٔ ارجاع.
+ *
+ * تبدیل: <sup class="sa-cite"><a href="W_X">۱</a></sup> ← <sup class="sa-cite">۱</sup>
+ * و برهنه: <a href="W_X">متن</a> ← متن
+ *
+ * @return array گزارش.
+ */
+function sa_dbf_op6_apply() {
+	$state   = sa_dbf_op6_state();
+	$changed = 0;
+	$repl    = 0;
+	$detail  = array();
+	foreach ( $state['rows'] as $row ) {
+		$content = (string) get_post_field( 'post_content', $row['id'] );
+		$new     = preg_replace( sa_dbf_wstar_sup_regex(), '<sup$1>$3</sup>', $content );
+		$new     = preg_replace( sa_dbf_wstar_bare_regex(), '$2', $new );
+		$left    = substr_count( $new, 'href="W_' ) + substr_count( $new, "href='W_" );
+		$done    = $row['occ'] - $left;
+		if ( $done < 1 || $new === $content ) {
+			$detail[] = 'SKIP #' . $row['id'] . ' (بدون تغییر)';
+			continue;
+		}
+		wp_update_post( array( 'ID' => $row['id'], 'post_content' => $new ) );
+		$changed++;
+		$repl   += $done;
+		$detail[] = 'UNWRAP #' . $row['id'] . ' ' . $row['slug'] . ' (' . $done . ' مورد)';
+	}
+	sa_dbf_purge();
+	sa_dbf_log(
+		array(
+			'op'    => 'w_star_unwrap',
+			'posts' => $changed,
+			'occ'   => $repl,
+		)
+	);
+	return array(
+		'ok'     => true,
+		'msg'    => $repl . ' ارجاع مردهٔ W_* در ' . $changed . ' نوشته پاک‌سازی شد (شمارهٔ ارجاع نگه داشته شد).',
+		'detail' => $detail,
+	);
+}
+
+/**
  * منوی ابزارها.
  */
 function sa_dbf_menu() {
@@ -570,6 +661,8 @@ function sa_dbf_render() {
 		$result = sa_dbf_op34_apply();
 	} elseif ( 'op5' === $op ) {
 		$result = sa_dbf_op5_apply();
+	} elseif ( 'op6' === $op ) {
+		$result = sa_dbf_op6_apply();
 	} else {
 			$error = 'عملیات ناشناخته.';
 		}
@@ -578,7 +671,7 @@ function sa_dbf_render() {
 	$s2 = sa_dbf_op2_state();
 	?>
 	<div class="wrap" dir="rtl" style="max-width:960px">
-		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.2.0</h1>
+		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.3.0</h1>
 		<p>دو عملیات یک‌بارمصرف با گزارش قبل/بعد و لاگ برگشت‌پذیر (گزینهٔ <code>sa_db_fixes_log</code>). پیش از اجرا، پشتیبان UpdraftPlus تازه بگیرید. پس از اتمام هر دو، همین افزونه را حذف کنید.</p>
 
 		<?php if ( $error ) : ?>
@@ -681,6 +774,27 @@ function sa_dbf_render() {
 			<input type="hidden" name="sa_dbf_op" value="op5">
 			<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان تازه دارم و می‌دانم نامک مانعِ غیرمنتشر + تغییر نام باقیمانده + بازنویسی پیوندهای باقیمانده انجام می‌شود (لاگ برگشت‌پذیر ثبت می‌شود).</label>
 			<?php submit_button( 'اجرای عملیات ۵ (تکمیل)', 'delete', 'submit', true ); ?>
+		</form>
+		<?php endif; ?>
+
+		<h2>عملیات ۶ — پاک‌سازی ارجاع‌های مردهٔ W_* (حذف href مرده، نگه‌داشتن شماره)</h2>
+		<?php $s6 = sa_dbf_op6_state(); ?>
+		<?php if ( 0 === (int) $s6['total'] ) : ?>
+			<p class="description">✔ هیچ ارجاع مردهٔ W_* در محتوا نمانده است.</p>
+		<?php else : ?>
+		<p>جمع: <strong><?php echo (int) $s6['total']; ?></strong> ارجاع مرده در <strong><?php echo count( $s6['rows'] ); ?></strong> نوشته. تبدیل: <code>&lt;sup class="sa-cite"&gt;&lt;a href="W_X"&gt;۱&lt;/a&gt;&lt;/sup&gt;</code> ← <code>&lt;sup class="sa-cite"&gt;۱&lt;/sup&gt;</code> (شمارهٔ ارجاع می‌ماند، href مرده حذف می‌شود؛ همان رفتار فیلتر رندر قالب ولی این‌بار در خود دیتابیس).</p>
+		<details open><summary>فهرست نوشته‌ها</summary>
+		<table class="widefat striped" style="max-width:760px">
+			<tr><th>شناسه</th><th>نوع</th><th>نامک</th><th>وضعیت</th><th>تعداد</th></tr>
+			<?php foreach ( $s6['rows'] as $row ) : ?>
+				<tr><td>#<?php echo (int) $row['id']; ?></td><td><?php echo esc_html( $row['type'] ); ?></td><td><code><?php echo esc_html( $row['slug'] ); ?></code></td><td><?php echo esc_html( $row['status'] ); ?></td><td><?php echo (int) $row['occ']; ?></td></tr>
+			<?php endforeach; ?>
+		</table></details>
+		<form method="post">
+			<?php wp_nonce_field( 'sa_dbf_op6', 'sa_dbf_nonce' ); ?>
+			<input type="hidden" name="sa_dbf_op" value="op6">
+			<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان تازه دارم و می‌دانم <?php echo (int) $s6['total']; ?> href مردهٔ W_* از محتوای <?php echo count( $s6['rows'] ); ?> نوشته حذف می‌شود (شمارهٔ ارجاع نگه داشته می‌شود؛ لاگ برگشت‌پذیر ثبت می‌شود).</label>
+			<?php submit_button( 'اجرای عملیات ۶ (پاک‌سازی W_*)', 'delete', 'submit', true ); ?>
 		</form>
 		<?php endif; ?>
 
