@@ -286,6 +286,44 @@ function sa_attraction_bars_html( $posts ) {
 }
 
 /**
+ * نقشهٔ نامک → پیوند یکتا برای استان‌های منتشرشده.
+ *
+ * نسخهٔ بیرون‌ازگیت‌هاب ۲٫۲۲٫۳۱ این تابع را داشت؛ با بازگشت به پایهٔ ریپو گم شد و
+ * آرشیو /province/ در ۱۴۰۵-۰۸-۰۳ به Fatal error رسید. ورودی، نوشته‌های کوئری
+ * اصلی آرشیو است؛ اگر خالی بود، پرس‌وجوی سبک جایگزین می‌شود تا راهنمای متنی
+ * هرگز بی‌پیوند نماند.
+ *
+ * @param WP_Post[]|null $posts نوشته‌های کوئری اصلی آرشیو.
+ * @return array<string,string> نامک => پیوند یکتا.
+ */
+function sa_published_provinces_by_slug( $posts = null ) {
+	$out = array();
+	foreach ( (array) $posts as $p ) {
+		if ( $p instanceof WP_Post && 'province' === $p->post_type && 'publish' === $p->post_status && '' !== (string) $p->post_name ) {
+			$out[ $p->post_name ] = (string) get_permalink( $p );
+		}
+	}
+	if ( ! $out ) {
+		$q = new WP_Query(
+			array(
+				'post_type'      => 'province',
+				'post_status'    => 'publish',
+				'posts_per_page' => 100,
+				'no_found_rows'  => true,
+				'fields'         => 'ids',
+			)
+		);
+		foreach ( (array) $q->posts as $id ) {
+			$slug = (string) get_post_field( 'post_name', (int) $id );
+			if ( '' !== $slug ) {
+				$out[ $slug ] = (string) get_permalink( (int) $id );
+			}
+		}
+	}
+	return $out;
+}
+
+/**
  * Semantic, crawlable prose + grouped index for /province/ and /city/ archives so
  * search engines and Readability/Markdown extractors never treat the directory
  * as a pure-link navigation widget.
