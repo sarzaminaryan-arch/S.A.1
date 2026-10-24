@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: SA SEO DB Fixes (one-shot)
- * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو. با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
- * Version: 1.1.0
+ * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو، ۳+۴) تغییر نام نامک‌های پسونددار + بازنویسی پیوندها، ۵) تکمیل: جابه‌جایی مانع غیرمنتشرِ نامک پایه + بازنویسی پیوندهای باقیمانده. با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
+ * Version: 1.2.0
  * Author: S.A. Agent
  * License: GPL-2.0-or-later
  *
@@ -262,29 +262,43 @@ function sa_dbf_final_target( $path ) {
 }
 
 /**
- * پویش پیوندهای درون‌متنی قابل بازنویسی.
+ * شناسهٔ نوشته‌ها/آیتم‌های منوی در scope بازنویسی پیوند.
  *
- * @param bool $planned نظر گرفتن تغییر نام‌های در صف برای اعتبار مقصد.
- * @return array{paths:array<string,int>, posts:int, total:int}
+ * @param array|string $statuses وضعیت‌های مجاز.
+ * @return int[]
  */
-function sa_dbf_scan_links( $planned ) {
-	$found = array();
-	$posts = get_posts(
+function sa_dbf_rewrite_ids( $statuses = array( 'publish' ) ) {
+	$ids = get_posts(
 		array(
 			'post_type'      => array( 'post', 'page', 'city', 'province', 'attraction' ),
-			'post_status'    => 'publish',
+			'post_status'    => $statuses,
 			'posts_per_page' => -1,
 			'fields'         => 'ids',
 		)
 	);
-	$posts = array_merge( $posts, get_posts(
-		array(
-			'post_type'      => 'nav_menu_item',
-			'post_status'    => 'publish',
-			'posts_per_page' => -1,
-			'fields'         => 'ids',
+	return array_merge(
+		$ids,
+		get_posts(
+			array(
+				'post_type'      => 'nav_menu_item',
+				'post_status'    => $statuses,
+				'posts_per_page' => -1,
+				'fields'         => 'ids',
+			)
 		)
-	) );
+	);
+}
+
+/**
+ * پویش پیوندهای درون‌متنی قابل بازنویسی.
+ *
+ * @param bool         $planned  نظر گرفتن تغییر نام‌های در صف برای اعتبار مقصد.
+ * @param array|string $statuses وضعیت‌های پست برای پویش.
+ * @return array{paths:array<string,int>, posts:int, total:int}
+ */
+function sa_dbf_scan_links( $planned, $statuses = array( 'publish' ) ) {
+	$found = array();
+	$posts = sa_dbf_rewrite_ids( $statuses );
 	$total = 0;
 	foreach ( $posts as $pid ) {
 		$content = (string) get_post_field( 'post_content', $pid );
@@ -364,14 +378,7 @@ function sa_dbf_op34_apply() {
 	$scan    = sa_dbf_scan_links( false );
 	$changed = 0;
 	$repl    = 0;
-	$all_ids = get_posts(
-		array(
-			'post_type'      => array( 'post', 'page', 'city', 'province', 'attraction', 'nav_menu_item' ),
-			'post_status'    => 'publish',
-			'posts_per_page' => -1,
-			'fields'         => 'ids',
-		)
-	);
+	$all_ids = sa_dbf_rewrite_ids();
 	foreach ( $scan['paths'] as $path => $n ) {
 		$target = sa_dbf_final_target( $path );
 		if ( '' === $target || ! sa_redirect_target_exists( $target ) ) {
@@ -409,6 +416,130 @@ function sa_dbf_op34_apply() {
 }
 
 /**
+ * گزارش خشک عملیات ۵: مانع‌های غیرمنتشرِ نامک پایه + پیوندهای باقیمانده.
+ *
+ * @return array
+ */
+function sa_dbf_op5_state() {
+	$blockers = array();
+	foreach ( sa_dbf_planned_renames() as $from => $to ) {
+		$src = get_page_by_path( $from, OBJECT, 'city' );
+		$dst = get_page_by_path( $to, OBJECT, 'city' );
+		if ( ! $src || 'publish' !== $src->post_status || ! $dst ) {
+			continue;
+		}
+		$blockers[] = array(
+			'from'       => $from,
+			'to'         => $to,
+			'src_id'     => (int) $src->ID,
+			'blk_id'     => (int) $dst->ID,
+			'blk_status' => (string) $dst->post_status,
+			'blk_title'  => (string) get_the_title( $dst ),
+			'blk_chars'  => (int) mb_strlen( (string) $dst->post_content ),
+			'safe'       => 'publish' !== $dst->post_status,
+		);
+	}
+	$scan = sa_dbf_scan_links( true, array( 'publish', 'draft', 'pending', 'private' ) );
+	return array(
+		'blockers' => $blockers,
+		'scan'     => $scan,
+		'theme_ok' => function_exists( 'sa_redirect_target_for_path' ) && function_exists( 'sa_redirect_target_exists' ),
+	);
+}
+
+/**
+ * اجرای اتمی عملیات ۵: جابه‌جایی مانع غیرمنتشر ← تغییر نام ← بازنویسی پیوندهای باقیمانده ← کش.
+ *
+ * مانع منتشر هرگز جابه‌جا نمی‌شود (نیاز به تصمیم انسانی)؛ فقط draft/pending/private/trash.
+ *
+ * @return array گزارش.
+ */
+function sa_dbf_op5_apply() {
+	$state = sa_dbf_op5_state();
+	if ( ! $state['theme_ok'] ) {
+		return array( 'ok' => false, 'msg' => 'توابع نقشهٔ قالب در دسترس نیست؛ قالب ۲٫۲۲٫۳۵+ فعال است؟', 'detail' => array() );
+	}
+	$detail = array();
+	$moved  = 0;
+	foreach ( $state['blockers'] as $b ) {
+		if ( ! $b['safe'] ) {
+			$detail[] = 'SKIP blocker #' . $b['blk_id'] . ' (منتشر است؛ نیاز به تصمیم انسانی)';
+			continue;
+		}
+		$new_slug = $b['to'] . '-blocked-' . $b['blk_id'];
+		wp_update_post( array( 'ID' => $b['blk_id'], 'post_name' => $new_slug ), true );
+		clean_post_cache( $b['blk_id'] );
+		$now = (string) get_post_field( 'post_name', $b['blk_id'] );
+		if ( $now === $new_slug ) {
+			$moved++;
+			$detail[] = 'BLOCKER-MOVED #' . $b['blk_id'] . ' ' . $b['to'] . ' -> ' . $new_slug . ' (وضعیت: ' . $b['blk_status'] . '، ' . $b['blk_chars'] . ' نویسه)';
+		} else {
+			$detail[] = 'FAIL blocker #' . $b['blk_id'] . ' (نامک فعلی: ' . $now . ')';
+		}
+	}
+	$renamed = 0;
+	foreach ( sa_dbf_planned_renames() as $from => $to ) {
+		$src = get_page_by_path( $from, OBJECT, 'city' );
+		$dst = get_page_by_path( $to, OBJECT, 'city' );
+		if ( ! $src || 'publish' !== $src->post_status ) {
+			continue;
+		}
+		if ( $dst ) {
+			$detail[] = 'SKIP rename ' . $from . ' (مقصد هنوز اشغال است: #' . (int) $dst->ID . ')';
+			continue;
+		}
+		wp_update_post( array( 'ID' => (int) $src->ID, 'post_name' => $to ), true );
+		clean_post_cache( (int) $src->ID );
+		$now = (string) get_post_field( 'post_name', (int) $src->ID );
+		if ( $now === $to ) {
+			$renamed++;
+			$detail[] = 'RENAMED #' . $src->ID . ' ' . $from . ' -> ' . $to;
+		} else {
+			$detail[] = 'FAIL rename #' . $src->ID . ' ' . $from . ' (نامک فعلی: ' . $now . ')';
+		}
+	}
+	$statuses = array( 'publish', 'draft', 'pending', 'private' );
+	$scan     = sa_dbf_scan_links( false, $statuses );
+	$all_ids  = sa_dbf_rewrite_ids( $statuses );
+	$changed  = 0;
+	$repl     = 0;
+	foreach ( $scan['paths'] as $path => $n ) {
+		$target = sa_dbf_final_target( $path );
+		if ( '' === $target || ! sa_redirect_target_exists( $target ) ) {
+			continue;
+		}
+		$needle = 'href="' . $path . '"';
+		foreach ( $all_ids as $pid ) {
+			$content = (string) get_post_field( 'post_content', $pid );
+			if ( false === strpos( $content, $needle ) ) {
+				continue;
+			}
+			$new = str_replace( $needle, 'href="' . $target . '"', $content, $c );
+			wp_update_post( array( 'ID' => $pid, 'post_content' => $new ) );
+			$changed++;
+			$repl   += $c;
+		}
+		$detail[] = 'LINKS ' . $path . ' -> ' . $target . ' (' . $n . ' مورد)';
+	}
+	flush_rewrite_rules( false );
+	sa_dbf_purge();
+	sa_dbf_log(
+		array(
+			'op'             => 'complete_renames',
+			'blockers_moved' => $moved,
+			'renamed'        => $renamed,
+			'posts'          => $changed,
+			'links'          => $repl,
+		)
+	);
+	return array(
+		'ok'     => true,
+		'msg'    => $moved . ' مانع جابه‌جا شد؛ ' . $renamed . ' تغییر نام؛ ' . $repl . ' پیوند در ' . $changed . ' نوشته بازنویسی شد.',
+		'detail' => $detail,
+	);
+}
+
+/**
  * منوی ابزارها.
  */
 function sa_dbf_menu() {
@@ -435,9 +566,11 @@ function sa_dbf_render() {
 			$result = sa_dbf_op1_apply();
 		} elseif ( 'op2' === $op ) {
 			$result = sa_dbf_op2_apply();
-		} elseif ( 'op34' === $op ) {
-			$result = sa_dbf_op34_apply();
-		} else {
+	} elseif ( 'op34' === $op ) {
+		$result = sa_dbf_op34_apply();
+	} elseif ( 'op5' === $op ) {
+		$result = sa_dbf_op5_apply();
+	} else {
 			$error = 'عملیات ناشناخته.';
 		}
 	}
@@ -445,7 +578,7 @@ function sa_dbf_render() {
 	$s2 = sa_dbf_op2_state();
 	?>
 	<div class="wrap" dir="rtl" style="max-width:960px">
-		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.1.0</h1>
+		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.2.0</h1>
 		<p>دو عملیات یک‌بارمصرف با گزارش قبل/بعد و لاگ برگشت‌پذیر (گزینهٔ <code>sa_db_fixes_log</code>). پیش از اجرا، پشتیبان UpdraftPlus تازه بگیرید. پس از اتمام هر دو، همین افزونه را حذف کنید.</p>
 
 		<?php if ( $error ) : ?>
@@ -502,7 +635,7 @@ function sa_dbf_render() {
 		<table class="widefat striped" style="max-width:820px">
 			<tr><th>تغییر نام</th><th>شناسه</th><th>مبدأ منتشر</th><th>نامک پایه آزاد</th></tr>
 			<?php foreach ( $s34['renames'] as $r ) : ?>
-				<tr><td><code><?php echo esc_html( $r['from'] ); ?></code> ← <code><?php echo esc_html( $r['to'] ); ?></code></td><td>#<?php echo (int) $r['src_id']; ?></td><td><?php echo $r['src_ok'] ? '✓' : '✗'; ?></td><td><?php echo $r['dst_free'] ? '✓' : '✗ تداخل!'; ?></td></tr>
+				<tr><td><code><?php echo esc_html( $r['from'] ); ?></code> ← <code><?php echo esc_html( $r['to'] ); ?></code></td><td>#<?php echo (int) $r['src_id']; ?></td><td><?php echo 0 === (int) $r['src_id'] ? '—' : ( $r['src_ok'] ? '✓' : '✗' ); ?></td><td><?php echo 0 === (int) $r['src_id'] ? '✓ انجام‌شد' : ( $r['dst_free'] ? '✓' : '✗ تداخل!' ); ?></td></tr>
 			<?php endforeach; ?>
 		</table>
 		<p>پیوندهای قابل بازنویسی (با در نظر گرفتن تغییر نام‌ها): <strong><?php echo (int) $s34['scan']['total']; ?></strong> پیوند در مسیرهای زیر:</p>
@@ -515,6 +648,39 @@ function sa_dbf_render() {
 			<input type="hidden" name="sa_dbf_op" value="op34">
 			<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان تازه دارم و می‌دانم ۱۱ نامک شهری و تا <?php echo (int) $s34['scan']['total']; ?> پیوند درون‌متنی تغییر می‌کنند (لاگ برگشت‌پذیر ثبت می‌شود).</label>
 			<?php submit_button( 'اجرای عملیات ۳+۴ (اتمیک)', 'delete', 'submit', true ); ?>
+		</form>
+		<?php endif; ?>
+
+		<h2>عملیات ۵ — تکمیل تغییر نام‌ها (جابه‌جایی مانع غیرمنتشرِ نامک پایه)</h2>
+		<?php $s5 = sa_dbf_op5_state(); ?>
+		<?php if ( ! $s5['theme_ok'] ) : ?>
+			<p class="description">⚠ توابع نقشهٔ قالب یافت نشد — ابتدا قالب ۲٫۲۲٫۳۵+ را فعال کنید.</p>
+		<?php elseif ( ! $s5['blockers'] && 0 === (int) $s5['scan']['total'] ) : ?>
+			<p class="description">✔ چیزی برای تکمیل نیست — هیچ مانعی نیست و هیچ پیوند قابل بازنویسی نمانده.</p>
+		<?php else : ?>
+		<table class="widefat striped" style="max-width:880px">
+			<tr><th>تغییر نامِ مانع‌دار</th><th>مانع</th><th>وضعیت مانع</th><th>عنوان مانع</th><th>محتوا</th><th>جابه‌جایی خودکار</th></tr>
+			<?php foreach ( $s5['blockers'] as $b ) : ?>
+				<tr>
+					<td><code><?php echo esc_html( $b['from'] ); ?></code> ← <code><?php echo esc_html( $b['to'] ); ?></code> (#<?php echo (int) $b['src_id']; ?>)</td>
+					<td>#<?php echo (int) $b['blk_id']; ?></td>
+					<td><?php echo esc_html( $b['blk_status'] ); ?></td>
+					<td><?php echo esc_html( $b['blk_title'] ); ?></td>
+					<td><?php echo (int) $b['blk_chars']; ?> نویسه</td>
+					<td><?php echo $b['safe'] ? '✓ بله — نامکش می‌شود ' . esc_html( $b['to'] . '-blocked-' . $b['blk_id'] ) : '✗ خیر — منتشر است و نیاز به تصمیم انسانی دارد'; ?></td>
+				</tr>
+			<?php endforeach; ?>
+		</table>
+		<p>پیوندهای نسبیِ باقیماندهٔ قابل بازنویسی (شامل پیش‌نویس‌ها): <strong><?php echo (int) $s5['scan']['total']; ?></strong></p>
+		<details><summary>فهرست مسیرها</summary><ul>
+		<?php foreach ( $s5['scan']['paths'] as $path => $n ) : ?><li><code><?php echo esc_html( $path ); ?></code> × <?php echo (int) $n; ?> → <code><?php echo esc_html( sa_dbf_final_target( $path ) ); ?></code></li><?php endforeach; ?>
+		</ul></details>
+		<p class="description">ترتیب اتمی: جابه‌جایی مانع‌های غیرمنتشر (فقط draft/pending/private/trash — مانع منتشر هرگز دست نمی‌خورد) ← تغییر نام ← بازنویسی پیوندها ← flush/purge. پیوندهای برون‌سایتی (ارجاع‌های kojaro/baniboom) دست‌نخورده می‌مانند.</p>
+		<form method="post">
+			<?php wp_nonce_field( 'sa_dbf_op5', 'sa_dbf_nonce' ); ?>
+			<input type="hidden" name="sa_dbf_op" value="op5">
+			<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان تازه دارم و می‌دانم نامک مانعِ غیرمنتشر + تغییر نام باقیمانده + بازنویسی پیوندهای باقیمانده انجام می‌شود (لاگ برگشت‌پذیر ثبت می‌شود).</label>
+			<?php submit_button( 'اجرای عملیات ۵ (تکمیل)', 'delete', 'submit', true ); ?>
 		</form>
 		<?php endif; ?>
 
