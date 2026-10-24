@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: SA SEO DB Fixes (one-shot)
- * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو، ۳+۴) تغییر نام نامک‌های پسونددار + بازنویسی پیوندها، ۵) تکمیل: جابه‌جایی مانع غیرمنتشرِ نامک پایه + بازنویسی پیوندهای باقیمانده، ۶) پاک‌سازی ارجاع‌های مردهٔ W_* (حذف href مرده، نگه‌داشتن شمارهٔ ارجاع). با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
- * Version: 1.3.0
+ * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو، ۳+۴) تغییر نام نامک‌های پسونددار + بازنویسی پیوندها، ۵) تکمیل: جابه‌جایی مانع غیرمنتشرِ نامک پایه + بازنویسی پیوندهای باقیمانده، ۶) پاک‌سازی ارجاع‌های مردهٔ W_* (حذف href مرده، نگه‌داشتن شمارهٔ ارجاع + تبدیل توکن‌های خام جامانده). با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
+ * Version: 1.4.0
  * Author: S.A. Agent
  * License: GPL-2.0-or-later
  *
@@ -558,6 +558,15 @@ function sa_dbf_wstar_bare_regex() {
 }
 
 /**
+ * الگوی توکن جاماندهٔ ارجاع: {c(W_CODE, "۱")} (متن خام، بدون هیچ لینکی).
+ *
+ * @return string
+ */
+function sa_dbf_wstar_token_regex() {
+	return '~\{c\(\s*W_[A-Za-z0-9_]+\s*,\s*(["\'])(.*?)\1\s*\)\}~s';
+}
+
+/**
  * گزارش خشک عملیات ۶: فهرست نوشته‌های دارای ارجاع مردهٔ W_*.
  *
  * @return array
@@ -567,10 +576,13 @@ function sa_dbf_op6_state() {
 	$total = 0;
 	foreach ( sa_dbf_rewrite_ids( array( 'publish', 'draft', 'pending', 'private' ) ) as $pid ) {
 		$content = (string) get_post_field( 'post_content', $pid );
-		if ( '' === $content || false === strpos( $content, 'href="W_' ) && false === strpos( $content, "href='W_" ) ) {
+		if ( '' === $content || ( false === strpos( $content, 'href="W_' ) && false === strpos( $content, "href='W_" ) && false === strpos( $content, '{c(W_' ) ) ) {
 			continue;
 		}
 		$occ = substr_count( $content, 'href="W_' ) + substr_count( $content, "href='W_" );
+		if ( preg_match_all( sa_dbf_wstar_token_regex(), $content, $tm ) ) {
+			$occ += count( $tm[0] );
+		}
 		if ( $occ < 1 ) {
 			continue;
 		}
@@ -604,7 +616,11 @@ function sa_dbf_op6_apply() {
 		$content = (string) get_post_field( 'post_content', $row['id'] );
 		$new     = preg_replace( sa_dbf_wstar_sup_regex(), '<sup$1>$3</sup>', $content );
 		$new     = preg_replace( sa_dbf_wstar_bare_regex(), '$2', $new );
+		$new     = preg_replace( sa_dbf_wstar_token_regex(), '<sup class="sa-cite">$2</sup>', $new );
 		$left    = substr_count( $new, 'href="W_' ) + substr_count( $new, "href='W_" );
+		if ( preg_match_all( sa_dbf_wstar_token_regex(), $new, $lm ) ) {
+			$left += count( $lm[0] );
+		}
 		$done    = $row['occ'] - $left;
 		if ( $done < 1 || $new === $content ) {
 			$detail[] = 'SKIP #' . $row['id'] . ' (بدون تغییر)';
@@ -671,7 +687,7 @@ function sa_dbf_render() {
 	$s2 = sa_dbf_op2_state();
 	?>
 	<div class="wrap" dir="rtl" style="max-width:960px">
-		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.3.0</h1>
+		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.4.0</h1>
 		<p>دو عملیات یک‌بارمصرف با گزارش قبل/بعد و لاگ برگشت‌پذیر (گزینهٔ <code>sa_db_fixes_log</code>). پیش از اجرا، پشتیبان UpdraftPlus تازه بگیرید. پس از اتمام هر دو، همین افزونه را حذف کنید.</p>
 
 		<?php if ( $error ) : ?>
@@ -782,7 +798,7 @@ function sa_dbf_render() {
 		<?php if ( 0 === (int) $s6['total'] ) : ?>
 			<p class="description">✔ هیچ ارجاع مردهٔ W_* در محتوا نمانده است.</p>
 		<?php else : ?>
-		<p>جمع: <strong><?php echo (int) $s6['total']; ?></strong> ارجاع مرده در <strong><?php echo count( $s6['rows'] ); ?></strong> نوشته. تبدیل: <code>&lt;sup class="sa-cite"&gt;&lt;a href="W_X"&gt;۱&lt;/a&gt;&lt;/sup&gt;</code> ← <code>&lt;sup class="sa-cite"&gt;۱&lt;/sup&gt;</code> (شمارهٔ ارجاع می‌ماند، href مرده حذف می‌شود؛ همان رفتار فیلتر رندر قالب ولی این‌بار در خود دیتابیس).</p>
+		<p>جمع: <strong><?php echo (int) $s6['total']; ?></strong> ارجاع مرده در <strong><?php echo count( $s6['rows'] ); ?></strong> نوشته. تبدیل: <code>&lt;sup class="sa-cite"&gt;&lt;a href="W_X"&gt;۱&lt;/a&gt;&lt;/sup&gt;</code> ← <code>&lt;sup class="sa-cite"&gt;۱&lt;/sup&gt;</code> و توکن خامِ جامانده <code>{c(W_CODE, "۱")}</code> (که همین حالا متنِ قابل دیدن صفحه است) ← <code>&lt;sup class="sa-cite"&gt;۱&lt;/sup&gt;</code>؛ شمارهٔ ارجاع می‌ماند و href/توکن مرده حذف می‌شود.</p>
 		<details open><summary>فهرست نوشته‌ها</summary>
 		<table class="widefat striped" style="max-width:760px">
 			<tr><th>شناسه</th><th>نوع</th><th>نامک</th><th>وضعیت</th><th>تعداد</th></tr>
