@@ -2,7 +2,7 @@
 /**
  * Plugin Name: SA SEO DB Fixes (one-shot)
  * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو. با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author: S.A. Agent
  * License: GPL-2.0-or-later
  *
@@ -200,6 +200,214 @@ function sa_dbf_op2_apply() {
 	);
 }
 
+
+/**
+ * فهرست برنامه‌ریزی‌شدهٔ تغییر نام‌ها (B2): نامک پسونددار => نامک پایه.
+ * bushehr-county عمداً نمی‌آید: پس از تغییر نام bushehr-city، خودش مبدأ ۳۰۱ می‌ماند.
+ *
+ * @return array<string,string>
+ */
+function sa_dbf_planned_renames() {
+	return array(
+		'ahvaz-city'    => 'ahvaz',
+		'ardabil-city'  => 'ardabil',
+		'bushehr-city'  => 'bushehr',
+		'dorud-city'    => 'dorud',
+		'ilam-city'     => 'ilam',
+		'isfahan-city'  => 'isfahan',
+		'qazvin-city'   => 'qazvin',
+		'qom-city'      => 'qom',
+		'semnan-city'   => 'semnan',
+		'tehran-city'   => 'tehran',
+		'zanjan-city'   => 'zanjan',
+	);
+}
+
+/**
+ * آیا مقصد (با در نظر گرفتن تغییر نام‌های برنامه‌ریزی‌شده) در دسترس خواهد بود؟
+ *
+ * @param string $target  مسیر مقصد.
+ * @param bool   $planned نظر گرفتن نامک‌های پایهٔ در صف تغییر نام.
+ * @return bool
+ */
+function sa_dbf_target_will_exist( $target, $planned ) {
+	if ( function_exists( 'sa_redirect_target_exists' ) && sa_redirect_target_exists( $target ) ) {
+		return true;
+	}
+	if ( ! $planned ) {
+		return false;
+	}
+	$parts = explode( '/', trim( (string) $target, '/' ) );
+	if ( 2 !== count( $parts ) || 'city' !== $parts[0] ) {
+		return false;
+	}
+	return in_array( $parts[1], array_values( sa_dbf_planned_renames() ), true );
+}
+
+/**
+ * مقصد نهایی یک مسیر با نقشهٔ قالب (با در نظر گرفتن تغییر نام‌های در صف).
+ *
+ * @param string $path مسیر.
+ * @return string
+ */
+function sa_dbf_final_target( $path ) {
+	if ( ! function_exists( 'sa_redirect_target_for_path' ) ) {
+		return '';
+	}
+	$target = (string) sa_redirect_target_for_path( $path );
+	if ( '' === $target || $target === $path ) {
+		return '';
+	}
+	return $target;
+}
+
+/**
+ * پویش پیوندهای درون‌متنی قابل بازنویسی.
+ *
+ * @param bool $planned نظر گرفتن تغییر نام‌های در صف برای اعتبار مقصد.
+ * @return array{paths:array<string,int>, posts:int, total:int}
+ */
+function sa_dbf_scan_links( $planned ) {
+	$found = array();
+	$posts = get_posts(
+		array(
+			'post_type'      => array( 'post', 'page', 'city', 'province', 'attraction' ),
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	$posts = array_merge( $posts, get_posts(
+		array(
+			'post_type'      => 'nav_menu_item',
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	) );
+	$total = 0;
+	foreach ( $posts as $pid ) {
+		$content = (string) get_post_field( 'post_content', $pid );
+		if ( '' === $content || false === strpos( $content, 'href="/' ) ) {
+			continue;
+		}
+		if ( ! preg_match_all( '~href="(/[^"#?]+)"~', $content, $mm ) ) {
+			continue;
+		}
+		foreach ( array_unique( $mm[1] ) as $path ) {
+			$target = sa_dbf_final_target( $path );
+			if ( '' === $target || ! sa_dbf_target_will_exist( $target, $planned ) ) {
+				continue;
+			}
+			$n           = substr_count( $content, 'href="' . $path . '"' );
+			$found[ $path ] = ( $found[ $path ] ?? 0 ) + $n;
+			$total      += $n;
+		}
+	}
+	return array( 'paths' => $found, 'posts' => count( $posts ), 'total' => $total );
+}
+
+/**
+ * گزارش خشک عملیات ۳+۴.
+ *
+ * @return array
+ */
+function sa_dbf_op34_state() {
+	$renames = array();
+	foreach ( sa_dbf_planned_renames() as $from => $to ) {
+		$src_post  = get_page_by_path( $from, OBJECT, 'city' );
+		$dst_post  = get_page_by_path( $to, OBJECT, 'city' );
+		$renames[] = array(
+			'from'      => $from,
+			'to'        => $to,
+			'src_id'    => $src_post ? (int) $src_post->ID : 0,
+			'src_ok'    => (bool) $src_post && 'publish' === $src_post->post_status,
+			'dst_free'  => ! $dst_post,
+		);
+	}
+	$scan = sa_dbf_scan_links( true );
+	return array(
+		'renames'   => $renames,
+		'scan'      => $scan,
+		'theme_ok'  => function_exists( 'sa_redirect_target_for_path' ) && function_exists( 'sa_redirect_target_exists' ),
+	);
+}
+
+/**
+ * اجرای اتمی عملیات ۳+۴: نخست تغییر نام‌ها، سپس بازنویسی پیوندها، سپس کش.
+ *
+ * @return array گزارش.
+ */
+function sa_dbf_op34_apply() {
+	$state = sa_dbf_op34_state();
+	if ( ! $state['theme_ok'] ) {
+		return array( 'ok' => false, 'msg' => 'توابع نقشهٔ قالب در دسترس نیست؛ قالب ۲٫۲۲٫۳۵+ فعال است؟', 'detail' => array() );
+	}
+	$detail = array();
+	// گام ۱: تغییر نام‌ها.
+	$renamed = 0;
+	foreach ( $state['renames'] as $r ) {
+		if ( ! $r['src_ok'] || ! $r['dst_free'] ) {
+			$detail[] = 'SKIP rename ' . $r['from'] . ' (src_ok=' . var_export( $r['src_ok'], true ) . ', dst_free=' . var_export( $r['dst_free'], true ) . ')';
+			continue;
+		}
+		wp_update_post( array( 'ID' => $r['src_id'], 'post_name' => $r['to'] ), true );
+		$now = (string) get_post_field( 'post_name', $r['src_id'] );
+		if ( $now === $r['to'] ) {
+			$renamed++;
+			$detail[] = 'RENAMED #' . $r['src_id'] . ' ' . $r['from'] . ' -> ' . $r['to'];
+		} else {
+			$detail[] = 'FAIL rename #' . $r['src_id'] . ' ' . $r['from'] . ' (slug فعلی: ' . $now . ')';
+		}
+	}
+	// گام ۲: بازنویسی پیوندها (اکنون همهٔ مقصدها وجود دارند).
+	$scan    = sa_dbf_scan_links( false );
+	$changed = 0;
+	$repl    = 0;
+	$all_ids = get_posts(
+		array(
+			'post_type'      => array( 'post', 'page', 'city', 'province', 'attraction', 'nav_menu_item' ),
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+		)
+	);
+	foreach ( $scan['paths'] as $path => $n ) {
+		$target = sa_dbf_final_target( $path );
+		if ( '' === $target || ! sa_redirect_target_exists( $target ) ) {
+			continue;
+		}
+		$needle = 'href="' . $path . '"';
+		foreach ( $all_ids as $pid ) {
+			$content = (string) get_post_field( 'post_content', $pid );
+			if ( false === strpos( $content, $needle ) ) {
+				continue;
+			}
+			$new = str_replace( $needle, 'href="' . $target . '"', $content, $c );
+			wp_update_post( array( 'ID' => $pid, 'post_content' => $new ) );
+			$changed++;
+			$repl   += $c;
+		}
+		$detail[] = 'LINKS ' . $path . ' -> ' . $target . ' (' . $n . ' مورد)';
+	}
+	// گام ۳: کش و لاگ.
+	flush_rewrite_rules( false );
+	sa_dbf_purge();
+	sa_dbf_log(
+		array(
+			'op'      => 'rename_and_links',
+			'renamed' => $renamed,
+			'posts'   => $changed,
+			'links'   => $repl,
+		)
+	);
+	return array(
+		'ok'     => true,
+		'msg'    => $renamed . ' نامک تغییر یافت؛ ' . $repl . ' پیوند در ' . $changed . ' نوشته/آیتم منو بازنویسی شد.',
+		'detail' => $detail,
+	);
+}
+
 /**
  * منوی ابزارها.
  */
@@ -227,6 +435,8 @@ function sa_dbf_render() {
 			$result = sa_dbf_op1_apply();
 		} elseif ( 'op2' === $op ) {
 			$result = sa_dbf_op2_apply();
+		} elseif ( 'op34' === $op ) {
+			$result = sa_dbf_op34_apply();
 		} else {
 			$error = 'عملیات ناشناخته.';
 		}
@@ -235,14 +445,15 @@ function sa_dbf_render() {
 	$s2 = sa_dbf_op2_state();
 	?>
 	<div class="wrap" dir="rtl" style="max-width:960px">
-		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.0.0</h1>
+		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.1.0</h1>
 		<p>دو عملیات یک‌بارمصرف با گزارش قبل/بعد و لاگ برگشت‌پذیر (گزینهٔ <code>sa_db_fixes_log</code>). پیش از اجرا، پشتیبان UpdraftPlus تازه بگیرید. پس از اتمام هر دو، همین افزونه را حذف کنید.</p>
 
 		<?php if ( $error ) : ?>
 			<div class="notice notice-error"><p><?php echo esc_html( $error ); ?></p></div>
 		<?php endif; ?>
 		<?php if ( $result ) : ?>
-			<div class="notice <?php echo $result['ok'] ? 'notice-success' : 'notice-error'; ?>"><p><strong><?php echo esc_html( $result['msg'] ); ?></strong></p></div>
+			<div class="notice <?php echo $result['ok'] ? 'notice-success' : 'notice-error'; ?>"><p><strong><?php echo esc_html( $result['msg'] ); ?></strong></p>
+			<?php if ( ! empty( $result['detail'] ) ) : ?><details open><summary>ریز عملیات</summary><ul><?php foreach ( (array) $result['detail'] as $line ) : ?><li><code><?php echo esc_html( $line ); ?></code></li><?php endforeach; ?></ul></details><?php endif; ?></div>
 		<?php endif; ?>
 
 		<h2>عملیات ۱ — صفحهٔ نوشته‌ها (page_for_posts)</h2>
@@ -280,6 +491,31 @@ function sa_dbf_render() {
 				<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان دارم و می‌دانم نامک برگه عوض می‌شود (۳۰۱ِ /policy/ با قالب ۲٫۲۲٫۳۵ برقرار می‌شود).</label>
 				<?php submit_button( 'اجرای عملیات ۲', 'primary', 'submit', true ); ?>
 			</form>
+		<?php endif; ?>
+
+
+		<h2>عملیات ۳+۴ (اتمیک) — تغییر نام ۱۱ نامک پسونددار + بازنویسی پیوندهای قدیمی</h2>
+		<?php $s34 = sa_dbf_op34_state(); ?>
+		<?php if ( ! $s34['theme_ok'] ) : ?>
+			<p class="description">⚠ توابع نقشهٔ قالب یافت نشد — ابتدا قالب ۲٫۲۲٫۳۵+ را فعال کنید.</p>
+		<?php else : ?>
+		<table class="widefat striped" style="max-width:820px">
+			<tr><th>تغییر نام</th><th>شناسه</th><th>مبدأ منتشر</th><th>نامک پایه آزاد</th></tr>
+			<?php foreach ( $s34['renames'] as $r ) : ?>
+				<tr><td><code><?php echo esc_html( $r['from'] ); ?></code> ← <code><?php echo esc_html( $r['to'] ); ?></code></td><td>#<?php echo (int) $r['src_id']; ?></td><td><?php echo $r['src_ok'] ? '✓' : '✗'; ?></td><td><?php echo $r['dst_free'] ? '✓' : '✗ تداخل!'; ?></td></tr>
+			<?php endforeach; ?>
+		</table>
+		<p>پیوندهای قابل بازنویسی (با در نظر گرفتن تغییر نام‌ها): <strong><?php echo (int) $s34['scan']['total']; ?></strong> پیوند در مسیرهای زیر:</p>
+		<details><summary>فهرست مسیرها</summary><ul>
+		<?php foreach ( $s34['scan']['paths'] as $path => $n ) : ?><li><code><?php echo esc_html( $path ); ?></code> × <?php echo (int) $n; ?> → <code><?php echo esc_html( sa_dbf_final_target( $path ) ); ?></code></li><?php endforeach; ?>
+		</ul></details>
+		<p class="description">bushehr-county تغییر نام نمی‌گیرد و پس از این عملیات، مبدأ ۳۰۱ به /city/bushehr/ می‌ماند. ترتیب اتمی: تغییر نام‌ها ← بازنویسی پیوندها ← بازسازی rewrite و purge کش؛ بنابراین هیچ پنجره‌ای بدون پیوند نهایی وجود ندارد.</p>
+		<form method="post">
+			<?php wp_nonce_field( 'sa_dbf_op34', 'sa_dbf_nonce' ); ?>
+			<input type="hidden" name="sa_dbf_op" value="op34">
+			<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان تازه دارم و می‌دانم ۱۱ نامک شهری و تا <?php echo (int) $s34['scan']['total']; ?> پیوند درون‌متنی تغییر می‌کنند (لاگ برگشت‌پذیر ثبت می‌شود).</label>
+			<?php submit_button( 'اجرای عملیات ۳+۴ (اتمیک)', 'delete', 'submit', true ); ?>
+		</form>
 		<?php endif; ?>
 
 		<h2>لاگ عملیات (برگشت‌پذیری)</h2>
