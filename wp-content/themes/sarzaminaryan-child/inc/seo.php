@@ -486,14 +486,23 @@ add_filter(
 		if ( 'page' !== $post_type ) {
 			return $args;
 		}
-		// Internal/utility pages stay out of the sitemap: the public stats dashboard,
-		// the posts index page and the redirected /policy/ page.
+		// Internal/utility pages stay out of the sitemap: the public stats dashboard
+		// and the posts index page.
 		$skip  = array();
 		$pages = (array) get_option( 'sa_default_pages', array() );
-		foreach ( array( 'dashboard', 'blog', 'policy' ) as $key ) {
+		foreach ( array( 'dashboard', 'blog' ) as $key ) {
 			if ( ! empty( $pages[ $key ] ) ) {
 				$skip[] = (int) $pages[ $key ];
 			}
+		}
+		/*
+		 * برگهٔ policy فقط تا زمانی از سایت‌مپ بیرون می‌ماند که نامکش هنوز «policy»
+		 * است (۱۴۰۵-۰۸-۰۳): پس از تغییر نام به «editorial-policy» (افزونهٔ
+		 * sa-seo-db-fixes) این برگه یک مقصد کانونیک و ایندکس‌شدنی است و باید
+		 * در سایت‌مپ باشد.
+		 */
+		if ( ! empty( $pages['policy'] ) && 'policy' === (string) get_post_field( 'post_name', (int) $pages['policy'] ) ) {
+			$skip[] = (int) $pages['policy'];
 		}
 		$posts_page = (int) get_option( 'page_for_posts' );
 		if ( $posts_page ) {

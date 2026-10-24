@@ -265,6 +265,46 @@ function sa_redirect_handle_request() {
 add_action( 'template_redirect', 'sa_redirect_handle_request', 1 );
 
 /**
+ * ۳۰۱ برای URLهای پارامتریک ?page_id= (۱۴۰۵-۰۸-۰۳).
+ *
+ * GSC: ?page_id=7/8/9 در گزارش 404 و ?page_id=6 در فهرست Valid زباله‌ها.
+ * هر page_id که به نوشته/برگهٔ منتشرشده برسد، مستقیم (بدون زنجیره) به
+ * پیوند یکتای همان محتوا ۳۰۱ می‌شود؛ صفحهٔ نخست به ریشه؛ و شناسهٔ مرده
+ * به ۴۰۴ طبیعیِ وردپرس واگذار می‌شود.
+ *
+ * @return void
+ */
+function sa_redirect_page_id_query() {
+	if ( function_exists( 'is_admin' ) && is_admin() ) {
+		return;
+	}
+	if ( ! isset( $_GET['page_id'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+		return;
+	}
+	$method = isset( $_SERVER['REQUEST_METHOD'] ) ? strtoupper( (string) wp_unslash( $_SERVER['REQUEST_METHOD'] ) ) : 'GET'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	if ( ! in_array( $method, array( 'GET', 'HEAD' ), true ) ) {
+		return;
+	}
+	if ( function_exists( 'is_preview' ) && is_preview() ) {
+		return;
+	}
+	$pid  = (int) $_GET['page_id']; // phpcs:ignore WordPress.Security.NonceVerification
+	$post = $pid > 0 ? get_post( $pid ) : null;
+	if ( ! $post || 'publish' !== $post->post_status || ! in_array( $post->post_type, array( 'page', 'post' ), true ) ) {
+		return;
+	}
+	$link = ( (int) get_option( 'page_on_front' ) === $pid ) ? home_url( '/' ) : (string) get_permalink( $post );
+	if ( '' === $link ) {
+		return;
+	}
+	if ( function_exists( 'wp_safe_redirect' ) ) {
+		wp_safe_redirect( $link, 301, 'Sarzamin Aryan' );
+		exit;
+	}
+}
+add_action( 'parse_request', 'sa_redirect_page_id_query', 0 );
+
+/**
  * آیا صفحهٔ مقصد واقعاً وجود دارد؟ ۴۰۴ به ۴۰۴ وصل نمی‌کنیم.
  *
  * نقشهٔ تغییر مسیر می‌تواند پیش از درجِ مقالهٔ مقصد (مثلاً «مقالات آمادهٔ دیدنی‌ها»)

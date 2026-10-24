@@ -87,6 +87,14 @@ return array(
 	'/city/khorramdarreh/' => '/city/kharadere/',
 
 	/*
+	 * برگهٔ سیاست (۱۴۰۵-۰۸-۰۳): نامک canonical طبق template-parts/content-single-post.php
+	 * برابر «editorial-policy» است؛ ۱۷ مقاله به /editorial-policy/ لینک داده‌اند (404 در GSC).
+	 * این ۳۰۱ با نگهبانِ وجودِ مقصد فعال می‌شود — یعنی فقط پس از تغییر نام برگهٔ policy
+	 * به‌وسیلهٔ افزونهٔ sa-seo-db-fixes. privacy مستقل می‌ماند (تصمیم مصوب).
+	 */
+	'/policy/' => '/editorial-policy/',
+
+	/*
 	 * «جاهای دیدنی طبس» (اصلاح ۱۴۰۵-۰۸-۰۲): مقصد نهایی بر پایهٔ فهرست مصوب T6 و
 	 * نقشهٔ زندهٔ پیشین، خودِ هابِ دیدنی‌هاست (/attraction/tabas-attractions/).
 	 * تصمیم قدیمیِ ادغام در صفحهٔ شهرستان (۱۴۰۵-۰۷-۲۶) هرگز روی سایت اجرا نشد و
