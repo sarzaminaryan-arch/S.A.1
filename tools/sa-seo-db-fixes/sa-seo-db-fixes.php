@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: SA SEO DB Fixes (one-shot)
- * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو، ۳+۴) تغییر نام نامک‌های پسونددار + بازنویسی پیوندها، ۵) تکمیل: جابه‌جایی مانع غیرمنتشرِ نامک پایه + بازنویسی پیوندهای باقیمانده، ۶) پاک‌سازی ارجاع‌های مردهٔ W_* (حذف href مرده، نگه‌داشتن شمارهٔ ارجاع + تبدیل توکن‌های خام جامانده). با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
- * Version: 1.4.0
+ * Description: عملیات یک‌بارمصرف دیتابیس برای SEO سرزمین آریان — ۱) تنظیم صفحهٔ نوشته‌ها (page_for_posts) روی برگهٔ وبلاگ، ۲) تغییر نام برگهٔ policy به editorial-policy + اصلاح لینک‌های منو، ۳+۴) تغییر نام نامک‌های پسونددار + بازنویسی پیوندها، ۵) تکمیل: جابه‌جایی مانع غیرمنتشرِ نامک پایه + بازنویسی پیوندهای باقیمانده، ۶) پاک‌سازی ارجاع‌های مردهٔ W_* (حذف href مرده، نگه‌داشتن شمارهٔ ارجاع + تبدیل توکن‌های خام جامانده)، ۷) بهداشت ترم‌ها (فاز ۲/B4): حذف برچسب‌های زیر ۵ پست و ترم‌های خالی attraction_type و ترم خارج‌ازمدل family + توضیح یکتا برای برچسب‌های اصلی، با export پیشین. با گزارش خشک، تأیید صریح و لاگ برگشت‌پذیر.
+ * Version: 1.5.0
  * Author: S.A. Agent
  * License: GPL-2.0-or-later
  *
@@ -647,6 +647,146 @@ function sa_dbf_op6_apply() {
 }
 
 /**
+ * برنامهٔ بهداشت ترم‌ها (فاز ۲/B4): برچسب‌های زیر ۵ پست حذف، ترم‌های خالی
+ * attraction_type و ترم خارج‌ازمدل family حذف، و برای شش برچسب اصلی توضیح یکتا.
+ *
+ * @return array{del_tags:string[], del_at:string[], descs:array<string,string>}
+ */
+function sa_dbf_term_plan() {
+	return array(
+		'del_tags' => array( 'campsite-shelter', 'drinking-water', 'campfire', 'field-skills', 'water-rescue' ),
+		'del_at'   => array( 'family', 'bazaar', 'museum', 'recreational', 'sea', 'waterfall' ),
+		'descs'    => array(
+			'camping-gear' => 'راهنمای انتخاب و بررسی تجهیزات کمپینگ؛ از چادر و کیسه‌خواب تا ابزار آشپزی در طبیعت، با تجربهٔ میدانی تحریریهٔ سرزمین آریان.',
+			'diy-outdoor'  => 'آموزش گام‌به‌گام مهارت‌های خوداتکایی در طبیعت؛ از برپایی کمپ و افروختن آتش تا ساخت ابزارهای سادهٔ اردویی با وسایل در دسترس.',
+			'first-aid'    => 'اصول کمک‌های اولیه و ایمنی در سفر و طبیعت؛ از گرمازدگی و سرمازدگی تا اقدام درست در شرایط دورافتاده، پیش از رسیدن امداد.',
+			'navigation'   => 'مهارت‌های مسیریابی و ناوبری در طبیعت؛ کار با نقشه، قطب‌نما و جی‌پی‌اس و برنامه‌ریزی ایمن مسیر سفر.',
+			'pro-gear'     => 'بررسی تخصصی و مقایسهٔ تجهیزات حرفه‌ای کوهنوردی و کمپینگ برای شرایط سخت و سفرهای چندروزه.',
+			'wildlife'     => 'آشنایی با حیات وحش ایران و اصول مشاهدهٔ مسئولانهٔ جانوران در زیستگاه‌های طبیعی، بدون برهم‌زدن زیست بوم.',
+		),
+	);
+}
+
+/**
+ * گزارش خشک عملیات ۷.
+ *
+ * @return array
+ */
+function sa_dbf_op7_state() {
+	$plan = sa_dbf_term_plan();
+	$tags = get_terms( array( 'taxonomy' => 'post_tag', 'hide_empty' => false ) );
+	$ats  = get_terms( array( 'taxonomy' => 'attraction_type', 'hide_empty' => false ) );
+	$tags = is_wp_error( $tags ) ? array() : $tags;
+	$ats  = is_wp_error( $ats ) ? array() : $ats;
+	$del_tags = array();
+	$descs    = array();
+	foreach ( $tags as $t ) {
+		if ( in_array( $t->slug, $plan['del_tags'], true ) && (int) $t->count < 5 ) {
+			$del_tags[] = array( 'id' => (int) $t->term_id, 'slug' => $t->slug, 'count' => (int) $t->count );
+		}
+		if ( isset( $plan['descs'][ $t->slug ] ) && (int) $t->count >= 5 && '' === trim( (string) $t->description ) ) {
+			$descs[] = array( 'id' => (int) $t->term_id, 'slug' => $t->slug, 'count' => (int) $t->count );
+		}
+	}
+	$del_at   = array();
+	$family   = array();
+	foreach ( $ats as $t ) {
+		if ( ! in_array( $t->slug, $plan['del_at'], true ) ) {
+			continue;
+		}
+		if ( 0 === (int) $t->count ) {
+			$del_at[] = array( 'id' => (int) $t->term_id, 'slug' => $t->slug, 'count' => 0, 'orphans' => 0 );
+			continue;
+		}
+		$objs    = get_objects_in_term( $t->term_id, 'attraction_type' );
+		$orphans = 0;
+		foreach ( (array) $objs as $oid ) {
+			$others = wp_get_object_terms( $oid, 'attraction_type', array( 'fields' => 'ids' ) );
+			$others = array_diff( array_map( 'intval', (array) $others ), array( (int) $t->term_id ) );
+			if ( ! $others ) {
+				$orphans++;
+			}
+		}
+		$family[] = array( 'id' => (int) $t->term_id, 'slug' => $t->slug, 'count' => (int) $t->count, 'orphans' => $orphans );
+	}
+	return array(
+		'del_tags'  => $del_tags,
+		'del_at'    => $del_at,
+		'family'    => $family,
+		'descs'     => $descs,
+		'exported'  => (bool) get_option( 'sa_dbf_terms_export' ),
+	);
+}
+
+/**
+ * اجرای عملیات ۷: export ترم‌ها، سپس حذف/توضیح طبق برنامه.
+ *
+ * @return array گزارش.
+ */
+function sa_dbf_op7_apply() {
+	$state = sa_dbf_op7_state();
+	$plan  = sa_dbf_term_plan();
+	$detail = array();
+	if ( ! $state['exported'] ) {
+		$snap = array();
+		foreach ( array( 'post_tag', 'attraction_type' ) as $tax ) {
+			$ts = get_terms( array( 'taxonomy' => $tax, 'hide_empty' => false ) );
+			foreach ( ( is_wp_error( $ts ) ? array() : $ts ) as $t ) {
+				$snap[] = array( 'tax' => $tax, 'id' => (int) $t->term_id, 'slug' => $t->slug, 'name' => $t->name, 'count' => (int) $t->count, 'desc' => $t->description );
+			}
+		}
+		update_option( 'sa_dbf_terms_export', wp_json_encode( $snap, JSON_UNESCAPED_UNICODE ), false );
+		$detail[] = 'EXPORT terms -> option sa_dbf_terms_export (' . count( $snap ) . ' ترم)';
+	}
+	$reassigned = 0;
+	foreach ( $state['family'] as $f ) {
+		$objs = get_objects_in_term( $f['id'], 'attraction_type' );
+		foreach ( (array) $objs as $oid ) {
+			$others = wp_get_object_terms( $oid, 'attraction_type', array( 'fields' => 'ids' ) );
+			$others = array_diff( array_map( 'intval', (array) $others ), array( $f['id'] ) );
+			if ( ! $others ) {
+				wp_set_object_terms( $oid, array( 'cultural' ), 'attraction_type', true );
+				$reassigned++;
+				$detail[] = 'REASSIGN #' . $oid . ' -> cultural (پیش از حذف family)';
+			}
+		}
+		$r = wp_delete_term( $f['id'], 'attraction_type' );
+		$detail[] = ( true === $r ? 'DELETE term ' : 'FAIL delete ' ) . $f['slug'] . ' #' . $f['id'];
+	}
+	foreach ( $state['del_at'] as $t ) {
+		$r = wp_delete_term( $t['id'], 'attraction_type' );
+		$detail[] = ( true === $r ? 'DELETE term ' : 'FAIL delete ' ) . $t['slug'] . ' #' . $t['id'];
+	}
+	foreach ( $state['del_tags'] as $t ) {
+		$r = wp_delete_term( $t['id'], 'post_tag' );
+		$detail[] = ( true === $r ? 'DELETE tag ' : 'FAIL delete ' ) . $t['slug'] . ' #' . $t['id'] . ' (' . $t['count'] . ' پست)';
+	}
+	$desc_set = 0;
+	foreach ( $state['descs'] as $t ) {
+		$u = wp_update_term( $t['id'], 'post_tag', array( 'description' => $plan['descs'][ $t['slug'] ] ) );
+		if ( ! is_wp_error( $u ) ) {
+			$desc_set++;
+			$detail[] = 'DESC ' . $t['slug'] . ' تنظیم شد';
+		}
+	}
+	sa_dbf_purge();
+	sa_dbf_log(
+		array(
+			'op'         => 'terms_cleanup',
+			'del_tags'   => count( $state['del_tags'] ),
+			'del_at'     => count( $state['del_at'] ) + count( $state['family'] ),
+			'reassigned' => $reassigned,
+			'descs'      => $desc_set,
+		)
+	);
+	return array(
+		'ok'     => true,
+		'msg'    => count( $state['del_tags'] ) . ' برچسب زیر ۵ پست و ' . ( count( $state['del_at'] ) + count( $state['family'] ) ) . ' ترم attraction_type حذف شد؛ ' . $desc_set . ' توضیح یکتا تنظیم شد؛ ' . $reassigned . ' بازانگاشت cultural.',
+		'detail' => $detail,
+	);
+}
+
+/**
  * منوی ابزارها.
  */
 function sa_dbf_menu() {
@@ -679,6 +819,8 @@ function sa_dbf_render() {
 		$result = sa_dbf_op5_apply();
 	} elseif ( 'op6' === $op ) {
 		$result = sa_dbf_op6_apply();
+	} elseif ( 'op7' === $op ) {
+		$result = sa_dbf_op7_apply();
 	} else {
 			$error = 'عملیات ناشناخته.';
 		}
@@ -687,7 +829,7 @@ function sa_dbf_render() {
 	$s2 = sa_dbf_op2_state();
 	?>
 	<div class="wrap" dir="rtl" style="max-width:960px">
-		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.4.0</h1>
+		<h1>صفحه‌ها و تنظیمات SEO — SA SEO DB Fixes 1.5.0</h1>
 		<p>دو عملیات یک‌بارمصرف با گزارش قبل/بعد و لاگ برگشت‌پذیر (گزینهٔ <code>sa_db_fixes_log</code>). پیش از اجرا، پشتیبان UpdraftPlus تازه بگیرید. پس از اتمام هر دو، همین افزونه را حذف کنید.</p>
 
 		<?php if ( $error ) : ?>
@@ -811,6 +953,32 @@ function sa_dbf_render() {
 			<input type="hidden" name="sa_dbf_op" value="op6">
 			<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان تازه دارم و می‌دانم <?php echo (int) $s6['total']; ?> href مردهٔ W_* از محتوای <?php echo count( $s6['rows'] ); ?> نوشته حذف می‌شود (شمارهٔ ارجاع نگه داشته می‌شود؛ لاگ برگشت‌پذیر ثبت می‌شود).</label>
 			<?php submit_button( 'اجرای عملیات ۶ (پاک‌سازی W_*)', 'delete', 'submit', true ); ?>
+		</form>
+		<?php endif; ?>
+
+		<h2>عملیات ۷ — بهداشت ترم‌ها (فاز ۲/B4): حذف برچسب‌های زیر ۵ پست + ترم‌های خالی + توضیح یکتا</h2>
+		<?php $s7 = sa_dbf_op7_state(); ?>
+		<?php if ( ! $s7['del_tags'] && ! $s7['del_at'] && ! $s7['family'] && ! $s7['descs'] ) : ?>
+			<p class="description">✔ چیزی برای بهداشت ترم‌ها نمانده است.</p>
+		<?php else : ?>
+		<p>پیش از هر حذف، کل ترم‌های <code>post_tag</code> و <code>attraction_type</code> در گزینهٔ <code>sa_dbf_terms_export</code> ذخیره می‌شود (برگشت‌پذیری). آرشیو برچسب‌های حذف‌شده پیش‌تر noindex بوده‌اند (قانون برچسب &lt;۵ پست)، بنابراین حذفشان چیزی را از ایندکس کم نمی‌کند.</p>
+		<table class="widefat striped" style="max-width:760px">
+			<tr><th>برچسب‌های حذف‌شدنی (&lt;۵ پست)</th><th>شناسه</th><th>پست‌ها</th></tr>
+			<?php foreach ( $s7['del_tags'] as $t ) : ?><tr><td><code><?php echo esc_html( $t['slug'] ); ?></code></td><td>#<?php echo (int) $t['id']; ?></td><td><?php echo (int) $t['count']; ?></td></tr><?php endforeach; ?>
+		</table>
+		<table class="widefat striped" style="max-width:760px">
+			<tr><th>ترم‌های attraction_type حذف‌شدنی</th><th>شناسه</th><th>شمار</th><th>پستِ بدون ترمِ جایگزین</th></tr>
+			<?php foreach ( array_merge( $s7['del_at'], $s7['family'] ) as $t ) : ?><tr><td><code><?php echo esc_html( $t['slug'] ); ?></code></td><td>#<?php echo (int) $t['id']; ?></td><td><?php echo (int) $t['count']; ?></td><td><?php echo (int) $t['orphans']; ?> (در صورت وجود، پیش از حذف به <code>cultural</code> می‌رود)</td></tr><?php endforeach; ?>
+		</table>
+		<table class="widefat striped" style="max-width:760px">
+			<tr><th>برچسب اصلی که توضیح یکتا می‌گیرد</th><th>شناسه</th><th>پست‌ها</th></tr>
+			<?php foreach ( $s7['descs'] as $t ) : ?><tr><td><code><?php echo esc_html( $t['slug'] ); ?></code></td><td>#<?php echo (int) $t['id']; ?></td><td><?php echo (int) $t['count']; ?></td></tr><?php endforeach; ?>
+		</table>
+		<form method="post">
+			<?php wp_nonce_field( 'sa_dbf_op7', 'sa_dbf_nonce' ); ?>
+			<input type="hidden" name="sa_dbf_op" value="op7">
+			<label style="display:block;margin:10px 0"><input type="checkbox" name="sa_dbf_confirm" value="1"> تأیید: پشتیبان تازه دارم و می‌دانم ترم‌های فهرست‌شده حذف و توضیح یکتا برای برچسب‌های اصلی ثبت می‌شود (export پیشین = راه برگشت).</label>
+			<?php submit_button( 'اجرای عملیات ۷ (بهداشت ترم‌ها)', 'delete', 'submit', true ); ?>
 		</form>
 		<?php endif; ?>
 
