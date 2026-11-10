@@ -82,6 +82,11 @@ if ( ! is_string( $json ) ) {
 	fwrite( STDERR, "json_encode failed.\n" );
 	exit( 1 );
 }
+$out_dir = dirname( $out_path );
+if ( ! is_dir( $out_dir ) && ! mkdir( $out_dir, 0777, true ) ) { // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_mkdir -- ابزار CLI.
+	fwrite( STDERR, "Cannot create directory: {$out_dir}\n" );
+	exit( 1 );
+}
 if ( false === file_put_contents( $out_path, $json . "\n" ) ) {
 	fwrite( STDERR, "Cannot write: {$out_path}\n" );
 	exit( 1 );
