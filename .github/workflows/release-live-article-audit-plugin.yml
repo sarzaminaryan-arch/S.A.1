@@ -1,0 +1,144 @@
+name: Release live article audit plugin
+
+on:
+  push:
+    branches:
+      - main
+      - "arena/**"
+    paths:
+      - "wp-content/plugins/sa-live-article-audit/**"
+      - "tools/build-live-article-audit-plugin.py"
+      - "tools/generate-live-article-audit-baseline.php"
+      - "wp-content/themes/sarzaminaryan-child/data/ready-articles.php"
+      - "wp-content/themes/sarzaminaryan-child/data/ready-guides.php"
+      - ".github/workflows/release-live-article-audit-plugin.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: live-article-audit-plugin-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package-and-release:
+    name: Validate, package and publish plugin
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    env:
+      PLUGIN_DIR: wp-content/plugins/sa-live-article-audit
+      PLUGIN_SLUG: sa-live-article-audit
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Read plugin version
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="$(sed -n 's/^[[:space:]]*\*[[:space:]]*Version:[[:space:]]*//p' "$PLUGIN_DIR/$PLUGIN_SLUG.php" | head -n 1 | tr -d '\r' | awk '{print $1}')"
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Invalid plugin version: $version" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "tag=live-article-audit-v$version" >> "$GITHUB_OUTPUT"
+          echo "asset=sa-live-article-audit-$version.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Lint PHP and run compare tests
+        shell: bash
+        run: |
+          set -euo pipefail
+          find "$PLUGIN_DIR" tools -type f -name '*.php' -path '*live-article-audit*' -print0 | xargs -0 -n 1 php -l
+          php -l tools/generate-live-article-audit-baseline.php
+          php "$PLUGIN_DIR/tests/test-compare.php"
+
+      - name: Generate repository baseline snapshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          php tools/generate-live-article-audit-baseline.php
+          python3 -c "import json; d=json.load(open('$PLUGIN_DIR/data/baseline.json')); print('baseline records:', d['count']); assert d['count'] > 0"
+
+      - name: Check whether this version is already published
+        id: existing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git rev-parse --verify --quiet "refs/tags/$TAG" >/dev/null; then
+            if ! git diff --quiet "refs/tags/$TAG" -- "$PLUGIN_DIR" tools/build-live-article-audit-plugin.py tools/generate-live-article-audit-baseline.php wp-content/themes/sarzaminaryan-child/data/ready-articles.php wp-content/themes/sarzaminaryan-child/data/ready-guides.php; then
+              echo "Plugin or baseline code changed without a version bump; $TAG already points to different files." >&2
+              exit 1
+            fi
+            if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              published="$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets | length' 2>/dev/null || echo 0)"
+              if [[ "${published:-0}" -gt 0 ]]; then
+                echo "skip=true" >> "$GITHUB_OUTPUT"
+              else
+                echo "skip=false" >> "$GITHUB_OUTPUT"
+                echo "tag_exists=true" >> "$GITHUB_OUTPUT"
+                echo "release_exists=true" >> "$GITHUB_OUTPUT"
+              fi
+            else
+              echo "skip=false" >> "$GITHUB_OUTPUT"
+              echo "tag_exists=true" >> "$GITHUB_OUTPUT"
+            fi
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "tag_exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build installable ZIP and checksum
+        if: steps.existing.outputs.skip != 'true'
+        env:
+          ASSET: ${{ steps.version.outputs.asset }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release
+          python3 tools/build-live-article-audit-plugin.py "release/$ASSET"
+          unzip -t "release/$ASSET"
+          unzip -l "release/$ASSET" "$PLUGIN_SLUG/$PLUGIN_SLUG.php" >/dev/null
+          unzip -l "release/$ASSET" "$PLUGIN_SLUG/data/baseline.json" >/dev/null
+          printf '%s  %s\n' "$(sha256sum "release/$ASSET" | awk '{print $1}')" "$ASSET" > "release/$ASSET.sha256"
+
+      - name: Publish GitHub release
+        if: steps.existing.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.version.outputs.tag }}
+          VERSION: ${{ steps.version.outputs.version }}
+          ASSET: ${{ steps.version.outputs.asset }}
+          TAG_EXISTS: ${{ steps.existing.outputs.tag_exists }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "TAG=$TAG TAG_EXISTS=$TAG_EXISTS ASSET=$ASSET"
+          ls -l release/
+          publish() {
+            if [[ "$TAG_EXISTS" != 'true' ]]; then
+              gh release create "$TAG" "release/$ASSET" "release/$ASSET.sha256" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+                --title "افزونه ممیزی مقالات زنده — v$VERSION" \
+                --notes "افزونهٔ فقط‌خواندنی وردپرس برای استخراج دقیق مقاله‌های منتشرشده و تطبیق با مخزن S.A.1 (همراه اسنپ‌شات خط مبنای مخزن). نصب از پیشخوان: افزونه‌ها ← افزودن ← بارگذاری افزونه؛ مسیر ابزار: ابزارها ← ممیزی مقالات زنده."
+            elif gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+              gh release upload "$TAG" "release/$ASSET" "release/$ASSET.sha256" --clobber --repo "$GITHUB_REPOSITORY"
+            else
+              gh release create "$TAG" "release/$ASSET" "release/$ASSET.sha256" --repo "$GITHUB_REPOSITORY" --verify-tag \
+                --title "افزونه ممیزی مقالات زنده — v$VERSION" \
+                --notes "افزونهٔ فقط‌خواندنی وردپرس برای استخراج دقیق مقاله‌های منتشرشده و تطبیق با مخزن S.A.1."
+            fi
+          }
+          if ! publish >publish.log 2>&1; then
+            echo "::error title=Publish failed::$(tail -c 1500 publish.log | tr '\n' ' ')"
+            cat publish.log
+            exit 1
+          fi
+          cat publish.log
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fx "$ASSET" >/dev/null
