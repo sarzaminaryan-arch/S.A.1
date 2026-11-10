@@ -31112,7 +31112,8 @@
     "missing_featured_image",
     "not_in_repo_baseline",
     "duplicate_title"
-   ]
+   ],
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری ایجرود."
   },
   {
    "key": "city:eqlid",
@@ -43079,7 +43080,8 @@
     "missing_featured_image",
     "not_in_repo_baseline",
     "duplicate_title"
-   ]
+   ],
+   "agent_note": "ریدایرکت 301 به city:ejrud از قبل در قالب بود؛ در ممیزی 2026-11-10 هنوز هر دو منتشر بودند — پس از انتشار نسخهٔ جاری قالب، راستی‌آزمایی شود."
   },
   {
    "key": "city:ilam",
@@ -51384,7 +51386,8 @@
     "missing_featured_image",
     "not_in_repo_baseline",
     "duplicate_title"
-   ]
+   ],
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری خرمدره."
   },
   {
    "key": "city:kharameh",
@@ -53986,7 +53989,8 @@
     "missing_featured_image",
     "not_in_repo_baseline",
     "duplicate_title"
-   ]
+   ],
+   "agent_note": "ریدایرکت 301 به city:kharadere در قالب 2.22.20 ثبت شد (2026-11-10)؛ منتظر انتشار قالب و تأیید با ممیزی تازه."
   },
   {
    "key": "city:khorramshahr",
@@ -98384,7 +98388,8 @@
     "differs_from_repo",
     "duplicate_title",
     "duplicate_content_hash"
-   ]
+   ],
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری CPR؛ تصویر شاخص cpr-complete-guide.webp باید از نسخهٔ -2 به این منتقل شود."
   },
   {
    "key": "post:cpr-complete-guide-2",
@@ -98548,7 +98553,8 @@
     "duplicate_title",
     "duplicate_content_hash",
     "slug_suffix_of_existing"
-   ]
+   ],
+   "agent_note": "ریدایرکت 301 به post:cpr-complete-guide در قالب 2.22.20 ثبت شد (2026-11-10)؛ منتظر انتشار قالب و تأیید با ممیزی تازه. تصویر شاخص این نسخه باید روی نسخهٔ اصلی بنشیند."
   },
   {
    "key": "post:diy-bottle-lantern",
@@ -114502,6 +114508,13 @@
    "meta_count": 24,
    "has_cover": false,
    "repo_status": "ready_in_repo_not_published_live"
+  }
+ ],
+ "agent_updates": [
+  {
+   "date": "2026-11-10",
+   "scope": "phase-1-duplicates",
+   "note": "ریدایرکت ۳۰۱ سه نسخهٔ تکراری در قالب 2.22.20 ثبت شد؛ وضعیت زنده هنوز تأیید نشده است."
   }
  ]
 }
