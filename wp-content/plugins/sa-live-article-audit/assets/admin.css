@@ -1,0 +1,23 @@
+/* ممیزی مقالات زنده — پیشخوان (RTL، بدون فونت یا منبع خارجی) */
+.sa-laa .sa-laa-intro{max-width:900px;font-size:14px;line-height:2}
+.sa-laa .sa-laa-form{background:#fff;border:1px solid #dcdcde;padding:16px 20px;margin:16px 0;max-width:1100px}
+.sa-laa .sa-laa-types,.sa-laa .sa-laa-sources{display:flex;flex-wrap:wrap;gap:8px 22px;border:0;padding:0;margin:8px 0 14px}
+.sa-laa .sa-laa-sources{flex-direction:column;gap:10px}
+.sa-laa .sa-laa-types label,.sa-laa .sa-laa-sources label,.sa-laa .sa-laa-check{display:block;font-size:13.5px}
+.sa-laa .sa-laa-actions{margin:16px 0 6px;display:flex;flex-wrap:wrap;gap:8px}
+.sa-laa-cards{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.sa-laa-card{background:#fff;border:1px solid #dcdcde;border-top:4px solid #2271b1;padding:12px 18px;min-width:130px;text-align:center;font-size:13px}
+.sa-laa-card span{display:block;font-size:28px;font-weight:700;line-height:1.4}
+.sa-laa-card.sa-laa-ok{border-top-color:#008a20}
+.sa-laa-card.sa-laa-bad{border-top-color:#d63638}
+.sa-laa-chip{display:inline-block;padding:2px 10px;border-radius:10px;font-size:12px;color:#fff;background:#646970}
+.sa-laa-chip-ok{background:#008a20}
+.sa-laa-chip-bad{background:#d63638}
+.sa-laa-table{max-width:1100px;margin:10px 0 22px}
+.sa-laa-diffs{width:100%;border-collapse:collapse;margin-top:8px;background:#f6f7f7}
+.sa-laa-diffs th,.sa-laa-diffs td{border:1px solid #dcdcde;padding:6px 8px;font-size:12px;vertical-align:top;word-break:break-word;max-width:300px}
+.sa-laa-filter{display:flex;gap:10px;margin:14px 0}
+.sa-laa-filter input[type=search]{min-width:280px}
+.sa-laa-fields li{margin:4px 0}
+.sa-laa-notes{background:#fff;border:1px solid #dcdcde;padding:6px 20px;max-width:1060px;line-height:2}
+.sa-laa details summary{cursor:pointer;color:#2271b1}
