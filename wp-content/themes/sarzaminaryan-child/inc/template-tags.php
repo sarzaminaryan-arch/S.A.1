@@ -412,7 +412,7 @@ function sa_build_unified_sources( $post_id, $content = '' ) {
 	if ( '' !== (string) $content ) {
 		$inline_urls = array();
 		// ترکیبِ sa-cite و <a> — ترتیبِ ظهور حفظ می‌شود.
-		if ( preg_match_all( '#<sup\b[^>]*class=([\"\\'])[^\"\\']*\bsa-cite\b[^\"\\']*\1[^>]*>\s*<a\b[^>]*href=([\"\\'])([^\"\\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\\'])([^\"\\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
+		if ( preg_match_all( '#<sup\b[^>]*class=([\"\'])[^\"\']*\bsa-cite\b[^\"\']*\1[^>]*>\s*<a\b[^>]*href=([\"\'])([^\"\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\'])([^\"\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
 			foreach ( $mm as $hit ) {
 				$u = ! empty( $hit[3] ) ? $hit[3] : ( ! empty( $hit[5] ) ? $hit[5] : '' );
 				if ( '' !== $u ) {
