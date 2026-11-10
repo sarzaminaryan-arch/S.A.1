@@ -1158,6 +1158,71 @@ function sa_ready_articles_handle_import_all() {
 add_action( 'admin_post_sa_ready_article_all', 'sa_ready_articles_handle_import_all' );
 
 /**
+ * v2.22.38 — admin-post handler: import ONLY the articles that are not on the
+ * site yet, always as drafts with their full settings.
+ *
+ * This is the owner's one-button delivery channel: a theme update brings the
+ * new ready-article data, and this button brings just the missing ones into
+ * WordPress as drafts. Existing posts (published or draft) are never touched,
+ * and nothing is published — publishing stays the per-article «تأیید مالک» step.
+ */
+function sa_ready_articles_handle_import_new() {
+	if ( ! current_user_can( 'edit_posts' ) ) {
+		wp_die( esc_html( 'برای این کار دسترسی کافی ندارید.' ) );
+	}
+	check_admin_referer( 'sa_ready_import_new', 'sa_ready_nonce_new' );
+
+	$scope = isset( $_POST['sa_scope'] ) && 'guides' === $_POST['sa_scope'] ? 'guides' : 'attractions'; // phpcs:ignore WordPress.Security.NonceVerification.Missing -- nonce verified above.
+
+	if ( function_exists( 'set_time_limit' ) ) {
+		@set_time_limit( 300 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged -- may be disabled by the host.
+	}
+
+	$summary = array(
+		'mode'      => 'new',
+		'scope'     => $scope,
+		'published' => array(),
+		'updated'   => array(),
+		'draft'     => array(),
+		'skipped'   => array(),
+		'errors'    => array(),
+		'reminders' => 0,
+		'covers'    => 0,
+		'existing'  => 0,
+		'publish'   => false,
+		'overwrite' => false,
+	);
+
+	foreach ( sa_ready_articles_data( $scope ) as $key => $article ) {
+		$title = (string) $article['title'];
+		if ( sa_ready_articles_find_post( $article ) > 0 ) {
+			++$summary['existing'];
+			continue;
+		}
+		$result = sa_ready_article_import( $key, false, false );
+		if ( is_wp_error( $result ) ) {
+			$summary['errors'][] = $title . ': ' . $result->get_error_message();
+			continue;
+		}
+		$summary['draft'][] = $title;
+		if ( function_exists( 'sa_gate_evaluate' ) ) {
+			$report = sa_gate_evaluate( (int) $result );
+			if ( ! empty( $report['warnings'] ) || ! empty( $report['blocking'] ) ) {
+				++$summary['reminders'];
+			}
+		}
+	}
+
+	$summary['covers'] = count( sa_ready_articles_cover_log() );
+
+	delete_transient( 'sa_gate_' . get_current_user_id() );
+	set_transient( 'sa_ready_bulk_' . get_current_user_id(), $summary, 5 * MINUTE_IN_SECONDS );
+	wp_safe_redirect( sa_ready_articles_screen_url( $scope, array( 'sa-ready' => 'bulk' ) ) );
+	exit;
+}
+add_action( 'admin_post_sa_ready_article_new', 'sa_ready_articles_handle_import_new' );
+
+/**
  * v2.12.7 — Render the summary of the last bulk run (one-shot transient).
  *
  * @return void
@@ -1176,10 +1241,21 @@ function sa_ready_articles_render_bulk_summary() {
 	};
 	$class = empty( $summary['errors'] ) ? 'notice-success' : 'notice-warning';
 
+	$is_new_only = isset( $summary['mode'] ) && 'new' === $summary['mode'];
+
 	echo '<div class="notice ' . esc_attr( $class ) . ' is-dismissible sa-ready__bulk-summary">';
-	echo '<p><strong>اجرای گروهی انجام شد.</strong> ';
-	echo esc_html( 'منتشرشده: ' . $fa( count( $summary['published'] ) ) . ' · به‌روزرسانی (وضعیت دست‌نخورده): ' . $fa( count( $summary['updated'] ) ) . ' · پیش‌نویس: ' . $fa( count( $summary['draft'] ) ) . ' · رد شده: ' . $fa( count( $summary['skipped'] ) ) . ' · خطا: ' . $fa( count( $summary['errors'] ) ) );
-	echo '</p>';
+	if ( $is_new_only ) {
+		echo '<p><strong>وارد کردن مقاله‌های تازه انجام شد.</strong> ';
+		echo esc_html( 'پیش‌نویس تازه: ' . $fa( count( $summary['draft'] ) ) . ' · از قبل موجود (دست‌نخورده): ' . $fa( isset( $summary['existing'] ) ? (int) $summary['existing'] : 0 ) . ' · خطا: ' . $fa( count( $summary['errors'] ) ) );
+		echo '</p>';
+		if ( empty( $summary['draft'] ) && empty( $summary['errors'] ) ) {
+			echo '<p>مقالهٔ تازه‌ای برای وارد کردن نبود؛ همهٔ مقالات آماده از قبل در سایت هستند.</p>';
+		}
+	} else {
+		echo '<p><strong>اجرای گروهی انجام شد.</strong> ';
+		echo esc_html( 'منتشرشده: ' . $fa( count( $summary['published'] ) ) . ' · به‌روزرسانی (وضعیت دست‌نخورده): ' . $fa( count( $summary['updated'] ) ) . ' · پیش‌نویس: ' . $fa( count( $summary['draft'] ) ) . ' · رد شده: ' . $fa( count( $summary['skipped'] ) ) . ' · خطا: ' . $fa( count( $summary['errors'] ) ) );
+		echo '</p>';
+	}
 	if ( ! empty( $summary['reminders'] ) ) {
 		echo '<p>' . esc_html( $fa( (int) $summary['reminders'] ) . ' مقاله یادآوری سطح ۷ دارد (مانع انتشار نیست؛ در ستون «وضعیت» و جعبهٔ «دروازهٔ انتشار» کنار ویرایشگر دیده می‌شود).' ) . '</p>';
 	}
@@ -1322,6 +1398,15 @@ function sa_ready_articles_render_screen( $scope = 'attractions' ) {
 				</label>
 			<?php endif; ?>
 			<span class="description">بدون تیک «بازنویسی»، مقاله‌های منتشرشده دست‌نخورده می‌مانند و در گزارش «رد شده» شمرده می‌شوند.</span>
+		</form>
+
+		<form class="sa-ready__bulk sa-ready__bulk--new" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" style="margin-top:14px">
+			<input type="hidden" name="action" value="sa_ready_article_new">
+			<input type="hidden" name="sa_scope" value="<?php echo esc_attr( $is_guides ? 'guides' : 'attractions' ); ?>">
+			<?php wp_nonce_field( 'sa_ready_import_new', 'sa_ready_nonce_new' ); ?>
+			<strong>مقاله‌های تازه (رسیده با آپدیت قالب):</strong>
+			<button type="submit" class="button button-primary"><?php echo esc_html( $is_guides ? 'وارد کردن فقط آموزش‌های جدید به‌صورت پیش‌نویس' : 'وارد کردن فقط دیدنی‌های جدید به‌صورت پیش‌نویس' ); ?></button>
+			<span class="description">فقط مقاله‌هایی وارد می‌شوند که هنوز در سایت نیستند — با تنظیمات کامل (متن، سئو، پرسش‌های متداول، منابع، دسته/برچسب و تصویر شاخص) و همیشه به‌صورت <strong>پیش‌نویس</strong>؛ هیچ مقالهٔ موجودی تغییر نمی‌کند و هیچ‌چیز خودکار منتشر نمی‌شود. انتشار هر پیش‌نویس با تیک «تأیید مالک» در ردیف همان مقاله انجام می‌شود.</span>
 		</form>
 
 		<p class="sa-ready__legend">
