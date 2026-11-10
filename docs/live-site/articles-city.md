@@ -4,7 +4,7 @@
 
 | عنوان | نامک | واژه | تصویر شاخص | وضعیت نسبت به مخزن | پرچم‌ها | پیوند |
 |---|---|---|---|---|---|---|
-| شهرستان آبادان | abadan | 1156 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abadan/ |
+| شهرستان آبادان | abadan | 1069 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abadan/ |
 | شهرستان آباده | abadeh | 1360 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abadeh/ |
 | شهرستان ابرکوه | abarkuh | 690 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abarkuh/ |
 | شهرستان عباس‌آباد | abbasabad | 1190 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abbasabad/ |
@@ -12,10 +12,10 @@
 | شهرستان ابهر | abhar | 1154 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abhar/ |
 | شهرستان ابوموسی | abumusa | 725 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abumusa/ |
 | شهرستان آبیک | abyek | 1214 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/abyek/ |
-| شهرستان آغاجاری | aghajari | 1093 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/aghajari/ |
+| شهرستان آغاجاری | aghajari | 1011 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/aghajari/ |
 | شهرستان اهر | ahar | 1084 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ahar/ |
 | شهر اهرم | ahram | 718 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ahram/ |
-| شهرستان اهواز | ahvaz | 1116 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ahvaz/ |
+| شهرستان اهواز | ahvaz | 1019 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ahvaz/ |
 | شهرستان عجب‌شیر | ajabshir | 1106 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ajabshir/ |
 | شهرستان البرز | alborz-qazvin | 1168 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/alborz-qazvin/ |
 | شهرستان علی‌آباد کتول | aliabad | 713 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/aliabad/ |
@@ -24,8 +24,8 @@
 | شهرستان آمل | amol | 1242 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/amol/ |
 | شهرستان انار | anar | 629 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/anar/ |
 | شهرستان عنبرآباد | anbarabad | 637 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/anbarabad/ |
-| شهرستان اندیکا | andika | 1101 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/andika/ |
-| شهرستان اندیمشک | andimeshk | 1126 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/andimeshk/ |
+| شهرستان اندیکا | andika | 1027 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/andika/ |
+| شهرستان اندیمشک | andimeshk | 1025 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/andimeshk/ |
 | شهرستان انگوت | angut | 746 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/angut/ |
 | شهرستان آق‌قلا | aqqala | 699 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/aqqala/ |
 | شهرستان آرادان | aradan | 1161 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/aradan/ |
@@ -53,7 +53,7 @@
 | شهرستان بدره | badreh | 698 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/badreh/ |
 | شهرستان بافق | bafq | 687 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bafq/ |
 | شهرستان بافت | baft | 642 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/baft/ |
-| شهرستان باغ‌ملک | bagh-e-malek | 1044 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bagh-e-malek/ |
+| شهرستان باغ‌ملک | bagh-e-malek | 961 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bagh-e-malek/ |
 | شهرستان بهار | bahar | 663 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bahar/ |
 | شهرستان بهارستان | baharestan | 737 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/baharestan/ |
 | شهرستان بهمئی | bahmai | 665 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bahmai/ |
@@ -75,17 +75,17 @@
 | شهرستان باشت | basht | 704 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/basht/ |
 | شهرستان بستک | bastak | 720 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bastak/ |
 | شهرستان بوانات | bavanat | 1232 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bavanat/ |
-| شهرستان باوی | bavi | 1052 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bavi/ |
+| شهرستان باوی | bavi | 980 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bavi/ |
 | شهرستان بهاباد | behabad | 689 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/behabad/ |
-| شهرستان بهبهان | behbahan | 1060 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/behbahan/ |
+| شهرستان بهبهان | behbahan | 976 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/behbahan/ |
 | شهرستان بهشهر | behshahr | 1193 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/behshahr/ |
 | شهرستان بن | ben | 718 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ben/ |
 | شهرستان بیضا | beyza | 1201 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/beyza/ |
 | شهرستان بیجار | bijar | 703 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bijar/ |
 | شهرستان بیله‌سوار | bileh-savar | 841 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bileh-savar/ |
-| شهرستان بینالود | binalud | 1213 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/binalud/ |
+| شهرستان بینالود | binalud | 1069 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/binalud/ |
 | شهرستان بیرجند | birjand | 2636 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/birjand/ |
-| شهرستان بجنورد | bojnord | 1043 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bojnord/ |
+| شهرستان بجنورد | bojnord | 1005 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bojnord/ |
 | شهرستان بناب | bonab | 1078 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/bonab/ |
 | شهر برازجان | borazjan | 769 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/borazjan/ |
 | شهرستان برخوار | borkhar | 730 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/borkhar/ |
@@ -111,21 +111,21 @@
 | شهرستان چایپاره | chaypareh | 1051 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/chaypareh/ |
 | شهرستان چگنی | chegeni | 1168 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/chegeni/ |
 | شهرستان چنارشاهیجان | chenar-shahijan | 1162 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/chenar-shahijan/ |
-| شهرستان چناران | chenaran | 1341 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/chenaran/ |
+| شهرستان چناران | chenaran | 1276 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/chenaran/ |
 | شهرستان چرام | choram | 699 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/choram/ |
 | شهرستان دالاهو | dalahu | 662 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dalahu/ |
 | شهرستان دلگان | dalgan | 1186 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dalgan/ |
 | شهرستان دماوند | damavand | 753 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/damavand/ |
 | شهرستان دامغان | damghan | 1279 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/damghan/ |
 | شهرستان داراب | darab | 1183 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/darab/ |
-| شهرستان درگز | dargaz | 1165 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dargaz/ |
+| شهرستان درگز | dargaz | 1095 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dargaz/ |
 | شهرستان درگزین | dargazin | 672 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dargazin/ |
 | شهرستان درمیان | darmiyan | 1752 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/darmiyan/ |
 | شهرستان دره‌شهر | darreh-shahr | 719 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/darreh-shahr/ |
-| شهرستان دشت آزادگان | dasht-azadegan | 2324 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dasht-azadegan/ |
+| شهرستان دشت آزادگان | dasht-azadegan | 2240 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dasht-azadegan/ |
 | شهرستان دشتستان | dashtestan | 715 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dashtestan/ |
 | شهرستان دشتیاری | dashtiari | 1155 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dashtiari/ |
-| شهرستان داورزن | davarzan | 1137 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/davarzan/ |
+| شهرستان داورزن | davarzan | 1099 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/davarzan/ |
 | شهرستان دهاقان | dehaqan | 676 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dehaqan/ |
 | شهرستان دهگلان | dehgolan | 698 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dehgolan/ |
 | شهرستان دهلران | dehloran | 683 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dehloran/ |
@@ -134,13 +134,13 @@
 | شهرستان دنا | dena | 786 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dena/ |
 | بندر دیلم | deylam | 773 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/deylam/ |
 | بندر دیر | deyr | 731 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/deyr/ |
-| شهرستان دزفول | dezful | 1113 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dezful/ |
-| شهرستان دزپارت | dezpart | 1079 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dezpart/ |
+| شهرستان دزفول | dezful | 1038 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dezful/ |
+| شهرستان دزپارت | dezpart | 994 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dezpart/ |
 | شهرستان دیواندره | divandarreh | 691 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/divandarreh/ |
-| دورود | dorud | 2100 | دارد | matched_different | differs_from_repo | https://sarzaminaryan.ir/city/dorud/ |
+| دورود | dorud | 2100 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/city/dorud/ |
 | شهرستان ایجرود | ejrud | 1150 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/ejrud/ |
 | شهرستان اقلید | eqlid | 1202 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/eqlid/ |
-| شهرستان اسفراین | esfarayen | 1045 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/esfarayen/ |
+| شهرستان اسفراین | esfarayen | 971 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/esfarayen/ |
 | شهرستان عشق‌آباد | eshqabad | 1488 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/eshqabad/ |
 | شهرستان اشتهارد | eshtehard | 726 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/eshtehard/ |
 | شهرستان اسلام‌آباد غرب | eslamabad-e-gharb | 682 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/eslamabad-e-gharb/ |
@@ -156,95 +156,95 @@
 | شهرستان فراهان | farahan | 724 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/farahan/ |
 | شهرستان فراشبند | farashband | 1163 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/farashband/ |
 | شهرستان فردیس | fardis | 749 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/fardis/ |
-| شهرستان فریمان | fariman | 1120 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/fariman/ |
-| شهرستان فرخ‌شهر | farrokhshahr | 722 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/farrokhshahr/ |
+| شهرستان فریمان | fariman | 1070 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/fariman/ |
+| شهرستان فرخ‌شهر | farrokhshahr | 689 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/farrokhshahr/ |
 | شهرستان فارسان | farsan | 712 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/farsan/ |
-| شهرستان فاروج | faruj | 1082 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/faruj/ |
+| شهرستان فاروج | faruj | 1015 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/faruj/ |
 | شهرستان فاریاب | faryab | 624 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/faryab/ |
 | شهرستان فسا | fasa | 1158 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/fasa/ |
 | شهرستان فردوس | ferdows | 734 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ferdows/ |
 | شهرستان فریدن | fereydan | 667 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/fereydan/ |
 | شهرستان فریدون‌شهر | fereydunshahr | 651 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/fereydunshahr/ |
 | شهرستان فیروزآباد | firuzabad | 1172 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/firuzabad/ |
-| شهرستان فیروزه | firuzeh | 1099 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/firuzeh/ |
+| شهرستان فیروزه | firuzeh | 1061 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/firuzeh/ |
 | شهرستان فیروزکوه | firuzkuh | 734 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/firuzkuh/ |
 | شهرستان فریدون‌کنار | freydunkenar | 1192 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/freydunkenar/ |
 | شهرستان فومن | fuman | 665 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/fuman/ |
 | شهرستان گچساران | gachsaran | 809 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gachsaran/ |
 | شهرستان گالیکش | galikash | 711 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/galikash/ |
 | بندر گناوه | ganaveh | 881 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ganaveh/ |
-| شهرستان گرمه | garmeh | 1041 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/garmeh/ |
+| شهرستان گرمه | garmeh | 979 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/garmeh/ |
 | شهرستان گرمسار | garmsar | 1234 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/garmsar/ |
 | شهرستان گراش | gerash | 1159 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gerash/ |
 | شهرستان گرمی | germi | 1003 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/germi/ |
 | شهرستان قروه | ghorveh | 698 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ghorveh/ |
 | شهرستان گیلانغرب | gilan-e-gharb | 664 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gilan-e-gharb/ |
 | شهرستان کوثر (گیوی) | givi | 703 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/givi/ |
-| شهرستان گلبهار | golbahar | 1210 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/golbahar/ |
+| شهرستان گلبهار | golbahar | 1145 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/golbahar/ |
 | شهرستان گلوگاه | gologah | 1192 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gologah/ |
 | شهرستان گلپایگان | golpayegan | 663 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/golpayegan/ |
 | شهرستان گلشن | golshan | 1161 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/golshan/ |
 | شهرستان گمیشان | gomishan | 698 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gomishan/ |
-| شهرستان گناباد | gonabad | 1290 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gonabad/ |
+| شهرستان گناباد | gonabad | 1245 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gonabad/ |
 | شهرستان گنبد کاووس | gonbad-e-kavus | 727 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gonbad-e-kavus/ |
 | شهرستان گنبکی | gonbaki | 646 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gonbaki/ |
 | شهرستان گرگان | gorgan | 717 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gorgan/ |
-| شهرستان گتوند | gotvand | 1535 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gotvand/ |
-| شهرستان هفتکل | haftkel | 1761 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/haftkel/ |
+| شهرستان گتوند | gotvand | 1452 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/gotvand/ |
+| شهرستان هفتکل | haftkel | 1709 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/haftkel/ |
 | شهرستان حاجی‌آباد | hajjiabad | 704 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hajjiabad/ |
 | شهرستان هلیلان | halilan | 710 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/halilan/ |
 | شهرستان همدان | hamedan | 694 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hamedan/ |
-| شهرستان حمیدیه | hamidiyeh | 1063 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hamidiyeh/ |
+| شهرستان حمیدیه | hamidiyeh | 991 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hamidiyeh/ |
 | شهرستان هامون | hamun | 1186 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hamun/ |
 | شهرستان هرند | harand | 611 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/harand/ |
 | شهرستان هرسین | harsin | 655 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/harsin/ |
 | شهرستان هشترود | hashtrud | 1110 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hashtrud/ |
-| شهرستان هندیجان | hendijan | 1763 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hendijan/ |
+| شهرستان هندیجان | hendijan | 1710 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hendijan/ |
 | شهرستان هریس | heris | 1096 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/heris/ |
 | شهرستان هیرمند | hirmand | 1175 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hirmand/ |
-| شهرستان هویزه | hoveyzeh | 1612 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hoveyzeh/ |
+| شهرستان هویزه | hoveyzeh | 1495 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hoveyzeh/ |
 | شهرستان هوراند | hurand | 1111 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hurand/ |
 | شهرستان ایجرود | ijrud | 779 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/ijrud/ |
 | شهرستان ایلام | ilam | 752 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ilam/ |
 | شهرستان ایرانشهر | iranshahr | 1152 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/iranshahr/ |
 | شهرستان اصفهان | isfahan | 919 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/isfahan/ |
-| شهرستان ایذه | izeh | 1065 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/izeh/ |
+| شهرستان ایذه | izeh | 1001 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/izeh/ |
 | شهرستان جعفرآباد | jafarabady | 1067 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jafarabady/ |
 | شهرستان جهرم | jahrom | 1210 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jahrom/ |
-| شهرستان جاجرم | jajarm | 1025 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jajarm/ |
+| شهرستان جاجرم | jajarm | 961 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jajarm/ |
 | شهر جم | jam | 699 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jam/ |
 | شهرستان جرقویه | jarqavieh | 694 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jarqavieh/ |
 | شهرستان جاسک | jask | 723 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jask/ |
 | شهرستان جوانرود | javanrud | 652 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/javanrud/ |
 | شهرستان جازموریان | jazmurian | 636 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jazmurian/ |
 | شهرستان جیرفت | jiroft | 673 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jiroft/ |
-| شهرستان جغتای | joghatai | 1159 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/joghatai/ |
+| شهرستان جغتای | joghatai | 1101 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/joghatai/ |
 | شهرستان جلفا | jolfa | 1061 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jolfa/ |
 | شهرستان جویم | jooyom | 1210 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jooyom/ |
-| شهرستان جوین | jovein | 1164 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jovein/ |
+| شهرستان جوین | jovein | 1111 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/jovein/ |
 | شهرستان جویبار | joybar | 1196 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/joybar/ |
 | شهرستان کبودرآهنگ | kabutarahang | 673 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kabutarahang/ |
 | شهرستان کهک | kahak | 1073 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kahak/ |
 | شهرستان کهنوج | kahnuj | 637 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kahnuj/ |
 | شهرستان کلاله | kalaleh | 697 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kalaleh/ |
-| شهرستان کلات | kalat | 1326 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kalat/ |
+| شهرستان کلات | kalat | 1277 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kalat/ |
 | شهرستان کلیبر | kaleybar | 1330 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kaleybar/ |
 | شهرستان کامیاران | kamyaran | 695 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kamyaran/ |
 | بندر کنگان | kangan | 742 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kangan/ |
 | شهرستان کنگاور | kangavar | 638 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kangavar/ |
 | شهرستان کرج | karaj | 960 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/karaj/ |
-| شهرستان کرخه | karkheh | 1536 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/karkheh/ |
-| شهرستان کارون | karun | 1540 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/karun/ |
+| شهرستان کرخه | karkheh | 1468 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/karkheh/ |
+| شهرستان کارون | karun | 1449 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/karun/ |
 | شهرستان کاشان | kashan | 1104 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kashan/ |
-| شهرستان کاشمر | kashmar | 1227 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kashmar/ |
+| شهرستان کاشمر | kashmar | 1202 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kashmar/ |
 | شهرستان کوار | kavar | 1172 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kavar/ |
 | شهرستان کازرون | kazerun | 1160 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kazerun/ |
 | شهرستان کلاردشت | kelardasht | 1193 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kelardasht/ |
 | شهرستان کرمان | kerman | 713 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kerman/ |
 | شهرستان کرمانشاه | kermanshah | 705 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kermanshah/ |
-| شهرستان خواف | khaf | 1225 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khaf/ |
+| شهرستان خواف | khaf | 1171 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khaf/ |
 | شهرستان خفر | khafr | 1196 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khafr/ |
-| شهرستان خلیل‌آباد | khalilabad | 1150 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khalilabad/ |
+| شهرستان خلیل‌آباد | khalilabad | 1112 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khalilabad/ |
 | شهرستان خلخال | khalkhal | 1843 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khalkhal/ |
 | شهرستان خمیر | khamir | 717 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khamir/ |
 | شهرستان خانمیرزا | khanmirza | 707 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khanmirza/ |
@@ -263,9 +263,9 @@
 | شهر خورموج | khormoj | 709 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khormoj/ |
 | شهرستان خرم‌آباد | khorramabad | 1195 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramabad/ |
 | شهرستان خرم‌بید | khorrambid | 1213 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorrambid/ |
-| شهرستان خرمدره | khorramdarreh | 811 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/khorramdarreh/ |
-| شهرستان خرمشهر | khorramshahr | 1087 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramshahr/ |
-| شهرستان خوشاب | khoshab | 1197 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khoshab/ |
+| شهرستان خرمدره | khorramdarreh | 801 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/khorramdarreh/ |
+| شهرستان خرمشهر | khorramshahr | 1011 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramshahr/ |
+| شهرستان خوشاب | khoshab | 1159 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khoshab/ |
 | شهرستان خوی | khoy | 1126 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khoy/ |
 | شهرستان خور و بیابانک | khur-biabanak | 1063 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khur-biabanak/ |
 | شهرستان خوسف | khusf | 1851 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khusf/ |
@@ -278,9 +278,9 @@
 | شهرستان کوهدشت | kuhdasht | 1176 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kuhdasht/ |
 | شهرستان کوهپایه | kuhpayeh | 624 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kuhpayeh/ |
 | شهرستان کوهرنگ | kuhrang | 706 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kuhrang/ |
-| شهرستان کوهسرخ | kuhsorkh | 1324 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kuhsorkh/ |
+| شهرستان کوهسرخ | kuhsorkh | 1256 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kuhsorkh/ |
 | شهرستان لاهیجان | lahijan | 684 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/lahijan/ |
-| شهرستان لالی | lali | 1789 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/lali/ |
+| شهرستان لالی | lali | 1715 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/lali/ |
 | شهرستان لامرد | lamerd | 1158 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/lamerd/ |
 | شهرستان لنده | landeh | 764 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/landeh/ |
 | شهرستان لنگرود | langarud | 670 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/langarud/ |
@@ -288,12 +288,12 @@
 | شهرستان لاشار | lashar | 1161 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/lashar/ |
 | شهرستان لنجان | lenjan | 776 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/lenjan/ |
 | شهرستان لردگان | lordegan | 728 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/lordegan/ |
-| شهرستان مهاباد | mahabad | 1054 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahabad/ |
+| شهرستان مهاباد | mahabad | 1034 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahabad/ |
 | شهرستان محلات | mahallat | 754 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahallat/ |
 | شهرستان محمودآباد | mahmudabad | 1190 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahmudabad/ |
 | شهرستان ماه‌نشان | mahneshan | 1125 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahneshan/ |
-| شهرستان بندر ماهشهر | mahshahr | 1114 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahshahr/ |
-| شهرستان مه‌ولات | mahvelat | 1353 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahvelat/ |
+| شهرستان بندر ماهشهر | mahshahr | 1041 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahshahr/ |
+| شهرستان مه‌ولات | mahvelat | 1297 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mahvelat/ |
 | شهرستان ماکو | maku | 1061 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/maku/ |
 | شهرستان ملارد | malard | 732 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/malard/ |
 | شهرستان ملایر | malayer | 679 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/malayer/ |
@@ -301,7 +301,7 @@
 | شهرستان ملکشاهی | malekshahi | 709 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/malekshahi/ |
 | شهرستان ممسنی | mamasani | 1185 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mamasani/ |
 | شهرستان معمولان | mamulan | 1174 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mamulan/ |
-| شهرستان مانه | maneh | 680 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/maneh/ |
+| شهرستان مانه | maneh | 638 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/maneh/ |
 | شهرستان منوجان | manujan | 631 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/manujan/ |
 | شهرستان مراغه | maragheh | 1266 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/maragheh/ |
 | شهرستان مرند | marand | 1094 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/marand/ |
@@ -311,8 +311,8 @@
 | شهرستان مروست | marvast | 701 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/marvast/ |
 | شهرستان مرودشت | marvdasht | 1165 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/marvdasht/ |
 | شهرستان ماسال | masal | 666 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/masal/ |
-| شهرستان مشهد | mashhad | 1330 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mashhad/ |
-| شهرستان مسجدسلیمان | masjed-soleyman | 1764 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/masjed-soleyman/ |
+| شهرستان مشهد | mashhad | 1305 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mashhad/ |
+| شهرستان مسجدسلیمان | masjed-soleyman | 1701 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/masjed-soleyman/ |
 | شهرستان مهدی‌شهر | mehdishahr | 1221 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mehdishahr/ |
 | شهرستان مهر | mehr | 1181 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mehr/ |
 | شهرستان مهران | mehran | 730 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mehran/ |
@@ -321,8 +321,8 @@
 | شهرستان مشگین‌شهر | meshgin-shahr | 687 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/meshgin-shahr/ |
 | شهرستان میامی | meyami | 1234 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/meyami/ |
 | شهرستان میبد | meybod | 677 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/meybod/ |
-| میمه و وزوان | meymeh-vazvan | 721 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/meymeh-vazvan/ |
-| شهرستان میان‌جلگه | mian-jolgeh | 1293 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mian-jolgeh/ |
+| میمه و وزوان | meymeh-vazvan | 697 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/meymeh-vazvan/ |
+| شهرستان میان‌جلگه | mian-jolgeh | 1198 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mian-jolgeh/ |
 | شهرستان میاندوآب | miandoab | 984 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/miandoab/ |
 | شهرستان میاندورود | miandorud | 1192 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/miandorud/ |
 | شهرستان میانه | mianeh | 1194 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/mianeh/ |
@@ -342,13 +342,13 @@
 | شهرستان نهبندان | nehbandan | 1713 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/nehbandan/ |
 | شهرستان نکا | neka | 1187 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/neka/ |
 | شهرستان نی‌ریز | neyriz | 1178 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/neyriz/ |
-| شهرستان نیشابور | neyshabur | 1220 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/neyshabur/ |
+| شهرستان نیشابور | neyshabur | 1195 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/neyshabur/ |
 | شهرستان نیک‌شهر | nik-shahr | 1172 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/nik-shahr/ |
 | شهرستان نیمروز | nimruz | 1175 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/nimruz/ |
 | شهرستان نیر | nir | 844 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/nir/ |
 | شهرستان نوشهر | nowshahr | 1190 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/nowshahr/ |
 | شهرستان نور | nur | 1190 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/nur/ |
-| شهرستان امیدیه | omidiyeh | 1075 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/omidiyeh/ |
+| شهرستان امیدیه | omidiyeh | 989 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/omidiyeh/ |
 | شهرستان اشنویه | oshnavieh | 935 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/oshnavieh/ |
 | شهرستان اسکو | osku | 1107 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/osku/ |
 | شهرستان پاکدشت | pakdasht | 742 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/pakdasht/ |
@@ -372,41 +372,41 @@
 | شهرستان قیر و کارزین | qir-va-karzin | 1199 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/qir-va-karzin/ |
 | شهرستان قدس | qods | 732 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/qods/ |
 | شهرستان قم | qom | 1260 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/qom/ |
-| شهرستان قوچان | quchan | 1232 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/quchan/ |
+| شهرستان قوچان | quchan | 1198 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/quchan/ |
 | شهرستان رابر | rabor | 624 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rabor/ |
 | شهرستان رفسنجان | rafsanjan | 686 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rafsanjan/ |
-| شهرستان رامهرمز | ramhormoz | 2267 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ramhormoz/ |
+| شهرستان رامهرمز | ramhormoz | 2205 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ramhormoz/ |
 | شهرستان رامیان | ramian | 686 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ramian/ |
 | شهرستان رامسر | ramsar | 1193 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ramsar/ |
-| شهرستان رامشیر | ramshir | 2205 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ramshir/ |
+| شهرستان رامشیر | ramshir | 2156 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ramshir/ |
 | شهرستان رشت | rasht | 729 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rasht/ |
 | شهرستان راسک | rask | 1181 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rask/ |
 | شهرستان روانسر | ravansar | 642 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ravansar/ |
 | شهرستان راور | ravar | 634 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ravar/ |
-| شهرستان راز و جرگلان | raz-jargalan | 1075 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/raz-jargalan/ |
+| شهرستان راز و جرگلان | raz-jargalan | 1037 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/raz-jargalan/ |
 | شهرستان رزن | razan | 671 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/razan/ |
 | شهرستان ری | rey | 806 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rey/ |
 | شهرستان رضوانشهر | rezvanshahr | 664 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rezvanshahr/ |
 | شهرستان ریگان | rigan | 646 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rigan/ |
 | شهرستان رباط‌کریم | robat-karim | 742 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/robat-karim/ |
-| شهرستان رشتخوار | roshtkhar | 1134 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/roshtkhar/ |
+| شهرستان رشتخوار | roshtkhar | 1096 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/roshtkhar/ |
 | شهرستان رستم | rostam | 1163 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rostam/ |
 | شهرستان رودان | rudan | 697 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rudan/ |
 | شهرستان رودبار | rudbar | 668 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rudbar/ |
 | شهرستان رودبار جنوب | rudbar-e-jonubi | 636 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rudbar-e-jonubi/ |
 | شهرستان رودسر | rudsar | 678 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rudsar/ |
 | شهرستان رومشکان | rumeshkan | 1166 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/rumeshkan/ |
-| شهرستان سبزوار | sabzevar | 1240 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sabzevar/ |
+| شهرستان سبزوار | sabzevar | 1215 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sabzevar/ |
 | شهرستان صحنه | sahneh | 642 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sahneh/ |
 | شهرستان ثلاث باباجانی | salas-e-babajani | 654 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/salas-e-babajani/ |
-| شهرستان صالح‌آباد | saleh-abad | 1071 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/saleh-abad/ |
+| شهرستان صالح‌آباد | saleh-abad | 1018 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/saleh-abad/ |
 | شهرستان سلماس | salmas | 1057 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/salmas/ |
 | شهرستان سملقان | samalqan | 724 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/samalqan/ |
 | شهرستان سامان | saman | 699 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/saman/ |
 | شهرستان سنندج | sanandaj | 710 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sanandaj/ |
 | شهرستان سقز | saqqez | 711 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/saqqez/ |
 | شهرستان سراب | sarab | 1074 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sarab/ |
-| شهرستان سرخس | sarakhs | 1154 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sarakhs/ |
+| شهرستان سرخس | sarakhs | 1116 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sarakhs/ |
 | شهرستان سراوان | saravan | 1167 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/saravan/ |
 | شهرستان سرایان | sarayan | 1404 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sarayan/ |
 | شهرستان سرباز | sarbaz | 1176 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sarbaz/ |
@@ -427,7 +427,7 @@
 | شهرستان سمنان | semnan | 1508 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/semnan/ |
 | شهرستان سپیدان | sepidan | 1197 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sepidan/ |
 | شهرستان شبستر | shabestar | 1140 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shabestar/ |
-| شهرستان شادگان | shadegan | 2234 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shadegan/ |
+| شهرستان شادگان | shadegan | 2150 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shadegan/ |
 | شهرستان شفت | shaft | 653 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shaft/ |
 | شهرستان شاهین‌دژ | shahin-dezh | 1096 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shahin-dezh/ |
 | شهرستان شاهین‌شهر و میمه | shahin-shahr-meymeh | 712 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shahin-shahr-meymeh/ |
@@ -438,12 +438,12 @@
 | شهرستان شهرکرد | sharekurd | 749 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sharekurd/ |
 | شهرستان شازند | shazand | 746 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shazand/ |
 | شهرستان شمیرانات | shemiranat | 761 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shemiranat/ |
-| شهرستان ششتمد | sheshtamad | 1099 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sheshtamad/ |
+| شهرستان ششتمد | sheshtamad | 1061 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sheshtamad/ |
 | شهرستان شیراز | shiraz | 1174 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shiraz/ |
-| شهرستان شیروان | shirvan | 1017 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shirvan/ |
+| شهرستان شیروان | shirvan | 960 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shirvan/ |
 | شهرستان شوط | showt | 910 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/showt/ |
-| شهرستان شوش | shush | 2266 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shush/ |
-| شهرستان شوشتر | shushtar | 1824 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shushtar/ |
+| شهرستان شوش | shush | 2217 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shush/ |
+| شهرستان شوشتر | shushtar | 1783 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/shushtar/ |
 | شهرستان سیاهکل | siahkal | 668 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/siahkal/ |
 | شهرستان سیب و سوران | sib-va-suran | 1163 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/sib-va-suran/ |
 | شهرستان سیمرغ | simorgh | 1206 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/simorgh/ |
@@ -487,7 +487,7 @@
 | شهرستان زرندیه | zarandieh | 744 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zarandieh/ |
 | شهرستان زرقان | zarghan | 1203 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zarghan/ |
 | شهرستان زرین‌دشت | zarrin-dasht | 1176 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zarrin-dasht/ |
-| شهرستان زاوه | zaveh | 1108 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zaveh/ |
-| شهرستان زبرخان | zebarkhan | 1232 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zebarkhan/ |
+| شهرستان زاوه | zaveh | 1070 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zaveh/ |
+| شهرستان زبرخان | zebarkhan | 1171 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zebarkhan/ |
 | شهرستان زهک | zehak | 1156 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zehak/ |
 | شهرستان زیرکوه | zirkuh | 1845 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/zirkuh/ |

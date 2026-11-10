@@ -1,27 +1,26 @@
 {
  "tool": "sa-live-site-registry",
- "generated_at": "2026-11-10T10:44:54.138481+00:00",
+ "generated_at": "2026-11-10T23:44:26.271457+00:00",
  "snapshot_date": "2026-11-10",
  "sources": {
-  "live": "/tmp/inputs/live-articles-20261110-103405.json",
-  "audit": "/tmp/inputs/audit-report-20261110-103354.json",
+  "live": "/tmp/inputs/live-articles-20261110-233916.json",
+  "audit": "/tmp/inputs/audit-report-20261110-233827.json",
   "baseline_records": 104
  },
  "counts": {
-  "live_total": 628,
+  "live_total": 621,
   "by_type": {
    "attraction": 35,
    "city": 487,
-   "page": 7,
    "post": 68,
    "province": 31
   },
   "repo_status": {
    "matched_different": 71,
    "matched_identical": 29,
-   "live_only": 528
+   "live_only": 521
   },
-  "missing_featured_image": 593,
+  "missing_featured_image": 589,
   "repo_unpublished": 4
  },
  "records": [
@@ -59,7 +58,7 @@
      "winter"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -67,6 +66,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -288,7 +288,7 @@
      "winter"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -296,6 +296,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -688,7 +689,7 @@
      "summer"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -696,6 +697,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -892,7 +894,7 @@
      "summer"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -900,6 +902,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -1074,13 +1077,14 @@
      "winter"
     ]
    },
-   "meta_count": 29,
+   "meta_count": 30,
    "meta_keys": [
     "_edit_lock",
     "_sa_audit_checked",
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_wp_old_slug",
     "sa_access_level",
     "sa_address",
@@ -1367,13 +1371,8 @@
    "content_hash": "8de59828d68fee2ceb23bbf3959fe5d34ea0b8d48a9500239c9e805f688595d9",
    "content_text_hash": "3a992fbda66683f1ec2096a1fce56c072620ef1e87f13aaad93b1ac8c6e2a5e8",
    "word_count": 1391,
-   "featured_file": "bisheh-waterfall-dorud-identity-1200x600-1.webp",
-   "featured": {
-    "file": "bisheh-waterfall-dorud-identity-1200x600-1.webp",
-    "alt": "تصویر نمادین آبشار بیشه دورود در میان کوهستان سبز زاگرس برای شناسنامه نمای برتر",
-    "width": 1200,
-    "height": 600
-   },
+   "featured_file": "",
+   "featured": {},
    "terms": {
     "province_tax": [
      "lorestan"
@@ -1388,7 +1387,7 @@
      "summer"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -1396,6 +1395,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -1555,6 +1555,7 @@
     ]
    },
    "flags": [
+    "missing_featured_image",
     "differs_from_repo"
    ]
   },
@@ -1738,7 +1739,7 @@
      "spring"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -1746,6 +1747,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -1932,7 +1934,7 @@
      "winter"
     ]
    },
-   "meta_count": 32,
+   "meta_count": 33,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -1940,6 +1942,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "_wp_old_slug",
     "sa_access_level",
@@ -2083,13 +2086,8 @@
    "content_hash": "ad5ea9e3e3505fb81de8e7be4533a623d38019801e504cb8e060acdfb3f4f5c9",
    "content_text_hash": "7d0af9ac19d50c46b62c8b6055b1010d529a798502222eb2d1efc3f8bcf482d7",
    "word_count": 2457,
-   "featured_file": "gahar-lake-dorud-white-card-1200x600-1.webp",
-   "featured": {
-    "file": "gahar-lake-dorud-white-card-1200x600-1.webp",
-    "alt": "کارت سفید دریاچه گهر شهرستان دورود استان لرستان با آیکون رنگی گوشه و نام انگلیسی Gahar Lake | Dorud city | Lorestan",
-    "width": 1200,
-    "height": 600
-   },
+   "featured_file": "",
+   "featured": {},
    "terms": {
     "province_tax": [
      "lorestan"
@@ -2106,7 +2104,7 @@
      "summer"
     ]
    },
-   "meta_count": 31,
+   "meta_count": 32,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -2114,6 +2112,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -2340,6 +2339,7 @@
     ]
    },
    "flags": [
+    "missing_featured_image",
     "differs_from_repo"
    ]
   },
@@ -2376,12 +2376,13 @@
      "winter"
     ]
    },
-   "meta_count": 28,
+   "meta_count": 29,
    "meta_keys": [
     "_sa_audit_checked",
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_wp_old_slug",
     "sa_access_level",
     "sa_address",
@@ -2542,7 +2543,7 @@
      "winter"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -2550,6 +2551,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -2748,7 +2750,7 @@
      "spring"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -2756,6 +2758,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -3159,7 +3162,7 @@
      "summer"
     ]
    },
-   "meta_count": 29,
+   "meta_count": 30,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -3167,6 +3170,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "sa_access_level",
     "sa_address",
     "sa_attraction_age",
@@ -3323,7 +3327,7 @@
      "summer"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -3331,6 +3335,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -3523,7 +3528,7 @@
      "winter"
     ]
    },
-   "meta_count": 31,
+   "meta_count": 32,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -3531,6 +3536,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -3838,7 +3844,7 @@
      "summer"
     ]
    },
-   "meta_count": 31,
+   "meta_count": 32,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -3846,6 +3852,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "_wp_old_slug",
     "sa_access_level",
@@ -4345,7 +4352,7 @@
      "winter"
     ]
    },
-   "meta_count": 31,
+   "meta_count": 32,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -4353,6 +4360,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -4509,12 +4517,13 @@
      "spring"
     ]
    },
-   "meta_count": 28,
+   "meta_count": 29,
    "meta_keys": [
     "_sa_audit_checked",
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_wp_old_slug",
     "sa_access_level",
     "sa_address",
@@ -4676,7 +4685,7 @@
      "winter"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -4684,6 +4693,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -4875,12 +4885,13 @@
      "winter"
     ]
    },
-   "meta_count": 28,
+   "meta_count": 29,
    "meta_keys": [
     "_sa_audit_checked",
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_wp_old_slug",
     "sa_access_level",
     "sa_address",
@@ -5046,7 +5057,7 @@
      "summer"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -5054,6 +5065,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_wp_old_slug",
     "sa_access_level",
     "sa_address",
@@ -5218,7 +5230,7 @@
      "winter"
     ]
    },
-   "meta_count": 31,
+   "meta_count": 32,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -5226,6 +5238,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -5389,7 +5402,7 @@
      "summer"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -5397,6 +5410,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -5952,7 +5966,7 @@
      "spring"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -5960,6 +5974,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_wp_old_slug",
     "sa_access_level",
     "sa_address",
@@ -6121,7 +6136,7 @@
      "summer"
     ]
    },
-   "meta_count": 30,
+   "meta_count": 31,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -6129,6 +6144,7 @@
     "_sa_audit_previous_score",
     "_sa_audit_score",
     "_sa_gate_report",
+    "_sa_ready_remove_featured_image",
     "_sa_social_telegram_sent",
     "sa_access_level",
     "sa_address",
@@ -6460,14 +6476,14 @@
    "title": "شهرستان آبادان",
    "status": "publish",
    "date_published": "2026-10-08 00:58:10",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/abadan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=269&action=edit",
    "excerpt": "شهرستان آبادان با مرکزیت آبادان، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "21b982298ca47f111af1827d86803bbe7a46b12bd9dff6cc455d4b4c6867976b",
-   "content_text_hash": "12575ce9eb58c678eb1236f8842ca2a922bf011959fdbec4965b3e106133cc70",
-   "word_count": 1156,
+   "content_hash": "ee4dc7362d53b1fb3d8e0f65026706439adf1e36c1c815e3d07dd617033f49b1",
+   "content_text_hash": "27bfa3c4b3ce7b40c9998381497484fb5d52cc61ff00a448d805916d82f2e28c",
+   "word_count": 1069,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -7971,14 +7987,14 @@
    "title": "شهرستان آغاجاری",
    "status": "publish",
    "date_published": "2026-10-08 00:58:11",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/aghajari/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=270&action=edit",
    "excerpt": "شهرستان آغاجاری با مرکزیت آغاجاری، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "0f06361695e3e2b514602a1a640ca787573f71c04bc7218d77fd5734a9fb035b",
-   "content_text_hash": "09df2dab69224a604c13a1509aa090b8cdd73fa9d2efb6f5410c918c4a5f7bbd",
-   "word_count": 1093,
+   "content_hash": "ec3929a04504a812cd4331de82fe17a01d432e24aa8d2b465f333aab5b8b5522",
+   "content_text_hash": "87b045fb1fb1f4bf98c4cbb283589e09771e469500c851791a55cf08899c3554",
+   "word_count": 1011,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -8577,14 +8593,14 @@
    "title": "شهرستان اهواز",
    "status": "publish",
    "date_published": "2026-10-08 00:58:12",
-   "date_modified": "2026-10-24 04:29:02",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/ahvaz/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=271&action=edit",
    "excerpt": "شهرستان اهواز با مرکزیت اهواز، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "c61cae86ac3180fd74de411c65b6991dce78036e24c129637a76fd620ccf1483",
-   "content_text_hash": "506756b2d7555c5a5cd93b168524844d7c8425d61b58bb533024ff33f787f873",
-   "word_count": 1116,
+   "content_hash": "cf3a45909a02d8c84ef31745d40626595d945e15e9e43fde8be1c1f495e68c90",
+   "content_text_hash": "5b90170983b155255e7c1eda6060fe69e5677f87d75efb66ddbae85131a00372",
+   "word_count": 1019,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -10170,14 +10186,14 @@
    "title": "شهرستان اندیکا",
    "status": "publish",
    "date_published": "2026-10-03 00:55:53",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/andika/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=273&action=edit",
    "excerpt": "شهرستان اندیکا با مرکزیت قلعه خواجه، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "9180c92f5a4317243975cb8efa71b634b5722a24fd1d819d8fd66dc43c4dd326",
-   "content_text_hash": "44982b39c71039db6977ca4a7c14b7302a0c4520a9a091ae9c5bae9e390b5610",
-   "word_count": 1101,
+   "content_hash": "70becf5c11f603f87974cc056f0ff4f401ed67a7b990f83b2bcea043f9cd89e5",
+   "content_text_hash": "5041a8f0cceaae136c9ffec35ae1a0a149bc378b661df3b8fd876859949402c5",
+   "word_count": 1027,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -10378,14 +10394,14 @@
    "title": "شهرستان اندیمشک",
    "status": "publish",
    "date_published": "2026-10-03 00:55:38",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/andimeshk/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=274&action=edit",
    "excerpt": "شهرستان اندیمشک با مرکزیت اندیمشک، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "eab4e557033d6a3eaeb942e7114631d8f917a8d0b2c7c1daf799728cdebd3f65",
-   "content_text_hash": "184d694df6db12fc6c9b3dd018f9fcc674140db99701a1c14028183e677d1b44",
-   "word_count": 1126,
+   "content_hash": "88a9f348decad5bf071c1e7f586cb6b1a2b9bfb588ca1d621bb03c47fc691cd4",
+   "content_text_hash": "3bb1588bf5d9d0065d0578113e984ed3994120ef4f99c14ce8e77b769b9805cf",
+   "word_count": 1025,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -15138,14 +15154,14 @@
    "title": "شهرستان باغ‌ملک",
    "status": "publish",
    "date_published": "2026-10-03 00:55:43",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/bagh-e-malek/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=276&action=edit",
    "excerpt": "شهرستان باغ‌ملک با مرکزیت باغملک، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "dcf1404e5b95316603c48c5152c24194a954c8f1888f297e3a9137801d67bdb5",
-   "content_text_hash": "31ed27718afe59d40e23d4a4c489cb2c316d0a1adbf1968a3f69c59337b29b31",
-   "word_count": 1044,
+   "content_hash": "d5d9e2811cf958cb03ba94fb88d94b08c9defbf83057d8c013bc31fffecf7735",
+   "content_text_hash": "f16434edce6134a85ae3e0c34fd4b26ce26aacacc0abf06338e92abc9a248060",
+   "word_count": 961,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -19001,14 +19017,14 @@
    "title": "شهرستان باوی",
    "status": "publish",
    "date_published": "2026-10-03 00:55:33",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/bavi/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=277&action=edit",
    "excerpt": "شهرستان باوی با مرکزیت ملاثانی، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "deb64383fd529e1538ab513f795ec683d4048cb3d2ed1afd1680a7b17862a65b",
-   "content_text_hash": "a3448567432e5eae647bfa3fb08f6b7ec950fd1d5cb5c240abf29aa6cc2b99d9",
-   "word_count": 1052,
+   "content_hash": "a57b109086e48645a2c7ed8ca6bf155d0b09397dd6abdf25cf5a1828bdc8350d",
+   "content_text_hash": "dc254ca4aa21b81cdadae43c77f7a010e4461b09bba77c8a6f3f18eee0d4bfef",
+   "word_count": 980,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -19356,14 +19372,14 @@
    "title": "شهرستان بهبهان",
    "status": "publish",
    "date_published": "2026-10-03 00:55:28",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/behbahan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=279&action=edit",
    "excerpt": "شهرستان بهبهان با مرکزیت بهبهان، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "795fed7337cfb8838767bcec6d9a979847a424763dd99cb5e27e14f50cbc9ef6",
-   "content_text_hash": "ad69c81460209694e325453284e5da76c78a476ae3942c5161a2c362f43fcb6a",
-   "word_count": 1060,
+   "content_hash": "f9c6103a117dc74590532df0771bf3225a59b91f99b4bc88ec7248171eae150f",
+   "content_text_hash": "86cde8ada49af333e1675e643791dcd676e90b4d077a54cdb93fe8dff7c6982e",
+   "word_count": 976,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -20471,14 +20487,14 @@
    "title": "شهرستان بینالود",
    "status": "publish",
    "date_published": "2026-10-02 23:46:04",
-   "date_modified": "2026-10-08 00:56:47",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/binalud/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1322&action=edit",
    "excerpt": "شهرستان بینالود با مرکزیت طرقبه، یکی از شهرستان‌های خراسان رضوی با جغرافیای ویژه است.",
-   "content_hash": "bec555a10b26f1d1cfce27f9054cdb669d07f19e1028e924ec7597390ceb5505",
-   "content_text_hash": "b4a8581ed5dd15f17c2b0f22a1900620a76d891e163e30f9182931f8a228923e",
-   "word_count": 1213,
+   "content_hash": "517e2c684e44a29e1d20fe68639e524926c3b3ab8c1ccd448efa7e7caa750f64",
+   "content_text_hash": "7814b9c3dc219b70e040febb0db73b162a4b74cc5da810eacb52843c5363f887",
+   "word_count": 1069,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -20897,14 +20913,14 @@
    "title": "شهرستان بجنورد",
    "status": "publish",
    "date_published": "2026-10-08 00:58:18",
-   "date_modified": "2026-10-08 00:58:18",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/bojnord/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=71&action=edit",
    "excerpt": "شهرستان بجنورد با مرکزیت بجنورد، یکی از شهرستان‌های خراسان شمالی با جغرافیای ویژه است.",
-   "content_hash": "b32759921fc2292229105a72ab6dba5b804dc3748660175b3163facd83fcc7ff",
-   "content_text_hash": "6e10f23d800c359644fbcc31f232a76663e216658992cf72a30c16fb2cfc7a49",
-   "word_count": 1043,
+   "content_hash": "db9912d01bb4b5f8970637505a880b794d30d8d81eab9411e445136c80790ca6",
+   "content_text_hash": "8a9a1fa4ac9baa087dfa6a8d48810ba6db4a91a4b3470e07d3b99cfab44eecbe",
+   "word_count": 1005,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -20913,9 +20929,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 45,
+   "meta_count": 46,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -25844,14 +25861,14 @@
    "title": "شهرستان چناران",
    "status": "publish",
    "date_published": "2026-10-02 23:46:24",
-   "date_modified": "2026-10-08 00:56:31",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/chenaran/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1318&action=edit",
    "excerpt": "شهرستان چناران با مرکزیت چناران، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "0d2b5b3f851f0c58631df51315d574857555a7fb408b5b05d30fecc0ae39b61a",
-   "content_text_hash": "8fc7e33709fefbd593b48cd75b831c041ce5865ee1adec9ff7364fd727b432a8",
-   "word_count": 1341,
+   "content_hash": "56b88deaff2181a494cabfd13a7bacaa6d3d72123efd85fe4fd6cc85d27cc60b",
+   "content_text_hash": "5db5a54773c4938ab411f042a49c3494c08095dbfe773201722b2fa3f62b577e",
+   "word_count": 1276,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -27188,14 +27205,14 @@
    "title": "شهرستان درگز",
    "status": "publish",
    "date_published": "2026-10-02 23:47:15",
-   "date_modified": "2026-10-03 21:14:21",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/dargaz/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1308&action=edit",
    "excerpt": "شهرستان درگز با مرکزیت درگز، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "266a1e4bc9daab3ee9536fa332c398ddf775dad45361e7625349575fe4c0e1bb",
-   "content_text_hash": "be83681b136a9d816669e509b06e4fdab5b5f3f43bc9c9b2e343a2dd482ac881",
-   "word_count": 1165,
+   "content_hash": "a50403860aaaa3176572bebf1819e8dc71df71765cfbfa8bafd4c573af306e1f",
+   "content_text_hash": "e35f9d2c15d78f2042dd9602b6f363efd6722713be8ae604577dc1e7814b8863",
+   "word_count": 1095,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -27204,9 +27221,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 45,
+   "meta_count": 46,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -27919,14 +27937,14 @@
    "title": "شهرستان دشت آزادگان",
    "status": "publish",
    "date_published": "2026-10-03 00:55:23",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/dasht-azadegan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=283&action=edit",
    "excerpt": "شهرستان دشت آزادگان با مرکزیت سوسنگرد، یکی از شهرستان‌های خوزستان با ویژگی‌های رودخانهٔ کرخه، تالاب‌های مرزی و یادمان‌های معاصر است.",
-   "content_hash": "7059716330b37627f5621ffbeb06553e722e11893cc780f864dde3b36e1a2504",
-   "content_text_hash": "3df490e7783b77948509aa34641501b4fa5c8b76193995b46e5de4f3bdc131b9",
-   "word_count": 2324,
+   "content_hash": "ca1230acde56467a32204179b16441b4c6043dd85bab003d3be1d841c82d8633",
+   "content_text_hash": "141b8e2c475d3b73b90d71e48c33aaf3589cfa3ff46ae750380749f1668c5fae",
+   "word_count": 2240,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -28508,14 +28526,14 @@
    "title": "شهرستان داورزن",
    "status": "publish",
    "date_published": "2026-10-02 23:47:20",
-   "date_modified": "2026-10-03 21:14:16",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/davarzan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1307&action=edit",
    "excerpt": "شهرستان داورزن با مرکزیت داورزن، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "d4c038229a8baba14519e765872197f778386cf115cfab3213fe1fec8954f299",
-   "content_text_hash": "fafb8ac4af7ae37c961e6da56684c9197bc51ea910373b90d57316c93536ad0e",
-   "word_count": 1137,
+   "content_hash": "6f5d1555751c7af0039874110392a16811140336ede4c9b51abfa13971089a7b",
+   "content_text_hash": "cb58acdaf7f00cc38c4e714c9d9ecec2371371481475e604b4a5c90e32f7cad9",
+   "word_count": 1099,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -28524,9 +28542,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -30056,14 +30075,14 @@
    "title": "شهرستان دزفول",
    "status": "publish",
    "date_published": "2026-10-03 00:55:18",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/dezful/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=282&action=edit",
    "excerpt": "شهرستان دزفول با مرکزیت دزفول، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "e1d4b36ee8a2abb2d0348ee7d3b88e1fb939164cbcf446fdd58619d457374734",
-   "content_text_hash": "0aef8a67a6f04bd51068cfb389fce98f1dd84301009a927900afc15936b2c51f",
-   "word_count": 1113,
+   "content_hash": "d595e6de72791cbae702a40aeb35ed50e5a9599461347a6a0a569b380b69052f",
+   "content_text_hash": "d0381f6a567280760c2617d834d1eb7372d97c682bf23accf9da7c25630ed6d6",
+   "word_count": 1038,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -30268,14 +30287,14 @@
    "title": "شهرستان دزپارت",
    "status": "publish",
    "date_published": "2026-10-03 00:55:13",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/dezpart/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=592&action=edit",
    "excerpt": "شهرستان دزپارت با مرکزیت دهدز، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "76d2c44878239d12366e61f3123a527592b0c4539657e6ef5364523b81ce9432",
-   "content_text_hash": "175c588d9f29abbac04d4898c8e87261d7cbe17afd98b16f461cc9cb5641e35b",
-   "word_count": 1079,
+   "content_hash": "bbb90d89bad3e439f2fbe86d5310c4832405b96b57a17ac95647f1115e545bc7",
+   "content_text_hash": "06b189aa7ac9e562364da5403059e820f74618aeaf5b401c8f03f0e1b7f56aaf",
+   "word_count": 994,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -30625,13 +30644,8 @@
    "content_hash": "e0dd01e800cc1f80bf398f8b7aaabab61625b87d79672d7e893e4ce167738a2c",
    "content_text_hash": "ee8d2754925f0650eeb9b609b82347d0d54f9ff2331c5e13cdbc622282e7b33a",
    "word_count": 2100,
-   "featured_file": "dorud-city-white-card-1200x600-1.webp",
-   "featured": {
-    "file": "dorud-city-white-card-1200x600-1.webp",
-    "alt": "کارت سفید دورود | دورود | لرستان با آیکون رنگی گوشه‌ای و نوشته‌های مرکزچین — Dorud",
-    "width": 1200,
-    "height": 600
-   },
+   "featured_file": "",
+   "featured": {},
    "terms": {
     "province_tax": [
      "lorestan"
@@ -30642,7 +30656,7 @@
      "summer"
     ]
    },
-   "meta_count": 56,
+   "meta_count": 57,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
@@ -30658,6 +30672,7 @@
     "_sa_import_status",
     "_sa_import_time",
     "_sa_import_version",
+    "_sa_ready_remove_featured_image",
     "_sa_secondary_keywords",
     "_sa_social_telegram_sent",
     "_wp_old_slug",
@@ -30903,6 +30918,7 @@
     ]
    },
    "flags": [
+    "missing_featured_image",
     "differs_from_repo"
    ]
   },
@@ -31344,14 +31360,14 @@
    "title": "شهرستان اسفراین",
    "status": "publish",
    "date_published": "2026-10-08 00:58:19",
-   "date_modified": "2026-10-08 00:58:19",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/esfarayen/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=72&action=edit",
    "excerpt": "شهرستان اسفراین با مرکزیت اسفراین، یکی از شهرستان‌های خراسان شمالی با جغرافیای ویژه است.",
-   "content_hash": "09c9ab24d6ea5123aa8c19763c65c7539e80a1a3699eb8db09dbe8c10c1986ce",
-   "content_text_hash": "a40a5f93e906f6bfe19e00680e5dfc09adc657dfb293ce6d7255620ce49c70a8",
-   "word_count": 1045,
+   "content_hash": "df1c83027105531cf41358eb5847c2e7f98bd04c39b47869ddd6d995da4e7082",
+   "content_text_hash": "adf531ad1477123a9b340ba11ef414a6e6f6b00c9b95d49bc2114bd75400bd91",
+   "word_count": 971,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -31360,10 +31376,11 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -34251,14 +34268,14 @@
    "title": "شهرستان فریمان",
    "status": "publish",
    "date_published": "2026-10-02 23:46:44",
-   "date_modified": "2026-10-03 21:14:51",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/fariman/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1314&action=edit",
    "excerpt": "شهرستان فریمان با مرکزیت فریمان، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "78f884993b8153cc711fb8ecf740e3848b911b1c17c635729b78b75137d4a096",
-   "content_text_hash": "19400af8b7ac7fe27720a188a187d405e3d1afbdd2dddd88261ab3b064fb1956",
-   "word_count": 1120,
+   "content_hash": "e20257ae70ec284e0b67d3a1b7011b70ff0ac6e7f733a2baafd4e7857628d45b",
+   "content_text_hash": "f6e726f3fd6ca6bd6ef6d6c10282afa49433e34e23d8078b7456b6bdbd18d629",
+   "word_count": 1070,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -34267,9 +34284,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -34453,14 +34471,14 @@
    "title": "شهرستان فرخ‌شهر",
    "status": "publish",
    "date_published": "2026-10-04 15:03:14",
-   "date_modified": "2026-10-07 23:32:13",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/farrokhshahr/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=239&action=edit",
    "excerpt": "شهرستان فرخ‌شهر در استان چهارمحال و بختیاری؛ راهنمای سفر، دیدنی‌ها، سوغات، مسیر دسترسی و اطلاعات جمعیتی با تمرکز بر مرکز شهرستان فرخ‌شهر.",
-   "content_hash": "e444469a586d1bc2cdebe8b5da8b7171ab33277ffdc7491a4e0dda26c2023026",
-   "content_text_hash": "abb8811ddf3a8d8b19c4f4cc02327129a9aa8f122b3345fc545ea736c81ac9a8",
-   "word_count": 722,
+   "content_hash": "0e09acf8e7cf41226b9064860c68d3ece258039aa3ae9f31b763b0b5c0d75a52",
+   "content_text_hash": "1454d9b99c44f9f4993e7ac594c4601d27f5d0738a25e4ad470df983c805bf34",
+   "word_count": 689,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -34473,9 +34491,10 @@
      "summer"
     ]
    },
-   "meta_count": 36,
+   "meta_count": 37,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_slug",
     "_sa_import_version",
     "_sa_social_telegram_sent",
@@ -34745,14 +34764,14 @@
    "title": "شهرستان فاروج",
    "status": "publish",
    "date_published": "2026-10-08 00:58:26",
-   "date_modified": "2026-10-08 00:58:26",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/faruj/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=78&action=edit",
    "excerpt": "شهرستان فاروج با مرکزیت فاروج، یکی از شهرستان‌های خراسان شمالی با جغرافیای ویژه است.",
-   "content_hash": "54660f80d8ce268cc813b3e1b3618d25e2166f1493b76f06be9a3f41a909c116",
-   "content_text_hash": "95a77be66b52f003ceb22e631390889c762c35afe994f0fad6617f5e8b9fa405",
-   "word_count": 1082,
+   "content_hash": "13e0c9da8e52204d1d2b3e5fbecd4fd291e75f6bd149cfe0575d2128e5a8a2f5",
+   "content_text_hash": "1021bc43aa5d90ce7e14133d043dd80a6980ce659dbcc24e8ecbd85aa9eabf9c",
+   "word_count": 1015,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -34761,10 +34780,11 @@
     ],
     "travel_season": []
    },
-   "meta_count": 42,
+   "meta_count": 43,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -36034,14 +36054,14 @@
    "title": "شهرستان فیروزه",
    "status": "publish",
    "date_published": "2026-10-02 23:46:39",
-   "date_modified": "2026-10-03 21:14:56",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/firuzeh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1315&action=edit",
    "excerpt": "شهرستان فیروزه با مرکزیت فیروزه، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "14d1a385150b94352d06581b7d9041142cdd22a7897e847fadf156a05d3d603a",
-   "content_text_hash": "8a5e6c31b41e8b63cb6db6048d5dd27ba4afd98cc29d7d08acc7304b6d63525d",
-   "word_count": 1099,
+   "content_hash": "57cfa80436f4c98660ea843891844be42c44c87c1439d981736c07635c08e913",
+   "content_text_hash": "5126613bfe43f90081ba99c1d1db79081befc444c0838e97c32dd42a96c6e62c",
+   "word_count": 1061,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -36050,9 +36070,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -37233,14 +37254,14 @@
    "title": "شهرستان گرمه",
    "status": "publish",
    "date_published": "2026-10-08 00:58:26",
-   "date_modified": "2026-10-08 00:58:26",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/garmeh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=79&action=edit",
    "excerpt": "شهرستان گرمه با مرکزیت گرمه، یکی از شهرستان‌های خراسان شمالی با جغرافیای ویژه است.",
-   "content_hash": "52c8b498373d0a012b23e3e8226019d9dd85b7158c8ebb4f18c3fc410b437ab6",
-   "content_text_hash": "40c1414570f93cca422f128303ba80db2f85f418c7d80a4473b3636e4b6723d4",
-   "word_count": 1041,
+   "content_hash": "8688069078c3d7afc06311b3c1af4894a5d072674fbb133c34ab1e0bf979080e",
+   "content_text_hash": "5a367839ab5a02dd82ff04e1841201d1b982a42b77932f80cb71cd73fdc1c36a",
+   "word_count": 979,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -37249,9 +37270,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 44,
+   "meta_count": 45,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -38465,14 +38487,14 @@
    "title": "شهرستان گلبهار",
    "status": "publish",
    "date_published": "2026-10-02 23:46:09",
-   "date_modified": "2026-10-08 00:56:42",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/golbahar/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1321&action=edit",
    "excerpt": "شهرستان گلبهار با مرکزیت گلبهار، یکی از شهرستان‌های خراسان رضوی با جغرافیای ویژه است.",
-   "content_hash": "c2b28793f654bb587650cd078687e8827ed236ea70edbd6fa3bcdb26007ea915",
-   "content_text_hash": "c4b4434d7c79e7f81394fd7b4bea591f9afb7d41985a1ede3bd300092a37b229",
-   "word_count": 1210,
+   "content_hash": "96ddfc4b38e682c2d95975f08ed27fb2cd928811dac3bb3b6da655a681295a6e",
+   "content_text_hash": "412d5324b178ac94f6b090acefb33093e29055ac9b8de63ea96f9a68c871f596",
+   "word_count": 1145,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -39403,14 +39425,14 @@
    "title": "شهرستان گناباد",
    "status": "publish",
    "date_published": "2026-10-02 23:47:50",
-   "date_modified": "2026-10-03 21:13:46",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/gonabad/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=70&action=edit",
    "excerpt": "شهرستان گناباد با مرکزیت گناباد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "b991a5d3f704ae42dcf5577159b0deebbf756355ea818218114f38bb25b4f795",
-   "content_text_hash": "bdf25b51953dfc08271ef0b208c271ff79d7974c2c72f8bbb7a627f6c50f1782",
-   "word_count": 1290,
+   "content_hash": "dd83f56ee0a1a4b1b8359afff7f36c661e283c5f4c4173364216a1ac2e8d3694",
+   "content_text_hash": "360cbb9e6e1aebeac7340158f9f4cc3e41c77fb8fc5d910e1d8760c69ae459a4",
+   "word_count": 1245,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -39419,9 +39441,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -40041,14 +40064,14 @@
    "title": "شهرستان گتوند",
    "status": "publish",
    "date_published": "2026-10-03 00:55:03",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/gotvand/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=290&action=edit",
    "excerpt": "شهرستان گتوند با مرکزیت گتوند، یکی از شهرستان‌های خوزستان با ویژگی‌های تپهٔ چغا، رود کارون و طبیعت کیارس است.",
-   "content_hash": "3ec0a723ea3ee92ac42cbea9cebdfa822ea6819c6ca065379818e4698f7106c6",
-   "content_text_hash": "e70aff3730834fee3b88ff0020a4a2923530057bc08b523f72344c30c9a236c7",
-   "word_count": 1535,
+   "content_hash": "a4d9b4067c78dd906d9001ffe1ab0c2dbadb3570662d7d40be0c1a1d497d59b4",
+   "content_text_hash": "5f547f3807c10a4c405b300451dd2d0287604f2e8e6b615a8d894f1923af2bec",
+   "word_count": 1452,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -40250,14 +40273,14 @@
    "title": "شهرستان هفتکل",
    "status": "publish",
    "date_published": "2026-10-03 00:55:08",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/haftkel/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=293&action=edit",
    "excerpt": "شهرستان هفتکل با مرکزیت هفتکل، یکی از شهرستان‌های خوزستان با ویژگی‌های تاریخ شهر نفتی و میراث صنعتی است.",
-   "content_hash": "831790cf269f96784c9c3768a54e3618c33cc6b0e211f97d920d45b521054d22",
-   "content_text_hash": "4a31b1bbf25a54867d66183fee6e17df96654f0502285cf21cc5498f670df995",
-   "word_count": 1761,
+   "content_hash": "c6a2e296e3e740f180d4465baa5ccbaa4e04aaf5033275f8ba602c13550aef14",
+   "content_text_hash": "d001a0297db7461c2308c460c3b990b5db19f0abb1733907c7da51bee6dad432",
+   "word_count": 1709,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -40910,14 +40933,14 @@
    "title": "شهرستان حمیدیه",
    "status": "publish",
    "date_published": "2026-10-03 00:54:58",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/hamidiyeh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=280&action=edit",
    "excerpt": "شهرستان حمیدیه با مرکزیت حمیدیه، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "885d4deb5f7d9b8f8860ccbc0cea4ea5fba7f6d1b8cfc53f422bb60dbfc28381",
-   "content_text_hash": "8562a4f3935d59d8fd7e65b36d3cfdd55f835c9e145b1d279e767bcd7b03830e",
-   "word_count": 1063,
+   "content_hash": "cb134c6007ebc53ee50a5f2659862115e63c154187c5933ef708e835e57a3153",
+   "content_text_hash": "56f175905746fba7a6c9b7fcc6fda451e6aff01dfecfb4937216f45f05bedc7a",
+   "word_count": 991,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -41862,14 +41885,14 @@
    "title": "شهرستان هندیجان",
    "status": "publish",
    "date_published": "2026-10-03 00:54:53",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/hendijan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=294&action=edit",
    "excerpt": "شهرستان هندیجان با مرکزیت هندیجان، یکی از شهرستان‌های خوزستان با ویژگی‌های رود زهره، بندر بحرکان و میراث بندری است.",
-   "content_hash": "ed4dad06cf3ac3323e7d0ef941f98b5741fe4fd6111fb86361c31d2619bb4f1b",
-   "content_text_hash": "d996bab0e65eedffc52a5abe0dded8cd4fdb45b54974cbd0ed5a8405eae7eada",
-   "word_count": 1763,
+   "content_hash": "ee1d3784b7ea5a202abea89da7879b00b3995c0d6cab07a53cadafc8b8ae4838",
+   "content_text_hash": "1b9fc20b14b2409b6f6f3c8da84b0ac0ed0ff9a6f2fc995bf5b9cd8e4af7a0e3",
+   "word_count": 1710,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -42499,14 +42522,14 @@
    "title": "شهرستان هویزه",
    "status": "publish",
    "date_published": "2026-10-03 00:54:48",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/hoveyzeh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=295&action=edit",
    "excerpt": "شهرستان هویزه با مرکزیت هویزه، یکی از شهرستان‌های خوزستان با ویژگی‌های هورالعظیم، یادمان هویزه و جغرافیای مرزی است.",
-   "content_hash": "268c0119fa0f4a4b291d7c86c6073e1073d992f62b6b32de916efd73e0f1de2c",
-   "content_text_hash": "d3a0c5273c39f7b64ec778fd0521a4556e1a0a1bb1e9db88082da1a59172f442",
-   "word_count": 1612,
+   "content_hash": "2d3a1a9178c0feee2044cc3d21b4bf59d6ddd9ca42b9834706e8ef4468ff6429",
+   "content_text_hash": "773cb70f63d6d806572c3638909c4e466ad93df3f137819b421db9f84525399e",
+   "word_count": 1495,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -43081,7 +43104,7 @@
     "not_in_repo_baseline",
     "duplicate_title"
    ],
-   "agent_note": "ریدایرکت 301 به city:ejrud از قبل در قالب بود؛ در ممیزی 2026-11-10 هنوز هر دو منتشر بودند — پس از انتشار نسخهٔ جاری قالب، راستی‌آزمایی شود."
+   "agent_note": "نسخهٔ تکراری ایجرود (۷۷۹ واژه، ۰ لینک داخلی). ریدایرکت 301 به city:ejrud از قبل در قالب بود و فعال است؛ اما صفحه هنوز «منتشرشده» است (ممیزی ۲۰۲۶-۱۱-۱۰ ساعت ۲۳:۳۸). گام باقی‌ماندهٔ مالک: فرستادن به زباله‌دان."
   },
   {
    "key": "city:ilam",
@@ -43681,14 +43704,14 @@
    "title": "شهرستان ایذه",
    "status": "publish",
    "date_published": "2026-10-03 00:54:43",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/izeh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=275&action=edit",
    "excerpt": "شهرستان ایذه با مرکزیت ایذه، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "3c6dacbc42ad02d60e8d6f7f8bb3b29810092773a7b8ceeb3a3eb1fdbc51dc29",
-   "content_text_hash": "5ca304eaa36745c4a19e9a0202149ccbd57e79d13855226b3907ad6b39801926",
-   "word_count": 1065,
+   "content_hash": "3054becb85b5f11e6e61a5f2252ec5219445da806150e7009af50154ac835ac5",
+   "content_text_hash": "1a8d594b3fa3ef4c251037aee49e57810b9b1533dd126aadbf051bc1d9625441",
+   "word_count": 1001,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -44301,14 +44324,14 @@
    "title": "شهرستان جاجرم",
    "status": "publish",
    "date_published": "2026-10-08 00:58:20",
-   "date_modified": "2026-10-08 00:58:20",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/jajarm/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=75&action=edit",
    "excerpt": "شهرستان جاجرم با مرکزیت جاجرم، یکی از شهرستان‌های خراسان شمالی با جغرافیای ویژه است.",
-   "content_hash": "ef1f1ee9f0afabbf7f998f9abe1288107de2fd495e3ca46ea38043dfa6ba3280",
-   "content_text_hash": "6f01bdf857cf386d2d37545515e1bb75953ba5e5df76da1ad1bbe993f747a190",
-   "word_count": 1025,
+   "content_hash": "9ddb5c309f318edd4b58f0f5cfbfcf3dd9ae2ff87974230e254abc33a44d857b",
+   "content_text_hash": "5167cd5b361b8ba8f37f515d18f04697bbf28ee819424690d10b6967a4b8e181",
+   "word_count": 961,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -44317,9 +44340,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 42,
+   "meta_count": 43,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -45426,14 +45450,14 @@
    "title": "شهرستان جغتای",
    "status": "publish",
    "date_published": "2026-10-02 23:47:45",
-   "date_modified": "2026-10-03 21:13:51",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/joghatai/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1302&action=edit",
    "excerpt": "شهرستان جغتای با مرکزیت جغتای، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "b30c14651ed5d5094db5e8c0262134016064dee751bf545e1113df31637ed5a3",
-   "content_text_hash": "91e2b4dc6a320a606b5305e43c14b40d845910038063f1c94a54a059ffeb4d4c",
-   "word_count": 1159,
+   "content_hash": "c7a8d46ec76a8602df23faf18229271b462440a627b98351d708a8e823951560",
+   "content_text_hash": "3f033f4249c0ebd89467abc8e1299026788fd580af4afcddbaca572bd0211033",
+   "word_count": 1101,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -45442,9 +45466,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 42,
+   "meta_count": 43,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -46064,14 +46089,14 @@
    "title": "شهرستان جوین",
    "status": "publish",
    "date_published": "2026-10-02 23:47:40",
-   "date_modified": "2026-10-03 21:13:56",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/jovein/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1303&action=edit",
    "excerpt": "شهرستان جوین با مرکزیت نقاب، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "5b12444cc685c1a29f1d50cb517a171401345f3616e0995f03b1a278568b2831",
-   "content_text_hash": "a8979d2221547dd000e38d03f97c073aa858fc2bf4490fea029bf99828a0a87e",
-   "word_count": 1164,
+   "content_hash": "e9c7ade59f5a3c843cb01254771493f200456129121e6b0b90ad096df2e6f437",
+   "content_text_hash": "d2346059768d4782feb0294e4f17c167a6389967d0f8195d6cfa0f5c47e047bc",
+   "word_count": 1111,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -46080,9 +46105,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 44,
+   "meta_count": 45,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -47065,14 +47091,14 @@
    "title": "شهرستان کلات",
    "status": "publish",
    "date_published": "2026-10-02 23:46:19",
-   "date_modified": "2026-10-08 00:56:36",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/kalat/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1319&action=edit",
    "excerpt": "شهرستان کلات با مرکزیت کلات، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "8eb2927995b2d9d11398c29ca4993f84328b47a8936e934cbfab671399410525",
-   "content_text_hash": "67aa2100dfb6f7a8222c827160ec33c2b8d3b725d93f5201a318316bebd72432",
-   "word_count": 1326,
+   "content_hash": "845fc237fdb68cda86afa4d2e49e3bbd4914029078d49a9af75144deb7cd57e9",
+   "content_text_hash": "79765caf26e30e19d1b333c6eb463e24a54800ec0a98df21311fd69d9fe79adc",
+   "word_count": 1277,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -48135,14 +48161,14 @@
    "title": "شهرستان کرخه",
    "status": "publish",
    "date_published": "2026-10-03 00:54:38",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/karkheh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=593&action=edit",
    "excerpt": "شهرستان کرخه با مرکزیت الوان، یکی از شهرستان‌های خوزستان با ویژگی‌های رودخانهٔ کرخه، الوان و دشت‌های کشاورزی است.",
-   "content_hash": "1c997f116d3e582bd5cf537d8e4fb33b224cf1f88a6313528f6988a46014c4f1",
-   "content_text_hash": "0cc31097a9c8dba19f588c12a57f5b3ae1822dc37de2a14f0e7e3635e7747712",
-   "word_count": 1536,
+   "content_hash": "a501de23656f895e694d2bb0ee15fa1003c8e1b6013f618587b5c6b6006b63c3",
+   "content_text_hash": "29b1cdefeaad04f515b50e577592885ec54b9a1454d1d0f7432b6f41ebb48ac7",
+   "word_count": 1468,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -48339,14 +48365,14 @@
    "title": "شهرستان کارون",
    "status": "publish",
    "date_published": "2026-10-03 00:54:33",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/karun/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=289&action=edit",
    "excerpt": "شهرستان کارون با مرکزیت کوت عبدالله، یکی از شهرستان‌های خوزستان با ویژگی‌های کوت عبدالله، رود کارون و جلگهٔ پیرامون اهواز است.",
-   "content_hash": "cebb49dcb79d2aa16996cc7d97127feda58fa5cf958ce060900455ee4583b637",
-   "content_text_hash": "4f433d55a97d0719b210ee9c92680dcd2deeeebc0e87b3fce8929ce170dee33c",
-   "word_count": 1540,
+   "content_hash": "c87551795e2f4d3f0db62b282b3b0e510d586e228965da0e134a1f52612285cf",
+   "content_text_hash": "afc2d470865d6b23bda48f7b6ed1a1bb63ea2b702b7b4d49908ea1e6a021ab99",
+   "word_count": 1449,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -48742,14 +48768,14 @@
    "title": "شهرستان کاشمر",
    "status": "publish",
    "date_published": "2026-10-02 23:47:55",
-   "date_modified": "2026-10-03 21:13:41",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/kashmar/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=69&action=edit",
    "excerpt": "شهرستان کاشمر یا ترشیز تاریخی، در جنوب‌غرب خراسان رضوی با باغ‌ها، آثار مذهبی و میراث تاریخی گسترده قرار دارد.",
-   "content_hash": "9a2f5e05601c07a070ddafbb23ff450380ed7cb47b5428392bec30f814513632",
-   "content_text_hash": "393f3ab8efced475bceae50395dcb9ad3cea5042b364fe34a328d8eca8e8816f",
-   "word_count": 1227,
+   "content_hash": "7543f9e546e91117674a5db67a554405730b631c57d021a4d57804f3d429ef33",
+   "content_text_hash": "4567a5946426ccbf1ae3d50d6cd0acd785b92f34f7b8859a6f25756ba72b1b8a",
+   "word_count": 1202,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -48758,9 +48784,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 46,
+   "meta_count": 47,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -49887,14 +49914,14 @@
    "title": "شهرستان خواف",
    "status": "publish",
    "date_published": "2026-10-02 23:47:30",
-   "date_modified": "2026-10-03 21:14:06",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/khaf/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1305&action=edit",
    "excerpt": "شهرستان خواف با مرکزیت خواف، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "52ac9beae6ef0d3e804643ed662376ba6c48bbc5d3f41a91e22a683feabb2491",
-   "content_text_hash": "d733026a6d4ab80fef7515c7578606185e5bf9cc73881be8ee6318fe7f7187f6",
-   "word_count": 1225,
+   "content_hash": "67d0b1b7df980a8b6e23cd8fc7d3629c0cb69e96ca0ba147d4a16d27d3ec3447",
+   "content_text_hash": "8b3bdba284769f346d10148e89bb4b46b3253a42a981ec3aaac7c78bd9de3c6a",
+   "word_count": 1171,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -49903,9 +49930,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 45,
+   "meta_count": 46,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -50313,14 +50341,14 @@
    "title": "شهرستان خلیل‌آباد",
    "status": "publish",
    "date_published": "2026-10-02 23:47:35",
-   "date_modified": "2026-10-03 21:14:01",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/khalilabad/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1304&action=edit",
    "excerpt": "شهرستان خلیل‌آباد با مرکزیت خلیل‌آباد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "8e2125a4ec40a09b8d9b5e2d3f77f94d38e6afdf5403476fde1b43400ec28b89",
-   "content_text_hash": "7b7005b550831dd43302805f4137770af48cd60d1346e363fe78f0e61e3a31ff",
-   "word_count": 1150,
+   "content_hash": "702a34934530a2aff3cf1a5c1430007b288cabeab709eb3a13f218a55b989986",
+   "content_text_hash": "91f9b02f187302c48c0f377922f3df32fd13f0e474a1dce2a80f1916a91e102d",
+   "word_count": 1112,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -50329,9 +50357,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 41,
+   "meta_count": 42,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -53826,14 +53855,14 @@
    "title": "شهرستان خرمدره",
    "status": "publish",
    "date_published": "2026-10-03 21:09:39",
-   "date_modified": "2026-10-24 04:29:04",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/khorramdarreh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1495&action=edit",
    "excerpt": "شهرستان خرمدره؛ کوچک‌ترین و پرتراکم‌ترین شهرستان استان زنجان با یک شهر، نام کهن جوزستان و بالاترین نرخ باسوادی استان.",
-   "content_hash": "126fa90db6741e2f556ab3b08ea1e8b77824d4be2fa28c440345a24e39f4cf19",
-   "content_text_hash": "6f22a3f195c7620792324e7c551b6e4781ba9c198c7979b84e670dc95d918fcd",
-   "word_count": 811,
+   "content_hash": "43de8888ebc2e0c59d40feefa447560d7a0b74f5084cd216c52d0f459978e371",
+   "content_text_hash": "b95d73cfac76c25b04459fecf5bacb848d1b2e595413bf03a211ced67666e6e1",
+   "word_count": 801,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -53990,7 +54019,7 @@
     "not_in_repo_baseline",
     "duplicate_title"
    ],
-   "agent_note": "ریدایرکت 301 به city:kharadere در قالب 2.22.37 ثبت شد (2026-11-10)؛ منتظر انتشار قالب و تأیید با ممیزی تازه."
+   "agent_note": "نسخهٔ تکراری خرمدره (۸۱۱ واژه، ۰ لینک داخلی). ریدایرکت 301 به city:kharadere از قالب 2.22.37 فعال است و قالب روی سایت به‌روز شده؛ اما صفحه هنوز «منتشرشده» است (ممیزی ۲۰۲۶-۱۱-۱۰ ساعت ۲۳:۳۸). گام باقی‌ماندهٔ مالک: فرستادن به زباله‌دان."
   },
   {
    "key": "city:khorramshahr",
@@ -54000,14 +54029,14 @@
    "title": "شهرستان خرمشهر",
    "status": "publish",
    "date_published": "2026-10-03 00:54:28",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/khorramshahr/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=281&action=edit",
    "excerpt": "شهرستان خرمشهر با مرکزیت خرمشهر، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "dca519dafe56f458b2f4fa31a73eb1c4b681d9ee0bb24a864bccc058f8719b06",
-   "content_text_hash": "780fbcb8a0703f5c94215f3619f914f2024c22fc5652e907736301b480dac002",
-   "word_count": 1087,
+   "content_hash": "91f2be9e43fa52bea93e28f33cd0753bce53dd1e1773ac9732090ad82f5463d5",
+   "content_text_hash": "1e5a1f2017dab22d505456eb9421d52f614a7411917e95caf8706bbdb56f6fb7",
+   "word_count": 1011,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -54208,14 +54237,14 @@
    "title": "شهرستان خوشاب",
    "status": "publish",
    "date_published": "2026-10-02 23:47:25",
-   "date_modified": "2026-10-03 21:14:11",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/khoshab/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1306&action=edit",
    "excerpt": "شهرستان خوشاب با مرکزیت سلطان‌آباد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "25243dd6da001d9eb4172a58fb4dc2441bc9f4c21f99f233e4d0165a9fa57bcf",
-   "content_text_hash": "99df1f97a85023c1c84fe9b3b31241924f0c8231dd2daae684ffc6eea15a59aa",
-   "word_count": 1197,
+   "content_hash": "b221762bd788b5707183952c98996645e3d2dc8f1b59d7708afcb90064cb4e15",
+   "content_text_hash": "441bb579d91cff839fef16d07d6f42c87d0bb340fe5dd5e899109bfd749c4af3",
+   "word_count": 1159,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -54224,9 +54253,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 45,
+   "meta_count": 46,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -56504,14 +56534,14 @@
    "title": "شهرستان کوهسرخ",
    "status": "publish",
    "date_published": "2026-10-02 23:46:14",
-   "date_modified": "2026-10-08 00:56:37",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/kuhsorkh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1320&action=edit",
    "excerpt": "شهرستان کوهسرخ با مرکزیت ریوش، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "a65ed1c1d64aaba79acbe2dff72229108c4dfc74734762a07626d57a49407a95",
-   "content_text_hash": "ddcec0ed6907a1c2b65476538e05e9963747178aff115dbd11a724a155a289cd",
-   "word_count": 1324,
+   "content_hash": "f4e5fdb71d600d740010cf56e8e284194225f64ea8053d9db748962b8cb5cd27",
+   "content_text_hash": "56a7cfbbd0289636ad5dca0f8f1c2c4ea154559fc878e0cba0b1e2fdc3286d77",
+   "word_count": 1256,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -56866,14 +56896,14 @@
    "title": "شهرستان لالی",
    "status": "publish",
    "date_published": "2026-10-03 00:54:23",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/lali/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=291&action=edit",
    "excerpt": "شهرستان لالی با مرکزیت لالی، یکی از شهرستان‌های خوزستان با ویژگی‌های آبشارهای آرپناه، غار پبده و چشم‌انداز زاگرس است.",
-   "content_hash": "7f465c134a78e16ea3c511d204b941a9b6e7c1e9a3cf6230b50603d4818d97f1",
-   "content_text_hash": "bb8d4ba8bef0a09e1b41476ac818ed935669293901fd34e876f283563deaff11",
-   "word_count": 1789,
+   "content_hash": "7624fc3b4e482b14f5eca135aaca9e4158aed0339fd03c049ccb3f5a42f4e17e",
+   "content_text_hash": "a731f573a3e84274a92dba0d523d615d41dfbb79779f9c7d53b36cf4d6a6c953",
+   "word_count": 1715,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -58385,14 +58415,14 @@
    "title": "شهرستان مهاباد",
    "status": "publish",
    "date_published": "2026-10-07 23:41:34",
-   "date_modified": "2026-10-07 23:41:34",
+   "date_modified": "2026-11-11 02:52:40",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/mahabad/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=123&action=edit",
    "excerpt": "شهرستان مهاباد؛ چهارراه آذربایجان غربی، شرقی و کردستان، با پیشینه‌ای از مادها و کتیبهٔ کهن مینوآ.",
-   "content_hash": "ac03535a53d249f96eccd3c77e546915ab2da1d6fcb78bd8fa875d8d95111eb1",
-   "content_text_hash": "1db89e93a507e60975a642d38b7779d177941e5c058c5c5ee18174a556399150",
-   "word_count": 1054,
+   "content_hash": "de89b5529d71750459c168907371387e81d8c00240097181bbfaf829992956cf",
+   "content_text_hash": "1852d05ae81fe621ed98d0d160d4625c5a3b5f68e7a48b2ed4ff52ac0ab9c9fc",
+   "word_count": 1034,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -58405,9 +58435,10 @@
      "summer"
     ]
    },
-   "meta_count": 48,
+   "meta_count": 49,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_featured",
     "_sa_import_featured_sha1",
@@ -59161,14 +59192,14 @@
    "title": "شهرستان بندر ماهشهر",
    "status": "publish",
    "date_published": "2026-10-03 00:54:18",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/mahshahr/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=278&action=edit",
    "excerpt": "شهرستان بندر ماهشهر با مرکزیت بندر ماهشهر، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "19d14f049cc57deefdaad755ee1f157adc68005bfcf4d87c43f0a4c4c41e69c3",
-   "content_text_hash": "0cd3d5859bc7e8c3ff79fb6dc7b879d110080b38553d71b7a40438a2b0d14ac6",
-   "word_count": 1114,
+   "content_hash": "82e4822f3671c6d2779b7c1e344c86d2aa5461b6b84dc9317cda93dc81eb0a44",
+   "content_text_hash": "5d6bb218ddf9bc58147ccb80f65afa73f324bcdfdca357eb7d86fb63d442a914",
+   "word_count": 1041,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -59372,14 +59403,14 @@
    "title": "شهرستان مه‌ولات",
    "status": "publish",
    "date_published": "2026-10-02 23:46:34",
-   "date_modified": "2026-10-08 00:56:21",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/mahvelat/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1316&action=edit",
    "excerpt": "شهرستان مه‌ولات با مرکزیت فیض‌آباد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "f9e3d2bdc1f41e696c7d53f9042e9b6d2623e6e2de7ff18a6b46376e2c2e268e",
-   "content_text_hash": "7c0619d9ac2bcad81d58300ccc888881ead94272c11e554ec8b44e2eecec1840",
-   "word_count": 1353,
+   "content_hash": "fd548d020912548998e5577b5f2b813a52b49f0d57afb1d0c87196f24cd95534",
+   "content_text_hash": "f1aa31ee172e1e3263f701f2547d5058964b7b17a39452c23668a1081c797348",
+   "word_count": 1297,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -60919,14 +60950,14 @@
    "title": "شهرستان مانه",
    "status": "publish",
    "date_published": "2026-10-04 21:05:01",
-   "date_modified": "2026-10-07 23:31:18",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/maneh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=74&action=edit",
    "excerpt": "شهرستان مانه در استان خراسان شمالی؛ راهنمای سفر، دیدنی‌ها، سوغات، مسیر دسترسی و اطلاعات جمعیتی با تمرکز بر مرکز شهرستان پیش‌قلعه.",
-   "content_hash": "00aab142ba6d99371b03c75dd3057e28392f6b8eac6296b7989bf201f598dc75",
-   "content_text_hash": "6b709d1a7f34c2da5dbc58ab9bf2e0c48342c1bc96f7730ead5518fa65688e53",
-   "word_count": 680,
+   "content_hash": "c1d4756c78fac5bf08e575cd8e07a69c007168d58e3b77d74c56eecf3e193d57",
+   "content_text_hash": "7f656b2aab7cd855a530baba86eadd3afaec75984db438e6ef4b5dc1527cbff8",
+   "word_count": 638,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -60939,10 +60970,11 @@
      "summer"
     ]
    },
-   "meta_count": 41,
+   "meta_count": 42,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_slug",
     "_sa_import_version",
     "_sa_social_telegram_sent",
@@ -62634,14 +62666,14 @@
    "title": "شهرستان مشهد",
    "status": "publish",
    "date_published": "2026-10-02 23:48:15",
-   "date_modified": "2026-10-03 21:13:20",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/mashhad/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=63&action=edit",
    "excerpt": "شهرستان مشهد، مرکز خراسان رضوی و میزبان حرم امام رضا، توس و مهم‌ترین مجموعه‌های فرهنگی و زیارتی شمال‌شرق ایران است.",
-   "content_hash": "cfcb5bab6e47cf358b17dd81180194b5721503f8a5a6f6c5939f080aaae9c77e",
-   "content_text_hash": "431b4f0943505594369e12500b85c399a50b43f5136b15b306dca677808d6465",
-   "word_count": 1330,
+   "content_hash": "c10553a02fad30c0b22aa3e653e573938aad83f91bf987089b50c39178a71442",
+   "content_text_hash": "6008deb8369d6177d40e79129b49aad29f7ae2142d31e57059ed934177e463f9",
+   "word_count": 1305,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -62650,9 +62682,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 39,
+   "meta_count": 40,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -62830,14 +62863,14 @@
    "title": "شهرستان مسجدسلیمان",
    "status": "publish",
    "date_published": "2026-10-03 00:54:13",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/masjed-soleyman/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=292&action=edit",
    "excerpt": "شهرستان مسجدسلیمان با مرکزیت مسجدسلیمان، یکی از شهرستان‌های خوزستان با ویژگی‌های تاریخ صنعت نفت، زاگرس و میراث چندلایه است.",
-   "content_hash": "0d7bebb0b4ff512229f0eefe023b86bcb590ff8ad7fc5f97a50a28c72c1039ff",
-   "content_text_hash": "5a9d4cf78e117e26d698f822ca7df4c536aba90e8624adcb08d563100508f7ef",
-   "word_count": 1764,
+   "content_hash": "e6d9e2496a5606c14d051454fee7beda1cba4a7a36faa5b798f837f64503af0d",
+   "content_text_hash": "63084d4bb6b976ebe205ec0f4457b4ab014f74dd25d159b1003fb5cde638fbed",
+   "word_count": 1701,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -64535,14 +64568,14 @@
    "title": "میمه و وزوان",
    "status": "publish",
    "date_published": "2026-10-07 23:39:09",
-   "date_modified": "2026-10-24 04:45:11",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/meymeh-vazvan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=181&action=edit",
    "excerpt": "میمه و وزوان؛ پهنهٔ دیرین بخش میمه در منتهی‌الیه شمالی اصفهان.",
-   "content_hash": "6a3376abf17fa1ddb12b35bd27268f1e7ddd6f2f7fbd564b9f70ccd59c3365cf",
-   "content_text_hash": "4dbfab11400f4fa75467bace5d880c35cc89fbf5bb1f9f38624c9880d5c9f76a",
-   "word_count": 721,
+   "content_hash": "0501af06ef0a9a26592f1c76cd18fdfd9707b9f6697a8494aaf68dcebfddf4e2",
+   "content_text_hash": "2f6918d2c57ca0f879285d3f88fcbe7ffa3320be432baab6f9cda30ed22aec66",
+   "word_count": 697,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -64700,14 +64733,14 @@
    "title": "شهرستان میان‌جلگه",
    "status": "publish",
    "date_published": "2026-10-02 23:46:29",
-   "date_modified": "2026-10-08 00:56:26",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/mian-jolgeh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1317&action=edit",
    "excerpt": "شهرستان میان‌جلگه با مرکزیت عشق‌آباد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "9aeb1a9626296e86f3e861d76496dc0a6911e25b8e5e1436496dc8e349bb2d51",
-   "content_text_hash": "27845d6b350f63f0bf23c38e6603b38fc9b04517f55a0462108ffb0abf6e9964",
-   "word_count": 1293,
+   "content_hash": "df1429ed094a6cd25f108801185f6332bf90b57152bf6a3e79a2b93ba317be6d",
+   "content_text_hash": "987040e12a63541c1b736276f4ed8b38c5cb86b99719cc7a54e708b2490fe720",
+   "word_count": 1198,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -68465,14 +68498,14 @@
    "title": "شهرستان نیشابور",
    "status": "publish",
    "date_published": "2026-10-02 23:48:10",
-   "date_modified": "2026-10-03 21:13:25",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/neyshabur/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=64&action=edit",
    "excerpt": "شهرستان نیشابور یکی از مهم‌ترین کانون‌های تاریخی و ادبی خراسان است؛ سرزمین خیام، عطار، فیروزه و شهر کهن نیشابور.",
-   "content_hash": "b1057f4b492d6fc2e5ac362a8ff5f507387f6b5c9bfcbb4e6ebaf6aac870af30",
-   "content_text_hash": "9fdf431153755d38718db130c352b24683fa1bc4e87d2a539c3c375763c4322f",
-   "word_count": 1220,
+   "content_hash": "df488de67ee027dd04f979d39478a1ce4fca2380dcab18277b8ad20c1c1cea66",
+   "content_text_hash": "4268f2aae8ca0215a5bae644f5e306d10a0e900ed0a30fee3f397dbf7e9b7049",
+   "word_count": 1195,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -68481,9 +68514,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 38,
+   "meta_count": 39,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -69675,14 +69709,14 @@
    "title": "شهرستان امیدیه",
    "status": "publish",
    "date_published": "2026-10-08 00:58:17",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/omidiyeh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=272&action=edit",
    "excerpt": "شهرستان امیدیه با مرکزیت امیدیه، یکی از شهرستان‌های خوزستان با جغرافیای ویژه است.",
-   "content_hash": "14ae31e7aaba0e01f03a7d8af91ff26bea387615de81b77615456314a6d76398",
-   "content_text_hash": "84cff756b2f7dd48dd9353a41e05db98167dcba2fc100eb42e6fcd695368dd43",
-   "word_count": 1075,
+   "content_hash": "cd98fae55da54481a107afdb29fad3e332f7d2da80db2cb21374b9e6ebfa92eb",
+   "content_text_hash": "99a0abd38d66798c16e876c5d80fd225deed6273e691885b732b9ce40b45bad5",
+   "word_count": 989,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -74136,14 +74170,14 @@
    "title": "شهرستان قوچان",
    "status": "publish",
    "date_published": "2026-10-02 23:48:00",
-   "date_modified": "2026-10-03 21:13:35",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/quchan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=68&action=edit",
    "excerpt": "شهرستان قوچان در شمال خراسان رضوی، با دره‌های کوهستانی، مرز با ترکمنستان و فرهنگ متنوع فارسی، ترکی و کرمانجی شناخته می‌شود.",
-   "content_hash": "bdfaaa7ba17aab68973bc3f780c2f9ed31a03ded2112a57a8bfe68bcf6d9843f",
-   "content_text_hash": "65e4007040016cef0609dc11f4567567cf332cf9287059cb56181131b0214fd0",
-   "word_count": 1232,
+   "content_hash": "8f1f04bd8d5cf78905c68fa574669ba2bf92ddd7b5193fb09e7edad9e1bec3d8",
+   "content_text_hash": "75ae236a4e396dfa74182f3fbf9fa3a2ca4c3fdd9ab29b0c92ca8109b8a057aa",
+   "word_count": 1198,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -74152,9 +74186,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 39,
+   "meta_count": 40,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -74628,14 +74663,14 @@
    "title": "شهرستان رامهرمز",
    "status": "publish",
    "date_published": "2026-10-03 00:54:03",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/ramhormoz/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=285&action=edit",
    "excerpt": "شهرستان رامهرمز با مرکزیت رامهرمز، یکی از شهرستان‌های خوزستان با ویژگی‌های تشکوه، چشمه‌های قیر ماماتین و قلعه‌های تاریخی است.",
-   "content_hash": "c13401a417979bf9006e119b7f4f81cc89f9ed75d01a634240cde222e7702645",
-   "content_text_hash": "3d9cdac1665aca80b3021aedb100cc0bd1dee7b99862c253cc8a01162466e650",
-   "word_count": 2267,
+   "content_hash": "c101e5a7834ef4b5a62cb1d704eb7a5625fd79b2db0623ebe11f10a32dc9bfd9",
+   "content_text_hash": "0c5ec71717c3d152f01c520619ca1fd1eaf2dd6129518a266fa9cdeb63795fb7",
+   "word_count": 2205,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -75193,14 +75228,14 @@
    "title": "شهرستان رامشیر",
    "status": "publish",
    "date_published": "2026-10-03 00:53:58",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/ramshir/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=284&action=edit",
    "excerpt": "شهرستان رامشیر با مرکزیت رامشیر، یکی از شهرستان‌های خوزستان با ویژگی‌های دشت کم‌ارتفاع، نخلستان‌ها و میدان‌های نفتی است.",
-   "content_hash": "abf8488ed107c771547a6b2b4d5f84c4fe492b5af790857a3f10eca6b2db7942",
-   "content_text_hash": "217eead0230d8a6db7f1943e561f092409bd454a7874505f79102c54ba5c5e0a",
-   "word_count": 2205,
+   "content_hash": "61d3b09eed59cb55bd87ca924d27e8dfd240c7acc82bf8719a5bbcd092b9ec23",
+   "content_text_hash": "8000b487e629be3c4dc5ca4141be0a3965069ea46ece2cef05406abf0fef7173",
+   "word_count": 2156,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -76063,14 +76098,14 @@
    "title": "شهرستان راز و جرگلان",
    "status": "publish",
    "date_published": "2026-10-08 00:58:25",
-   "date_modified": "2026-10-08 00:58:25",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/raz-jargalan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=77&action=edit",
    "excerpt": "شهرستان راز و جرگلان با مرکزیت راز، یکی از شهرستان‌های خراسان شمالی با جغرافیای ویژه است.",
-   "content_hash": "eec4be8f62a036c451c8a52b272b1441a925aedc8e891b596df65a3b38d3d087",
-   "content_text_hash": "2730712ad58ecc310c2226c236d8d9b85685d88fb578f08d0228c1ddac105165",
-   "word_count": 1075,
+   "content_hash": "9d2fff1a458759c78a8f9e27b964c1fb363f7c78e48f98ad8a75c814e1a31560",
+   "content_text_hash": "4ff86945ddf7e4fb8e1296be773709f98192f306788b5738b72e9578b10451e6",
+   "word_count": 1037,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -76079,9 +76114,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 42,
+   "meta_count": 43,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -77052,14 +77088,14 @@
    "title": "شهرستان رشتخوار",
    "status": "publish",
    "date_published": "2026-10-02 23:47:10",
-   "date_modified": "2026-10-03 21:14:26",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/roshtkhar/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1309&action=edit",
    "excerpt": "شهرستان رشتخوار با مرکزیت رشتخوار، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "49419684ba3319b249175ae72498585050a6c0605b419d9f3941a5bd0e8235bd",
-   "content_text_hash": "a88709fdfacf9d7c2f844ebc03b7781544194a5c6589fe0c959b7609f54f6b5f",
-   "word_count": 1134,
+   "content_hash": "733a4d866c24b49ab75097389f2f9ca91a6c440f5b281d42462f3a20c247d033",
+   "content_text_hash": "57ab51aa8dd6fcac83cf6cfba3b992b769b50bc95c442bf0d5b7068bdea566b7",
+   "word_count": 1096,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -77068,9 +77104,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -78249,14 +78286,14 @@
    "title": "شهرستان سبزوار",
    "status": "publish",
    "date_published": "2026-10-02 23:48:05",
-   "date_modified": "2026-10-03 21:13:30",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/sabzevar/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=65&action=edit",
    "excerpt": "شهرستان سبزوار دروازهٔ غربی خراسان رضوی و کانون تاریخ سربداران، معماری خشتی و فرهنگ علمی خراسان است.",
-   "content_hash": "f4d997e9d80fcdff8d290ecd54a3591649f3ccd83f38a140956fca34b5bfd591",
-   "content_text_hash": "bb68e4d4981d79489029039eedf8529153fc8a735e94d9d0b8e4c111695fb12d",
-   "word_count": 1240,
+   "content_hash": "ef90b709eaaceeaad4e4212b1a5a7cf520df97f613ecb07dd75bbac5c75178fb",
+   "content_text_hash": "f68284ec68da1e9db845a1ca71835dd89ab4a60cdacea5eb74be74d7cbb91e01",
+   "word_count": 1215,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -78265,9 +78302,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 38,
+   "meta_count": 39,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -78723,14 +78761,14 @@
    "title": "شهرستان صالح‌آباد",
    "status": "publish",
    "date_published": "2026-10-02 23:46:49",
-   "date_modified": "2026-10-24 04:29:04",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/saleh-abad/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1313&action=edit",
    "excerpt": "شهرستان صالح‌آباد با مرکزیت صالح‌آباد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "36d50969bc7f8a0da12b49df01d0a14d9986c59f7afcdae9d859eea0ae7e0eb1",
-   "content_text_hash": "c97f7cbdc9b08bb3b093ae37b63ae261d1e4b371a93970a0f5550f7eab79e5f5",
-   "word_count": 1071,
+   "content_hash": "c6c34011b2cf1795a6b778f9afcae55c8947cf718d45206b68bda804f06a2d66",
+   "content_text_hash": "8a5f5a9569da8d2382da5932e11857752016f7f401bb8992e6af5143d4f70b40",
+   "word_count": 1018,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -79930,14 +79968,14 @@
    "title": "شهرستان سرخس",
    "status": "publish",
    "date_published": "2026-10-02 23:46:59",
-   "date_modified": "2026-10-03 21:14:36",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/sarakhs/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1311&action=edit",
    "excerpt": "شهرستان سرخس با مرکزیت سرخس، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "300a6ab1c30079be52f4376591d5816fb795e022d5af25ddbca381660da82614",
-   "content_text_hash": "a82f8cc2fe02a5cbf15bc146433061050bbf3b01b07fd9f1e3930d1e3a3ac198",
-   "word_count": 1154,
+   "content_hash": "c8a075869e284f340573fbc346c7719a81c2d69540c3a971e71622fb7f081b09",
+   "content_text_hash": "118e263ae262e28f4dedc58cc711baf8b9449bd1ef2ead16fa828134bfb50976",
+   "word_count": 1116,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -79946,9 +79984,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -84065,14 +84104,14 @@
    "title": "شهرستان شادگان",
    "status": "publish",
    "date_published": "2026-10-03 00:53:48",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/shadegan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=286&action=edit",
    "excerpt": "شهرستان شادگان با مرکزیت شادگان، یکی از شهرستان‌های خوزستان با ویژگی‌های تالاب بین‌المللی، روستاهای تالابی و نخلستان‌ها است.",
-   "content_hash": "b3da8ff72004aa972356e183d49b871c84407f72b6cdcadd3cee87c1763b566d",
-   "content_text_hash": "6d17bade49b9ae44298b3532a1c463f23a9e34f8674c7fef821b927614c80fdb",
-   "word_count": 2234,
+   "content_hash": "7141777f3a0f756dc491db5f09280a494f301bcae45e14ed7388dad64a5958a8",
+   "content_text_hash": "9e471f99771a7b88ff20d3d03ff2aedb130a1140627875b85d9faa7e62d162af",
+   "word_count": 2150,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -85952,14 +85991,14 @@
    "title": "شهرستان ششتمد",
    "status": "publish",
    "date_published": "2026-10-02 23:46:54",
-   "date_modified": "2026-10-03 21:14:41",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/sheshtamad/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1312&action=edit",
    "excerpt": "شهرستان ششتمد با مرکزیت ششتمد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "82bd849d652abb8596c1b2d6dcb1ddacb732b7578748988aee14cca5fcd7cb83",
-   "content_text_hash": "24ea8550ce029a89760c83cd0c9f79405504c036a6fa54d1d51a5627b1dff641",
-   "word_count": 1099,
+   "content_hash": "3fa9e2d8e24e0379f146ffa7ccacbab2a5afa372a9f730ab256822676fc47832",
+   "content_text_hash": "a942b28dbd3f1dc5d828801e4304c5abdf01eae6cb468ae19b6df13d4a48fe62",
+   "word_count": 1061,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -85968,9 +86007,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 46,
+   "meta_count": 47,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -86376,14 +86416,14 @@
    "title": "شهرستان شیروان",
    "status": "publish",
    "date_published": "2026-10-08 00:58:19",
-   "date_modified": "2026-10-08 00:58:19",
+   "date_modified": "2026-11-11 02:50:58",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/shirvan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=73&action=edit",
    "excerpt": "شهرستان شیروان با مرکزیت شیروان، یکی از شهرستان‌های خراسان شمالی با جغرافیای ویژه است.",
-   "content_hash": "42a097b1404cf7c8082961e8dbe8be997da24a4d46c5a9828c7fe010ff8607c7",
-   "content_text_hash": "a8dcc9cd2796b39147b2df4fb555b5306084314cc55a30d6c50b237c7a20ff20",
-   "word_count": 1017,
+   "content_hash": "55f2cc332d7a20b341b55fb4931261fe79fd2b7f0f30dbfcff82c6eb6bfee097",
+   "content_text_hash": "3572a5df62a230ddb48e042493b4fedb7d09127bfbb5929e90f22646f2c5cbbe",
+   "word_count": 960,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -86392,9 +86432,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 44,
+   "meta_count": 45,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -86777,14 +86818,14 @@
    "title": "شهرستان شوش",
    "status": "publish",
    "date_published": "2026-10-03 00:53:53",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/shush/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=287&action=edit",
    "excerpt": "شهرستان شوش با مرکزیت شوش، یکی از شهرستان‌های خوزستان با ویژگی‌های محوطهٔ باستانی شوش، چغازنبیل و آرامگاه دانیال نبی است.",
-   "content_hash": "c9420d771606966eb33a6b738f9325c0255f965e5596e78c5601319e14b86ab4",
-   "content_text_hash": "0484c306a8764722ff1de2db2c1a3003ddfd5a7f1f757d081e04c8cdc9bc3609",
-   "word_count": 2266,
+   "content_hash": "ec6c420c66beb6b879b732dd060bfaa378870c0a30a65d513138f53106fe192b",
+   "content_text_hash": "8493f99f7285c4aade1fdda2dbb6dea9ffc0a8b3a2571bb75de960ad33a1937a",
+   "word_count": 2217,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -86989,14 +87030,14 @@
    "title": "شهرستان شوشتر",
    "status": "publish",
    "date_published": "2026-10-03 00:53:43",
-   "date_modified": "2026-10-24 04:29:03",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/shushtar/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=288&action=edit",
    "excerpt": "شهرستان شوشتر با مرکزیت شوشتر، یکی از شهرستان‌های خوزستان با ویژگی‌های سازه‌های آبی جهانی و بافت تاریخی است.",
-   "content_hash": "604b0367982f8e31c0b693bc8919887d38dcf220f459bc3f309e087be79bdf63",
-   "content_text_hash": "bf25fd789272f16b4aa4fafce22c2d85bb0f8eee712d1acddd63b816c8f024b2",
-   "word_count": 1824,
+   "content_hash": "e3e65393bce14fa9145abfb0ee596f205cca66bbc27456184ec5519ffcc80bfc",
+   "content_text_hash": "01d48b87fd00cb2ad356f77f773e151a72562f9ed7b2bd845d547f6b9fdfc2cd",
+   "word_count": 1783,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -95139,14 +95180,14 @@
    "title": "شهرستان زاوه",
    "status": "publish",
    "date_published": "2026-10-02 23:47:05",
-   "date_modified": "2026-10-03 21:14:31",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/zaveh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1310&action=edit",
    "excerpt": "شهرستان زاوه با مرکزیت دولت‌آباد، یکی از شهرستان‌های خراسان رضوی با پیشینه و جغرافیای ویژه است.",
-   "content_hash": "b833fa49c84120a1083699ea84c38cd0d28233edc5126b46819d1dbfc15c1d34",
-   "content_text_hash": "46b6d775b41601aec0bf53279d7b40c13de4cc007e34af581c3a4e021d823b30",
-   "word_count": 1108,
+   "content_hash": "bc9377a47ac0bf0d70a0e42d28b5f621aadfa9df11827ca1f9e0550a1fef034d",
+   "content_text_hash": "a62bcced2e26b1b44523d74c5edb20751de82fc8b38665c697a2a72d716d60ef",
+   "word_count": 1070,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -95155,9 +95196,10 @@
     ],
     "travel_season": []
    },
-   "meta_count": 43,
+   "meta_count": 44,
    "meta_keys": [
     "_edit_last",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_image_id",
     "_sa_import_image_sha1",
@@ -95341,14 +95383,14 @@
    "title": "شهرستان زبرخان",
    "status": "publish",
    "date_published": "2026-10-02 23:45:59",
-   "date_modified": "2026-10-08 00:56:52",
+   "date_modified": "2026-11-11 02:56:56",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/city/zebarkhan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1323&action=edit",
    "excerpt": "شهرستان زبرخان با مرکزیت قدمگاه، یکی از شهرستان‌های خراسان رضوی با جغرافیای ویژه است.",
-   "content_hash": "ab0542bd4dc29e55c8e7bcc40c9d5232092a083fd96223049544f152afda11cf",
-   "content_text_hash": "6197eed0957a0202dd46839d8fc2d51881c611f63fc5d4cd09f547bab99d75cc",
-   "word_count": 1232,
+   "content_hash": "690a6fd6b3a126372ad38c91c0a09eed19c8a28ad4010edfd7823d9db883bb1b",
+   "content_text_hash": "4b9f6852fdc3ae7e9e1d27500f598c2666aa6538af57395451a7b044d13c0efb",
+   "word_count": 1171,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -95972,533 +96014,6 @@
    "flags": [
     "missing_featured_image",
     "not_in_repo_baseline"
-   ]
-  },
-  {
-   "key": "page:about",
-   "wp_id": 7,
-   "post_type": "page",
-   "slug": "about",
-   "title": "درباره سرزمین آریان؛ معرفی تحریریه و هدف ما",
-   "status": "publish",
-   "date_published": "2026-09-30 06:58:55",
-   "date_modified": "2026-10-19 13:34:15",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/about/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=7&action=edit",
-   "excerpt": "",
-   "content_hash": "284cd873f5209fd1a7c9e122005720bab60546845643ddffc3f4285d4bb694fa",
-   "content_text_hash": "0d636a09627537af297a2efc037457581e88300c8d6512f4b226834ad2223ff8",
-   "word_count": 745,
-   "featured_file": "",
-   "featured": {},
-   "terms": {},
-   "meta_count": 3,
-   "meta_keys": [
-    "_edit_last",
-    "_edit_lock",
-    "_wp_page_template"
-   ],
-   "seo": {},
-   "headings": [
-    {
-     "level": 2,
-     "text": "چرا از سرزمین آریان می‌نویسیم؟"
-    },
-    {
-     "level": 2,
-     "text": "چگونه می‌نویسیم؟"
-    },
-    {
-     "level": 2,
-     "text": "ایران را از کجا بشناسیم؟"
-    },
-    {
-     "level": 2,
-     "text": "همراه این روایت باشید"
-    }
-   ],
-   "faq_count": 0,
-   "faq_questions": [],
-   "internal_links": [
-    "https://sarzaminaryan.ir/",
-    "https://sarzaminaryan.ir/attraction/",
-    "https://sarzaminaryan.ir/city/",
-    "https://sarzaminaryan.ir/contact/",
-    "https://sarzaminaryan.ir/policy/",
-    "https://sarzaminaryan.ir/privacy/",
-    "https://sarzaminaryan.ir/province/",
-    "mailto:Mail@sarzaminaryan.ir"
-   ],
-   "external_link_count": 0,
-   "content_image_files": [],
-   "relations": {},
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "thin_content(<800)",
-    "not_in_repo_baseline",
-    "missing_seo_title",
-    "missing_seo_description"
-   ]
-  },
-  {
-   "key": "page:blog",
-   "wp_id": 3072,
-   "post_type": "page",
-   "slug": "blog",
-   "title": "وبلاگ",
-   "status": "publish",
-   "date_published": "2026-10-20 23:47:43",
-   "date_modified": "2026-10-20 23:47:43",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/blog/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=3072&action=edit",
-   "excerpt": "",
-   "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-   "content_text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-   "word_count": 0,
-   "featured_file": "",
-   "featured": {},
-   "terms": {},
-   "meta_count": 0,
-   "meta_keys": [],
-   "seo": {},
-   "headings": [],
-   "faq_count": 0,
-   "faq_questions": [],
-   "internal_links": [],
-   "external_link_count": 0,
-   "content_image_files": [],
-   "relations": {},
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "thin_content(<800)",
-    "not_in_repo_baseline",
-    "missing_seo_title",
-    "missing_seo_description"
-   ]
-  },
-  {
-   "key": "page:contact",
-   "wp_id": 8,
-   "post_type": "page",
-   "slug": "contact",
-   "title": "تماس با سرزمین آریان؛ ارتباط با تحریریه",
-   "status": "publish",
-   "date_published": "2026-09-30 06:53:30",
-   "date_modified": "2026-10-19 13:34:51",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/contact/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=8&action=edit",
-   "excerpt": "",
-   "content_hash": "31ce4b12b4903e667311a1a09e2ebf8643d038cf1c94f941633cfb80bf85ed40",
-   "content_text_hash": "be60c1e7e32ca3e1801647aedd4dd2bb9a096912ce2d5d2b73b53eda9da95e4f",
-   "word_count": 614,
-   "featured_file": "",
-   "featured": {},
-   "terms": {},
-   "meta_count": 3,
-   "meta_keys": [
-    "_edit_last",
-    "_edit_lock",
-    "_wp_page_template"
-   ],
-   "seo": {},
-   "headings": [
-    {
-     "level": 2,
-     "text": "راه ارتباط با تحریریه"
-    },
-    {
-     "level": 2,
-     "text": "گزارش اشتباه و درخواست اصلاح"
-    },
-    {
-     "level": 2,
-     "text": "معرفی مکان و ارسال روایت محلی"
-    },
-    {
-     "level": 2,
-     "text": "همکاری و پیشنهاد"
-    }
-   ],
-   "faq_count": 0,
-   "faq_questions": [],
-   "internal_links": [
-    "https://sarzaminaryan.ir/",
-    "https://sarzaminaryan.ir/about/",
-    "https://sarzaminaryan.ir/policy/",
-    "https://sarzaminaryan.ir/privacy/",
-    "mailto:Mail@sarzaminaryan.ir"
-   ],
-   "external_link_count": 0,
-   "content_image_files": [],
-   "relations": {},
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "thin_content(<800)",
-    "not_in_repo_baseline",
-    "missing_seo_title",
-    "missing_seo_description"
-   ]
-  },
-  {
-   "key": "page:dashboard",
-   "wp_id": 2628,
-   "post_type": "page",
-   "slug": "dashboard",
-   "title": "داشبورد جامع گردشگری ایران",
-   "status": "publish",
-   "date_published": "2026-10-10 02:22:24",
-   "date_modified": "2026-10-15 19:05:33",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/dashboard/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=2628&action=edit",
-   "excerpt": "",
-   "content_hash": "5251819f88d0aad772e410b32b25b88a03e434a1ee1749608844024d34d82b65",
-   "content_text_hash": "1ebeb57dc66602497550b5642594bbf26855fb9d3fa15d10fa3f4b893ad8abee",
-   "word_count": 2331,
-   "featured_file": "",
-   "featured": {},
-   "terms": {},
-   "meta_count": 5,
-   "meta_keys": [
-    "_edit_last",
-    "_edit_lock",
-    "_sa_audit_checked",
-    "_sa_audit_score",
-    "_wp_page_template"
-   ],
-   "seo": {},
-   "headings": [
-    {
-     "level": 1,
-     "text": "داشبورد تحلیلی ۳۱ استان ایران"
-    },
-    {
-     "level": 2,
-     "text": "نمای کلان داده‌ها"
-    },
-    {
-     "level": 3,
-     "text": "رتبه‌بندی استان‌ها بر اساس جمعیت"
-    },
-    {
-     "level": 3,
-     "text": "سهم از مساحت کل کشور"
-    },
-    {
-     "level": 3,
-     "text": "پروفایل چندبُعدی استان"
-    },
-    {
-     "level": 3,
-     "text": "ارزش در برابر پیشرفت"
-    },
-    {
-     "level": 3,
-     "text": "هفت استان باقدمت‌ترین"
-    },
-    {
-     "level": 3,
-     "text": "روند مقایسه‌ای شاخص‌های توسعه در استان‌های منتخب"
-    },
-    {
-     "level": 2,
-     "text": "ترین‌های ایران"
-    },
-    {
-     "level": 3,
-     "text": "۷ استان بزرگ"
-    },
-    {
-     "level": 3,
-     "text": "۷ استان پرجمعیت"
-    },
-    {
-     "level": 3,
-     "text": "۷ استان باقدمت‌ترین"
-    },
-    {
-     "level": 3,
-     "text": "دارای منابع طبیعی"
-    },
-    {
-     "level": 3,
-     "text": "دارای ثروت"
-    },
-    {
-     "level": 3,
-     "text": "توسعه‌یافته‌ترین‌ها"
-    },
-    {
-     "level": 3,
-     "text": "معادن طلا و مس"
-    },
-    {
-     "level": 3,
-     "text": "دارای مرز با خارج"
-    },
-    {
-     "level": 2,
-     "text": "جدول کامل داده‌ها"
-    }
-   ],
-   "faq_count": 0,
-   "faq_questions": [],
-   "internal_links": [],
-   "external_link_count": 0,
-   "content_image_files": [],
-   "relations": {},
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "not_in_repo_baseline",
-    "missing_seo_title",
-    "missing_seo_description"
-   ]
-  },
-  {
-   "key": "page:editorial-policy",
-   "wp_id": 9,
-   "post_type": "page",
-   "slug": "editorial-policy",
-   "title": "سیاست تحریریه و انتشار محتوا | سرزمین آریان",
-   "status": "publish",
-   "date_published": "2026-09-30 06:53:50",
-   "date_modified": "2026-10-24 04:09:52",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/editorial-policy/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=9&action=edit",
-   "excerpt": "",
-   "content_hash": "eb839fb368b2e170363b12aa123292e4bc8018a0ef733f1314f7df1e52b3b9b7",
-   "content_text_hash": "2594d40e1b3291bcf6fae9fdb89afb6eafcca2ec3a84883e5066de1379cb3515",
-   "word_count": 731,
-   "featured_file": "",
-   "featured": {},
-   "terms": {},
-   "meta_count": 3,
-   "meta_keys": [
-    "_edit_last",
-    "_edit_lock",
-    "_wp_page_template"
-   ],
-   "seo": {},
-   "headings": [
-    {
-     "level": 2,
-     "text": "مسئولیت تحریریه"
-    },
-    {
-     "level": 2,
-     "text": "منابع و دقت اطلاعات"
-    },
-    {
-     "level": 2,
-     "text": "روایت‌های محلی و احترام فرهنگی"
-    },
-    {
-     "level": 2,
-     "text": "بازبینی و اصلاح مطالب"
-    },
-    {
-     "level": 2,
-     "text": "حقوق پدیدآورندگان و استقلال محتوا"
-    }
-   ],
-   "faq_count": 0,
-   "faq_questions": [],
-   "internal_links": [
-    "https://sarzaminaryan.ir/",
-    "https://sarzaminaryan.ir/about/",
-    "https://sarzaminaryan.ir/contact/",
-    "https://sarzaminaryan.ir/privacy/"
-   ],
-   "external_link_count": 0,
-   "content_image_files": [],
-   "relations": {},
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "thin_content(<800)",
-    "not_in_repo_baseline",
-    "missing_seo_title",
-    "missing_seo_description"
-   ]
-  },
-  {
-   "key": "page:home",
-   "wp_id": 5,
-   "post_type": "page",
-   "slug": "home",
-   "title": "خانه",
-   "status": "publish",
-   "date_published": "2026-09-27 15:03:18",
-   "date_modified": "2026-10-04 01:19:39",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5&action=edit",
-   "excerpt": "",
-   "content_hash": "0cdb935a078be7e0068335e5c6e600a51eb388e3cf577924e11aa7b4465a47c0",
-   "content_text_hash": "bc03d24b4a895c288ae0ce3b1480a0b971f940faf35b48be0012beeccbf6e79b",
-   "word_count": 682,
-   "featured_file": "",
-   "featured": {},
-   "terms": {},
-   "meta_count": 3,
-   "meta_keys": [
-    "_edit_last",
-    "_edit_lock",
-    "_wp_page_template"
-   ],
-   "seo": {},
-   "headings": [
-    {
-     "level": 1,
-     "text": "سرزمین آریایی‌ها"
-    },
-    {
-     "level": 2,
-     "text": "شناخت استان‌های ایران"
-    },
-    {
-     "level": 2,
-     "text": "جاذبه های گردشگری ایران"
-    },
-    {
-     "level": 2,
-     "text": "پست‌های معروف"
-    },
-    {
-     "level": 2,
-     "text": "راهنمای جامع شناخت استان ها و شهرستان های ایران"
-    },
-    {
-     "level": 3,
-     "text": ""
-    }
-   ],
-   "faq_count": 0,
-   "faq_questions": [],
-   "internal_links": [
-    "#sa-stats",
-    "/attraction/",
-    "/blog/",
-    "/city/",
-    "/food/",
-    "/province/",
-    "/route/",
-    "/souvenir/"
-   ],
-   "external_link_count": 0,
-   "content_image_files": [
-    "s-a-logo_.webp"
-   ],
-   "relations": {},
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "thin_content(<800)",
-    "not_in_repo_baseline",
-    "missing_seo_title",
-    "missing_seo_description"
-   ]
-  },
-  {
-   "key": "page:privacy",
-   "wp_id": 587,
-   "post_type": "page",
-   "slug": "privacy",
-   "title": "حریم خصوصی و اطلاعات کاربران | سرزمین آریان",
-   "status": "publish",
-   "date_published": "2026-09-30 14:40:22",
-   "date_modified": "2026-10-19 13:35:19",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/privacy/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=587&action=edit",
-   "excerpt": "",
-   "content_hash": "b6d752f3d06d9f4a7b5cc53c8e0567d088e14e7603bd86d1b56db14dcd9d349d",
-   "content_text_hash": "f26918b0844ed2590493bd995f791a800ca1cec82f6eab20336c8e11f3975586",
-   "word_count": 764,
-   "featured_file": "",
-   "featured": {},
-   "terms": {},
-   "meta_count": 3,
-   "meta_keys": [
-    "_edit_last",
-    "_edit_lock",
-    "_wp_page_template"
-   ],
-   "seo": {},
-   "headings": [
-    {
-     "level": 2,
-     "text": "اطلاعاتی که برای ما می‌فرستید"
-    },
-    {
-     "level": 2,
-     "text": "هدف استفاده از پیام‌ها"
-    },
-    {
-     "level": 2,
-     "text": "اطلاعات فنی و کوکی‌ها"
-    },
-    {
-     "level": 2,
-     "text": "پیوندهای بیرونی و خدمات فنی"
-    },
-    {
-     "level": 2,
-     "text": "درخواست بررسی، اصلاح یا حذف اطلاعات"
-    },
-    {
-     "level": 2,
-     "text": "تغییرات این سیاست"
-    }
-   ],
-   "faq_count": 0,
-   "faq_questions": [],
-   "internal_links": [
-    "https://sarzaminaryan.ir/",
-    "https://sarzaminaryan.ir/about/",
-    "https://sarzaminaryan.ir/contact/",
-    "https://sarzaminaryan.ir/policy/",
-    "mailto:Mail@sarzaminaryan.ir"
-   ],
-   "external_link_count": 0,
-   "content_image_files": [],
-   "relations": {},
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "thin_content(<800)",
-    "not_in_repo_baseline",
-    "missing_seo_title",
-    "missing_seo_description"
    ]
   },
   {
@@ -98389,7 +97904,7 @@
     "duplicate_title",
     "duplicate_content_hash"
    ],
-   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری CPR؛ تصویر شاخص cpr-complete-guide.webp باید از نسخهٔ -2 به این منتقل شود."
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری CPR؛ تصویر شاخص ندارد — cpr-complete-guide.webp (پیوست ۱۰۰۲) روی نسخهٔ تکراری است و باید به این منتقل شود. طبق ممیزی ۲۰۲۶-۱۱-۱۰ (۲۳:۳۸) هنوز انجام نشده؛ اقدام مالک در پیش‌خوان."
   },
   {
    "key": "post:cpr-complete-guide-2",
@@ -98554,7 +98069,7 @@
     "duplicate_content_hash",
     "slug_suffix_of_existing"
    ],
-   "agent_note": "ریدایرکت 301 به post:cpr-complete-guide در قالب 2.22.37 ثبت شد (2026-11-10)؛ منتظر انتشار قالب و تأیید با ممیزی تازه. تصویر شاخص این نسخه باید روی نسخهٔ اصلی بنشیند."
+   "agent_note": "نسخهٔ تکراری CPR (هش محتوا یکسان با اصلی). ریدایرکت 301 به post:cpr-complete-guide از قالب 2.22.37 فعال است و قالب روی سایت به 2.22.38 به‌روز شد (منتشرشده توسط مالک)؛ اما نوشته هنوز «منتشرشده» است و تصویر شاخص روی همین نسخه است. گام باقی‌ماندهٔ مالک: انتقال تصویر به اصلی، بعد فرستادن این نوشته به زباله‌دان. راستی‌آزمایی با ممیزی ۲۰۲۶-۱۱-۱۰ (۲۳:۳۸)."
   },
   {
    "key": "post:diy-bottle-lantern",
@@ -106203,14 +105718,14 @@
    "title": "استان البرز",
    "status": "publish",
    "date_published": "2026-09-30 05:28:47",
-   "date_modified": "2026-10-08 15:56:51",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/alborz/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=37&action=edit",
    "excerpt": "استان البرز جوان‌ترین استان ایران با مرکزیت کرج است؛ هفت شهرستان، میراث جهانی کاروانسرای ینگه‌امام، تپه ازبکی و دامنه‌ی جنوبی رشته‌کوه البرز را در این راهنما بخوانید.",
-   "content_hash": "5f94f19b9b1e9db1f82175bd777ff0726a2f1f2d39d83090842aa7f0286b5d54",
-   "content_text_hash": "42fbca7851be4e5b2d78232c5ffd780b6ffc5bf9e0b222168e5ceb97d8a5790c",
-   "word_count": 4911,
+   "content_hash": "0d9c6637d784380e3231eb55b04290b319f88433ba31c08dddd78e7fdc34f3fc",
+   "content_text_hash": "fcde4f0af9e94d1699303e4077e4f2ad84b26f06b0877abcfeec9a6cef922329",
+   "word_count": 4864,
    "featured_file": "alborz-1.webp",
    "featured": {
     "file": "alborz-1.webp",
@@ -106471,14 +105986,14 @@
    "title": "استان اردبیل",
    "status": "publish",
    "date_published": "2026-09-30 05:30:05",
-   "date_modified": "2026-09-30 05:32:18",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/ardabil/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=33&action=edit",
    "excerpt": "استان اردبیل، خاستگاه صفویه و سرزمین سبلان، با مرکزیت اردبیل از بقعه‌ی جهانی شیخ صفی‌الدین و آب‌گرم‌های سرعین تا دشت مغان و دریاچه‌ی نئور را در بر می‌گیرد؛ راهنمای کامل شهرستان‌ها، تاریخ، طبیعت و سفر با داده‌های رسمی.",
-   "content_hash": "a2f6b4c39bf41c623030381076b732ffa7d95297b3ae4372676c1cbb6c8a3a35",
-   "content_text_hash": "d04bcdc3384823254853238ae679d749fc33f5af9fd3de9b3478ecf84e2bcbfc",
-   "word_count": 6851,
+   "content_hash": "4d3f6654d6017e910df73a42efe1c87d6be98cdc5c30d67033c0cd4ebbdac3d2",
+   "content_text_hash": "c75259e0f0563c9e4f18b188783701088dcdc12edd0ce20db9b0e5b0faa035e0",
+   "word_count": 6791,
    "featured_file": "ardabil.webp",
    "featured": {
     "file": "ardabil.webp",
@@ -106495,10 +106010,11 @@
      "summer"
     ]
    },
-   "meta_count": 25,
+   "meta_count": 26,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -106737,14 +106253,14 @@
    "title": "استان بوشهر",
    "status": "publish",
    "date_published": "2026-09-30 05:28:54",
-   "date_modified": "2026-09-30 05:31:16",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/bushehr/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=41&action=edit",
    "excerpt": "استان بوشهر در کرانه‌ی خلیج فارس، با ۱۰ شهرستان، کاروانسرای جهانی برازجان، بندر کهن سیراف و نخلستان‌های دشتستان، راهنمای کامل سفر با داده‌های رسمی است.",
-   "content_hash": "00288b2241983cd2acf41d445525a2218bec62043bed43adf4f378aa451e3cc5",
-   "content_text_hash": "fd1f50f17ecd5c354b75092c9db8c3dfe299b18da320aee77bc93a0936c7f046",
-   "word_count": 5014,
+   "content_hash": "6c03add81180795761f02aa10840016b15c55d0d195a3387aaca5900c07c92bd",
+   "content_text_hash": "656ea57f22db5c63c8ea848a66fa6c13b32dccb518bcae0bcf4ecd9ae05db1aa",
+   "word_count": 4970,
    "featured_file": "bushehr.webp",
    "featured": {
     "file": "bushehr.webp",
@@ -106761,10 +106277,11 @@
      "winter"
     ]
    },
-   "meta_count": 24,
+   "meta_count": 25,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -107002,14 +106519,14 @@
    "title": "استان چهارمحال و بختیاری",
    "status": "publish",
    "date_published": "2026-09-30 05:28:56",
-   "date_modified": "2026-09-30 05:31:26",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/chaharmahal-bakhtiari/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=45&action=edit",
    "excerpt": "استان چهارمحال و بختیاری، بام ایران و سرچشمه‌ی کارون و زاینده‌رود، از زردکوه و لاله‌های واژگون کوهرنگ تا تالاب چغاخور و ایل‌راه‌های بختیاری را در بر می‌گیرد؛ راهنمای کامل شهرستان‌ها، طبیعت، فرهنگ و سفر.",
-   "content_hash": "64d3f000586181fb6d616fc706e1e616e0400d458184e80142241820c8b60914",
-   "content_text_hash": "ae775e82f00a58e6ca8893b4844f7ca114f9ac3cabebd657967b1ee342406f3c",
-   "word_count": 6627,
+   "content_hash": "26a79717f723480e9608e665d54155ea9170e27abfdd02e479f5644d8151adea",
+   "content_text_hash": "d91c9537a4572ba2371589eb9c8d870c67fe95de50fcbb0a7a1f73458a9778b1",
+   "word_count": 6565,
    "featured_file": "chaharmahal-bakhtiari.webp",
    "featured": {
     "file": "chaharmahal-bakhtiari.webp",
@@ -107026,10 +106543,11 @@
      "summer"
     ]
    },
-   "meta_count": 24,
+   "meta_count": 25,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -107534,14 +107052,14 @@
    "title": "استان فارس",
    "status": "publish",
    "date_published": "2026-09-30 05:28:40",
-   "date_modified": "2026-09-30 05:31:03",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/fars/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=263&action=edit",
    "excerpt": "استان فارس، خاستگاه دو شاهنشاهی بزرگ تاریخ ایران و مهد زبان فارسی؛ با تخت جمشید و پاسارگاد، محوطه‌های ساسانی جهانی، شیرازِ شهر باغ‌ها و شاعران، کلم‌پلو و فالوده — راهنمای کامل ۲۹ شهرستان.",
-   "content_hash": "ab24e5764b6a370ee4f7d721c9c4319c599007bd29f44e34ce5bd6bb50f3f0b5",
-   "content_text_hash": "e97d43f726b6027f10fa55272374f94bb9a77138304a88c6d6e76ba3355b6859",
-   "word_count": 4461,
+   "content_hash": "557099da34342efb5211290f7f18e537820052d3a20356effc1820d9871ea4da",
+   "content_text_hash": "1abddfc9bea45e025eb8ec2600e516b461ab8f43076cc79900d3ca00ecba3a94",
+   "word_count": 4449,
    "featured_file": "fars.webp",
    "featured": {
     "file": "fars.webp",
@@ -107558,10 +107076,11 @@
      "spring"
     ]
    },
-   "meta_count": 24,
+   "meta_count": 25,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -109149,14 +108668,14 @@
    "title": "استان اصفهان",
    "status": "publish",
    "date_published": "2026-09-30 05:30:11",
-   "date_modified": "2026-09-30 05:32:19",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/isfahan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=35&action=edit",
    "excerpt": "استان اصفهان، پایتخت صفویه و «نصف جهان»، با مرکزیت اصفهان از میدان نقش جهان تا باغ فین کاشان، کویر مرنجاب و تالاب گاوخونی را در بر می‌گیرد؛ راهنمای کامل شهرستان‌ها، تاریخ، طبیعت، صنایع دستی و سفر با داده‌های رسمی.",
-   "content_hash": "42dcb08ade94aa5b57f46113593893e662547d6028cbf4b5000b9c0736ce7147",
-   "content_text_hash": "7499902a413c3cb551292954b604c5bb5e7d51d518d3338af22dfefd4e3bb510",
-   "word_count": 7241,
+   "content_hash": "a50d787e3a822cb487ab04d2ef7277fecf1ba8fa86138c47e068b47b9e1b4dc1",
+   "content_text_hash": "56d515198ec74320741d529266ac834677beac83f41929bebc4ce7fb7e62ce68",
+   "word_count": 7175,
    "featured_file": "isfahan.webp",
    "featured": {
     "file": "isfahan.webp",
@@ -109173,10 +108692,11 @@
      "spring"
     ]
    },
-   "meta_count": 25,
+   "meta_count": 26,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -111799,14 +111319,14 @@
    "title": "استان قزوین",
    "status": "publish",
    "date_published": "2026-09-30 05:28:41",
-   "date_modified": "2026-09-30 05:31:04",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/qazvin/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=265&action=edit",
    "excerpt": "استان قزوین، پایتخت پیشین صفویان و پایتخت خوش‌نویسی ایران، با شش شهرستان در غرب تهران قرار دارد؛ از چهل‌ستون و سعدالسلطنه تا قلعه الموت و دریاچه اوان. راهنمای کامل سفر، غذاها و سوغات.",
-   "content_hash": "39c6b068bad65414186829fface2d5f9e583ca2b6fdac1353db784c053b334d7",
-   "content_text_hash": "5a0f4faf548e59aedd9533005897943981f3df90afa16f2e034fa44a559d412c",
-   "word_count": 4263,
+   "content_hash": "faa6fff4a87d92e692062b96482b0b263342b97759d502e431a1a589d3f3f272",
+   "content_text_hash": "5d542941440d8d7e87337808ecb456f2957d7e8de9d9e4b020e4de660c45431e",
+   "word_count": 4253,
    "featured_file": "qazvin.webp",
    "featured": {
     "file": "qazvin.webp",
@@ -111823,10 +111343,11 @@
      "summer"
     ]
    },
-   "meta_count": 24,
+   "meta_count": 25,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -112077,14 +111598,14 @@
    "title": "استان قم",
    "status": "publish",
    "date_published": "2026-09-30 05:28:46",
-   "date_modified": "2026-09-30 05:31:05",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/qom/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=267&action=edit",
    "excerpt": "استان قم در مرکز ایران با حرم حضرت معصومه و مسجد جمکران، یکی از مهم‌ترین مقاصد زیارتی و فرهنگی کشور است. راهنمای کامل سفر، جاذبه‌ها، غذاها و سوغات.",
-   "content_hash": "afcff3b4ab630b39bc7dcc74067689349ee7da6da8d03ce6eaebaa848bba293e",
-   "content_text_hash": "ca8dbc0e3a1a52eebc9f567540ca4fa1a9565a26a8116fd161d59fcae9b8c0d2",
-   "word_count": 4084,
+   "content_hash": "9160b13482b95167f993fd77453b7a3347d8cd9aba33d25592190eab5c061dcd",
+   "content_text_hash": "ef059155c072d46c283acf892c21d10189ee9bd7e2d8ff3074637c3857c14abe",
+   "word_count": 4061,
    "featured_file": "qom.webp",
    "featured": {
     "file": "qom.webp",
@@ -112098,10 +111619,11 @@
     ],
     "travel_season": []
    },
-   "meta_count": 18,
+   "meta_count": 19,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -112349,14 +111871,14 @@
    "title": "استان خراسان رضوی",
    "status": "publish",
    "date_published": "2026-09-30 05:29:06",
-   "date_modified": "2026-09-30 05:31:36",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/razavi-khorasan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=50&action=edit",
    "excerpt": "استان خراسان رضوی، قلب خراسان تاریخی و پرجمعیت‌ترین استان پس از تهران، با مرکزیت مشهد و حرم امام رضا (ع)، از آرامگاه فردوسی تا قنات جهانی قصبه و مزارع زعفران را در بر می‌گیرد؛ راهنمای کامل شهرستان‌ها، تاریخ، طبیعت و سفر.",
-   "content_hash": "a979503bf2d3f994283becf1fa13f62b18c4aa8ab2c7684fd64c7245a2529e1e",
-   "content_text_hash": "8246e68a34e0792bfaf6ea5019acfd527695af68d972c7918fbc64698c0b2a44",
-   "word_count": 4502,
+   "content_hash": "e156154338e1c2cbf2d64ab097ae81d65be9ae791b49d9980acc2f30e52e1d7f",
+   "content_text_hash": "d6aef6fa43e24fa1553a1ebe253d811d8ba62f802841c3ab55960daaaebc6bcb",
+   "word_count": 4477,
    "featured_file": "razavi-khorasan.webp",
    "featured": {
     "file": "razavi-khorasan.webp",
@@ -112373,10 +111895,11 @@
      "spring"
     ]
    },
-   "meta_count": 24,
+   "meta_count": 25,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -112878,14 +112401,14 @@
    "title": "استان سیستان و بلوچستان",
    "status": "publish",
    "date_published": "2026-09-30 05:28:39",
-   "date_modified": "2026-09-30 05:30:58",
+   "date_modified": "2026-11-11 02:56:55",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/sistan-baluchestan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=261&action=edit",
    "excerpt": "استان سیستان و بلوچستان در جنوب‌شرق ایران، از دریای عمان و بندر چابهار تا دشت هامون و شهر سوخته‌ی جهانی؛ سرزمینی با قدیمی‌ترین کلان‌شهر ایران و جوان‌ترین جمعیت کشور — راهنمای کامل ۱۹ شهرستان.",
-   "content_hash": "ba33a27151fa605797765c5525a427daa732330969021c1e2e6188b82977949d",
-   "content_text_hash": "37c8f77cb9150c4c5ad392e5bdcadc996b323967328f9e9cff37904613a42a33",
-   "word_count": 4645,
+   "content_hash": "0dffbaa26508ce7ccae84f03ee9ea5851b469d97da00f88e4159a4b8460467b8",
+   "content_text_hash": "4d2d260e707f7b988e3dde780a5bd0371351d72fd56cc0623df200ac5a767d64",
+   "word_count": 4629,
    "featured_file": "sistan-baluchestan.webp",
    "featured": {
     "file": "sistan-baluchestan.webp",
@@ -112903,10 +112426,11 @@
      "winter"
     ]
    },
-   "meta_count": 24,
+   "meta_count": 25,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -113154,14 +112678,14 @@
    "title": "استان خراسان جنوبی",
    "status": "publish",
    "date_published": "2026-09-30 05:29:01",
-   "date_modified": "2026-09-30 05:31:31",
+   "date_modified": "2026-11-10 21:06:29",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/province/south-khorasan/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=47&action=edit",
    "excerpt": "استان خراسان جنوبی، سرزمین زرشک و زعفران در شرق ایران و سومین استان پهناور کشور، از باغ جهانی اکبریه و قنات بلده تا کویر لوت، ماخونیک و کاروانسراهای جهانی را در بر می‌گیرد؛ راهنمای کامل شهرستان‌ها، طبیعت، فرهنگ و سفر.",
-   "content_hash": "93ed34f05d12c097ca627ac5f3ff804bcf5a4538b60a27a469a9c244cbffcc4a",
-   "content_text_hash": "ed14e049520b18ba9ec178072140e4eeecc9e036e1f99f1a83b2d43a95f313ec",
-   "word_count": 4365,
+   "content_hash": "bac28aaa682db7e90b865542e9f553c2045aabfe4beefaa262b5d1684e305058",
+   "content_text_hash": "fc20f0415b8fff38513d3a8178d16c39de0cb48af3805edaf5e0e817d27fa64d",
+   "word_count": 4321,
    "featured_file": "south-khorasan.webp",
    "featured": {
     "file": "south-khorasan.webp",
@@ -113178,10 +112702,11 @@
      "spring"
     ]
    },
-   "meta_count": 24,
+   "meta_count": 25,
    "meta_keys": [
     "_edit_last",
     "_edit_lock",
+    "_sa_gate_report",
     "_sa_import_batch",
     "_sa_import_slug",
     "_sa_import_source_sha1",
@@ -114508,13 +114033,6 @@
    "meta_count": 24,
    "has_cover": false,
    "repo_status": "ready_in_repo_not_published_live"
-  }
- ],
- "agent_updates": [
-  {
-   "date": "2026-11-10",
-   "scope": "phase-1-duplicates",
-   "note": "ریدایرکت ۳۰۱ سه نسخهٔ تکراری در قالب 2.22.37 ثبت شد؛ وضعیت زنده هنوز تأیید نشده است."
   }
  ]
 }

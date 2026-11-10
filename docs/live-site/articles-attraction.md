@@ -11,11 +11,11 @@
 | تفرجگاه باباهور (بام دورود) | babahur-forest-park-dorud | 1383 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/babahur-forest-park-dorud/ |
 | باغ گلشن طبس | bagh-golshan-tabas | 1255 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/bagh-golshan-tabas/ |
 | شهر ساسانی بیشاپور | bishapur | 487 | — | matched_different | missing_featured_image,thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/bishapur/ |
-| آبشار بیشه | bisheh-waterfall-dorud | 1391 | دارد | matched_different | differs_from_repo | https://sarzaminaryan.ir/attraction/bisheh-waterfall-dorud/ |
+| آبشار بیشه | bisheh-waterfall-dorud | 1391 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/bisheh-waterfall-dorud/ |
 | باغ ارم | eram-garden | 487 | — | matched_identical | missing_featured_image,thin_content(<800) | https://sarzaminaryan.ir/attraction/eram-garden/ |
 | قلعه فلک‌الافلاک (دژ شاپورخواست) | falak-ol-aflak-castle-khorramabad | 1568 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/falak-ol-aflak-castle-khorramabad/ |
 | باغ فین کاشان | fin-garden | 1316 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/fin-garden/ |
-| دریاچه گهر | gahar-lake-dorud | 2457 | دارد | matched_different | differs_from_repo | https://sarzaminaryan.ir/attraction/gahar-lake-dorud/ |
+| دریاچه گهر | gahar-lake-dorud | 2457 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/gahar-lake-dorud/ |
 | قلعه دختر بشرویه | ghaleh-dokhtar-boshruyeh | 1221 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/ghaleh-dokhtar-boshruyeh/ |
 | پارک ملی گلستان (جنگل گلستان) | golestan-national-park-guide | 1583 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/golestan-national-park-guide/ |
 | دشت لاله‌های واژگون کوهرنگ | kuhrang-fritillaria-plain-guide | 2479 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/kuhrang-fritillaria-plain-guide/ |
