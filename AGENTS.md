@@ -10,3 +10,4 @@
 8. Keep operational docs small and source-like: `docs/`, `data-model/`, `skill-SA-agent/`, `.github/`, the parent theme and the child theme are the retained working set.
 9. Before pushing, run relevant checks (`git diff --check`, JS syntax checks, and PHP lint where available). GitHub Actions performs PHP lint for theme releases.
 10. Work on Arena's assigned branch for the session; do not switch or push to another branch during an Arena task.
+11. **Live-site mirror (`docs/live-site/`):** before creating or editing any article, check `docs/live-site/titles.md` and `docs/live-site/registry/live-articles.json` so no duplicate content is produced. After any change you make to live or ready content, record the same change in the mirror (registry entry + one `docs/live-site/CHANGELOG.md` row). On each fresh audit from the `sa-live-article-audit` plugin, regenerate the mirror with `tools/live-site/update_live_registry.py` and commit it.
