@@ -28,6 +28,7 @@ INCLUDE = [
     "includes/class-sa-laa-extractor.php",
     "includes/class-sa-laa-export.php",
     "includes/class-sa-laa-admin.php",
+    "includes/class-sa-github-plugin-updater.php",
     "assets/admin.css",
     "assets/admin.js",
 ]
