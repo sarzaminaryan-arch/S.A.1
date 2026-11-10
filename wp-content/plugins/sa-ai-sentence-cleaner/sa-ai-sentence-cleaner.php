@@ -29,6 +29,17 @@ require_once SA_AI_CLEANER_DIR . 'includes/patterns.php';
 require_once SA_AI_CLEANER_DIR . 'includes/class-sa-ai-engine.php';
 require_once SA_AI_CLEANER_DIR . 'includes/class-sa-ai-store.php';
 require_once SA_AI_CLEANER_DIR . 'includes/class-sa-ai-admin.php';
+require_once SA_AI_CLEANER_DIR . 'includes/class-sa-github-plugin-updater.php';
+
+SA_GitHub_Plugin_Updater::register(
+	array(
+		'plugin_file' => plugin_basename( __FILE__ ),
+		'slug'        => 'sa-ai-sentence-cleaner',
+		'tag_prefix'  => 'ai-cleaner-plugin-v',
+		'version'     => SA_AI_CLEANER_VERSION,
+		'name'        => 'پاک‌سازی جمله‌های هوش مصنوعی (سرزمین آریان)',
+	)
+);
 
 /**
  * ساخت جدول‌های یافته‌ها و پشتیبان‌ها هنگام فعال‌سازی.
