@@ -3,7 +3,7 @@
 # گزارش تطبیق 2026-11-11
 
 - مقالهٔ منتشرشدهٔ زنده: **622** (attraction: 39, city: 485, post: 67, province: 31)
-- وضعیت نسبت به خط مبنای مخزن: live_only: 518, matched_different: 62, matched_identical: 42
+- وضعیت نسبت به خط مبنای مخزن: live_only: 518, matched_different: 57, matched_identical: 47
 - آمادهٔ مخزن ولی منتشرنشده در سایت: **0** (فهرست: `unpublished.md`)
 - عنوان تکراری: 0 گروه؛ هش محتوای تکراری: 0 گروه (جزئیات: `fix-queue.md`)
 - بدون تصویر شاخص: 589 از 622
@@ -18,5 +18,7 @@
 - `unpublished.md` — آماده‌های مخزنِ منتشرنشده ⛔
 - `fix-queue.md` — صف رفع اشکال
 - `CHANGELOG.md` — تغییرات اعمال‌شده توسط ایجنت بین دو ممیزی
+- `ROADMAP.md` — رودمپ فازها؛ `phase-4-plan.md` — نقشهٔ اجرایی فاز ۴ (بستهٔ A بسته شد؛ بقیه متوقف موقت)
+- `performance-plan.md` — مسیر جدای عملکرد/PageSpeed (فعال؛ مراحل P0 تا P5)
 
 قواعد کار در `README.md` همین پوشه است.

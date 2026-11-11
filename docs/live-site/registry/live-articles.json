@@ -1,10 +1,10 @@
 {
  "tool": "sa-live-site-registry",
- "generated_at": "2026-11-11T11:37:18.533744+00:00",
+ "generated_at": "2026-11-11T18:23:50.757109+00:00",
  "snapshot_date": "2026-11-11",
  "sources": {
-  "live": "/tmp/inputs/live-articles-20261111-113050.json",
-  "audit": "/tmp/inputs/audit-report-20261111-113050-local.json",
+  "live": "/tmp/inputs/live-articles-20261111-181358.json",
+  "audit": "/tmp/inputs/audit-report-20261111-181358-local.json",
   "baseline_records": 104
  },
  "counts": {
@@ -16,8 +16,8 @@
    "province": 31
   },
   "repo_status": {
-   "matched_different": 62,
-   "matched_identical": 42,
+   "matched_different": 57,
+   "matched_identical": 47,
    "live_only": 518
   },
   "missing_featured_image": 589,
@@ -92679,8 +92679,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "اگر دو درخت با فاصلهٔ مناسب پیدا نکردم چه کنم؟",
+    "در سرما زیر هاموک می‌شود خوابید؟",
+    "آیا می‌توانم هاموک را به یک درخت و یک تیر ببندم؟",
+    "هاموک دو‌نفره برای یک نفر بهتر نیست؟",
+    "چطور جلوی تاب‌خوردن زیاد را بگیرم؟"
+   ],
    "internal_links": [
     "/build-shelter-branches/",
     "/category/camping-survival/",
@@ -92696,15 +92702,11 @@
    ],
    "relations": {},
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "faq"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "missing_featured_image"
    ]
   },
   {
@@ -93093,8 +93095,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "آیا واقعاً هیچ آب طبیعی‌ای وجود نداره که بشه مستقیم خورد؟",
+    "اگه آب خیلی گل‌آلود باشه و از پارچه هم رد نشه چیکار کنیم؟",
+    "چطور بفهمیم یه چشمه فعاله و خشک نمی‌شه؟",
+    "آیا آب بارون قابل شربنه؟",
+    "روزانه چقدر آب باید همراه داشته باشیم؟"
+   ],
    "internal_links": [
     "/camping-water-planning/",
     "/category/camping-survival/",
@@ -93110,14 +93118,12 @@
     "status": "matched_different",
     "diff_fields": [
      "content",
-     "faq",
      "featured_image"
     ]
    },
    "flags": [
     "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "differs_from_repo"
    ]
   },
   {
@@ -94341,8 +94347,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "چادر ۳ فصل بهتره یا ۴ فصل؟",
+    "آیا چادر ضدآب واقعاً آب رو رد نمی‌کنه؟",
+    "چادر چند نفره برای یک خانواده ۴ نفره مناسبه؟",
+    "تفاوت چادر کوهنوردی و کمپینگ معمولی چیه؟",
+    "چطور عمر چادر رو زیاد کنیم؟"
+   ],
    "internal_links": [
     "/camping-essential-checklist/",
     "/category/camping-survival/",
@@ -94358,14 +94370,12 @@
     "status": "matched_different",
     "diff_fields": [
      "content",
-     "faq",
      "featured_image"
     ]
    },
    "flags": [
     "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "differs_from_repo"
    ]
   },
   {
@@ -95176,8 +95186,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "تا رسیدن امداد، مصدوم را حرکت بدهم یا نه؟",
+    "کفش پای آسیب‌دیده را دربیاورم؟",
+    "چطور درد را کم کنم؟",
+    "اگر آنتن نداشتم چه کنم؟",
+    "تفاوت شکستگی باز و بسته چیست؟"
+   ],
    "internal_links": [
     "/ankle-sprain-first-aid/",
     "/category/camping-survival/",
@@ -95193,15 +95209,11 @@
    ],
    "relations": {},
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "faq"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "missing_featured_image"
    ]
   },
   {
@@ -95370,9 +95382,10 @@
     ],
     "post_format": []
    },
-   "meta_count": 6,
+   "meta_count": 7,
    "meta_keys": [
     "sa_byline",
+    "sa_faq",
     "sa_focus_keyword",
     "sa_risk_level",
     "sa_seo_description",
@@ -95446,8 +95459,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "داکوتا فایر هول (Dakota Fire Hole) دقیقاً چیه و چرا انقدر خوبه؟",
+    "هیزم خیس رو چطور سریع خشک کنیم؟",
+    "اگه تو برف شدید گیر کردیم، چطور آتیش روشن نگه داریم؟",
+    "چرا آتیش تو باد و بارون مدام دود می‌کنه و تو چشم می‌ره؟",
+    "چطور بفهمیم یه کنده چوب از داخل خشکه یا خیس؟"
+   ],
    "internal_links": [
     "/category/camping-survival/",
     "/editorial-policy/",
@@ -95463,15 +95482,13 @@
     "status": "matched_different",
     "diff_fields": [
      "content",
-     "faq",
      "featured_image",
      "meta:sa_sources"
     ]
    },
    "flags": [
     "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "differs_from_repo"
    ]
   },
   {
@@ -96700,8 +96717,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "ساده‌ترین غذای کمپ چیست؟",
+    "آیا می‌توانم در چادر آشپزی کنم؟",
+    "چطور ظرف را کمتر کثیف کنم؟",
+    "آب چشمه قابل‌نوشیدن است؟",
+    "زبالهٔ غذا را چه کنم؟"
+   ],
    "internal_links": [
     "/category/camping-survival/",
     "/emergency-water-purification/",
@@ -96717,15 +96740,11 @@
    ],
    "relations": {},
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "faq"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "missing_featured_image"
    ]
   },
   {
@@ -97400,8 +97419,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "آیا می‌تونم مستقیم از چشمه کوهستان آب بخورم و فیلتر نبرم؟",
+    "تفاوت فیلتر (Filter) و پوریفایر (Purifier) دقیقاً چیه؟",
+    "فیلترم وسط مسیر کیپ شد و آب رد نمیشه. چیکار کنم؟",
+    "آیا برف و بارون رو هم باید فیلتر کرد؟",
+    "چطور بفهمم فیلترم دیگه کار نمی‌کنه و تموم شده؟"
+   ],
    "internal_links": [
     "/camping-water-planning/",
     "/category/camping-survival/",
@@ -97418,15 +97443,11 @@
    ],
    "relations": {},
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "faq"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "missing_featured_image"
    ]
   },
   {
@@ -99297,8 +99318,14 @@
      "text": "پیام پایانی"
     }
    ],
-   "faq_count": 0,
-   "faq_questions": [],
+   "faq_count": 5,
+   "faq_questions": [
+    "برای بچه‌ای که شنا بلد است هم جلیقه لازم است؟",
+    "جلیقهٔ نجات خوب چه ویژگی‌هایی دارد؟",
+    "اگر بچه‌ای را در آب بی‌حرکت دیدم چه کنم؟",
+    "چقدر باید به بچه نزدیک باشم؟",
+    "شب هم بازی آبی برای بچه‌ها اشکالی ندارد؟"
+   ],
    "internal_links": [
     "/category/camping-survival/",
     "/children-outdoor-safety/",
@@ -99314,15 +99341,11 @@
    ],
    "relations": {},
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "faq"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo",
-    "missing_faq"
+    "missing_featured_image"
    ]
   },
   {

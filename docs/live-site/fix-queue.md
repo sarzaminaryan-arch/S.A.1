@@ -8,7 +8,7 @@
 موردی پیدا نشد.
 
 
-## ۲) روی سایت هست ولی با مخزن فرق دارد (62)
+## ۲) روی سایت هست ولی با مخزن فرق دارد (57)
 
 | کلید | عنوان | فیلدهای متفاوت |
 |---|---|---|
@@ -45,9 +45,8 @@
 | post:diy-can-stove | ساخت اجاق با قوطی کنسرو؛ خطرها را پیش از روشن‌کردن بشناس | content,excerpt,faq,meta:sa_risk_level,meta:sa_sources |
 | post:diy-compass | ساخت قطب‌نما با سوزن و آب؛ چطور وقتی گم شدیم جهت شمال رو پیدا کنیم؟ | featured_image |
 | post:diy-emergency-torch | ساخت مشعل اضطراری؛ چطور تو تاریکی مطلق، نور و گرما رو به کمپ برگردونیم؟ | content,featured_image |
-| post:diy-hammock-trees | ساخت تخت معلق بین درخت‌ها؛ نصب ایمن هاموک در جنگل | faq |
 | post:diy-water-filter | ساخت فیلتر آب با بطری و زغال؛ زلالی آب، ایمنی نمی‌آورد | content,excerpt,faq,meta:sa_focus_keyword,meta:sa_risk_level,meta:sa_sources |
-| post:drinking-water-in-nature | تأمین آب آشامیدنی در طبیعت؛ چطور آب سالم پیدا کنیم و مسموم نشیم؟ | content,faq,featured_image |
+| post:drinking-water-in-nature | تأمین آب آشامیدنی در طبیعت؛ چطور آب سالم پیدا کنیم و مسموم نشیم؟ | content,featured_image |
 | post:drowning-rescue-guide | آموزش نجات غریق: رفیقت توی آب افتاد؟ آروم باش. بخون و عمل کن. | content,featured_image |
 | post:emergency-water-purification | روش‌های تصفیه آب در شرایط اضطراری؛ چطور آب رودخونه رو به آب معدنی تبدیل کنیم؟ | content,featured_image |
 | post:essential-camping-equipment | وسایل ضروری کمپینگ برای یک شب؛ چک‌لیست و انتخاب ایمن | content,featured_image |
@@ -55,25 +54,21 @@
 | post:first-aid-kit-checklist | کیف کمک‌های اولیه کمپینگ؛ چی توش باشه که جونت رو نجات بده؟ | content,featured_image |
 | post:gps-navigation-tools | ابزارهای مسیریابی در طبیعت؛ GPS، نقشه و قطب‌نما | content,excerpt,faq,meta:sa_focus_keyword,meta:sa_risk_level,meta:sa_sources |
 | post:heatstroke-first-aid | کمک‌های اولیه گرمازدگی در طبیعت: گیج شد؟ خنک کن، همین حالا | content,featured_image |
-| post:how-to-choose-camping-tent | راهنمای انتخاب چادر مناسب؛ خونه‌ی موقتت رو درست انتخاب کن! | content,faq,featured_image |
+| post:how-to-choose-camping-tent | راهنمای انتخاب چادر مناسب؛ خونه‌ی موقتت رو درست انتخاب کن! | content,featured_image |
 | post:how-to-extinguish-campfire | خاموش کردن کامل و ایمن آتش در طبیعت؛ چطور ردپای آتیشمون رو پاک کنیم؟ | content,faq,featured_image |
 | post:how-to-start-campfire | آموزش روشن کردن اصولی آتش در طبیعت؛ چطور بدون دود و دردسر، کمپ رو گرم کنیم؟ | content,featured_image |
 | post:hypothermia-first-aid | کمک‌های اولیه سرمازدگی در طبیعت: وقتی لرز قطع می‌شود، خطر تازه شروع شده | content,featured_image |
-| post:leg-fracture-first-aid | شکستگی پا در طبیعت؛ تا رسیدن پزشک چه کنیم؟ | faq |
-| post:maintain-fire-in-rain | نگهداری آتش در باد و بارون؛ چطور تو طوفان آتیش رو زنده نگه داریم؟ | content,faq,featured_image,meta:sa_sources |
+| post:maintain-fire-in-rain | نگهداری آتش در باد و بارون؛ چطور تو طوفان آتیش رو زنده نگه داریم؟ | content,featured_image,meta:sa_sources |
 | post:multi-tool-knife-review | چاقوهای چندکارهٔ طبیعت‌گردی؛ چطور ابزار مناسب را انتخاب کنیم؟ | content,excerpt,faq,meta:sa_sources |
 | post:newspaper-insulation-bed | بالش و تشک اضطراری با روزنامه و گونی در طبیعت | content |
 | post:old-clothes-bandage-wick | استفادهٔ دوباره از لباس و جوراب کهنه: باند، دستکش و فتیلهٔ آتش | content |
 | post:outdoor-clothing-guide | لباس مناسب طبیعت در هر فصل؛ چی بپوشیم که نه سردمون بشه نه گرم | content,faq,featured_image |
 | post:outdoor-cooking-equipment | تجهیزات پخت‌وپز در طبیعت؛ چی ببریم که هم غذا بخوریم هم بار اضافه نکشیم؟ | featured_image |
-| post:outdoor-cooking-minimal | آشپزی در طبیعت با کمترین امکانات؛ گرم، ساده و ایمن | faq |
 | post:overdose-rescue-guide | کمک‌های اولیه اوردوز دارویی در طبیعت: راه هوایی را نگه دار، ۱۱۵ را خبر کن، استفراغ نده | featured_image |
-| post:portable-water-filter-review | معرفی فیلتر آب قابل‌حمل؛ چطور آب رودخونه رو بدون دل‌درد بخوریم؟ | faq |
 | post:self-rescue-drowning | آموزش نجات خویشتن در آب: خودت افتادی توی آب سرد؟ اول نفس، بعد شنا. | featured_image |
 | post:sleeping-bag-guide | راهنمای انتخاب کیسه‌خواب مناسب؛ شب‌های سرد طبیعت رو راحت بخواب | featured_image |
 | post:snake-insect-bite-first-aid | کمک‌های اولیه گزیدگی مار و حشرات در طبیعت: بی‌حرکت کن، آرام باش، برسان | featured_image |
 | post:unconscious-drowning-cpr | نجات فرد بیهوش از آب: وقتی رفیقت بی‌حرکت روی آب شناور است | featured_image |
-| post:water-safety-children | ایمنی آبی برای بچه‌ها؛ چطور بازی کنار آب را برایشان امن کنیم؟ | faq |
 
 
 ## ۳) نقص‌های قابل بررسی
