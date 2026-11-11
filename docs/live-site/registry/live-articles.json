@@ -1,10 +1,10 @@
 {
  "tool": "sa-live-site-registry",
- "generated_at": "2026-11-11T00:03:18.965033+00:00",
+ "generated_at": "2026-11-11T00:12:36.856489+00:00",
  "snapshot_date": "2026-11-11",
  "sources": {
-  "live": "/tmp/inputs/live-articles-20261110-235922.json",
-  "audit": "/tmp/inputs/audit-report-20261110-235922-local.json",
+  "live": "/tmp/inputs/live-articles-20261111-000924.json",
+  "audit": "/tmp/inputs/audit-report-20261111-000924-local.json",
   "baseline_records": 104
  },
  "counts": {
@@ -2767,8 +2767,7 @@
     "missing_featured_image",
     "thin_content(<800)",
     "differs_from_repo"
-   ],
-   "agent_note": "در ۲۰۲۶-۱۱-۱۰ توسط مالک منتشر شد (فاز ۲). تصویر شاخص ندارد؛ کارت تصویر طبق استاندارد سایت باید ساخته شود. اختلاف relation:city با مخزن در ممیزی محلی ثبت شد."
+   ]
   },
   {
    "key": "attraction:kuhrang-fritillaria-plain-guide",
@@ -5315,8 +5314,7 @@
     "missing_featured_image",
     "thin_content(<800)",
     "differs_from_repo"
-   ],
-   "agent_note": "در ۲۰۲۶-۱۱-۱۰ توسط مالک منتشر شد (فاز ۲). تصویر شاخص ندارد؛ کارت تصویر طبق استاندارد سایت باید ساخته شود. اختلاف relation:city با مخزن در ممیزی محلی ثبت شد."
+   ]
   },
   {
    "key": "attraction:shahdad-kaluts-lut-desert",
@@ -6020,8 +6018,7 @@
     "missing_featured_image",
     "thin_content(<800)",
     "differs_from_repo"
-   ],
-   "agent_note": "در ۲۰۲۶-۱۱-۱۰ توسط مالک منتشر شد (فاز ۲). تصویر شاخص ندارد؛ کارت تصویر طبق استاندارد سایت باید ساخته شود. اختلاف relation:city با مخزن در ممیزی محلی ثبت شد."
+   ]
   },
   {
    "key": "attraction:tabas-attractions",
@@ -6838,8 +6835,7 @@
     "missing_featured_image",
     "thin_content(<800)",
     "differs_from_repo"
-   ],
-   "agent_note": "در ۲۰۲۶-۱۱-۱۰ توسط مالک منتشر شد (فاز ۲). تصویر شاخص ندارد؛ کارت تصویر طبق استاندارد سایت باید ساخته شود. اختلاف relation:city با مخزن در ممیزی محلی ثبت شد."
+   ]
   },
   {
    "key": "city:abadan",
@@ -29879,7 +29875,7 @@
     "missing_featured_image",
     "not_in_repo_baseline"
    ],
-   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری ایجرود؛ نسخهٔ تکراری (ijrud) در ۲۰۲۶-۱۱-۱۰ به زباله‌دان رفت. این جفت بسته شد."
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری ایجرود؛ جفتش (ijrud) ۲۰۲۶-۱۱-۱۰ به زباله‌دان رفت. این جفت بسته شد."
   },
   {
    "key": "city:eqlid",
@@ -48518,6 +48514,201 @@
    ]
   },
   {
+   "key": "city:kharadere",
+   "wp_id": 84,
+   "post_type": "city",
+   "slug": "kharadere",
+   "title": "شهرستان خرمدره",
+   "status": "publish",
+   "date_published": "2026-10-07 23:42:19",
+   "date_modified": "2026-11-11 03:37:55",
+   "author": "Lak",
+   "permalink": "https://sarzaminaryan.ir/city/kharadere/",
+   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=84&action=edit",
+   "excerpt": "شهرستان خرمدره؛ کوچک‌ترین و پرجمعیت‌ترین شهرستان استان زنجان با رکورد تراکم و باسوادی، کوچه‌باغ‌های سرسبز، حمام تاریخی یان‌یان و نام‌های کهن جوزستان و نه‌دژ.",
+   "content_hash": "8ed3b532c9802d4c9d28c28f0b75c6d9a097880c43bc6788f107eae8dd1217e8",
+   "content_text_hash": "3b3bba7874ec8928a31f8fadae136fc622a41506ab8f36f54eea84207b167e1b",
+   "word_count": 1132,
+   "featured_file": "",
+   "featured": {},
+   "terms": {
+    "province_tax": [
+     "zanjan"
+    ],
+    "travel_season": [
+     "autumn",
+     "spring",
+     "summer"
+    ]
+   },
+   "meta_count": 38,
+   "meta_keys": [
+    "sa_access_air",
+    "sa_access_rail",
+    "sa_access_road",
+    "sa_city_elevation",
+    "sa_city_latitude",
+    "sa_city_longitude",
+    "sa_city_population",
+    "sa_city_schema_type",
+    "sa_city_slug",
+    "sa_cty_area",
+    "sa_cty_best_time",
+    "sa_cty_census_year",
+    "sa_cty_center",
+    "sa_cty_cities",
+    "sa_cty_climate",
+    "sa_cty_distance_center",
+    "sa_cty_districts",
+    "sa_cty_language",
+    "sa_cty_livelihood",
+    "sa_cty_neighbors",
+    "sa_cty_poi_heritage",
+    "sa_cty_poi_nature",
+    "sa_cty_poi_offbeat",
+    "sa_cty_poi_recreation",
+    "sa_cty_population",
+    "sa_cty_rural_districts",
+    "sa_cty_villages",
+    "sa_faq",
+    "sa_focus_keyword",
+    "sa_google_map_url",
+    "sa_og_description",
+    "sa_og_title",
+    "sa_province_id",
+    "sa_schema_contained_in",
+    "sa_schema_sameas",
+    "sa_seo_description",
+    "sa_seo_title",
+    "sa_sources"
+   ],
+   "seo": {
+    "sa_focus_keyword": "شهرستان خرمدره",
+    "sa_og_description": "شهرستان خرمدره؛ کوچک‌ترین و پرجمعیت‌ترین شهرستان استان زنجان با رکورد تراکم و باسوادی، کوچه‌باغ‌های سرسبز، حمام تاریخی ی",
+    "sa_og_title": "شهرستان خرمدره — سرزمین آریان",
+    "sa_seo_description": "شهرستان خرمدره؛ کوچک‌ترین و پرجمعیت‌ترین شهرستان استان زنجان با رکورد تراکم و باسوادی، کوچه‌باغ‌های سرسبز، حمام تاریخی یان‌یان و نام‌های کهن جوزستان و نه‌د",
+    "sa_seo_title": "شهرستان خرمدره؛ راهنمای کامل جمعیت، تقسیمات و جاذبه‌ها"
+   },
+   "headings": [
+    {
+     "level": 2,
+     "text": "شهرستان خرمدره؛ نگین سبز میان ابهر و زنجان"
+    },
+    {
+     "level": 2,
+     "text": "معرفی شهرستان"
+    },
+    {
+     "level": 2,
+     "text": "مشخصات کلی"
+    },
+    {
+     "level": 2,
+     "text": "موقعیت جغرافیایی"
+    },
+    {
+     "level": 2,
+     "text": "تاریخچه"
+    },
+    {
+     "level": 3,
+     "text": "پیشینه"
+    },
+    {
+     "level": 3,
+     "text": "شهرستان شدن"
+    },
+    {
+     "level": 2,
+     "text": "وجه تسمیه"
+    },
+    {
+     "level": 2,
+     "text": "آب و هوا"
+    },
+    {
+     "level": 2,
+     "text": "صنایع مهم"
+    },
+    {
+     "level": 2,
+     "text": "فرهنگ و مردم"
+    },
+    {
+     "level": 2,
+     "text": "زبان و گویش"
+    },
+    {
+     "level": 2,
+     "text": "جاذبه‌های گردشگری"
+    },
+    {
+     "level": 3,
+     "text": "آثار تاریخی"
+    },
+    {
+     "level": 3,
+     "text": "طبیعت‌گردی"
+    },
+    {
+     "level": 2,
+     "text": "نقشه و لوکیشن"
+    },
+    {
+     "level": 2,
+     "text": "مشاهیر شهرستان"
+    },
+    {
+     "level": 2,
+     "text": "حقایق جالب"
+    },
+    {
+     "level": 2,
+     "text": "از مردم عزیز شهرستان خرمدره، یک درخواست داریم"
+    }
+   ],
+   "faq_count": 10,
+   "faq_questions": [
+    "شهرستان خرمدره کجاست؟",
+    "جمعیت شهرستان خرمدره چقدر است؟",
+    "شهرستان خرمدره چه سالی تشکیل شد؟",
+    "چرا تراکم جمعیت خرمدره رکورد استان است؟",
+    "نام‌های پیشین خرمدره چه بوده است؟",
+    "مهم‌ترین جاذبه‌های خرمدره کدام‌اند؟",
+    "ارتفاع شهر خرمدره چقدر است؟",
+    "زبان مردم خرمدره چیست؟",
+    "صنایع دستی خرمدره چیست؟",
+    "بهترین زمان سفر به خرمدره چه فصلی است؟"
+   ],
+   "internal_links": [
+    "/city/abhar/",
+    "/city/ejrud/",
+    "/city/khodabandeh/",
+    "/city/mahneshan/",
+    "/city/soltaniyeh/",
+    "/city/tarom/",
+    "/city/zanjan/",
+    "/province/zanjan/",
+    "mailto:Mail@sarzaminaryan.ir"
+   ],
+   "external_link_count": 54,
+   "content_image_files": [],
+   "relations": {
+    "province": "zanjan",
+    "province_id": 54,
+    "province_title": "استان زنجان"
+   },
+   "repo": {
+    "status": "live_only",
+    "diff_fields": []
+   },
+   "flags": [
+    "missing_featured_image",
+    "not_in_repo_baseline"
+   ],
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری خرمدره؛ ۲۰۲۶-۱۱-۱۱ توسط مالک از انتشار خارج‌شده برگشت و منتشر شد و جفت ضعیفش (khorramdarreh) به زباله‌دان رفت (اسنپ‌شات ۰۰:۰۹). این جفت بسته شد."
+  },
+  {
    "key": "city:kharameh",
    "wp_id": 342,
    "post_type": "city",
@@ -50795,165 +50986,6 @@
     "missing_featured_image",
     "not_in_repo_baseline"
    ]
-  },
-  {
-   "key": "city:khorramdarreh",
-   "wp_id": 1495,
-   "post_type": "city",
-   "slug": "khorramdarreh",
-   "title": "شهرستان خرمدره",
-   "status": "publish",
-   "date_published": "2026-10-03 21:09:39",
-   "date_modified": "2026-11-11 02:56:56",
-   "author": "Lak",
-   "permalink": "https://sarzaminaryan.ir/city/khorramdarreh/",
-   "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=1495&action=edit",
-   "excerpt": "شهرستان خرمدره؛ کوچک‌ترین و پرتراکم‌ترین شهرستان استان زنجان با یک شهر، نام کهن جوزستان و بالاترین نرخ باسوادی استان.",
-   "content_hash": "43de8888ebc2e0c59d40feefa447560d7a0b74f5084cd216c52d0f459978e371",
-   "content_text_hash": "b95d73cfac76c25b04459fecf5bacb848d1b2e595413bf03a211ced67666e6e1",
-   "word_count": 801,
-   "featured_file": "",
-   "featured": {},
-   "terms": {
-    "province_tax": [
-     "zanjan"
-    ],
-    "travel_season": [
-     "spring",
-     "summer"
-    ]
-   },
-   "meta_count": 19,
-   "meta_keys": [
-    "sa_access_air",
-    "sa_access_rail",
-    "sa_access_road",
-    "sa_city_latitude",
-    "sa_city_longitude",
-    "sa_city_population",
-    "sa_city_schema_type",
-    "sa_city_slug",
-    "sa_faq",
-    "sa_focus_keyword",
-    "sa_google_map_url",
-    "sa_og_description",
-    "sa_og_title",
-    "sa_province_id",
-    "sa_schema_contained_in",
-    "sa_schema_sameas",
-    "sa_seo_description",
-    "sa_seo_title",
-    "sa_sources"
-   ],
-   "seo": {
-    "sa_focus_keyword": "شهرستان خرمدره",
-    "sa_og_description": "از جوزستان کهن تا پرتراکم‌ترین شهرستان استان؛ هرآنچه باید دربارهٔ خرمدره بدانید.",
-    "sa_og_title": "شهرستان خرمدره — درهٔ خرم استان زنجان",
-    "sa_seo_description": "راهنمای شهرستان خرمدره؛ ۴۰۷ کیلومتر مربع مساحت، تراکم ۲۱۱ نفر، بالاترین نرخ باسوادی استان و تاریخچهٔ جدایی از ابهر در ۱۳۷۶.",
-    "sa_seo_title": "شهرستان خرمدره؛ کوچک‌ترین و پرتراکم‌ترین شهرستان زنجان"
-   },
-   "headings": [
-    {
-     "level": 1,
-     "text": "شهرستان خرمدره؛ کوچک‌ترین و پرتراکم‌ترین شهرستان استان زنجان"
-    },
-    {
-     "level": 2,
-     "text": "معرفی شهرستان"
-    },
-    {
-     "level": 2,
-     "text": "مشخصات کلی"
-    },
-    {
-     "level": 2,
-     "text": "موقعیت جغرافیایی"
-    },
-    {
-     "level": 2,
-     "text": "تاریخچه"
-    },
-    {
-     "level": 3,
-     "text": "وجه تسمیه و نام‌های پیشین"
-    },
-    {
-     "level": 3,
-     "text": "دورهٔ معاصر"
-    },
-    {
-     "level": 2,
-     "text": "آب و هوا"
-    },
-    {
-     "level": 2,
-     "text": "فرهنگ و مردم"
-    },
-    {
-     "level": 2,
-     "text": "زبان و گویش"
-    },
-    {
-     "level": 2,
-     "text": "تقسیمات کشوری"
-    },
-    {
-     "level": 2,
-     "text": "آثار و جاذبه‌ها"
-    },
-    {
-     "level": 2,
-     "text": "نقشه و لوکیشن"
-    },
-    {
-     "level": 2,
-     "text": "حقایق جالب"
-    },
-    {
-     "level": 2,
-     "text": "از مردم عزیز شهرستان خرمدره، یک درخواست داریم"
-    }
-   ],
-   "faq_count": 11,
-   "faq_questions": [
-    "شهرستان خرمدره کجاست؟",
-    "جمعیت شهرستان خرمدره چقدر است؟",
-    "مساحت شهرستان خرمدره چقدر است؟",
-    "چرا خرمدره پرتراکم‌ترین شهرستان استان است؟",
-    "شهرستان خرمدره چه زمانی تشکیل شد؟",
-    "نام قدیمی خرمدره چه بود؟",
-    "تقسیمات شهرستان خرمدره چگونه است؟",
-    "مردم خرمدره به چه زبانی سخن می‌گویند؟",
-    "اقلیم خرمدره چگونه است؟",
-    "نرخ باسوادی خرمدره چقدر است؟",
-    "بهترین فصل سفر به خرمدره کدام است؟"
-   ],
-   "internal_links": [
-    "/city/abhar/",
-    "/city/ejrud/",
-    "/city/khodabandeh/",
-    "/city/mahneshan/",
-    "/city/soltaniyeh/",
-    "/city/tarom/",
-    "/city/zanjan/",
-    "/province/zanjan/"
-   ],
-   "external_link_count": 43,
-   "content_image_files": [],
-   "relations": {
-    "province": "zanjan",
-    "province_id": 54,
-    "province_title": "استان زنجان"
-   },
-   "repo": {
-    "status": "live_only",
-    "diff_fields": []
-   },
-   "flags": [
-    "missing_featured_image",
-    "not_in_repo_baseline"
-   ],
-   "agent_note": "⚠️ جفت خرمدره برعکس بسته شد: این نسخهٔ ضعیف‌تر (۸۰۱ واژه) هنوز منتشرشده است و نسخهٔ اصلی (kharadere، ۱۱۳۲ واژه) اشتباهی از انتشار خارج شده (اسنپ‌شات ۲۰۲۶-۱۱-۱۰ ساعت ۲۳:۵۹). ریدایرکت قالب /city/khorramdarreh/ ← /city/kharadere/ است ولی مقصد منتشر نیست. اقدام فوری مالک: kharadere را از زباله‌دان/پیش‌نویس برگردان و منتشر کن، بعد این نسخه (khorramdarreh) را به زباله‌دان بفرست."
   },
   {
    "key": "city:khorramshahr",
@@ -92182,7 +92214,7 @@
     "missing_featured_image",
     "differs_from_repo"
    ],
-   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری CPR؛ نسخهٔ تکراری (cpr-complete-guide-2) در ۲۰۲۶-۱۱-۱۰ به زباله‌دان رفت. تصویر شاخص هنوز روی این نسخه نیست — فایل cpr-complete-guide.webp (پیوست ۱۰۰۲) در کتابخانهٔ رسانه هست و باید روی همین مقاله نشانده شود (اقدام مالک، طبق اسنپ‌شات ۲۳:۵۹ هنوز انجام نشده)."
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری CPR؛ جفتش (cpr-complete-guide-2) ۲۰۲۶-۱۱-۱۰ به زباله‌دان رفت. تنها کار باقی‌ماندهٔ فاز ۱: نشاندن تصویر شاخص cpr-complete-guide.webp (پیوست ۱۰۰۲، در کتابخانهٔ رسانه موجود است) روی همین مقاله — طبق اسنپ‌شات ۲۰۲۶-۱۱-۱۱ (۰۰:۰۹) هنوز انجام نشده."
   },
   {
    "key": "post:diy-bottle-lantern",

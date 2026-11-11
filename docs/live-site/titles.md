@@ -201,7 +201,7 @@
 - شهرستان خداآفرین — `khoda-afarin`
 - شهرستان خدابنده — `khodabandeh`
 - شهرستان خرامه — `kharameh`
-- شهرستان خرمدره — `khorramdarreh`
+- شهرستان خرمدره — `kharadere`
 - شهرستان خرمشهر — `khorramshahr`
 - شهرستان خرم‌آباد — `khorramabad`
 - شهرستان خرم‌بید — `khorrambid`

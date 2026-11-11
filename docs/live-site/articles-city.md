@@ -248,6 +248,7 @@
 | شهرستان خمیر | khamir | 717 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khamir/ |
 | شهرستان خانمیرزا | khanmirza | 707 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khanmirza/ |
 | شهرستان خوانسار | khansar | 710 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khansar/ |
+| شهرستان خرمدره | kharadere | 1132 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kharadere/ |
 | شهرستان خرامه | kharameh | 1219 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kharameh/ |
 | شهرستان خاش | khash | 1188 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khash/ |
 | شهرستان خاتم | khatam | 691 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khatam/ |
@@ -261,7 +262,6 @@
 | شهر خورموج | khormoj | 709 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khormoj/ |
 | شهرستان خرم‌آباد | khorramabad | 1195 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramabad/ |
 | شهرستان خرم‌بید | khorrambid | 1213 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorrambid/ |
-| شهرستان خرمدره | khorramdarreh | 801 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramdarreh/ |
 | شهرستان خرمشهر | khorramshahr | 1011 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramshahr/ |
 | شهرستان خوشاب | khoshab | 1159 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khoshab/ |
 | شهرستان خوی | khoy | 1126 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khoy/ |
