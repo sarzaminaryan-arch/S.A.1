@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       بازگردانی یک‌بارهٔ FAQ مقالات (فاز ۴ ـ بستهٔ A)
- * Plugin URI:        https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/faq-restore-v1.0.1
+ * Plugin URI:        https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/faq-restore-v1.0.2
  * Description:       افزونهٔ یک‌بارمصرف برای بازگرداندن متای sa_faq هشت راهنمایی که بدنه‌شان با مخزن هم‌جهت است ولی FAQ زنده‌شان خالی است. فقط وقتی sa_faq خالی باشد می‌نویسد؛ به متن و هیچ فیلد دیگری دست نمی‌زند.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            Sarzaminaryan
  * Author URI:        https://sarzaminaryan.ir/
  * Text Domain:       sa-faq-restore
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class SA_FAQ_Restore {
 
-	const VERSION         = '1.0.1';
+	const VERSION         = '1.0.2';
 	const BACKUP_OPTION   = 'sa_faq_restore_20261111_backup';
 	const REPORT_OPTION   = 'sa_faq_restore_20261111_report';
 	const ROLLBACK_OPTION = 'sa_faq_restore_20261111_rollback_report';
@@ -316,6 +316,25 @@ final class SA_FAQ_Restore {
 		return is_string( $json ) ? str_replace( '\\"', '"', $json ) : '';
 	}
 
+
+	/**
+	 * One pre-existing malformed FAQ observed on the live tent guide in the
+	 * 2026-11-11 snapshot: five old rows whose JSON is invalid only because
+	 * quotes inside one answer are unescaped. v1.0.x correctly refused to
+	 * overwrite a non-empty value; v1.0.2 may replace only this exact string.
+	 *
+	 * @param string $slug Post slug.
+	 * @return string
+	 */
+	private static function legacy_broken_raw( $slug ) {
+		if ( 'how-to-choose-camping-tent' !== $slug ) {
+			return '';
+		}
+		return <<<'LEGACY_FAQ'
+[{"q":"چادر ۳ فصل بهتره یا ۴ فصل؟","a":"اگه تو برف و کولاک زمستونی نمیری، قطعاً ۳ فصل. چادر ۳ فصل سبک‌تره، تهویه بهتری داره و تو تابستون اذیت نمیشی."},{"q":"آیا چادر ضدآب واقعاً آب رو رد نمی‌کنه؟","a":"هیچ چادری ۱۰۰٪ ضدآب نیست. چادرها "مقاوم در برابر آب" (Water-resistant) هستن. اگه بارون شدید باشه و آب زیر چادر جمع بشه، از درزها نشت می‌کنه. همیشه زیر چادر زیرانداز بنداز."},{"q":"چادر چند نفره برای یک خانواده ۴ نفره مناسبه؟","a":"حتماً چادر ۵ یا ۶ نفره بردار. هم وسایلت جا میشه، هم بچه‌ها فضای بازی دارن، هم راحت‌تر می‌خوابید."},{"q":"تفاوت چادر کوهنوردی و کمپینگ معمولی چیه؟","a":"چادر کوهنوردی سبک‌تره، ست‌های ظریف‌تری داره و در برابر بادهای شدید مقاومه. چادر کمپینگ معمولی سنگین‌تر، جادارتر و راحت‌تر برپا میشه."},{"q":"چطور عمر چادر رو زیاد کنیم؟","a":"هرگز چادر خیس رو جمع نکن (کپک می‌زنه). حتماً زیرش زیرانداز بنداز تا کفش پاره نشه. موقع برپا کردن، جای سنگ‌ریزه رو تمیز کن."}]
+LEGACY_FAQ;
+	}
+
 	/**
 	 * Apply: write the repository FAQ only where the live sa_faq is empty.
 	 *
@@ -386,7 +405,7 @@ final class SA_FAQ_Restore {
 			if ( $before === $target ) {
 				$log['status'] = 'already_target';
 				$log['after_count'] = count( $before );
-			} elseif ( '' !== trim( $raw ) && $raw !== self::broken_v100_raw( $target ) ) {
+			} elseif ( '' !== trim( $raw ) && $raw !== self::broken_v100_raw( $target ) && $raw !== self::legacy_broken_raw( $slug ) ) {
 				// Anything else non-empty belongs to the owner; never overwrite it.
 				$log['status'] = 'skipped_nonempty';
 				$log['after_count'] = count( $before );

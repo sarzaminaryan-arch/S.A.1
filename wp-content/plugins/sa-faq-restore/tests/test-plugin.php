@@ -66,6 +66,20 @@ $report_repair = SA_FAQ_Restore::apply_changes( 'test-repair' );
 assert_true( 1 === $report_repair['counts']['repaired_broken'], 'broken v1.0.0 value is repaired' );
 assert_true( json_decode( get_post_meta( $broken_post->ID, 'sa_faq', true ), true ) === $broken_target, 'repaired FAQ decodes exactly' );
 
+// The tent guide's pre-existing malformed legacy FAQ may be replaced only
+// when it matches the exact snapshot-observed string.
+$legacy_ref = new ReflectionMethod( 'SA_FAQ_Restore', 'legacy_broken_raw' );
+$legacy_ref->setAccessible( true );
+$legacy_raw = $legacy_ref->invoke( null, 'how-to-choose-camping-tent' );
+assert_true( '' !== $legacy_raw && null === json_decode( $legacy_raw, true ), 'legacy tent fixture is the observed invalid JSON' );
+$tent_post = get_posts( array( 'name' => 'how-to-choose-camping-tent', 'post_type' => 'post' ) )[0];
+$GLOBALS['meta'][ $tent_post->ID ]['sa_faq'] = $legacy_raw;
+$report_legacy = SA_FAQ_Restore::apply_changes( 'test-legacy' );
+assert_true( 1 === $report_legacy['counts']['repaired_broken'], 'legacy tent FAQ is repaired' );
+$tent_target = null;
+foreach ( $records as $rec ) { if ( 'how-to-choose-camping-tent' === $rec['slug'] ) $tent_target = $rec['faq']; }
+assert_true( json_decode( get_post_meta( $tent_post->ID, 'sa_faq', true ), true ) === $tent_target, 'legacy tent FAQ replaced by repository rows' );
+
 // Owner FAQ must never be overwritten.
 $victim = get_posts( array( 'name' => 'leg-fracture-first-aid', 'post_type' => 'post' ) )[0];
 update_post_meta( $victim->ID, 'sa_faq', wp_json_encode( array( array( 'q' => 'پرسش مالک؟', 'a' => 'پاسخ مالک.' ) ), JSON_UNESCAPED_UNICODE ) );
