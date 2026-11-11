@@ -4,7 +4,7 @@ Tags: audit, content, repository, reconciliation, persian
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 
 استخراج دقیق مقاله‌های منتشرشدهٔ سایت زنده و تطبیق فیلدبه‌فیلد با خط مبنای مخزن S.A.1؛ کاملاً فقط‌خواندنی.
