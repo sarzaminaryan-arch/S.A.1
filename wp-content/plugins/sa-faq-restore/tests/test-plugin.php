@@ -18,7 +18,8 @@ function get_posts( $args ) { foreach ( $GLOBALS['posts'] as $p ) { if ( $p->pos
 function get_post( $id ) { return isset( $GLOBALS['posts'][ $id ] ) ? clone $GLOBALS['posts'][ $id ] : null; }
 function get_post_meta( $id, $key, $single = false ) { return isset( $GLOBALS['meta'][ $id ][ $key ] ) ? $GLOBALS['meta'][ $id ][ $key ] : ''; }
 function metadata_exists( $type, $id, $key ) { return isset( $GLOBALS['meta'][ $id ][ $key ] ); }
-function update_post_meta( $id, $key, $value ) { $GLOBALS['meta'][ $id ][ $key ] = $value; return true; }
+function wp_slash( $value ) { return is_string( $value ) ? addslashes( $value ) : $value; }
+function update_post_meta( $id, $key, $value ) { $GLOBALS['meta'][ $id ][ $key ] = is_string( $value ) ? stripslashes( $value ) : $value; return true; }
 function delete_post_meta( $id, $key ) { unset( $GLOBALS['meta'][ $id ][ $key ] ); return true; }
 function wp_json_encode( $data, $options = 0, $depth = 512 ) { return json_encode( $data, $options, $depth ); }
 
@@ -54,6 +55,17 @@ foreach ( $records as $rec ) {
 $report2 = SA_FAQ_Restore::apply_changes( 'test-again' );
 assert_true( 8 === $report2['counts']['already_target'], 'second run idempotent' );
 
+// Simulate the exact v1.0.0 defect: WordPress unslashing removed the
+// backslash before quotes inside HTML links, leaving invalid JSON.
+$broken_post = get_posts( array( 'name' => 'diy-hammock-trees', 'post_type' => 'post' ) )[0];
+$broken_target = null;
+foreach ( $records as $rec ) { if ( 'diy-hammock-trees' === $rec['slug'] ) $broken_target = $rec['faq']; }
+$GLOBALS['meta'][ $broken_post->ID ]['sa_faq'] = str_replace( '\\"', '"', wp_json_encode( $broken_target, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
+assert_true( null === json_decode( get_post_meta( $broken_post->ID, 'sa_faq', true ), true ), 'broken v1.0.0 fixture is invalid JSON' );
+$report_repair = SA_FAQ_Restore::apply_changes( 'test-repair' );
+assert_true( 1 === $report_repair['counts']['repaired_broken'], 'broken v1.0.0 value is repaired' );
+assert_true( json_decode( get_post_meta( $broken_post->ID, 'sa_faq', true ), true ) === $broken_target, 'repaired FAQ decodes exactly' );
+
 // Owner FAQ must never be overwritten.
 $victim = get_posts( array( 'name' => 'leg-fracture-first-aid', 'post_type' => 'post' ) )[0];
 update_post_meta( $victim->ID, 'sa_faq', wp_json_encode( array( array( 'q' => 'پرسش مالک؟', 'a' => 'پاسخ مالک.' ) ), JSON_UNESCAPED_UNICODE ) );
@@ -65,7 +77,7 @@ assert_true( 'پرسش مالک؟' === $vf[0]['q'], 'owner FAQ survives' );
 // Put the plugin target back, then rollback everything.
 $target = null;
 foreach ( $records as $rec ) { if ( 'leg-fracture-first-aid' === $rec['slug'] ) $target = $rec['faq']; }
-update_post_meta( $victim->ID, 'sa_faq', wp_json_encode( $target, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
+update_post_meta( $victim->ID, 'sa_faq', wp_slash( wp_json_encode( $target, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) ) );
 $rb = SA_FAQ_Restore::rollback();
 assert_true( 8 === $rb['counts']['restored'], 'rollback restores all eight' );
 foreach ( $records as $rec ) {

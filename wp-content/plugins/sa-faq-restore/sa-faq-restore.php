@@ -1,9 +1,9 @@
 <?php
 /**
  * Plugin Name:       بازگردانی یک‌بارهٔ FAQ مقالات (فاز ۴ ـ بستهٔ A)
- * Plugin URI:        https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/faq-restore-v1.0.0
+ * Plugin URI:        https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/faq-restore-v1.0.1
  * Description:       افزونهٔ یک‌بارمصرف برای بازگرداندن متای sa_faq هشت راهنمایی که بدنه‌شان با مخزن هم‌جهت است ولی FAQ زنده‌شان خالی است. فقط وقتی sa_faq خالی باشد می‌نویسد؛ به متن و هیچ فیلد دیگری دست نمی‌زند.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Sarzaminaryan
  * Author URI:        https://sarzaminaryan.ir/
  * Text Domain:       sa-faq-restore
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class SA_FAQ_Restore {
 
-	const VERSION         = '1.0.0';
+	const VERSION         = '1.0.1';
 	const BACKUP_OPTION   = 'sa_faq_restore_20261111_backup';
 	const REPORT_OPTION   = 'sa_faq_restore_20261111_report';
 	const ROLLBACK_OPTION = 'sa_faq_restore_20261111_rollback_report';
@@ -291,6 +291,32 @@ final class SA_FAQ_Restore {
 	}
 
 	/**
+	 * Encode FAQ for update_post_meta().
+	 *
+	 * WordPress metadata APIs wp_unslash() incoming values, so a raw JSON
+	 * string loses the backslashes that escape quotes inside HTML links and
+	 * becomes invalid JSON. wp_slash() preserves the stored JSON exactly.
+	 *
+	 * @param array<int,array{q:string,a:string}> $faq FAQ rows.
+	 * @return string
+	 */
+	private static function encode_faq( $faq ) {
+		return wp_slash( wp_json_encode( $faq, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) );
+	}
+
+	/**
+	 * The exact malformed value v1.0.0 stored after WordPress unslashed its
+	 * JSON (quotes inside <a href="…"> lost their escaping backslash).
+	 *
+	 * @param array<int,array{q:string,a:string}> $faq FAQ rows.
+	 * @return string
+	 */
+	private static function broken_v100_raw( $faq ) {
+		$json = wp_json_encode( $faq, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+		return is_string( $json ) ? str_replace( '\\"', '"', $json ) : '';
+	}
+
+	/**
 	 * Apply: write the repository FAQ only where the live sa_faq is empty.
 	 *
 	 * @param string $source activation|manual.
@@ -309,6 +335,7 @@ final class SA_FAQ_Restore {
 			'user_id' => get_current_user_id(),
 			'counts'  => array(
 				'updated'          => 0,
+				'repaired_broken'  => 0,
 				'already_target'   => 0,
 				'skipped_nonempty' => 0,
 				'not_found'        => 0,
@@ -359,19 +386,20 @@ final class SA_FAQ_Restore {
 			if ( $before === $target ) {
 				$log['status'] = 'already_target';
 				$log['after_count'] = count( $before );
-			} elseif ( '' !== trim( $raw ) ) {
-				// Anything non-empty belongs to the owner; never overwrite it.
+			} elseif ( '' !== trim( $raw ) && $raw !== self::broken_v100_raw( $target ) ) {
+				// Anything else non-empty belongs to the owner; never overwrite it.
 				$log['status'] = 'skipped_nonempty';
 				$log['after_count'] = count( $before );
 			} else {
+				$repair = '' !== trim( $raw );
 				update_post_meta(
 					$post->ID,
 					self::META_KEY,
-					wp_json_encode( $target, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES )
+					self::encode_faq( $target )
 				);
 				$after = self::decode_faq( (string) get_post_meta( $post->ID, self::META_KEY, true ) );
 				$log['after_count'] = count( $after );
-				$log['status'] = ( $after === $target ) ? 'updated' : 'failed';
+				$log['status'] = ( $after === $target ) ? ( $repair ? 'repaired_broken' : 'updated' ) : 'failed';
 			}
 
 			if ( isset( $report['counts'][ $log['status'] ] ) ) {
@@ -453,7 +481,7 @@ final class SA_FAQ_Restore {
 				$log['after_count'] = count( $current );
 			} else {
 				if ( ! empty( $backup[ $slug ]['exists'] ) && '' !== $restore_raw ) {
-					update_post_meta( $post->ID, self::META_KEY, $restore_raw );
+					update_post_meta( $post->ID, self::META_KEY, wp_slash( $restore_raw ) );
 				} else {
 					delete_post_meta( $post->ID, self::META_KEY );
 				}
@@ -533,8 +561,9 @@ final class SA_FAQ_Restore {
 		echo '<div class="notice notice-success is-dismissible"><p>';
 		echo esc_html(
 			sprintf(
-				'بازگردانی یک‌بارهٔ FAQ اجرا شده است: %1$d مقاله به‌روزرسانی، %2$d مقاله از قبل درست، %3$d مقاله ردشده به‌دلیل خالی‌نبودن FAQ. پس از اجرای ممیزی مقالات و اطمینان از نتیجه، این افزونه را غیرفعال و حذف کنید.',
+				'بازگردانی یک‌بارهٔ FAQ اجرا شده است: %1$d مقاله به‌روزرسانی، %2$d مقاله تعمیرشده، %3$d مقاله از قبل درست، %4$d مقاله ردشده به‌دلیل خالی‌نبودن FAQ. پس از اجرای ممیزی مقالات و اطمینان از نتیجه، این افزونه را غیرفعال و حذف کنید.',
 				(int) $c['updated'],
+				(int) ( isset( $c['repaired_broken'] ) ? $c['repaired_broken'] : 0 ),
 				(int) $c['already_target'],
 				(int) $c['skipped_nonempty']
 			)
@@ -546,6 +575,7 @@ final class SA_FAQ_Restore {
 	private static function status_label( $status ) {
 		$labels = array(
 			'updated'          => 'FAQ نوشته شد',
+			'repaired_broken'  => 'JSON خراب نسخهٔ ۱٫۰٫۰ تعمیر شد',
 			'already_target'   => 'از قبل FAQ هدف بود',
 			'skipped_nonempty' => 'رد شد: FAQ زنده خالی نیست',
 			'failed'           => 'خطا در ذخیره/راستی‌آزمایی',
