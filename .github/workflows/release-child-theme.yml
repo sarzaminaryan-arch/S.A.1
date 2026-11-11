@@ -104,6 +104,7 @@ jobs:
         run: |
           php "$THEME_DIR/tests/test-ready-guides.php"
           php "$THEME_DIR/tests/test-ready-covers.php"
+          php "$THEME_DIR/tests/test-seo-single-source.php"
           if [ -d docs/camping-education/articles ]; then
             python3 tools/content-lint/build_theme_data.py --check
           fi

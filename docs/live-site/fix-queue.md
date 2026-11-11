@@ -8,42 +8,32 @@
 موردی پیدا نشد.
 
 
-## ۲) روی سایت هست ولی با مخزن فرق دارد (72)
+## ۲) روی سایت هست ولی با مخزن فرق دارد (62)
 
 | کلید | عنوان | فیلدهای متفاوت |
 |---|---|---|
-| attraction:ali-sadr-cave-hamedan-guide | غار علیصدر | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:anzali-international-wetland-guide | تالاب بین‌المللی انزلی | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:azgan-wetland-dorud | تالاب ازگن (قارون) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:sa_sources |
-| attraction:aznadar-waterfall-doroud | آبشار ازنادر (دره اسپر) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:babahur-forest-park-dorud | تفرجگاه باباهور (بام دورود) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:bagh-golshan-tabas | باغ گلشن طبس | content,meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:bishapur | شهر ساسانی بیشاپور | meta:rank_math_description,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:bisheh-waterfall-dorud | آبشار بیشه | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:falak-ol-aflak-castle-khorramabad | قلعه فلک‌الافلاک (دژ شاپورخواست) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:fin-garden | باغ فین کاشان | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:gahar-lake-dorud | دریاچه گهر | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:ghaleh-dokhtar-boshruyeh | قلعه دختر بشرویه | content,meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:golestan-national-park-guide | پارک ملی گلستان (جنگل گلستان) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:kuhrang-fritillaria-plain-guide | دشت لاله‌های واژگون کوهرنگ | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:margoon-falls | آبشار مارگون | meta:rank_math_description,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:masouleh | ماسوله | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:mount-damavand-guide | قله دماوند | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:naqsh-e-jahan-square-isfahan | میدان نقش جهان | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,relation:city |
-| attraction:nigah-valley-dorud | دره نیگاه (دره نگار) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:pasargadae | پاسارگاد | meta:rank_math_description,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:persepolis-takht-jamshid | تخت جمشید | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:qasem-anvar-shrine | آرامگاه شاه قاسم انوار | content,meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:sa_sources |
-| attraction:qeshm-stars-valley-geopark | درهٔ ستارگان قشم | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:rig-e-jenn-desert | کویر ریگ جن | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:sa_sources |
-| attraction:sar-agha-seyed-village | روستای سرآقا سید | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:sa_sources |
-| attraction:shahdad-kaluts-lut-desert | کلوت‌های شهداد | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:shevi-waterfall-tele-zang | آبشار شوی (تله زنگ) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
+| attraction:ali-sadr-cave-hamedan-guide | غار علیصدر | meta:sa_sources |
+| attraction:anzali-international-wetland-guide | تالاب بین‌المللی انزلی | meta:sa_sources |
+| attraction:azgan-wetland-dorud | تالاب ازگن (قارون) | meta:sa_sources |
+| attraction:aznadar-waterfall-doroud | آبشار ازنادر (دره اسپر) | meta:sa_sources |
+| attraction:babahur-forest-park-dorud | تفرجگاه باباهور (بام دورود) | meta:sa_sources |
+| attraction:bagh-golshan-tabas | باغ گلشن طبس | content |
+| attraction:falak-ol-aflak-castle-khorramabad | قلعه فلک‌الافلاک (دژ شاپورخواست) | meta:sa_sources |
+| attraction:gahar-lake-dorud | دریاچه گهر | meta:sa_sources |
+| attraction:ghaleh-dokhtar-boshruyeh | قلعه دختر بشرویه | content |
+| attraction:golestan-national-park-guide | پارک ملی گلستان (جنگل گلستان) | meta:sa_sources |
+| attraction:kuhrang-fritillaria-plain-guide | دشت لاله‌های واژگون کوهرنگ | meta:sa_sources |
+| attraction:mount-damavand-guide | قله دماوند | meta:sa_sources |
+| attraction:naqsh-e-jahan-square-isfahan | میدان نقش جهان | relation:city |
+| attraction:nigah-valley-dorud | دره نیگاه (دره نگار) | meta:sa_sources |
+| attraction:qasem-anvar-shrine | آرامگاه شاه قاسم انوار | content,meta:sa_sources |
+| attraction:qeshm-stars-valley-geopark | درهٔ ستارگان قشم | meta:sa_sources |
+| attraction:rig-e-jenn-desert | کویر ریگ جن | meta:sa_sources |
+| attraction:sar-agha-seyed-village | روستای سرآقا سید | meta:sa_sources |
+| attraction:shevi-waterfall-tele-zang | آبشار شوی (تله زنگ) | meta:sa_sources |
 | attraction:si-o-se-pol | سی‌وسه‌پل | meta:sa_sources,relation:city |
-| attraction:tang-e-sayad-national-park | پارک ملی تنگ صیاد | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:tangeh-lili-gorge-doroud | تنگه لی لی (سورپیلو) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:vakil-complex | مجموعه وکیل (بازار، مسجد و حمام) | meta:rank_math_description,meta:rank_math_focus_keyword,meta:rank_math_title |
-| city:dorud | دورود | content,meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_cty_best_time,meta:sa_cty_center,meta:sa_cty_climate,meta:sa_cty_distance_center,meta:sa_cty_districts,meta:sa_cty_language,meta:sa_cty_livelihood,meta:sa_cty_neighbors,meta:sa_cty_rural_districts,meta:sa_cty_villages,meta:sa_english_name,meta:sa_sources |
+| attraction:tangeh-lili-gorge-doroud | تنگه لی لی (سورپیلو) | meta:sa_sources |
+| city:dorud | دورود | content,meta:sa_cty_best_time,meta:sa_cty_center,meta:sa_cty_climate,meta:sa_cty_distance_center,meta:sa_cty_districts,meta:sa_cty_language,meta:sa_cty_livelihood,meta:sa_cty_neighbors,meta:sa_cty_rural_districts,meta:sa_cty_villages,meta:sa_english_name,meta:sa_sources |
 | post:ankle-sprain-first-aid | کمک‌های اولیه پیچ‌خوردگی مچ پا در طبیعت: پیچ خورده، در رفته یا شکسته؟ | featured_image |
 | post:bleeding-wound-first-aid | کمک‌های اولیه خونریزی شدید در طبیعت: دستت را از روی زخم برندار | featured_image |
 | post:burn-injury-first-aid | کمک‌های اولیه سوختگی در طبیعت: آب خنک، نه خمیردندان | featured_image |

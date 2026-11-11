@@ -1,10 +1,10 @@
 {
  "tool": "sa-live-site-registry",
- "generated_at": "2026-11-11T00:30:22.962637+00:00",
+ "generated_at": "2026-11-11T00:38:20.549675+00:00",
  "snapshot_date": "2026-11-11",
  "sources": {
   "live": "/tmp/inputs/live-articles-20261111-002759.json",
-  "audit": "/tmp/inputs/audit-report-20261111-002759-local.json",
+  "audit": "/tmp/inputs/audit-report-20261111-002759b-local.json",
   "baseline_records": 104
  },
  "counts": {
@@ -16,8 +16,8 @@
    "province": 31
   },
   "repo_status": {
-   "matched_different": 72,
-   "matched_identical": 32,
+   "matched_different": 62,
+   "matched_identical": 42,
    "live_only": 518
   },
   "missing_featured_image": 589,
@@ -231,13 +231,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -428,13 +421,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -620,11 +606,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
      "meta:sa_sources"
     ]
    },
@@ -813,13 +794,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -989,13 +963,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -1146,12 +1113,7 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "content",
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
+     "content"
     ]
    },
    "flags": [
@@ -1293,17 +1255,12 @@
     "city_title": "شهرستان کازرون"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
     "missing_featured_image",
-    "thin_content(<800)",
-    "differs_from_repo"
+    "thin_content(<800)"
    ]
   },
   {
@@ -1488,18 +1445,11 @@
     "city_title": "دورود"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo"
+    "missing_featured_image"
    ]
   },
   {
@@ -1820,13 +1770,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -1980,18 +1923,11 @@
     "city_title": "شهرستان کاشان"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo"
+    "missing_featured_image"
    ]
   },
   {
@@ -2244,13 +2180,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -2405,12 +2334,7 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "content",
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
+     "content"
     ]
    },
    "flags": [
@@ -2606,13 +2530,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -3000,13 +2917,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -3152,17 +3062,12 @@
     "city_title": "شهرستان سپیدان"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
     "missing_featured_image",
-    "thin_content(<800)",
-    "differs_from_repo"
+    "thin_content(<800)"
    ]
   },
   {
@@ -3311,18 +3216,11 @@
     "city_title": "شهرستان فومن"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo"
+    "missing_featured_image"
    ]
   },
   {
@@ -3503,13 +3401,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -3660,11 +3551,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
      "relation:city"
     ]
    },
@@ -3989,13 +3875,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -4307,17 +4186,12 @@
     "city_title": "شهرستان پاسارگاد"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
     "missing_featured_image",
-    "thin_content(<800)",
-    "differs_from_repo"
+    "thin_content(<800)"
    ]
   },
   {
@@ -4463,18 +4337,11 @@
     "city_title": "شهرستان مرودشت"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo"
+    "missing_featured_image"
    ]
   },
   {
@@ -4624,11 +4491,6 @@
     "status": "matched_different",
     "diff_fields": [
      "content",
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
      "meta:sa_sources"
     ]
    },
@@ -4816,13 +4678,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -4984,11 +4839,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
      "meta:sa_sources"
     ]
    },
@@ -5148,11 +4998,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
      "meta:sa_sources"
     ]
    },
@@ -5457,18 +5302,11 @@
     "city_title": "شهرستان کرمان"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo"
+    "missing_featured_image"
    ]
   },
   {
@@ -5651,13 +5489,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -6315,18 +6146,11 @@
     "city_title": "شهرستان شهرکرد"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
-    "missing_featured_image",
-    "differs_from_repo"
+    "missing_featured_image"
    ]
   },
   {
@@ -6525,13 +6349,6 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_sources"
     ]
    },
@@ -6673,17 +6490,12 @@
     "city_title": "شهرستان شیراز"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:rank_math_description",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
     "missing_featured_image",
-    "thin_content(<800)",
-    "differs_from_repo"
+    "thin_content(<800)"
    ]
   },
   {
@@ -29649,13 +29461,6 @@
     "status": "matched_different",
     "diff_fields": [
      "content",
-     "meta:rank_math_description",
-     "meta:rank_math_facebook_description",
-     "meta:rank_math_facebook_title",
-     "meta:rank_math_focus_keyword",
-     "meta:rank_math_title",
-     "meta:rank_math_twitter_description",
-     "meta:rank_math_twitter_title",
      "meta:sa_cty_best_time",
      "meta:sa_cty_center",
      "meta:sa_cty_climate",
@@ -29866,7 +29671,8 @@
    "flags": [
     "missing_featured_image",
     "not_in_repo_baseline"
-   ]
+   ],
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری ایجرود؛ جفتش (ijrud) ۲۰۲۶-۱۱-۱۰ به زباله‌دان رفت. این جفت بسته شد."
   },
   {
    "key": "city:eqlid",
@@ -48696,7 +48502,8 @@
    "flags": [
     "missing_featured_image",
     "not_in_repo_baseline"
-   ]
+   ],
+   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری خرمدره؛ ۲۰۲۶-۱۱-۱۱ توسط مالک دوباره منتشر شد و جفت ضعیفش (khorramdarreh) به زباله‌دان رفت. این جفت بسته شد."
   },
   {
    "key": "city:kharameh",
@@ -92350,7 +92157,8 @@
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
-   ]
+   ],
+   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
   },
   {
    "key": "post:diy-can-stove",
@@ -92486,7 +92294,8 @@
     "missing_featured_image",
     "differs_from_repo",
     "missing_faq"
-   ]
+   ],
+   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
   },
   {
    "key": "post:diy-compass",
@@ -93185,7 +92994,8 @@
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
-   ]
+   ],
+   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
   },
   {
    "key": "post:drinking-water-in-nature",
@@ -94149,7 +93959,8 @@
     "missing_featured_image",
     "differs_from_repo",
     "missing_faq"
-   ]
+   ],
+   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
   },
   {
    "key": "post:ground-insulation-sleeping",
@@ -95812,7 +95623,8 @@
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
-   ]
+   ],
+   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
   },
   {
    "key": "post:navigation-by-stars",
@@ -96645,7 +96457,8 @@
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
-   ]
+   ],
+   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
   },
   {
    "key": "post:outdoor-cooking-equipment",

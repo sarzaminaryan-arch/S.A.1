@@ -1,7 +1,7 @@
 # گزارش تطبیق 2026-11-11
 
 - مقالهٔ منتشرشدهٔ زنده: **622** (attraction: 39, city: 485, post: 67, province: 31)
-- وضعیت نسبت به خط مبنای مخزن: live_only: 518, matched_different: 72, matched_identical: 32
+- وضعیت نسبت به خط مبنای مخزن: live_only: 518, matched_different: 62, matched_identical: 42
 - آمادهٔ مخزن ولی منتشرنشده در سایت: **0** (فهرست: `unpublished.md`)
 - عنوان تکراری: 0 گروه؛ هش محتوای تکراری: 0 گروه (جزئیات: `fix-queue.md`)
 - بدون تصویر شاخص: 589 از 622
