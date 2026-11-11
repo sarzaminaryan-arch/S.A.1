@@ -86,4 +86,9 @@ sa_bars_assert( false !== strpos( $em, 'min-width: 0;' ), '.sa-bar em may shrink
 sa_bars_assert( false !== strpos( $em, 'overflow: hidden;' ), '.sa-bar em hides its overflow' );
 sa_bars_assert( false !== strpos( $em, 'text-overflow: ellipsis;' ), '.sa-bar em ellipsizes instead of clipping mid-word' );
 
+// 4. The province bars' English name is not hidden on small phones: until
+//    2.22.44 a max-width:480px rule hid it because it could not shrink; with
+//    the ellipsis above it fits again (owner: "better, but not normal yet").
+sa_bars_assert( false === strpos( $css, '.sa-bars--province .sa-bar em' ), 'province English names are not hidden on mobile' );
+
 echo "test-bars-overflow: OK\n";
