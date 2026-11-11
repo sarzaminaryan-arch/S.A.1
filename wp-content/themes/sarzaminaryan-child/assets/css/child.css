@@ -4634,7 +4634,10 @@ main.site-main.container,
 /* ---------- v2.13.3: نوارهای مینیمال استان‌ها / شهرستان‌ها (از صفحهٔ اول به آرشیوها منتقل شد) ---------- */
 .sa-bars {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	/* minmax(0,…) از ۲٫۲۲٫۴۴: ستون‌ها باید بتوانند از پهنای محتوای حداقلی هم
+	   کوچک‌تر شوند، وگرنه نام‌های بلند گرید را از قاب بیرون می‌زنند (سرریز
+	   ستون چپ در پهنای تبلت/نمای دسکتاپ موبایل روی /province/). */
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 18px 24px;
 	margin: 0 0 1.5rem;
 }
@@ -4642,6 +4645,8 @@ main.site-main.container,
 .sa-bar {
 	--c: #18558f;
 	display: flex;
+	min-width: 0;
+	overflow: hidden;
 	align-items: center;
 	gap: 14px;
 	height: 68px;
@@ -4691,6 +4696,11 @@ main.site-main.container,
 	letter-spacing: .4px;
 	direction: ltr;
 	white-space: nowrap;
+	/* ۲٫۲۲٫۴۴: برچسب دوم (نام انگلیسی/استان) عنداللزوم سه‌نقطه می‌شود و دیگر
+	   پهنای حداقلیِ نوار را تحمیل نمی‌کند؛ عنوان اصلی همیشه اولویت دارد. */
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .sa-bar em.fa {
@@ -4727,7 +4737,7 @@ main.site-main.container,
 
 /* شهرستان‌ها: باریک‌تر و کوچک‌تر، سه‌ستونه در دسکتاپ */
 .sa-bars--city {
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 12px 16px;
 }
 
@@ -4760,14 +4770,14 @@ main.site-main.container,
 
 @media (max-width: 900px) {
 	.sa-bars--city {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
 @media (max-width: 640px) {
 	.sa-bars,
 	.sa-bars--city {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	.sa-bar {

@@ -75,6 +75,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-entity-bars.php"
 
+      - name: Run bars overflow tests (bars grid can never widen past the viewport)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-bars-overflow.php"
+
       - name: Run media restore tests (missing uploads files, source fallbacks, backup ZIP)
         shell: bash
         run: php "$THEME_DIR/tests/test-media-restore.php"
