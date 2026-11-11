@@ -1,4 +1,4 @@
-# نمایهٔ عنوان‌های سایت زنده (621)
+# نمایهٔ عنوان‌های سایت زنده (622)
 
 > پیش از ساخت محتوای تازه، عنوان و نامک را این‌جا و در `registry/live-articles.json` چک کنید تا محتوای تکراری ساخته نشود.
 
@@ -20,12 +20,14 @@
 - تفرجگاه باباهور (بام دورود) — `babahur-forest-park-dorud`
 - تنگه لی لی (سورپیلو) — `tangeh-lili-gorge-doroud`
 - جاهای دیدنی طبس — `tabas-attractions`
+- حرم شاهچراغ — `shah-cheragh`
 - دره نیگاه (دره نگار) — `nigah-valley-dorud`
 - درهٔ ستارگان قشم — `qeshm-stars-valley-geopark`
 - دریاچه گهر — `gahar-lake-dorud`
 - دشت لاله‌های واژگون کوهرنگ — `kuhrang-fritillaria-plain-guide`
 - روستای سرآقا سید — `sar-agha-seyed-village`
 - سازه‌های آبی تاریخی شوشتر — `shushtar-historical-hydraulic-system`
+- سی‌وسه‌پل — `si-o-se-pol`
 - شهر ساسانی بیشاپور — `bishapur`
 - غار علیصدر — `ali-sadr-cave-hamedan-guide`
 - قلعه دختر بشرویه — `ghaleh-dokhtar-boshruyeh`
@@ -38,7 +40,9 @@
 - پارک ملی تنگ صیاد — `tang-e-sayad-national-park`
 - پارک ملی گلستان (جنگل گلستان) — `golestan-national-park-guide`
 - پاسارگاد — `pasargadae`
+- پل خواجو — `khaju-bridge`
 - کلوت‌های شهداد — `shahdad-kaluts-lut-desert`
+- کلیسای وانک — `vank-cathedral`
 - کویر ریگ جن — `rig-e-jenn-desert`
 
 ## city
@@ -105,7 +109,6 @@
 - شهرستان اهواز — `ahvaz`
 - شهرستان اوز — `evaz`
 - شهرستان ایجرود — `ejrud`
-- شهرستان ایجرود — `ijrud`
 - شهرستان ایذه — `izeh`
 - شهرستان ایرانشهر — `iranshahr`
 - شهرستان ایلام — `ilam`
@@ -198,7 +201,6 @@
 - شهرستان خداآفرین — `khoda-afarin`
 - شهرستان خدابنده — `khodabandeh`
 - شهرستان خرامه — `kharameh`
-- شهرستان خرمدره — `kharadere`
 - شهرستان خرمدره — `khorramdarreh`
 - شهرستان خرمشهر — `khorramshahr`
 - شهرستان خرم‌آباد — `khorramabad`
@@ -539,7 +541,6 @@
 - آموزش نجات خویشتن در آب: خودت افتادی توی آب سرد؟ اول نفس، بعد شنا. — `self-rescue-drowning`
 - آموزش نجات غریق: رفیقت توی آب افتاد؟ آروم باش. بخون و عمل کن. — `drowning-rescue-guide`
 - آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است — `cpr-complete-guide`
-- آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است — `cpr-complete-guide-2`
 - استفادهٔ دوباره از لباس و جوراب کهنه: باند، دستکش و فتیلهٔ آتش — `old-clothes-bandage-wick`
 - انتخاب محل مناسب کمپ؛ کجا چادر بزنیم تا شب امن بگذرد؟ — `choosing-campsite`
 - ایمنی آبی برای بچه‌ها؛ چطور بازی کنار آب را برایشان امن کنیم؟ — `water-safety-children`

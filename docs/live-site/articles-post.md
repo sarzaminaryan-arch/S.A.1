@@ -1,6 +1,6 @@
-# مقالات زنده — post (68)
+# مقالات زنده — post (67)
 
-> تولید خودکار از اسنپ‌شات 2026-11-10؛ دستی ویرایش نشود. منبع: `registry/live-articles.json`
+> تولید خودکار از اسنپ‌شات 2026-11-11؛ دستی ویرایش نشود. منبع: `registry/live-articles.json`
 
 | عنوان | نامک | واژه | تصویر شاخص | وضعیت نسبت به مخزن | پرچم‌ها | پیوند |
 |---|---|---|---|---|---|---|
@@ -16,8 +16,7 @@
 | ساخت قابلمه، فنجان و کفگیر از قوطی کنسرو در طبیعت | can-cookware-diy | 1715 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/can-cookware-diy/ |
 | ایمنی کودکان در طبیعت؛ ماجراجویی امن با بچه‌ها | children-outdoor-safety | 1088 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/children-outdoor-safety/ |
 | انتخاب محل مناسب کمپ؛ کجا چادر بزنیم تا شب امن بگذرد؟ | choosing-campsite | 1315 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/choosing-campsite/ |
-| آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است | cpr-complete-guide | 2102 | — | matched_different | missing_featured_image,differs_from_repo,duplicate_title,duplicate_content_hash | https://sarzaminaryan.ir/cpr-complete-guide/ |
-| آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است | cpr-complete-guide-2 | 2102 | دارد | live_only | not_in_repo_baseline,duplicate_title,duplicate_content_hash,slug_suffix_of_existing | https://sarzaminaryan.ir/cpr-complete-guide-2/ |
+| آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است | cpr-complete-guide | 2102 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/cpr-complete-guide/ |
 | ساخت فانوس با بطری آب برای روشنایی کمپ | diy-bottle-lantern | 1628 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/diy-bottle-lantern/ |
 | ساخت اجاق با قوطی کنسرو؛ چطور با یه آشغال فلزی، غذای گرم بپزیم؟ | diy-can-stove | 1618 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/diy-can-stove/ |
 | ساخت قطب‌نما با سوزن و آب؛ چطور وقتی گم شدیم جهت شمال رو پیدا کنیم؟ | diy-compass | 1602 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/diy-compass/ |

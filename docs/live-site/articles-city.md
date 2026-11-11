@@ -1,6 +1,6 @@
-# مقالات زنده — city (487)
+# مقالات زنده — city (485)
 
-> تولید خودکار از اسنپ‌شات 2026-11-10؛ دستی ویرایش نشود. منبع: `registry/live-articles.json`
+> تولید خودکار از اسنپ‌شات 2026-11-11؛ دستی ویرایش نشود. منبع: `registry/live-articles.json`
 
 | عنوان | نامک | واژه | تصویر شاخص | وضعیت نسبت به مخزن | پرچم‌ها | پیوند |
 |---|---|---|---|---|---|---|
@@ -138,7 +138,7 @@
 | شهرستان دزپارت | dezpart | 994 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/dezpart/ |
 | شهرستان دیواندره | divandarreh | 691 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/divandarreh/ |
 | دورود | dorud | 2100 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/city/dorud/ |
-| شهرستان ایجرود | ejrud | 1150 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/ejrud/ |
+| شهرستان ایجرود | ejrud | 1150 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ejrud/ |
 | شهرستان اقلید | eqlid | 1202 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/eqlid/ |
 | شهرستان اسفراین | esfarayen | 971 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/esfarayen/ |
 | شهرستان عشق‌آباد | eshqabad | 1488 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/eshqabad/ |
@@ -204,7 +204,6 @@
 | شهرستان هیرمند | hirmand | 1175 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hirmand/ |
 | شهرستان هویزه | hoveyzeh | 1495 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hoveyzeh/ |
 | شهرستان هوراند | hurand | 1111 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/hurand/ |
-| شهرستان ایجرود | ijrud | 779 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/ijrud/ |
 | شهرستان ایلام | ilam | 752 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/ilam/ |
 | شهرستان ایرانشهر | iranshahr | 1152 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/iranshahr/ |
 | شهرستان اصفهان | isfahan | 919 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/isfahan/ |
@@ -249,7 +248,6 @@
 | شهرستان خمیر | khamir | 717 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khamir/ |
 | شهرستان خانمیرزا | khanmirza | 707 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khanmirza/ |
 | شهرستان خوانسار | khansar | 710 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khansar/ |
-| شهرستان خرمدره | kharadere | 1132 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/kharadere/ |
 | شهرستان خرامه | kharameh | 1219 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/kharameh/ |
 | شهرستان خاش | khash | 1188 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khash/ |
 | شهرستان خاتم | khatam | 691 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khatam/ |
@@ -263,7 +261,7 @@
 | شهر خورموج | khormoj | 709 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khormoj/ |
 | شهرستان خرم‌آباد | khorramabad | 1195 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramabad/ |
 | شهرستان خرم‌بید | khorrambid | 1213 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorrambid/ |
-| شهرستان خرمدره | khorramdarreh | 801 | — | live_only | missing_featured_image,not_in_repo_baseline,duplicate_title | https://sarzaminaryan.ir/city/khorramdarreh/ |
+| شهرستان خرمدره | khorramdarreh | 801 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramdarreh/ |
 | شهرستان خرمشهر | khorramshahr | 1011 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khorramshahr/ |
 | شهرستان خوشاب | khoshab | 1159 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khoshab/ |
 | شهرستان خوی | khoy | 1126 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/city/khoy/ |
