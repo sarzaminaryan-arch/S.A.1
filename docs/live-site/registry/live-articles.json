@@ -1,10 +1,10 @@
 {
  "tool": "sa-live-site-registry",
- "generated_at": "2026-11-11T00:38:20.549675+00:00",
+ "generated_at": "2026-11-11T11:37:18.533744+00:00",
  "snapshot_date": "2026-11-11",
  "sources": {
-  "live": "/tmp/inputs/live-articles-20261111-002759.json",
-  "audit": "/tmp/inputs/audit-report-20261111-002759b-local.json",
+  "live": "/tmp/inputs/live-articles-20261111-113050.json",
+  "audit": "/tmp/inputs/audit-report-20261111-113050-local.json",
   "baseline_records": 104
  },
  "counts": {
@@ -92056,8 +92056,8 @@
    ],
    "seo": {
     "sa_focus_keyword": "ساخت فانوس با بطری آب",
-    "sa_seo_description": "یک بطری آب و یک چراغ‌قوه، نور نقطه‌ای را به روشنایی ملایم همه‌طرفه تبدیل می‌کند: فانوس میزی، نسخهٔ آویز، نور گرم‌تر و هشدارهای آتش.",
-    "sa_seo_title": "ساخت فانوس با بطری آب | روشنایی اردوگاه بدون برق"
+    "sa_seo_description": "ساخت فانوس با بطری آب و چراغ LED: آماده‌سازی بطری بسته، بستن چراغ سر رو به آب و تنظیم بازتابنده؛ بدون شعله، آویز سنگین یا وعدهٔ نور بیشتر.",
+    "sa_seo_title": "ساخت فانوس با بطری آب | پخش نور چراغ در کمپ"
    },
    "headings": [
     {
@@ -92149,26 +92149,24 @@
     "diff_fields": [
      "content",
      "excerpt",
-     "faq",
-     "meta:sa_seo_description",
-     "meta:sa_seo_title"
+     "faq"
     ]
    },
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
    ],
-   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
+   "agent_note": "فاز ۳ در ۲۰۲۶-۱۱-۱۱ با افزونهٔ یک‌بارمصرف sa-seo-meta-fix روی سایت اعمال و با اسنپ‌شات ۱۱:۳۰ راستی‌آزمایی شد؛ عنوان/متای سئو اکنون با مخزن یکی است. اختلاف‌های باقی‌ماندهٔ این رکورد (محتوا/FAQ/منابع، در صورت وجود) مربوط به فاز ۴ است."
   },
   {
    "key": "post:diy-can-stove",
    "wp_id": 2734,
    "post_type": "post",
    "slug": "diy-can-stove",
-   "title": "ساخت اجاق با قوطی کنسرو؛ چطور با یه آشغال فلزی، غذای گرم بپزیم؟",
+   "title": "ساخت اجاق با قوطی کنسرو؛ خطرها را پیش از روشن‌کردن بشناس",
    "status": "publish",
    "date_published": "2026-10-11 20:03:02",
-   "date_modified": "2026-10-11 20:03:02",
+   "date_modified": "2026-11-11 14:44:26",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/diy-can-stove/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=2734&action=edit",
@@ -92199,8 +92197,8 @@
    ],
    "seo": {
     "sa_focus_keyword": "ساخت اجاق با قوطی کنسرو",
-    "sa_seo_description": "گازت تموم شده و نیاز به یه غذای گرم داری؟ تو این مقاله یاد می‌گیری چطور با یه قوطی کنسرو خالی و چند تا شاخه خشک، یه اجاق هیزمی کارآمد و حیاتی بسازی.",
-    "sa_seo_title": "ساخت اجاق با قوطی کنسرو | آموزش ساخت اجاق هوبو در طبیعت"
+    "sa_seo_description": "قوطی کنسرو را برای ساخت اجاق نسوزان؛ خطر لبهٔ تیز، پوشش ناشناخته، آتش و مونوکسیدکربن را بشناس و گزینهٔ امن‌تر کمپ را انتخاب کن.",
+    "sa_seo_title": "اجاق قوطی دست‌ساز؛ خطرها و گزینهٔ امن‌تر برای کمپ"
    },
    "headings": [
     {
@@ -92284,10 +92282,7 @@
      "excerpt",
      "faq",
      "meta:sa_risk_level",
-     "meta:sa_seo_description",
-     "meta:sa_seo_title",
-     "meta:sa_sources",
-     "title"
+     "meta:sa_sources"
     ]
    },
    "flags": [
@@ -92295,7 +92290,7 @@
     "differs_from_repo",
     "missing_faq"
    ],
-   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
+   "agent_note": "فاز ۳ در ۲۰۲۶-۱۱-۱۱ با افزونهٔ یک‌بارمصرف sa-seo-meta-fix روی سایت اعمال و با اسنپ‌شات ۱۱:۳۰ راستی‌آزمایی شد؛ عنوان/متای سئو اکنون با مخزن یکی است. اختلاف‌های باقی‌ماندهٔ این رکورد (محتوا/FAQ/منابع، در صورت وجود) مربوط به فاز ۴ است."
   },
   {
    "key": "post:diy-compass",
@@ -92855,10 +92850,10 @@
    "wp_id": 2742,
    "post_type": "post",
    "slug": "diy-water-filter",
-   "title": "ساخت فیلتر آب با بطری و زغال؛ چطور تو شرایط اضطراری آب رو تصفیه کنیم؟",
+   "title": "ساخت فیلتر آب با بطری و زغال؛ زلالی آب، ایمنی نمی‌آورد",
    "status": "publish",
    "date_published": "2026-10-11 20:03:43",
-   "date_modified": "2026-10-11 20:03:43",
+   "date_modified": "2026-11-11 14:44:26",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/diy-water-filter/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=2742&action=edit",
@@ -92889,8 +92884,8 @@
    ],
    "seo": {
     "sa_focus_keyword": "ساخت فیلتر آب با بطری و زغال",
-    "sa_seo_description": "وسط طبیعت فیلتر آب نداری یا تموم شده؟ تو این مقاله یاد می‌گیری چطور با یه بطری پلاستیکی، زغال و ماسه، یه فیلتر آب اضطراری بسازی و آب رو برای نوشیدن آماده کنی.",
-    "sa_seo_title": "ساخت فیلتر آب با بطری و زغال | تصفیه آب اضطراری در طبیعت"
+    "sa_seo_description": "مدل نمایشی بطری، پارچه، ماسه و سنگ‌ریزه فقط می‌تواند بخشی از ذرات را جدا کند؛ زغال معمولی آب را ضدعفونی نمی‌کند و خروجی فیلتر دست‌ساز آب آشامیدنی نیست.",
+    "sa_seo_title": "فیلتر آب دست‌ساز با بطری و زغال؛ زلالی به معنی سلامت نیست"
    },
    "headings": [
     {
@@ -92985,17 +92980,14 @@
      "faq",
      "meta:sa_focus_keyword",
      "meta:sa_risk_level",
-     "meta:sa_seo_description",
-     "meta:sa_seo_title",
-     "meta:sa_sources",
-     "title"
+     "meta:sa_sources"
     ]
    },
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
    ],
-   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
+   "agent_note": "فاز ۳ در ۲۰۲۶-۱۱-۱۱ با افزونهٔ یک‌بارمصرف sa-seo-meta-fix روی سایت اعمال و با اسنپ‌شات ۱۱:۳۰ راستی‌آزمایی شد؛ عنوان/متای سئو اکنون با مخزن یکی است. اختلاف‌های باقی‌ماندهٔ این رکورد (محتوا/FAQ/منابع، در صورت وجود) مربوط به فاز ۴ است."
   },
   {
    "key": "post:drinking-water-in-nature",
@@ -93829,10 +93821,10 @@
    "wp_id": 2779,
    "post_type": "post",
    "slug": "gps-navigation-tools",
-   "title": "معرفی GPS و ابزار مسیریابی؛ چطور تو دل طبیعت گم نشیم؟",
+   "title": "ابزارهای مسیریابی در طبیعت؛ GPS، نقشه و قطب‌نما",
    "status": "publish",
    "date_published": "2026-10-11 20:10:27",
-   "date_modified": "2026-10-11 20:10:27",
+   "date_modified": "2026-11-11 14:44:26",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/gps-navigation-tools/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=2779&action=edit",
@@ -93863,8 +93855,8 @@
    ],
    "seo": {
     "sa_focus_keyword": "ابزار مسیریابی",
-    "sa_seo_description": "نمی‌دونی تو طبیعت چطور مسیر رو پیدا کنی؟ تو این مقاله انواع GPS دستی، اپلیکیشن‌های موبایل و قطب‌نما رو بررسی کردیم تا تو کوه و جنگل مسیر رو گم نکنی.",
-    "sa_seo_title": "معرفی GPS و ابزار مسیریابی | چطور تو طبیعت گم نشیم؟"
+    "sa_seo_description": "راهنمای استفادهٔ پشتیبان‌دار از GPS دستی، نقشهٔ آفلاین گوشی، نقشهٔ کاغذی و قطب‌نما؛ همراه با نکات ایمنی وقتی مسیر را گم می‌کنی.",
+    "sa_seo_title": "ابزار مسیریابی در طبیعت | GPS، نقشه و قطب‌نما"
    },
    "headings": [
     {
@@ -93949,10 +93941,7 @@
      "faq",
      "meta:sa_focus_keyword",
      "meta:sa_risk_level",
-     "meta:sa_seo_description",
-     "meta:sa_seo_title",
-     "meta:sa_sources",
-     "title"
+     "meta:sa_sources"
     ]
    },
    "flags": [
@@ -93960,7 +93949,7 @@
     "differs_from_repo",
     "missing_faq"
    ],
-   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
+   "agent_note": "فاز ۳ در ۲۰۲۶-۱۱-۱۱ با افزونهٔ یک‌بارمصرف sa-seo-meta-fix روی سایت اعمال و با اسنپ‌شات ۱۱:۳۰ راستی‌آزمایی شد؛ عنوان/متای سئو اکنون با مخزن یکی است. اختلاف‌های باقی‌ماندهٔ این رکورد (محتوا/FAQ/منابع، در صورت وجود) مربوط به فاز ۴ است."
   },
   {
    "key": "post:ground-insulation-sleeping",
@@ -95490,10 +95479,10 @@
    "wp_id": 2785,
    "post_type": "post",
    "slug": "multi-tool-knife-review",
-   "title": "معرفی چاقوهای چندکاره؛ آچار فرانسه طبیعت‌گردی رو چطور انتخاب کنیم؟",
+   "title": "چاقوهای چندکارهٔ طبیعت‌گردی؛ چطور ابزار مناسب را انتخاب کنیم؟",
    "status": "publish",
    "date_published": "2026-10-11 20:10:49",
-   "date_modified": "2026-10-11 20:10:49",
+   "date_modified": "2026-11-11 14:44:26",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/multi-tool-knife-review/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=2785&action=edit",
@@ -95524,8 +95513,8 @@
    ],
    "seo": {
     "sa_focus_keyword": "چاقوهای چندکاره",
-    "sa_seo_description": "دنبال بهترین چاقوی چندکاره برای طبیعت‌گردی هستی؟ تو این مقاله انواع مولتی‌تول، چاقوی سوئیسی و ابزارهای بقا رو بررسی کردیم تا تو شرایط اضطراری کم نیاری.",
-    "sa_seo_title": "معرفی چاقوهای چندکاره | ابزار همه‌کارهٔ طبیعت‌گردی"
+    "sa_seo_description": "مقایسهٔ چاقوی جیبی چندابزاره، ابزار انبردستی و تیغه‌ثابت؛ معیارهای انتخاب، نگهداری و استفادهٔ ایمن در طبیعت‌گردی.",
+    "sa_seo_title": "چاقوهای چندکارهٔ کمپینگ | راهنمای انتخاب و ایمنی"
    },
    "headings": [
     {
@@ -95614,17 +95603,14 @@
      "content",
      "excerpt",
      "faq",
-     "meta:sa_seo_description",
-     "meta:sa_seo_title",
-     "meta:sa_sources",
-     "title"
+     "meta:sa_sources"
     ]
    },
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
    ],
-   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
+   "agent_note": "فاز ۳ در ۲۰۲۶-۱۱-۱۱ با افزونهٔ یک‌بارمصرف sa-seo-meta-fix روی سایت اعمال و با اسنپ‌شات ۱۱:۳۰ راستی‌آزمایی شد؛ عنوان/متای سئو اکنون با مخزن یکی است. اختلاف‌های باقی‌ماندهٔ این رکورد (محتوا/FAQ/منابع، در صورت وجود) مربوط به فاز ۴ است."
   },
   {
    "key": "post:navigation-by-stars",
@@ -96351,7 +96337,7 @@
    ],
    "seo": {
     "sa_focus_keyword": "لباس مناسب طبیعت",
-    "sa_seo_description": "نمی‌دونی تو طبیعت چی بپوشی؟ تو این مقاله سیستم لایه‌لایه لباس پوشیدن رو یاد می‌گیری که تو هر فصل و هر هوایی، نه سردت بشه نه گرم، نه خیس بشی نه عرق‌سوز.",
+    "sa_seo_description": "لباس مناسب طبیعت را با لایهٔ پایه، گرم و محافظ انتخاب کن؛ تفاوت بادگیر و بارانی، لباس خشک یدک و نشانه‌های خطر سرما و گرما را بشناس.",
     "sa_seo_title": "لباس مناسب طبیعت در هر فصل | سیستم لایه‌لایه پوشش"
    },
    "headings": [
@@ -96450,15 +96436,14 @@
     "diff_fields": [
      "content",
      "faq",
-     "featured_image",
-     "meta:sa_seo_description"
+     "featured_image"
     ]
    },
    "flags": [
     "missing_featured_image",
     "differs_from_repo"
    ],
-   "agent_note": "فاز ۳: عنوان/متای این راهنما در مخزن بازنویسی ایمنی‌محور شده و نسخهٔ زنده هنوز قدیمی است؛ مقادیر هدف دقیق در docs/live-site/seo-meta-fix-list.md — اعمال سه فیلد با مالک (بدون بازنویسی متن)."
+   "agent_note": "فاز ۳ در ۲۰۲۶-۱۱-۱۱ با افزونهٔ یک‌بارمصرف sa-seo-meta-fix روی سایت اعمال و با اسنپ‌شات ۱۱:۳۰ راستی‌آزمایی شد؛ عنوان/متای سئو اکنون با مخزن یکی است. اختلاف‌های باقی‌ماندهٔ این رکورد (محتوا/FAQ/منابع، در صورت وجود) مربوط به فاز ۴ است."
   },
   {
    "key": "post:outdoor-cooking-equipment",

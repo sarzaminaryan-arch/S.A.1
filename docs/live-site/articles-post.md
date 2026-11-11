@@ -18,19 +18,19 @@
 | انتخاب محل مناسب کمپ؛ کجا چادر بزنیم تا شب امن بگذرد؟ | choosing-campsite | 1315 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/choosing-campsite/ |
 | آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است | cpr-complete-guide | 2102 | دارد | matched_different | differs_from_repo | https://sarzaminaryan.ir/cpr-complete-guide/ |
 | ساخت فانوس با بطری آب برای روشنایی کمپ | diy-bottle-lantern | 1628 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/diy-bottle-lantern/ |
-| ساخت اجاق با قوطی کنسرو؛ چطور با یه آشغال فلزی، غذای گرم بپزیم؟ | diy-can-stove | 1618 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/diy-can-stove/ |
+| ساخت اجاق با قوطی کنسرو؛ خطرها را پیش از روشن‌کردن بشناس | diy-can-stove | 1618 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/diy-can-stove/ |
 | ساخت قطب‌نما با سوزن و آب؛ چطور وقتی گم شدیم جهت شمال رو پیدا کنیم؟ | diy-compass | 1602 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/diy-compass/ |
 | ساخت مشعل اضطراری؛ چطور تو تاریکی مطلق، نور و گرما رو به کمپ برگردونیم؟ | diy-emergency-torch | 1684 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/diy-emergency-torch/ |
 | ساخت تخت معلق بین درخت‌ها؛ نصب ایمن هاموک در جنگل | diy-hammock-trees | 1369 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/diy-hammock-trees/ |
 | ظرف آب در طبیعت؛ کدام ظرف را ببریم و چطور آب را سالم نگه داریم؟ | diy-water-container | 1487 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/diy-water-container/ |
-| ساخت فیلتر آب با بطری و زغال؛ چطور تو شرایط اضطراری آب رو تصفیه کنیم؟ | diy-water-filter | 1592 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/diy-water-filter/ |
+| ساخت فیلتر آب با بطری و زغال؛ زلالی آب، ایمنی نمی‌آورد | diy-water-filter | 1592 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/diy-water-filter/ |
 | تأمین آب آشامیدنی در طبیعت؛ چطور آب سالم پیدا کنیم و مسموم نشیم؟ | drinking-water-in-nature | 1680 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/drinking-water-in-nature/ |
 | آموزش نجات غریق: رفیقت توی آب افتاد؟ آروم باش. بخون و عمل کن. | drowning-rescue-guide | 2154 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/drowning-rescue-guide/ |
 | روش‌های تصفیه آب در شرایط اضطراری؛ چطور آب رودخونه رو به آب معدنی تبدیل کنیم؟ | emergency-water-purification | 1900 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/emergency-water-purification/ |
 | وسایل ضروری کمپینگ برای یک شب؛ چک‌لیست و انتخاب ایمن | essential-camping-equipment | 1615 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/essential-camping-equipment/ |
 | روشن کردن آتش بدون فندک و کبریت؛ چطور وقتی ابزارمون شکست خورد، آتش بسازیم؟ | fire-without-lighter | 1856 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/fire-without-lighter/ |
 | کیف کمک‌های اولیه کمپینگ؛ چی توش باشه که جونت رو نجات بده؟ | first-aid-kit-checklist | 1589 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/first-aid-kit-checklist/ |
-| معرفی GPS و ابزار مسیریابی؛ چطور تو دل طبیعت گم نشیم؟ | gps-navigation-tools | 1524 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/gps-navigation-tools/ |
+| ابزارهای مسیریابی در طبیعت؛ GPS، نقشه و قطب‌نما | gps-navigation-tools | 1524 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/gps-navigation-tools/ |
 | عایق‌کاری زمین برای خواب؛ چرا زیر بدن مهم‌تر از روی بدن است؟ | ground-insulation-sleeping | 1228 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/ground-insulation-sleeping/ |
 | کمک‌های اولیه گرمازدگی در طبیعت: گیج شد؟ خنک کن، همین حالا | heatstroke-first-aid | 1974 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/heatstroke-first-aid/ |
 | راهنمای انتخاب چادر مناسب؛ خونه‌ی موقتت رو درست انتخاب کن! | how-to-choose-camping-tent | 1356 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/how-to-choose-camping-tent/ |
@@ -42,7 +42,7 @@
 | شکستگی پا در طبیعت؛ تا رسیدن پزشک چه کنیم؟ | leg-fracture-first-aid | 1369 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/leg-fracture-first-aid/ |
 | گم‌شدن در طبیعت؛ قدم‌های درست وقتی مسیر را گم کردیم | lost-in-nature-guide | 1048 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/lost-in-nature-guide/ |
 | نگهداری آتش در باد و بارون؛ چطور تو طوفان آتیش رو زنده نگه داریم؟ | maintain-fire-in-rain | 1811 | — | matched_different | missing_featured_image,differs_from_repo,missing_faq | https://sarzaminaryan.ir/maintain-fire-in-rain/ |
-| معرفی چاقوهای چندکاره؛ آچار فرانسه طبیعت‌گردی رو چطور انتخاب کنیم؟ | multi-tool-knife-review | 1472 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/multi-tool-knife-review/ |
+| چاقوهای چندکارهٔ طبیعت‌گردی؛ چطور ابزار مناسب را انتخاب کنیم؟ | multi-tool-knife-review | 1472 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/multi-tool-knife-review/ |
 | مسیریابی با ستاره‌ها؛ شمال را در شب پیدا کنیم | navigation-by-stars | 1028 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/navigation-by-stars/ |
 | مسیریابی با خورشید؛ جهت‌یابی روز بدون قطب‌نما | navigation-by-sun | 1024 | — | matched_identical | missing_featured_image | https://sarzaminaryan.ir/navigation-by-sun/ |
 | بالش و تشک اضطراری با روزنامه و گونی در طبیعت | newspaper-insulation-bed | 1584 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/newspaper-insulation-bed/ |

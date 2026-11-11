@@ -41,19 +41,19 @@
 | post:camping-water-planning | آب آشامیدنی در کمپ؛ برنامه‌ریزی، تصفیه و نگهداری ایمن | featured_image |
 | post:can-cookware-diy | ساخت قابلمه، فنجان و کفگیر از قوطی کنسرو در طبیعت | meta:sa_sources |
 | post:cpr-complete-guide | آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است | meta:sa_sources |
-| post:diy-bottle-lantern | ساخت فانوس با بطری آب برای روشنایی کمپ | content,excerpt,faq,meta:sa_seo_description,meta:sa_seo_title |
-| post:diy-can-stove | ساخت اجاق با قوطی کنسرو؛ چطور با یه آشغال فلزی، غذای گرم بپزیم؟ | content,excerpt,faq,meta:sa_risk_level,meta:sa_seo_description,meta:sa_seo_title,meta:sa_sources,title |
+| post:diy-bottle-lantern | ساخت فانوس با بطری آب برای روشنایی کمپ | content,excerpt,faq |
+| post:diy-can-stove | ساخت اجاق با قوطی کنسرو؛ خطرها را پیش از روشن‌کردن بشناس | content,excerpt,faq,meta:sa_risk_level,meta:sa_sources |
 | post:diy-compass | ساخت قطب‌نما با سوزن و آب؛ چطور وقتی گم شدیم جهت شمال رو پیدا کنیم؟ | featured_image |
 | post:diy-emergency-torch | ساخت مشعل اضطراری؛ چطور تو تاریکی مطلق، نور و گرما رو به کمپ برگردونیم؟ | content,featured_image |
 | post:diy-hammock-trees | ساخت تخت معلق بین درخت‌ها؛ نصب ایمن هاموک در جنگل | faq |
-| post:diy-water-filter | ساخت فیلتر آب با بطری و زغال؛ چطور تو شرایط اضطراری آب رو تصفیه کنیم؟ | content,excerpt,faq,meta:sa_focus_keyword,meta:sa_risk_level,meta:sa_seo_description,meta:sa_seo_title,meta:sa_sources,title |
+| post:diy-water-filter | ساخت فیلتر آب با بطری و زغال؛ زلالی آب، ایمنی نمی‌آورد | content,excerpt,faq,meta:sa_focus_keyword,meta:sa_risk_level,meta:sa_sources |
 | post:drinking-water-in-nature | تأمین آب آشامیدنی در طبیعت؛ چطور آب سالم پیدا کنیم و مسموم نشیم؟ | content,faq,featured_image |
 | post:drowning-rescue-guide | آموزش نجات غریق: رفیقت توی آب افتاد؟ آروم باش. بخون و عمل کن. | content,featured_image |
 | post:emergency-water-purification | روش‌های تصفیه آب در شرایط اضطراری؛ چطور آب رودخونه رو به آب معدنی تبدیل کنیم؟ | content,featured_image |
 | post:essential-camping-equipment | وسایل ضروری کمپینگ برای یک شب؛ چک‌لیست و انتخاب ایمن | content,featured_image |
 | post:fire-without-lighter | روشن کردن آتش بدون فندک و کبریت؛ چطور وقتی ابزارمون شکست خورد، آتش بسازیم؟ | content,featured_image |
 | post:first-aid-kit-checklist | کیف کمک‌های اولیه کمپینگ؛ چی توش باشه که جونت رو نجات بده؟ | content,featured_image |
-| post:gps-navigation-tools | معرفی GPS و ابزار مسیریابی؛ چطور تو دل طبیعت گم نشیم؟ | content,excerpt,faq,meta:sa_focus_keyword,meta:sa_risk_level,meta:sa_seo_description,meta:sa_seo_title,meta:sa_sources,title |
+| post:gps-navigation-tools | ابزارهای مسیریابی در طبیعت؛ GPS، نقشه و قطب‌نما | content,excerpt,faq,meta:sa_focus_keyword,meta:sa_risk_level,meta:sa_sources |
 | post:heatstroke-first-aid | کمک‌های اولیه گرمازدگی در طبیعت: گیج شد؟ خنک کن، همین حالا | content,featured_image |
 | post:how-to-choose-camping-tent | راهنمای انتخاب چادر مناسب؛ خونه‌ی موقتت رو درست انتخاب کن! | content,faq,featured_image |
 | post:how-to-extinguish-campfire | خاموش کردن کامل و ایمن آتش در طبیعت؛ چطور ردپای آتیشمون رو پاک کنیم؟ | content,faq,featured_image |
@@ -61,10 +61,10 @@
 | post:hypothermia-first-aid | کمک‌های اولیه سرمازدگی در طبیعت: وقتی لرز قطع می‌شود، خطر تازه شروع شده | content,featured_image |
 | post:leg-fracture-first-aid | شکستگی پا در طبیعت؛ تا رسیدن پزشک چه کنیم؟ | faq |
 | post:maintain-fire-in-rain | نگهداری آتش در باد و بارون؛ چطور تو طوفان آتیش رو زنده نگه داریم؟ | content,faq,featured_image,meta:sa_sources |
-| post:multi-tool-knife-review | معرفی چاقوهای چندکاره؛ آچار فرانسه طبیعت‌گردی رو چطور انتخاب کنیم؟ | content,excerpt,faq,meta:sa_seo_description,meta:sa_seo_title,meta:sa_sources,title |
+| post:multi-tool-knife-review | چاقوهای چندکارهٔ طبیعت‌گردی؛ چطور ابزار مناسب را انتخاب کنیم؟ | content,excerpt,faq,meta:sa_sources |
 | post:newspaper-insulation-bed | بالش و تشک اضطراری با روزنامه و گونی در طبیعت | content |
 | post:old-clothes-bandage-wick | استفادهٔ دوباره از لباس و جوراب کهنه: باند، دستکش و فتیلهٔ آتش | content |
-| post:outdoor-clothing-guide | لباس مناسب طبیعت در هر فصل؛ چی بپوشیم که نه سردمون بشه نه گرم | content,faq,featured_image,meta:sa_seo_description |
+| post:outdoor-clothing-guide | لباس مناسب طبیعت در هر فصل؛ چی بپوشیم که نه سردمون بشه نه گرم | content,faq,featured_image |
 | post:outdoor-cooking-equipment | تجهیزات پخت‌وپز در طبیعت؛ چی ببریم که هم غذا بخوریم هم بار اضافه نکشیم؟ | featured_image |
 | post:outdoor-cooking-minimal | آشپزی در طبیعت با کمترین امکانات؛ گرم، ساده و ایمن | faq |
 | post:overdose-rescue-guide | کمک‌های اولیه اوردوز دارویی در طبیعت: راه هوایی را نگه دار، ۱۱۵ را خبر کن، استفراغ نده | featured_image |
