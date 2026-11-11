@@ -20,6 +20,86 @@ function sa_brand_name() {
 }
 
 /**
+ * Official bundled brand logo — the single source used by the header,
+ * footer, Organization schema and the WordPress site icon.
+ *
+ * The files are intentionally kept beside the theme so a media-library
+ * custom-logo selection cannot leave an older logo in one part of the
+ * site. Available square variants are 96, 192 and 512 pixels.
+ *
+ * @param int $size Desired square variant.
+ * @return array{url:string,width:int,height:int}
+ */
+function sa_brand_logo( $size = 512 ) {
+	$logos = array(
+		96  => 'logo-96.webp',
+		192 => 'logo-192.webp',
+		512 => 'logo.webp',
+	);
+	if ( ! isset( $logos[ $size ] ) ) {
+		$size = 512;
+	}
+	return array(
+		'url'    => SA_CHILD_URI . 'assets/img/' . $logos[ $size ],
+		'width'  => $size,
+		'height' => $size,
+	);
+}
+
+/**
+ * URL of one official brand-logo variant.
+ *
+ * @param int $size Desired square variant.
+ * @return string
+ */
+function sa_brand_logo_url( $size = 512 ) {
+	$logo = sa_brand_logo( $size );
+	return $logo['url'];
+}
+
+/**
+ * Always expose the bundled official logo as the site icon.
+ *
+ * This also covers the browser favicon, Apple touch icon, admin-bar site
+ * icon and REST `site_icon_url` consumers, even when an older site icon
+ * is still stored in the WordPress options.
+ *
+ * @param string $url     Existing site-icon URL.
+ * @param int    $size    Requested icon size.
+ * @param int    $blog_id Blog ID (unused; the brand asset is site-wide).
+ * @return string
+ */
+function sa_brand_site_icon_url( $url, $size = 512, $blog_id = 0 ) {
+	unset( $url, $blog_id );
+	if ( $size >= 256 ) {
+		return sa_brand_logo_url( 512 );
+	}
+	if ( $size >= 128 ) {
+		return sa_brand_logo_url( 192 );
+	}
+	return sa_brand_logo_url( 96 );
+}
+add_filter( 'site_icon_url', 'sa_brand_site_icon_url', 20, 3 );
+
+/**
+ * Print the bundled site-icon tags when WordPress has no stored site icon.
+ *
+ * When a site icon is stored, core prints its own tags and the
+ * site_icon_url filter above points them at the same bundled logo.
+ */
+function sa_brand_site_icon_fallback() {
+	if ( get_option( 'site_icon' ) || ( function_exists( 'is_customize_preview' ) && is_customize_preview() ) ) {
+		return;
+	}
+	printf( '<link rel="icon" href="%s" sizes="32x32">' . "\n", esc_url( sa_brand_logo_url( 96 ) ) );
+	printf( '<link rel="icon" href="%s" sizes="192x192">' . "\n", esc_url( sa_brand_logo_url( 192 ) ) );
+	printf( '<link rel="apple-touch-icon" href="%s">' . "\n", esc_url( sa_brand_logo_url( 192 ) ) );
+	printf( '<meta name="msapplication-TileImage" content="%s">' . "\n", esc_url( sa_brand_logo_url( 512 ) ) );
+}
+add_action( 'wp_head', 'sa_brand_site_icon_fallback', 99 );
+add_action( 'admin_head', 'sa_brand_site_icon_fallback', 99 );
+
+/**
  * Ensure site title (blogname) and logo alt use the unified brand.
  * Filters option and bloginfo display.
  */

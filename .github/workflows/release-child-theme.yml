@@ -87,6 +87,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-article-cards.php"
 
+      - name: Run brand-logo tests (official bundled logo in header, footer, schema and site icon)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-brand-logo.php"
+
       - name: Run responsive-table tests (prevent mobile document overflow)
         shell: bash
         run: php "$THEME_DIR/tests/test-responsive-tables.php"

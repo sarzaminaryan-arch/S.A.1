@@ -33,12 +33,14 @@ function sa_child_setup() {
 		)
 	);
 
-	// Custom logo for site (used in header, footer and Organization schema).
+	// WordPress custom-logo support is kept for compatibility. Front-end
+	// brand output intentionally uses the bundled official logo from
+	// sa_brand_logo() so header, footer, schema and site icon stay identical.
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 90,
-			'width'       => 300,
+			'height'      => 512,
+			'width'       => 512,
 			'flex-height' => true,
 			'flex-width'  => true,
 		)

@@ -22,17 +22,14 @@ function sa_schema_organization() {
 		'name'  => $brand,
 		'url'   => home_url( '/' ),
 	);
-	$logo_id = get_theme_mod( 'custom_logo' );
-	if ( $logo_id ) {
-		$logo = wp_get_attachment_image_src( $logo_id, 'full' );
-		if ( $logo ) {
-			$node['logo'] = array(
-				'@type'  => 'ImageObject',
-				'url'    => $logo[0],
-				'width'  => $logo[1],
-				'height' => $logo[2],
-			);
-		}
+	if ( function_exists( 'sa_brand_logo' ) ) {
+		$logo         = sa_brand_logo( 512 );
+		$node['logo'] = array(
+			'@type'  => 'ImageObject',
+			'url'    => $logo['url'],
+			'width'  => $logo['width'],
+			'height' => $logo['height'],
+		);
 	}
 	$same_as = array();
 	foreach ( array( 'instagram', 'telegram', 'x', 'youtube', 'aparat', 'linkedin' ) as $net ) {
