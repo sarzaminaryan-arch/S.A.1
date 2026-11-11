@@ -294,13 +294,52 @@ function sa_attraction_bars_html( $posts ) {
  * @param WP_Post[]|null $posts Posts from the main archive query.
  * @return string HTML.
  */
+/**
+ * Published provinces as slug => permalink for the crawlable directory.
+ *
+ * Accepts the archive query posts; falls back to a fresh lookup when they
+ * are missing (same contract as sa_province_bars_html()). Added in 2.22.46:
+ * sa_archive_crawlable_directory_html() already called this helper, and its
+ * absence fatalled /province/ right after the bars.
+ *
+ * @param WP_Post[]|null $posts Published province posts.
+ * @return array<string,string> slug => permalink.
+ */
+function sa_published_provinces_by_slug( $posts = null ) {
+	$urls = array();
+	if ( is_array( $posts ) ) {
+		foreach ( $posts as $p ) {
+			if ( $p instanceof WP_Post && 'publish' === $p->post_status && '' !== $p->post_name ) {
+				$url = (string) get_permalink( $p );
+				if ( '' !== $url ) {
+					$urls[ $p->post_name ] = $url;
+				}
+			}
+		}
+		if ( $urls ) {
+			return $urls;
+		}
+	}
+	foreach ( sa_published_entity_ids( 'province' ) as $slug => $id ) {
+		$url = (string) get_permalink( $id );
+		if ( '' !== $url ) {
+			$urls[ $slug ] = $url;
+		}
+	}
+	return $urls;
+}
+
 function sa_archive_crawlable_directory_html( $type, $posts = null ) {
 	if ( 'province' === $type ) {
 		$provinces = sa_iran_provinces();
 		$published = sa_published_provinces_by_slug( $posts );
 		$links     = array();
 		foreach ( $provinces as $row ) {
-			list( $fa, $slug, $en ) = $row;
+			$fa   = $row[0];
+			$slug = $row[1];
+			// English label derives from the slug, exactly like the bars;
+			// $row[2]/$row[3] are hero-map coordinates, not a name.
+			$en = ucwords( str_replace( '-', ' ', $slug ) );
 			if ( isset( $published[ $slug ] ) ) {
 				$links[] = '<a href="' . esc_url( $published[ $slug ] ) . '">استان ' . esc_html( $fa ) . '</a> (' . esc_html( $en ) . ')';
 			} else {

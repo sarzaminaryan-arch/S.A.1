@@ -4703,6 +4703,21 @@ main.site-main.container,
 	text-overflow: ellipsis;
 }
 
+/* ۲٫۲۲٫۴۶: اولویت چیدمان با عنوان اصلی است؛ در جای تنگ اول برچسب دوم کوتاه
+   می‌شود، نه عنوان فارسی («سیستان و…» در نمای دوستونه). نوارهای آموزش
+   مستثنا هستند؛ عنوانشان چندخطی است و رفتار رشدی قبلی را نگه می‌دارند. */
+.sa-bars--province .sa-bar b,
+.sa-bars--city .sa-bar b,
+.sa-bars--attraction .sa-bar b {
+	flex: 1 1 auto;
+}
+
+.sa-bars--province .sa-bar em,
+.sa-bars--city .sa-bar em,
+.sa-bars--attraction .sa-bar em {
+	flex-shrink: 10;
+}
+
 .sa-bar em.fa {
 	direction: rtl;
 	letter-spacing: 0;

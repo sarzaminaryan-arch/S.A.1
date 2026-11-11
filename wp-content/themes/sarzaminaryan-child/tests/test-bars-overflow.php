@@ -91,4 +91,11 @@ sa_bars_assert( false !== strpos( $em, 'text-overflow: ellipsis;' ), '.sa-bar em
 //    the ellipsis above it fits again (owner: "better, but not normal yet").
 sa_bars_assert( false === strpos( $css, '.sa-bars--province .sa-bar em' ), 'province English names are not hidden on mobile' );
 
+// 5. The main title has shrink priority over the secondary label (2.22.46):
+//    in tight two-column bars the label yields first, not the Persian title.
+$pb = sa_bars_rule_block( $css, '.sa-bars--attraction .sa-bar b {' );
+sa_bars_assert( null !== $pb && false !== strpos( $pb, 'flex: 1 1 auto;' ), 'bar title sizes from its content in entity bars' );
+$pe = sa_bars_rule_block( $css, '.sa-bars--attraction .sa-bar em {' );
+sa_bars_assert( null !== $pe && false !== strpos( $pe, 'flex-shrink: 10;' ), 'secondary label shrinks before the title' );
+
 echo "test-bars-overflow: OK\n";

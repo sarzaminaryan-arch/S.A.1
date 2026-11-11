@@ -152,4 +152,19 @@ $GLOBALS['t']['posts'][13] = new WP_Post( 13, 'x', 'شهر <b>x</b>', 'city' );
 $xss                       = sa_city_bars_html( array( $GLOBALS['t']['posts'][13] ) );
 sa_t_assert( false === strpos( $xss, '<b>x</b>' ) && false !== strpos( $xss, '&lt;b&gt;x&lt;/b&gt;' ), 'titles are escaped' );
 
+/* 7) Crawlable province directory (2.22.46): missing-helper fatal + slug English. */
+$prov_posts = array( $GLOBALS['t']['posts'][1], $GLOBALS['t']['posts'][2], $GLOBALS['t']['posts'][3], $GLOBALS['t']['posts'][4] );
+$map        = sa_published_provinces_by_slug( $prov_posts );
+sa_t_assert( 3 === count( $map ), 'published map excludes the draft province' );
+sa_t_assert( 'https://example.test/province/lorestan/' === $map['lorestan'], 'published map: slug to permalink' );
+sa_t_assert( ! isset( $map['yazd'] ), 'draft province not in the published map' );
+sa_t_assert( 3 === count( sa_published_provinces_by_slug() ), 'published map falls back to the entity lookup' );
+
+$dhtml = sa_archive_crawlable_directory_html( 'province', $prov_posts );
+sa_t_assert( false !== strpos( $dhtml, 'مرور متنی' ), 'crawlable directory heading renders' );
+sa_t_assert( false !== strpos( $dhtml, '<a href="https://example.test/province/lorestan/">استان لرستان</a> (Lorestan)' ), 'published province linked with slug-derived English name' );
+sa_t_assert( false !== strpos( $dhtml, 'استان یزد (Yazd)' ), 'unpublished province listed without a link' );
+sa_t_assert( false === strpos( $dhtml, 'province/yazd' ), 'draft province never linked in the directory' );
+sa_t_assert( false === strpos( $dhtml, '(56)' ) && false === strpos( $dhtml, '(318)' ), 'hero-map coordinates never leak into the directory' );
+
 echo "PASS: entity bars (31 provinces, published-only links, city bars with province label, attraction bars with city/province label)\n";
