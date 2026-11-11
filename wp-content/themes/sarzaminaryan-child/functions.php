@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.42' );
+define( 'SA_CHILD_VERSION', '2.22.43' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -164,6 +164,25 @@ function sa_child_assets() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sa_child_assets', 20 );
+
+/**
+ * Preload the Bold Vazirmatn face on every front-end page.
+ *
+ * The parent theme preloads only the Regular face, but page and hero titles
+ * render in Bold, so the Bold file used to be discovered late through the
+ * stylesheet and its swap could shift the layout (performance track P3,
+ * 2026-11-11; the matching metric-matched local fallback lives in
+ * assets/css/child.css). Headings exist on every template, so this preload
+ * is not limited to the front page. Priority 2 keeps it right after the
+ * parent's Regular preload (priority 1).
+ */
+function sa_child_preload_bold_font() {
+	printf(
+		'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+		esc_url( get_template_directory_uri() . '/assets/fonts/fa/Vazirmatn-Bold.woff2' )
+	);
+}
+add_action( 'wp_head', 'sa_child_preload_bold_font', 2 );
 
 /**
  * Add the shared profile-page scope only to province, county and attraction

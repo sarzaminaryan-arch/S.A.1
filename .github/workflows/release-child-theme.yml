@@ -91,6 +91,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-brand-logo.php"
 
+      - name: Run font-loading tests (Bold preload and metric-matched Vazirmatn fallback)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-font-loading.php"
+
       - name: Run responsive-table tests (prevent mobile document overflow)
         shell: bash
         run: php "$THEME_DIR/tests/test-responsive-tables.php"

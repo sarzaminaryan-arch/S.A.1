@@ -50,7 +50,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 /* فونت Vazirmatn به‌صورت محلی در قالب مادر بارگذاری و preload می‌شود
    (assets/css/fonts.css + wp_head). درخواست به fonts.googleapis.com از داخل
    ایران معمولاً برنمی‌گردد و چون @import بود، رندر را هم بلوک می‌کرد. */
-.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.75;overflow:hidden}
+.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,'Vazirmatn Fallback',Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.75;overflow:hidden}
 .sa-home *{box-sizing:border-box}
 .sa-wrap{max-width:1180px;margin:0 auto;padding:0 10px}
 .sa-hero{position:relative;overflow:hidden;min-height:min(100vh,800px);display:flex;align-items:center;padding:64px 0 96px;background:radial-gradient(760px 480px at 18% 55%,rgba(36,109,168,.16),transparent 70%),linear-gradient(#fff,#edf6ff)}

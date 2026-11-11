@@ -1,6 +1,37 @@
 /* Sarzamin Aryan Child — layout for the travel encyclopedia. Logical properties only (RTL-safe). */
 
+/*
+ * Metric-matched local fallback for Vazirmatn (performance track P3,
+ * 2026-11-11). Vazirmatn is served with font-display: swap, so a page first
+ * renders in a system font; when that fallback wraps or sizes text
+ * differently, the swap shifts the layout (lab CLS 0.176 on the homepage
+ * hero CTA, PageSpeed report 52w4rqrdi4 — the fix suggested by Lighthouse's
+ * own font-display audit). The overrides below pin the fallback's line box
+ * to Vazirmatn's own metrics — ascent 2100, descent -1100, line-gap 0 on a
+ * 2048 upem, identical in the bundled Regular/Medium/Bold files — and
+ * size-adjust scales the fallback's advance widths to Vazirmatn's (mean
+ * advance of 57 Persian letters/digits, measured with fontTools:
+ * Vazirmatn 0.625em vs Noto Naskh Arabic 0.574em ≈ 108%). Tahoma (Windows)
+ * and Noto Naskh Arabic (Android) are the realistic Persian fallbacks;
+ * where neither exists this face is simply unavailable and the stack
+ * degrades gracefully to the next family.
+ */
+@font-face {
+	font-family: 'Vazirmatn Fallback';
+	src: local( 'Tahoma' ), local( 'Noto Naskh Arabic' ), local( 'Segoe UI' ), local( 'Arial' );
+	font-weight: 100 900;
+	font-style: normal;
+	size-adjust: 108%;
+	ascent-override: 102.54%;
+	descent-override: 53.71%;
+	line-gap-override: 0%;
+}
+
 :root {
+	/* Performance track P3: route the parent font stack through the
+	   metric-matched 'Vazirmatn Fallback' face defined above, so pre-swap
+	   text already occupies Vazirmatn's metrics site-wide. */
+	--font-family-body: 'Vazirmatn', 'Vazirmatn Fallback', 'Segoe UI', Tahoma, Arial, sans-serif;
 	/* v2.4 visual system: one navy family, with light blue only for soft surfaces/search. */
 	--sa-navy-950: #071a30;
 	--sa-navy-900: #0b2a4a;
