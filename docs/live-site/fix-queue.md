@@ -8,7 +8,7 @@
 موردی پیدا نشد.
 
 
-## ۲) روی سایت هست ولی با مخزن فرق دارد (75)
+## ۲) روی سایت هست ولی با مخزن فرق دارد (72)
 
 | کلید | عنوان | فیلدهای متفاوت |
 |---|---|---|
@@ -25,7 +25,6 @@
 | attraction:gahar-lake-dorud | دریاچه گهر | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
 | attraction:ghaleh-dokhtar-boshruyeh | قلعه دختر بشرویه | content,meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
 | attraction:golestan-national-park-guide | پارک ملی گلستان (جنگل گلستان) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
-| attraction:khaju-bridge | پل خواجو | meta:sa_sources,relation:city |
 | attraction:kuhrang-fritillaria-plain-guide | دشت لاله‌های واژگون کوهرنگ | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
 | attraction:margoon-falls | آبشار مارگون | meta:rank_math_description,meta:rank_math_focus_keyword,meta:rank_math_title |
 | attraction:masouleh | ماسوله | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
@@ -38,14 +37,12 @@
 | attraction:qeshm-stars-valley-geopark | درهٔ ستارگان قشم | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
 | attraction:rig-e-jenn-desert | کویر ریگ جن | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:sa_sources |
 | attraction:sar-agha-seyed-village | روستای سرآقا سید | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:sa_sources |
-| attraction:shah-cheragh | حرم شاهچراغ | meta:sa_latitude,meta:sa_sources |
 | attraction:shahdad-kaluts-lut-desert | کلوت‌های شهداد | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
 | attraction:shevi-waterfall-tele-zang | آبشار شوی (تله زنگ) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
 | attraction:si-o-se-pol | سی‌وسه‌پل | meta:sa_sources,relation:city |
 | attraction:tang-e-sayad-national-park | پارک ملی تنگ صیاد | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title |
 | attraction:tangeh-lili-gorge-doroud | تنگه لی لی (سورپیلو) | meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_sources |
 | attraction:vakil-complex | مجموعه وکیل (بازار، مسجد و حمام) | meta:rank_math_description,meta:rank_math_focus_keyword,meta:rank_math_title |
-| attraction:vank-cathedral | کلیسای وانک | meta:sa_sources,relation:city |
 | city:dorud | دورود | content,meta:rank_math_description,meta:rank_math_facebook_description,meta:rank_math_facebook_title,meta:rank_math_focus_keyword,meta:rank_math_title,meta:rank_math_twitter_description,meta:rank_math_twitter_title,meta:sa_cty_best_time,meta:sa_cty_center,meta:sa_cty_climate,meta:sa_cty_distance_center,meta:sa_cty_districts,meta:sa_cty_language,meta:sa_cty_livelihood,meta:sa_cty_neighbors,meta:sa_cty_rural_districts,meta:sa_cty_villages,meta:sa_english_name,meta:sa_sources |
 | post:ankle-sprain-first-aid | کمک‌های اولیه پیچ‌خوردگی مچ پا در طبیعت: پیچ خورده، در رفته یا شکسته؟ | featured_image |
 | post:bleeding-wound-first-aid | کمک‌های اولیه خونریزی شدید در طبیعت: دستت را از روی زخم برندار | featured_image |
@@ -53,7 +50,7 @@
 | post:camping-essential-checklist | چک‌لیست کامل وسایل ضروری کمپینگ؛ چی با خودم ببرم که کم نیارم؟ | featured_image |
 | post:camping-water-planning | آب آشامیدنی در کمپ؛ برنامه‌ریزی، تصفیه و نگهداری ایمن | featured_image |
 | post:can-cookware-diy | ساخت قابلمه، فنجان و کفگیر از قوطی کنسرو در طبیعت | meta:sa_sources |
-| post:cpr-complete-guide | آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است | featured_image |
+| post:cpr-complete-guide | آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است | meta:sa_sources |
 | post:diy-bottle-lantern | ساخت فانوس با بطری آب برای روشنایی کمپ | content,excerpt,faq,meta:sa_seo_description,meta:sa_seo_title |
 | post:diy-can-stove | ساخت اجاق با قوطی کنسرو؛ چطور با یه آشغال فلزی، غذای گرم بپزیم؟ | content,excerpt,faq,meta:sa_risk_level,meta:sa_seo_description,meta:sa_seo_title,meta:sa_sources,title |
 | post:diy-compass | ساخت قطب‌نما با سوزن و آب؛ چطور وقتی گم شدیم جهت شمال رو پیدا کنیم؟ | featured_image |
@@ -96,9 +93,9 @@
 
 | نوع | تعداد |
 |---|---|
-| attraction | 39 |
+| attraction | 38 |
 | city | 485 |
-| post | 67 |
+| post | 66 |
 
 
 محتوای کوتاه (10):
@@ -107,12 +104,12 @@
 |---|---|---|
 | attraction:bishapur | شهر ساسانی بیشاپور | 487 |
 | attraction:eram-garden | باغ ارم | 487 |
-| attraction:khaju-bridge | پل خواجو | 463 |
+| attraction:khaju-bridge | پل خواجو | 453 |
 | attraction:margoon-falls | آبشار مارگون | 496 |
 | attraction:naqsh-e-rostam | نقش رستم | 463 |
 | attraction:pasargadae | پاسارگاد | 520 |
-| attraction:shah-cheragh | حرم شاهچراغ | 446 |
+| attraction:shah-cheragh | حرم شاهچراغ | 438 |
 | attraction:si-o-se-pol | سی‌وسه‌پل | 454 |
 | attraction:vakil-complex | مجموعه وکیل (بازار، مسجد و حمام) | 515 |
-| attraction:vank-cathedral | کلیسای وانک | 483 |
+| attraction:vank-cathedral | کلیسای وانک | 473 |
 

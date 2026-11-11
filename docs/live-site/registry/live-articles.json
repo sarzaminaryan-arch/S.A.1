@@ -1,10 +1,10 @@
 {
  "tool": "sa-live-site-registry",
- "generated_at": "2026-11-11T00:12:36.856489+00:00",
+ "generated_at": "2026-11-11T00:30:22.962637+00:00",
  "snapshot_date": "2026-11-11",
  "sources": {
-  "live": "/tmp/inputs/live-articles-20261111-000924.json",
-  "audit": "/tmp/inputs/audit-report-20261111-000924-local.json",
+  "live": "/tmp/inputs/live-articles-20261111-002759.json",
+  "audit": "/tmp/inputs/audit-report-20261111-002759-local.json",
   "baseline_records": 104
  },
  "counts": {
@@ -16,11 +16,11 @@
    "province": 31
   },
   "repo_status": {
-   "matched_different": 75,
-   "matched_identical": 29,
+   "matched_different": 72,
+   "matched_identical": 32,
    "live_only": 518
   },
-  "missing_featured_image": 591,
+  "missing_featured_image": 589,
   "repo_unpublished": 0
  },
  "records": [
@@ -2629,14 +2629,14 @@
    "title": "پل خواجو",
    "status": "publish",
    "date_published": "2026-11-11 03:17:41",
-   "date_modified": "2026-11-11 03:17:41",
+   "date_modified": "2026-11-11 03:56:51",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/attraction/khaju-bridge/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=3331&action=edit",
    "excerpt": "پل خواجو اصفهان؛ شاهکار پل‌سازی صفوی با کاشی‌کاری، رواق نشیمن و سازهٔ آب. راهنمای عرشهٔ شاه‌نشین، تفاوت آن با سی‌وسه‌پل، بهترین زمان عکاسی، مسیر دسترسی و نکات بازدید.",
-   "content_hash": "e1669e32eac9b2db97fe3ce372cdf9f6a24733f3aa15ef1fd66201b17aa86fec",
-   "content_text_hash": "713593167265409f06b624a82d4125f21308362cf8268c0bcebe29083fedc545",
-   "word_count": 463,
+   "content_hash": "1e318b8d5affef08d2ea36e8bcf3af14aa3e6f94030ab7ee3b6071149471064f",
+   "content_text_hash": "5ff39fc4b4d18e2d34aec5834fb2912e89c2c1ce498ea6611c519c6f7576a0b0",
+   "word_count": 453,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -2752,21 +2752,17 @@
     "province": "isfahan",
     "province_id": 35,
     "province_title": "استان اصفهان",
-    "city": "isfahan-blocked-2353",
-    "city_id": 2353,
-    "city_title": "اصفهان"
+    "city": "isfahan-city",
+    "city_id": 3429,
+    "city_title": "شهرستان اصفهان"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:sa_sources",
-     "relation:city"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
     "missing_featured_image",
-    "thin_content(<800)",
-    "differs_from_repo"
+    "thin_content(<800)"
    ]
   },
   {
@@ -5173,14 +5169,14 @@
    "title": "حرم شاهچراغ",
    "status": "publish",
    "date_published": "2026-11-11 03:18:52",
-   "date_modified": "2026-11-11 03:18:52",
+   "date_modified": "2026-11-11 03:57:08",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/attraction/shah-cheragh/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=3330&action=edit",
    "excerpt": "حرم شاهچراغ شیراز؛ زیارتگاه احمد بن موسی با گنبد و گلدسته‌های کاشی‌کاری فیروزه‌ای و آینه‌کاری کم‌نظیر. راهنمای آداب زیارت، پوشش، بهترین ساعت بازدید، مسیر دسترسی و نکات رعایت حریم زیارتگاه.",
-   "content_hash": "f9e77322101b1731e68a1aef42f3b785a9d711cc6e60a5c32a499c83d3b1eb8c",
-   "content_text_hash": "51ecd3bb36a847680adbcc296849c8c4913e959f977e6129d670fe1722f62087",
-   "word_count": 446,
+   "content_hash": "3be5ba38f23a0560818b4682c64bcffa2b6bd1b10a35e2d529e842aa36367277",
+   "content_text_hash": "5c1170d8e7104f2ff3743402ac3588cdd35f01ae54fbaadcf8432f5b23fb58a1",
+   "word_count": 438,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -5304,16 +5300,12 @@
     "city_title": "شهرستان شیراز"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:sa_latitude",
-     "meta:sa_sources"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
     "missing_featured_image",
-    "thin_content(<800)",
-    "differs_from_repo"
+    "thin_content(<800)"
    ]
   },
   {
@@ -5889,8 +5881,13 @@
    "content_hash": "c4800dda61d421a0ae1c037c77eb3d80f6220cb70c29d9e17d898e47f12c198b",
    "content_text_hash": "d1db679ad14b6ac553bc60ee454483cab1a8f8be0da05a615f8753d1339d1c72",
    "word_count": 454,
-   "featured_file": "",
-   "featured": {},
+   "featured_file": "si-o-se-pol-white-card-1200x600-1.webp",
+   "featured": {
+    "file": "si-o-se-pol-white-card-1200x600-1.webp",
+    "alt": "کارت سفید سی‌وسه‌پل | اصفهان | اصفهان با آیکون رنگی گوشه‌ای و نوشته‌های مرکزچین — Si-o-se-pol (Allahverdi Khan Bridge)",
+    "width": 1200,
+    "height": 600
+   },
    "terms": {
     "province_tax": [
      "isfahan"
@@ -6015,7 +6012,6 @@
     ]
    },
    "flags": [
-    "missing_featured_image",
     "thin_content(<800)",
     "differs_from_repo"
    ]
@@ -6698,14 +6694,14 @@
    "title": "کلیسای وانک",
    "status": "publish",
    "date_published": "2026-11-11 03:18:09",
-   "date_modified": "2026-11-11 03:18:09",
+   "date_modified": "2026-11-11 03:56:39",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/attraction/vank-cathedral/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=3332&action=edit",
    "excerpt": "کلیسای وانک اصفهان؛ نگین ارمنیان جلفای نو با نقاشی‌های دیواری کم‌نظیر، گنبد آجری و موزهٔ نسخه‌های خطی. راهنمای معماری، بخش‌های دیدنی، مسیر دسترسی، بهترین ساعت بازدید و نکات احترام به فضای عبادی.",
-   "content_hash": "d37caf7c63e06cc3a976f6d8c3bab7e0fe32867b089155183fc43312ab929feb",
-   "content_text_hash": "bea3f90fc111a34e2e13093a4d758f30c4ce75d8a9470c5cdcad16fc84095917",
-   "word_count": 483,
+   "content_hash": "23f54bbbb6998af19c5db3b1bace1cd81eb815b0140820b22a4c456f878dcc15",
+   "content_text_hash": "d6b2f30d94ecb40b851020c48e6a482ebf6d7a8f6734fb5d7a0881a26ab95a43",
+   "word_count": 473,
    "featured_file": "",
    "featured": {},
    "terms": {
@@ -6820,21 +6816,17 @@
     "province": "isfahan",
     "province_id": 35,
     "province_title": "استان اصفهان",
-    "city": "isfahan-blocked-2353",
-    "city_id": 2353,
-    "city_title": "اصفهان"
+    "city": "isfahan-city",
+    "city_id": 3429,
+    "city_title": "شهرستان اصفهان"
    },
    "repo": {
-    "status": "matched_different",
-    "diff_fields": [
-     "meta:sa_sources",
-     "relation:city"
-    ]
+    "status": "matched_identical",
+    "diff_fields": []
    },
    "flags": [
     "missing_featured_image",
-    "thin_content(<800)",
-    "differs_from_repo"
+    "thin_content(<800)"
    ]
   },
   {
@@ -29874,8 +29866,7 @@
    "flags": [
     "missing_featured_image",
     "not_in_repo_baseline"
-   ],
-   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری ایجرود؛ جفتش (ijrud) ۲۰۲۶-۱۱-۱۰ به زباله‌دان رفت. این جفت بسته شد."
+   ]
   },
   {
    "key": "city:eqlid",
@@ -48705,8 +48696,7 @@
    "flags": [
     "missing_featured_image",
     "not_in_repo_baseline"
-   ],
-   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری خرمدره؛ ۲۰۲۶-۱۱-۱۱ توسط مالک از انتشار خارج‌شده برگشت و منتشر شد و جفت ضعیفش (khorramdarreh) به زباله‌دان رفت (اسنپ‌شات ۰۰:۰۹). این جفت بسته شد."
+   ]
   },
   {
    "key": "city:kharameh",
@@ -92073,7 +92063,7 @@
    "title": "آموزش کامل CPR در طبیعت: وقتی قلب ایستاد و اورژانس یک ساعت دور است",
    "status": "publish",
    "date_published": "2026-10-13 02:37:15",
-   "date_modified": "2026-10-16 00:43:54",
+   "date_modified": "2026-11-11 03:45:31",
    "author": "Lak",
    "permalink": "https://sarzaminaryan.ir/cpr-complete-guide/",
    "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=2818&action=edit",
@@ -92081,8 +92071,13 @@
    "content_hash": "a26e246a1a2a5447bf3390e26069072e8871af6d536079f4afd41bad043269cc",
    "content_text_hash": "06a4701844f85bcfc720e36f642c14cf9d16bd073919e5e59a3d1836291cf410",
    "word_count": 2102,
-   "featured_file": "",
-   "featured": {},
+   "featured_file": "cpr-complete-guide.webp",
+   "featured": {
+    "file": "cpr-complete-guide.webp",
+    "alt": "اینفوگرافیک آموزش کامل CPR در طبیعت: بررسی هوشیاری و تنفس، تماس با اورژانس، ۳۰ فشار قفسهٔ سینه و ۲ تنفس، تفاوت کودک و نوزاد",
+    "width": 1671,
+    "height": 941
+   },
    "terms": {
     "category": [
      "camping-survival"
@@ -92207,14 +92202,13 @@
    "repo": {
     "status": "matched_different",
     "diff_fields": [
-     "featured_image"
+     "meta:sa_sources"
     ]
    },
    "flags": [
-    "missing_featured_image",
     "differs_from_repo"
    ],
-   "agent_note": "نسخهٔ اصلی (canonical) جفت تکراری CPR؛ جفتش (cpr-complete-guide-2) ۲۰۲۶-۱۱-۱۰ به زباله‌دان رفت. تنها کار باقی‌ماندهٔ فاز ۱: نشاندن تصویر شاخص cpr-complete-guide.webp (پیوست ۱۰۰۲، در کتابخانهٔ رسانه موجود است) روی همین مقاله — طبق اسنپ‌شات ۲۰۲۶-۱۱-۱۱ (۰۰:۰۹) هنوز انجام نشده."
+   "agent_note": "جفت تکراری CPR بسته شد و تصویر شاخص cpr-complete-guide.webp (پیوست ۱۰۰۲) در ۲۰۲۶-۱۱-۱۱ روی همین نسخهٔ اصلی نشست (راستی‌آزمایی اسنپ‌شات ۰۰:۲۷). فاز ۱ رودمپ با همین رکورد رسماً بسته شد."
   },
   {
    "key": "post:diy-bottle-lantern",

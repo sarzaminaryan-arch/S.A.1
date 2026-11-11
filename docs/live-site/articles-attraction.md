@@ -18,7 +18,7 @@
 | دریاچه گهر | gahar-lake-dorud | 2457 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/gahar-lake-dorud/ |
 | قلعه دختر بشرویه | ghaleh-dokhtar-boshruyeh | 1221 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/ghaleh-dokhtar-boshruyeh/ |
 | پارک ملی گلستان (جنگل گلستان) | golestan-national-park-guide | 1583 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/golestan-national-park-guide/ |
-| پل خواجو | khaju-bridge | 463 | — | matched_different | missing_featured_image,thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/khaju-bridge/ |
+| پل خواجو | khaju-bridge | 453 | — | matched_identical | missing_featured_image,thin_content(<800) | https://sarzaminaryan.ir/attraction/khaju-bridge/ |
 | دشت لاله‌های واژگون کوهرنگ | kuhrang-fritillaria-plain-guide | 2479 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/kuhrang-fritillaria-plain-guide/ |
 | آبشار مارگون | margoon-falls | 496 | — | matched_different | missing_featured_image,thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/margoon-falls/ |
 | ماسوله | masouleh | 1339 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/masouleh/ |
@@ -33,13 +33,13 @@
 | درهٔ ستارگان قشم | qeshm-stars-valley-geopark | 1506 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/qeshm-stars-valley-geopark/ |
 | کویر ریگ جن | rig-e-jenn-desert | 1257 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/rig-e-jenn-desert/ |
 | روستای سرآقا سید | sar-agha-seyed-village | 1306 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/sar-agha-seyed-village/ |
-| حرم شاهچراغ | shah-cheragh | 446 | — | matched_different | missing_featured_image,thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/shah-cheragh/ |
+| حرم شاهچراغ | shah-cheragh | 438 | — | matched_identical | missing_featured_image,thin_content(<800) | https://sarzaminaryan.ir/attraction/shah-cheragh/ |
 | کلوت‌های شهداد | shahdad-kaluts-lut-desert | 1298 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/shahdad-kaluts-lut-desert/ |
 | آبشار شوی (تله زنگ) | shevi-waterfall-tele-zang | 1730 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/shevi-waterfall-tele-zang/ |
 | سازه‌های آبی تاریخی شوشتر | shushtar-historical-hydraulic-system | 2068 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/attraction/shushtar-historical-hydraulic-system/ |
-| سی‌وسه‌پل | si-o-se-pol | 454 | — | matched_different | missing_featured_image,thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/si-o-se-pol/ |
+| سی‌وسه‌پل | si-o-se-pol | 454 | دارد | matched_different | thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/si-o-se-pol/ |
 | جاهای دیدنی طبس | tabas-attractions | 1370 | — | live_only | missing_featured_image,not_in_repo_baseline | https://sarzaminaryan.ir/attraction/tabas-attractions/ |
 | پارک ملی تنگ صیاد | tang-e-sayad-national-park | 1309 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/tang-e-sayad-national-park/ |
 | تنگه لی لی (سورپیلو) | tangeh-lili-gorge-doroud | 2022 | — | matched_different | missing_featured_image,differs_from_repo | https://sarzaminaryan.ir/attraction/tangeh-lili-gorge-doroud/ |
 | مجموعه وکیل (بازار، مسجد و حمام) | vakil-complex | 515 | — | matched_different | missing_featured_image,thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/vakil-complex/ |
-| کلیسای وانک | vank-cathedral | 483 | — | matched_different | missing_featured_image,thin_content(<800),differs_from_repo | https://sarzaminaryan.ir/attraction/vank-cathedral/ |
+| کلیسای وانک | vank-cathedral | 473 | — | matched_identical | missing_featured_image,thin_content(<800) | https://sarzaminaryan.ir/attraction/vank-cathedral/ |
