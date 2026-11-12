@@ -57,7 +57,12 @@ function locate_template( $names ) { return '/child/template-dashboard.php'; }
 function get_posts( $args ) { return array(); }
 function get_option( $key, $default = false ) { return isset( $GLOBALS['t']['options'][ $key ] ) ? $GLOBALS['t']['options'][ $key ] : $default; }
 function update_option( $key, $value, $autoload = null ) { $GLOBALS['t']['options'][ $key ] = $value; $GLOBALS['t']['updated'][ $key ] = $value; return true; }
-function get_post_status( $id ) { return isset( $GLOBALS['t']['posts'][ $id ] ) ? $GLOBALS['t']['posts'][ $id ]['status'] : false; }
+function get_post_status( $id ) {
+	if ( is_object( $id ) ) {
+		$id = $id->ID;
+	}
+	return isset( $GLOBALS['t']['posts'][ $id ] ) ? $GLOBALS['t']['posts'][ $id ]['status'] : false;
+}
 function get_post( $id ) {
 	if ( ! isset( $GLOBALS['t']['posts'][ $id ] ) ) {
 		return null;
