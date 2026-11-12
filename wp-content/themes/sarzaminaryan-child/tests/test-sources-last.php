@@ -28,6 +28,7 @@ function sa_sl_assert( $condition, $message ) {
 	}
 }
 function add_action() { return true; }
+function apply_filters( $tag, $value = null ) { return $value; }
 function add_filter() { return true; }
 function remove_filter() { return true; }
 function is_admin() { return false; }
