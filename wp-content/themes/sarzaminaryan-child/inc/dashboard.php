@@ -349,7 +349,18 @@ function sa_dashboard_page_url() {
 		$page = get_page_by_path( 'dashboard' );
 		$id   = ( $page && 'publish' === get_post_status( $page ) ) ? (int) $page->ID : 0;
 	}
-	if ( ! $id || 'template-dashboard.php' !== get_page_template_slug( $id ) ) {
+	if ( ! $id || 'publish' !== get_post_status( $id ) ) {
+		return '';
+	}
+	// v2.22.54: برگهٔ داشبورد با متای قالب شناخته می‌شود؛ اگر متا پاک شده بود،
+	// خودِ اسلاگ «dashboard» کافی است — قالب با فیلتر template_include بسته
+	// می‌شود و sa_dashboard_repair هنگام ارتقای قالب متا را برمی‌گرداند.
+	$is_dash = 'template-dashboard.php' === get_page_template_slug( $id );
+	if ( ! $is_dash && function_exists( 'get_post' ) ) {
+		$post    = get_post( $id );
+		$is_dash = $post && 'page' === $post->post_type && 'dashboard' === $post->post_name;
+	}
+	if ( ! $is_dash ) {
 		return '';
 	}
 	return (string) get_permalink( $id );
@@ -359,7 +370,8 @@ function sa_dashboard_page_url() {
  * بارگذاری دارایی‌های داشبورد سایبری روی صفحه‌ای که قالب داشبورد را دارد.
  */
 function sa_dashboard_assets() {
-	if ( ! sa_dashboard_enabled() || ! is_page_template( 'template-dashboard.php' ) ) {
+	// v2.22.54: اگر متای قالب برگه پاک شده باشد، اسلاگ dashboard هم کافی است.
+	if ( ! sa_dashboard_enabled() || ! ( is_page_template( 'template-dashboard.php' ) || is_page( 'dashboard' ) ) ) {
 		return;
 	}
 	wp_enqueue_style( 'sa-dashboard', SA_CHILD_URI . 'assets/css/dashboard.css', array( 'sarzaminaryan-child' ), SA_CHILD_VERSION );
@@ -368,3 +380,23 @@ function sa_dashboard_assets() {
 	wp_enqueue_script( 'sa-dashboard', SA_CHILD_URI . 'assets/js/dashboard.js', array( 'sa-map-shapes', 'sa-county-shapes' ), SA_CHILD_VERSION, array( 'in_footer' => true, 'strategy' => 'defer' ) );
 }
 add_action( 'wp_enqueue_scripts', 'sa_dashboard_assets', 25 );
+
+/**
+ * v2.22.54 — برگهٔ «dashboard» هر طور شده با قالب داشبورد رندر می‌شود.
+ *
+ * اگر متای `_wp_page_template` برگه به هر دلیل پاک یا عوض شده باشد (گزارش
+ * مالک: صفحهٔ داشبورد به فهرست مقالات تبدیل شده بود)، وردپرس قالب پیش‌فرض
+ * را می‌آورد. این فیلتر برای اسلاگ dashboard همیشه قالب داشبورد را می‌بندد
+ * تا صفحه سر جایش بماند؛ تعمیر متا هم در sa_dashboard_repair انجام می‌شود.
+ *
+ * @param string $template قالب انتخاب‌شده.
+ * @return string
+ */
+function sa_dashboard_template_include( $template ) {
+	if ( ! sa_dashboard_enabled() || ! is_page( 'dashboard' ) ) {
+		return $template;
+	}
+	$dash = locate_template( array( 'template-dashboard.php' ) );
+	return $dash ? $dash : $template;
+}
+add_filter( 'template_include', 'sa_dashboard_template_include', 99 );

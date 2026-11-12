@@ -106,7 +106,11 @@ class CC_UI {
 		$top = CC_Rating::top( (int) $limit );
 		echo '<section class="sa-topcities" id="sa-topcities" aria-label="هفت شهرستان برتر سرزمین آریان"><div class="sa-wrap">';
 		echo '<div class="cc-topbox">';
-		echo '<div class="cc-topbox__head"><div class="cc-topbox__intro"><h2 class="cc-topbox__title">۷ شهرستان برتر سرزمین آریان</h2><p class="cc-topbox__desc">هفت شهرستان برتر ایران از نگاه مخاطبان وب‌سایت <b>سرزمین آریان</b><span>بر پایهٔ میانگین وزنی بیزی (حد نصاب ۵ رأی) از ستاره‌های ۱ تا ۷ خوانندگان</span></p></div></div>';
+		// v2.22.54: آکاردئون — کادر به‌صورت پیش‌فرض بسته است و با لمس/کلیک سربرگ،
+		// هفت شهرستان نشان داده می‌شوند (تصمیم مالک برای صفحهٔ نخست).
+		echo '<details class="cc-topbox__acc">';
+		echo '<summary class="cc-topbox__head cc-topbox__summary"><div class="cc-topbox__intro"><h2 class="cc-topbox__title">۷ شهرستان برتر سرزمین آریان</h2><p class="cc-topbox__desc">هفت شهرستان برتر ایران از نگاه مخاطبان وب‌سایت <b>سرزمین آریان</b><span>بر پایهٔ میانگین وزنی بیزی (حد نصاب ۵ رأی) از ستاره‌های ۱ تا ۷ خوانندگان</span></p></div><span class="cc-topbox__toggle"><span class="cc-topbox__toggle-open">نمایش هفت شهرستان</span><span class="cc-topbox__toggle-close">بستن فهرست</span><i class="cc-topbox__chev" aria-hidden="true"></i></span></summary>';
+		echo '<div class="cc-topbox__body">';
 		if ( empty( $top ) ) {
 			echo '<p class="sa-topcities__empty">هنوز رأیی ثبت نشده است — نخستین نفر باشید! در صفحهٔ هر شهرستان ستارهٔ خود (۱ تا ۷) را انتخاب و ثبت کنید تا جدول شهرستان‌های برتر همین‌جا ساخته شود.</p>';
 		} else {
@@ -126,6 +130,7 @@ class CC_UI {
 				echo '<p class="sa-topcities__empty">با رأی دادن به شهرستان‌های دیگر، این جدول کامل‌تر می‌شود.</p>';
 			}
 		}
+		echo '</div></details>';
 		echo '</div></div></section>';
 	}
 }

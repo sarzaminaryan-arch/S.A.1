@@ -184,13 +184,6 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 	</section>
 
 	<?php
-	/* ---- بلوک مستقل رتبه‌بندی ۷ شهر (بدون لوگوی داخلی؛ v2.22.12) ---- */
-	if ( class_exists( 'CC_UI' ) ) {
-		CC_UI::top_cities_block( 7 );
-	}
-	?>
-
-	<?php
 	$sa_nav_types   = sa_nav_entity_types();
 	$sa_has_prov    = in_array( 'province', $sa_nav_types, true );
 	$sa_has_city    = in_array( 'city', $sa_nav_types, true );
@@ -236,6 +229,15 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 				<?php endif; ?>
 		</div>
 	</section>
+
+	<?php
+	/* ---- بلوک مستقل رتبه‌بندی ۷ شهر (بدون لوگوی داخلی؛ v2.22.12) ----
+	   v2.22.54: به درخواست مالک زیر چهار شمارنده آمد و آکاردئونی شد؛ با لمس
+	   سربرگ باز می‌شود و هفت شهرستان را نشان می‌دهد. */
+	if ( class_exists( 'CC_UI' ) ) {
+		CC_UI::top_cities_block( 7 );
+	}
+	?>
 
 	<?php /* v2.13.3: بخش «استان‌های ایران» (نوارهای سفید) به درخواست مالک از صفحهٔ اول حذف و به آرشیو استان‌ها (/province/) منتقل شد. */ ?>
 

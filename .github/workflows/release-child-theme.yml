@@ -111,6 +111,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-sources-last.php"
 
+      - name: 'Run dashboard/home tests (داشبورد سر جایش و آکاردئون صفحه نخست)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-dashboard-home.php"
+
       - name: Run table-of-contents tests (every article, stable anchors, no editor/feed output)
         shell: bash
         run: php "$THEME_DIR/tests/test-toc.php"

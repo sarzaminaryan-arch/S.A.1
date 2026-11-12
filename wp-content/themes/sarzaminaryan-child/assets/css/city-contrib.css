@@ -216,3 +216,53 @@
 	.cc-rating__submit { min-height: 40px; padding: .5rem 1.1rem; font-size: .92rem; }
 	.cc-rating__status { font-size: .84rem; padding: .55rem .7rem; }
 }
+
+/* v2.22.54 — هفت شهرستان برتر صفحهٔ نخست آکاردئونی است: سربرگ نقش دکمه را
+   دارد، کادر پیش‌فرض بسته است و با لمس/کلیک، فهرست هفت شهرستان باز می‌شود. */
+.cc-topbox__summary {
+	grid-template-columns: 1fr auto;
+	cursor: pointer;
+	list-style: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.cc-topbox__summary::-webkit-details-marker { display: none; }
+.cc-topbox__summary::marker { content: none; }
+
+.cc-topbox__summary:focus-visible {
+	outline: 2px solid #f0b429;
+	outline-offset: -2px;
+}
+
+.cc-topbox__toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: .5rem;
+	padding: .55rem 1rem;
+	border: 1px solid rgba(240, 180, 41, .55);
+	border-radius: 999px;
+	background: rgba(240, 180, 41, .12);
+	color: #f0b429;
+	font-size: .85rem;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.cc-topbox__toggle-close { display: none; }
+.cc-topbox__acc[open] .cc-topbox__toggle-close { display: inline; }
+.cc-topbox__acc[open] .cc-topbox__toggle-open { display: none; }
+
+.cc-topbox__chev {
+	width: 9px;
+	height: 9px;
+	border: solid #f0b429;
+	border-width: 0 0 2px 2px;
+	transform: rotate(-45deg);
+	transition: transform .3s;
+}
+
+.cc-topbox__acc[open] .cc-topbox__chev { transform: rotate(135deg); }
+
+@media (max-width: 640px) {
+	.cc-topbox__summary { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: .8rem; }
+}
