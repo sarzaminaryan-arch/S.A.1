@@ -12,14 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sa_logo_url = SA_CHILD_URI . 'assets/img/logo.webp';
-if ( has_custom_logo() ) {
-	$sa_logo_id = (int) get_theme_mod( 'custom_logo' );
-	$sa_logo    = wp_get_attachment_image_src( $sa_logo_id, 'full' );
-	if ( $sa_logo ) {
-		$sa_logo_url = $sa_logo[0];
-	}
-}
+$sa_logo_480 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 480 ) : SA_CHILD_URI . 'assets/img/logo-light-480.webp';
+$sa_logo_960 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 960 ) : SA_CHILD_URI . 'assets/img/logo-light-960.webp';
 $sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
@@ -39,8 +33,8 @@ $sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن
 		<div class="container sa-hf-in">
 
 			<?php $sa_brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' ); ?>
-			<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_url ); ?>" width="96" height="96" alt="<?php echo esc_attr( $sa_brand ); ?>" decoding="async"></span>
+			<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $sa_brand . ' — صفحهٔ اصلی' ); ?>">
+				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_480 ); ?>" srcset="<?php echo esc_url( $sa_logo_480 ); ?> 480w, <?php echo esc_url( $sa_logo_960 ); ?> 960w" sizes="(max-width: 480px) 82px, 106px" width="106" height="44" alt="" decoding="async" fetchpriority="high" loading="eager" data-no-lazy="1"></span>
 				<span class="sa-hf-text">
 					<span class="site-title"><?php echo esc_html( $sa_brand ); ?></span>
 					<span class="sa-hf-slogan"><?php echo esc_html( $sa_slogan ); ?></span>

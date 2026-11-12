@@ -52,6 +52,7 @@ function sa_maybe_upgrade() {
 		sa_seed_terms();
 		sa_create_default_pages(); // برگه‌های از دست رفته (از جمله حریم خصوصی) را می‌سازد و قالب v2 را به «خانه» می‌بندد.
 		sa_home_v2_setup();
+		sa_dashboard_repair();
 		sa_gate_policy_migrate();
 		update_option( 'sa_child_version', SA_CHILD_VERSION, false );
 		update_option( 'sa_flush_rewrite', 1, false );
@@ -171,6 +172,60 @@ function sa_home_v2_setup() {
 	}
 	if ( ! empty( $ids['blog'] ) && get_post( $ids['blog'] ) && ! (int) get_option( 'page_for_posts' ) ) {
 		update_option( 'page_for_posts', (int) $ids['blog'] );
+	}
+}
+
+/**
+ * v2.22.54 — تعمیر خودکار برگهٔ داشبورد پس از ارتقای قالب.
+ *
+ * گزارش مالک: «صفحه داشبورد سایبری پریده» و به‌جای داشبورد، فهرست مقالات
+ * دیده می‌شد. این تابع در هر ارتقای قالب، برگهٔ dashboard را پیدا می‌کند
+ * (اول با اسلاگ، بعد با شناسهٔ ثبت‌شده)، قالب داشبورد و وضعیت انتشار را
+ * برمی‌گرداند و اگر برگه به‌اشتباه برگهٔ نوشته‌ها شده بود، اصلاحش می‌کند.
+ */
+function sa_dashboard_repair() {
+	$ids  = (array) get_option( 'sa_default_pages', array() );
+	$page = get_page_by_path( 'dashboard' );
+	$id   = 0;
+	if ( $page && 'page' === $page->post_type ) {
+		$id = (int) $page->ID;
+	} elseif ( ! empty( $ids['dashboard'] ) ) {
+		$known = get_post( (int) $ids['dashboard'] );
+		if ( $known && 'page' === $known->post_type ) {
+			$id = (int) $known->ID;
+		}
+	}
+	if ( ! $id ) {
+		$new = wp_insert_post(
+			array(
+				'post_type'    => 'page',
+				'post_title'   => 'داشبورد جامع گردشگری ایران',
+				'post_name'    => 'dashboard',
+				'post_status'  => 'publish',
+				'post_content' => '',
+			)
+		);
+		if ( $new && ! is_wp_error( $new ) ) {
+			$id = (int) $new;
+		}
+	}
+	if ( ! $id ) {
+		return;
+	}
+	$ids['dashboard'] = $id;
+	update_option( 'sa_default_pages', $ids, false );
+	update_post_meta( $id, '_wp_page_template', 'template-dashboard.php' );
+	if ( 'publish' !== get_post_status( $id ) ) {
+		wp_update_post(
+			array(
+				'ID'          => $id,
+				'post_status' => 'publish',
+			)
+		);
+	}
+	// داشبورد نباید برگهٔ نوشته‌ها باشد؛ وگرنه /dashboard فهرست مقالات نشان می‌دهد.
+	if ( (int) get_option( 'page_for_posts' ) === $id ) {
+		update_option( 'page_for_posts', ! empty( $ids['blog'] ) ? (int) $ids['blog'] : 0 );
 	}
 }
 

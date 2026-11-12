@@ -50,15 +50,17 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 /* فونت Vazirmatn به‌صورت محلی در قالب مادر بارگذاری و preload می‌شود
    (assets/css/fonts.css + wp_head). درخواست به fonts.googleapis.com از داخل
    ایران معمولاً برنمی‌گردد و چون @import بود، رندر را هم بلوک می‌کرد. */
-.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.75;overflow:hidden}
+.sa-home{--ink:#102a43;--mut:#49627a;--navy:#0b2a4a;--navy-deep:#071a30;--navy-2:#123f73;--blue:#18558f;--light-blue:#d9edff;direction:rtl;font-family:Vazirmatn,'Vazirmatn Fallback',Tahoma,sans-serif;color:var(--ink);background:#f5f9ff;line-height:1.75;overflow:hidden}
 .sa-home *{box-sizing:border-box}
 .sa-wrap{max-width:1180px;margin:0 auto;padding:0 10px}
 .sa-hero{position:relative;overflow:hidden;min-height:min(100vh,800px);display:flex;align-items:center;padding:64px 0 96px;background:radial-gradient(760px 480px at 18% 55%,rgba(36,109,168,.16),transparent 70%),linear-gradient(#fff,#edf6ff)}
 .sa-home .sa-hero::after{content:none!important}
 .sa-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(71,85,105,.20) 1.3px,transparent 1.4px);background-size:16px 16px;pointer-events:none}
 .sa-sparks{position:absolute;inset:0;pointer-events:none}
-.sa-sparks i{position:absolute;width:5px;height:5px;border-radius:50%;background:#9fb0c9;opacity:.25;transform:scale(.8);transition:opacity .7s,transform .7s,box-shadow .7s}
-.sa-sparks i.lit{opacity:1;transform:scale(1.5);background:#8eb9e3;box-shadow:0 0 14px 4px rgba(24,85,143,.7)}
+.sa-sparks i{position:absolute;width:5px;height:5px;border-radius:50%;background:#9fb0c9;opacity:.25;transform:scale(.8);transition:opacity .7s,transform .7s}
+.sa-sparks i::after{content:"";position:absolute;inset:-6px;border-radius:50%;background:radial-gradient(circle,rgba(142,185,227,.85),rgba(24,85,143,0) 70%);opacity:0;transition:opacity .7s}
+.sa-sparks i.lit{opacity:1;transform:scale(1.5);background:#8eb9e3}
+.sa-sparks i.lit::after{opacity:1}
 .sa-hw{position:relative;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
 .sa-hw>*{min-width:0}
 .sa-brand{margin-bottom:6px;min-width:0}
@@ -76,7 +78,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 .sa-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .sa-chips a{padding:6px 16px;border-radius:99px;background:#edf6ff;border:1px solid #bdd8f1;color:var(--navy);font-size:14px;font-weight:600;text-decoration:none;transition:.25s}
 .sa-chips a:hover,.sa-chips a:focus-visible{background:var(--navy);border-color:var(--navy);color:#fff;outline:0}
-.sa-dash-cta{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;margin-top:22px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,#04101f 0%,#071f36 100%);border:1.5px solid #00ff9d;color:#fff;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(0,255,157,.38),0 2px 8px rgba(7,26,48,.35);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.sa-dash-cta{display:inline-flex;align-items:center;flex-wrap:wrap;gap:10px;min-height:54px;margin-top:22px;padding:13px 24px;border-radius:14px;background:linear-gradient(135deg,#04101f 0%,#071f36 100%);border:1.5px solid #00ff9d;color:#fff;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 14px 30px -10px rgba(0,255,157,.38),0 2px 8px rgba(7,26,48,.35);transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
 .sa-dash-cta svg{flex:none;color:#00ff9d}
 .sa-dash-cta:hover,.sa-dash-cta:focus-visible{transform:translateY(-2px);box-shadow:0 20px 38px -12px rgba(0,255,157,.55),0 3px 8px rgba(7,26,48,.4);filter:brightness(1.08);color:#fff;outline:0}
 .sa-dash-cta small{font-family:Consolas,"JetBrains Mono",monospace;font-size:11.5px;font-weight:800;color:#00ff9d;letter-spacing:.05em}
@@ -102,7 +104,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 .js .rv.in:hover{transform:translateY(-5px)}
 @media(max-width:900px){.sa-hw{grid-template-columns:1fr}.sa-map{max-width:380px;margin:10px auto 0}.sa-scroll{display:none}.sa-hero{padding:48px 0 80px}}
 @media(max-width:640px){.sa-wrap{padding-inline:7px}.sa-search{height:64px;border-radius:22px}.sa-search button{height:46px;padding:0 20px}.sa-stats .sa-wrap{gap:14px}}
-@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-stats .sa-wrap--3{grid-template-columns:repeat(2,minmax(0,1fr))}.sa-st{padding:10px 8px;border-radius:20px}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
+@media(max-width:480px){.sa-hero{padding:32px 0 60px;min-height:auto}.sa-en{letter-spacing:2px;font-size:12px}.sa-hero .sa-intro{font-size:15.5px;margin-bottom:22px}.sa-chips a{padding:7px 14px;font-size:13px}.sa-stats .sa-wrap{gap:12px}.sa-stats .sa-wrap--3{grid-template-columns:repeat(2,minmax(0,1fr))}.sa-st{padding:10px 8px;border-radius:20px}.sa-dash-cta{width:100%;justify-content:center;flex-wrap:wrap;font-size:15px;padding:13px 18px;min-height:88px}.sa-dash-cta small{flex-basis:100%;text-align:center}}
 /* zir-e 430px, dokme be radif-e dovom miravad */
 @media(max-width:430px){.sa-search{height:auto;padding:8px;border-radius:22px;row-gap:8px}.sa-search input{order:1;flex:1 1 auto;font-size:16px}.sa-search svg{order:2;margin:0}.sa-search button{order:3;flex:1 0 100%;height:48px;padding:0 16px;border-radius:14px}}
 @media(prefers-reduced-motion:reduce){.sa-sparks i{transition:none}.sa-map .d{animation:none}.sa-scroll i{animation:none}.js .rv{opacity:1;transform:none;transition:none}}
@@ -116,7 +118,7 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 @media(max-width:640px){.sa-stats .sa-wrap--3,.sa-stats .sa-wrap--4{gap:10px}.sa-wrap--3 .sa-st,.sa-wrap--4 .sa-st{padding:10px 6px;border-radius:20px}.sa-wrap--3 .sa-st b,.sa-wrap--4 .sa-st b{font-size:clamp(26px,8vw,42px)}.sa-wrap--3 .sa-st span,.sa-wrap--4 .sa-st span{font-size:13px}}
 </style>
 
-<div class="sa-home" id="sa-home">
+<main class="sa-home" id="primary">
 	<section class="sa-hero">
 		<div class="sa-sparks" aria-hidden="true"><?php
 			for ( $sa_i = 0; $sa_i < 42; $sa_i++ ) {
@@ -182,13 +184,6 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 	</section>
 
 	<?php
-	/* ---- بلوک مستقل رتبه‌بندی ۷ شهر (بدون لوگوی داخلی؛ v2.22.12) ---- */
-	if ( class_exists( 'CC_UI' ) ) {
-		CC_UI::top_cities_block( 7 );
-	}
-	?>
-
-	<?php
 	$sa_nav_types   = sa_nav_entity_types();
 	$sa_has_prov    = in_array( 'province', $sa_nav_types, true );
 	$sa_has_city    = in_array( 'city', $sa_nav_types, true );
@@ -235,15 +230,24 @@ $sa_stat3_lb  = get_theme_mod( 'sa_stat3_label', 'آموزش (طبیعت‌گر�
 		</div>
 	</section>
 
+	<?php
+	/* ---- بلوک مستقل رتبه‌بندی ۷ شهر (بدون لوگوی داخلی؛ v2.22.12) ----
+	   v2.22.54: به درخواست مالک زیر چهار شمارنده آمد و آکاردئونی شد؛ با لمس
+	   سربرگ باز می‌شود و هفت شهرستان را نشان می‌دهد. */
+	if ( class_exists( 'CC_UI' ) ) {
+		CC_UI::top_cities_block( 7 );
+	}
+	?>
+
 	<?php /* v2.13.3: بخش «استان‌های ایران» (نوارهای سفید) به درخواست مالک از صفحهٔ اول حذف و به آرشیو استان‌ها (/province/) منتقل شد. */ ?>
 
 	<?php /* v2.22.12: فهرست‌های دیدنی‌ها، آموزش‌ها و مقالات از صفحهٔ اول حذف شدند؛ دسترسی آن‌ها از آرشیوها و ناوبری باقی است. */ ?>
 
-</div>
+</main>
 
 <script>
 (function(){
-var R=document.getElementById('sa-home');if(!R)return;R.classList.add('js');
+var R=document.getElementById('primary');if(!R)return;R.classList.add('js');
 var rnd=Math.random;
 
 /* هفت نقطه‌ی تصادفی روشن، هر سه ثانیه */

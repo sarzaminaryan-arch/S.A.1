@@ -152,24 +152,24 @@
 			}
 			softShape( ctx, [ [ x - 20, y + h * 0.80 ], [ cx, y + h * 0.74 ],
 				[ x + w + 20, y + h * 0.82 ], [ x + w + 20, y + h ], [ x - 20, y + h ] ], '#f8dca6', 0.85, 5 );
-		} else if ( 'castle' === kind || 'monument' === kind || 'historical' === kind ) {
+		} else if ( 'castle' === kind || 'monument' === kind || 'historical' === kind || 'religious' === kind ) {
 			softShape( ctx, [ [ x - 20, horizon + h * 0.06 ], [ cx - w * 0.24, horizon - h * 0.06 ],
 				[ cx + w * 0.20, horizon + h * 0.02 ], [ x + w + 20, horizon + h * 0.08 ],
 				[ x + w + 20, y + h ], [ x - 20, y + h ] ], '#8ec97a', 0.85, 5 );
 			softShape( ctx, [ [ cx - w * 0.36, horizon + h * 0.14 ], [ cx - w * 0.36, horizon - h * 0.16 ],
 				[ cx + w * 0.36, horizon - h * 0.16 ], [ cx + w * 0.36, horizon + h * 0.14 ] ],
-				'monument' === kind ? '#d9a173' : '#d2855a', 0.94, 2 );
+				'monument' === kind || 'religious' === kind ? '#d9a173' : '#d2855a', 0.94, 2 );
 			for ( var t = 0; t < 3; t++ ) {
 				var tx = cx + ( t - 1 ) * w * 0.24;
 				var th = h * ( t === 1 ? 0.34 : 0.26 );
 				softShape( ctx, [ [ tx - w * 0.055, horizon + h * 0.14 ], [ tx - w * 0.055, horizon - th ],
 					[ tx + w * 0.055, horizon - th ], [ tx + w * 0.055, horizon + h * 0.14 ] ],
-					'monument' === kind ? '#d9a173' : '#d2855a', 0.95, 2 );
-				if ( 'monument' === kind ) {
+					'monument' === kind || 'religious' === kind ? '#d9a173' : '#d2855a', 0.95, 2 );
+				if ( 'monument' === kind || 'religious' === kind ) {
 					blob( ctx, tx, horizon - th - h * 0.02, w * 0.05, w * 0.035, '#2fbcba', 0.92 );
 				}
 			}
-			if ( 'monument' === kind ) {
+			if ( 'monument' === kind || 'religious' === kind ) {
 				blob( ctx, cx, horizon - h * 0.36, w * 0.15, w * 0.13, '#2fbcba', 0.92 );
 			}
 		} else if ( 'waterfall' === kind ) {

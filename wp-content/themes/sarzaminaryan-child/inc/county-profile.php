@@ -50,6 +50,22 @@ function sa_county_profile_fields() {
 		'distance_to_capital_km' => array( 'label' => 'فاصله تا مرکز استان (کیلومتر)', 'type' => 'integer', 'legacy' => 'sa_cty_distance_center' ),
 		'lat'                    => array( 'label' => 'عرض جغرافیایی مرکز', 'type' => 'number', 'legacy' => 'sa_city_latitude' ),
 		'lng'                    => array( 'label' => 'طول جغرافیایی مرکز', 'type' => 'number', 'legacy' => 'sa_city_longitude' ),
+		/* CU-1 (v2.22.49) — لایهٔ «از تجربهٔ مسافرها»: دادهٔ کاربردی‌ای که از تجربه‌های تازهٔ مردم
+		 * (گوگل‌مپ، نشان، بلد، صفحه‌های اقامتگاه‌ها) درمی‌آید و متن ثابت شهرستان را زنده می‌کند.
+		 * قالب خطیِ فیلدهای چندردیفی در برچسب هر فیلد آمده و خروجی خالی هیچ‌چیز رندر نمی‌کند. */
+		'road_quality'           => array( 'label' => 'وضعیت جاده و دسترسی (از تجربهٔ مسافرها)', 'type' => 'string', 'legacy' => '' ),
+		'mobile_internet'        => array( 'label' => 'آنتن‌دهی و اینترنت موبایل (از تجربهٔ مسافرها)', 'type' => 'string', 'legacy' => '' ),
+		'access_difficulty'      => array( 'label' => 'سطح سختی دسترسی (آسان/متوسط/سخت + برای چه کسی)', 'type' => 'string', 'legacy' => '' ),
+		'parking_status'         => array( 'label' => 'وضعیت پارکینگ (از تجربهٔ مسافرها)', 'type' => 'string', 'legacy' => '' ),
+		'season_spring'          => array( 'label' => 'بهار: وضعیت و توصیه (یک-دو جملهٔ کاربردی)', 'type' => 'text', 'legacy' => '' ),
+		'season_summer'          => array( 'label' => 'تابستان: وضعیت و توصیه (یک-دو جملهٔ کاربردی)', 'type' => 'text', 'legacy' => '' ),
+		'season_autumn'          => array( 'label' => 'پاییز: وضعیت و توصیه (یک-دو جملهٔ کاربردی)', 'type' => 'text', 'legacy' => '' ),
+		'season_winter'          => array( 'label' => 'زمستان: وضعیت و توصیه (یک-دو جملهٔ کاربردی)', 'type' => 'text', 'legacy' => '' ),
+		'local_tips'             => array( 'label' => 'نکات بومی و هشدارها — هر خط: دسته | عنوان | متن (دسته: warning هشدار، culture فرهنگ، logistics کاربردی)', 'type' => 'text', 'legacy' => '' ),
+		'extra_places'           => array( 'label' => 'جاهای دیگری که مردم می‌روند و در متن نیست — هر خط: نام | نوع | مسیر و موقعیت | نکتهٔ کاربردی | پیوند (اختیاری)', 'type' => 'text', 'legacy' => '' ),
+		'people_character'       => array( 'label' => 'مردمِ این‌جا از نگاه مسافرها (فقط ویژگی مثبت و شهرت نیک؛ لحن: «از تجربهٔ کسانی که رفته‌اند…»)', 'type' => 'text', 'legacy' => '' ),
+		'field_update_note'      => array( 'label' => 'یادداشت آخرین به‌روزرسانی میدانی (مثلاً: پاییز ۱۴۰۵ ـ وضعیت مسیرها و چند جای تازه)', 'type' => 'string', 'legacy' => '' ),
+		'plate_code'             => array( 'label' => 'شماره پلاک خودرو (مثلاً: ایران ۱۱، ۲۲، ۳۳)', 'type' => 'string', 'legacy' => '' ),
 	);
 }
 
@@ -315,6 +331,41 @@ function sa_county_profile_data( $post_id ) {
 		'lng'           => $has_coords ? (float) $lng : null,
 		'map_url'       => $has_coords ? 'https://www.openstreetmap.org/?mlat=' . rawurlencode( (string) $lat ) . '&mlon=' . rawurlencode( (string) $lng ) . '#map=10/' . rawurlencode( (string) $lat ) . '/' . rawurlencode( (string) $lng ) : '',
 	);
+	/* CU-1 — لایهٔ تجربهٔ مسافرها: فقط وقتی دادهٔ واقعی هست رندر می‌شود. */
+	$data['road_quality']      = $get( 'road_quality' );
+	$data['mobile_internet']   = $get( 'mobile_internet' );
+	$data['access_difficulty'] = $get( 'access_difficulty' );
+	$data['parking_status']    = $get( 'parking_status' );
+	$data['access_facts']      = array_filter(
+		array(
+			'وضعیت جاده'       => $data['road_quality'],
+			'آنتن و اینترنت'   => $data['mobile_internet'],
+			'سختی دسترسی'      => $data['access_difficulty'],
+			'پارکینگ'          => $data['parking_status'],
+		),
+		function ( $v ) {
+			return '' !== (string) $v;
+		}
+	);
+	$data['seasons'] = array_filter(
+		array(
+			'بهار'    => $get( 'season_spring' ),
+			'تابستان' => $get( 'season_summer' ),
+			'پاییز'   => $get( 'season_autumn' ),
+			'زمستان'  => $get( 'season_winter' ),
+		),
+		function ( $v ) {
+			return '' !== (string) $v;
+		}
+	);
+	$data['local_tips']        = sa_county_profile_parse_tips( $get( 'local_tips' ) );
+	$data['extra_places']      = sa_county_profile_parse_places( $get( 'extra_places' ) );
+	$data['plate_code']        = $get( 'plate_code' );
+	$data['people_character']  = $get( 'people_character' );
+	$data['field_update_note'] = $get( 'field_update_note' );
+	$data['has_insights']      = ! empty( $data['access_facts'] ) || ! empty( $data['seasons'] )
+		|| ! empty( $data['local_tips'] ) || ! empty( $data['extra_places'] ) || '' !== $data['people_character'];
+
 	$data['has_data'] = '' !== $data['center_fa'] || '' !== $data['main_city'] || '' !== $data['population'] || '' !== $data['area_km2']
 		|| '' !== $data['elevation_m'] || ! empty( $data['divisions'] ) || '' !== $data['climate']
 		|| '' !== $data['best_season'] || ! empty( $data['neighbors'] ) || '' !== $data['language']
@@ -337,6 +388,83 @@ function sa_county_profile_empty_fields( $post_id ) {
 		}
 	}
 	return $empty;
+}
+
+/**
+ * Parse the «نکات بومی» textarea into structured tips (CU-1).
+ *
+ * One tip per line: `دسته | عنوان | متن`. The category accepts the Latin
+ * keys warning/culture/logistics or the Persian هشدار/فرهنگ/کاربردی;
+ * anything else falls back to logistics so a typo never breaks the card.
+ * Lines without a title and text are dropped — partial data renders
+ * nothing rather than half a tip.
+ *
+ * @param string $raw Raw textarea value.
+ * @return array<int,array{category:string,cat_label:string,title:string,text:string}>
+ */
+function sa_county_profile_parse_tips( $raw ) {
+	$out  = array();
+	$cats = array(
+		'warning'   => array( 'warning', 'هشدار' ),
+		'culture'   => array( 'culture', 'فرهنگ و آداب' ),
+		'logistics' => array( 'logistics', 'کاربردی' ),
+	);
+	foreach ( preg_split( '/\r\n|\r|\n/', (string) $raw ) as $line ) {
+		$parts = array_map( 'trim', explode( '|', trim( (string) $line ) ) );
+		if ( count( $parts ) < 3 || '' === $parts[1] || '' === $parts[2] ) {
+			continue;
+		}
+		$cat = 'logistics';
+		foreach ( $cats as $key => $pair ) {
+			if ( $parts[0] === $key || $parts[0] === $pair[1] || ( 'هشدار' === $parts[0] && 'warning' === $key ) ) {
+				$cat = $key;
+				break;
+			}
+		}
+		if ( 'هشدار' === $parts[0] ) {
+			$cat = 'warning';
+		} elseif ( 'فرهنگ' === $parts[0] ) {
+			$cat = 'culture';
+		} elseif ( 'کاربردی' === $parts[0] ) {
+			$cat = 'logistics';
+		}
+		$out[] = array(
+			'category'  => $cat,
+			'cat_label' => $cats[ $cat ][1],
+			'title'     => $parts[1],
+			'text'      => $parts[2],
+		);
+	}
+	return $out;
+}
+
+/**
+ * Parse the «جاهای دیگر» textarea into structured places (CU-1).
+ *
+ * One place per line: `نام | نوع | مسیر و موقعیت | نکتهٔ کاربردی | پیوند`.
+ * Only the name is required; the link is optional and must be a valid URL
+ * (esc_url still applies at render time). These are places travellers
+ * actually go that the article body does not cover yet.
+ *
+ * @param string $raw Raw textarea value.
+ * @return array<int,array{name:string,kind:string,access:string,note:string,url:string}>
+ */
+function sa_county_profile_parse_places( $raw ) {
+	$out = array();
+	foreach ( preg_split( '/\r\n|\r|\n/', (string) $raw ) as $line ) {
+		$parts = array_map( 'trim', explode( '|', trim( (string) $line ) ) );
+		if ( '' === ( isset( $parts[0] ) ? $parts[0] : '' ) ) {
+			continue;
+		}
+		$out[] = array(
+			'name'   => $parts[0],
+			'kind'   => isset( $parts[1] ) ? $parts[1] : '',
+			'access' => isset( $parts[2] ) ? $parts[2] : '',
+			'note'   => isset( $parts[3] ) ? $parts[3] : '',
+			'url'    => isset( $parts[4] ) ? $parts[4] : '',
+		);
+	}
+	return $out;
 }
 
 /**

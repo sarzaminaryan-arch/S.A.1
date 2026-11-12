@@ -1,6 +1,37 @@
 /* Sarzamin Aryan Child — layout for the travel encyclopedia. Logical properties only (RTL-safe). */
 
+/*
+ * Metric-matched local fallback for Vazirmatn (performance track P3,
+ * 2026-11-11). Vazirmatn is served with font-display: swap, so a page first
+ * renders in a system font; when that fallback wraps or sizes text
+ * differently, the swap shifts the layout (lab CLS 0.176 on the homepage
+ * hero CTA, PageSpeed report 52w4rqrdi4 — the fix suggested by Lighthouse's
+ * own font-display audit). The overrides below pin the fallback's line box
+ * to Vazirmatn's own metrics — ascent 2100, descent -1100, line-gap 0 on a
+ * 2048 upem, identical in the bundled Regular/Medium/Bold files — and
+ * size-adjust scales the fallback's advance widths to Vazirmatn's (mean
+ * advance of 57 Persian letters/digits, measured with fontTools:
+ * Vazirmatn 0.625em vs Noto Naskh Arabic 0.574em ≈ 108%). Tahoma (Windows)
+ * and Noto Naskh Arabic (Android) are the realistic Persian fallbacks;
+ * where neither exists this face is simply unavailable and the stack
+ * degrades gracefully to the next family.
+ */
+@font-face {
+	font-family: 'Vazirmatn Fallback';
+	src: local( 'Tahoma' ), local( 'Noto Naskh Arabic' ), local( 'Segoe UI' ), local( 'Arial' );
+	font-weight: 100 900;
+	font-style: normal;
+	size-adjust: 108%;
+	ascent-override: 102.54%;
+	descent-override: 53.71%;
+	line-gap-override: 0%;
+}
+
 :root {
+	/* Performance track P3: route the parent font stack through the
+	   metric-matched 'Vazirmatn Fallback' face defined above, so pre-swap
+	   text already occupies Vazirmatn's metrics site-wide. */
+	--font-family-body: 'Vazirmatn', 'Vazirmatn Fallback', 'Segoe UI', Tahoma, Arial, sans-serif;
 	/* v2.4 visual system: one navy family, with light blue only for soft surfaces/search. */
 	--sa-navy-950: #071a30;
 	--sa-navy-900: #0b2a4a;
@@ -1162,20 +1193,15 @@
 
 .sa-hf-logo {
 	flex: none;
-	width: 52px;
-	height: 52px;
-	border-radius: 16px;
-	display: grid;
-	place-items: center;
-	background: radial-gradient(circle at 30% 20%, #123f73, var(--sa-ink));
-	border: 1px solid rgba(255, 255, 255, .08);
-	box-shadow: 0 14px 24px -12px rgba(36, 109, 168, .55);
-	overflow: hidden;
+	display: block;
+	/* لوگوی پهنِ بدون پس‌زمینه (لاک‌آپ شفاف ۲٫۴:۱)؛ قاب و کارت حذف شده‌اند */
+	line-height: 0;
 }
 
 .sa-hf-logo img {
-	width: 42px;
-	height: 42px;
+	width: auto;
+	height: 44px;
+	max-width: none;
 	object-fit: contain;
 	display: block;
 }
@@ -1469,14 +1495,9 @@
 	color: #fff;
 }
 
-.sa-hf-foot__brand .sa-hf-logo {
-	width: 60px;
-	height: 60px;
-}
-
 .sa-hf-foot__brand .sa-hf-logo img {
-	width: 48px;
-	height: 48px;
+	width: auto;
+	height: 34px;
 }
 
 .sa-hf-foot__brand .sa-hf-text .site-title {
@@ -1831,14 +1852,12 @@ img, svg, video, iframe, table, pre {
 		min-height: 62px;
 		gap: 10px;
 	}
-	.sa-hf-logo {
-		width: 42px;
-		height: 42px;
-		border-radius: 13px;
-	}
 	.sa-hf-logo img {
-		width: 34px;
 		height: 34px;
+	}
+	/* لاک‌آپ پهن خودش نام برند را دارد؛ روی صفحه‌ی باریک متن کنارش می‌رود */
+	.sa-hf-brand > .sa-hf-text {
+		display: none;
 	}
 	.sa-hf-text .site-title {
 		font-size: 16px;
@@ -2497,14 +2516,14 @@ main.site-main.container,
 }
 
 .sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo {
-	width: 30px;
+	width: 72px;
 	height: 30px;
-	min-width: 30px;
+	min-width: 72px;
 }
 
 .sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo img {
-	width: 24px;
-	height: 24px;
+	width: 72px;
+	height: 30px;
 }
 
 .sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-text .site-title {
@@ -2803,17 +2822,22 @@ main.site-main.container,
 }
 
 .sa-hf-logo {
-	border-radius: 50%;
-	background: #fff;
-	padding: 4px;
+	border-radius: 0;
+	background: none;
+	padding: 0;
 	box-sizing: border-box;
-	border: 1px solid rgba(214, 166, 67, .5);
-	box-shadow: 0 12px 26px -14px rgba(0, 0, 0, .82), 0 0 0 2px rgba(255, 255, 255, .08);
+	border: 0;
+	box-shadow: none;
+	overflow: visible;
 }
 
 .sa-hf-logo img {
-	border-radius: 50%;
+	width: auto;
+	height: 44px;
+	object-fit: contain;
+	border-radius: 0;
 	filter: none;
+	display: block;
 }
 
 .sa-provinces a {
@@ -4598,7 +4622,10 @@ main.site-main.container,
 /* ---------- v2.13.3: نوارهای مینیمال استان‌ها / شهرستان‌ها (از صفحهٔ اول به آرشیوها منتقل شد) ---------- */
 .sa-bars {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	/* minmax(0,…) از ۲٫۲۲٫۴۴: ستون‌ها باید بتوانند از پهنای محتوای حداقلی هم
+	   کوچک‌تر شوند، وگرنه نام‌های بلند گرید را از قاب بیرون می‌زنند (سرریز
+	   ستون چپ در پهنای تبلت/نمای دسکتاپ موبایل روی /province/). */
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 18px 24px;
 	margin: 0 0 1.5rem;
 }
@@ -4606,6 +4633,8 @@ main.site-main.container,
 .sa-bar {
 	--c: #18558f;
 	display: flex;
+	min-width: 0;
+	overflow: hidden;
 	align-items: center;
 	gap: 14px;
 	height: 68px;
@@ -4655,6 +4684,26 @@ main.site-main.container,
 	letter-spacing: .4px;
 	direction: ltr;
 	white-space: nowrap;
+	/* ۲٫۲۲٫۴۴: برچسب دوم (نام انگلیسی/استان) عنداللزوم سه‌نقطه می‌شود و دیگر
+	   پهنای حداقلیِ نوار را تحمیل نمی‌کند؛ عنوان اصلی همیشه اولویت دارد. */
+	min-width: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* ۲٫۲۲٫۴۶: اولویت چیدمان با عنوان اصلی است؛ در جای تنگ اول برچسب دوم کوتاه
+   می‌شود، نه عنوان فارسی («سیستان و…» در نمای دوستونه). نوارهای آموزش
+   مستثنا هستند؛ عنوانشان چندخطی است و رفتار رشدی قبلی را نگه می‌دارند. */
+.sa-bars--province .sa-bar b,
+.sa-bars--city .sa-bar b,
+.sa-bars--attraction .sa-bar b {
+	flex: 1 1 auto;
+}
+
+.sa-bars--province .sa-bar em,
+.sa-bars--city .sa-bar em,
+.sa-bars--attraction .sa-bar em {
+	flex-shrink: 10;
 }
 
 .sa-bar em.fa {
@@ -4691,7 +4740,7 @@ main.site-main.container,
 
 /* شهرستان‌ها: باریک‌تر و کوچک‌تر، سه‌ستونه در دسکتاپ */
 .sa-bars--city {
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: 12px 16px;
 }
 
@@ -4724,14 +4773,14 @@ main.site-main.container,
 
 @media (max-width: 900px) {
 	.sa-bars--city {
-		grid-template-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 }
 
 @media (max-width: 640px) {
 	.sa-bars,
 	.sa-bars--city {
-		grid-template-columns: 1fr;
+		grid-template-columns: minmax(0, 1fr);
 	}
 
 	.sa-bar {
@@ -4753,13 +4802,9 @@ main.site-main.container,
 		font-size: clamp(12px, 3.4vw, 14px);
 	}
 
-	.sa-bars--province .sa-bar em {
-		display: none; /* نام انگلیسی روی موبایل جا نمی‌شود؛ نام استانِ شهرستان‌ها می‌ماند */
-	}
-
-	.sa-bars--province .sa-bar--soon em {
-		display: inline;
-	}
+	/* ۲٫۲۲٫۴۵: نام انگلیسی نوارهای استان روی موبایل هم می‌ماند؛ تا ۲٫۲۲٫۴۳ چون
+	   جا نمی‌شد مخفی بود، ولی حالا برچسب دوم سه‌نقطه می‌شود (قاعدهٔ .sa-bar em).
+	   برچسب «به‌زودی» هم بدون قاعدهٔ جدا، مثل بقیهٔ برچسب‌ها دیده می‌شود. */
 }
 
 /* v2.13.5: دیدنی‌ها (و فیلتر نوع) با همان نوارهای دوستونهٔ استان‌ها؛ صفحه‌بندی زیر نوارها می‌نشیند. */
@@ -6884,5 +6929,452 @@ body.bg-lines::before {
 	.profile-page .profile-link {
 		min-height: 40px;
 		padding-block: 6px;
+	}
+}
+
+/* ==========================================================================
+   v2.22.48 — تشخیص‌پذیری لینک‌های درونِ متن (دسترس‌پذیری: link-in-text-block)
+   در ممیزی P5 (۲۰۲۶-۱۱-۱۲) لینک‌هایی که وسط متن جاری می‌نشینند — مرور متنی
+   استان‌ها، بدنهٔ مقاله‌ها و خلاصهٔ کارت‌ها — فقط با رنگ از متن اطراف جدا
+   می‌شدند و در موبایل به کف دسترس‌پذیری نمی‌رسیدند. این لینک‌ها حالا زیرخط
+   ثابت دارند تا بدون هاور/لمس هم قابل‌تشخیص باشند. لینک‌های ناوبری، دکمه‌ها،
+   چیپ‌ها، نوارهای موجودیت و فهرست مطالب (که نشانهٔ غیررنگیِ خودشان را دارند)
+   عمداً دست نخورده‌اند.
+   ========================================================================== */
+.site-main p a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link),
+.site-main li a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link),
+.sa-card__excerpt a,
+.sa-archive__desc a,
+.sa-archive__seo-index a {
+	text-decoration: underline;
+	text-decoration-color: rgba(18, 63, 115, .45);
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+}
+
+.site-main p a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):hover,
+.site-main p a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):focus-visible,
+.site-main li a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):hover,
+.site-main li a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):focus-visible,
+.sa-card__excerpt a:hover,
+.sa-card__excerpt a:focus-visible,
+.sa-archive__desc a:hover,
+.sa-archive__desc a:focus-visible,
+.sa-archive__seo-index a:hover,
+.sa-archive__seo-index a:focus-visible {
+	text-decoration-color: currentColor;
+}
+
+/* ==========================================================================
+   v2.22.49 — بلوک «از تجربهٔ مسافرها» (CU-1)
+   لایهٔ زندهٔ صفحهٔ شهرستان: دسترسی در یک نگاه، چهار فصل، جاهای دیگری که مردم
+   می‌روند، نکات بومی با رنگ‌بندی دسته‌ای و «مردم از نگاه مسافرها». رنگ‌ها از
+   همان خانوادهٔ سرمه‌ای قالب‌اند؛ دسته‌ها فقط ته‌رنگ و نوار کناری متفاوت دارند
+   تا صفحه شلوغ و ناهماهنگ نشود. گوشه‌های گرد و سایهٔ ملایم هم‌خانوادهٔ کارت‌های
+   شناسنامه است.
+   ========================================================================== */
+.sa-field-notes {
+	display: grid;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.sa-field-notes__head h2 {
+	margin: 0 0 .5rem;
+	font-size: 1.35rem;
+}
+
+.sa-field-notes__head p {
+	margin: 0;
+	line-height: 1.9;
+	color: #3d4852;
+}
+
+.sa-field-notes__updated {
+	margin-top: .6rem !important;
+	font-size: .85rem;
+	font-weight: 700;
+	color: var(--color-primary-dark);
+}
+
+.sa-field-facts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: .75rem;
+}
+
+.sa-field-fact {
+	display: grid;
+	gap: .2rem;
+	padding: .8rem .9rem;
+	border-radius: 1rem;
+}
+
+.sa-field-fact__label {
+	font-size: .75rem;
+	font-weight: 700;
+	color: var(--color-secondary);
+}
+
+.sa-field-fact__value {
+	font-size: .92rem;
+	font-weight: 800;
+	color: var(--sa-navy-900, #0b2a4a);
+	line-height: 1.7;
+}
+
+.sa-field-seasons h3,
+.sa-field-places h3,
+.sa-field-tips h3,
+.sa-field-people h3 {
+	margin: 0 0 .7rem;
+	font-size: 1.05rem;
+}
+
+.sa-field-seasons__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: .75rem;
+}
+
+.sa-field-season {
+	padding: .8rem .9rem;
+	border: 1px solid var(--color-border);
+	border-radius: 1rem;
+	background: #fff;
+}
+
+.sa-field-season--best {
+	border-color: rgba(11, 122, 62, .45);
+	background: rgba(11, 122, 62, .05);
+}
+
+.sa-field-season__name {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	font-weight: 900;
+	color: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-field-season__badge {
+	font-size: .68rem;
+	font-weight: 800;
+	padding: .1rem .55rem;
+	border-radius: 999px;
+	background: rgba(11, 122, 62, .14);
+	color: #0b7a3e;
+}
+
+.sa-field-season p,
+.sa-field-people p {
+	margin: .4rem 0 0;
+	font-size: .9rem;
+	line-height: 1.85;
+	color: #3d4852;
+}
+
+.sa-field-places__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: .75rem;
+}
+
+.sa-field-place {
+	padding: .8rem .9rem;
+	border: 1px solid var(--color-border);
+	border-radius: 1rem;
+	background: #fff;
+}
+
+.sa-field-place__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .5rem;
+}
+
+.sa-field-place__kind {
+	font-size: .7rem;
+	font-weight: 800;
+	padding: .1rem .55rem;
+	border-radius: 999px;
+	background: var(--sa-surface-2);
+	color: var(--color-primary-dark);
+}
+
+.sa-field-place p {
+	margin: .35rem 0 0;
+	font-size: .9rem;
+	line-height: 1.8;
+	color: #3d4852;
+}
+
+.sa-field-place__access span {
+	font-weight: 800;
+	color: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-field-place__link a {
+	font-weight: 800;
+}
+
+.sa-field-tips__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: .75rem;
+}
+
+.sa-field-tip {
+	padding: .8rem .9rem;
+	border-radius: 1rem;
+	border: 1px solid var(--color-border);
+	border-inline-start: 4px solid var(--color-border);
+	background: #fff;
+}
+
+.sa-field-tip--warning {
+	border-inline-start-color: #d97706;
+	background: rgba(217, 119, 6, .05);
+}
+
+.sa-field-tip--culture {
+	border-inline-start-color: #0284c7;
+	background: rgba(2, 132, 199, .05);
+}
+
+.sa-field-tip--logistics {
+	border-inline-start-color: #059669;
+	background: rgba(5, 150, 105, .05);
+}
+
+.sa-field-tip__cat {
+	display: block;
+	font-size: .7rem;
+	font-weight: 800;
+	color: var(--color-secondary);
+	margin-bottom: .25rem;
+}
+
+.sa-field-tip p {
+	margin: .3rem 0 0;
+	font-size: .9rem;
+	line-height: 1.8;
+	color: #3d4852;
+}
+
+/* ==========================================================================
+   v2.22.50 — جدول‌های داخل متن: اندازهٔ ستون‌ها به‌اندازهٔ نوشته‌ها
+   تا این نسخه جدول‌های بدنه عرض کامل می‌گرفتند و min-width ‏۵۲۰px داشتند؛
+   جدول دو-سه‌ستونهٔ ساده هم کل عرض صفحه پهن می‌شد و بد دیده می‌شد. حالا
+   جدول فقط به‌اندازهٔ محتوایش باز می‌شود (سقف: عرض ستون متن)، ستون‌ها با
+   table-layout خودکار به‌اندازهٔ نوشته‌ها می‌نشینند و اگر محتوا واقعاً پهن
+   بود، همان پیمایش افقیِ .sa-table-scroll (بدون بزرگ‌کردن صفحه) کار می‌کند.
+   ========================================================================== */
+.sa-table-scroll > table,
+.sa-entity__layout .entry-content table {
+	width: auto;
+	min-width: 0;
+	max-width: 100%;
+	table-layout: auto;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin-inline: auto;
+}
+
+.sa-entity__layout .entry-content table thead th,
+.sa-entity__layout .entry-content table tbody td,
+.sa-table-scroll > table th,
+.sa-table-scroll > table td {
+	width: auto;
+	vertical-align: top;
+}
+
+.sa-entity__layout .entry-content table tbody tr:hover {
+	background: var(--sa-navy-100);
+}
+
+@media (max-width: 640px) {
+	.sa-entity__layout .entry-content table,
+	.sa-table-scroll > table {
+		font-size: .88rem;
+	}
+
+	.sa-entity__layout .entry-content table thead th,
+	.sa-entity__layout .entry-content table tbody td,
+	.sa-table-scroll > table th,
+	.sa-table-scroll > table td {
+		padding: .5rem .65rem;
+	}
+}
+
+/* ==========================================================================
+   v2.22.51 — پالت کهربایی/سرمه‌ای برای سرتیترهای شناسنامه و فهرست مطالب + جدول‌ها
+   ۱) سرتیتر خانه‌های شناسنامه (کد لاتین و برچسب فارسی) ریز ولی کم‌رنگ بودند؛
+   حالا کهرباییِ خوانا و پررنگ‌اند، با همان اندازهٔ قبلی.
+   ۲) فهرست مطالب از سبز به خانوادهٔ سرمه‌ای/طلایی سایت می‌آید.
+   ۳) جدول‌های بدنه کوچک‌تر و فشرده‌تر می‌شوند تا کمتر اسکرول افقی بخواهند و
+   گوشه‌های گرد بالا/پایین هر دو سالم بمانند (قاب دور جدول بر عهدهٔ قاب پیمایش
+   است، نه خود جدول).
+   ========================================================================== */
+.sa-cyber-grid__code {
+	color: #b45309;
+}
+
+.sa-cyber-grid__label {
+	color: #92400e;
+}
+
+.sa-toc {
+	border-color: rgba(18, 63, 115, .16);
+	background: linear-gradient(145deg, #ffffff 0%, #f2f7fd 100%);
+}
+
+.sa-toc__head {
+	border-bottom-color: rgba(18, 63, 115, .18);
+}
+
+.sa-toc__title {
+	color: #0b2a4a;
+}
+
+.sa-toc__title::before {
+	background: linear-gradient(145deg, #123f73 0%, #18558f 100%);
+	box-shadow: inset 0 0 0 3px #f0b429;
+}
+
+.sa-toc__count {
+	color: #92400e;
+	background: #fdf3e0;
+	border-color: rgba(217, 119, 6, .25);
+}
+
+.sa-toc__list {
+	scrollbar-color: rgba(18, 63, 115, .35) transparent;
+}
+
+.sa-toc__list::-webkit-scrollbar-thumb {
+	background: rgba(18, 63, 115, .3);
+}
+
+.sa-toc__link:hover,
+.sa-toc__link:focus-visible {
+	background: #eaf1fa;
+	color: #123f73;
+}
+
+.sa-toc__num {
+	background: #123f73;
+	color: #f6c453;
+}
+
+.sa-table-scroll {
+	border: 1px solid var(--sa-navy-200);
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 6px 18px rgba(1, 31, 61, .06);
+}
+
+.sa-table-scroll > table,
+.sa-entity__layout .entry-content table,
+.entry-content table {
+	font-size: .86rem;
+	line-height: 1.75;
+	border-radius: 0;
+	overflow: visible;
+	margin: 0 auto;
+}
+
+.sa-entity__layout .entry-content table thead th,
+.sa-entity__layout .entry-content table tbody td,
+.entry-content table th,
+.entry-content table td {
+	padding: .5rem .7rem;
+	overflow-wrap: anywhere;
+}
+
+.sa-entity__layout .entry-content table caption,
+.entry-content table caption {
+	font-size: .9rem;
+}
+
+@media (max-width: 640px) {
+	.sa-table-scroll > table,
+	.sa-entity__layout .entry-content table,
+	.entry-content table {
+		font-size: .8rem;
+		line-height: 1.7;
+	}
+
+	.sa-entity__layout .entry-content table thead th,
+	.sa-entity__layout .entry-content table tbody td,
+	.entry-content table th,
+	.entry-content table td {
+		padding: .42rem .55rem;
+	}
+}
+
+/* ==========================================================================
+   v2.22.52 — جدول‌های بدنه: پرکردن کامل قاب، ستون‌های متناسب با نوشته‌ها
+   در نسخه‌های 2.22.50 و 2.22.51 جدول به‌اندازهٔ محتوا جمع و وسطِ قابِ سفید
+   شناور می‌ماند؛ دو طرفش فضای خالی می‌افتاد و گوشه‌های پایین ناهماهنگ دیده
+   می‌شد (بازبینی اسکرین‌شات موبایل مالک). حالا جدول همیشه قاب را کامل پر
+   می‌کند، ستون‌ها با چیدمان خودکار به‌اندازهٔ نوشته‌هایشان می‌نشینند و فضای
+   اضافه به همان نسبت میان ستون‌ها پخش می‌شود؛ قابِ پیمایش (.sa-table-scroll)
+   با برشِ گوشهٔ گرد، هر چهار گوشه — از جمله پایین — را تمیز نگه می‌دارد و
+   چون عرض جدول با قاب یکی است، در حالت عادی پیمایش افقی هم پیش نمی‌آید.
+   ========================================================================== */
+.sa-table-scroll > table,
+.sa-entity__layout .entry-content table,
+.entry-content table {
+	width: 100%;
+	min-width: 0;
+	max-width: 100%;
+	margin: 0;
+	table-layout: auto;
+	border-collapse: collapse;
+}
+
+/* ==========================================================================
+   v2.22.53 — آرشیو شهرستان‌ها: نوار «مرکز استان»، سرگروه هر استان
+   نوارها حالا بر اساس استان گروه‌بندی می‌شوند؛ نوار مرکز استان تمام‌عرض،
+   آبی تیره با نوشتهٔ زرد است و شهرستان‌های همان استان زیرش می‌آیند.
+   ========================================================================== */
+.sa-bars--city .sa-bar--capital {
+	grid-column: 1 / -1;
+	height: 58px;
+	background: linear-gradient(120deg, #0b2a4a 0%, #123f73 100%);
+	border-color: rgba(246, 196, 83, .4);
+	box-shadow: 0 18px 34px -16px rgba(11, 42, 74, .55), 0 2px 6px rgba(11, 20, 36, .08);
+}
+
+.sa-bars--city .sa-bar--capital b {
+	color: #f6c453;
+	font-size: clamp(14px, 1.5vw, 17px);
+}
+
+.sa-bars--city .sa-bar--capital em {
+	color: rgba(246, 196, 83, .78);
+}
+
+.sa-bars--city .sa-bar--capital::before {
+	background: #f6c453;
+	box-shadow: 0 0 0 5px rgba(246, 196, 83, .22);
+}
+
+.sa-bars--city .sa-bar--capital::after {
+	border-color: #f6c453;
+}
+
+.sa-bars--city .sa-bar--capital:hover,
+.sa-bars--city .sa-bar--capital:focus-visible {
+	color: #f6c453;
+}
+
+@media (max-width: 640px) {
+	.sa-bars--city .sa-bar--capital {
+		height: 54px;
 	}
 }

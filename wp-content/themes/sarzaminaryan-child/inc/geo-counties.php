@@ -151,6 +151,28 @@ function sa_county_name( $post_or_id, $include_prefix = false ) {
  * @param string $slug Province slug.
  * @return string
  */
+/**
+ * Capital city name (مرکز استان) for a province slug, from data/provinces.php.
+ *
+ * @param string $slug Province slug.
+ * @return string Persian capital city name, or '' when unknown.
+ */
+function sa_province_capital_name( $slug ) {
+	static $map = null;
+	if ( null === $map ) {
+		$map  = array();
+		$file = SA_CHILD_DIR . 'data/provinces.php';
+		if ( is_readable( $file ) ) {
+			foreach ( (array) require $file as $p ) {
+				if ( isset( $p['slug'], $p['center'] ) ) {
+					$map[ $p['slug'] ] = $p['center'];
+				}
+			}
+		}
+	}
+	return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
+}
+
 function sa_province_name( $slug ) {
 	static $map = null;
 	if ( null === $map ) {

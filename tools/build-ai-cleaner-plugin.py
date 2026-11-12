@@ -23,6 +23,7 @@ INCLUDE = [
     "includes/class-sa-ai-engine.php",
     "includes/class-sa-ai-store.php",
     "includes/class-sa-ai-admin.php",
+    "includes/class-sa-github-plugin-updater.php",
     "assets/admin.css",
     "assets/admin.js",
 ]

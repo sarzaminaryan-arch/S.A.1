@@ -17,22 +17,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 function sa_schema_organization() {
 	$brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
 	$node = array(
-		'@type' => 'Organization',
-		'@id'   => home_url( '/#organization' ),
-		'name'  => $brand,
-		'url'   => home_url( '/' ),
+		'@type'         => 'Organization',
+		'@id'           => home_url( '/#organization' ),
+		'name'          => $brand,
+		'alternateName' => 'Sarzamin Aryan',
+		'url'           => home_url( '/' ),
+		'description'   => 'دانشنامهٔ سفر ایران: راهنمای استان‌ها، شهرستان‌ها، دیدنی‌ها، غذاهای محلی و سوغات، با اطلاعات دقیق و به‌روز.',
 	);
-	$logo_id = get_theme_mod( 'custom_logo' );
-	if ( $logo_id ) {
-		$logo = wp_get_attachment_image_src( $logo_id, 'full' );
-		if ( $logo ) {
-			$node['logo'] = array(
-				'@type'  => 'ImageObject',
-				'url'    => $logo[0],
-				'width'  => $logo[1],
-				'height' => $logo[2],
-			);
-		}
+	if ( function_exists( 'sa_brand_logo' ) ) {
+		$logo         = sa_brand_logo( 'dark', 1200 );
+		$node['logo'] = array(
+			'@type'  => 'ImageObject',
+			'url'    => $logo['url'],
+			'width'  => $logo['width'],
+			'height' => $logo['height'],
+		);
 	}
 	$same_as = array();
 	foreach ( array( 'instagram', 'telegram', 'x', 'youtube', 'aparat', 'linkedin' ) as $net ) {

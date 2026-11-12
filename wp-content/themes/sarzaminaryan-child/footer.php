@@ -18,14 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sa_logo_url = SA_CHILD_URI . 'assets/img/logo.webp';
-if ( has_custom_logo() ) {
-	$sa_logo_id = (int) get_theme_mod( 'custom_logo' );
-	$sa_logo    = wp_get_attachment_image_src( $sa_logo_id, 'full' );
-	if ( $sa_logo ) {
-		$sa_logo_url = $sa_logo[0];
-	}
-}
+$sa_logo_light_480 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 480 ) : SA_CHILD_URI . 'assets/img/logo-light-480.webp';
 
 /**
  * Link to one of the seeded pages (about/contact/privacy/policy/…), falling back
@@ -112,7 +105,7 @@ $sa_about_text    = get_theme_mod( 'sa_footer_about', 'دانشنامه‌ی س�
 
 			<div class="sa-hf-foot__col sa-hf-foot__brand">
 				<a class="sa-hf-brand sa-hf-brand--foot" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_url ); ?>" width="28" height="28" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" loading="lazy" decoding="async"></span>
+					<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_light_480 ); ?>" width="72" height="30" alt="" loading="lazy" decoding="async"></span>
 					<span class="sa-hf-text">
 						<span class="site-title"><?php bloginfo( 'name' ); ?></span>
 					</span>

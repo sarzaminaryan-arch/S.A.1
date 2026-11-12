@@ -75,6 +75,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-entity-bars.php"
 
+      - name: Run bars overflow tests (bars grid can never widen past the viewport)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-bars-overflow.php"
+
       - name: Run media restore tests (missing uploads files, source fallbacks, backup ZIP)
         shell: bash
         run: php "$THEME_DIR/tests/test-media-restore.php"
@@ -87,9 +91,29 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-article-cards.php"
 
+      - name: Run brand-logo tests (official bundled logo in header, footer, schema and site icon)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-brand-logo.php"
+
+      - name: Run AI-visibility tests (robots GPTBot/AI-search rules, llms.txt, schema, header a11y)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-ai-visibility.php"
+
+      - name: Run font-loading tests (Bold preload and metric-matched Vazirmatn fallback)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-font-loading.php"
+
       - name: Run responsive-table tests (prevent mobile document overflow)
         shell: bash
         run: php "$THEME_DIR/tests/test-responsive-tables.php"
+
+      - name: 'Run sources-last tests (منابع همیشه آخرین بخش مقاله)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-sources-last.php"
+
+      - name: 'Run dashboard/home tests (داشبورد سر جایش و آکاردئون صفحه نخست)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-dashboard-home.php"
 
       - name: Run table-of-contents tests (every article, stable anchors, no editor/feed output)
         shell: bash
@@ -99,11 +123,16 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"
 
+      - name: 'Run county insights tests (لایهٔ از تجربهٔ مسافرها: فیلدهای دسترسی/فصل‌ها/نکات/جاها)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-insights.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |
           php "$THEME_DIR/tests/test-ready-guides.php"
           php "$THEME_DIR/tests/test-ready-covers.php"
+          php "$THEME_DIR/tests/test-seo-single-source.php"
           if [ -d docs/camping-education/articles ]; then
             python3 tools/content-lint/build_theme_data.py --check
           fi

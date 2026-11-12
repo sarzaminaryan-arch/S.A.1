@@ -51,6 +51,25 @@ $mixed = $raw_table . $gutenberg . $raw_table;
 $mixed_wrapped = sa_wrap_uncontained_content_tables( $mixed );
 sa_rt_assert( 2 === substr_count( $mixed_wrapped, 'class="sa-table-scroll"' ), 'only the two unwrapped tables in mixed content are wrapped' );
 
+/* ---- v2.22.50: duplicate spec section stripped, وجه تسمیه renamed. ---- */
+$sa_spec_body = '<h2>معرفی شهرستان نمونه</h2><p>متن معرفی.</p>'
+	. '<h2>مشخصات کلی</h2><table><tbody><tr><td>جمعیت</td><td>۱۰۰ نفر</td></tr></tbody></table>'
+	. '<h2>وجه تسمیه استان</h2><p>دربارهٔ نام.</p>'
+	. '<h2>اقلیم و آب و هوا</h2><p>متن اقلیم.</p>';
+$sa_clean = sa_normalize_entity_body_sections( $sa_spec_body );
+sa_rt_assert( false === strpos( $sa_clean, 'مشخصات کلی' ), 'v2.22.50: «مشخصات کلی» section is stripped (identity card covers it)' );
+sa_rt_assert( false === strpos( $sa_clean, '۱۰۰ نفر' ), 'v2.22.50: the spec table goes with its heading' );
+sa_rt_assert( false !== strpos( $sa_clean, '<h2>پیشینه استان</h2>' ), 'v2.22.50: «وجه تسمیه استان» becomes «پیشینه استان»' );
+sa_rt_assert( false !== strpos( $sa_clean, 'دربارهٔ نام.' ), 'v2.22.50: renamed section keeps its body' );
+sa_rt_assert( false !== strpos( $sa_clean, 'معرفی شهرستان نمونه' ) && false !== strpos( $sa_clean, 'اقلیم و آب و هوا' ), 'v2.22.50: other sections untouched' );
+$sa_spec_province = '<h2>مشخصات کلی استان</h2><p>جدول مشخصات</p><h2>موقعیت جغرافیایی</h2><p>متن.</p>';
+sa_rt_assert( false === strpos( sa_normalize_entity_body_sections( $sa_spec_province ), 'جدول مشخصات' ), 'v2.22.50: «مشخصات کلی استان» variant is stripped too' );
+
+$sa_map_body = '<h2>معرفی</h2><p>متن.</p><h2>نقشه و لوکیشن</h2><p>نشانی و نقشه.</p><h2>حقایق جالب</h2><p>متن.</p>';
+$sa_nomap = sa_normalize_entity_body_sections( $sa_map_body );
+sa_rt_assert( false === strpos( $sa_nomap, 'نقشه و لوکیشن' ) && false === strpos( $sa_nomap, 'نشانی و نقشه.' ), 'v2.22.51: «نقشه و لوکیشن» body section is stripped (map lives in the identity card)' );
+sa_rt_assert( false !== strpos( $sa_nomap, 'حقایق جالب' ), 'v2.22.51: sections after the map block survive' );
+
 foreach ( array( 'admin', 'feed', 'single', 'loop', 'main' ) as $key ) {
 	$old = $GLOBALS['sa_responsive_table_context'][ $key ];
 	$GLOBALS['sa_responsive_table_context'][ $key ] = ( 'admin' === $key || 'feed' === $key ) ? true : false;

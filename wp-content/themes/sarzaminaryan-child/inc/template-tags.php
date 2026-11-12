@@ -412,7 +412,7 @@ function sa_build_unified_sources( $post_id, $content = '' ) {
 	if ( '' !== (string) $content ) {
 		$inline_urls = array();
 		// ترکیبِ sa-cite و <a> — ترتیبِ ظهور حفظ می‌شود.
-		if ( preg_match_all( '#<sup\b[^>]*class=([\"\\'])[^\"\\']*\bsa-cite\b[^\"\\']*\1[^>]*>\s*<a\b[^>]*href=([\"\\'])([^\"\\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\\'])([^\"\\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
+		if ( preg_match_all( '#<sup\b[^>]*class=([\"\'])[^\"\']*\bsa-cite\b[^\"\']*\1[^>]*>\s*<a\b[^>]*href=([\"\'])([^\"\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\'])([^\"\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
 			foreach ( $mm as $hit ) {
 				$u = ! empty( $hit[3] ) ? $hit[3] : ( ! empty( $hit[5] ) ? $hit[5] : '' );
 				if ( '' !== $u ) {
@@ -539,9 +539,13 @@ function sa_source_rel( $url ) {
  * @param int $post_id Post ID.
  */
 function sa_sources_section( $post_id ) {
-	// فاز ۶: وقتی پانویس‌ها فعال‌اند، یک فهرستِ یکپارچه در the_content ساخته می‌شود؛
-	// این تابع دیگر بخشِ جدا نسازد تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
+	// v2.22.51: منابع همیشه آخرین بخش مقاله است. وقتی پانویس‌ها فعال‌اند، فهرست
+	// یکپارچه در sa_citations_filter ساخته و کنار گذاشته شده؛ همان را چاپ می‌کنیم
+	// تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
 	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		if ( ! empty( $GLOBALS['sa_sources_section_html'][ $post_id ] ) ) {
+			echo $GLOBALS['sa_sources_section_html'][ $post_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaped parts in sa_citations_filter.
+		}
 		return;
 	}
 	$sources = sa_get_sources( $post_id );
@@ -571,6 +575,9 @@ function sa_sources_section( $post_id ) {
  */
 function sa_guide_sources_section( $post_id ) {
 	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		if ( ! empty( $GLOBALS['sa_sources_section_html'][ $post_id ] ) ) {
+			echo $GLOBALS['sa_sources_section_html'][ $post_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaped parts in sa_citations_filter.
+		}
 		return;
 	}
 	$sources = sa_get_sources( $post_id );
@@ -1433,6 +1440,67 @@ function sa_cyber_id_county_fallback( $county_slug, $province_slug = '' ) {
  * @param string $content Post content HTML.
  * @return string Filtered HTML.
  */
+/**
+ * Normalize entity body sections the identity card already covers (v2.22.50).
+ *
+ * Article bodies generated for counties/provinces still carry a «مشخصات کلی»
+ * spec table (population/area/center/…) that repeats the identity card tile
+ * by tile — the owner asked for it to disappear from the template side, and
+ * the card is the single place those numbers live. The same pass renames the
+ * «وجه تسمیه» heading to «پیشینه» (پیشینهٔ استان / پیشینهٔ شهرستان), the
+ * wording the owner wants in every template. Render-time only: the database
+ * text is untouched, and because this runs before sa_toc_filter (11) the
+ * table of contents follows automatically.
+ *
+ * @param string $content Post content HTML.
+ * @return string
+ */
+function sa_normalize_entity_body_sections( $content ) {
+	if ( is_admin() || is_feed() || ! is_singular( array( 'province', 'city', 'attraction' ) ) ) {
+		return $content;
+	}
+	$content = (string) $content;
+	// v2.22.51: بخش «نقشه و لوکیشن» بدنه حذف می‌شود؛ نقشه در شناسنامه هست و تکرار است.
+	if ( false !== strpos( $content, 'نقشه و لوکیشن' ) ) {
+		$cleaned = preg_replace(
+			'~<h2[^>]*>[^<]*نقشه و لوکیشن[^<]*</h2>.*?(?=<h2[\s>]|\z)~isu',
+			'',
+			$content
+		);
+		if ( is_string( $cleaned ) ) {
+			$content = $cleaned;
+		}
+	}
+	if ( false !== strpos( $content, 'مشخصات کلی' ) ) {
+		$cleaned = preg_replace(
+			'~<h2[^>]*>\s*مشخصات\s+کلی(?:\s+استان|\s+شهرستان)?\s*</h2>.*?(?=<h2[\s>]|\z)~isu',
+			'',
+			$content
+		);
+		if ( is_string( $cleaned ) ) {
+			$content = $cleaned;
+		}
+	}
+	if ( false !== strpos( $content, 'وجه' ) ) {
+		$renamed = preg_replace_callback(
+			'~<(h[23])([^>]*)>([^<]*)</\1>~iu',
+			function ( $m ) {
+				if ( false === strpos( $m[3], 'وجه' ) ) {
+					return $m[0];
+				}
+				$text = preg_replace( '/وجه[\s\x{200C}]*تسمیه/u', 'پیشینه', $m[3] );
+				return '<' . $m[1] . $m[2] . '>' . $text . '</' . $m[1] . '>';
+			},
+			$content
+		);
+		if ( is_string( $renamed ) ) {
+			$content = $renamed;
+		}
+	}
+	return $content;
+}
+add_filter( 'the_content', 'sa_normalize_entity_body_sections', 8 );
+
 function sa_strip_duplicate_body_identity( $content ) {
 	if ( is_admin() || ! is_singular( array( 'province', 'city', 'attraction' ) ) ) {
 		return $content;

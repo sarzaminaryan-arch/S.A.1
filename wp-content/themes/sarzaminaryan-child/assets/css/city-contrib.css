@@ -199,3 +199,70 @@
 		width: 100%;
 	}
 }
+
+/* v2.22.51 — امتیازدهی جمع‌وجور: ستاره‌ها در موبایل هم یک خط می‌مانند. */
+@media (max-width: 640px) {
+	.cc-block { margin: 1.4rem 0; padding: 1rem .9rem; }
+	.cc-block__title { font-size: 1.08rem; margin-bottom: .6rem; }
+	.cc-rating__row { gap: .4rem .8rem; margin-bottom: .45rem; }
+	.cc-rating__avg { font-size: .95rem; }
+	.cc-rating__avg b { font-size: 1.15rem; }
+	.cc-rating__picker { padding: .65rem .6rem; gap: .55rem; }
+	.cc-rating__picker-label { font-size: .85rem; }
+	.cc-rating__stars { flex-wrap: nowrap; gap: .22rem; width: 100%; }
+	.cc-rating__stars button { flex: 1 1 0; min-width: 0; padding: .28rem .1rem .34rem; border-radius: 8px; }
+	.cc-rating__stars button .cc-rating__glyph { font-size: 1.15rem; }
+	.cc-rating__stars button .cc-rating__num { font-size: .68rem; }
+	.cc-rating__submit { min-height: 40px; padding: .5rem 1.1rem; font-size: .92rem; }
+	.cc-rating__status { font-size: .84rem; padding: .55rem .7rem; }
+}
+
+/* v2.22.54 — هفت شهرستان برتر صفحهٔ نخست آکاردئونی است: سربرگ نقش دکمه را
+   دارد، کادر پیش‌فرض بسته است و با لمس/کلیک، فهرست هفت شهرستان باز می‌شود. */
+.cc-topbox__summary {
+	grid-template-columns: 1fr auto;
+	cursor: pointer;
+	list-style: none;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.cc-topbox__summary::-webkit-details-marker { display: none; }
+.cc-topbox__summary::marker { content: none; }
+
+.cc-topbox__summary:focus-visible {
+	outline: 2px solid #f0b429;
+	outline-offset: -2px;
+}
+
+.cc-topbox__toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: .5rem;
+	padding: .55rem 1rem;
+	border: 1px solid rgba(240, 180, 41, .55);
+	border-radius: 999px;
+	background: rgba(240, 180, 41, .12);
+	color: #f0b429;
+	font-size: .85rem;
+	font-weight: 700;
+	white-space: nowrap;
+}
+
+.cc-topbox__toggle-close { display: none; }
+.cc-topbox__acc[open] .cc-topbox__toggle-close { display: inline; }
+.cc-topbox__acc[open] .cc-topbox__toggle-open { display: none; }
+
+.cc-topbox__chev {
+	width: 9px;
+	height: 9px;
+	border: solid #f0b429;
+	border-width: 0 0 2px 2px;
+	transform: rotate(-45deg);
+	transition: transform .3s;
+}
+
+.cc-topbox__acc[open] .cc-topbox__chev { transform: rotate(135deg); }
+
+@media (max-width: 640px) {
+	.cc-topbox__summary { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: .8rem; }
+}

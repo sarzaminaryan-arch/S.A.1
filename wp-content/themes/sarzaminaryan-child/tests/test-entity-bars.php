@@ -86,7 +86,15 @@ function _prime_post_caches() {
 	return true;
 }
 
+if ( ! defined( 'SA_CHILD_DIR' ) ) {
+	define( 'SA_CHILD_DIR', dirname( __DIR__ ) . '/' );
+}
+function add_filter() {
+	return true;
+}
+
 require_once dirname( __DIR__ ) . '/inc/entity-bars.php';
+require_once dirname( __DIR__ ) . '/inc/geo-counties.php';
 
 /* Fixtures: 3 published provinces (+1 draft), 3 cities. */
 $GLOBALS['t']['posts'][1] = new WP_Post( 1, 'lorestan', 'لرستان', 'province' );
@@ -121,10 +129,15 @@ sa_t_assert( false !== strpos( $html, 'class="sa-bars sa-bars--province"' ), 'pr
 $html2 = sa_province_bars_html();
 sa_t_assert( 3 === substr_count( $html2, '<a class="sa-bar"' ), 'lookup path links the 3 published provinces' );
 
-/* 4) City bars: every given city linked, province as RTL secondary label, no «به‌زودی». */
+/* 4) City bars: every given city linked, province as RTL secondary label, no «به‌زودی».
+   v2.22.53: grouped by province; the capital leads its group with a capital bar. */
 $cities = array( $GLOBALS['t']['posts'][10], $GLOBALS['t']['posts'][11], $GLOBALS['t']['posts'][12] );
 $chtml  = sa_city_bars_html( $cities );
-sa_t_assert( 3 === substr_count( $chtml, '<a class="sa-bar"' ), 'three city links' );
+sa_t_assert( 3 === preg_match_all( '/<a class="sa-bar( sa-bar--capital)?"/', $chtml ), 'three city links' );
+sa_t_assert( 1 === substr_count( $chtml, 'sa-bar--capital' ), 'exactly one capital bar (شیراز، مرکز فارس)' );
+sa_t_assert( false !== strpos( $chtml, '<b>شیراز</b><em class="fa">مرکز استان فارس</em>' ), 'capital bar carries the «مرکز استان» label' );
+sa_t_assert( strpos( $chtml, '<b>شیراز</b>' ) < strpos( $chtml, '<b>دورود</b>' ), 'province groups follow the canonical province order (فارس پیش از لرستان)' );
+sa_t_assert( strpos( $chtml, '<b>دورود</b>' ) < strpos( $chtml, '<b>ری</b>' ), 'cities without a province come last' );
 sa_t_assert( false !== strpos( $chtml, '<b>دورود</b><em class="fa">لرستان</em>' ), 'city shows its province' );
 sa_t_assert( false !== strpos( $chtml, '<b>ری</b></a>' ), 'city without province meta has no secondary label' );
 sa_t_assert( false === strpos( $chtml, 'sa-bar--soon' ), 'no placeholders on the city archive' );
@@ -151,5 +164,20 @@ sa_t_assert( '' === sa_attraction_bars_html( array() ), 'empty attraction list r
 $GLOBALS['t']['posts'][13] = new WP_Post( 13, 'x', 'شهر <b>x</b>', 'city' );
 $xss                       = sa_city_bars_html( array( $GLOBALS['t']['posts'][13] ) );
 sa_t_assert( false === strpos( $xss, '<b>x</b>' ) && false !== strpos( $xss, '&lt;b&gt;x&lt;/b&gt;' ), 'titles are escaped' );
+
+/* 7) Crawlable province directory (2.22.46): missing-helper fatal + slug English. */
+$prov_posts = array( $GLOBALS['t']['posts'][1], $GLOBALS['t']['posts'][2], $GLOBALS['t']['posts'][3], $GLOBALS['t']['posts'][4] );
+$map        = sa_published_provinces_by_slug( $prov_posts );
+sa_t_assert( 3 === count( $map ), 'published map excludes the draft province' );
+sa_t_assert( 'https://example.test/province/lorestan/' === $map['lorestan'], 'published map: slug to permalink' );
+sa_t_assert( ! isset( $map['yazd'] ), 'draft province not in the published map' );
+sa_t_assert( 3 === count( sa_published_provinces_by_slug() ), 'published map falls back to the entity lookup' );
+
+$dhtml = sa_archive_crawlable_directory_html( 'province', $prov_posts );
+sa_t_assert( false !== strpos( $dhtml, 'مرور متنی' ), 'crawlable directory heading renders' );
+sa_t_assert( false !== strpos( $dhtml, '<a href="https://example.test/province/lorestan/">استان لرستان</a> (Lorestan)' ), 'published province linked with slug-derived English name' );
+sa_t_assert( false !== strpos( $dhtml, 'استان یزد (Yazd)' ), 'unpublished province listed without a link' );
+sa_t_assert( false === strpos( $dhtml, 'province/yazd' ), 'draft province never linked in the directory' );
+sa_t_assert( false === strpos( $dhtml, '(56)' ) && false === strpos( $dhtml, '(318)' ), 'hero-map coordinates never leak into the directory' );
 
 echo "PASS: entity bars (31 provinces, published-only links, city bars with province label, attraction bars with city/province label)\n";
