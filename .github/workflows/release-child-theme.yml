@@ -115,7 +115,7 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"
 
-      - name: Run county insights tests (لایهٔ «از تجربهٔ مسافرها»: فیلدهای دسترسی/فصل‌ها/نکات/جاها)
+      - name: 'Run county insights tests (لایهٔ از تجربهٔ مسافرها: فیلدهای دسترسی/فصل‌ها/نکات/جاها)'
         shell: bash
         run: php "$THEME_DIR/tests/test-county-insights.php"
 
