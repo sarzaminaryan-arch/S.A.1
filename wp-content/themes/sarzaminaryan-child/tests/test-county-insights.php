@@ -211,6 +211,22 @@ sa_ci_assert( false !== strpos( $block59, '.sa-field-fact__label' ), 'css: acces
 sa_ci_assert( false !== strpos( $block59, 'rgba(244, 63, 94' ), 'css: access-fact badge halo is vivid red-pink (2.22.59)' );
 sa_ci_assert( false !== strpos( $block59, 'color: #111827' ), 'css: access-fact badge text stays black (2.22.59)' );
 
+/* ---- 4f. Bundled seed: Ahvaz + tight fact badges (2.22.60) --------------- */
+
+$GLOBALS['t']['posts'][52] = (object) array( 'ID' => 52, 'post_type' => 'city', 'post_name' => 'ahvaz', 'post_title' => 'اهواز', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][52]   = array();
+$ahvaz = sa_county_profile_data( 52 );
+sa_ci_assert( ! empty( $ahvaz['has_insights'] ), 'bundled: Ahvaz traveller block switches on from the shipped seed' );
+sa_ci_assert( 6 === count( $ahvaz['local_tips'] ) && 8 === count( $ahvaz['extra_places'] ), 'bundled: Ahvaz tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۱۴' === $ahvaz['plate_code'], 'bundled: Ahvaz plate reaches tile 12 without meta' );
+
+$css60 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+$pos60 = strpos( $css60, 'v2.22.60' );
+sa_ci_assert( false !== $pos60, 'css: v2.22.60 badge-fit block exists' );
+$block60 = substr( $css60, (int) $pos60, 1400 );
+sa_ci_assert( false !== strpos( $block60, 'justify-self: start' ), 'css: access-fact badge hugs its word, never the card width (2.22.60)' );
+sa_ci_assert( false !== strpos( $block60, 'display: inline-block' ), 'css: access-fact badge is inline like the place-kind label (2.22.60)' );
+
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
@@ -248,4 +264,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled seven-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled eight-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
