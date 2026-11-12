@@ -1193,20 +1193,15 @@
 
 .sa-hf-logo {
 	flex: none;
-	width: 52px;
-	height: 52px;
-	border-radius: 16px;
-	display: grid;
-	place-items: center;
-	background: radial-gradient(circle at 30% 20%, #123f73, var(--sa-ink));
-	border: 1px solid rgba(255, 255, 255, .08);
-	box-shadow: 0 14px 24px -12px rgba(36, 109, 168, .55);
-	overflow: hidden;
+	display: block;
+	/* لوگوی پهنِ بدون پس‌زمینه (لاک‌آپ شفاف ۲٫۴:۱)؛ قاب و کارت حذف شده‌اند */
+	line-height: 0;
 }
 
 .sa-hf-logo img {
-	width: 42px;
-	height: 42px;
+	width: auto;
+	height: 44px;
+	max-width: none;
 	object-fit: contain;
 	display: block;
 }
@@ -1500,14 +1495,9 @@
 	color: #fff;
 }
 
-.sa-hf-foot__brand .sa-hf-logo {
-	width: 60px;
-	height: 60px;
-}
-
 .sa-hf-foot__brand .sa-hf-logo img {
-	width: 48px;
-	height: 48px;
+	width: auto;
+	height: 34px;
 }
 
 .sa-hf-foot__brand .sa-hf-text .site-title {
@@ -1862,14 +1852,12 @@ img, svg, video, iframe, table, pre {
 		min-height: 62px;
 		gap: 10px;
 	}
-	.sa-hf-logo {
-		width: 42px;
-		height: 42px;
-		border-radius: 13px;
-	}
 	.sa-hf-logo img {
-		width: 34px;
 		height: 34px;
+	}
+	/* لاک‌آپ پهن خودش نام برند را دارد؛ روی صفحه‌ی باریک متن کنارش می‌رود */
+	.sa-hf-brand > .sa-hf-text {
+		display: none;
 	}
 	.sa-hf-text .site-title {
 		font-size: 16px;
@@ -2528,14 +2516,14 @@ main.site-main.container,
 }
 
 .sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo {
-	width: 30px;
+	width: 72px;
 	height: 30px;
-	min-width: 30px;
+	min-width: 72px;
 }
 
 .sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-logo img {
-	width: 24px;
-	height: 24px;
+	width: 72px;
+	height: 30px;
 }
 
 .sa-hf-foot--mini .sa-hf-foot__brand .sa-hf-text .site-title {
@@ -2834,20 +2822,20 @@ main.site-main.container,
 }
 
 .sa-hf-logo {
-	border-radius: 16px;
-	background: #050505;
+	border-radius: 0;
+	background: none;
 	padding: 0;
 	box-sizing: border-box;
-	border: 1px solid rgba(125, 211, 252, .35);
-	box-shadow: 0 12px 26px -14px rgba(0, 0, 0, .82), 0 0 0 1px rgba(255, 255, 255, .06);
-	overflow: hidden;
+	border: 0;
+	box-shadow: none;
+	overflow: visible;
 }
 
 .sa-hf-logo img {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: inherit;
+	width: auto;
+	height: 44px;
+	object-fit: contain;
+	border-radius: 0;
 	filter: none;
 	display: block;
 }

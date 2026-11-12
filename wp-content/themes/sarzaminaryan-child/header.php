@@ -12,9 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sa_logo_96  = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 96 ) : SA_CHILD_URI . 'assets/img/logo-96.webp';
-$sa_logo_192 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 192 ) : SA_CHILD_URI . 'assets/img/logo-192.webp';
-$sa_logo_512 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 512 ) : SA_CHILD_URI . 'assets/img/logo.webp';
+$sa_logo_480 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 480 ) : SA_CHILD_URI . 'assets/img/logo-light-480.webp';
+$sa_logo_960 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 960 ) : SA_CHILD_URI . 'assets/img/logo-light-960.webp';
 $sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
@@ -35,7 +34,7 @@ $sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن
 
 			<?php $sa_brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' ); ?>
 			<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_192 ); ?>" srcset="<?php echo esc_url( $sa_logo_96 ); ?> 96w, <?php echo esc_url( $sa_logo_192 ); ?> 192w, <?php echo esc_url( $sa_logo_512 ); ?> 512w" sizes="(max-width: 480px) 42px, 52px" width="52" height="52" alt="" decoding="async"></span>
+				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_480 ); ?>" srcset="<?php echo esc_url( $sa_logo_480 ); ?> 480w, <?php echo esc_url( $sa_logo_960 ); ?> 960w" sizes="(max-width: 480px) 82px, 106px" width="106" height="44" alt="" decoding="async" fetchpriority="high"></span>
 				<span class="sa-hf-text">
 					<span class="site-title"><?php echo esc_html( $sa_brand ); ?></span>
 					<span class="sa-hf-slogan"><?php echo esc_html( $sa_slogan ); ?></span>

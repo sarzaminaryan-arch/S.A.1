@@ -39,8 +39,8 @@ function sa_child_setup() {
 	add_theme_support(
 		'custom-logo',
 		array(
-			'height'      => 512,
-			'width'       => 512,
+			'height'      => 400,
+			'width'       => 960,
 			'flex-height' => true,
 			'flex-width'  => true,
 		)

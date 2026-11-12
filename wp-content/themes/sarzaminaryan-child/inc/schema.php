@@ -23,7 +23,7 @@ function sa_schema_organization() {
 		'url'   => home_url( '/' ),
 	);
 	if ( function_exists( 'sa_brand_logo' ) ) {
-		$logo         = sa_brand_logo( 512 );
+		$logo         = sa_brand_logo( 'dark', 1200 );
 		$node['logo'] = array(
 			'@type'  => 'ImageObject',
 			'url'    => $logo['url'],

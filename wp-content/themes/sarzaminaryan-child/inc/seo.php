@@ -23,38 +23,86 @@ function sa_brand_name() {
  * Official bundled brand logo — the single source used by the header,
  * footer, Organization schema and the WordPress site icon.
  *
- * The files are intentionally kept beside the theme so a media-library
- * custom-logo selection cannot leave an older logo in one part of the
- * site. Available square variants are 96, 192 and 512 pixels.
+ * The files are intentionally kept inside the theme so a media-library
+ * custom-logo or site-icon selection cannot leave an older logo in one
+ * part of the site.
  *
- * @param int $size Desired square variant.
+ * The owner supplied the new wide lockup on 2026-11-12 ("Sarzamin
+ * aryan" lettering beside the dotted Iran map). The artwork is a
+ * single-colour mark on a fully transparent background, ratio 2.398:1,
+ * so the theme ships two renderings of the same artwork:
+ *
+ *  - 'light' — white artwork for dark surfaces (header, footer)
+ *  - 'dark'  — near-black artwork for light surfaces (schema)
+ *
+ * Square site icons cannot hold the wide lockup, so 'icon' variants use
+ * the Iran map itself, cropped from the same artwork.
+ *
+ * @param string $variant 'light', 'dark' or 'icon'.
+ * @param int    $size    Light: 960 or 480 wide. Dark: 1200 or 600
+ *                        wide. Icon: 512, 192 or 96 square. Unknown
+ *                        sizes fall back to the largest of the family.
  * @return array{url:string,width:int,height:int}
  */
-function sa_brand_logo( $size = 512 ) {
+function sa_brand_logo( $variant = 'light', $size = 0 ) {
 	$logos = array(
-		96  => 'logo-96.webp',
-		192 => 'logo-192.webp',
-		512 => 'logo.webp',
+		'light' => array(
+			960 => array( 'file' => 'logo-light-960.webp', 'width' => 960, 'height' => 400 ),
+			480 => array( 'file' => 'logo-light-480.webp', 'width' => 480, 'height' => 200 ),
+		),
+		'dark'  => array(
+			1200 => array( 'file' => 'logo-dark-1200.webp', 'width' => 1200, 'height' => 500 ),
+			600  => array( 'file' => 'logo-dark-600.webp', 'width' => 600, 'height' => 250 ),
+		),
+		'icon'  => array(
+			512 => array( 'file' => 'icon-dark-512.webp', 'width' => 512, 'height' => 512 ),
+			192 => array( 'file' => 'icon-dark-192.webp', 'width' => 192, 'height' => 192 ),
+			96  => array( 'file' => 'icon-dark-96.webp', 'width' => 96, 'height' => 96 ),
+		),
 	);
-	if ( ! isset( $logos[ $size ] ) ) {
-		$size = 512;
+	if ( ! isset( $logos[ $variant ] ) ) {
+		$variant = 'light';
 	}
+	$set = $logos[ $variant ];
+	if ( ! isset( $set[ $size ] ) ) {
+		$size = max( array_keys( $set ) );
+	}
+	$logo = $set[ $size ];
 	return array(
-		'url'    => SA_CHILD_URI . 'assets/img/' . $logos[ $size ],
-		'width'  => $size,
-		'height' => $size,
+		'url'    => SA_CHILD_URI . 'assets/img/' . $logo['file'],
+		'width'  => $logo['width'],
+		'height' => $logo['height'],
 	);
 }
 
 /**
  * URL of one official brand-logo variant.
  *
- * @param int $size Desired square variant.
+ * @param string $variant 'light', 'dark' or 'icon'.
+ * @param int    $size    Variant size (see sa_brand_logo()).
  * @return string
  */
-function sa_brand_logo_url( $size = 512 ) {
-	$logo = sa_brand_logo( $size );
+function sa_brand_logo_url( $variant = 'light', $size = 0 ) {
+	$logo = sa_brand_logo( $variant, $size );
 	return $logo['url'];
+}
+
+/**
+ * White map icon for dark UI chrome (e.g. the WordPress admin bar).
+ *
+ * @param int $size 512, 192 or 96.
+ * @return string
+ */
+function sa_brand_icon_light_url( $size = 192 ) {
+	$files = array(
+		512 => 'icon-light-512.webp',
+		192 => 'icon-light-192.webp',
+		96  => 'icon-light-96.webp',
+	);
+	if ( ! isset( $files[ $size ] ) ) {
+		$size = 192;
+	}
+	return SA_CHILD_URI . 'assets/img/' . $files[ $size ];
 }
 
 /**
@@ -62,7 +110,8 @@ function sa_brand_logo_url( $size = 512 ) {
  *
  * This also covers the browser favicon, Apple touch icon, admin-bar site
  * icon and REST `site_icon_url` consumers, even when an older site icon
- * is still stored in the WordPress options.
+ * is still stored in the WordPress options. Site icons are square, so
+ * they use the map-only icon cropped from the lockup artwork.
  *
  * @param string $url     Existing site-icon URL.
  * @param int    $size    Requested icon size.
@@ -72,12 +121,12 @@ function sa_brand_logo_url( $size = 512 ) {
 function sa_brand_site_icon_url( $url, $size = 512, $blog_id = 0 ) {
 	unset( $url, $blog_id );
 	if ( $size >= 256 ) {
-		return sa_brand_logo_url( 512 );
+		return sa_brand_logo_url( 'icon', 512 );
 	}
 	if ( $size >= 128 ) {
-		return sa_brand_logo_url( 192 );
+		return sa_brand_logo_url( 'icon', 192 );
 	}
-	return sa_brand_logo_url( 96 );
+	return sa_brand_logo_url( 'icon', 96 );
 }
 add_filter( 'site_icon_url', 'sa_brand_site_icon_url', 20, 3 );
 
@@ -91,10 +140,10 @@ function sa_brand_site_icon_fallback() {
 	if ( get_option( 'site_icon' ) || ( function_exists( 'is_customize_preview' ) && is_customize_preview() ) ) {
 		return;
 	}
-	printf( '<link rel="icon" href="%s" sizes="32x32">' . "\n", esc_url( sa_brand_logo_url( 96 ) ) );
-	printf( '<link rel="icon" href="%s" sizes="192x192">' . "\n", esc_url( sa_brand_logo_url( 192 ) ) );
-	printf( '<link rel="apple-touch-icon" href="%s">' . "\n", esc_url( sa_brand_logo_url( 192 ) ) );
-	printf( '<meta name="msapplication-TileImage" content="%s">' . "\n", esc_url( sa_brand_logo_url( 512 ) ) );
+	printf( '<link rel="icon" href="%s" sizes="32x32">' . "\n", esc_url( sa_brand_logo_url( 'icon', 96 ) ) );
+	printf( '<link rel="icon" href="%s" sizes="192x192">' . "\n", esc_url( sa_brand_logo_url( 'icon', 192 ) ) );
+	printf( '<link rel="apple-touch-icon" href="%s">' . "\n", esc_url( sa_brand_logo_url( 'icon', 192 ) ) );
+	printf( '<meta name="msapplication-TileImage" content="%s">' . "\n", esc_url( sa_brand_logo_url( 'icon', 512 ) ) );
 }
 add_action( 'wp_head', 'sa_brand_site_icon_fallback', 99 );
 add_action( 'admin_head', 'sa_brand_site_icon_fallback', 99 );

@@ -2,12 +2,15 @@
 /**
  * Standalone test: the official bundled logo is the single brand mark.
  *
- * The owner supplied the 512×512 Sarzamin Aryan logo on 2026-11-11. The
- * theme serves responsive 96/192-pixel derivatives in the footer/header
- * and the 512-pixel master in Organization schema and as the site icon.
- * Header, footer and schema must not drift back to a media-library custom
- * logo, because that previously allowed different parts of the site to
- * keep different (and oversized) logos.
+ * The owner supplied the new wide lockup on 2026-11-12 (dotted Iran map
+ * + "Sarzamin aryan" lettering, transparent background, ratio 2.398:1).
+ * The theme ships a white rendering for dark surfaces (header, footer),
+ * a near-black rendering for light surfaces (Organization schema) and
+ * square map-only icons for the site icon/favicon, because a 2.4:1
+ * lockup cannot sit in a square icon slot. Header, footer and schema
+ * must not drift back to a media-library custom logo, because that
+ * previously allowed different parts of the site to keep different (and
+ * oversized) logos.
  *
  * Run with: php wp-content/themes/sarzaminaryan-child/tests/test-brand-logo.php
  *
@@ -39,25 +42,49 @@ $theme_dir = dirname( __DIR__ );
 require_once $theme_dir . '/inc/seo.php';
 
 $expected = array(
-	96  => 'logo-96.webp',
-	192 => 'logo-192.webp',
-	512 => 'logo.webp',
+	'light' => array(
+		960 => array( 'logo-light-960.webp', 960, 400 ),
+		480 => array( 'logo-light-480.webp', 480, 200 ),
+	),
+	'dark'  => array(
+		1200 => array( 'logo-dark-1200.webp', 1200, 500 ),
+		600  => array( 'logo-dark-600.webp', 600, 250 ),
+	),
+	'icon'  => array(
+		512 => array( 'icon-dark-512.webp', 512, 512 ),
+		192 => array( 'icon-dark-192.webp', 192, 192 ),
+		96  => array( 'icon-dark-96.webp', 96, 96 ),
+	),
 );
-foreach ( $expected as $size => $file ) {
-	$logo = sa_brand_logo( $size );
-	sa_brand_logo_assert( SA_CHILD_URI . 'assets/img/' . $file === $logo['url'], "{$file}: helper URL" );
-	sa_brand_logo_assert( $size === $logo['width'] && $size === $logo['height'], "{$file}: helper dimensions" );
+foreach ( $expected as $variant => $sizes ) {
+	foreach ( $sizes as $size => $spec ) {
+		list( $file, $w, $h ) = $spec;
+		$logo = sa_brand_logo( $variant, $size );
+		sa_brand_logo_assert( SA_CHILD_URI . 'assets/img/' . $file === $logo['url'], "{$file}: helper URL" );
+		sa_brand_logo_assert( $w === $logo['width'] && $h === $logo['height'], "{$file}: helper dimensions" );
 
-	$path  = $theme_dir . '/assets/img/' . $file;
-	$image = file_exists( $path ) ? getimagesize( $path ) : false;
-	sa_brand_logo_assert( false !== $image, "{$file}: file exists and is a valid image" );
-	sa_brand_logo_assert( $size === $image[0] && $size === $image[1], "{$file}: actual dimensions are {$size}x{$size}" );
+		$path  = $theme_dir . '/assets/img/' . $file;
+		$image = file_exists( $path ) ? getimagesize( $path ) : false;
+		sa_brand_logo_assert( false !== $image, "{$file}: file exists and is a valid image" );
+		sa_brand_logo_assert( $w === $image[0] && $h === $image[1], "{$file}: actual dimensions are {$w}x{$h}" );
+	}
 }
 
-sa_brand_logo_assert( sa_brand_logo_url( 999 ) === sa_brand_logo_url( 512 ), 'unknown logo size falls back to the 512 master' );
-sa_brand_logo_assert( sa_brand_site_icon_url( '', 32, 0 ) === sa_brand_logo_url( 96 ), 'small site icon uses the 96 variant' );
-sa_brand_logo_assert( sa_brand_site_icon_url( '', 180, 0 ) === sa_brand_logo_url( 192 ), 'touch site icon uses the 192 variant' );
-sa_brand_logo_assert( sa_brand_site_icon_url( '', 512, 0 ) === sa_brand_logo_url( 512 ), 'large site icon uses the 512 master' );
+// White map icons for dark UI chrome (admin bar) must exist too.
+foreach ( array( 512, 192, 96 ) as $size ) {
+	$file = "icon-light-{$size}.webp";
+	$path = $theme_dir . '/assets/img/' . $file;
+	$img  = file_exists( $path ) ? getimagesize( $path ) : false;
+	sa_brand_logo_assert( false !== $img && $size === $img[0] && $size === $img[1], "{$file}: white map icon exists at {$size}x{$size}" );
+	sa_brand_logo_assert( SA_CHILD_URI . 'assets/img/' . $file === sa_brand_icon_light_url( $size ), "{$file}: light icon URL" );
+}
+
+sa_brand_logo_assert( sa_brand_logo_url( 'light', 999 ) === sa_brand_logo_url( 'light', 960 ), 'unknown light size falls back to the largest light lockup' );
+sa_brand_logo_assert( sa_brand_logo_url( 'dark', 999 ) === sa_brand_logo_url( 'dark', 1200 ), 'unknown dark size falls back to the largest dark lockup' );
+sa_brand_logo_assert( sa_brand_logo_url( 'nope' ) === sa_brand_logo_url( 'light' ), 'unknown variant falls back to the light lockup' );
+sa_brand_logo_assert( sa_brand_site_icon_url( '', 32, 0 ) === sa_brand_logo_url( 'icon', 96 ), 'small site icon uses the 96 map icon' );
+sa_brand_logo_assert( sa_brand_site_icon_url( '', 180, 0 ) === sa_brand_logo_url( 'icon', 192 ), 'touch site icon uses the 192 map icon' );
+sa_brand_logo_assert( sa_brand_site_icon_url( '', 512, 0 ) === sa_brand_logo_url( 'icon', 512 ), 'large site icon uses the 512 map icon' );
 
 $seo    = (string) file_get_contents( $theme_dir . '/inc/seo.php' );
 $header = (string) file_get_contents( $theme_dir . '/header.php' );
@@ -65,10 +92,13 @@ $footer = (string) file_get_contents( $theme_dir . '/footer.php' );
 $schema = (string) file_get_contents( $theme_dir . '/inc/schema.php' );
 $css    = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 
-sa_brand_logo_assert( false !== strpos( $header, 'sa_brand_logo_url( 192 )' ), 'header uses the bundled 192 logo' );
+sa_brand_logo_assert( false !== strpos( $header, "sa_brand_logo_url( 'light', 480 )" ), 'header uses the bundled white lockup (480)' );
+sa_brand_logo_assert( false !== strpos( $header, "sa_brand_logo_url( 'light', 960 )" ), 'header uses the bundled white lockup (960)' );
 sa_brand_logo_assert( false !== strpos( $header, 'srcset=' ), 'header exposes responsive logo variants' );
-sa_brand_logo_assert( false !== strpos( $footer, 'sa_brand_logo_url( 96 )' ), 'footer uses the bundled 96 logo' );
-sa_brand_logo_assert( false !== strpos( $schema, 'sa_brand_logo( 512 )' ), 'Organization schema uses the bundled 512 logo' );
+sa_brand_logo_assert( false !== strpos( $header, 'width="106" height="44"' ), 'header logo declares the wide 106x44 box (no CLS)' );
+sa_brand_logo_assert( false !== strpos( $footer, "sa_brand_logo_url( 'light', 480 )" ), 'footer uses the bundled white lockup' );
+sa_brand_logo_assert( false !== strpos( $footer, 'width="72" height="30"' ), 'footer logo declares the wide 72x30 box (no CLS)' );
+sa_brand_logo_assert( false !== strpos( $schema, "sa_brand_logo( 'dark', 1200 )" ), 'Organization schema uses the bundled dark lockup' );
 sa_brand_logo_assert( false !== strpos( $seo, "'site_icon_url', 'sa_brand_site_icon_url'" ), 'site icon URL filter uses the bundled logo' );
 sa_brand_logo_assert( false !== strpos( $seo, 'sa_brand_site_icon_fallback' ), 'site icon fallback exists when WordPress has no stored icon' );
 
@@ -77,7 +107,18 @@ foreach ( array( 'header' => $header, 'footer' => $footer, 'schema' => $schema )
 	sa_brand_logo_assert( false === strpos( $source, 'has_custom_logo()' ), "{$label}: custom-logo branch must not override the official logo" );
 }
 
-sa_brand_logo_assert( false !== strpos( $css, 'object-fit: cover;' ), 'logo frame displays the square master without distortion' );
-sa_brand_logo_assert( false !== strpos( $css, 'background: #050505;' ), 'logo frame uses the new black brand background' );
+// The previous square logo files must be gone everywhere.
+foreach ( array( 'logo.webp', 'logo-192.webp', 'logo-96.webp' ) as $old ) {
+	sa_brand_logo_assert( ! file_exists( $theme_dir . '/assets/img/' . $old ), "old square logo {$old} is removed" );
+	foreach ( array( 'header' => $header, 'footer' => $footer, 'schema' => $schema, 'seo' => $seo ) as $label => $source ) {
+		sa_brand_logo_assert( false === strpos( $source, $old ), "{$label}: no reference to removed {$old}" );
+	}
+}
 
-echo "PASS: official brand logo is bundled and used by header, footer, schema and site icon\n";
+// The wide transparent lockup must not be squeezed into a square card again.
+sa_brand_logo_assert( false === strpos( $css, 'background: #050505;' ), 'old black logo card background is removed' );
+sa_brand_logo_assert( false === strpos( $css, 'object-fit: cover;' ) || false !== strpos( $css, '.sa-hf-logo img' ), 'logo image rule exists' );
+sa_brand_logo_assert( false !== strpos( $css, 'height: 44px;' ), 'header lockup renders 44px tall' );
+sa_brand_logo_assert( false !== strpos( $css, 'width: 72px;' ), 'footer mini lockup renders 72x30' );
+
+echo "PASS: wide transparent brand logo is bundled and used by header, footer, schema and site icon\n";
