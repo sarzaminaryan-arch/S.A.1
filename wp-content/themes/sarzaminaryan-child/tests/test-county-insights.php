@@ -149,6 +149,17 @@ foreach ( $provinces_data as $row ) {
 }
 sa_ci_assert( 31 === $phones_ok, 'phone: all 31 provinces carry a fixed-line area code' );
 
+/* ---- 4c. Bundled seed: Mashhad experience (2.22.57) --------------------- */
+
+$GLOBALS['t']['posts'][30] = (object) array( 'ID' => 30, 'post_type' => 'city', 'post_name' => 'mashhad', 'post_title' => 'مشهد', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][30]   = array();
+$mashhad = sa_county_profile_data( 30 );
+sa_ci_assert( ! empty( $mashhad['has_insights'] ), 'bundled: Mashhad traveller block switches on from the shipped seed' );
+sa_ci_assert( 4 === count( $mashhad['seasons'] ), 'bundled: Mashhad four seasons reach the data layer' );
+sa_ci_assert( 8 === count( $mashhad['local_tips'] ) && 12 === count( $mashhad['extra_places'] ), 'bundled: Mashhad tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۱۲، ۳۶، ۴۲، ۷۴' === $mashhad['plate_code'], 'bundled: Mashhad plate reaches tile 12 without meta' );
+sa_ci_assert( false !== strpos( (string) $mashhad['people_character'], 'زائرنواز' ), 'bundled: Mashhad people note is the positive traveller view' );
+
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
@@ -176,4 +187,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled Tehran seed, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled Tehran+Mashhad seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
