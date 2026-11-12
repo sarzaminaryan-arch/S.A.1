@@ -132,6 +132,8 @@ def to_meta(rec: dict) -> dict:
             ).rstrip(" |")
             for p in places
         )
+    if rec.get("plate_code"):
+        meta["plate_code"] = str(rec["plate_code"]).strip()
     if rec.get("people_character"):
         meta["people_character"] = str(rec["people_character"]).strip()
     if rec.get("field_update_note"):
