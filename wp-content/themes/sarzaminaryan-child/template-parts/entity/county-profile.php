@@ -650,7 +650,7 @@ $sa_ins = $sa_profile_ext;
 
 		<?php if ( ! empty( $sa_ins['seasons'] ) ) : ?>
 			<div class="profile-box sa-field-seasons">
-				<h3>هر فصل که بروید، چه می‌بینید؟</h3>
+				<h3>اقلیم و آب‌وهوا، فصل‌به‌فصل</h3>
 				<div class="sa-field-seasons__grid">
 					<?php foreach ( (array) $sa_ins['seasons'] as $sa_season_name => $sa_season_text ) : ?>
 						<?php $sa_is_best = ( ! empty( $sa_ins['best_season'] ) && false !== mb_strpos( (string) $sa_ins['best_season'], (string) $sa_season_name ) ); ?>

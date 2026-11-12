@@ -7164,3 +7164,48 @@ body.bg-lines::before {
 	line-height: 1.8;
 	color: #3d4852;
 }
+
+/* ==========================================================================
+   v2.22.50 — جدول‌های داخل متن: اندازهٔ ستون‌ها به‌اندازهٔ نوشته‌ها
+   تا این نسخه جدول‌های بدنه عرض کامل می‌گرفتند و min-width ‏۵۲۰px داشتند؛
+   جدول دو-سه‌ستونهٔ ساده هم کل عرض صفحه پهن می‌شد و بد دیده می‌شد. حالا
+   جدول فقط به‌اندازهٔ محتوایش باز می‌شود (سقف: عرض ستون متن)، ستون‌ها با
+   table-layout خودکار به‌اندازهٔ نوشته‌ها می‌نشینند و اگر محتوا واقعاً پهن
+   بود، همان پیمایش افقیِ .sa-table-scroll (بدون بزرگ‌کردن صفحه) کار می‌کند.
+   ========================================================================== */
+.sa-table-scroll > table,
+.sa-entity__layout .entry-content table {
+	width: auto;
+	min-width: 0;
+	max-width: 100%;
+	table-layout: auto;
+	border-collapse: separate;
+	border-spacing: 0;
+	margin-inline: auto;
+}
+
+.sa-entity__layout .entry-content table thead th,
+.sa-entity__layout .entry-content table tbody td,
+.sa-table-scroll > table th,
+.sa-table-scroll > table td {
+	width: auto;
+	vertical-align: top;
+}
+
+.sa-entity__layout .entry-content table tbody tr:hover {
+	background: var(--sa-navy-100);
+}
+
+@media (max-width: 640px) {
+	.sa-entity__layout .entry-content table,
+	.sa-table-scroll > table {
+		font-size: .88rem;
+	}
+
+	.sa-entity__layout .entry-content table thead th,
+	.sa-entity__layout .entry-content table tbody td,
+	.sa-table-scroll > table th,
+	.sa-table-scroll > table td {
+		padding: .5rem .65rem;
+	}
+}

@@ -532,6 +532,19 @@ function sa_seo_robots( $robots ) {
 	if ( is_author() && (int) get_query_var( 'paged' ) > 1 ) {
 		$noindex = true;
 	}
+	// v2.22.50: آرشیوِ خالیِ موجودیت‌ها (سوغات/غذای محلی/مسیر سفر تا وقتی نوشته‌ای
+	// منتشر نشده) ایندکس نمی‌شود؛ با اولین انتشار، خودش برمی‌گردد. این همان
+	// تصمیم «بخش سوغات می‌ماند ولی پر می‌شود» است، بدون صفحهٔ خالیِ قابل ایندکس.
+	if ( function_exists( 'is_post_type_archive' ) && is_post_type_archive( array( 'souvenir', 'local_food', 'travel_route' ) ) ) {
+		$sa_pt = get_query_var( 'post_type' );
+		$sa_pt = is_array( $sa_pt ) ? (string) reset( $sa_pt ) : (string) $sa_pt;
+		if ( '' !== $sa_pt && function_exists( 'wp_count_posts' ) ) {
+			$sa_counts = wp_count_posts( $sa_pt );
+			if ( $sa_counts && 0 === (int) $sa_counts->publish ) {
+				$noindex = true;
+			}
+		}
+	}
 	if ( is_tag() ) {
 		$term = get_queried_object();
 		if ( $term && $term->count < 3 ) {

@@ -1433,6 +1433,56 @@ function sa_cyber_id_county_fallback( $county_slug, $province_slug = '' ) {
  * @param string $content Post content HTML.
  * @return string Filtered HTML.
  */
+/**
+ * Normalize entity body sections the identity card already covers (v2.22.50).
+ *
+ * Article bodies generated for counties/provinces still carry a «مشخصات کلی»
+ * spec table (population/area/center/…) that repeats the identity card tile
+ * by tile — the owner asked for it to disappear from the template side, and
+ * the card is the single place those numbers live. The same pass renames the
+ * «وجه تسمیه» heading to «پیشینه» (پیشینهٔ استان / پیشینهٔ شهرستان), the
+ * wording the owner wants in every template. Render-time only: the database
+ * text is untouched, and because this runs before sa_toc_filter (11) the
+ * table of contents follows automatically.
+ *
+ * @param string $content Post content HTML.
+ * @return string
+ */
+function sa_normalize_entity_body_sections( $content ) {
+	if ( is_admin() || is_feed() || ! is_singular( array( 'province', 'city' ) ) ) {
+		return $content;
+	}
+	$content = (string) $content;
+	if ( false !== strpos( $content, 'مشخصات کلی' ) ) {
+		$cleaned = preg_replace(
+			'~<h2[^>]*>\s*مشخصات\s+کلی(?:\s+استان|\s+شهرستان)?\s*</h2>.*?(?=<h2[\s>]|\z)~isu',
+			'',
+			$content
+		);
+		if ( is_string( $cleaned ) ) {
+			$content = $cleaned;
+		}
+	}
+	if ( false !== strpos( $content, 'وجه' ) ) {
+		$renamed = preg_replace_callback(
+			'~<(h[23])([^>]*)>([^<]*)</\1>~iu',
+			function ( $m ) {
+				if ( false === strpos( $m[3], 'وجه' ) ) {
+					return $m[0];
+				}
+				$text = preg_replace( '/وجه[\s\x{200C}]*تسمیه/u', 'پیشینه', $m[3] );
+				return '<' . $m[1] . $m[2] . '>' . $text . '</' . $m[1] . '>';
+			},
+			$content
+		);
+		if ( is_string( $renamed ) ) {
+			$content = $renamed;
+		}
+	}
+	return $content;
+}
+add_filter( 'the_content', 'sa_normalize_entity_body_sections', 8 );
+
 function sa_strip_duplicate_body_identity( $content ) {
 	if ( is_admin() || ! is_singular( array( 'province', 'city', 'attraction' ) ) ) {
 		return $content;
