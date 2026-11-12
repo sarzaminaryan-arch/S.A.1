@@ -76,8 +76,10 @@ sa_sl_assert( $stash === $printed_guide, 'sources: guide variant prints the same
 $single = (string) file_get_contents( $theme_dir . '/template-parts/entity/single.php' );
 $pos_sources = strpos( $single, 'sa_sources_section( $sa_id )' );
 $pos_faq     = strpos( $single, "get_template_part( 'template-parts/entity/faq' )" );
-$pos_note    = strpos( $single, 'sa_facts_checked_note( $sa_id )' );
+$pos_related = strpos( $single, 'sa_related_articles( $sa_id, $sa_type )' );
+$pos_nav     = strpos( $single, 'sa_entity_navigation( $sa_id, $sa_type )' );
 sa_sl_assert( false !== $pos_sources && false !== $pos_faq && $pos_sources > $pos_faq, 'order: entity template prints sources after the FAQ' );
-sa_sl_assert( false !== $pos_note && $pos_sources > $pos_note, 'order: sources are the last block of the entity template' );
+sa_sl_assert( false !== $pos_related && $pos_sources < $pos_related, 'order: sources close the article, above the suggested-counties block' );
+sa_sl_assert( false !== $pos_nav && $pos_nav > $pos_related, 'order: previous/next navigation is the last block of the page' );
 
-echo "PASS: sources last (list stashed during body render, printed after FAQ/related by both section printers)\n";
+echo "PASS: sources last (list stashed during body render, printed as the last article section, prev/next navigation closes the page)\n";

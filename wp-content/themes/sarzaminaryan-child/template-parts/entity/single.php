@@ -58,6 +58,18 @@ $sa_type = get_post_type( $sa_id );
 
 		<?php get_template_part( 'template-parts/entity/faq' ); ?>
 
+		<?php
+		// v2.22.52: منابع آخرین بخشِ خودِ مقاله است (نه آخرین بخش صفحه)؛
+		// بعد از آن فقط بخش‌های ثابتِ صفحه می‌آیند و ناوبریِ مقالهٔ قبلی/بعدی
+		// آخرین بخش صفحه است.
+		if ( function_exists( 'sa_sources_section' ) ) {
+			sa_sources_section( $sa_id );
+		}
+		if ( function_exists( 'sa_facts_checked_note' ) ) {
+			sa_facts_checked_note( $sa_id );
+		}
+		?>
+
 		<?php get_template_part( 'template-parts/entity/county-siblings' ); ?>
 
 		<?php get_template_part( 'template-parts/entity/gallery' ); ?>
@@ -70,16 +82,9 @@ $sa_type = get_post_type( $sa_id );
 		if ( function_exists( 'sa_related_articles' ) ) {
 			sa_related_articles( $sa_id, $sa_type );
 		}
+		// v2.22.52: ناوبری مقالهٔ قبلی/بعد؛ آخرین بخش صفحه است.
 		if ( function_exists( 'sa_entity_navigation' ) ) {
 			sa_entity_navigation( $sa_id, $sa_type );
-		}
-		if ( function_exists( 'sa_facts_checked_note' ) ) {
-			sa_facts_checked_note( $sa_id );
-		}
-		// v2.22.51: منابع همیشه آخرین بخش مقاله است (بعد از پرسش‌های متداول،
-		// دیدنی‌های مرتبط و یادداشت بازبینی).
-		if ( function_exists( 'sa_sources_section' ) ) {
-			sa_sources_section( $sa_id );
 		}
 		?>
 	</div>
