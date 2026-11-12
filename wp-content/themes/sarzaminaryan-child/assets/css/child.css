@@ -7378,3 +7378,126 @@ body.bg-lines::before {
 		height: 54px;
 	}
 }
+
+/* ==========================================================================
+   v2.22.56 — حریم امن کارت‌های «از تجربهٔ مسافرها»، تیترهای درشت‌تر، رنگ فصل‌ها
+   بازخورد مالک از صفحهٔ شهرستان تهران: متن کارت‌ها به لبه‌ها می‌چسبید.
+   ۱) برای همهٔ کارت‌ها و کادرهای این بلوک فاصلهٔ داخلیِ مشخص (safe zone)
+   تعیین شد تا متن هیچ‌وقت به لبهٔ کادر نچسبد.
+   ۲) تیتر بخش‌ها و عنوان هر کارت بولدتر و بزرگ‌تر شد.
+   ۳) هر فصل رنگ نرم و شفاف خودش را دارد: بهار سبز ملایم، تابستان کهربایی،
+   پاییز نارنجی ملایم و زمستان آبی آسمانی.
+   ========================================================================== */
+.sa-field-notes {
+	gap: 1.15rem;
+}
+
+.sa-field-notes__head,
+.sa-field-seasons,
+.sa-field-places,
+.sa-field-tips,
+.sa-field-people {
+	padding: 1.3rem 1.45rem;
+}
+
+.sa-field-fact {
+	padding: 1.05rem 1.2rem;
+}
+
+.sa-field-season,
+.sa-field-place,
+.sa-field-tip {
+	padding: 1.1rem 1.25rem;
+}
+
+.sa-field-notes__head h2 {
+	font-size: 1.55rem;
+	font-weight: 900;
+}
+
+.sa-field-seasons h3,
+.sa-field-places h3,
+.sa-field-tips h3,
+.sa-field-people h3 {
+	font-size: 1.22rem;
+	font-weight: 900;
+	margin-bottom: .85rem;
+}
+
+.sa-field-season__name {
+	font-size: 1.08rem;
+}
+
+.sa-field-tip strong {
+	display: block;
+	font-size: 1.05rem;
+	font-weight: 900;
+	line-height: 1.6;
+	color: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-field-place__head strong {
+	font-size: 1.07rem;
+	font-weight: 900;
+	color: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-field-season--spring {
+	background: rgba(34, 197, 94, .09);
+	border-color: rgba(22, 163, 74, .35);
+}
+
+.sa-field-season--spring .sa-field-season__name {
+	color: #15803d;
+}
+
+.sa-field-season--summer {
+	background: rgba(245, 158, 11, .1);
+	border-color: rgba(217, 119, 6, .38);
+}
+
+.sa-field-season--summer .sa-field-season__name {
+	color: #b45309;
+}
+
+.sa-field-season--autumn {
+	background: rgba(249, 115, 22, .09);
+	border-color: rgba(234, 88, 12, .35);
+}
+
+.sa-field-season--autumn .sa-field-season__name {
+	color: #c2410c;
+}
+
+.sa-field-season--winter {
+	background: rgba(59, 160, 246, .09);
+	border-color: rgba(2, 132, 199, .35);
+}
+
+.sa-field-season--winter .sa-field-season__name {
+	color: #0369a1;
+}
+
+.sa-field-season--best {
+	border-width: 2px;
+}
+
+@media (max-width: 640px) {
+	.sa-field-notes__head,
+	.sa-field-seasons,
+	.sa-field-places,
+	.sa-field-tips,
+	.sa-field-people {
+		padding: 1.1rem 1.05rem;
+	}
+
+	.sa-field-season,
+	.sa-field-place,
+	.sa-field-tip {
+		padding: 1rem 1.05rem;
+	}
+
+	.sa-field-fact {
+		padding: .95rem 1.05rem;
+	}
+}

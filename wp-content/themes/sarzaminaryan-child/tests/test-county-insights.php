@@ -160,7 +160,13 @@ sa_ci_assert( false !== strpos( $tpl, 'دوباره به‌روز می‌کنی�
 sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip category colour classes rendered' );
 sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: license-plate tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'13 // AREA_CODE'" ), 'template: phone area-code tile registered in the identity card' );
+sa_ci_assert( false !== strpos( $tpl, "'بهار' => 'spring'" ) && false !== strpos( $tpl, 'sa-field-season--' ), 'template: each season card carries its own colour class' );
 sa_ci_assert( false === strpos( $tpl, 'county-attractions' ), 'template: attractions table under the identity card is removed (2.22.51)' );
+
+$css56 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+foreach ( array( '.sa-field-season--spring', '.sa-field-season--summer', '.sa-field-season--autumn', '.sa-field-season--winter' ) as $cls ) {
+	sa_ci_assert( false !== strpos( $css56, $cls ), "css: {$cls} has its own soft season colour (2.22.56)" );
+}
 
 $css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 $pos = strpos( $css, 'v2.22.49 — بلوک «از تجربهٔ مسافرها»' );

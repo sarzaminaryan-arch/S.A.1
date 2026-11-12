@@ -649,9 +649,11 @@ $sa_ins = $sa_profile_ext;
 			<div class="profile-box sa-field-seasons">
 				<h3>اقلیم و آب‌وهوا، فصل‌به‌فصل</h3>
 				<div class="sa-field-seasons__grid">
+					<?php $sa_season_slugs = array( 'بهار' => 'spring', 'تابستان' => 'summer', 'پاییز' => 'autumn', 'زمستان' => 'winter' ); ?>
 					<?php foreach ( (array) $sa_ins['seasons'] as $sa_season_name => $sa_season_text ) : ?>
 						<?php $sa_is_best = ( ! empty( $sa_ins['best_season'] ) && false !== mb_strpos( (string) $sa_ins['best_season'], (string) $sa_season_name ) ); ?>
-						<div class="sa-field-season<?php echo $sa_is_best ? ' sa-field-season--best' : ''; ?>">
+						<?php $sa_season_slug = isset( $sa_season_slugs[ (string) $sa_season_name ] ) ? $sa_season_slugs[ (string) $sa_season_name ] : ''; ?>
+						<div class="sa-field-season<?php echo $sa_season_slug ? ' sa-field-season--' . esc_attr( $sa_season_slug ) : ''; ?><?php echo $sa_is_best ? ' sa-field-season--best' : ''; ?>">
 							<span class="sa-field-season__name"><?php echo esc_html( (string) $sa_season_name ); ?><?php if ( $sa_is_best ) : ?> <span class="sa-field-season__badge">فصل پیشنهادی</span><?php endif; ?></span>
 							<p><?php echo esc_html( (string) $sa_season_text ); ?></p>
 						</div>
