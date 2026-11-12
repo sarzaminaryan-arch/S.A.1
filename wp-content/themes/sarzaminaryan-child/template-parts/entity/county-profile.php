@@ -400,6 +400,13 @@ $sa_county_cells = array(
 		'html'  => true,
 		'span'  => '',
 	),
+	array(
+		'code'  => '12 // LICENSE_PLATE',
+		'label' => 'شماره پلاک خودرو',
+		'value' => trim( (string) $sa_pget( 'plate_code' ) ),
+		'html'  => false,
+		'span'  => '',
+	),
 );
 
 // قانون خروجی شناسنامه: هر فیلد خالی یعنی حذف کامل همان خانه — هیچ «نامشخص»،
@@ -559,27 +566,10 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 			</div>
 		</div>
 	<?php endif; ?>
-	<?php if ( ! empty( $sa_attractions ) ) : ?>
-		<div class="profile-box sa-cyber-id__subtable" id="county-attractions">
-			<div class="sa-cyber-id__subtable-head">
-				<span class="sa-cyber-id__subtable-title">جاذبه‌های مهم شهرستان</span>
-				<span class="sa-cyber-id__subtable-code" dir="ltr">TOP ATTRACTIONS</span>
-			</div>
-			<table class="sa-cyber-id__attrs">
-				<thead><tr><th scope="col" dir="ltr">#</th><th scope="col">جاذبه</th><th scope="col">نوع</th><th scope="col" dir="ltr">LINK</th></tr></thead>
-				<tbody>
-					<?php foreach ( $sa_attractions as $sa_ai => $sa_a ) : ?>
-						<tr>
-							<td dir="ltr"><?php echo esc_html( str_pad( (string) ( $sa_ai + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></td>
-							<td><?php if ( '' !== $sa_a['url'] ) : ?><a href="<?php echo esc_url( $sa_a['url'] ); ?>"><?php echo esc_html( $sa_a['name'] ); ?></a><?php else : ?><?php echo esc_html( $sa_a['name'] ); ?><?php endif; ?><?php if ( '' !== $sa_a['en'] ) : ?> <small dir="ltr"><?php echo esc_html( $sa_a['en'] ); ?></small><?php endif; ?></td>
-							<td><?php echo esc_html( $sa_a['type'] ); ?></td>
-							<td><?php if ( '' !== $sa_a['url'] ) : ?><a href="<?php echo esc_url( $sa_a['url'] ); ?>">مشاهده ←</a><?php endif; ?></td>
-						</tr>
-					<?php endforeach; ?>
-				</tbody>
-			</table>
-		</div>
-	<?php endif; ?>
+	<?php
+	// v2.22.51: جدول «جاذبه‌های مهم شهرستان» از زیر شناسنامه حذف شد (تصمیم مالک)؛
+	// دیدنی‌های شهرستان در بخش مرتبط‌های پایین صفحه و صفحهٔ خود شهرستان می‌آیند.
+	?>
 
 	<?php if ( ! empty( $sa_sibling_cities ) ) : ?>
 		<div class="profile-box sa-cyber-id__subtable" id="county-siblings">

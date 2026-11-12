@@ -65,6 +65,11 @@ sa_rt_assert( false !== strpos( $sa_clean, 'معرفی شهرستان نمونه
 $sa_spec_province = '<h2>مشخصات کلی استان</h2><p>جدول مشخصات</p><h2>موقعیت جغرافیایی</h2><p>متن.</p>';
 sa_rt_assert( false === strpos( sa_normalize_entity_body_sections( $sa_spec_province ), 'جدول مشخصات' ), 'v2.22.50: «مشخصات کلی استان» variant is stripped too' );
 
+$sa_map_body = '<h2>معرفی</h2><p>متن.</p><h2>نقشه و لوکیشن</h2><p>نشانی و نقشه.</p><h2>حقایق جالب</h2><p>متن.</p>';
+$sa_nomap = sa_normalize_entity_body_sections( $sa_map_body );
+sa_rt_assert( false === strpos( $sa_nomap, 'نقشه و لوکیشن' ) && false === strpos( $sa_nomap, 'نشانی و نقشه.' ), 'v2.22.51: «نقشه و لوکیشن» body section is stripped (map lives in the identity card)' );
+sa_rt_assert( false !== strpos( $sa_nomap, 'حقایق جالب' ), 'v2.22.51: sections after the map block survive' );
+
 foreach ( array( 'admin', 'feed', 'single', 'loop', 'main' ) as $key ) {
 	$old = $GLOBALS['sa_responsive_table_context'][ $key ];
 	$GLOBALS['sa_responsive_table_context'][ $key ] = ( 'admin' === $key || 'feed' === $key ) ? true : false;

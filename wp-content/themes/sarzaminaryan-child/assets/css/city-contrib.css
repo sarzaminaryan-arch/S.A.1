@@ -199,3 +199,20 @@
 		width: 100%;
 	}
 }
+
+/* v2.22.51 — امتیازدهی جمع‌وجور: ستاره‌ها در موبایل هم یک خط می‌مانند. */
+@media (max-width: 640px) {
+	.cc-block { margin: 1.4rem 0; padding: 1rem .9rem; }
+	.cc-block__title { font-size: 1.08rem; margin-bottom: .6rem; }
+	.cc-rating__row { gap: .4rem .8rem; margin-bottom: .45rem; }
+	.cc-rating__avg { font-size: .95rem; }
+	.cc-rating__avg b { font-size: 1.15rem; }
+	.cc-rating__picker { padding: .65rem .6rem; gap: .55rem; }
+	.cc-rating__picker-label { font-size: .85rem; }
+	.cc-rating__stars { flex-wrap: nowrap; gap: .22rem; width: 100%; }
+	.cc-rating__stars button { flex: 1 1 0; min-width: 0; padding: .28rem .1rem .34rem; border-radius: 8px; }
+	.cc-rating__stars button .cc-rating__glyph { font-size: 1.15rem; }
+	.cc-rating__stars button .cc-rating__num { font-size: .68rem; }
+	.cc-rating__submit { min-height: 40px; padding: .5rem 1.1rem; font-size: .92rem; }
+	.cc-rating__status { font-size: .84rem; padding: .55rem .7rem; }
+}

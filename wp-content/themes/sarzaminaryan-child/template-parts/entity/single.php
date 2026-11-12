@@ -73,11 +73,13 @@ $sa_type = get_post_type( $sa_id );
 		if ( function_exists( 'sa_entity_navigation' ) ) {
 			sa_entity_navigation( $sa_id, $sa_type );
 		}
-		if ( function_exists( 'sa_sources_section' ) ) {
-			sa_sources_section( $sa_id );
-		}
 		if ( function_exists( 'sa_facts_checked_note' ) ) {
 			sa_facts_checked_note( $sa_id );
+		}
+		// v2.22.51: منابع همیشه آخرین بخش مقاله است (بعد از پرسش‌های متداول،
+		// دیدنی‌های مرتبط و یادداشت بازبینی).
+		if ( function_exists( 'sa_sources_section' ) ) {
+			sa_sources_section( $sa_id );
 		}
 		?>
 	</div>

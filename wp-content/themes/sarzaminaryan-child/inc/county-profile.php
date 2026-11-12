@@ -65,6 +65,7 @@ function sa_county_profile_fields() {
 		'extra_places'           => array( 'label' => 'جاهای دیگری که مردم می‌روند و در متن نیست — هر خط: نام | نوع | مسیر و موقعیت | نکتهٔ کاربردی | پیوند (اختیاری)', 'type' => 'text', 'legacy' => '' ),
 		'people_character'       => array( 'label' => 'مردمِ این‌جا از نگاه مسافرها (فقط ویژگی مثبت و شهرت نیک؛ لحن: «از تجربهٔ کسانی که رفته‌اند…»)', 'type' => 'text', 'legacy' => '' ),
 		'field_update_note'      => array( 'label' => 'یادداشت آخرین به‌روزرسانی میدانی (مثلاً: پاییز ۱۴۰۵ ـ وضعیت مسیرها و چند جای تازه)', 'type' => 'string', 'legacy' => '' ),
+		'plate_code'             => array( 'label' => 'شماره پلاک خودرو (مثلاً: ایران ۱۱، ۲۲، ۳۳)', 'type' => 'string', 'legacy' => '' ),
 	);
 }
 
@@ -359,6 +360,7 @@ function sa_county_profile_data( $post_id ) {
 	);
 	$data['local_tips']        = sa_county_profile_parse_tips( $get( 'local_tips' ) );
 	$data['extra_places']      = sa_county_profile_parse_places( $get( 'extra_places' ) );
+	$data['plate_code']        = $get( 'plate_code' );
 	$data['people_character']  = $get( 'people_character' );
 	$data['field_update_note'] = $get( 'field_update_note' );
 	$data['has_insights']      = ! empty( $data['access_facts'] ) || ! empty( $data['seasons'] )

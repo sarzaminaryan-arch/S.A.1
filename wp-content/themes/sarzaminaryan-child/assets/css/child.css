@@ -7209,3 +7209,109 @@ body.bg-lines::before {
 		padding: .5rem .65rem;
 	}
 }
+
+/* ==========================================================================
+   v2.22.51 — پالت کهربایی/سرمه‌ای برای سرتیترهای شناسنامه و فهرست مطالب + جدول‌ها
+   ۱) سرتیتر خانه‌های شناسنامه (کد لاتین و برچسب فارسی) ریز ولی کم‌رنگ بودند؛
+   حالا کهرباییِ خوانا و پررنگ‌اند، با همان اندازهٔ قبلی.
+   ۲) فهرست مطالب از سبز به خانوادهٔ سرمه‌ای/طلایی سایت می‌آید.
+   ۳) جدول‌های بدنه کوچک‌تر و فشرده‌تر می‌شوند تا کمتر اسکرول افقی بخواهند و
+   گوشه‌های گرد بالا/پایین هر دو سالم بمانند (قاب دور جدول بر عهدهٔ قاب پیمایش
+   است، نه خود جدول).
+   ========================================================================== */
+.sa-cyber-grid__code {
+	color: #b45309;
+}
+
+.sa-cyber-grid__label {
+	color: #92400e;
+}
+
+.sa-toc {
+	border-color: rgba(18, 63, 115, .16);
+	background: linear-gradient(145deg, #ffffff 0%, #f2f7fd 100%);
+}
+
+.sa-toc__head {
+	border-bottom-color: rgba(18, 63, 115, .18);
+}
+
+.sa-toc__title {
+	color: #0b2a4a;
+}
+
+.sa-toc__title::before {
+	background: linear-gradient(145deg, #123f73 0%, #18558f 100%);
+	box-shadow: inset 0 0 0 3px #f0b429;
+}
+
+.sa-toc__count {
+	color: #92400e;
+	background: #fdf3e0;
+	border-color: rgba(217, 119, 6, .25);
+}
+
+.sa-toc__list {
+	scrollbar-color: rgba(18, 63, 115, .35) transparent;
+}
+
+.sa-toc__list::-webkit-scrollbar-thumb {
+	background: rgba(18, 63, 115, .3);
+}
+
+.sa-toc__link:hover,
+.sa-toc__link:focus-visible {
+	background: #eaf1fa;
+	color: #123f73;
+}
+
+.sa-toc__num {
+	background: #123f73;
+	color: #f6c453;
+}
+
+.sa-table-scroll {
+	border: 1px solid var(--sa-navy-200);
+	border-radius: 14px;
+	background: #fff;
+	box-shadow: 0 6px 18px rgba(1, 31, 61, .06);
+}
+
+.sa-table-scroll > table,
+.sa-entity__layout .entry-content table,
+.entry-content table {
+	font-size: .86rem;
+	line-height: 1.75;
+	border-radius: 0;
+	overflow: visible;
+	margin: 0 auto;
+}
+
+.sa-entity__layout .entry-content table thead th,
+.sa-entity__layout .entry-content table tbody td,
+.entry-content table th,
+.entry-content table td {
+	padding: .5rem .7rem;
+	overflow-wrap: anywhere;
+}
+
+.sa-entity__layout .entry-content table caption,
+.entry-content table caption {
+	font-size: .9rem;
+}
+
+@media (max-width: 640px) {
+	.sa-table-scroll > table,
+	.sa-entity__layout .entry-content table,
+	.entry-content table {
+		font-size: .8rem;
+		line-height: 1.7;
+	}
+
+	.sa-entity__layout .entry-content table thead th,
+	.sa-entity__layout .entry-content table tbody td,
+	.entry-content table th,
+	.entry-content table td {
+		padding: .42rem .55rem;
+	}
+}

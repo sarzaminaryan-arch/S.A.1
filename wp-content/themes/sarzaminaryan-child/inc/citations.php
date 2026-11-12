@@ -520,12 +520,15 @@ function sa_citations_filter( $content ) {
 		}
 	}
 
-	// یک فهرستِ یکتا با id=sources (برای TOC و سئو) + لنگرِ مخفیِ footnotes برای سازگاریِ قدیمی.
-	return $content
-		. '<section class="sa-footnotes sa-sources" id="sources" aria-labelledby="sa-footnotes-title">'
+	// v2.22.51: فهرست منابع دیگر تهِ بدنه چاپ نمی‌شود؛ کنار گذاشته می‌شود تا
+	// sa_sources_section آن را به‌عنوان آخرین بخش مقاله (بعد از پرسش‌های متداول
+	// و مرتبط‌ها) چاپ کند. شماره‌های پانویس داخل متن همان‌جا به لنگرهای همین
+	// فهرست وصل می‌شوند، چون هر دو در یک صفحه‌اند.
+	$GLOBALS['sa_sources_section_html'][ $post_id ] = '<section class="sa-footnotes sa-sources" id="sources" aria-labelledby="sa-footnotes-title">'
 		. '<h2 id="sa-footnotes-title">منابع</h2>'
-		. '<ol class="sa-footnotes__list">' . $items . '</ol></section>'
-		;
+		. '<ol class="sa-footnotes__list">' . $items . '</ol></section>';
+
+	return $content;
 }
 add_filter( 'the_content', 'sa_citations_filter', 13 );
 

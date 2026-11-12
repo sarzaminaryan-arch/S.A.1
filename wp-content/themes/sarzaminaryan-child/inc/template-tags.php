@@ -539,9 +539,13 @@ function sa_source_rel( $url ) {
  * @param int $post_id Post ID.
  */
 function sa_sources_section( $post_id ) {
-	// فاز ۶: وقتی پانویس‌ها فعال‌اند، یک فهرستِ یکپارچه در the_content ساخته می‌شود؛
-	// این تابع دیگر بخشِ جدا نسازد تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
+	// v2.22.51: منابع همیشه آخرین بخش مقاله است. وقتی پانویس‌ها فعال‌اند، فهرست
+	// یکپارچه در sa_citations_filter ساخته و کنار گذاشته شده؛ همان را چاپ می‌کنیم
+	// تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
 	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		if ( ! empty( $GLOBALS['sa_sources_section_html'][ $post_id ] ) ) {
+			echo $GLOBALS['sa_sources_section_html'][ $post_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaped parts in sa_citations_filter.
+		}
 		return;
 	}
 	$sources = sa_get_sources( $post_id );
@@ -571,6 +575,9 @@ function sa_sources_section( $post_id ) {
  */
 function sa_guide_sources_section( $post_id ) {
 	if ( function_exists( 'sa_citations_enabled' ) && sa_citations_enabled() ) {
+		if ( ! empty( $GLOBALS['sa_sources_section_html'][ $post_id ] ) ) {
+			echo $GLOBALS['sa_sources_section_html'][ $post_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaped parts in sa_citations_filter.
+		}
 		return;
 	}
 	$sources = sa_get_sources( $post_id );
@@ -1449,10 +1456,21 @@ function sa_cyber_id_county_fallback( $county_slug, $province_slug = '' ) {
  * @return string
  */
 function sa_normalize_entity_body_sections( $content ) {
-	if ( is_admin() || is_feed() || ! is_singular( array( 'province', 'city' ) ) ) {
+	if ( is_admin() || is_feed() || ! is_singular( array( 'province', 'city', 'attraction' ) ) ) {
 		return $content;
 	}
 	$content = (string) $content;
+	// v2.22.51: بخش «نقشه و لوکیشن» بدنه حذف می‌شود؛ نقشه در شناسنامه هست و تکرار است.
+	if ( false !== strpos( $content, 'نقشه و لوکیشن' ) ) {
+		$cleaned = preg_replace(
+			'~<h2[^>]*>[^<]*نقشه و لوکیشن[^<]*</h2>.*?(?=<h2[\s>]|\z)~isu',
+			'',
+			$content
+		);
+		if ( is_string( $cleaned ) ) {
+			$content = $cleaned;
+		}
+	}
 	if ( false !== strpos( $content, 'مشخصات کلی' ) ) {
 		$cleaned = preg_replace(
 			'~<h2[^>]*>\s*مشخصات\s+کلی(?:\s+استان|\s+شهرستان)?\s*</h2>.*?(?=<h2[\s>]|\z)~isu',

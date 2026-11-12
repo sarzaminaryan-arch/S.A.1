@@ -82,7 +82,7 @@ require_once $theme_dir . '/inc/county-profile.php';
 /* ---- 1. Registry -------------------------------------------------------- */
 
 $fields = sa_county_profile_fields();
-foreach ( array( 'road_quality', 'mobile_internet', 'access_difficulty', 'parking_status', 'season_spring', 'season_summer', 'season_autumn', 'season_winter', 'local_tips', 'extra_places', 'people_character', 'field_update_note' ) as $key ) {
+foreach ( array( 'road_quality', 'mobile_internet', 'access_difficulty', 'parking_status', 'season_spring', 'season_summer', 'season_autumn', 'season_winter', 'local_tips', 'extra_places', 'people_character', 'field_update_note', 'plate_code' ) as $key ) {
 	sa_ci_assert( isset( $fields[ $key ] ), "insights: canonical key {$key} is registered" );
 }
 
@@ -115,11 +115,13 @@ $GLOBALS['t']['meta'][10]['season_spring']  = 'اردیبهشت بهترین ه�
 $GLOBALS['t']['meta'][10]['local_tips']     = 'warning | ترافیک برگشت | عصر جمعه مسیر شمال سنگین است.';
 $GLOBALS['t']['meta'][10]['extra_places']   = 'بام نمونه | تفریحی | انتهای خیابان نمونه | غروب شلوغ است | ';
 $GLOBALS['t']['meta'][10]['people_character'] = 'از تجربهٔ مسافرها، مردمش گرم و مهمان‌دوست‌اند.';
+$GLOBALS['t']['meta'][10]['plate_code'] = 'ایران ۱۱، ۲۲، ۳۳';
 $rich = sa_county_profile_data( 10 );
 sa_ci_assert( ! empty( $rich['has_insights'] ), 'insights: block switches on with real data' );
 sa_ci_assert( 'بزرگراه آسفالت تا خود شهر' === $rich['access_facts']['وضعیت جاده'], 'insights: access fact labelled in Persian' );
 sa_ci_assert( isset( $rich['seasons']['بهار'] ) && ! isset( $rich['seasons']['زمستان'] ), 'insights: only filled seasons listed' );
 sa_ci_assert( 1 === count( $rich['local_tips'] ) && 1 === count( $rich['extra_places'] ), 'insights: parsed structures reach the data layer' );
+sa_ci_assert( 'ایران ۱۱، ۲۲، ۳۳' === $rich['plate_code'], 'insights: license plate reaches the data layer (tile 12)' );
 
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
@@ -130,6 +132,8 @@ sa_ci_assert( false !== strpos( $tpl, 'گوگل‌مپ، نشان، بلد' ), '
 sa_ci_assert( false !== strpos( $tpl, 'ممکن است بعضی جزئیات' ), 'template: note avoids fake certainty (owner voice)' );
 sa_ci_assert( false !== strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: note promises re-updates' );
 sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip category colour classes rendered' );
+sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: license-plate tile registered in the identity card' );
+sa_ci_assert( false === strpos( $tpl, 'county-attractions' ), 'template: attractions table under the identity card is removed (2.22.51)' );
 
 $css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 $pos = strpos( $css, 'v2.22.49 — بلوک «از تجربهٔ مسافرها»' );
@@ -139,4 +143,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (12 canonical keys, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (13 canonical keys incl. plate, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
