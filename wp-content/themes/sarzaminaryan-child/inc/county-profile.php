@@ -442,6 +442,9 @@ function sa_county_profile_data( $post_id ) {
 	}
 	$data['people_character']  = $get( 'people_character' );
 	$data['field_update_note'] = $get( 'field_update_note' );
+	// v2.22.59 — تاریخ واقعی آخرین تغییر دادهٔ تجربهٔ این شهر در قالب (ISO)،
+	// برای این‌که تازگی محتوا در dateModified اسکیما هم ثبت شود.
+	$data['insight_updated_at'] = $get( 'updated_at' );
 	$data['has_insights']      = ! empty( $data['access_facts'] ) || ! empty( $data['seasons'] )
 		|| ! empty( $data['local_tips'] ) || ! empty( $data['extra_places'] ) || '' !== $data['people_character'];
 

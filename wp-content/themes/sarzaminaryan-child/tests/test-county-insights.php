@@ -183,6 +183,34 @@ sa_ci_assert( ! empty( $shiraz['has_insights'] ), 'bundled: Shiraz traveller blo
 sa_ci_assert( 7 === count( $shiraz['local_tips'] ) && 10 === count( $shiraz['extra_places'] ), 'bundled: Shiraz tips and places parsed from the seed' );
 sa_ci_assert( 'ایران ۶۳، ۹۳' === $shiraz['plate_code'], 'bundled: Shiraz plate reaches tile 12 without meta' );
 
+/* ---- 4e. Bundled seeds: Tabriz, Qom + insight freshness (2.22.59) -------- */
+
+$GLOBALS['t']['posts'][50] = (object) array( 'ID' => 50, 'post_type' => 'city', 'post_name' => 'tabriz', 'post_title' => 'تبریز', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][50]   = array();
+$tabriz = sa_county_profile_data( 50 );
+sa_ci_assert( ! empty( $tabriz['has_insights'] ), 'bundled: Tabriz traveller block switches on from the shipped seed' );
+sa_ci_assert( 6 === count( $tabriz['local_tips'] ) && 9 === count( $tabriz['extra_places'] ), 'bundled: Tabriz tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۱۵، ۳۵' === $tabriz['plate_code'], 'bundled: Tabriz plate reaches tile 12 without meta' );
+sa_ci_assert( '2026-11-12' === $tabriz['insight_updated_at'], 'bundled: insight freshness date is exposed for schema dateModified' );
+
+$GLOBALS['t']['posts'][51] = (object) array( 'ID' => 51, 'post_type' => 'city', 'post_name' => 'qom', 'post_title' => 'قم', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][51]   = array();
+$qom = sa_county_profile_data( 51 );
+sa_ci_assert( ! empty( $qom['has_insights'] ), 'bundled: Qom traveller block switches on from the shipped seed' );
+sa_ci_assert( 7 === count( $qom['local_tips'] ) && 9 === count( $qom['extra_places'] ), 'bundled: Qom tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۱۶' === $qom['plate_code'], 'bundled: Qom plate reaches tile 12 without meta' );
+
+$schema_src = (string) file_get_contents( $theme_dir . '/inc/schema.php' );
+sa_ci_assert( false !== strpos( $schema_src, 'insight_updated_at' ), 'schema: city dateModified follows insight freshness (2.22.59)' );
+
+$css59 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+$pos59 = strpos( $css59, 'v2.22.59' );
+sa_ci_assert( false !== $pos59, 'css: v2.22.59 badge block exists' );
+$block59 = substr( $css59, (int) $pos59, 1600 );
+sa_ci_assert( false !== strpos( $block59, '.sa-field-fact__label' ), 'css: access-fact titles use the badge geometry (2.22.59)' );
+sa_ci_assert( false !== strpos( $block59, 'rgba(244, 63, 94' ), 'css: access-fact badge halo is vivid red-pink (2.22.59)' );
+sa_ci_assert( false !== strpos( $block59, 'color: #111827' ), 'css: access-fact badge text stays black (2.22.59)' );
+
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
@@ -220,4 +248,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled Tehran/Mashhad/Isfahan/Karaj/Shiraz seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled seven-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";

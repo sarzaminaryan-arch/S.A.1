@@ -195,6 +195,19 @@ function sa_schema_entity( $post ) {
 			} elseif ( $geo && isset( $geo['latitude'], $geo['longitude'] ) ) {
 				$node['hasMap'] = sprintf( 'https://www.openstreetmap.org/?mlat=%s&mlon=%s#map=12/%s/%s', $geo['latitude'], $geo['longitude'], $geo['latitude'], $geo['longitude'] );
 			}
+			// v2.22.59 — محتوای «از تجربهٔ مسافرها» از دادهٔ همراه قالب می‌آید و
+			// تاریخ ویرایش نوشته را عوض نمی‌کند؛ اگر دادهٔ این شهر تازه‌تر از
+			// آخرین ویرایش نوشته بود، همان تاریخ واقعیِ به‌روزرسانی محتوا
+			// به‌عنوان dateModified ثبت می‌شود (تاریخ نوشته دست‌کاری نمی‌شود).
+			$node['dateModified'] = get_the_modified_date( 'c', $id );
+			if ( function_exists( 'sa_county_profile_data' ) ) {
+				$sa_profile_for_schema = sa_county_profile_data( $id );
+				$sa_fresh = isset( $sa_profile_for_schema['insight_updated_at'] ) ? (string) $sa_profile_for_schema['insight_updated_at'] : '';
+				if ( '' !== $sa_fresh && preg_match( '/^\d{4}-\d{2}-\d{2}$/', $sa_fresh )
+					&& $sa_fresh > get_the_modified_date( 'Y-m-d', $id ) ) {
+					$node['dateModified'] = $sa_fresh . 'T12:00:00+00:00';
+				}
+			}
 			break;
 
 		case 'attraction':
