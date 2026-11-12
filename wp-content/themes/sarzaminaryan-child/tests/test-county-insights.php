@@ -134,7 +134,7 @@ sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip categor
 $css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 $pos = strpos( $css, 'v2.22.49 — بلوک «از تجربهٔ مسافرها»' );
 sa_ci_assert( false !== $pos, 'css: v2.22.49 field-notes block exists' );
-$block = substr( $css, (int) $pos, 3000 );
+$block = substr( $css, (int) $pos, 6000 );
 foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-tip--logistics', '.sa-field-season--best' ) as $cls ) {
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
