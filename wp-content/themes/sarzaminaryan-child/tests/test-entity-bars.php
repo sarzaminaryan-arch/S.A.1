@@ -86,7 +86,15 @@ function _prime_post_caches() {
 	return true;
 }
 
+if ( ! defined( 'SA_CHILD_DIR' ) ) {
+	define( 'SA_CHILD_DIR', dirname( __DIR__ ) . '/' );
+}
+function add_filter() {
+	return true;
+}
+
 require_once dirname( __DIR__ ) . '/inc/entity-bars.php';
+require_once dirname( __DIR__ ) . '/inc/geo-counties.php';
 
 /* Fixtures: 3 published provinces (+1 draft), 3 cities. */
 $GLOBALS['t']['posts'][1] = new WP_Post( 1, 'lorestan', 'لرستان', 'province' );
@@ -121,10 +129,15 @@ sa_t_assert( false !== strpos( $html, 'class="sa-bars sa-bars--province"' ), 'pr
 $html2 = sa_province_bars_html();
 sa_t_assert( 3 === substr_count( $html2, '<a class="sa-bar"' ), 'lookup path links the 3 published provinces' );
 
-/* 4) City bars: every given city linked, province as RTL secondary label, no «به‌زودی». */
+/* 4) City bars: every given city linked, province as RTL secondary label, no «به‌زودی».
+   v2.22.53: grouped by province; the capital leads its group with a capital bar. */
 $cities = array( $GLOBALS['t']['posts'][10], $GLOBALS['t']['posts'][11], $GLOBALS['t']['posts'][12] );
 $chtml  = sa_city_bars_html( $cities );
-sa_t_assert( 3 === substr_count( $chtml, '<a class="sa-bar"' ), 'three city links' );
+sa_t_assert( 3 === preg_match_all( '/<a class="sa-bar( sa-bar--capital)?"/', $chtml ), 'three city links' );
+sa_t_assert( 1 === substr_count( $chtml, 'sa-bar--capital' ), 'exactly one capital bar (شیراز، مرکز فارس)' );
+sa_t_assert( false !== strpos( $chtml, '<b>شیراز</b><em class="fa">مرکز استان فارس</em>' ), 'capital bar carries the «مرکز استان» label' );
+sa_t_assert( strpos( $chtml, '<b>شیراز</b>' ) < strpos( $chtml, '<b>دورود</b>' ), 'province groups follow the canonical province order (فارس پیش از لرستان)' );
+sa_t_assert( strpos( $chtml, '<b>دورود</b>' ) < strpos( $chtml, '<b>ری</b>' ), 'cities without a province come last' );
 sa_t_assert( false !== strpos( $chtml, '<b>دورود</b><em class="fa">لرستان</em>' ), 'city shows its province' );
 sa_t_assert( false !== strpos( $chtml, '<b>ری</b></a>' ), 'city without province meta has no secondary label' );
 sa_t_assert( false === strpos( $chtml, 'sa-bar--soon' ), 'no placeholders on the city archive' );

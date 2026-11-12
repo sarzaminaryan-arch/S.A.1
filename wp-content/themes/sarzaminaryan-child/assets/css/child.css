@@ -7336,3 +7336,45 @@ body.bg-lines::before {
 	table-layout: auto;
 	border-collapse: collapse;
 }
+
+/* ==========================================================================
+   v2.22.53 — آرشیو شهرستان‌ها: نوار «مرکز استان»، سرگروه هر استان
+   نوارها حالا بر اساس استان گروه‌بندی می‌شوند؛ نوار مرکز استان تمام‌عرض،
+   آبی تیره با نوشتهٔ زرد است و شهرستان‌های همان استان زیرش می‌آیند.
+   ========================================================================== */
+.sa-bars--city .sa-bar--capital {
+	grid-column: 1 / -1;
+	height: 58px;
+	background: linear-gradient(120deg, #0b2a4a 0%, #123f73 100%);
+	border-color: rgba(246, 196, 83, .4);
+	box-shadow: 0 18px 34px -16px rgba(11, 42, 74, .55), 0 2px 6px rgba(11, 20, 36, .08);
+}
+
+.sa-bars--city .sa-bar--capital b {
+	color: #f6c453;
+	font-size: clamp(14px, 1.5vw, 17px);
+}
+
+.sa-bars--city .sa-bar--capital em {
+	color: rgba(246, 196, 83, .78);
+}
+
+.sa-bars--city .sa-bar--capital::before {
+	background: #f6c453;
+	box-shadow: 0 0 0 5px rgba(246, 196, 83, .22);
+}
+
+.sa-bars--city .sa-bar--capital::after {
+	border-color: #f6c453;
+}
+
+.sa-bars--city .sa-bar--capital:hover,
+.sa-bars--city .sa-bar--capital:focus-visible {
+	color: #f6c453;
+}
+
+@media (max-width: 640px) {
+	.sa-bars--city .sa-bar--capital {
+		height: 54px;
+	}
+}

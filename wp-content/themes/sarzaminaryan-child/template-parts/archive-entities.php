@@ -95,20 +95,18 @@ $sa_edu_archive = ( is_category() || is_tag() ) && function_exists( 'sa_is_educa
 		<?php
 		// v2.22.50: فهرست متنیِ «مرور ۳۱ استان» حذف شد — نوارهای بالا هر ۳۱ استان را
 		// با همان لینک‌ها نشان می‌دهند و تکرارِ متنی فقط صفحه را شلوغ و ممیزی
-		// دسترس‌پذیری (link-in-text-block) را خراب می‌کرد. در آرشیو شهرستان
-		// فهرست متنی می‌ماند، چون نوارها آن‌جا صفحه‌بندی می‌شوند ولی فهرست،
-		// همهٔ شهرستان‌ها را گروه‌بندی‌شده نشان می‌دهد (تکرار نیست).
+		// دسترس‌پذیری (link-in-text-block) را خراب می‌کرد.
 		echo sa_province_bars_html( $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
 		?>
 	</article>
 <?php elseif ( 'city' === $sa_bars ) : ?>
 	<article class="sa-archive__article entry-content">
 		<?php
+		// v2.22.53: فهرست متنیِ گروه‌بندی‌شدهٔ زیر نوارها حذف شد (تصمیم مالک)؛
+		// فقط نوارها می‌مانند که خودشان بر اساس استان گروه‌بندی شده‌اند و مرکز
+		// استان در صدر هر گروه با نوار سرمه‌ای/زرد مشخص است.
 		$sa_city_posts = ! empty( $GLOBALS['wp_query']->posts ) ? $GLOBALS['wp_query']->posts : null;
 		echo sa_city_bars_html( $sa_city_posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
-		if ( function_exists( 'sa_archive_crawlable_directory_html' ) ) {
-			echo sa_archive_crawlable_directory_html( 'city', $GLOBALS['wp_query']->posts ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped inside.
-		}
 		?>
 	</article>
 <?php elseif ( 'attraction' === $sa_bars && have_posts() ) : ?>

@@ -107,15 +107,17 @@ function sa_published_entity_ids( $type ) {
  * @param string $url    Link; empty = «به‌زودی» placeholder.
  * @param string $color  Accent colour.
  * @param bool   $sub_fa Secondary label is Persian (keeps RTL direction).
+ * @param string $extra_class Extra class on the bar (e.g. sa-bar--capital).
  * @return string
  */
-function sa_entity_bar_html( $title, $sub, $url, $color, $sub_fa = false ) {
+function sa_entity_bar_html( $title, $sub, $url, $color, $sub_fa = false, $extra_class = '' ) {
 	$style = ' style="--c:' . esc_attr( $color ) . '"';
+	$class = 'sa-bar' . ( '' !== $extra_class ? ' ' . $extra_class : '' );
 	$em    = '' !== $sub ? '<em' . ( $sub_fa ? ' class="fa"' : '' ) . '>' . esc_html( $sub ) . '</em>' : '';
 	if ( '' === $url ) {
-		return '<span class="sa-bar sa-bar--soon"' . $style . '><b>' . esc_html( $title ) . '</b><em>به‌زودی</em></span>';
+		return '<span class="' . esc_attr( $class . ' sa-bar--soon' ) . '"' . $style . '><b>' . esc_html( $title ) . '</b><em>به‌زودی</em></span>';
 	}
-	return '<a class="sa-bar" href="' . esc_url( $url ) . '"' . $style . '><b>' . esc_html( $title ) . '</b>' . $em . '</a>';
+	return '<a class="' . esc_attr( $class ) . '" href="' . esc_url( $url ) . '"' . $style . '><b>' . esc_html( $title ) . '</b>' . $em . '</a>';
 }
 
 /**
@@ -154,9 +156,17 @@ function sa_province_bars_html( $posts = null ) {
 }
 
 /**
- * City bars: the given published cities (archive order), province as secondary label.
+ * City bars for the /city/ archive: grouped by province (v2.22.53).
  *
- * @param WP_Post[] $posts City posts.
+ * Until 2.22.52 the bars followed the flat archive order and a separate
+ * grouped text directory («فهرست شهرستان‌ها به تفکیک استان») repeated every
+ * link below them. The owner asked for one list only: the bars themselves
+ * now carry the grouping — each province group is led by its capital
+ * (مرکز استان: full-width navy bar with gold text), followed by the
+ * province's counties in registry order. Groups follow the canonical
+ * 31-province order; cities without a province go last.
+ *
+ * @param WP_Post[]|null $posts City posts (defaults to a fresh lookup).
  * @return string
  */
 function sa_city_bars_html( $posts = null ) {
@@ -185,17 +195,22 @@ function sa_city_bars_html( $posts = null ) {
 		}
 	}
 	$colors = sa_bar_colors();
-	$ids    = array();
+	$valid  = array();
 	foreach ( (array) $posts as $p ) {
-		if ( $p instanceof WP_Post ) {
-			if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'city' ) ) {
-				continue;
-			}
-			$ids[] = (int) $p->ID;
+		if ( ! $p instanceof WP_Post ) {
+			continue;
 		}
+		if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'city' ) ) {
+			continue;
+		}
+		$valid[] = $p;
 	}
-	if ( ! $ids ) {
+	if ( ! $valid ) {
 		return '';
+	}
+	$ids = array();
+	foreach ( $valid as $p ) {
+		$ids[] = (int) $p->ID;
 	}
 	update_meta_cache( 'post', $ids ); // one query for sa_province_id of every city.
 	$province_ids = array();
@@ -208,19 +223,92 @@ function sa_city_bars_html( $posts = null ) {
 	if ( $province_ids ) {
 		_prime_post_caches( array_values( array_unique( $province_ids ) ), false, false );
 	}
+
+	// Group rank: canonical 31-province order; registry rank inside a province.
+	$prov_rank = array();
+	foreach ( sa_iran_provinces() as $i => $row ) {
+		$prov_rank[ $row[1] ] = $i;
+	}
+	$reg_rank = array();
+	if ( function_exists( 'sa_counties_by_province' ) ) {
+		foreach ( sa_counties_by_province() as $pslug => $rows ) {
+			foreach ( (array) $rows as $i => $row ) {
+				if ( isset( $row['slug'] ) ) {
+					$reg_rank[ $pslug ][ $row['slug'] ] = $i;
+				}
+			}
+		}
+	}
+	$normalize = static function ( $name ) {
+		$name = trim( (string) $name );
+		$name = (string) preg_replace( '/^(?:شهرستان[\s\p{Z}\x{200C}]+)+/u', '', $name );
+		return (string) preg_replace( '/[\s\p{Z}\x{200C}]+/u', '', $name );
+	};
+
+	$groups = array();
+	foreach ( $valid as $p ) {
+		$pid   = (int) get_post_meta( $p->ID, 'sa_province_id', true );
+		$pslug = $pid ? (string) get_post_field( 'post_name', $pid ) : '';
+		$key   = $pid ? 'p' . $pid : 'other';
+		if ( ! isset( $groups[ $key ] ) ) {
+			$groups[ $key ] = array(
+				'slug'    => $pslug,
+				'label'   => $pid ? (string) get_the_title( $pid ) : '',
+				'capital' => ( '' !== $pslug && function_exists( 'sa_province_capital_name' ) ) ? (string) sa_province_capital_name( $pslug ) : '',
+				'items'   => array(),
+			);
+		}
+		$title    = (string) get_the_title( $p );
+		$is_cap   = '' !== $groups[ $key ]['capital'] && '' !== $title && $normalize( $title ) === $normalize( $groups[ $key ]['capital'] );
+		$rank     = isset( $reg_rank[ $pslug ][ $p->post_name ] ) ? $reg_rank[ $pslug ][ $p->post_name ] : PHP_INT_MAX;
+		$groups[ $key ]['items'][] = array(
+			'post'    => $p,
+			'title'   => $title,
+			'capital' => $is_cap,
+			'rank'    => $rank,
+		);
+	}
+
+	$group_list = array_values( $groups );
+	usort(
+		$group_list,
+		static function ( $a, $b ) use ( $prov_rank ) {
+			$ra = isset( $prov_rank[ $a['slug'] ] ) ? $prov_rank[ $a['slug'] ] : ( '' === $a['slug'] ? PHP_INT_MAX : 900 );
+			$rb = isset( $prov_rank[ $b['slug'] ] ) ? $prov_rank[ $b['slug'] ] : ( '' === $b['slug'] ? PHP_INT_MAX : 900 );
+			if ( $ra !== $rb ) {
+				return $ra <=> $rb;
+			}
+			return strcmp( (string) $a['label'], (string) $b['label'] );
+		}
+	);
+
 	$out = '<div class="sa-bars sa-bars--city" id="sa-bars">';
 	$i   = 0;
-	foreach ( (array) $posts as $p ) {
-		if ( ! $p instanceof WP_Post ) {
-			continue;
+	foreach ( $group_list as $group ) {
+		$items = $group['items'];
+		usort(
+			$items,
+			static function ( $a, $b ) {
+				if ( $a['capital'] !== $b['capital'] ) {
+					return $a['capital'] ? -1 : 1;
+				}
+				if ( $a['rank'] !== $b['rank'] ) {
+					return $a['rank'] <=> $b['rank'];
+				}
+				return strcmp( (string) $a['title'], (string) $b['title'] );
+			}
+		);
+		$prov_label = (string) preg_replace( '/^استان\s+/u', '', (string) $group['label'] );
+		foreach ( $items as $item ) {
+			$p = $item['post'];
+			if ( ! empty( $item['capital'] ) ) {
+				$sub = 'مرکز استان' . ( '' !== $prov_label ? ' ' . $prov_label : '' );
+				$out .= sa_entity_bar_html( $item['title'], $sub, (string) get_permalink( $p ), $colors[ $i % 8 ], true, 'sa-bar--capital' );
+			} else {
+				$out .= sa_entity_bar_html( $item['title'], $group['label'], (string) get_permalink( $p ), $colors[ $i % 8 ], true );
+			}
+			$i++;
 		}
-		if ( function_exists( 'sa_redirect_is_old_slug' ) && sa_redirect_is_old_slug( (string) $p->post_name, 'city' ) ) {
-			continue;
-		}
-		$pid  = (int) get_post_meta( $p->ID, 'sa_province_id', true );
-		$prov = $pid ? (string) get_the_title( $pid ) : '';
-		$out .= sa_entity_bar_html( get_the_title( $p ), $prov, (string) get_permalink( $p ), $colors[ $i % 8 ], true );
-		$i++;
 	}
 	$out .= '</div>';
 	return $out;
