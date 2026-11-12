@@ -66,6 +66,7 @@ function sa_county_profile_fields() {
 		'people_character'       => array( 'label' => 'مردمِ این‌جا از نگاه مسافرها (فقط ویژگی مثبت و شهرت نیک؛ لحن: «از تجربهٔ کسانی که رفته‌اند…»)', 'type' => 'text', 'legacy' => '' ),
 		'field_update_note'      => array( 'label' => 'یادداشت آخرین به‌روزرسانی میدانی (مثلاً: پاییز ۱۴۰۵ ـ وضعیت مسیرها و چند جای تازه)', 'type' => 'string', 'legacy' => '' ),
 		'plate_code'             => array( 'label' => 'شماره پلاک خودرو (مثلاً: ایران ۱۱، ۲۲، ۳۳)', 'type' => 'string', 'legacy' => '' ),
+		'phone_code'             => array( 'label' => 'پیش‌شماره تلفن ثابت (مثلاً: ۰۲۱؛ خالی یعنی کد یکپارچهٔ استان)', 'type' => 'string', 'legacy' => '' ),
 	);
 }
 
@@ -277,10 +278,73 @@ function sa_county_profile_neighbors( $post_id ) {
  * @param int $post_id County post ID.
  * @return array
  */
+/**
+ * Load one bundled data map (slug => value) shipped with the theme.
+ *
+ * @param string $rel Path relative to the theme root.
+ * @return array
+ */
+function sa_county_profile_bundled_map( $rel ) {
+	static $cache = array();
+	if ( isset( $cache[ $rel ] ) ) {
+		return $cache[ $rel ];
+	}
+	$base          = defined( 'SA_CHILD_DIR' ) ? SA_CHILD_DIR : dirname( __DIR__ ) . '/';
+	$file          = $base . $rel;
+	$cache[ $rel ] = is_readable( $file ) ? (array) require $file : array();
+	return $cache[ $rel ];
+}
+
+/**
+ * Candidate slugs for bundled-data lookups: the post slug, its «-city»
+ * twin, and the canonical registry slug.
+ *
+ * @param int $post_id County post ID.
+ * @return string[]
+ */
+function sa_county_profile_slug_candidates( $post_id ) {
+	$keys = array();
+	$post = get_post( $post_id );
+	$slug = $post ? (string) $post->post_name : '';
+	if ( '' !== $slug ) {
+		$keys[] = $slug;
+		$keys[] = ( '-city' === substr( $slug, -5 ) ) ? substr( $slug, 0, -5 ) : $slug . '-city';
+	}
+	if ( function_exists( 'sa_county_of_post' ) ) {
+		$reg = sa_county_of_post( $post_id );
+		if ( $reg && ! empty( $reg['slug'] ) ) {
+			$keys[] = (string) $reg['slug'];
+		}
+	}
+	return array_values( array_unique( $keys ) );
+}
+
+/**
+ * Bundled «از تجربهٔ مسافرها» seed for one county (data/county-experiences.php).
+ * Post meta always wins; this only fills fields the editor left empty.
+ *
+ * @param int $post_id County post ID.
+ * @return array<string,string>
+ */
+function sa_county_profile_bundled( $post_id ) {
+	$map = sa_county_profile_bundled_map( 'data/county-experiences.php' );
+	foreach ( sa_county_profile_slug_candidates( $post_id ) as $key ) {
+		if ( isset( $map[ $key ] ) && is_array( $map[ $key ] ) ) {
+			return $map[ $key ];
+		}
+	}
+	return array();
+}
+
 function sa_county_profile_data( $post_id ) {
 	$post_id = (int) $post_id;
-	$get     = function ( $key ) use ( $post_id ) {
-		return sa_county_profile_meta( $post_id, $key );
+	$bundled = sa_county_profile_bundled( $post_id );
+	$get     = function ( $key ) use ( $post_id, $bundled ) {
+		$value = sa_county_profile_meta( $post_id, $key );
+		if ( '' === $value && isset( $bundled[ $key ] ) ) {
+			$value = (string) $bundled[ $key ];
+		}
+		return $value;
 	};
 	$province_post = sa_county_profile_province_post( $post_id );
 	$lat           = $get( 'lat' );
@@ -361,6 +425,21 @@ function sa_county_profile_data( $post_id ) {
 	$data['local_tips']        = sa_county_profile_parse_tips( $get( 'local_tips' ) );
 	$data['extra_places']      = sa_county_profile_parse_places( $get( 'extra_places' ) );
 	$data['plate_code']        = $get( 'plate_code' );
+	if ( '' === $data['plate_code'] ) {
+		// پلاک از جدول همراه قالب (data/county-plates.php)؛ متا اولویت دارد.
+		$plates = sa_county_profile_bundled_map( 'data/county-plates.php' );
+		foreach ( sa_county_profile_slug_candidates( $post_id ) as $key ) {
+			if ( ! empty( $plates[ $key ] ) ) {
+				$data['plate_code'] = (string) $plates[ $key ];
+				break;
+			}
+		}
+	}
+	$data['phone_code'] = $get( 'phone_code' );
+	if ( '' === $data['phone_code'] && function_exists( 'sa_province_phone_code' ) ) {
+		// هم‌کدسازی: پیش‌شمارهٔ شهرستان همان کد یکپارچهٔ استان است.
+		$data['phone_code'] = (string) sa_province_phone_code( (string) $data['province_slug'] );
+	}
 	$data['people_character']  = $get( 'people_character' );
 	$data['field_update_note'] = $get( 'field_update_note' );
 	$data['has_insights']      = ! empty( $data['access_facts'] ) || ! empty( $data['seasons'] )

@@ -407,6 +407,13 @@ $sa_county_cells = array(
 		'html'  => false,
 		'span'  => '',
 	),
+	array(
+		'code'  => '13 // AREA_CODE',
+		'label' => 'پیش‌شماره تلفن ثابت',
+		'value' => trim( (string) $sa_pget( 'phone_code' ) ),
+		'html'  => false,
+		'span'  => '',
+	),
 );
 
 // قانون خروجی شناسنامه: هر فیلد خالی یعنی حذف کامل همان خانه — هیچ «نامشخص»،

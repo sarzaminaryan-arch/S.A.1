@@ -82,7 +82,7 @@ require_once $theme_dir . '/inc/county-profile.php';
 /* ---- 1. Registry -------------------------------------------------------- */
 
 $fields = sa_county_profile_fields();
-foreach ( array( 'road_quality', 'mobile_internet', 'access_difficulty', 'parking_status', 'season_spring', 'season_summer', 'season_autumn', 'season_winter', 'local_tips', 'extra_places', 'people_character', 'field_update_note', 'plate_code' ) as $key ) {
+foreach ( array( 'road_quality', 'mobile_internet', 'access_difficulty', 'parking_status', 'season_spring', 'season_summer', 'season_autumn', 'season_winter', 'local_tips', 'extra_places', 'people_character', 'field_update_note', 'plate_code', 'phone_code' ) as $key ) {
 	sa_ci_assert( isset( $fields[ $key ] ), "insights: canonical key {$key} is registered" );
 }
 
@@ -105,7 +105,7 @@ sa_ci_assert( 'دریاچهٔ نمونه' === $places[1]['name'] && '' === $plac
 
 /* ---- 4. Aggregation: has_insights --------------------------------------- */
 
-$GLOBALS['t']['posts'][10] = (object) array( 'ID' => 10, 'post_type' => 'city', 'post_name' => 'tehran', 'post_title' => 'تهران', 'post_status' => 'publish' );
+$GLOBALS['t']['posts'][10] = (object) array( 'ID' => 10, 'post_type' => 'city', 'post_name' => 'demo-city', 'post_title' => 'تهران', 'post_status' => 'publish' );
 $GLOBALS['t']['meta'][10]   = array( 'center_fa' => 'تهران' );
 $plain = sa_county_profile_data( 10 );
 sa_ci_assert( empty( $plain['has_insights'] ), 'insights: classic-only county has no traveller block' );
@@ -123,6 +123,32 @@ sa_ci_assert( isset( $rich['seasons']['بهار'] ) && ! isset( $rich['seasons']
 sa_ci_assert( 1 === count( $rich['local_tips'] ) && 1 === count( $rich['extra_places'] ), 'insights: parsed structures reach the data layer' );
 sa_ci_assert( 'ایران ۱۱، ۲۲، ۳۳' === $rich['plate_code'], 'insights: license plate reaches the data layer (tile 12)' );
 
+/* ---- 4b. Bundled seed: Tehran experience + plate/phone fallbacks (2.22.55) - */
+
+$GLOBALS['t']['posts'][20] = (object) array( 'ID' => 20, 'post_type' => 'city', 'post_name' => 'tehran', 'post_title' => 'تهران', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][20]   = array();
+$seed = sa_county_profile_data( 20 );
+sa_ci_assert( ! empty( $seed['has_insights'] ), 'bundled: Tehran traveller block switches on from the shipped seed' );
+sa_ci_assert( 4 === count( $seed['seasons'] ), 'bundled: four seasons reach the data layer' );
+sa_ci_assert( 6 === count( $seed['local_tips'] ) && 10 === count( $seed['extra_places'] ), 'bundled: tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۱۱، ۲۲، ۳۳، ۴۴، ۵۵، ۶۶، ۷۷، ۸۸، ۹۹' === $seed['plate_code'], 'bundled: Tehran plate reaches tile 12 without meta' );
+$GLOBALS['t']['meta'][20]['plate_code'] = 'ایران ۱۱';
+sa_ci_assert( 'ایران ۱۱' === sa_county_profile_data( 20 )['plate_code'], 'bundled: post meta wins over the shipped seed' );
+$GLOBALS['t']['meta'][20]['phone_code'] = '۰۲۱';
+sa_ci_assert( '۰۲۱' === sa_county_profile_data( 20 )['phone_code'], 'phone: canonical phone_code reaches the data layer (tile 13)' );
+
+$plates = require $theme_dir . '/data/county-plates.php';
+sa_ci_assert( count( $plates ) >= 340, 'plates: county plate table covers 340+ counties' );
+sa_ci_assert( isset( $plates['tehran-city'] ) && isset( $plates['dorud'] ), 'plates: keyed by registry slug (tehran-city, dorud)' );
+$provinces_data = require $theme_dir . '/data/provinces.php';
+$phones_ok = 0;
+foreach ( $provinces_data as $row ) {
+	if ( ! empty( $row['phone'] ) ) {
+		$phones_ok++;
+	}
+}
+sa_ci_assert( 31 === $phones_ok, 'phone: all 31 provinces carry a fixed-line area code' );
+
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
@@ -133,6 +159,7 @@ sa_ci_assert( false !== strpos( $tpl, 'ممکن است بعضی جزئیات' ),
 sa_ci_assert( false !== strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: note promises re-updates' );
 sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip category colour classes rendered' );
 sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: license-plate tile registered in the identity card' );
+sa_ci_assert( false !== strpos( $tpl, "'13 // AREA_CODE'" ), 'template: phone area-code tile registered in the identity card' );
 sa_ci_assert( false === strpos( $tpl, 'county-attractions' ), 'template: attractions table under the identity card is removed (2.22.51)' );
 
 $css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
@@ -143,4 +170,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (13 canonical keys incl. plate, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled Tehran seed, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
