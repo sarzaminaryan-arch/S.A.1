@@ -160,6 +160,29 @@ sa_ci_assert( 8 === count( $mashhad['local_tips'] ) && 12 === count( $mashhad['e
 sa_ci_assert( 'ایران ۱۲، ۳۶، ۴۲، ۷۴' === $mashhad['plate_code'], 'bundled: Mashhad plate reaches tile 12 without meta' );
 sa_ci_assert( false !== strpos( (string) $mashhad['people_character'], 'زائرنواز' ), 'bundled: Mashhad people note is the positive traveller view' );
 
+/* ---- 4d. Bundled seeds: Isfahan, Karaj, Shiraz (2.22.58) ----------------- */
+
+$GLOBALS['t']['posts'][40] = (object) array( 'ID' => 40, 'post_type' => 'city', 'post_name' => 'isfahan', 'post_title' => 'اصفهان', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][40]   = array();
+$isfahan = sa_county_profile_data( 40 );
+sa_ci_assert( ! empty( $isfahan['has_insights'] ), 'bundled: Isfahan traveller block switches on from the shipped seed' );
+sa_ci_assert( 8 === count( $isfahan['local_tips'] ) && 11 === count( $isfahan['extra_places'] ), 'bundled: Isfahan tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۱۳، ۵۳، ۶۷' === $isfahan['plate_code'], 'bundled: Isfahan plate reaches tile 12 without meta' );
+
+$GLOBALS['t']['posts'][41] = (object) array( 'ID' => 41, 'post_type' => 'city', 'post_name' => 'karaj', 'post_title' => 'کرج', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][41]   = array();
+$karaj = sa_county_profile_data( 41 );
+sa_ci_assert( ! empty( $karaj['has_insights'] ), 'bundled: Karaj traveller block switches on from the shipped seed' );
+sa_ci_assert( 6 === count( $karaj['local_tips'] ) && 8 === count( $karaj['extra_places'] ), 'bundled: Karaj tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۶۸، ۲۱، ۳۸' === $karaj['plate_code'], 'bundled: Karaj plate reaches tile 12 without meta' );
+
+$GLOBALS['t']['posts'][42] = (object) array( 'ID' => 42, 'post_type' => 'city', 'post_name' => 'shiraz', 'post_title' => 'شیراز', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][42]   = array();
+$shiraz = sa_county_profile_data( 42 );
+sa_ci_assert( ! empty( $shiraz['has_insights'] ), 'bundled: Shiraz traveller block switches on from the shipped seed' );
+sa_ci_assert( 7 === count( $shiraz['local_tips'] ) && 10 === count( $shiraz['extra_places'] ), 'bundled: Shiraz tips and places parsed from the seed' );
+sa_ci_assert( 'ایران ۶۳، ۹۳' === $shiraz['plate_code'], 'bundled: Shiraz plate reaches tile 12 without meta' );
+
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
@@ -168,11 +191,21 @@ sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'از تجربهٔ مس�
 sa_ci_assert( false !== strpos( $tpl, 'گوگل‌مپ، نشان، بلد' ), 'template: sourcing note names the review sources' );
 sa_ci_assert( false !== strpos( $tpl, 'ممکن است بعضی جزئیات' ), 'template: note avoids fake certainty (owner voice)' );
 sa_ci_assert( false !== strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: note promises re-updates' );
+sa_ci_assert( false !== strpos( $tpl, 'تیم سرزمین آریان' ), 'template: note credits the Sarzamin Aryan research team (2.22.58)' );
 sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip category colour classes rendered' );
 sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: license-plate tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'13 // AREA_CODE'" ), 'template: phone area-code tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'بهار' => 'spring'" ) && false !== strpos( $tpl, 'sa-field-season--' ), 'template: each season card carries its own colour class' );
 sa_ci_assert( false === strpos( $tpl, 'county-attractions' ), 'template: attractions table under the identity card is removed (2.22.51)' );
+
+$css58 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+$pos58 = strpos( $css58, 'v2.22.58' );
+sa_ci_assert( false !== $pos58, 'css: v2.22.58 label-style block exists' );
+$block58 = substr( $css58, (int) $pos58, 2000 );
+sa_ci_assert( false !== strpos( $block58, '.sa-field-fact__label' ), 'css: access-fact titles styled as labels (2.22.58)' );
+sa_ci_assert( false !== strpos( $block58, 'rgba(214, 69, 69' ), 'css: access-fact labels are soft translucent red (2.22.58)' );
+sa_ci_assert( false !== strpos( $block58, '.sa-field-place__kind' ), 'css: place-kind labels styled (2.22.58)' );
+sa_ci_assert( false !== strpos( $block58, 'rgba(16, 54, 120' ), 'css: place-kind labels are soft translucent dark blue (2.22.58)' );
 
 $css56 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 foreach ( array( '.sa-field-season--spring', '.sa-field-season--summer', '.sa-field-season--autumn', '.sa-field-season--winter' ) as $cls ) {
@@ -187,4 +220,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled Tehran+Mashhad seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled Tehran/Mashhad/Isfahan/Karaj/Shiraz seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
