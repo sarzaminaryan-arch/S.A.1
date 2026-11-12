@@ -646,3 +646,140 @@ function sa_seo_thumbnail_alt( $attr, $attachment ) {
 	return $attr;
 }
 add_filter( 'wp_get_attachment_image_attributes', 'sa_seo_thumbnail_alt', 10, 2 );
+
+/*
+ * -------------------------------------------------------------------------
+ * AI visibility (v2.22.48; AI-1 + AI-5 in docs/live-site/ai-visibility-plan.md)
+ *
+ * The theme is the single SEO source, so crawler policy lives here too:
+ *
+ *  - OAI-SearchBot (ChatGPT search) and ChatGPT-User (user-triggered fetch)
+ *    are explicitly allowed, so the site can be found and cited in AI answers.
+ *  - GPTBot (model-training crawler) is blocked — the owner's decision of
+ *    2026-11-12 (AI-2). Search visibility does not depend on it.
+ *  - The core sitemap URL (built by WordPress, pruned by this theme) is
+ *    advertised explicitly.
+ *
+ * Like the rest of this file, everything steps aside when a dedicated SEO
+ * plugin is active, so directives are never duplicated or in conflict.
+ * -------------------------------------------------------------------------
+ */
+
+/**
+ * Append the AI-crawler rules to the virtual robots.txt.
+ *
+ * Existing rules are preserved verbatim; only the extra groups and the
+ * Sitemap line are appended. When the site is not public, core's blanket
+ * "Disallow: /" is left untouched.
+ *
+ * @param string $output Existing robots.txt text.
+ * @param bool   $public Whether the site is public (blog_public).
+ * @return string
+ */
+function sa_ai_robots_txt( $output, $public ) {
+	if ( ! $public || sa_seo_plugin_active() ) {
+		return $output;
+	}
+	if ( false !== strpos( $output, 'OAI-SearchBot' ) ) {
+		return $output; // Already declared (e.g. by a future core/plugin rule).
+	}
+	$extra = "User-agent: OAI-SearchBot\n"
+		. "Allow: /\n"
+		. "\n"
+		. "User-agent: ChatGPT-User\n"
+		. "Allow: /\n"
+		. "\n"
+		. "User-agent: GPTBot\n"
+		. "Disallow: /\n"
+		. "\n"
+		. 'Sitemap: ' . home_url( '/wp-sitemap.xml' ) . "\n";
+	return rtrim( (string) $output ) . "\n\n" . $extra;
+}
+add_filter( 'robots_txt', 'sa_ai_robots_txt', 20, 2 );
+
+/**
+ * Markdown body of /llms.txt — a structured site introduction for AI tools.
+ *
+ * Kept deliberately small and factual: what the site is, its language, the
+ * main sections with their real archive URLs, and the sitemap. Entity counts
+ * are not hard-coded here because they change with every publish.
+ *
+ * @return string
+ */
+function sa_llms_txt_content() {
+	$brand = sa_brand_name();
+	$archive = function ( $type, $fallback ) {
+		return function_exists( 'sa_archive_url' ) ? sa_archive_url( $type ) : home_url( $fallback );
+	};
+	$lines = array(
+		'# ' . $brand . ' (Sarzamin Aryan)',
+		'',
+		'> دانشنامهٔ سفر ایران: راهنمای فارسیِ استان‌ها، شهرستان‌ها، دیدنی‌ها، مسیرهای سفر، غذاهای محلی و سوغات؛ همراه با شناسنامهٔ جغرافیاییِ هر شهرستان (جمعیت و سال سرشماری، مساحت، ارتفاع، همسایه‌ها و دیدنی‌ها).',
+		'',
+		'- زبان: فارسی (fa-IR)',
+		'- نشانی: ' . home_url( '/' ),
+		'',
+		'## بخش‌های اصلی',
+		'',
+		'- [استان‌های ایران](' . $archive( 'province', '/province/' ) . '): مرور هر ۳۱ استان با نقشه، تقسیمات کشوری و دیدنی‌ها.',
+		'- [شهرستان‌های ایران](' . $archive( 'city', '/city/' ) . '): شناسنامه و راهنمای سفر شهرستان‌ها.',
+		'- [دیدنی‌های ایران](' . $archive( 'attraction', '/attraction/' ) . '): جاذبه‌های طبیعی، تاریخی و فرهنگی.',
+		'- [مسیرهای سفر](' . $archive( 'travel_route', '/route/' ) . '): مسیرهای پیشنهادی سفر در ایران.',
+		'- [غذاهای محلی](' . $archive( 'local_food', '/food/' ) . '): غذاهای بومی استان‌ها و شهرستان‌ها.',
+		'- [سوغات](' . $archive( 'souvenir', '/souvenir/' ) . '): سوغات و صنایع‌دستی هر منطقه.',
+	);
+	$edu = function_exists( 'sa_education_url' ) ? (string) sa_education_url() : '';
+	if ( '' !== $edu ) {
+		$lines[] = '- [آموزش طبیعت‌گردی و بقا](' . $edu . '): راهنماهای کاربردی کمپینگ، بقا و سفر مسئولانه.';
+	}
+	$lines[] = '';
+	$lines[] = '## نقشهٔ سایت';
+	$lines[] = '';
+	$lines[] = '- [نقشهٔ سایت XML](' . home_url( '/wp-sitemap.xml' ) . ')';
+	$lines[] = '';
+	return implode( "\n", $lines );
+}
+
+/**
+ * Route /llms.txt to the theme (virtual file; nothing is written to disk).
+ *
+ * A top rewrite rule is registered on init — theme updates flush rewrite
+ * rules via inc/activation.php — and the template_redirect fallback below
+ * also matches the raw request path, so the URL works even before a flush.
+ */
+function sa_llms_txt_rewrite_rule() {
+	add_rewrite_rule( '^llms\.txt$', 'index.php?sa_llms_txt=1', 'top' );
+}
+add_action( 'init', 'sa_llms_txt_rewrite_rule' );
+
+/**
+ * @param string[] $vars Query vars.
+ * @return string[]
+ */
+function sa_llms_txt_query_vars( $vars ) {
+	$vars[] = 'sa_llms_txt';
+	return $vars;
+}
+add_filter( 'query_vars', 'sa_llms_txt_query_vars' );
+
+/**
+ * Serve /llms.txt as plain text and stop.
+ */
+function sa_llms_txt_serve() {
+	if ( sa_seo_plugin_active() ) {
+		return; // A dedicated SEO plugin owns crawler-facing endpoints.
+	}
+	$serve = (bool) get_query_var( 'sa_llms_txt' );
+	if ( ! $serve && isset( $_SERVER['REQUEST_URI'] ) ) {
+		$path  = (string) wp_parse_url( esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ), PHP_URL_PATH ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotValidated -- path compared to a constant only.
+		$serve = ( 'llms.txt' === trim( $path, '/' ) || 'llms.txt' === basename( $path ) );
+	}
+	if ( ! $serve ) {
+		return;
+	}
+	status_header( 200 );
+	header( 'Content-Type: text/plain; charset=utf-8' );
+	echo sa_llms_txt_content(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- plain-text file, built from escaped URLs and fixed strings.
+	exit;
+}
+add_action( 'template_redirect', 'sa_llms_txt_serve', 1 );

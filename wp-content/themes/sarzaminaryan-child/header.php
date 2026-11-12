@@ -33,8 +33,8 @@ $sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن
 		<div class="container sa-hf-in">
 
 			<?php $sa_brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' ); ?>
-			<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_480 ); ?>" srcset="<?php echo esc_url( $sa_logo_480 ); ?> 480w, <?php echo esc_url( $sa_logo_960 ); ?> 960w" sizes="(max-width: 480px) 82px, 106px" width="106" height="44" alt="" decoding="async" fetchpriority="high"></span>
+			<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $sa_brand . ' — صفحهٔ اصلی' ); ?>">
+				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_480 ); ?>" srcset="<?php echo esc_url( $sa_logo_480 ); ?> 480w, <?php echo esc_url( $sa_logo_960 ); ?> 960w" sizes="(max-width: 480px) 82px, 106px" width="106" height="44" alt="" decoding="async" fetchpriority="high" loading="eager" data-no-lazy="1"></span>
 				<span class="sa-hf-text">
 					<span class="site-title"><?php echo esc_html( $sa_brand ); ?></span>
 					<span class="sa-hf-slogan"><?php echo esc_html( $sa_slogan ); ?></span>

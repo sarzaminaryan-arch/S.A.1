@@ -6931,3 +6931,36 @@ body.bg-lines::before {
 		padding-block: 6px;
 	}
 }
+
+/* ==========================================================================
+   v2.22.48 — تشخیص‌پذیری لینک‌های درونِ متن (دسترس‌پذیری: link-in-text-block)
+   در ممیزی P5 (۲۰۲۶-۱۱-۱۲) لینک‌هایی که وسط متن جاری می‌نشینند — مرور متنی
+   استان‌ها، بدنهٔ مقاله‌ها و خلاصهٔ کارت‌ها — فقط با رنگ از متن اطراف جدا
+   می‌شدند و در موبایل به کف دسترس‌پذیری نمی‌رسیدند. این لینک‌ها حالا زیرخط
+   ثابت دارند تا بدون هاور/لمس هم قابل‌تشخیص باشند. لینک‌های ناوبری، دکمه‌ها،
+   چیپ‌ها، نوارهای موجودیت و فهرست مطالب (که نشانهٔ غیررنگیِ خودشان را دارند)
+   عمداً دست نخورده‌اند.
+   ========================================================================== */
+.site-main p a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link),
+.site-main li a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link),
+.sa-card__excerpt a,
+.sa-archive__desc a,
+.sa-archive__seo-index a {
+	text-decoration: underline;
+	text-decoration-color: rgba(18, 63, 115, .45);
+	text-underline-offset: 3px;
+	text-decoration-thickness: 1px;
+}
+
+.site-main p a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):hover,
+.site-main p a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):focus-visible,
+.site-main li a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):hover,
+.site-main li a:not(.sa-btn):not(.sa-chip):not(.sa-bar):not(.sa-toc__link):focus-visible,
+.sa-card__excerpt a:hover,
+.sa-card__excerpt a:focus-visible,
+.sa-archive__desc a:hover,
+.sa-archive__desc a:focus-visible,
+.sa-archive__seo-index a:hover,
+.sa-archive__seo-index a:focus-visible {
+	text-decoration-color: currentColor;
+}

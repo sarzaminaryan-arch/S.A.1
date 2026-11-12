@@ -17,10 +17,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 function sa_schema_organization() {
 	$brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
 	$node = array(
-		'@type' => 'Organization',
-		'@id'   => home_url( '/#organization' ),
-		'name'  => $brand,
-		'url'   => home_url( '/' ),
+		'@type'         => 'Organization',
+		'@id'           => home_url( '/#organization' ),
+		'name'          => $brand,
+		'alternateName' => 'Sarzamin Aryan',
+		'url'           => home_url( '/' ),
+		'description'   => 'دانشنامهٔ سفر ایران: راهنمای استان‌ها، شهرستان‌ها، دیدنی‌ها، غذاهای محلی و سوغات، با اطلاعات دقیق و به‌روز.',
 	);
 	if ( function_exists( 'sa_brand_logo' ) ) {
 		$logo         = sa_brand_logo( 'dark', 1200 );
