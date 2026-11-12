@@ -59,6 +59,9 @@ $sa_fallback = function_exists( 'sa_cyber_id_county_fallback' )
 // reads the canonical keys first and the legacy sa_cty_* / sa_city_* keys second.
 // An empty value never invents data — its tile is dropped before rendering.
 $sa_profile_ext = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $sa_id ) : array();
+if ( ! empty( $sa_profile_ext['has_insights'] ) && function_exists( 'sa_toc_register' ) ) {
+	sa_toc_register( 'از تجربهٔ مسافرها', 'county-field-notes', 6 );
+}
 $sa_pget        = function ( $sa_key ) use ( $sa_profile_ext ) {
 	return isset( $sa_profile_ext[ $sa_key ] ) ? $sa_profile_ext[ $sa_key ] : '';
 };
@@ -613,5 +616,92 @@ if ( ! empty( $sa_profile_ext['agriculture_main'] ) ) {
 				<p><?php echo esc_html( $sa_note['text'] ); ?></p>
 			</div>
 		<?php endforeach; ?>
+	</section>
+<?php endif; ?>
+
+<?php
+/* CU-1 (v2.22.49) — «از تجربهٔ مسافرها»: لایهٔ زندهٔ صفحهٔ شهرستان.
+ * متن ثابت مقاله دست نمی‌خورد؛ این بلوک دادهٔ کاربردی‌ای را نشان می‌دهد که از
+ * تجربه‌های تازهٔ مردم در گوگل‌مپ، نشان، بلد و صفحه‌های اقامتگاه‌ها درآمده است.
+ * لحنِ توضیحِ زیر عمداً اول‌شخص و بی‌ادعاست: منبع را می‌گوید، قطعیت جعل نمی‌کند
+ * و قول به‌روزرسانی می‌دهد. هر زیربخش فقط وقتی دادهٔ واقعی دارد رندر می‌شود. */
+$sa_ins = $sa_profile_ext;
+?>
+<?php if ( ! empty( $sa_ins['has_insights'] ) ) : ?>
+	<section class="sa-field-notes" id="county-field-notes" aria-label="از تجربهٔ مسافرها">
+		<div class="profile-box sa-field-notes__head">
+			<h2>از تجربهٔ مسافرها</h2>
+			<p>راستش را بخواهید، این بخش از صفحه را از روی تازه‌ترین تجربه‌هایی جمع کرده‌ایم که مردم در گوگل‌مپ، نشان، بلد و صفحه‌های اقامتگاه‌ها نوشته‌اند؛ همان چیزهایی که معمولاً توی مقاله‌های رسمی پیدا نمی‌شود. ممکن است بعضی جزئیات، وقتی شما می‌روید، کمی فرق کرده باشد — راه و هوا و شلوغی ثابت نمی‌ماند — برای همین هر چند وقت یک بار برمی‌گردیم، تجربه‌های تازه را می‌خوانیم و این بخش را دوباره به‌روز می‌کنیم. اگر خودتان تازه از این طرف‌ها برگشته‌اید، تجربه‌تان را در بخش «شهر من» بنویسید تا بقیه هم استفاده کنند.</p>
+			<?php if ( ! empty( $sa_ins['field_update_note'] ) ) : ?>
+				<p class="sa-field-notes__updated">آخرین به‌روزرسانی این بخش: <?php echo esc_html( (string) $sa_ins['field_update_note'] ); ?></p>
+			<?php endif; ?>
+		</div>
+
+		<?php if ( ! empty( $sa_ins['access_facts'] ) ) : ?>
+			<div class="sa-field-facts" role="list" aria-label="دسترسی در یک نگاه">
+				<?php foreach ( (array) $sa_ins['access_facts'] as $sa_fact_label => $sa_fact_value ) : ?>
+					<div class="sa-field-fact profile-box" role="listitem">
+						<span class="sa-field-fact__label"><?php echo esc_html( (string) $sa_fact_label ); ?></span>
+						<span class="sa-field-fact__value"><?php echo esc_html( (string) $sa_fact_value ); ?></span>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $sa_ins['seasons'] ) ) : ?>
+			<div class="profile-box sa-field-seasons">
+				<h3>هر فصل که بروید، چه می‌بینید؟</h3>
+				<div class="sa-field-seasons__grid">
+					<?php foreach ( (array) $sa_ins['seasons'] as $sa_season_name => $sa_season_text ) : ?>
+						<?php $sa_is_best = ( ! empty( $sa_ins['best_season'] ) && false !== mb_strpos( (string) $sa_ins['best_season'], (string) $sa_season_name ) ); ?>
+						<div class="sa-field-season<?php echo $sa_is_best ? ' sa-field-season--best' : ''; ?>">
+							<span class="sa-field-season__name"><?php echo esc_html( (string) $sa_season_name ); ?><?php if ( $sa_is_best ) : ?> <span class="sa-field-season__badge">فصل پیشنهادی</span><?php endif; ?></span>
+							<p><?php echo esc_html( (string) $sa_season_text ); ?></p>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $sa_ins['extra_places'] ) ) : ?>
+			<div class="profile-box sa-field-places">
+				<h3>جاهایی که مردم زیاد می‌روند و شاید در متن بالا نباشد</h3>
+				<ul class="sa-field-places__list">
+					<?php foreach ( (array) $sa_ins['extra_places'] as $sa_place ) : ?>
+						<li class="sa-field-place">
+							<div class="sa-field-place__head">
+								<strong><?php echo esc_html( (string) $sa_place['name'] ); ?></strong>
+								<?php if ( ! empty( $sa_place['kind'] ) ) : ?><span class="sa-field-place__kind"><?php echo esc_html( (string) $sa_place['kind'] ); ?></span><?php endif; ?>
+							</div>
+							<?php if ( ! empty( $sa_place['access'] ) ) : ?><p class="sa-field-place__access"><span>مسیر و موقعیت:</span> <?php echo esc_html( (string) $sa_place['access'] ); ?></p><?php endif; ?>
+							<?php if ( ! empty( $sa_place['note'] ) ) : ?><p class="sa-field-place__note"><?php echo esc_html( (string) $sa_place['note'] ); ?></p><?php endif; ?>
+							<?php if ( ! empty( $sa_place['url'] ) ) : ?><p class="sa-field-place__link"><a href="<?php echo esc_url( (string) $sa_place['url'] ); ?>" rel="noopener" target="_blank">وب‌سایت یا صفحهٔ این مکان ←</a></p><?php endif; ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $sa_ins['local_tips'] ) ) : ?>
+			<div class="profile-box sa-field-tips">
+				<h3>نکته‌هایی که کاش قبل از راه‌افتادن بدانید</h3>
+				<div class="sa-field-tips__grid">
+					<?php foreach ( (array) $sa_ins['local_tips'] as $sa_tip ) : ?>
+						<div class="sa-field-tip sa-field-tip--<?php echo esc_attr( (string) $sa_tip['category'] ); ?>">
+							<span class="sa-field-tip__cat"><?php echo esc_html( (string) $sa_tip['cat_label'] ); ?></span>
+							<strong><?php echo esc_html( (string) $sa_tip['title'] ); ?></strong>
+							<p><?php echo esc_html( (string) $sa_tip['text'] ); ?></p>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		<?php endif; ?>
+
+		<?php if ( ! empty( $sa_ins['people_character'] ) ) : ?>
+			<div class="profile-box sa-field-people">
+				<h3>مردمِ این‌جا، از نگاه مسافرها</h3>
+				<p><?php echo esc_html( (string) $sa_ins['people_character'] ); ?></p>
+			</div>
+		<?php endif; ?>
 	</section>
 <?php endif; ?>

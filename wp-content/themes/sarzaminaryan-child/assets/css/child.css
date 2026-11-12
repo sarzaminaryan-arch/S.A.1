@@ -6964,3 +6964,203 @@ body.bg-lines::before {
 .sa-archive__seo-index a:focus-visible {
 	text-decoration-color: currentColor;
 }
+
+/* ==========================================================================
+   v2.22.49 — بلوک «از تجربهٔ مسافرها» (CU-1)
+   لایهٔ زندهٔ صفحهٔ شهرستان: دسترسی در یک نگاه، چهار فصل، جاهای دیگری که مردم
+   می‌روند، نکات بومی با رنگ‌بندی دسته‌ای و «مردم از نگاه مسافرها». رنگ‌ها از
+   همان خانوادهٔ سرمه‌ای قالب‌اند؛ دسته‌ها فقط ته‌رنگ و نوار کناری متفاوت دارند
+   تا صفحه شلوغ و ناهماهنگ نشود. گوشه‌های گرد و سایهٔ ملایم هم‌خانوادهٔ کارت‌های
+   شناسنامه است.
+   ========================================================================== */
+.sa-field-notes {
+	display: grid;
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.sa-field-notes__head h2 {
+	margin: 0 0 .5rem;
+	font-size: 1.35rem;
+}
+
+.sa-field-notes__head p {
+	margin: 0;
+	line-height: 1.9;
+	color: #3d4852;
+}
+
+.sa-field-notes__updated {
+	margin-top: .6rem !important;
+	font-size: .85rem;
+	font-weight: 700;
+	color: var(--color-primary-dark);
+}
+
+.sa-field-facts {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: .75rem;
+}
+
+.sa-field-fact {
+	display: grid;
+	gap: .2rem;
+	padding: .8rem .9rem;
+	border-radius: 1rem;
+}
+
+.sa-field-fact__label {
+	font-size: .75rem;
+	font-weight: 700;
+	color: var(--color-secondary);
+}
+
+.sa-field-fact__value {
+	font-size: .92rem;
+	font-weight: 800;
+	color: var(--sa-navy-900, #0b2a4a);
+	line-height: 1.7;
+}
+
+.sa-field-seasons h3,
+.sa-field-places h3,
+.sa-field-tips h3,
+.sa-field-people h3 {
+	margin: 0 0 .7rem;
+	font-size: 1.05rem;
+}
+
+.sa-field-seasons__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: .75rem;
+}
+
+.sa-field-season {
+	padding: .8rem .9rem;
+	border: 1px solid var(--color-border);
+	border-radius: 1rem;
+	background: #fff;
+}
+
+.sa-field-season--best {
+	border-color: rgba(11, 122, 62, .45);
+	background: rgba(11, 122, 62, .05);
+}
+
+.sa-field-season__name {
+	display: flex;
+	align-items: center;
+	gap: .5rem;
+	font-weight: 900;
+	color: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-field-season__badge {
+	font-size: .68rem;
+	font-weight: 800;
+	padding: .1rem .55rem;
+	border-radius: 999px;
+	background: rgba(11, 122, 62, .14);
+	color: #0b7a3e;
+}
+
+.sa-field-season p,
+.sa-field-people p {
+	margin: .4rem 0 0;
+	font-size: .9rem;
+	line-height: 1.85;
+	color: #3d4852;
+}
+
+.sa-field-places__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: .75rem;
+}
+
+.sa-field-place {
+	padding: .8rem .9rem;
+	border: 1px solid var(--color-border);
+	border-radius: 1rem;
+	background: #fff;
+}
+
+.sa-field-place__head {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: .5rem;
+}
+
+.sa-field-place__kind {
+	font-size: .7rem;
+	font-weight: 800;
+	padding: .1rem .55rem;
+	border-radius: 999px;
+	background: var(--sa-surface-2);
+	color: var(--color-primary-dark);
+}
+
+.sa-field-place p {
+	margin: .35rem 0 0;
+	font-size: .9rem;
+	line-height: 1.8;
+	color: #3d4852;
+}
+
+.sa-field-place__access span {
+	font-weight: 800;
+	color: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-field-place__link a {
+	font-weight: 800;
+}
+
+.sa-field-tips__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: .75rem;
+}
+
+.sa-field-tip {
+	padding: .8rem .9rem;
+	border-radius: 1rem;
+	border: 1px solid var(--color-border);
+	border-inline-start: 4px solid var(--color-border);
+	background: #fff;
+}
+
+.sa-field-tip--warning {
+	border-inline-start-color: #d97706;
+	background: rgba(217, 119, 6, .05);
+}
+
+.sa-field-tip--culture {
+	border-inline-start-color: #0284c7;
+	background: rgba(2, 132, 199, .05);
+}
+
+.sa-field-tip--logistics {
+	border-inline-start-color: #059669;
+	background: rgba(5, 150, 105, .05);
+}
+
+.sa-field-tip__cat {
+	display: block;
+	font-size: .7rem;
+	font-weight: 800;
+	color: var(--color-secondary);
+	margin-bottom: .25rem;
+}
+
+.sa-field-tip p {
+	margin: .3rem 0 0;
+	font-size: .9rem;
+	line-height: 1.8;
+	color: #3d4852;
+}

@@ -115,6 +115,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"
 
+      - name: Run county insights tests (لایهٔ «از تجربهٔ مسافرها»: فیلدهای دسترسی/فصل‌ها/نکات/جاها)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-insights.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |
