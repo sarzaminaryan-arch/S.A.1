@@ -35,6 +35,7 @@ function is_admin() { return false; }
 function is_feed() { return false; }
 function is_singular() { return true; }
 function get_the_ID() { return 213; }
+function home_url() { return 'https://example.test'; }
 function get_queried_object_id() { return 213; }
 function get_post_meta( $id, $key, $single = false ) {
 	unset( $single );
