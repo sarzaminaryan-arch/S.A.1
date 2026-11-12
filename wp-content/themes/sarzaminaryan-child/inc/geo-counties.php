@@ -173,6 +173,30 @@ function sa_province_capital_name( $slug ) {
 	return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
 }
 
+/**
+ * Fixed-line area code (پیش‌شماره تلفن ثابت) for a province slug, from
+ * data/provinces.php. After the national هم‌کدسازی, every county of a
+ * province shares the province code.
+ *
+ * @param string $slug Province slug.
+ * @return string Persian-digit code (e.g. ۰۲۱), or '' when unknown.
+ */
+function sa_province_phone_code( $slug ) {
+	static $map = null;
+	if ( null === $map ) {
+		$map  = array();
+		$file = SA_CHILD_DIR . 'data/provinces.php';
+		if ( is_readable( $file ) ) {
+			foreach ( (array) require $file as $p ) {
+				if ( isset( $p['slug'], $p['phone'] ) ) {
+					$map[ $p['slug'] ] = $p['phone'];
+				}
+			}
+		}
+	}
+	return isset( $map[ $slug ] ) ? $map[ $slug ] : '';
+}
+
 function sa_province_name( $slug ) {
 	static $map = null;
 	if ( null === $map ) {
