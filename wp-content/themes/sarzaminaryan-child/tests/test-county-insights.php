@@ -227,6 +227,71 @@ $block60 = substr( $css60, (int) $pos60, 1400 );
 sa_ci_assert( false !== strpos( $block60, 'justify-self: start' ), 'css: access-fact badge hugs its word, never the card width (2.22.60)' );
 sa_ci_assert( false !== strpos( $block60, 'display: inline-block' ), 'css: access-fact badge is inline like the place-kind label (2.22.60)' );
 
+/* ---- 4h. Bundled seeds: ten-city batch import (2.22.62) ------------------ */
+
+$batch62 = array(
+	53 => array( 'kermanshah', 'کرمانشاه', 7, 9, 'ایران ۱۹' ),
+	54 => array( 'urmia', 'ارومیه', 7, 8, 'ایران ۱۷' ),
+	55 => array( 'rasht', 'رشت', 7, 8, 'ایران ۴۶' ),
+	56 => array( 'zahedan', 'زاهدان', 7, 8, 'ایران ۸۵' ),
+	57 => array( 'hamedan', 'همدان', 7, 9, 'ایران ۱۸' ),
+	58 => array( 'kerman', 'کرمان', 7, 9, 'ایران ۴۵' ),
+	59 => array( 'yazd', 'یزد', 7, 9, 'ایران ۵۴' ),
+	60 => array( 'ardabil-city', 'اردبیل', 7, 8, 'ایران ۹۱، ۷۶' ),
+	61 => array( 'bandar-e-abbas', 'بندرعباس', 7, 9, 'ایران ۸۴' ),
+	62 => array( 'arak', 'اراک', 6, 8, 'ایران ۴۷' ),
+);
+foreach ( $batch62 as $batch_id => $batch_row ) {
+	list( $batch_slug, $batch_name, $batch_tips, $batch_places, $batch_plate ) = $batch_row;
+	$GLOBALS['t']['posts'][ $batch_id ] = (object) array( 'ID' => $batch_id, 'post_type' => 'city', 'post_name' => $batch_slug, 'post_title' => $batch_name, 'post_status' => 'publish' );
+	$GLOBALS['t']['meta'][ $batch_id ]   = array();
+	$batch_data = sa_county_profile_data( $batch_id );
+	sa_ci_assert( ! empty( $batch_data['has_insights'] ), "bundled: {$batch_slug} traveller block switches on from the shipped seed (2.22.62)" );
+	sa_ci_assert( $batch_tips === count( $batch_data['local_tips'] ) && $batch_places === count( $batch_data['extra_places'] ), "bundled: {$batch_slug} tips and places parsed from the seed (2.22.62)" );
+	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.62)" );
+}
+
+/* ---- 4i. Bundled seeds: seven-city batch import up to ساری (2.22.63) ----- */
+
+$batch63 = array(
+	63 => array( 'eslamshahr', 'اسلامشهر', 7, 8, 'ایران ۷۸، ۲۱، ۳۸' ),
+	64 => array( 'zanjan-city', 'زنجان', 7, 8, 'ایران ۸۷' ),
+	65 => array( 'sanandaj', 'سنندج', 7, 8, 'ایران ۵۱' ),
+	66 => array( 'qazvin-city', 'قزوین', 7, 9, 'ایران ۷۹' ),
+	67 => array( 'khorramabad', 'خرم‌آباد', 7, 9, 'ایران ۳۱' ),
+	68 => array( 'gorgan', 'گرگان', 7, 9, 'ایران ۵۹' ),
+	69 => array( 'sari', 'ساری', 7, 9, 'ایران ۶۲' ),
+);
+foreach ( $batch63 as $batch_id => $batch_row ) {
+	list( $batch_slug, $batch_name, $batch_tips, $batch_places, $batch_plate ) = $batch_row;
+	$GLOBALS['t']['posts'][ $batch_id ] = (object) array( 'ID' => $batch_id, 'post_type' => 'city', 'post_name' => $batch_slug, 'post_title' => $batch_name, 'post_status' => 'publish' );
+	$GLOBALS['t']['meta'][ $batch_id ]   = array();
+	$batch_data = sa_county_profile_data( $batch_id );
+	sa_ci_assert( ! empty( $batch_data['has_insights'] ), "bundled: {$batch_slug} traveller block switches on from the shipped seed (2.22.63)" );
+	sa_ci_assert( $batch_tips === count( $batch_data['local_tips'] ) && $batch_places === count( $batch_data['extra_places'] ), "bundled: {$batch_slug} tips and places parsed from the seed (2.22.63)" );
+	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.63)" );
+	// خرم‌آباد: آبشار بیشه جزو شهرستان دورود است و نباید در رکورد این شهر باشد (تذکر مالک).
+	if ( 'khorramabad' === $batch_slug ) {
+		$batch_names = array();
+		foreach ( $batch_data['extra_places'] as $batch_place ) {
+			$batch_names[] = $batch_place['name'];
+		}
+		sa_ci_assert( false === strpos( implode( ' ', $batch_names ), 'بیشه' ), 'bundled: khorramabad carries no Bisheh place (Dorud county, owner note)' );
+		sa_ci_assert( in_array( 'پارک جنگلی مخمل‌کوه', $batch_names, true ), 'bundled: khorramabad Mokhmal Kooh park is present instead of Bisheh (2.22.63)' );
+	}
+}
+
+/* ---- 4g. Fact badge fits its word vertically too (2.22.61) --------------- */
+
+$css61 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+$pos61 = strpos( $css61, 'v2.22.61' );
+sa_ci_assert( false !== $pos61, 'css: v2.22.61 badge-fit block exists' );
+$block61 = substr( $css61, (int) $pos61, 1600 );
+sa_ci_assert( false !== strpos( $block61, '.sa-field-fact__label' ), 'css: access-fact badge restyled in the 2.22.61 block' );
+sa_ci_assert( false !== strpos( $block61, 'align-self: start' ), 'css: access-fact badge never stretches tall in equal-height desktop rows (2.22.61)' );
+sa_ci_assert( false !== strpos( $block61, 'align-content: start' ), 'css: access-fact card rows pack from the top (2.22.61)' );
+sa_ci_assert( false !== strpos( $block61, 'width: fit-content' ), 'css: access-fact badge width fits its word on desktop too (2.22.61)' );
+
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
