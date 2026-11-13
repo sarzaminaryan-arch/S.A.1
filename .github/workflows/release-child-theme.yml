@@ -127,7 +127,7 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-insights.php"
 
-      - name: Run province county-link tests (لینک شهرستان‌ها روی صفحهٔ استان: نامزد نامک + fallback بدون رابطه)
+      - name: 'Run province county-link tests (لینک شهرستان‌ها روی صفحهٔ استان — نامزد نامک و fallback)'
         shell: bash
         run: php "$THEME_DIR/tests/test-province-county-links.php"
 
