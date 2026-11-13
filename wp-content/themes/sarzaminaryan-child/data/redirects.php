@@ -118,4 +118,18 @@ return array(
 	'/attraction/26950-کویر-ریگ-جن/' => '/attraction/rig-e-jenn-desert/',
 	'/attraction/6619-ghlh-dkhtr-bshrvih/' => '/attraction/ghaleh-dokhtar-boshruyeh/',
 	'/attraction/6619-قلعه-دختر-بشرویه/' => '/attraction/ghaleh-dokhtar-boshruyeh/',
+
+	/*
+	 * ترمیمِ ۴۰۴های گزارشِ پوششِ سرچ‌کنسول (۲۰۲۶-۱۱-۱۳؛ قالب 2.22.64).
+	 * صفحه‌های حذف‌شده‌ای که هنوز از بیرون/داخل پیوند می‌گیرند، به نزدیک‌ترین
+	 * صفحهٔ زنده می‌روند. مقصدها عمداً از میانِ صفحه‌های ایندکس‌شده انتخاب
+	 * شده‌اند و هیچ‌کدام خودشان مبدأِ تغییرمسیر نیستند (زنجیره ساخته نمی‌شود)؛
+	 * موتورِ تغییرمسیر هم فقط وقتی مقصد واقعاً منتشر شده باشد ۳۰۱ می‌فرستد.
+	 * نشانی‌های الگوییِ گزارش (`/wp-content/*` و مانند آن) و `?page_id`های
+	 * پیش‌فرضِ قدیمی صفحهٔ واقعی نیستند و دست‌نخورده می‌مانند.
+	 */
+	'/city/savojbolagh/' => '/province/alborz/',
+	'/attraction/vank-cathedral/' => '/province/isfahan/',
+	'/attraction/shah-cheragh/' => '/city/shiraz/',
+	'/editorial-policy/' => '/policy/',
 );
