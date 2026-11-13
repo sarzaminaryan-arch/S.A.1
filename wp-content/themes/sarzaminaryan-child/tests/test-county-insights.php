@@ -227,6 +227,17 @@ $block60 = substr( $css60, (int) $pos60, 1400 );
 sa_ci_assert( false !== strpos( $block60, 'justify-self: start' ), 'css: access-fact badge hugs its word, never the card width (2.22.60)' );
 sa_ci_assert( false !== strpos( $block60, 'display: inline-block' ), 'css: access-fact badge is inline like the place-kind label (2.22.60)' );
 
+/* ---- 4g. Fact badge fits its word vertically too (2.22.61) --------------- */
+
+$css61 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+$pos61 = strpos( $css61, 'v2.22.61' );
+sa_ci_assert( false !== $pos61, 'css: v2.22.61 badge-fit block exists' );
+$block61 = substr( $css61, (int) $pos61, 1600 );
+sa_ci_assert( false !== strpos( $block61, '.sa-field-fact__label' ), 'css: access-fact badge restyled in the 2.22.61 block' );
+sa_ci_assert( false !== strpos( $block61, 'align-self: start' ), 'css: access-fact badge never stretches tall in equal-height desktop rows (2.22.61)' );
+sa_ci_assert( false !== strpos( $block61, 'align-content: start' ), 'css: access-fact card rows pack from the top (2.22.61)' );
+sa_ci_assert( false !== strpos( $block61, 'width: fit-content' ), 'css: access-fact badge width fits its word on desktop too (2.22.61)' );
+
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
