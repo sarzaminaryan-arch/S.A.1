@@ -227,6 +227,30 @@ $block60 = substr( $css60, (int) $pos60, 1400 );
 sa_ci_assert( false !== strpos( $block60, 'justify-self: start' ), 'css: access-fact badge hugs its word, never the card width (2.22.60)' );
 sa_ci_assert( false !== strpos( $block60, 'display: inline-block' ), 'css: access-fact badge is inline like the place-kind label (2.22.60)' );
 
+/* ---- 4h. Bundled seeds: ten-city batch import (2.22.62) ------------------ */
+
+$batch62 = array(
+	53 => array( 'kermanshah', 'کرمانشاه', 7, 9, 'ایران ۱۹' ),
+	54 => array( 'urmia', 'ارومیه', 7, 8, 'ایران ۱۷' ),
+	55 => array( 'rasht', 'رشت', 7, 8, 'ایران ۴۶' ),
+	56 => array( 'zahedan', 'زاهدان', 7, 8, 'ایران ۸۵' ),
+	57 => array( 'hamedan', 'همدان', 7, 9, 'ایران ۱۸' ),
+	58 => array( 'kerman', 'کرمان', 7, 9, 'ایران ۴۵' ),
+	59 => array( 'yazd', 'یزد', 7, 9, 'ایران ۵۴' ),
+	60 => array( 'ardabil-city', 'اردبیل', 7, 8, 'ایران ۹۱، ۷۶' ),
+	61 => array( 'bandar-e-abbas', 'بندرعباس', 7, 9, 'ایران ۸۴' ),
+	62 => array( 'arak', 'اراک', 6, 8, 'ایران ۴۷' ),
+);
+foreach ( $batch62 as $batch_id => $batch_row ) {
+	list( $batch_slug, $batch_name, $batch_tips, $batch_places, $batch_plate ) = $batch_row;
+	$GLOBALS['t']['posts'][ $batch_id ] = (object) array( 'ID' => $batch_id, 'post_type' => 'city', 'post_name' => $batch_slug, 'post_title' => $batch_name, 'post_status' => 'publish' );
+	$GLOBALS['t']['meta'][ $batch_id ]   = array();
+	$batch_data = sa_county_profile_data( $batch_id );
+	sa_ci_assert( ! empty( $batch_data['has_insights'] ), "bundled: {$batch_slug} traveller block switches on from the shipped seed (2.22.62)" );
+	sa_ci_assert( $batch_tips === count( $batch_data['local_tips'] ) && $batch_places === count( $batch_data['extra_places'] ), "bundled: {$batch_slug} tips and places parsed from the seed (2.22.62)" );
+	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.62)" );
+}
+
 /* ---- 4g. Fact badge fits its word vertically too (2.22.61) --------------- */
 
 $css61 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
