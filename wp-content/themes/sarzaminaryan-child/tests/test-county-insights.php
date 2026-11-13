@@ -251,6 +251,36 @@ foreach ( $batch62 as $batch_id => $batch_row ) {
 	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.62)" );
 }
 
+/* ---- 4i. Bundled seeds: seven-city batch import up to ساری (2.22.63) ----- */
+
+$batch63 = array(
+	63 => array( 'eslamshahr', 'اسلامشهر', 7, 8, 'ایران ۷۸، ۲۱، ۳۸' ),
+	64 => array( 'zanjan-city', 'زنجان', 7, 8, 'ایران ۸۷' ),
+	65 => array( 'sanandaj', 'سنندج', 7, 8, 'ایران ۵۱' ),
+	66 => array( 'qazvin-city', 'قزوین', 7, 9, 'ایران ۷۹' ),
+	67 => array( 'khorramabad', 'خرم‌آباد', 7, 9, 'ایران ۳۱' ),
+	68 => array( 'gorgan', 'گرگان', 7, 9, 'ایران ۵۹' ),
+	69 => array( 'sari', 'ساری', 7, 9, 'ایران ۶۲' ),
+);
+foreach ( $batch63 as $batch_id => $batch_row ) {
+	list( $batch_slug, $batch_name, $batch_tips, $batch_places, $batch_plate ) = $batch_row;
+	$GLOBALS['t']['posts'][ $batch_id ] = (object) array( 'ID' => $batch_id, 'post_type' => 'city', 'post_name' => $batch_slug, 'post_title' => $batch_name, 'post_status' => 'publish' );
+	$GLOBALS['t']['meta'][ $batch_id ]   = array();
+	$batch_data = sa_county_profile_data( $batch_id );
+	sa_ci_assert( ! empty( $batch_data['has_insights'] ), "bundled: {$batch_slug} traveller block switches on from the shipped seed (2.22.63)" );
+	sa_ci_assert( $batch_tips === count( $batch_data['local_tips'] ) && $batch_places === count( $batch_data['extra_places'] ), "bundled: {$batch_slug} tips and places parsed from the seed (2.22.63)" );
+	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.63)" );
+	// خرم‌آباد: آبشار بیشه جزو شهرستان دورود است و نباید در رکورد این شهر باشد (تذکر مالک).
+	if ( 'khorramabad' === $batch_slug ) {
+		$batch_names = array();
+		foreach ( $batch_data['extra_places'] as $batch_place ) {
+			$batch_names[] = $batch_place['name'];
+		}
+		sa_ci_assert( false === strpos( implode( ' ', $batch_names ), 'بیشه' ), 'bundled: khorramabad carries no Bisheh place (Dorud county, owner note)' );
+		sa_ci_assert( in_array( 'پارک جنگلی مخمل‌کوه', $batch_names, true ), 'bundled: khorramabad Mokhmal Kooh park is present instead of Bisheh (2.22.63)' );
+	}
+}
+
 /* ---- 4g. Fact badge fits its word vertically too (2.22.61) --------------- */
 
 $css61 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
