@@ -284,6 +284,54 @@ $GLOBALS['t']['current'] = 0;
 $GLOBALS['t']['mods']['sa_show_featured_images'] = true; // وضعیت پیش از این بخش، برای آزمون‌های پایین.
 
 /* ---------------------------------------------------------------------------
+ * 2b-2) «استان‌ها» (v2.22.70، درخواست مالک): تصویر شاخص هر استان فقط اول
+ * صفحهٔ خودِ همان استان و بالای شناسنامه؛ هیچ جای دیگر (کارت، آرشیو، صفحهٔ اصلی).
+ * ------------------------------------------------------------------------- */
+$sa_prev_global = isset( $GLOBALS['t']['mods']['sa_show_featured_images'] ) ? $GLOBALS['t']['mods']['sa_show_featured_images'] : false;
+$GLOBALS['t']['posts'][60]    = array( 'thumb' => 600, 'type' => 'province', 'slug' => 'fars' );
+$GLOBALS['t']['attached'][600] = array( 'missing' => false );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false; // کلید سراسری خاموش.
+
+sa_t_assert( true === sa_province_images_visible(), 'province covers are on by default (v2.22.70)' );
+sa_t_assert( true === sa_featured_image_is_province( 60 ), 'the province post is recognised' );
+sa_t_assert( false === sa_featured_image_is_province( 40 ), 'an attraction is not a province' );
+sa_t_assert( true === sa_featured_image_available( 60, 'province-top' ), 'the province cover shows at the top of its own page even with the global switch off' );
+sa_t_assert( false === sa_featured_image_available( 60, 'card' ), 'the province cover never shows on list cards' );
+sa_t_assert( false === sa_featured_image_available( 60, 'hero' ), 'the province cover is not a hero image' );
+sa_t_assert( false === sa_featured_image_available( 60 ), 'the province cover needs its own page context' );
+
+$GLOBALS['t']['mods']['sa_show_featured_images'] = true;
+sa_t_assert( false === sa_featured_image_available( 60, 'card' ), 'the global switch still keeps province covers off the cards' );
+sa_t_assert( true === sa_featured_image_available( 60, 'province-top' ), 'the top of the province page stays the only allowed place' );
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 5 ), 'other posts still follow the global switch' );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false;
+
+$GLOBALS['t']['current'] = 60;
+sa_t_assert( '' === sa_featured_image_guard( '<img>', 60 ), 'outside the page top the province cover is removed by the guard' );
+$GLOBALS['sa_featured_image_render_context'] = 'province-top';
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 60 ), 'at the page top the province cover passes the guard' );
+unset( $GLOBALS['sa_featured_image_render_context'] );
+$GLOBALS['t']['current'] = 0;
+
+$sa_pfig = sa_province_featured_figure( 60 );
+sa_t_assert( 0 === strpos( $sa_pfig, '<figure class="sa-province-cover">' ), 'the province figure wraps the cover' );
+sa_t_assert( false !== strpos( $sa_pfig, '<img' ), 'the province figure prints the thumbnail' );
+sa_t_assert( '' === sa_province_featured_figure( 5 ), 'a non-province post never gets the province figure' );
+sa_t_assert( '' === sa_province_featured_figure( 40 ), 'an attraction never gets the province figure' );
+
+$GLOBALS['t']['attached'][600]['missing'] = true;
+sa_t_assert( '' === sa_province_featured_figure( 60 ), 'a deleted province cover file prints nothing' );
+$GLOBALS['t']['attached'][600]['missing'] = false;
+
+$GLOBALS['t']['posts'][61] = array( 'type' => 'province', 'slug' => 'yazd' );
+sa_t_assert( '' === sa_province_featured_figure( 61 ), 'a province without a featured image prints nothing' );
+
+$GLOBALS['t']['mods']['sa_show_province_image'] = false;
+sa_t_assert( '' === sa_province_featured_figure( 60 ), 'the province key turns the page-top cover off' );
+unset( $GLOBALS['t']['mods']['sa_show_province_image'] );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = $sa_prev_global;
+
+/* ---------------------------------------------------------------------------
  * 2c) قالب صفحهٔ موجودیت‌ها و ۳ کارت «شناسنامه» سایبری (v2.19.1):
  * استان، شهرستان و دیدنی هر کدام جدول شناسنامهٔ اختصاصی دارند و اطلاعات کلیدی تکراری ندارند.
  * ------------------------------------------------------------------------- */
@@ -301,6 +349,10 @@ if ( false !== $template ) {
 		sa_t_assert( false !== $position, 'the template still contains the ' . $name . ' reference' );
 	}
 	sa_t_assert( $pos['profile'] < $pos['content'], 'province identity card comes before body content' );
+	$sa_pcover = strpos( $template, 'sa_province_featured_figure( $sa_id )' );
+	sa_t_assert( false !== $sa_pcover, 'the province page prints its featured image (v2.22.70)' );
+	sa_t_assert( $sa_pcover < $pos['profile'], 'the province featured image sits above the identity card (v2.22.70)' );
+	sa_t_assert( 1 === substr_count( $template, 'sa_province_featured_figure(' ), 'the province featured image is printed in one place only (v2.22.70)' );
 	sa_t_assert( $pos['county'] < $pos['content'], 'county identity card comes before body content' );
 
 	foreach ( array(
@@ -377,4 +429,4 @@ sa_t_assert( false === sa_content_image_missing( SA_FEAT_ALT_URL ), 'a surviving
 @rmdir( $GLOBALS['t']['tmp'] . '/2026' ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 @rmdir( $GLOBALS['t']['tmp'] ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 
-echo "PASS: featured images (hidden by default, attraction cover first in the article, missing files never shown, in-content placeholder)\n";
+echo "PASS: featured images (hidden by default, attraction cover first in the article, province cover on top of its own page, missing files never shown, in-content placeholder)\n";

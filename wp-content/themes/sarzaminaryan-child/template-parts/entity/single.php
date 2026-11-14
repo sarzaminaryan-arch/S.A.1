@@ -27,6 +27,10 @@ $sa_type = get_post_type( $sa_id );
 	<div class="container sa-entity__layout">
 		<?php
 		if ( 'province' === $sa_type ) {
+			// v2.22.70: تصویر شاخص استان فقط همین‌جا، اول صفحه و بالای شناسنامه.
+			if ( function_exists( 'sa_province_featured_figure' ) ) {
+				echo sa_province_featured_figure( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 			get_template_part( 'template-parts/entity/province-identity' );
 		} elseif ( 'city' === $sa_type ) {
 			get_template_part( 'template-parts/entity/county-profile' );
