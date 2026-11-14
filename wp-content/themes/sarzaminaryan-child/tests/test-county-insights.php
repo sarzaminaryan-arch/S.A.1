@@ -189,7 +189,7 @@ $GLOBALS['t']['posts'][50] = (object) array( 'ID' => 50, 'post_type' => 'city', 
 $GLOBALS['t']['meta'][50]   = array();
 $tabriz = sa_county_profile_data( 50 );
 sa_ci_assert( ! empty( $tabriz['has_insights'] ), 'bundled: Tabriz traveller block switches on from the shipped seed' );
-sa_ci_assert( 6 === count( $tabriz['local_tips'] ) && 9 === count( $tabriz['extra_places'] ), 'bundled: Tabriz tips and places parsed from the seed' );
+sa_ci_assert( 6 === count( $tabriz['local_tips'] ) && 8 === count( $tabriz['extra_places'] ), 'bundled: Tabriz tips and places parsed from the seed (tram-under-construction place dropped in 2.22.71)' );
 sa_ci_assert( 'ایران ۱۵، ۳۵' === $tabriz['plate_code'], 'bundled: Tabriz plate reaches tile 12 without meta' );
 sa_ci_assert( '2026-11-12' === $tabriz['insight_updated_at'], 'bundled: insight freshness date is exposed for schema dateModified' );
 
@@ -284,9 +284,9 @@ foreach ( $batch63 as $batch_id => $batch_row ) {
 /* ---- 4j. Bundled seeds: قدس، کاشان و ملارد (2.22.65) --------------------- */
 
 $batch65 = array(
-	70 => array( 'qods', 'قدس', 6, 8, 'ایران ۲۱' ),
+	70 => array( 'qods', 'قدس', 5, 8, 'ایران ۲۱' ),
 	71 => array( 'kashan', 'کاشان', 6, 9, 'ایران ۴۳' ),
-	72 => array( 'malard', 'ملارد', 6, 8, 'ایران ۲۱' ),
+	72 => array( 'malard', 'ملارد', 5, 8, 'ایران ۲۱' ),
 );
 foreach ( $batch65 as $batch_id => $batch_row ) {
 	list( $batch_slug, $batch_name, $batch_tips, $batch_places, $batch_plate ) = $batch_row;
@@ -416,6 +416,23 @@ sa_ci_assert( false !== strpos( $block61, 'width: fit-content' ), 'css: access-f
 
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
+/* ---- 4k. فقط جاهای باز و جمله‌های تأییدشده؛ بی «راستش» (2.22.71) --------- */
+
+$seed_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
+foreach ( array( 'در حال ساخت', 'در حال احداث', 'در حال تکمیل', 'در حال نهایی', 'در حال اجرا', 'به‌زودی', 'کلنگ', 'آمادهٔ افتتاح', 'هنوز کامل نیست' ) as $sa_future ) {
+	sa_ci_assert( false === strpos( $seed_src, $sa_future ), "seed: no not-yet-open place or project ({$sa_future}) in the traveller data (2.22.71)" );
+}
+sa_ci_assert( false === strpos( $seed_src, 'راستش' ), 'seed: the filler word «راستش» is not repeated in the traveller data (2.22.71)' );
+sa_ci_assert( false === strpos( $seed_src, 'غار دستکند قهرمان' ) && false === strpos( $seed_src, 'سند ۱۸ هکتار' ), 'seed: unverified/future Ladar sentences removed from khomeyni-shahr (2.22.71)' );
+$GLOBALS['t']['posts'][79] = (object) array( 'ID' => 79, 'post_type' => 'city', 'post_name' => 'kashan', 'post_title' => 'کاشان', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][79]   = array();
+$kashan71 = sa_county_profile_data( 79 );
+$kashan71_names = array();
+foreach ( $kashan71['extra_places'] as $kashan71_place ) {
+	$kashan71_names[] = $kashan71_place['name'];
+}
+sa_ci_assert( in_array( 'بوستان فیروزی', $kashan71_names, true ), 'bundled: kashan lists the open Firuzi park without the unopened pavilion (2.22.71)' );
+
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
 sa_ci_assert( false !== strpos( $tpl, 'id="county-field-notes"' ), 'template: block anchor exists for the TOC' );
 sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'از تجربهٔ مسافرها', 'county-field-notes', 6 )" ), 'template: TOC entry registered only with the block' );
@@ -423,6 +440,7 @@ sa_ci_assert( false !== strpos( $tpl, 'گوگل‌مپ، نشان، بلد' ), '
 sa_ci_assert( false !== strpos( $tpl, 'ممکن است بعضی جزئیات' ), 'template: note avoids fake certainty (owner voice)' );
 sa_ci_assert( false !== strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: note promises re-updates' );
 sa_ci_assert( false !== strpos( $tpl, 'تیم سرزمین آریان' ), 'template: note credits the Sarzamin Aryan research team (2.22.58)' );
+sa_ci_assert( false === strpos( $tpl, 'راستش را بخواهید' ), 'template: traveller-block intro no longer opens with «راستش را بخواهید» (2.22.71)' );
 sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip category colour classes rendered' );
 sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: license-plate tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'13 // AREA_CODE'" ), 'template: phone area-code tile registered in the identity card' );
