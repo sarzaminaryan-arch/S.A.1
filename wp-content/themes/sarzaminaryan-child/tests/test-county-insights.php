@@ -296,6 +296,17 @@ foreach ( $batch65 as $batch_id => $batch_row ) {
 	sa_ci_assert( ! empty( $batch_data['has_insights'] ), "bundled: {$batch_slug} traveller block switches on from the shipped seed (2.22.65)" );
 	sa_ci_assert( $batch_tips === count( $batch_data['local_tips'] ) && $batch_places === count( $batch_data['extra_places'] ), "bundled: {$batch_slug} tips and places parsed from the seed (2.22.65)" );
 	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.65)" );
+	// ملارد: آتشکدهٔ تخت رستم در دهستان جوقینِ شهرستان شهریار است و نباید در رکورد ملارد باشد؛ شهریار هم ایستگاه مترو ندارد (2.22.66).
+	if ( 'malard' === $batch_slug ) {
+		$malard_text = json_encode( $batch_data, JSON_UNESCAPED_UNICODE );
+		$malard_names = array();
+		foreach ( $batch_data['extra_places'] as $batch_place ) {
+			$malard_names[] = $batch_place['name'];
+		}
+		sa_ci_assert( false === strpos( implode( ' ', $malard_names ), 'تخت رستم' ), 'bundled: malard carries no Takht-e Rostam place (Shahriar county, 2.22.66)' );
+		sa_ci_assert( in_array( 'تپه‌های ارسطو و بالکین و تخت کیکاووس', $malard_names, true ), 'bundled: malard keeps its own Takht-e Kaykavus instead (2.22.66)' );
+		sa_ci_assert( false === strpos( (string) $malard_text, 'ایستگاه‌ها در شهریار' ), 'bundled: malard no longer claims metro stations in Shahriar (2.22.66)' );
+	}
 }
 
 // هیچ رکوردی در دادهٔ همراه قالب نباید اصطلاحات فرایند تولید داشته باشد (قاعدهٔ مالک، AGENTS.md بند ۸).
