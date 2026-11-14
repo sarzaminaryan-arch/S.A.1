@@ -309,6 +309,21 @@ foreach ( $batch65 as $batch_id => $batch_row ) {
 	}
 }
 
+/* ---- 4j. Bundled seed: شهریار (2.22.67) ---------------------------------- */
+
+$GLOBALS['t']['posts'][73] = (object) array( 'ID' => 73, 'post_type' => 'city', 'post_name' => 'shahriar', 'post_title' => 'شهریار', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][73]   = array();
+$shahriar_data = sa_county_profile_data( 73 );
+sa_ci_assert( ! empty( $shahriar_data['has_insights'] ), 'bundled: shahriar traveller block switches on from the shipped seed (2.22.67)' );
+sa_ci_assert( 5 === count( $shahriar_data['local_tips'] ) && 9 === count( $shahriar_data['extra_places'] ), 'bundled: shahriar tips and places parsed from the seed (2.22.67)' );
+sa_ci_assert( 'ایران ۲۱' === $shahriar_data['plate_code'], 'bundled: shahriar plate reaches tile 12 without meta (2.22.67)' );
+$shahriar_names = array();
+foreach ( $shahriar_data['extra_places'] as $shahriar_place ) {
+	$shahriar_names[] = $shahriar_place['name'];
+}
+// تخت رستم جای درستش، شهرستان شهریار (دهستان جوقین) است؛ همان که در 2.22.66 از ملارد برداشته شد.
+sa_ci_assert( in_array( 'آتشکدهٔ تخت رستم', $shahriar_names, true ), 'bundled: shahriar carries its own Takht-e Rostam fire temple (2.22.67)' );
+
 // هیچ رکوردی در دادهٔ همراه قالب نباید اصطلاحات فرایند تولید داشته باشد (قاعدهٔ مالک، AGENTS.md بند ۸).
 $seed_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
 sa_ci_assert( false === strpos( $seed_src, 'بازبینی انسانی' ), 'bundled: seed carries no production-process wording (2.22.65)' );
