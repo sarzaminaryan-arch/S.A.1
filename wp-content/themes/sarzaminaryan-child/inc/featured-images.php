@@ -16,6 +16,10 @@
  *    داخل بدنهٔ همان مقاله نشان داده می‌شود (کلید مستقل
  *    «sa_show_attraction_image»، پیش‌فرض روشن) و در هیچ محل دیگری — کارت‌های
  *    فهرست، آرشیو، صفحهٔ اصلی، شناسنامهٔ بالای صفحه — دیده نمی‌شود.
+ *    v2.22.70 — «استان‌ها» هم قاعدهٔ جدا گرفتند (درخواست مالک): تصویر شاخص هر
+ *    استان فقط در صفحهٔ خودِ همان استان، اول صفحه و بالای «شناسنامهٔ استان»
+ *    نمایش داده می‌شود (کلید مستقل «sa_show_province_image»، پیش‌فرض روشن) و
+ *    در کارت‌ها، آرشیوها، صفحهٔ اصلی و هر جای دیگر پنهان می‌ماند.
  * 2) کلید «تصویرهای گمشدهٔ داخل متن» (پیش‌فرض: روشن). تصویرهای داخل متن که
  *    فایلشان روی سرور نیست، به کادر متنی ساده تبدیل می‌شوند تا بازدیدکننده
  *    به‌جای آیکون تصویر شکسته، یک کادر آرام ببیند. فایل هرگز دست‌کاری
@@ -91,6 +95,46 @@ function sa_attraction_image_context() {
 }
 
 /**
+ * آیا تصویر شاخص «استان» بالای صفحهٔ همان استان نمایش داده شود؟ (v2.22.70)
+ *
+ * جدا از کلید سراسری است؛ پیش‌فرض روشن، چون همهٔ استان‌ها تصویر شاخص دارند.
+ *
+ * @return bool
+ */
+function sa_province_images_visible() {
+	$show = (bool) get_theme_mod( 'sa_show_province_image', true );
+	/**
+	 * نمایش تصویر شاخص «استان» بالای صفحهٔ خودش (پیش‌فرض روشن — v2.22.70).
+	 *
+	 * @param bool $show وضعیت.
+	 */
+	return (bool) apply_filters( 'sa_province_images_visible', $show );
+}
+
+/**
+ * آیا نوشته از نوع «استان» است؟
+ *
+ * @param int $post_id شناسهٔ نوشته.
+ * @return bool
+ */
+function sa_featured_image_is_province( $post_id ) {
+	$post_id = absint( $post_id );
+	if ( ! $post_id || ! function_exists( 'get_post_type' ) ) {
+		return false;
+	}
+	return 'province' === get_post_type( $post_id );
+}
+
+/**
+ * محل نمایش تصویر شاخص «استان»: اول صفحهٔ همان استان (تنها جای مجاز).
+ *
+ * @return string
+ */
+function sa_province_image_context() {
+	return 'province-top';
+}
+
+/**
  * آیا رکورد همین مقاله به‌طور صریح تصویر شاخص را حذف کرده است؟
  *
  * رکورد قالب، حذف را حتی پیش از اجرای ابزار در پیشخوان اعمال می‌کند؛ متای
@@ -151,6 +195,12 @@ function sa_featured_image_available( $post_id = 0, $context = '' ) {
 		if ( sa_attraction_image_context() !== $context || ! sa_attraction_images_visible() ) {
 			return false;
 		}
+	} elseif ( sa_featured_image_is_province( $post_id ) ) {
+		// v2.22.70 — استان‌ها: فقط اول صفحهٔ خودشان، با کلید مستقل؛ کارت‌ها،
+		// آرشیوها و صفحهٔ اصلی تصویر شاخص استان را نمی‌گیرند.
+		if ( sa_province_image_context() !== $context || ! sa_province_images_visible() ) {
+			return false;
+		}
 	} elseif ( ! sa_featured_images_visible( $context ) ) {
 		return false;
 	}
@@ -191,6 +241,11 @@ function sa_featured_image_guard( $html, $post_id = 0 ) {
 		// v2.18.16 — تصویر شاخص دیدنی فقط وقتی مجاز است که همان قالبِ مقاله
 		// آن را در بدنه می‌کشد؛ هر جای دیگر (کارت، آرشیو، هیرو، ابزارک) پنهان است.
 		if ( sa_attraction_image_context() !== $sa_render_context || ! sa_attraction_images_visible() ) {
+			return '';
+		}
+	} elseif ( $post_id && sa_featured_image_is_province( $post_id ) ) {
+		// v2.22.70 — تصویر شاخص استان فقط از اول صفحهٔ خودِ استان می‌آید.
+		if ( sa_province_image_context() !== $sa_render_context || ! sa_province_images_visible() ) {
 			return '';
 		}
 	} elseif ( ! sa_featured_images_visible( 'core' ) ) {
@@ -339,7 +394,7 @@ function sa_get_featured_image( $size = 'post-thumbnail', $attr = array(), $post
 	if ( ! sa_featured_image_available( $post_id, $context ) ) {
 		return '';
 	}
-	$mark = ( sa_attraction_image_context() === $context );
+	$mark = ( sa_attraction_image_context() === $context || sa_province_image_context() === $context );
 	if ( $mark ) {
 		// نگهبانِ سراسری باید بداند این تصویر از بدنهٔ خودِ مقالهٔ دیدنی می‌آید.
 		$GLOBALS['sa_featured_image_render_context'] = $context;
@@ -390,4 +445,42 @@ function sa_attraction_featured_figure( $post_id = 0, $size = '' ) {
 	</figure>
 	<?php
 	return trim( (string) ob_get_clean() );
+}
+
+/**
+ * تصویر شاخص اول صفحهٔ «استان»، بالای شناسنامهٔ استان (v2.22.70).
+ *
+ * تنها محلِ مجازِ نمایش تصویر شاخص استان‌ها. اگر تصویر نداشته باشد، کلیدش
+ * خاموش باشد یا فایلش روی سرور نباشد، هیچ خروجی‌ای تولید نمی‌شود.
+ *
+ * @param int    $post_id شناسهٔ نوشته (۰ = نوشتهٔ جاری).
+ * @param string $size    اندازهٔ تصویر (پیش‌فرض: ۱۶:۹ بدون برش).
+ * @return string
+ */
+function sa_province_featured_figure( $post_id = 0, $size = 'sa-guide-cover' ) {
+	$post_id = $post_id ? absint( $post_id ) : (int) get_the_ID();
+	if ( ! $post_id || ! sa_featured_image_is_province( $post_id ) ) {
+		return '';
+	}
+	$attr = array(
+		'loading'       => 'eager',
+		'fetchpriority' => 'high',
+		'decoding'      => 'async',
+		'class'         => 'sa-province-cover__img',
+	);
+	$alt = trim( (string) get_post_meta( (int) get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true ) );
+	if ( '' === $alt ) {
+		$name = function_exists( 'sa_province_name_for_post' ) ? (string) sa_province_name_for_post( $post_id, true ) : '';
+		if ( '' === $name && function_exists( 'get_the_title' ) ) {
+			$name = (string) get_the_title( $post_id );
+		}
+		if ( '' !== $name ) {
+			$attr['alt'] = $name;
+		}
+	}
+	$image = sa_get_featured_image( $size, $attr, $post_id, sa_province_image_context() );
+	if ( '' === $image ) {
+		return '';
+	}
+	return '<figure class="sa-province-cover">' . $image . '</figure>';
 }

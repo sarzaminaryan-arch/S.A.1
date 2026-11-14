@@ -7594,3 +7594,36 @@ body.bg-lines::before {
 	color: #111827;
 	margin-bottom: .35rem;
 }
+
+/* ==========================================================================
+   v2.22.70 — تصویر شاخص «استان»: فقط اول صفحهٔ همان استان، بالای شناسنامه
+   ========================================================================== */
+.sa-province-cover {
+	margin: 0 0 clamp(16px, 3vw, 28px);
+	padding: clamp(8px, 1.6vw, 14px);
+	border: 1px solid rgba(24, 85, 143, .14);
+	border-radius: 24px;
+	background: linear-gradient(145deg, #ffffff, #f2f8fd);
+	box-shadow: 0 20px 48px rgba(1, 31, 61, .09);
+}
+
+.sa-province-cover__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-height: min(72vh, 680px);
+	object-fit: contain;
+	border-radius: 16px;
+	background: #fff;
+}
+
+@media (max-width: 640px) {
+	.sa-province-cover {
+		padding: 6px;
+		border-radius: 16px;
+	}
+
+	.sa-province-cover__img {
+		border-radius: 11px;
+	}
+}

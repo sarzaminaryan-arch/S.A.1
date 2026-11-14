@@ -189,7 +189,7 @@ $GLOBALS['t']['posts'][50] = (object) array( 'ID' => 50, 'post_type' => 'city', 
 $GLOBALS['t']['meta'][50]   = array();
 $tabriz = sa_county_profile_data( 50 );
 sa_ci_assert( ! empty( $tabriz['has_insights'] ), 'bundled: Tabriz traveller block switches on from the shipped seed' );
-sa_ci_assert( 6 === count( $tabriz['local_tips'] ) && 9 === count( $tabriz['extra_places'] ), 'bundled: Tabriz tips and places parsed from the seed' );
+sa_ci_assert( 6 === count( $tabriz['local_tips'] ) && 8 === count( $tabriz['extra_places'] ), 'bundled: Tabriz tips and places parsed from the seed (tram-under-construction place dropped in 2.22.71)' );
 sa_ci_assert( 'ایران ۱۵، ۳۵' === $tabriz['plate_code'], 'bundled: Tabriz plate reaches tile 12 without meta' );
 sa_ci_assert( '2026-11-12' === $tabriz['insight_updated_at'], 'bundled: insight freshness date is exposed for schema dateModified' );
 
@@ -284,9 +284,9 @@ foreach ( $batch63 as $batch_id => $batch_row ) {
 /* ---- 4j. Bundled seeds: قدس، کاشان و ملارد (2.22.65) --------------------- */
 
 $batch65 = array(
-	70 => array( 'qods', 'قدس', 6, 8, 'ایران ۲۱' ),
+	70 => array( 'qods', 'قدس', 5, 8, 'ایران ۲۱' ),
 	71 => array( 'kashan', 'کاشان', 6, 9, 'ایران ۴۳' ),
-	72 => array( 'malard', 'ملارد', 6, 8, 'ایران ۲۱' ),
+	72 => array( 'malard', 'ملارد', 5, 8, 'ایران ۲۱' ),
 );
 foreach ( $batch65 as $batch_id => $batch_row ) {
 	list( $batch_slug, $batch_name, $batch_tips, $batch_places, $batch_plate ) = $batch_row;
@@ -296,7 +296,107 @@ foreach ( $batch65 as $batch_id => $batch_row ) {
 	sa_ci_assert( ! empty( $batch_data['has_insights'] ), "bundled: {$batch_slug} traveller block switches on from the shipped seed (2.22.65)" );
 	sa_ci_assert( $batch_tips === count( $batch_data['local_tips'] ) && $batch_places === count( $batch_data['extra_places'] ), "bundled: {$batch_slug} tips and places parsed from the seed (2.22.65)" );
 	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.65)" );
+	// ملارد: آتشکدهٔ تخت رستم در دهستان جوقینِ شهرستان شهریار است و نباید در رکورد ملارد باشد؛ شهریار هم ایستگاه مترو ندارد (2.22.66).
+	if ( 'malard' === $batch_slug ) {
+		$malard_text = json_encode( $batch_data, JSON_UNESCAPED_UNICODE );
+		$malard_names = array();
+		foreach ( $batch_data['extra_places'] as $batch_place ) {
+			$malard_names[] = $batch_place['name'];
+		}
+		sa_ci_assert( false === strpos( implode( ' ', $malard_names ), 'تخت رستم' ), 'bundled: malard carries no Takht-e Rostam place (Shahriar county, 2.22.66)' );
+		sa_ci_assert( in_array( 'تپه‌های ارسطو و بالکین و تخت کیکاووس', $malard_names, true ), 'bundled: malard keeps its own Takht-e Kaykavus instead (2.22.66)' );
+		sa_ci_assert( false === strpos( (string) $malard_text, 'ایستگاه‌ها در شهریار' ), 'bundled: malard no longer claims metro stations in Shahriar (2.22.66)' );
+	}
 }
+
+/* ---- 4j. Bundled seed: شهریار (2.22.67) ---------------------------------- */
+
+$GLOBALS['t']['posts'][73] = (object) array( 'ID' => 73, 'post_type' => 'city', 'post_name' => 'shahriar', 'post_title' => 'شهریار', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][73]   = array();
+$shahriar_data = sa_county_profile_data( 73 );
+sa_ci_assert( ! empty( $shahriar_data['has_insights'] ), 'bundled: shahriar traveller block switches on from the shipped seed (2.22.67)' );
+sa_ci_assert( 5 === count( $shahriar_data['local_tips'] ) && 9 === count( $shahriar_data['extra_places'] ), 'bundled: shahriar tips and places parsed from the seed (2.22.67)' );
+sa_ci_assert( 'ایران ۲۱' === $shahriar_data['plate_code'], 'bundled: shahriar plate reaches tile 12 without meta (2.22.67)' );
+$shahriar_names = array();
+foreach ( $shahriar_data['extra_places'] as $shahriar_place ) {
+	$shahriar_names[] = $shahriar_place['name'];
+}
+// تخت رستم جای درستش، شهرستان شهریار (دهستان جوقین) است؛ همان که در 2.22.66 از ملارد برداشته شد.
+sa_ci_assert( in_array( 'آتشکدهٔ تخت رستم', $shahriar_names, true ), 'bundled: shahriar carries its own Takht-e Rostam fire temple (2.22.67)' );
+
+/* ---- 4j. Bundled seed: دزفول (2.22.68) ----------------------------------- */
+
+$GLOBALS['t']['posts'][74] = (object) array( 'ID' => 74, 'post_type' => 'city', 'post_name' => 'dezful', 'post_title' => 'دزفول', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][74]   = array();
+$dezful_data = sa_county_profile_data( 74 );
+sa_ci_assert( ! empty( $dezful_data['has_insights'] ), 'bundled: dezful traveller block switches on from the shipped seed (2.22.68)' );
+sa_ci_assert( 7 === count( $dezful_data['local_tips'] ) && 10 === count( $dezful_data['extra_places'] ), 'bundled: dezful tips and places parsed from the seed (2.22.68)' );
+sa_ci_assert( 'ایران ۲۴' === $dezful_data['plate_code'], 'bundled: dezful plate reaches tile 12 without meta (2.22.68)' );
+$dezful_names = array();
+foreach ( $dezful_data['extra_places'] as $dezful_place ) {
+	$dezful_names[] = $dezful_place['name'];
+}
+sa_ci_assert( in_array( 'پل قدیم (ساسانی) دزفول', $dezful_names, true ), 'bundled: dezful keeps its Sasanian bridge place (2.22.68)' );
+// شوش شهرستان جداست و نباید به‌عنوان جای دزفول بیاید.
+sa_ci_assert( false === strpos( implode( ' ', $dezful_names ), 'شوش' ), 'bundled: dezful lists no Shush-county place (2.22.68)' );
+
+/* ---- 4j. Bundled seeds: نیشابور، بابل، خمینی‌شهر و سبزوار (2.22.69) ------- */
+
+$GLOBALS['t']['posts'][75] = (object) array( 'ID' => 75, 'post_type' => 'city', 'post_name' => 'neyshabur', 'post_title' => 'نیشابور', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][75]   = array();
+$neyshabur_data = sa_county_profile_data( 75 );
+sa_ci_assert( ! empty( $neyshabur_data['has_insights'] ), 'bundled: neyshabur traveller block switches on from the shipped seed (2.22.69)' );
+sa_ci_assert( 6 === count( $neyshabur_data['local_tips'] ) && 9 === count( $neyshabur_data['extra_places'] ), 'bundled: neyshabur tips and places parsed from the seed (2.22.69)' );
+sa_ci_assert( 'ایران ۳۲، ۳۶، ۷۴' === $neyshabur_data['plate_code'], 'bundled: neyshabur plate reaches tile 12 without meta (2.22.69)' );
+$neyshabur_names = array();
+foreach ( $neyshabur_data['extra_places'] as $neyshabur_place ) {
+	$neyshabur_names[] = $neyshabur_place['name'];
+}
+sa_ci_assert( in_array( 'آرامگاه خیام', $neyshabur_names, true ), 'bundled: neyshabur keeps its Khayyam tomb place (2.22.69)' );
+// قدمگاه حالا مرکز شهرستان زبرخان است و نباید جای نیشابور بیاید.
+sa_ci_assert( false === strpos( implode( ' ', $neyshabur_names ), 'قدمگاه' ), 'bundled: neyshabur lists no Qadamgah (now Zebarkhan county) (2.22.69)' );
+
+$GLOBALS['t']['posts'][76] = (object) array( 'ID' => 76, 'post_type' => 'city', 'post_name' => 'babol', 'post_title' => 'بابل', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][76]   = array();
+$babol_data = sa_county_profile_data( 76 );
+sa_ci_assert( ! empty( $babol_data['has_insights'] ), 'bundled: babol traveller block switches on from the shipped seed (2.22.69)' );
+sa_ci_assert( 6 === count( $babol_data['local_tips'] ) && 10 === count( $babol_data['extra_places'] ), 'bundled: babol tips and places parsed from the seed (2.22.69)' );
+sa_ci_assert( 'ایران ۷۲، ۸۲، ۹۲' === $babol_data['plate_code'], 'bundled: babol plate reaches tile 12 without meta (2.22.69)' );
+$babol_names = array();
+foreach ( $babol_data['extra_places'] as $babol_place ) {
+	$babol_names[] = $babol_place['name'];
+}
+sa_ci_assert( in_array( 'تکیهٔ مقریکلا', $babol_names, true ), 'bundled: babol keeps its Moqrikola takyeh place (2.22.69)' );
+// بابلسر و فریدونکنار شهرستان جدا هستند.
+sa_ci_assert( false === strpos( implode( ' ', $babol_names ), 'بابلسر' ), 'bundled: babol lists no Babolsar-county place (2.22.69)' );
+
+$GLOBALS['t']['posts'][77] = (object) array( 'ID' => 77, 'post_type' => 'city', 'post_name' => 'khomeyni-shahr', 'post_title' => 'خمینی‌شهر', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][77]   = array();
+$khomeyni_shahr_data = sa_county_profile_data( 77 );
+sa_ci_assert( ! empty( $khomeyni_shahr_data['has_insights'] ), 'bundled: khomeyni-shahr traveller block switches on from the shipped seed (2.22.69)' );
+sa_ci_assert( 5 === count( $khomeyni_shahr_data['local_tips'] ) && 8 === count( $khomeyni_shahr_data['extra_places'] ), 'bundled: khomeyni-shahr tips and places parsed from the seed (2.22.69)' );
+sa_ci_assert( 'ایران ۲۳، ۴۳، ۵۳' === $khomeyni_shahr_data['plate_code'], 'bundled: khomeyni-shahr plate reaches tile 12 without meta (2.22.69)' );
+$khomeyni_shahr_names = array();
+foreach ( $khomeyni_shahr_data['extra_places'] as $khomeyni_shahr_place ) {
+	$khomeyni_shahr_names[] = $khomeyni_shahr_place['name'];
+}
+sa_ci_assert( in_array( 'مسجد جامع خوزان', $khomeyni_shahr_names, true ), 'bundled: khomeyni-shahr keeps its Khuzan mosque place (2.22.69)' );
+// آتشگاه نشانی و ورودی‌اش از اصفهان است و جای خمینی‌شهر نیست.
+sa_ci_assert( false === strpos( implode( ' ', $khomeyni_shahr_names ), 'آتشگاه' ), 'bundled: khomeyni-shahr lists no Atashgah place (entrance and address are Isfahan) (2.22.69)' );
+
+$GLOBALS['t']['posts'][78] = (object) array( 'ID' => 78, 'post_type' => 'city', 'post_name' => 'sabzevar', 'post_title' => 'سبزوار', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][78]   = array();
+$sabzevar_data = sa_county_profile_data( 78 );
+sa_ci_assert( ! empty( $sabzevar_data['has_insights'] ), 'bundled: sabzevar traveller block switches on from the shipped seed (2.22.69)' );
+sa_ci_assert( 5 === count( $sabzevar_data['local_tips'] ) && 9 === count( $sabzevar_data['extra_places'] ), 'bundled: sabzevar tips and places parsed from the seed (2.22.69)' );
+sa_ci_assert( 'ایران ۳۲، ۳۶، ۴۲، ۷۴' === $sabzevar_data['plate_code'], 'bundled: sabzevar plate reaches tile 12 without meta (2.22.69)' );
+$sabzevar_names = array();
+foreach ( $sabzevar_data['extra_places'] as $sabzevar_place ) {
+	$sabzevar_names[] = $sabzevar_place['name'];
+}
+sa_ci_assert( in_array( 'منارهٔ خسروگرد', $sabzevar_names, true ), 'bundled: sabzevar keeps its Khosrogerd minaret place (2.22.69)' );
+// بیزه حالا جزو شهرستان داورزن است.
+sa_ci_assert( false === strpos( implode( ' ', $sabzevar_names ), 'بیزه' ), 'bundled: sabzevar lists no Bizeh place (now Davarzan county) (2.22.69)' );
 
 // هیچ رکوردی در دادهٔ همراه قالب نباید اصطلاحات فرایند تولید داشته باشد (قاعدهٔ مالک، AGENTS.md بند ۸).
 $seed_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
@@ -316,6 +416,23 @@ sa_ci_assert( false !== strpos( $block61, 'width: fit-content' ), 'css: access-f
 
 /* ---- 5. Template: human sourcing note ------------------------------------ */
 
+/* ---- 4k. فقط جاهای باز و جمله‌های تأییدشده؛ بی «راستش» (2.22.71) --------- */
+
+$seed_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
+foreach ( array( 'در حال ساخت', 'در حال احداث', 'در حال تکمیل', 'در حال نهایی', 'در حال اجرا', 'به‌زودی', 'کلنگ', 'آمادهٔ افتتاح', 'هنوز کامل نیست' ) as $sa_future ) {
+	sa_ci_assert( false === strpos( $seed_src, $sa_future ), "seed: no not-yet-open place or project ({$sa_future}) in the traveller data (2.22.71)" );
+}
+sa_ci_assert( false === strpos( $seed_src, 'راستش' ), 'seed: the filler word «راستش» is not repeated in the traveller data (2.22.71)' );
+sa_ci_assert( false === strpos( $seed_src, 'غار دستکند قهرمان' ) && false === strpos( $seed_src, 'سند ۱۸ هکتار' ), 'seed: unverified/future Ladar sentences removed from khomeyni-shahr (2.22.71)' );
+$GLOBALS['t']['posts'][79] = (object) array( 'ID' => 79, 'post_type' => 'city', 'post_name' => 'kashan', 'post_title' => 'کاشان', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][79]   = array();
+$kashan71 = sa_county_profile_data( 79 );
+$kashan71_names = array();
+foreach ( $kashan71['extra_places'] as $kashan71_place ) {
+	$kashan71_names[] = $kashan71_place['name'];
+}
+sa_ci_assert( in_array( 'بوستان فیروزی', $kashan71_names, true ), 'bundled: kashan lists the open Firuzi park without the unopened pavilion (2.22.71)' );
+
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
 sa_ci_assert( false !== strpos( $tpl, 'id="county-field-notes"' ), 'template: block anchor exists for the TOC' );
 sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'از تجربهٔ مسافرها', 'county-field-notes', 6 )" ), 'template: TOC entry registered only with the block' );
@@ -323,6 +440,7 @@ sa_ci_assert( false !== strpos( $tpl, 'گوگل‌مپ، نشان، بلد' ), '
 sa_ci_assert( false !== strpos( $tpl, 'ممکن است بعضی جزئیات' ), 'template: note avoids fake certainty (owner voice)' );
 sa_ci_assert( false !== strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: note promises re-updates' );
 sa_ci_assert( false !== strpos( $tpl, 'تیم سرزمین آریان' ), 'template: note credits the Sarzamin Aryan research team (2.22.58)' );
+sa_ci_assert( false === strpos( $tpl, 'راستش را بخواهید' ), 'template: traveller-block intro no longer opens with «راستش را بخواهید» (2.22.71)' );
 sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip category colour classes rendered' );
 sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: license-plate tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'13 // AREA_CODE'" ), 'template: phone area-code tile registered in the identity card' );
