@@ -122,7 +122,57 @@ function add_query_arg( $a, $u ) {
 	return $u . '?' . http_build_query( $a );
 }
 function get_permalink( $id ) {
+	$p = isset( $GLOBALS['t']['posts'][ $id ] ) ? $GLOBALS['t']['posts'][ $id ] : null;
+	if ( $p && 'post' !== $p->post_type && '' !== (string) $p->post_name ) {
+		return 'https://example.test/' . $p->post_type . '/' . $p->post_name . '/';
+	}
 	return 'https://example.test/?p=' . $id;
+}
+function get_post_status( $id ) {
+	return isset( $GLOBALS['t']['posts'][ $id ] ) ? $GLOBALS['t']['posts'][ $id ]->post_status : false;
+}
+function wp_trash_post( $id ) {
+	$GLOBALS['t']['posts'][ $id ]->post_status = 'trash';
+	return $GLOBALS['t']['posts'][ $id ];
+}
+function wp_untrash_post( $id ) {
+	$GLOBALS['t']['posts'][ $id ]->post_status = 'draft';
+	return $GLOBALS['t']['posts'][ $id ];
+}
+function wp_parse_url( $u, $c = -1 ) {
+	return parse_url( $u, $c ); // phpcs:ignore
+}
+function esc_url_raw( $u ) {
+	return filter_var( $u, FILTER_VALIDATE_URL ) ? $u : '';
+}
+function has_filter( $hook ) {
+	return ! empty( $GLOBALS['t']['filters'][ $hook ] );
+}
+function has_action( $hook ) {
+	return has_filter( $hook );
+}
+function apply_filters( $hook, $value ) {
+	if ( 'litespeed_conf' === $hook ) {
+		return isset( $GLOBALS['t']['ls'][ $value ] ) ? $GLOBALS['t']['ls'][ $value ] : null;
+	}
+	return $value;
+}
+function do_action( $hook, $arg = null ) {
+	if ( 'litespeed_save_conf' === $hook ) {
+		foreach ( (array) $arg as $k => $v ) {
+			$GLOBALS['t']['ls'][ $k ] = $v;
+		}
+	}
+}
+function sa_redirect_normalize_path( $p ) {
+	return '/' . trim( (string) $p, '/' ) . '/';
+}
+function sa_redirect_target_for_path( $p ) {
+	$map = array( '/city/isfahan/' => '/city/isfahan-city/', '/city/orphan/' => '/city/nowhere/' );
+	return isset( $map[ $p ] ) ? $map[ $p ] : '';
+}
+function sa_redirect_target_exists( $target ) {
+	return '/city/isfahan-city/' === $target;
 }
 function get_post_thumbnail_id( $id ) {
 	return isset( $GLOBALS['t']['meta'][ $id ]['_thumbnail_id'] ) ? (int) $GLOBALS['t']['meta'][ $id ]['_thumbnail_id'] : 0;
@@ -237,7 +287,7 @@ $s = sa_agent_fill_basic_auth( array( 'REQUEST_URI' => '/some-page/', 'HTTP_AUTH
 sa_t_assert( empty( $s['PHP_AUTH_USER'] ), '1g: only REST requests are touched' );
 
 /* 2. Routes: the expected set, every one with a permission callback, and no DELETE. */
-$expected = array( '/ping', '/posts', '/post/(?P<id>\d+)', '/post/(?P<id>\d+)/draft-copy', '/draft', '/backups', '/backup/(?P<id>\d+)', '/restore/(?P<id>\d+)', '/theme-mods' );
+$expected = array( '/ping', '/posts', '/post/(?P<id>\d+)', '/post/(?P<id>\d+)/draft-copy', '/post/(?P<id>\d+)/trash', '/draft', '/backups', '/backup/(?P<id>\d+)', '/restore/(?P<id>\d+)', '/theme-mods', '/litespeed' );
 sa_agent_register_routes();
 foreach ( $expected as $r ) {
 	sa_t_assert( isset( $t['routes'][ 'sa-agent/v1' . $r ] ), "2a: route $r registered" );
@@ -338,10 +388,74 @@ sa_agent_register_backup_type();
 $reg = $t['registered'][ SA_AGENT_BACKUP_TYPE ];
 sa_t_assert( false === $reg['public'] && false === $reg['show_in_rest'] && false === $reg['rewrite'] && 'manage_options' === $reg['capabilities']['read_post'], '9a: backups are private, admin-only, no URL' );
 
-/* 10. The bridge never publishes: no publish/trash/delete calls in the source. */
+/* 10. The bridge never publishes or deletes; trash exists only inside the guarded duplicate-trash function. */
 $src = file_get_contents( dirname( __DIR__ ) . '/inc/agent-bridge.php' );
-foreach ( array( 'wp_publish_post', 'wp_delete_post', 'wp_trash_post', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
+foreach ( array( 'wp_publish_post', 'wp_delete_post', 'force_delete', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
 	sa_t_assert( false === strpos( $src, $needle ), "10: bridge source never contains $needle" );
 }
+sa_t_assert( 1 === substr_count( $src, 'wp_trash_post(' ), '10b: wp_trash_post is called exactly once' );
+$fn_start = strpos( $src, 'function sa_agent_trash_redirect_source(' );
+$fn_end   = strpos( $src, "\n}\n", $fn_start );
+$trash_at = strpos( $src, 'wp_trash_post(' );
+sa_t_assert( false !== $fn_start && $trash_at > $fn_start && $trash_at < $fn_end, '10c: …and only inside sa_agent_trash_redirect_source' );
 
-echo "PASS: agent bridge (drafts only, backup before every change, live text protected, restore, theme-mod backups, editors-only Application Passwords, no DELETE)\n";
+/* 11. Trash: owner flag + fresh read + redirect source with a published target + backup first (v2.22.74). */
+$dup  = wp_insert_post( array( 'post_type' => 'city', 'post_status' => 'publish', 'post_name' => 'isfahan', 'post_title' => 'اصفهان (تکراری)', 'post_content' => 'متن قدیمی' ) );
+$orph = wp_insert_post( array( 'post_type' => 'city', 'post_status' => 'publish', 'post_name' => 'orphan', 'post_title' => 'بی‌مقصد' ) );
+$norm = wp_insert_post( array( 'post_type' => 'city', 'post_status' => 'publish', 'post_name' => 'kashan', 'post_title' => 'کاشان' ) );
+$gmt  = function ( $id ) use ( &$t ) {
+	return $t['posts'][ $id ]->post_modified_gmt;
+};
+$e = sa_agent_trash_redirect_source( $dup, array( 'expected_modified_gmt' => $gmt( $dup ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_need_owner' === $e->code, '11a: owner flag required' );
+$e = sa_agent_trash_redirect_source( $dup, array( 'owner_approved_trash' => 'yes', 'expected_modified_gmt' => $gmt( $dup ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_need_owner' === $e->code, '11b: flag must be literally true' );
+$e = sa_agent_trash_redirect_source( $dup, array( 'owner_approved_trash' => true, 'expected_modified_gmt' => '1999-01-01 00:00:00' ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_stale' === $e->code, '11c: stale read rejected' );
+$e = sa_agent_trash_redirect_source( $norm, array( 'owner_approved_trash' => true, 'expected_modified_gmt' => $gmt( $norm ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_not_redirect_source' === $e->code && 'publish' === $t['posts'][ $norm ]->post_status, '11d: a normal page (not a redirect source) is never trashed' );
+$e = sa_agent_trash_redirect_source( $orph, array( 'owner_approved_trash' => true, 'expected_modified_gmt' => $gmt( $orph ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_target_missing' === $e->code && 'publish' === $t['posts'][ $orph ]->post_status, '11e: redirect source with an unpublished target is kept' );
+$t['fail_insert_type'] = SA_AGENT_BACKUP_TYPE;
+$e = sa_agent_trash_redirect_source( $dup, array( 'owner_approved_trash' => true, 'expected_modified_gmt' => $gmt( $dup ) ) );
+sa_t_assert( is_wp_error( $e ) && 'publish' === $t['posts'][ $dup ]->post_status, '11f: no backup → no trash' );
+$t['fail_insert_type'] = '';
+$tr = sa_agent_trash_redirect_source( $dup, array( 'owner_approved_trash' => true, 'expected_modified_gmt' => $gmt( $dup ) ) );
+sa_t_assert( is_array( $tr ) && 'trash' === $tr['status'] && 'trash' === $t['posts'][ $dup ]->post_status, '11g: duplicate behind a 301 goes to trash' );
+sa_t_assert( '/city/isfahan/' === $tr['redirect']['from'] && '/city/isfahan-city/' === $tr['redirect']['to'], '11h: result reports the redirect that keeps visitors safe' );
+$tb2 = sa_agent_read_backup( $tr['backup_id'] );
+sa_t_assert( 'publish' === $tb2['data']['status'] && 'متن قدیمی' === $tb2['data']['content'], '11i: backup holds the published state and text' );
+$e = sa_agent_trash_redirect_source( $dup, array( 'owner_approved_trash' => true, 'expected_modified_gmt' => $gmt( $dup ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_already_trashed' === $e->code, '11j: already trashed' );
+sa_agent_restore( $tr['backup_id'] );
+sa_t_assert( 'draft' === $t['posts'][ $dup ]->post_status && 'متن قدیمی' === $t['posts'][ $dup ]->post_content, '11k: restore brings it out of trash as a draft (the bridge never publishes)' );
+
+/* 12. LiteSpeed: read-only unless active; only crawler keys writable; backup first; restore. */
+$ls = sa_agent_litespeed_snapshot();
+sa_t_assert( false === $ls['active'], '12a: inactive without the plugin' );
+$e = sa_agent_set_litespeed( array( 'expected_hash' => $ls['hash'], 'set' => array( 'crawler' => true ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_no_litespeed' === $e->code, '12b: no plugin → no write' );
+define( 'LSCWP_V', '7.9.3' );
+$t['filters']['litespeed_conf'][]      = 'x';
+$t['filters']['litespeed_save_conf'][] = 'x';
+$t['ls'] = array( 'cache' => true, 'crawler' => false, 'crawler-crawl_interval' => 302400, 'crawler-load_limit' => 1, 'crawler-sitemap' => '', 'guest' => false );
+$ls = sa_agent_litespeed_snapshot();
+sa_t_assert( true === $ls['active'] && true === $ls['conf']['cache'] && true === $ls['server_allows_crawler'], '12c: snapshot reads cache/crawler settings' );
+$e = sa_agent_set_litespeed( array( 'expected_hash' => 'nope', 'set' => array( 'crawler' => true ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_stale' === $e->code, '12d: stale hash rejected' );
+$e = sa_agent_set_litespeed( array( 'expected_hash' => $ls['hash'], 'set' => array( 'cache' => false ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_bad_ls_key' === $e->code && true === $t['ls']['cache'], '12e: cache settings are read-only' );
+$e = sa_agent_set_litespeed( array( 'expected_hash' => $ls['hash'], 'set' => array( 'crawler-sitemap' => 'https://evil.example/sitemap.xml' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_bad_ls_value' === $e->code, '12f: foreign sitemap rejected' );
+$e = sa_agent_set_litespeed( array( 'expected_hash' => $ls['hash'], 'set' => array( 'crawler-crawl_interval' => 60 ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_bad_ls_value' === $e->code, '12g: crawl interval under a day rejected (server load)' );
+$ok = sa_agent_set_litespeed( array( 'expected_hash' => $ls['hash'], 'set' => array( 'crawler' => true, 'crawler-sitemap' => 'https://example.test/wp-sitemap.xml' ), 'reason' => 'گرم‌کردن کش' ) );
+sa_t_assert( is_array( $ok ) && true === $t['ls']['crawler'] && 'https://example.test/wp-sitemap.xml' === $t['ls']['crawler-sitemap'], '12h: crawler enabled with the site sitemap' );
+$lb = sa_agent_read_backup( $ok['backup_id'] );
+sa_t_assert( 'litespeed' === $lb['kind'] && false === $lb['data']['conf']['crawler'], '12i: LiteSpeed backup holds the prior values' );
+sa_agent_restore( $ok['backup_id'] );
+sa_t_assert( false === $t['ls']['crawler'] && '' === $t['ls']['crawler-sitemap'], '12j: LiteSpeed restore works' );
+$t['caps'] = array( 'edit_posts' => true, 'edit_others_posts' => true, 'edit_theme_options' => true );
+sa_t_assert( ! sa_agent_can_admin(), '12k: LiteSpeed routes need manage_options' );
+
+echo "PASS: agent bridge (drafts only, backup before every change, live text protected, restore, theme-mod backups, editors-only Application Passwords, no DELETE, owner-approved trash only for 301 duplicates, LiteSpeed crawler keys only)\n";

@@ -85,6 +85,7 @@ function sa_customize_register( $wp_customize ) {
 	}
 	$add( 'sa_social', 'sa_contact_email', 'ایمیل تماس', 'email' );
 	$add( 'sa_social', 'sa_default_og_image', 'تصویر پیش‌فرض اشتراک‌گذاری (۱۲۰۰×۶۳۰)', 'image' );
+	$add( 'sa_social', 'sa_og_cards', 'کارت خودکار اشتراک‌گذاری برای صفحه‌های بی‌تصویر شاخص (عنوان + استان، ۱۲۰۰×۶۳۰)', 'checkbox', true );
 
 	// Display.
 	$wp_customize->add_section( 'sa_display', array( 'title' => 'نمایش فارسی', 'panel' => 'sa_panel' ) );

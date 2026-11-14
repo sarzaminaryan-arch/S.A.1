@@ -493,6 +493,9 @@ function sa_seo_head() {
 	$og_title = $title;
 	$og_desc  = $desc;
 	$og_image = get_theme_mod( 'sa_default_og_image', '' );
+	$og_w     = 0;
+	$og_h     = 0;
+	$og_card  = false;
 	$og_type  = 'website';
 	if ( is_singular() ) {
 		$id       = get_queried_object_id();
@@ -502,10 +505,30 @@ function sa_seo_head() {
 		// v2.15.0: تصویری که فایلش روی سرور نیست در og:image نمی‌آید (اشتراک‌گذاری تصویر شکسته).
 		$sa_thumb_id = get_post_thumbnail_id( $id );
 		$sa_thumb_ok = $sa_thumb_id && ( ! function_exists( 'sa_media_attachment_missing' ) || ! sa_media_attachment_missing( $sa_thumb_id ) );
-		if ( $sa_thumb_ok ) {
-			$img      = wp_get_attachment_image_src( $sa_thumb_id, function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $id ) : 'sa-hero' );
-			$og_image = $img ? $img[0] : $og_image;
+		$img = $sa_thumb_ok ? wp_get_attachment_image_src( $sa_thumb_id, function_exists( 'sa_cover_image_size' ) ? sa_cover_image_size( $id ) : 'sa-hero' ) : false;
+		if ( $img ) {
+			$og_image = $img[0];
+			$og_w     = isset( $img[1] ) ? (int) $img[1] : 0;
+			$og_h     = isset( $img[2] ) ? (int) $img[2] : 0;
+		} elseif ( function_exists( 'sa_og_card_url' ) ) {
+			// v2.22.74: بی‌تصویر شاخص → کارت یکتای همین صفحه (۱۲۰۰×۶۳۰)، نه لوگوی عمومی.
+			$sa_card = sa_og_card_url( $id );
+			if ( '' !== $sa_card ) {
+				$og_image = $sa_card;
+				$og_card  = true;
+			}
 		}
+	} elseif ( '' === (string) $og_image && function_exists( 'sa_og_site_card_url' ) ) {
+		// v2.22.74: صفحهٔ اول و آرشیوها، وقتی تصویر پیش‌فرض در سفارشی‌ساز انتخاب نشده.
+		$sa_card = sa_og_site_card_url();
+		if ( '' !== $sa_card ) {
+			$og_image = $sa_card;
+			$og_card  = true;
+		}
+	}
+	if ( $og_card ) {
+		$og_w = 1200;
+		$og_h = 630;
 	}
 	echo '<meta property="og:locale" content="fa_IR">' . "\n";
 	echo '<meta property="og:type" content="' . esc_attr( $og_type ) . '">' . "\n";
@@ -519,6 +542,14 @@ function sa_seo_head() {
 	}
 	if ( $og_image ) {
 		echo '<meta property="og:image" content="' . esc_url( $og_image ) . '">' . "\n";
+		if ( $og_w && $og_h ) {
+			echo '<meta property="og:image:width" content="' . (int) $og_w . '">' . "\n";
+			echo '<meta property="og:image:height" content="' . (int) $og_h . '">' . "\n";
+		}
+		if ( $og_card ) {
+			echo '<meta property="og:image:type" content="image/jpeg">' . "\n";
+		}
+		echo '<meta property="og:image:alt" content="' . esc_attr( wp_strip_all_tags( $og_title ) ) . '">' . "\n";
 		echo '<meta name="twitter:card" content="summary_large_image">' . "\n";
 	} else {
 		echo '<meta name="twitter:card" content="summary">' . "\n";

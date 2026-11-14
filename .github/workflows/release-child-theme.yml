@@ -139,6 +139,21 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-trust-bundle.php"
 
+      - name: 'Run og-card tests (کارت اشتراک‌گذاری: شکل‌دهی فارسی و ساخت ۱۲۰۰×۶۳۰)'
+        shell: bash
+        env:
+          SA_OG_TEST_OUT: ${{ runner.temp }}/og-cards
+        run: php "$THEME_DIR/tests/test-og-card.php"
+
+      - name: Upload rendered og-card samples
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: og-card-samples
+          path: ${{ runner.temp }}/og-cards/sa-og/
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

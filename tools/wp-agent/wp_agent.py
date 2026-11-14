@@ -5,6 +5,9 @@ wp_agent.py — the agent's direct line to WordPress (theme 2.22.72+, route /wp-
 Owner rules, enforced both here and on the server (inc/agent-bridge.php):
   * Reading the site directly is allowed (published posts, drafts, entity post types, meta).
   * New articles go in as DRAFTS only. There is no publish command and no delete command.
+  * Theme 2.22.74+: `trash` moves ONLY a duplicate whose URL is already a 301 source with a
+    published target to the WordPress trash, with the owner's explicit flag and a backup first.
+  * Theme 2.22.74+: `litespeed` reads LiteSpeed Cache settings; only crawler keys can be set.
   * Before any change to an existing post or to theme settings, a backup of the prior
     state is taken: on the server (private "agent backups" list under Tools) AND locally
     in backup/agent/ (gitignored). If the local backup cannot be written, nothing is sent.
@@ -29,6 +32,9 @@ Commands (run from the repo root):
     python3 tools/wp-agent/wp_agent.py restore <backup_id>
     python3 tools/wp-agent/wp_agent.py theme-mods
     python3 tools/wp-agent/wp_agent.py theme-mods --set sa_show_featured=false --reason "..."
+    python3 tools/wp-agent/wp_agent.py trash 153 --owner-approved-trash --reason "دستور مالک ..."
+    python3 tools/wp-agent/wp_agent.py litespeed
+    python3 tools/wp-agent/wp_agent.py litespeed --set crawler=true --set crawler-sitemap=https://sarzaminaryan.ir/wp-sitemap.xml --reason "..."
 """
 
 from __future__ import annotations
@@ -333,7 +339,26 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("theme-mods")
     p.add_argument("--set", action="append", default=[], help="key=value (true/false/number/text)")
     p.add_argument("--reason", default="تغییر ظاهر")
+    p = sub.add_parser("trash", help="owner-approved: duplicate behind a 301 -> WordPress trash (backup first)")
+    p.add_argument("id", type=int)
+    p.add_argument("--owner-approved-trash", action="store_true")
+    p.add_argument("--reason", default="زباله‌دان نسخهٔ تکراری (دستور مالک)")
+    p = sub.add_parser("litespeed", help="read LiteSpeed Cache settings; --set only crawler keys")
+    p.add_argument("--set", action="append", default=[], help="crawler=true | crawler-sitemap=URL | crawler-crawl_interval=SEC | crawler-load_limit=N")
+    p.add_argument("--reason", default="تنظیم خزندهٔ LiteSpeed")
     return ap
+
+
+def parse_value(v: str):
+    low = v.strip().lower()
+    if low in ("true", "false"):
+        return low == "true"
+    if low.lstrip("-").isdigit():
+        return int(low)
+    try:
+        return float(low)
+    except ValueError:
+        return v.strip()
 
 
 
@@ -416,6 +441,8 @@ def run(a: argparse.Namespace, c: "Client"):
         b = c.call("GET", f"/backup/{a.backup_id}")
         if b.get("kind") == "post" and b.get("target"):
             save_local_backup(f"post-{b['target']}-pre-restore", c.call("GET", f"/post/{b['target']}"))
+        elif b.get("kind") == "litespeed":
+            save_local_backup("litespeed-pre-restore", c.call("GET", "/litespeed"))
         else:
             save_local_backup("theme-mods-pre-restore", c.call("GET", "/theme-mods"))
         return c.call("POST", f"/restore/{a.backup_id}", body={})
@@ -436,6 +463,25 @@ def run(a: argparse.Namespace, c: "Client"):
             else:
                 changes[k.strip()] = v
         return c.call("POST", "/theme-mods", body={"expected_hash": current["hash"], "set": changes, "reason": a.reason})
+    elif a.cmd == "trash":
+        if not a.owner_approved_trash:
+            raise AgentError("trash needs --owner-approved-trash (owner's explicit order)")
+        current = c.call("GET", f"/post/{a.id}")
+        local = save_local_backup(f"post-{a.id}-pre-trash", current)
+        print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
+        return c.call("POST", f"/post/{a.id}/trash", body={"owner_approved_trash": True,
+                                                         "expected_modified_gmt": current["modified_gmt"], "reason": a.reason})
+    elif a.cmd == "litespeed":
+        current = c.call("GET", "/litespeed")
+        if not a.set:
+            return current
+        local = save_local_backup("litespeed", current)
+        print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
+        changes = {}
+        for item in a.set:
+            k, _, v = item.partition("=")
+            changes[k.strip()] = parse_value(v) if k.strip() != "crawler-sitemap" else v.strip()
+        return c.call("POST", "/litespeed", body={"expected_hash": current["hash"], "set": changes, "reason": a.reason})
     raise AgentError(f"unknown command {a.cmd}")
 
 

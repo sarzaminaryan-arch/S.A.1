@@ -90,11 +90,16 @@ sandbox نشست Arena به sarzaminaryan.ir دسترسی شبکه ندارد. �
 { "cmd": "restore", "backup_id": 5678 }
 { "cmd": "theme-mods" }
 { "cmd": "theme-mods", "set": ["sa_show_featured=false"], "reason": "…" }
+{ "cmd": "trash", "id": 153, "owner_approved_trash": true, "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: نسخهٔ تکراری پشت ۳۰۱" }
+{ "cmd": "litespeed" }
+{ "cmd": "litespeed", "set": ["crawler=true", "crawler-sitemap=https://sarzaminaryan.ir/wp-sitemap.xml"], "reason": "…" }
 ```
 
 - `update` فقط برای متا یا برچسبِ نوشتهٔ منتشرشده آزاد است. تغییر عنوان یا متن آن را سایت با 409 رد می‌کند؛ از `draft-copy` استفاده کن.
 - برای پیش‌نویس‌ها `update` متن را هم عوض می‌کند و پیش از آن پشتیبان می‌گیرد.
 - `"owner_approved_live_edit": true` فقط با دستور صریح و مکتوب مالک در همان نشست مجاز است، و دلیل آن را در `reason` بنویس.
+- `trash` (قالب ۲.۲۲.۷۴+) فقط نسخهٔ تکراری‌ای را می‌پذیرد که نشانی‌اش مبدأ یک قاعدهٔ `data/redirects.php` با مقصد منتشرشده است، و فقط با دستور صریح مالک.
+- `litespeed --set` (قالب ۲.۲۲.۷۴+) فقط کلیدهای خزنده را می‌پذیرد؛ تنظیمات کش، CDN و بهینه‌سازی فقط خوانده می‌شوند.
 - پیش از `theme-mods --set` به مالک بگو چه کلیدی از چه مقداری به چه مقداری می‌رود. در دورهٔ Core Update (تا حدود ۴ آذر ۱۴۰۵) تغییر ظاهری نده.
 
 ### ۳) اجرای مستقیم، اگر جایی شبکه به سایت برسد
