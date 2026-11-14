@@ -127,6 +127,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-insights.php"
 
+      - name: 'Run province county-link tests (لینک شهرستان‌ها روی صفحهٔ استان — نامزد نامک و fallback)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-province-county-links.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

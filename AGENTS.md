@@ -1,13 +1,53 @@
-# AGENTS.md — lean repository rules for S.A.1
+# دستورالعمل دائمی اتصال به Supabase (MCP)
 
-1. **Delivery channel is GitHub only.** Push code to `sarzaminaryan-arch/S.A.1`, then return GitHub links. Installable ZIPs belong in GitHub Releases, not inside the repository tree.
-2. **Active code lives in `wp-content/themes/sarzaminaryan-child/`.** Parent-theme edits are allowed only when a parent fix is unavoidable.
-3. Obey `data-model/MASTER_DATA_MODEL.md`; names/slugs are append-only and the publish gate remains Level 7. **Publishing policy (owner decision, 2026-10-11 / model 1.3): the owner's explicit approval is the only publish condition.** Level 7 rules are advisory — surface them as reminders/warnings, never as blockers; once the owner approves, publish.
-4. Use `skill-SA-agent/SKILL.md` as the operating procedure for theme work, QA and releases.
-5. Persian WordPress/fa_IR/RTL; machine dates stay Gregorian; no external CDNs/plugins.
-6. Security baseline: sanitize input, escape output, nonce + capability for writes.
-7. Keep this repository lean: do not commit generated ZIPs, image packs, raw media dumps, exported archives, one-off importer sources or one-off delivery files. Store those as GitHub Release assets or external archives.
-8. Keep operational docs small and source-like: `docs/`, `data-model/`, `skill-SA-agent/`, `.github/`, the parent theme and the child theme are the retained working set.
-9. Before pushing, run relevant checks (`git diff --check`, JS syntax checks, and PHP lint where available). GitHub Actions performs PHP lint for theme releases.
-10. Work on Arena's assigned branch for the session; do not switch or push to another branch during an Arena task.
-11. **Live-site mirror (`docs/live-site/`):** before creating or editing any article, check `docs/live-site/titles.md` and `docs/live-site/registry/live-articles.json` so no duplicate content is produced. After any change you make to live or ready content, record the same change in the mirror (registry entry + one `docs/live-site/CHANGELOG.md` row). On each fresh audit from the `sa-live-article-audit` plugin, regenerate the mirror with `tools/live-site/update_live_registry.py` and commit it.
+## وضعیت اتصال
+
+ایجنت از طریق پروتکل MCP (Model Context Protocol) به پروژه Supabase متصل است.
+Endpoint پیش‌فرض: https://mcp.supabase.com/mcp
+
+در این محیط (Arena) اتصال از طریق کانکتور supabase برقرار است و نیازی به پیکربندی دستی `.mcp.json` یا CLI نیست.
+
+پروژهٔ فعال (راستی‌آزمایی‌شده در ۲۰۲۶-۱۱-۱۳):
+- نام: `sarzaminaryan-arch's Project`
+- project_ref: `yesseutgyatmxsaswghb`
+- منطقه: `ap-northeast-1` — وضعیت: ACTIVE_HEALTHY — PostgreSQL 17
+- ساختار اولیه با مایگریشن `create_article_tables` (نسخهٔ 20261113234851) ساخته شده است: جدول‌های `articles` و `sources` و `embeddings` + افزونهٔ `vector` (pgvector).
+
+این اتصال امکان خواندن/نوشتن داده، اجرای SQL، مدیریت ساختار و استقرار توابع لبه را فراهم می‌کند.
+
+## قوانین استفاده
+
+۱. قبل از هر عملیات مخرب (DROP, DELETE, ALTER, TRUNCATE)، تأیید صریح انسان را بگیر.
+۲. برای تغییرات ساختاری (Schema) از ابزار مایگریشن استفاده کن، نه SQL مستقیم (در این محیط: `create_migration` به‌جای `apply_migration`).
+۳. برای هر مقاله، ابتدا شناسه (slug) را در جدول `articles` بررسی کن؛ اگر وجود دارد، به‌روزرسانی کن، نه درج مجدد.
+۴. منابع هر ادعا را در جدول `sources` با URL، تاریخ و وضعیت تأیید ثبت کن.
+۵. از حافظهٔ برداری (`pgvector`) برای بازیابی اطلاعات مرتبط با موضوع مقاله استفاده کن.
+۶. تمام خروجی‌های نهایی باید به‌صورت فایل MDX در مخزن Git ذخیره شوند (نه فقط در دیتابیس).
+۷. اگر اتصال در حالت `read_only=true` است، فقط ابزارهای خواندنی در دسترس‌اند؛ برای نوشتن باید حالت را تغییر دهی یا تأیید بگیری.
+۸. در متن مقاله‌ها هرگز از اصطلاحات مربوط به هوش مصنوعی و فرایند تولید (از جمله «بازبینی انسانی») استفاده نشود؛ فقط شناسنامهٔ اثر و لینک‌های داخلی صحیح بماند.
+۹. هر لینک داخلی در هر مقاله فقط یک‌بار داده شود؛ از تکرار لینک در یک متن پرهیز کن.
+
+## نگاشت ابزارها در این محیط
+
+| راهنمای عمومی | ابزار این محیط |
+|---|---|
+| `list_tables` | `execute_query` روی `information_schema.tables` |
+| `list_extensions` | `execute_query` روی `pg_extension` |
+| `list_migrations` | `list_migrations` |
+| `apply_migration` | `create_migration` |
+| `execute_sql` | `execute_query` |
+| `deploy_edge_function` | `create_edge_function` / `update_edge_function` |
+| `list_projects` | `list_projects` (برای یافتن project_ref) |
+
+## چک‌لیست شروع هر نشست جدید
+
+1. همین فایل (AGENTS.md) را بخوان.
+2. با `list_projects` پروژهٔ فعال و وضعیتش را بررسی کن.
+3. با کوئری روی `information_schema` مطمئن شو جدول‌های `articles`، `sources` و `embeddings` وجود دارند (اگر نه، مایگریشن ساخت را با `create_migration` اجرا کن).
+4. با کوئری روی `pg_extension` وجود `vector` را بررسی کن.
+5. آخرین وضعیت مقالهٔ در حال کار را از جدول `articles` بخوان.
+6. اگر اتصال فقط-خواندنی است و نیاز به نوشتن داری، از انسان بخواه حالت را تغییر دهد.
+
+## جریان کار مقاله
+
+شروع نشست → خواندن AGENTS.md → بررسی اتصال و ساختار → تحقیق (بازیابی از `embeddings` با `execute_query`) → نگارش (تولید MDX + ثبت منابع در `sources`) → ویرایش (`articles.status = 'review'`) → بازبینی در برابر `sources` → تأیید انسانی → انتشار (`status = 'published'`) + commit در Git.

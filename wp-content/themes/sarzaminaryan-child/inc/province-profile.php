@@ -292,6 +292,53 @@ function sa_province_profile_county_entries( $province_slug, $province_id, $coun
 		$posts_by_slug[ sanitize_key( $post->post_name ) ] = $post;
 	}
 
+	/*
+	 * وضوحِ صفحهٔ شهرستان برای یک نامکِ رجیستری (ترمیمِ لینک‌سازی داخلی، 2.22.64).
+	 *
+	 * پیش از این، شهرستان فقط وقتی روی صفحهٔ استان لینک می‌گرفت که نوشته‌اش هم
+	 * «رابطهٔ والد» با استان داشت و هم نامکش عیناً نامکِ رجیستری بود. شهرستان‌هایی
+	 * که صفحهٔ زنده دارند ولی نامکشان با رجیستری فرق دارد (مثلاً نوشتهٔ «زنجان»
+	 * در برابرِ رجیستریِ «zanjan-city») یا رابطه‌شان ثبت نشده، اسمِ بی‌لینک
+	 * می‌ماندند و از قوی‌ترین لینکِ داخلی‌شان (صفحهٔ استان) هیچ سیگنالی
+	 * نمی‌گرفتند؛ در گزارشِ پوششِ سرچ‌کنسول (۲۰۲۶-۱۱-۱۳) هم ۲۲۱ شهرستان در
+	 * وضعیتِ «کشف‌شده، خزش‌نشده» مانده بودند. حالا:
+	 *   ۱) نامزدهای نامک (با و بدونِ پسوندِ ‎-city‎) میانِ نوشته‌های رابطه‌دار؛
+	 *   ۲) وگرنه، هر نوشتهٔ منتشرشدهٔ شهرستانی با نامکِ نامزد، حتی بدونِ رابطه.
+	 * مقصدِ نهاییِ تغییرمسیر هم به‌جای مسیرِ قدیمی لینک می‌شود تا لینکِ داخلی
+	 * به نشانیِ در حالِ ریدایرکت نرود.
+	 */
+	$resolve_post = function ( $slug ) use ( $posts_by_slug ) {
+		$candidates = array( $slug, ( '-city' === substr( $slug, -5 ) ) ? substr( $slug, 0, -5 ) : $slug . '-city' );
+		foreach ( array_unique( $candidates ) as $candidate ) {
+			if ( isset( $posts_by_slug[ $candidate ] ) ) {
+				return $posts_by_slug[ $candidate ];
+			}
+		}
+		if ( function_exists( 'get_page_by_path' ) ) {
+			static $lookup = array();
+			foreach ( array_unique( $candidates ) as $candidate ) {
+				if ( ! array_key_exists( $candidate, $lookup ) ) {
+					$found            = get_page_by_path( $candidate, OBJECT, 'city' );
+					$lookup[ $candidate ] = ( $found && isset( $found->post_status ) && 'publish' === $found->post_status ) ? $found : null;
+				}
+				if ( $lookup[ $candidate ] ) {
+					return $lookup[ $candidate ];
+				}
+			}
+		}
+		return null;
+	};
+	$post_url = function ( $post ) {
+		$url = (string) get_permalink( $post );
+		if ( function_exists( 'sa_redirect_target_for_path' ) && function_exists( 'home_url' ) ) {
+			$target = sa_redirect_target_for_path( '/city/' . $post->post_name . '/' );
+			if ( '' !== $target ) {
+				$url = (string) home_url( $target );
+			}
+		}
+		return $url;
+	};
+
 	$registered = function_exists( 'sa_counties_by_province' ) ? sa_counties_by_province() : array();
 	$rows       = isset( $registered[ $province_slug ] ) ? (array) $registered[ $province_slug ] : array();
 	$entries    = array();
@@ -301,7 +348,7 @@ function sa_province_profile_county_entries( $province_slug, $province_id, $coun
 			continue;
 		}
 		$slug = sanitize_key( $row['slug'] );
-		$post = isset( $posts_by_slug[ $slug ] ) ? $posts_by_slug[ $slug ] : null;
+		$post = $resolve_post( $slug );
 		$name = $post ? sa_province_profile_county_label( $post, $province_slug ) : ( isset( $row['name'] ) ? trim( (string) $row['name'] ) : '' );
 		if ( '' === $name ) {
 			$name = sa_province_profile_english_name( $slug );
@@ -311,7 +358,7 @@ function sa_province_profile_county_entries( $province_slug, $province_id, $coun
 			'slug'    => $slug,
 			'name'    => $name,
 			'english' => $english,
-			'url'     => $post ? (string) get_permalink( $post ) : '',
+			'url'     => $post ? $post_url( $post ) : '',
 		);
 	}
 
@@ -324,7 +371,7 @@ function sa_province_profile_county_entries( $province_slug, $province_id, $coun
 			'slug'    => $slug,
 			'name'    => sa_province_profile_county_label( $post, $province_slug ),
 			'english' => sa_province_profile_english_name( $slug ),
-			'url'     => (string) get_permalink( $post ),
+			'url'     => $post_url( $post ),
 		);
 	}
 

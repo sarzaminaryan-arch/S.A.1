@@ -281,6 +281,28 @@ foreach ( $batch63 as $batch_id => $batch_row ) {
 	}
 }
 
+/* ---- 4j. Bundled seeds: قدس، کاشان و ملارد (2.22.65) --------------------- */
+
+$batch65 = array(
+	70 => array( 'qods', 'قدس', 6, 8, 'ایران ۲۱' ),
+	71 => array( 'kashan', 'کاشان', 6, 9, 'ایران ۴۳' ),
+	72 => array( 'malard', 'ملارد', 6, 8, 'ایران ۲۱' ),
+);
+foreach ( $batch65 as $batch_id => $batch_row ) {
+	list( $batch_slug, $batch_name, $batch_tips, $batch_places, $batch_plate ) = $batch_row;
+	$GLOBALS['t']['posts'][ $batch_id ] = (object) array( 'ID' => $batch_id, 'post_type' => 'city', 'post_name' => $batch_slug, 'post_title' => $batch_name, 'post_status' => 'publish' );
+	$GLOBALS['t']['meta'][ $batch_id ]   = array();
+	$batch_data = sa_county_profile_data( $batch_id );
+	sa_ci_assert( ! empty( $batch_data['has_insights'] ), "bundled: {$batch_slug} traveller block switches on from the shipped seed (2.22.65)" );
+	sa_ci_assert( $batch_tips === count( $batch_data['local_tips'] ) && $batch_places === count( $batch_data['extra_places'] ), "bundled: {$batch_slug} tips and places parsed from the seed (2.22.65)" );
+	sa_ci_assert( $batch_plate === $batch_data['plate_code'], "bundled: {$batch_slug} plate reaches tile 12 without meta (2.22.65)" );
+}
+
+// هیچ رکوردی در دادهٔ همراه قالب نباید اصطلاحات فرایند تولید داشته باشد (قاعدهٔ مالک، AGENTS.md بند ۸).
+$seed_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
+sa_ci_assert( false === strpos( $seed_src, 'بازبینی انسانی' ), 'bundled: seed carries no production-process wording (2.22.65)' );
+sa_ci_assert( false === strpos( $seed_src, 'هوش مصنوعی' ), 'bundled: seed carries no AI wording (2.22.65)' );
+
 /* ---- 4g. Fact badge fits its word vertically too (2.22.61) --------------- */
 
 $css61 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
