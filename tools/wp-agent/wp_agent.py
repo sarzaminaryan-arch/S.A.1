@@ -19,6 +19,7 @@ Credentials come only from .env in the repo root (never printed, never committed
 Commands (run from the repo root):
     python3 tools/wp-agent/wp_agent.py ping
     python3 tools/wp-agent/wp_agent.py list --type post --status draft --search کاشان
+    python3 tools/wp-agent/wp_agent.py inventory [--types post,city]
     python3 tools/wp-agent/wp_agent.py get 1234 [--out file.json]
     python3 tools/wp-agent/wp_agent.py draft --type post --title "..." --content-file a.html [--excerpt ...] [--slug ...] [--category travel] [--meta-file m.json]
     python3 tools/wp-agent/wp_agent.py draft-copy 1234 --content-file new.html [--title ...]
@@ -147,6 +148,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--modified-after", default="")
     p.add_argument("--per-page", type=int, default=50)
     p.add_argument("--page", type=int, default=1)
+    p = sub.add_parser("inventory", help="every item of the given types (all statuses), paginated")
+    p.add_argument("--types", default="post,page,province,city,attraction,travel_route,local_food,souvenir")
     p = sub.add_parser("get")
     p.add_argument("id", type=int)
     p.add_argument("--out")
@@ -193,6 +196,18 @@ def run(a: argparse.Namespace, c: "Client"):
     elif a.cmd == "list":
         return c.call("GET", "/posts", {"type": a.type, "status": a.status, "search": a.search, "slug": a.slug,
                                          "modified_after": a.modified_after, "per_page": a.per_page, "page": a.page})
+    elif a.cmd == "inventory":
+        report = {}
+        for ptype in [t.strip() for t in a.types.split(",") if t.strip()]:
+            items, page = [], 1
+            while True:
+                chunk = c.call("GET", "/posts", {"type": ptype, "per_page": 100, "page": page})
+                items += chunk.get("items", [])
+                if page >= int(chunk.get("pages") or 0):
+                    break
+                page += 1
+            report[ptype] = {"total": len(items), "items": items}
+        return report
     elif a.cmd == "get":
         data = c.call("GET", f"/post/{a.id}")
         if a.out:
