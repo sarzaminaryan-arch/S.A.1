@@ -324,6 +324,22 @@ foreach ( $shahriar_data['extra_places'] as $shahriar_place ) {
 // تخت رستم جای درستش، شهرستان شهریار (دهستان جوقین) است؛ همان که در 2.22.66 از ملارد برداشته شد.
 sa_ci_assert( in_array( 'آتشکدهٔ تخت رستم', $shahriar_names, true ), 'bundled: shahriar carries its own Takht-e Rostam fire temple (2.22.67)' );
 
+/* ---- 4j. Bundled seed: دزفول (2.22.68) ----------------------------------- */
+
+$GLOBALS['t']['posts'][74] = (object) array( 'ID' => 74, 'post_type' => 'city', 'post_name' => 'dezful', 'post_title' => 'دزفول', 'post_status' => 'publish' );
+$GLOBALS['t']['meta'][74]   = array();
+$dezful_data = sa_county_profile_data( 74 );
+sa_ci_assert( ! empty( $dezful_data['has_insights'] ), 'bundled: dezful traveller block switches on from the shipped seed (2.22.68)' );
+sa_ci_assert( 7 === count( $dezful_data['local_tips'] ) && 10 === count( $dezful_data['extra_places'] ), 'bundled: dezful tips and places parsed from the seed (2.22.68)' );
+sa_ci_assert( 'ایران ۲۴' === $dezful_data['plate_code'], 'bundled: dezful plate reaches tile 12 without meta (2.22.68)' );
+$dezful_names = array();
+foreach ( $dezful_data['extra_places'] as $dezful_place ) {
+	$dezful_names[] = $dezful_place['name'];
+}
+sa_ci_assert( in_array( 'پل قدیم (ساسانی) دزفول', $dezful_names, true ), 'bundled: dezful keeps its Sasanian bridge place (2.22.68)' );
+// شوش شهرستان جداست و نباید به‌عنوان جای دزفول بیاید.
+sa_ci_assert( false === strpos( implode( ' ', $dezful_names ), 'شوش' ), 'bundled: dezful lists no Shush-county place (2.22.68)' );
+
 // هیچ رکوردی در دادهٔ همراه قالب نباید اصطلاحات فرایند تولید داشته باشد (قاعدهٔ مالک، AGENTS.md بند ۸).
 $seed_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
 sa_ci_assert( false === strpos( $seed_src, 'بازبینی انسانی' ), 'bundled: seed carries no production-process wording (2.22.65)' );
