@@ -12,6 +12,11 @@
  *      ساخته می‌شود. فقط با پرچم صریح owner_approved_live_edit (به دستور مالک) متنِ
  *      منتشرشده بازنویسی می‌شود — آن هم بعد از پشتیبان.
  *   ۵) هیچ مسیر حذفی وجود ندارد. وضعیت، نامک و تاریخ انتشار را ایجنت عوض نمی‌کند.
+ *      تنها استثنا (v2.22.74، دستور مالک ۲۰۲۶-۱۱-۱۵): نسخهٔ تکراری‌ای که نشانی‌اش
+ *      مبدأ یک تغییر مسیر ۳۰۱ با مقصد منتشرشده است، با پرچم owner_approved_trash به
+ *      زباله‌دان می‌رود (بعد از پشتیبان؛ حذف همیشگی ندارد). بخش ۷-ب.
+ *   ۶) v2.22.74: فقط تنظیمات خزندهٔ LiteSpeed (روشن/خاموش، نقشهٔ سایت، فاصله، سقف بار)
+ *      با پشتیبان نوشتنی‌اند؛ بقیهٔ تنظیمات افزونه فقط خوانده می‌شوند. بخش ۷-ج.
  *
  * احراز هویت: Application Password وردپرس، فقط برای کاربرانی که edit_others_posts
  * دارند (ویرایشگر و مدیر). برای میزبان‌هایی که سرآیند Authorization را حذف می‌کنند،
@@ -289,7 +294,7 @@ function sa_agent_snapshot_post( $post_id ) {
 /**
  * یک پشتیبان می‌سازد. JSON در متای _sa_backup_json می‌نشیند (متا از فیلتر kses نمی‌گذرد).
  *
- * @param string $kind      post | theme_mods.
+ * @param string $kind      post | theme_mods | litespeed.
  * @param int    $target_id شناسهٔ نوشتهٔ هدف (برای theme_mods صفر).
  * @param array  $data      داده.
  * @param string $reason    دلیل (برای فهرست پیشخوان).
@@ -300,7 +305,7 @@ function sa_agent_create_backup( $kind, $target_id, array $data, $reason ) {
 	if ( ! is_string( $json ) || '' === $json ) {
 		return sa_agent_error( 'sa_agent_backup_encode', 'پشتیبان ساخته نشد (رمزگذاری JSON).', 500 );
 	}
-	$label = ( 'post' === $kind ) ? sprintf( '%s #%d — %s', isset( $data['type'] ) ? $data['type'] : 'post', (int) $target_id, isset( $data['title'] ) ? $data['title'] : '' ) : 'theme_mods';
+	$label = ( 'post' === $kind ) ? sprintf( '%s #%d — %s', isset( $data['type'] ) ? $data['type'] : 'post', (int) $target_id, isset( $data['title'] ) ? $data['title'] : '' ) : (string) $kind;
 	$id    = wp_insert_post(
 		array(
 			'post_type'   => SA_AGENT_BACKUP_TYPE,
@@ -600,9 +605,35 @@ function sa_agent_restore( $backup_id ) {
 		}
 		return array( 'restored' => $b['id'], 'kind' => 'theme_mods', 'backup_id' => (int) $pre );
 	}
+	if ( 'litespeed' === $b['kind'] ) {
+		$current = sa_agent_litespeed_snapshot();
+		if ( ! $current['active'] || ! has_action( 'litespeed_save_conf' ) ) {
+			return sa_agent_error( 'sa_agent_no_litespeed', 'افزونهٔ LiteSpeed Cache فعال نیست.', 409 );
+		}
+		$set = array();
+		foreach ( sa_agent_litespeed_keys()['write'] as $key ) {
+			if ( isset( $b['data']['conf'] ) && array_key_exists( $key, (array) $b['data']['conf'] ) ) {
+				$set[ $key ] = $b['data']['conf'][ $key ];
+			}
+		}
+		$pre = sa_agent_create_backup( 'litespeed', 0, $current, 'بازگردانی پشتیبان #' . $b['id'] );
+		if ( is_wp_error( $pre ) ) {
+			return $pre;
+		}
+		do_action( 'litespeed_save_conf', $set );
+		return array( 'restored' => $b['id'], 'kind' => 'litespeed', 'backup_id' => (int) $pre );
+	}
 	$now = sa_agent_snapshot_post( $b['target'] );
 	if ( null === $now ) {
 		return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
+	}
+	if ( 'trash' === $now['status'] && 'trash' !== ( isset( $b['data']['status'] ) ? $b['data']['status'] : '' ) ) {
+		// v2.22.74: نوشتهٔ زباله‌دان‌رفته بیرون می‌آید (وردپرس آن را پیش‌نویس می‌کند؛ پل هرگز منتشر نمی‌کند).
+		wp_untrash_post( $now['id'] );
+		$now = sa_agent_snapshot_post( $now['id'] );
+		if ( null === $now ) {
+			return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
+		}
 	}
 	$meta = array();
 	foreach ( (array) $b['data']['meta'] as $key => $value ) {
@@ -690,6 +721,208 @@ function sa_agent_set_theme_mods( array $args ) {
 }
 
 /* -------------------------------------------------------------------------
+ * ۷-ب) زباله‌دان فقط برای «نسخهٔ تکراریِ پشت تغییر مسیر» — v2.22.74، دستور مالک.
+ *
+ * مالک ۲۰۲۶-۱۱-۱۵ دستور داد نسخه‌های تکراری‌ای که نشانی‌شان از قبل با ۳۰۱ به نسخهٔ
+ * اصلی می‌رود به زباله‌دان بروند. این تنها راه «برداشتن» در پل است و عمداً تنگ است:
+ *   - پرچم صریح owner_approved_trash و expected_modified_gmt لازم است؛
+ *   - نشانی نوشته باید مبدأِ یک قاعدهٔ data/redirects.php باشد و مقصد منتشر شده باشد
+ *     (پس بازدیدکننده و گوگل همچنان به نسخهٔ اصلی می‌رسند)؛
+ *   - اول پشتیبان کامل؛ «حذف همیشگی» وجود ندارد (زباله‌دان وردپرس ۳۰ روز نگه می‌دارد
+ *     و بازگردانی از پشتیبان، نوشته را به پیش‌نویس برمی‌گرداند).
+ * ---------------------------------------------------------------------- */
+
+/**
+ * مسیر نسبیِ نوشته برای مقایسه با نقشهٔ تغییر مسیر.
+ *
+ * @param array $snap عکس نوشته.
+ * @return string
+ */
+function sa_agent_post_path( array $snap ) {
+	$path = '';
+	if ( ! empty( $snap['link'] ) ) {
+		$parts = wp_parse_url( (string) $snap['link'] );
+		$path  = isset( $parts['path'] ) ? (string) $parts['path'] : '';
+	}
+	if ( function_exists( 'sa_redirect_normalize_path' ) ) {
+		$path = sa_redirect_normalize_path( $path );
+	}
+	return $path;
+}
+
+/**
+ * نوشتهٔ تکراریِ پشت تغییر مسیر → زباله‌دان (با پشتیبان).
+ *
+ * @param int   $post_id شناسه.
+ * @param array $args    owner_approved_trash, expected_modified_gmt, reason.
+ * @return array|WP_Error
+ */
+function sa_agent_trash_redirect_source( $post_id, array $args ) {
+	$before = sa_agent_snapshot_post( $post_id );
+	if ( null === $before ) {
+		return sa_agent_error( 'sa_agent_not_found', 'نوشته پیدا نشد یا نوعش مجاز نیست.', 404 );
+	}
+	if ( empty( $args['owner_approved_trash'] ) || true !== $args['owner_approved_trash'] ) {
+		return sa_agent_error( 'sa_agent_need_owner', 'زباله‌دان فقط با دستور صریح مالک (owner_approved_trash: true).', 403 );
+	}
+	$expected = isset( $args['expected_modified_gmt'] ) ? (string) $args['expected_modified_gmt'] : '';
+	if ( '' === $expected || $expected !== $before['modified_gmt'] ) {
+		return sa_agent_error( 'sa_agent_stale', 'expected_modified_gmt نیامده یا نوشته از زمان خواندن عوض شده؛ دوباره بخوان.', 409 );
+	}
+	if ( 'trash' === $before['status'] ) {
+		return sa_agent_error( 'sa_agent_already_trashed', 'نوشته از قبل در زباله‌دان است.', 409 );
+	}
+	if ( ! function_exists( 'sa_redirect_target_for_path' ) || ! function_exists( 'sa_redirect_target_exists' ) ) {
+		return sa_agent_error( 'sa_agent_no_redirects', 'ماژول تغییر مسیر در دسترس نیست.', 500 );
+	}
+	$from   = sa_agent_post_path( $before );
+	$target = '' !== $from ? (string) sa_redirect_target_for_path( $from ) : '';
+	if ( '' === $target || $target === $from ) {
+		return sa_agent_error( 'sa_agent_not_redirect_source', 'فقط نوشته‌ای که نشانی‌اش مبدأ یک تغییر مسیر ۳۰۱ است به زباله‌دان می‌رود (' . $from . ').', 409 );
+	}
+	if ( ! sa_redirect_target_exists( $target ) ) {
+		return sa_agent_error( 'sa_agent_target_missing', 'مقصد تغییر مسیر (' . $target . ') منتشر نشده؛ زباله‌دان انجام نشد.', 409 );
+	}
+	$reason    = isset( $args['reason'] ) ? sanitize_text_field( (string) $args['reason'] ) : 'زباله‌دان نسخهٔ تکراری (دستور مالک)';
+	$backup_id = sa_agent_create_backup( 'post', $before['id'], $before, $reason );
+	if ( is_wp_error( $backup_id ) ) {
+		return $backup_id;
+	}
+	$res = wp_trash_post( $before['id'] );
+	if ( ! $res ) {
+		return sa_agent_error( 'sa_agent_trash_failed', 'زباله‌دان انجام نشد؛ پشتیبان #' . $backup_id . ' سالم است.', 500 );
+	}
+	return array(
+		'id'        => $before['id'],
+		'backup_id' => (int) $backup_id,
+		'status'    => (string) get_post_status( $before['id'] ),
+		'redirect'  => array( 'from' => $from, 'to' => $target ),
+	);
+}
+
+/* -------------------------------------------------------------------------
+ * ۷-ج) تنظیمات خزندهٔ LiteSpeed (گرم‌کردن کش) — v2.22.74، دستور مالک.
+ *
+ * فقط چند کلیدِ خزنده نوشتنی‌اند؛ تنظیمات کش، CDN و بهینه‌سازی فقط خوانده می‌شوند.
+ * نوشتن از API رسمی افزونه (`litespeed_save_conf`) انجام می‌شود و پیش از آن پشتیبان
+ * گرفته می‌شود.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * کلیدهای خواندنی و نوشتنی.
+ *
+ * @return array{read:string[],write:string[]}
+ */
+function sa_agent_litespeed_keys() {
+	return array(
+		'read'  => array( 'cache', 'cache-priv', 'cache-mobile', 'cache-ttl_pub', 'cache-ttl_frontpage', 'guest', 'crawler', 'crawler-crawl_interval', 'crawler-load_limit', 'crawler-sitemap' ),
+		'write' => array( 'crawler', 'crawler-crawl_interval', 'crawler-load_limit', 'crawler-sitemap' ),
+	);
+}
+
+/**
+ * عکس تنظیمات LiteSpeed.
+ *
+ * @return array
+ */
+function sa_agent_litespeed_snapshot() {
+	$active = defined( 'LSCWP_V' ) && has_filter( 'litespeed_conf' );
+	$conf   = array();
+	if ( $active ) {
+		foreach ( sa_agent_litespeed_keys()['read'] as $key ) {
+			$conf[ $key ] = apply_filters( 'litespeed_conf', $key );
+		}
+	}
+	$server = isset( $_SERVER['X-LSCACHE'] ) ? sanitize_text_field( wp_unslash( (string) $_SERVER['X-LSCACHE'] ) ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	return array(
+		'active'                  => $active,
+		'version'                 => defined( 'LSCWP_V' ) ? (string) LSCWP_V : '',
+		'server_x_lscache'        => $server,
+		'server_allows_crawler'   => ( '' === $server || false !== strpos( $server, 'crawler' ) ),
+		'wp_cron_disabled'        => defined( 'DISABLE_WP_CRON' ) && DISABLE_WP_CRON,
+		'conf'                    => $conf,
+		'hash'                    => md5( (string) wp_json_encode( $conf ) ),
+	);
+}
+
+/**
+ * پاک‌سازی مقدارهای نوشتنی.
+ *
+ * @param array $set key=>value.
+ * @return array|WP_Error
+ */
+function sa_agent_litespeed_clean( array $set ) {
+	$clean = array();
+	$allow = sa_agent_litespeed_keys()['write'];
+	foreach ( $set as $key => $value ) {
+		$key = (string) $key;
+		if ( ! in_array( $key, $allow, true ) ) {
+			return sa_agent_error( 'sa_agent_bad_ls_key', 'کلید «' . $key . '» نوشتنی نیست (فقط تنظیمات خزنده).', 400 );
+		}
+		switch ( $key ) {
+			case 'crawler':
+				$clean[ $key ] = (bool) $value;
+				break;
+			case 'crawler-crawl_interval':
+				$v = (int) $value;
+				if ( $v < 86400 || $v > 2592000 ) {
+					return sa_agent_error( 'sa_agent_bad_ls_value', 'فاصلهٔ خزش باید بین ۱ تا ۳۰ روز (ثانیه) باشد.', 400 );
+				}
+				$clean[ $key ] = $v;
+				break;
+			case 'crawler-load_limit':
+				$v = (float) $value;
+				if ( $v <= 0 || $v > 4 ) {
+					return sa_agent_error( 'sa_agent_bad_ls_value', 'سقف بار سرور باید بین ۰ و ۴ باشد.', 400 );
+				}
+				$clean[ $key ] = $v;
+				break;
+			case 'crawler-sitemap':
+				$url  = esc_url_raw( (string) $value );
+				$home = wp_parse_url( home_url( '/' ), PHP_URL_HOST );
+				$host = wp_parse_url( $url, PHP_URL_HOST );
+				if ( '' === $url || ! $host || strtolower( (string) $host ) !== strtolower( (string) $home ) ) {
+					return sa_agent_error( 'sa_agent_bad_ls_value', 'نقشهٔ سایت خزنده باید روی همین دامنه باشد.', 400 );
+				}
+				$clean[ $key ] = $url;
+				break;
+		}
+	}
+	return $clean;
+}
+
+/**
+ * نوشتن تنظیمات خزنده (اول پشتیبان).
+ *
+ * @param array $args expected_hash, set{}, reason.
+ * @return array|WP_Error
+ */
+function sa_agent_set_litespeed( array $args ) {
+	$now = sa_agent_litespeed_snapshot();
+	if ( ! $now['active'] || ! has_action( 'litespeed_save_conf' ) ) {
+		return sa_agent_error( 'sa_agent_no_litespeed', 'افزونهٔ LiteSpeed Cache فعال نیست.', 409 );
+	}
+	if ( empty( $args['expected_hash'] ) || $args['expected_hash'] !== $now['hash'] ) {
+		return sa_agent_error( 'sa_agent_stale', 'تنظیمات از زمان خواندن عوض شده یا expected_hash نیامده؛ دوباره بخوان.', 409 );
+	}
+	$set = sa_agent_litespeed_clean( isset( $args['set'] ) && is_array( $args['set'] ) ? $args['set'] : array() );
+	if ( is_wp_error( $set ) ) {
+		return $set;
+	}
+	if ( ! $set ) {
+		return sa_agent_error( 'sa_agent_nothing', 'تغییری فرستاده نشده است.', 400 );
+	}
+	$reason    = isset( $args['reason'] ) ? sanitize_text_field( (string) $args['reason'] ) : 'تنظیم خزندهٔ LiteSpeed';
+	$backup_id = sa_agent_create_backup( 'litespeed', 0, $now, $reason );
+	if ( is_wp_error( $backup_id ) ) {
+		return $backup_id;
+	}
+	do_action( 'litespeed_save_conf', $set );
+	$after = sa_agent_litespeed_snapshot();
+	return array( 'backup_id' => (int) $backup_id, 'changed' => array_keys( $set ), 'conf' => $after['conf'], 'hash' => $after['hash'] );
+}
+
+/* -------------------------------------------------------------------------
  * ۸) مسیرهای REST. هیچ مسیر DELETE وجود ندارد.
  * ---------------------------------------------------------------------- */
 
@@ -721,6 +954,15 @@ function sa_agent_can_theme() {
 }
 
 /**
+ * دسترسی تنظیمات افزونه‌ها (LiteSpeed).
+ *
+ * @return bool
+ */
+function sa_agent_can_admin() {
+	return is_user_logged_in() && current_user_can( 'manage_options' );
+}
+
+/**
  * پاسخ REST.
  *
  * @param mixed $data داده یا WP_Error.
@@ -747,6 +989,7 @@ function sa_agent_rest_ping() {
 			'user'       => $user ? $user->user_login : '',
 			'can_write'  => sa_agent_can_write(),
 			'can_theme'  => sa_agent_can_theme(),
+			'can_admin'  => sa_agent_can_admin(),
 			'post_types' => sa_agent_post_types(),
 			'time_gmt'   => gmdate( 'c' ),
 		)
@@ -945,6 +1188,38 @@ function sa_agent_register_routes() {
 					return sa_agent_respond( sa_agent_set_theme_mods( (array) $r->get_json_params() ) );
 				},
 				'permission_callback' => 'sa_agent_can_theme',
+			),
+		)
+	);
+	register_rest_route(
+		SA_AGENT_NS,
+		'/post/(?P<id>\d+)/trash',
+		array(
+			'methods'             => 'POST',
+			'callback'            => function ( $r ) {
+				return sa_agent_respond( sa_agent_trash_redirect_source( (int) $r['id'], (array) $r->get_json_params() ) );
+			},
+			'permission_callback' => 'sa_agent_can_write',
+			'args'                => $id_arg,
+		)
+	);
+	register_rest_route(
+		SA_AGENT_NS,
+		'/litespeed',
+		array(
+			array(
+				'methods'             => 'GET',
+				'callback'            => function () {
+					return rest_ensure_response( sa_agent_litespeed_snapshot() );
+				},
+				'permission_callback' => 'sa_agent_can_admin',
+			),
+			array(
+				'methods'             => 'POST',
+				'callback'            => function ( $r ) {
+					return sa_agent_respond( sa_agent_set_litespeed( (array) $r->get_json_params() ) );
+				},
+				'permission_callback' => 'sa_agent_can_admin',
 			),
 		)
 	);

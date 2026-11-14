@@ -16,6 +16,8 @@
 |---|---|
 | خواندن | آزاد است. |
 | مقالهٔ تازه | فقط `draft`. هیچ فرمان انتشار یا حذفی وجود ندارد. |
+| زباله‌دان (از قالب ۲.۲۲.۷۴، دستور مالک ۱۵ نوامبر) | فقط `trash` برای نسخهٔ تکراری‌ای که نشانی‌اش از قبل مبدأ یک ۳۰۱ با مقصد منتشرشده است. پرچم `owner_approved_trash` و پشتیبان لازم است. حذف همیشگی وجود ندارد. |
+| LiteSpeed (از قالب ۲.۲۲.۷۴) | فقط خواندن تنظیمات کش. تنها کلیدهای خزنده (`crawler`، `crawler-sitemap`، `crawler-crawl_interval`، `crawler-load_limit`) با پشتیبان نوشتنی‌اند. |
 | تغییر ظاهر یا ساختار | اول پشتیبان از وضع قبلی، بعد تغییر. پیش از هر تغییر ظاهری به مالک بگو چه چیزی از چه مقداری به چه مقداری می‌رود. |
 | متن مقالهٔ منتشرشده | مستقیم عوض نمی‌شود. `draft-copy` (پیش‌نویس بازنویسی کنار اصل) بساز. `owner_approved_live_edit` فقط با دستور صریح و مکتوب مالک در همان نشست. |
 | کد قالب | فقط از راه نسخهٔ تازه و Release. نسخهٔ قبلی روی GitHub پشتیبان است. |
@@ -80,6 +82,8 @@ sarzaminaryan.ir/wp-json/sa-agent/v1   (inc/agent-bridge.php در قالب فر�
 | `backups` | فهرست پشتیبان‌ها |
 | `restore` | بازگشت از پشتیبان |
 | `theme-mods` | خواندن یا تغییر تنظیمات ظاهر؛ با پشتیبان |
+| `trash` | فقط نسخهٔ تکراریِ پشت ۳۰۱ → زباله‌دان؛ `--owner-approved-trash`؛ با پشتیبان (۲.۲۲.۷۴) |
+| `litespeed` | خواندن تنظیمات LiteSpeed؛ `--set` فقط کلیدهای خزنده؛ با پشتیبان (۲.۲۲.۷۴) |
 | `run-job` | اجرای یک فایل کار |
 
 **خواندن عمومی سریع، بدون این مراحل:** `fetch_page` روی صفحه‌ها یا `/wp-json/wp/v2/...`.
@@ -100,10 +104,11 @@ sarzaminaryan.ir/wp-json/sa-agent/v1   (inc/agent-bridge.php در قالب فر�
 | مسیر | مجوز |
 |---|---|
 | `GET ping`، `GET posts`، `GET post/{id}` | `edit_posts` |
-| `POST post/{id}`، `POST post/{id}/draft-copy`، `POST draft`، `GET backups`، `GET backup/{id}`، `POST restore/{id}` | `edit_others_posts` |
+| `POST post/{id}`، `POST post/{id}/draft-copy`، `POST post/{id}/trash`، `POST draft`، `GET backups`، `GET backup/{id}`، `POST restore/{id}` | `edit_others_posts` |
 | `GET/POST theme-mods` | `edit_theme_options` |
+| `GET/POST litespeed` | `manage_options` |
 
-- هیچ مسیر DELETE وجود ندارد.
+- هیچ مسیر DELETE وجود ندارد. `post/{id}/trash` فقط نسخهٔ تکراریِ پشت ۳۰۱ را به زباله‌دان می‌برد. بازگردانی از پشتیبان، آن را به‌صورت پیش‌نویس برمی‌گرداند.
 - نامک، وضعیت و تاریخ انتشار با پل عوض نمی‌شوند.
 - برچسب یا دستهٔ تازه ساخته نمی‌شود.
 - متای محافظت‌شده (`_…`، به‌جز `_thumbnail_id`) رد می‌شود.
