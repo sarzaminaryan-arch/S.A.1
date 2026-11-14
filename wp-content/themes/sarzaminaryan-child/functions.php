@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.71' );
+define( 'SA_CHILD_VERSION', '2.22.72' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -53,6 +53,7 @@ $sa_child_includes = array(
 	'inc/province-profile.php',
 	'inc/geo-import.php',
 	'inc/security.php',
+	'inc/agent-bridge.php', // v2.22.72: پل ایجنت — خواندن/نوشتن مستقیم (فقط پیش‌نویس؛ پشتیبان پیش از هر تغییر)
 	'inc/performance.php',
 	'inc/customizer.php',
 	'inc/admin.php',

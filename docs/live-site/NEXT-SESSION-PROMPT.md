@@ -33,7 +33,7 @@
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ۳) وضعیت فعلی (خلاصه)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-- قالب sarzaminaryan-child نسخهٔ 2.22.71 منتشر شده؛ نصبش روی سایت با مالک است.
+- قالب sarzaminaryan-child نسخهٔ 2.22.72 (پل ایجنت وردپرس) منتشر می‌شود؛ نصبش و ساخت سه Secret با مالک است (tools/wp-agent/README.md).
 - PR #37 در main ادغام شده (74c351f).
 - ۴۸۳ شهرستان در data/counties.php هست: ۱۴۶ با وضعیت published و ۲۸۸ با وضعیت empty.
 - سرچ‌کنسول (۱۳ نوامبر): ۴۷۰ صفحه ایندکس شده؛ ۲۴۷ صفحه «کشف‌شده، خزش‌نشده».
@@ -77,9 +77,20 @@
 - GitHub (git و gh؛ احراز هویت آماده است):
   - کد، issue، PR، و وضعیت CI و Release (gh run list / gh run view <id> --json jobs).
   - با انتشار هر نسخهٔ قالب، Release «sarzaminaryan-child-v<نسخه>» ساخته می‌شود و سایت از راه به‌روزرسان GitHub داخل قالب آن را می‌گیرد. مسیر رسیدن کد به وردپرس همین است.
-- وردپرس / سایت زنده:
-  - دسترسی مستقیم REST فعلاً بسته است: Application Password در inc/security.php غیرفعال است؛ tools/county-sync/README.md را ببین.
-  - برای دیدن سایت، صفحه‌های عمومی sarzaminaryan.ir را با fetch_page بخوان و با رجیستری شبیه‌ساز مقایسه کن.
+- وردپرس / سایت زنده — دسترسی مستقیم (پل ایجنت، قالب 2.22.72؛ راهنمای کامل: tools/wp-agent/README.md):
+  - خواندن عمومی و فوری: fetch_page روی sarzaminaryan.ir یا /wp-json/wp/v2/posts?slug=... .
+  - خواندن کامل (پیش‌نویس، استان/شهرستان/دیدنی، متا) و نوشتن: sandbox به سایت شبکه ندارد؛ پس از راه GitHub Actions:
+    1. متن را در tools/wp-agent/outbox/<slug>.html بگذار.
+    2. فایل کار با نام یکتا بساز: tools/wp-agent/jobs/<YYYYMMDD-NN-کار>.json
+       {"note":"...","steps":[{"cmd":"ping"},{"cmd":"draft","type":"post","title":"...","content_file":"tools/wp-agent/outbox/x.html"}]}
+    3. commit و push روی شاخهٔ همین نشست؛ workflow «WP agent» خودکار اجرا می‌شود.
+    4. gh run list --workflow wp-agent.yml --limit 3 ؛ gh run watch <id> --exit-status ؛ git pull --ff-only ؛ نتیجه در tools/wp-agent/results/<همان نام>.json
+  - فرمان‌ها: ping، list، get، draft، draft-copy، update، backups، restore، theme-mods (و run-job). حذف و انتشار وجود ندارد.
+  - قاعدهٔ مالک — مقاله: هر مقالهٔ تازه فقط «پیش‌نویس» (draft). انتشار فقط کار مالک است.
+  - قاعدهٔ مالک — تغییر ظاهر یا ساختار: همیشه اول پشتیبان از وضع قبلی، بعد تغییر. پل خودش پیش از هر update/theme-mods/restore روی سایت («پشتیبان‌های ایجنت») و در artifact گیت‌هاب پشتیبان می‌گیرد؛ تغییر کد قالب فقط با نسخهٔ تازه و Release (نسخهٔ قبلی روی GitHub پشتیبان است).
+  - متن مقالهٔ منتشرشده را مستقیم عوض نکن: draft-copy بساز. owner_approved_live_edit فقط با دستور صریح و مکتوب مالک در همان نشست.
+  - پیش از هر تغییر ظاهری به مالک بگو چه چیزی از چه به چه می‌رود؛ در دورهٔ Core Update تغییر ظاهری نده.
+  - اگر Secrets ساخته نشده یا ping شکست خورد، به مالک بگو (راهنما بند «کار یک‌بارهٔ مالک»)؛ هرگز رمز را در چت نخواه.
   - اسنپ‌شات کامل از افزونهٔ «ممیزی مقالات زنده» گرفته می‌شود که خروجی‌اش را مالک می‌دهد؛ بعد tools/live-site/update_live_registry.py را اجرا کن.
 - Google Drive:
   - خروجی‌های سرچ‌کنسول، فایل‌ها و تصاویر مالک آنجاست.

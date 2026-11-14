@@ -131,6 +131,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-province-county-links.php"
 
+      - name: 'Run agent-bridge tests (پل ایجنت: فقط پیش‌نویس، پشتیبان پیش از هر تغییر)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-agent-bridge.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

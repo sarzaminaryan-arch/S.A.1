@@ -26,7 +26,12 @@ SA_USER=<نام کاربری>
 SA_APP_PASSWORD=<Application Password>
 ```
 
-> **مانع شناخته‌شده:** `inc/security.php` فعلاً
+> **به‌روزرسانی ۲.۲۲.۷۲:** Application Password برای ویرایشگر و مدیر دوباره روشن است، اما
+> نوع‌های شهرستان (`city`) و … در `wp/v2` نیستند (`show_in_rest=false`). برای نوشتن روی
+> سایت از پل ایجنت (`tools/wp-agent/README.md`) استفاده کنید: مرحلهٔ `update` با `meta_file`
+> همان کار این اسکریپت را با پشتیبان دوطرفه انجام می‌دهد. یادداشت قدیمی:
+>
+> **مانع شناخته‌شده (تا ۲.۲۲.۷۱):** `inc/security.php`
 > `add_filter( 'wp_is_application_passwords_available', '__return_false' )` را دارد.
 > تا برداشتن موقت این فیلتر (یا استفاده از WP-CLI روی سرور)، نوشتن با Application
 > Password با ۴۰۱ شکست می‌خورد. اسکریپت در این حالت فقط پیام خطا را می‌دهد و چیزی نمی‌نویسد.

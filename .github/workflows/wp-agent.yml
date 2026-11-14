@@ -1,0 +1,124 @@
+name: WP agent (direct WordPress — drafts only, backup first)
+
+# The agent's direct line to the live site (theme 2.22.72+, /wp-json/sa-agent/v1).
+# The Arena sandbox cannot reach sarzaminaryan.ir, so the agent pushes a job file
+# and this runner (which can reach the site) executes it with the owner's secrets.
+#
+# Job file: tools/wp-agent/jobs/<name>.json  →  result: tools/wp-agent/results/<name>.json
+#   {"note": "...", "steps": [ {"cmd": "ping"},
+#                              {"cmd": "draft", "title": "...", "content_file": "tools/wp-agent/outbox/x.html"} ]}
+# A job runs once: any job that already has a result file is skipped.
+# Steps stop at the first refusal. Server and runner both back up before every change;
+# the runner's local backups are uploaded as a private artifact (90 days).
+#
+# Secrets (owner adds them in Settings → Secrets and variables → Actions; never in chat):
+#   SA_SITE_URL      e.g. https://sarzaminaryan.ir
+#   SA_USER          WordPress username that owns the Application Password
+#   SA_APP_PASSWORD  the Application Password
+
+on:
+  push:
+    branches:
+      - main
+      - "arena/**"
+    paths:
+      - "tools/wp-agent/jobs/**.json"
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job file inside the repository (tools/wp-agent/jobs/<name>.json)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wp-agent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check secrets are set
+        env:
+          SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
+          SA_USER: ${{ secrets.SA_USER }}
+          SA_APP_PASSWORD: ${{ secrets.SA_APP_PASSWORD }}
+        run: |
+          missing=""
+          [ -n "$SA_SITE_URL" ] || missing="$missing SA_SITE_URL"
+          [ -n "$SA_USER" ] || missing="$missing SA_USER"
+          [ -n "$SA_APP_PASSWORD" ] || missing="$missing SA_APP_PASSWORD"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing (owner: Settings → Secrets and variables → Actions)"
+            exit 1
+          fi
+
+      - name: Run pending jobs
+        env:
+          SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
+          SA_USER: ${{ secrets.SA_USER }}
+          SA_APP_PASSWORD: ${{ secrets.SA_APP_PASSWORD }}
+          INPUT_JOB: ${{ inputs.job }}
+        run: |
+          set -u
+          status=0
+          if [ -n "${INPUT_JOB:-}" ]; then
+            case "$INPUT_JOB" in
+              tools/wp-agent/jobs/*.json) jobs="$INPUT_JOB" ;;
+              *) echo "::error::job must be tools/wp-agent/jobs/<name>.json"; exit 1 ;;
+            esac
+          else
+            jobs=$(ls tools/wp-agent/jobs/*.json 2>/dev/null || true)
+          fi
+          ran=0
+          for job in $jobs; do
+            name=$(basename "$job")
+            if [ -f "tools/wp-agent/results/$name" ]; then
+              echo "skip $job (already has a result)"
+              continue
+            fi
+            echo "::group::run $job"
+            python3 tools/wp-agent/wp_agent.py run-job "$job" || status=1
+            echo "::endgroup::"
+            ran=$((ran + 1))
+          done
+          echo "jobs run: $ran"
+          exit $status
+
+      - name: Upload runner-side backups (private artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wp-agent-backups-${{ github.run_id }}
+          path: backup/agent/
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Commit results back to the branch
+        if: always()
+        run: |
+          if [ -z "$(git status --porcelain tools/wp-agent/results 2>/dev/null)" ]; then
+            echo "no new results"
+            exit 0
+          fi
+          git config user.name "wp-agent[bot]"
+          git config user.email "wp-agent@users.noreply.github.com"
+          git add tools/wp-agent/results
+          git commit -m "wp-agent: results of run ${{ github.run_id }}"
+          for i in 1 2 3; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep 5
+          done
+          exit 1
