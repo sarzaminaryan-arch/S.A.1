@@ -403,6 +403,27 @@ function sa_city_is_thin( $post_id ) {
 }
 
 /**
+ * v2.22.73 — آیا این نوع نوشته دست‌کم یک مطلبِ منتشرشده دارد؟
+ * برای پنهان‌کردنِ پیوند به بخش‌های هنوز خالی (مسیر، غذا، سوغات) در ۴۰۴ و llms.txt.
+ *
+ * @param string $type CPT slug.
+ * @return bool
+ */
+function sa_type_has_published( $type ) {
+	static $cache = array();
+	$type = (string) $type;
+	if ( isset( $cache[ $type ] ) ) {
+		return $cache[ $type ];
+	}
+	if ( ! function_exists( 'wp_count_posts' ) ) {
+		return true;
+	}
+	$counts          = wp_count_posts( $type );
+	$cache[ $type ] = ( $counts && isset( $counts->publish ) ) ? ( (int) $counts->publish > 0 ) : false;
+	return $cache[ $type ];
+}
+
+/**
  * Site-wide archive URL for an entity type.
  *
  * @param string $type CPT slug.

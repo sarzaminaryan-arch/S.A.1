@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php elseif ( is_post_type_archive() && current_user_can( 'edit_posts' ) ) : ?>
 		<p>هنوز محتوایی در این بخش منتشر نشده است. <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . get_query_var( 'post_type' ) ) ); ?>">اولین مورد را اضافه کنید</a>.</p>
 	<?php else : ?>
-		<p>هنوز محتوایی در این بخش منتشر نشده است. به‌زودی تکمیل می‌شود.</p>
+		<p>هنوز محتوایی در این بخش منتشر نشده است. از استان‌ها، شهرستان‌ها یا دیدنی‌ها شروع کنید.</p>
 	<?php endif; ?>
 	<?php get_search_form(); ?>
 </section>

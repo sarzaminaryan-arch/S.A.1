@@ -128,8 +128,16 @@ return array(
 	 * نشانی‌های الگوییِ گزارش (`/wp-content/*` و مانند آن) و `?page_id`های
 	 * پیش‌فرضِ قدیمی صفحهٔ واقعی نیستند و دست‌نخورده می‌مانند.
 	 */
-	'/city/savojbolagh/' => '/province/alborz/',
-	'/attraction/vank-cathedral/' => '/province/isfahan/',
-	'/attraction/shah-cheragh/' => '/city/shiraz/',
-	'/editorial-policy/' => '/policy/',
+	'/city/savojbolagh/' => '/city/savojablogh/',
+
+	/*
+	 * اصلاحِ ممیزی ۲۰۲۶-۱۱-۱۵ (قالب 2.22.73):
+	 *   - `/city/savojbolagh/` حالا به صفحهٔ واقعیِ همان شهرستان (`savojablogh`) می‌رود،
+	 *     نه به صفحهٔ استان البرز.
+	 *   - سه قاعدهٔ ۲.۲۲.۶۴ برداشته شد، چون مبدأشان صفحهٔ زنده و منتشرشده بود، نه صفحهٔ
+	 *     حذف‌شده: `/editorial-policy/` (برگهٔ «سیاست تحریریه» که به ۴۰۴ می‌رفت)،
+	 *     `/attraction/vank-cathedral/` و `/attraction/shah-cheragh/` (مقاله‌های آمادهٔ
+	 *     دیدنی که از ۱۱ نوامبر ۲۰۲۶ منتشرند و مقاله‌های دیگر به آن‌ها پیوند می‌دهند).
+	 * قاعده: مبدأِ تغییرمسیر هرگز یک صفحهٔ منتشرشدهٔ مستقل نیست، مگر ادغامِ تأییدشدهٔ مالک.
+	 */
 );

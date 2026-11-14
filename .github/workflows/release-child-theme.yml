@@ -135,6 +135,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-agent-bridge.php"
 
+      - name: 'Run trust-bundle tests (بستهٔ اعتماد: بی‌۳۰۱ روی برگهٔ زنده، استان درست، بی‌بخش خالی)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-trust-bundle.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

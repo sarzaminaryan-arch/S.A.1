@@ -233,9 +233,26 @@ add_action( 'template_redirect', 'sa_redirect_handle_request', 1 );
  * @return bool
  */
 function sa_redirect_target_exists( $target ) {
-	$parts = explode( '/', trim( (string) $target, '/' ) );
-	if ( count( $parts ) < 2 ) {
-		return true;
+	$parts = array_values( array_filter( explode( '/', trim( (string) $target, '/' ) ), 'strlen' ) );
+	if ( ! $parts ) {
+		return true; // صفحهٔ اول.
+	}
+	if ( 1 === count( $parts ) ) {
+		/*
+		 * v2.22.73 — مقصدِ تک‌بخشی (برگه یا نوشتهٔ معمولی) هم باید واقعاً منتشر شده باشد.
+		 * پیش از این، هر مقصدِ تک‌بخشی «موجود» فرض می‌شد و `/editorial-policy/` به
+		 * `/policy/` (۴۰۴) فرستاده می‌شد.
+		 */
+		if ( ! function_exists( 'get_page_by_path' ) ) {
+			return true;
+		}
+		foreach ( array( 'page', 'post' ) as $sa_type ) {
+			$sa_post = get_page_by_path( $parts[0], OBJECT, $sa_type );
+			if ( $sa_post && 'publish' === $sa_post->post_status ) {
+				return true;
+			}
+		}
+		return false;
 	}
 	$types = array(
 		'city'       => 'city',
@@ -322,3 +339,46 @@ function sa_redirect_sitemap_exclusion( $args, $post_type ) {
 	return $args;
 }
 add_filter( 'wp_sitemaps_posts_query_args', 'sa_redirect_sitemap_exclusion', 10, 2 );
+
+
+/**
+ * v2.22.73 — پیوندهای داخلیِ داخل متن که به مبدأِ یک تغییرمسیر می‌روند، هنگام نمایش
+ * مستقیم به مقصد نوشته می‌شوند (بی‌پرشِ اضافه برای خواننده و خزنده). متنِ ذخیره‌شده
+ * دست نمی‌خورد؛ فقط وقتی مقصد واقعاً منتشر شده باشد بازنویسی می‌شود.
+ *
+ * @param string $html HTML.
+ * @return string
+ */
+function sa_redirect_rewrite_links( $html ) {
+	if ( ! is_string( $html ) || '' === $html || false === strpos( $html, 'href' ) ) {
+		return $html;
+	}
+	$map = sa_redirect_map();
+	if ( ! $map ) {
+		return $html;
+	}
+	$home  = function_exists( 'home_url' ) ? (string) home_url( '/' ) : '/';
+	$parts = function_exists( 'wp_parse_url' ) ? wp_parse_url( $home ) : parse_url( $home ); // phpcs:ignore WordPress.WP.AlternativeFunctions.parse_url_parse_url
+	$host  = isset( $parts['host'] ) ? preg_quote( (string) $parts['host'], '~' ) : '';
+	$base  = '' !== $host ? '(?:https?:)?//(?:www\.)?' . $host : '';
+	static $exists = array();
+	return (string) preg_replace_callback(
+		'~href=(["\'])(' . ( '' !== $base ? '(?:' . $base . ')?' : '' ) . ')(/(?!/)[^"\'#?]*)([^"\']*)\1~u',
+		function ( $m ) use ( $map, &$exists ) {
+			$path   = sa_redirect_normalize_path( rawurldecode( $m[3] ) );
+			$target = isset( $map[ $path ] ) ? $map[ $path ] : '';
+			if ( '' === $target ) {
+				return $m[0];
+			}
+			if ( ! isset( $exists[ $target ] ) ) {
+				$exists[ $target ] = sa_redirect_target_exists( $target );
+			}
+			if ( ! $exists[ $target ] ) {
+				return $m[0];
+			}
+			return 'href=' . $m[1] . $m[2] . $target . $m[4] . $m[1];
+		},
+		$html
+	);
+}
+add_filter( 'the_content', 'sa_redirect_rewrite_links', 99 );
