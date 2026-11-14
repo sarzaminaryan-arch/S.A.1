@@ -1,0 +1,80 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-01-ping.json",
+  "started_utc": "2026-11-14T22:25:27+00:00",
+  "note": "اولین آزمون اتصال پل ایجنت (فقط خواندن)",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.72",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-14T22:25:28+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "list",
+      "result": {
+        "total": 0,
+        "pages": 0,
+        "items": []
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "list",
+      "result": {
+        "total": 489,
+        "pages": 163,
+        "items": [
+          {
+            "id": 2353,
+            "type": "city",
+            "status": "draft",
+            "slug": "isfahan-blocked-2353",
+            "title": "اصفهان",
+            "modified_gmt": "2026-11-13 22:31:14",
+            "link": "https://sarzaminaryan.ir/?post_type=city&p=2353",
+            "words": 3
+          },
+          {
+            "id": 3429,
+            "type": "city",
+            "status": "publish",
+            "slug": "isfahan-city",
+            "title": "شهرستان اصفهان",
+            "modified_gmt": "2026-11-13 22:22:47",
+            "link": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "words": 0
+          },
+          {
+            "id": 84,
+            "type": "city",
+            "status": "publish",
+            "slug": "kharadere",
+            "title": "شهرستان خرمدره",
+            "modified_gmt": "2026-11-11 00:07:55",
+            "link": "https://sarzaminaryan.ir/city/kharadere/",
+            "words": 1132
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-14T22:25:31+00:00"
+}
