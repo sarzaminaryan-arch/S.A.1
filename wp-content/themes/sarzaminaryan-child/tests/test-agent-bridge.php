@@ -1,0 +1,347 @@
+<?php
+/**
+ * Standalone tests for the agent bridge (inc/agent-bridge.php, v2.22.72).
+ *
+ * Run with: php wp-content/themes/sarzaminaryan-child/tests/test-agent-bridge.php
+ *
+ * Locks in the owner's rules for direct WordPress writes:
+ *   - new articles are always drafts (a "publish" status in the request is ignored);
+ *   - every change to an existing post or to theme settings takes a full backup
+ *     first, and nothing is written if the backup fails;
+ *   - published text is never overwritten without the explicit owner flag —
+ *     a side draft (draft-copy) is created instead;
+ *   - no DELETE route exists; protected meta, unknown terms and banned phrases
+ *     are rejected; Application Passwords only for editors/admins.
+ *
+ * @package Sarzaminaryan_Child
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+$GLOBALS['t'] = array(
+	'posts'   => array(),
+	'meta'    => array(),
+	'terms'   => array(),
+	'mods'    => array( 'sa_show_featured' => false, 'custom_logo' => 12 ),
+	'next'    => 100,
+	'caps'    => array( 'edit_posts' => true, 'edit_others_posts' => true, 'edit_theme_options' => true ),
+	'logged'  => true,
+	'routes'  => array(),
+	'filters' => array(),
+	'fail_insert_type' => '',
+	'clock'   => 0,
+);
+
+function sa_t_assert( $condition, $message ) {
+	if ( ! $condition ) {
+		fwrite( STDERR, "FAIL: $message\n" );
+		exit( 1 );
+	}
+}
+
+class WP_Error {
+	public $code;
+	public $message;
+	public $data;
+	public function __construct( $code = '', $message = '', $data = null ) {
+		$this->code    = $code;
+		$this->message = $message;
+		$this->data    = $data;
+	}
+	public function get_error_code() {
+		return $this->code;
+	}
+}
+class WP_Query {
+	public $posts = array();
+	public $found_posts = 0;
+	public $max_num_pages = 0;
+	public function __construct( $args ) {
+	}
+}
+function is_wp_error( $x ) {
+	return $x instanceof WP_Error;
+}
+function add_filter( $hook, $cb, $prio = 10, $n = 1 ) {
+	$GLOBALS['t']['filters'][ $hook ][] = $cb;
+}
+function add_action( $hook, $cb, $prio = 10, $n = 1 ) {
+	add_filter( $hook, $cb, $prio, $n );
+}
+function register_post_type( $type, $args ) {
+	$GLOBALS['t']['registered'][ $type ] = $args;
+}
+function register_rest_route( $ns, $route, $args ) {
+	$GLOBALS['t']['routes'][ $ns . $route ] = $args;
+}
+function rest_ensure_response( $d ) {
+	return $d;
+}
+function sa_entity_types() {
+	return array( 'province', 'city', 'attraction' );
+}
+function user_can( $user, $cap ) {
+	return ! empty( $user->caps[ $cap ] );
+}
+function current_user_can( $cap ) {
+	return ! empty( $GLOBALS['t']['caps'][ $cap ] );
+}
+function is_user_logged_in() {
+	return $GLOBALS['t']['logged'];
+}
+function wp_get_current_user() {
+	return (object) array( 'user_login' => 'agent' );
+}
+function wp_json_encode( $d, $f = 0 ) {
+	return json_encode( $d, $f );
+}
+function wp_slash( $v ) {
+	return $v;
+}
+function maybe_unserialize( $v ) {
+	return $v;
+}
+function sanitize_title( $s ) {
+	return strtolower( preg_replace( '/[^A-Za-z0-9\-]+/', '-', (string) $s ) );
+}
+function sanitize_text_field( $s ) {
+	return trim( (string) $s );
+}
+function sanitize_key( $s ) {
+	return strtolower( (string) $s );
+}
+function admin_url( $p ) {
+	return 'https://example.test/wp-admin/' . $p;
+}
+function home_url( $p = '' ) {
+	return 'https://example.test' . $p;
+}
+function add_query_arg( $a, $u ) {
+	return $u . '?' . http_build_query( $a );
+}
+function get_permalink( $id ) {
+	return 'https://example.test/?p=' . $id;
+}
+function get_post_thumbnail_id( $id ) {
+	return isset( $GLOBALS['t']['meta'][ $id ]['_thumbnail_id'] ) ? (int) $GLOBALS['t']['meta'][ $id ]['_thumbnail_id'] : 0;
+}
+function get_post( $id ) {
+	return isset( $GLOBALS['t']['posts'][ $id ] ) ? $GLOBALS['t']['posts'][ $id ] : null;
+}
+function sa_t_tick() {
+	$GLOBALS['t']['clock']++;
+	return sprintf( '2026-11-14 10:00:%02d', $GLOBALS['t']['clock'] );
+}
+function wp_insert_post( $arr, $wp_error = false ) {
+	if ( $GLOBALS['t']['fail_insert_type'] === $arr['post_type'] ) {
+		return new WP_Error( 'db', 'fail' );
+	}
+	$id = $GLOBALS['t']['next']++;
+	$GLOBALS['t']['posts'][ $id ] = (object) array(
+		'ID'                => $id,
+		'post_type'         => $arr['post_type'],
+		'post_status'       => isset( $arr['post_status'] ) ? $arr['post_status'] : 'draft',
+		'post_name'         => isset( $arr['post_name'] ) ? $arr['post_name'] : '',
+		'post_title'        => isset( $arr['post_title'] ) ? $arr['post_title'] : '',
+		'post_content'      => isset( $arr['post_content'] ) ? $arr['post_content'] : '',
+		'post_excerpt'      => isset( $arr['post_excerpt'] ) ? $arr['post_excerpt'] : '',
+		'post_parent'       => isset( $arr['post_parent'] ) ? $arr['post_parent'] : 0,
+		'menu_order'        => 0,
+		'post_author'       => 1,
+		'post_date_gmt'     => '2026-11-14 10:00:00',
+		'post_modified_gmt' => sa_t_tick(),
+	);
+	$GLOBALS['t']['meta'][ $id ] = array();
+	return $id;
+}
+function wp_update_post( $arr, $wp_error = false ) {
+	$p = $GLOBALS['t']['posts'][ $arr['ID'] ];
+	foreach ( $arr as $k => $v ) {
+		if ( 'ID' !== $k ) {
+			$p->$k = $v;
+		}
+	}
+	$p->post_modified_gmt = sa_t_tick();
+	return $arr['ID'];
+}
+function get_post_meta( $id, $key = '', $single = false ) {
+	$m = isset( $GLOBALS['t']['meta'][ $id ] ) ? $GLOBALS['t']['meta'][ $id ] : array();
+	if ( '' === $key ) {
+		$out = array();
+		foreach ( $m as $k => $v ) {
+			$out[ $k ] = array( $v );
+		}
+		return $out;
+	}
+	return isset( $m[ $key ] ) ? $m[ $key ] : '';
+}
+function update_post_meta( $id, $key, $value ) {
+	$GLOBALS['t']['meta'][ $id ][ $key ] = $value;
+	return true;
+}
+function delete_post_meta( $id, $key ) {
+	unset( $GLOBALS['t']['meta'][ $id ][ $key ] );
+	return true;
+}
+function get_object_taxonomies( $type ) {
+	return 'post' === $type ? array( 'category' ) : array();
+}
+function wp_get_object_terms( $id, $tax, $args ) {
+	return isset( $GLOBALS['t']['terms'][ $id ][ $tax ] ) ? $GLOBALS['t']['terms'][ $id ][ $tax ] : array();
+}
+function get_term_by( $field, $value, $tax ) {
+	$known = array( 'travel' => 7, 'camping' => 8 );
+	return isset( $known[ $value ] ) ? (object) array( 'term_id' => $known[ $value ] ) : false;
+}
+function wp_set_object_terms( $id, $ids, $tax ) {
+	$names = array( 7 => 'travel', 8 => 'camping' );
+	$GLOBALS['t']['terms'][ $id ][ $tax ] = array_map(
+		function ( $i ) use ( $names ) {
+			return $names[ $i ];
+		},
+		$ids
+	);
+}
+function get_theme_mods() {
+	return $GLOBALS['t']['mods'];
+}
+function set_theme_mod( $k, $v ) {
+	$GLOBALS['t']['mods'][ $k ] = $v;
+}
+function get_stylesheet() {
+	return 'sarzaminaryan-child';
+}
+
+define( 'SA_CHILD_VERSION', 'test' );
+require dirname( __DIR__ ) . '/inc/agent-bridge.php';
+
+$t = &$GLOBALS['t'];
+
+/* 1. Application Passwords: on, but only for users who can edit others' posts. */
+sa_t_assert( true === sa_agent_app_passwords_available(), '1a: Application Passwords available site-wide' );
+$editor = (object) array( 'caps' => array( 'edit_others_posts' => true ) );
+$author = (object) array( 'caps' => array( 'edit_posts' => true ) );
+sa_t_assert( true === sa_agent_app_passwords_for_user( true, $editor ), '1b: editor/admin may create an Application Password' );
+sa_t_assert( false === sa_agent_app_passwords_for_user( true, $author ), '1c: authors/subscribers may not' );
+$sec = file_get_contents( dirname( __DIR__ ) . '/inc/security.php' );
+sa_t_assert( false === strpos( $sec, "'wp_is_application_passwords_available', '__return_false'" ), '1d: security.php no longer switches Application Passwords off' );
+$fn = file_get_contents( dirname( __DIR__ ) . '/functions.php' );
+sa_t_assert( false !== strpos( $fn, "'inc/agent-bridge.php'" ), '1e: functions.php loads the bridge' );
+
+/* 1f. Authorization fallback header (hosts that strip Authorization). */
+$s = sa_agent_fill_basic_auth( array( 'REQUEST_URI' => '/wp-json/sa-agent/v1/ping', 'HTTP_X_SA_AUTHORIZATION' => 'Basic ' . base64_encode( 'agent:abcd efgh' ) ) );
+sa_t_assert( 'agent' === $s['PHP_AUTH_USER'] && 'abcd efgh' === $s['PHP_AUTH_PW'], '1f: X-SA-Authorization fills PHP_AUTH_*' );
+$s = sa_agent_fill_basic_auth( array( 'REQUEST_URI' => '/some-page/', 'HTTP_AUTHORIZATION' => 'Basic ' . base64_encode( 'a:b' ) ) );
+sa_t_assert( empty( $s['PHP_AUTH_USER'] ), '1g: only REST requests are touched' );
+
+/* 2. Routes: the expected set, every one with a permission callback, and no DELETE. */
+$expected = array( '/ping', '/posts', '/post/(?P<id>\d+)', '/post/(?P<id>\d+)/draft-copy', '/draft', '/backups', '/backup/(?P<id>\d+)', '/restore/(?P<id>\d+)', '/theme-mods' );
+sa_agent_register_routes();
+foreach ( $expected as $r ) {
+	sa_t_assert( isset( $t['routes'][ 'sa-agent/v1' . $r ] ), "2a: route $r registered" );
+}
+foreach ( $t['routes'] as $name => $def ) {
+	$handlers = isset( $def['methods'] ) ? array( $def ) : $def;
+	foreach ( $handlers as $h ) {
+		sa_t_assert( ! empty( $h['permission_callback'] ) && '__return_true' !== $h['permission_callback'], "2b: $name has a real permission callback" );
+		sa_t_assert( false === stripos( (string) $h['methods'], 'DELETE' ), "2c: $name has no DELETE" );
+	}
+}
+$t['logged'] = false;
+sa_t_assert( ! sa_agent_can_read() && ! sa_agent_can_write() && ! sa_agent_can_theme(), '2d: logged-out visitors get nothing' );
+$t['logged'] = true;
+$t['caps']   = array( 'edit_posts' => true );
+sa_t_assert( sa_agent_can_read() && ! sa_agent_can_write(), '2e: an author can read but not write' );
+$t['caps'] = array( 'edit_posts' => true, 'edit_others_posts' => true, 'edit_theme_options' => true );
+
+/* 3. New articles are always drafts. */
+$r = sa_agent_create_draft( array( 'type' => 'post', 'title' => 'سفر به کاشان', 'content' => '<p>متن</p>', 'status' => 'publish', 'post_status' => 'publish', 'terms' => array( 'category' => array( 'travel' ) ), 'meta' => array( 'sa_source' => 'x' ) ) );
+sa_t_assert( is_array( $r ) && 'draft' === $r['status'], '3a: create returns a draft' );
+sa_t_assert( 'draft' === $t['posts'][ $r['id'] ]->post_status, '3b: stored status is draft even when publish was requested' );
+sa_t_assert( array( 'travel' ) === $t['terms'][ $r['id'] ]['category'], '3c: existing terms are attached' );
+sa_t_assert( 'x' === $t['meta'][ $r['id'] ]['sa_source'], '3d: meta saved' );
+$e = sa_agent_create_draft( array( 'type' => 'post', 'title' => 'تست', 'content' => 'راستش را بخواهید' ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_banned_phrase' === $e->code, '3e: banned phrase rejected' );
+$e = sa_agent_create_draft( array( 'type' => 'post', 'title' => 'تست', 'content' => 'این متن با هوش مصنوعی نوشته شد' ) );
+sa_t_assert( is_wp_error( $e ), '3f: process terms rejected' );
+$e = sa_agent_create_draft( array( 'type' => 'post', 'title' => 'تست', 'terms' => array( 'category' => array( 'brand-new' ) ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_unknown_term' === $e->code, '3g: unknown term rejected (no new terms)' );
+$e = sa_agent_create_draft( array( 'type' => 'post', 'title' => 'تست', 'meta' => array( '_wp_page_template' => 'x' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_protected_meta' === $e->code, '3h: protected meta rejected' );
+$e = sa_agent_create_draft( array( 'type' => 'attachment', 'title' => 'تست' ) );
+sa_t_assert( is_wp_error( $e ), '3i: unknown post type rejected' );
+$r2 = sa_agent_create_draft( array( 'type' => 'city', 'title' => 'شهرستان تست' ) );
+sa_t_assert( is_array( $r2 ) && 'city' === $t['posts'][ $r2['id'] ]->post_type, '3j: entity CPTs (show_in_rest=false) are writable as drafts' );
+
+/* 4. Updating an existing published post: backup first, live text protected. */
+$live = wp_insert_post( array( 'post_type' => 'post', 'post_status' => 'publish', 'post_title' => 'اصل', 'post_content' => 'متن اصلی' ) );
+update_post_meta( $live, 'sa_note', 'old' );
+$snap = sa_agent_snapshot_post( $live );
+sa_t_assert( 'publish' === $snap['status'] && 'old' === $snap['meta']['sa_note'], '4a: snapshot reads status and meta' );
+$e = sa_agent_update_post( $live, array( 'fields' => array( 'content' => 'تازه' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_need_expected' === $e->code, '4b: expected_modified_gmt required' );
+$e = sa_agent_update_post( $live, array( 'expected_modified_gmt' => '1999-01-01 00:00:00', 'meta' => array( 'sa_note' => 'new' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_stale' === $e->code, '4c: stale read rejected' );
+$e = sa_agent_update_post( $live, array( 'expected_modified_gmt' => $snap['modified_gmt'], 'fields' => array( 'content' => 'تازه' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_live_content' === $e->code, '4d: published text not overwritten without owner flag' );
+sa_t_assert( 'متن اصلی' === $t['posts'][ $live ]->post_content, '4e: live content untouched' );
+$before_count = count( $t['posts'] );
+$u = sa_agent_update_post( $live, array( 'expected_modified_gmt' => $snap['modified_gmt'], 'meta' => array( 'sa_note' => 'new' ), 'reason' => 'اصلاح متا' ) );
+sa_t_assert( is_array( $u ) && $u['backup_id'] > 0, '4f: meta update returns a backup id' );
+sa_t_assert( 'new' === $t['meta'][ $live ]['sa_note'], '4g: meta changed' );
+$b = sa_agent_read_backup( $u['backup_id'] );
+sa_t_assert( 'old' === $b['data']['meta']['sa_note'] && 'متن اصلی' === $b['data']['content'] && 'private' === $t['posts'][ $u['backup_id'] ]->post_status, '4h: backup holds the prior state, stored privately' );
+sa_t_assert( 'publish' === $t['posts'][ $live ]->post_status, '4i: status never changed by an update' );
+$e = sa_agent_update_post( $live, array( 'expected_modified_gmt' => $t['posts'][ $live ]->post_modified_gmt, 'fields' => array( 'status' => 'trash', 'slug' => 'x' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_nothing' === $e->code, '4j: status/slug are not editable fields' );
+
+/* 5. Backup failure blocks the write. */
+$t['fail_insert_type'] = SA_AGENT_BACKUP_TYPE;
+$e = sa_agent_update_post( $live, array( 'expected_modified_gmt' => $t['posts'][ $live ]->post_modified_gmt, 'meta' => array( 'sa_note' => 'blocked' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'new' === $t['meta'][ $live ]['sa_note'], '5a: no backup → no write' );
+$t['fail_insert_type'] = '';
+
+/* 6. draft-copy leaves the original alone. */
+$c = sa_agent_draft_copy( $live, array( 'fields' => array( 'content' => 'نسخهٔ بازنویسی' ) ) );
+sa_t_assert( is_array( $c ) && 'draft' === $t['posts'][ $c['id'] ]->post_status, '6a: copy is a draft' );
+sa_t_assert( $live === (int) $t['meta'][ $c['id'] ]['_sa_agent_draft_of'], '6b: copy points to the original' );
+sa_t_assert( 'متن اصلی' === $t['posts'][ $live ]->post_content && 'نسخهٔ بازنویسی' === $t['posts'][ $c['id'] ]->post_content, '6c: original unchanged, copy has new text' );
+
+/* 7. Owner-approved live edit, then restore (which also backs up first). */
+$u2 = sa_agent_update_post( $live, array( 'expected_modified_gmt' => $t['posts'][ $live ]->post_modified_gmt, 'fields' => array( 'content' => 'متن تأییدشده' ), 'meta' => array( 'sa_added' => '1' ), 'owner_approved_live_edit' => true ) );
+sa_t_assert( is_array( $u2 ) && 'متن تأییدشده' === $t['posts'][ $live ]->post_content, '7a: owner-approved edit applied' );
+$res = sa_agent_restore( $u2['backup_id'] );
+sa_t_assert( is_array( $res ) && 'متن اصلی' === $t['posts'][ $live ]->post_content, '7b: restore brings back the prior text' );
+sa_t_assert( ! isset( $t['meta'][ $live ]['sa_added'] ) && 'new' === $t['meta'][ $live ]['sa_note'], '7c: restore brings back prior meta' );
+$pre = sa_agent_read_backup( $res['backup_id'] );
+sa_t_assert( 'متن تأییدشده' === $pre['data']['content'], '7d: restore itself backed up the state it replaced' );
+
+/* 8. Theme settings: backup first, only sa_* or existing keys, scalar values. */
+$m = sa_agent_theme_mods_snapshot();
+$e = sa_agent_set_theme_mods( array( 'expected_hash' => 'nope', 'set' => array( 'sa_show_featured' => true ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_stale' === $e->code, '8a: stale hash rejected' );
+$e = sa_agent_set_theme_mods( array( 'expected_hash' => $m['hash'], 'set' => array( 'nav_menu_locations' => 1 ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_bad_mod' === $e->code, '8b: unknown non-sa key rejected' );
+$e = sa_agent_set_theme_mods( array( 'expected_hash' => $m['hash'], 'set' => array( 'sa_x' => array( 1 ) ) ) );
+sa_t_assert( is_wp_error( $e ), '8c: non-scalar value rejected' );
+$ok = sa_agent_set_theme_mods( array( 'expected_hash' => $m['hash'], 'set' => array( 'sa_show_featured' => true ) ) );
+sa_t_assert( is_array( $ok ) && true === $t['mods']['sa_show_featured'], '8d: theme mod changed' );
+$tb = sa_agent_read_backup( $ok['backup_id'] );
+sa_t_assert( 'theme_mods' === $tb['kind'] && false === $tb['data']['mods']['sa_show_featured'], '8e: theme-mod backup holds the prior value' );
+sa_agent_restore( $ok['backup_id'] );
+sa_t_assert( false === $t['mods']['sa_show_featured'], '8f: theme-mod restore works' );
+
+/* 9. Backup post type is private and admin-only. */
+sa_agent_register_backup_type();
+$reg = $t['registered'][ SA_AGENT_BACKUP_TYPE ];
+sa_t_assert( false === $reg['public'] && false === $reg['show_in_rest'] && false === $reg['rewrite'] && 'manage_options' === $reg['capabilities']['read_post'], '9a: backups are private, admin-only, no URL' );
+
+/* 10. The bridge never publishes: no publish/trash/delete calls in the source. */
+$src = file_get_contents( dirname( __DIR__ ) . '/inc/agent-bridge.php' );
+foreach ( array( 'wp_publish_post', 'wp_delete_post', 'wp_trash_post', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
+	sa_t_assert( false === strpos( $src, $needle ), "10: bridge source never contains $needle" );
+}
+
+echo "PASS: agent bridge (drafts only, backup before every change, live text protected, restore, theme-mod backups, editors-only Application Passwords, no DELETE)\n";

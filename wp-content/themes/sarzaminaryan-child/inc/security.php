@@ -121,8 +121,7 @@ add_filter(
 	}
 );
 
-// 9. Application passwords off unless explicitly needed (no external API clients planned).
-add_filter( 'wp_is_application_passwords_available', '__return_false' );
+// 9. Application passwords: since 2.22.72 enabled only for editors/admins (agent bridge, owner's order) — see inc/agent-bridge.php.
 
 // 10. Slow down brute force a little: 2s delay after a failed login.
 add_action(

@@ -21,6 +21,13 @@
 
 ---
 
+## 🔌 به‌روزرسانی ۲۰۲۶-۱۱-۱۵ — دسترسی مستقیم ایجنت به وردپرس
+
+- قالب فرزند **2.22.72** روی سایت نصب است و «پل ایجنت» (`inc/agent-bridge.php`، REST `sa-agent/v1`) فعال و آزموده شده است.
+- اجرا از GitHub Actions انجام می‌شود (`.github/workflows/wp-agent.yml`) با کاربر `sa-agent` (مدیر کل) و سه Secret: `SA_SITE_URL`، `SA_USER`، `SA_APP_PASSWORD`.
+- قواعد: خواندن آزاد است؛ مقاله فقط پیش‌نویس؛ پیش از هر تغییر اول پشتیبان؛ مسیر حذف و انتشار وجود ندارد.
+- سند مرجع: `docs/WP-AGENT-DIRECT-ACCESS.md`. دستورها: `tools/wp-agent/README.md`.
+
 ## ✅ بخش‌های کامل شده
 
 **زیرساخت و پایه**
@@ -142,6 +149,7 @@
 
 ## 🔑 یادداشت برای Agent بعدی
 
+- **سایت زنده را مستقیم می‌توانی بخوانی و پیش‌نویس بگذاری:** پیش از هر کار روی سایت، `docs/WP-AGENT-DIRECT-ACCESS.md` را بخوان.
 - Branchهای استانداردی که در CLAUDE.md ذکر شد (مثل `develop` و `feature/*`) هنوز در مخزن وجود ندارند و **باید قبل از شروع کار ایجاد شوند**: `develop` (توسعهٔ اصلی)، `feature/*`، `fix/*`، `backup/*`. الگوی واقعی و جاریِ مخزن در حال حاضر `main` + `arena/<session-id>-s-a-1` است.
 - قبل از هر تغییر، `CLAUDE.md` را کامل بخوان؛ قوانین مطلق در بخش ۴ آن است و فهرست فایل‌های ممنوعه/مجاز در بخش‌های ۶ و ۷.
 - فایل‌های تولیدی را هرگز دستی ویرایش نکن: `inc/entities-config.php`، `data/ready-guides.php`، `data-model/schema/data-model.json` — مولدها (`build_child_config.py`، `build_theme_data.py`، `build_json.py`) را اجرا کن.

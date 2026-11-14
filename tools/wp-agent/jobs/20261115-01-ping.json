@@ -1,0 +1,8 @@
+{
+  "note": "اولین آزمون اتصال پل ایجنت (فقط خواندن)",
+  "steps": [
+    { "cmd": "ping" },
+    { "cmd": "list", "type": "post", "status": "draft", "per_page": 5 },
+    { "cmd": "list", "type": "city", "per_page": 3 }
+  ]
+}
