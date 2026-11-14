@@ -47,6 +47,7 @@
 | ۳-۴ | مخزن فقط سورس است: نه هستهٔ وردپرس، نه `wp-config.php`، نه `.htaccess`، نه ZIP و بستهٔ نصب (فقط Release asset) | ۲۰۲۶-۱۰-۰۵ | `docs/repository-retention-policy.md` · `AGENTS.md` بند ۷ |
 | ۳-۵ | CPTها از ویرایشگر کلاسیک با متاباکس‌های ساختاریافته استفاده می‌کنند (`show_in_rest = false`) | — | `inc/post-types.php` · مورد TG-08 در `docs/theme-gaps.md` |
 | ۳-۶ | موجودیت `accommodation` رزرو است و فقط با ثابت `SA_ENABLE_ACCOMMODATION` فعال می‌شود | مدل ۱.۰ | `functions.php` فرزند · `inc/entities-config.php` |
+| ۳-۷ | **دسترسی مستقیم ایجنت به وردپرس** از راه پل ایجنت: خواندن آزاد؛ مقاله فقط پیش‌نویس؛ پیش از هر تغییر ظاهر یا ساختار اول پشتیبان؛ Application Password فقط برای ویرایشگر و مدیر؛ اجرا از GitHub Actions با Secrets | ۲۰۲۶-۱۱-۱۴ (اجرا ۲۰۲۶-۱۱-۱۵) | دستور مالک · `docs/WP-AGENT-DIRECT-ACCESS.md` |
 
 ---
 

@@ -136,6 +136,149 @@ def out(data) -> None:
     print(json.dumps(data, ensure_ascii=False, indent=2))
 
 
+# ---------------------------------------------------------------------------
+# seo-scan: read-only public crawl of published URLs (no credentials sent).
+# ---------------------------------------------------------------------------
+import html.parser
+import re
+import time
+from concurrent.futures import ThreadPoolExecutor
+
+
+class _SeoParser(html.parser.HTMLParser):
+    def __init__(self) -> None:
+        super().__init__(convert_charrefs=True)
+        self.title = ""
+        self._in_title = False
+        self.meta: dict[str, str] = {}
+        self.canonical = ""
+        self.h1 = 0
+        self.h2 = 0
+        self.imgs = 0
+        self.imgs_no_alt = 0
+        self.jsonld: list[str] = []
+        self._in_jsonld = False
+        self._buf = ""
+        self.links_internal = 0
+        self.text_parts: list[str] = []
+        self._skip = 0
+        self.hreflang = 0
+        self.lazy_imgs = 0
+
+    def handle_starttag(self, tag, attrs):
+        a = {k.lower(): (v or "") for k, v in attrs}
+        if tag == "title":
+            self._in_title = True
+        elif tag == "meta":
+            key = (a.get("name") or a.get("property") or "").lower()
+            if key:
+                self.meta[key] = a.get("content", "")
+        elif tag == "link":
+            rel = a.get("rel", "").lower()
+            if rel == "canonical":
+                self.canonical = a.get("href", "")
+            if rel == "alternate" and a.get("hreflang"):
+                self.hreflang += 1
+        elif tag == "h1":
+            self.h1 += 1
+        elif tag == "h2":
+            self.h2 += 1
+        elif tag == "img":
+            self.imgs += 1
+            if not a.get("alt", "").strip():
+                self.imgs_no_alt += 1
+            if a.get("loading") == "lazy":
+                self.lazy_imgs += 1
+        elif tag == "script" and "ld+json" in a.get("type", ""):
+            self._in_jsonld = True
+            self._buf = ""
+        elif tag == "a":
+            href = a.get("href", "")
+            if "sarzaminaryan.ir" in href or href.startswith("/"):
+                self.links_internal += 1
+        if tag in ("script", "style", "noscript"):
+            self._skip += 1
+
+    def handle_endtag(self, tag):
+        if tag == "title":
+            self._in_title = False
+        elif tag == "script" and self._in_jsonld:
+            self._in_jsonld = False
+            self.jsonld.append(self._buf)
+        if tag in ("script", "style", "noscript") and self._skip:
+            self._skip -= 1
+
+    def handle_data(self, data):
+        if self._in_title:
+            self.title += data
+        if self._in_jsonld:
+            self._buf += data
+        elif not self._skip:
+            self.text_parts.append(data)
+
+
+def _jsonld_types(blobs: list[str]) -> list[str]:
+    types: list[str] = []
+
+    def walk(node):
+        if isinstance(node, dict):
+            t = node.get("@type")
+            if isinstance(t, str):
+                types.append(t)
+            elif isinstance(t, list):
+                types.extend(str(x) for x in t)
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    for b in blobs:
+        try:
+            walk(json.loads(b))
+        except ValueError:
+            types.append("INVALID_JSON")
+    return sorted(set(types))
+
+
+def scan_url(url: str) -> dict:
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; sa-seo-scan/1.0)", "Accept-Language": "fa"})
+    t0 = time.time()
+    try:
+        with urllib.request.urlopen(req, timeout=40) as resp:
+            body = resp.read()
+            status = resp.status
+            final = resp.geturl()
+            headers = {k.lower(): v for k, v in resp.headers.items()}
+    except urllib.error.HTTPError as err:
+        return {"url": url, "status": err.code}
+    except Exception as err:  # noqa: BLE001
+        return {"url": url, "status": 0, "error": str(err)[:200]}
+    ms = int((time.time() - t0) * 1000)
+    p = _SeoParser()
+    try:
+        p.feed(body.decode("utf-8", "replace"))
+    except Exception:  # noqa: BLE001
+        pass
+    text = re.sub(r"\s+", " ", " ".join(p.text_parts)).strip()
+    return {
+        "url": url, "status": status, "final": final if final != url else "", "ms": ms, "kb": len(body) // 1024,
+        "cache": headers.get("x-litespeed-cache", ""), "x_robots": headers.get("x-robots-tag", ""),
+        "title": p.title.strip(), "title_len": len(p.title.strip()),
+        "desc": p.meta.get("description", ""), "desc_len": len(p.meta.get("description", "")),
+        "robots": p.meta.get("robots", ""), "canonical": p.canonical,
+        "og_image": bool(p.meta.get("og:image")), "og_title": bool(p.meta.get("og:title")),
+        "h1": p.h1, "h2": p.h2, "imgs": p.imgs, "imgs_no_alt": p.imgs_no_alt, "lazy_imgs": p.lazy_imgs,
+        "jsonld": _jsonld_types(p.jsonld), "internal_links": p.links_internal,
+        "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
+    }
+
+
+def seo_scan(urls: list[str], workers: int = 4) -> list[dict]:
+    with ThreadPoolExecutor(max_workers=workers) as pool:
+        return list(pool.map(scan_url, urls))
+
+
 def build_parser() -> argparse.ArgumentParser:
     ap = argparse.ArgumentParser(description="direct WordPress access for the agent (drafts only, backup first)")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -150,6 +293,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--page", type=int, default=1)
     p = sub.add_parser("inventory", help="every item of the given types (all statuses), paginated")
     p.add_argument("--types", default="post,page,province,city,attraction,travel_route,local_food,souvenir")
+    p = sub.add_parser("seo-scan", help="read-only public crawl of published URLs (no credentials)")
+    p.add_argument("--types", default="post,page,province,city,attraction")
+    p.add_argument("--extra", action="append", default=[], help="extra public URL (robots.txt, sitemap, ...)")
+    p.add_argument("--limit", type=int, default=0)
+    p.add_argument("--workers", type=int, default=4)
     p = sub.add_parser("get")
     p.add_argument("id", type=int)
     p.add_argument("--out")
@@ -208,6 +356,32 @@ def run(a: argparse.Namespace, c: "Client"):
                 page += 1
             report[ptype] = {"total": len(items), "items": items}
         return report
+    elif a.cmd == "seo-scan":
+        urls: list[str] = []
+        for ptype in [t.strip() for t in a.types.split(",") if t.strip()]:
+            page = 1
+            while True:
+                chunk = c.call("GET", "/posts", {"type": ptype, "status": "publish", "per_page": 100, "page": page})
+                urls += [i["link"] for i in chunk.get("items", []) if i.get("link")]
+                if page >= int(chunk.get("pages") or 0):
+                    break
+                page += 1
+        urls = list(dict.fromkeys(urls))
+        if a.limit:
+            urls = urls[: a.limit]
+        site = c.base.split("/wp-json/")[0]
+        extras = {}
+        for path in ["/robots.txt", "/wp-sitemap.xml"] + a.extra:
+            u = path if path.startswith("http") else site + path
+            req = urllib.request.Request(u, headers={"User-Agent": "Mozilla/5.0 (compatible; sa-seo-scan/1.0)"})
+            try:
+                with urllib.request.urlopen(req, timeout=40) as resp:
+                    extras[u] = {"status": resp.status, "body": resp.read().decode("utf-8", "replace")[:20000]}
+            except urllib.error.HTTPError as err:
+                extras[u] = {"status": err.code}
+            except Exception as err:  # noqa: BLE001
+                extras[u] = {"status": 0, "error": str(err)[:200]}
+        return {"count": len(urls), "extras": extras, "pages": seo_scan(urls, a.workers)}
     elif a.cmd == "get":
         data = c.call("GET", f"/post/{a.id}")
         if a.out:
