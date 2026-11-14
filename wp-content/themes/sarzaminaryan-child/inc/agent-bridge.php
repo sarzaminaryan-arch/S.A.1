@@ -771,8 +771,7 @@ function sa_agent_rest_list( $r ) {
 		'post_status'    => '' === $status ? array( 'publish', 'draft', 'pending', 'private', 'future' ) : array_map( 'sanitize_key', explode( ',', $status ) ),
 		'posts_per_page' => max( 1, min( 100, (int) ( $r->get_param( 'per_page' ) ? $r->get_param( 'per_page' ) : 50 ) ) ),
 		'paged'          => max( 1, (int) $r->get_param( 'page' ) ),
-		'orderby'        => 'modified',
-		'order'          => 'DESC',
+		'orderby'        => array( 'modified' => 'DESC', 'ID' => 'DESC' ), // v2.22.73: ترتیب پایدار برای صفحه‌بندی.
 		'no_found_rows'  => false,
 	);
 	if ( $r->get_param( 'search' ) ) {

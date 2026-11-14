@@ -19,6 +19,7 @@ get_header();
 		<?php get_search_form(); ?>
 		<ul class="sa-404__links">
 			<?php foreach ( sa_entity_types() as $sa_type ) : ?>
+				<?php if ( function_exists( 'sa_type_has_published' ) && ! sa_type_has_published( $sa_type ) ) { continue; } // v2.22.73: بی‌پیوند به بخشِ خالی. ?>
 				<li><a class="sa-chip" href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>"><?php echo esc_html( sa_entity_label( $sa_type, true ) ); ?></a></li>
 			<?php endforeach; ?>
 		</ul>

@@ -29,12 +29,17 @@ $sa_logo_light_480 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url(
  */
 function sa_seeded_page_link( $slug ) {
 	$sa_ids = get_option( 'sa_default_pages', array() );
-	if ( ! empty( $sa_ids[ $slug ] ) && get_post( $sa_ids[ $slug ] ) ) {
+	// v2.22.73 — فقط برگهٔ منتشرشده؛ برگهٔ پیش‌نویس (مثلاً «policy» ساختهٔ فعال‌سازی) پیوند نمی‌گیرد.
+	if ( ! empty( $sa_ids[ $slug ] ) && 'publish' === get_post_status( (int) $sa_ids[ $slug ] ) ) {
 		return get_permalink( (int) $sa_ids[ $slug ] );
 	}
-	$sa_page = get_page_by_path( $slug );
-	if ( $sa_page instanceof WP_Post && 'publish' === $sa_page->post_status ) {
-		return get_permalink( $sa_page );
+	// v2.22.73 — برگهٔ سیاست تحریریهٔ زنده با نامک «editorial-policy» منتشر شده است.
+	$sa_slugs = 'policy' === $slug ? array( 'editorial-policy', 'policy' ) : array( $slug );
+	foreach ( $sa_slugs as $sa_try ) {
+		$sa_page = get_page_by_path( $sa_try );
+		if ( $sa_page instanceof WP_Post && 'publish' === $sa_page->post_status ) {
+			return get_permalink( $sa_page );
+		}
 	}
 	// v2.3.0 — قبلاً اینجا یک نشانی حدسی برمی‌گشت، حتی وقتی برگه وجود نداشت؛
 	// یعنی فوتر هر صفحه‌ی سایت به یک ۴۰۴ لینک می‌داد. حالا لینک ساخته نمی‌شود.

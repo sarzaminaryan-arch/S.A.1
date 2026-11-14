@@ -359,7 +359,8 @@ function sa_seo_description() {
 			if ( $custom ) {
 				return sa_truncate_to_155( $custom );
 			}
-			return sa_truncate_to_155( sa_summary( $id, 28 ) );
+			$summary = sa_truncate_to_155( sa_summary( $id, 28 ) );
+			return '' !== trim( (string) $summary ) ? $summary : sa_seo_city_fallback_description( $id );
 		}
 		$custom = get_post_meta( $id, 'sa_seo_description', true );
 		if ( $custom ) {
@@ -391,6 +392,29 @@ function sa_seo_description() {
 		return sprintf( 'فهرست کامل %s ایران در سرزمین آریان، همراه با اطلاعات کلیدی و راهنمای بازدید.', $label );
 	}
 	return '';
+}
+
+/**
+ * v2.22.73 — توضیحِ متای جانشین برای شهرستانی که نه پیش‌درآمد دارد، نه توضیحِ
+ * سفارشی، نه متن (مثلاً صفحه‌ای که همهٔ محتوایش از شناسنامه و «از تجربهٔ مسافرها» است).
+ *
+ * @param int $id City post ID.
+ * @return string
+ */
+function sa_seo_city_fallback_description( $id ) {
+	$name     = trim( (string) preg_replace( '~^شهرستان[\s\x{200C}]+~u', '', (string) get_the_title( $id ) ) );
+	$province = '';
+	$pid      = function_exists( 'sa_gallery_city_province_id' ) ? (int) sa_gallery_city_province_id( $id ) : 0;
+	if ( $pid && function_exists( 'sa_province_name_for_post' ) ) {
+		$province = (string) sa_province_name_for_post( $pid );
+	}
+	if ( '' === $name ) {
+		return '';
+	}
+	$text = '' !== $province
+		? sprintf( 'راهنمای سفر شهرستان %1$s در استان %2$s: شناسنامهٔ شهرستان، بهترین فصل سفر، وضعیت جاده و پارکینگ و جاهایی که مسافرها زیاد می‌روند.', $name, $province )
+		: sprintf( 'راهنمای سفر شهرستان %s: شناسنامهٔ شهرستان، بهترین فصل سفر، وضعیت جاده و پارکینگ و جاهایی که مسافرها زیاد می‌روند.', $name );
+	return sa_truncate_to_155( $text );
 }
 
 /**
@@ -437,7 +461,9 @@ function sa_seo_document_title( $title ) {
 		return $title;
 	}
 	$t = sa_seo_title();
-	return $t ? $t : $title;
+	$t = $t ? $t : $title;
+	// v2.22.73 — فاصله‌های تکراری (مثلاً در «توضیح کوتاه» تنظیمات) در عنوان یکی می‌شوند.
+	return trim( (string) preg_replace( '/[ \t\x{00A0}]{2,}/u', ' ', (string) $t ) );
 }
 add_filter( 'pre_get_document_title', 'sa_seo_document_title', 20 );
 
@@ -454,6 +480,7 @@ function sa_seo_head() {
 	if ( '' === $title ) {
 		$title = wp_get_document_title();
 	}
+	$title = trim( (string) preg_replace( '/[ \t\x{00A0}]{2,}/u', ' ', (string) $title ) );
 
 	if ( $desc ) {
 		echo '<meta name="description" content="' . esc_attr( wp_strip_all_tags( $desc ) ) . '">' . "\n";
@@ -727,7 +754,7 @@ function sa_llms_txt_content() {
 	$lines = array(
 		'# ' . $brand . ' (Sarzamin Aryan)',
 		'',
-		'> دانشنامهٔ سفر ایران: راهنمای فارسیِ استان‌ها، شهرستان‌ها، دیدنی‌ها، مسیرهای سفر، غذاهای محلی و سوغات؛ همراه با شناسنامهٔ جغرافیاییِ هر شهرستان (جمعیت و سال سرشماری، مساحت، ارتفاع، همسایه‌ها و دیدنی‌ها).',
+		'> دانشنامهٔ سفر ایران: راهنمای فارسیِ استان‌ها، شهرستان‌ها و دیدنی‌ها؛ همراه با شناسنامهٔ جغرافیاییِ هر شهرستان (جمعیت و سال سرشماری، مساحت، ارتفاع، همسایه‌ها و دیدنی‌ها).',
 		'',
 		'- زبان: فارسی (fa-IR)',
 		'- نشانی: ' . home_url( '/' ),
@@ -737,10 +764,18 @@ function sa_llms_txt_content() {
 		'- [استان‌های ایران](' . $archive( 'province', '/province/' ) . '): مرور هر ۳۱ استان با نقشه، تقسیمات کشوری و دیدنی‌ها.',
 		'- [شهرستان‌های ایران](' . $archive( 'city', '/city/' ) . '): شناسنامه و راهنمای سفر شهرستان‌ها.',
 		'- [دیدنی‌های ایران](' . $archive( 'attraction', '/attraction/' ) . '): جاذبه‌های طبیعی، تاریخی و فرهنگی.',
-		'- [مسیرهای سفر](' . $archive( 'travel_route', '/route/' ) . '): مسیرهای پیشنهادی سفر در ایران.',
-		'- [غذاهای محلی](' . $archive( 'local_food', '/food/' ) . '): غذاهای بومی استان‌ها و شهرستان‌ها.',
-		'- [سوغات](' . $archive( 'souvenir', '/souvenir/' ) . '): سوغات و صنایع‌دستی هر منطقه.',
 	);
+	// v2.22.73 — بخشی که هنوز هیچ محتوای منتشرشده‌ای ندارد معرفی نمی‌شود (پیوند به صفحهٔ خالی نه).
+	foreach ( array(
+		array( 'travel_route', '/route/', 'مسیرهای سفر', 'مسیرهای پیشنهادی سفر در ایران.' ),
+		array( 'local_food', '/food/', 'غذاهای محلی', 'غذاهای بومی استان‌ها و شهرستان‌ها.' ),
+		array( 'souvenir', '/souvenir/', 'سوغات', 'سوغات و صنایع‌دستی هر منطقه.' ),
+	) as $sa_sec ) {
+		if ( function_exists( 'sa_type_has_published' ) && ! sa_type_has_published( $sa_sec[0] ) ) {
+			continue;
+		}
+		$lines[] = '- [' . $sa_sec[2] . '](' . $archive( $sa_sec[0], $sa_sec[1] ) . '): ' . $sa_sec[3];
+	}
 	$edu = function_exists( 'sa_education_url' ) ? (string) sa_education_url() : '';
 	if ( '' !== $edu ) {
 		$lines[] = '- [آموزش طبیعت‌گردی و بقا](' . $edu . '): راهنماهای کاربردی کمپینگ، بقا و سفر مسئولانه.';

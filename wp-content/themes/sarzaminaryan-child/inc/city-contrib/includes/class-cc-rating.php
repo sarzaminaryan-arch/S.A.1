@@ -219,8 +219,14 @@ class CC_Rating {
 	}
 
 	public static function province_of( $id ) {
-		if ( function_exists( 'sa_province_name_for_post' ) ) {
-			$p = (string) sa_province_name_for_post( $id );
+		/*
+		 * v2.22.73 — sa_province_name_for_post() شناسهٔ «استان» می‌خواهد. پیش از این
+		 * شناسهٔ خودِ شهرستان به آن داده می‌شد و جدول «۷ شهرستان برتر» به‌جای نام استان،
+		 * نام شهرستان را نشان می‌داد (مثلاً «دورود» به‌جای «لرستان»).
+		 */
+		$province_id = function_exists( 'sa_gallery_city_province_id' ) ? (int) sa_gallery_city_province_id( $id ) : (int) get_post_meta( $id, 'sa_province_id', true );
+		if ( $province_id && function_exists( 'sa_province_name_for_post' ) ) {
+			$p = (string) sa_province_name_for_post( $province_id );
 			if ( '' !== $p ) {
 				return $p;
 			}
