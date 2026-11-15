@@ -1,0 +1,114 @@
+[
+ {
+  "id": 271,
+  "slug": "ahvaz",
+  "modified_gmt": "2026-11-15 09:48:51",
+  "words_original": 1024,
+  "words_live": 598,
+  "words_after": 1065,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "rewrite: در مرکز شهر اهواز است که در سال ۱۳۸۲ در فهرست آثار ملی ایران -> در مرکز شهر اهواز است که در سال ۱۳۸۲ به شمارهٔ ۹۷۶۴ در فهرست",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 282,
+  "slug": "dezful",
+  "modified_gmt": "2026-11-15 09:48:59",
+  "words_original": 1041,
+  "words_live": 577,
+  "words_after": 1055,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "rewrite: خانه‌های تیزنو، سوزنگر و قلمبر از خانه‌های تاریخی دزفول‌اند. -> خانه‌های تیزنو، سوزنگر و قلمبر از خانه‌های تاریخی دزفول‌اند.",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 269,
+  "slug": "abadan",
+  "modified_gmt": "2026-11-15 09:49:04",
+  "words_original": 1078,
+  "words_live": 635,
+  "words_after": 1127,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 71,
+  "slug": "bojnord",
+  "modified_gmt": "2026-11-15 09:49:01",
+  "words_original": 1011,
+  "words_live": 577,
+  "words_after": 1070,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 275,
+  "slug": "izeh",
+  "modified_gmt": "2026-11-15 09:49:08",
+  "words_original": 1013,
+  "words_live": 553,
+  "words_after": 1027,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ }
+]
