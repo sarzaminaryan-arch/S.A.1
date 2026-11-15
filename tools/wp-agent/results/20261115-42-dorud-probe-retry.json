@@ -1,0 +1,52 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-42-dorud-probe-retry.json",
+  "started_utc": "2026-11-15T22:41:56+00:00",
+  "note": "تکرار فقط‌خواندنی probe برای تنها نشانی دورود پس از timeout در job 20261115-41؛ مهلت درخواست ۹۰ ثانیه است. هیچ نوشته، متا، کش یا تنظیمی تغییر نمی‌کند.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/dorud/",
+            "status": 200,
+            "ms": 2874,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان دورود؛ راهنمای سفر، جاذبه‌ها و تاریخ لرستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dorud/",
+            "desc": "راهنمای کامل شهرستان دورود لرستان؛ معرفی دریاچه گهر، آبشار بیشه، شوی، آب‌گرمه، دره نی‌گاه، غارها، پارک‌ها، مسیر دسترسی، فصل سفر و نکات ایمنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "دورود لرستان؛ راهنمای جاهای دیدنی و طبیعت‌گردی",
+              "og:description": "از دریاچه گهر و اشترانکوه تا آبشارهای بیشه، تله‌زنگ، آب‌گرمه و دره نی‌گاه؛ راهنمای بازنویسی‌شده سفر به دورود در سرزمین آریان.",
+              "og:url": "https://sarzaminaryan.ir/city/dorud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-516-859afff924.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "دورود لرستان؛ راهنمای جاهای دیدنی و طبیعت‌گردی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "دورود لرستان؛ راهنمای جاهای دیدنی و طبیعت‌گردی"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 36674,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T22:42:00+00:00"
+}
