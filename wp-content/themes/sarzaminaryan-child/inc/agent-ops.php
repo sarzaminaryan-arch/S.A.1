@@ -81,6 +81,56 @@ function sa_agent_rest_index_gate( $r ) {
 	);
 }
 
+/**
+ * v2.22.76 — GET /relations-audit: نوشته‌های منتشرشده‌ای که والدشان (شهرستان یا استان)
+ * منتشر نیست، پاک شده یا نوعش نادرست است. فقط خواندن.
+ *
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_relations_audit() {
+	global $wpdb;
+	$checks = array(
+		array( 'key' => 'sa_city_id', 'parent' => 'city', 'children' => array( 'attraction', 'local_food', 'souvenir', 'accommodation' ) ),
+		array( 'key' => 'sa_province_id', 'parent' => 'province', 'children' => array( 'city', 'attraction', 'local_food', 'souvenir' ) ),
+	);
+	$rows   = array();
+	$counts = array();
+	foreach ( $checks as $chk ) {
+		$types = array_values( array_filter( $chk['children'], 'post_type_exists' ) );
+		if ( ! $types ) {
+			continue;
+		}
+		$in  = implode( ',', array_fill( 0, count( $types ), '%s' ) );
+		$sql = "SELECT p.ID, p.post_type, p.post_name, pm.meta_value AS parent_id, pp.post_status AS parent_status, pp.post_type AS parent_type
+			FROM {$wpdb->posts} p
+			INNER JOIN {$wpdb->postmeta} pm ON pm.post_id = p.ID AND pm.meta_key = %s
+			LEFT JOIN {$wpdb->posts} pp ON pp.ID = CAST(pm.meta_value AS UNSIGNED)
+			WHERE p.post_status = 'publish' AND p.post_type IN ($in)
+			AND pm.meta_value <> '' AND pm.meta_value <> '0'
+			AND ( pp.ID IS NULL OR pp.post_status <> 'publish' OR pp.post_type <> %s )
+			ORDER BY p.ID LIMIT 500";
+		$res = $wpdb->get_results( $wpdb->prepare( $sql, array_merge( array( $chk['key'] ), $types, array( $chk['parent'] ) ) ), ARRAY_A ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery
+		$counts[ $chk['key'] ] = count( (array) $res );
+		foreach ( (array) $res as $r ) {
+			$rows[] = array(
+				'id'            => (int) $r['ID'],
+				'type'          => (string) $r['post_type'],
+				'slug'          => (string) $r['post_name'],
+				'key'           => $chk['key'],
+				'parent_id'     => (int) $r['parent_id'],
+				'parent_status' => null === $r['parent_status'] ? 'missing' : (string) $r['parent_status'],
+				'parent_type'   => null === $r['parent_type'] ? '' : (string) $r['parent_type'],
+			);
+		}
+	}
+	return rest_ensure_response(
+		array(
+			'counts' => $counts,
+			'rows'   => $rows,
+		)
+	);
+}
+
 /* -------------------------------------------------------------------------
  * ۲) UpdraftPlus — همان روشی که MainWP Child و دکمهٔ «Backup Now» خود افزونه به‌کار می‌برند:
  *    nonce با backup_time_nonce()، بستن اتصال مرورگر، سپس do_action رویداد backupnow.
@@ -383,6 +433,17 @@ function sa_agent_ops_register_routes() {
 		array(
 			'methods'             => 'GET',
 			'callback'            => 'sa_agent_rest_index_gate',
+			'permission_callback' => static function () {
+				return is_user_logged_in() && current_user_can( 'edit_posts' );
+			},
+		)
+	);
+	register_rest_route(
+		SA_AGENT_NS,
+		'/relations-audit',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_relations_audit',
 			'permission_callback' => static function () {
 				return is_user_logged_in() && current_user_can( 'edit_posts' );
 			},

@@ -329,6 +329,22 @@ function sa_truncate_to_155( $text ) {
 }
 
 /**
+ * v2.22.76 — آیا متن جای خالیِ داده دارد؟ (مثل «مساحت — کیلومتر مربع» در توضیح‌های
+ * قالبی‌ای که داده‌شان نبود). چنین توضیحی کنار گذاشته می‌شود و نامزد بعدی می‌آید.
+ * خط تیرهٔ نگارشی عادی (مثل «بکنی — راهنمای») جای خالی نیست.
+ *
+ * @param string $text متن.
+ * @return bool
+ */
+function sa_seo_has_placeholder( $text ) {
+	$text = (string) $text;
+	if ( preg_match( '/(?:مساحت|جمعیت|تأسیس|تاسیس|ارتفاع|فاصله)\s*[—–]/u', $text ) ) {
+		return true;
+	}
+	return (bool) preg_match( '/(?:^|\s)[—–]\s*(?:کیلومتر|نفر|متر|سال|،|\.|$)/u', $text );
+}
+
+/**
  * v2.22.75 — نخستین توضیحِ کامل از میان نامزدها (هر کدام به ۱۵۵ نویسه بریده می‌شود).
  * «کامل» یعنی دست‌کم ۷۰ نویسه؛ اگر هیچ‌کدام نبود، نخستین نامزد ناخالی.
  *
@@ -339,7 +355,7 @@ function sa_seo_city_pick_description( array $candidates ) {
 	$first = '';
 	foreach ( $candidates as $c ) {
 		$c = trim( (string) sa_truncate_to_155( trim( wp_strip_all_tags( (string) $c ) ) ) );
-		if ( '' === $c ) {
+		if ( '' === $c || sa_seo_has_placeholder( $c ) ) {
 			continue;
 		}
 		if ( mb_strlen( $c, 'UTF-8' ) >= 70 ) {
@@ -794,6 +810,21 @@ function sa_ai_robots_txt( $output, $public ) {
 	return rtrim( (string) $output ) . "\n\n" . $extra;
 }
 add_filter( 'robots_txt', 'sa_ai_robots_txt', 20, 2 );
+
+/**
+ * v2.22.76 — فاصله‌های اضافهٔ «معرفی کوتاه» سایت (blogdescription) در خروجی یکی می‌شوند
+ * (عنوان صفحهٔ اول، og:description و اسکیما). مقدار ذخیره‌شده دست نمی‌خورد.
+ *
+ * @param mixed $value مقدار گزینه.
+ * @return mixed
+ */
+function sa_normalize_blogdescription( $value ) {
+	if ( ! is_string( $value ) || '' === $value ) {
+		return $value;
+	}
+	return trim( (string) preg_replace( '/[ \t\x{00A0}]{2,}/u', ' ', $value ) );
+}
+add_filter( 'option_blogdescription', 'sa_normalize_blogdescription' );
 
 /**
  * Markdown body of /llms.txt — a structured site introduction for AI tools.

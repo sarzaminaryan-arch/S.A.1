@@ -173,6 +173,8 @@ class _SeoParser(html.parser.HTMLParser):
         self.h2 = 0
         self.imgs = 0
         self.imgs_no_alt = 0
+        self.imgs_missing_alt = 0  # no alt attribute at all (real a11y/SEO gap)
+        self.no_alt_srcs: list[str] = []  # first few srcs without a non-empty alt
         self.jsonld: list[str] = []
         self._in_jsonld = False
         self._buf = ""
@@ -207,8 +209,12 @@ class _SeoParser(html.parser.HTMLParser):
             self.h2 += 1
         elif tag == "img":
             self.imgs += 1
-            if not a.get("alt", "").strip():
-                self.imgs_no_alt += 1
+            if not (a.get("alt") or "").strip():
+                self.imgs_no_alt += 1  # alt="" is valid for decorative images (e.g. a logo inside a named link)
+                if len(self.no_alt_srcs) < 4:
+                    self.no_alt_srcs.append((a.get("src") or a.get("data-src") or "")[:160])
+            if "alt" not in a:
+                self.imgs_missing_alt += 1
             if a.get("loading") == "lazy":
                 self.lazy_imgs += 1
         elif tag == "script" and "ld+json" in a.get("type", ""):
@@ -294,7 +300,7 @@ def scan_url(url: str) -> dict:
         "desc": p.meta.get("description", ""), "desc_len": len(p.meta.get("description", "")),
         "robots": p.meta.get("robots", ""), "canonical": p.canonical,
         "og_image": bool(p.meta.get("og:image")), "og_title": bool(p.meta.get("og:title")),
-        "h1": p.h1, "h2": p.h2, "imgs": p.imgs, "imgs_no_alt": p.imgs_no_alt, "lazy_imgs": p.lazy_imgs,
+        "h1": p.h1, "h2": p.h2, "imgs": p.imgs, "imgs_no_alt": p.imgs_no_alt, "imgs_missing_alt": p.imgs_missing_alt, "no_alt_srcs": p.no_alt_srcs, "lazy_imgs": p.lazy_imgs,
         "jsonld": _jsonld_types(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
     }
@@ -431,6 +437,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reason", default="تنظیم خزندهٔ LiteSpeed")
     p = sub.add_parser("index-gate", help="read-only: index/noindex decision and reason for every published city")
     p.add_argument("--only", default="", choices=["", "noindex", "index"])
+    sub.add_parser("relations-audit", help="read-only: published items whose city/province parent is not published (theme 2.22.76+)")
     p = sub.add_parser("updraft", help="UpdraftPlus status; --start begins a backup (owner-approved)")
     p.add_argument("--start", action="store_true")
     p.add_argument("--owner-approved-backup", action="store_true")
@@ -635,6 +642,8 @@ def run(a: argparse.Namespace, c: "Client"):
         for r in rows:
             reasons[r.get("reason") or "index"] = reasons.get(r.get("reason") or "index", 0) + 1
         return {"theme": chunk.get("theme", ""), "count": len(rows), "by_reason": reasons, "rows": rows}
+    elif a.cmd == "relations-audit":
+        return c.call("GET", "/relations-audit")
     elif a.cmd == "updraft":
         if not a.start:
             status = c.call("GET", "/updraft", {"nonce": a.nonce})
