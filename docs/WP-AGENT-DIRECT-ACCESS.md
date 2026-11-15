@@ -181,7 +181,8 @@ sarzaminaryan.ir/wp-json/sa-agent/v1   (inc/agent-bridge.php در قالب فر�
 | `HTTP 409 sa_agent_live_content` | تلاش برای تغییر متن زنده. `draft-copy` بساز. |
 | `HTTP 409 sa_agent_stale` | نوشته از زمان خواندن عوض شده. دوباره بخوان. |
 | فایل کار اجرا نشد | نامش تکراری است و فایل نتیجه دارد. نام تازه بگذار. |
-| `theme-update` با 412 یا `no recent backup` | پشتیبان UpdraftPlus در ۶ ساعت گذشته نیست. `backup_first: true` بگذار. |
+| `theme-update` با `409 sa_agent_need_backup` | پشتیبان موفق UpdraftPlus در ۶ ساعت گذشته نیست. `backup_first: true` بگذار. |
+| `updraft --backup` با `409 sa_agent_backup_recent` | پشتیبانی کمتر از دو دقیقه پیش تمام شده. همان کافی است. |
 | پس از نصب، صفحه هنوز خروجی قدیمی دارد | کش LiteSpeed است. `cache-purge --all` (یا قالب ≥ ۲.۲۲.۷۷ که خودش پاک می‌کند). |
 | `cache-purge` با 409 | افزونهٔ LiteSpeed Cache فعال نیست. |
 
