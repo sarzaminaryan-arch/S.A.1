@@ -1,0 +1,18 @@
+[
+ {
+  "words_after": 1990,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "words_original": 1167,
+  "volume_ok": true,
+  "id": 271,
+  "slug": "ahvaz",
+  "modified_gmt": "2026-11-15 11:28:58",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ }
+]
