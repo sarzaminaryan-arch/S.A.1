@@ -1,0 +1,110 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-09-isfahan-content.json",
+  "started_utc": "2026-11-15T05:31:08+00:00",
+  "note": "انتقال متن راستی‌آزمایی‌شدهٔ شهرستان اصفهان به صفحهٔ اصلی ۳۴۲۹ (پشتیبان پیش از تغییر؛ نشانی بی‌تغییر) و آزمون زنده",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 3429,
+        "backup_id": 3477,
+        "status": "publish",
+        "modified_gmt": "2026-11-15 05:31:10",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_city_slug",
+            "sa_city_population",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_access_air",
+            "sa_access_rail",
+            "sa_access_road",
+            "sa_google_map_url",
+            "sa_city_schema_type",
+            "sa_schema_sameas",
+            "sa_schema_contained_in",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_focus_keyword",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "sa_sources",
+            "sa_cty_area",
+            "sa_cty_census_year",
+            "sa_cty_center",
+            "sa_cty_cities",
+            "sa_cty_population",
+            "sa_city_elevation",
+            "sa_cty_neighbors",
+            "sa_cty_best_time",
+            "sa_cty_climate",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_recreation"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1718,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان اصفهان و مرکز آن.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan/",
+            "status": 301,
+            "ms": 749,
+            "location": "/city/isfahan-city/",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8"
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T05:31:15+00:00"
+}
