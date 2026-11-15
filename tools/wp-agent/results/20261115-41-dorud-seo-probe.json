@@ -1,0 +1,437 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-41-dorud-seo-probe.json",
+  "started_utc": "2026-11-15T22:26:02+00:00",
+  "note": "بررسی عمومی و فقط‌خواندنی سئوی صفحهٔ اصلی دورود و مقصدهای داخلیِ نامزد برای نمونه؛ هیچ تغییری در سایت اعمال نمی‌شود.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/dorud/",
+            "status": 0,
+            "error": "<urlopen error timed out>"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/lorestan/",
+            "status": 200,
+            "ms": 2953,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان لرستان؛ راهنمای جامع سفر، آبشارها، فلک‌الافلاک و...",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/lorestan/",
+            "desc": "همه‌چیز درباره استان لرستان؛ پایتخت پل‌های تاریخی و سرزمین آبشارها، دژ فلک‌الافلاک، دریاچه گهر، تنگه شیرز، مفرغ‌های باستانی و سوغات ورشو با داده‌های رسمی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان لرستان؛ راهنمای جامع سفر و شگفتی‌های پایتخت طبیعت ایران",
+              "og:description": "راهنمای کامل استان لرستان؛ دره تاریخی خرم‌آباد، قلعه باستانی فلک‌الافلاک، آبشار بیشه، دریاچه گهر، کباب بروجرد، سوغات و مراکز خرید مدرن با ارجاع رسمی.",
+              "og:url": "https://sarzaminaryan.ir/province/lorestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/10/lorestan-1-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان لرستان؛ راهنمای جامع سفر و شگفتی‌های پایتخت طبیعت ایران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان لرستان؛ راهنمای جامع سفر و شگفتی‌های پایتخت طبیعت ایران"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/gahar-lake-dorud/",
+            "status": 200,
+            "ms": 1760,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "دریاچه گهر دورود؛ مسیر چشمه خیه و راهنمای کامل سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/gahar-lake-dorud/",
+            "desc": "راهنمای کامل دریاچه گهر دورود در لرستان؛ مسیر چشمه خیه، گردنه پنبه‌کار، زمان پیمایش، امکانات، خطرات، کمپ، بهترین فصل و نکات ایمنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "دریاچه گهر دورود؛ نگین اشترانکوه لرستان",
+              "og:description": "مسیر دورود به دریاچه گهر زیبا اما چالش‌برانگیز است؛ این راهنما مسیر، امکانات، خطرات و برنامه پیشنهادی سفر را مرحله‌به‌مرحله توضیح می‌دهد.",
+              "og:url": "https://sarzaminaryan.ir/attraction/gahar-lake-dorud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2262-ac0680ed34.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "دریاچه گهر دورود؛ نگین اشترانکوه لرستان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "دریاچه گهر دورود؛ نگین اشترانکوه لرستان"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/bisheh-waterfall-dorud/",
+            "status": 200,
+            "ms": 2398,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "آبشار بیشه دورود؛ مسیر قطار و راهنمای بازدید",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/bisheh-waterfall-dorud/",
+            "desc": "راهنمای آبشار بیشه دورود در لرستان؛ مسیر قطار و خودرو، بهترین زمان بازدید، نکات ایمنی، عکس‌ها و شناسنامه کامل این دیدنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "آبشار بیشه دورود؛ دیدنیِ شاخص لرستان",
+              "og:description": "آبشار بیشه با مسیر ریلی دیدنی، چشمه‌های بالادست و چشم‌انداز زاگرس یکی از مهم‌ترین نماهای طبیعی دورود و لرستان است.",
+              "og:url": "https://sarzaminaryan.ir/attraction/bisheh-waterfall-dorud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2246-85c3f9d03a.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "آبشار بیشه دورود؛ دیدنیِ شاخص لرستان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "آبشار بیشه دورود؛ دیدنیِ شاخص لرستان"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/tangeh-lili-gorge-doroud/",
+            "status": 200,
+            "ms": 1762,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "تنگه لی لی دورود | راهنمای سفر، مسیر و بهترین فصل",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/tangeh-lili-gorge-doroud/",
+            "desc": "تنگه لی لی دورود؛ راهنمای بازدید از درهٔ صخره‌ای، حوضچه‌های طبیعی، مسیر دسترسی، شرایط روز و نکات ایمنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "تنگه لی لی (سورپیلو) دورود؛ حوضچه‌های طبیعی در دل زاگرس",
+              "og:description": "تنگه لی لی یا سورپیلو در شرق دورود؛ دره‌ای صخره‌ای با حوضچه‌های طبیعی، کتیبه‌ای یونانی و مسیر دسترسی از روستای چمنار.",
+              "og:url": "https://sarzaminaryan.ir/attraction/tangeh-lili-gorge-doroud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2271-465095535f.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "تنگه لی لی (سورپیلو) دورود؛ حوضچه‌های طبیعی در دل زاگرس",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "تنگه لی لی (سورپیلو) دورود؛ حوضچه‌های طبیعی در دل زاگرس"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/nigah-valley-dorud/",
+            "status": 200,
+            "ms": 2713,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "درهٔ نیگاه دورود | مسیرهای دسترسی و نکات ایمنی",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/nigah-valley-dorud/",
+            "desc": "راهنمای درهٔ نیگاه دورود در محدودهٔ حفاظت‌شدهٔ اشترانکوه؛ مسیرهای دسترسی، زمان‌بر بودن پیمایش، هماهنگی محلی و نکات ایمنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "درهٔ نیگاه دورود؛ مسیر کوهستانی در اشترانکوه",
+              "og:description": "راهنمای سفر به درهٔ نیگاه دورود: مسیرهای دسترسی، شرایط پیمایش کوهستانی، هماهنگی محلی و نکات ایمنی.",
+              "og:url": "https://sarzaminaryan.ir/attraction/nigah-valley-dorud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2396-1947c9dfae.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "درهٔ نیگاه دورود؛ مسیر کوهستانی در اشترانکوه",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "درهٔ نیگاه دورود؛ مسیر کوهستانی در اشترانکوه"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/azgan-wetland-dorud/",
+            "status": 200,
+            "ms": 1519,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "تالاب ازگن دورود (قارون)؛ فصل آبگیری، مسیر چم‌چید و نکات ایمنی",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/azgan-wetland-dorud/",
+            "desc": "راهنمای تالاب ازگن دورود یا قارون؛ موقعیت، مسیر جادهٔ پیرعبدالله و ایستگاه چم‌چید، تغییرات فصلی آب و نکات ایمنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "تالاب ازگن (قارون) دورود؛ قاب فصلی زاگرس",
+              "og:description": "تالاب فصلی ازگن یا قارون در دورود؛ راهنمای موقعیت، مسیر دسترسی، تغییرات فصلی آب و نکات ایمنی.",
+              "og:url": "https://sarzaminaryan.ir/attraction/azgan-wetland-dorud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2269-26a4548fcc.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "تالاب ازگن (قارون) دورود؛ قاب فصلی زاگرس",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "تالاب ازگن (قارون) دورود؛ قاب فصلی زاگرس"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/aznadar-waterfall-doroud/",
+            "status": 200,
+            "ms": 2637,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "آبشار ازنادر دره اسپر دورود | راهنمای کامل بازدید",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/aznadar-waterfall-doroud/",
+            "desc": "آبشار فصلی ازنادر در دره اسپر دورود؛ مقصدی بهاری با جنگل‌های بلوط، چشمه‌های جوشان و مسیر پیاده‌روی یک‌ساعته. راهنمای مسیر دسترسی و نکات ایمنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "آبشار ازنادر (دره اسپر) دورود؛ بهشتی فصلی در دل زاگرس",
+              "og:description": "آبشار فصلی ازنادر در ۷ کیلومتری دورود؛ مسیر پیاده‌روی یک‌ساعته از روستای دره اسپر، جنگل بلوط، چشمه‌های جوشان و بهترین زمان بازدید در بهار.",
+              "og:url": "https://sarzaminaryan.ir/attraction/aznadar-waterfall-doroud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2270-fc611e8ec3.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "آبشار ازنادر (دره اسپر) دورود؛ بهشتی فصلی در دل زاگرس",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "آبشار ازنادر (دره اسپر) دورود؛ بهشتی فصلی در دل زاگرس"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/babahur-forest-park-dorud/",
+            "status": 200,
+            "ms": 1861,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "تفرجگاه باباهور (بام دورود) | مسیر، بهترین ساعت و چشم‌انداز شب",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/babahur-forest-park-dorud/",
+            "desc": "راهنمای تفرجگاه باباهور در غرب دورود؛ چشم‌انداز شهر و دشت سیلاخور، مسیر دسترسی و نکات ایمنی. وضعیت دسترسی و امکانات را پیش از حرکت بررسی کنید.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "بام دورود؛ تفرجگاه باباهور و تماشای شهر از بلندی‌های زاگرس",
+              "og:description": "راهنمای تفرجگاه باباهور (بام دورود): موقعیت در غرب شهر، چشم‌انداز شهر و دشت سیلاخور، مسیر دسترسی و بررسی امکانات روز.",
+              "og:url": "https://sarzaminaryan.ir/attraction/babahur-forest-park-dorud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2386-a602a30c79.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "بام دورود؛ تفرجگاه باباهور و تماشای شهر از بلندی‌های زاگرس",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "بام دورود؛ تفرجگاه باباهور و تماشای شهر از بلندی‌های زاگرس"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/shevi-waterfall-tele-zang/",
+            "status": 200,
+            "ms": 2661,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "آبشار شوی در خوزستان | مسیر تله‌زنگ و نکات بازدید",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/shevi-waterfall-tele-zang/",
+            "desc": "راهنمای آبشار شوی در شهرستان دزفول، خوزستان؛ مسیر تله‌زنگ، راه‌های دسترسی، برنامه‌ریزی پیمایش و نکات ایمنی سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "آبشار شوی در خوزستان | مسیر تله‌زنگ و نکات بازدید",
+              "og:description": "راهنمای بازدید از آبشار شوی در خوزستان: مسیر قطار دورود–اندیمشک تا ایستگاه تله‌زنگ، راه جایگزین از دزفول، برنامه‌ریزی پیمایش و نکات ایمنی.",
+              "og:url": "https://sarzaminaryan.ir/attraction/shevi-waterfall-tele-zang/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2377-3d5bcdc8cc.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "آبشار شوی در خوزستان | مسیر تله‌زنگ و نکات بازدید",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "آبشار شوی در خوزستان | مسیر تله‌زنگ و نکات بازدید"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/camping-essential-checklist/",
+            "status": 200,
+            "ms": 1520,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "چک‌لیست کامل وسایل ضروری کمپینگ | چی با خودم ببرم؟",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/camping-essential-checklist/",
+            "desc": "آماده‌ای برای کمپینگ؟ این چک‌لیست کامل وسایل ضروری کمپینگ رو ببین تا خیالت از بابت تجهیزات راحت باشه. بدون جا گذاشتن چیزای مهم، سفر کن!",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "article",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "چک‌لیست کامل وسایل ضروری کمپینگ | چی با خودم ببرم؟",
+              "og:description": "آماده‌ای برای کمپینگ؟ این چک‌لیست کامل وسایل ضروری کمپینگ رو ببین تا خیالت از بابت تجهیزات راحت باشه. بدون جا گذاشتن چیزای مهم، سفر کن!",
+              "og:url": "https://sarzaminaryan.ir/camping-essential-checklist/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/post-2723-e35e304c18.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "چک‌لیست کامل وسایل ضروری کمپینگ | چی با خودم ببرم؟",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "چک‌لیست کامل وسایل ضروری کمپینگ | چی با خودم ببرم؟"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/gps-navigation-tools/",
+            "status": 200,
+            "ms": 2561,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "ابزار مسیریابی در طبیعت | GPS، نقشه و قطب‌نما",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/gps-navigation-tools/",
+            "desc": "راهنمای استفادهٔ پشتیبان‌دار از GPS دستی، نقشهٔ آفلاین گوشی، نقشهٔ کاغذی و قطب‌نما؛ همراه با نکات ایمنی وقتی مسیر را گم می‌کنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "article",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "ابزار مسیریابی در طبیعت | GPS، نقشه و قطب‌نما",
+              "og:description": "راهنمای استفادهٔ پشتیبان‌دار از GPS دستی، نقشهٔ آفلاین گوشی، نقشهٔ کاغذی و قطب‌نما؛ همراه با نکات ایمنی وقتی مسیر را گم می‌کنی.",
+              "og:url": "https://sarzaminaryan.ir/gps-navigation-tools/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/post-2779-c0afdb6988.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "ابزار مسیریابی در طبیعت | GPS، نقشه و قطب‌نما",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "ابزار مسیریابی در طبیعت | GPS، نقشه و قطب‌نما"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/choosing-campsite/",
+            "status": 200,
+            "ms": 1375,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "انتخاب محل مناسب کمپ | کجا چادر بزنیم؟ راهنمای زمین امن",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/choosing-campsite/",
+            "desc": "انتخاب اشتباه محل کمپ، نصف خطرهای سفر رو زیاد می‌کنه. تو این راهنما یاد می‌گیری زمین صاف و امن رو چطور پیدا کنی، از آب و شیب فاصله بگیری و علائم خطر بالای",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "article",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "انتخاب محل مناسب کمپ | کجا چادر بزنیم؟ راهنمای زمین امن",
+              "og:description": "انتخاب اشتباه محل کمپ، نصف خطرهای سفر رو زیاد می‌کنه. تو این راهنما یاد می‌گیری زمین صاف و امن رو چطور پیدا کنی، از آب و شیب فاصله بگیری و علائم خطر بالای",
+              "og:url": "https://sarzaminaryan.ir/choosing-campsite/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/post-2875-2f41925980.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "انتخاب محل مناسب کمپ | کجا چادر بزنیم؟ راهنمای زمین امن",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "انتخاب محل مناسب کمپ | کجا چادر بزنیم؟ راهنمای زمین امن"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/ankle-sprain-first-aid/",
+            "status": 200,
+            "ms": 2683,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "کمک‌های اولیه پیچ‌خوردگی مچ پا | دررفتگی و شکستگی در کوه",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/ankle-sprain-first-aid/",
+            "desc": "مچ پای رفیقت وسط کوه پیچ خورد؟ تشخیص پیچ‌خوردگی از دررفتگی و شکستگی، سرما و بانداژ درست، آتل با وسایل کمپ، و اینکه کی راه برود و کی امداد خبر کنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "article",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "کمک‌های اولیه پیچ‌خوردگی مچ پا | دررفتگی و شکستگی در کوه",
+              "og:description": "مچ پای رفیقت وسط کوه پیچ خورد؟ تشخیص پیچ‌خوردگی از دررفتگی و شکستگی، سرما و بانداژ درست، آتل با وسایل کمپ، و اینکه کی راه برود و کی امداد خبر کنی.",
+              "og:url": "https://sarzaminaryan.ir/ankle-sprain-first-aid/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/post-2809-77ab604d08.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "کمک‌های اولیه پیچ‌خوردگی مچ پا | دررفتگی و شکستگی در کوه",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "کمک‌های اولیه پیچ‌خوردگی مچ پا | دررفتگی و شکستگی در کوه"
+            },
+            "og_image_fetch": {
+              "status": 0,
+              "error": "<urlopen error timed out>"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T22:35:54+00:00"
+}
