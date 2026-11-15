@@ -93,4 +93,9 @@ try:
 except ValueError:
     pass
 
+# 8. classic-editor pages (no block comments): the anchor is a bare <h2>
+CLASSIC = "<p>مقدمه</p>\n\n<h2>حقایق جالب</h2>\n\n<p>متن</p>\n\n<h2>از مردم عزیز، یک درخواست داریم</h2>\n\n<p>پایان</p>"
+out, _ = brb.apply(CLASSIC, {"insert_before_h2": "یک درخواست داریم", "blocks": "<h2>بخش تازه</h2>\n\n<p>تازه</p>"})
+assert out.index("بخش تازه") < out.index("یک درخواست داریم") and out.count("<h2>") == 3, out
+
 print("test_build_replace_batch: ok")

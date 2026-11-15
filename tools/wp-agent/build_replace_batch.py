@@ -31,7 +31,8 @@ from wp_agent import BANNED  # noqa: E402
 # Extra wording the owner asked to keep off every page (2026-11-15).
 EXTRA_BANNED = ("اسرائیل", "اسراییل")
 
-H2_RE = re.compile(r"<!-- wp:heading[^>]*-->\s*<h2[^>]*>(.*?)</h2>", re.S)
+# Block-editor headings (with their wp:heading comment) and classic-editor <h2>.
+H2_RE = re.compile(r"(?:<!-- wp:heading[^>]*-->\s*)?<h2[^>]*>(.*?)</h2>", re.S)
 
 
 def banned_hits(html: str) -> list[str]:
