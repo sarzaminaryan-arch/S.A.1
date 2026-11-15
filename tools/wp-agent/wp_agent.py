@@ -752,7 +752,7 @@ def step_to_argv(step: dict) -> list[str]:
         raise AgentError("each step needs a cmd (run-job cannot nest)")
     argv = [cmd]
     for pos in ("id", "backup_id"):
-        if pos in step:
+        if pos in step and not isinstance(step[pos], list):  # a list of ids is a repeated --id flag
             argv.append(str(step.pop(pos)))
     for key, value in step.items():
         flag = "--" + key.replace("_", "-")

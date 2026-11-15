@@ -159,7 +159,13 @@ def analyze_page(snap: dict) -> dict:
     """Per-page facts (cross-page ratios are filled in by aggregate())."""
     meta = snap.get("meta") or {}
     name = county_name(snap.get("title", ""))
-    text = plain(snap.get("content", ""))
+    body_html = re.sub(r"<h[1-6]\b[^>]*>.*?</h[1-6]>", "\n", snap.get("content", "") or "", flags=re.S)
+    text = plain(body_html)
+    try:
+        from content_fix import NOTE_RE  # lazy: content_fix imports this module
+    except ImportError:  # pragma: no cover
+        NOTE_RE = None
+    notes = NOTE_RE.findall(norm(text)) if NOTE_RE else []
     sents = sentences(text)
     normed = [norm(s) for s in sents]
     dups = [s for s, n in Counter(normed).items() if n > 1]
@@ -184,6 +190,8 @@ def analyze_page(snap: dict) -> dict:
         "dup_examples": [d[:120] for d in dups[:2]],
         "facts": len(facts),
         "facts_numeric_only": numeric_only,
+        "editorial_notes": len(notes),
+        "note_examples": [str(n)[:60] for n in notes[:3]],
         "climate_conflict": climate_checks(meta, text),
         "impossible": impossible_checks(meta, text),
         "_skeletons": sorted({skeleton(s, name) for s in sents}),
@@ -204,7 +212,8 @@ def aggregate(pages: list[dict], template_min_pages: int = 20) -> dict:
         p["faq_template_ratio"] = round(sum(1 for sk in p["_faq_skeletons"] if faq_count[sk] >= faq_cut) / nf, 2) if p["faq"] else 0.0
         score = (p["dup_sentences"] * 2 + p["template_ratio"] * 10 + p["faq_template_ratio"] * 3
                  + (3 if p["facts"] and p["facts_numeric_only"] >= max(2, p["facts"] // 2) else 0)
-                 + 5 * len(p["climate_conflict"]) + 5 * len(p["impossible"]))
+                 + 5 * len(p["climate_conflict"]) + 5 * len(p["impossible"])
+                 + 2 * min(p.get("editorial_notes", 0), 10))
         p["score"] = round(score, 1)
     top_templates = [{"pages": c, "skeleton": sk[:140]} for sk, c in sk_count.most_common(15)]
     for p in pages:
@@ -220,6 +229,8 @@ def aggregate(pages: list[dict], template_min_pages: int = 20) -> dict:
         "facts_numeric_only_pages": sum(1 for p in pages if p["facts"] and p["facts_numeric_only"] >= max(2, p["facts"] // 2)),
         "climate_conflict_pages": sum(1 for p in pages if p["climate_conflict"]),
         "impossible_pages": sum(1 for p in pages if p["impossible"]),
+        "editorial_notes_pages": sum(1 for p in pages if p.get("editorial_notes")),
+        "editorial_notes_total": sum(p.get("editorial_notes", 0) for p in pages),
         "faq_template_ge_50": sum(1 for p in pages if p["faq_template_ratio"] >= 0.5),
     }
     return {"summary": summary, "top_templates": top_templates, "queue": queue}
