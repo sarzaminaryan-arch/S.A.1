@@ -2,10 +2,12 @@
 """Build a "delete + replace" batch: cleaned page HTML plus new verified sections.
 
 Usage:
-  build_replace_batch.py <read.json[,read2.json]> <base_dir> <additions.json> <out_dir>
+  build_replace_batch.py <read.json[,read2.json]> <base_dir[,base_dir2]> <additions.json> <out_dir>
 
   read.json      read-only `get` job result(s) (page meta/title; comma-join several)
-  base_dir       directory with the current <slug>-<id>.html (live or cleaned version)
+  base_dir       directory with the current <slug>-<id>.html (live or cleaned
+                 version); comma-join several and each file is looked up in
+                 order (a page cleaned in an earlier batch keeps its own base)
   additions.json {"<slug>-<id>": {
                     "words_original": int,      # words before ANY cleanup (volume floor)
                     "modified_gmt": str,        # expected_modified_gmt for the write job
@@ -82,6 +84,17 @@ def load_pages(read_paths: str) -> dict:
     return pages
 
 
+def load_base(base_dirs: str, key: str) -> str:
+    """Read <key>.html from the first directory that has it."""
+    tried = []
+    for bd in base_dirs.split(","):
+        path = os.path.join(bd, key + ".html")
+        if os.path.exists(path):
+            return open(path, encoding="utf-8", newline="").read()
+        tried.append(path)
+    raise FileNotFoundError(f"base html not found for {key}: {tried}")
+
+
 def main(read_paths: str, base_dir: str, additions_path: str, out_dir: str) -> list[dict]:
     pages = load_pages(read_paths)
     additions = json.load(open(additions_path, encoding="utf-8"))
@@ -89,7 +102,7 @@ def main(read_paths: str, base_dir: str, additions_path: str, out_dir: str) -> l
     summary = []
     for key, spec in additions.items():
         page = pages[key]
-        base = open(os.path.join(base_dir, key + ".html"), encoding="utf-8", newline="").read()
+        base = load_base(base_dir, key)
         out, log = apply(base, spec)
         live = ca.analyze_page({**page, "content": base})
         after = ca.analyze_page({**page, "content": out})
