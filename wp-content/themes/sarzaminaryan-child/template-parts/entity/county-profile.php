@@ -651,7 +651,15 @@ $sa_ins = $sa_profile_ext;
 				<div class="sa-field-seasons__grid">
 					<?php $sa_season_slugs = array( 'بهار' => 'spring', 'تابستان' => 'summer', 'پاییز' => 'autumn', 'زمستان' => 'winter' ); ?>
 					<?php foreach ( (array) $sa_ins['seasons'] as $sa_season_name => $sa_season_text ) : ?>
-						<?php $sa_is_best = ( ! empty( $sa_ins['best_season'] ) && false !== mb_strpos( (string) $sa_ins['best_season'], (string) $sa_season_name ) ); ?>
+						<?php
+						// «بهترین فصل» یک عبارت آزاد است («آذر تا فروردین»، «آبان تا اسفند»)؛
+						// مقایسهٔ مستقیم نام فصل با کل عبارت، نشان را به فصل اشتباه می‌چسباند.
+						// یک فصل تنها وقتی پیشنهادی است که خودش در عبارت آمده باشد و عبارت
+						// یک بازه نباشد؛ در بازه، هیچ فصل تنها نشان نمی‌گیرد.
+						$sa_best_text = trim( (string) ( $sa_ins['best_season'] ?? '' ) );
+						$sa_is_range  = (bool) preg_match( '/\b(تا|الی|لغایت)\b/u', $sa_best_text );
+						$sa_is_best   = ( ! $sa_is_range && '' !== $sa_best_text && false !== mb_strpos( $sa_best_text, (string) $sa_season_name ) );
+						?>
 						<?php $sa_season_slug = isset( $sa_season_slugs[ (string) $sa_season_name ] ) ? $sa_season_slugs[ (string) $sa_season_name ] : ''; ?>
 						<div class="sa-field-season<?php echo $sa_season_slug ? ' sa-field-season--' . esc_attr( $sa_season_slug ) : ''; ?><?php echo $sa_is_best ? ' sa-field-season--best' : ''; ?>">
 							<span class="sa-field-season__name"><?php echo esc_html( (string) $sa_season_name ); ?><?php if ( $sa_is_best ) : ?> <span class="sa-field-season__badge">فصل پیشنهادی</span><?php endif; ?></span>

@@ -479,6 +479,10 @@ sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: lice
 sa_ci_assert( false !== strpos( $tpl, "'13 // AREA_CODE'" ), 'template: phone area-code tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'بهار' => 'spring'" ) && false !== strpos( $tpl, 'sa-field-season--' ), 'template: each season card carries its own colour class' );
 sa_ci_assert( false === strpos( $tpl, 'county-attractions' ), 'template: attractions table under the identity card is removed (2.22.51)' );
+// 2.22.83 — نشان «فصل پیشنهادی» به خودِ فصل بسته است، نه به تطابق تصادفی رشته؛
+// در عبارت بازه‌ای («آذر تا فروردین») هیچ فصل تنها نشان نمی‌گیرد.
+sa_ci_assert( false !== strpos( $tpl, 'sa_is_range' ), 'template: best-season badge guards against range wording (2.22.83)' );
+sa_ci_assert( false !== strpos( $tpl, '$sa_is_best   = ( ! $sa_is_range' ), 'template: badge requires the season to be named in the phrase and no range (2.22.83)' );
 
 $css58 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 $pos58 = strpos( $css58, 'v2.22.58' );
