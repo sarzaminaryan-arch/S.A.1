@@ -1,0 +1,19 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-46-dorud-preview-draft.json",
+  "started_utc": "2026-11-15T23:10:24+00:00",
+  "note": "ساخت فقط یک پیش‌نویس نمایشی از شهرستان دورود (نوشتهٔ زندهٔ ۵۱۶) برای بازبینی مالک. هیچ انتشار، ویرایش نوشتهٔ زنده، پاک‌سازی کش یا تغییری در صفحهٔ دیگری انجام نمی‌شود.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 3592,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=3592&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=3592&preview=true"
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T23:10:26+00:00"
+}
