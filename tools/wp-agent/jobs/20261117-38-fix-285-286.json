@@ -1,0 +1,27 @@
+{
+  "note": "ریزاصلاح پس از کار ۳۶ (که اعمال شد اما نتیجه‌اش ثبت نشد): در جدول شناسنامهٔ شادگان ردیف «مردم» یک نشانی خام ویکی‌پدیا به‌جای پانویس داشت؛ اصلاح شد. در متای همسایه‌های هر دو صفحه، slug اهواز به شکل ثبت‌شده در فهرست شهرستان‌ها (ahvaz-city) نوشته شد و ترتیب خطوط طوری چیده شد که چهار جهت کارت درست پر شوند (رامهرمز: شرق بهمئی، غرب اهواز، جنوب امیدیه، شمال هفتکل؛ شادگان: شمال کارون، شرق ماهشهر، غرب خرمشهر، جنوب آبادان). متن رامهرمز بدون تغییر است. expected_modified_gmt از کار ۳۷.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 285,
+      "content_file": "tools/wp-agent/outbox/20261118-replace-batch6/ramhormoz-285.html",
+      "meta_file": "tools/wp-agent/outbox/20261118-replace-batch6/ramhormoz-285.meta.json",
+      "expected_modified_gmt": "2026-11-15 15:48:44",
+      "owner_approved_live_edit": true,
+      "reason": "رامهرمز: اصلاح slug و ترتیب همسایه‌ها در شناسنامه (اهواز، بهمئی، امیدیه، هفتکل)؛ متن بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 286,
+      "content_file": "tools/wp-agent/outbox/20261118-replace-batch6/shadegan-286.html",
+      "meta_file": "tools/wp-agent/outbox/20261118-replace-batch6/shadegan-286.meta.json",
+      "expected_modified_gmt": "2026-11-15 15:48:46",
+      "owner_approved_live_edit": true,
+      "reason": "شادگان: حذف نشانی خام از ردیف «مردم» جدول شناسنامه و اصلاح slug/ترتیب همسایه‌ها (کارون، ماهشهر، خرمشهر، آبادان، اهواز)"
+    },
+    { "cmd": "cache-purge", "id": [285, 286] },
+    { "cmd": "probe", "url": ["/city/ramhormoz/?sa_probe=9", "/city/shadegan/?sa_probe=9"] },
+    { "cmd": "content-audit", "type": "city", "workers": 4 }
+  ]
+}
