@@ -539,8 +539,12 @@ function sa_agent_update_post( $post_id, array $args ) {
 		if ( function_exists( 'sa_flush_relation_cache' ) ) {
 			sa_flush_relation_cache();
 		}
-		delete_transient( 'sa_sitemap_thin_city' );
-		clean_post_cache( $before['id'] );
+		if ( function_exists( 'delete_transient' ) ) {
+			delete_transient( 'sa_sitemap_thin_city' );
+		}
+		if ( function_exists( 'clean_post_cache' ) ) {
+			clean_post_cache( $before['id'] );
+		}
 	}
 	$after = sa_agent_snapshot_post( $before['id'] );
 	return array(
