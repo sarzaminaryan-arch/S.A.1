@@ -184,6 +184,7 @@ if ( ! function_exists( 'mb_strlen' ) ) {
 	fwrite( STDERR, "SKIP mb tests\n" );
 } else {
 	sa_ig_load_function( $theme_dir . '/inc/seo.php', 'sa_truncate_to_155' );
+	sa_ig_load_function( $theme_dir . '/inc/seo.php', 'sa_seo_has_placeholder' );
 	sa_ig_load_function( $theme_dir . '/inc/seo.php', 'sa_seo_city_pick_description' );
 	$custom = 'شهرستان اصفهان با میدان نقش جهان، سی‌وسه‌پل، محله جلفا و باغ‌های تاریخی؛ راهنمای رفت‌وآمد، فصل سفر و جاهای دیدنی.';
 	$lead   = 'شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان اصفهان و مرکز آن.';
@@ -192,6 +193,18 @@ if ( ! function_exists( 'mb_strlen' ) ) {
 	sa_ig_assert( sa_seo_city_pick_description( array( '', $lead, '' ) ) === $lead, 'falls back to first non-empty' );
 	sa_ig_assert( mb_strlen( sa_seo_city_pick_description( array( str_repeat( 'واژه ', 80 ) ) ) ) <= 155, 'truncated to 155' );
 	sa_ig_assert( '' === sa_seo_city_pick_description( array( '', '  ' ) ), 'empty when nothing' );
+	// 6b. v2.22.76: template descriptions with an empty-data dash are skipped.
+	$bad = 'راهنمای شهرستان شهریار؛ جمعیت ۷۴۴٬۲۱۰ نفر (۱۳۹۵)، مساحت — کیلومتر مربع، سال تأسیس ۱۳۵۲ و موقعیت آن در استان تهران.';
+	sa_ig_assert( sa_seo_has_placeholder( $bad ), 'placeholder «مساحت — کیلومتر» detected' );
+	sa_ig_assert( sa_seo_has_placeholder( 'جمعیت — نفر' ), 'placeholder «جمعیت —» detected' );
+	sa_ig_assert( ! sa_seo_has_placeholder( 'یخ در بهشت و بستنی سنتی بکنی — راهنمای خوراکی‌های شیراز' ), 'normal dash punctuation is fine' );
+	sa_ig_assert( ! sa_seo_has_placeholder( $custom ), 'full description has no placeholder' );
+	sa_ig_assert( sa_seo_city_pick_description( array( $bad, $custom ) ) === $custom, 'placeholder custom falls through to the next candidate' );
+	sa_ig_assert( sa_seo_city_pick_description( array( $bad ) ) === '', 'placeholder-only → empty (fallback description takes over)' );
+	// 6c. Tagline whitespace.
+	sa_ig_load_function( $theme_dir . '/inc/seo.php', 'sa_normalize_blogdescription' );
+	sa_ig_assert( 'راهنمای سفر ایران' === sa_normalize_blogdescription( '  راهنمای  سفر   ایران ' ), 'blogdescription double spaces collapsed' );
+	sa_ig_assert( "نیم\u{200C}فاصله" === sa_normalize_blogdescription( "نیم\u{200C}فاصله" ), 'ZWNJ untouched' );
 }
 
 // 7. robots.txt.
@@ -216,9 +229,19 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+sa_ig_assert( false !== strpos( $ops, "'/relations-audit'" ) && false !== strpos( $ops, 'pp.ID IS NULL OR pp.post_status <> \'publish\'' ), 'relations-audit route (read-only) exists' );
+sa_ig_assert( false !== strpos( $ops, "'/cache-purge'" ) && false !== strpos( $ops, "do_action( 'litespeed_purge_all'" ) && false !== strpos( $ops, "do_action( 'litespeed_purge_post'" ), 'cache-purge uses the official LiteSpeed hooks' );
+$act = file_get_contents( $theme_dir . '/inc/activation.php' );
+sa_ig_assert( false !== strpos( $act, "do_action( 'litespeed_purge_all'" ) && strpos( $act, "do_action( 'litespeed_purge_all'" ) > strpos( $act, "update_option( 'sa_child_version'" ), 'theme version change purges the LiteSpeed cache' );
+sa_ig_assert( false !== strpos( $seo, "add_filter( 'option_blogdescription', 'sa_normalize_blogdescription' );" ), 'tagline filter hooked' );
 sa_ig_assert( false === stripos( $ops, 'delete_theme' ) && false === stripos( $ops, "'DELETE'" ), 'agent-ops never deletes' );
 $functions = file_get_contents( $theme_dir . '/functions.php' );
 sa_ig_assert( false !== strpos( $functions, "'inc/agent-ops.php'" ), 'agent-ops is loaded' );
 sa_ig_assert( strpos( $functions, "'inc/agent-ops.php'" ) < strpos( $functions, "'inc/github-updater.php'" ), 'loaded in the include list' );
 
-echo "OK: index gate + critical fixes (2.22.75)\n";
+// 10. v2.22.78: /blog/ (posts page) has exactly one H1.
+$home = file_get_contents( $theme_dir . '/home.php' );
+sa_ig_assert( 1 === substr_count( $home, '<h1' ), 'home.php prints exactly one H1' );
+sa_ig_assert( false !== strpos( $home, "get_option( 'page_for_posts' )" ), 'H1 is the posts page title' );
+
+echo "OK: index gate + critical fixes (2.22.75–2.22.78)\n";

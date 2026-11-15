@@ -1,0 +1,485 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-14-safe-update-2.22.78.json",
+  "started_utc": "2026-11-15T09:14:18+00:00",
+  "note": "به‌روزرسانی خودکار 2.22.78 (پشتیبان UpdraftPlus ← نصب ← پاک‌کردن کش ← probe بی‌کش ← بازگشت به 2.22.77 در صورت خرابی). سنجش H1 در /blog/.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.77",
+          "loaded": "2.22.77",
+          "log": [
+            {
+              "time_gmt": "2026-11-15T09:01:25+00:00",
+              "from": "2.22.75",
+              "to": "2.22.76",
+              "wanted": "2.22.76",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T09:07:10+00:00",
+              "from": "2.22.76",
+              "to": "2.22.77",
+              "wanted": "2.22.77",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1234,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/blog/",
+            "status": 200,
+            "ms": 868,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "وبلاگ | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/blog/",
+            "desc": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+            "h1": 0,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "وبلاگ | سرزمین آریان",
+              "og:description": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+              "og:url": "https://sarzaminaryan.ir/blog/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/site-9ce498ad72.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "وبلاگ | سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "وبلاگ | سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 46573,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1237,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای کامل شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان با ۲٬۱۳۰٬۹۷۰ نفر (۱۳۹۵)، تفکیک سال ۱۴۰۰، تقسیمات، مشاهیر و مشخصات کامل.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+            "status": 200,
+            "ms": 1091,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سی‌وسه‌پل اصفهان | راهنمای بازدید و بهترین ساعت عکاسی",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+            "desc": "راهنمای سی‌وسه‌پل اصفهان: پیشینهٔ صفوی، معماری ۳۳ دهانه، جریان فصلی زاینده‌رود، بهترین ساعت عکاسی، مسیر چهارباغ و نکات بازدید با کودکان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان",
+              "og:description": "راهنمای بازدید از سی‌وسه‌پل اصفهان؛ معماری، بهترین ساعت عکاسی و مسیرهای اطراف.",
+              "og:url": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-3118-dfac9e4a98.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 40492,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "94f1be550ca8",
+            "what": "all",
+            "nocloud": false,
+            "note": "وضعیت را با GET /updraft?nonce=94f1be550ca8 دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-15T09:14:27+00:00",
+              "age_seconds": 157,
+              "success": true,
+              "errors": 0,
+              "nonce": "94f1be550ca8",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-15T09:14:27+00:00",
+            "job": {
+              "nonce": "94f1be550ca8",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.77",
+          "to": "2.22.78",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.78",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794734259",
+            "status": 200,
+            "ms": 1676,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/blog/?sa_probe=1794734261",
+            "status": 200,
+            "ms": 1124,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "وبلاگ | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/blog/",
+            "desc": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "وبلاگ | سرزمین آریان",
+              "og:description": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+              "og:url": "https://sarzaminaryan.ir/blog/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/site-9ce498ad72.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "وبلاگ | سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "وبلاگ | سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 46573,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/?sa_probe=1794734263",
+            "status": 200,
+            "ms": 1454,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای کامل شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان با ۲٬۱۳۰٬۹۷۰ نفر (۱۳۹۵)، تفکیک سال ۱۴۰۰، تقسیمات، مشاهیر و مشخصات کامل.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/si-o-se-pol/?sa_probe=1794734266",
+            "status": 200,
+            "ms": 1186,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سی‌وسه‌پل اصفهان | راهنمای بازدید و بهترین ساعت عکاسی",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+            "desc": "راهنمای سی‌وسه‌پل اصفهان: پیشینهٔ صفوی، معماری ۳۳ دهانه، جریان فصلی زاینده‌رود، بهترین ساعت عکاسی، مسیر چهارباغ و نکات بازدید با کودکان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان",
+              "og:description": "راهنمای بازدید از سی‌وسه‌پل اصفهان؛ معماری، بهترین ساعت عکاسی و مسیرهای اطراف.",
+              "og:url": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-3118-dfac9e4a98.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 40492,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.78",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-15T09:17:47+00:00"
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/blog/",
+            "status": 200,
+            "ms": 1076,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "وبلاگ | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/blog/",
+            "desc": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "وبلاگ | سرزمین آریان",
+              "og:description": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+              "og:url": "https://sarzaminaryan.ir/blog/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/site-9ce498ad72.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "وبلاگ | سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "وبلاگ | سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 46573,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/blog/page/2/",
+            "status": 200,
+            "ms": 1169,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "وبلاگ | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/blog/page/2/",
+            "desc": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "وبلاگ | سرزمین آریان",
+              "og:description": "تازه‌ترین راهنماها، نکات سفر و اخبار گردشگری ایران در وبلاگ سرزمین آریان.",
+              "og:url": "https://sarzaminaryan.ir/blog/page/2/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/site-9ce498ad72.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "وبلاگ | سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "وبلاگ | سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 46573,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T09:17:52+00:00"
+}

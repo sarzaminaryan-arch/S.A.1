@@ -1,0 +1,13 @@
+{
+  "note": "نخستین به‌روزرسانی خودکار (دستور مالک: پشتیبان UpdraftPlus پیش از هر به‌روزرسانی، سنجش بعد از کار، بازگشت در صورت خرابی): پشتیبان کامل ← نصب 2.22.76 ← probe ← بازگشت به 2.22.75 اگر خراب بود. بعد: سنجش توضیح ۶ شهرستان تهران، ممیزی رابطه‌ها، دروازهٔ ایندکس.",
+  "steps": [
+    {"cmd": "theme-update", "expected_version": "2.22.76", "owner_approved_theme_update": true,
+     "backup_first": true, "backup_wait": 1500,
+     "probe": ["/", "/city/isfahan-city/", "/city/mashhad/", "/city/shahriar/"],
+     "rollback_to": "2.22.75"},
+    {"cmd": "ping"},
+    {"cmd": "probe", "url": ["/", "/city/malard/", "/city/pishva/", "/city/qarchak/", "/city/qods/", "/city/shahriar/", "/city/shemiranat/"]},
+    {"cmd": "relations-audit"},
+    {"cmd": "index-gate", "only": "noindex"}
+  ]
+}

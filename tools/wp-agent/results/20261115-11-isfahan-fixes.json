@@ -1,0 +1,71 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-11-isfahan-fixes.json",
+  "started_utc": "2026-11-15T08:55:16+00:00",
+  "note": "اصلاح باقی‌ماندهٔ اصفهان (دستور مالک: به‌روزرسانی صفحهٔ زندهٔ ۳۴۲۹ مجاز): نام فرودگاه «شهید بهشتی» (ویکی‌پدیا)، جملهٔ راه‌ها، حذف ادعای راستی‌آزمایی‌نشدهٔ «محمودآباد کم‌جمعیت‌ترین دهستان». پشتیبان پیش از تغییر.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 3429,
+        "backup_id": 3479,
+        "status": "publish",
+        "modified_gmt": "2026-11-15 08:55:17",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_access_air",
+            "sa_access_road"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1366,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای کامل شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان با ۲٬۱۳۰٬۹۷۰ نفر (۱۳۹۵)، تفکیک سال ۱۴۰۰، تقسیمات، مشاهیر و مشخصات کامل.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T08:55:21+00:00"
+}

@@ -65,6 +65,11 @@ jobs:
             exit 1
           fi
 
+      - name: "Self-test: tool compiles and content audit logic"
+        run: |
+          python3 -m py_compile tools/wp-agent/wp_agent.py tools/wp-agent/content_audit.py
+          python3 tools/wp-agent/test_content_audit.py
+
       - name: Run pending jobs
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}

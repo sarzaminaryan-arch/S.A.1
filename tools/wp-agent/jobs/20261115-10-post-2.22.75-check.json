@@ -1,0 +1,15 @@
+{
+  "note": "سنجش پس از انتشار 2.22.75 (فقط خواندن): نسخهٔ قالب، ۷ صفحهٔ گروه A، اصفهان، robots.txt، دروازهٔ ایندکس، وضعیت UpdraftPlus. اگر قالب هنوز 2.22.74 باشد، گام‌های index-gate به بعد رد می‌شوند و همین نشانهٔ نصب‌نشدن است.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "probe", "url": [
+      "/city/mashhad/", "/city/neyshabur/", "/city/sabzevar/", "/city/shahriar/",
+      "/city/qods/", "/city/khomeyni-shahr/", "/city/bandar-e-abbas/",
+      "/city/isfahan-city/", "/robots.txt", "/wp-sitemap-posts-city-1.xml"
+    ]},
+    {"cmd": "get", "id": 3429},
+    {"cmd": "theme-mods"},
+    {"cmd": "index-gate"},
+    {"cmd": "updraft"}
+  ]
+}
