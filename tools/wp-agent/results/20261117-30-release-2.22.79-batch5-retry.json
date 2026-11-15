@@ -1,0 +1,436 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-30-release-2.22.79-batch5-retry.json",
+  "started_utc": "2026-11-15T13:53:47+00:00",
+  "note": "تکرار کار ۲۹: پشتیبان UpdraftPlus در کار ۲۹ خطا داد (jobstatus=resumingforerrors؛ WP-cron روی سرور خاموش است) و قالب نصب نشد. این بار پشتیبان کامل روی خود سرور گرفته می‌شود و مرحلهٔ بارگذاری ابری کنار می‌رود. قالب همچنان فقط پس از موفقیت پشتیبان نصب می‌شود و اگر probe خراب باشد به 2.22.78 برمی‌گردد. بعد هفت صفحهٔ دستهٔ ۵ به‌روز می‌شوند، کش ده صفحه پاک می‌شود و probe و ممیزی اجرا می‌شود. نشانی و عنوان هیچ صفحه‌ای عوض نمی‌شود.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "updraft",
+      "result": {
+        "active": true,
+        "version": "1.26.14",
+        "wp_cron_disabled": true,
+        "next_resume": "",
+        "last_backup": {
+          "backup_time": "2026-11-15T13:24:59+00:00",
+          "age_seconds": 1728,
+          "success": false,
+          "errors": 1,
+          "nonce": "bf982e3d23d3",
+          "has_db": true,
+          "file_entities": [
+            "plugins",
+            "plugins-size",
+            "themes",
+            "themes-size",
+            "uploads",
+            "uploads-size",
+            "mu-plugins",
+            "mu-plugins-size",
+            "others",
+            "others-size"
+          ]
+        },
+        "history_count": 4,
+        "history_latest": "2026-11-15T13:24:59+00:00",
+        "job": {
+          "nonce": "bf982e3d23d3",
+          "found": true,
+          "jobstatus": "resumingforerrors",
+          "in_history": true,
+          "finished": false
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.78",
+          "loaded": "2.22.78",
+          "log": [
+            {
+              "time_gmt": "2026-11-15T09:01:25+00:00",
+              "from": "2.22.75",
+              "to": "2.22.76",
+              "wanted": "2.22.76",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T09:07:10+00:00",
+              "from": "2.22.76",
+              "to": "2.22.77",
+              "wanted": "2.22.77",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T09:17:28+00:00",
+              "from": "2.22.77",
+              "to": "2.22.78",
+              "wanted": "2.22.78",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1512,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/",
+            "status": 200,
+            "ms": 1586,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/baharestan/",
+            "status": 200,
+            "ms": 1204,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بهارستان؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/baharestan/",
+            "desc": "راهنمای شهرستان بهارستان؛ جمعیت ۵۳۶٬۳۲۹ نفر (۱۳۹۵)، مساحت ۶۲ کیلومتر مربع، سال تأسیس ۱۳۸۹ و موقعیت آن در استان تهران.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بهارستان — شهرستانی کوچک و پرتراکم در جنوب‌غرب استان تهران",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان بهارستان باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/baharestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-220-d978132250.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان بهارستان — شهرستانی کوچک و پرتراکم در جنوب‌غرب استان تهران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بهارستان — شهرستانی کوچک و پرتراکم در جنوب‌غرب استان تهران"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44654,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1581,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای کامل شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان با ۲٬۱۳۰٬۹۷۰ نفر (۱۳۹۵)، تفکیک سال ۱۴۰۰، تقسیمات، مشاهیر و مشخصات کامل.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "904a8b081b65",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=904a8b081b65 دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-15T13:54:00+00:00",
+              "age_seconds": 32,
+              "success": true,
+              "errors": 0,
+              "nonce": "904a8b081b65",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-15T13:54:00+00:00",
+            "job": {
+              "nonce": "904a8b081b65",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.78",
+          "to": "2.22.79",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.79",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794750901",
+            "status": 200,
+            "ms": 2301,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/?sa_probe=1794750905",
+            "status": 200,
+            "ms": 1785,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/baharestan/?sa_probe=1794750908",
+            "status": 200,
+            "ms": 1565,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بهارستان؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/baharestan/",
+            "desc": "راهنمای شهرستان بهارستان؛ جمعیت ۵۳۶٬۳۲۹ نفر (۱۳۹۵)، مساحت ۶۲ کیلومتر مربع، سال تأسیس ۱۳۸۹ و موقعیت آن در استان تهران.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بهارستان — شهرستانی کوچک و پرتراکم در جنوب‌غرب استان تهران",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان بهارستان باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/baharestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-220-d978132250.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان بهارستان — شهرستانی کوچک و پرتراکم در جنوب‌غرب استان تهران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بهارستان — شهرستانی کوچک و پرتراکم در جنوب‌غرب استان تهران"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44654,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/?sa_probe=1794750910",
+            "status": 200,
+            "ms": 1563,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای کامل شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان با ۲٬۱۳۰٬۹۷۰ نفر (۱۳۹۵)، تفکیک سال ۱۴۰۰، تقسیمات، مشاهیر و مشخصات کامل.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "update",
+      "error": "post 1308 changed since the snapshot (2026-11-10 23:26:56 -> 2026-11-15 13:50:32); re-read and re-prepare"
+    }
+  ],
+  "finished_utc": "2026-11-15T13:55:15+00:00"
+}
