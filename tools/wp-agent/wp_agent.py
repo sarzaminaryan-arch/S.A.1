@@ -340,7 +340,7 @@ def probe_url(url: str) -> dict:
         pass
     og = {k: v for k, v in p.meta.items() if k.startswith("og:") or k.startswith("twitter:")}
     out.update({"title": p.title.strip(), "robots": p.meta.get("robots", ""), "canonical": p.canonical,
-                "desc": p.meta.get("description", ""), "og": og})
+                "desc": p.meta.get("description", ""), "h1": p.h1, "og": og})
     img = og.get("og:image", "")
     if img:
         try:

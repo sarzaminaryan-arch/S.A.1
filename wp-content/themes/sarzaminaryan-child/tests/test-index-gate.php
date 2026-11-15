@@ -239,4 +239,9 @@ $functions = file_get_contents( $theme_dir . '/functions.php' );
 sa_ig_assert( false !== strpos( $functions, "'inc/agent-ops.php'" ), 'agent-ops is loaded' );
 sa_ig_assert( strpos( $functions, "'inc/agent-ops.php'" ) < strpos( $functions, "'inc/github-updater.php'" ), 'loaded in the include list' );
 
-echo "OK: index gate + critical fixes (2.22.75–2.22.77)\n";
+// 10. v2.22.78: /blog/ (posts page) has exactly one H1.
+$home = file_get_contents( $theme_dir . '/home.php' );
+sa_ig_assert( 1 === substr_count( $home, '<h1' ), 'home.php prints exactly one H1' );
+sa_ig_assert( false !== strpos( $home, "get_option( 'page_for_posts' )" ), 'H1 is the posts page title' );
+
+echo "OK: index gate + critical fixes (2.22.75–2.22.78)\n";
