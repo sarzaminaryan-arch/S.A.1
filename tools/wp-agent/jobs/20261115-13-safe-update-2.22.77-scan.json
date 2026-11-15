@@ -1,0 +1,12 @@
+{
+  "note": "به‌روزرسانی خودکار 2.22.77 (پشتیبان UpdraftPlus ← نصب ← پاک‌کردن کش ← probe بی‌کش ← بازگشت به 2.22.76 در صورت خرابی). بعد: سنجش قدس و شهریار و اسکن کامل سئو (alt خالی/بی‌alt، توضیح‌ها).",
+  "steps": [
+    {"cmd": "theme-update", "expected_version": "2.22.77", "owner_approved_theme_update": true,
+     "backup_first": true, "backup_wait": 1500,
+     "probe": ["/", "/city/isfahan-city/", "/city/qods/", "/city/shahriar/"],
+     "rollback_to": "2.22.76"},
+    {"cmd": "ping"},
+    {"cmd": "probe", "url": ["/city/qods/", "/city/shahriar/", "/city/mashhad/"]},
+    {"cmd": "seo-scan", "workers": 4}
+  ]
+}
