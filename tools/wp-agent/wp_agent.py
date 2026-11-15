@@ -64,6 +64,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))  # content_audit.py
 BACKUP_DIR = REPO_ROOT / "backup" / "agent"
 NS = "/wp-json/sa-agent/v1"
 BANNED = ("راستش", "هوش مصنوعی", "بازبینی انسانی", "ChatGPT", "Claude", "Gemini")
@@ -442,6 +443,11 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("cache-purge", help="LiteSpeed page cache purge: --all or --id N (theme 2.22.77+)")
     p.add_argument("--all", action="store_true")
     p.add_argument("--id", action="append", default=[], type=int)
+    p = sub.add_parser("content-audit", help="read-only: duplicate/template/contradiction checks on published county pages")
+    p.add_argument("--type", default="city")
+    p.add_argument("--limit", type=int, default=0)
+    p.add_argument("--workers", type=int, default=4)
+    p.add_argument("--template-min-pages", type=int, default=20)
     sub.add_parser("relations-audit", help="read-only: published items whose city/province parent is not published (theme 2.22.76+)")
     p = sub.add_parser("updraft", help="UpdraftPlus status; --start begins a backup (owner-approved)")
     p.add_argument("--start", action="store_true")
@@ -659,6 +665,31 @@ def run(a: argparse.Namespace, c: "Client"):
         if not a.all:
             raise AgentError("cache-purge needs --all or --id")
         return c.call("POST", "/cache-purge", body={"scope": "all"})
+    elif a.cmd == "content-audit":
+        import content_audit  # local module next to this file
+        from concurrent.futures import ThreadPoolExecutor
+        ids, page = [], 1
+        while True:
+            chunk = c.call("GET", "/posts", {"type": a.type, "status": "publish", "per_page": 100, "page": page})
+            ids += [i["id"] for i in chunk.get("items", [])]
+            if page >= int(chunk.get("pages") or 0):
+                break
+            page += 1
+        ids = sorted(set(ids))[: a.limit or None]
+        errors: list[str] = []
+
+        def one(pid: int):
+            try:
+                return content_audit.analyze_page(c.call("GET", f"/post/{pid}"))
+            except AgentError as err:
+                errors.append(f"{pid}: {str(err)[:120]}")
+                return None
+
+        with ThreadPoolExecutor(max_workers=max(1, a.workers)) as pool:
+            pages = [p for p in pool.map(one, ids) if p]
+        report = content_audit.aggregate(pages, a.template_min_pages)
+        report["errors"] = errors[:20]
+        return report
     elif a.cmd == "relations-audit":
         return c.call("GET", "/relations-audit")
     elif a.cmd == "updraft":
