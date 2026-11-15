@@ -413,7 +413,7 @@ $sa79_rows = array(
 	array( 84, 'sheshtamad', 'ششتمد', 6, 9, '' ),
 	array( 85, 'davarzan', 'داورزن', 6, 10, '' ),
 	array( 86, 'jovein', 'جوین', 6, 10, '' ),
-	array( 87, 'khaf', 'خواف', 6, 6, 'ایران ۴۲' ),
+	array( 87, 'khaf', 'خواف', 8, 9, 'ایران ۴۲' ),
 	array( 88, 'kuhsorkh', 'کوهسرخ', 6, 6, '' ),
 	array( 89, 'bagh-e-malek', 'باغ‌ملک', 5, 5, 'ایران ۳۴' ),
 );
@@ -433,6 +433,8 @@ $sa79_seed = (string) file_get_contents( $theme_dir . '/data/county-experiences.
 sa_ci_assert( false === strpos( $sa79_seed, '۱۰۵٬۳۸۴' ) && false !== strpos( $sa79_seed, '۸۳٬۱۲۹' ), 'bundled: bagh-e-malek uses the post-Seydun population (2.22.79)' );
 sa_ci_assert( false === strpos( $sa79_seed, 'اسرائیل' ) && false === strpos( $sa79_seed, 'اسراییل' ), 'seed: banned country name absent (2.22.79)' );
 sa_ci_assert( false === strpos( $sa79_seed, 'http' ), 'seed: places carry no outbound links; sources live in the article (2.22.79)' );
+// 2.22.80 — زوزن روستای مسکونی است (۲٬۶۷۷ نفر، ۱۳۹۵)؛ «شهر ویران‌شدهٔ زوزن» محوطه‌ای جدا و ثبت‌شده است.
+sa_ci_assert( false === strpos( $sa79_seed, 'متروکهٔ زوزن' ) && false === strpos( $sa79_seed, 'روستایی متروکه در دشت' ), 'seed: زوزن is no longer described as an abandoned village (2.22.80)' );
 
 /* ---- 4g. Fact badge fits its word vertically too (2.22.61) --------------- */
 
