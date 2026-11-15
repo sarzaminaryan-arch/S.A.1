@@ -466,6 +466,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--version", default="", help="install this exact release (rollback); default newest")
     p.add_argument("--owner-approved-theme-update", action="store_true")
     p.add_argument("--backup-first", action="store_true", help="take an UpdraftPlus full backup and wait for it first")
+    p.add_argument("--backup-nocloud", action="store_true",
+                   help="keep that full backup on the server only (skip the remote upload, e.g. when the cloud step failed)")
     p.add_argument("--backup-wait", type=int, default=1500)
     p.add_argument("--probe", action="append", default=[], help="path that must answer 200/301 after the update")
     p.add_argument("--rollback-to", default="", help="version to reinstall if a probe fails")
@@ -721,7 +723,7 @@ def run(a: argparse.Namespace, c: "Client"):
         urls = [u if u.startswith("http") else site + u for u in (a.probe or ["/"])]
         report["probe_before"] = [probe_url(u) for u in urls]
         if a.backup_first:
-            started = updraft_start(c, "all", False)
+            started = updraft_start(c, "all", bool(a.backup_nocloud))
             report["backup"] = {"started": started, "status": updraft_wait(c, started.get("nonce", ""), a.backup_wait)}
             last = report["backup"]["status"].get("last_backup") or {}
             if not ((report["backup"]["status"].get("job") or {}).get("finished") and last.get("success")):

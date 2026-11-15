@@ -1,0 +1,123 @@
+{
+  "note": "تکرار کار ۲۹: پشتیبان UpdraftPlus در کار ۲۹ خطا داد (jobstatus=resumingforerrors؛ WP-cron روی سرور خاموش است) و قالب نصب نشد. این بار پشتیبان کامل روی خود سرور گرفته می‌شود و مرحلهٔ بارگذاری ابری کنار می‌رود. قالب همچنان فقط پس از موفقیت پشتیبان نصب می‌شود و اگر probe خراب باشد به 2.22.78 برمی‌گردد. بعد هفت صفحهٔ دستهٔ ۵ به‌روز می‌شوند، کش ده صفحه پاک می‌شود و probe و ممیزی اجرا می‌شود. نشانی و عنوان هیچ صفحه‌ای عوض نمی‌شود.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "updraft",
+      "nonce": "bf982e3d23d3"
+    },
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.22.79",
+      "owner_approved_theme_update": true,
+      "backup_first": true,
+      "backup_wait": 900,
+      "probe": [
+        "/",
+        "/city/dargaz/",
+        "/city/baharestan/",
+        "/city/isfahan-city/"
+      ],
+      "rollback_to": "2.22.78",
+      "backup_nocloud": true
+    },
+    {
+      "cmd": "update",
+      "id": 1308,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/dargaz-1308.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/dargaz-1308.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۵ (دستور مالک): بازسازی به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 1312,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/sheshtamad-1312.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/sheshtamad-1312.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۵ (دستور مالک): بازسازی به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 1307,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/davarzan-1307.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/davarzan-1307.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۵ (دستور مالک): بازسازی به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 1303,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/jovein-1303.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/jovein-1303.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۵ (دستور مالک): بازسازی به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 1305,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/khaf-1305.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/khaf-1305.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۵ (دستور مالک): بازسازی به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 1320,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/kuhsorkh-1320.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/kuhsorkh-1320.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۵ (دستور مالک): بازسازی به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 276,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/bagh-e-malek-276.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/bagh-e-malek-276.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۵ (دستور مالک): بازسازی به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        1308,
+        1312,
+        1307,
+        1303,
+        1305,
+        1320,
+        276,
+        220,
+        528,
+        221
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/dargaz/?sa_probe=5",
+        "/city/sheshtamad/?sa_probe=5",
+        "/city/davarzan/?sa_probe=5",
+        "/city/jovein/?sa_probe=5",
+        "/city/khaf/?sa_probe=5",
+        "/city/kuhsorkh/?sa_probe=5",
+        "/city/bagh-e-malek/?sa_probe=5",
+        "/city/baharestan/?sa_probe=5",
+        "/city/amol/?sa_probe=5",
+        "/city/pakdasht/?sa_probe=5"
+      ]
+    },
+    {
+      "cmd": "content-audit",
+      "type": "city",
+      "workers": 4
+    }
+  ]
+}
