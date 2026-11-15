@@ -22,23 +22,18 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-# The locked order of the county template (tools/wp-agent/replace_src/template.py).
-# Titles may be worded for the county, but every family must appear once, in order.
-ORDER = (
-    ("intro",          r"(؛|معرفی شهرستان)"),
-    ("card",           r"شناسنامهٔ کوتاه"),
-    ("map",            r"نقشه|همسایه"),
-    ("climate",        r"آب‌وهوا|آب و هوا|بهترین زمان سفر"),
-    ("history",        r"تاریخ|پیشینه"),
-    ("people",         r"مردم"),
-    ("economy",        r"اقتصاد|معیشت|کشاورزی|صنعت|کارِ مردم"),
-    ("sights",         r"جاهای دیدنی|جاذبه"),
-    ("stay",           r"راه رسیدن|جای ماندن|چطور برسیم|راه و ارتباط"),
-    ("notables",       r"چهره‌ها|نام‌آور|مشاهیر"),
-    ("tips",           r"چند نکته|اگر فقط یک روز"),
-    ("request",        r"یک درخواست داریم"),
-)
+# The locked order comes from the single registry in template.py: adding,
+# dropping or renaming a section is one edit there and nowhere else.
+from template import order_patterns  # noqa: E402
+
+ORDER = order_patterns()
+
+# Section markers written by build_section_batch.py. When present they must
+# exist exactly once per live section, in registry order.
+MARK_OPEN = "<!-- sa:sec:{} -->"
+MARK_CLOSE = "<!-- /sa:sec:{} -->"
 
 MIN_WORDS = 900
 
@@ -58,6 +53,7 @@ def check_html(path: Path) -> list[str]:
     joined = "\n".join(h2)
     if words(html) < MIN_WORDS:
         problems.append(f"only {words(html)} words (< {MIN_WORDS})")
+    problems += check_markers(html)
     pos = -1
     for label, rx in ORDER:
         found = None
@@ -71,8 +67,12 @@ def check_html(path: Path) -> list[str]:
             pos = found
     if not re.search(r"<table>", html):
         problems.append("no identity table")
-    # one link per URL rule
-    hrefs = re.findall(r'href="([^"]+)"', html)
+    # one link per URL rule — it is about links inside the text, not the numbered
+    # citation marks (a source keeps its number wherever it is cited again), and the
+    # kept-verbatim reader-request block comes from the live page, not from us.
+    body = html.split("<!-- sa:sec:request -->")[0] if "<!-- sa:sec:request -->" in html else html
+    text_only = re.sub(r'<sup class="sa-cite">.*?</sup>', "", body, flags=re.S)
+    hrefs = re.findall(r'href="([^"]+)"', text_only)
     dupes = {h for h in hrefs if hrefs.count(h) > 1}
     if dupes:
         problems.append(f"repeated links: {sorted(dupes)[:3]}")
@@ -82,6 +82,22 @@ def check_html(path: Path) -> list[str]:
             problems.append(f"banned wording: {bad}")
     if re.search(r"<td>https", html):
         problems.append("raw URL inside a table cell")
+    return problems
+
+
+def check_markers(html: str) -> list[str]:
+    """Section markers must be balanced and in registry order (unmarked pages
+    are the older shape and are covered by the H2 order check alone)."""
+    opens = re.findall(r"<!-- sa:sec:([a-z]+) -->", html)
+    if not opens:
+        return []
+    ids = [label for label, _ in ORDER]
+    problems = []
+    for key in opens:
+        if html.count(MARK_OPEN.format(key)) != 1 or html.count(MARK_CLOSE.format(key)) != 1:
+            problems.append(f"section marker not paired once: {key}")
+    if opens != [k for k in ids if k in opens]:
+        problems.append(f"section markers out of order: {opens}")
     return problems
 
 
