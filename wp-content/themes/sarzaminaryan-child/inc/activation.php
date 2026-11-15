@@ -57,6 +57,8 @@ function sa_maybe_upgrade() {
 		sa_gate_policy_migrate();
 		update_option( 'sa_child_version', SA_CHILD_VERSION, false );
 		update_option( 'sa_flush_rewrite', 1, false );
+		// v2.22.77: خروجی قالب عوض شده؛ کش صفحه‌های LiteSpeed پاک شود تا بازدیدکننده و گوگل نسخهٔ تازه را ببینند (API رسمی افزونه).
+		do_action( 'litespeed_purge_all', 'sarzaminaryan-child ' . SA_CHILD_VERSION );
 	}
 	if ( get_option( 'sa_flush_rewrite' ) ) {
 		delete_option( 'sa_flush_rewrite' );

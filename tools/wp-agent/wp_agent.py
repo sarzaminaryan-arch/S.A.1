@@ -37,6 +37,8 @@ Commands (run from the repo root):
     python3 tools/wp-agent/wp_agent.py litespeed --set crawler=true --set crawler-sitemap=https://sarzaminaryan.ir/wp-sitemap.xml --reason "..."
     # theme 2.22.75+
     python3 tools/wp-agent/wp_agent.py index-gate [--only noindex]
+    python3 tools/wp-agent/wp_agent.py relations-audit                          # 2.22.76+
+    python3 tools/wp-agent/wp_agent.py cache-purge --all | --id 123            # 2.22.77+
     python3 tools/wp-agent/wp_agent.py updraft                                   # status only
     python3 tools/wp-agent/wp_agent.py updraft --start --owner-approved-backup [--what all] [--wait 1500]
     python3 tools/wp-agent/wp_agent.py theme-update --expected-version 2.22.76 --owner-approved-theme-update \
@@ -437,6 +439,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reason", default="تنظیم خزندهٔ LiteSpeed")
     p = sub.add_parser("index-gate", help="read-only: index/noindex decision and reason for every published city")
     p.add_argument("--only", default="", choices=["", "noindex", "index"])
+    p = sub.add_parser("cache-purge", help="LiteSpeed page cache purge: --all or --id N (theme 2.22.77+)")
+    p.add_argument("--all", action="store_true")
+    p.add_argument("--id", action="append", default=[], type=int)
     sub.add_parser("relations-audit", help="read-only: published items whose city/province parent is not published (theme 2.22.76+)")
     p = sub.add_parser("updraft", help="UpdraftPlus status; --start begins a backup (owner-approved)")
     p.add_argument("--start", action="store_true")
@@ -485,6 +490,12 @@ def updraft_wait(c: "Client", nonce: str, seconds: int) -> dict:
 def updraft_start(c: "Client", what: str, nocloud: bool) -> dict:
     """POST /updraft. The server answers, closes the connection, then runs the backup."""
     return c.call("POST", "/updraft", body={"owner_approved_backup": True, "what": what, "nocloud": nocloud})
+
+
+def bust(url: str) -> str:
+    """Cache-busting query so a health probe renders the page with the code now on disk."""
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}sa_probe={int(time.time())}"
 
 
 def probes_healthy(probes: list[dict]) -> bool:
@@ -642,6 +653,12 @@ def run(a: argparse.Namespace, c: "Client"):
         for r in rows:
             reasons[r.get("reason") or "index"] = reasons.get(r.get("reason") or "index", 0) + 1
         return {"theme": chunk.get("theme", ""), "count": len(rows), "by_reason": reasons, "rows": rows}
+    elif a.cmd == "cache-purge":
+        if a.id:
+            return c.call("POST", "/cache-purge", body={"ids": a.id})
+        if not a.all:
+            raise AgentError("cache-purge needs --all or --id")
+        return c.call("POST", "/cache-purge", body={"scope": "all"})
     elif a.cmd == "relations-audit":
         return c.call("GET", "/relations-audit")
     elif a.cmd == "updraft":
@@ -674,12 +691,17 @@ def run(a: argparse.Namespace, c: "Client"):
                                  + json.dumps(report["backup"]["status"], ensure_ascii=False)[:600])
         report["install"] = theme_install(c, a.version, a.expected_version)
         time.sleep(5)
-        report["probe_after"] = [probe_url(u) for u in urls]
+        try:  # theme 2.22.77+: visitors must not keep the old cached output
+            report["cache_purge"] = c.call("POST", "/cache-purge", body={"scope": "all"})
+        except AgentError as err:
+            report["cache_purge"] = {"error": str(err)[:300]}
+        # health is judged on fresh renders (a cache hit would hide a broken theme)
+        report["probe_after"] = [probe_url(bust(u)) for u in urls]
         report["healthy"] = probes_healthy(report["probe_after"])
         if not report["healthy"] and a.rollback_to:
             report["rollback"] = theme_install(c, a.rollback_to, a.rollback_to)
             time.sleep(5)
-            report["probe_after_rollback"] = [probe_url(u) for u in urls]
+            report["probe_after_rollback"] = [probe_url(bust(u)) for u in urls]
             raise AgentError("probe failed after update; rolled back to " + a.rollback_to + ": "
                              + json.dumps({k: report[k] for k in ("install", "rollback")}, ensure_ascii=False)[:800])
         if not report["healthy"]:

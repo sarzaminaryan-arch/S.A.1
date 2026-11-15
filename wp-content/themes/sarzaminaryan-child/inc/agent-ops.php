@@ -131,6 +131,33 @@ function sa_agent_rest_relations_audit() {
 	);
 }
 
+/**
+ * v2.22.77 — POST /cache-purge: پاک‌کردن کش صفحه‌های LiteSpeed (همه، یا چند نوشته) با
+ * API رسمی افزونه (`litespeed_purge_all` / `litespeed_purge_post`). چیزی پاک نمی‌شود جز
+ * نسخهٔ کش‌شده؛ صفحه در درخواست بعدی تازه ساخته می‌شود.
+ *
+ * @param WP_REST_Request $r درخواست: {"scope":"all"} یا {"ids":[123,456]}.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_cache_purge( $r ) {
+	$b = (array) $r->get_json_params();
+	if ( ! defined( 'LSCWP_V' ) ) {
+		return new WP_Error( 'sa_agent_no_litespeed', 'افزونهٔ LiteSpeed Cache فعال نیست.', array( 'status' => 409 ) );
+	}
+	$ids = isset( $b['ids'] ) && is_array( $b['ids'] ) ? array_values( array_filter( array_map( 'intval', $b['ids'] ) ) ) : array();
+	if ( $ids ) {
+		foreach ( array_slice( $ids, 0, 200 ) as $id ) {
+			do_action( 'litespeed_purge_post', $id );
+		}
+		return rest_ensure_response( array( 'purged' => 'posts', 'ids' => array_slice( $ids, 0, 200 ) ) );
+	}
+	if ( isset( $b['scope'] ) && 'all' === $b['scope'] ) {
+		do_action( 'litespeed_purge_all', 'sa-agent' );
+		return rest_ensure_response( array( 'purged' => 'all' ) );
+	}
+	return new WP_Error( 'sa_agent_nothing', 'scope: all یا ids لازم است.', array( 'status' => 400 ) );
+}
+
 /* -------------------------------------------------------------------------
  * ۲) UpdraftPlus — همان روشی که MainWP Child و دکمهٔ «Backup Now» خود افزونه به‌کار می‌برند:
  *    nonce با backup_time_nonce()، بستن اتصال مرورگر، سپس do_action رویداد backupnow.
@@ -436,6 +463,15 @@ function sa_agent_ops_register_routes() {
 			'permission_callback' => static function () {
 				return is_user_logged_in() && current_user_can( 'edit_posts' );
 			},
+		)
+	);
+	register_rest_route(
+		SA_AGENT_NS,
+		'/cache-purge',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_cache_purge',
+			'permission_callback' => $admin,
 		)
 	);
 	register_rest_route(

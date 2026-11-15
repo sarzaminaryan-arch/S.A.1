@@ -230,10 +230,13 @@ foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
 sa_ig_assert( false !== strpos( $ops, "'/relations-audit'" ) && false !== strpos( $ops, 'pp.ID IS NULL OR pp.post_status <> \'publish\'' ), 'relations-audit route (read-only) exists' );
+sa_ig_assert( false !== strpos( $ops, "'/cache-purge'" ) && false !== strpos( $ops, "do_action( 'litespeed_purge_all'" ) && false !== strpos( $ops, "do_action( 'litespeed_purge_post'" ), 'cache-purge uses the official LiteSpeed hooks' );
+$act = file_get_contents( $theme_dir . '/inc/activation.php' );
+sa_ig_assert( false !== strpos( $act, "do_action( 'litespeed_purge_all'" ) && strpos( $act, "do_action( 'litespeed_purge_all'" ) > strpos( $act, "update_option( 'sa_child_version'" ), 'theme version change purges the LiteSpeed cache' );
 sa_ig_assert( false !== strpos( $seo, "add_filter( 'option_blogdescription', 'sa_normalize_blogdescription' );" ), 'tagline filter hooked' );
 sa_ig_assert( false === stripos( $ops, 'delete_theme' ) && false === stripos( $ops, "'DELETE'" ), 'agent-ops never deletes' );
 $functions = file_get_contents( $theme_dir . '/functions.php' );
 sa_ig_assert( false !== strpos( $functions, "'inc/agent-ops.php'" ), 'agent-ops is loaded' );
 sa_ig_assert( strpos( $functions, "'inc/agent-ops.php'" ) < strpos( $functions, "'inc/github-updater.php'" ), 'loaded in the include list' );
 
-echo "OK: index gate + critical fixes (2.22.75–2.22.76)\n";
+echo "OK: index gate + critical fixes (2.22.75–2.22.77)\n";
