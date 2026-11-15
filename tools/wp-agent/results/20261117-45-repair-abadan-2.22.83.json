@@ -1,0 +1,620 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-45-repair-abadan-2.22.83.json",
+  "started_utc": "2026-11-15T17:13:52+00:00",
+  "note": "شمارهٔ ۵۱ (پایان) — دو اصلاح روی صفحهٔ آبادان و یک نسخهٔ قالب. گام ۱ همان متن ۱۲ بخشی را با متای اصلاح‌شده می‌نویسد: «بهترین فصل» از بازهٔ مبهم به «اسفند و فروردین؛ پاییز و زمستان ملایم» تغییر کرد تا نشان «فصل پیشنهادی» روی تابستان ننشیند، و فهرست منابع بدون شمارهٔ اضافی نوشته شد. گام ۲ قالب 2.22.83 را نصب می‌کند (پشتیبان کامل، بازگشت خودکار به 2.22.82) که همان اصل نشان فصل را در قالب درست می‌کند. گام ۳ کش، گام ۴ probe با کلید درست url.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 269,
+        "backup_id": 3583,
+        "status": "publish",
+        "modified_gmt": "2026-11-15 17:13:53",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_cty_area",
+            "sa_cty_census_year",
+            "sa_cty_center",
+            "sa_cty_distance_center",
+            "sa_cty_neighbors",
+            "sa_cty_population",
+            "sa_city_elevation",
+            "sa_cty_cities",
+            "sa_cty_districts",
+            "sa_cty_rural_districts",
+            "sa_city_population",
+            "sa_cty_best_time",
+            "sa_cty_climate",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_google_map_url",
+            "sa_cty_poi_heritage",
+            "sa_city_slug",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_city_schema_type",
+            "sa_schema_sameas",
+            "sa_schema_contained_in",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_focus_keyword",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "sa_sources",
+            "sa_province_id",
+            "cc_rating_sum",
+            "cc_rating_count",
+            "cc_rating_avg",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_offbeat"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.82",
+          "loaded": "2.22.82",
+          "log": [
+            {
+              "time_gmt": "2026-11-15T09:17:28+00:00",
+              "from": "2.22.77",
+              "to": "2.22.78",
+              "wanted": "2.22.78",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T13:54:50+00:00",
+              "from": "2.22.78",
+              "to": "2.22.79",
+              "wanted": "2.22.79",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T14:20:31+00:00",
+              "from": "2.22.79",
+              "to": "2.22.80",
+              "wanted": "2.22.80",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T16:46:54+00:00",
+              "from": "2.22.80",
+              "to": "2.22.81",
+              "wanted": "2.22.81",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T17:07:01+00:00",
+              "from": "2.22.81",
+              "to": "2.22.82",
+              "wanted": "2.22.82",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1422,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/abadan/",
+            "status": 200,
+            "ms": 1314,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آبادان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/abadan/",
+            "desc": "راهنمای شهرستان آبادان: جمعیت و تقسیمات، تاریخ پالایشگاه و اروندرود، مسجد رنگونی‌ها، موزه، بازار ته‌لنجی‌ها، آب‌وهوا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آبادان: تاریخ نفت و اروندرود، جاهای دیدنی، آب‌وهوا و راه رسیدن.",
+              "og:url": "https://sarzaminaryan.ir/city/abadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-269-a95aa61c27.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آبادان — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43619,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ramshir/",
+            "status": 200,
+            "ms": 1293,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رامشیر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ramshir/",
+            "desc": "راهنمای شهرستان رامشیر؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان رامشیر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/ramshir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-284-49ff61b5ab.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رامشیر — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44140,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/",
+            "status": 200,
+            "ms": 1327,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "7255f6f9bc35",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=7255f6f9bc35 دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-15T17:14:04+00:00",
+              "age_seconds": 31,
+              "success": true,
+              "errors": 0,
+              "nonce": "7255f6f9bc35",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-15T17:14:04+00:00",
+            "job": {
+              "nonce": "7255f6f9bc35",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.82",
+          "to": "2.22.83",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.83",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794762903",
+            "status": 200,
+            "ms": 2086,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/abadan/?sa_probe=1794762906",
+            "status": 200,
+            "ms": 1436,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آبادان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/abadan/",
+            "desc": "راهنمای شهرستان آبادان: جمعیت و تقسیمات، تاریخ پالایشگاه و اروندرود، مسجد رنگونی‌ها، موزه، بازار ته‌لنجی‌ها، آب‌وهوا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آبادان: تاریخ نفت و اروندرود، جاهای دیدنی، آب‌وهوا و راه رسیدن.",
+              "og:url": "https://sarzaminaryan.ir/city/abadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-269-a95aa61c27.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آبادان — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43619,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ramshir/?sa_probe=1794762908",
+            "status": 200,
+            "ms": 1298,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رامشیر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ramshir/",
+            "desc": "راهنمای شهرستان رامشیر؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان رامشیر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/ramshir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-284-49ff61b5ab.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رامشیر — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44140,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/?sa_probe=1794762910",
+            "status": 200,
+            "ms": 1168,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          269
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/abadan/",
+            "status": 200,
+            "ms": 1203,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آبادان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/abadan/",
+            "desc": "راهنمای شهرستان آبادان: جمعیت و تقسیمات، تاریخ پالایشگاه و اروندرود، مسجد رنگونی‌ها، موزه، بازار ته‌لنجی‌ها، آب‌وهوا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آبادان: تاریخ نفت و اروندرود، جاهای دیدنی، آب‌وهوا و راه رسیدن.",
+              "og:url": "https://sarzaminaryan.ir/city/abadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-269-a95aa61c27.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آبادان — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43619,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ramshir/",
+            "status": 200,
+            "ms": 1291,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رامشیر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ramshir/",
+            "desc": "راهنمای شهرستان رامشیر؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان رامشیر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/ramshir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-284-49ff61b5ab.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رامشیر — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44140,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1028,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/khorramshahr/",
+            "status": 200,
+            "ms": 1096,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان خرمشهر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/khorramshahr/",
+            "desc": "راهنمای شهرستان خرمشهر; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان خرمشهر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان خرمشهر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/khorramshahr/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-281-e4cc6bcafe.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان خرمشهر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان خرمشهر — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 45181,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T17:15:21+00:00"
+}
