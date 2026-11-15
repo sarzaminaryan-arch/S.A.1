@@ -111,8 +111,9 @@ sa_bs_assert( false !== strpos( $out, 'sa:sec:tips' ), 'request: the tips sectio
 
 /* ---- 7. no block, h3 shape, admin ---- */
 sa_bs_assert( sa_strip_reader_request_filter( $clean ) === $clean, 'request: page without the block passes through unchanged' );
-$h3 = '<h3>از مردم عزیز این دیار، یک درخواست داریم</h3><p>متن.</p>';
+$h3 = '<h2>چند نکتهٔ کوچک از آزمون</h2><p>متن مقاله.</p><h3>از مردم عزیز این دیار، یک درخواست داریم</h3><p>متن درخواست.</p>';
 sa_bs_assert( false === strpos( sa_strip_reader_request_filter( $h3 ), 'از مردم' ), 'request: h3 shape of the heading is removed too' );
+sa_bs_assert( false !== strpos( sa_strip_reader_request_filter( $h3 ), 'متن مقاله.' ), 'request: content above an h3 block stays' );
 $GLOBALS['t']['is_admin'] = true;
 sa_bs_assert( sa_strip_reader_request_filter( $request ) === $request, 'request: admin/feed requests are never filtered' );
 $GLOBALS['t']['is_admin'] = false;
