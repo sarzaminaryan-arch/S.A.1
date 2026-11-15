@@ -558,6 +558,9 @@ function sa_strip_reader_request_filter( $content ) {
 		'#(?:<!--\s*sa:sec:request\s*-->\s*)?(?:<!--\s*wp:heading[^>]*-->\s*)?<h3\b[^>]*>\s*از\s+مردم\s+عزیز.*?</h3>.*$#isu',
 	);
 	foreach ( $patterns as $p ) {
+		if ( ! preg_match( $p, $content ) ) {
+			continue;
+		}
 		$cleaned = preg_replace( $p, '', $content );
 		if ( is_string( $cleaned ) && '' !== trim( $cleaned ) ) {
 			return $cleaned;
