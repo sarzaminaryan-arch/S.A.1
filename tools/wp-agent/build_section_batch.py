@@ -96,16 +96,18 @@ def h2_spans(html: str) -> list[tuple[int, str]]:
 
 
 def marked_spans(html: str) -> dict[str, tuple[int, int]] | None:
-    if OPEN.format(SECTIONS[0]) not in html:
+    if not any(OPEN.format(k) in html for k in SECTIONS):
         return None
     spans = {}
     for key in SECTIONS:
         o = html.find(OPEN.format(key))
         c = html.find(CLOSE.format(key))
+        if o == -1 and c == -1:
+            continue
         if o == -1 or c == -1:
-            raise ValueError(f"section {key}: marker missing")
+            raise ValueError(f"section {key}: only half of its marker pair is present")
         spans[key] = (o, c + len(CLOSE.format(key)))
-    order = [spans[k][0] for k in SECTIONS]
+    order = [spans[k][0] for k in SECTIONS if k in spans]
     if order != sorted(order):
         raise ValueError("section markers are out of template order")
     return spans
@@ -136,11 +138,23 @@ def legacy_span(html: str, key: str) -> tuple[int, int]:
 
 
 def spans_of(html: str) -> tuple[dict[str, tuple[int, int]], bool]:
-    """(spans, marked?) — markers first, legacy H2 mapping as the fallback."""
+    """(spans, marked?) — markers first, legacy H2 mapping as the fallback.
+    A section that is genuinely missing from the page is simply absent from
+    the map (that is what a `remove` passes leaves behind); an ambiguous legacy
+    page still raises, because guessing there would cut the wrong text."""
     marked = marked_spans(html)
     if marked is not None:
         return marked, True
-    return {k: legacy_span(html, k) for k in SECTIONS}, False
+    spans = {}
+    for key in SECTIONS:
+        try:
+            spans[key] = legacy_span(html, key)
+        except ValueError as exc:
+            if "0 H2s match" not in str(exc):
+                raise
+    if not spans:
+        raise ValueError("no section H2 could be identified")
+    return spans, False
 
 
 def checks(out: str, words_floor: int | None) -> dict:
@@ -193,6 +207,22 @@ def cmd_build(read_path: str, live_dir: str, sections_dir: str, out_dir: str) ->
     return 0 if summary and all(r["ok"] for r in summary) else 1
 
 
+def insert_section(html: str, key: str, new_html: str, spans: dict, marked: bool) -> str:
+    """Put a section back where the registry says it belongs.
+
+    Marked pages: before the marker of the next section that is present.
+    Legacy pages: before the H2 of the next present section (span start).
+    When the section is the last one, it goes after the last present section.
+    """
+    order = list(SECTIONS)
+    i = order.index(key)
+    for nxt in order[i + 1:]:
+        if nxt in spans:
+            return html[:spans[nxt][0]] + wrap(key, new_html) + "\n\n" + html[spans[nxt][0]:]
+    last = max(spans.values(), key=lambda sp: sp[1])[1]
+    return html[:last] + "\n\n" + wrap(key, new_html) + html[last:]
+
+
 def _rewrite_dir(out_dir: str, key: str, new_html: str | None) -> int:
     if key not in SECTIONS:
         raise SystemExit(f"unknown section {key}; template sections: {', '.join(SECTIONS)}")
@@ -208,6 +238,19 @@ def _rewrite_dir(out_dir: str, key: str, new_html: str | None) -> int:
         except ValueError as exc:
             print(f"SKIP {name}: {exc}")
             skipped += 1
+            continue
+        if key not in spans:
+            # the section is not on this page: a `replace` puts it back in its
+            # registry position (so a removed section can be reinstated), while
+            # a `remove` simply has nothing to do here.
+            if new_html is None:
+                skipped += 1
+                print(f"SKIP {name}: {key} already absent")
+                continue
+            html = insert_section(html, key, new_html, spans, marked)
+            open(path, "w", encoding="utf-8", newline="").write(html)
+            touched += 1
+            print(f"re-added {key} in {name}")
             continue
         a, b = spans[key]
         if new_html is None:
