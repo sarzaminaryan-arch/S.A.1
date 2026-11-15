@@ -184,6 +184,7 @@ add["dezpart-592"] = full_spec(p, base("dezpart-592"), 999, "2026-11-10 23:26:56
 meta["dezpart-592"] = {
     "sa_cty_neighbors": "ardal - شمال‌شرق\nizeh - شمال‌غرب\nbagh-e-malek - غرب\n"
                         "lordegan - جنوب‌شرق\nkohgiluyeh - جنوب",
+    "sa_cty_population": "19351",
     "sa_city_population": "5490",
     "sa_cty_census_year": "1395",
     "sa_cty_districts": "2",
