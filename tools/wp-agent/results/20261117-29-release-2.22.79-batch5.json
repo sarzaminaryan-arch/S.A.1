@@ -1,0 +1,14 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-29-release-2.22.79-batch5.json",
+  "started_utc": "2026-11-15T13:24:50+00:00",
+  "note": "نخستین بستهٔ ده‌تایی (دستور مالک، ۱۵ نوامبر): نصب قالب 2.22.79 با پشتیبان UpdraftPlus و probe، و بازگشت به 2.22.78 اگر خراب شود. سپس به‌روزرسانی متن و شناسنامهٔ هفت صفحهٔ دستهٔ ۵، پاک کردن کش هر ده صفحه، probe بی‌کش و ممیزی محتوا. نشانی و عنوان هیچ صفحه‌ای عوض نمی‌شود.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "error": "UpdraftPlus backup did not finish successfully in time; theme NOT updated: {\"active\": true, \"version\": \"1.26.14\", \"wp_cron_disabled\": true, \"next_resume\": \"\", \"last_backup\": {\"backup_time\": \"2026-11-15T13:24:59+00:00\", \"age_seconds\": 1512, \"success\": false, \"errors\": 1, \"nonce\": \"bf982e3d23d3\", \"has_db\": true, \"file_entities\": [\"plugins\", \"plugins-size\", \"themes\", \"themes-size\", \"uploads\", \"uploads-size\", \"mu-plugins\", \"mu-plugins-size\", \"others\", \"others-size\"]}, \"history_count\": 4, \"history_latest\": \"2026-11-15T13:24:59+00:00\", \"job\": {\"nonce\": \"bf982e3d23d3\", \"found\": true, \"jobstatus\": \"resumingforerrors\", \"in_history\": true, \"finished\": false}}"
+    }
+  ],
+  "finished_utc": "2026-11-15T13:50:13+00:00"
+}
