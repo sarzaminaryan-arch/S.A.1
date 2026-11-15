@@ -1,0 +1,134 @@
+[
+ {
+  "id": 592,
+  "slug": "dezpart",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 999,
+  "words_live": 522,
+  "words_after": 1357,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 1323,
+  "slug": "zebarkhan",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 1184,
+  "words_live": 637,
+  "words_after": 1283,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 273,
+  "slug": "andika",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_original": 1035,
+  "words_live": 582,
+  "words_after": 1234,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 270,
+  "slug": "aghajari",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_original": 1018,
+  "words_live": 572,
+  "words_after": 1032,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 285,
+  "slug": "ramhormoz",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 2205,
+  "words_live": 1459,
+  "words_after": 2250,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 286,
+  "slug": "shadegan",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 2149,
+  "words_live": 1532,
+  "words_after": 2160,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ }
+]

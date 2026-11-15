@@ -1,0 +1,60 @@
+{
+  "note": "دستهٔ ۶ (ادامهٔ دستور مالک «ادامه بده»، همان الگوی دستهٔ ۵): چهار صفحهٔ شهرستان با متن کاملِ تازه و مستند به منابع (ویکی‌پدیای فارسی و انگلیسی، خبرگزاری مهر) بازنویسی می‌شوند — دزپارت ۹۹۹←۱۳۵۷، زبرخان ۱۱۸۴←۱۲۸۳، اندیکا ۱۰۳۵←۱۲۳۴، آغاجاری ۱۰۱۸←۱۰۳۲ واژه. تکرارها و یادداشت‌های ویراستاری حذف شده‌اند و حجم هیچ مقاله‌ای از نسخهٔ اصلی کمتر نیست. نشانی و عنوان بدون تغییر. شناسنامهٔ هر صفحه (جمعیت، تقسیمات، همسایه‌ها، جاذبه‌ها، پرسش‌های پرتکرار و منابع) هم‌زمان به‌روز می‌شود؛ جمعیت دزپارت که در ممیزی صفر بود، ۱۹٬۳۵۱ (جمع دو بخش، سرشماری ۱۳۹۵) و زبرخان ۵۶٬۶۳۵ ثبت می‌شود. هر صفحه فقط اگر از ۱۰ نوامبر تغییر نکرده باشد نوشته می‌شود؛ اگر probe ناسالم باشد همهٔ پشتیبان‌های همین کار برگردانده می‌شوند.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 592,
+      "content_file": "tools/wp-agent/outbox/20261118-replace-batch6/dezpart-592.html",
+      "meta_file": "tools/wp-agent/outbox/20261118-replace-batch6/dezpart-592.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۶: بازسازی دزپارت به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار (کارون ۳ و ۴، شیوند، کاروانسرای دهدز)، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 1323,
+      "content_file": "tools/wp-agent/outbox/20261118-replace-batch6/zebarkhan-1323.html",
+      "meta_file": "tools/wp-agent/outbox/20261118-replace-batch6/zebarkhan-1323.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۶: بازسازی زبرخان به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار (قدمگاه، خرو، درود، اسحاق‌آباد)، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 273,
+      "content_file": "tools/wp-agent/outbox/20261118-replace-batch6/andika-273.html",
+      "meta_file": "tools/wp-agent/outbox/20261118-replace-batch6/andika-273.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۶: بازسازی اندیکا به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار (شیمبار، آبشارهای موری و طوف کما، قلعه‌خواجه)، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 270,
+      "content_file": "tools/wp-agent/outbox/20261118-replace-batch6/aghajari-270.html",
+      "meta_file": "tools/wp-agent/outbox/20261118-replace-batch6/aghajari-270.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۶: بازسازی آغاجاری به سبک صفحه‌های الگو؛ حذف تکرار و جایگزینی با دادهٔ منبع‌دار (میدان نفتی، مارون، جولکی)، اصلاح شناسنامه، پرسش‌های متداول و منابع؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [592, 1323, 273, 270]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/dezpart/?sa_probe=6",
+        "/city/zebarkhan/?sa_probe=6",
+        "/city/andika/?sa_probe=6",
+        "/city/aghajari/?sa_probe=6"
+      ]
+    },
+    {
+      "cmd": "content-audit",
+      "type": "city",
+      "workers": 4
+    }
+  ]
+}

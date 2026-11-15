@@ -1,0 +1,76 @@
+[
+ {
+  "id": 284,
+  "slug": "ramshir",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_before": 2157,
+  "words_after": 1520,
+  "dup_before": 0,
+  "dup_after": 0,
+  "notes_before": 40,
+  "notes_after": 1,
+  "notes_left": [
+   "متادیتا"
+  ],
+  "dup_left": [],
+  "changes": 46,
+  "idempotent": true,
+  "tags_ok": true,
+  "gutenberg_ok": true
+ },
+ {
+  "id": 283,
+  "slug": "dasht-azadegan",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_before": 2240,
+  "words_after": 1599,
+  "dup_before": 0,
+  "dup_after": 0,
+  "notes_before": 39,
+  "notes_after": 1,
+  "notes_left": [
+   "متادیتا"
+  ],
+  "dup_left": [],
+  "changes": 43,
+  "idempotent": true,
+  "tags_ok": true,
+  "gutenberg_ok": true
+ },
+ {
+  "id": 280,
+  "slug": "hamidiyeh",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_before": 1003,
+  "words_after": 562,
+  "dup_before": 2,
+  "dup_after": 0,
+  "notes_before": 30,
+  "notes_after": 0,
+  "notes_left": [],
+  "dup_left": [],
+  "changes": 44,
+  "idempotent": true,
+  "tags_ok": true,
+  "gutenberg_ok": true
+ },
+ {
+  "id": 293,
+  "slug": "haftkel",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_before": 1696,
+  "words_after": 1217,
+  "dup_before": 0,
+  "dup_after": 0,
+  "notes_before": 32,
+  "notes_after": 1,
+  "notes_left": [
+   "مصوبهٔ رسمی ملاک است"
+  ],
+  "dup_left": [],
+  "changes": 39,
+  "idempotent": true,
+  "tags_ok": true,
+  "gutenberg_ok": true
+ }
+]
