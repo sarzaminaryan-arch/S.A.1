@@ -50,7 +50,10 @@ def _clean_cell(inner: str) -> str:
     masked, store = _mask(inner)
     sups = _sups(masked)
     body = re.sub(r"\s*\x02\d+\x03", "", masked).strip()
-    kept = [p for p in body.split("؛") if _visible(p) and not CELL_NOTE_RE.search(_visible(p))]
+    parts = body.split("؛")
+    kept = [p for p in parts if _visible(p) and not CELL_NOTE_RE.search(_visible(p))]
+    if len(kept) == len([p for p in parts if _visible(p)]):
+        return inner  # nothing removed: leave the cell byte-for-byte as stored
     text = "؛ ".join(x.strip() for x in kept)
     return _unmask((text + (" " if text and sups else "") + sups).strip(), store)
 
@@ -101,7 +104,8 @@ def apply_rewrites(html: str, rewrites: list[tuple[str, str]], log: list[str]) -
 # Unambiguous production notes: always removed.
 STRONG_NOTE_RE = re.compile(
     r"پیش از انتشار|نسخهٔ انتشار|نسخه انتشار|بازبینی|این فهرست اولیه است|از تعمیم یک رسم|دادهٔ پایه|دادهٔ میراثی"
-    r"|اعداد بدون منبع"
+    r"|اعداد بدون منبع|نسخهٔ نهایی|نسخه نهایی|پیش[‌ ]?نویس پژوهشی|این پیش[‌ ]?نویس|متادیتا|دادهٔ خام"
+    r"|مصوبهٔ رسمی ملاک است"
 )
 # Advice addressed to the traveller («پیش از سفر وضعیت راه را بررسی کنید») and reader appeals are content.
 ADVICE_RE = re.compile(

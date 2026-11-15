@@ -51,4 +51,8 @@ assert not cf.is_note("اگر فکر می‌کنید جاذبه‌ای باید 
 assert cf.is_note("ساعت بازدید هر جاذبه باید پیش از انتشار و سفر از مرجع محلی بررسی شود")
 assert cf.is_note("داده‌های اشتغال باید از منابع رسمی و با سال مرجع نقل شوند")
 assert cf.find_notes("متن عادی است. نام مرکز پیش از انتشار باید تطبیق شود.") == ["پیش از انتشار"]
+_cell = '<td>به روایت صفحه؛ سال ۱۳۹۵<sup class="sa-cite"><a href="https://x">۱</a></sup></td>'
+assert cf._clean_cell(_cell[4:-5]) == _cell[4:-5], "untouched cells must stay byte-identical"
+assert cf.is_note("این مقاله یک پیش‌نویس پژوهشی برای شناخت شهرستان است")
+assert cf.is_note("در صورت اختلاف میان منابع، نام در نسخهٔ نهایی حذف خواهد شد")
 print("OK: content_fix", len(log), "changes")
