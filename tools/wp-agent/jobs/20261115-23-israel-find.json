@@ -1,0 +1,105 @@
+{
+ "note": "یافتن عبارت «اسرائیل» (به گفتهٔ مالک غلط املایی است و باید کامل حذف شود). فقط خواندنی.",
+ "steps": [
+  {
+   "cmd": "get",
+   "id": 2812
+  },
+  {
+   "cmd": "list",
+   "type": "post",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "post",
+   "search": "اسراییل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "search": "اسراییل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "attraction",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "attraction",
+   "search": "اسراییل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "page",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "page",
+   "search": "اسراییل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "province",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "province",
+   "search": "اسراییل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "travel_route",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "travel_route",
+   "search": "اسراییل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "local_food",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "local_food",
+   "search": "اسراییل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "souvenir",
+   "search": "اسرائیل",
+   "per_page": 100
+  },
+  {
+   "cmd": "list",
+   "type": "souvenir",
+   "search": "اسراییل",
+   "per_page": 100
+  }
+ ]
+}
