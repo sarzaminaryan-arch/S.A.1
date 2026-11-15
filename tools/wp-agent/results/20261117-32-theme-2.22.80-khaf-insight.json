@@ -1,0 +1,523 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-32-theme-2.22.80-khaf-insight.json",
+  "started_utc": "2026-11-15T14:19:32+00:00",
+  "note": "قالب 2.22.80: فقط یک اصلاحِ داده در بلوک «از تجربهٔ مسافرها»ی خواف. در نسخهٔ 2.22.79 سه جای رکوردِ خواف زوزن را «روستای متروکه در دشت» نامیده بود، در حالی که زوزن روستای مسکونیِ مرکز دهستان زوزن با ۲٬۶۷۷ نفر جمعیت در سرشماری ۱۳۹۵ است (ویکی‌پدیای فارسی، «زوزن (روستا)») و «شهر ویران‌شدهٔ زوزن» محوطه‌ای جدا با ثبت ملی ۲۴۲۱ است. رکورد با دادهٔ راستی‌آزمایی‌شدهٔ tools/county-insights/data/raw/khaf.json جایگزین شده: ۸ نکته (تازه: راه‌آهن خواف به هرات، ۲۲۵ کیلومتر، افتتاح ۲۰ آذر ۱۳۹۹) و ۹ جای پیشنهادی (تازه: ایستگاه راه‌آهن خواف، گورستان‌های تاریخی پیرامون نشتیفان، رشته‌کوه کوهسرخ) و پلاک ایران ۴۲. فاصله‌های راستی‌آزمایی‌نشده (خواف تا نشتیفان ۲۰، زوزن ۶۵، سنگان ۵۰ کیلومتر) حذف شدند. هیچ متن، نشانی یا عنوانی عوض نمی‌شود. پیش از نصب پشتیبان کامل روی خود سرور گرفته می‌شود و اگر probe خراب باشد قالب به 2.22.79 برمی‌گردد.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.79",
+          "loaded": "2.22.79",
+          "log": [
+            {
+              "time_gmt": "2026-11-15T09:01:25+00:00",
+              "from": "2.22.75",
+              "to": "2.22.76",
+              "wanted": "2.22.76",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T09:07:10+00:00",
+              "from": "2.22.76",
+              "to": "2.22.77",
+              "wanted": "2.22.77",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T09:17:28+00:00",
+              "from": "2.22.77",
+              "to": "2.22.78",
+              "wanted": "2.22.78",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T13:54:50+00:00",
+              "from": "2.22.78",
+              "to": "2.22.79",
+              "wanted": "2.22.79",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1164,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/khaf/",
+            "status": 200,
+            "ms": 1384,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان خواف؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/khaf/",
+            "desc": "راهنمای شهرستان خواف؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان خواف — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان خواف در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/khaf/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1305-876a8e4824.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان خواف — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان خواف — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44348,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/",
+            "status": 200,
+            "ms": 1434,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bagh-e-malek/",
+            "status": 200,
+            "ms": 1411,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان باغ‌ملک؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bagh-e-malek/",
+            "desc": "راهنمای شهرستان باغ‌ملک; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان باغ‌ملک — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان باغ‌ملک در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/bagh-e-malek/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-276-835e685483.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان باغ‌ملک — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان باغ‌ملک — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44797,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "3776035683dc",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=3776035683dc دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-15T14:19:42+00:00",
+              "age_seconds": 32,
+              "success": true,
+              "errors": 0,
+              "nonce": "3776035683dc",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-15T14:19:42+00:00",
+            "job": {
+              "nonce": "3776035683dc",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.79",
+          "to": "2.22.80",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.80",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794752442",
+            "status": 200,
+            "ms": 2170,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/khaf/?sa_probe=1794752445",
+            "status": 200,
+            "ms": 1315,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان خواف؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/khaf/",
+            "desc": "راهنمای شهرستان خواف؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان خواف — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان خواف در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/khaf/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1305-876a8e4824.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان خواف — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان خواف — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44348,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/?sa_probe=1794752447",
+            "status": 200,
+            "ms": 1412,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bagh-e-malek/?sa_probe=1794752450",
+            "status": 200,
+            "ms": 1405,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان باغ‌ملک؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bagh-e-malek/",
+            "desc": "راهنمای شهرستان باغ‌ملک; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان باغ‌ملک — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان باغ‌ملک در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/bagh-e-malek/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-276-835e685483.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان باغ‌ملک — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان باغ‌ملک — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44797,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          1305
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/khaf/?sa_probe=5",
+            "status": 200,
+            "ms": 1218,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان خواف؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/khaf/",
+            "desc": "راهنمای شهرستان خواف؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان خواف — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان خواف در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/khaf/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1305-876a8e4824.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان خواف — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان خواف — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44348,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/kuhsorkh/?sa_probe=5",
+            "status": 200,
+            "ms": 1183,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان کوهسرخ؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/kuhsorkh/",
+            "desc": "راهنمای شهرستان کوهسرخ؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان کوهسرخ — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان کوهسرخ در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/kuhsorkh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1320-de1e6bfb26.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان کوهسرخ — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان کوهسرخ — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 47039,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bagh-e-malek/?sa_probe=5",
+            "status": 200,
+            "ms": 1225,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان باغ‌ملک؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bagh-e-malek/",
+            "desc": "راهنمای شهرستان باغ‌ملک; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان باغ‌ملک — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان باغ‌ملک در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/bagh-e-malek/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-276-835e685483.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان باغ‌ملک — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان باغ‌ملک — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44797,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T14:20:59+00:00"
+}

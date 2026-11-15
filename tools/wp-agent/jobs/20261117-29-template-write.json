@@ -1,0 +1,89 @@
+{
+ "note": "دستهٔ ۵ (بازسازی به سبک صفحه‌های الگو، نسخهٔ قالب 2.22.79؛ تأیید مالک ۱۵ نوامبر و «ادامه بده»): هفت صفحهٔ شهرستان با متن کاملِ تازه و مستند به منابع بازنویسی می‌شوند — شناسنامهٔ کوتاه، همسایه‌ها، پیشینه، مردم، معیشت، جاهای دیدنی، سوغات و برنامهٔ یک‌روزه. تکرارها و یادداشت‌های ویراستاری حذف شده و حجم هر مقاله از نسخهٔ اصلی کمتر نیست (خواف ۱۱۷۶←۱۹۶۲، کوهسرخ ۱۲۶۴←۱۳۲۰، باغملک ۹۷۳←۱۳۴۶، درگز ۱۰۹۶←۱۱۹۴، ششتمد ۱۰۶۷←۱۱۸۳، داورزن ۱۱۰۶←۱۱۸۲، جوین ۱۱۱۸←۱۱۵۹). نشانی و عنوان بدون تغییر. متای هر صفحه (جمعیت، تقسیمات، همسایه‌ها، جاذبه‌ها، پرسش‌های پرتکرار و منابع) هم‌زمان به‌روز می‌شود؛ جمعیت باغملک از ۱۰۵٬۳۸۴ به ۸۳٬۱۳۸ (سرشماری ۱۳۹۵) و تقسیمات آن به ۳ بخش و ۳ شهر اصلاح شد. اگر probe ناسالم باشد همهٔ پشتیبان‌های همین کار برگردانده می‌شوند.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 1308,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/dargaz-1308.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/dargaz-1308.meta.json",
+   "expected_modified_gmt": "2026-11-10 23:26:56",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۵ (تأیید مالک): بازنویسی کامل متن به سبک الگو با شناسنامهٔ کوتاه و منابع؛ متای شناسنامه و پرسش‌های پرتکرار؛ نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 1312,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/sheshtamad-1312.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/sheshtamad-1312.meta.json",
+   "expected_modified_gmt": "2026-11-10 23:26:56",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۵ (تأیید مالک): بازنویسی کامل متن به سبک الگو با شناسنامهٔ کوتاه و منابع؛ متای شناسنامه و پرسش‌های پرتکرار؛ نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 1307,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/davarzan-1307.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/davarzan-1307.meta.json",
+   "expected_modified_gmt": "2026-11-10 23:26:56",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۵ (تأیید مالک): بازنویسی کامل متن به سبک الگو با شناسنامهٔ کوتاه و منابع؛ متای شناسنامه و پرسش‌های پرتکرار؛ نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 1303,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/jovein-1303.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/jovein-1303.meta.json",
+   "expected_modified_gmt": "2026-11-10 23:26:56",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۵ (تأیید مالک): بازنویسی کامل متن به سبک الگو با شناسنامهٔ کوتاه و منابع؛ متای شناسنامه و پرسش‌های پرتکرار؛ نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 1305,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/khaf-1305.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/khaf-1305.meta.json",
+   "expected_modified_gmt": "2026-11-10 23:26:56",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۵ (تأیید مالک): بازنویسی کامل متن به سبک الگو با شناسنامهٔ کوتاه و منابع؛ حذف ادعاهای بی‌منبع (درازای مرز)؛ نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 1320,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/kuhsorkh-1320.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/kuhsorkh-1320.meta.json",
+   "expected_modified_gmt": "2026-11-10 23:26:56",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۵ (تأیید مالک): بازنویسی کامل متن به سبک الگو با شناسنامهٔ کوتاه و منابع؛ جمعیت شهر به ۵٬۶۸۷ نفر (سرشماری ۱۳۹۵)؛ نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 276,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-batch5/bagh-e-malek-276.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-batch5/bagh-e-malek-276.meta.json",
+   "expected_modified_gmt": "2026-11-10 23:26:55",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۵ (تأیید مالک): بازنویسی کامل متن به سبک الگو با شناسنامهٔ کوتاه و منابع؛ اصلاح جمعیت به ۸۳٬۱۳۸ نفر و تقسیمات به ۳ بخش و ۳ شهر؛ نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [1308, 1312, 1307, 1303, 1305, 1320, 276]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/dargaz/?sa_probe=5",
+    "/city/sheshtamad/?sa_probe=5",
+    "/city/davarzan/?sa_probe=5",
+    "/city/jovein/?sa_probe=5",
+    "/city/khaf/?sa_probe=5",
+    "/city/kuhsorkh/?sa_probe=5",
+    "/city/bagh-e-malek/?sa_probe=5"
+   ]
+  },
+  {
+   "cmd": "content-audit",
+   "type": "city",
+   "workers": 4
+  }
+ ]
+}
