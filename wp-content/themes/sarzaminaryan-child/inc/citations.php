@@ -503,16 +503,22 @@ function sa_citations_filter( $content ) {
 			$host = (string) preg_replace( '/^www\./', '', strtolower( $host ) );
 			$rel  = function_exists( 'sa_source_rel' ) ? sa_source_rel( $url ) : 'nofollow noopener external';
 			// نمایش: «عنوان — host» اگر عنوان متفاوت از URL باشد، وگرنه فقط host.
-			$label = '';
-			if ( '' !== $title && $title !== $url && $host !== strtolower( $title ) ) {
-				$label = esc_html( $title ) . ' <span class="sa-sources__sep" aria-hidden="true">—</span> ';
-			}
-			$items .= '<li id="sa-ref-' . (int) $n . '" class="sa-footnotes__item">'
-				. '<span class="sa-footnotes__n">' . esc_html( sa_fa_digits( (string) $n ) ) . '</span> '
-				. $label
-				. '<a href="' . esc_url( $url ) . '" rel="' . esc_attr( $rel ) . '" target="_blank" dir="ltr">'
-				. esc_html( sa_citation_source_label( $host ) ) . '</a> '
-				. '<span class="sa-footnotes__host" dir="ltr">' . esc_html( $host ) . '</span></li>';
+				$label = '';
+				if ( '' !== $title && $title !== $url && $host !== strtolower( $title ) ) {
+					$label = esc_html( $title ) . ' <span class="sa-sources__sep" aria-hidden="true">—</span> ';
+				}
+				// v2.22.85: وقتی برچسب لینک خودِ دامنه است (دامنهٔ بی‌نام در sa_citation_source_label)،
+				// دامنه دوباره چاپ نمی‌شود — «borna.news borna.news» نه.
+				$link_label = (string) sa_citation_source_label( $host );
+				$host_span  = ( strtolower( $link_label ) === $host )
+					? ''
+					: ' <span class="sa-footnotes__host" dir="ltr">' . esc_html( $host ) . '</span>';
+				$items .= '<li id="sa-ref-' . (int) $n . '" class="sa-footnotes__item">'
+					. '<span class="sa-footnotes__n">' . esc_html( sa_fa_digits( (string) $n ) ) . '</span> '
+					. $label
+					. '<a href="' . esc_url( $url ) . '" rel="' . esc_attr( $rel ) . '" target="_blank" dir="ltr">'
+					. esc_html( $link_label ) . '</a>'
+					. $host_span . '</li>';
 		} else {
 			$items .= '<li id="sa-ref-' . (int) $n . '" class="sa-footnotes__item">'
 				. '<span class="sa-footnotes__n">' . esc_html( sa_fa_digits( (string) $n ) ) . '</span> '

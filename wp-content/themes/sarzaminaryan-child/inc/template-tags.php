@@ -356,8 +356,16 @@ function sa_get_sources( $post_id ) {
 			$seen[ $norm ] = true;
 		}
 		$cols  = array_values( $cols );
+		$title = isset( $cols[0] ) ? (string) $cols[0] : '';
+		if ( '' === $title ) {
+			$title = $url;
+		} else {
+			// v2.22.85: شماره‌گذاریِ چسبیده به ابتدای عنوان («4. درگاه استانداری…») حذف می‌شود؛
+			// فهرست منابع خودش شماره می‌گذارد و دوباره‌شماری نمی‌خواهد.
+			$title = (string) preg_replace( '/^[0-9۰-۹]+[.)\-–—]\s+/u', '', $title );
+		}
 		$out[] = array(
-			'title' => isset( $cols[0] ) ? $cols[0] : $url,
+			'title' => $title,
 			'org'   => isset( $cols[1] ) ? $cols[1] : '',
 			'url'   => $url,
 			'date'  => isset( $cols[2] ) ? $cols[2] : '',
