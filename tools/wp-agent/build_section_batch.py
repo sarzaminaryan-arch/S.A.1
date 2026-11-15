@@ -13,7 +13,8 @@ How the markers look in the post body (invisible when rendered):
 
 Commands (from tools/wp-agent):
 
-  # 1) build one page from a section map (keeps the reader-request H2 + below)
+  # 1) build one page from a section map (the owner-removed blocks — the
+  #    reader-request H2 and the short identity table — are dropped, never kept)
   python3 build_section_batch.py build <read.json> <live_dir> <sections_dir> <out_dir>
 
   # 2) delete one section from every page of an outbox folder
@@ -60,23 +61,47 @@ def wrap(key: str, html: str) -> str:
 
 
 def marked_body(sections: dict) -> str:
-    """Render sections in the locked template order, wrapped in markers."""
-    missing = [k for k in SECTIONS if k not in sections]
-    if missing:
-        raise ValueError(f"sections missing: {missing}")
+    """Render the given sections in the locked template order, wrapped in markers.
+
+    Owner orders of 2026-11-15: «card» (شناسنامهٔ کوتاه) and «request» (از مردم
+    عزیز …) are no longer written on new pages — they stay in the registry only
+    so `remove`/`replace` can address them on old pages. Any subset of the
+    registry is therefore valid here; an unknown id is still an error.
+    """
     extra = [k for k in sections if k not in SECTIONS]
     if extra:
         raise ValueError(f"unknown sections: {extra}")
-    return "\n\n".join(wrap(k, sections[k]) for k in SECTIONS)
+    return "\n\n".join(wrap(k, sections[k]) for k in SECTIONS if k in sections)
 
 
-def split_article(html: str) -> tuple[str, str]:
-    """Split a live page into (before, from the reader-request H2 on)."""
-    hits = [m for m in H2_RE.finditer(html) if REQUEST_H2 in m.group(1)]
-    if len(hits) != 1:
-        raise ValueError(f"reader-request H2 must appear once (found {len(hits)})")
-    pos = hits[0].start()
-    return html[:pos], html[pos:]
+def request_head(html: str) -> str:
+    """The live body without the reader-request tail (owner order 2026-11-15:
+    the «از مردم عزیز …، یک درخواست داریم» block leaves every page). Cuts at
+    the section's open marker when the page is marked, so no half marker pair
+    is left behind; tolerates a page that no longer carries the block."""
+    cuts = [m.start() for m in H2_RE.finditer(html) if REQUEST_H2 in m.group(1)]
+    marker = html.find(OPEN.format("request"))
+    if marker != -1:
+        cuts.append(marker)
+    return html[:min(cuts)].rstrip("\n") if cuts else html
+
+
+def cleaned_base(html: str) -> str:
+    """The live body without the two blocks the owner removed site-wide: the
+    reader-request tail and the «شناسنامهٔ کوتاه» identity table (which repeats
+    the county card the template renders above the body). This is the fair
+    «original» for the words floor — a rebuilt page replaces exactly this."""
+    head = request_head(html)
+    try:
+        spans, _marked = spans_of(head)
+    except ValueError:
+        spans = {}
+    if "card" in spans:
+        a, end = spans["card"]
+        while end < len(head) and head[end] in "\n":
+            end += 1
+        head = head[:a] + head[end:]
+    return head.rstrip("\n")
 
 
 INTRO_RX = re.compile(r"؛")
@@ -189,9 +214,9 @@ def cmd_build(read_path: str, live_dir: str, sections_dir: str, out_dir: str) ->
         # base: the live body (what is on the site right now) — never a guess
         base_path = os.path.join(live_dir, page_key + ".html")
         base = open(base_path, encoding="utf-8", newline="").read() if os.path.exists(base_path) else page["content"]
-        _before, tail = split_article(base)
-        out = marked_body(sections) + "\n\n" + tail
-        floor = len(re.sub(r"<[^>]+>", " ", base).split())
+        original = cleaned_base(base)
+        out = marked_body(sections)
+        floor = len(re.sub(r"<[^>]+>", " ", original).split())
         row = checks(out, floor)
         row.update({"id": page["id"], "slug": page["slug"],
                     "modified_gmt": page["modified_gmt"], "changes": ["rebuild: marked sections"],

@@ -81,7 +81,55 @@ def main() -> int:
     assert order == ["intro", "card", "tips", "request"], f"re-added section landed out of order: {order}"
     assert "برگشت." in out, "re-added section text missing"
 
-    # 4) a page where a section cannot be identified is skipped, never guessed
+    # 4) the owner-removed blocks are dropped from the build, not kept
+    base = HTML  # carries card + request sections
+    cleaned = b.cleaned_base(base)
+    assert "یک درخواست داریم" not in cleaned, "cleaned_base still carries the request block"
+    assert "شناسنامهٔ کوتاه" not in cleaned, "cleaned_base still carries the card table"
+    for keep in ("متن معرفی.", "چند نکتهٔ کوچک"):
+        assert keep in cleaned, f"cleaned_base damaged a kept section: {keep}"
+    # a base without the request H2 is accepted as it is
+    assert b.cleaned_base(HTML.split("<!-- sa:sec:request -->")[0]) == cleaned
+
+    # 5) marked_body accepts the owner-ordered subset (no card, no request)
+    sections = {"intro": "<p>متن معرفی تازه و کامل برای صفحهٔ آزمون این نوبت.</p>",
+                "tips": "<ul><li>یک</li><li>دو</li><li>سه</li></ul>"}
+    body = b.marked_body(sections)
+    order = [k for k in IDS if b.OPEN.format(k) in body]
+    assert order == ["intro", "tips"], f"subset rendered out of order: {order}"
+    assert "sa:sec:card" not in body and "sa:sec:request" not in body
+    try:
+        b.marked_body({"nope": "<p>x</p>"})
+        raise AssertionError("unknown section id was accepted")
+    except ValueError:
+        pass
+
+    # 6) build: registry order, request tail dropped, floor is the cleaned base
+    import json
+    d = tempfile.mkdtemp()
+    try:
+        read = os.path.join(d, "read.json")
+        json.dump({"steps": [{"result": {"id": 1, "slug": "testcity", "content": HTML,
+                                         "modified_gmt": "2026-11-15 10:00:00"}}]},
+                  open(read, "w", encoding="utf-8"))
+        sdir = os.path.join(d, "sections")
+        os.makedirs(sdir)
+        json.dump(sections, open(os.path.join(sdir, "testcity-1.json"), "w", encoding="utf-8"))
+        outdir = os.path.join(d, "out")
+        code = b.cmd_build(read, d, sdir, outdir)
+        assert code == 0, "build failed"
+        page = open(os.path.join(outdir, "testcity-1.html"), encoding="utf-8", newline="").read()
+        assert "یک درخواست داریم" not in page, "build kept the request tail"
+        assert "شناسنامهٔ کوتاه" not in page, "build let the card section through"
+        assert [k for k in IDS if b.OPEN.format(k) in page] == ["intro", "tips"]
+        summary = json.load(open(os.path.join(outdir, "summary.json"), encoding="utf-8"))[0]
+        floor = len(b.re.sub(r"<[^>]+>", " ", cleaned).split())
+        assert summary["words_original"] == floor, (summary["words_original"], floor)
+        assert summary["ok"] is True, summary
+    finally:
+        shutil.rmtree(d)
+
+    # 7) a page where a section cannot be identified is skipped, never guessed
     legacy = HTML.replace("<!-- sa:sec:card -->", "").replace("<!-- /sa:sec:card -->", "")
     d = tempfile.mkdtemp()
     try:

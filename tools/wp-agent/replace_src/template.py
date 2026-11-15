@@ -13,21 +13,22 @@ here) work off this list. Adding, dropping or renaming a section happens here
 and nowhere else, plus one `remove`/`replace` pass over the built pages.
 
 The traveller block (از تجربهٔ مسافرها) is rendered by the theme above the
-article body from data/county-experiences.php, so it is not part of this body;
-`request` is the only section that already exists on the old pages and is kept
-verbatim by the builder.
+article body from data/county-experiences.php, so it is not part of this body.
+Owner orders of 2026-11-15: `card` (شناسنامهٔ کوتاه) duplicates the county
+identity card and `request` (از مردم عزیز …) leaves the site — neither is
+written on new pages. Both ids stay in the registry so `remove`/`replace`
+can still address them on pages built before the order.
 
 Usage:
     from template import Template
     t = Template("اهواز", tagline="...")
     t.intro([...])            # first person, sourced
-    t.card(rows)
     t.map([(text, url), ...], neighbors=[...])
     t.climate(lead, [("بهار", text), ...])
     t.history([...]); t.people([...]); t.economy([...])
     t.sights([(h3_title, text), ...])
     t.stay([...]); t.notables([...]); t.tips([...])
-    t.finish()                # renders `request` last and checks completeness
+    t.finish()                # renders and checks completeness (card/request optional)
 """
 from __future__ import annotations
 
@@ -227,7 +228,9 @@ class Template:
         self.section("request", html)
 
     def finish(self) -> Page:
-        missing = [s for s in IDS if s not in self.done and s != "request"]
+        # card and request are owner-removed (2026-11-15): they stay in the
+        # registry for remove/replace on old pages, but new pages omit them
+        missing = [s for s in IDS if s not in self.done and s not in ("request", "card")]
         if missing:
             raise ValueError(f"{self.name}: sections missing before finish: {missing}")
         return self.page

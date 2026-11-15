@@ -1518,6 +1518,39 @@ function sa_strip_duplicate_body_identity( $content ) {
 add_filter( 'the_content', 'sa_strip_duplicate_body_identity', 8 );
 
 /**
+ * Strip the duplicate «شناسنامهٔ کوتاه …» section from article bodies (v2.22.84).
+ *
+ * Owner order (2026-11-15): the short identity table at the top of county
+ * articles repeats the county identity card the template already renders above
+ * the body, so it disappears from every article — old database pages included —
+ * and the section generators stop writing it. Render-time only: the database
+ * text stays untouched, and because this runs before sa_toc_filter (11) the
+ * table of contents loses the entry by itself, leaving no dead anchor.
+ *
+ * @param string $content Post content HTML.
+ * @return string
+ */
+function sa_strip_duplicate_body_short_id( $content ) {
+	if ( is_admin() || is_feed() || ! is_singular() ) {
+		return $content;
+	}
+	if ( false === strpos( $content, 'شناسنامه' ) || false === strpos( $content, 'کوتاه' ) ) {
+		return $content;
+	}
+	$cleaned = preg_replace(
+		'~(?:<!--\s*sa:sec:card\s*-->\s*)?(?:<!--\s*wp:heading[^>]*-->\s*)?<h2[^>]*>[^<]*شناسنامه[\s\x{200C}\x{0654}\x{0640}ی]*کوتاه[^<]*</h2>.*?(?=<!--\s*/sa:sec:card\s*-->|<h2[\s>]|\z)~isu',
+		'',
+		(string) $content
+	);
+	if ( is_string( $cleaned ) && $cleaned !== $content ) {
+		// the closing marker of a marked card section is now orphaned; drop it
+		$cleaned = str_replace( '<!-- /sa:sec:card -->', '', (string) $cleaned );
+	}
+	return is_string( $cleaned ) ? $cleaned : $content;
+}
+add_filter( 'the_content', 'sa_strip_duplicate_body_short_id', 8 );
+
+/**
  * Keep standalone article tables from widening the mobile document.
  *
  * The theme gives entity-content tables a 520px minimum width. Gutenberg table

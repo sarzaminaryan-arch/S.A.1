@@ -533,14 +533,18 @@ function sa_citations_filter( $content ) {
 add_filter( 'the_content', 'sa_citations_filter', 13 );
 
 /**
- * بلوک تکراری پایانی («از مردم عزیز شهرستان …، یک درخواست داریم») در ۱۰۹ مقاله
- * عیناً تکرار شده است. داخل <article> بودن یعنی گوگل آن را بخشی از متن یکتای
- * صفحه می‌شمارد؛ داخل <aside> یعنی «مبلمان سایت».
+ * بلوک پایانی «از مردم عزیز …، یک درخواست داریم» به‌طور کامل حذف می‌شود (v2.22.84).
+ *
+ * دستور مالک (۱۵ نوامبر ۲۰۲۶): فراخوانِ ارسال گزارش و تصحیح و تصویر با ایمیل سایت از
+ * کل سایت برداشته شود؛ تبدیلش به <aside> (کار نسخه‌های پیشین) هم کافی نیست. این فیلتر
+ * عنوان بلوک را پیدا می‌کند و از همان‌جا تا انتهای بدنه (که همیشه جای این بلوک است)
+ * برمی‌دارد. اولویت ۹ یعنی پیش از فهرست مطالب (۱۱)، پس مدخلش از فهرست هم می‌افتد و
+ * فهرست منابع (۱۳) پس از آن به انتهای بدنه اضافه می‌شود. متن دیتابیس دست نمی‌خورد.
  *
  * @param string $content محتوا.
  * @return string
  */
-function sa_community_box_filter( $content ) {
+function sa_strip_reader_request_filter( $content ) {
 	$content = (string) $content;
 	if ( is_admin() || is_feed() || ! is_singular() ) {
 		return $content;
@@ -550,26 +554,18 @@ function sa_community_box_filter( $content ) {
 	}
 
 	$patterns = array(
-		'#<h2\b[^>]*>\s*از\s+مردم\s+عزیز.*?</h2>(.*)$#isu',
-		'#<h3\b[^>]*>\s*از\s+مردم\s+عزیز.*?</h3>(.*)$#isu',
+		'#(?:<!--\s*sa:sec:request\s*-->\s*)?(?:<!--\s*wp:heading[^>]*-->\s*)?<h2\b[^>]*>\s*از\s+مردم\s+عزیز.*?</h2>.*$#isu',
+		'#(?:<!--\s*sa:sec:request\s*-->\s*)?(?:<!--\s*wp:heading[^>]*-->\s*)?<h3\b[^>]*>\s*از\s+مردم\s+عزیز.*?</h3>.*$#isu',
 	);
 	foreach ( $patterns as $p ) {
-		if ( preg_match( $p, $content, $m, PREG_OFFSET_CAPTURE ) ) {
-			$offset = (int) $m[0][1];
-			$head   = trim( substr( $content, 0, $offset ) );
-			$body   = trim( (string) $m[1][0] );
-			if ( '' === $head ) {
-				return $content;
-			}
-			return $head
-				. '<aside class="sa-community" role="complementary" aria-labelledby="sa-community-title">'
-				. '<h2 id="sa-community-title">از مردم این دیار، یک درخواست داریم</h2>'
-				. $body . '</aside>';
+		$cleaned = preg_replace( $p, '', $content );
+		if ( is_string( $cleaned ) && '' !== trim( $cleaned ) ) {
+			return $cleaned;
 		}
 	}
 	return $content;
 }
-add_filter( 'the_content', 'sa_community_box_filter', 12 );
+add_filter( 'the_content', 'sa_strip_reader_request_filter', 9 );
 
 /**
  * H1 داخل بدنه‌ی مقاله به H2 تنزل می‌کند.

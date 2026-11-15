@@ -119,6 +119,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-toc.php"
 
+      - name: 'Run body-strip tests (شناسنامهٔ کوتاه و بلوک درخواست از بدنه حذف می‌شوند)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-body-strip.php"
+
       - name: Run county identity-card tests (کلیدهای کانونی شناسنامه + قوانین خروجی کارت)
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"

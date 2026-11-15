@@ -2,11 +2,16 @@
 """Guard: every rebuilt county page keeps the same article shape.
 
 The owner's rule (2026-11-15): all county pages should look like the reference
-pages (تهران، مشهد، تبریز، درگز) — a readable intro, a short identity table,
-a map/neighbours section, history, climate, economy, people, sights, staying,
-notables, small tips — and the traveller-experience block is rendered by the
-theme, so every rebuilt page must also have a vetted record with a non-empty
-field_update_note.
+pages (تهران، مشهد، تبریز، درگز) — a readable intro, a map/neighbours section,
+history, climate, economy, people, sights, staying, notables, small tips — and
+the traveller-experience block is rendered by the theme, so every rebuilt page
+must also have a vetted record with a non-empty field_update_note.
+
+Owner orders of 2026-11-15 (page 51 onwards): the short identity table
+(شناسنامهٔ کوتاه) duplicates the county identity card above the body and the
+closing reader-request block (از مردم عزیز …) leaves the site, so a rebuilt
+page carries NEITHER: their presence here is a violation, their absence is the
+correct shape.
 
 This checks the built outbox files (not the live site) and prints one line per
 problem. Exit code 1 on any violation so the batch cannot ship half-templated.
@@ -29,6 +34,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from template import order_patterns  # noqa: E402
 
 ORDER = order_patterns()
+
+REMOVED = ("card", "request")  # still in the registry, never on a new page
+ORDER = tuple((label, rx) for label, rx in ORDER if label not in REMOVED)
+REMOVED_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in REMOVED)
 
 # Section markers written by build_section_batch.py. When present they must
 # exist exactly once per live section, in registry order.
@@ -65,13 +74,15 @@ def check_html(path: Path) -> list[str]:
             problems.append(f"missing or out-of-order section: {label}")
         else:
             pos = found
-    if not re.search(r"<table>", html):
-        problems.append("no identity table")
+    # the two owner-removed sections must not come back
+    for label, rx in REMOVED_PATTERNS:
+        if any(re.search(rx, title) for title in h2):
+            problems.append(f"owner-removed section is present: {label}")
+        if MARK_OPEN.format(label) in html or MARK_CLOSE.format(label) in html:
+            problems.append(f"owner-removed section has markers: {label}")
     # one link per URL rule — it is about links inside the text, not the numbered
-    # citation marks (a source keeps its number wherever it is cited again), and the
-    # kept-verbatim reader-request block comes from the live page, not from us.
-    body = html.split("<!-- sa:sec:request -->")[0] if "<!-- sa:sec:request -->" in html else html
-    text_only = re.sub(r'<sup class="sa-cite">.*?</sup>', "", body, flags=re.S)
+    # citation marks (a source keeps its number wherever it is cited again).
+    text_only = re.sub(r'<sup class="sa-cite">.*?</sup>', "", html, flags=re.S)
     hrefs = re.findall(r'href="([^"]+)"', text_only)
     dupes = {h for h in hrefs if hrefs.count(h) > 1}
     if dupes:
