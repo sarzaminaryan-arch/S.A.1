@@ -1,0 +1,18 @@
+{
+  "note": "دستهٔ ۶b، صفحهٔ اول: بازنویسی کامل رامشیر ۲۸۴ (بالای بخش «یک درخواست داریم») بر پایهٔ منابعی که ۲۴ آبان ۱۴۰۵ خوانده شد (ویکی‌پدیای فارسی/انگلیسی شهرستان و شهر، میدان نفتی رامشیر، برنا ۲۳۹۳۴۶۴، ttma 13893 به نقل از ایرنا، مهر ۵۷۸۰۱۴۲، تالاب شادگان، رامهرمز). ۲۱۵۷ → ۲۱۷۶ واژه؛ تکرارها و یادداشت‌های ویرایشی صفر. متا: جمعیت شهر ۲۵٬۰۰۹ (به‌جای رقم شهرستان)، زبان/معیشت واقعی، همسایه‌های هم‌مرز با slug. expected_modified_gmt از کار ۳۵.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 284,
+      "content_file": "tools/wp-agent/outbox/20261119-replace-batch6b/ramshir-284.html",
+      "meta_file": "tools/wp-agent/outbox/20261119-replace-batch6b/ramshir-284.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "رامشیر: بازنویسی کامل با منابع تازه، حذف تکرار و یادداشت ویرایشی، اصلاح جمعیت شهر و زبان/معیشت و همسایه‌ها"
+    },
+    { "cmd": "cache-purge", "id": [284] },
+    { "cmd": "probe", "url": ["/city/ramshir/?sa_probe=9"] },
+    { "cmd": "content-audit", "type": "city", "workers": 4 }
+  ]
+}
