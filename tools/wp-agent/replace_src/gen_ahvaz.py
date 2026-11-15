@@ -273,7 +273,10 @@ page = t.finish()
 key = "ahvaz-271"
 
 meta = {
-    "sa_cty_neighbors": "hamidiyeh - شمال‌غرب\nbavi - شمال‌شرق\nshadegan - جنوب\nramshir - جنوب‌شرق\nkhorramshahr - جنوب‌غرب",
+    # ترتیب مهم است: خطوط چندجهته باید قبل از خط تک‌جهتهٔ هم‌پوشان بیایند وگرنه
+    # جهتِ گرفته‌شده از برچسب خطوط بعدی حذف می‌شود (شادگان «جنوب» را می‌گیرد و
+    # «جنوب‌شرق» به «شرق» تبدیل می‌شود). مرکب‌ها اول، شادگان آخر.
+    "sa_cty_neighbors": "hamidiyeh - شمال‌غرب\nbavi - شمال‌شرق\nramshir - جنوب‌شرق\nkhorramshahr - جنوب‌غرب\nshadegan - جنوب",
     "sa_cty_population": "1302591",
     "sa_city_population": "1184788",
     "sa_cty_census_year": "1395",
