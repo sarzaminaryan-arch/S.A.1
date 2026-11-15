@@ -414,8 +414,8 @@ $sa79_rows = array(
 	array( 85, 'davarzan', 'داورزن', 6, 10, '' ),
 	array( 86, 'jovein', 'جوین', 6, 10, '' ),
 	array( 87, 'khaf', 'خواف', 8, 9, 'ایران ۴۲' ),
-	array( 88, 'kuhsorkh', 'کوهسرخ', 6, 6, '' ),
-	array( 89, 'bagh-e-malek', 'باغ‌ملک', 5, 5, 'ایران ۳۴' ),
+	array( 88, 'kuhsorkh', 'کوهسرخ', 8, 14, 'ایران ۳۲' ),
+	array( 89, 'bagh-e-malek', 'باغ‌ملک', 8, 14, 'ایران ۳۴' ),
 );
 foreach ( $sa79_rows as $sa79 ) {
 	list( $sa79_id, $sa79_slug, $sa79_title, $sa79_tips, $sa79_places, $sa79_plate ) = $sa79;
@@ -489,6 +489,35 @@ sa_ci_assert( false !== strpos( $block58, 'rgba(214, 69, 69' ), 'css: access-fac
 sa_ci_assert( false !== strpos( $block58, '.sa-field-place__kind' ), 'css: place-kind labels styled (2.22.58)' );
 sa_ci_assert( false !== strpos( $block58, 'rgba(16, 54, 120' ), 'css: place-kind labels are soft translucent dark blue (2.22.58)' );
 
+
+/* ---- 4m. کامل بودن و پاکی هر ۴۹ رکورد قالب (2.22.81) -------------------- */
+
+// قاعدهٔ مالک: هر صفحهٔ شهرستان که بلوک تجربه دارد باید همان قالب کامل را
+// داشته باشد؛ رکورد نیم‌کاره یا رکوردی که در صفحه بلوک را نیمه‌کاره می‌کند
+// اجازهٔ انتشار ندارد. این بخش کل فایل داده را یک‌جا می‌سنجد.
+
+$sa81_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
+$sa81_map = (array) require $theme_dir . '/data/county-experiences.php';
+sa_ci_assert( 49 === count( $sa81_map ), 'bundled 2.22.81: 49 county records ship in the seed' );
+foreach ( array( 'aghajari', 'andika', 'dezpart', 'ramshir', 'zebarkhan' ) as $sa81_new ) {
+	sa_ci_assert( isset( $sa81_map[ $sa81_new ] ), "bundled 2.22.81: {$sa81_new} entered the seed" );
+}
+$sa81_keys = array( 'road_quality', 'mobile_internet', 'access_difficulty', 'parking_status',
+	'season_spring', 'season_summer', 'season_autumn', 'season_winter',
+	'local_tips', 'extra_places', 'people_character', 'field_update_note' );
+foreach ( $sa81_map as $sa81_slug => $sa81_row ) {
+	foreach ( $sa81_keys as $sa81_key ) {
+		sa_ci_assert( ! empty( $sa81_row[ $sa81_key ] ), "bundled 2.22.81: {$sa81_slug} fills {$sa81_key}" );
+	}
+	$sa81_tips = array_filter( explode( "\n", (string) $sa81_row['local_tips'] ) );
+	sa_ci_assert( count( $sa81_tips ) >= 4, "bundled 2.22.81: {$sa81_slug} carries at least four local tips" );
+	$sa81_places = array_filter( explode( "\n", (string) $sa81_row['extra_places'] ) );
+	sa_ci_assert( count( $sa81_places ) >= 4, "bundled 2.22.81: {$sa81_slug} lists at least four extra places" );
+}
+foreach ( array( 'باید', 'راستش', 'http', 'به‌زودی', 'در حال ساخت', 'کلنگ', 'اسرائیل', 'اسراییل', 'بازبینی انسانی', 'هوش مصنوعی' ) as $sa81_bad ) {
+	sa_ci_assert( false === strpos( $sa81_src, $sa81_bad ), "bundled 2.22.81: seed has no «{$sa81_bad}»" );
+}
+
 $css56 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 foreach ( array( '.sa-field-season--spring', '.sa-field-season--summer', '.sa-field-season--autumn', '.sa-field-season--winter' ) as $cls ) {
 	sa_ci_assert( false !== strpos( $css56, $cls ), "css: {$cls} has its own soft season colour (2.22.56)" );
@@ -502,4 +531,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled 44-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled 49-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
