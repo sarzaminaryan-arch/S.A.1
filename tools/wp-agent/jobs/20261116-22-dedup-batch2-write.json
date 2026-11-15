@@ -1,0 +1,122 @@
+{
+ "note": "دستهٔ ۲ حذف تکرار و یادداشت تولید (۱۰ صفحه؛ سقف روزانه). شوش و شوشتر کنار گذاشته شدند چون یادداشت‌نویسی در کل متن پخش است و بازنویسی ویرایشی می‌خواهد، نه حذف. اجرای خودکار پس از not_before؛ اگر probe ناسالم باشد همهٔ پشتیبان‌های همین کار برگردانده می‌شوند.",
+ "not_before": "2026-11-16T06:00:00Z",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 141,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/ardabil-141.html",
+   "expected_modified_gmt": "2026-10-24 00:59:02",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 135,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/salmas-135.html",
+   "expected_modified_gmt": "2026-10-07 20:12:10",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 279,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/behbahan-279.html",
+   "expected_modified_gmt": "2026-11-10 23:26:55",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 274,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/andimeshk-274.html",
+   "expected_modified_gmt": "2026-11-10 23:26:55",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 281,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/khorramshahr-281.html",
+   "expected_modified_gmt": "2026-11-10 23:26:55",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 331,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/mamasani-331.html",
+   "expected_modified_gmt": "2026-10-03 20:26:02",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 69,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/kashmar-69.html",
+   "expected_modified_gmt": "2026-11-10 23:20:58",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 517,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/kuhdasht-517.html",
+   "expected_modified_gmt": "2026-10-24 01:42:39",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 82,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/khodabandeh-82.html",
+   "expected_modified_gmt": "2026-10-07 20:12:17",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "update",
+   "id": 73,
+   "content_file": "tools/wp-agent/outbox/20261116-dedup-batch2/shirvan-73.html",
+   "expected_modified_gmt": "2026-11-10 23:20:58",
+   "owner_approved_live_edit": true,
+   "reason": "دستهٔ ۲ پیشنهاد ۱ (تأیید مالک): حذف جملهٔ تکراری و یادداشت تولیدِ منتشرشده؛ بدون افزودن متن، نشانی و عنوان بدون تغییر"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    141,
+    135,
+    279,
+    274,
+    281,
+    331,
+    69,
+    517,
+    82,
+    73
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/ardabil/?sa_probe=2",
+    "/city/salmas/?sa_probe=2",
+    "/city/behbahan/?sa_probe=2",
+    "/city/andimeshk/?sa_probe=2",
+    "/city/khorramshahr/?sa_probe=2",
+    "/city/mamasani/?sa_probe=2",
+    "/city/kashmar/?sa_probe=2",
+    "/city/kuhdasht/?sa_probe=2",
+    "/city/khodabandeh/?sa_probe=2",
+    "/city/shirvan/?sa_probe=2"
+   ]
+  },
+  {
+   "cmd": "content-audit",
+   "type": "city",
+   "workers": 4
+  }
+ ]
+}
