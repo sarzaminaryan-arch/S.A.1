@@ -49,6 +49,7 @@ add_action( 'init', 'sa_maybe_run_setup', 99 );
 function sa_maybe_upgrade() {
 	if ( get_option( 'sa_child_version' ) !== SA_CHILD_VERSION ) {
 		delete_transient( 'sa_nav_types' );
+		delete_transient( 'sa_sitemap_thin_city' ); // v2.22.75: دروازهٔ ایندکس عوض شد؛ نقشهٔ سایت فوراً تازه شود.
 		sa_seed_terms();
 		sa_create_default_pages(); // برگه‌های از دست رفته (از جمله حریم خصوصی) را می‌سازد و قالب v2 را به «خانه» می‌بندد.
 		sa_home_v2_setup();

@@ -154,6 +154,10 @@ jobs:
           if-no-files-found: ignore
           retention-days: 7
 
+      - name: "Check index gate and critical SEO fixes (2.22.75: extra_places, description, robots.txt, R4, agent ops)"
+        shell: bash
+        run: php "$THEME_DIR/tests/test-index-gate.php"
+
       - name: Check ready-guides data (camping guides generated from docs/camping-education)
         shell: bash
         run: |

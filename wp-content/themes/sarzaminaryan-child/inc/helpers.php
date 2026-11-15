@@ -352,37 +352,174 @@ function sa_city_word_count( $post_id ) {
 }
 
 /**
- * آیا شهرستان بخش «جاهای دیدنی» دارد؟
+ * v2.22.75 — نوع‌هایی از «جاهای دیگری که مردم می‌روند» که جای دیدنی‌اند.
+ * اقامت، خوراک و حمل‌ونقل اطلاعات سفرند، نه جای دیدنی؛ در دروازهٔ ایندکس شمرده نمی‌شوند.
+ *
+ * @return string[]
+ */
+function sa_city_visitable_place_kinds() {
+	return (array) apply_filters( 'sa_city_visitable_place_kinds', array( 'تاریخی', 'طبیعت', 'تفریحی', 'زیارتی', 'مذهبی', 'روستا', 'شهری' ) );
+}
+
+/**
+ * v2.22.75 — نام کلی و بی‌مشخصه (مثلاً فقط «بوستان») جای دیدنی شمرده نمی‌شود.
+ *
+ * @param string $name نام.
+ * @return bool
+ */
+function sa_city_place_name_is_generic( $name ) {
+	$name = trim( (string) preg_replace( '/\s+/u', ' ', str_replace( "\xE2\x80\x8C", ' ', (string) $name ) ) );
+	if ( '' === $name ) {
+		return true;
+	}
+	$generic = array( 'بوستان', 'پارک', 'باغ', 'مسجد', 'کوه', 'دریاچه', 'آبشار', 'روستا', 'امامزاده', 'بازار', 'موزه', 'قلعه', 'تفرجگاه', 'رودخانه', 'دره', 'غار' );
+	return in_array( $name, $generic, true );
+}
+
+/**
+ * v2.22.75 — شمار جاهای دیدنی‌ای که صفحهٔ شهرستان نشان می‌دهد.
+ *
+ * ابرمجموعهٔ قاعدهٔ پیشین است (هیچ صفحهٔ ایندکس‌شده‌ای با این تغییر noindex نمی‌شود):
+ *  ۱) نوشته‌های «دیدنی» وصل به شهرستان + فهرست‌های sa_cty_poi_* (sa_county_profile_attractions)؛
+ *  ۲) تازه: «جاهای دیگری که مردم می‌روند» (extra_places، متا یا دادهٔ همراه قالب) — فقط نوع‌های
+ *     دیدنی و نام‌های مشخص؛ اقامت/خوراک/حمل‌ونقل و نام کلی مثل «بوستان» شمرده نمی‌شوند.
+ *
+ * @param int $post_id Post ID.
+ * @return int
+ */
+function sa_city_verified_place_count( $post_id ) {
+	$post_id = (int) $post_id;
+	$names   = array();
+	$key_of  = static function ( $name ) {
+		$name = str_replace( array( 'ي', 'ك', "\xE2\x80\x8C" ), array( 'ی', 'ک', ' ' ), (string) $name );
+		return trim( (string) preg_replace( '/\s+/u', ' ', $name ) );
+	};
+	if ( function_exists( 'sa_county_profile_attractions' ) ) {
+		foreach ( (array) sa_county_profile_attractions( $post_id, 500 ) as $row ) {
+			$k = $key_of( isset( $row['name'] ) ? $row['name'] : '' );
+			if ( '' !== $k ) {
+				$names[ $k ] = true;
+			}
+		}
+	}
+	$legacy = ! empty( $names );
+	if ( ! $legacy && function_exists( 'sa_get_children' ) && sa_get_children( $post_id, 'attraction' ) ) {
+		$legacy = true;
+	}
+	if ( ! $legacy ) {
+		foreach ( array( 'sa_cty_poi_nature', 'sa_cty_poi_offbeat', 'sa_cty_poi_recreation', 'sa_cty_poi_heritage' ) as $k ) {
+			if ( '' !== trim( (string) get_post_meta( $post_id, $k, true ) ) ) {
+				$legacy = true;
+				break;
+			}
+		}
+	}
+	$extra = '';
+	if ( function_exists( 'sa_county_profile_meta' ) ) {
+		$extra = (string) sa_county_profile_meta( $post_id, 'extra_places' );
+	}
+	if ( '' === trim( $extra ) && function_exists( 'sa_county_profile_bundled' ) ) {
+		$bundled = sa_county_profile_bundled( $post_id );
+		$extra   = isset( $bundled['extra_places'] ) ? (string) $bundled['extra_places'] : '';
+	}
+	if ( '' !== trim( $extra ) ) {
+		$kinds = sa_city_visitable_place_kinds();
+		foreach ( preg_split( '/\r\n|\r|\n/', $extra ) as $line ) {
+			$parts = array_map( 'trim', explode( '|', (string) $line ) );
+			if ( ! isset( $parts[1] ) || ! in_array( $parts[1], $kinds, true ) || sa_city_place_name_is_generic( $parts[0] ) ) {
+				continue;
+			}
+			$names[ $key_of( $parts[0] ) ] = true;
+		}
+	}
+	$count = count( $names );
+	return ( 0 === $count && $legacy ) ? 1 : $count;
+}
+
+/**
+ * v2.22.75 — دروازهٔ ایندکس صفحهٔ شهرستان، با دلیل.
+ *
+ * استاندارد (Google Search Central: محتوای مفید، و پرهیز از صفحه‌های انبوهِ کم‌ارزش):
+ * صفحهٔ راهنمای سفر وقتی ایندکس می‌شود که هم متن خودش کافی باشد (≥ ۳۰۰ واژه) و
+ * هم دست‌کم یک جای دیدنیِ راستی‌آزمایی‌شده نشان دهد. noindex دستی مالک (sa_noindex)
+ * جدا و همیشه مقدم است (inc/seo.php).
+ *
+ * @param int $post_id Post ID.
+ * @return array{index:bool,reason:string,words:int,places:int}
+ */
+function sa_city_index_decision( $post_id ) {
+	$post_id = (int) $post_id;
+	$out     = array(
+		'index'  => true,
+		'reason' => 'ok',
+		'words'  => 0,
+		'places' => 0,
+	);
+	if ( 'city' !== get_post_type( $post_id ) ) {
+		$out['reason'] = 'not_city';
+		return $out;
+	}
+	$out['words']  = sa_city_word_count( $post_id );
+	$out['places'] = sa_city_verified_place_count( $post_id );
+	if ( $out['words'] < 300 ) {
+		$out['index']  = false;
+		$out['reason'] = 'thin_text';
+	} elseif ( $out['places'] < 1 ) {
+		$out['index']  = false;
+		$out['reason'] = 'no_places';
+	}
+	$filtered = apply_filters( 'sa_city_index_decision', $out, $post_id );
+	return is_array( $filtered ) && isset( $filtered['index'] ) ? $filtered : $out;
+}
+
+/**
+ * v2.22.75 — دلیل noindex یک صفحهٔ شهرستان؛ رشتهٔ خالی یعنی ایندکس می‌شود.
+ * ترتیب: noindex دستی مالک (manual) همیشه مقدم است، بعد دروازهٔ خودکار.
+ *
+ * @param int $post_id Post ID.
+ * @return string '' | manual | thin_text | no_places
+ */
+function sa_city_noindex_reason( $post_id ) {
+	$post_id = (int) $post_id;
+	if ( '1' === (string) get_post_meta( $post_id, 'sa_noindex', true ) ) {
+		return 'manual';
+	}
+	if ( 'city' !== get_post_type( $post_id ) ) {
+		return '';
+	}
+	$d = sa_city_index_decision( $post_id );
+	return empty( $d['index'] ) ? (string) $d['reason'] : '';
+}
+
+/**
+ * v2.22.75 — برچسب فارسی دلیل noindex (پیشخوان و پل ایجنت).
+ *
+ * @param string $reason کد دلیل.
+ * @return string
+ */
+function sa_city_noindex_reason_label( $reason ) {
+	$labels = array(
+		''          => 'ایندکس می‌شود',
+		'manual'    => 'noindex دستی (تیک مالک در جعبهٔ سئو)',
+		'thin_text' => 'noindex خودکار: متن اصلی کمتر از ۳۰۰ واژه',
+		'no_places' => 'noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد',
+	);
+	return isset( $labels[ $reason ] ) ? $labels[ $reason ] : (string) $reason;
+}
+
+/**
+ * آیا شهرستان بخش «جاهای دیدنی» دارد؟ (v2.22.75: همان شمارش دروازهٔ ایندکس)
  *
  * @param int $post_id Post ID.
  * @return bool
  */
 function sa_city_has_attractions( $post_id ) {
-	$post_id = (int) $post_id;
-	if ( function_exists( 'sa_county_profile_attractions' ) ) {
-		$atts = sa_county_profile_attractions( $post_id );
-		if ( ! empty( $atts ) ) {
-			return true;
-		}
-	}
-	if ( function_exists( 'sa_get_children' ) ) {
-		$children = sa_get_children( $post_id, 'attraction' );
-		if ( ! empty( $children ) ) {
-			return true;
-		}
-	}
-	foreach ( array( 'sa_cty_poi_nature', 'sa_cty_poi_offbeat', 'sa_cty_poi_recreation', 'sa_cty_poi_heritage' ) as $k ) {
-		$v = get_post_meta( $post_id, $k, true );
-		if ( '' !== trim( (string) $v ) ) {
-			return true;
-		}
-	}
-	return false;
+	return sa_city_verified_place_count( (int) $post_id ) > 0;
 }
 
 /**
  * آیا صفحه‌ی شهرستان نازک است و باید noindex بگیرد؟
- * شرط ۵: کمتر از ۳۰۰ واژه محتوای اصلی یا بدون بخش «جاهای دیدنی».
+ * شرط ۵: کمتر از ۳۰۰ واژه محتوای اصلی یا بدون هیچ جای دیدنیِ راستی‌آزمایی‌شده.
  *
  * @param int $post_id Post ID.
  * @return bool
@@ -392,14 +529,8 @@ function sa_city_is_thin( $post_id ) {
 	if ( 'city' !== get_post_type( $post_id ) ) {
 		return false;
 	}
-	$words = sa_city_word_count( $post_id );
-	if ( $words < 300 ) {
-		return true;
-	}
-	if ( ! sa_city_has_attractions( $post_id ) ) {
-		return true;
-	}
-	return false;
+	$decision = sa_city_index_decision( $post_id );
+	return empty( $decision['index'] );
 }
 
 /**

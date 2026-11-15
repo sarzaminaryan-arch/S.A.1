@@ -299,16 +299,15 @@ function sa_get_similar_attractions( $post_id, $limit = 6 ) {
 }
 
 /**
- * R4 — block deleting a City (or Province) that still has dependants.
+ * v2.22.75 — نخستین نوع وابسته‌ای که هنوز به این شهرستان/استان وصل است (قانون R4).
  *
- * @param bool|null $check   Short-circuit value.
- * @param WP_Post   $post    Post.
- * @param bool      $force   Force delete.
- * @return bool|null
+ * @param WP_Post|int $post شهرستان یا استان.
+ * @return string نوع وابسته، یا '' وقتی وابسته‌ای نیست.
  */
-function sa_guard_delete( $check, $post, $force ) {
-	if ( ! in_array( $post->post_type, array( 'city', 'province' ), true ) ) {
-		return $check;
+function sa_entity_dependant_type( $post ) {
+	$post = get_post( $post );
+	if ( ! $post || ! in_array( $post->post_type, array( 'city', 'province' ), true ) ) {
+		return '';
 	}
 	$children = array( 'city' => array( 'attraction', 'local_food', 'souvenir', 'accommodation' ), 'province' => array( 'city' ) );
 	foreach ( $children[ $post->post_type ] as $child_type ) {
@@ -316,19 +315,45 @@ function sa_guard_delete( $check, $post, $force ) {
 			continue;
 		}
 		if ( sa_get_children_ids( $post->ID, $child_type, 'sa_' . $post->post_type . '_id', false ) ) {
-			wp_die(
-				sprintf(
-					'حذف «%s» ممکن نیست: هنوز %s به آن وابسته است (قانون R4 مدل داده). ابتدا وابسته‌ها را به %s دیگری منتقل کنید.',
-					esc_html( get_the_title( $post ) ),
-					esc_html( sa_entity_label( $child_type, true ) ),
-					esc_html( sa_entity_label( $post->post_type ) )
-				),
-				'حذف مسدود شد',
-				array( 'back_link' => true )
-			);
+			return $child_type;
 		}
 	}
-	return $check;
+	return '';
+}
+
+/**
+ * R4 — block trashing/deleting a City (or Province) that still has dependants.
+ *
+ * Runs on `pre_trash_post` and `pre_delete_post`. In the dashboard the editor
+ * gets a readable wp_die page. In REST/AJAX/CLI requests the guard returns
+ * `false` (core's "do not trash/delete") instead of an HTML 500, so callers such
+ * as the agent bridge can report a clean error (it also pre-checks with
+ * sa_entity_dependant_type() and answers 409 `sa_agent_has_dependants`).
+ *
+ * @param bool|null $check Short-circuit value.
+ * @param WP_Post   $post  Post.
+ * @param bool      $force Force delete (unused).
+ * @return bool|null
+ */
+function sa_guard_delete( $check, $post, $force = false ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	$child_type = sa_entity_dependant_type( $post );
+	if ( '' === $child_type ) {
+		return $check;
+	}
+	$headless = ( defined( 'REST_REQUEST' ) && REST_REQUEST ) || wp_doing_ajax() || wp_doing_cron() || ( defined( 'WP_CLI' ) && WP_CLI );
+	if ( $headless ) {
+		return false;
+	}
+	wp_die(
+		sprintf(
+			'حذف «%s» ممکن نیست: هنوز %s به آن وابسته است (قانون R4 مدل داده). ابتدا وابسته‌ها را به %s دیگری منتقل کنید.',
+			esc_html( get_the_title( $post ) ),
+			esc_html( sa_entity_label( $child_type, true ) ),
+			esc_html( sa_entity_label( $post->post_type ) )
+		),
+		'حذف مسدود شد',
+		array( 'back_link' => true )
+	);
 }
 add_filter( 'pre_delete_post', 'sa_guard_delete', 10, 3 );
 add_filter( 'pre_trash_post', 'sa_guard_delete', 10, 3 );

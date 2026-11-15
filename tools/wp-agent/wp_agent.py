@@ -35,6 +35,17 @@ Commands (run from the repo root):
     python3 tools/wp-agent/wp_agent.py trash 153 --owner-approved-trash --reason "دستور مالک ..."
     python3 tools/wp-agent/wp_agent.py litespeed
     python3 tools/wp-agent/wp_agent.py litespeed --set crawler=true --set crawler-sitemap=https://sarzaminaryan.ir/wp-sitemap.xml --reason "..."
+    # theme 2.22.75+
+    python3 tools/wp-agent/wp_agent.py index-gate [--only noindex]
+    python3 tools/wp-agent/wp_agent.py updraft                                   # status only
+    python3 tools/wp-agent/wp_agent.py updraft --start --owner-approved-backup [--what all] [--wait 1500]
+    python3 tools/wp-agent/wp_agent.py theme-update --expected-version 2.22.76 --owner-approved-theme-update \
+        --backup-first --probe / --probe /city/isfahan-city/ --rollback-to 2.22.75
+
+Safe theme update (owner order, 15 Nov 2026): UpdraftPlus full backup -> wait until finished ->
+core Theme_Upgrader::upgrade() (temp_backup auto-restores a half-finished install) -> probe ->
+on a failed probe, reinstall --rollback-to through the same path. The DB is untouched by a theme
+update; the UpdraftPlus backup is the fallback for anything else.
 """
 
 from __future__ import annotations
@@ -418,6 +429,23 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("litespeed", help="read LiteSpeed Cache settings; --set only crawler keys")
     p.add_argument("--set", action="append", default=[], help="crawler=true | crawler-sitemap=URL | crawler-crawl_interval=SEC | crawler-load_limit=N")
     p.add_argument("--reason", default="تنظیم خزندهٔ LiteSpeed")
+    p = sub.add_parser("index-gate", help="read-only: index/noindex decision and reason for every published city")
+    p.add_argument("--only", default="", choices=["", "noindex", "index"])
+    p = sub.add_parser("updraft", help="UpdraftPlus status; --start begins a backup (owner-approved)")
+    p.add_argument("--start", action="store_true")
+    p.add_argument("--owner-approved-backup", action="store_true")
+    p.add_argument("--what", default="all", choices=["all", "db", "files"])
+    p.add_argument("--nocloud", action="store_true")
+    p.add_argument("--nonce", default="")
+    p.add_argument("--wait", type=int, default=0, help="seconds to wait for the job to finish")
+    p = sub.add_parser("theme-update", help="owner-approved: install a GitHub release of the child theme (probe + rollback)")
+    p.add_argument("--expected-version", default="")
+    p.add_argument("--version", default="", help="install this exact release (rollback); default newest")
+    p.add_argument("--owner-approved-theme-update", action="store_true")
+    p.add_argument("--backup-first", action="store_true", help="take an UpdraftPlus full backup and wait for it first")
+    p.add_argument("--backup-wait", type=int, default=1500)
+    p.add_argument("--probe", action="append", default=[], help="path that must answer 200/301 after the update")
+    p.add_argument("--rollback-to", default="", help="version to reinstall if a probe fails")
     return ap
 
 
@@ -432,6 +460,44 @@ def parse_value(v: str):
     except ValueError:
         return v.strip()
 
+
+
+def updraft_wait(c: "Client", nonce: str, seconds: int) -> dict:
+    """Poll GET /updraft?nonce= until the job is finished (in history) or time runs out."""
+    deadline = time.time() + max(0, seconds)
+    status = c.call("GET", "/updraft", {"nonce": nonce})
+    while not (status.get("job") or {}).get("finished") and time.time() < deadline:
+        time.sleep(30)
+        try:
+            status = c.call("GET", "/updraft", {"nonce": nonce})
+        except AgentError as err:  # a busy host can time out one poll; keep waiting
+            print(f"poll: {err}", file=sys.stderr)
+    return status
+
+
+def updraft_start(c: "Client", what: str, nocloud: bool) -> dict:
+    """POST /updraft. The server answers, closes the connection, then runs the backup."""
+    return c.call("POST", "/updraft", body={"owner_approved_backup": True, "what": what, "nocloud": nocloud})
+
+
+def probes_healthy(probes: list[dict]) -> bool:
+    """Every probe answered 200 (HTML with a title) or 301; nothing 5xx/0."""
+    for pr in probes:
+        st = int(pr.get("status") or 0)
+        if st == 301:
+            continue
+        if st != 200:
+            return False
+        if "html" in pr.get("content_type", "") and not pr.get("title"):
+            return False
+    return True
+
+
+def theme_install(c: "Client", version: str, expected: str) -> dict:
+    body = {"owner_approved_theme_update": True, "expected_version": expected}
+    if version:
+        body["version"] = version
+    return c.call("POST", "/theme-update", body=body)
 
 
 def run(a: argparse.Namespace, c: "Client"):
@@ -557,6 +623,59 @@ def run(a: argparse.Namespace, c: "Client"):
             k, _, v = item.partition("=")
             changes[k.strip()] = parse_value(v) if k.strip() != "crawler-sitemap" else v.strip()
         return c.call("POST", "/litespeed", body={"expected_hash": current["hash"], "set": changes, "reason": a.reason})
+    elif a.cmd == "index-gate":
+        rows, page = [], 1
+        while True:
+            chunk = c.call("GET", "/index-gate", {"page": page, "per_page": 100, "only": a.only})
+            rows += chunk.get("rows", [])
+            if page >= int(chunk.get("total_pages") or 0):
+                break
+            page += 1
+        reasons: dict[str, int] = {}
+        for r in rows:
+            reasons[r.get("reason") or "index"] = reasons.get(r.get("reason") or "index", 0) + 1
+        return {"theme": chunk.get("theme", ""), "count": len(rows), "by_reason": reasons, "rows": rows}
+    elif a.cmd == "updraft":
+        if not a.start:
+            status = c.call("GET", "/updraft", {"nonce": a.nonce})
+            return updraft_wait(c, a.nonce, a.wait) if (a.nonce and a.wait) else status
+        if not a.owner_approved_backup:
+            raise AgentError("updraft --start needs --owner-approved-backup")
+        started = updraft_start(c, a.what, a.nocloud)
+        if not a.wait:
+            return started
+        final = updraft_wait(c, started.get("nonce", ""), a.wait)
+        return {"started": started, "status": final}
+    elif a.cmd == "theme-update":
+        if not a.owner_approved_theme_update:
+            raise AgentError("theme-update needs --owner-approved-theme-update")
+        if not a.expected_version:
+            raise AgentError("theme-update needs --expected-version")
+        report: dict = {"before": c.call("GET", "/theme-update")}
+        save_local_backup("theme-update-pre", report["before"])
+        site = c.base.split("/wp-json/")[0]
+        urls = [u if u.startswith("http") else site + u for u in (a.probe or ["/"])]
+        report["probe_before"] = [probe_url(u) for u in urls]
+        if a.backup_first:
+            started = updraft_start(c, "all", False)
+            report["backup"] = {"started": started, "status": updraft_wait(c, started.get("nonce", ""), a.backup_wait)}
+            last = report["backup"]["status"].get("last_backup") or {}
+            if not ((report["backup"]["status"].get("job") or {}).get("finished") and last.get("success")):
+                raise AgentError("UpdraftPlus backup did not finish successfully in time; theme NOT updated: "
+                                 + json.dumps(report["backup"]["status"], ensure_ascii=False)[:600])
+        report["install"] = theme_install(c, a.version, a.expected_version)
+        time.sleep(5)
+        report["probe_after"] = [probe_url(u) for u in urls]
+        report["healthy"] = probes_healthy(report["probe_after"])
+        if not report["healthy"] and a.rollback_to:
+            report["rollback"] = theme_install(c, a.rollback_to, a.rollback_to)
+            time.sleep(5)
+            report["probe_after_rollback"] = [probe_url(u) for u in urls]
+            raise AgentError("probe failed after update; rolled back to " + a.rollback_to + ": "
+                             + json.dumps({k: report[k] for k in ("install", "rollback")}, ensure_ascii=False)[:800])
+        if not report["healthy"]:
+            raise AgentError("probe failed after update and no --rollback-to was given")
+        return report
     raise AgentError(f"unknown command {a.cmd}")
 
 

@@ -329,6 +329,30 @@ function sa_truncate_to_155( $text ) {
 }
 
 /**
+ * v2.22.75 — نخستین توضیحِ کامل از میان نامزدها (هر کدام به ۱۵۵ نویسه بریده می‌شود).
+ * «کامل» یعنی دست‌کم ۷۰ نویسه؛ اگر هیچ‌کدام نبود، نخستین نامزد ناخالی.
+ *
+ * @param string[] $candidates نامزدها به ترتیب اولویت.
+ * @return string
+ */
+function sa_seo_city_pick_description( array $candidates ) {
+	$first = '';
+	foreach ( $candidates as $c ) {
+		$c = trim( (string) sa_truncate_to_155( trim( wp_strip_all_tags( (string) $c ) ) ) );
+		if ( '' === $c ) {
+			continue;
+		}
+		if ( mb_strlen( $c, 'UTF-8' ) >= 70 ) {
+			return $c;
+		}
+		if ( '' === $first ) {
+			$first = $c;
+		}
+	}
+	return $first;
+}
+
+/**
  * Meta description for the current view.
  *
  * @return string
@@ -348,19 +372,19 @@ function sa_seo_description() {
 	if ( is_singular() ) {
 		$id   = get_queried_object_id();
 		$post = get_queried_object();
-		// Phase 7 §3: for city, description from lead, max 155, ignore custom that may be outdated
+		// v2.22.75: برای شهرستان، نخستین نامزدِ «کامل» (≥ ۷۰ نویسه) به ترتیبِ
+		// توضیح سفارشی سئو → پیش‌درآمد/چکیده → خلاصهٔ متن. چکیدهٔ کوتاه (مثل ۶۰ نویسهٔ
+		// اصفهان) دیگر توضیح سفارشیِ کامل را کنار نمی‌زند؛ توضیح سفارشیِ کهنهٔ کوتاه هم
+		// جلوی پیش‌درآمد خوب را نمی‌گیرد. (Google: توضیح یکتا و خلاصهٔ دقیق صفحه.)
 		if ( $post && 'city' === $post->post_type ) {
-			$lead = sa_get_city_lead( $id );
-			if ( '' !== $lead ) {
-				return sa_truncate_to_155( $lead );
-			}
-			// Fallback to custom if lead empty, but still truncate
-			$custom = get_post_meta( $id, 'sa_seo_description', true );
-			if ( $custom ) {
-				return sa_truncate_to_155( $custom );
-			}
-			$summary = sa_truncate_to_155( sa_summary( $id, 28 ) );
-			return '' !== trim( (string) $summary ) ? $summary : sa_seo_city_fallback_description( $id );
+			$pick = sa_seo_city_pick_description(
+				array(
+					(string) get_post_meta( $id, 'sa_seo_description', true ),
+					(string) sa_get_city_lead( $id ),
+					(string) sa_summary( $id, 28 ),
+				)
+			);
+			return '' !== $pick ? $pick : sa_seo_city_fallback_description( $id );
 		}
 		$custom = get_post_meta( $id, 'sa_seo_description', true );
 		if ( $custom ) {
@@ -679,7 +703,8 @@ function sa_seo_sitemap_exclude_thin_city( $args, $post_type ) {
 			)
 		);
 		foreach ( (array) $q->posts as $pid ) {
-			if ( function_exists( 'sa_city_is_thin' ) && sa_city_is_thin( $pid ) ) {
+			// v2.22.75: هر صفحهٔ noindex (دستی یا خودکار) از نقشهٔ سایت بیرون می‌ماند.
+			if ( function_exists( 'sa_city_noindex_reason' ) ? '' !== sa_city_noindex_reason( $pid ) : ( function_exists( 'sa_city_is_thin' ) && sa_city_is_thin( $pid ) ) ) {
 				$exclude[] = (int) $pid;
 			}
 		}
@@ -761,9 +786,11 @@ function sa_ai_robots_txt( $output, $public ) {
 		. "Allow: /\n"
 		. "\n"
 		. "User-agent: GPTBot\n"
-		. "Disallow: /\n"
-		. "\n"
-		. 'Sitemap: ' . home_url( '/wp-sitemap.xml' ) . "\n";
+		. "Disallow: /\n";
+	// v2.22.75: هسته خودش «Sitemap:» را می‌نویسد؛ فقط اگر نبود اضافه می‌کنیم (تکراری نشود).
+	if ( false === stripos( (string) $output, 'Sitemap:' ) ) {
+		$extra .= "\n" . 'Sitemap: ' . home_url( '/wp-sitemap.xml' ) . "\n";
+	}
 	return rtrim( (string) $output ) . "\n\n" . $extra;
 }
 add_filter( 'robots_txt', 'sa_ai_robots_txt', 20, 2 );
