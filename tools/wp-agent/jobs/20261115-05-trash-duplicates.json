@@ -1,0 +1,9 @@
+{
+  "note": "دستور مالک ۲۰۲۶-۱۱-۱۵: خواندن وضعیت LiteSpeed، و زباله‌دان سه نسخهٔ تکراریِ پشت ۳۰۱ (با پشتیبان؛ بی‌حذف همیشگی)",
+  "steps": [
+    { "cmd": "litespeed" },
+    { "cmd": "trash", "id": 153, "owner_approved_trash": true, "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: نسخهٔ تکراری isfahan پشت ۳۰۱ به isfahan-city" },
+    { "cmd": "trash", "id": 202, "owner_approved_trash": true, "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: نسخهٔ تکراری borazjan پشت ۳۰۱ به dashtestan" },
+    { "cmd": "trash", "id": 2570, "owner_approved_trash": true, "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: نسخهٔ تکراری tabas-attractions پشت ۳۰۱ به city/tabas" }
+  ]
+}
