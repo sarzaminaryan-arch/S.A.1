@@ -1,0 +1,32 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-04-version-check.json",
+  "started_utc": "2026-11-15T05:13:27+00:00",
+  "note": "بررسی نسخهٔ نصب‌شدهٔ قالب پیش از کارهای زندهٔ 2.22.74 (فقط خواندن)",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.74",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-15T05:13:27+00:00"
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T05:13:29+00:00"
+}
