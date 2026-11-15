@@ -403,6 +403,37 @@ $seed_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.p
 sa_ci_assert( false === strpos( $seed_src, 'بازبینی انسانی' ), 'bundled: seed carries no production-process wording (2.22.65)' );
 sa_ci_assert( false === strpos( $seed_src, 'هوش مصنوعی' ), 'bundled: seed carries no AI wording (2.22.65)' );
 
+/* ---- 4l. ده شهرستان قالب 2.22.79 (بازسازی دستهٔ ۵ + سه رکورد نگه‌داشته) ---- */
+
+$sa79_rows = array(
+	array( 80, 'baharestan', 'بهارستان', 6, 7, 'ایران ۷۸، ۲۱، ۳۸' ),
+	array( 81, 'amol', 'آمل', 6, 11, 'ایران ۷۲، ۸۲، ۹۲' ),
+	array( 82, 'pakdasht', 'پاکدشت', 7, 6, 'ایران ۷۸، ۲۱' ),
+	array( 83, 'dargaz', 'درگز', 7, 10, 'ایران ۴۲' ),
+	array( 84, 'sheshtamad', 'ششتمد', 6, 9, '' ),
+	array( 85, 'davarzan', 'داورزن', 6, 10, '' ),
+	array( 86, 'jovein', 'جوین', 6, 10, '' ),
+	array( 87, 'khaf', 'خواف', 6, 6, 'ایران ۴۲' ),
+	array( 88, 'kuhsorkh', 'کوهسرخ', 6, 6, '' ),
+	array( 89, 'bagh-e-malek', 'باغ‌ملک', 5, 5, 'ایران ۳۴' ),
+);
+foreach ( $sa79_rows as $sa79 ) {
+	list( $sa79_id, $sa79_slug, $sa79_title, $sa79_tips, $sa79_places, $sa79_plate ) = $sa79;
+	$GLOBALS['t']['posts'][ $sa79_id ] = (object) array( 'ID' => $sa79_id, 'post_type' => 'city', 'post_name' => $sa79_slug, 'post_title' => $sa79_title, 'post_status' => 'publish' );
+	$GLOBALS['t']['meta'][ $sa79_id ]  = array();
+	$sa79_data = sa_county_profile_data( $sa79_id );
+	sa_ci_assert( ! empty( $sa79_data['has_insights'] ), "bundled: {$sa79_slug} traveller block switches on from the shipped seed (2.22.79)" );
+	sa_ci_assert( 4 === count( $sa79_data['seasons'] ), "bundled: {$sa79_slug} four seasons reach the data layer (2.22.79)" );
+	sa_ci_assert( $sa79_tips === count( $sa79_data['local_tips'] ) && $sa79_places === count( $sa79_data['extra_places'] ), "bundled: {$sa79_slug} tips and places parsed from the seed (2.22.79)" );
+	sa_ci_assert( $sa79_plate === $sa79_data['plate_code'], "bundled: {$sa79_slug} plate reaches tile 12 (2.22.79)" );
+	sa_ci_assert( '' !== (string) $sa79_data['people_character'], "bundled: {$sa79_slug} carries a positive people note (2.22.79)" );
+}
+$sa79_seed = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
+// جمعیت ۱۰۵٬۳۸۴ باغ‌ملک مال پیش از جدایی صیدون (۲۰۲۳) بود.
+sa_ci_assert( false === strpos( $sa79_seed, '۱۰۵٬۳۸۴' ) && false !== strpos( $sa79_seed, '۸۳٬۱۲۹' ), 'bundled: bagh-e-malek uses the post-Seydun population (2.22.79)' );
+sa_ci_assert( false === strpos( $sa79_seed, 'اسرائیل' ) && false === strpos( $sa79_seed, 'اسراییل' ), 'seed: banned country name absent (2.22.79)' );
+sa_ci_assert( false === strpos( $sa79_seed, 'http' ), 'seed: places carry no outbound links; sources live in the article (2.22.79)' );
+
 /* ---- 4g. Fact badge fits its word vertically too (2.22.61) --------------- */
 
 $css61 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
@@ -469,4 +500,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled eight-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled 44-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
