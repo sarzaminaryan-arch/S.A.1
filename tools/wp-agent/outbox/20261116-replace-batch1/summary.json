@@ -14,6 +14,7 @@
   "tags_ok": true,
   "gutenberg_ok": true,
   "bad_cites": [],
+  "banned": [],
   "changes": [
    "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
    "rewrite: در مرکز شهر اهواز است که در سال ۱۳۸۲ در فهرست آثار ملی ایران -> در مرکز شهر اهواز است که در سال ۱۳۸۲ به شمارهٔ ۹۷۶۴ در فهرست",
@@ -36,6 +37,7 @@
   "tags_ok": true,
   "gutenberg_ok": true,
   "bad_cites": [],
+  "banned": [],
   "changes": [
    "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
    "rewrite: خانه‌های تیزنو، سوزنگر و قلمبر از خانه‌های تاریخی دزفول‌اند. -> خانه‌های تیزنو، سوزنگر و قلمبر از خانه‌های تاریخی دزفول‌اند.",
@@ -58,6 +60,7 @@
   "tags_ok": true,
   "gutenberg_ok": true,
   "bad_cites": [],
+  "banned": [],
   "changes": [
    "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
    "insert before H2: یک درخواست داریم"
@@ -79,6 +82,7 @@
   "tags_ok": true,
   "gutenberg_ok": true,
   "bad_cites": [],
+  "banned": [],
   "changes": [
    "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
    "insert before H2: یک درخواست داریم"
@@ -100,6 +104,7 @@
   "tags_ok": true,
   "gutenberg_ok": true,
   "bad_cites": [],
+  "banned": [],
   "changes": [
    "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
    "insert before H2: یک درخواست داریم"

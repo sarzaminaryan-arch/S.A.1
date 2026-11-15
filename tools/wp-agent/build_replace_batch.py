@@ -26,8 +26,19 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import content_audit as ca  # noqa: E402
 from build_fix_batch import balanced  # noqa: E402
+from wp_agent import BANNED  # noqa: E402
+
+# Extra wording the owner asked to keep off every page (2026-11-15).
+EXTRA_BANNED = ("اسرائیل", "اسراییل")
 
 H2_RE = re.compile(r"<!-- wp:heading[^>]*-->\s*<h2[^>]*>(.*?)</h2>", re.S)
+
+
+def banned_hits(html: str) -> list[str]:
+    low = html.lower()
+    return [p for p in BANNED + EXTRA_BANNED if p.lower() in low]
+
+
 CITE_RE = re.compile(r'class="sa-cite"><a href="([^"]+)"')
 
 
@@ -89,10 +100,11 @@ def main(read_paths: str, base_dir: str, additions_path: str, out_dir: str) -> l
             "dup_after": after["dup_sentences"], "dup_left": after["dup_examples"],
             "notes_after": after["editorial_notes"], "notes_left": after["note_examples"],
             "tags_ok": balanced(out), "gutenberg_ok": gutenberg_ok(out),
-            "bad_cites": check_cites(out), "changes": log,
+            "bad_cites": check_cites(out), "banned": banned_hits(out), "changes": log,
         }
         row["ok"] = (row["volume_ok"] and not row["dup_after"] and not row["notes_after"]
-                     and row["tags_ok"] and row["gutenberg_ok"] and not row["bad_cites"])
+                     and row["tags_ok"] and row["gutenberg_ok"] and not row["bad_cites"]
+                     and not row["banned"])
         open(os.path.join(out_dir, key + ".html"), "w", encoding="utf-8", newline="").write(out)
         summary.append(row)
     json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w", encoding="utf-8"),

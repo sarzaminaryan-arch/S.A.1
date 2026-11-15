@@ -1,0 +1,112 @@
+[
+ {
+  "id": 279,
+  "slug": "behbahan",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_original": 988,
+  "words_live": 515,
+  "words_after": 1035,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 274,
+  "slug": "andimeshk",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_original": 1031,
+  "words_live": 558,
+  "words_after": 1060,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 281,
+  "slug": "khorramshahr",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_original": 1019,
+  "words_live": 522,
+  "words_after": 1041,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 73,
+  "slug": "shirvan",
+  "modified_gmt": "2026-11-10 23:20:58",
+  "words_original": 966,
+  "words_live": 548,
+  "words_after": 1024,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 69,
+  "slug": "kashmar",
+  "modified_gmt": "2026-11-10 23:20:58",
+  "words_original": 1203,
+  "words_live": 976,
+  "words_after": 1275,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ }
+]
