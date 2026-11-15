@@ -950,8 +950,8 @@ p.ul([
 
 add["ramhormoz-285"] = full_spec(p, base("ramhormoz-285"), 2205, "2026-11-10 23:26:56")
 meta["ramhormoz-285"] = {
-    "sa_cty_neighbors": "haftkel - شمال‌غرب\nbagh-e-malek - شمال‌شرق\nbahmai - شرق\nahvaz - غرب\n"
-                        "ramshir - جنوب‌غرب\nomidiyeh - جنوب",
+    "sa_cty_neighbors": "bahmai - شرق\nahvaz-city - غرب\nomidiyeh - جنوب\nhaftkel - شمال‌غرب\n"
+                        "bagh-e-malek - شمال‌شرق\nramshir - جنوب‌غرب",
     "sa_cty_population": "113776",
     "sa_city_population": "74285",
     "sa_cty_census_year": "1395",
@@ -1039,7 +1039,7 @@ p.table(["شاخص", "مقدار", "توضیح"], [
     ("تقسیمات", "۳ بخش، ۸ دهستان، ۳ شهر", "بخش‌های مرکزی، خنافره و دارخوین", WIKI_SC),
     ("شهرها", "شادگان، دارخوین، خنافره", "۴۱٬۷۳۳، ۵٬۶۵۵ و ۳٬۸۵۳ نفر (۱۳۹۵)", WIKI_SC),
     ("ارتفاع مرکز", "۶ تا ۱۰ متر", "از پست‌ترین شهرهای ایران", WIKI_SG),
-    ("مردم", "عشایر عرب؛ بیشتر بنی‌کعب و بنی‌تمیم", "زبان عربی خوزستانی و فارسی", WIKI_SC, WIKI_SG),
+    ("مردم", "عشایر عرب؛ بیشتر بنی‌کعب و بنی‌تمیم", "زبان عربی خوزستانی و فارسی", WIKI_SG),
     ("پلاک خودرو", "ایران ۲۴ ه", "", WIKI_SG),
     ("پیش‌شمارهٔ تلفن", "۰۶۱۵۳۷", "کد استان خوزستان", WIKI_SG),
 ])
@@ -1201,8 +1201,8 @@ p.ul([
 
 add["shadegan-286"] = full_spec(p, base("shadegan-286"), 2149, "2026-11-10 23:26:56")
 meta["shadegan-286"] = {
-    "sa_cty_neighbors": "karun - شمال\nahvaz - شمال‌غرب و شمال‌شرق\nmahshahr - شرق\nkhorramshahr - غرب\n"
-                        "abadan - جنوب",
+    "sa_cty_neighbors": "karun - شمال\nmahshahr - شرق\nkhorramshahr - غرب\nabadan - جنوب\n"
+                        "ahvaz-city - شمال‌غرب و شمال‌شرق",
     "sa_cty_population": "138480",
     "sa_city_population": "41733",
     "sa_cty_census_year": "1395",
