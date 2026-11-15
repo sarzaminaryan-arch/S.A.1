@@ -1,0 +1,90 @@
+[
+ {
+  "id": 1308,
+  "slug": "dargaz",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 1096,
+  "words_live": 789,
+  "words_after": 1194,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 1312,
+  "slug": "sheshtamad",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 1067,
+  "words_live": 718,
+  "words_after": 1183,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 1307,
+  "slug": "davarzan",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 1106,
+  "words_live": 777,
+  "words_after": 1182,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ },
+ {
+  "id": 1303,
+  "slug": "jovein",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "words_original": 1118,
+  "words_live": 776,
+  "words_after": 1159,
+  "volume_ok": true,
+  "dup_after": 0,
+  "dup_left": [],
+  "notes_after": 0,
+  "notes_left": [],
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "bad_cites": [],
+  "banned": [],
+  "changes": [
+   "rewrite: <!-- wp:paragraph --><p>```</p><!-- /wp:paragraph -->\n\n<!--  -> ",
+   "insert before H2: یک درخواست داریم"
+  ],
+  "ok": true
+ }
+]

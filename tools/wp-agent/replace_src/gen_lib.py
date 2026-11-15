@@ -44,6 +44,36 @@ class Page:
             return
         self.parts.append(f"<!-- wp:paragraph --><p>{t}{sup}</p><!-- /wp:paragraph -->")
 
+    def ul(self, items):
+        """items: list of (html, [urls]) tuples or plain strings."""
+        lis = []
+        for it in items:
+            t, urls = (it, []) if isinstance(it, str) else (it[0], list(it[1:]))
+            sup = "".join(self.cite(u) for u in urls)
+            if self.classic:
+                lis.append(f"<li>{t}{sup}</li>")
+            else:
+                lis.append(f"<!-- wp:list-item --><li>{t}{sup}</li><!-- /wp:list-item -->")
+        if self.classic:
+            self.parts.append("<ul>" + "".join(lis) + "</ul>")
+            return
+        self.parts.append('<!-- wp:list --><ul class="wp-block-list">' + "".join(lis) + "</ul><!-- /wp:list -->")
+
+    def table(self, head, rows):
+        """rows: list of (cells..., url_or_None) — the last item cites the last cell."""
+        th = "".join(f"<th>{h}</th>" for h in head)
+        trs = []
+        for row in rows:
+            *cells, url = row
+            if url:
+                cells[-1] = cells[-1] + " " + self.cite(url)
+            trs.append("<tr>" + "".join(f"<td>{c}</td>" for c in cells) + "</tr>")
+        tbl = f"<table><thead><tr>{th}</tr></thead><tbody>{''.join(trs)}</tbody></table>"
+        if self.classic:
+            self.parts.append(tbl)
+            return
+        self.parts.append(f'<!-- wp:table --><figure class="wp-block-table">{tbl}</figure><!-- /wp:table -->')
+
     def html(self) -> str:
         return "\n\n".join(self.parts)
 
@@ -63,3 +93,20 @@ def dump(add: dict, path: str):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     json.dump(add, open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     print("ok", len(add))
+
+
+REQUEST_H2 = "یک درخواست داریم"
+
+
+def full_spec(page: Page, base_html: str, words_original: int, modified_gmt: str) -> dict:
+    """Whole-body rewrite: drop everything before the reader-request H2 and put the
+    new article there (the request section itself is kept as it is)."""
+    import re
+    m = [x for x in re.finditer(r"(?:<!-- wp:heading[^>]*-->\s*)?<h2[^>]*>(.*?)</h2>", base_html, re.S)
+         if REQUEST_H2 in x.group(1)]
+    if len(m) != 1:
+        raise ValueError("request H2 not found exactly once")
+    head = base_html[:m[0].start()]
+    return {"words_original": words_original, "modified_gmt": modified_gmt,
+            "rewrites": [[head, ""]] if head else [], "insert_before_h2": REQUEST_H2,
+            "blocks": page.html()}
