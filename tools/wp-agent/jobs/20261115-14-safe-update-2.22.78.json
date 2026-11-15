@@ -1,0 +1,11 @@
+{
+  "note": "به‌روزرسانی خودکار 2.22.78 (پشتیبان UpdraftPlus ← نصب ← پاک‌کردن کش ← probe بی‌کش ← بازگشت به 2.22.77 در صورت خرابی). سنجش H1 در /blog/.",
+  "steps": [
+    {"cmd": "theme-update", "expected_version": "2.22.78", "owner_approved_theme_update": true,
+     "backup_first": true, "backup_wait": 1500,
+     "probe": ["/", "/blog/", "/city/isfahan-city/", "/attraction/si-o-se-pol/"],
+     "rollback_to": "2.22.77"},
+    {"cmd": "ping"},
+    {"cmd": "probe", "url": ["/blog/", "/blog/page/2/"]}
+  ]
+}
