@@ -1,0 +1,72 @@
+{
+  "note": "دستهٔ ۲ حذف + جایگزینی (۵ صفحه؛ جانشین کار متوقف ۲۲ برای این پنج صفحه؛ تأیید مالک ۱۵ نوامبر): حذف جملات تکراری و یادداشت تولید و افزودن متن یکتای اول‌شخص مستند در همان نوشتن؛ حجم هر مقاله از نسخهٔ اصلی کمتر نیست. نشانی و عنوان بدون تغییر. اگر probe ناسالم باشد همهٔ پشتیبان‌های همین کار برگردانده می‌شوند.",
+  "not_before": "2026-11-16T06:00:00Z",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 279,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch2/behbahan-279.html",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۲ حذف + جایگزینی (تأیید مالک): حذف تکرار و یادداشت تولید، افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 274,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch2/andimeshk-274.html",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۲ حذف + جایگزینی (تأیید مالک): حذف تکرار و یادداشت تولید، افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 281,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch2/khorramshahr-281.html",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۲ حذف + جایگزینی (تأیید مالک): حذف تکرار و یادداشت تولید، افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 73,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch2/shirvan-73.html",
+      "expected_modified_gmt": "2026-11-10 23:20:58",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۲ حذف + جایگزینی (تأیید مالک): حذف تکرار و یادداشت تولید، افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 69,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch2/kashmar-69.html",
+      "expected_modified_gmt": "2026-11-10 23:20:58",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۲ حذف + جایگزینی (تأیید مالک): حذف تکرار و یادداشت تولید، افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        279,
+        274,
+        281,
+        73,
+        69
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/behbahan/?sa_probe=3",
+        "/city/andimeshk/?sa_probe=3",
+        "/city/khorramshahr/?sa_probe=3",
+        "/city/shirvan/?sa_probe=3",
+        "/city/kashmar/?sa_probe=3"
+      ]
+    },
+    {
+      "cmd": "content-audit",
+      "type": "city",
+      "workers": 4
+    }
+  ]
+}

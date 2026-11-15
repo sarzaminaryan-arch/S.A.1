@@ -1,0 +1,72 @@
+{
+  "note": "دستهٔ ۱ جایگزینی (۵ صفحه؛ تأیید مالک ۱۵ نوامبر): جملات تکراری که در کار ۱۸ حذف شدند با متن یکتای اول‌شخص و مستند به منابع معتبر (رویدادهای واقعی همان شهر) جایگزین می‌شوند تا حجم هر مقاله از نسخهٔ اصلی کمتر نباشد. نشانی و عنوان بدون تغییر. اگر probe ناسالم باشد همهٔ پشتیبان‌های همین کار برگردانده می‌شوند.",
+  "not_before": "2026-11-16T06:00:00Z",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 271,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch1/ahvaz-271.html",
+      "expected_modified_gmt": "2026-11-15 09:48:51",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۱ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 282,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch1/dezful-282.html",
+      "expected_modified_gmt": "2026-11-15 09:48:59",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۱ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 269,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch1/abadan-269.html",
+      "expected_modified_gmt": "2026-11-15 09:49:04",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۱ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 71,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch1/bojnord-71.html",
+      "expected_modified_gmt": "2026-11-15 09:49:01",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۱ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 275,
+      "content_file": "tools/wp-agent/outbox/20261116-replace-batch1/izeh-275.html",
+      "expected_modified_gmt": "2026-11-15 09:49:08",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۱ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        271,
+        282,
+        269,
+        71,
+        275
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/ahvaz/?sa_probe=3",
+        "/city/dezful/?sa_probe=3",
+        "/city/abadan/?sa_probe=3",
+        "/city/bojnord/?sa_probe=3",
+        "/city/izeh/?sa_probe=3"
+      ]
+    },
+    {
+      "cmd": "content-audit",
+      "type": "city",
+      "workers": 4
+    }
+  ]
+}
