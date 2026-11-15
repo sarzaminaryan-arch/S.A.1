@@ -170,11 +170,16 @@ class _SeoParser(html.parser.HTMLParser):
         self._skip = 0
         self.hreflang = 0
         self.lazy_imgs = 0
+        self._svg = 0
+        self._title_done = False
 
     def handle_starttag(self, tag, attrs):
         a = {k.lower(): (v or "") for k, v in attrs}
+        if tag == "svg":
+            self._svg += 1
         if tag == "title":
-            self._in_title = True
+            # Only the document <title>; <title> inside inline SVG (province map) is a tooltip.
+            self._in_title = not self._svg and not self._title_done
         elif tag == "meta":
             key = (a.get("name") or a.get("property") or "").lower()
             if key:
@@ -206,7 +211,11 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
+        if tag == "svg" and self._svg:
+            self._svg -= 1
         if tag == "title":
+            if self._in_title:
+                self._title_done = True
             self._in_title = False
         elif tag == "script" and self._in_jsonld:
             self._in_jsonld = False
