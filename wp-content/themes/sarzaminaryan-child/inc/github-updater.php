@@ -454,6 +454,54 @@ final class SA_GitHub_Theme_Updater {
 	}
 
 	/**
+	 * v2.22.75 — بستهٔ نصب برای پل ایجنت: تازه‌ترین انتشار، یا نسخهٔ مشخص (برای بازگشت).
+	 *
+	 * فقط انتشارهای همین مخزن با پیشوند TAG_PREFIX و فایل ZIP هم‌نام پذیرفته می‌شوند؛
+	 * دانلود همچنان از download_private_release (با بررسی sha256) می‌گذرد.
+	 *
+	 * @param string $version نسخه (مثلاً 2.22.75)؛ خالی یعنی تازه‌ترین.
+	 * @return array{version:string,package:string,html_url:string}|WP_Error
+	 */
+	public function agent_release_package( $version = '' ) {
+		$version = trim( (string) $version );
+		if ( '' === $version ) {
+			$this->clear_release_cache();
+			$release = $this->get_latest_release();
+		} else {
+			if ( ! preg_match( '/^\d+\.\d+\.\d+$/', $version ) ) {
+				return new WP_Error( 'sa_github_bad_version', 'قالب نسخه نادرست است.' );
+			}
+			$response = wp_safe_remote_get(
+				sprintf(
+					'https://api.github.com/repos/%s/%s/releases/tags/%s',
+					rawurlencode( $this->owner() ),
+					rawurlencode( $this->repository() ),
+					rawurlencode( self::TAG_PREFIX . $version )
+				),
+				array(
+					'timeout' => 20,
+					'headers' => $this->github_headers( 'application/vnd.github+json' ),
+				)
+			);
+			if ( is_wp_error( $response ) || 200 !== (int) wp_remote_retrieve_response_code( $response ) ) {
+				return new WP_Error( 'sa_github_release_missing', 'انتشار این نسخه در گیت‌هاب پیدا نشد.' );
+			}
+			$release = $this->normalise_release( json_decode( wp_remote_retrieve_body( $response ), true ) );
+			if ( ! $release ) {
+				return new WP_Error( 'sa_github_release_missing', 'انتشار این نسخه فایل ZIP سازگار ندارد.' );
+			}
+		}
+		if ( is_wp_error( $release ) ) {
+			return $release;
+		}
+		return array(
+			'version'  => (string) $release['version'],
+			'package'  => $this->package_url( $release ),
+			'html_url' => (string) $release['html_url'],
+		);
+	}
+
+	/**
 	 * Return the newest matching GitHub release and ZIP asset.
 	 *
 	 * @return array|WP_Error

@@ -242,6 +242,24 @@ function sa_render_seo_box( $post ) {
 		</div>
 		<div class="sa-grid__item sa-grid__item--wide">
 			<label class="sa-check"><input type="checkbox" name="sa_noindex" value="1" <?php checked( $g( 'sa_noindex' ), '1' ); ?>> این صفحه در موتورهای جست‌وجو ایندکس نشود (noindex)</label>
+			<?php if ( 'city' === $post->post_type && function_exists( 'sa_city_index_decision' ) ) : ?>
+				<?php
+				$sa_gate   = sa_city_index_decision( $post->ID );
+				$sa_reason = sa_city_noindex_reason( $post->ID );
+				?>
+				<p class="description">
+					<?php
+					echo esc_html(
+						sprintf(
+							'وضعیت ایندکس: %1$s — واژه‌های متن اصلی: %2$s · جاهای دیدنیِ شمرده‌شده: %3$s',
+							sa_city_noindex_reason_label( $sa_reason ),
+							number_format_i18n( (int) $sa_gate['words'] ),
+							number_format_i18n( (int) $sa_gate['places'] )
+						)
+					);
+					?>
+				</p>
+			<?php endif; ?>
 		</div>
 	</div>
 	<?php

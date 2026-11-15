@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.74' );
+define( 'SA_CHILD_VERSION', '2.22.75' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -55,6 +55,7 @@ $sa_child_includes = array(
 	'inc/security.php',
 	'inc/og-card.php', // v2.22.74: کارت یکتای اشتراک‌گذاری (og:image ۱۲۰۰×۶۳۰) برای صفحه‌های بی‌تصویر شاخص
 	'inc/agent-bridge.php', // v2.22.72: پل ایجنت — خواندن/نوشتن مستقیم (فقط پیش‌نویس؛ پشتیبان پیش از هر تغییر)
+	'inc/agent-ops.php', // v2.22.75: دروازهٔ ایندکس، پشتیبان UpdraftPlus و به‌روزرسانی/بازگشت قالب از پل ایجنت
 	'inc/performance.php',
 	'inc/customizer.php',
 	'inc/admin.php',

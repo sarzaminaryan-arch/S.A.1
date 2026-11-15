@@ -533,6 +533,15 @@ function sa_agent_update_post( $post_id, array $args ) {
 	foreach ( $terms as $tax => $ids ) {
 		wp_set_object_terms( $before['id'], $ids, $tax );
 	}
+	// v2.22.75: تغییرِ فقط-متا (مثلاً sa_city_id) هوک save_post را نمی‌زند؛ کش رابطه‌ها و
+	// فهرست noindexِ نقشهٔ سایت را خودمان پاک می‌کنیم تا صفحه‌ها فوراً درست شوند.
+	if ( $meta || $terms ) {
+		if ( function_exists( 'sa_flush_relation_cache' ) ) {
+			sa_flush_relation_cache();
+		}
+		delete_transient( 'sa_sitemap_thin_city' );
+		clean_post_cache( $before['id'] );
+	}
 	$after = sa_agent_snapshot_post( $before['id'] );
 	return array(
 		'id'           => $before['id'],
@@ -782,6 +791,12 @@ function sa_agent_trash_redirect_source( $post_id, array $args ) {
 	}
 	if ( ! sa_redirect_target_exists( $target ) ) {
 		return sa_agent_error( 'sa_agent_target_missing', 'مقصد تغییر مسیر (' . $target . ') منتشر نشده؛ زباله‌دان انجام نشد.', 409 );
+	}
+	if ( function_exists( 'sa_entity_dependant_type' ) ) {
+		$dep = sa_entity_dependant_type( $before['id'] );
+		if ( '' !== $dep ) {
+			return sa_agent_error( 'sa_agent_has_dependants', 'هنوز نوشته‌های «' . $dep . '» به این نوشته وصل‌اند (قانون R4)؛ اول sa_' . $before['type'] . '_id آن‌ها را به مقصد منتقل کنید.', 409 );
+		}
 	}
 	$reason    = isset( $args['reason'] ) ? sanitize_text_field( (string) $args['reason'] ) : 'زباله‌دان نسخهٔ تکراری (دستور مالک)';
 	$backup_id = sa_agent_create_backup( 'post', $before['id'], $before, $reason );
@@ -1075,7 +1090,18 @@ function sa_agent_register_routes() {
 				'methods'             => 'GET',
 				'callback'            => function ( $r ) {
 					$snap = sa_agent_snapshot_post( (int) $r['id'] );
-					return null === $snap ? sa_agent_error( 'sa_agent_not_found', 'نوشته پیدا نشد یا نوعش مجاز نیست.', 404 ) : rest_ensure_response( $snap );
+					if ( null === $snap ) {
+						return sa_agent_error( 'sa_agent_not_found', 'نوشته پیدا نشد یا نوعش مجاز نیست.', 404 );
+					}
+					// v2.22.75: وضعیت دروازهٔ ایندکس فقط در پاسخ خواندن (نه در پشتیبان).
+					if ( 'city' === $snap['type'] && function_exists( 'sa_city_index_decision' ) ) {
+						$gate               = sa_city_index_decision( $snap['id'] );
+						$gate['reason']     = sa_city_noindex_reason( $snap['id'] );
+						$gate['index']      = '' === $gate['reason'];
+						$gate['label']      = sa_city_noindex_reason_label( $gate['reason'] );
+						$snap['index_gate'] = $gate;
+					}
+					return rest_ensure_response( $snap );
 				},
 				'permission_callback' => 'sa_agent_can_read',
 				'args'                => $id_arg,
