@@ -38,4 +38,10 @@ assert ca.county_name("شهرستان خمینی‌شهر؛ راهنمای سف�
 assert ca.skeleton("بوستان ری و روستای ریزاب", "ری") == "بوستان X و روستای ریزاب"
 assert not ca.impossible_checks({}, "ارتفاع ۵۶۱۰ متر")
 assert ca.impossible_checks({}, "ارتفاع ۸۰۰۰ متر")
+# Persian separators: «۵۲۵٫۸ میلی‌متر» is 525.8, not 8 or 5.
+assert not ca.climate_checks({"sa_cty_climate": "معتدل کوهستانی"}, "بارش سالانه ۵۲۵٫۸ میلی‌متر است")
+assert ca.climate_checks({"sa_cty_climate": "معتدل کوهستانی"}, "بارش سالانه ۱۹ میلی‌متر است")
+# southern coast: humid air with little rain is real, not a contradiction
+assert not ca.climate_checks({"sa_cty_climate": "گرم و مرطوب ساحلی"}, "بارش سالانه ۱۱۰ میلی‌متر است")
+assert ca.numbers("۲٬۱۳۰٬۹۷۰ نفر") == [2130970.0]
 print("OK: content_audit", json.dumps(rep["summary"], ensure_ascii=False))

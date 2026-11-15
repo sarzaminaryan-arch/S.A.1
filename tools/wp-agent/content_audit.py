@@ -39,6 +39,7 @@ MIN_MEAN_TEMP_C = -10
 
 def norm(text: str) -> str:
     t = (text or "").replace("ي", "ی").replace("ك", "ک").translate(FA_DIGITS)
+    t = t.replace("٫", ".").replace("٬", ",")  # Persian decimal / thousands separators
     t = t.replace("\u200c", " ")
     return re.sub(r"\s+", " ", t).strip()
 
@@ -110,11 +111,12 @@ def climate_checks(meta: dict, text: str) -> list[str]:
     issues = []
     t = norm(text)
     climate = norm(str(meta.get("sa_cty_climate") or ""))
-    rain = [float(x.replace(",", "")) for x in re.findall(r"بارش[^.؛\n]{0,40}?(\d[\d,]*)\s*میلی", t)]
-    temp = [float(x) for x in re.findall(r"میانگین دمای? سالانه[^.؛\n]{0,25}?(-?\d+(?:\.\d+)?)\s*درجه", t)]
+    rain = [float(x.replace(",", "")) for x in re.findall(r"بارش[^؛\n]{0,40}?(?<![\d.,])(\d[\d,]*(?:\.\d+)?)\s*میلی", t)]
+    temp = [float(x) for x in re.findall(r"میانگین دمای? سالانه[^؛\n]{0,25}?(?<![\d.,])(-?\d+(?:\.\d+)?)\s*درجه", t)]
     if rain:
         r = max(rain)
-        if r < 150 and re.search(r"معتدل|مرطوب|پرباران|خزری", climate):
+        # «مرطوب/شرجی» on the southern coast means humidity, not rain, so it is not a conflict.
+        if r < 100 and re.search(r"پرباران|خزری|معتدل کوهستانی|سردسیر", climate) and not re.search(r"ساحلی|شرجی|گرم", climate):
             issues.append(f"اقلیم «{climate[:40]}» با بارش سالانه {r:g} میلی‌متر نمی‌خواند")
         if r > 900 and re.search(r"خشک|بیابانی|کویری", climate):
             issues.append(f"اقلیم «{climate[:40]}» با بارش سالانه {r:g} میلی‌متر نمی‌خواند")
@@ -128,13 +130,13 @@ def climate_checks(meta: dict, text: str) -> list[str]:
 def impossible_checks(meta: dict, text: str) -> list[str]:
     issues = []
     t = norm(text)
-    for v in re.findall(r"میانگین دمای? سالانه[^.؛\n]{0,25}?(-?\d+(?:\.\d+)?)\s*درجه", t):
+    for v in re.findall(r"میانگین دمای? سالانه[^؛\n]{0,25}?(?<![\d.,])(-?\d+(?:\.\d+)?)\s*درجه", t):
         if not MIN_MEAN_TEMP_C <= float(v) <= MAX_MEAN_TEMP_C:
             issues.append(f"میانگین دمای سالانه {v} درجه")
-    for v in re.findall(r"بارش[^.؛\n]{0,40}?(\d[\d,]*)\s*میلی", t):
+    for v in re.findall(r"بارش[^؛\n]{0,40}?(?<![\d.,])(\d[\d,]*(?:\.\d+)?)\s*میلی", t):
         if float(v.replace(",", "")) > MAX_RAIN_MM:
             issues.append(f"بارش سالانه {v} میلی‌متر")
-    for v in re.findall(r"ارتفاع[^.؛\n]{0,30}?(\d[\d,]*)\s*متر", t):
+    for v in re.findall(r"ارتفاع[^؛\n]{0,30}?(?<![\d.,])(\d[\d,]*)\s*متر", t):
         if float(v.replace(",", "")) > MAX_ELEVATION_M:
             issues.append(f"ارتفاع {v} متر")
     pop = numbers(str(meta.get("sa_cty_population") or ""))
