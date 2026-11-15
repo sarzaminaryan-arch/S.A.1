@@ -1,0 +1,119 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-44-dorud-attraction-read.json",
+  "started_utc": "2026-11-15T23:01:43+00:00",
+  "note": "خواندن فقط‌خواندنی دیدنی‌های منتشرشدهٔ دورود برای آماده‌سازی پیش‌نویس نمایشیِ منبع‌دار؛ هیچ نوشته‌ای تغییر نمی‌کند.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "list",
+      "result": {
+        "total": 10,
+        "pages": 1,
+        "items": [
+          {
+            "id": 2396,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "nigah-valley-dorud",
+            "title": "دره نیگاه (دره نگار)",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/attraction/nigah-valley-dorud/",
+            "words": 1401
+          },
+          {
+            "id": 2246,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "bisheh-waterfall-dorud",
+            "title": "آبشار بیشه",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/attraction/bisheh-waterfall-dorud/",
+            "words": 1391
+          },
+          {
+            "id": 2386,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "babahur-forest-park-dorud",
+            "title": "تفرجگاه باباهور (بام دورود)",
+            "modified_gmt": "2026-10-16 11:30:05",
+            "link": "https://sarzaminaryan.ir/attraction/babahur-forest-park-dorud/",
+            "words": 1383
+          },
+          {
+            "id": 2377,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "shevi-waterfall-tele-zang",
+            "title": "آبشار شوی (تله زنگ)",
+            "modified_gmt": "2026-10-16 11:30:00",
+            "link": "https://sarzaminaryan.ir/attraction/shevi-waterfall-tele-zang/",
+            "words": 1730
+          },
+          {
+            "id": 2278,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "falak-ol-aflak-castle-khorramabad",
+            "title": "قلعه فلک‌الافلاک (دژ شاپورخواست)",
+            "modified_gmt": "2026-10-16 11:29:21",
+            "link": "https://sarzaminaryan.ir/attraction/falak-ol-aflak-castle-khorramabad/",
+            "words": 1568
+          },
+          {
+            "id": 2271,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "tangeh-lili-gorge-doroud",
+            "title": "تنگه لی لی (سورپیلو)",
+            "modified_gmt": "2026-10-16 11:29:15",
+            "link": "https://sarzaminaryan.ir/attraction/tangeh-lili-gorge-doroud/",
+            "words": 2022
+          },
+          {
+            "id": 2270,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "aznadar-waterfall-doroud",
+            "title": "آبشار ازنادر (دره اسپر)",
+            "modified_gmt": "2026-10-16 11:29:10",
+            "link": "https://sarzaminaryan.ir/attraction/aznadar-waterfall-doroud/",
+            "words": 1594
+          },
+          {
+            "id": 2269,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "azgan-wetland-dorud",
+            "title": "تالاب ازگن (قارون)",
+            "modified_gmt": "2026-10-16 11:29:04",
+            "link": "https://sarzaminaryan.ir/attraction/azgan-wetland-dorud/",
+            "words": 1512
+          },
+          {
+            "id": 2262,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "gahar-lake-dorud",
+            "title": "دریاچه گهر",
+            "modified_gmt": "2026-10-16 11:28:48",
+            "link": "https://sarzaminaryan.ir/attraction/gahar-lake-dorud/",
+            "words": 2457
+          },
+          {
+            "id": 2347,
+            "type": "attraction",
+            "status": "publish",
+            "slug": "nozhian-waterfall-khorramabad",
+            "title": "آبشار نوژیان خرم‌آباد",
+            "modified_gmt": "2026-10-06 12:44:50",
+            "link": "https://sarzaminaryan.ir/attraction/nozhian-waterfall-khorramabad/",
+            "words": 2019
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T23:01:45+00:00"
+}
