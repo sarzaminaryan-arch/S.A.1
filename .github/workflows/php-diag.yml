@@ -1,7 +1,11 @@
 name: PHP test diagnostics (temporary)
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - "arena/**"
+    paths:
+      - ".github/workflows/php-diag.yml"
 
 permissions:
   contents: write
