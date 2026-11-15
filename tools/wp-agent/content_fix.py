@@ -98,6 +98,33 @@ def apply_rewrites(html: str, rewrites: list[tuple[str, str]], log: list[str]) -
         log.append("rewrite: " + norm(plain(old))[:90] + " -> " + norm(plain(new))[:90])
     return html
 
+# Unambiguous production notes: always removed.
+STRONG_NOTE_RE = re.compile(
+    r"پیش از انتشار|نسخهٔ انتشار|نسخه انتشار|بازبینی|این فهرست اولیه است|از تعمیم یک رسم|دادهٔ پایه|دادهٔ میراثی"
+    r"|اعداد بدون منبع"
+)
+# Advice addressed to the traveller («پیش از سفر وضعیت راه را بررسی کنید») and reader appeals are content.
+ADVICE_RE = re.compile(
+    r"پیش از (?:سفر|حرکت)|گزارش همان روز|وضعیت راه|آب[‌ ]?و[‌ ]?هوا|بهتر معرفی شود|راهنمای محلی|مسافر|گردشگر|بازدیدکننده"
+)
+
+
+def is_note(text: str) -> bool:
+    if STRONG_NOTE_RE.search(text):
+        return True
+    return bool(NOTE_RE.search(text)) and not ADVICE_RE.search(text)
+
+
+def find_notes(text: str) -> list[str]:
+    """Note sentences/clauses in plain text (used by the audit)."""
+    out = []
+    for piece in re.split(r"(?<=[.!?؟])\s+|؛", text):
+        if piece.strip() and is_note(piece):
+            m = STRONG_NOTE_RE.search(piece) or NOTE_RE.search(piece)
+            out.append(m.group(0) if m else piece[:60])
+    return out
+
+
 SUP_RE = re.compile(r"<sup\b[^>]*>.*?</sup>", re.S | re.I)
 TAG_RE = re.compile(r"<[^>]+>")
 BLOCK_RE = re.compile(
@@ -146,10 +173,10 @@ def _strip_note_clauses(sentence: str, log: list[str]) -> str:
     sups = _sups(sentence)
     body = re.sub(r"\s*\x02\d+\x03", "", sentence).strip()
     parts = body.split("؛")
-    if NOTE_RE.search(_visible(parts[0])):
+    if is_note(_visible(parts[0])):
         # «X از آثار … است و اطلاعات ثبت … باید کنترل شود» -> keep the fact before «است و»
         m = re.match(r"(.+?(?:است|هستند|اند|‌اند|دارد))\s+و\s+(.+)$", parts[0], re.S)
-        if m and not NOTE_RE.search(_visible(m.group(1))) and NOTE_RE.search(_visible(m.group(2))):
+        if m and not is_note(_visible(m.group(1))) and is_note(_visible(m.group(2))):
             log.append("note tail: و " + _visible(m.group(2))[:140])
             parts[0] = m.group(1)
             if len(parts) == 1:
@@ -159,7 +186,7 @@ def _strip_note_clauses(sentence: str, log: list[str]) -> str:
             return ""
     kept = [parts[0]]
     for part in parts[1:]:
-        if NOTE_RE.search(_visible(part)):
+        if is_note(_visible(part)):
             log.append("note clause: ؛" + _visible(part)[:140])
         else:
             kept.append(part)
@@ -211,7 +238,7 @@ def clean(html: str, rewrites: list[tuple[str, str]] | None = None) -> tuple[str
         masked, store = _mask(inner)
         if tag == "li":
             vis = _visible(masked)
-            if NOTE_RE.search(vis):
+            if is_note(vis):
                 log.append("note item: " + vis[:140])
                 continue
             if vis.rstrip(" .") + "." in seen_sent or vis in seen_sent or vis.rstrip(" .") in seen_clause:

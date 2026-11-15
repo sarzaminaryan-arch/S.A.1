@@ -162,10 +162,10 @@ def analyze_page(snap: dict) -> dict:
     body_html = re.sub(r"<h[1-6]\b[^>]*>.*?</h[1-6]>", "\n", snap.get("content", "") or "", flags=re.S)
     text = plain(body_html)
     try:
-        from content_fix import NOTE_RE  # lazy: content_fix imports this module
+        from content_fix import find_notes  # lazy: content_fix imports this module
     except ImportError:  # pragma: no cover
-        NOTE_RE = None
-    notes = NOTE_RE.findall(norm(text)) if NOTE_RE else []
+        find_notes = None
+    notes = find_notes(norm(text)) if find_notes else []
     sents = sentences(text)
     normed = [norm(s) for s in sents]
     dups = [s for s, n in Counter(normed).items() if n > 1]

@@ -46,4 +46,9 @@ try:
     raise SystemExit("rewrite with no match must fail")
 except ValueError:
     pass
+assert not cf.is_note("پیش از سفر باید وضعیت راه و آب‌وهوا بررسی شود")
+assert not cf.is_note("اگر فکر می‌کنید جاذبه‌ای باید بهتر معرفی شود، بنویسید")
+assert cf.is_note("ساعت بازدید هر جاذبه باید پیش از انتشار و سفر از مرجع محلی بررسی شود")
+assert cf.is_note("داده‌های اشتغال باید از منابع رسمی و با سال مرجع نقل شوند")
+assert cf.find_notes("متن عادی است. نام مرکز پیش از انتشار باید تطبیق شود.") == ["پیش از انتشار"]
 print("OK: content_fix", len(log), "changes")
