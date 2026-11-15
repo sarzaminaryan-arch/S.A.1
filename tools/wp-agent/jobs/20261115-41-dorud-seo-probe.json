@@ -1,0 +1,24 @@
+{
+  "note": "بررسی عمومی و فقط‌خواندنی سئوی صفحهٔ اصلی دورود و مقصدهای داخلیِ نامزد برای نمونه؛ هیچ تغییری در سایت اعمال نمی‌شود.",
+  "steps": [
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/dorud/",
+        "/province/lorestan/",
+        "/attraction/gahar-lake-dorud/",
+        "/attraction/bisheh-waterfall-dorud/",
+        "/attraction/tangeh-lili-gorge-doroud/",
+        "/attraction/nigah-valley-dorud/",
+        "/attraction/azgan-wetland-dorud/",
+        "/attraction/aznadar-waterfall-doroud/",
+        "/attraction/babahur-forest-park-dorud/",
+        "/attraction/shevi-waterfall-tele-zang/",
+        "/camping-essential-checklist/",
+        "/gps-navigation-tools/",
+        "/choosing-campsite/",
+        "/ankle-sprain-first-aid/"
+      ]
+    }
+  ]
+}
