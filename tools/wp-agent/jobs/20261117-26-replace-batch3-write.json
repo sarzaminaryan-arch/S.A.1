@@ -1,0 +1,122 @@
+{
+  "note": "دستهٔ ۳ جایگزینی (۱۰ صفحه؛ تأیید مالک ۱۵ نوامبر و «ادامه بده»): پنج صفحهٔ کار ۱۸ (قزوین، اسلامشهر، زنجان، مرودشت، کازرون) بخش «سال‌های اخیر» می‌گیرند تا حجم حذف‌شده جبران شود؛ پنج صفحهٔ نگه‌داشته‌شدهٔ کار ۲۲ (اردبیل، سلماس، ممسنی، کوهدشت، خدابنده) هم‌زمان پاک‌سازی تکرار و متن اول‌شخص مستند می‌گیرند. کار ۲۲ با این کار جایگزین شده و نباید اجرا شود. حجم هر مقاله ≥ نسخهٔ اصلی. نشانی و عنوان بدون تغییر. اگر probe ناسالم باشد همهٔ پشتیبان‌های همین کار برگردانده می‌شوند.",
+  "not_before": "2026-11-17T06:00:00Z",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 352,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/qazvin-352.html",
+      "expected_modified_gmt": "2026-11-15 09:48:53",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده در کار ۱۸؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 219,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/eslamshahr-219.html",
+      "expected_modified_gmt": "2026-11-15 09:48:55",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده در کار ۱۸؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 81,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/zanjan-81.html",
+      "expected_modified_gmt": "2026-11-15 09:48:57",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده در کار ۱۸؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 324,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/marvdasht-324.html",
+      "expected_modified_gmt": "2026-11-15 09:49:03",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده در کار ۱۸؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 325,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/kazerun-325.html",
+      "expected_modified_gmt": "2026-11-15 09:49:06",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند، جبران حجم حذف‌شده در کار ۱۸؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 141,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/ardabil-141.html",
+      "expected_modified_gmt": "2026-10-24 00:59:02",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): حذف جملات تکراری (جایگزین کار نگه‌داشته‌شدهٔ ۲۲) و افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ حجم ≥ نسخهٔ اصلی؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 135,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/salmas-135.html",
+      "expected_modified_gmt": "2026-10-07 20:12:10",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): حذف جملات تکراری (جایگزین کار نگه‌داشته‌شدهٔ ۲۲) و افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ حجم ≥ نسخهٔ اصلی؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 331,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/mamasani-331.html",
+      "expected_modified_gmt": "2026-10-03 20:26:02",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): حذف جملات تکراری (جایگزین کار نگه‌داشته‌شدهٔ ۲۲) و افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ حجم ≥ نسخهٔ اصلی؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 517,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/kuhdasht-517.html",
+      "expected_modified_gmt": "2026-10-24 01:42:39",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): حذف جملات تکراری (جایگزین کار نگه‌داشته‌شدهٔ ۲۲) و افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ حجم ≥ نسخهٔ اصلی؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "update",
+      "id": 82,
+      "content_file": "tools/wp-agent/outbox/20261117-replace-batch3/khodabandeh-82.html",
+      "expected_modified_gmt": "2026-10-07 20:12:17",
+      "owner_approved_live_edit": true,
+      "reason": "دستهٔ ۳ جایگزینی (تأیید مالک): حذف جملات تکراری (جایگزین کار نگه‌داشته‌شدهٔ ۲۲) و افزودن بخش «سال‌های اخیر» با متن اول‌شخص مستند؛ حجم ≥ نسخهٔ اصلی؛ نشانی و عنوان بدون تغییر"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        352,
+        219,
+        81,
+        324,
+        325,
+        141,
+        135,
+        331,
+        517,
+        82
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/qazvin/?sa_probe=4",
+        "/city/eslamshahr/?sa_probe=4",
+        "/city/zanjan/?sa_probe=4",
+        "/city/marvdasht/?sa_probe=4",
+        "/city/kazerun/?sa_probe=4",
+        "/city/ardabil/?sa_probe=4",
+        "/city/salmas/?sa_probe=4",
+        "/city/mamasani/?sa_probe=4",
+        "/city/kuhdasht/?sa_probe=4",
+        "/city/khodabandeh/?sa_probe=4"
+      ]
+    },
+    {
+      "cmd": "content-audit",
+      "type": "city",
+      "workers": 4
+    }
+  ]
+}
