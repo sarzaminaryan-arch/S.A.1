@@ -22,6 +22,43 @@ assert wa.unhealthy_pages([{**ok, "status": 500}])
 assert wa.unhealthy_pages([{**ok, "robots": "noindex, follow"}])
 assert wa.unhealthy_pages([{**ok, "h1": 2}])
 
+# 2b. A slow public page can use an explicit, bounded timeout without changing defaults.
+argv = wa.step_to_argv({"cmd": "probe", "url": ["/city/dorud/"], "timeout": 90})
+args = wa.build_parser().parse_args(argv)
+assert args.timeout == 90
+assert wa.build_parser().parse_args(["probe", "--url", "/city/dorud/"]).timeout == 40
+assert wa._parse_probe_timeout("40") == 40
+try:
+    wa._parse_probe_timeout("181")
+except wa.argparse.ArgumentTypeError:
+    pass
+else:
+    raise AssertionError("probe timeout must be bounded")
+
+seen = {}
+
+class FakeResponse:
+    status = 200
+    headers = {"Content-Type": "text/html; charset=UTF-8"}
+
+    def read(self):
+        return "<html><head><title>دورود</title></head><body><h1>دورود</h1></body></html>".encode()
+
+
+class FakeOpener:
+    def open(self, req, timeout):
+        seen["timeout"] = timeout
+        return FakeResponse()
+
+
+original_build_opener = wa.urllib.request.build_opener
+wa.urllib.request.build_opener = lambda *_args, **_kwargs: FakeOpener()
+try:
+    assert wa.probe_url("https://example.test/city/dorud/", timeout=90)["status"] == 200
+finally:
+    wa.urllib.request.build_opener = original_build_opener
+assert seen["timeout"] == 90
+
 
 # 3. A failing probe in a rollback_on_fail job restores every backup of that job, newest first.
 class FakeClient:
@@ -44,7 +81,7 @@ class FakeClient:
 
 
 wa.save_local_backup = lambda name, data: wa.REPO_ROOT / "backup" / "test"  # no disk writes in tests
-wa.probe_url = lambda url: {"url": url, "status": 200, "title": "t", "robots": "noindex", "h1": 1}
+wa.probe_url = lambda url, timeout=40: {"url": url, "status": 200, "title": "t", "robots": "noindex", "h1": 1}
 with tempfile.TemporaryDirectory() as d:
     html = Path(d) / "a.html"
     html.write_text("<p>متن</p>", encoding="utf-8")

@@ -318,13 +318,24 @@ class _NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
-def probe_url(url: str) -> dict:
+def _parse_probe_timeout(value: str) -> int:
+    """Parse a finite public-probe timeout (1–180 seconds)."""
+    try:
+        timeout = int(value)
+    except ValueError as err:
+        raise argparse.ArgumentTypeError("timeout must be an integer") from err
+    if not 1 <= timeout <= 180:
+        raise argparse.ArgumentTypeError("timeout must be between 1 and 180 seconds")
+    return timeout
+
+
+def probe_url(url: str, timeout: int = 40) -> dict:
     """One public GET without following redirects; for HTML pages also fetch og:image."""
     opener = urllib.request.build_opener(_NoRedirect)
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; sa-seo-scan/1.0)", "Accept-Language": "fa"})
     t0 = time.time()
     try:
-        resp = opener.open(req, timeout=40)
+        resp = opener.open(req, timeout=timeout)
         status, headers, body = resp.status, {k.lower(): v for k, v in resp.headers.items()}, resp.read()
     except urllib.error.HTTPError as err:
         status, headers, body = err.code, {k.lower(): v for k, v in (err.headers or {}).items()}, b""
@@ -395,6 +406,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--types", default="post,page,province,city,attraction,travel_route,local_food,souvenir")
     p = sub.add_parser("probe", help="read-only public check of given URLs (no redirect following; og:image fetched)")
     p.add_argument("--url", action="append", default=[], help="path or full URL on the site")
+    p.add_argument("--timeout", type=_parse_probe_timeout, default=40, help="page request timeout in seconds (1–180; default 40)")
     p = sub.add_parser("seo-scan", help="read-only public crawl of published URLs (no credentials)")
     p.add_argument("--types", default="post,page,province,city,attraction")
     p.add_argument("--extra", action="append", default=[], help="extra public URL (robots.txt, sitemap, ...)")
@@ -552,7 +564,7 @@ def run(a: argparse.Namespace, c: "Client"):
         return report
     elif a.cmd == "probe":
         site = c.base.split("/wp-json/")[0]
-        return {"probes": [probe_url(u if u.startswith("http") else site + u) for u in a.url]}
+        return {"probes": [probe_url(u if u.startswith("http") else site + u, timeout=a.timeout) for u in a.url]}
     elif a.cmd == "seo-scan":
         urls: list[str] = []
         for ptype in [t.strip() for t in a.types.split(",") if t.strip()]:
