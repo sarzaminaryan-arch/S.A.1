@@ -422,6 +422,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--meta-file")
     p.add_argument("--reason", default="به‌روزرسانی ایجنت")
     p.add_argument("--owner-approved-live-edit", action="store_true")
+    p.add_argument("--expected-modified-gmt", help="refuse if the post changed since this snapshot (edit was prepared from it)")
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("restore")
@@ -591,6 +592,8 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("POST", f"/post/{a.id}/draft-copy", body={"fields": fields, "meta": read_json(a.meta_file)})
     elif a.cmd == "update":
         current = c.call("GET", f"/post/{a.id}")
+        if a.expected_modified_gmt and current.get("modified_gmt") != a.expected_modified_gmt:
+            raise AgentError(f"post {a.id} changed since the snapshot ({a.expected_modified_gmt} -> {current.get('modified_gmt')}); re-read and re-prepare")
         local = save_local_backup(f"post-{a.id}", current)
         print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
         fields = {k: v for k, v in {"title": a.title, "content": read_text(a.content_file), "excerpt": a.excerpt}.items() if v is not None}
