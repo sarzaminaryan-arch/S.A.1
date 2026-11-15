@@ -1,0 +1,58 @@
+{
+  "note": "پس از کار ۳۰ (قالب 2.22.79 نصب و سالم): نشست دیگری در کار ۲۹ خودش هر هفت صفحهٔ دستهٔ ۵ را منتشر کرده است. نسخه‌های زنده همه آزمون‌ها را می‌گذرانند و برای جلوگیری از بازنویسی پیاپی در دورهٔ Core Update نگه داشته می‌شوند. فقط دو اصلاح سنجیده اعمال می‌شود: شهر سده و همسایهٔ زیرکوه برای خواف، و همسایه‌های خلیل‌آباد و بردسکن برای کوهسرخ. بعد کش ده صفحه پاک می‌شود و probe بی‌کش و ممیزی اجرا می‌شود.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 1305,
+      "content_file": "tools/wp-agent/outbox/20261117-live-fix-batch5/khaf-1305.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-live-fix-batch5/khaf-1305.meta.json",
+      "expected_modified_gmt": "2026-11-15 13:50:42",
+      "owner_approved_live_edit": true,
+      "reason": "اصلاح واقعیت: شهر سده ششمین شهر شهرستان خواف است (جعبه و مقدمهٔ ویکی‌پدیای شهرستان خواف) و زیرکوه همسایهٔ جنوبی است؛ فقط همین سه عبارت و دو کلید متا"
+    },
+    {
+      "cmd": "update",
+      "id": 1320,
+      "meta_file": "tools/wp-agent/outbox/20261117-live-fix-batch5/kuhsorkh-1320.meta.json",
+      "expected_modified_gmt": "2026-11-15 13:50:45",
+      "owner_approved_live_edit": true,
+      "reason": "تکمیل همسایه‌های کوهسرخ: خلیل‌آباد و بردسکن در جنوب‌غرب (ویکی‌پدیا)؛ فقط متا"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        1308,
+        1312,
+        1307,
+        1303,
+        1305,
+        1320,
+        276,
+        220,
+        528,
+        221
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/dargaz/?sa_probe=5",
+        "/city/sheshtamad/?sa_probe=5",
+        "/city/davarzan/?sa_probe=5",
+        "/city/jovein/?sa_probe=5",
+        "/city/khaf/?sa_probe=5",
+        "/city/kuhsorkh/?sa_probe=5",
+        "/city/bagh-e-malek/?sa_probe=5",
+        "/city/baharestan/?sa_probe=5",
+        "/city/amol/?sa_probe=5",
+        "/city/pakdasht/?sa_probe=5"
+      ]
+    },
+    {
+      "cmd": "content-audit",
+      "type": "city",
+      "workers": 4
+    }
+  ]
+}
