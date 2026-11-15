@@ -1,0 +1,122 @@
+[
+ {
+  "slug": "ahvaz",
+  "id": 271,
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_before": 1024,
+  "words_after": 598,
+  "dup_before": 2,
+  "dup_after": 0,
+  "notes_before": 39,
+  "notes_after": 0,
+  "changes": 44
+ },
+ {
+  "slug": "qazvin",
+  "id": 352,
+  "modified_gmt": "2026-10-24 00:59:02",
+  "words_before": 1165,
+  "words_after": 1156,
+  "dup_before": 1,
+  "dup_after": 0,
+  "notes_before": 0,
+  "notes_after": 0,
+  "changes": 1
+ },
+ {
+  "slug": "eslamshahr",
+  "id": 219,
+  "modified_gmt": "2026-10-24 00:59:04",
+  "words_before": 773,
+  "words_after": 764,
+  "dup_before": 1,
+  "dup_after": 0,
+  "notes_before": 0,
+  "notes_after": 0,
+  "changes": 5
+ },
+ {
+  "slug": "zanjan",
+  "id": 81,
+  "modified_gmt": "2026-10-24 00:59:03",
+  "words_before": 1119,
+  "words_after": 1093,
+  "dup_before": 1,
+  "dup_after": 0,
+  "notes_before": 0,
+  "notes_after": 0,
+  "changes": 2
+ },
+ {
+  "slug": "dezful",
+  "id": 282,
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_before": 1041,
+  "words_after": 577,
+  "dup_before": 3,
+  "dup_after": 0,
+  "notes_before": 42,
+  "notes_after": 0,
+  "changes": 48
+ },
+ {
+  "slug": "bojnord",
+  "id": 71,
+  "modified_gmt": "2026-11-10 23:20:58",
+  "words_before": 1011,
+  "words_after": 577,
+  "dup_before": 2,
+  "dup_after": 0,
+  "notes_before": 40,
+  "notes_after": 0,
+  "changes": 44
+ },
+ {
+  "slug": "marvdasht",
+  "id": 324,
+  "modified_gmt": "2026-10-03 20:26:49",
+  "words_before": 1108,
+  "words_after": 1090,
+  "dup_before": 2,
+  "dup_after": 0,
+  "notes_before": 0,
+  "notes_after": 0,
+  "changes": 2
+ },
+ {
+  "slug": "abadan",
+  "id": 269,
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_before": 1078,
+  "words_after": 635,
+  "dup_before": 3,
+  "dup_after": 0,
+  "notes_before": 39,
+  "notes_after": 0,
+  "changes": 45
+ },
+ {
+  "slug": "kazerun",
+  "id": 325,
+  "modified_gmt": "2026-10-03 20:27:04",
+  "words_before": 1109,
+  "words_after": 1090,
+  "dup_before": 2,
+  "dup_after": 0,
+  "notes_before": 0,
+  "notes_after": 0,
+  "changes": 2
+ },
+ {
+  "slug": "izeh",
+  "id": 275,
+  "modified_gmt": "2026-11-10 23:26:55",
+  "words_before": 1013,
+  "words_after": 553,
+  "dup_before": 3,
+  "dup_after": 0,
+  "notes_before": 40,
+  "notes_after": 0,
+  "changes": 49
+ }
+]

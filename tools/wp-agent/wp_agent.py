@@ -138,7 +138,11 @@ def save_local_backup(name: str, data) -> Path:
 
 
 def read_text(path: str | None) -> str | None:
-    return None if not path else Path(path).read_text(encoding="utf-8")
+    # newline="" keeps CRLF exactly as stored, so a live update changes only what the editor changed.
+    if not path:
+        return None
+    with open(path, encoding="utf-8", newline="") as fh:
+        return fh.read()
 
 
 def read_json(path: str | None) -> dict:
@@ -422,6 +426,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--meta-file")
     p.add_argument("--reason", default="به‌روزرسانی ایجنت")
     p.add_argument("--owner-approved-live-edit", action="store_true")
+    p.add_argument("--expected-modified-gmt", help="refuse if the post changed since this snapshot (edit was prepared from it)")
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("restore")
@@ -591,6 +596,8 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("POST", f"/post/{a.id}/draft-copy", body={"fields": fields, "meta": read_json(a.meta_file)})
     elif a.cmd == "update":
         current = c.call("GET", f"/post/{a.id}")
+        if a.expected_modified_gmt and current.get("modified_gmt") != a.expected_modified_gmt:
+            raise AgentError(f"post {a.id} changed since the snapshot ({a.expected_modified_gmt} -> {current.get('modified_gmt')}); re-read and re-prepare")
         local = save_local_backup(f"post-{a.id}", current)
         print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
         fields = {k: v for k, v in {"title": a.title, "content": read_text(a.content_file), "excerpt": a.excerpt}.items() if v is not None}
@@ -749,7 +756,7 @@ def step_to_argv(step: dict) -> list[str]:
         raise AgentError("each step needs a cmd (run-job cannot nest)")
     argv = [cmd]
     for pos in ("id", "backup_id"):
-        if pos in step:
+        if pos in step and not isinstance(step[pos], list):  # a list of ids is a repeated --id flag
             argv.append(str(step.pop(pos)))
     for key, value in step.items():
         flag = "--" + key.replace("_", "-")
@@ -765,25 +772,74 @@ def step_to_argv(step: dict) -> list[str]:
     return argv
 
 
+def job_deferred(job: dict, now: datetime | None = None) -> bool:
+    """A job with `not_before` (ISO-8601 UTC) waits for a later run (daily page caps)."""
+    nb = job.get("not_before")
+    if not nb:
+        return False
+    when = datetime.fromisoformat(str(nb).replace("Z", "+00:00"))
+    if when.tzinfo is None:
+        when = when.replace(tzinfo=timezone.utc)
+    return (now or datetime.now(timezone.utc)) < when
+
+
+def unhealthy_pages(probes: list[dict]) -> list[str]:
+    """Live-edit health rule: 200, a title, `index` robots and exactly one H1 on every page."""
+    bad = []
+    for pr in probes:
+        url = pr.get("url", "?")
+        if int(pr.get("status") or 0) != 200 or not pr.get("title"):
+            bad.append(f"{url} status {pr.get('status')}")
+        elif "noindex" in str(pr.get("robots", "")):
+            bad.append(f"{url} robots {pr.get('robots')}")
+        elif pr.get("h1") is not None and int(pr.get("h1")) != 1:
+            bad.append(f"{url} h1 {pr.get('h1')}")
+    return bad
+
+
+def rollback(c: "Client", backup_ids: list[int]) -> list[dict]:
+    """Restore this job's server backups, newest first; never raises."""
+    out = []
+    for bid in reversed(backup_ids):
+        try:
+            out.append({"backup_id": bid, "result": c.call("POST", f"/restore/{bid}", body={})})
+        except AgentError as err:
+            out.append({"backup_id": bid, "error": str(err)})
+    return out
+
+
 def run_job(job_path: str, c: "Client") -> dict:
     """Run a job file (a list of steps); stop at the first refusal. Writes results/<name>.json."""
     path = (REPO_ROOT / job_path).resolve() if not Path(job_path).is_absolute() else Path(job_path)
     job = json.loads(path.read_text(encoding="utf-8"))
     steps = job.get("steps", job if isinstance(job, list) else [])
+    opts = job if isinstance(job, dict) else {}
+    if job_deferred(opts):
+        print(f"deferred {path.name}: not_before {opts['not_before']}", file=sys.stderr)
+        return {"deferred": True, "not_before": opts["not_before"]}
     parser = build_parser()
     report = {"job": str(path.relative_to(REPO_ROOT)) if REPO_ROOT in path.parents else str(path),
               "started_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-              "note": job.get("note", "") if isinstance(job, dict) else "", "ok": True, "steps": []}
+              "note": opts.get("note", ""), "ok": True, "steps": []}
+    backups: list[int] = []
     for i, step in enumerate(steps, 1):
         entry = {"n": i, "cmd": step.get("cmd")}
         try:
             entry["result"] = run(parser.parse_args(step_to_argv(step)), c)
+            if step.get("cmd") == "update" and isinstance(entry["result"], dict) and entry["result"].get("backup_id"):
+                backups.append(int(entry["result"]["backup_id"]))
+            if step.get("cmd") == "probe" and opts.get("rollback_on_fail"):
+                bad = unhealthy_pages(entry["result"].get("probes", []))
+                if bad:
+                    raise AgentError("post-change probe failed: " + "; ".join(bad))
         except (AgentError, SystemExit) as err:
             entry["error"] = str(err)
             report["ok"] = False
             report["steps"].append(entry)
             break
         report["steps"].append(entry)
+    if not report["ok"] and opts.get("rollback_on_fail") and backups:
+        report["rollback"] = rollback(c, backups)
     report["finished_utc"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     (RESULTS_DIR / path.name).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

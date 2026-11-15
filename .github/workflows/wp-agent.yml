@@ -8,6 +8,8 @@ name: WP agent (direct WordPress — drafts only, backup first)
 #   {"note": "...", "steps": [ {"cmd": "ping"},
 #                              {"cmd": "draft", "title": "...", "content_file": "tools/wp-agent/outbox/x.html"} ]}
 # A job runs once: any job that already has a result file is skipped.
+# `not_before` (ISO UTC) defers a job to a later run; `rollback_on_fail` restores every
+# backup the job made when a step fails or a post-change probe is unhealthy.
 # Steps stop at the first refusal. Server and runner both back up before every change;
 # the runner's local backups are uploaded as a private artifact (90 days).
 #
@@ -23,6 +25,10 @@ on:
       - "arena/**"
     paths:
       - "tools/wp-agent/jobs/**.json"
+  # Daily run on the default branch picks up jobs whose `not_before` has passed
+  # (e.g. the next batch of at most 10 live edits per day). Jobs without a result run once.
+  schedule:
+    - cron: "30 6 * * *"
   workflow_dispatch:
     inputs:
       job:
@@ -67,8 +73,10 @@ jobs:
 
       - name: "Self-test: tool compiles and content audit logic"
         run: |
-          python3 -m py_compile tools/wp-agent/wp_agent.py tools/wp-agent/content_audit.py
+          python3 -m py_compile tools/wp-agent/wp_agent.py tools/wp-agent/content_audit.py tools/wp-agent/content_fix.py
           python3 tools/wp-agent/test_content_audit.py
+          python3 tools/wp-agent/test_content_fix.py
+          python3 tools/wp-agent/test_wp_agent_jobs.py
 
       - name: Run pending jobs
         env:
