@@ -1,0 +1,29 @@
+{
+  "note": "آزمون زنده پس از نصب 2.22.74 و کارهای ۰۷: ۳۰۱ نشانی‌های زباله‌دان‌شده، کارت og، و بررسی‌های 2.22.73 (فقط خواندن، بی‌رمز)",
+  "steps": [
+    {
+      "cmd": "probe",
+      "url": [
+        "/",
+        "/city/isfahan/",
+        "/city/borazjan/",
+        "/attraction/tabas-attractions/",
+        "/city/savojbolagh/",
+        "/city/isfahan-city/",
+        "/city/dashtestan/",
+        "/city/tabas/",
+        "/city/savojablogh/",
+        "/attraction/naqsh-e-jahan-square-isfahan/",
+        "/attraction/si-o-se-pol/",
+        "/attraction/vank-cathedral/",
+        "/attraction/shah-cheragh/",
+        "/editorial-policy/",
+        "/llms.txt",
+        "/route/",
+        "/this-page-does-not-exist-sa-404/",
+        "/wp-sitemap-posts-city-1.xml",
+        "/robots.txt"
+      ]
+    }
+  ]
+}

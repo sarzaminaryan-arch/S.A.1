@@ -170,11 +170,16 @@ class _SeoParser(html.parser.HTMLParser):
         self._skip = 0
         self.hreflang = 0
         self.lazy_imgs = 0
+        self._svg = 0
+        self._title_done = False
 
     def handle_starttag(self, tag, attrs):
         a = {k.lower(): (v or "") for k, v in attrs}
+        if tag == "svg":
+            self._svg += 1
         if tag == "title":
-            self._in_title = True
+            # Only the document <title>; <title> inside inline SVG (province map) is a tooltip.
+            self._in_title = not self._svg and not self._title_done
         elif tag == "meta":
             key = (a.get("name") or a.get("property") or "").lower()
             if key:
@@ -206,7 +211,11 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
+        if tag == "svg" and self._svg:
+            self._svg -= 1
         if tag == "title":
+            if self._in_title:
+                self._title_done = True
             self._in_title = False
         elif tag == "script" and self._in_jsonld:
             self._in_jsonld = False
@@ -280,6 +289,67 @@ def scan_url(url: str) -> dict:
     }
 
 
+class _NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):  # noqa: D102
+        return None
+
+
+def probe_url(url: str) -> dict:
+    """One public GET without following redirects; for HTML pages also fetch og:image."""
+    opener = urllib.request.build_opener(_NoRedirect)
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; sa-seo-scan/1.0)", "Accept-Language": "fa"})
+    t0 = time.time()
+    try:
+        resp = opener.open(req, timeout=40)
+        status, headers, body = resp.status, {k.lower(): v for k, v in resp.headers.items()}, resp.read()
+    except urllib.error.HTTPError as err:
+        status, headers, body = err.code, {k.lower(): v for k, v in (err.headers or {}).items()}, b""
+    except Exception as err:  # noqa: BLE001
+        return {"url": url, "status": 0, "error": str(err)[:200]}
+    out = {"url": url, "status": status, "ms": int((time.time() - t0) * 1000),
+           "location": headers.get("location", ""), "cache": headers.get("x-litespeed-cache", ""),
+           "content_type": headers.get("content-type", "")}
+    if status != 200 or "html" not in out["content_type"]:
+        if status == 200:
+            out["bytes"] = len(body)
+            out["head"] = body[:300].decode("utf-8", "replace")
+        return out
+    p = _SeoParser()
+    try:
+        p.feed(body.decode("utf-8", "replace"))
+    except Exception:  # noqa: BLE001
+        pass
+    og = {k: v for k, v in p.meta.items() if k.startswith("og:") or k.startswith("twitter:")}
+    out.update({"title": p.title.strip(), "robots": p.meta.get("robots", ""), "canonical": p.canonical,
+                "desc": p.meta.get("description", ""), "og": og})
+    img = og.get("og:image", "")
+    if img:
+        try:
+            with urllib.request.urlopen(urllib.request.Request(img, headers={"User-Agent": "Mozilla/5.0 (compatible; sa-seo-scan/1.0)"}), timeout=40) as r2:
+                data = r2.read()
+                w = h = 0
+                if data[:2] == b"\xff\xd8":  # JPEG: read SOF size
+                    i = 2
+                    while i < len(data) - 9:
+                        if data[i] != 0xFF:
+                            i += 1
+                            continue
+                        marker = data[i + 1]
+                        if marker in (0xC0, 0xC1, 0xC2):
+                            h, w = int.from_bytes(data[i + 5:i + 7], "big"), int.from_bytes(data[i + 7:i + 9], "big")
+                            break
+                        i += 2 + int.from_bytes(data[i + 2:i + 4], "big")
+                elif data[:8] == b"\x89PNG\r\n\x1a\n":
+                    w, h = int.from_bytes(data[16:20], "big"), int.from_bytes(data[20:24], "big")
+                out["og_image_fetch"] = {"status": r2.status, "type": r2.headers.get("content-type", ""),
+                                         "bytes": len(data), "width": w, "height": h}
+        except urllib.error.HTTPError as err:
+            out["og_image_fetch"] = {"status": err.code}
+        except Exception as err:  # noqa: BLE001
+            out["og_image_fetch"] = {"status": 0, "error": str(err)[:200]}
+    return out
+
+
 def seo_scan(urls: list[str], workers: int = 4) -> list[dict]:
     with ThreadPoolExecutor(max_workers=workers) as pool:
         return list(pool.map(scan_url, urls))
@@ -299,6 +369,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--page", type=int, default=1)
     p = sub.add_parser("inventory", help="every item of the given types (all statuses), paginated")
     p.add_argument("--types", default="post,page,province,city,attraction,travel_route,local_food,souvenir")
+    p = sub.add_parser("probe", help="read-only public check of given URLs (no redirect following; og:image fetched)")
+    p.add_argument("--url", action="append", default=[], help="path or full URL on the site")
     p = sub.add_parser("seo-scan", help="read-only public crawl of published URLs (no credentials)")
     p.add_argument("--types", default="post,page,province,city,attraction")
     p.add_argument("--extra", action="append", default=[], help="extra public URL (robots.txt, sitemap, ...)")
@@ -381,6 +453,9 @@ def run(a: argparse.Namespace, c: "Client"):
                 page += 1
             report[ptype] = {"total": len(items), "items": items}
         return report
+    elif a.cmd == "probe":
+        site = c.base.split("/wp-json/")[0]
+        return {"probes": [probe_url(u if u.startswith("http") else site + u) for u in a.url]}
     elif a.cmd == "seo-scan":
         urls: list[str] = []
         for ptype in [t.strip() for t in a.types.split(",") if t.strip()]:

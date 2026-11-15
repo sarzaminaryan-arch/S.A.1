@@ -1,0 +1,54 @@
+{
+  "note": "پیش‌نیاز زباله‌دان: دیدنی‌های میدان نقش جهان (۲۳۵۴، وصل به تکراری ۱۵۳) و سی‌وسه‌پل (۳۱۱۸، وصل به پیش‌نویس ۲۳۵۳) به شهرستان اصلی ۳۴۲۹ وصل می‌شوند (فقط متای sa_city_id، با پشتیبان). سپس زباله‌دان ۲۵۷۰، ۲۰۲، ۱۵۳ (زباله‌دان ۲۵۷۰ کش روابط را خالی می‌کند)، و روشن‌کردن خزندهٔ LiteSpeed.",
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 2354,
+      "meta_file": "tools/wp-agent/outbox/20261115-city-isfahan-3429.json",
+      "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: اتصال نقش جهان به شهرستان اصلی اصفهان (۳۴۲۹) پیش از زباله‌دان نسخهٔ تکراری ۱۵۳"
+    },
+    {
+      "cmd": "update",
+      "id": 3118,
+      "meta_file": "tools/wp-agent/outbox/20261115-city-isfahan-3429.json",
+      "reason": "اصلاح رابطه: سی‌وسه‌پل به پیش‌نویس ۲۳۵۳ وصل بود؛ به شهرستان منتشرشدهٔ اصفهان (۳۴۲۹)"
+    },
+    {
+      "cmd": "trash",
+      "id": 2570,
+      "owner_approved_trash": true,
+      "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: نسخهٔ تکراری tabas-attractions پشت ۳۰۱ به city/tabas"
+    },
+    {
+      "cmd": "trash",
+      "id": 202,
+      "owner_approved_trash": true,
+      "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: نسخهٔ تکراری borazjan پشت ۳۰۱ به dashtestan"
+    },
+    {
+      "cmd": "trash",
+      "id": 153,
+      "owner_approved_trash": true,
+      "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: نسخهٔ تکراری isfahan پشت ۳۰۱ به isfahan-city"
+    },
+    {
+      "cmd": "litespeed",
+      "set": [
+        "crawler=true",
+        "crawler-sitemap=https://sarzaminaryan.ir/wp-sitemap.xml"
+      ],
+      "reason": "دستور مالک ۲۰۲۶-۱۱-۱۵: خزندهٔ کش (استاندارد سرعت گوگل)؛ فاصله و سقف بار پیش‌فرض"
+    },
+    {
+      "cmd": "litespeed"
+    },
+    {
+      "cmd": "get",
+      "id": 2354
+    },
+    {
+      "cmd": "get",
+      "id": 3118
+    }
+  ]
+}

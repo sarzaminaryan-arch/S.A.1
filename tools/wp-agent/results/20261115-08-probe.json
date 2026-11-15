@@ -1,0 +1,461 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-08-probe.json",
+  "started_utc": "2026-11-15T05:19:16+00:00",
+  "note": "آزمون زنده پس از نصب 2.22.74 و کارهای ۰۷: ۳۰۱ نشانی‌های زباله‌دان‌شده، کارت og، و بررسی‌های 2.22.73 (فقط خواندن، بی‌رمز)",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 2162,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیکآذربایجان شرقیآذربایجان غربیاردبیلاصفهانالبرزایلامبوشهرتهرانچهارمحال و بختیاریخراسان جنوبیخراسان رضویخراسان شمالیخوزستانزنجانسمنانسیستان و بلوچستانفارسقزوینقمکردستانکرمانکرمانشاهکهگیلویه و بویراحمدگلستانگیلانلرستانمازندرانمرکزیهرمزگانهمدانیزد",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan/",
+            "status": 301,
+            "ms": 743,
+            "location": "/city/isfahan-city/",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/borazjan/",
+            "status": 301,
+            "ms": 654,
+            "location": "/city/dashtestan/",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/tabas-attractions/",
+            "status": 301,
+            "ms": 724,
+            "location": "/city/tabas/",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/savojbolagh/",
+            "status": 301,
+            "ms": 685,
+            "location": "/city/savojablogh/",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1126,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای سفر شهرستان اصفهان در استان اصفهان: شناسنامهٔ شهرستان، بهترین فصل سفر، وضعیت جاده و پارکینگ و جاهایی که مسافرها زیاد می‌روند.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+              "og:description": "راهنمای سفر شهرستان اصفهان در استان اصفهان: شناسنامهٔ شهرستان، بهترین فصل سفر، وضعیت جاده و پارکینگ و جاهایی که مسافرها زیاد می‌روند.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dashtestan/",
+            "status": 200,
+            "ms": 1139,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان دشتستان؛ راهنمای سفر، جاذبه‌ها و تاریخ بوشهر | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/dashtestan/",
+            "desc": "شهرستان دشتستان بزرگ‌ترین شهرستان استان بوشهر است؛ پهنه‌ای در شرق استان با ۶٬۳۲۷ کیلومتر مربع وسعت، شش بخش، نخلستان‌های خرما و مرکزیت برازجان.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان دشتستان — بزرگ‌ترین پهنهٔ بوشهر",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان دشتستان باید بدانید؛ از نخلستان‌های خرما و شهرهای آب‌پخش و شبانکاره تا دژ برازجان.",
+              "og:url": "https://sarzaminaryan.ir/city/dashtestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-212-f21ffb2d90.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان دشتستان — بزرگ‌ترین پهنهٔ بوشهر",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان دشتستان — بزرگ‌ترین پهنهٔ بوشهر"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44936,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/tabas/",
+            "status": 200,
+            "ms": 1585,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان طبس؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان جنوبی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/tabas/",
+            "desc": "شهرستان طبس در غرب استان خراسان جنوبی جای دارد و مرکز آن شهر طبس است؛ شهری کویری که سومین شهر مهم استان شمرده می‌شود. طبس پیش از سال ۱۳۸۰ بخشی از استان",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان طبس — سرزمین آریان",
+              "og:description": "شهرستان طبس در غرب استان خراسان جنوبی جای دارد و مرکز آن شهر طبس است؛ شهری کویری که سومین شهر مهم استان شمرده می‌شود. طبس پیش از سال ۱۳۸۰ بخشی از استان…",
+              "og:url": "https://sarzaminaryan.ir/city/tabas/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-242-25da9af19f.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان طبس — سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان طبس — سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43728,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/savojablogh/",
+            "status": 200,
+            "ms": 1009,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان ساوجبلاغ؛ راهنمای سفر، جاذبه‌ها و تاریخ البرز | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/savojablogh/",
+            "desc": "شهرستان ساوجبلاغ با دشت وسیع، کوه‌های بلند و روستاهای ییلاقی، پهنهٔ مرکزی استان البرز است؛ هشتگرد مرکز آن و مهستان شهر جدید آن است.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان ساوجبلاغ — چشمه‌های آب سرد البرز",
+              "og:description": "هر آنچه پیش از سفر به شهرستان ساوجبلاغ باید بدانید؛ از وجه تسمیهٔ نام تا روستاهای ییلاقی بخش چندار.",
+              "og:url": "https://sarzaminaryan.ir/city/savojablogh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-184-72951eb16d.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان ساوجبلاغ — چشمه‌های آب سرد البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان ساوجبلاغ — چشمه‌های آب سرد البرز"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 45256,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/naqsh-e-jahan-square-isfahan/",
+            "status": 200,
+            "ms": 1030,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "میدان نقش جهان اصفهان | تاریخ و راهنمای بازدید",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/naqsh-e-jahan-square-isfahan/",
+            "desc": "راهنمای میدان نقش جهان اصفهان؛ تاریخ شکل‌گیری در دورهٔ صفوی، مسجد امام، شیخ لطف‌الله، عالی‌قاپو و بازار قیصریه، مسیر بازدید و نکات کاربردی.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "میدان نقش جهان؛ چهار بنای شاخص در قلب اصفهان",
+              "og:description": "از مسجد امام و شیخ لطف‌الله تا عالی‌قاپو و بازار قیصریه؛ راهنمای گشت در میدان نقش جهان.",
+              "og:url": "https://sarzaminaryan.ir/attraction/naqsh-e-jahan-square-isfahan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2354-10ff733b24.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "میدان نقش جهان؛ چهار بنای شاخص در قلب اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "میدان نقش جهان؛ چهار بنای شاخص در قلب اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 45265,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+            "status": 200,
+            "ms": 962,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سی‌وسه‌پل اصفهان | راهنمای بازدید و بهترین ساعت عکاسی",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+            "desc": "راهنمای سی‌وسه‌پل اصفهان: پیشینهٔ صفوی، معماری ۳۳ دهانه، جریان فصلی زاینده‌رود، بهترین ساعت عکاسی، مسیر چهارباغ و نکات بازدید با کودکان.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان",
+              "og:description": "راهنمای بازدید از سی‌وسه‌پل اصفهان؛ معماری، بهترین ساعت عکاسی و مسیرهای اطراف.",
+              "og:url": "https://sarzaminaryan.ir/attraction/si-o-se-pol/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-3118-dfac9e4a98.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سی‌وسه‌پل؛ بلندترین پل تاریخی اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 40492,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/vank-cathedral/",
+            "status": 200,
+            "ms": 1085,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "کلیسای وانک اصفهان | راهنمای بازدید و نقاشی‌های دیواری",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/vank-cathedral/",
+            "desc": "راهنمای کلیسای وانک اصفهان: معماری، نقاشی‌های دیواری، موزه و کتابخانه، مسیر دسترسی در جلفای نو، زمان پیشنهادی بازدید و نکات احترام به فضای عبادی.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "کلیسای وانک؛ نگین جلفای نو اصفهان",
+              "og:description": "راهنمای بازدید از کلیسای وانک اصفهان؛ نقاشی‌های دیواری، موزه و نکات کاربردی سفر.",
+              "og:url": "https://sarzaminaryan.ir/attraction/vank-cathedral/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-3332-131b13d6bb.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "کلیسای وانک؛ نگین جلفای نو اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "کلیسای وانک؛ نگین جلفای نو اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 42305,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/shah-cheragh/",
+            "status": 200,
+            "ms": 1241,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "حرم شاهچراغ شیراز | راهنمای زیارت، آداب و مسیر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/shah-cheragh/",
+            "desc": "راهنمای زیارت حرم شاهچراغ شیراز: پیشینهٔ زیارتگاه، معماری گنبد و رواق‌های آینه‌کاری، آداب و پوشش، ساعت بازدید، مسیر دسترسی و نکات رعایت حریم مجموعه.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "حرم شاهچراغ شیراز؛ زیارتگاه گنبد فیروزه‌ای",
+              "og:description": "راهنمای بازدید از حرم شاهچراغ در شیراز: آداب زیارت، ساعت بازدید و نکات کاربردی سفر.",
+              "og:url": "https://sarzaminaryan.ir/attraction/shah-cheragh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-3330-f258cb441b.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "حرم شاهچراغ شیراز؛ زیارتگاه گنبد فیروزه‌ای",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "حرم شاهچراغ شیراز؛ زیارتگاه گنبد فیروزه‌ای"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 42787,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/editorial-policy/",
+            "status": 200,
+            "ms": 1096,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سیاست تحریریه و انتشار محتوا | سرزمین آریان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/editorial-policy/",
+            "desc": "مبنای کار سرزمین آریان، احترام به خواننده، دقت در اطلاعات و پاسداشت تنوع فرهنگی و طبیعی ایران است. مسئولیت تحریریه مسئولیت انتخاب، بررسی و ویرایش محتوای",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سیاست تحریریه و انتشار محتوا | سرزمین آریان | سرزمین آریان",
+              "og:description": "مبنای کار سرزمین آریان، احترام به خواننده، دقت در اطلاعات و پاسداشت تنوع فرهنگی و طبیعی ایران است. مسئولیت تحریریه مسئولیت انتخاب، بررسی و ویرایش محتوای",
+              "og:url": "https://sarzaminaryan.ir/editorial-policy/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-9-7fbb799835.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سیاست تحریریه و انتشار محتوا | سرزمین آریان | سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سیاست تحریریه و انتشار محتوا | سرزمین آریان | سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 55875,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/llms.txt",
+            "status": 200,
+            "ms": 750,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/plain; charset=utf-8",
+            "bytes": 1184,
+            "head": "# سرزمین آریان (Sarzamin Aryan)\n\n> دانشنامهٔ سفر ایران: راهنمای فارسیِ استان‌ها، شهرستان‌ها و دیدنی‌ها؛ همراه با شناسنامهٔ جغرافیاییِ هر شهرستان (جمعیت و سال سرشماری، مساح"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/route/",
+            "status": 200,
+            "ms": 973,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "مسیرهای سفر ایران | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/route/",
+            "desc": "فهرست کامل مسیرهای سفر ایران در سرزمین آریان، همراه با اطلاعات کلیدی و راهنمای بازدید.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "مسیرهای سفر ایران | سرزمین آریان",
+              "og:description": "فهرست کامل مسیرهای سفر ایران در سرزمین آریان، همراه با اطلاعات کلیدی و راهنمای بازدید.",
+              "og:url": "https://sarzaminaryan.ir/route/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/site-9ce498ad72.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "مسیرهای سفر ایران | سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "مسیرهای سفر ایران | سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 46573,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/this-page-does-not-exist-sa-404/",
+            "status": 404,
+            "ms": 750,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/wp-sitemap-posts-city-1.xml",
+            "status": 200,
+            "ms": 2131,
+            "location": "",
+            "cache": "miss",
+            "content_type": "application/xml; charset=UTF-8",
+            "bytes": 36481,
+            "head": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<?xml-stylesheet type=\"text/xsl\" href=\"https://sarzaminaryan.ir/wp-sitemap.xsl\" ?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"><url><loc>https://sarzaminaryan.ir/city/torbat-heydarieh/</loc><lastmod>2026-10-02T23:48:45+03:30</lastmod></url><url>"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/robots.txt",
+            "status": 200,
+            "ms": 724,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/plain; charset=utf-8",
+            "bytes": 270,
+            "head": "User-agent: *\nDisallow: /wp-admin/\nAllow: /wp-admin/admin-ajax.php\n\nSitemap: https://sarzaminaryan.ir/wp-sitemap.xml\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ChatGPT-User\nAllow: /\n\nUser-agent: GPTBot\nDisallow: /\n\nSitemap: https://sarzaminaryan.ir/wp-sitemap.xml\n"
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T05:19:46+00:00"
+}
