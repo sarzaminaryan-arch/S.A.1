@@ -235,8 +235,8 @@ sa_t_eq( 2, count( $chips_b ), 'one chip per line, not one per direction word' )
 sa_t_eq( 'جنوب و غرب', $chips_b[1]['direction'], 'merged chip keeps the line’s own direction text' );
 sa_t_assert( false !== strpos( $chips_b[1]['label'], 'دورود' ), 'merged chip carries the county name' );
 
-/* 6c — v2.22.85: a direction already taken is not claimed a second time. */
-$GLOBALS['t']['meta'][21] = array( 'neighbors_n' => 'بروجرد', 'sa_cty_neighbors' => 'شمال و غرب: ازنا' );
+/* 6c — v2.22.85: a direction already taken by an earlier line is not claimed twice. */
+$GLOBALS['t']['meta'][21] = array( 'sa_cty_neighbors' => "شمال: بروجرد\nشمال و غرب: ازنا" );
 $d5c = sa_county_profile_data( 21 );
 $chips_c = array_values( $d5c['neighbors'] );
 sa_t_eq( 2, count( $chips_c ), 'partially blocked line adds one chip, not two' );
