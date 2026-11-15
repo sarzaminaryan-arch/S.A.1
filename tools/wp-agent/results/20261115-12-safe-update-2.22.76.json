@@ -1,0 +1,1929 @@
+{
+  "job": "tools/wp-agent/jobs/20261115-12-safe-update-2.22.76.json",
+  "started_utc": "2026-11-15T08:58:50+00:00",
+  "note": "نخستین به‌روزرسانی خودکار (دستور مالک: پشتیبان UpdraftPlus پیش از هر به‌روزرسانی، سنجش بعد از کار، بازگشت در صورت خرابی): پشتیبان کامل ← نصب 2.22.76 ← probe ← بازگشت به 2.22.75 اگر خراب بود. بعد: سنجش توضیح ۶ شهرستان تهران، ممیزی رابطه‌ها، دروازهٔ ایندکس.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.75",
+          "loaded": "2.22.75",
+          "log": [],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1512,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1556,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای کامل شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان با ۲٬۱۳۰٬۹۷۰ نفر (۱۳۹۵)، تفکیک سال ۱۴۰۰، تقسیمات، مشاهیر و مشخصات کامل.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/",
+            "status": 200,
+            "ms": 1616,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد؛ مشخصات، تاریخچه، حرم امام رضا، توس، جاذبه‌های فرهنگی و طبیعت اطراف مشهد در استان خراسان رضوی.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان مشهد؛ مشخصات، تاریخچه، حرم امام رضا، توس، جاذبه‌های فرهنگی و طبیعت اطراف مشهد در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-63-0248743a64.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان مشهد — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44574,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shahriar/",
+            "status": 200,
+            "ms": 1535,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شهریار؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shahriar/",
+            "desc": "راهنمای شهرستان شهریار؛ جمعیت ۷۴۴٬۲۱۰ نفر (۱۳۹۵)، مساحت — کیلومتر مربع، سال تأسیس ۱۳۵۲ و موقعیت آن در استان تهران.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان شهریار باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/shahriar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-225-3d3ae278f9.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43674,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "5ee7e5903b32",
+            "what": "all",
+            "nocloud": false,
+            "note": "وضعیت را با GET /updraft?nonce=5ee7e5903b32 دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-15T08:59:03+00:00",
+              "age_seconds": 126,
+              "success": true,
+              "errors": 0,
+              "nonce": "5ee7e5903b32",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 3,
+            "history_latest": "2026-11-15T08:59:03+00:00",
+            "job": {
+              "nonce": "5ee7e5903b32",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.75",
+          "to": "2.22.76",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.76",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1143,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1401,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای کامل شهرستان اصفهان؛ پرجمعیت‌ترین شهرستان استان با ۲٬۱۳۰٬۹۷۰ نفر (۱۳۹۵)، تفکیک سال ۱۴۰۰، تقسیمات، مشاهیر و مشخصات کامل.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — قلب استان اصفهان",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اصفهان باید بدانید؛ از تفکیک سال ۱۴۰۰ تا تقسیمات و مشاهیر.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-3429-cf7cefbfee.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اصفهان — قلب استان اصفهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — قلب استان اصفهان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44257,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/",
+            "status": 200,
+            "ms": 1428,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد؛ مشخصات، تاریخچه، حرم امام رضا، توس، جاذبه‌های فرهنگی و طبیعت اطراف مشهد در استان خراسان رضوی.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان مشهد؛ مشخصات، تاریخچه، حرم امام رضا، توس، جاذبه‌های فرهنگی و طبیعت اطراف مشهد در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-63-0248743a64.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان مشهد — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44574,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shahriar/",
+            "status": 200,
+            "ms": 1384,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شهریار؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shahriar/",
+            "desc": "راهنمای شهرستان شهریار؛ جمعیت ۷۴۴٬۲۱۰ نفر (۱۳۹۵)، مساحت — کیلومتر مربع، سال تأسیس ۱۳۵۲ و موقعیت آن در استان تهران.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان شهریار باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/shahriar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-225-3d3ae278f9.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43674,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.76",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-15T09:01:42+00:00"
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1176,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/malard/",
+            "status": 200,
+            "ms": 1912,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان ملارد؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/malard/",
+            "desc": "شهرستان ملارد یکی از شهرستان‌های استان تهران است که در غربی‌ترین پهنهٔ این استان جای دارد؛ شهرستانی با جمعیت ۳۷۷٬۲۹۲ نفر (۱۳۹۵) که در جدول شهرستان‌های",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان ملارد — غربی‌ترین شهرستان استان تهران",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان ملارد باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/malard/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-228-bd35af6515.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان ملارد — غربی‌ترین شهرستان استان تهران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان ملارد — غربی‌ترین شهرستان استان تهران"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 42149,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/pishva/",
+            "status": 200,
+            "ms": 1375,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان پیشوا؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/pishva/",
+            "desc": "شهرستان پیشوا یکی از شهرستان‌های استان تهران است که در سال ۱۳۸۹ از شهرستان ورامین جدا شد؛ شهرستانی با جمعیت ۸۶٬۶۰۱ نفر (۱۳۹۵) که در جدول شهرستان‌های استان",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان پیشوا — شهرستانی تازه در جنوب‌شرق تهران با دو بخش",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان پیشوا باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/pishva/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-223-5953420491.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان پیشوا — شهرستانی تازه در جنوب‌شرق تهران با دو بخش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان پیشوا — شهرستانی تازه در جنوب‌شرق تهران با دو بخش"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43105,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/qarchak/",
+            "status": 200,
+            "ms": 1343,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان قرچک؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/qarchak/",
+            "desc": "شهرستان قرچک یکی از شهرستان‌های استان تهران است که در سال ۱۳۹۱ از شهرستان ورامین جدا شد؛ شهرستانی با جمعیت ۲۶۹٬۱۳۸ نفر (۱۳۹۵) که در جدول شهرستان‌های استان",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان قرچک — شهرستانی صناعتی در جنوب‌شرق تهران",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان قرچک باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/qarchak/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-227-228f5c3b10.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان قرچک — شهرستانی صناعتی در جنوب‌شرق تهران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان قرچک — شهرستانی صناعتی در جنوب‌شرق تهران"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43362,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/qods/",
+            "status": 200,
+            "ms": 1384,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان قدس؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/qods/",
+            "desc": "راهنمای شهرستان قدس؛ جمعیت ۳۱۶٬۶۳۶ نفر (۱۳۹۵)، مساحت — کیلومتر مربع، سال تأسیس ۱۳۶۸ و موقعیت آن در استان تهران.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان قدس — شهرستانی کوچک و پرتراکم در غرب پایتخت",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان قدس باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/qods/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-226-f3c0de78a9.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان قدس — شهرستانی کوچک و پرتراکم در غرب پایتخت",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان قدس — شهرستانی کوچک و پرتراکم در غرب پایتخت"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 42214,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shahriar/",
+            "status": 200,
+            "ms": 1364,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شهریار؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shahriar/",
+            "desc": "راهنمای شهرستان شهریار؛ جمعیت ۷۴۴٬۲۱۰ نفر (۱۳۹۵)، مساحت — کیلومتر مربع، سال تأسیس ۱۳۵۲ و موقعیت آن در استان تهران.",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان شهریار باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/shahriar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-225-3d3ae278f9.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان شهریار — شهرستانی پرجمعیت در غرب استان تهران با پیشینهٔ تازه‌شهرها"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43674,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shemiranat/",
+            "status": 200,
+            "ms": 2187,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شمیرانات؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shemiranat/",
+            "desc": "شهرستان شمیرانات شمالی‌ترین شهرستان استان تهران است که در دامنه‌های البرز مرکزی جای گرفته؛ شهرستانی با جمعیت ۴۷٬۲۷۹ نفر (۱۳۹۵) که در جدول شهرستان‌های",
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان شمیرانات — شمالی‌ترین شهرستان استان تهران در دامنه‌های البرز",
+              "og:description": "هر آنچه پیش از سفر یا آشنایی با شهرستان شمیرانات باید بدانید؛ از جمعیت و تقسیمات کشوری تا موقعیت جغرافیایی و دسترسی‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/shemiranat/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-215-5a85ef42cb.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان شمیرانات — شمالی‌ترین شهرستان استان تهران در دامنه‌های البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان شمیرانات — شمالی‌ترین شهرستان استان تهران در دامنه‌های البرز"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44799,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "relations-audit",
+      "result": {
+        "counts": {
+          "sa_city_id": 0,
+          "sa_province_id": 0
+        },
+        "rows": []
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "index-gate",
+      "result": {
+        "theme": "2.22.76",
+        "count": 128,
+        "by_reason": {
+          "no_places": 128
+        },
+        "rows": [
+          {
+            "id": 70,
+            "slug": "gonabad",
+            "title": "شهرستان گناباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1391,
+            "places": 0
+          },
+          {
+            "id": 74,
+            "slug": "maneh",
+            "title": "شهرستان مانه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 681,
+            "places": 0
+          },
+          {
+            "id": 76,
+            "slug": "samalqan",
+            "title": "شهرستان سملقان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 761,
+            "places": 0
+          },
+          {
+            "id": 77,
+            "slug": "raz-jargalan",
+            "title": "شهرستان راز و جرگلان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1131,
+            "places": 0
+          },
+          {
+            "id": 116,
+            "slug": "mianeh",
+            "title": "شهرستان میانه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1270,
+            "places": 0
+          },
+          {
+            "id": 117,
+            "slug": "varzaqan",
+            "title": "شهرستان ورزقان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1219,
+            "places": 0
+          },
+          {
+            "id": 118,
+            "slug": "heris",
+            "title": "شهرستان هریس",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1255,
+            "places": 0
+          },
+          {
+            "id": 119,
+            "slug": "hashtrud",
+            "title": "شهرستان هشترود",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1260,
+            "places": 0
+          },
+          {
+            "id": 120,
+            "slug": "hurand",
+            "title": "شهرستان هوراند",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1256,
+            "places": 0
+          },
+          {
+            "id": 125,
+            "slug": "chaldoran",
+            "title": "شهرستان چالدران",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1268,
+            "places": 0
+          },
+          {
+            "id": 126,
+            "slug": "maku",
+            "title": "شهرستان ماکو",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1188,
+            "places": 0
+          },
+          {
+            "id": 127,
+            "slug": "oshnavieh",
+            "title": "شهرستان اشنویه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1019,
+            "places": 0
+          },
+          {
+            "id": 130,
+            "slug": "poldasht",
+            "title": "شهرستان پلدشت",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1156,
+            "places": 0
+          },
+          {
+            "id": 132,
+            "slug": "chaypareh",
+            "title": "شهرستان چایپاره",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1161,
+            "places": 0
+          },
+          {
+            "id": 133,
+            "slug": "chaharborj",
+            "title": "شهرستان چهاربرج",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1032,
+            "places": 0
+          },
+          {
+            "id": 138,
+            "slug": "miandoab",
+            "title": "شهرستان میاندوآب",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1048,
+            "places": 0
+          },
+          {
+            "id": 140,
+            "slug": "mirabad",
+            "title": "شهرستان میرآباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1156,
+            "places": 0
+          },
+          {
+            "id": 144,
+            "slug": "parsabad",
+            "title": "شهرستان پارس‌آباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 740,
+            "places": 0
+          },
+          {
+            "id": 149,
+            "slug": "aslanduz",
+            "title": "شهرستان اصلاندوز",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 720,
+            "places": 0
+          },
+          {
+            "id": 152,
+            "slug": "angut",
+            "title": "شهرستان انگوت",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 754,
+            "places": 0
+          },
+          {
+            "id": 163,
+            "slug": "shahin-shahr-meymeh",
+            "title": "شهرستان شاهین‌شهر و میمه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 752,
+            "places": 0
+          },
+          {
+            "id": 165,
+            "slug": "mobarakeh",
+            "title": "شهرستان مبارکه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 704,
+            "places": 0
+          },
+          {
+            "id": 166,
+            "slug": "borkhar",
+            "title": "شهرستان برخوار",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 767,
+            "places": 0
+          },
+          {
+            "id": 170,
+            "slug": "fereydan",
+            "title": "شهرستان فریدن",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 711,
+            "places": 0
+          },
+          {
+            "id": 174,
+            "slug": "dehaqan",
+            "title": "شهرستان دهاقان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 691,
+            "places": 0
+          },
+          {
+            "id": 176,
+            "slug": "chadegan",
+            "title": "شهرستان چادگان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 679,
+            "places": 0
+          },
+          {
+            "id": 178,
+            "slug": "buin-miandasht",
+            "title": "شهرستان بوئین میاندشت",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 673,
+            "places": 0
+          },
+          {
+            "id": 179,
+            "slug": "kuhpayeh",
+            "title": "شهرستان کوهپایه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 637,
+            "places": 0
+          },
+          {
+            "id": 180,
+            "slug": "harand",
+            "title": "شهرستان هرند",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 654,
+            "places": 0
+          },
+          {
+            "id": 181,
+            "slug": "meymeh-vazvan",
+            "title": "میمه و وزوان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 800,
+            "places": 0
+          },
+          {
+            "id": 183,
+            "slug": "fardis",
+            "title": "شهرستان فردیس",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 757,
+            "places": 0
+          },
+          {
+            "id": 184,
+            "slug": "savojablogh",
+            "title": "شهرستان ساوجبلاغ",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1028,
+            "places": 0
+          },
+          {
+            "id": 185,
+            "slug": "nazarabad",
+            "title": "شهرستان نظرآباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1158,
+            "places": 0
+          },
+          {
+            "id": 186,
+            "slug": "chaharbagh",
+            "title": "شهرستان چهارباغ",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 828,
+            "places": 0
+          },
+          {
+            "id": 187,
+            "slug": "eshtehard",
+            "title": "شهرستان اشتهارد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 808,
+            "places": 0
+          },
+          {
+            "id": 190,
+            "slug": "mehran",
+            "title": "شهرستان مهران",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 778,
+            "places": 0
+          },
+          {
+            "id": 191,
+            "slug": "dehloran",
+            "title": "شهرستان دهلران",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 726,
+            "places": 0
+          },
+          {
+            "id": 194,
+            "slug": "darreh-shahr",
+            "title": "شهرستان دره‌شهر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 791,
+            "places": 0
+          },
+          {
+            "id": 195,
+            "slug": "chardavol",
+            "title": "شهرستان چرداول",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 744,
+            "places": 0
+          },
+          {
+            "id": 198,
+            "slug": "chavar",
+            "title": "شهرستان چوار",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 731,
+            "places": 0
+          },
+          {
+            "id": 200,
+            "slug": "sirvan",
+            "title": "شهرستان سیروان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 749,
+            "places": 0
+          },
+          {
+            "id": 201,
+            "slug": "bushehr",
+            "title": "شهر بوشهر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 967,
+            "places": 0
+          },
+          {
+            "id": 203,
+            "slug": "ganaveh",
+            "title": "بندر گناوه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 932,
+            "places": 0
+          },
+          {
+            "id": 205,
+            "slug": "kangan",
+            "title": "بندر کنگان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 768,
+            "places": 0
+          },
+          {
+            "id": 210,
+            "slug": "deylam",
+            "title": "بندر دیلم",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 809,
+            "places": 0
+          },
+          {
+            "id": 211,
+            "slug": "bushehr-county",
+            "title": "شهرستان بوشهر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 763,
+            "places": 0
+          },
+          {
+            "id": 212,
+            "slug": "dashtestan",
+            "title": "شهرستان دشتستان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 773,
+            "places": 0
+          },
+          {
+            "id": 221,
+            "slug": "pakdasht",
+            "title": "شهرستان پاکدشت",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 809,
+            "places": 0
+          },
+          {
+            "id": 222,
+            "slug": "pardis",
+            "title": "شهرستان پردیس",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 796,
+            "places": 0
+          },
+          {
+            "id": 223,
+            "slug": "pishva",
+            "title": "شهرستان پیشوا",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 802,
+            "places": 0
+          },
+          {
+            "id": 239,
+            "slug": "farrokhshahr",
+            "title": "شهرستان فرخ‌شهر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 765,
+            "places": 0
+          },
+          {
+            "id": 244,
+            "slug": "nehbandan",
+            "title": "شهرستان نهبندان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1844,
+            "places": 0
+          },
+          {
+            "id": 246,
+            "slug": "darmiyan",
+            "title": "شهرستان درمیان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1912,
+            "places": 0
+          },
+          {
+            "id": 251,
+            "slug": "eshqabad",
+            "title": "شهرستان عشق‌آباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1649,
+            "places": 0
+          },
+          {
+            "id": 272,
+            "slug": "omidiyeh",
+            "title": "شهرستان امیدیه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1093,
+            "places": 0
+          },
+          {
+            "id": 277,
+            "slug": "bavi",
+            "title": "شهرستان باوی",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1071,
+            "places": 0
+          },
+          {
+            "id": 278,
+            "slug": "mahshahr",
+            "title": "شهرستان بندر ماهشهر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1143,
+            "places": 0
+          },
+          {
+            "id": 280,
+            "slug": "hamidiyeh",
+            "title": "شهرستان حمیدیه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1087,
+            "places": 0
+          },
+          {
+            "id": 283,
+            "slug": "dasht-azadegan",
+            "title": "شهرستان دشت آزادگان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 2450,
+            "places": 0
+          },
+          {
+            "id": 284,
+            "slug": "ramshir",
+            "title": "شهرستان رامشیر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 2356,
+            "places": 0
+          },
+          {
+            "id": 289,
+            "slug": "karun",
+            "title": "شهرستان کارون",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1559,
+            "places": 0
+          },
+          {
+            "id": 293,
+            "slug": "haftkel",
+            "title": "شهرستان هفتکل",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1831,
+            "places": 0
+          },
+          {
+            "id": 396,
+            "slug": "baneh",
+            "title": "شهرستان بانه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 742,
+            "places": 0
+          },
+          {
+            "id": 398,
+            "slug": "dehgolan",
+            "title": "شهرستان دهگلان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 752,
+            "places": 0
+          },
+          {
+            "id": 400,
+            "slug": "sarvabad",
+            "title": "شهرستان سروآباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 774,
+            "places": 0
+          },
+          {
+            "id": 404,
+            "slug": "marivan",
+            "title": "شهرستان مریوان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 750,
+            "places": 0
+          },
+          {
+            "id": 417,
+            "slug": "eslamabad-e-gharb",
+            "title": "شهرستان اسلام‌آباد غرب",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 758,
+            "places": 0
+          },
+          {
+            "id": 423,
+            "slug": "sahneh",
+            "title": "شهرستان صحنه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 697,
+            "places": 0
+          },
+          {
+            "id": 446,
+            "slug": "kalaleh",
+            "title": "شهرستان کلاله",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 761,
+            "places": 0
+          },
+          {
+            "id": 447,
+            "slug": "minudasht",
+            "title": "شهرستان مینودشت",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 753,
+            "places": 0
+          },
+          {
+            "id": 449,
+            "slug": "maraveh-tappeh",
+            "title": "شهرستان مراوه‌تپه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 772,
+            "places": 0
+          },
+          {
+            "id": 451,
+            "slug": "gomishan",
+            "title": "شهرستان گمیشان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 769,
+            "places": 0
+          },
+          {
+            "id": 452,
+            "slug": "bandar-e-gaz",
+            "title": "شهرستان بندر گز",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 780,
+            "places": 0
+          },
+          {
+            "id": 460,
+            "slug": "astaneh-ye-ashrafiyeh",
+            "title": "شهرستان آستانه اشرفیه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 731,
+            "places": 0
+          },
+          {
+            "id": 464,
+            "slug": "rezvanshahr",
+            "title": "شهرستان رضوانشهر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 710,
+            "places": 0
+          },
+          {
+            "id": 466,
+            "slug": "masal",
+            "title": "شهرستان ماسال",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 720,
+            "places": 0
+          },
+          {
+            "id": 483,
+            "slug": "salas-e-babajani",
+            "title": "شهرستان ثلاث باباجانی",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 713,
+            "places": 0
+          },
+          {
+            "id": 484,
+            "slug": "gilan-e-gharb",
+            "title": "شهرستان گیلانغرب",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 719,
+            "places": 0
+          },
+          {
+            "id": 485,
+            "slug": "margoun",
+            "title": "شهرستان مارگون",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 723,
+            "places": 0
+          },
+          {
+            "id": 487,
+            "slug": "aqqala",
+            "title": "شهرستان آق‌قلا",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 776,
+            "places": 0
+          },
+          {
+            "id": 492,
+            "slug": "jiroft",
+            "title": "شهرستان جیرفت",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 735,
+            "places": 0
+          },
+          {
+            "id": 493,
+            "slug": "bam",
+            "title": "شهرستان بم",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 737,
+            "places": 0
+          },
+          {
+            "id": 494,
+            "slug": "zarand",
+            "title": "شهرستان زرند",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 697,
+            "places": 0
+          },
+          {
+            "id": 500,
+            "slug": "qaleh-ganj",
+            "title": "شهرستان قلعه گنج",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 701,
+            "places": 0
+          },
+          {
+            "id": 503,
+            "slug": "rigan",
+            "title": "شهرستان ریگان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 698,
+            "places": 0
+          },
+          {
+            "id": 508,
+            "slug": "anar",
+            "title": "شهرستان انار",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 680,
+            "places": 0
+          },
+          {
+            "id": 510,
+            "slug": "faryab",
+            "title": "شهرستان فاریاب",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 674,
+            "places": 0
+          },
+          {
+            "id": 511,
+            "slug": "kuhbanan",
+            "title": "شهرستان کوهبنان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 686,
+            "places": 0
+          },
+          {
+            "id": 513,
+            "slug": "gonbaki",
+            "title": "شهرستان گنبکی",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 694,
+            "places": 0
+          },
+          {
+            "id": 567,
+            "slug": "shazand",
+            "title": "شهرستان شازند",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 814,
+            "places": 0
+          },
+          {
+            "id": 571,
+            "slug": "khondab",
+            "title": "شهرستان خنداب",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 815,
+            "places": 0
+          },
+          {
+            "id": 574,
+            "slug": "farahan",
+            "title": "شهرستان فراهان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 791,
+            "places": 0
+          },
+          {
+            "id": 593,
+            "slug": "karkheh",
+            "title": "شهرستان کرخه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1585,
+            "places": 0
+          },
+          {
+            "id": 638,
+            "slug": "bandar-lengeh",
+            "title": "شهرستان بندر لنگه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 779,
+            "places": 0
+          },
+          {
+            "id": 645,
+            "slug": "bastak",
+            "title": "شهرستان بستک",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 770,
+            "places": 0
+          },
+          {
+            "id": 649,
+            "slug": "bashagard",
+            "title": "شهرستان بشاگرد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 749,
+            "places": 0
+          },
+          {
+            "id": 1254,
+            "slug": "bakharz",
+            "title": "شهرستان باخرز",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1652,
+            "places": 0
+          },
+          {
+            "id": 1260,
+            "slug": "bardaskan",
+            "title": "شهرستان بردسکن",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1515,
+            "places": 0
+          },
+          {
+            "id": 1263,
+            "slug": "taybad",
+            "title": "شهرستان تایباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1532,
+            "places": 0
+          },
+          {
+            "id": 1298,
+            "slug": "dargazin",
+            "title": "شهرستان درگزین",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 715,
+            "places": 0
+          },
+          {
+            "id": 1299,
+            "slug": "torkamanchay",
+            "title": "شهرستان ترکمانچای",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 792,
+            "places": 0
+          },
+          {
+            "id": 1302,
+            "slug": "joghatai",
+            "title": "شهرستان جغتای",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1230,
+            "places": 0
+          },
+          {
+            "id": 1304,
+            "slug": "khalilabad",
+            "title": "شهرستان خلیل‌آباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1281,
+            "places": 0
+          },
+          {
+            "id": 1309,
+            "slug": "roshtkhar",
+            "title": "شهرستان رشتخوار",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1228,
+            "places": 0
+          },
+          {
+            "id": 1310,
+            "slug": "zaveh",
+            "title": "شهرستان زاوه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1207,
+            "places": 0
+          },
+          {
+            "id": 1311,
+            "slug": "sarakhs",
+            "title": "شهرستان سرخس",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1241,
+            "places": 0
+          },
+          {
+            "id": 1313,
+            "slug": "saleh-abad",
+            "title": "شهرستان صالح‌آباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1226,
+            "places": 0
+          },
+          {
+            "id": 1314,
+            "slug": "fariman",
+            "title": "شهرستان فریمان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1193,
+            "places": 0
+          },
+          {
+            "id": 1315,
+            "slug": "firuzeh",
+            "title": "شهرستان فیروزه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1180,
+            "places": 0
+          },
+          {
+            "id": 1316,
+            "slug": "mahvelat",
+            "title": "شهرستان مه‌ولات",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1462,
+            "places": 0
+          },
+          {
+            "id": 1317,
+            "slug": "mian-jolgeh",
+            "title": "شهرستان میان‌جلگه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1354,
+            "places": 0
+          },
+          {
+            "id": 1318,
+            "slug": "chenaran",
+            "title": "شهرستان چناران",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1419,
+            "places": 0
+          },
+          {
+            "id": 1319,
+            "slug": "kalat",
+            "title": "شهرستان کلات",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1422,
+            "places": 0
+          },
+          {
+            "id": 1321,
+            "slug": "golbahar",
+            "title": "شهرستان گلبهار",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1268,
+            "places": 0
+          },
+          {
+            "id": 1322,
+            "slug": "binalud",
+            "title": "شهرستان بینالود",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 1196,
+            "places": 0
+          },
+          {
+            "id": 1832,
+            "slug": "sowme-eh-sara",
+            "title": "شهرستان صومعه‌سرا",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 728,
+            "places": 0
+          },
+          {
+            "id": 1850,
+            "slug": "kahnuj",
+            "title": "شهرستان کهنوج",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 684,
+            "places": 0
+          },
+          {
+            "id": 1858,
+            "slug": "rudbar-e-jonubi",
+            "title": "شهرستان رودبار جنوب",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 684,
+            "places": 0
+          },
+          {
+            "id": 1860,
+            "slug": "jazmurian",
+            "title": "شهرستان جازموریان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 688,
+            "places": 0
+          },
+          {
+            "id": 1872,
+            "slug": "aliabad",
+            "title": "شهرستان علی‌آباد کتول",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 798,
+            "places": 0
+          },
+          {
+            "id": 1877,
+            "slug": "torkaman",
+            "title": "شهرستان ترکمن",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 765,
+            "places": 0
+          },
+          {
+            "id": 1892,
+            "slug": "hajjiabad",
+            "title": "شهرستان حاجی‌آباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 780,
+            "places": 0
+          },
+          {
+            "id": 1916,
+            "slug": "ghorveh",
+            "title": "شهرستان قروه",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 745,
+            "places": 0
+          },
+          {
+            "id": 1924,
+            "slug": "malayer",
+            "title": "شهرستان ملایر",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 735,
+            "places": 0
+          },
+          {
+            "id": 1928,
+            "slug": "razan",
+            "title": "شهرستان رزن",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 723,
+            "places": 0
+          },
+          {
+            "id": 1938,
+            "slug": "ardakan",
+            "title": "شهرستان اردکان",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 743,
+            "places": 0
+          },
+          {
+            "id": 1945,
+            "slug": "behabad",
+            "title": "شهرستان بهاباد",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 745,
+            "places": 0
+          },
+          {
+            "id": 1946,
+            "slug": "zarach",
+            "title": "شهرستان زارچ",
+            "index": false,
+            "reason": "no_places",
+            "label": "noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد",
+            "words": 744,
+            "places": 0
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-15T09:02:11+00:00"
+}
