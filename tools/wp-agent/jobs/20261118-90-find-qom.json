@@ -1,0 +1,17 @@
+{
+ "note": "قم — یافتن شناسهٔ صفحهٔ زنده با نامک دقیق (فقط خواندنی).",
+ "steps": [
+  {
+   "cmd": "list",
+   "type": "city",
+   "slug": "qom",
+   "per_page": 10
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "search": "قم",
+   "per_page": 30
+  }
+ ]
+}
