@@ -1,0 +1,14 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-49-county-cover-sync.json",
+  "started_utc": "2026-11-16T13:45:03+00:00",
+  "note": "دستور مالک برای تولید و اتصال زندهٔ ۴۸۵ کارت شهرستان. مسیر سخت‌گیرانه: بررسی نسخهٔ زندهٔ 2.22.90، خواندن تازهٔ ۵ صفحهٔ /posts، تطبیق id/slug/status و گرفتن modified_gmt تازه، رد تصویر شاخص سالمِ موجود، بارگذاری WebP و تنظیم _thumbnail_id با پشتیبان سمت سرور و expected_modified_gmt؛ در پایان پاک‌کردن کش. force_replace خاموش است.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "county-covers",
+      "error": "county-covers command failed (node sync-live.mjs; exit 1)"
+    }
+  ],
+  "finished_utc": "2026-11-16T13:51:07+00:00"
+}
