@@ -15,6 +15,11 @@ try:
     raise AssertionError("county cover sync should reject missing owner approval")
 except wa.AgentError as err:
     assert "owner_approved" in str(err)
+try:
+    wa.run_county_covers({"owner_approved": True, "start_index": -1})
+    raise AssertionError("county cover sync should reject a negative resume offset")
+except wa.AgentError as err:
+    assert "start_index" in str(err)
 
 # 1. not_before defers a job (no result file is written) until the time has passed.
 t = datetime(2026, 11, 16, 5, 0, tzinfo=timezone.utc)

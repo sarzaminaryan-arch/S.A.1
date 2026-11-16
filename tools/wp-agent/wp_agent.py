@@ -826,18 +826,20 @@ def run_county_covers(step: dict) -> dict:
         raise AgentError("county-covers force_replace must be a JSON boolean")
     try:
         max_items = int(step.get("max_items", 0))
+        start_index = int(step.get("start_index", 0))
     except (TypeError, ValueError) as err:
-        raise AgentError("county-covers max_items must be a non-negative integer") from err
-    if max_items < 0:
-        raise AgentError("county-covers max_items must be a non-negative integer")
+        raise AgentError("county-covers max_items and start_index must be non-negative integers") from err
+    if max_items < 0 or start_index < 0:
+        raise AgentError("county-covers max_items and start_index must be non-negative integers")
     tool_dir = REPO_ROOT / "tools" / "images" / "county-covers"
     env = os.environ.copy()
-    env.update({"OWNER_APPROVED": "yes", "FORCE_REPLACE": "yes" if force else "no", "MAX_ITEMS": str(max_items)})
+    env.update({"OWNER_APPROVED": "yes", "FORCE_REPLACE": "yes" if force else "no", "MAX_ITEMS": str(max_items), "START_INDEX": str(start_index)})
     env.setdefault("REQUEST_DELAY_MS", "250")
     render_command = ["node", "render.mjs"]
-    if max_items:
+    if max_items or start_index:
         registry = json.loads((tool_dir / "metadata.json").read_text(encoding="utf-8"))
-        render_command.extend(row["slug"] for row in registry["counties"][:max_items])
+        selected = registry["counties"][start_index:start_index + max_items if max_items else None]
+        render_command.extend(row["slug"] for row in selected)
     commands = [
         ["npm", "ci", "--no-audit", "--no-fund"],
         ["node", "metadata.mjs"],
