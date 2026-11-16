@@ -217,7 +217,7 @@ $GLOBALS['t']['posts'][52] = (object) array( 'ID' => 52, 'post_type' => 'city', 
 $GLOBALS['t']['meta'][52]   = array();
 $ahvaz = sa_county_profile_data( 52 );
 sa_ci_assert( ! empty( $ahvaz['has_insights'] ), 'bundled: Ahvaz traveller block switches on from the shipped seed' );
-sa_ci_assert( 6 === count( $ahvaz['local_tips'] ) && 8 === count( $ahvaz['extra_places'] ), 'bundled: Ahvaz tips and places parsed from the seed' );
+sa_ci_assert( 6 === count( $ahvaz['local_tips'] ) && 9 === count( $ahvaz['extra_places'] ), 'bundled: Ahvaz tips and places parsed from the seed (9 places since 2.22.86)' );
 sa_ci_assert( 'ایران ۱۴' === $ahvaz['plate_code'], 'bundled: Ahvaz plate reaches tile 12 without meta' );
 
 $css60 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
