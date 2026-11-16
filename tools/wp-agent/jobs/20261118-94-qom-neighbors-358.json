@@ -1,0 +1,28 @@
+{
+ "note": "قم ۳۵۸ — شناسنامه: فاصله تا مرکز استان صفر (قم خودش مرکز استان است) و همسایه‌ها چهار جهت واقعی (شمال ورامین، شرق گرمسار، جنوب کاشان، غرب دلیجان) تا کارت همسایه‌ها درست رندر شود.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 358,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-qom/qom-358.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-qom/qom-358.meta.json",
+   "excerpt": "شهرستان قم از حرم حضرت معصومه و مدرسهٔ فیضیه تا کوه خضر، دریاچهٔ نمک و ییلاق کهک؛ راهنمای اقامت، سوهان و آش شله قلمکار، و کمبودهایی که باید بدانید.",
+   "expected_modified_gmt": "2026-11-16 23:19:14",
+   "owner_approved_live_edit": true,
+   "reason": "قم: تصحیح فاصله تا مرکز استان و جهت همسایه‌ها در شناسنامه"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    358
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/qom/?sa_probe=39"
+   ]
+  }
+ ]
+}
