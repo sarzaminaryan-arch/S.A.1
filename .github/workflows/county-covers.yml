@@ -1,0 +1,107 @@
+name: County cyber-card generation and live attachment
+
+on:
+  workflow_dispatch:
+    inputs:
+      owner_approved:
+        description: "مالک اتصال زندهٔ کاورها را تأیید کرده است؟"
+        required: true
+        type: choice
+        options: [no, yes]
+        default: no
+      force_replace:
+        description: "تصویر شاخص سالم موجود نیز جایگزین شود؟"
+        required: true
+        type: choice
+        options: [no, yes]
+        default: no
+      max_items:
+        description: "حد آزمایشی (۰ = همهٔ شهرستان‌ها)"
+        required: true
+        type: string
+        default: "0"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: county-cover-live-sync
+  cancel-in-progress: false
+
+jobs:
+  render-and-sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/images/county-covers/package-lock.json
+
+      - name: Validate explicit approval and inputs
+        env:
+          OWNER_APPROVED: ${{ inputs.owner_approved }}
+          FORCE_REPLACE: ${{ inputs.force_replace }}
+          MAX_ITEMS: ${{ inputs.max_items }}
+        run: |
+          set -euo pipefail
+          test "$OWNER_APPROVED" = yes || { echo "::error::Owner approval is required for live writes."; exit 1; }
+          [[ "$FORCE_REPLACE" == yes || "$FORCE_REPLACE" == no ]]
+          [[ "$MAX_ITEMS" =~ ^[0-9]+$ ]]
+
+      - name: Check WordPress credentials exist
+        env:
+          SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
+          SA_USER: ${{ secrets.SA_USER }}
+          SA_APP_PASSWORD: ${{ secrets.SA_APP_PASSWORD }}
+        run: |
+          set -euo pipefail
+          for key in SA_SITE_URL SA_USER SA_APP_PASSWORD; do
+            if [ -z "${!key:-}" ]; then echo "::error::Missing repository secret: $key"; exit 1; fi
+          done
+
+      - name: Install renderer
+        working-directory: tools/images/county-covers
+        run: npm ci
+
+      - name: Build deterministic county/province code registry
+        working-directory: tools/images/county-covers
+        run: node metadata.mjs
+
+      - name: Validate live county registry and badge codes
+        working-directory: tools/images/county-covers
+        run: node test-metadata.mjs
+
+      - name: Render 1200×800 WebP cyber-cards
+        working-directory: tools/images/county-covers
+        env:
+          AWS_LAMBDA_JS_RUNTIME: nodejs22.x
+        run: node render.mjs
+
+      - name: Upload and safely attach missing county covers
+        working-directory: tools/images/county-covers
+        env:
+          SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
+          SA_USER: ${{ secrets.SA_USER }}
+          SA_APP_PASSWORD: ${{ secrets.SA_APP_PASSWORD }}
+          OWNER_APPROVED: ${{ inputs.owner_approved }}
+          FORCE_REPLACE: ${{ inputs.force_replace }}
+          MAX_ITEMS: ${{ inputs.max_items }}
+          REQUEST_DELAY_MS: "250"
+        run: node sync-live.mjs
+
+      - name: Preserve private rendered cards and live-write report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: county-cover-run-${{ github.run_id }}
+          path: |
+            tools/images/county-covers/outputs/
+            tools/images/county-covers/metadata.json
+          if-no-files-found: warn
+          retention-days: 30

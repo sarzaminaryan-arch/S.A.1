@@ -1053,15 +1053,18 @@ function sa_agent_rest_list( $r ) {
 	$q     = new WP_Query( $args );
 	$items = array();
 	foreach ( $q->posts as $p ) {
-		$items[] = array(
-			'id'           => (int) $p->ID,
-			'type'         => $p->post_type,
-			'status'       => $p->post_status,
-			'slug'         => $p->post_name,
-			'title'        => $p->post_title,
-			'modified_gmt' => $p->post_modified_gmt,
-			'link'         => get_permalink( $p->ID ),
-			'words'        => count( preg_split( '/\s+/u', trim( wp_strip_all_tags( $p->post_content ) ), -1, PREG_SPLIT_NO_EMPTY ) ),
+		$thumb_id = (int) get_post_thumbnail_id( $p->ID );
+		$items[]  = array(
+			'id'                     => (int) $p->ID,
+			'type'                   => $p->post_type,
+			'status'                 => $p->post_status,
+			'slug'                   => $p->post_name,
+			'title'                  => $p->post_title,
+			'modified_gmt'           => $p->post_modified_gmt,
+			'link'                   => get_permalink( $p->ID ),
+			'words'                  => count( preg_split( '/\s+/u', trim( wp_strip_all_tags( $p->post_content ) ), -1, PREG_SPLIT_NO_EMPTY ) ),
+			'featured_media'         => $thumb_id,
+			'featured_media_missing' => ( $thumb_id > 0 && function_exists( 'sa_media_attachment_missing' ) ) ? (bool) sa_media_attachment_missing( $thumb_id ) : false,
 		);
 	}
 	return rest_ensure_response(
@@ -1105,6 +1108,9 @@ function sa_agent_register_routes() {
 						$gate['label']      = sa_city_noindex_reason_label( $gate['reason'] );
 						$snap['index_gate'] = $gate;
 					}
+					$snap['featured_media_missing'] = ( ! empty( $snap['featured_media'] ) && function_exists( 'sa_media_attachment_missing' ) )
+						? (bool) sa_media_attachment_missing( (int) $snap['featured_media'] )
+						: false;
 					return rest_ensure_response( $snap );
 				},
 				'permission_callback' => 'sa_agent_can_read',

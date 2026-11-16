@@ -1,0 +1,21 @@
+{
+  "note": "دستور مالک برای نصب child theme نسخهٔ 2.22.90: پشتیبان کامل UpdraftPlus پیش از نصب، عدم ارسال پشتیبان به فضای ابری، probe صفحه‌های نمونه و بازگشت به 2.22.89 در صورت خرابی. این کار فقط قالب را نصب می‌کند؛ اتصال تصویرهای شاخص در workflow جداگانه و پس از تأیید نسخهٔ زنده انجام می‌شود.",
+  "steps": [
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.22.90",
+      "owner_approved_theme_update": true,
+      "backup_first": true,
+      "backup_nocloud": true,
+      "backup_wait": 1500,
+      "probe": [
+        "/",
+        "/city/abadan/",
+        "/city/alborz-qazvin/",
+        "/city/shahin-shahr-meymeh/",
+        "/province/isfahan/"
+      ],
+      "rollback_to": "2.22.89"
+    }
+  ]
+}

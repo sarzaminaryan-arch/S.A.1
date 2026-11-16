@@ -332,6 +332,55 @@ unset( $GLOBALS['t']['mods']['sa_show_province_image'] );
 $GLOBALS['t']['mods']['sa_show_featured_images'] = $sa_prev_global;
 
 /* ---------------------------------------------------------------------------
+ * 2b-3) «شهرستان‌ها» (v2.22.90، دستور مالک): تصویر شاخص هر شهرستان فقط اول
+ * صفحهٔ خودِ همان شهرستان و بالای شناسنامه نمایش داده می‌شود و هرگز روی کارت‌های
+ * فهرست، آرشیوها و صفحهٔ اصلی نمی‌آید.
+ * ------------------------------------------------------------------------- */
+$sa_prev_global_cty = isset( $GLOBALS['t']['mods']['sa_show_featured_images'] ) ? $GLOBALS['t']['mods']['sa_show_featured_images'] : false;
+$GLOBALS['t']['posts'][70]    = array( 'thumb' => 700, 'type' => 'city', 'slug' => 'kashan' );
+$GLOBALS['t']['attached'][700] = array( 'missing' => false );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false; // کلید سراسری خاموش.
+
+sa_t_assert( true === sa_county_images_visible(), 'county covers are on by default (v2.22.90)' );
+sa_t_assert( true === sa_featured_image_is_county( 70 ), 'the county post is recognised' );
+sa_t_assert( false === sa_featured_image_is_county( 60 ), 'a province is not a county' );
+sa_t_assert( true === sa_featured_image_available( 70, 'city-top' ), 'the county cover shows at the top of its own page even with the global switch off' );
+foreach ( array( 'card', 'archive', 'home', 'hero', 'gallery', 'album-cover' ) as $sa_cty_hidden_context ) {
+	sa_t_assert( false === sa_featured_image_available( 70, $sa_cty_hidden_context ), 'the county cover is hidden in ' . $sa_cty_hidden_context . ' context' );
+}
+sa_t_assert( false === sa_featured_image_available( 70 ), 'the county cover needs its own page context' );
+
+$GLOBALS['t']['mods']['sa_show_featured_images'] = true;
+sa_t_assert( false === sa_featured_image_available( 70, 'card' ), 'the global switch still keeps county covers off list cards' );
+sa_t_assert( true === sa_featured_image_available( 70, 'city-top' ), 'the top of the county page stays the only allowed place' );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = false;
+
+$GLOBALS['t']['current'] = 70;
+sa_t_assert( '' === sa_featured_image_guard( '<img>', 70 ), 'outside the page top the county cover is removed by the guard' );
+$GLOBALS['sa_featured_image_render_context'] = 'city-top';
+sa_t_assert( '<img>' === sa_featured_image_guard( '<img>', 70 ), 'at the page top the county cover passes the guard' );
+unset( $GLOBALS['sa_featured_image_render_context'] );
+$GLOBALS['t']['current'] = 0;
+
+$sa_cfig = sa_county_featured_figure( 70 );
+sa_t_assert( 0 === strpos( $sa_cfig, '<figure class="sa-county-cover">' ), 'the county figure wraps the cover' );
+sa_t_assert( false !== strpos( $sa_cfig, '<img' ), 'the county figure prints the thumbnail' );
+sa_t_assert( '' === sa_county_featured_figure( 5 ), 'a non-county post never gets the county figure' );
+sa_t_assert( '' === sa_county_featured_figure( 60 ), 'a province never gets the county figure' );
+
+$GLOBALS['t']['attached'][700]['missing'] = true;
+sa_t_assert( '' === sa_county_featured_figure( 70 ), 'a deleted county cover file prints nothing' );
+$GLOBALS['t']['attached'][700]['missing'] = false;
+
+$GLOBALS['t']['posts'][71] = array( 'type' => 'city', 'slug' => 'natanz' );
+sa_t_assert( '' === sa_county_featured_figure( 71 ), 'a county without a featured image prints nothing' );
+
+$GLOBALS['t']['mods']['sa_show_county_image'] = false;
+sa_t_assert( '' === sa_county_featured_figure( 70 ), 'the county key turns the page-top cover off' );
+unset( $GLOBALS['t']['mods']['sa_show_county_image'] );
+$GLOBALS['t']['mods']['sa_show_featured_images'] = $sa_prev_global_cty;
+
+/* ---------------------------------------------------------------------------
  * 2c) قالب صفحهٔ موجودیت‌ها و ۳ کارت «شناسنامه» سایبری (v2.19.1):
  * استان، شهرستان و دیدنی هر کدام جدول شناسنامهٔ اختصاصی دارند و اطلاعات کلیدی تکراری ندارند.
  * ------------------------------------------------------------------------- */
@@ -353,6 +402,10 @@ if ( false !== $template ) {
 	sa_t_assert( false !== $sa_pcover, 'the province page prints its featured image (v2.22.70)' );
 	sa_t_assert( $sa_pcover < $pos['profile'], 'the province featured image sits above the identity card (v2.22.70)' );
 	sa_t_assert( 1 === substr_count( $template, 'sa_province_featured_figure(' ), 'the province featured image is printed in one place only (v2.22.70)' );
+	$sa_ccover = strpos( $template, 'sa_county_featured_figure( $sa_id )' );
+	sa_t_assert( false !== $sa_ccover, 'the county page prints its featured image (v2.22.90)' );
+	sa_t_assert( $sa_ccover < $pos['county'], 'the county featured image sits above the county identity card (v2.22.90)' );
+	sa_t_assert( 1 === substr_count( $template, 'sa_county_featured_figure(' ), 'the county featured image is printed in one place only (v2.22.90)' );
 	sa_t_assert( $pos['county'] < $pos['content'], 'county identity card comes before body content' );
 
 	foreach ( array(

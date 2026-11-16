@@ -56,6 +56,7 @@ import argparse
 import base64
 import json
 import os
+import subprocess
 import sys
 import urllib.error
 import urllib.parse
@@ -816,6 +817,59 @@ def rollback(c: "Client", backup_ids: list[int]) -> list[dict]:
     return out
 
 
+def run_county_covers(step: dict) -> dict:
+    """Build and attach county cyber-cards only from an explicitly approved job step."""
+    if step.get("owner_approved") is not True:
+        raise AgentError("county-covers needs owner_approved: true")
+    force = step.get("force_replace", False)
+    if not isinstance(force, bool):
+        raise AgentError("county-covers force_replace must be a JSON boolean")
+    try:
+        max_items = int(step.get("max_items", 0))
+    except (TypeError, ValueError) as err:
+        raise AgentError("county-covers max_items must be a non-negative integer") from err
+    if max_items < 0:
+        raise AgentError("county-covers max_items must be a non-negative integer")
+    tool_dir = REPO_ROOT / "tools" / "images" / "county-covers"
+    env = os.environ.copy()
+    env.update({"OWNER_APPROVED": "yes", "FORCE_REPLACE": "yes" if force else "no", "MAX_ITEMS": str(max_items)})
+    env.setdefault("REQUEST_DELAY_MS", "250")
+    render_command = ["node", "render.mjs"]
+    if max_items:
+        registry = json.loads((tool_dir / "metadata.json").read_text(encoding="utf-8"))
+        render_command.extend(row["slug"] for row in registry["counties"][:max_items])
+    commands = [
+        ["npm", "ci", "--no-audit", "--no-fund"],
+        ["node", "metadata.mjs"],
+        ["node", "test-metadata.mjs"],
+        render_command,
+        ["node", "sync-live.mjs"],
+    ]
+    for command in commands:
+        try:
+            completed = subprocess.run(command, cwd=tool_dir, env=env, capture_output=True, text=True, check=False)
+        except FileNotFoundError as err:
+            raise AgentError(f"county-covers runtime is missing: {err}") from err
+        stdout, stderr = completed.stdout or "", completed.stderr or ""
+        secret = env.get("SA_APP_PASSWORD", "")
+        if secret:
+            stdout, stderr = stdout.replace(secret, "***"), stderr.replace(secret, "***")
+        if stdout:
+            print(stdout[-12000:], end="")
+        if stderr:
+            print(stderr[-4000:], file=sys.stderr, end="")
+        if completed.returncode:
+            detail = (stderr + "\n" + stdout).strip()
+            if secret:
+                detail = detail.replace(secret, "***")
+            detail = detail[-1800:]
+            raise AgentError(f"county-covers command failed ({' '.join(command)}; exit {completed.returncode}): {detail}")
+    reports = sorted((tool_dir / "outputs").glob("sync-report-*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if not reports:
+        raise AgentError("county-covers completed without a live sync report")
+    return json.loads(reports[0].read_text(encoding="utf-8"))
+
+
 def run_job(job_path: str, c: "Client") -> dict:
     """Run a job file (a list of steps); stop at the first refusal. Writes results/<name>.json."""
     path = (REPO_ROOT / job_path).resolve() if not Path(job_path).is_absolute() else Path(job_path)
@@ -833,7 +887,10 @@ def run_job(job_path: str, c: "Client") -> dict:
     for i, step in enumerate(steps, 1):
         entry = {"n": i, "cmd": step.get("cmd")}
         try:
-            entry["result"] = run(parser.parse_args(step_to_argv(step)), c)
+            if step.get("cmd") == "county-covers":
+                entry["result"] = run_county_covers(step)
+            else:
+                entry["result"] = run(parser.parse_args(step_to_argv(step)), c)
             if step.get("cmd") == "update" and isinstance(entry["result"], dict) and entry["result"].get("backup_id"):
                 backups.append(int(entry["result"]["backup_id"]))
             if step.get("cmd") == "probe" and opts.get("rollback_on_fail"):

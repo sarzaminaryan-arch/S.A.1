@@ -56,6 +56,10 @@ jobs:
         with:
           python-version: "3.12"
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Check secrets are set
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}

@@ -1,0 +1,19 @@
+{
+  "name": "sa-county-covers",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sarzamin Aryan county (city) 1200x800 cyber-card featured image generator & uploader",
+  "scripts": {
+    "metadata": "node metadata.mjs",
+    "test": "node test-metadata.mjs",
+    "render": "node render.mjs",
+    "sync": "node sync-live.mjs"
+  },
+  "dependencies": {
+    "@fontsource/orbitron": "^5.1.0",
+    "@fontsource/vazirmatn": "^5.1.1",
+    "@sparticuz/chromium": "^131.0.1",
+    "puppeteer-core": "^23.11.1",
+    "sharp": "^0.33.5"
+  }
+}

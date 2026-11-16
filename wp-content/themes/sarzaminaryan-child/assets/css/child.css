@@ -7628,6 +7628,40 @@ body.bg-lines::before {
 	}
 }
 
+/* ==========================================================================
+   v2.22.90 — تصویر شاخص «شهرستان»: فقط اول صفحهٔ همان شهرستان، بالای شناسنامه
+   ========================================================================== */
+.sa-county-cover {
+	max-width: 900px;
+	margin: 0 auto clamp(16px, 3vw, 28px);
+	padding: clamp(6px, 1.2vw, 10px);
+	border: 1px solid rgba(0, 240, 255, .18);
+	border-radius: 20px;
+	background: #05070d;
+	box-shadow: 0 20px 48px rgba(5, 7, 13, .22);
+}
+
+.sa-county-cover__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 3 / 2;
+	object-fit: cover;
+	border-radius: 14px;
+	background: #05070d;
+}
+
+@media (max-width: 640px) {
+	.sa-county-cover {
+		padding: 5px;
+		border-radius: 14px;
+	}
+
+	.sa-county-cover__img {
+		border-radius: 10px;
+	}
+}
+
 /* v2.22.86 — تجربهٔ مسافرها: کارت فصل با نوار رنگی و بدنهٔ پاستلی؛
    شهرهای هم‌استانی به پایین صفحه، بالای منابع (دستور مالک). */
 .sa-field-season {

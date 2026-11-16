@@ -743,5 +743,8 @@ function sa_cover_image_size( $post_id = 0 ) {
 	if ( 'attraction' === get_post_type( $post_id ) ) {
 		return 'sa-attraction-cover'; // v2.18.16 — دیدنی‌ها: کارت ۱۲۰۰×۶۰۰ بدون برش.
 	}
+	if ( 'city' === get_post_type( $post_id ) ) {
+		return 'sa-county-cover'; // v2.22.90 — شهرستان‌ها: کارت سایبری ۱۲۰۰×۸۰۰ بدون برش.
+	}
 	return 'sa-hero';
 }

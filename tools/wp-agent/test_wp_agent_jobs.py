@@ -9,6 +9,13 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import wp_agent as wa  # noqa: E402
 
+# The live cover pipeline requires an explicit owner flag before launching npm or making requests.
+try:
+    wa.run_county_covers({"owner_approved": False})
+    raise AssertionError("county cover sync should reject missing owner approval")
+except wa.AgentError as err:
+    assert "owner_approved" in str(err)
+
 # 1. not_before defers a job (no result file is written) until the time has passed.
 t = datetime(2026, 11, 16, 5, 0, tzinfo=timezone.utc)
 assert wa.job_deferred({"not_before": "2026-11-16T06:00:00Z"}, t)
