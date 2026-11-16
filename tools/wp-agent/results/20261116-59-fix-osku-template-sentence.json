@@ -1,0 +1,101 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-59-fix-osku-template-sentence.json",
+  "started_utc": "2026-11-16T16:25:51+00:00",
+  "note": "اصلاح محدودِ جملهٔ تکراری که در بازبینی زندهٔ کار ۵۸ پیدا شد؛ فقط محتوای اسکو، با پشتیبان و expected_modified_gmt تازه، سپس پاک‌سازی کش و probe.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 103,
+        "backup_id": 4574,
+        "status": "publish",
+        "modified_gmt": "2026-11-16 16:25:53",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          103
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/osku/?sa_probe=county-template-fix-20261116",
+            "status": 200,
+            "ms": 1529,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اسکو؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/osku/",
+            "desc": "راهنمای کامل شهرستان اسکو؛ روستای جهانی کندوان، چاپ باتیک، شهر جدید سهند، مشخصات، تاریخچه، اقلیم و جاذبه‌های گردشگری.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اسکو — دهکدهٔ سنگی کندوان و شهر ملی چاپ باتیک",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اسکو باید بدانید؛ از معماری کله‌قندی کندوان تا کارگاه‌های چاپ باتیک.",
+              "og:url": "https://sarzaminaryan.ir/city/osku/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-osku.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اسکو — دهکدهٔ سنگی کندوان و شهر ملی چاپ باتیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اسکو — دهکدهٔ سنگی کندوان و شهر ملی چاپ باتیک"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-osku.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-osku.webp"
+            ],
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18622,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T16:25:58+00:00"
+}
