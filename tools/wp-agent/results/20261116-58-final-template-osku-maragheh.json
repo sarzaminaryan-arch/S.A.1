@@ -1,0 +1,190 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-58-final-template-osku-maragheh.json",
+  "started_utc": "2026-11-16T16:23:32+00:00",
+  "note": "به درخواست صریح مالک: اجرای آزمایشی قالب نهایی شهرستان‌ها روی اسکو و مراغه. از متن زندهٔ خوانده‌شده استفاده می‌شود؛ فصل‌ها/دیدنی‌ها به فیلدهای بلوک تجربه منتقل می‌شوند. نشانی، عنوان و وضعیت انتشار ثابت. پشتیبان هر نوشته و expected_modified_gmt اجباری؛ در صورت خطا یا probe ناسالم، rollback خودکار.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 103,
+        "backup_id": 4570,
+        "status": "publish",
+        "modified_gmt": "2026-11-16 16:23:34",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "extra_places",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 101,
+        "backup_id": 4572,
+        "status": "publish",
+        "modified_gmt": "2026-11-16 16:23:36",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "extra_places",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          103,
+          101
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/osku/?sa_probe=county-template-20261116",
+            "status": 200,
+            "ms": 1297,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اسکو؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/osku/",
+            "desc": "راهنمای کامل شهرستان اسکو؛ روستای جهانی کندوان، چاپ باتیک، شهر جدید سهند، مشخصات، تاریخچه، اقلیم و جاذبه‌های گردشگری.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اسکو — دهکدهٔ سنگی کندوان و شهر ملی چاپ باتیک",
+              "og:description": "هر آنچه پیش از سفر به شهرستان اسکو باید بدانید؛ از معماری کله‌قندی کندوان تا کارگاه‌های چاپ باتیک.",
+              "og:url": "https://sarzaminaryan.ir/city/osku/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-osku.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اسکو — دهکدهٔ سنگی کندوان و شهر ملی چاپ باتیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اسکو — دهکدهٔ سنگی کندوان و شهر ملی چاپ باتیک"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-osku.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-osku.webp"
+            ],
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18622,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/maragheh/?sa_probe=county-template-20261116",
+            "status": 200,
+            "ms": 1248,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مراغه؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/maragheh/",
+            "desc": "راهنمای کامل شهرستان مراغه؛ رصدخانه تاریخی خواجه نصیر، گنبد سرخ، موزه ایلخانی، سد علویان و مشخصات، تاریخچه و جاذبه‌های پایتخت علمی ایلخانیان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مراغه — شهر رصدخانه و گنبدهای تاریخی",
+              "og:description": "هر آنچه پیش از سفر به شهرستان مراغه باید بدانید؛ از رصدخانه ۶۵۷ قمری تا دریاچه سد علویان.",
+              "og:url": "https://sarzaminaryan.ir/city/maragheh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-maragheh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مراغه — شهر رصدخانه و گنبدهای تاریخی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مراغه — شهر رصدخانه و گنبدهای تاریخی"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-maragheh.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-maragheh.webp"
+            ],
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19700,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T16:23:43+00:00"
+}
