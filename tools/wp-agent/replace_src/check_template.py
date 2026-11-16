@@ -323,6 +323,15 @@ def check_meta(path: Path) -> list[str]:
                   if "wikipedia.org" in l]
     if len(wiki_lines) > 1:
         problems.append(f"sa_sources names wikipedia {len(wiki_lines)} times (max 1)")
+    # owner order 2026-11-26 (سخت‌گیرانه): ویکی‌پدیا فقط یک خط، و تنها وقتی که منبع رسمی
+    # برای جمعیت یا مساحت نیست. اگر خط ویکی هست ولی مرکز آمار/فرمانداری هم در فهرست است،
+    # یعنی عدد را می‌شد از منبع رسمی گرفت و خط ویکی زائد است.
+    official = ("amar.org.ir", "ostan-", "farmandari", "mashhad.ir", "shahrdari",
+                "iribnews", "irna.ir", "mehrnews", "isna.ir", "imna.ir")
+    has_official = any(d in (meta.get("sa_sources") or "") for d in official)
+    if wiki_lines and has_official:  # sa_sources only; sa_schema_sameas is JSON-LD, not a source
+        problems.append("sa_sources carries a wikipedia line while an official source is "
+                        "present — wikipedia is only for population/area with no official source")
     # v2.22.87: clean numeric coordinates are part of the master template (the
     # theme renders the in-page map + geo JSON-LD from them).
     lat = parse_coord(str(meta.get("lat") or meta.get("sa_city_latitude") or ""))
