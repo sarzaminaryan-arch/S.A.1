@@ -1,0 +1,11 @@
+{
+  "note": "دستور مالک برای تولید و اتصال زندهٔ ۴۸۵ کارت شهرستان. مسیر سخت‌گیرانه: بررسی نسخهٔ زندهٔ 2.22.90، خواندن تازهٔ ۵ صفحهٔ /posts، تطبیق id/slug/status و گرفتن modified_gmt تازه، رد تصویر شاخص سالمِ موجود، بارگذاری WebP و تنظیم _thumbnail_id با پشتیبان سمت سرور و expected_modified_gmt؛ در پایان پاک‌کردن کش. force_replace خاموش است.",
+  "steps": [
+    {
+      "cmd": "county-covers",
+      "owner_approved": true,
+      "force_replace": false,
+      "max_items": 0
+    }
+  ]
+}
