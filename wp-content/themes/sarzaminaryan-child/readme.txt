@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.92
+Stable tag: 2.22.93
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.93 — 1405-08-26 (2026-11-17) =
+* هم‌گامی مستندات نسخه و فهرست رسانه‌ها در `sa_citation_source_label` (صداوسیما، فارس، جام جم، خبرآنلاین، دنیای اقتصاد، ایلنا، میزان، فرارو، همشهری).
 
 = 2.22.92 — 1405-08-26 (2026-11-17) =
 * فهرست منابع: نام رسانه جای دامنهٔ خام در `sa_citation_source_label` — صداوسیما (`irib-news.ir`/`iribnews.ir`)، فارس، جام جم، خبرآنلاین، دنیای اقتصاد، ایلنا، میزان، فرارو و همشهری. «irib-news.ir» در صفحهٔ زندهٔ مراغه با دامنهٔ خام چاپ می‌شد.
