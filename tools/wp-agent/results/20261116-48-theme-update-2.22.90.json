@@ -1,0 +1,476 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-48-theme-update-2.22.90.json",
+  "started_utc": "2026-11-16T13:41:36+00:00",
+  "note": "دستور مالک برای نصب child theme نسخهٔ 2.22.90: پشتیبان کامل UpdraftPlus پیش از نصب، عدم ارسال پشتیبان به فضای ابری، probe صفحه‌های نمونه و بازگشت به 2.22.89 در صورت خرابی. این کار فقط قالب را نصب می‌کند؛ اتصال تصویرهای شاخص در workflow جداگانه و پس از تأیید نسخهٔ زنده انجام می‌شود.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.88",
+          "loaded": "2.22.88",
+          "log": [
+            {
+              "time_gmt": "2026-11-15T19:40:20+00:00",
+              "from": "2.22.84",
+              "to": "2.22.85",
+              "wanted": "2.22.85",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T08:29:04+00:00",
+              "from": "2.22.85",
+              "to": "2.22.86",
+              "wanted": "2.22.86",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T09:51:39+00:00",
+              "from": "2.22.86",
+              "to": "2.22.87",
+              "wanted": "2.22.87",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T09:52:13+00:00",
+              "from": "2.22.87",
+              "to": "2.22.86",
+              "wanted": "2.22.86",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T10:00:04+00:00",
+              "from": "2.22.86",
+              "to": "2.22.88",
+              "wanted": "2.22.88",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1242,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/abadan/",
+            "status": 200,
+            "ms": 1635,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آبادان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/abadan/",
+            "desc": "راهنمای شهرستان آبادان: جمعیت و تقسیمات، تاریخ پالایشگاه و اروندرود، مسجد رنگونی‌ها، موزه، بازار ته‌لنجی‌ها، آب‌وهوا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آبادان: تاریخ نفت و اروندرود، جاهای دیدنی، آب‌وهوا و راه رسیدن.",
+              "og:url": "https://sarzaminaryan.ir/city/abadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-269-a95aa61c27.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آبادان — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43619,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/alborz-qazvin/",
+            "status": 200,
+            "ms": 1380,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان البرز؛ راهنمای سفر، جاذبه‌ها و تاریخ قزوین | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/alborz-qazvin/",
+            "desc": "شهرستان البرز؛ حلقهٔ صنعتی و شهری چسبیده به قزوین با شهرهای الوند، محمدیه، مهرگان، شریف‌آباد و بیدستان و تراکم ۵۹۸ نفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان البرز — سرزمین آریان",
+              "og:description": "شهرستان البرز؛ حلقهٔ صنعتی و شهری چسبیده به قزوین با شهرهای الوند، محمدیه، مهرگان، شریف‌آباد و بیدستان و تراکم ۵۹۸ نفر.",
+              "og:url": "https://sarzaminaryan.ir/city/alborz-qazvin/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-354-6a1bb7a165.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان البرز — سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان البرز — سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 41918,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+            "status": 200,
+            "ms": 1472,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شاهین‌شهر و میمه؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+            "desc": "راهنمای کامل شهرستان شاهین‌شهر و میمه؛ تأسیس ۲۱ تیر ۱۳۶۸ با نام برخوار و میمه، جمعیت ۲۳۴٬۶۶۷ (۱۳۹۵)، شش شهر و دو بخش.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان شاهین‌شهر و میمه — شش شهر، دو بخش",
+              "og:description": "هر آنچه پیش از سفر به شهرستان شاهین‌شهر و میمه باید بدانید؛ از تاریخ تقسیماتی تا تقسیمات کنونی.",
+              "og:url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-163-07c7ed0860.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان شاهین‌شهر و میمه — شش شهر، دو بخش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان شاهین‌شهر و میمه — شش شهر، دو بخش"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 51103,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/isfahan/",
+            "status": 200,
+            "ms": 1831,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان اصفهان؛ راهنمای کامل سفر، ۲۸ شهرستان و جاذبه‌ها",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/isfahan/",
+            "desc": "همه‌چیز درباره‌ی استان اصفهان: ۲۸ شهرستان، میدان نقش جهان، زاینده‌رود، آثار جهانی یونسکو، تاریخ صفویه، غذاها، سوغات و بهترین زمان سفر با داده‌های رسمی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان اصفهان؛ راهنمای سفر، شهرستان‌ها و جاذبه‌ها",
+              "og:description": "همه‌چیز درباره‌ی استان اصفهان: ۲۸ شهرستان، میدان نقش جهان، زاینده‌رود، آثار جهانی یونسکو، تاریخ صفویه، غذاها، سوغات و بهترین زمان سفر با داده‌های رسمی.",
+              "og:url": "https://sarzaminaryan.ir/province/isfahan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/10/isfahan-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان اصفهان؛ راهنمای سفر، شهرستان‌ها و جاذبه‌ها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان اصفهان؛ راهنمای سفر، شهرستان‌ها و جاذبه‌ها"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 125776,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "985d8c290d45",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=985d8c290d45 دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-16T13:41:50+00:00",
+              "age_seconds": 32,
+              "success": true,
+              "errors": 0,
+              "nonce": "985d8c290d45",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-16T13:41:50+00:00",
+            "job": {
+              "nonce": "985d8c290d45",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.88",
+          "to": "2.22.90",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.90",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794836570",
+            "status": 200,
+            "ms": 2355,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/abadan/?sa_probe=1794836574",
+            "status": 200,
+            "ms": 1523,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آبادان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/abadan/",
+            "desc": "راهنمای شهرستان آبادان: جمعیت و تقسیمات، تاریخ پالایشگاه و اروندرود، مسجد رنگونی‌ها، موزه، بازار ته‌لنجی‌ها، آب‌وهوا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آبادان: تاریخ نفت و اروندرود، جاهای دیدنی، آب‌وهوا و راه رسیدن.",
+              "og:url": "https://sarzaminaryan.ir/city/abadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-269-a95aa61c27.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آبادان — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43619,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/alborz-qazvin/?sa_probe=1794836576",
+            "status": 200,
+            "ms": 1446,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان البرز؛ راهنمای سفر، جاذبه‌ها و تاریخ قزوین | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/alborz-qazvin/",
+            "desc": "شهرستان البرز؛ حلقهٔ صنعتی و شهری چسبیده به قزوین با شهرهای الوند، محمدیه، مهرگان، شریف‌آباد و بیدستان و تراکم ۵۹۸ نفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان البرز — سرزمین آریان",
+              "og:description": "شهرستان البرز؛ حلقهٔ صنعتی و شهری چسبیده به قزوین با شهرهای الوند، محمدیه، مهرگان، شریف‌آباد و بیدستان و تراکم ۵۹۸ نفر.",
+              "og:url": "https://sarzaminaryan.ir/city/alborz-qazvin/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-354-6a1bb7a165.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان البرز — سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان البرز — سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 41918,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/?sa_probe=1794836579",
+            "status": 200,
+            "ms": 1244,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شاهین‌شهر و میمه؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+            "desc": "راهنمای کامل شهرستان شاهین‌شهر و میمه؛ تأسیس ۲۱ تیر ۱۳۶۸ با نام برخوار و میمه، جمعیت ۲۳۴٬۶۶۷ (۱۳۹۵)، شش شهر و دو بخش.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان شاهین‌شهر و میمه — شش شهر، دو بخش",
+              "og:description": "هر آنچه پیش از سفر به شهرستان شاهین‌شهر و میمه باید بدانید؛ از تاریخ تقسیماتی تا تقسیمات کنونی.",
+              "og:url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-163-07c7ed0860.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان شاهین‌شهر و میمه — شش شهر، دو بخش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان شاهین‌شهر و میمه — شش شهر، دو بخش"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 51103,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/isfahan/?sa_probe=1794836581",
+            "status": 200,
+            "ms": 1732,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان اصفهان؛ راهنمای کامل سفر، ۲۸ شهرستان و جاذبه‌ها",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/isfahan/",
+            "desc": "همه‌چیز درباره‌ی استان اصفهان: ۲۸ شهرستان، میدان نقش جهان، زاینده‌رود، آثار جهانی یونسکو، تاریخ صفویه، غذاها، سوغات و بهترین زمان سفر با داده‌های رسمی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان اصفهان؛ راهنمای سفر، شهرستان‌ها و جاذبه‌ها",
+              "og:description": "همه‌چیز درباره‌ی استان اصفهان: ۲۸ شهرستان، میدان نقش جهان، زاینده‌رود، آثار جهانی یونسکو، تاریخ صفویه، غذاها، سوغات و بهترین زمان سفر با داده‌های رسمی.",
+              "og:url": "https://sarzaminaryan.ir/province/isfahan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/10/isfahan-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان اصفهان؛ راهنمای سفر، شهرستان‌ها و جاذبه‌ها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان اصفهان؛ راهنمای سفر، شهرستان‌ها و جاذبه‌ها"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 125776,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "healthy": true
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T13:43:05+00:00"
+}
