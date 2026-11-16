@@ -11,11 +11,11 @@
  *    numeric legacy metas second, display-format legacy like «۳۱٫۳۲۷۵ شمالی»
  *    third) and validates them against Iran's bounding box. No valid
  *    coordinates → no map at all (the «no data = no block» rule).
- *  - `sa_county_map_block()` renders a light facade (CSS background + pin +
- *    «نمایش نقشه») plus the always-visible خرجی links (نشان · بلد · گوگل‌مپ)
- *    and a <noscript> fallback. assets/js/county-map.js swaps the facade for
- *    the provider iframe only when it scrolls near (Core Web Vitals: zero
- *    first-load cost, zero CLS via aspect-ratio).
+ *  - `sa_county_map_block()` renders an original, clearly schematic SVG preview
+ *    (not a navigable or provider map), plus the always-visible خرجی links
+ *    (نشان · بلد · گوگل‌مپ) and a <noscript> fallback. On explicit activation,
+ *    assets/js/county-map.js can swap the preview for the interactive OSM/Google
+ *    iframe. The SVG remains visible without WebGL and makes no tile requests.
  *  - `sa_county_map_content_filter()` (the_content, priority 20 — after the
  *    reader-request strips at 8/9 and the citations stash at 13) injects the
  *    block after the first paragraph of the `<!-- sa:sec:map -->` section.
@@ -191,10 +191,18 @@ function sa_county_map_block( $post_id ) {
 
 	return sprintf(
 		'<figure class="sa-map" id="sa-map" dir="ltr">' .
-		'<div class="sa-map__facade" role="button" tabindex="0" data-provider="%1$s" data-lat="%2$s" data-lng="%3$s" data-zoom="%4$s" data-label="%5$s">' .
+		'<div class="sa-map__facade" role="button" tabindex="0" aria-label="نمای شماتیک موقعیت %5$s؛ برای بارگذاری نقشهٔ تعاملی انتخاب کنید" data-provider="%1$s" data-lat="%2$s" data-lng="%3$s" data-zoom="%4$s" data-label="%5$s">' .
+		'<svg class="sa-map__schematic" viewBox="0 0 960 480" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">' .
+		'<rect width="960" height="480" rx="22" fill="#eaf2e7"/>' .
+		'<path d="M-30 90 C130 20 180 180 330 110 S540 20 680 110 870 190 1000 90 M-30 370 C100 300 210 430 350 350 S590 290 700 370 880 440 1000 330" fill="none" stroke="#c6dfd2" stroke-width="32"/>' .
+		'<path d="M-10 260 C120 200 230 280 350 220 S580 140 720 230 860 280 980 210" fill="none" stroke="#79c2d0" stroke-width="18" stroke-linecap="round" opacity=".85"/>' .
+		'<path d="M70 10 L230 490 M360 -20 L430 500 M660 -20 L590 500 M870 -20 L740 500 M-20 160 L980 310 M-20 430 L980 70" fill="none" stroke="#fff" stroke-width="15" stroke-linecap="round"/>' .
+		'<path d="M70 10 L230 490 M360 -20 L430 500 M660 -20 L590 500 M870 -20 L740 500 M-20 160 L980 310 M-20 430 L980 70" fill="none" stroke="#d5b77b" stroke-width="3" stroke-dasharray="12 12" stroke-linecap="round"/>' .
+		'<circle cx="480" cy="240" r="46" fill="#123f73" opacity=".13"/><circle cx="480" cy="240" r="23" fill="#fff"/><circle cx="480" cy="240" r="14" fill="#dc2626" stroke="#fff" stroke-width="5"/>' .
+		'</svg>' .
 		'<span class="sa-map__pin" aria-hidden="true">%6$s</span>' .
-		'<span class="sa-map__placeholder">نقشهٔ موقعیت %5$s</span>' .
-		'<span class="sa-map__load">نمایش نقشه</span>' .
+		'<span class="sa-map__placeholder">نمای شماتیک موقعیت %5$s</span>' .
+		'<span class="sa-map__load">بارگذاری نقشهٔ تعاملی</span>' .
 		'</div>' .
 		'<noscript>%7$s</noscript>' .
 		'<figcaption class="sa-map__caption" dir="rtl">موقعیت شهر %5$s، مرکز %8$s <bdi dir="ltr">%9$s</bdi></figcaption>' .
