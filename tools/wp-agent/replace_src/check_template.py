@@ -50,6 +50,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 # The locked order comes from the single registry in template.py: adding,
 # dropping or renaming a section is one edit there and nowhere else.
 from template import order_patterns  # noqa: E402
+from fa_lint import scan as fa_scan, scan_meta as fa_scan_meta  # noqa: E402
 
 ORDER = order_patterns()
 
@@ -200,6 +201,9 @@ def check_html(path: Path) -> list[str]:
     # a baked map block in post_content means someone hardcoded it — never again.
     if 'id="sa-map"' in html or "sa-map__facade" in html:
         problems.append("map block baked into post_content (the theme injects it)")
+    # فیلتر املا و نگارش فارسی (دستور مالک، ۱۶ نوامبر ۱۴۰۵): نام ماه میلادی،
+    # نیم‌فاصلهٔ جاافتاده، حرف عربی، واژهٔ ممنوع — هر یافته صفحه را رد می‌کند.
+    problems += [f"fa: {line}" for line in fa_scan(html)]
     # v2.22.87 boundary rule: the map section tells the geography; the neighbour
     # NAMES belong to the identity-card chips. 3+ names repeated = the old drift.
     map_html = section_slice(html, "map")
@@ -274,6 +278,8 @@ def check_meta(path: Path) -> list[str]:
     zoom = str(meta.get("sa_map_zoom") or "").strip()
     if zoom and not (8 <= int(float(zoom)) <= 13):
         problems.append(f"zoom out of range 8..13: {zoom}")
+    # فیلتر املا/نگارش روی متن‌های نمایشی متا (سوالات، منابع، توضیح‌ها)
+    problems += [f"fa meta: {line}" for line in fa_scan_meta(meta)]
     # v2.22.87: arabic yeh/kaf leak into display text via copy-paste from wiki.
     for key, val in meta.items():
         if isinstance(val, str) and ("ي" in val or "ك" in val):

@@ -3,12 +3,15 @@
  * Standalone test: نقشهٔ داخل بخش «کجاست؟» (2.22.87).
  *
  * Owner order (template analysis, 2026-11-16): the map is rendered BY THE
- * THEME inside the map section — a light facade that swaps to the provider
- * iframe on scroll — and is NEVER baked into post_content. This test pins:
+ * THEME inside the map section and is NEVER baked into post_content.
+ * Owner order of 2026-11-16 evening («صفحه نقشه تعاملی باز باشه همون صفحه اول»):
+ * the interactive map itself is the first thing the reader sees — no façade and
+ * no «بارگذاری نقشهٔ تعاملی» button. This test pins:
  *   1. sa_geo_parse_coord — Persian digits, direction words, junk → float.
  *   2. sa_county_map_data — canonical → numeric legacy → display legacy;
  *      Iran bounds reject anything else (no map with bad data).
- *   3. sa_county_map_block — facade markup, خرجی links, noscript, caption.
+ *   3. sa_county_map_block — live provider iframe (OSM keyless / Google by
+ *      option), خرجی links, noscript fallback, caption; never a load button.
  *   4. sa_county_map_content_filter — injects once, after the first </p> of
  *      the sa:sec:map section ONLY; nothing without the marker or the coords.
  *   5. FAQ under 3 valid rows carries no section and no schema (helpers gate).
@@ -142,9 +145,11 @@ $GLOBALS['t']['meta'][90]    = array();
 $GLOBALS['t']['options']     = array();
 $block = sa_county_map_block( 90 );
 sa_cm_assert( false !== strpos( $block, 'id="sa-map"' ), 'block: carries the #sa-map anchor' );
-sa_cm_assert( false !== strpos( $block, 'sa-map__schematic' ) && false !== strpos( $block, 'نمای شماتیک موقعیت' ), 'block: original schematic preview is visible without a provider request' );
-sa_cm_assert( false !== strpos( $block, 'بارگذاری نقشهٔ تعاملی' ), 'block: interactive map is an explicit opt-in' );
-sa_cm_assert( false !== strpos( $block, 'sa-map__facade' ) && false !== strpos( $block, 'data-provider="osm"' ), 'block: facade with keyless default provider' );
+sa_cm_assert( false !== strpos( $block, 'sa-map__frame' ) && false !== strpos( $block, '<iframe' ), 'block: the interactive map is an iframe, visible immediately (2.22.91)' );
+sa_cm_assert( false !== strpos( $block, 'openstreetmap.org/export/embed.html?bbox=' ), 'block: keyless OSM embed is the default source' );
+sa_cm_assert( false !== strpos( $block, 'loading="lazy"' ), 'block: the frame is lazily fetched (no layout shift)' );
+sa_cm_assert( false === strpos( $block, 'بارگذاری نقشهٔ تعاملی' ) && false === strpos( $block, 'sa-map__facade' ), 'block: no façade and no load button — the map is simply open' );
+sa_cm_assert( false !== strpos( $block, 'data-provider="osm"' ) && false !== strpos( $block, 'sa-map__embed' ), 'block: provider + reserved-ratio wrapper' );
 sa_cm_assert( false !== strpos( $block, 'data-lat="31.3275"' ) && false !== strpos( $block, 'data-lng="48.69389"' ), 'block: coordinates as ASCII data attributes' );
 sa_cm_assert( false !== strpos( $block, 'نشان' ) && false !== strpos( $block, 'بلد' ) && false !== strpos( $block, 'گوگل‌مپ' ), 'block: the three خرجی links' );
 sa_cm_assert( false !== strpos( $block, 'rel="noopener nofollow"' ), 'block: خرجی links are noopener nofollow' );
@@ -206,26 +211,28 @@ $card_src = (string) file_get_contents( $theme_dir . '/template-parts/entity/cou
 sa_cm_assert( false !== strpos( $card_src, 'href="#sa-map"' ), 'card: map button anchors to the in-page map (2.22.87)' );
 sa_cm_assert( false !== strpos( $card_src, "sa_county_map_data( \$sa_id )" ), 'card: anchor only when coordinates are valid' );
 
-/* ---- 6. Footer script (the 2.22.87 post-mortem: an undefined constant here
-       fataled every city page; now it is pinned by test, not by hope) ------- */
+/* ---- 5b. Provider switch: Google embed URL is built from the same coordinates -- */
+
+$GLOBALS['t']['profile'][90] = array( 'lat' => 31.3275, 'lng' => 48.69389, 'center_fa' => 'نمونه‌شهر' );
+$GLOBALS['t']['meta'][90]    = array();
+$GLOBALS['t']['options']     = array( 'sa_map_provider' => 'google' );
+$google = sa_county_map_block( 90 );
+sa_cm_assert( false !== strpos( $google, 'maps.google.com/maps?q=31.3275,48.69389' ) && false !== strpos( $google, 'output=embed' ), 'block: google provider embed built from coordinates' );
+sa_cm_assert( false === strpos( $google, 'openstreetmap.org' ), 'block: provider switch leaves no OSM frame behind' );
+$GLOBALS['t']['options'] = array();
+
+/* ---- 6. No façade loader any more (2.22.91): the map needs no JavaScript,
+       so the old footer script is gone and the file with it is deleted. ---- */
 
 $GLOBALS['t']['profile'][90] = array( 'lat' => 31.3275, 'lng' => 48.69389, 'center_fa' => 'نمونه‌شهر' );
 $GLOBALS['t']['meta'][90]    = array();
 $GLOBALS['t']['in_loop']     = true;
 $GLOBALS['sa_county_map_injected'] = false;
-$GLOBALS['sa_county_map_printed']  = false;
 $body_with_map = sa_county_map_content_filter( $body );
-sa_cm_assert( ! empty( $GLOBALS['sa_county_map_printed'] ), 'footer: flag set after a real injection' );
-ob_start();
-sa_county_map_footer_script();
-$footer = (string) ob_get_clean();
-sa_cm_assert( false !== strpos( $footer, 'assets/js/county-map.js' ), 'footer: loader script printed on map pages' );
-sa_cm_assert( false !== strpos( $footer, 'defer' ), 'footer: loader is deferred' );
-sa_cm_assert( false === strpos( $footer, 'SA_CHILD_URL' ), 'footer: no undefined constant in the output' );
-// no map on the page → no script at all.
-$GLOBALS['sa_county_map_printed'] = false;
-ob_start();
-sa_county_map_footer_script();
-sa_cm_assert( '' === (string) ob_get_clean(), 'footer: no script without the map block' );
+sa_cm_assert( ! empty( $GLOBALS['sa_county_map_printed'] ), 'filter: flag set after a real injection' );
+sa_cm_assert( false === function_exists( 'sa_county_map_footer_script' ), 'footer: no façade loader function survives (the map is open by default)' );
+sa_cm_assert( ! is_file( $theme_dir . '/assets/js/county-map.js' ), 'footer: façade loader asset removed' );
+$src = (string) file_get_contents( $theme_dir . '/inc/county-map.php' );
+sa_cm_assert( false === strpos( $src, 'SA_CHILD_URL' ), 'source: no undefined constant anywhere in the map module' );
 
-echo "PASS: county map (facade block, provider links, parse + Iran bounds, one injection per map section, never stored, footer loader)\n";
+echo "PASS: county map (open interactive map, provider switch, خرجی links, parse + Iran bounds, one injection per map section, never stored, no façade script)\n";

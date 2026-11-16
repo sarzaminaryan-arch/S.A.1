@@ -150,11 +150,20 @@ def read_json(path: str | None) -> dict:
     return {} if not path else json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-def check_banned(*texts: str | None) -> None:
+def check_banned(*texts: str | None, fa: bool = True) -> None:
     for t in texts:
         for phrase in BANNED:
             if t and phrase.lower() in t.lower():
                 raise AgentError(f"banned phrase in text: {phrase}")
+    if not fa:
+        return
+    # فیلتر املا و نگارش فارسی (دستور مالک، ۱۶ نوامبر ۱۴۰۵): هیچ متنی با نام ماه
+    # میلادی یا نیم‌فاصلهٔ غلط به سایت نمی‌رود. هر یافته نوشتن را رد می‌کند.
+    from replace_src.fa_lint import scan as fa_scan  # local import: keeps `ping` fast
+    for t in texts:
+        problems = fa_scan(t or "")
+        if problems:
+            raise AgentError("فیلتر املا/نگارش: " + " | ".join(problems[:4]))
 
 
 def out(data) -> None:
@@ -638,8 +647,13 @@ def run(a: argparse.Namespace, c: "Client"):
     elif a.cmd == "draft":
         content = read_text(a.content_file) or ""
         check_banned(a.title, content, a.excerpt)
+        draft_meta = read_json(a.meta_file)
+        from replace_src.fa_lint import scan_meta as fa_scan_meta
+        meta_problems = fa_scan_meta(draft_meta)
+        if meta_problems:
+            raise AgentError("فیلتر املا/نگارش (متا): " + " | ".join(meta_problems[:4]))
         body = {"type": a.type, "title": a.title, "content": content, "excerpt": a.excerpt,
-                "slug": a.slug, "parent": a.parent, "meta": read_json(a.meta_file)}
+                "slug": a.slug, "parent": a.parent, "meta": draft_meta}
         if a.category:
             body["terms"] = {"category": a.category}
         return c.call("POST", "/draft", body=body)
@@ -655,8 +669,13 @@ def run(a: argparse.Namespace, c: "Client"):
         print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
         fields = {k: v for k, v in {"title": a.title, "content": read_text(a.content_file), "excerpt": a.excerpt}.items() if v is not None}
         check_banned(*fields.values())
+        meta_in = read_json(a.meta_file)
+        from replace_src.fa_lint import scan_meta as fa_scan_meta
+        meta_problems = fa_scan_meta(meta_in)
+        if meta_problems:
+            raise AgentError("فیلتر املا/نگارش (متا): " + " | ".join(meta_problems[:4]))
         body = {"expected_modified_gmt": current["modified_gmt"], "fields": fields,
-                "meta": read_json(a.meta_file), "reason": a.reason}
+                "meta": meta_in, "reason": a.reason}
         if a.owner_approved_live_edit:
             body["owner_approved_live_edit"] = True
         return c.call("POST", f"/post/{a.id}", body=body)

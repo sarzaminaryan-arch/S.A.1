@@ -1,0 +1,22 @@
+{
+ "note": "شمارهٔ ۵۷ — بازخورد مالک از صفحهٔ اهواز (شب ۱۶ نوامبر). گام ۱ متن تازه را می‌نویسد: جملهٔ «ظهرهای ژوئیه و اوت» با «ظهرهای تیر و مرداد» عوض شد و «ضعف بجا‌مانده» به «ضعف به‌جامانده» اصلاح شد؛ بقیهٔ بدنه و متا همان نسخهٔ تأییدشدهٔ کار ۵۶ است. پیش از نوشتن، فیلتر املا/نگارش (fa_lint) روی متن و متا اجرا می‌شود و هر یافته نوشتن را رد می‌کند. گام ۲ قالب 2.22.91 را نصب می‌کند: نقشهٔ تعاملی از همان اول باز است، بدون دکمهٔ «بارگذاری نقشهٔ تعاملی» و بدون facade؛ iframe با loading=lazy داخل کادر با نسبت ابعاد رزرو‌شده. پشتیبان کامل قبل از نصب و بازگشت خودکار به 2.22.90. گام ۳ کش را پاک می‌کند، گام ۴ چهار نشانی را می‌خواند و گام ۵ متن زنده را دوباره می‌گیرد. انتظار modified_gmt از خواندن زندهٔ کار ۵۶: 2026-11-16 16:52:48.",
+ "rollback_on_fail": true,
+ "steps": [
+  {"cmd": "update", "id": 271,
+   "content_file": "tools/wp-agent/outbox/20261116-replace-ahvaz-final/ahvaz-271.html",
+   "meta_file": "tools/wp-agent/outbox/20261116-replace-ahvaz-final/ahvaz-271.meta.json",
+   "expected_modified_gmt": "2026-11-16 16:52:48",
+   "owner_approved_live_edit": true,
+   "reason": "دستور مالک ۱۶ نوامبر ۱۴۰۵: «ظهرهای ژوئیه و اوت در فارسی نداریم» — جای‌گذاری «تیر و مرداد» و اصلاح «به‌جامانده»؛ بدنه همان تمپلیت نهایی کار ۵۶ است"},
+  {"cmd": "theme-update", "expected_version": "2.22.91",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": ["/", "/city/ahvaz/", "/city/abadan/", "/province/khuzestan/"],
+   "rollback_to": "2.22.90"},
+  {"cmd": "cache-purge", "all": true},
+  {"cmd": "probe", "url": ["/city/ahvaz/", "/city/abadan/", "/city/khorramshahr/", "/province/khuzestan/"]},
+  {"cmd": "get", "id": 271}
+ ]
+}

@@ -12,11 +12,15 @@ on:
     paths:
       - "docs/camping-education/articles/**"
       - "tools/content-lint/**"
+      - "tools/wp-agent/replace_src/fa_lint.py"
+      - "tools/wp-agent/test_fa_lint.py"
       - ".github/workflows/content-lint.yml"
   pull_request:
     paths:
       - "docs/camping-education/articles/**"
       - "tools/content-lint/**"
+      - "tools/wp-agent/replace_src/fa_lint.py"
+      - "tools/wp-agent/test_fa_lint.py"
   workflow_dispatch:
 
 permissions:
@@ -33,7 +37,12 @@ jobs:
           python-version: "3.12"
 
       - name: Byte-compile tools
-        run: python3 -m py_compile tools/content-lint/*.py
+        run: |
+          python3 -m py_compile tools/content-lint/*.py
+          python3 -m py_compile tools/wp-agent/replace_src/fa_lint.py
+
+      - name: Persian spelling filter (ماه میلادی، نیم‌فاصله، حروف عربی)
+        run: python3 tools/wp-agent/test_fa_lint.py
 
       - name: Full report (warnings + infos, never fails)
         run: |
