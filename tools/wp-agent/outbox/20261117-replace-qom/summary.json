@@ -1,0 +1,18 @@
+[
+ {
+  "id": 358,
+  "slug": "qom",
+  "words_after": 1770,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
