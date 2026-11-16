@@ -1,0 +1,19 @@
+{
+  "note": "اصلاح محدودِ جملهٔ تکراری که در بازبینی زندهٔ کار ۵۸ پیدا شد؛ فقط محتوای اسکو، با پشتیبان و expected_modified_gmt تازه، سپس پاک‌سازی کش و probe.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 103,
+      "content_file": "tools/wp-agent/outbox/20261116-final-template-test/osku-103.html",
+      "expected_modified_gmt": "2026-11-16 16:23:34",
+      "owner_approved_live_edit": true,
+      "reason": "دستور مالک ۲۰۲۶-۱۱-۱۶: اصلاح محدود جملهٔ تکراری در قالب نهایی شهرستان اسکو؛ ساختار، نامک، عنوان و وضعیت انتشار ثابت"
+    },
+    {"cmd": "cache-purge", "id": [103]},
+    {
+      "cmd": "probe",
+      "url": ["/city/osku/?sa_probe=county-template-fix-20261116"]
+    }
+  ]
+}
