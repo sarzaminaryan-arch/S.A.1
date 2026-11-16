@@ -1,0 +1,1439 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-55-resume-county-cover-sync-rest.json",
+  "started_utc": "2026-11-16T14:32:41+00:00",
+  "note": "ادامهٔ اجرای زنده از offset=308 پس از موفقیت دستهٔ ۲۰تایی قبلی. بازهٔ باقی‌ماندهٔ رجیستری فعلی ۱۷۶ شهرستان است؛ ابتدا تطبیق کامل ۴۸۴ پست زنده انجام می‌شود، سپس فقط موارد این بازه پردازش می‌شوند. پیوست‌های سالم موجود رد می‌شوند؛ هر تغییر با expected_modified_gmt و پشتیبان ثبت می‌شود؛ در پایان کش پاک و گزارش کامل نتیجه ذخیره می‌شود.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "county-covers",
+      "result": {
+        "started_at": "2026-11-16T14:36:02.712Z",
+        "theme": "2.22.90",
+        "total_live": 484,
+        "start_index": 308,
+        "planned": 176,
+        "force": false,
+        "attached": [
+          {
+            "id": 528,
+            "slug": "amol",
+            "attachment_id": 4218,
+            "reused_attachment": false,
+            "backup_id": 4219,
+            "modified_gmt": "2026-10-04 01:33:01"
+          },
+          {
+            "id": 527,
+            "slug": "babol",
+            "attachment_id": 4220,
+            "reused_attachment": false,
+            "backup_id": 4221,
+            "modified_gmt": "2026-10-04 01:32:56"
+          },
+          {
+            "id": 533,
+            "slug": "babolsar",
+            "attachment_id": 4222,
+            "reused_attachment": false,
+            "backup_id": 4223,
+            "modified_gmt": "2026-10-04 01:32:51"
+          },
+          {
+            "id": 530,
+            "slug": "behshahr",
+            "attachment_id": 4224,
+            "reused_attachment": false,
+            "backup_id": 4225,
+            "modified_gmt": "2026-10-04 01:32:46"
+          },
+          {
+            "id": 536,
+            "slug": "chalus",
+            "attachment_id": 4226,
+            "reused_attachment": false,
+            "backup_id": 4227,
+            "modified_gmt": "2026-10-04 01:31:25"
+          },
+          {
+            "id": 540,
+            "slug": "freydunkenar",
+            "attachment_id": 4228,
+            "reused_attachment": false,
+            "backup_id": 4229,
+            "modified_gmt": "2026-10-04 01:32:00"
+          },
+          {
+            "id": 544,
+            "slug": "gologah",
+            "attachment_id": 4230,
+            "reused_attachment": false,
+            "backup_id": 4231,
+            "modified_gmt": "2026-10-04 01:31:15"
+          },
+          {
+            "id": 538,
+            "slug": "joybar",
+            "attachment_id": 4232,
+            "reused_attachment": false,
+            "backup_id": 4233,
+            "modified_gmt": "2026-10-04 01:32:35"
+          },
+          {
+            "id": 546,
+            "slug": "kelardasht",
+            "attachment_id": 4234,
+            "reused_attachment": false,
+            "backup_id": 4235,
+            "modified_gmt": "2026-10-04 01:31:20"
+          },
+          {
+            "id": 537,
+            "slug": "mahmudabad",
+            "attachment_id": 4236,
+            "reused_attachment": false,
+            "backup_id": 4237,
+            "modified_gmt": "2026-10-04 01:31:50"
+          },
+          {
+            "id": 541,
+            "slug": "miandorud",
+            "attachment_id": 4238,
+            "reused_attachment": false,
+            "backup_id": 4239,
+            "modified_gmt": "2026-10-04 01:31:45"
+          },
+          {
+            "id": 535,
+            "slug": "neka",
+            "attachment_id": 4240,
+            "reused_attachment": false,
+            "backup_id": 4241,
+            "modified_gmt": "2026-10-04 01:31:30"
+          },
+          {
+            "id": 532,
+            "slug": "nowshahr",
+            "attachment_id": 4242,
+            "reused_attachment": false,
+            "backup_id": 4243,
+            "modified_gmt": "2026-10-04 01:31:35"
+          },
+          {
+            "id": 534,
+            "slug": "nur",
+            "attachment_id": 4244,
+            "reused_attachment": false,
+            "backup_id": 4245,
+            "modified_gmt": "2026-10-04 01:31:40"
+          },
+          {
+            "id": 529,
+            "slug": "qaemshahr",
+            "attachment_id": 4246,
+            "reused_attachment": false,
+            "backup_id": 4247,
+            "modified_gmt": "2026-10-04 01:31:55"
+          },
+          {
+            "id": 539,
+            "slug": "ramsar",
+            "attachment_id": 4248,
+            "reused_attachment": false,
+            "backup_id": 4249,
+            "modified_gmt": "2026-10-04 01:32:30"
+          },
+          {
+            "id": 526,
+            "slug": "sari",
+            "attachment_id": 4250,
+            "reused_attachment": false,
+            "backup_id": 4251,
+            "modified_gmt": "2026-10-04 01:32:25"
+          },
+          {
+            "id": 543,
+            "slug": "savadkuh",
+            "attachment_id": 4252,
+            "reused_attachment": false,
+            "backup_id": 4253,
+            "modified_gmt": "2026-10-04 01:32:20"
+          },
+          {
+            "id": 545,
+            "slug": "savadkuh-shomali",
+            "attachment_id": 4254,
+            "reused_attachment": false,
+            "backup_id": 4255,
+            "modified_gmt": "2026-10-04 01:32:15"
+          },
+          {
+            "id": 547,
+            "slug": "simorgh",
+            "attachment_id": 4256,
+            "reused_attachment": false,
+            "backup_id": 4257,
+            "modified_gmt": "2026-10-04 01:32:10"
+          },
+          {
+            "id": 531,
+            "slug": "tonekabon",
+            "attachment_id": 4258,
+            "reused_attachment": false,
+            "backup_id": 4259,
+            "modified_gmt": "2026-10-04 01:32:40"
+          },
+          {
+            "id": 80,
+            "slug": "bam-and-safiabad",
+            "attachment_id": 4260,
+            "reused_attachment": false,
+            "backup_id": 4261,
+            "modified_gmt": "2026-10-07 20:01:28"
+          },
+          {
+            "id": 71,
+            "slug": "bojnord",
+            "attachment_id": 4262,
+            "reused_attachment": false,
+            "backup_id": 4263,
+            "modified_gmt": "2026-11-15 11:29:04"
+          },
+          {
+            "id": 72,
+            "slug": "esfarayen",
+            "attachment_id": 4264,
+            "reused_attachment": false,
+            "backup_id": 4265,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 78,
+            "slug": "faruj",
+            "attachment_id": 4266,
+            "reused_attachment": false,
+            "backup_id": 4267,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 79,
+            "slug": "garmeh",
+            "attachment_id": 4268,
+            "reused_attachment": false,
+            "backup_id": 4269,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 75,
+            "slug": "jajarm",
+            "attachment_id": 4270,
+            "reused_attachment": false,
+            "backup_id": 4271,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 74,
+            "slug": "maneh",
+            "attachment_id": 4272,
+            "reused_attachment": false,
+            "backup_id": 4273,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 77,
+            "slug": "raz-jargalan",
+            "attachment_id": 4274,
+            "reused_attachment": false,
+            "backup_id": 4275,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 76,
+            "slug": "samalqan",
+            "attachment_id": 4276,
+            "reused_attachment": false,
+            "backup_id": 4277,
+            "modified_gmt": "2026-10-07 20:01:23"
+          },
+          {
+            "id": 73,
+            "slug": "shirvan",
+            "attachment_id": 4278,
+            "reused_attachment": false,
+            "backup_id": 4279,
+            "modified_gmt": "2026-11-15 11:31:47"
+          },
+          {
+            "id": 356,
+            "slug": "abyek",
+            "attachment_id": 4280,
+            "reused_attachment": false,
+            "backup_id": 4281,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 354,
+            "slug": "alborz-qazvin",
+            "attachment_id": 4282,
+            "reused_attachment": false,
+            "backup_id": 4283,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 357,
+            "slug": "avaj",
+            "attachment_id": 4284,
+            "reused_attachment": false,
+            "backup_id": 4285,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 355,
+            "slug": "buin-zahra",
+            "attachment_id": 4286,
+            "reused_attachment": false,
+            "backup_id": 4287,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 352,
+            "slug": "qazvin",
+            "attachment_id": 4288,
+            "reused_attachment": false,
+            "backup_id": 4289,
+            "modified_gmt": "2026-11-15 11:34:24"
+          },
+          {
+            "id": 353,
+            "slug": "takestan",
+            "attachment_id": 4290,
+            "reused_attachment": false,
+            "backup_id": 4291,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 359,
+            "slug": "jafarabady",
+            "attachment_id": 4292,
+            "reused_attachment": false,
+            "backup_id": 4293,
+            "modified_gmt": "2026-10-04 01:59:34"
+          },
+          {
+            "id": 360,
+            "slug": "kahak",
+            "attachment_id": 4294,
+            "reused_attachment": false,
+            "backup_id": 4295,
+            "modified_gmt": "2026-10-04 01:59:39"
+          },
+          {
+            "id": 358,
+            "slug": "qom",
+            "attachment_id": 4296,
+            "reused_attachment": false,
+            "backup_id": 4297,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 1257,
+            "slug": "bajestan",
+            "attachment_id": 4298,
+            "reused_attachment": false,
+            "backup_id": 4299,
+            "modified_gmt": "2026-10-02 20:18:25"
+          },
+          {
+            "id": 1254,
+            "slug": "bakharz",
+            "attachment_id": 4300,
+            "reused_attachment": false,
+            "backup_id": 4301,
+            "modified_gmt": "2026-10-02 20:18:20"
+          },
+          {
+            "id": 1260,
+            "slug": "bardaskan",
+            "attachment_id": 4302,
+            "reused_attachment": false,
+            "backup_id": 4303,
+            "modified_gmt": "2026-10-02 20:18:30"
+          },
+          {
+            "id": 1322,
+            "slug": "binalud",
+            "attachment_id": 4304,
+            "reused_attachment": false,
+            "backup_id": 4305,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1318,
+            "slug": "chenaran",
+            "attachment_id": 4306,
+            "reused_attachment": false,
+            "backup_id": 4307,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1308,
+            "slug": "dargaz",
+            "attachment_id": 4308,
+            "reused_attachment": false,
+            "backup_id": 4309,
+            "modified_gmt": "2026-11-15 13:50:32"
+          },
+          {
+            "id": 1307,
+            "slug": "davarzan",
+            "attachment_id": 4310,
+            "reused_attachment": false,
+            "backup_id": 4311,
+            "modified_gmt": "2026-11-15 13:50:38"
+          },
+          {
+            "id": 1314,
+            "slug": "fariman",
+            "attachment_id": 4312,
+            "reused_attachment": false,
+            "backup_id": 4313,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1315,
+            "slug": "firuzeh",
+            "attachment_id": 4314,
+            "reused_attachment": false,
+            "backup_id": 4315,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1321,
+            "slug": "golbahar",
+            "attachment_id": 4316,
+            "reused_attachment": false,
+            "backup_id": 4317,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 70,
+            "slug": "gonabad",
+            "attachment_id": 4318,
+            "reused_attachment": false,
+            "backup_id": 4319,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 1302,
+            "slug": "joghatai",
+            "attachment_id": 4320,
+            "reused_attachment": false,
+            "backup_id": 4321,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1303,
+            "slug": "jovein",
+            "attachment_id": 4322,
+            "reused_attachment": false,
+            "backup_id": 4323,
+            "modified_gmt": "2026-11-15 13:50:40"
+          },
+          {
+            "id": 1319,
+            "slug": "kalat",
+            "attachment_id": 4324,
+            "reused_attachment": false,
+            "backup_id": 4325,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 69,
+            "slug": "kashmar",
+            "attachment_id": 4326,
+            "reused_attachment": false,
+            "backup_id": 4327,
+            "modified_gmt": "2026-11-15 11:31:49"
+          },
+          {
+            "id": 1305,
+            "slug": "khaf",
+            "attachment_id": 4328,
+            "reused_attachment": false,
+            "backup_id": 4329,
+            "modified_gmt": "2026-11-15 13:59:23"
+          },
+          {
+            "id": 1304,
+            "slug": "khalilabad",
+            "attachment_id": 4330,
+            "reused_attachment": false,
+            "backup_id": 4331,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1306,
+            "slug": "khoshab",
+            "attachment_id": 4332,
+            "reused_attachment": false,
+            "backup_id": 4333,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1320,
+            "slug": "kuhsorkh",
+            "attachment_id": 4334,
+            "reused_attachment": false,
+            "backup_id": 4335,
+            "modified_gmt": "2026-11-15 13:50:45"
+          },
+          {
+            "id": 1316,
+            "slug": "mahvelat",
+            "attachment_id": 4336,
+            "reused_attachment": false,
+            "backup_id": 4337,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 63,
+            "slug": "mashhad",
+            "attachment_id": 4338,
+            "reused_attachment": false,
+            "backup_id": 4339,
+            "modified_gmt": "2026-11-10 17:36:29"
+          },
+          {
+            "id": 1317,
+            "slug": "mian-jolgeh",
+            "attachment_id": 4340,
+            "reused_attachment": false,
+            "backup_id": 4341,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 64,
+            "slug": "neyshabur",
+            "attachment_id": 4342,
+            "reused_attachment": false,
+            "backup_id": 4343,
+            "modified_gmt": "2026-11-10 17:36:29"
+          },
+          {
+            "id": 68,
+            "slug": "quchan",
+            "attachment_id": 4344,
+            "reused_attachment": false,
+            "backup_id": 4345,
+            "modified_gmt": "2026-11-10 23:20:58"
+          },
+          {
+            "id": 1309,
+            "slug": "roshtkhar",
+            "attachment_id": 4346,
+            "reused_attachment": false,
+            "backup_id": 4347,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 65,
+            "slug": "sabzevar",
+            "attachment_id": 4348,
+            "reused_attachment": false,
+            "backup_id": 4349,
+            "modified_gmt": "2026-11-10 17:36:29"
+          },
+          {
+            "id": 1313,
+            "slug": "saleh-abad",
+            "attachment_id": 4350,
+            "reused_attachment": false,
+            "backup_id": 4351,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1311,
+            "slug": "sarakhs",
+            "attachment_id": 4352,
+            "reused_attachment": false,
+            "backup_id": 4353,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1312,
+            "slug": "sheshtamad",
+            "attachment_id": 4354,
+            "reused_attachment": false,
+            "backup_id": 4355,
+            "modified_gmt": "2026-11-15 13:50:34"
+          },
+          {
+            "id": 1263,
+            "slug": "taybad",
+            "attachment_id": 4356,
+            "reused_attachment": false,
+            "backup_id": 4357,
+            "modified_gmt": "2026-10-02 20:18:35"
+          },
+          {
+            "id": 66,
+            "slug": "torbat-heydarieh",
+            "attachment_id": 4358,
+            "reused_attachment": false,
+            "backup_id": 4359,
+            "modified_gmt": "2026-10-02 20:18:45"
+          },
+          {
+            "id": 67,
+            "slug": "torbatjam",
+            "attachment_id": 4360,
+            "reused_attachment": false,
+            "backup_id": 4361,
+            "modified_gmt": "2026-10-02 20:18:40"
+          },
+          {
+            "id": 1310,
+            "slug": "zaveh",
+            "attachment_id": 4362,
+            "reused_attachment": false,
+            "backup_id": 4363,
+            "modified_gmt": "2026-11-10 23:26:56"
+          },
+          {
+            "id": 1323,
+            "slug": "zebarkhan",
+            "attachment_id": 4364,
+            "reused_attachment": false,
+            "backup_id": 4365,
+            "modified_gmt": "2026-11-15 15:33:57"
+          },
+          {
+            "id": 303,
+            "slug": "aradan",
+            "attachment_id": 4366,
+            "reused_attachment": false,
+            "backup_id": 4367,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 298,
+            "slug": "damghan",
+            "attachment_id": 4368,
+            "reused_attachment": false,
+            "backup_id": 4369,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 299,
+            "slug": "garmsar",
+            "attachment_id": 4370,
+            "reused_attachment": false,
+            "backup_id": 4371,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 300,
+            "slug": "mehdishahr",
+            "attachment_id": 4372,
+            "reused_attachment": false,
+            "backup_id": 4373,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 302,
+            "slug": "meyami",
+            "attachment_id": 4374,
+            "reused_attachment": false,
+            "backup_id": 4375,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 296,
+            "slug": "semnan",
+            "attachment_id": 4376,
+            "reused_attachment": false,
+            "backup_id": 4377,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 297,
+            "slug": "shahrud",
+            "attachment_id": 4378,
+            "reused_attachment": false,
+            "backup_id": 4379,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 301,
+            "slug": "sorkheh",
+            "attachment_id": 4380,
+            "reused_attachment": false,
+            "backup_id": 4381,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 1324,
+            "slug": "bampur",
+            "attachment_id": 4382,
+            "reused_attachment": false,
+            "backup_id": 4383,
+            "modified_gmt": "2026-10-03 18:43:22"
+          },
+          {
+            "id": 305,
+            "slug": "chabahar",
+            "attachment_id": 4384,
+            "reused_attachment": false,
+            "backup_id": 4385,
+            "modified_gmt": "2026-10-03 18:43:39"
+          },
+          {
+            "id": 316,
+            "slug": "dalgan",
+            "attachment_id": 4386,
+            "reused_attachment": false,
+            "backup_id": 4387,
+            "modified_gmt": "2026-10-03 18:43:53"
+          },
+          {
+            "id": 1326,
+            "slug": "dashtiari",
+            "attachment_id": 4388,
+            "reused_attachment": false,
+            "backup_id": 4389,
+            "modified_gmt": "2026-10-03 18:43:37"
+          },
+          {
+            "id": 319,
+            "slug": "fanuj",
+            "attachment_id": 4390,
+            "reused_attachment": false,
+            "backup_id": 4391,
+            "modified_gmt": "2026-10-03 18:43:29"
+          },
+          {
+            "id": 1330,
+            "slug": "golshan",
+            "attachment_id": 4392,
+            "reused_attachment": false,
+            "backup_id": 4393,
+            "modified_gmt": "2026-10-03 18:42:52"
+          },
+          {
+            "id": 322,
+            "slug": "hamun",
+            "attachment_id": 4394,
+            "reused_attachment": false,
+            "backup_id": 4395,
+            "modified_gmt": "2026-10-03 18:43:03"
+          },
+          {
+            "id": 317,
+            "slug": "hirmand",
+            "attachment_id": 4396,
+            "reused_attachment": false,
+            "backup_id": 4397,
+            "modified_gmt": "2026-10-03 18:43:07"
+          },
+          {
+            "id": 306,
+            "slug": "iranshahr",
+            "attachment_id": 4398,
+            "reused_attachment": false,
+            "backup_id": 4399,
+            "modified_gmt": "2026-10-03 18:43:17"
+          },
+          {
+            "id": 309,
+            "slug": "khash",
+            "attachment_id": 4400,
+            "reused_attachment": false,
+            "backup_id": 4401,
+            "modified_gmt": "2026-10-03 18:43:32"
+          },
+          {
+            "id": 312,
+            "slug": "konarak",
+            "attachment_id": 4402,
+            "reused_attachment": false,
+            "backup_id": 4403,
+            "modified_gmt": "2026-10-03 18:42:37"
+          },
+          {
+            "id": 1329,
+            "slug": "lashar",
+            "attachment_id": 4404,
+            "reused_attachment": false,
+            "backup_id": 4405,
+            "modified_gmt": "2026-10-03 18:42:42"
+          },
+          {
+            "id": 315,
+            "slug": "mehrestan",
+            "attachment_id": 4406,
+            "reused_attachment": false,
+            "backup_id": 4407,
+            "modified_gmt": "2026-10-03 18:43:02"
+          },
+          {
+            "id": 321,
+            "slug": "mirjaveh",
+            "attachment_id": 4408,
+            "reused_attachment": false,
+            "backup_id": 4409,
+            "modified_gmt": "2026-10-03 18:43:44"
+          },
+          {
+            "id": 311,
+            "slug": "nik-shahr",
+            "attachment_id": 4410,
+            "reused_attachment": false,
+            "backup_id": 4411,
+            "modified_gmt": "2026-10-03 18:43:18"
+          },
+          {
+            "id": 320,
+            "slug": "nimruz",
+            "attachment_id": 4412,
+            "reused_attachment": false,
+            "backup_id": 4413,
+            "modified_gmt": "2026-10-03 18:43:34"
+          },
+          {
+            "id": 318,
+            "slug": "qasr-e-qand",
+            "attachment_id": 4414,
+            "reused_attachment": false,
+            "backup_id": 4415,
+            "modified_gmt": "2026-10-03 18:43:24"
+          },
+          {
+            "id": 1327,
+            "slug": "rask",
+            "attachment_id": 4416,
+            "reused_attachment": false,
+            "backup_id": 4417,
+            "modified_gmt": "2026-10-03 18:43:48"
+          },
+          {
+            "id": 307,
+            "slug": "saravan",
+            "attachment_id": 4418,
+            "reused_attachment": false,
+            "backup_id": 4419,
+            "modified_gmt": "2026-10-03 18:43:08"
+          },
+          {
+            "id": 308,
+            "slug": "sarbaz",
+            "attachment_id": 4420,
+            "reused_attachment": false,
+            "backup_id": 4421,
+            "modified_gmt": "2026-10-03 18:43:13"
+          },
+          {
+            "id": 313,
+            "slug": "sib-va-suran",
+            "attachment_id": 4422,
+            "reused_attachment": false,
+            "backup_id": 4423,
+            "modified_gmt": "2026-10-03 18:42:47"
+          },
+          {
+            "id": 1325,
+            "slug": "taftan",
+            "attachment_id": 4424,
+            "reused_attachment": false,
+            "backup_id": 4425,
+            "modified_gmt": "2026-10-03 18:43:27"
+          },
+          {
+            "id": 310,
+            "slug": "zabol",
+            "attachment_id": 4426,
+            "reused_attachment": false,
+            "backup_id": 4427,
+            "modified_gmt": "2026-10-03 18:43:43"
+          },
+          {
+            "id": 304,
+            "slug": "zahedan",
+            "attachment_id": 4428,
+            "reused_attachment": false,
+            "backup_id": 4429,
+            "modified_gmt": "2026-10-03 18:43:12"
+          },
+          {
+            "id": 1328,
+            "slug": "zarabad",
+            "attachment_id": 4430,
+            "reused_attachment": false,
+            "backup_id": 4431,
+            "modified_gmt": "2026-10-03 18:43:23"
+          },
+          {
+            "id": 314,
+            "slug": "zehak",
+            "attachment_id": 4432,
+            "reused_attachment": false,
+            "backup_id": 4433,
+            "modified_gmt": "2026-10-03 18:42:57"
+          },
+          {
+            "id": 241,
+            "slug": "birjand",
+            "attachment_id": 4434,
+            "reused_attachment": false,
+            "backup_id": 4435,
+            "modified_gmt": "2026-10-01 15:39:08"
+          },
+          {
+            "id": 248,
+            "slug": "boshruyeh",
+            "attachment_id": 4436,
+            "reused_attachment": false,
+            "backup_id": 4437,
+            "modified_gmt": "2026-10-01 15:39:03"
+          },
+          {
+            "id": 246,
+            "slug": "darmiyan",
+            "attachment_id": 4438,
+            "reused_attachment": false,
+            "backup_id": 4439,
+            "modified_gmt": "2026-10-01 15:38:53"
+          },
+          {
+            "id": 251,
+            "slug": "eshqabad",
+            "attachment_id": 4440,
+            "reused_attachment": false,
+            "backup_id": 4441,
+            "modified_gmt": "2026-10-01 15:38:17"
+          },
+          {
+            "id": 1300,
+            "slug": "ferdows",
+            "attachment_id": 4442,
+            "reused_attachment": false,
+            "backup_id": 4443,
+            "modified_gmt": "2026-10-04 11:55:23"
+          },
+          {
+            "id": 250,
+            "slug": "khusf",
+            "attachment_id": 4444,
+            "reused_attachment": false,
+            "backup_id": 4445,
+            "modified_gmt": "2026-10-01 15:38:58"
+          },
+          {
+            "id": 244,
+            "slug": "nehbandan",
+            "attachment_id": 4446,
+            "reused_attachment": false,
+            "backup_id": 4447,
+            "modified_gmt": "2026-10-01 15:38:22"
+          },
+          {
+            "id": 243,
+            "slug": "qayenat",
+            "attachment_id": 4448,
+            "reused_attachment": false,
+            "backup_id": 4449,
+            "modified_gmt": "2026-10-01 15:38:27"
+          },
+          {
+            "id": 247,
+            "slug": "sarayan",
+            "attachment_id": 4450,
+            "reused_attachment": false,
+            "backup_id": 4451,
+            "modified_gmt": "2026-10-01 15:38:43"
+          },
+          {
+            "id": 245,
+            "slug": "sarbisheh",
+            "attachment_id": 4452,
+            "reused_attachment": false,
+            "backup_id": 4453,
+            "modified_gmt": "2026-10-01 15:38:37"
+          },
+          {
+            "id": 242,
+            "slug": "tabas",
+            "attachment_id": 4454,
+            "reused_attachment": false,
+            "backup_id": 4455,
+            "modified_gmt": "2026-10-01 15:38:32"
+          },
+          {
+            "id": 249,
+            "slug": "zirkuh",
+            "attachment_id": 4456,
+            "reused_attachment": false,
+            "backup_id": 4457,
+            "modified_gmt": "2026-10-01 15:38:48"
+          },
+          {
+            "id": 220,
+            "slug": "baharestan",
+            "attachment_id": 4458,
+            "reused_attachment": false,
+            "backup_id": 4459,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 216,
+            "slug": "damavand",
+            "attachment_id": 4460,
+            "reused_attachment": false,
+            "backup_id": 4461,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 219,
+            "slug": "eslamshahr",
+            "attachment_id": 4462,
+            "reused_attachment": false,
+            "backup_id": 4463,
+            "modified_gmt": "2026-11-15 11:34:26"
+          },
+          {
+            "id": 217,
+            "slug": "firuzkuh",
+            "attachment_id": 4464,
+            "reused_attachment": false,
+            "backup_id": 4465,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 228,
+            "slug": "malard",
+            "attachment_id": 4466,
+            "reused_attachment": false,
+            "backup_id": 4467,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 221,
+            "slug": "pakdasht",
+            "attachment_id": 4468,
+            "reused_attachment": false,
+            "backup_id": 4469,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 222,
+            "slug": "pardis",
+            "attachment_id": 4470,
+            "reused_attachment": false,
+            "backup_id": 4471,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 223,
+            "slug": "pishva",
+            "attachment_id": 4472,
+            "reused_attachment": false,
+            "backup_id": 4473,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 227,
+            "slug": "qarchak",
+            "attachment_id": 4474,
+            "reused_attachment": false,
+            "backup_id": 4475,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 226,
+            "slug": "qods",
+            "attachment_id": 4476,
+            "reused_attachment": false,
+            "backup_id": 4477,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 214,
+            "slug": "rey",
+            "attachment_id": 4478,
+            "reused_attachment": false,
+            "backup_id": 4479,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 224,
+            "slug": "robat-karim",
+            "attachment_id": 4480,
+            "reused_attachment": false,
+            "backup_id": 4481,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 225,
+            "slug": "shahriar",
+            "attachment_id": 4482,
+            "reused_attachment": false,
+            "backup_id": 4483,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 215,
+            "slug": "shemiranat",
+            "attachment_id": 4484,
+            "reused_attachment": false,
+            "backup_id": 4485,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 213,
+            "slug": "tehran",
+            "attachment_id": 4486,
+            "reused_attachment": false,
+            "backup_id": 4487,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 218,
+            "slug": "varamin",
+            "attachment_id": 4488,
+            "reused_attachment": false,
+            "backup_id": 4489,
+            "modified_gmt": "2026-10-24 00:59:04"
+          },
+          {
+            "id": 128,
+            "slug": "baruq",
+            "attachment_id": 4490,
+            "reused_attachment": false,
+            "backup_id": 4491,
+            "modified_gmt": "2026-10-07 20:11:51"
+          },
+          {
+            "id": 129,
+            "slug": "bukan",
+            "attachment_id": 4492,
+            "reused_attachment": false,
+            "backup_id": 4493,
+            "modified_gmt": "2026-10-07 20:11:52"
+          },
+          {
+            "id": 133,
+            "slug": "chaharborj",
+            "attachment_id": 4494,
+            "reused_attachment": false,
+            "backup_id": 4495,
+            "modified_gmt": "2026-10-07 20:12:04"
+          },
+          {
+            "id": 125,
+            "slug": "chaldoran",
+            "attachment_id": 4496,
+            "reused_attachment": false,
+            "backup_id": 4497,
+            "modified_gmt": "2026-10-07 20:11:40"
+          },
+          {
+            "id": 132,
+            "slug": "chaypareh",
+            "attachment_id": 4498,
+            "reused_attachment": false,
+            "backup_id": 4499,
+            "modified_gmt": "2026-10-07 20:12:03"
+          },
+          {
+            "id": 122,
+            "slug": "khoy",
+            "attachment_id": 4500,
+            "reused_attachment": false,
+            "backup_id": 4501,
+            "modified_gmt": "2026-10-07 20:11:34"
+          },
+          {
+            "id": 123,
+            "slug": "mahabad",
+            "attachment_id": 4502,
+            "reused_attachment": false,
+            "backup_id": 4503,
+            "modified_gmt": "2026-11-10 23:22:40"
+          },
+          {
+            "id": 126,
+            "slug": "maku",
+            "attachment_id": 4504,
+            "reused_attachment": false,
+            "backup_id": 4505,
+            "modified_gmt": "2026-10-07 20:11:45"
+          },
+          {
+            "id": 138,
+            "slug": "miandoab",
+            "attachment_id": 4506,
+            "reused_attachment": false,
+            "backup_id": 4507,
+            "modified_gmt": "2026-10-07 20:09:33"
+          },
+          {
+            "id": 140,
+            "slug": "mirabad",
+            "attachment_id": 4508,
+            "reused_attachment": false,
+            "backup_id": 4509,
+            "modified_gmt": "2026-10-07 20:09:43"
+          },
+          {
+            "id": 139,
+            "slug": "naqadeh",
+            "attachment_id": 4510,
+            "reused_attachment": false,
+            "backup_id": 4511,
+            "modified_gmt": "2026-10-07 20:09:38"
+          },
+          {
+            "id": 127,
+            "slug": "oshnavieh",
+            "attachment_id": 4512,
+            "reused_attachment": false,
+            "backup_id": 4513,
+            "modified_gmt": "2026-10-07 20:11:50"
+          },
+          {
+            "id": 131,
+            "slug": "piranshahr",
+            "attachment_id": 4514,
+            "reused_attachment": false,
+            "backup_id": 4515,
+            "modified_gmt": "2026-10-07 20:11:58"
+          },
+          {
+            "id": 130,
+            "slug": "poldasht",
+            "attachment_id": 4516,
+            "reused_attachment": false,
+            "backup_id": 4517,
+            "modified_gmt": "2026-10-07 20:11:53"
+          },
+          {
+            "id": 135,
+            "slug": "salmas",
+            "attachment_id": 4518,
+            "reused_attachment": false,
+            "backup_id": 4519,
+            "modified_gmt": "2026-11-15 11:34:38"
+          },
+          {
+            "id": 134,
+            "slug": "sardasht",
+            "attachment_id": 4520,
+            "reused_attachment": false,
+            "backup_id": 4521,
+            "modified_gmt": "2026-10-07 20:12:05"
+          },
+          {
+            "id": 136,
+            "slug": "shahin-dezh",
+            "attachment_id": 4522,
+            "reused_attachment": false,
+            "backup_id": 4523,
+            "modified_gmt": "2026-10-07 20:12:10"
+          },
+          {
+            "id": 137,
+            "slug": "showt",
+            "attachment_id": 4524,
+            "reused_attachment": false,
+            "backup_id": 4525,
+            "modified_gmt": "2026-10-07 20:12:11"
+          },
+          {
+            "id": 124,
+            "slug": "takab",
+            "attachment_id": 4526,
+            "reused_attachment": false,
+            "backup_id": 4527,
+            "modified_gmt": "2026-10-07 20:11:39"
+          },
+          {
+            "id": 121,
+            "slug": "urmia",
+            "attachment_id": 4528,
+            "reused_attachment": false,
+            "backup_id": 4529,
+            "modified_gmt": "2026-10-07 20:11:33"
+          },
+          {
+            "id": 1940,
+            "slug": "abarkuh",
+            "attachment_id": 4530,
+            "reused_attachment": false,
+            "backup_id": 4531,
+            "modified_gmt": "2026-10-04 12:01:09"
+          },
+          {
+            "id": 1938,
+            "slug": "ardakan",
+            "attachment_id": 4532,
+            "reused_attachment": false,
+            "backup_id": 4533,
+            "modified_gmt": "2026-10-04 12:00:59"
+          },
+          {
+            "id": 1944,
+            "slug": "ashkezar",
+            "attachment_id": 4534,
+            "reused_attachment": false,
+            "backup_id": 4535,
+            "modified_gmt": "2026-10-04 12:01:29"
+          },
+          {
+            "id": 1941,
+            "slug": "bafq",
+            "attachment_id": 4536,
+            "reused_attachment": false,
+            "backup_id": 4537,
+            "modified_gmt": "2026-10-04 12:01:14"
+          },
+          {
+            "id": 1945,
+            "slug": "behabad",
+            "attachment_id": 4538,
+            "reused_attachment": false,
+            "backup_id": 4539,
+            "modified_gmt": "2026-10-04 12:01:34"
+          },
+          {
+            "id": 1943,
+            "slug": "khatam",
+            "attachment_id": 4540,
+            "reused_attachment": false,
+            "backup_id": 4541,
+            "modified_gmt": "2026-10-04 13:10:53"
+          },
+          {
+            "id": 1947,
+            "slug": "marvast",
+            "attachment_id": 4542,
+            "reused_attachment": false,
+            "backup_id": 4543,
+            "modified_gmt": "2026-10-04 12:01:44"
+          },
+          {
+            "id": 1939,
+            "slug": "mehriz",
+            "attachment_id": 4544,
+            "reused_attachment": false,
+            "backup_id": 4545,
+            "modified_gmt": "2026-10-04 12:01:04"
+          },
+          {
+            "id": 1937,
+            "slug": "meybod",
+            "attachment_id": 4546,
+            "reused_attachment": false,
+            "backup_id": 4547,
+            "modified_gmt": "2026-10-04 12:01:54"
+          },
+          {
+            "id": 1942,
+            "slug": "taft",
+            "attachment_id": 4548,
+            "reused_attachment": false,
+            "backup_id": 4549,
+            "modified_gmt": "2026-10-04 12:01:19"
+          },
+          {
+            "id": 1936,
+            "slug": "yazd",
+            "attachment_id": 4550,
+            "reused_attachment": false,
+            "backup_id": 4551,
+            "modified_gmt": "2026-10-04 12:01:49"
+          },
+          {
+            "id": 1946,
+            "slug": "zarach",
+            "attachment_id": 4552,
+            "reused_attachment": false,
+            "backup_id": 4553,
+            "modified_gmt": "2026-10-04 12:01:39"
+          },
+          {
+            "id": 83,
+            "slug": "abhar",
+            "attachment_id": 4554,
+            "reused_attachment": false,
+            "backup_id": 4555,
+            "modified_gmt": "2026-10-07 20:12:18"
+          },
+          {
+            "id": 87,
+            "slug": "ejrud",
+            "attachment_id": 4556,
+            "reused_attachment": false,
+            "backup_id": 4557,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 84,
+            "slug": "kharadere",
+            "attachment_id": 4558,
+            "reused_attachment": false,
+            "backup_id": 4559,
+            "modified_gmt": "2026-11-11 00:07:55"
+          },
+          {
+            "id": 82,
+            "slug": "khodabandeh",
+            "attachment_id": 4560,
+            "reused_attachment": false,
+            "backup_id": 4561,
+            "modified_gmt": "2026-11-15 11:34:44"
+          },
+          {
+            "id": 86,
+            "slug": "mahneshan",
+            "attachment_id": 4562,
+            "reused_attachment": false,
+            "backup_id": 4563,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 88,
+            "slug": "soltaniyeh",
+            "attachment_id": 4564,
+            "reused_attachment": false,
+            "backup_id": 4565,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 85,
+            "slug": "tarom",
+            "attachment_id": 4566,
+            "reused_attachment": false,
+            "backup_id": 4567,
+            "modified_gmt": "2026-10-24 00:59:03"
+          },
+          {
+            "id": 81,
+            "slug": "zanjan",
+            "attachment_id": 4568,
+            "reused_attachment": false,
+            "backup_id": 4569,
+            "modified_gmt": "2026-11-15 11:34:28"
+          }
+        ],
+        "skipped_existing": [],
+        "skipped_changed": [],
+        "failed": [],
+        "file": "/home/runner/work/S.A.1/S.A.1/tools/images/county-covers/outputs/sync-report-2026-11-16T14-36-02-711Z.json",
+        "cache_purge": {
+          "purged": "all"
+        },
+        "finished_at": "2026-11-16T14:44:08.746Z"
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T14:44:08+00:00"
+}
