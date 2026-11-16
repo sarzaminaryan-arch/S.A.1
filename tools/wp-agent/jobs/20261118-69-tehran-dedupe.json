@@ -1,0 +1,28 @@
+{
+ "note": "تهران ۲۱۳ — رفع تکرار: پاراگراف اول بخش «مردم» عیناً همان متن جعبهٔ قالب («مردمِ این‌جا، از نگاه مسافرها») بود و خواننده یک متن را دو بار می‌دید. جایش یک پاراگراف تازه آمد (لایه‌های سه‌نسلی مهاجرت، با شاهد مرکز آمار)، و جملهٔ «محله‌به‌محله» هم از افتتاحیه برداشته شد چون در جعبه هست. سنجش: صفر جملهٔ مشترک میان جعبه و بدنه.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 213,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.meta.json",
+   "expected_modified_gmt": "2026-11-16 21:25:01",
+   "owner_approved_live_edit": true,
+   "reason": "تهران: حذف تکرار متن جعبهٔ «مردمِ این‌جا» از بدنه و جانشینی با پاراگراف سه‌نسلی تازه؛ ۲۳۰۳ واژه"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    213
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/tehran/?sa_probe=28",
+    "/city/maragheh/?sa_probe=28"
+   ]
+  }
+ ]
+}
