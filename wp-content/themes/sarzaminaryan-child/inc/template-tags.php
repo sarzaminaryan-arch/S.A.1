@@ -356,8 +356,16 @@ function sa_get_sources( $post_id ) {
 			$seen[ $norm ] = true;
 		}
 		$cols  = array_values( $cols );
+		$title = isset( $cols[0] ) ? (string) $cols[0] : '';
+		if ( '' === $title ) {
+			$title = $url;
+		} else {
+			// v2.22.85: شماره‌گذاریِ چسبیده به ابتدای عنوان («4. درگاه استانداری…») حذف می‌شود؛
+			// فهرست منابع خودش شماره می‌گذارد و دوباره‌شماری نمی‌خواهد.
+			$title = (string) preg_replace( '/^[0-9۰-۹]+[.)\-–—]\s+/u', '', $title );
+		}
 		$out[] = array(
-			'title' => isset( $cols[0] ) ? $cols[0] : $url,
+			'title' => $title,
 			'org'   => isset( $cols[1] ) ? $cols[1] : '',
 			'url'   => $url,
 			'date'  => isset( $cols[2] ) ? $cols[2] : '',
@@ -539,6 +547,11 @@ function sa_source_rel( $url ) {
  * @param int $post_id Post ID.
  */
 function sa_sources_section( $post_id ) {
+	// v2.22.86 (دستور مالک): فهرست «شهرهای هم‌استانی» — که پیش‌تر زیر شناسنامه بود —
+	// درست بالای منابع چاپ می‌شود. نشانی و ظاهر همان است؛ فقط جایش عوض شده.
+	if ( ! empty( $GLOBALS['sa_county_siblings_html'][ (int) $post_id ] ) ) {
+		echo $GLOBALS['sa_county_siblings_html'][ (int) $post_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaped parts in the county-profile template part.
+	}
 	// v2.22.51: منابع همیشه آخرین بخش مقاله است. وقتی پانویس‌ها فعال‌اند، فهرست
 	// یکپارچه در sa_citations_filter ساخته و کنار گذاشته شده؛ همان را چاپ می‌کنیم
 	// تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
@@ -1516,6 +1529,39 @@ function sa_strip_duplicate_body_identity( $content ) {
 	return is_string( $cleaned ) ? $cleaned : $content;
 }
 add_filter( 'the_content', 'sa_strip_duplicate_body_identity', 8 );
+
+/**
+ * Strip the duplicate «شناسنامهٔ کوتاه …» section from article bodies (v2.22.84).
+ *
+ * Owner order (2026-11-15): the short identity table at the top of county
+ * articles repeats the county identity card the template already renders above
+ * the body, so it disappears from every article — old database pages included —
+ * and the section generators stop writing it. Render-time only: the database
+ * text stays untouched, and because this runs before sa_toc_filter (11) the
+ * table of contents loses the entry by itself, leaving no dead anchor.
+ *
+ * @param string $content Post content HTML.
+ * @return string
+ */
+function sa_strip_duplicate_body_short_id( $content ) {
+	if ( is_admin() || is_feed() || ! is_singular() ) {
+		return $content;
+	}
+	if ( false === strpos( $content, 'شناسنامه' ) || false === strpos( $content, 'کوتاه' ) ) {
+		return $content;
+	}
+	$cleaned = preg_replace(
+		'~(?:<!--\s*sa:sec:card\s*-->\s*)?(?:<!--\s*wp:heading[^>]*-->\s*)?<h2[^>]*>[^<]*شناسنامه[\s\x{200C}\x{0654}\x{0640}ی]*کوتاه[^<]*</h2>.*?(?=<!--\s*/sa:sec:card\s*-->|<h2[\s>]|\z)~isu',
+		'',
+		(string) $content
+	);
+	if ( is_string( $cleaned ) && $cleaned !== $content ) {
+		// the closing marker of a marked card section is now orphaned; drop it
+		$cleaned = str_replace( '<!-- /sa:sec:card -->', '', (string) $cleaned );
+	}
+	return is_string( $cleaned ) ? $cleaned : $content;
+}
+add_filter( 'the_content', 'sa_strip_duplicate_body_short_id', 8 );
 
 /**
  * Keep standalone article tables from widening the mobile document.

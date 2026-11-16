@@ -742,8 +742,14 @@ def run(a: argparse.Namespace, c: "Client"):
             report["rollback"] = theme_install(c, a.rollback_to, a.rollback_to)
             time.sleep(5)
             report["probe_after_rollback"] = [probe_url(bust(u)) for u in urls]
+            # compact probe verdict first — the full report is too big for the error string
+            probes_short = [{"url": p.get("url", ""), "status": p.get("status", 0),
+                             "error": p.get("error", ""), "title": (p.get("title") or "")[:60]}
+                            for p in report["probe_after"]]
             raise AgentError("probe failed after update; rolled back to " + a.rollback_to + ": "
-                             + json.dumps({k: report[k] for k in ("install", "rollback")}, ensure_ascii=False)[:800])
+                             + json.dumps({"probes": probes_short,
+                                           "install": {k: report["install"].get(k) for k in ("updated", "from", "to")}},
+                                          ensure_ascii=False)[:800])
         if not report["healthy"]:
             raise AgentError("probe failed after update and no --rollback-to was given")
         return report

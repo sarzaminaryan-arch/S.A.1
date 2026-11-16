@@ -232,6 +232,8 @@ function sa_county_profile_resolve_neighbor( $raw ) {
 /**
  * Neighbours from canonical direction keys, falling back to the legacy
  * free-form neighbour lines (sa_cty_neighbors) matched by direction word.
+ * A legacy line that names several directions («غرب و جنوب») yields ONE
+ * merged chip (v2.22.85), not one chip per direction word.
  *
  * @param int $post_id County post ID.
  * @return array<string,array{label:string,url:string}> Direction key → chip.
@@ -258,14 +260,41 @@ function sa_county_profile_neighbors( $post_id ) {
 		if ( ! $parsed || empty( $parsed['dir'] ) ) {
 			continue;
 		}
+		// v2.22.85: جهت‌های آزادِ این خط جمع می‌شوند — یک شهرستانِ چندجهته («غرب و جنوب»،
+		// «شمال غربی») باید یک چیپ بسازد، نه برای هر جهت یک چیپ تکراری از همان شهرستان.
+		$free = array();
+		$used = 0;
 		foreach ( $directions as $key => $label ) {
-			if ( false !== strpos( (string) $parsed['dir'], $label ) && ! isset( $out[ $key ] ) ) {
-				$out[ $key ] = array(
-					'direction' => $label,
-					'label'     => 'شهرستان ' . $parsed['label'],
-					'url'       => isset( $parsed['url'] ) ? (string) $parsed['url'] : '',
-				);
+			if ( false !== strpos( (string) $parsed['dir'], $label ) ) {
+				$used++;
+				if ( ! isset( $out[ $key ] ) ) {
+					$free[] = $key;
+				}
 			}
+		}
+		if ( empty( $free ) ) {
+			continue;
+		}
+		if ( 1 === $used ) {
+			$out[ $free[0] ] = array(
+				'direction' => $directions[ $free[0] ],
+				'label'     => 'شهرستان ' . $parsed['label'],
+				'url'       => isset( $parsed['url'] ) ? (string) $parsed['url'] : '',
+			);
+			continue;
+		}
+		// جهتِ نمایش: متنِ خودِ خط وقتی همهٔ جهت‌هایش آزادند («غرب و جنوب»)، وگرنه فقط
+		// جهت‌های آزاد به ترتیب n/s/e/w — تا جهتِ گرفته‌شده دوباره ادعا نشود.
+		$dir_label = ( count( $free ) === $used )
+			? (string) $parsed['dir']
+			: implode( ' و ', array_intersect_key( $directions, array_flip( $free ) ) );
+		$key = implode( '-', $free );
+		if ( ! isset( $out[ $key ] ) ) {
+			$out[ $key ] = array(
+				'direction' => $dir_label,
+				'label'     => 'شهرستان ' . $parsed['label'],
+				'url'       => isset( $parsed['url'] ) ? (string) $parsed['url'] : '',
+			);
 		}
 	}
 	return $out;

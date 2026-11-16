@@ -1,0 +1,28 @@
+{
+  "note": "تلاش دوبارهٔ کار ۵۳ با هات‌فیکس 2.22.88. کار ۵۳ خودش برگشت: نصب 2.22.87 روی صفحه‌های شهرستان Fatal می‌داد (ثابت تعریف‌نشدهٔ SA_CHILD_URL در اسکریپت footer نقشه) — پل خودکار به 2.22.86 برگشت و پست ۲۷۱ از پشتیبان بازگردانده شد؛ سایت سالم است. این نسخه فقط همان یک خط را اصلاح کرده (نشانی اسکریپت از get_stylesheet_directory_uri) و مسیر footer حالا تست CI دارد. گام‌ها مثل کار ۵۳: به‌روزرسانی اهواز (تیتر تازهٔ بخش نقشه، حذف فهرست همسایه‌ها، مختصات عددی lat/lng) + قالب 2.22.88 + پاک‌کردن کش + probe + خواندن.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 271,
+      "content_file": "tools/wp-agent/outbox/20261115-replace-ahvaz/ahvaz-271.html",
+      "meta_file": "tools/wp-agent/outbox/20261115-replace-ahvaz/ahvaz-271.meta.json",
+      "expected_modified_gmt": "2026-11-16 09:52:33",
+      "owner_approved_live_edit": true,
+      "reason": "گزارش ۵۵ (تلاش دوم): تیتر تازهٔ بخش نقشه + حذف فهرست همسایه‌ها از بدنه + مختصات عددی lat/lng"
+    },
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.22.88",
+      "owner_approved_theme_update": true,
+      "backup_first": true,
+      "backup_nocloud": true,
+      "backup_wait": 900,
+      "probe": ["/", "/city/ahvaz/", "/city/aghajari/", "/city/abadan/"],
+      "rollback_to": "2.22.86"
+    },
+    { "cmd": "cache-purge", "all": true },
+    { "cmd": "probe", "url": ["/city/ahvaz/", "/city/aghajari/", "/city/abadan/", "/"] },
+    { "cmd": "get", "id": 271 }
+  ]
+}

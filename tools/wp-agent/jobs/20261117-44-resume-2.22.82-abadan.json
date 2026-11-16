@@ -1,0 +1,15 @@
+{
+ "note": "ادامهٔ کار ۴۳. در کار ۴۳ صفحهٔ ۲۶۹ با متن ۱۲ بخشی و متای اصلاح‌شده نوشته شد و قالب 2.22.82 نصب شد و healthy بود، اما گام probe با کلید اشتباه (paths به‌جای url) اجرا نشد و کار سرخ شد؛ خودِ بازگشت خودکار هم یک نسخهٔ اضافی نوشت. این کار بدون دست‌زدن به متن و بدون نصب دوبارهٔ قالب، فقط صفحه را با نشانگرهای بخش بازنویسی می‌کند (تا هر بخش جدا حذف/تغییر شود)، بعد کش، بعد probe با کلید درست، بعد ممیزی محتوا.",
+ "rollback_on_fail": true,
+ "steps": [
+  {"cmd": "update", "id": 269,
+   "content_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.html",
+   "meta_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.meta.json",
+   "expected_modified_gmt": "2026-11-15 17:07:25",
+   "owner_approved_live_edit": true,
+   "reason": "آبادان: نوشتن دوبارهٔ همان متن ۱۲ بخشی با نشانگرهای بخش (sa:sec) تا حذف/تغییر یک بخش در همهٔ شهرستان‌ها ممکن شود"},
+  {"cmd": "cache-purge", "id": [269]},
+  {"cmd": "probe", "url": ["/city/abadan/", "/city/khorramshahr/", "/city/shadegan/", "/"]},
+  {"cmd": "content-audit", "type": "city", "workers": 4}
+ ]
+}

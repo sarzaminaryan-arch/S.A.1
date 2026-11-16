@@ -82,4 +82,25 @@ sa_sl_assert( false !== $pos_sources && false !== $pos_faq && $pos_sources > $po
 sa_sl_assert( false !== $pos_related && $pos_sources < $pos_related, 'order: sources close the article, above the suggested-counties block' );
 sa_sl_assert( false !== $pos_nav && $pos_nav > $pos_related, 'order: previous/next navigation is the last block of the page' );
 
+/* v2.22.85 — شمارهٔ فهرستِ چسبیده به عنوان منبع حذف می‌شود؛ دامنهٔ بی‌برچسب دوبار چاپ نمی‌شود. */
+$GLOBALS['t']['meta'][213]['sa_sources'] = "3. عنوان منبع نمونه | خبرگزاری برنا | https://borna.news/fa/news/1 | ۱۴۰۵/۰۸/۲۴\n۷۸ شیء تاریخی کشف شد | خبرگزاری مهر | https://www.mehrnews.com/news/2 | ۱۴۰۵/۰۸/۲۴\n";
+$src = sa_get_sources( 213 );
+sa_sl_assert( 2 === count( $src ), 'sources: two lines parsed' );
+sa_sl_assert( 'عنوان منبع نمونه' === $src[0]['title'], 'sources: leading list number stripped from the title' );
+sa_sl_assert( '۷۸ شیء تاریخی کشف شد' === $src[1]['title'], 'sources: a real number opening a title is kept' );
+
+$body2  = '<p>متن <a href="https://borna.news/fa/news/1">لینک یک</a> و <a href="https://www.mehrnews.com/news/2">لینک دو</a>.</p>';
+$out2   = sa_citations_filter( $body2 );
+$stash2 = (string) $GLOBALS['sa_sources_section_html'][213];
+sa_sl_assert( false === strpos( $stash2, '3. عنوان' ), 'sources: rendered list shows no baked-in numbering' );
+sa_sl_assert( false !== strpos( $stash2, 'عنوان منبع نمونه' ), 'sources: clean title renders in the list' );
+sa_sl_assert( false === strpos( $stash2, 'sa-footnotes__host" dir="ltr">borna.news<' ), 'sources: unlabeled host is not printed twice' );
+sa_sl_assert( false !== strpos( $stash2, 'sa-footnotes__host" dir="ltr">mehrnews.com<' ), 'sources: mapped label still shows the latin host once' );
+
+// v2.22.86: فهرست «شهرهای هم‌استانی» درست بالای منابع چاپ می‌شود.
+$tt86 = (string) file_get_contents( $theme_dir . '/inc/template-tags.php' );
+sa_sl_assert( false !== strpos( $tt86, 'sa_county_siblings_html' ), 'template-tags: sibling-cities list echoed right before the sources section (2.22.86)' );
+$tp86 = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
+sa_sl_assert( false !== strpos( $tp86, 'sa_county_siblings_html' ), 'template part: sibling list stashed for the article end (2.22.86)' );
+
 echo "PASS: sources last (list stashed during body render, printed as the last article section, prev/next navigation closes the page)\n";

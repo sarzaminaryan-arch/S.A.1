@@ -119,6 +119,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-toc.php"
 
+      - name: 'Run body-strip tests (شناسنامهٔ کوتاه و بلوک درخواست از بدنه حذف می‌شوند)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-body-strip.php"
+
       - name: Run county identity-card tests (کلیدهای کانونی شناسنامه + قوانین خروجی کارت)
         shell: bash
         run: php "$THEME_DIR/tests/test-county-profile.php"
@@ -126,6 +130,10 @@ jobs:
       - name: 'Run county insights tests (لایهٔ از تجربهٔ مسافرها: فیلدهای دسترسی/فصل‌ها/نکات/جاها)'
         shell: bash
         run: php "$THEME_DIR/tests/test-county-insights.php"
+
+      - name: 'Run county map test (نقشهٔ داخل بخش کجاست + آستانهٔ FAQ)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-map.php"
 
       - name: 'Run province county-link tests (لینک شهرستان‌ها روی صفحهٔ استان — نامزد نامک و fallback)'
         shell: bash

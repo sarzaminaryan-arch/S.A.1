@@ -1,0 +1,18 @@
+{
+ "note": "شمارهٔ ۵۱ (پایان) — دو اصلاح روی صفحهٔ آبادان و یک نسخهٔ قالب. گام ۱ همان متن ۱۲ بخشی را با متای اصلاح‌شده می‌نویسد: «بهترین فصل» از بازهٔ مبهم به «اسفند و فروردین؛ پاییز و زمستان ملایم» تغییر کرد تا نشان «فصل پیشنهادی» روی تابستان ننشیند، و فهرست منابع بدون شمارهٔ اضافی نوشته شد. گام ۲ قالب 2.22.83 را نصب می‌کند (پشتیبان کامل، بازگشت خودکار به 2.22.82) که همان اصل نشان فصل را در قالب درست می‌کند. گام ۳ کش، گام ۴ probe با کلید درست url.",
+ "rollback_on_fail": true,
+ "steps": [
+  {"cmd": "update", "id": 269,
+   "content_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.html",
+   "meta_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.meta.json",
+   "expected_modified_gmt": "2026-11-15 17:08:33",
+   "owner_approved_live_edit": true,
+   "reason": "آبادان: اصلاح «بهترین فصل» برای نشان فصل پیشنهادی و پاک‌سازی فهرست منابع"},
+  {"cmd": "theme-update", "expected_version": "2.22.83", "owner_approved_theme_update": true,
+   "backup_first": true, "backup_wait": 900, "backup_nocloud": true,
+   "probe": ["/", "/city/abadan/", "/city/ramshir/", "/city/dargaz/"],
+   "rollback_to": "2.22.82"},
+  {"cmd": "cache-purge", "id": [269]},
+  {"cmd": "probe", "url": ["/city/abadan/", "/city/ramshir/", "/", "/city/khorramshahr/"]}
+ ]
+}

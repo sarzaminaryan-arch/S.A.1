@@ -1,0 +1,623 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-41-release-2.22.81-seed49.json",
+  "started_utc": "2026-11-15T16:45:45+00:00",
+  "note": "نصب قالب 2.22.81 (۴۴ → ۴۹ شهرستان در بلوک «از تجربهٔ مسافرها»: آغاجاری، اندیکا، دزپارت، رامشیر، زبرخان). اول پشتیبان کامل UpdraftPlus روی خود سرور (بدون مرحلهٔ ابری)، بعد به‌روزرسانی قالب از Release گیت‌هاب، بعد پاک‌سازی کش و probe چند صفحه. اگر probe خراب باشد خودکار به 2.22.80 برمی‌گردد. متن و متای هیچ نوشته‌ای دست نمی‌خورد.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.80",
+          "loaded": "2.22.80",
+          "log": [
+            {
+              "time_gmt": "2026-11-15T09:01:25+00:00",
+              "from": "2.22.75",
+              "to": "2.22.76",
+              "wanted": "2.22.76",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T09:07:10+00:00",
+              "from": "2.22.76",
+              "to": "2.22.77",
+              "wanted": "2.22.77",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T09:17:28+00:00",
+              "from": "2.22.77",
+              "to": "2.22.78",
+              "wanted": "2.22.78",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T13:54:50+00:00",
+              "from": "2.22.78",
+              "to": "2.22.79",
+              "wanted": "2.22.79",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-15T14:20:31+00:00",
+              "from": "2.22.79",
+              "to": "2.22.80",
+              "wanted": "2.22.80",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1434,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ramshir/",
+            "status": 200,
+            "ms": 1714,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رامشیر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ramshir/",
+            "desc": "راهنمای شهرستان رامشیر؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان رامشیر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/ramshir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-284-49ff61b5ab.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رامشیر — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44140,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/aghajari/",
+            "status": 200,
+            "ms": 1351,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آغاجاری؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/aghajari/",
+            "desc": "راهنمای شهرستان آغاجاری; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آغاجاری — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آغاجاری در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/aghajari/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-270-b564a732d3.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان آغاجاری — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آغاجاری — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 45341,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/andika/",
+            "status": 200,
+            "ms": 1541,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اندیکا؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/andika/",
+            "desc": "راهنمای شهرستان اندیکا; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اندیکا — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان اندیکا در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/andika/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-273-782b363f77.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اندیکا — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اندیکا — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43511,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dezpart/",
+            "status": 200,
+            "ms": 1572,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان دزپارت؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dezpart/",
+            "desc": "راهنمای شهرستان دزپارت; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان دزپارت — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان دزپارت در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/dezpart/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-592-e0ef535faf.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان دزپارت — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان دزپارت — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44270,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/zebarkhan/",
+            "status": 200,
+            "ms": 1353,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان زبرخان؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/zebarkhan/",
+            "desc": "راهنمای شهرستان زبرخان؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان زبرخان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان زبرخان در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/zebarkhan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1323-270c57f34c.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان زبرخان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان زبرخان — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 45335,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/",
+            "status": 200,
+            "ms": 1550,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "432f5763fdfa",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=432f5763fdfa دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-15T16:46:05+00:00",
+              "age_seconds": 32,
+              "success": true,
+              "errors": 0,
+              "nonce": "432f5763fdfa",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-15T16:46:05+00:00",
+            "job": {
+              "nonce": "432f5763fdfa",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.80",
+          "to": "2.22.81",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.81",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794761226",
+            "status": 200,
+            "ms": 2058,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ramshir/?sa_probe=1794761229",
+            "status": 200,
+            "ms": 1769,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رامشیر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ramshir/",
+            "desc": "راهنمای شهرستان رامشیر؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان رامشیر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/ramshir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-284-49ff61b5ab.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان رامشیر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رامشیر — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44140,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/aghajari/?sa_probe=1794761232",
+            "status": 200,
+            "ms": 1750,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آغاجاری؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/aghajari/",
+            "desc": "راهنمای شهرستان آغاجاری; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آغاجاری — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آغاجاری در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/aghajari/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-270-b564a732d3.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان آغاجاری — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آغاجاری — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 45341,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/andika/?sa_probe=1794761235",
+            "status": 200,
+            "ms": 1574,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اندیکا؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/andika/",
+            "desc": "راهنمای شهرستان اندیکا; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اندیکا — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان اندیکا در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/andika/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-273-782b363f77.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان اندیکا — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اندیکا — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43511,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dezpart/?sa_probe=1794761238",
+            "status": 200,
+            "ms": 1548,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان دزپارت؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dezpart/",
+            "desc": "راهنمای شهرستان دزپارت; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان دزپارت — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان دزپارت در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/dezpart/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-592-e0ef535faf.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان دزپارت — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان دزپارت — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44270,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/zebarkhan/?sa_probe=1794761240",
+            "status": 200,
+            "ms": 1628,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان زبرخان؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/zebarkhan/",
+            "desc": "راهنمای شهرستان زبرخان؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان زبرخان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان زبرخان در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/zebarkhan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1323-270c57f34c.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان زبرخان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان زبرخان — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 45335,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dargaz/?sa_probe=1794761243",
+            "status": 200,
+            "ms": 1570,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان درگز؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dargaz/",
+            "desc": "راهنمای شهرستان درگز؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خراسان رضوی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان درگز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان درگز در استان خراسان رضوی.",
+              "og:url": "https://sarzaminaryan.ir/city/dargaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/city-1308-f8143917fd.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "شهرستان درگز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان درگز — راهنمای سرزمین آریان"
+            },
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 43883,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "error": "cache-purge needs --all or --id"
+    }
+  ],
+  "finished_utc": "2026-11-15T16:47:26+00:00"
+}

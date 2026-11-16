@@ -1,0 +1,36 @@
+{
+  "note": "شمارهٔ ۵۲ (آغاجاری) + دو حذف مالک + قالب 2.22.84. گام ۱: صفحهٔ آغاجاری (۲۷۰) کامل در قالب تازهٔ ۱۰ بخشی بازنویسی و منتشر می‌شود — بدون «شناسنامهٔ کوتاه» (تکرار کارت شناسنامهٔ قالب) و بدون بلوک «از مردم … یک درخواست داریم»؛ ۹۹۷ (بدون دو بلوک حذف‌شده) → ۱٬۶۶۲ واژه، ۱۰ نشانگر sa:sec به ترتیب رجیستری، متای اصلاح‌شده (همسایه‌ها با امیدیهٔ یک‌خطی، فصل «پاییز و زمستان»، فاصله تا اهواز ۱۴۷، FAQ ده‌تایی، منابع نُه‌منبعی). گام ۲: متن ذخیره‌شدهٔ آبادان (۲۶۹) هم مکانیکی از همان دو بخش پاک می‌شود؛ در همان مسیر یک ایراد قدیمی رفع می‌شود: بلوک درخواست از کار ۴۵ دو بار در متن بود (نشان‌دار + دنبالهٔ بی‌نشانگر) و لینک استان تکراری بود؛ ۲٬۳۲۳ → ۲٬۰۸۹ واژه، ۱۰ نشانگر سالم؛ متا دست نمی‌خورد. گام ۳: قالب 2.22.84 (دو فیلتر حذف در زمان رندر برای همهٔ صفحه‌های قدیمی: sa_strip_duplicate_body_short_id و sa_strip_reader_request_filter؛ تست test-body-strip.php در CI پاس شد؛ Release با ZIP ساخته شده) با روال امن: پشتیبان کامل UpdraftPlus، بازگشت خودکار به 2.22.83. گام ۴: پاک‌کردن کل کش (تغییر رندر سراسری است). گام ۵ و ۶: probe و خواندن زندهٔ صفحهٔ ۲۷۰ برای شمارش نشانگرها.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 270,
+      "content_file": "tools/wp-agent/outbox/20261119-replace-aghajari/aghajari-270.html",
+      "meta_file": "tools/wp-agent/outbox/20261119-replace-aghajari/aghajari-270.meta.json",
+      "expected_modified_gmt": "2026-11-15 15:37:47",
+      "owner_approved_live_edit": true,
+      "reason": "شمارهٔ ۵۲: بازنویسی کامل آغاجاری در قالب ۱۰ بخشی بدون شناسنامهٔ کوتاه و بدون بلوک درخواست (دو حذف مالک ۱۵ نوامبر)؛ ۹۹۷ → ۱٬۶۶۲ واژه"
+    },
+    {
+      "cmd": "update",
+      "id": 269,
+      "content_file": "tools/wp-agent/outbox/20261119-strip-abadan/abadan-269.html",
+      "expected_modified_gmt": "2026-11-15 17:15:59",
+      "owner_approved_live_edit": true,
+      "reason": "آبادان: حذف مکانیکی بخش «شناسنامهٔ کوتاه» و بلوک درخواست از متن ذخیره‌شده و رفع بلوک درخواستِ دوبار چاپ‌شده از کار ۴۵؛ ۲٬۳۲۳ → ۲٬۰۸۹ واژه؛ متا بدون تغییر"
+    },
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.22.84",
+      "owner_approved_theme_update": true,
+      "backup_first": true,
+      "backup_nocloud": true,
+      "backup_wait": 900,
+      "probe": ["/", "/city/aghajari/", "/city/abadan/", "/city/ramshir/"],
+      "rollback_to": "2.22.83"
+    },
+    { "cmd": "cache-purge", "all": true },
+    { "cmd": "probe", "url": ["/city/aghajari/", "/city/abadan/", "/city/ramshir/", "/"] },
+    { "cmd": "get", "id": 270 }
+  ]
+}

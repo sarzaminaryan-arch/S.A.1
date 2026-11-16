@@ -1,0 +1,39 @@
+{
+  "note": "نصب قالب 2.22.81 (۴۴ → ۴۹ شهرستان در بلوک «از تجربهٔ مسافرها»: آغاجاری، اندیکا، دزپارت، رامشیر، زبرخان). اول پشتیبان کامل UpdraftPlus روی خود سرور (بدون مرحلهٔ ابری)، بعد به‌روزرسانی قالب از Release گیت‌هاب، بعد پاک‌سازی کش و probe چند صفحه. اگر probe خراب باشد خودکار به 2.22.80 برمی‌گردد. متن و متای هیچ نوشته‌ای دست نمی‌خورد.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.22.81",
+      "owner_approved_theme_update": true,
+      "backup_first": true,
+      "backup_wait": 900,
+      "backup_nocloud": true,
+      "probe": [
+        "/",
+        "/city/ramshir/",
+        "/city/aghajari/",
+        "/city/andika/",
+        "/city/dezpart/",
+        "/city/zebarkhan/",
+        "/city/dargaz/"
+      ],
+      "rollback_to": "2.22.80"
+    },
+    {
+      "cmd": "cache-purge"
+    },
+    {
+      "cmd": "probe",
+      "paths": [
+        "/city/ramshir/",
+        "/city/aghajari/",
+        "/city/andika/",
+        "/city/dezpart/",
+        "/city/zebarkhan/",
+        "/city/shadegan/",
+        "/city/ramhormoz/"
+      ]
+    }
+  ]
+}

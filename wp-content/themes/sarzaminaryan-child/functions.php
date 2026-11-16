@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.80' );
+define( 'SA_CHILD_VERSION', '2.22.88' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -50,6 +50,7 @@ $sa_child_includes = array(
 	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
 	'inc/geo-counties.php',
 	'inc/county-profile.php', // شناسنامهٔ شهرستان: کلیدهای استاندارد + کارت county-identity
+	'inc/county-map.php', // v2.22.87: نقشهٔ داخل بخش «کجاست؟» — facade + لودر تنبل، هرگز داخل post_content
 	'inc/province-profile.php',
 	'inc/geo-import.php',
 	'inc/security.php',

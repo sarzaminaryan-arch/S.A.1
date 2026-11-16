@@ -60,7 +60,7 @@ $sa_fallback = function_exists( 'sa_cyber_id_county_fallback' )
 // An empty value never invents data — its tile is dropped before rendering.
 $sa_profile_ext = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $sa_id ) : array();
 if ( ! empty( $sa_profile_ext['has_insights'] ) && function_exists( 'sa_toc_register' ) ) {
-	sa_toc_register( 'از تجربهٔ مسافرها', 'county-field-notes', 6 );
+	sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6 );
 }
 $sa_pget        = function ( $sa_key ) use ( $sa_profile_ext ) {
 	return isset( $sa_profile_ext[ $sa_key ] ) ? $sa_profile_ext[ $sa_key ] : '';
@@ -427,61 +427,11 @@ $sa_county_cells = array_values(
 	)
 );
 
-$sa_poi_buckets = array(
-	'sa_cty_poi_nature'     => 'طبیعت‌گردی (آبشار، تنگه، غار، دریاچه، جنگل)',
-	'sa_cty_poi_offbeat'    => 'نقاط بکر و کمتر دیده‌شده',
-	'sa_cty_poi_recreation' => 'جاهای تفریحی و خانوادگی',
-	'sa_cty_poi_heritage'   => 'آثار تاریخی و زیارتی',
-);
-$sa_pois = array();
-if ( function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_poi' ) ) {
-	foreach ( $sa_poi_buckets as $sa_pkey => $sa_ptitle ) {
-		$sa_items = array();
-		foreach ( sa_county_lines( get_post_meta( $sa_id, $sa_pkey, true ) ) as $sa_pline ) {
-			$sa_pitem = sa_county_parse_poi( $sa_pline );
-			if ( ! empty( $sa_pitem['name'] ) ) {
-				if ( 'sa_cty_poi_offbeat' === $sa_pkey && preg_match( '/آبشار\s+بیشه|دریاچه(?:\s+ٔ|ی)?\s+گهر/u', (string) $sa_pitem['name'] ) ) {
-					continue;
-				}
-				$sa_items[] = $sa_pitem;
-			}
-		}
-		if ( ! empty( $sa_items ) ) {
-			$sa_pois[ $sa_ptitle ] = $sa_items;
-		}
-	}
-}
-// Attractions table (canonical meta layer): published دیدنی posts of this
-// county appear automatically and linked; sibling counties of the same
-// province plus the short under-card prose come from the same data layer
-// ($sa_profile_ext is built once, above, for the identity-card tiles).
-$sa_attractions = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id ) : array();
+// v2.22.86 (دستور مالک): بلوک مقصدهای منتخب شهرستان از زیر
+// شناسنامه حذف شد — محتوایش در «جاهای دیدنی شهرستان» داخل بلوک تجربهٔ مسافرها
+// می‌آید. متاهای sa_cty_poi_* سر جای خودشان می‌مانند (دادهٔ سردبیری و مبدأ
+// فهرست دیدنی‌ها) ولی دیگر کارت جدا می‌سازند.
 $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id ) : array();
-$sa_linked_names = array();
-foreach ( $sa_attractions as $sa_attr_row ) {
-	$sa_linked_names[ $sa_attr_row['name'] ] = true;
-	if ( '' !== $sa_county_bare ) {
-		$sa_short_attr = trim( (string) preg_replace( '/\s+' . preg_quote( $sa_county_bare, '/' ) . '$/u', '', (string) $sa_attr_row['name'] ) );
-		if ( '' !== $sa_short_attr ) {
-			$sa_linked_names[ $sa_short_attr ] = true;
-		}
-	}
-}
-if ( $sa_linked_names && ! empty( $sa_pois ) ) {
-	foreach ( $sa_pois as $sa_ptitle => $sa_plist ) {
-		$sa_pois[ $sa_ptitle ] = array_values(
-			array_filter(
-				$sa_plist,
-				function ( $sa_pitem ) use ( $sa_linked_names ) {
-					return empty( $sa_linked_names[ $sa_pitem['name'] ] );
-				}
-			)
-		);
-		if ( empty( $sa_pois[ $sa_ptitle ] ) ) {
-			unset( $sa_pois[ $sa_ptitle ] );
-		}
-	}
-}
 ?>
 <section class="profile-box sa-cyber-id sa-cyber-id--county" id="county-identity" aria-labelledby="sa-county-identity-title">
 	<div class="sa-cyber-id__hud-bar">
@@ -497,7 +447,19 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 					<?php if ( '' !== $sa_prov_en ) : ?><small dir="ltr"><?php echo esc_html( strtoupper( $sa_prov_en ) ); ?></small><?php endif; ?>
 				</a>
 			<?php endif; ?>
-			<?php if ( '' !== $sa_map_url ) : ?>
+			<?php
+			// v2.22.87 (تحلیل مالک): وقتی نقشهٔ داخل صفحه رندر می‌شود، دکمهٔ نقشهٔ
+			// شناسنامه لنگرِ همان نقشه می‌شود؛ بدون مختصاتِ سالم، همان لینک بیرونی.
+			$sa_map_on_page = function_exists( 'sa_county_map_data' )
+				&& null !== sa_county_map_data( $sa_id )
+				&& false !== strpos( (string) get_post_field( 'post_content', $sa_id ), '<!-- sa:sec:map -->' );
+			?>
+			<?php if ( $sa_map_on_page ) : ?>
+				<a class="profile-link sa-cyber-id__hud-btn" href="#sa-map">
+					<span>موقعیت روی نقشه</span>
+					<small dir="ltr">MAP</small>
+				</a>
+			<?php elseif ( '' !== $sa_map_url ) : ?>
 				<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
 					<span>نقشه</span>
 					<small dir="ltr">MAP</small>
@@ -545,52 +507,32 @@ if ( $sa_linked_names && ! empty( $sa_pois ) ) {
 		</div>
 	</div>
 
-	<?php if ( ! empty( $sa_pois ) ) : ?>
-		<div class="profile-box sa-cyber-id__subtable" id="county-visit">
-			<div class="sa-cyber-id__subtable-head">
-				<span class="sa-cyber-id__subtable-title">کجا برویم؟ (مقصدهای منتخب شهرستان)</span>
-				<span class="sa-cyber-id__subtable-code" dir="ltr">DESTINATIONS &amp; POIS</span>
-			</div>
-			<div class="sa-cyber-grid sa-cyber-grid--neighbors">
-				<?php foreach ( $sa_pois as $sa_ptitle => $sa_plist ) : ?>
-					<div class="profile-box sa-cyber-grid__cell sa-cyber-grid__cell--neighbor">
-						<span class="sa-cyber-grid__label"><?php echo esc_html( $sa_ptitle ); ?></span>
-						<ul class="sa-county__poi">
-							<?php foreach ( $sa_plist as $sa_poi ) : ?>
-								<li>
-									<strong><?php echo esc_html( $sa_poi['name'] ); ?></strong>
-									<?php if ( ! empty( $sa_poi['distance'] ) ) : ?>
-										<span class="sa-county__dist"><?php echo esc_html( sa_fa_digits( $sa_poi['distance'] ) ); ?></span>
-									<?php endif; ?>
-									<?php if ( ! empty( $sa_poi['note'] ) ) : ?>
-										<p><?php echo esc_html( $sa_poi['note'] ); ?></p>
-									<?php endif; ?>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	<?php endif; ?>
 	<?php
-	// v2.22.51: جدول «جاذبه‌های مهم شهرستان» از زیر شناسنامه حذف شد (تصمیم مالک)؛
-	// دیدنی‌های شهرستان در بخش مرتبط‌های پایین صفحه و صفحهٔ خود شهرستان می‌آیند.
+	// v2.22.86 (دستور مالک): بلوک مقصدها دیگر این‌جا نیست؛ محتوایش در
+	// «جاهای دیدنی شهرستان» داخل بلوک تجربهٔ مسافرها می‌آید.
 	?>
-
-	<?php if ( ! empty( $sa_sibling_cities ) ) : ?>
-		<div class="profile-box sa-cyber-id__subtable" id="county-siblings">
-			<div class="sa-cyber-id__subtable-head">
-				<span class="sa-cyber-id__subtable-title">شهرهای هم‌استانی</span>
-				<span class="sa-cyber-id__subtable-code" dir="ltr">SAME PROVINCE</span>
-			</div>
-			<ul class="sa-cyber-id__chips">
-				<?php foreach ( $sa_sibling_cities as $sa_sib ) : ?>
-					<li><a class="profile-link" href="<?php echo esc_url( $sa_sib['url'] ); ?>"><?php echo esc_html( $sa_sib['label'] ); ?></a></li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-	<?php endif; ?>
+	<?php
+	// v2.22.86 (دستور مالک): فهرست «شهرهای هم‌استانی» از شناسنامه به انتهای
+	// مقاله رفت تا درست بالای «منابع» بنشیند. نشانی و ظاهر همان است؛ فقط
+	// جایش عوض شده است. sa_sources_section() آن را چاپ می‌کند.
+	if ( ! empty( $sa_sibling_cities ) ) {
+		$sa_siblings_html  = '<section class="sa-siblings" aria-label="شهرهای هم‌استانی">';
+		$sa_siblings_html .= '<div class="profile-box sa-cyber-id__subtable" id="county-siblings">';
+		$sa_siblings_html .= '<div class="sa-cyber-id__subtable-head"><span class="sa-cyber-id__subtable-title">شهرهای هم‌استانی</span><span class="sa-cyber-id__subtable-code" dir="ltr">SAME PROVINCE</span></div>';
+		$sa_siblings_html .= '<ul class="sa-cyber-id__chips">';
+		foreach ( $sa_sibling_cities as $sa_sib ) {
+			$sa_siblings_html .= '<li><a class="profile-link" href="' . esc_url( $sa_sib['url'] ) . '">' . esc_html( $sa_sib['label'] ) . '</a></li>';
+		}
+		$sa_siblings_html .= '</ul>';
+		// v2.22.87 (تحلیل مالک): در استان‌های پرشهرستان، چیپ‌ها سقف ۱۲تایی دارند؛
+		// لینک «همهٔ شهرستان‌های استان» بن‌بست را می‌شکند و به صفحهٔ استان می‌رسد.
+		if ( $sa_prov_id && 'publish' === get_post_status( $sa_prov_id ) ) {
+			$sa_siblings_html .= '<p class="sa-siblings__all"><a href="' . esc_url( (string) get_permalink( $sa_prov_id ) ) . '">همهٔ شهرستان‌های استان ' . esc_html( $sa_prov_name ) . ' ←</a></p>';
+		}
+		$sa_siblings_html .= '</div></section>';
+		$GLOBALS['sa_county_siblings_html'][ (int) $sa_id ] = $sa_siblings_html;
+	}
+	?>
 </section>
 
 <?php
@@ -617,21 +559,18 @@ if ( ! empty( $sa_profile_ext['agriculture_main'] ) ) {
 <?php endif; ?>
 
 <?php
-/* CU-1 (v2.22.49) — «از تجربهٔ مسافرها»: لایهٔ زندهٔ صفحهٔ شهرستان.
+/* CU-1 (v2.22.49) — «تجربهٔ مسافرها»: لایهٔ زندهٔ صفحهٔ شهرستان.
  * متن ثابت مقاله دست نمی‌خورد؛ این بلوک دادهٔ کاربردی‌ای را نشان می‌دهد که از
- * تجربه‌های تازهٔ مردم در گوگل‌مپ، نشان، بلد و صفحه‌های اقامتگاه‌ها درآمده است.
- * لحنِ توضیحِ زیر عمداً اول‌شخص و بی‌ادعاست: منبع را می‌گوید، قطعیت جعل نمی‌کند
- * و قول به‌روزرسانی می‌دهد. هر زیربخش فقط وقتی دادهٔ واقعی دارد رندر می‌شود. */
+ * تجربه‌های تازهٔ مسافرها در سرویس‌های نقشه و دیدگاه‌های اقامتگاه‌ها درآمده است.
+ * v2.22.86 (دستور مالک): عنوان بلوک تمیز شد و توضیحِ زیر آن حذف شد؛ ساختار
+ * ثابت است: کادرهای اطلاعات، فصل‌ها، جاهای دیدنی شهرستان و نکته‌ها.
+ * هر زیربخش فقط وقتی دادهٔ واقعی دارد رندر می‌شود. */
 $sa_ins = $sa_profile_ext;
 ?>
 <?php if ( ! empty( $sa_ins['has_insights'] ) ) : ?>
-	<section class="sa-field-notes" id="county-field-notes" aria-label="از تجربهٔ مسافرها">
+	<section class="sa-field-notes" id="county-field-notes" aria-label="تجربهٔ مسافرها">
 		<div class="profile-box sa-field-notes__head">
-			<h2>از تجربهٔ مسافرها</h2>
-			<p>این بخش از صفحه را از روی تازه‌ترین تجربه‌هایی جمع کرده‌ایم که مردم در گوگل‌مپ، نشان، بلد و صفحه‌های اقامتگاه‌ها نوشته‌اند؛ این‌ها را تیم سرزمین آریان کنار خبرها و رسانه‌های محلی همان شهر می‌گذارد — از اتفاق‌های تازهٔ رفاهی، جغرافیایی و گردشگری تا حال‌وهوای جاده‌ها و طبیعت اطراف — تا همان چیزهایی را پیدا کنید که معمولاً توی مقاله‌های رسمی پیدا نمی‌شود. ممکن است بعضی جزئیات، وقتی شما می‌روید، کمی فرق کرده باشد — راه و هوا و شلوغی ثابت نمی‌ماند — برای همین هر چند ماه یک بار برمی‌گردیم، تجربه‌های تازه را می‌خوانیم و این بخش را دوباره به‌روز می‌کنیم. اگر خودتان تازه از این طرف‌ها برگشته‌اید، تجربه‌تان را در بخش «شهر من» بنویسید تا بقیه هم استفاده کنند.</p>
-			<?php if ( ! empty( $sa_ins['field_update_note'] ) ) : ?>
-				<p class="sa-field-notes__updated">آخرین به‌روزرسانی این بخش: <?php echo esc_html( (string) $sa_ins['field_update_note'] ); ?></p>
-			<?php endif; ?>
+			<h2>تجربهٔ مسافرها</h2>
 		</div>
 
 		<?php if ( ! empty( $sa_ins['access_facts'] ) ) : ?>
@@ -650,11 +589,25 @@ $sa_ins = $sa_profile_ext;
 				<h3>اقلیم و آب‌وهوا، فصل‌به‌فصل</h3>
 				<div class="sa-field-seasons__grid">
 					<?php $sa_season_slugs = array( 'بهار' => 'spring', 'تابستان' => 'summer', 'پاییز' => 'autumn', 'زمستان' => 'winter' ); ?>
+					<?php $sa_season_en = array( 'بهار' => 'Spring', 'تابستان' => 'Summer', 'پاییز' => 'Autumn', 'زمستان' => 'Winter' ); ?>
 					<?php foreach ( (array) $sa_ins['seasons'] as $sa_season_name => $sa_season_text ) : ?>
-						<?php $sa_is_best = ( ! empty( $sa_ins['best_season'] ) && false !== mb_strpos( (string) $sa_ins['best_season'], (string) $sa_season_name ) ); ?>
+						<?php
+						// «بهترین فصل» یک عبارت آزاد است («آذر تا فروردین»، «آبان تا اسفند»)؛
+						// مقایسهٔ مستقیم نام فصل با کل عبارت، نشان را به فصل اشتباه می‌چسباند.
+						// یک فصل تنها وقتی پیشنهادی است که خودش در عبارت آمده باشد و عبارت
+						// یک بازه نباشد؛ در بازه، هیچ فصل تنها نشان نمی‌گیرد.
+						$sa_best_text = trim( (string) ( $sa_ins['best_season'] ?? '' ) );
+						$sa_is_range  = (bool) preg_match( '/\b(تا|الی|لغایت)\b/u', $sa_best_text );
+						$sa_is_best   = ( ! $sa_is_range && '' !== $sa_best_text && false !== mb_strpos( $sa_best_text, (string) $sa_season_name ) );
+						?>
 						<?php $sa_season_slug = isset( $sa_season_slugs[ (string) $sa_season_name ] ) ? $sa_season_slugs[ (string) $sa_season_name ] : ''; ?>
 						<div class="sa-field-season<?php echo $sa_season_slug ? ' sa-field-season--' . esc_attr( $sa_season_slug ) : ''; ?><?php echo $sa_is_best ? ' sa-field-season--best' : ''; ?>">
-							<span class="sa-field-season__name"><?php echo esc_html( (string) $sa_season_name ); ?><?php if ( $sa_is_best ) : ?> <span class="sa-field-season__badge">فصل پیشنهادی</span><?php endif; ?></span>
+							<div class="sa-field-season__bar">
+								<span class="sa-field-season__name"><?php echo esc_html( (string) $sa_season_name ); ?><?php if ( $sa_is_best ) : ?> <span class="sa-field-season__badge">فصل پیشنهادی</span><?php endif; ?></span>
+								<?php if ( isset( $sa_season_en[ (string) $sa_season_name ] ) ) : ?>
+									<span class="sa-field-season__en" lang="en" dir="ltr"><?php echo esc_html( $sa_season_en[ (string) $sa_season_name ] ); ?></span>
+								<?php endif; ?>
+							</div>
 							<p><?php echo esc_html( (string) $sa_season_text ); ?></p>
 						</div>
 					<?php endforeach; ?>
@@ -664,7 +617,7 @@ $sa_ins = $sa_profile_ext;
 
 		<?php if ( ! empty( $sa_ins['extra_places'] ) ) : ?>
 			<div class="profile-box sa-field-places">
-				<h3>جاهایی که مردم زیاد می‌روند و شاید در متن بالا نباشد</h3>
+				<h3>جاهای دیدنی <?php echo esc_html( $sa_county_full ); ?></h3>
 				<ul class="sa-field-places__list">
 					<?php foreach ( (array) $sa_ins['extra_places'] as $sa_place ) : ?>
 						<li class="sa-field-place">

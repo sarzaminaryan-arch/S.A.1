@@ -217,7 +217,7 @@ $GLOBALS['t']['posts'][52] = (object) array( 'ID' => 52, 'post_type' => 'city', 
 $GLOBALS['t']['meta'][52]   = array();
 $ahvaz = sa_county_profile_data( 52 );
 sa_ci_assert( ! empty( $ahvaz['has_insights'] ), 'bundled: Ahvaz traveller block switches on from the shipped seed' );
-sa_ci_assert( 6 === count( $ahvaz['local_tips'] ) && 8 === count( $ahvaz['extra_places'] ), 'bundled: Ahvaz tips and places parsed from the seed' );
+sa_ci_assert( 6 === count( $ahvaz['local_tips'] ) && 9 === count( $ahvaz['extra_places'] ), 'bundled: Ahvaz tips and places parsed from the seed (9 places since 2.22.86)' );
 sa_ci_assert( 'ایران ۱۴' === $ahvaz['plate_code'], 'bundled: Ahvaz plate reaches tile 12 without meta' );
 
 $css60 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
@@ -414,8 +414,8 @@ $sa79_rows = array(
 	array( 85, 'davarzan', 'داورزن', 6, 10, '' ),
 	array( 86, 'jovein', 'جوین', 6, 10, '' ),
 	array( 87, 'khaf', 'خواف', 8, 9, 'ایران ۴۲' ),
-	array( 88, 'kuhsorkh', 'کوهسرخ', 6, 6, '' ),
-	array( 89, 'bagh-e-malek', 'باغ‌ملک', 5, 5, 'ایران ۳۴' ),
+	array( 88, 'kuhsorkh', 'کوهسرخ', 8, 14, 'ایران ۳۲' ),
+	array( 89, 'bagh-e-malek', 'باغ‌ملک', 8, 14, 'ایران ۳۴' ),
 );
 foreach ( $sa79_rows as $sa79 ) {
 	list( $sa79_id, $sa79_slug, $sa79_title, $sa79_tips, $sa79_places, $sa79_plate ) = $sa79;
@@ -468,17 +468,31 @@ sa_ci_assert( in_array( 'بوستان فیروزی', $kashan71_names, true ), 'b
 
 $tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
 sa_ci_assert( false !== strpos( $tpl, 'id="county-field-notes"' ), 'template: block anchor exists for the TOC' );
-sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'از تجربهٔ مسافرها', 'county-field-notes', 6 )" ), 'template: TOC entry registered only with the block' );
-sa_ci_assert( false !== strpos( $tpl, 'گوگل‌مپ، نشان، بلد' ), 'template: sourcing note names the review sources' );
-sa_ci_assert( false !== strpos( $tpl, 'ممکن است بعضی جزئیات' ), 'template: note avoids fake certainty (owner voice)' );
-sa_ci_assert( false !== strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: note promises re-updates' );
-sa_ci_assert( false !== strpos( $tpl, 'تیم سرزمین آریان' ), 'template: note credits the Sarzamin Aryan research team (2.22.58)' );
-sa_ci_assert( false === strpos( $tpl, 'راستش را بخواهید' ), 'template: traveller-block intro no longer opens with «راستش را بخواهید» (2.22.71)' );
+sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6 )" ), 'template: TOC entry registered with the clean block title (2.22.86)' );
+/* 2.22.86 (دستور مالک): بلوک تجربهٔ مسافرها عنوان تمیز دارد؛ توضیح زیر عنوان
+ * و سطر «آخرین به‌روزرسانی این بخش» حذف شدند و زیر عنوان مستقیم کادرهای
+ * اطلاعات، فصل‌ها، جاهای دیدنی شهرستان و نکته‌ها می‌آیند. */
+sa_ci_assert( false !== strpos( $tpl, '<h2>تجربهٔ مسافرها</h2>' ), 'template: clean traveller-block title (2.22.86)' );
+sa_ci_assert( false === strpos( $tpl, 'گوگل‌مپ، نشان، بلد' ), 'template: long sourcing note removed from the page (2.22.86)' );
+sa_ci_assert( false === strpos( $tpl, 'ممکن است بعضی جزئیات' ), 'template: uncertainty note removed (2.22.86)' );
+sa_ci_assert( false === strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: re-update promise removed (2.22.86)' );
+sa_ci_assert( false === strpos( $tpl, 'آخرین به‌روزرسانی این بخش' ), 'template: update-note line removed (2.22.86)' );
+sa_ci_assert( false !== strpos( $tpl, 'sa-field-season__bar' ) && false !== strpos( $tpl, 'sa-field-season__en' ), 'template: season cards carry a bar with Persian right + English left (2.22.86)' );
+sa_ci_assert( false !== strpos( $tpl, "'بهار' => 'Spring'" ) && false !== strpos( $tpl, "'زمستان' => 'Winter'" ), 'template: English season names mapped (2.22.86)' );
+sa_ci_assert( false !== strpos( $tpl, 'جاهای دیدنی <?php echo esc_html( $sa_county_full ); ?>' ), 'template: places subsection retitled «جاهای دیدنی [شهرستان]» (2.22.86)' );
+sa_ci_assert( false === strpos( $tpl, 'جاهایی که مردم زیاد می‌روند' ), 'template: old places heading gone (2.22.86)' );
+sa_ci_assert( false === strpos( $tpl, 'کجا برویم؟ (مقصدهای منتخب شهرستان)' ), 'template: destinations POI box removed from under the identity card (2.22.86)' );
+sa_ci_assert( false === strpos( $tpl, 'DESTINATIONS' ), 'template: no destinations POI box code left (2.22.86)' );
+sa_ci_assert( false !== strpos( $tpl, "sa_county_siblings_html" ), 'template: sibling cities stashed for the end of the article (2.22.86)' );
 sa_ci_assert( false !== strpos( $tpl, 'sa-field-tip--' ), 'template: tip category colour classes rendered' );
 sa_ci_assert( false !== strpos( $tpl, "'12 // LICENSE_PLATE'" ), 'template: license-plate tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'13 // AREA_CODE'" ), 'template: phone area-code tile registered in the identity card' );
 sa_ci_assert( false !== strpos( $tpl, "'بهار' => 'spring'" ) && false !== strpos( $tpl, 'sa-field-season--' ), 'template: each season card carries its own colour class' );
 sa_ci_assert( false === strpos( $tpl, 'county-attractions' ), 'template: attractions table under the identity card is removed (2.22.51)' );
+// 2.22.83 — نشان «فصل پیشنهادی» به خودِ فصل بسته است، نه به تطابق تصادفی رشته؛
+// در عبارت بازه‌ای («آذر تا فروردین») هیچ فصل تنها نشان نمی‌گیرد.
+sa_ci_assert( false !== strpos( $tpl, 'sa_is_range' ), 'template: best-season badge guards against range wording (2.22.83)' );
+sa_ci_assert( false !== strpos( $tpl, '$sa_is_best   = ( ! $sa_is_range' ), 'template: badge requires the season to be named in the phrase and no range (2.22.83)' );
 
 $css58 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 $pos58 = strpos( $css58, 'v2.22.58' );
@@ -489,9 +503,45 @@ sa_ci_assert( false !== strpos( $block58, 'rgba(214, 69, 69' ), 'css: access-fac
 sa_ci_assert( false !== strpos( $block58, '.sa-field-place__kind' ), 'css: place-kind labels styled (2.22.58)' );
 sa_ci_assert( false !== strpos( $block58, 'rgba(16, 54, 120' ), 'css: place-kind labels are soft translucent dark blue (2.22.58)' );
 
+
+/* ---- 4m. کامل بودن و پاکی هر ۵۰ رکورد قالب (2.22.82) -------------------- */
+
+// قاعدهٔ مالک: هر صفحهٔ شهرستان که بلوک تجربه دارد باید همان قالب کامل را
+// داشته باشد؛ رکورد نیم‌کاره یا رکوردی که در صفحه بلوک را نیمه‌کاره می‌کند
+// اجازهٔ انتشار ندارد. این بخش کل فایل داده را یک‌جا می‌سنجد.
+
+$sa81_src = (string) file_get_contents( $theme_dir . '/data/county-experiences.php' );
+$sa81_map = (array) require $theme_dir . '/data/county-experiences.php';
+sa_ci_assert( 50 === count( $sa81_map ), 'bundled 2.22.82: 50 county records ship in the seed' );
+foreach ( array( 'aghajari', 'andika', 'dezpart', 'ramshir', 'zebarkhan', 'abadan' ) as $sa81_new ) {
+	sa_ci_assert( isset( $sa81_map[ $sa81_new ] ), "bundled 2.22.82: {$sa81_new} entered the seed" );
+}
+$sa81_keys = array( 'road_quality', 'mobile_internet', 'access_difficulty', 'parking_status',
+	'season_spring', 'season_summer', 'season_autumn', 'season_winter',
+	'local_tips', 'extra_places', 'people_character', 'field_update_note' );
+foreach ( $sa81_map as $sa81_slug => $sa81_row ) {
+	foreach ( $sa81_keys as $sa81_key ) {
+		sa_ci_assert( ! empty( $sa81_row[ $sa81_key ] ), "bundled 2.22.82: {$sa81_slug} fills {$sa81_key}" );
+	}
+	$sa81_tips = array_filter( explode( "\n", (string) $sa81_row['local_tips'] ) );
+	sa_ci_assert( count( $sa81_tips ) >= 4, "bundled 2.22.82: {$sa81_slug} carries at least four local tips" );
+	$sa81_places = array_filter( explode( "\n", (string) $sa81_row['extra_places'] ) );
+	sa_ci_assert( count( $sa81_places ) >= 4, "bundled 2.22.82: {$sa81_slug} lists at least four extra places" );
+}
+foreach ( array( 'باید', 'راستش', 'http', 'به‌زودی', 'در حال ساخت', 'کلنگ', 'اسرائیل', 'اسراییل', 'بازبینی انسانی', 'هوش مصنوعی', 'منبع معتبر', 'فاقد منبع', 'بدون منبع', 'تأیید نمی‌شود', 'تایید نمی‌شود', 'بررسی بیشتر' ) as $sa81_bad ) {
+	sa_ci_assert( false === strpos( $sa81_src, $sa81_bad ), "bundled 2.22.82: seed has no «{$sa81_bad}»" );
+}
+
 $css56 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 foreach ( array( '.sa-field-season--spring', '.sa-field-season--summer', '.sa-field-season--autumn', '.sa-field-season--winter' ) as $cls ) {
 	sa_ci_assert( false !== strpos( $css56, $cls ), "css: {$cls} has its own soft season colour (2.22.56)" );
+}
+$css86 = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+$pos86 = strpos( $css86, 'v2.22.86' );
+sa_ci_assert( false !== $pos86, 'css: v2.22.86 season-card + siblings block exists' );
+$block86 = substr( $css86, (int) $pos86, 4000 );
+foreach ( array( 'border-top: 4px solid', '.sa-field-season__bar', '.sa-field-season__en', '.sa-siblings' ) as $css86_needle ) {
+	sa_ci_assert( false !== strpos( $block86, $css86_needle ), "css: {$css86_needle} styled in the 2.22.86 block" );
 }
 
 $css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
@@ -502,4 +552,4 @@ foreach ( array( '.sa-field-tip--warning', '.sa-field-tip--culture', '.sa-field-
 	sa_ci_assert( false !== strpos( $block, $cls ), "css: {$cls} styled" );
 }
 
-echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled 44-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";
+echo "PASS: county insights layer (14 canonical keys incl. plate+phone, bundled 50-city seeds, registry plate/province phone fallbacks, tips/places parsers, has_insights gate, human sourcing note, category colours)\n";

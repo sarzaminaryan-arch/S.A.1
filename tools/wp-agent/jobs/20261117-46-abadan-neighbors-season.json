@@ -1,0 +1,14 @@
+{
+ "note": "شمارهٔ ۵۱ (بازبینی زندهٔ صفحه). دو چیز در نمایش زنده دیدم و درست کردم: همسایهٔ شمال با نامک اشتباه «shadgan» نمایش داده می‌شد (نامک درست shadegan است) و نشان «فصل پیشنهادی» روی دو فصل می‌نشست چون عبارت «اسفند و فروردین؛ پاییز و زمستان ملایم» هر سه را نام می‌برد. عبارت به «پاییز و زمستان» ساده شد. قالب دست نمی‌خورد؛ فقط متن و متای همان یک صفحه.",
+ "rollback_on_fail": true,
+ "steps": [
+  {"cmd": "update", "id": 269,
+   "content_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.html",
+   "meta_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.meta.json",
+   "expected_modified_gmt": "2026-11-15 17:13:53",
+   "owner_approved_live_edit": true,
+   "reason": "آبادان: اصلاح نامک همسایهٔ شمال به shadegan و ساده‌کردن عبارت بهترین فصل به «پاییز و زمستان»"},
+  {"cmd": "cache-purge", "id": [269]},
+  {"cmd": "probe", "url": ["/city/abadan/"]}
+ ]
+}

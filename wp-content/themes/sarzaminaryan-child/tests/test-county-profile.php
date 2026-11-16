@@ -226,6 +226,23 @@ $GLOBALS['t']['meta'][21] = array( 'sa_cty_neighbors' => "شمال: دورود\n
 $d5 = sa_county_profile_data( 21 );
 sa_t_assert( isset( $d5['neighbors']['n'], $d5['neighbors']['s'] ), 'legacy lines map to directions' );
 
+/* 6b — v2.22.85: a multi-direction legacy line makes ONE merged chip, not one chip per direction. */
+$GLOBALS['t']['meta'][21] = array( 'sa_cty_neighbors' => "شمال: بروجرد\nجنوب و غرب: دورود" );
+$d5b = sa_county_profile_data( 21 );
+sa_t_assert( isset( $d5b['neighbors']['n'] ) && ! isset( $d5b['neighbors']['s'], $d5b['neighbors']['w'] ), 'multi-direction line leaves no per-direction chips' );
+$chips_b = array_values( $d5b['neighbors'] );
+sa_t_eq( 2, count( $chips_b ), 'one chip per line, not one per direction word' );
+sa_t_eq( 'جنوب و غرب', $chips_b[1]['direction'], 'merged chip keeps the line’s own direction text' );
+sa_t_assert( false !== strpos( $chips_b[1]['label'], 'دورود' ), 'merged chip carries the county name' );
+
+/* 6c — v2.22.85: a direction already taken by an earlier line is not claimed twice. */
+$GLOBALS['t']['meta'][21] = array( 'sa_cty_neighbors' => "شمال: بروجرد\nشمال و غرب: ازنا" );
+$d5c = sa_county_profile_data( 21 );
+$chips_c = array_values( $d5c['neighbors'] );
+sa_t_eq( 2, count( $chips_c ), 'partially blocked line adds one chip, not two' );
+sa_t_eq( 'غرب', $chips_c[1]['direction'], 'only the free direction survives the merge' );
+sa_t_assert( false !== strpos( $chips_c[1]['label'], 'ازنا' ), 'partially blocked line still names its county' );
+
 /* 7 — attractions table: relation feeds it automatically, legacy POIs fill gaps. */
 $lake = sa_t_post( 30, 'attraction', 'gahar-lake', 'دریاچه گهر' );
 $GLOBALS['t']['children'][20]['attraction'] = array( $lake );

@@ -1,0 +1,19 @@
+{
+ "note": "شمارهٔ ۵۱ — شهرستان آبادان (پست ۲۶۹). گام ۱ متن کامل ۱۲ بخشی را جای متن زنده (۱۵۹۶ واژه → ۲۱۸۹ واژه) می‌گذارد، با متای اصلاح‌شده (جمعیت شهر ۲۳۱٬۴۷۶ به‌جای رقم شهرستان، همسایه‌ها، اقلیم، زبان، معیشت، نقشه، سئو و فهرست ۱۰ پرسش). گام ۲ همین صفحه را با نشانگر بخش می‌نویسد تا از این پس هر بخش جداگانه قابل حذف/تغییر باشد. انتظار modified_gmt از خواندن تازهٔ کار ۴۲ (۲۴ آبان ۱۴۰۵، ۱۱:۲۹:۰۲). گام ۳ قالب 2.22.82 را با رکورد پنجاهم (آبادان) نصب می‌کند، پشتیبان کامل اول و بازگشت خودکار به 2.22.81. گام ۴ کش و probe.",
+ "rollback_on_fail": true,
+ "steps": [
+  {"cmd": "update", "id": 269,
+   "content_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.html",
+   "meta_file": "tools/wp-agent/outbox/20261115-replace-abadan/abadan-269.meta.json",
+   "expected_modified_gmt": "2026-11-15 11:29:02",
+   "owner_approved_live_edit": true,
+   "reason": "آبادان: بازنویسی کامل ۱۲ بخشی با منابع تازه، حذف ارقام ناسازگار و تکرار، اصلاح متای جمعیت/همسایه/اقلیم/زبان/معیشت"},
+  {"cmd": "theme-update", "expected_version": "2.22.82", "owner_approved_theme_update": true,
+   "backup_first": true, "backup_wait": 900, "backup_nocloud": true,
+   "probe": ["/", "/city/abadan/", "/city/ramshir/", "/city/aghajari/", "/city/dargaz/"],
+   "rollback_to": "2.22.81"},
+  {"cmd": "cache-purge", "all": true},
+  {"cmd": "probe", "paths": ["/city/abadan/", "/city/khorramshahr/", "/city/shadegan/", "/", "/city/ramshir/"]},
+  {"cmd": "content-audit", "type": "city", "workers": 4}
+ ]
+}
