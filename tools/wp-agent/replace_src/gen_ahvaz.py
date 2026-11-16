@@ -1,13 +1,16 @@
-"""Page 53 (rebuilt) — شهرستان اهواز (ahvaz, post 271) on the MASTER TEMPLATE.
+"""Page 53 (rebuilt) + final template — شهرستان اهواز (ahvaz, post 271).
 
-Owner orders of 2026-11-15 evening (template 2.22.86): the body is EIGHT
-sections — intro, map, history, people, economy, stay, notables, tips.
+Owner orders of 2026-11-15 evening (template 2.22.86): the body is SEVEN
+sections — intro, map, history, people, economy, stay, notables.
 Climate and sights moved into the theme block «تجربهٔ مسافرها» (season cards
 and «جاهای دیدنی شهرستان»), so this generator writes neither; their text was
-merged into data/county-experiences.php (see the seed). FAQ rule: a question
-without a solid answer is dropped — no «no-source» phrasing anywhere;
-probability words instead. Wikipedia is named at most once in sa_sources
-(and the renderer never shows it at all).
+merged into data/county-experiences.php (see the seed).
+Owner order of 2026-11-16: the body «چند نکتهٔ کوچک» (tips) section is
+retired — its practical notes belong to the traveller block's own tips, so
+this generator writes no tips section either. FAQ rule: a question without
+a solid answer is dropped — no «no-source» phrasing anywhere; probability
+words instead. Wikipedia is named at most once in sa_sources (and the
+renderer never shows it at all).
 
 News sources (all verified 2026-11-15):
   * irib-news.ir/fa/news/2900250 (پل سفید؛ صداوسیما)
@@ -16,10 +19,10 @@ News sources (all verified 2026-11-15):
   * fararu.com/fa/news/943828 (آب‌گرفتگی ۱۴۰۴)
 
 Run (from tools/wp-agent):
-  python3 replace_src/gen_ahvaz.py outbox/20261115-replace-ahvaz/ahvaz-271.json
-  python3 build_section_batch.py build results/20261115-49-read-ahvaz-271.json \
-      outbox/20261115-live-ahvaz outbox/20261115-replace-ahvaz \
-      outbox/20261115-replace-ahvaz
+  python3 replace_src/gen_ahvaz.py outbox/20261116-replace-ahvaz-final/ahvaz-271.json
+  python3 build_section_batch.py build results/20261116-57-read-ahvaz-final.json \
+      outbox/20261116-live-ahvaz-final outbox/20261116-replace-ahvaz-final \
+      outbox/20261116-replace-ahvaz-final
 """
 import json
 import os
@@ -38,7 +41,7 @@ CARNA_BUS = "https://carna.ir/fa/news/9644"
 YJC_FLOOD98 = "https://www.yjc.ir/fa/news/7177449"
 FARARU_FLOOD = "https://fararu.com/fa/news/943828"
 
-TODAY = "۱۴۰۵/۰۸/۲۴"
+TODAY = "۱۴۰۵/۰۸/۲۵"
 
 
 def faq(rows):
@@ -91,6 +94,10 @@ t.map([
      "الهایی را در بر می‌گیرد. بخش غیزانیه — که در ۱۳۹۱ بخش شد — با ۲۴٬۶۱۳ نفر و مرکزیت غیزانیه "
      "بزرگ، دهستان‌های غیزانیه و مشرحات را دارد و بخش اسماعیلیه با ۱۷٬۱۵۵ نفر، دهستان‌های "
      "اسماعیلیه شمالی و جنوبی را. ارقام از سرشماری ۱۳۹۵ است."),
+    ("کارون از کوه‌های زاگرس سرچشمه می‌گیرد و پس از گذر از جلگهٔ خوزستان، از میان اهواز می‌گذرد "
+     "و به سوی جنوب ادامه می‌یابد. شهر روی جلگه‌ای کم‌ارتفاع با حدود ۲۳ متر ارتفاع از سطح دریا "
+     "نشسته و همین همواری، بلوارهای عریض و پل‌های متعدد را ممکن کرده است. پل سفید و پل سیاه و "
+     "پل‌های تازه‌تر، دو سوی شرقی و غربی را به هم وصل می‌کنند و چهرهٔ شبانهٔ شهر را می‌سازند."),
 ])
 # v2.22.87 (مرزبندی تحلیل مالک): فهرست اسم همسایه‌ها از بدنه حذف شد —
 # چیپ‌های همسایه در شناسنامه (tile 10) همان کار را می‌کنند و نقشهٔ داخل
@@ -113,6 +120,10 @@ t.history([
      "خریدند و برپا کردند (باقی‌مانده‌اش ثبت ملی شمارهٔ ۲۹۱۳ است)، در ۱۳۱۴ نام ناصریه برای "
      "همیشه به اهواز برگشت و در ۱۳۱۵ پل سفید افتتاح شد. شهرستان اهواز در ساختار امروزی از "
      "۱۳۱۶ آغاز می‌کند.", IRIB_WHITE),
+    ("پل سفید که در ۱۵ آبان ۱۳۱۵ افتتاح شد، نخستین پل معلق ایران بود و با ثبت ملی شمارهٔ "
+     "۲۴۹۳، هنوز نماد شهر است. پل سیاه راه‌آهن که پیش‌تر آمد، شهر را به شبکهٔ سراسری راه‌آهن "
+     "وصل کرد و بندر ناصری را به قلب خوزستان پیوند داد. این سه — رود، پل و راه‌آهن — اهواز "
+     "معاصر را ساختند."),
 ])
 
 # ---------------------------------------------------------------- 4 people
@@ -154,6 +165,9 @@ t.economy([
      "بخش‌هایی از شهر را زیر آب برد و گزارش‌ها از فرسودگی نیمی از شبکهٔ فاضلاب می‌گفتند، و در "
      "بهمن ۱۴۰۴ هم بارندگی شدید دوباره معابر را گرفت. برای مسافر یعنی: در روزهای بارانی جاده و "
      "زیرگذر را با احتیاط ببینید.", JAME_BRIDGE, JAME_METRO, CARNA_BUS, YJC_FLOOD98, FARARU_FLOOD),
+    ("دانشگاه شهید چمران با دانشکده‌های متعدد و دانشگاه علوم پزشکی جندی‌شاپور با بیمارستان‌های "
+     "آموزشی، هر سال هزاران دانشجو و بیمار از سراسر استان را به شهر می‌آورند. همین دو قطب، "
+     "اهواز را به مرکز علمی و درمانی خوزستان بدل کرده‌اند."),
 ], list_items=[
     "نفت و گاز — مهندسی میدان‌های خوزستان از اهواز اداره می‌شود",
     "خدمات استان — ادارات، دانشگاه‌ها، بیمارستان‌های مرجع",
@@ -188,19 +202,10 @@ t.notables([
      "باستان‌شناسی نوین ایران؛ حامد حدادی، نخستین ایرانیِ لیگ معتبر بسکتبال آمریکا (NBA)؛ و "
      "حسین کعبی، مدافع نامدار فوتبال ملی. فهرست کامل‌تر از این‌هاست — از نوازنده و خواننده تا "
      "بازیگر و فیلم‌ساز — و هر بار که با اهوازی‌ها حرف می‌زنم، یک نام تازه می‌شنوم."),
-])
-
-# ---------------------------------------------------------------- 8 tips
-t.tips([
-    "فصل سفر پاییز و زمستان است؛ تابستان برنامه را به شب موکول کنید.",
-    "در روزهای بارانی از زیرگذرها دوری کنید؛ دفع آب‌های سطحی هنوز نقطهٔ ضعف شهر است.",
-    "روزهای گردوغبار، شاخص کیفیت هوا را ببینید و ماسک همراه داشته باشید.",
-    "فلافل لشکرآباد سلف‌سرویس است؛ گرسنه و پیاده بروید و جای پارک را در خیابان انوشه طلب نکنید.",
-    "غروب را برای پل سفید و بلوارهای ساحلی کارون نگه دارید.",
-    "جابه‌جایی شهری را با تاکسی و اتوبوس برنامه‌ریزی کنید؛ مترو هنوز قراردادی بیش نیست.",
-    "در زمستان و نوروز، هتل‌ها زود پر می‌شوند؛ رزرو را از قبل انجام دهید.",
-    "اهواز بهترین پایگاه سفر به شوشتر، شوش و تالاب بامدژ است؛ اقامتتان را مرکز شهر بگیرید.",
-    "در کارون شنا نکنید؛ جریان رود در مقاطع شهر آرام نمی‌ماند و ممنوعیت دارد.",
+    ("عزت‌الله نگهبان با کاوش‌هایش در خوزستان و فارس، بنیان باستان‌شناسی نوین ایران را گذاشت و "
+     "نام اهواز را به تاریخ باستان پیوند داد. حامد حدادی با بازی در لیگ حرفه‌ای آمریکا، نخستین "
+     "ایرانی در این سطح شد و حسین کعبی سال‌ها در تیم ملی و لیگ‌های داخلی درخشید. هر سه، چهرهٔ "
+     "اهواز را فراتر از مرزهای استان بردند."),
 ])
 
 page = t.finish()
@@ -274,8 +279,8 @@ meta = {
 if __name__ == "__main__":
     out_dir = os.path.dirname(os.path.abspath(sys.argv[1]))
     os.makedirs(out_dir, exist_ok=True)
-    sections = dict(t.captured)  # the eight master sections, in registry order
-    for gone in ("card", "request", "climate", "sights"):
+    sections = dict(t.captured)  # the seven master sections, in registry order
+    for gone in ("card", "request", "climate", "sights", "tips"):
         if gone in sections:
             raise SystemExit(f"section that must not be written on a new page: {gone}")
     from template import REQUIRED_IDS
