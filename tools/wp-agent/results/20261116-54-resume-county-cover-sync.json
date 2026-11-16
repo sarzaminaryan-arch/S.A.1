@@ -1,0 +1,191 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-54-resume-county-cover-sync.json",
+  "started_utc": "2026-11-16T14:30:24+00:00",
+  "note": "ادامهٔ امن از ردیف ۲۸۹ رجیستری فعلی (offset=288): اجرای ۴۸۴تایی قبلی ۲۸۸ پیوست را با پشتیبان موفق کرد، کش را پاک کرد و در ردیف بعد متوقف شد. اجرای محدود ۲۰تایی برای گرفتن جزئیات خطای مورد بعد و ادامهٔ idempotent؛ کاورهای سالم قبلی رد می‌شوند و جایگزینی اجباری خاموش است.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "county-covers",
+      "result": {
+        "started_at": "2026-11-16T14:31:03.154Z",
+        "theme": "2.22.90",
+        "total_live": 484,
+        "start_index": 288,
+        "planned": 20,
+        "force": false,
+        "attached": [
+          {
+            "id": 516,
+            "slug": "dorud",
+            "attachment_id": 4178,
+            "reused_attachment": true,
+            "backup_id": 4179,
+            "modified_gmt": "2026-10-24 00:59:02"
+          },
+          {
+            "id": 514,
+            "slug": "khorramabad",
+            "attachment_id": 4180,
+            "reused_attachment": false,
+            "backup_id": 4181,
+            "modified_gmt": "2026-10-24 01:42:39"
+          },
+          {
+            "id": 517,
+            "slug": "kuhdasht",
+            "attachment_id": 4182,
+            "reused_attachment": false,
+            "backup_id": 4183,
+            "modified_gmt": "2026-11-15 11:34:42"
+          },
+          {
+            "id": 525,
+            "slug": "mamulan",
+            "attachment_id": 4184,
+            "reused_attachment": false,
+            "backup_id": 4185,
+            "modified_gmt": "2026-10-24 01:42:39"
+          },
+          {
+            "id": 522,
+            "slug": "pol-e-dokhtar",
+            "attachment_id": 4186,
+            "reused_attachment": false,
+            "backup_id": 4187,
+            "modified_gmt": "2026-10-24 01:42:39"
+          },
+          {
+            "id": 524,
+            "slug": "rumeshkan",
+            "attachment_id": 4188,
+            "reused_attachment": false,
+            "backup_id": 4189,
+            "modified_gmt": "2026-10-24 01:42:39"
+          },
+          {
+            "id": 520,
+            "slug": "selseleh",
+            "attachment_id": 4190,
+            "reused_attachment": false,
+            "backup_id": 4191,
+            "modified_gmt": "2026-10-24 01:42:39"
+          },
+          {
+            "id": 565,
+            "slug": "arak",
+            "attachment_id": 4192,
+            "reused_attachment": false,
+            "backup_id": 4193,
+            "modified_gmt": "2026-10-04 17:35:16"
+          },
+          {
+            "id": 576,
+            "slug": "ashtian",
+            "attachment_id": 4194,
+            "reused_attachment": false,
+            "backup_id": 4195,
+            "modified_gmt": "2026-10-04 17:35:21"
+          },
+          {
+            "id": 572,
+            "slug": "delijan",
+            "attachment_id": 4196,
+            "reused_attachment": false,
+            "backup_id": 4197,
+            "modified_gmt": "2026-10-04 17:35:41"
+          },
+          {
+            "id": 574,
+            "slug": "farahan",
+            "attachment_id": 4198,
+            "reused_attachment": false,
+            "backup_id": 4199,
+            "modified_gmt": "2026-10-04 17:35:31"
+          },
+          {
+            "id": 568,
+            "slug": "khomeyn",
+            "attachment_id": 4200,
+            "reused_attachment": false,
+            "backup_id": 4201,
+            "modified_gmt": "2026-10-04 20:38:11"
+          },
+          {
+            "id": 571,
+            "slug": "khondab",
+            "attachment_id": 4202,
+            "reused_attachment": false,
+            "backup_id": 4203,
+            "modified_gmt": "2026-10-04 17:35:46"
+          },
+          {
+            "id": 573,
+            "slug": "komijan",
+            "attachment_id": 4204,
+            "reused_attachment": false,
+            "backup_id": 4205,
+            "modified_gmt": "2026-10-04 17:35:36"
+          },
+          {
+            "id": 570,
+            "slug": "mahallat",
+            "attachment_id": 4206,
+            "reused_attachment": false,
+            "backup_id": 4207,
+            "modified_gmt": "2026-10-04 17:35:51"
+          },
+          {
+            "id": 566,
+            "slug": "saveh",
+            "attachment_id": 4208,
+            "reused_attachment": false,
+            "backup_id": 4209,
+            "modified_gmt": "2026-10-04 17:35:11"
+          },
+          {
+            "id": 567,
+            "slug": "shazand",
+            "attachment_id": 4210,
+            "reused_attachment": false,
+            "backup_id": 4211,
+            "modified_gmt": "2026-10-04 17:35:06"
+          },
+          {
+            "id": 575,
+            "slug": "tafresh",
+            "attachment_id": 4212,
+            "reused_attachment": false,
+            "backup_id": 4213,
+            "modified_gmt": "2026-10-04 17:35:26"
+          },
+          {
+            "id": 569,
+            "slug": "zarandieh",
+            "attachment_id": 4214,
+            "reused_attachment": false,
+            "backup_id": 4215,
+            "modified_gmt": "2026-10-04 09:34:14"
+          },
+          {
+            "id": 542,
+            "slug": "abbasabad",
+            "attachment_id": 4216,
+            "reused_attachment": false,
+            "backup_id": 4217,
+            "modified_gmt": "2026-10-04 01:32:05"
+          }
+        ],
+        "skipped_existing": [],
+        "skipped_changed": [],
+        "failed": [],
+        "file": "/home/runner/work/S.A.1/S.A.1/tools/images/county-covers/outputs/sync-report-2026-11-16T14-31-03-154Z.json",
+        "cache_purge": {
+          "purged": "all"
+        },
+        "finished_at": "2026-11-16T14:31:55.241Z"
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T14:31:55+00:00"
+}

@@ -11,11 +11,13 @@ const password = (process.env.SA_APP_PASSWORD || '').replace(/\s/g, '');
 const ownerApproved = process.env.OWNER_APPROVED === 'yes';
 const force = process.env.FORCE_REPLACE === 'yes';
 const maxItems = Number(process.env.MAX_ITEMS || 0);
+const startIndex = Number(process.env.START_INDEX || 0);
 const sleepMs = Number(process.env.REQUEST_DELAY_MS || 250);
 if (!site || !user || !password) throw new Error('SA_SITE_URL, SA_USER and SA_APP_PASSWORD are required.');
 if (!ownerApproved) throw new Error('Refusing live writes: OWNER_APPROVED must be yes.');
 if (!/^https:\/\//i.test(site)) throw new Error('SA_SITE_URL must use HTTPS.');
 if (!Number.isInteger(maxItems) || maxItems < 0) throw new Error('MAX_ITEMS must be a non-negative integer.');
+if (!Number.isInteger(startIndex) || startIndex < 0) throw new Error('START_INDEX must be a non-negative integer.');
 
 const token = Buffer.from(`${user}:${password}`).toString('base64');
 const base = `${site}/wp-json/sa-agent/v1`;
@@ -60,10 +62,11 @@ for (const row of freshRows) {
 }
 if (seenSlugs.size !== metadata.counties.length) throw new Error(`Fresh listing has ${seenSlugs.size} unique slugs; expected ${metadata.counties.length}.`);
 
-const manifest = maxItems > 0 ? metadata.counties.slice(0, maxItems) : metadata.counties;
+const manifest = maxItems > 0 ? metadata.counties.slice(startIndex, startIndex + maxItems) : metadata.counties.slice(startIndex);
+if (startIndex >= metadata.counties.length) throw new Error(`START_INDEX ${startIndex} is outside the ${metadata.counties.length}-county manifest.`);
 const liveBySlug = new Map(freshRows.map((row) => [row.slug, row]));
 const reportPath = path.join(outputDir, `sync-report-${new Date().toISOString().replace(/[:.]/g, '-')}.json`);
-const report = { started_at: new Date().toISOString(), theme: ping.theme, total_live: freshRows.length, planned: manifest.length, force, attached: [], skipped_existing: [], skipped_changed: [], failed: [], file: reportPath };
+const report = { started_at: new Date().toISOString(), theme: ping.theme, total_live: freshRows.length, start_index: startIndex, planned: manifest.length, force, attached: [], skipped_existing: [], skipped_changed: [], failed: [], file: reportPath };
 fs.mkdirSync(outputDir, { recursive: true });
 function saveReport() { fs.writeFileSync(reportPath, `${JSON.stringify(report, null, 2)}\n`); }
 saveReport();
@@ -127,5 +130,5 @@ try { report.cache_purge = await api('POST', '/cache-purge', { scope: 'all' }); 
 catch (error) { report.cache_purge = { error: String(error) }; report.failed.push({ phase: 'cache-purge', error: String(error) }); }
 report.finished_at = new Date().toISOString();
 saveReport();
-console.log(JSON.stringify({ report: report.file, attached: report.attached.length, skipped_existing: report.skipped_existing.length, skipped_changed: report.skipped_changed.length, failures: report.failed.length, cache_purge: report.cache_purge }, null, 2));
+console.log(JSON.stringify({ report: report.file, start_index: report.start_index, planned: report.planned, attached: report.attached.length, attached_slugs: report.attached.map((row) => row.slug), skipped_existing: report.skipped_existing.length, skipped_changed: report.skipped_changed, failures: report.failed, cache_purge: report.cache_purge }, null, 2));
 if (report.failed.length) process.exitCode = 1;

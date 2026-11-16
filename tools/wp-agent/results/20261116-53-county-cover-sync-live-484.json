@@ -1,0 +1,14 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-53-county-cover-sync-live-484.json",
+  "started_utc": "2026-11-16T14:08:13+00:00",
+  "note": "دستور مالک برای تولید و اتصال امن کاورها به همهٔ ۴۸۴ شهرستان منتشرشدهٔ فعلی. اختلاف رجیستری با واقعیت زنده با مدرک فقط‌خواندنی حل شد: شهرستان‌های قدیمی اصفهان (ID 153) و برازجان (ID 202) زباله‌دان‌اند؛ نامک فعال اصفهان isfahan-city (ID 3429) است. فقط این فهرست تازه و تطبیق کامل id/slug/status پذیرفته می‌شود؛ تصاویر سالم موجود رد می‌شوند، و هر تغییر _thumbnail_id باید modified_gmt موردانتظار و پشتیبان سروری داشته باشد.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "county-covers",
+      "error": "county-covers command failed (node sync-live.mjs; exit 1): omidiyeh: media=4118, backup=4119\n[260/484] attached ramhormoz: media=4120, backup=4121\n[261/484] attached ramshir: media=4122, backup=4123\n[262/484] attached shadegan: media=4124, backup=4125\n[263/484] attached shush: media=4126, backup=4127\n[264/484] attached shushtar: media=4128, backup=4129\n[265/484] attached bahmai: media=4130, backup=4131\n[266/484] attached basht: media=4132, backup=4133\n[267/484] attached boyer-ahmad: media=4134, backup=4135\n[268/484] attached choram: media=4136, backup=4137\n[269/484] attached dena: media=4138, backup=4139\n[270/484] attached gachsaran: media=4140, backup=4141\n[271/484] attached kohgiluyeh: media=4142, backup=4143\n[272/484] attached landeh: media=4144, backup=4145\n[273/484] attached margoun: media=4146, backup=4147\n[274/484] attached baneh: media=4148, backup=4149\n[275/484] attached bijar: media=4150, backup=4151\n[276/484] attached dehgolan: media=4152, backup=4153\n[277/484] attached divandarreh: media=4154, backup=4155\n[278/484] attached ghorveh: media=4156, backup=4157\n[279/484] attached kamyaran: media=4158, backup=4159\n[280/484] attached marivan: media=4160, backup=4161\n[281/484] attached sanandaj: media=4162, backup=4163\n[282/484] attached saqqez: media=4164, backup=4165\n[283/484] attached sarvabad: media=4166, backup=4167\n[284/484] attached aligudarz: media=4168, backup=4169\n[285/484] attached azna: media=4170, backup=4171\n[286/484] attached borujerd: media=4172, backup=4173\n[287/484] attached chegeni: media=4174, backup=4175\n[288/484] attached delfan: media=4176, backup=4177\n{\n  \"report\": \"/home/runner/work/S.A.1/S.A.1/tools/images/county-covers/outputs/sync-report-2026-11-16T14-16-50-651Z.json\",\n  \"attached\": 288,\n  \"skipped_existing\": 0,\n  \"skipped_changed\": 0,\n  \"failures\": 1,\n  \"cache_purge\": {\n    \"purged\": \"all\"\n  }\n}"
+    }
+  ],
+  "finished_utc": "2026-11-16T14:28:46+00:00"
+}
