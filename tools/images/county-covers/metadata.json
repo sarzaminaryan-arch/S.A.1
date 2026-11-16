@@ -1,6 +1,8 @@
 {
   "source_snapshot": "2026-11-11",
-  "expected_live_count": 485,
+  "reconciliation_reviewed_at": "2026-11-16",
+  "reconciliation_evidence": "Fresh GET /sa-agent/v1/posts?type=city&status=publish (five pages; read-only WP-Agent job 20261116-51) found 484 unique live rows. GET /post/3429 confirms isfahan-city, publish, province_tax=isfahan; GET /post/153 and /post/202 confirms old isfahan and borazjan entries are in trash. No live content was changed during this reconciliation.",
+  "expected_live_count": 484,
   "provinces": [
     {
       "slug": "east-azerbaijan",
@@ -462,19 +464,6 @@
       "province_code": "BU",
       "slogan": "شناخت جغرافیا، تاریخ و زندگی در بندر عسلویه",
       "county_code": "SLY"
-    },
-    {
-      "id": 202,
-      "slug": "borazjan",
-      "status": "publish",
-      "name_fa": "برازجان",
-      "name_en": "Borazjan",
-      "province_slug": "bushehr",
-      "province_fa": "بوشهر",
-      "province_en": "Bushehr",
-      "province_code": "BU",
-      "slogan": "شناخت جغرافیا، تاریخ و زندگی در برازجان",
-      "county_code": "BRZ"
     },
     {
       "id": 201,
@@ -2518,8 +2507,8 @@
       "county_code": "HRN"
     },
     {
-      "id": 153,
-      "slug": "isfahan",
+      "id": 3429,
+      "slug": "isfahan-city",
       "status": "publish",
       "name_fa": "اصفهان",
       "name_en": "Isfahan",

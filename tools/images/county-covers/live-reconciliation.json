@@ -1,0 +1,12 @@
+{
+  "reviewed_at": "2026-11-16",
+  "source_snapshot": "2026-11-11",
+  "evidence": "Fresh GET /sa-agent/v1/posts?type=city&status=publish (five pages; read-only WP-Agent job 20261116-51) found 484 unique live rows. GET /post/3429 confirms isfahan-city, publish, province_tax=isfahan; GET /post/153 and /post/202 confirms old isfahan and borazjan entries are in trash. No live content was changed during this reconciliation.",
+  "exclude": [
+    { "slug": "isfahan", "id": 153, "reason": "Current live post is trash; replaced by isfahan-city (ID 3429)." },
+    { "slug": "borazjan", "id": 202, "reason": "Current live post is trash; omit from live featured-image rollout." }
+  ],
+  "include": [
+    { "slug": "isfahan-city", "id": 3429, "status": "publish", "title": "شهرستان اصفهان", "province_slug": "isfahan", "reason": "Fresh live post inspection: replacement/active slug for Isfahan county." }
+  ]
+}

@@ -6,6 +6,7 @@ const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '../../..');
 const REGISTRY = path.join(ROOT, 'docs/live-site/registry/live-articles.json');
 const PROVINCES = path.join(ROOT, 'wp-content/themes/sarzaminaryan-child/data/provinces.php');
+const RECONCILIATION = path.join(HERE, 'live-reconciliation.json');
 const OUTPUT = path.join(HERE, 'metadata.json');
 
 const provinceSource = fs.readFileSync(PROVINCES, 'utf8');
@@ -36,8 +37,23 @@ function makeUniqueCodes(rows, getName, width, preferConsonants) {
 const codedProvinces = makeUniqueCodes(provinceRows, (p) => p.en, 2, false);
 const provinceBySlug = new Map(codedProvinces.map((p) => [p.slug, p]));
 const source = JSON.parse(fs.readFileSync(REGISTRY, 'utf8'));
-const liveCities = source.records.filter((r) => r.post_type === 'city' && r.status === 'publish');
-if (liveCities.length !== 485) throw new Error(`Expected 485 published cities in source registry, found ${liveCities.length}`);
+const reconciliation = JSON.parse(fs.readFileSync(RECONCILIATION, 'utf8'));
+const excluded = new Map(reconciliation.exclude.map((item) => [item.slug, item]));
+const liveCities = source.records.filter((r) => r.post_type === 'city' && r.status === 'publish' && !excluded.has(r.slug));
+for (const item of reconciliation.exclude) {
+  const sourceRow = source.records.find((r) => r.post_type === 'city' && r.slug === item.slug);
+  if (!sourceRow || Number(sourceRow.wp_id) !== Number(item.id)) throw new Error(`Reconciliation exclusion does not match snapshot: ${item.slug}/${item.id}`);
+}
+for (const item of reconciliation.include) {
+  if (liveCities.some((row) => row.slug === item.slug) || !Number.isInteger(item.id) || !item.title || !item.province_slug) {
+    throw new Error(`Invalid or duplicate live reconciliation inclusion: ${item.slug}`);
+  }
+  liveCities.push({
+    post_type: 'city', wp_id: item.id, slug: item.slug, status: item.status,
+    title: item.title, terms: { province_tax: [item.province_slug] },
+  });
+}
+if (liveCities.length !== 484) throw new Error(`Expected 484 currently published cities after documented reconciliation, found ${liveCities.length}`);
 
 function cleanFa(title) {
   return String(title).replace(/^\s*(?:شهرستان|شهر)\s+/u, '').trim();
@@ -73,6 +89,8 @@ const unique = new Set(rows.map((r) => `${r.province_slug}:${r.county_code}`));
 if (unique.size !== rows.length) throw new Error('County badge-code collision within province');
 const output = {
   source_snapshot: source.snapshot_date,
+  reconciliation_reviewed_at: reconciliation.reviewed_at,
+  reconciliation_evidence: reconciliation.evidence,
   expected_live_count: rows.length,
   provinces: codedProvinces.map(({ slug, name, en, code }) => ({ slug, name_fa: name, name_en: en, code })),
   counties: rows.sort((a, b) => (a.province_slug < b.province_slug ? -1 : a.province_slug > b.province_slug ? 1 : a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0)),
