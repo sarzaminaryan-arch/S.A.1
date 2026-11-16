@@ -1,0 +1,139 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-77-find-isfahan-search.json",
+  "started_utc": "2026-11-16T22:14:20+00:00",
+  "note": "اصفهان — جست‌وجوی پست شهرستان با «اصفهان» (فقط خواندنی) چون slug=isfahan نتیجه نداد.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "list",
+      "result": {
+        "total": 62,
+        "pages": 7,
+        "items": [
+          {
+            "id": 270,
+            "type": "city",
+            "status": "publish",
+            "slug": "aghajari",
+            "title": "شهرستان آغاجاری",
+            "modified_gmt": "2026-11-15 18:15:55",
+            "link": "https://sarzaminaryan.ir/city/aghajari/",
+            "words": 1722,
+            "featured_media": 4074,
+            "featured_media_missing": false
+          },
+          {
+            "id": 273,
+            "type": "city",
+            "status": "publish",
+            "slug": "andika",
+            "title": "شهرستان اندیکا",
+            "modified_gmt": "2026-11-15 15:33:59",
+            "link": "https://sarzaminaryan.ir/city/andika/",
+            "words": 1266,
+            "featured_media": 4078,
+            "featured_media_missing": false
+          },
+          {
+            "id": 592,
+            "type": "city",
+            "status": "publish",
+            "slug": "dezpart",
+            "title": "شهرستان دزپارت",
+            "modified_gmt": "2026-11-15 15:33:54",
+            "link": "https://sarzaminaryan.ir/city/dezpart/",
+            "words": 1413,
+            "featured_media": 4092,
+            "featured_media_missing": false
+          },
+          {
+            "id": 324,
+            "type": "city",
+            "status": "publish",
+            "slug": "marvdasht",
+            "title": "شهرستان مرودشت",
+            "modified_gmt": "2026-11-15 11:34:30",
+            "link": "https://sarzaminaryan.ir/city/marvdasht/",
+            "words": 1369,
+            "featured_media": 3780,
+            "featured_media_missing": false
+          },
+          {
+            "id": 3429,
+            "type": "city",
+            "status": "publish",
+            "slug": "isfahan-city",
+            "title": "شهرستان اصفهان",
+            "modified_gmt": "2026-11-15 08:55:17",
+            "link": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "words": 921,
+            "featured_media": 3958,
+            "featured_media_missing": false
+          },
+          {
+            "id": 2353,
+            "type": "city",
+            "status": "draft",
+            "slug": "isfahan-blocked-2353",
+            "title": "اصفهان",
+            "modified_gmt": "2026-11-13 22:31:14",
+            "link": "https://sarzaminaryan.ir/?post_type=city&p=2353",
+            "words": 3,
+            "featured_media": 0,
+            "featured_media_missing": false
+          },
+          {
+            "id": 239,
+            "type": "city",
+            "status": "publish",
+            "slug": "farrokhshahr",
+            "title": "شهرستان فرخ‌شهر",
+            "modified_gmt": "2026-11-10 23:26:55",
+            "link": "https://sarzaminaryan.ir/city/farrokhshahr/",
+            "words": 689,
+            "featured_media": 3670,
+            "featured_media_missing": false
+          },
+          {
+            "id": 181,
+            "type": "city",
+            "status": "publish",
+            "slug": "meymeh-vazvan",
+            "title": "میمه و وزوان",
+            "modified_gmt": "2026-11-10 23:26:55",
+            "link": "https://sarzaminaryan.ir/city/meymeh-vazvan/",
+            "words": 697,
+            "featured_media": 3974,
+            "featured_media_missing": false
+          },
+          {
+            "id": 521,
+            "type": "city",
+            "status": "publish",
+            "slug": "azna",
+            "title": "شهرستان ازنا",
+            "modified_gmt": "2026-10-24 01:42:39",
+            "link": "https://sarzaminaryan.ir/city/azna/",
+            "words": 1257,
+            "featured_media": 4170,
+            "featured_media_missing": false
+          },
+          {
+            "id": 519,
+            "type": "city",
+            "status": "publish",
+            "slug": "aligudarz",
+            "title": "شهرستان الیگودرز",
+            "modified_gmt": "2026-10-24 01:42:39",
+            "link": "https://sarzaminaryan.ir/city/aligudarz/",
+            "words": 1175,
+            "featured_media": 4168,
+            "featured_media_missing": false
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T22:14:22+00:00"
+}
