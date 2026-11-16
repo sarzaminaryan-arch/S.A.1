@@ -1,0 +1,11 @@
+{
+  "note": "پس از اتصال زندهٔ همهٔ ۴۸۴ کاور: ممیزی فقط‌خواندنی فهرست کامل API برای شمار پیوست/فایل گمشده و probe عمومی صفحه‌های نمونه، خانه و آرشیو /city/. در صفحه‌های تکی باید .sa-county-cover و OG/JSON-LD image حاضر باشند؛ در خانه و آرشیو هیچ figure کاور شهرستانی نباشد.",
+  "steps": [
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":1},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":2},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":3},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":4},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":5},
+    {"cmd":"probe","url":["/city/abadan/","/city/isfahan-city/","/city/shahin-shahr-meymeh/","/city/","/"]}
+  ]
+}

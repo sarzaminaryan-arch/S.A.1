@@ -183,6 +183,9 @@ class _SeoParser(html.parser.HTMLParser):
         self.imgs_no_alt = 0
         self.imgs_missing_alt = 0  # no alt attribute at all (real a11y/SEO gap)
         self.no_alt_srcs: list[str] = []  # first few srcs without a non-empty alt
+        self.county_cover_figures = 0
+        self.county_cover_images = 0
+        self.county_cover_image_srcs: list[str] = []
         self.jsonld: list[str] = []
         self._in_jsonld = False
         self._buf = ""
@@ -198,6 +201,14 @@ class _SeoParser(html.parser.HTMLParser):
         a = {k.lower(): (v or "") for k, v in attrs}
         if tag == "svg":
             self._svg += 1
+        classes = set((a.get("class") or "").split())
+        if tag == "figure" and "sa-county-cover" in classes:
+            self.county_cover_figures += 1
+        if tag == "img" and "sa-county-cover__img" in classes:
+            self.county_cover_images += 1
+            src = a.get("src") or a.get("data-src") or ""
+            if src and len(self.county_cover_image_srcs) < 5:
+                self.county_cover_image_srcs.append(src)
         if tag == "title":
             # Only the document <title>; <title> inside inline SVG (province map) is a tooltip.
             self._in_title = not self._svg and not self._title_done
@@ -281,6 +292,39 @@ def _jsonld_types(blobs: list[str]) -> list[str]:
     return sorted(set(types))
 
 
+def _jsonld_images(blobs: list[str]) -> list[str]:
+    images: list[str] = []
+
+    def add(value):
+        if isinstance(value, str) and value.startswith(("http://", "https://")):
+            images.append(value)
+        elif isinstance(value, dict):
+            for key in ("url", "contentUrl"):
+                if isinstance(value.get(key), str):
+                    images.append(value[key])
+        elif isinstance(value, list):
+            for item in value:
+                add(item)
+
+    def walk(node):
+        if isinstance(node, dict):
+            if "image" in node:
+                add(node["image"])
+            for value in node.values():
+                if isinstance(value, (dict, list)):
+                    walk(value)
+        elif isinstance(node, list):
+            for value in node:
+                walk(value)
+
+    for blob in blobs:
+        try:
+            walk(json.loads(blob))
+        except ValueError:
+            continue
+    return sorted(set(images))
+
+
 def scan_url(url: str) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; sa-seo-scan/1.0)", "Accept-Language": "fa"})
     t0 = time.time()
@@ -309,7 +353,9 @@ def scan_url(url: str) -> dict:
         "robots": p.meta.get("robots", ""), "canonical": p.canonical,
         "og_image": bool(p.meta.get("og:image")), "og_title": bool(p.meta.get("og:title")),
         "h1": p.h1, "h2": p.h2, "imgs": p.imgs, "imgs_no_alt": p.imgs_no_alt, "imgs_missing_alt": p.imgs_missing_alt, "no_alt_srcs": p.no_alt_srcs, "lazy_imgs": p.lazy_imgs,
-        "jsonld": _jsonld_types(p.jsonld), "internal_links": p.links_internal,
+        "county_cover_figures": p.county_cover_figures, "county_cover_images": p.county_cover_images,
+        "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
+        "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
     }
 
@@ -346,7 +392,11 @@ def probe_url(url: str) -> dict:
         pass
     og = {k: v for k, v in p.meta.items() if k.startswith("og:") or k.startswith("twitter:")}
     out.update({"title": p.title.strip(), "robots": p.meta.get("robots", ""), "canonical": p.canonical,
-                "desc": p.meta.get("description", ""), "h1": p.h1, "og": og})
+                "desc": p.meta.get("description", ""), "h1": p.h1, "og": og,
+                "county_cover_figures": p.county_cover_figures,
+                "county_cover_images": p.county_cover_images,
+                "county_cover_image_srcs": p.county_cover_image_srcs,
+                "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld)})
     img = og.get("og:image", "")
     if img:
         try:
