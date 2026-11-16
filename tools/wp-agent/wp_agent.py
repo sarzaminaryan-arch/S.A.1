@@ -834,20 +834,36 @@ def run_county_covers(step: dict) -> dict:
     env = os.environ.copy()
     env.update({"OWNER_APPROVED": "yes", "FORCE_REPLACE": "yes" if force else "no", "MAX_ITEMS": str(max_items)})
     env.setdefault("REQUEST_DELAY_MS", "250")
+    render_command = ["node", "render.mjs"]
+    if max_items:
+        registry = json.loads((tool_dir / "metadata.json").read_text(encoding="utf-8"))
+        render_command.extend(row["slug"] for row in registry["counties"][:max_items])
     commands = [
         ["npm", "ci", "--no-audit", "--no-fund"],
         ["node", "metadata.mjs"],
         ["node", "test-metadata.mjs"],
-        ["node", "render.mjs"],
+        render_command,
         ["node", "sync-live.mjs"],
     ]
     for command in commands:
         try:
-            subprocess.run(command, cwd=tool_dir, env=env, check=True)
+            completed = subprocess.run(command, cwd=tool_dir, env=env, capture_output=True, text=True, check=False)
         except FileNotFoundError as err:
             raise AgentError(f"county-covers runtime is missing: {err}") from err
-        except subprocess.CalledProcessError as err:
-            raise AgentError(f"county-covers command failed ({' '.join(command)}; exit {err.returncode})") from err
+        stdout, stderr = completed.stdout or "", completed.stderr or ""
+        secret = env.get("SA_APP_PASSWORD", "")
+        if secret:
+            stdout, stderr = stdout.replace(secret, "***"), stderr.replace(secret, "***")
+        if stdout:
+            print(stdout[-12000:], end="")
+        if stderr:
+            print(stderr[-4000:], file=sys.stderr, end="")
+        if completed.returncode:
+            detail = (stderr + "\n" + stdout).strip()
+            if secret:
+                detail = detail.replace(secret, "***")
+            detail = detail[-1800:]
+            raise AgentError(f"county-covers command failed ({' '.join(command)}; exit {completed.returncode}): {detail}")
     reports = sorted((tool_dir / "outputs").glob("sync-report-*.json"), key=lambda p: p.stat().st_mtime, reverse=True)
     if not reports:
         raise AgentError("county-covers completed without a live sync report")
