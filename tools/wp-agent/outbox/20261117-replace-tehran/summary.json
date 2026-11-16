@@ -1,0 +1,18 @@
+[
+ {
+  "id": 213,
+  "slug": "tehran",
+  "words_after": 1800,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
