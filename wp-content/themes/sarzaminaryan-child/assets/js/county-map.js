@@ -1,10 +1,9 @@
 /**
  * County map facade loader (2.22.87).
  *
- * The map block prints a light facade (no iframe, no external request). This
- * script swaps it for the provider iframe only when it is about to scroll into
- * view (IntersectionObserver, 300px), or on click — and on saveData / 2g
- * connections only on click. Zero first-load cost, zero layout shift.
+ * The map block prints an original schematic SVG (no iframe or external map
+ * request). Load the interactive provider iframe only on an explicit click;
+ * this keeps the schematic visible by default and works without WebGL.
  */
 ( function () {
 	'use strict';
@@ -51,9 +50,6 @@
 		facade.parentNode.replaceChild( frame, facade );
 	}
 
-	var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {};
-	var slow = conn.saveData || /(^|\b)(2g|slow)(\b|$)/.test( conn.effectiveType || conn.effectiveMode || '' );
-
 	facade.addEventListener( 'click', load );
 	facade.addEventListener( 'keydown', function ( event ) {
 		if ( 'Enter' === event.key || ' ' === event.key ) {
@@ -61,25 +57,4 @@
 			load();
 		}
 	} );
-
-	if ( slow ) {
-		return; /* Click-only on metered/slow connections. */
-	}
-
-	if ( 'IntersectionObserver' in window ) {
-		var io = new IntersectionObserver(
-			function ( entries ) {
-				entries.forEach( function ( entry ) {
-					if ( entry.isIntersecting ) {
-						io.disconnect();
-						load();
-					}
-				} );
-			},
-			{ rootMargin: '300px' }
-		);
-		io.observe( facade );
-	} else {
-		load();
-	}
 } )();

@@ -142,6 +142,8 @@ $GLOBALS['t']['meta'][90]    = array();
 $GLOBALS['t']['options']     = array();
 $block = sa_county_map_block( 90 );
 sa_cm_assert( false !== strpos( $block, 'id="sa-map"' ), 'block: carries the #sa-map anchor' );
+sa_cm_assert( false !== strpos( $block, 'sa-map__schematic' ) && false !== strpos( $block, 'نمای شماتیک موقعیت' ), 'block: original schematic preview is visible without a provider request' );
+sa_cm_assert( false !== strpos( $block, 'بارگذاری نقشهٔ تعاملی' ), 'block: interactive map is an explicit opt-in' );
 sa_cm_assert( false !== strpos( $block, 'sa-map__facade' ) && false !== strpos( $block, 'data-provider="osm"' ), 'block: facade with keyless default provider' );
 sa_cm_assert( false !== strpos( $block, 'data-lat="31.3275"' ) && false !== strpos( $block, 'data-lng="48.69389"' ), 'block: coordinates as ASCII data attributes' );
 sa_cm_assert( false !== strpos( $block, 'نشان' ) && false !== strpos( $block, 'بلد' ) && false !== strpos( $block, 'گوگل‌مپ' ), 'block: the three خرجی links' );

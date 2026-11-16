@@ -7733,6 +7733,7 @@ body.bg-lines::before {
 .sa-map__facade {
 	position: relative;
 	display: flex;
+	overflow: hidden;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -7743,6 +7744,21 @@ body.bg-lines::before {
 		repeating-linear-gradient(0deg, rgba(36, 109, 168, 0.05) 0 1px, transparent 1px 38px),
 		repeating-linear-gradient(90deg, rgba(36, 109, 168, 0.05) 0 1px, transparent 1px 38px),
 		linear-gradient(160deg, #eaf3fb 0%, #f7fafd 55%, #eef5ea 100%);
+}
+
+.sa-map__schematic {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.sa-map__pin,
+.sa-map__placeholder,
+.sa-map__load {
+	position: relative;
+	z-index: 1;
 }
 
 .sa-map__facade:focus-visible {
