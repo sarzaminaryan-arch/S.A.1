@@ -1,0 +1,28 @@
+{
+  "note": "قالب 2.22.87 (تحلیل تمپلیت مالک، ۱۶ نوامبر) + گزارش ۵۵ (اهواز روی تحلیل‌ها). گام ۱: صفحهٔ اهواز (۲۷۱) دوباره منتشر می‌شود — تیتر بخش نقشه به «شهرستان اهواز کجاست؟ موقعیت روی نقشه و همسایه‌ها» تغییر کرد، فهرست گلوله‌ای همسایه‌ها از بدنه حذف شد (چیپ‌های شناسنامه همان کار را می‌کنند؛ مرزبندی تحلیل مالک) و مختصات عددی تمیز lat=31.3275 / lng=48.69389 به متا اضافه شد. گام ۲: قالب 2.22.87 نصب می‌شود — ماژول نقشهٔ داخل صفحه (بعد از پاراگراف اول بخش map، facade + لودر تنبل با OSM بدون کلید)، دکمهٔ «موقعیت روی نقشه» در شناسنامه به لنگر #sa-map می‌رود، آستانهٔ FAQ ≥۳، لینک «همهٔ شهرستان‌های استان» زیر چیپ‌ها؛ تست‌ها در CI سبز؛ Release با ZIP ساخته شده؛ بازگشت خودکار به 2.22.86. گام ۳: پاک‌کردن کل کش. گام ۴ و ۵: probe و خواندن زندهٔ ۲۷۱ برای تأیید نقشه و نشانگرها.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 271,
+      "content_file": "tools/wp-agent/outbox/20261115-replace-ahvaz/ahvaz-271.html",
+      "meta_file": "tools/wp-agent/outbox/20261115-replace-ahvaz/ahvaz-271.meta.json",
+      "expected_modified_gmt": "2026-11-16 08:28:06",
+      "owner_approved_live_edit": true,
+      "reason": "گزارش ۵۵: تیتر تازهٔ بخش نقشه + حذف فهرست همسایه‌ها از بدنه + مختصات عددی lat/lng برای نقشهٔ داخل صفحه"
+    },
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.22.87",
+      "owner_approved_theme_update": true,
+      "backup_first": true,
+      "backup_nocloud": true,
+      "backup_wait": 900,
+      "probe": ["/", "/city/ahvaz/", "/city/aghajari/", "/city/abadan/"],
+      "rollback_to": "2.22.86"
+    },
+    { "cmd": "cache-purge", "all": true },
+    { "cmd": "probe", "url": ["/city/ahvaz/", "/city/aghajari/", "/city/abadan/", "/"] },
+    { "cmd": "get", "id": 271 }
+  ]
+}
