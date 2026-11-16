@@ -643,6 +643,9 @@ $sa_ins = $sa_profile_ext;
 							<span class="sa-field-tip__cat"><?php echo esc_html( (string) $sa_tip['cat_label'] ); ?></span>
 							<strong><?php echo esc_html( (string) $sa_tip['title'] ); ?></strong>
 							<p><?php echo esc_html( (string) $sa_tip['text'] ); ?></p>
+							<?php if ( ! empty( $sa_tip['evidence'] ) ) : ?>
+								<p class="sa-field-tip__evidence"><?php echo esc_html( (string) $sa_tip['evidence'] ); ?></p>
+							<?php endif; ?>
 						</div>
 					<?php endforeach; ?>
 				</div>

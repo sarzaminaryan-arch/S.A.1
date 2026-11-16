@@ -121,6 +121,13 @@ sa_ci_assert( ! empty( $rich['has_insights'] ), 'insights: block switches on wit
 sa_ci_assert( 'بزرگراه آسفالت تا خود شهر' === $rich['access_facts']['وضعیت جاده'], 'insights: access fact labelled in Persian' );
 sa_ci_assert( isset( $rich['seasons']['بهار'] ) && ! isset( $rich['seasons']['زمستان'] ), 'insights: only filled seasons listed' );
 sa_ci_assert( 1 === count( $rich['local_tips'] ) && 1 === count( $rich['extra_places'] ), 'insights: parsed structures reach the data layer' );
+/* v2.22.94 — the people's own words travel in a fifth column, and a tip without
+   one must not invent an empty quote block. */
+$GLOBALS['t']['meta'][10]['local_tips'] = "warning | ترافیک برگشت | عصر جمعه مسیر شمال سنگین است.\n"
+	. 'culture | چای خانهٔ بازار | صبح‌ها شلوغ است. | «صبح‌ها جای سوزن انداختن نیست» (google_maps، 2026-11-16)';
+$rich2 = sa_county_profile_data( 10 );
+sa_ci_assert( '' === (string) $rich2['local_tips'][0]['evidence'], 'insights: a tip without a quote carries no evidence text' );
+sa_ci_assert( false !== strpos( (string) $rich2['local_tips'][1]['evidence'], 'google_maps' ), 'insights: the quote keeps its platform and date' );
 sa_ci_assert( 'ایران ۱۱، ۲۲، ۳۳' === $rich['plate_code'], 'insights: license plate reaches the data layer (tile 12)' );
 
 /* ---- 4b. Bundled seed: Tehran experience + plate/phone fallbacks (2.22.55) - */

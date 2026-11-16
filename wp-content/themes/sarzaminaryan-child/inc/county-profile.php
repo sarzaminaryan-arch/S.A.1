@@ -544,6 +544,9 @@ function sa_county_profile_parse_tips( $raw ) {
 			'cat_label' => $cats[ $cat ][1],
 			'title'     => $parts[1],
 			'text'      => $parts[2],
+			// ستون پنجم (۲.۲۲.۹۴): «شاهدِ» خودِ مردم — «متن» (منبع، تاریخ).
+			// خالی یعنی نکته از دادهٔ رسمی آمده، نه از تجربهٔ مسافر.
+			'evidence'  => isset( $parts[3] ) ? $parts[3] : '',
 		);
 	}
 	return $out;
