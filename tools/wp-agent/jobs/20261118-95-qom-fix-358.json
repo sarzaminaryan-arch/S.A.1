@@ -1,0 +1,29 @@
+{
+ "note": "قم ۳۵۸ — تصحیح نهایی: فاصله تا مرکز استان صفر (قم خودش مرکز استان است) و جملهٔ جمعیت مقدمه (۱٬۲۴۹٬۷۳۲ برای شهرستان، ۱٬۲۰۱٬۱۵۸ برای شهر؛ پیش از این هر دو یک عدد را می‌گفتند).",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 358,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-qom/qom-358.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-qom/qom-358.meta.json",
+   "excerpt": "شهرستان قم از حرم حضرت معصومه و مدرسهٔ فیضیه تا کوه خضر، دریاچهٔ نمک و ییلاق کهک؛ راهنمای اقامت، سوهان و آش شله قلمکار، و کمبودهایی که باید بدانید.",
+   "expected_modified_gmt": "2026-11-16 23:21:19",
+   "owner_approved_live_edit": true,
+   "reason": "قم: اصلاح فاصله تا مرکز استان و جملهٔ جمعیت مقدمه"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    358
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/qom/?sa_probe=40",
+    "/city/kahak/?sa_probe=40"
+   ]
+  }
+ ]
+}
