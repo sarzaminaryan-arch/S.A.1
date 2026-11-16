@@ -1,0 +1,194 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-60-verify-open-map-live.json",
+  "started_utc": "2026-11-16T17:19:09+00:00",
+  "note": "شمارهٔ ۵۹ — تأیید فقط‌خواندنیِ نقشهٔ باز روی سایت زنده پس از 2.22.91: پارسر probe حالا شمردن iframe نقشه (sa-map__frame) و دکمهٔ بازنشستهٔ بارگذاری را می‌داند؛ این کار اهواز، آبادان و خرمشهر را با پارامتر تازه می‌خواند تا معلوم شود نقشه در اولین رندر باز است و هیچ دکمهٔ بارگذاری/‌facade برنگشته. هیچ نوشتنی ندارد.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/ahvaz/?v=map-2.22.91",
+            "status": 200,
+            "ms": 2657,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اهواز؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ahvaz/",
+            "desc": "راهنمای شهرستان اهواز: کارون و پل‌ها، پل سفید، بازار عبدالحمید، خانهٔ دادرس، تالاب بامدژ، آب‌وهوا، تاریخ و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اهواز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان اهواز: پایتخت خوزستان؛ شهر کارون و پل‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/ahvaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اهواز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اهواز — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19180,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/abadan/?v=map-2.22.91",
+            "status": 200,
+            "ms": 1466,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آبادان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/abadan/",
+            "desc": "راهنمای شهرستان آبادان: جمعیت و تقسیمات، تاریخ پالایشگاه و اروندرود، مسجد رنگونی‌ها، موزه، بازار ته‌لنجی‌ها، آب‌وهوا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آبادان: تاریخ نفت و اروندرود، جاهای دیدنی، آب‌وهوا و راه رسیدن.",
+              "og:url": "https://sarzaminaryan.ir/city/abadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-abadan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آبادان — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-abadan.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-abadan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19530,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/khorramshahr/?v=map-2.22.91",
+            "status": 200,
+            "ms": 1304,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان خرمشهر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/khorramshahr/",
+            "desc": "راهنمای شهرستان خرمشهر; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان خرمشهر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان خرمشهر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/khorramshahr/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-khorramshahr.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان خرمشهر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان خرمشهر — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-khorramshahr.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-khorramshahr.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22940,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T17:19:17+00:00"
+}
