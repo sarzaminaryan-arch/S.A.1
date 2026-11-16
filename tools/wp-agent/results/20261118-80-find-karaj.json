@@ -1,0 +1,139 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-80-find-karaj.json",
+  "started_utc": "2026-11-16T22:21:01+00:00",
+  "note": "کرج — یافتن شناسهٔ پست شهرستان (فقط خواندنی).",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "list",
+      "result": {
+        "total": 17,
+        "pages": 2,
+        "items": [
+          {
+            "id": 213,
+            "type": "city",
+            "status": "publish",
+            "slug": "tehran",
+            "title": "شهرستان تهران",
+            "modified_gmt": "2026-11-16 21:41:14",
+            "link": "https://sarzaminaryan.ir/city/tehran/",
+            "words": 2132,
+            "featured_media": 4486,
+            "featured_media_missing": false
+          },
+          {
+            "id": 592,
+            "type": "city",
+            "status": "publish",
+            "slug": "dezpart",
+            "title": "شهرستان دزپارت",
+            "modified_gmt": "2026-11-15 15:33:54",
+            "link": "https://sarzaminaryan.ir/city/dezpart/",
+            "words": 1413,
+            "featured_media": 4092,
+            "featured_media_missing": false
+          },
+          {
+            "id": 356,
+            "type": "city",
+            "status": "publish",
+            "slug": "abyek",
+            "title": "شهرستان آبیک",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/abyek/",
+            "words": 1214,
+            "featured_media": 4280,
+            "featured_media_missing": false
+          },
+          {
+            "id": 354,
+            "type": "city",
+            "status": "publish",
+            "slug": "alborz-qazvin",
+            "title": "شهرستان البرز",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/alborz-qazvin/",
+            "words": 1168,
+            "featured_media": 4282,
+            "featured_media_missing": false
+          },
+          {
+            "id": 228,
+            "type": "city",
+            "status": "publish",
+            "slug": "malard",
+            "title": "شهرستان ملارد",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/malard/",
+            "words": 732,
+            "featured_media": 4466,
+            "featured_media_missing": false
+          },
+          {
+            "id": 226,
+            "type": "city",
+            "status": "publish",
+            "slug": "qods",
+            "title": "شهرستان قدس",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/qods/",
+            "words": 732,
+            "featured_media": 4476,
+            "featured_media_missing": false
+          },
+          {
+            "id": 225,
+            "type": "city",
+            "status": "publish",
+            "slug": "shahriar",
+            "title": "شهرستان شهریار",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/shahriar/",
+            "words": 735,
+            "featured_media": 4482,
+            "featured_media_missing": false
+          },
+          {
+            "id": 224,
+            "type": "city",
+            "status": "publish",
+            "slug": "robat-karim",
+            "title": "شهرستان رباط‌کریم",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/robat-karim/",
+            "words": 742,
+            "featured_media": 4480,
+            "featured_media_missing": false
+          },
+          {
+            "id": 214,
+            "type": "city",
+            "status": "publish",
+            "slug": "rey",
+            "title": "شهرستان ری",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/rey/",
+            "words": 806,
+            "featured_media": 4478,
+            "featured_media_missing": false
+          },
+          {
+            "id": 188,
+            "type": "city",
+            "status": "publish",
+            "slug": "taleghan",
+            "title": "شهرستان طالقان",
+            "modified_gmt": "2026-10-07 20:15:45",
+            "link": "https://sarzaminaryan.ir/city/taleghan/",
+            "words": 923,
+            "featured_media": 3614,
+            "featured_media_missing": false
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T22:21:03+00:00"
+}
