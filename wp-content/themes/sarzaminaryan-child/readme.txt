@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.93
+Stable tag: 2.22.94
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,11 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.94 — 1405-08-26 (2026-11-17) =
+* شاهدِ نظر: ستون پنجم نکته‌ها («نقل‌قول» + پلتفرم + تاریخ) با کلاس `sa-field-tip__evidence` چاپ می‌شود؛ نکتهٔ بی‌شاهد بدون بلوک خالی.
+* تست `test-county-insights.php` برای هر دو حالت (با شاهد / بی‌شاهد).
+* ابزار `county_insights.py` نقل‌قول، پلتفرم و تاریخ دیده‌شدن را برای هر نکته اجباری می‌کند.
 
 = 2.22.93 — 1405-08-26 (2026-11-17) =
 * هم‌گامی مستندات نسخه و فهرست رسانه‌ها در `sa_citation_source_label` (صداوسیما، فارس، جام جم، خبرآنلاین، دنیای اقتصاد، ایلنا، میزان، فرارو، همشهری).

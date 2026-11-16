@@ -152,7 +152,14 @@
 
 ## ۷. شروع نشست بعد، در یک خط
 
-`AGENTS.md` ← همین فایل ← `docs/live-site/county-master-template.md` (نسخهٔ ۱۷ نوامبر، ساخت داده‌محور) ← **شهرستان بعدی صف: بجنورد (ردیف ۳۸)** با `replace_src/data/<slug>.json` + `python3 replace_src/county_page.py <slug>` ← `check_template.py` سبز ← job بعدی (۶۳) ← روال بخش ۳ ← گزارش فارسی به مالک.
+`AGENTS.md` ← همین فایل ← **`docs/live-site/county-article-upgrade-plan.md` (روش آپدیت همهٔ شهرستان‌ها، ۱۷ نوامبر)** ← `docs/live-site/county-source-ledger.md` (کدام شهرستان چه کم دارد) ← بریف شهرستان از `docs/live-site/briefs/` ← `replace_src/data/<slug>.json` + `python3 replace_src/county_page.py <slug>` ← `check_template.py` + `fa_lint.py` + `county_ledger.py check <slug>` سبز ← کار بعدی (۶۴) ← گزارش فارسی به مالک.
+
+**۱۷ نوامبر — روش آپدیت ۱۱۷ شهرستان (کار ۶۳، بی‌نوشتن زنده):**
+- `tools/wp-agent/county_workshop.py`: `survey` (برچسب‌گذاری قطعه‌های هر بدنه) + `migrate` (همان جمله‌ها داخل اسکلت مستر) + `brief` (بریف هر شهرستان). روی ۵۵ اسنپ‌شات: ready=۵، skeleton=۴۸، hold=۰، already=۲.
+- `tools/wp-agent/county_ledger.py`: دفتر ۱۱۷ شهرستان (منبع مرجع + وضعیت تجربه + وضعیت بدنه) با دروازهٔ `check`. **۰ از ۱۱۷ منبع مرجع ثبت‌شده** — اولین کار هر شهرستان همین است.
+- قالب **۲.۲۲.۹۴**: شاهدِ نظر مردم (ستون پنجم `local_tips` → `sa-field-tip__evidence`)؛ `county_insights.py` از این پس `quote`/`source`/`seen` و برای رکورد `verified` نام و تاریخ بازبین را اجباری می‌کند.
+- **موج ۱ (آمادهٔ تأیید مالک):** دشت آزادگان، رامشیر، قزوین، بوئین‌زهرا، کوهدشت.
+- **قاعدهٔ تازه:** «منبع مرجع» پیش از نوشتن انتخاب می‌شود؛ ۴۹ از ۵۵ صفحهٔ امروز بیش از یک ویکی‌پدیا در `sa_sources` دارند و ویکی را در بدنه ارجاع می‌دهند — اصلاح آن بخشی از همین روش است.
 
 ## ۲-و. قالب برای همهٔ شهرستان‌ها کامل شد + مراغه (۱۷ نوامبر ۲۰۲۶)
 

@@ -1,0 +1,1342 @@
+[
+ {
+  "slug": "isfahan",
+  "id": 153,
+  "name": "اصفهان",
+  "words_before": 755,
+  "kept_words": 474,
+  "words_after": 462,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people"
+  ],
+  "missing": [
+   "stay"
+  ],
+  "parked": 4,
+  "hard": [],
+  "gaps": [
+   "only 449 words (< 900)",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "borazjan",
+  "id": 202,
+  "name": "شهر برازجان",
+  "words_before": 566,
+  "kept_words": 265,
+  "words_after": 255,
+  "sections": [
+   "history",
+   "map"
+  ],
+  "missing": [
+   "intro",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "parked": 5,
+  "hard": [],
+  "gaps": [
+   "only 258 words (< 900)",
+   "missing or out-of-order section: intro",
+   "missing or out-of-order section: people",
+   "missing or out-of-order section: economy",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "dashtestan",
+  "id": 212,
+  "name": "دشتستان",
+  "words_before": 563,
+  "kept_words": 405,
+  "words_after": 390,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people"
+  ],
+  "missing": [
+   "stay"
+  ],
+  "parked": 3,
+  "hard": [],
+  "gaps": [
+   "only 391 words (< 900)",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "ahvaz",
+  "id": 271,
+  "name": "اهواز",
+  "words_before": 667,
+  "kept_words": 351,
+  "words_after": 328,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 331 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "qazvin",
+  "id": 352,
+  "name": "قزوین",
+  "words_before": 868,
+  "kept_words": 1062,
+  "words_after": 960,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "ready"
+ },
+ {
+  "slug": "eslamshahr",
+  "id": 219,
+  "name": "اسلامشهر",
+  "words_before": 581,
+  "kept_words": 550,
+  "words_after": 511,
+  "sections": [
+   "intro",
+   "map",
+   "people"
+  ],
+  "missing": [
+   "history",
+   "economy",
+   "stay"
+  ],
+  "parked": 2,
+  "hard": [],
+  "gaps": [
+   "only 503 words (< 900)",
+   "missing or out-of-order section: history",
+   "missing or out-of-order section: economy",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "zanjan",
+  "id": 81,
+  "name": "زنجان",
+  "words_before": 721,
+  "kept_words": 919,
+  "words_after": 833,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 836 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "dezful",
+  "id": 282,
+  "name": "دزفول",
+  "words_before": 662,
+  "kept_words": 401,
+  "words_after": 383,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 385 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "bojnord",
+  "id": 71,
+  "name": "بجنورد",
+  "words_before": 641,
+  "kept_words": 409,
+  "words_after": 375,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 382 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "marvdasht",
+  "id": 324,
+  "name": "مرودشت",
+  "words_before": 620,
+  "kept_words": 724,
+  "words_after": 676,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 675 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "abadan",
+  "id": 269,
+  "name": "آبادان",
+  "words_before": 707,
+  "kept_words": 418,
+  "words_after": 388,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 393 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "kazerun",
+  "id": 325,
+  "name": "کازرون",
+  "words_before": 568,
+  "kept_words": 674,
+  "words_after": 631,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 629 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "izeh",
+  "id": 275,
+  "name": "ایذه",
+  "words_before": 659,
+  "kept_words": 380,
+  "words_after": 348,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 351 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "khaf",
+  "id": 1305,
+  "name": "خواف",
+  "words_before": 739,
+  "kept_words": 552,
+  "words_after": 521,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 525 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "shadegan",
+  "id": 286,
+  "name": "شادگان",
+  "words_before": 1371,
+  "kept_words": 894,
+  "words_after": 837,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 831 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "buin-zahra",
+  "id": 355,
+  "name": "بوئین زهرا",
+  "words_before": 797,
+  "kept_words": 1043,
+  "words_after": 945,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "ready"
+ },
+ {
+  "slug": "firuzabad",
+  "id": 330,
+  "name": "فیروزآباد",
+  "words_before": 664,
+  "kept_words": 775,
+  "words_after": 723,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 718 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "esfarayen",
+  "id": 72,
+  "name": "اسفراین",
+  "words_before": 619,
+  "kept_words": 425,
+  "words_after": 396,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 398 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "ramhormoz",
+  "id": 285,
+  "name": "رامهرمز",
+  "words_before": 1412,
+  "kept_words": 864,
+  "words_after": 797,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 793 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "masjed-soleyman",
+  "id": 292,
+  "name": "مسجدسلیمان",
+  "words_before": 1058,
+  "kept_words": 682,
+  "words_after": 641,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 636 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "neyriz",
+  "id": 332,
+  "name": "نی ریز",
+  "words_before": 581,
+  "kept_words": 710,
+  "words_after": 641,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 637 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "bagh-e-malek",
+  "id": 276,
+  "name": "باغ ملک",
+  "words_before": 636,
+  "kept_words": 387,
+  "words_after": 345,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 350 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "aran-bidgol",
+  "id": 167,
+  "name": "آران و بیدگل",
+  "words_before": 910,
+  "kept_words": 693,
+  "words_after": 665,
+  "sections": [
+   "economy",
+   "intro",
+   "map"
+  ],
+  "missing": [
+   "history",
+   "people",
+   "stay"
+  ],
+  "parked": 4,
+  "hard": [],
+  "gaps": [
+   "only 670 words (< 900)",
+   "missing or out-of-order section: history",
+   "missing or out-of-order section: people",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "aghajari",
+  "id": 270,
+  "name": "آغاجاری",
+  "words_before": 1220,
+  "kept_words": 1727,
+  "words_after": 1580,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "already"
+ },
+ {
+  "slug": "ardabil",
+  "id": 141,
+  "name": "اردبیل",
+  "words_before": 462,
+  "kept_words": 162,
+  "words_after": 164,
+  "sections": [
+   "intro",
+   "map"
+  ],
+  "missing": [
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "parked": 2,
+  "hard": [],
+  "gaps": [
+   "only 167 words (< 900)",
+   "missing or out-of-order section: history",
+   "missing or out-of-order section: people",
+   "missing or out-of-order section: economy",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "shush",
+  "id": 287,
+  "name": "شوش",
+  "words_before": 1419,
+  "kept_words": 937,
+  "words_after": 874,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 870 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "salmas",
+  "id": 135,
+  "name": "سلماس",
+  "words_before": 610,
+  "kept_words": 866,
+  "words_after": 804,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 806 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "shushtar",
+  "id": 288,
+  "name": "شوشتر",
+  "words_before": 1117,
+  "kept_words": 790,
+  "words_after": 736,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 734 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "behbahan",
+  "id": 279,
+  "name": "بهبهان",
+  "words_before": 628,
+  "kept_words": 344,
+  "words_after": 327,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 331 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "andimeshk",
+  "id": 274,
+  "name": "اندیمشک",
+  "words_before": 683,
+  "kept_words": 411,
+  "words_after": 381,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 385 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "khorramshahr",
+  "id": 281,
+  "name": "خرمشهر",
+  "words_before": 664,
+  "kept_words": 363,
+  "words_after": 348,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 352 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "mamasani",
+  "id": 331,
+  "name": "ممسنی",
+  "words_before": 613,
+  "kept_words": 727,
+  "words_after": 672,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 665 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "kashmar",
+  "id": 69,
+  "name": "کاشمر",
+  "words_before": 735,
+  "kept_words": 595,
+  "words_after": 541,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 545 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "kuhdasht",
+  "id": 517,
+  "name": "کوهدشت",
+  "words_before": 743,
+  "kept_words": 1070,
+  "words_after": 967,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "ready"
+ },
+ {
+  "slug": "khodabandeh",
+  "id": 82,
+  "name": "خدابنده",
+  "words_before": 674,
+  "kept_words": 967,
+  "words_after": 904,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "notables",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 899 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "shirvan",
+  "id": 73,
+  "name": "شیروان",
+  "words_before": 624,
+  "kept_words": 346,
+  "words_after": 325,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 329 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "isfahan__trashed",
+  "id": 153,
+  "name": "اصفهان",
+  "words_before": 755,
+  "kept_words": 474,
+  "words_after": 462,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people"
+  ],
+  "missing": [
+   "stay"
+  ],
+  "parked": 4,
+  "hard": [],
+  "gaps": [
+   "only 449 words (< 900)",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "borazjan__trashed",
+  "id": 202,
+  "name": "شهر برازجان",
+  "words_before": 566,
+  "kept_words": 265,
+  "words_after": 255,
+  "sections": [
+   "history",
+   "map"
+  ],
+  "missing": [
+   "intro",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "parked": 5,
+  "hard": [],
+  "gaps": [
+   "only 258 words (< 900)",
+   "missing or out-of-order section: intro",
+   "missing or out-of-order section: people",
+   "missing or out-of-order section: economy",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "dargaz",
+  "id": 1308,
+  "name": "درگز",
+  "words_before": 689,
+  "kept_words": 452,
+  "words_after": 433,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 436 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "sheshtamad",
+  "id": 1312,
+  "name": "ششتمد",
+  "words_before": 672,
+  "kept_words": 426,
+  "words_after": 389,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 392 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "davarzan",
+  "id": 1307,
+  "name": "داورزن",
+  "words_before": 708,
+  "kept_words": 491,
+  "words_after": 466,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "notables",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 470 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "jovein",
+  "id": 1303,
+  "name": "جوین",
+  "words_before": 717,
+  "kept_words": 481,
+  "words_after": 452,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 456 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "kuhsorkh",
+  "id": 1320,
+  "name": "کوهسرخ",
+  "words_before": 838,
+  "kept_words": 391,
+  "words_after": 369,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 366 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "dezpart",
+  "id": 592,
+  "name": "دزپارت",
+  "words_before": 652,
+  "kept_words": 343,
+  "words_after": 322,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 325 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "zebarkhan",
+  "id": 1323,
+  "name": "زبرخان",
+  "words_before": 874,
+  "kept_words": 293,
+  "words_after": 271,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "people",
+   "stay"
+  ],
+  "missing": [
+   "map"
+  ],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 273 words (< 900)",
+   "missing or out-of-order section: map"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "khoshab",
+  "id": 1306,
+  "name": "خوشاب",
+  "words_before": 829,
+  "kept_words": 443,
+  "words_after": 416,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 417 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "faruj",
+  "id": 78,
+  "name": "فاروج",
+  "words_before": 602,
+  "kept_words": 435,
+  "words_after": 409,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 418 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "andika",
+  "id": 273,
+  "name": "اندیکا",
+  "words_before": 684,
+  "kept_words": 389,
+  "words_after": 366,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 365 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "jajarm",
+  "id": 75,
+  "name": "جاجرم",
+  "words_before": 601,
+  "kept_words": 361,
+  "words_after": 335,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 340 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "garmeh",
+  "id": 79,
+  "name": "گرمه",
+  "words_before": 710,
+  "kept_words": 376,
+  "words_after": 350,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 350 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "ramshir",
+  "id": 284,
+  "name": "رامشیر",
+  "words_before": 1395,
+  "kept_words": 1001,
+  "words_after": 931,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "ready"
+ },
+ {
+  "slug": "dasht-azadegan",
+  "id": 283,
+  "name": "دشت آزادگان",
+  "words_before": 1444,
+  "kept_words": 984,
+  "words_after": 923,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "ready"
+ },
+ {
+  "slug": "hamidiyeh",
+  "id": 280,
+  "name": "حمیدیه",
+  "words_before": 656,
+  "kept_words": 372,
+  "words_after": 349,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 354 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "haftkel",
+  "id": 293,
+  "name": "هفتکل",
+  "words_before": 1069,
+  "kept_words": 690,
+  "words_after": 660,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [
+   "only 656 words (< 900)"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "maragheh",
+  "id": 101,
+  "name": "مراغه",
+  "words_before": 1277,
+  "kept_words": 1280,
+  "words_after": 1193,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "notables",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "already"
+ }
+]

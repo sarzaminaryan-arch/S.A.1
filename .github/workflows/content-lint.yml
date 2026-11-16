@@ -40,11 +40,17 @@ jobs:
         run: |
           python3 -m py_compile tools/content-lint/*.py
           python3 -m py_compile tools/wp-agent/replace_src/fa_lint.py
+          python3 -m py_compile tools/wp-agent/county_workshop.py tools/wp-agent/county_ledger.py
+          python3 -m py_compile tools/county-insights/county_insights.py
 
       - name: Persian spelling filter (ماه میلادی، نیم‌فاصله، حروف عربی)
         run: python3 tools/wp-agent/test_fa_lint.py
       - name: County template guard (offline)
         run: python3 tools/wp-agent/test_county_template.py
+      - name: County workshop + source ledger (offline)
+        run: python3 tools/wp-agent/test_county_workshop.py
+      - name: County source ledger still parses
+        run: python3 tools/wp-agent/county_ledger.py check
 
       - name: Full report (warnings + infos, never fails)
         run: |

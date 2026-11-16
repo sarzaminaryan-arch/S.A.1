@@ -7165,6 +7165,17 @@ body.bg-lines::before {
 	color: #3d4852;
 }
 
+/* v2.22.94 — شاهدِ مردم: حرفِ خودِ مسافر جدا از نوشتهٔ ما دیده شود،
+   وگرنه خواننده فکر می‌کند جملهٔ او را ما نوشته‌ایم. */
+.sa-field-tip__evidence {
+	margin-top: .55rem !important;
+	padding-inline-start: .7rem;
+	border-inline-start: 3px solid rgba(5, 150, 105, .45);
+	font-size: .82rem !important;
+	color: #5b6770 !important;
+	font-style: normal;
+}
+
 /* ==========================================================================
    v2.22.50 — جدول‌های داخل متن: اندازهٔ ستون‌ها به‌اندازهٔ نوشته‌ها
    تا این نسخه جدول‌های بدنه عرض کامل می‌گرفتند و min-width ‏۵۲۰px داشتند؛

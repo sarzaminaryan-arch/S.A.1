@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -45,6 +46,29 @@ def _words(text: str) -> int:
     return len(str(text).split())
 
 
+# --- شاهدِ نظر مردم (دستور مالک ۱۴۰۵/۰۸/۲۶) ---------------------------------
+# «دادهٔ معتبر از نظرات مردم در گوگل‌مپ و نشان» تنها با سه چیز داده می‌شود:
+#     quote  — همان جملهٔ کوتاه کاربر، عیناً (ترجمه/بازنویسی ممنوع)
+#     source — «google_maps» یا «neshan» (نه وبلاگ، نه سایت خبری)
+#     seen   — تاریخی که خودمان آن نظر را دیده‌ایم (YYYY-MM-DD)
+# و تا `human_verified: true` + `verified_by` ثبت نشود، رکورد در وضعیت
+# draft_needs_review می‌ماند و به قالب نمی‌رسد.
+EVIDENCE_SOURCES = ("google_maps", "neshan", "balad")
+
+
+def _has_quote(item: dict) -> tuple[bool, str]:
+    quote = str(item.get("quote") or "").strip()
+    src = str(item.get("source") or "").strip()
+    seen = str(item.get("seen") or "").strip()
+    if not quote:
+        return False, "quote خالی است"
+    if src not in EVIDENCE_SOURCES:
+        return False, f"source نامعتبر: {src!r} (از {', '.join(EVIDENCE_SOURCES)})"
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", seen):
+        return False, f"seen باید YYYY-MM-DD باشد: {seen!r}"
+    return True, ""
+
+
 def validate_record(rec: dict, fname: str) -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warns: list[str] = []
@@ -58,6 +82,18 @@ def validate_record(rec: dict, fname: str) -> tuple[list[str], list[str]]:
         errors.append(f"{fname}: status نامعتبر: {rec.get('status')!r}")
     if rec.get("status") in (None, "draft_needs_review"):
         warns.append(f"{fname}: هنوز راستی‌آزمایی انسانی نشده (status=draft_needs_review)")
+    # «verified» بدون نام و تاریخِ بازبین، ادعای توخالی است
+    if rec.get("status") == "verified":
+        if not str(rec.get("verified_by") or "").strip():
+            errors.append(f"{fname}: status=verified اما verified_by خالی است")
+        if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(rec.get("reviewed_at") or "")):
+            errors.append(f"{fname}: status=verified اما reviewed_at (YYYY-MM-DD) ندارد")
+        for i, tip in enumerate(rec.get("local_tips") or []):
+            ok, why = _has_quote(tip)
+            if not ok:
+                errors.append(f"{fname}: نکتهٔ {i + 1} شاهد ندارد — {why}")
+        if not str(rec.get("authoritative_source") or "").strip():
+            warns.append(f"{fname}: «منبع مرجع شهرستان» تعیین نشده (authoritative_source)")
 
     qf = rec.get("quick_facts") or {}
     if not isinstance(qf, dict):
@@ -114,8 +150,17 @@ def to_meta(rec: dict) -> dict:
             meta[f"season_{key}"] = str(seasons[key]).strip()
     tips = rec.get("local_tips") or []
     if tips:
+        # ستون پنجم «شاهد» است: حرفِ خودِ مردم، با منبع و تاریخ دیده‌شدن.
+        # قالب آن را جدا از متن ما نشان می‌دهد تا هیچ جملهٔ کاربر به‌جای
+        # نوشتهٔ تحریریه جا نزند.
         meta["local_tips"] = "\n".join(
-            f"{t['category']} | {str(t.get('title', '')).strip()} | {str(t.get('text', '')).strip()}"
+            " | ".join([
+                str(t.get("category", "")).strip(),
+                str(t.get("title", "")).strip(),
+                str(t.get("text", "")).strip(),
+                (f"«{str(t.get('quote')).strip()}» ({t.get('source')}، {t.get('seen')})"
+                 if t.get("quote") else ""),
+            ]).rstrip(" |")
             for t in tips
         )
     places = rec.get("extra_places") or []
