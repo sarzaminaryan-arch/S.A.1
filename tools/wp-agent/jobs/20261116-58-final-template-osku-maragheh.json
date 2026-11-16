@@ -1,0 +1,32 @@
+{
+  "note": "به درخواست صریح مالک: اجرای آزمایشی قالب نهایی شهرستان‌ها روی اسکو و مراغه. از متن زندهٔ خوانده‌شده استفاده می‌شود؛ فصل‌ها/دیدنی‌ها به فیلدهای بلوک تجربه منتقل می‌شوند. نشانی، عنوان و وضعیت انتشار ثابت. پشتیبان هر نوشته و expected_modified_gmt اجباری؛ در صورت خطا یا probe ناسالم، rollback خودکار.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 103,
+      "content_file": "tools/wp-agent/outbox/20261116-final-template-test/osku-103.html",
+      "meta_file": "tools/wp-agent/outbox/20261116-final-template-test/osku-103.meta-update.json",
+      "expected_modified_gmt": "2026-10-07 20:12:46",
+      "owner_approved_live_edit": true,
+      "reason": "دستور صریح مالک ۲۰۲۶-۱۱-۱۶: اجرای آزمایشی قالب نهایی شهرستان روی اسکو؛ انتقال فصل‌ها و دیدنی‌های فعلی به کادر تجربه، بدون تغییر نامک/عنوان/وضعیت"
+    },
+    {
+      "cmd": "update",
+      "id": 101,
+      "content_file": "tools/wp-agent/outbox/20261116-final-template-test/maragheh-101.html",
+      "meta_file": "tools/wp-agent/outbox/20261116-final-template-test/maragheh-101.meta-update.json",
+      "expected_modified_gmt": "2026-10-07 20:12:41",
+      "owner_approved_live_edit": true,
+      "reason": "دستور صریح مالک ۲۰۲۶-۱۱-۱۶: اجرای آزمایشی قالب نهایی شهرستان روی مراغه؛ انتقال فصل‌ها و دیدنی‌های فعلی به کادر تجربه، بدون تغییر نامک/عنوان/وضعیت"
+    },
+    {"cmd": "cache-purge", "id": [103, 101]},
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/osku/?sa_probe=county-template-20261116",
+        "/city/maragheh/?sa_probe=county-template-20261116"
+      ]
+    }
+  ]
+}
