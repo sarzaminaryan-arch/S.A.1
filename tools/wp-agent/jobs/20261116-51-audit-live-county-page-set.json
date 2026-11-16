@@ -1,0 +1,10 @@
+{
+  "note": "فقط خواندنی: دریافت کامل فهرست تازهٔ شهرستان‌های منتشرشده از پل ایجنت (۵ صفحهٔ ۱۰۰تایی) برای تعیین علت اختلاف شمار ۴۸۴ زنده در برابر ۴۸۵ رجیستری؛ هیچ پست یا رسانه‌ای تغییر نمی‌کند.",
+  "steps": [
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":1},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":2},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":3},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":4},
+    {"cmd":"list","type":"city","status":"publish","per_page":100,"page":5}
+  ]
+}
