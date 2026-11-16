@@ -7627,3 +7627,81 @@ body.bg-lines::before {
 		border-radius: 11px;
 	}
 }
+
+/* v2.22.86 — تجربهٔ مسافرها: کارت فصل با نوار رنگی و بدنهٔ پاستلی؛
+   شهرهای هم‌استانی به پایین صفحه، بالای منابع (دستور مالک). */
+.sa-field-season {
+	padding: 0;
+	border: 1px solid var(--color-border);
+	border-top: 4px solid #94a3b8;
+	border-radius: 1rem;
+	background: rgba(148, 163, 184, .07);
+	overflow: hidden;
+}
+
+.sa-field-season--spring {
+	border-top-color: #16a34a;
+	background: rgba(22, 163, 74, .08);
+}
+
+.sa-field-season--summer {
+	border-top-color: #dc2626;
+	background: rgba(220, 38, 38, .07);
+}
+
+.sa-field-season--autumn {
+	border-top-color: #e0811f;
+	background: rgba(224, 129, 31, .09);
+}
+
+.sa-field-season--winter {
+	border-top-color: #2563eb;
+	background: rgba(37, 99, 235, .07);
+}
+
+.sa-field-season--best {
+	border-color: rgba(11, 122, 62, .4);
+}
+
+.sa-field-season__bar {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: .5rem;
+	padding: .6rem .9rem 0;
+}
+
+.sa-field-season__name {
+	display: flex;
+	align-items: center;
+	gap: .45rem;
+	font-weight: 900;
+	color: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-field-season__en {
+	font-size: .74rem;
+	font-weight: 800;
+	letter-spacing: .07em;
+	text-transform: uppercase;
+	color: rgba(11, 42, 74, .55);
+}
+
+.sa-field-season p {
+	margin: .4rem 0 0;
+	padding: 0 .9rem .8rem;
+	font-size: .9rem;
+	line-height: 1.85;
+	color: #3d4852;
+}
+
+/* فهرست شهرهای هم‌استانی در جای تازه‌اش: بالای منابع، با جداکنندهٔ ظریف */
+.sa-siblings {
+	margin-top: 2rem;
+	padding-top: 1.4rem;
+	border-top: 1px solid var(--color-border);
+}
+
+.sa-siblings .sa-cyber-id__subtable {
+	margin: 0;
+}

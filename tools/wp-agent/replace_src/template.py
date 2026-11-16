@@ -1,34 +1,43 @@
-"""The one county-page template (owner rule 2026-11-15).
+"""The one county-page template — the master layout (owner orders 2026-11-15).
 
-Every rebuilt county page uses exactly these twelve sections, in this order,
-with these titles. Only the text under each title changes from county to
-county — that is where the unique, sourced material lives.
+THE PAGE (top to bottom), registered once so every county looks the same:
+  1. شناسنامه (theme identity card; no «کجا برویم» box any more — 2.22.86)
+  2. تجربهٔ مسافرها (theme block, from data/county-experiences.php):
+     کادرهای اطلاعات ← فصل‌ها (کادرهای رنگی) ← جاهای دیدنی [شهرستان] ← نکته‌ها
+     ← مردمِ این‌جا. No intro description under the title (owner, 2.22.86).
+  3. THE ARTICLE BODY — the eight sections this module writes, in this order:
+     intro, map, history, people, economy, stay, notables, tips.
+     climate and sights live in the theme block now (seasons cards and
+     «جاهای دیدنی»), so new pages carry NEITHER body section (owner, 2.22.86).
+     A county without honest content for a section simply skips that section
+     (notables is the usual one) — never an empty heading.
+  4. شهرهای هم‌استانی (theme, printed right above منابع — 2.22.86)
+  5. منابع (theme) — at most ONE wikipedia line in sa_sources; the renderer
+     never shows wikipedia/booking domains at all.
 
-**Every section is one removable unit.** `SECTIONS` is the single registry: it
-fixes the id, the title and the render function of each section, and both the
-builder (`build_section_batch.py`, which wraps each section in
-`<!-- sa:sec:<id> -->` markers so it can later be deleted or replaced across
-every page) and the guard (`check_template.py`, which reads its ORDER from
-here) work off this list. Adding, dropping or renaming a section happens here
-and nowhere else, plus one `remove`/`replace` pass over the built pages.
+Only the text under each title changes from county to county. **Every section
+is one removable unit.** `SECTIONS` is the single registry: it fixes id, title,
+render function and flags; the builder (`build_section_batch.py`, wrapping each
+section in `<!-- sa:sec:<id> -->` markers) and the guard (`check_template.py`,
+reading its ORDER from here) work off this list. Adding, dropping or renaming
+a section happens here and nowhere else.
 
-The traveller block (از تجربهٔ مسافرها) is rendered by the theme above the
-article body from data/county-experiences.php, so it is not part of this body.
-Owner orders of 2026-11-15: `card` (شناسنامهٔ کوتاه) duplicates the county
-identity card and `request` (از مردم عزیز …) leaves the site — neither is
-written on new pages. Both ids stay in the registry so `remove`/`replace`
-can still address them on pages built before the order.
+Registry flags:
+  legacy  — section of the pre-2.22.86 body (climate, sights): kept so
+            `remove`/`replace` still reaches the 52 pages built before the
+            order; new pages must not write it.
+  removed — owner-removed blocks (card, request): presence on a new page is
+            a violation.
 
 Usage:
     from template import Template
     t = Template("اهواز", tagline="...")
     t.intro([...])            # first person, sourced
     t.map([(text, url), ...], neighbors=[...])
-    t.climate(lead, [("بهار", text), ...])
     t.history([...]); t.people([...]); t.economy([...])
-    t.sights([(h3_title, text), ...])
-    t.stay([...]); t.notables([...]); t.tips([...])
-    t.finish()                # renders and checks completeness (card/request optional)
+    t.stay([...]); t.notables([...])   # notables optional
+    t.tips([...])
+    t.finish()                # renders and checks completeness
 """
 from __future__ import annotations
 
@@ -58,9 +67,13 @@ def render_card(page: Page, title: str, rows, after=None) -> None:
 
 
 def render_map(page: Page, title: str, paragraphs, neighbors=None) -> None:
-    """Where it is, its neighbours, and the roads in."""
+    """Where it is, its neighbours, and the roads in.
+
+    Each item is a string or a (text, *urls) tuple.
+    """
     page.h2(title)
-    for text, *urls in paragraphs:
+    for item in paragraphs:
+        text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
         page.p(text, *urls)
     if neighbors:
         page.ul(neighbors)
@@ -76,22 +89,28 @@ def render_climate(page: Page, title: str, lead, seasons) -> None:
 
 
 def render_history(page: Page, title: str, paragraphs) -> None:
+    """Each item is a string or a (text, *urls) tuple."""
     page.h2(title)
-    for text, *urls in paragraphs:
+    for item in paragraphs:
+        text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
         page.p(text, *urls)
 
 
 def render_people(page: Page, title: str, paragraphs, list_items=None) -> None:
+    """Each item is a string or a (text, *urls) tuple."""
     page.h2(title)
-    for text, *urls in paragraphs:
+    for item in paragraphs:
+        text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
         page.p(text, *urls)
     if list_items:
         page.ul(list_items)
 
 
 def render_economy(page: Page, title: str, paragraphs, list_items=None) -> None:
+    """Each item is a string or a (text, *urls) tuple."""
     page.h2(title)
-    for text, *urls in paragraphs:
+    for item in paragraphs:
+        text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
         page.p(text, *urls)
     if list_items:
         page.ul(list_items)
@@ -107,16 +126,20 @@ def render_sights(page: Page, title: str, items) -> None:
 
 
 def render_stay(page: Page, title: str, paragraphs, list_items=None) -> None:
+    """Each item is a string or a (text, *urls) tuple."""
     page.h2(title)
-    for text, *urls in paragraphs:
+    for item in paragraphs:
+        text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
         page.p(text, *urls)
     if list_items:
         page.ul(list_items)
 
 
 def render_notables(page: Page, title: str, paragraphs) -> None:
+    """Each item is a string or a (text, *urls) tuple."""
     page.h2(title)
-    for text, *urls in paragraphs:
+    for item in paragraphs:
+        text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
         page.p(text, *urls)
 
 
@@ -135,11 +158,12 @@ SECTIONS = (
     {"id": "intro", "title": "{name}؛ {tagline}", "pattern": r"(؛|معرفی شهرستان)",
      "render": render_intro},
     {"id": "card", "title": "شناسنامهٔ کوتاه {name}", "pattern": r"شناسنامهٔ کوتاه",
-     "render": render_card},
+     "render": render_card, "removed": True},
     {"id": "map", "title": "کجای نقشه است و همسایه‌هایش کیست‌اند؟", "pattern": r"نقشه|همسایه",
      "render": render_map},
     {"id": "climate", "title": "آب‌وهوا و بهترین زمان سفر",
-     "pattern": r"آب‌وهوا|آب و هوا|بهترین زمان سفر", "render": render_climate},
+     "pattern": r"آب‌وهوا|آب و هوا|بهترین زمان سفر", "render": render_climate,
+     "legacy": True},
     {"id": "history", "title": "تاریخ و پیشینه", "pattern": r"تاریخ|پیشینه",
      "render": render_history},
     {"id": "people", "title": "مردم، زبان و هنرها", "pattern": r"مردم",
@@ -147,16 +171,18 @@ SECTIONS = (
     {"id": "economy", "title": "اقتصاد و معیشت",
      "pattern": r"اقتصاد|معیشت|کشاورزی|صنعت|کارِ مردم", "render": render_economy},
     {"id": "sights", "title": "جاهای دیدنی {name}", "pattern": r"جاهای دیدنی|جاذبه",
-     "render": render_sights},
+     "render": render_sights, "legacy": True},
     {"id": "stay", "title": "راه رسیدن و جای ماندن",
      "pattern": r"راه رسیدن|جای ماندن|چطور برسیم|راه و ارتباط", "render": render_stay},
     {"id": "notables", "title": "چهره‌های نام‌آور {name}", "pattern": r"چهره‌ها|نام‌آور|مشاهیر",
-     "render": render_notables},
+     "render": render_notables, "optional": True},
     {"id": "tips", "title": "چند نکتهٔ کوچک از {name}", "pattern": r"چند نکته|اگر فقط یک روز",
      "render": render_tips},
     {"id": "request", "title": "از مردم عزیز شهرستان {name}، یک درخواست داریم",
-     "pattern": r"یک درخواست داریم", "render": render_request},
+     "pattern": r"یک درخواست داریم", "render": render_request, "removed": True},
 )
+
+REQUIRED_IDS = ("intro", "map", "history", "people", "economy", "stay", "tips")
 
 IDS = tuple(s["id"] for s in SECTIONS)
 BY_ID = {s["id"]: s for s in SECTIONS}
@@ -228,9 +254,17 @@ class Template:
         self.section("request", html)
 
     def finish(self) -> Page:
-        # card and request are owner-removed (2026-11-15): they stay in the
-        # registry for remove/replace on old pages, but new pages omit them
-        missing = [s for s in IDS if s not in self.done and s not in ("request", "card")]
+        """Master shape (owner orders 2026-11-15 evening, 2.22.86):
+        required = the eight-section body minus optional notables;
+        legacy (climate/sights) and removed (card/request) must not be written."""
+        banned = [s["id"] for s in SECTIONS if (s.get("legacy") or s.get("removed")) and s["id"] in self.done]
+        if banned:
+            raise ValueError(f"{self.name}: legacy/owner-removed sections written: {banned}")
+        missing = [k for k in REQUIRED_IDS if k not in self.done]
         if missing:
             raise ValueError(f"{self.name}: sections missing before finish: {missing}")
+        order = [s["id"] for s in SECTIONS]
+        idx = [order.index(k) for k in self.done]
+        if idx != sorted(idx):
+            raise ValueError(f"{self.name}: sections out of registry order: {self.done}")
         return self.page

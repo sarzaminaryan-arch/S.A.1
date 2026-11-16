@@ -7,11 +7,16 @@ history, climate, economy, people, sights, staying, notables, small tips — and
 the traveller-experience block is rendered by the theme, so every rebuilt page
 must also have a vetted record with a non-empty field_update_note.
 
-Owner orders of 2026-11-15 (page 51 onwards): the short identity table
-(شناسنامهٔ کوتاه) duplicates the county identity card above the body and the
-closing reader-request block (از مردم عزیز …) leaves the site, so a rebuilt
-page carries NEITHER: their presence here is a violation, their absence is the
-correct shape.
+Owner orders of 2026-11-15: the short identity table (شناسنامهٔ کوتاه) and the
+closing reader-request block (از مردم عزیز …) never come back, and from the
+evening order (2.22.86) the body is EIGHT sections — climate and sights moved
+into the theme's traveller block, so a new page carries neither as a body
+section (legacy pages may still carry them, in order). A county without honest
+content for a section skips that section (notables is the usual one).
+
+Evening orders also enforced here: a FAQ question without a solid, sourceable
+answer is dropped entirely (no «no-source» phrasing anywhere — use probability
+words instead), and sa_sources names wikipedia at most once.
 
 This checks the built outbox files (not the live site) and prints one line per
 problem. Exit code 1 on any violation so the batch cannot ship half-templated.
@@ -35,9 +40,12 @@ from template import order_patterns  # noqa: E402
 
 ORDER = order_patterns()
 
-REMOVED = ("card", "request")  # still in the registry, never on a new page
+REMOVED = ("card", "request")          # still in the registry, never on a new page
+LEGACY = ("climate", "sights")         # pre-2.22.86 body sections; order-checked when present
+REQUIRED = ("intro", "map", "history", "people", "economy", "stay", "tips")
 ORDER = tuple((label, rx) for label, rx in ORDER if label not in REMOVED)
 REMOVED_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in REMOVED)
+LEGACY_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in LEGACY)
 
 # Section markers written by build_section_batch.py. When present they must
 # exist exactly once per live section, in registry order.
@@ -71,7 +79,8 @@ def check_html(path: Path) -> list[str]:
                 found = i
                 break
         if found is None:
-            problems.append(f"missing or out-of-order section: {label}")
+            if label in REQUIRED:
+                problems.append(f"missing or out-of-order section: {label}")
         else:
             pos = found
     # the two owner-removed sections must not come back
@@ -80,6 +89,12 @@ def check_html(path: Path) -> list[str]:
             problems.append(f"owner-removed section is present: {label}")
         if MARK_OPEN.format(label) in html or MARK_CLOSE.format(label) in html:
             problems.append(f"owner-removed section has markers: {label}")
+    # pre-2.22.86 body sections (climate, sights): legacy pages carry them WITH
+    # markers and stay valid; a page carrying the H2 WITHOUT its marker was
+    # hand-written after the order — that is the violation.
+    for label, rx in LEGACY_PATTERNS:
+        if any(re.search(rx, title) for title in h2) and MARK_OPEN.format(label) not in html:
+            problems.append(f"legacy body section on a new page: {label}")
     # one link per URL rule — it is about links inside the text, not the numbered
     # citation marks (a source keeps its number wherever it is cited again).
     text_only = re.sub(r'<sup class="sa-cite">.*?</sup>', "", html, flags=re.S)
@@ -88,7 +103,9 @@ def check_html(path: Path) -> list[str]:
     if dupes:
         problems.append(f"repeated links: {sorted(dupes)[:3]}")
     # banned wording (owner rules)
-    for bad in ("باید", "راستش", "به‌زودی", "در حال ساخت", "کلنگ", "اسرائیل", "اسراییل"):
+    for bad in ("باید", "راستش", "به‌زودی", "در حال ساخت", "کلنگ", "اسرائیل", "اسراییل",
+                "منبع معتبر", "فاقد منبع", "بدون منبع", "تأیید نمی‌شود", "تایید نمی‌شود",
+                "بررسی بیشتر", "بازبینی", "منبعی یافت"):
         if bad in html:
             problems.append(f"banned wording: {bad}")
     if re.search(r"<td>https", html):
@@ -112,11 +129,33 @@ def check_markers(html: str) -> list[str]:
     return problems
 
 
+FAQ_BANNED = ("منبع معتبر", "فاقد منبع", "بدون منبع", "تأیید نمی‌شود", "تایید نمی‌شود",
+               "بررسی بیشتر", "بازبینی", "منبعی یافت", "مشخص نیست")
+
+
 def check_meta(path: Path) -> list[str]:
     meta = json.loads(path.read_text(encoding="utf-8"))
     need = ["sa_cty_neighbors", "sa_cty_climate", "sa_cty_best_time", "sa_cty_language",
             "sa_cty_livelihood", "sa_faq", "sa_sources"]
-    return [f"meta missing {k}" for k in need if not str(meta.get(k) or "").strip()]
+    problems = [f"meta missing {k}" for k in need if not str(meta.get(k) or "").strip()]
+    # owner rule: a FAQ question without a solid answer is dropped, and no
+    # answer ever talks about missing sources — probability words instead
+    try:
+        faq = json.loads(meta.get("sa_faq") or "[]")
+    except (ValueError, TypeError):
+        faq = []
+    for row in faq if isinstance(faq, list) else []:
+        blob = str(row.get("q", "")) + " " + str(row.get("a", ""))
+        for bad in FAQ_BANNED:
+            if bad in blob:
+                problems.append(f"faq wording: {bad}")
+                break
+    # owner rule: wikipedia named at most once in sa_sources (never rendered)
+    wiki_lines = [l for l in str(meta.get("sa_sources") or "").splitlines()
+                  if "wikipedia.org" in l]
+    if len(wiki_lines) > 1:
+        problems.append(f"sa_sources names wikipedia {len(wiki_lines)} times (max 1)")
+    return problems
 
 
 def main(argv: list[str]) -> int:

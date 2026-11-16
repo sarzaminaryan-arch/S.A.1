@@ -97,4 +97,10 @@ sa_sl_assert( false !== strpos( $stash2, 'عنوان منبع نمونه' ), 'so
 sa_sl_assert( false === strpos( $stash2, 'sa-footnotes__host" dir="ltr">borna.news<' ), 'sources: unlabeled host is not printed twice' );
 sa_sl_assert( false !== strpos( $stash2, 'sa-footnotes__host" dir="ltr">mehrnews.com<' ), 'sources: mapped label still shows the latin host once' );
 
+// v2.22.86: فهرست «شهرهای هم‌استانی» درست بالای منابع چاپ می‌شود.
+$tt86 = (string) file_get_contents( $theme_dir . '/inc/template-tags.php' );
+sa_sl_assert( false !== strpos( $tt86, 'sa_county_siblings_html' ), 'template-tags: sibling-cities list echoed right before the sources section (2.22.86)' );
+$tp86 = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
+sa_sl_assert( false !== strpos( $tp86, 'sa_county_siblings_html' ), 'template part: sibling list stashed for the article end (2.22.86)' );
+
 echo "PASS: sources last (list stashed during body render, printed as the last article section, prev/next navigation closes the page)\n";

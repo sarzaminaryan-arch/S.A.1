@@ -547,6 +547,11 @@ function sa_source_rel( $url ) {
  * @param int $post_id Post ID.
  */
 function sa_sources_section( $post_id ) {
+	// v2.22.86 (دستور مالک): فهرست «شهرهای هم‌استانی» — که پیش‌تر زیر شناسنامه بود —
+	// درست بالای منابع چاپ می‌شود. نشانی و ظاهر همان است؛ فقط جایش عوض شده.
+	if ( ! empty( $GLOBALS['sa_county_siblings_html'][ (int) $post_id ] ) ) {
+		echo $GLOBALS['sa_county_siblings_html'][ (int) $post_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with escaped parts in the county-profile template part.
+	}
 	// v2.22.51: منابع همیشه آخرین بخش مقاله است. وقتی پانویس‌ها فعال‌اند، فهرست
 	// یکپارچه در sa_citations_filter ساخته و کنار گذاشته شده؛ همان را چاپ می‌کنیم
 	// تا دو <h2>منابع</h2> و دو شماره‌گذاری ایجاد نشود.
