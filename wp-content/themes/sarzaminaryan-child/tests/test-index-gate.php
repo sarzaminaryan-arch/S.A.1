@@ -244,4 +244,29 @@ $home = file_get_contents( $theme_dir . '/home.php' );
 sa_ig_assert( 1 === substr_count( $home, '<h1' ), 'home.php prints exactly one H1' );
 sa_ig_assert( false !== strpos( $home, "get_option( 'page_for_posts' )" ), 'H1 is the posts page title' );
 
-echo "OK: index gate + critical fixes (2.22.75–2.22.78)\n";
+// 11. v2.22.90: county uncropped cover size + agent media upload magic-byte detector.
+if ( ! function_exists( 'sa_cover_image_size' ) ) {
+	sa_ig_load_function( $theme_dir . '/inc/helpers.php', 'sa_cover_image_size' );
+}
+$GLOBALS['ig']['posts'][901] = new SA_IG_Post( 901, 'city', 'kashan' );
+$GLOBALS['ig']['posts'][902] = new SA_IG_Post( 902, 'province', 'isfahan' );
+sa_ig_assert( 'sa-county-cover' === sa_cover_image_size( 901 ), 'city uses uncropped sa-county-cover size' );
+sa_ig_assert( 'sa-hero' === sa_cover_image_size( 902 ), 'province keeps sa-hero unless overridden' );
+
+sa_ig_load_function( $theme_dir . '/inc/agent-ops.php', 'sa_agent_detect_image_mime' );
+sa_ig_assert( 'image/webp' === sa_agent_detect_image_mime( "RIFF\x20\x00\x00\x00WEBPVP8X12345678" ), 'valid WebP header detected' );
+sa_ig_assert( 'image/jpeg' === sa_agent_detect_image_mime( "\xFF\xD8\xFF\xE00123456789abcdef" ), 'valid JPEG header detected' );
+sa_ig_assert( 'image/png' === sa_agent_detect_image_mime( "\x89PNG\r\n\x1a\n0123456789ab" ), 'valid PNG header detected' );
+sa_ig_assert( '' === sa_agent_detect_image_mime( '<html>not an image</html>' ), 'HTML payload rejected by media detector' );
+sa_ig_assert( false !== strpos( $ops, "'/media'" ) && false !== strpos( $ops, "current_user_can( 'upload_files' )" ), 'media route requires upload_files capability' );
+$update_start = strpos( $bridge, 'function sa_agent_update_post(' );
+$update_end   = strpos( $bridge, 'function sa_agent_draft_copy(', $update_start );
+$update_body  = false !== $update_start && false !== $update_end ? substr( $bridge, $update_start, $update_end - $update_start ) : '';
+sa_ig_assert( false !== strpos( $bridge, "if ( '_thumbnail_id' === \$key )" ), 'agent metadata policy permits the featured-image pointer' );
+$stale_check = strpos( $update_body, "if ( \$expected !== \$before['modified_gmt'] )" );
+$backup_call = strpos( $update_body, 'sa_agent_create_backup(' );
+$meta_write  = strpos( $update_body, 'update_post_meta(' );
+sa_ig_assert( false !== $stale_check && false !== $backup_call && $stale_check < $backup_call, 'concurrency check runs before a post backup/write' );
+sa_ig_assert( false !== $backup_call && false !== $meta_write && $backup_call < $meta_write, 'post backup is made before assigning _thumbnail_id' );
+
+echo "OK: index gate + critical fixes (2.22.75–2.22.90)\n";

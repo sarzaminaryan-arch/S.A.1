@@ -20,6 +20,10 @@
  *    استان فقط در صفحهٔ خودِ همان استان، اول صفحه و بالای «شناسنامهٔ استان»
  *    نمایش داده می‌شود (کلید مستقل «sa_show_province_image»، پیش‌فرض روشن) و
  *    در کارت‌ها، آرشیوها، صفحهٔ اصلی و هر جای دیگر پنهان می‌ماند.
+ *    v2.22.90 — «شهرستان‌ها» نیز قاعدهٔ مشابه استان‌ها گرفتند (دستور مالک):
+ *    تصویر شاخص هر شهرستان فقط در اول صفحهٔ خودِ همان شهرستان، بالای «شناسنامهٔ
+ *    شهرستان» نمایش داده می‌شود (کلید مستقل «sa_show_county_image»، پیش‌فرض
+ *    روشن) و در کارت‌های فهرست، آرشیوها و صفحهٔ اصلی پنهان می‌ماند.
  * 2) کلید «تصویرهای گمشدهٔ داخل متن» (پیش‌فرض: روشن). تصویرهای داخل متن که
  *    فایلشان روی سرور نیست، به کادر متنی ساده تبدیل می‌شوند تا بازدیدکننده
  *    به‌جای آیکون تصویر شکسته، یک کادر آرام ببیند. فایل هرگز دست‌کاری
@@ -135,6 +139,46 @@ function sa_province_image_context() {
 }
 
 /**
+ * آیا تصویر شاخص «شهرستان» بالای صفحهٔ همان شهرستان نمایش داده شود؟ (v2.22.90)
+ *
+ * جدا از کلید سراسری است؛ پیش‌فرض روشن است و هرگز در کارت‌های فهرست نمی‌آید.
+ *
+ * @return bool
+ */
+function sa_county_images_visible() {
+	$show = (bool) get_theme_mod( 'sa_show_county_image', true );
+	/**
+	 * نمایش تصویر شاخص «شهرستان» بالای صفحهٔ خودش (پیش‌فرض روشن — v2.22.90).
+	 *
+	 * @param bool $show وضعیت.
+	 */
+	return (bool) apply_filters( 'sa_county_images_visible', $show );
+}
+
+/**
+ * آیا نوشته از نوع «شهرستان» (city) است؟
+ *
+ * @param int $post_id شناسهٔ نوشته.
+ * @return bool
+ */
+function sa_featured_image_is_county( $post_id ) {
+	$post_id = absint( $post_id );
+	if ( ! $post_id || ! function_exists( 'get_post_type' ) ) {
+		return false;
+	}
+	return 'city' === get_post_type( $post_id );
+}
+
+/**
+ * محل نمایش تصویر شاخص «شهرستان»: اول صفحهٔ همان شهرستان (تنها جای مجاز).
+ *
+ * @return string
+ */
+function sa_county_image_context() {
+	return 'city-top';
+}
+
+/**
  * آیا رکورد همین مقاله به‌طور صریح تصویر شاخص را حذف کرده است؟
  *
  * رکورد قالب، حذف را حتی پیش از اجرای ابزار در پیشخوان اعمال می‌کند؛ متای
@@ -201,6 +245,12 @@ function sa_featured_image_available( $post_id = 0, $context = '' ) {
 		if ( sa_province_image_context() !== $context || ! sa_province_images_visible() ) {
 			return false;
 		}
+	} elseif ( sa_featured_image_is_county( $post_id ) ) {
+		// v2.22.90 — شهرستان‌ها: فقط اول صفحهٔ خودشان، با کلید مستقل؛ کارت‌های فهرست،
+		// آرشیوها و صفحهٔ اصلی تصویر شاخص شهرستان را نمی‌گیرند.
+		if ( sa_county_image_context() !== $context || ! sa_county_images_visible() ) {
+			return false;
+		}
 	} elseif ( ! sa_featured_images_visible( $context ) ) {
 		return false;
 	}
@@ -246,6 +296,11 @@ function sa_featured_image_guard( $html, $post_id = 0 ) {
 	} elseif ( $post_id && sa_featured_image_is_province( $post_id ) ) {
 		// v2.22.70 — تصویر شاخص استان فقط از اول صفحهٔ خودِ استان می‌آید.
 		if ( sa_province_image_context() !== $sa_render_context || ! sa_province_images_visible() ) {
+			return '';
+		}
+	} elseif ( $post_id && sa_featured_image_is_county( $post_id ) ) {
+		// v2.22.90 — تصویر شاخص شهرستان فقط از اول صفحهٔ خودِ شهرستان می‌آید.
+		if ( sa_county_image_context() !== $sa_render_context || ! sa_county_images_visible() ) {
 			return '';
 		}
 	} elseif ( ! sa_featured_images_visible( 'core' ) ) {
@@ -394,9 +449,9 @@ function sa_get_featured_image( $size = 'post-thumbnail', $attr = array(), $post
 	if ( ! sa_featured_image_available( $post_id, $context ) ) {
 		return '';
 	}
-	$mark = ( sa_attraction_image_context() === $context || sa_province_image_context() === $context );
+	$mark = ( sa_attraction_image_context() === $context || sa_province_image_context() === $context || sa_county_image_context() === $context );
 	if ( $mark ) {
-		// نگهبانِ سراسری باید بداند این تصویر از بدنهٔ خودِ مقالهٔ دیدنی می‌آید.
+		// نگهبانِ سراسری باید بداند این تصویر از محل مجاز خودش می‌آید.
 		$GLOBALS['sa_featured_image_render_context'] = $context;
 	}
 	$html = (string) get_the_post_thumbnail( $post_id, $size, $attr );
@@ -483,4 +538,39 @@ function sa_province_featured_figure( $post_id = 0, $size = 'sa-guide-cover' ) {
 		return '';
 	}
 	return '<figure class="sa-province-cover">' . $image . '</figure>';
+}
+
+/**
+ * تصویر شاخص اول صفحهٔ «شهرستان»، بالای شناسنامهٔ شهرستان (v2.22.90).
+ *
+ * تنها محلِ مجازِ نمایش تصویر شاخص شهرستان‌ها (در کارت‌های فهرست نمایش داده نمی‌شود).
+ * اگر تصویر نداشته باشد، کلیدش خاموش باشد یا فایلش روی سرور نباشد، هیچ خروجی‌ای تولید نمی‌شود.
+ *
+ * @param int    $post_id شناسهٔ نوشته (۰ = نوشتهٔ جاری).
+ * @param string $size    اندازهٔ تصویر (پیش‌فرض: ۱۲۰۰×۸۰۰ بدون برش).
+ * @return string
+ */
+function sa_county_featured_figure( $post_id = 0, $size = 'sa-county-cover' ) {
+	$post_id = $post_id ? absint( $post_id ) : (int) get_the_ID();
+	if ( ! $post_id || ! sa_featured_image_is_county( $post_id ) ) {
+		return '';
+	}
+	$attr = array(
+		'loading'       => 'eager',
+		'fetchpriority' => 'high',
+		'decoding'      => 'async',
+		'class'         => 'sa-county-cover__img',
+	);
+	$alt = trim( (string) get_post_meta( (int) get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true ) );
+	if ( '' === $alt && function_exists( 'get_the_title' ) ) {
+		$name = trim( (string) get_the_title( $post_id ) );
+		if ( '' !== $name ) {
+			$attr['alt'] = $name;
+		}
+	}
+	$image = sa_get_featured_image( $size, $attr, $post_id, sa_county_image_context() );
+	if ( '' === $image ) {
+		return '';
+	}
+	return '<figure class="sa-county-cover">' . $image . '</figure>';
 }

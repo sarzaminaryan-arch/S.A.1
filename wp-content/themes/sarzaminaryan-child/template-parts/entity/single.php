@@ -33,6 +33,10 @@ $sa_type = get_post_type( $sa_id );
 			}
 			get_template_part( 'template-parts/entity/province-identity' );
 		} elseif ( 'city' === $sa_type ) {
+			// v2.22.90: تصویر شاخص شهرستان فقط همین‌جا، اول صفحه و بالای شناسنامه (به‌غیر از کارت‌های فهرست).
+			if ( function_exists( 'sa_county_featured_figure' ) ) {
+				echo sa_county_featured_figure( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 			get_template_part( 'template-parts/entity/county-profile' );
 		} elseif ( 'attraction' !== $sa_type ) {
 			if ( has_excerpt() ) {

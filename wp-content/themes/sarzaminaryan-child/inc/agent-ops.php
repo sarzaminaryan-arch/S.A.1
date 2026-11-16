@@ -448,6 +448,155 @@ function sa_agent_rest_theme_update( $r ) {
 }
 
 /**
+ * v2.22.90 — تشخیص واقعی فرمت تصویر از روی امضای بایت‌ها (برای جلوگیری از ذخیرهٔ بایت غیرتصویری).
+ *
+ * @param string $bytes محتوای خام فایل.
+ * @return string '' | 'image/webp' | 'image/jpeg' | 'image/png'.
+ */
+function sa_agent_detect_image_mime( $bytes ) {
+	if ( ! is_string( $bytes ) || strlen( $bytes ) < 16 ) {
+		return '';
+	}
+	if ( 'RIFF' === substr( $bytes, 0, 4 ) && 'WEBP' === substr( $bytes, 8, 4 ) ) {
+		return 'image/webp';
+	}
+	if ( "\xFF\xD8\xFF" === substr( $bytes, 0, 3 ) ) {
+		return 'image/jpeg';
+	}
+	if ( "\x89PNG\r\n\x1a\n" === substr( $bytes, 0, 8 ) ) {
+		return 'image/png';
+	}
+	return '';
+}
+
+/**
+ * v2.22.90 — POST /media: بارگذاری امن تصویر شاخص (WebP/JPEG/PNG تا ۳ مگابایت) از راه پل ایجنت.
+ *
+ * اگر `cover_key` فرستاده شود و از قبل پیوست سالمی با همان کلید در کتابخانهٔ رسانه باشد،
+ * همان شناسه بدون ساختن فایل تکراری برگردانده می‌شود (اجرای دوبارهٔ امن).
+ * هیچ فایلی بازنویسی یا پاک نمی‌شود.
+ *
+ * @param WP_REST_Request $r درخواست JSON: {filename, data_base64, title, alt, post_parent, cover_key, force_new}.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_media_upload( $r ) {
+	$b          = (array) $r->get_json_params();
+	$raw_name   = isset( $b['filename'] ) ? trim( (string) $b['filename'] ) : '';
+	$b64        = isset( $b['data_base64'] ) ? trim( (string) $b['data_base64'] ) : '';
+	$title      = isset( $b['title'] ) ? sanitize_text_field( (string) $b['title'] ) : '';
+	$alt        = isset( $b['alt'] ) ? sanitize_text_field( (string) $b['alt'] ) : '';
+	$parent_id  = isset( $b['post_parent'] ) ? absint( $b['post_parent'] ) : 0;
+	$cover_key  = isset( $b['cover_key'] ) ? sanitize_text_field( (string) $b['cover_key'] ) : '';
+	$force_new  = ! empty( $b['force_new'] );
+
+	if ( '' === $raw_name || '' === $b64 ) {
+		return new WP_Error( 'sa_agent_bad_media', 'filename و data_base64 الزامی است.', array( 'status' => 400 ) );
+	}
+	if ( strlen( $b64 ) > 4200000 ) {
+		return new WP_Error( 'sa_agent_media_too_large', 'حجم تصویر بیش از سقف مجاز (۳ مگابایت) است.', array( 'status' => 413 ) );
+	}
+	$bytes = base64_decode( $b64, true ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode
+	if ( false === $bytes || strlen( $bytes ) < 100 || strlen( $bytes ) > 3145728 ) {
+		return new WP_Error( 'sa_agent_bad_media_bytes', 'رمزگشایی تصویر ناموفق بود یا اندازهٔ بایت‌ها معتبر نیست.', array( 'status' => 400 ) );
+	}
+	$mime = sa_agent_detect_image_mime( $bytes );
+	if ( '' === $mime ) {
+		return new WP_Error( 'sa_agent_bad_media_type', 'فقط تصویر واقعی WebP، JPEG یا PNG مجاز است.', array( 'status' => 400 ) );
+	}
+	$ext_map = array(
+		'image/webp' => 'webp',
+		'image/jpeg' => 'jpg',
+		'image/png'  => 'png',
+	);
+	$ext     = $ext_map[ $mime ];
+	$stem    = strtolower( (string) pathinfo( $raw_name, PATHINFO_FILENAME ) );
+	$stem    = trim( (string) preg_replace( '/[^a-z0-9_-]+/', '-', $stem ), '-_' );
+	if ( '' === $stem ) {
+		$stem = 'sa-cover';
+	}
+	$filename = $stem . '.' . $ext;
+
+	// جلوگیری از ساخت پیوست تکراری در اجراهای چندباره.
+	if ( '' !== $cover_key && ! $force_new && class_exists( 'WP_Query' ) ) {
+		$existing = new WP_Query(
+			array(
+				'post_type'      => 'attachment',
+				'post_status'    => 'inherit',
+				'posts_per_page' => 5,
+				'fields'         => 'ids',
+				'no_found_rows'  => true,
+				'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+					array(
+						'key'   => '_sa_cover_key',
+						'value' => $cover_key,
+					),
+				),
+			)
+		);
+		foreach ( (array) $existing->posts as $att_id ) {
+			$att_id  = (int) $att_id;
+			$missing = function_exists( 'sa_media_attachment_missing' ) ? sa_media_attachment_missing( $att_id ) : false;
+			if ( $att_id > 0 && ! $missing ) {
+				// پیوست سالمِ موجود بدون تغییر بازاستفاده می‌شود؛ این شاخه بدون پشتیبان هم چیزی را نمی‌نویسد.
+				return rest_ensure_response(
+					array(
+						'id'     => $att_id,
+						'url'    => (string) wp_get_attachment_url( $att_id ),
+						'mime'   => $mime,
+						'reused' => true,
+					)
+				);
+			}
+		}
+	}
+
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+
+	$upload = wp_upload_bits( $filename, null, $bytes );
+	if ( ! is_array( $upload ) || ! empty( $upload['error'] ) || empty( $upload['file'] ) ) {
+		$err_msg = ( is_array( $upload ) && ! empty( $upload['error'] ) ) ? (string) $upload['error'] : 'خطای ناشناخته در ذخیرهٔ فایل رسانه.';
+		return new WP_Error( 'sa_agent_upload_failed', $err_msg, array( 'status' => 500 ) );
+	}
+
+	$att_title = '' !== $title ? $title : $stem;
+	$att_id    = wp_insert_attachment(
+		array(
+			'post_mime_type' => $mime,
+			'post_title'     => wp_slash( $att_title ),
+			'post_content'   => '',
+			'post_status'    => 'inherit',
+		),
+		$upload['file'],
+		$parent_id,
+		true
+	);
+	if ( is_wp_error( $att_id ) || ! $att_id ) {
+		return new WP_Error( 'sa_agent_attachment_failed', 'ثبت پیوست در کتابخانهٔ رسانه انجام نشد.', array( 'status' => 500 ) );
+	}
+	$meta = wp_generate_attachment_metadata( (int) $att_id, $upload['file'] );
+	if ( is_array( $meta ) ) {
+		wp_update_attachment_metadata( (int) $att_id, $meta );
+	}
+	if ( '' !== $alt ) {
+		update_post_meta( (int) $att_id, '_wp_attachment_image_alt', wp_slash( $alt ) );
+	}
+	if ( '' !== $cover_key ) {
+		update_post_meta( (int) $att_id, '_sa_cover_key', wp_slash( $cover_key ) );
+	}
+	return rest_ensure_response(
+		array(
+			'id'     => (int) $att_id,
+			'url'    => isset( $upload['url'] ) ? (string) $upload['url'] : (string) wp_get_attachment_url( (int) $att_id ),
+			'mime'   => $mime,
+			'bytes'  => strlen( $bytes ),
+			'reused' => false,
+		)
+	);
+}
+
+/**
  * ثبت مسیرها.
  */
 function sa_agent_ops_register_routes() {
@@ -529,6 +678,17 @@ function sa_agent_ops_register_routes() {
 					return is_user_logged_in() && current_user_can( 'manage_options' ) && current_user_can( 'update_themes' );
 				},
 			),
+		)
+	);
+	register_rest_route(
+		SA_AGENT_NS,
+		'/media',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_media_upload',
+			'permission_callback' => static function () {
+				return is_user_logged_in() && current_user_can( 'edit_others_posts' ) && current_user_can( 'upload_files' );
+			},
 		)
 	);
 }
