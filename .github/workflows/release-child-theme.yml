@@ -131,6 +131,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-insights.php"
 
+      - name: 'Run Persian spelling filter tests (ماه میلادی، نیم‌فاصله، حروف عربی)'
+        shell: bash
+        run: python3 tools/wp-agent/test_fa_lint.py
+
       - name: 'Run county map test (نقشهٔ داخل بخش کجاست + آستانهٔ FAQ)'
         shell: bash
         run: php "$THEME_DIR/tests/test-county-map.php"

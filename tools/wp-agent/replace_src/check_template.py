@@ -31,6 +31,15 @@ neighbour names (the identity-card chips own that), and no two parts of the
 page may tell the same story (3-gram shingle Jaccard, body↔body and
 body↔traveller-seed).
 
+County-generality pass (2026-11-17, owner order «برای شهرستان‌های دیگه کارکرد
+کامل‌تری داشته باشه»): the required body is the six sections every county can
+honestly write; `notables` stays supported but optional, so a county whose
+names cannot be verified ships without an empty heading. A page that has a map
+section must carry usable coordinates — without them the theme cannot draw the
+in-page map, and the page promises a map it will not show (Khorramshahr case).
+The sources block is the theme's, so `sa_sources` must name at least two
+distinct domains and never more than one wikipedia line.
+
 This checks the built outbox files (not the live site) and prints one line per
 problem. Exit code 1 on any violation so the batch cannot ship half-templated.
 
@@ -50,6 +59,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 # The locked order comes from the single registry in template.py: adding,
 # dropping or renaming a section is one edit there and nowhere else.
 from template import order_patterns  # noqa: E402
+from fa_lint import scan as fa_scan, scan_meta as fa_scan_meta  # noqa: E402
+from theme_sources import is_forbidden, is_wiki  # noqa: E402
 
 ORDER = order_patterns()
 
@@ -57,6 +68,7 @@ REMOVED = ("card", "request")          # still in the registry, never on a new p
 LEGACY = ("climate", "sights")         # pre-2.22.86 body sections; order-checked when present
 RETIRED = ("tips",)                    # owner-retired body section (2026-11-16): new pages must not carry it
 REQUIRED = ("intro", "map", "history", "people", "economy", "stay")
+OPTIONAL = ("notables",)                 # supported, never demanded (empty notables must be reported, not faked)
 ORDER = tuple((label, rx) for label, rx in ORDER if label not in REMOVED)
 REMOVED_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in REMOVED)
 LEGACY_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in LEGACY)
@@ -188,6 +200,15 @@ def check_html(path: Path) -> list[str]:
     dupes = {h for h in hrefs if hrefs.count(h) > 1}
     if dupes:
         problems.append(f"repeated links: {sorted(dupes)[:3]}")
+    # Every link behind a footnote must be a source the theme will actually
+    # print: its own forbidden list plus the wiki family (never rendered).
+    for u in re.findall(r'<sup class="sa-cite"><a href="([^"]+)"', html):
+        if is_forbidden(u):
+            problems.append(f"citation to a domain the theme never renders: {u[:60]}")
+            break
+        if is_wiki(u):
+            problems.append(f"wiki citation in the body (wikipedia belongs to sa_sources once): {u[:60]}")
+            break
     # banned wording (owner rules)
     for bad in ("باید", "راستش", "به‌زودی", "در حال ساخت", "کلنگ", "اسرائیل", "اسراییل",
                 "منبع معتبر", "فاقد منبع", "بدون منبع", "تأیید نمی‌شود", "تایید نمی‌شود",
@@ -200,6 +221,9 @@ def check_html(path: Path) -> list[str]:
     # a baked map block in post_content means someone hardcoded it — never again.
     if 'id="sa-map"' in html or "sa-map__facade" in html:
         problems.append("map block baked into post_content (the theme injects it)")
+    # فیلتر املا و نگارش فارسی (دستور مالک، ۱۶ نوامبر ۱۴۰۵): نام ماه میلادی،
+    # نیم‌فاصلهٔ جاافتاده، حرف عربی، واژهٔ ممنوع — هر یافته صفحه را رد می‌کند.
+    problems += [f"fa: {line}" for line in fa_scan(html)]
     # v2.22.87 boundary rule: the map section tells the geography; the neighbour
     # NAMES belong to the identity-card chips. 3+ names repeated = the old drift.
     map_html = section_slice(html, "map")
@@ -234,8 +258,25 @@ def check_markers(html: str) -> list[str]:
     return problems
 
 
+COUNTIES_FILE = ROOT.parent.parent / "wp-content/themes/sarzaminaryan-child/data/counties.php"  # ROOT=tools/wp-agent
+
+
+def county_slugs() -> set:
+    """Slugs the theme knows (data/counties.php). Empty when the file is missing."""
+    if not COUNTIES_FILE.is_file():
+        return set()
+    return set(re.findall(r"'slug'\s*=>\s*'([a-z0-9\-]+)'",
+                          COUNTIES_FILE.read_text(encoding="utf-8")))
+
+
 FAQ_BANNED = ("منبع معتبر", "فاقد منبع", "بدون منبع", "تأیید نمی‌شود", "تایید نمی‌شود",
                "بررسی بیشتر", "بازبینی", "منبعی یافت", "مشخص نیست")
+
+
+def html_of(path: Path) -> str:
+    """Sibling .html of a `.meta.json` path ('' when the pair is missing)."""
+    h = path.with_name(path.name.replace(".meta.json", ".html"))
+    return h.read_text(encoding="utf-8") if h.exists() else ""
 
 
 def check_meta(path: Path) -> list[str]:
@@ -258,6 +299,25 @@ def check_meta(path: Path) -> list[str]:
     # v2.22.87 (تحلیل مالک): بخش FAQ با کمتر از ۳ پرسش معتبر اصلاً بخش نیست.
     if isinstance(faq, list) and 0 < len(faq) < 3:
         problems.append(f"faq has only {len(faq)} valid rows (< 3 → drop the section)")
+    # 2026-11-17: one wikipedia line is the rule, but a page carried only by
+    # wikipedia is not sourced at all — two distinct domains minimum.
+    src_lines = [l for l in str(meta.get("sa_sources") or "").splitlines() if l.strip()]
+    domains = set()
+    for line in src_lines:
+        for part in line.split("|"):
+            m = re.match(r"\s*https?://(?:www\.)?([^/]+)", part)
+            if m:
+                domains.add(m.group(1).lower())
+    if src_lines and len(domains) < 2:
+        problems.append(f"sa_sources rests on {len(domains)} domain(s); needs 2+ independent ones")
+    # Neighbour lines are «slug - جهت»: a chip asks the theme for /city/<slug>/,
+    # so a slug that does not exist in the theme's county table is a dead chip.
+    known = county_slugs()
+    if known:
+        unknown = [l.split(" - ")[0].strip() for l in str(meta.get("sa_cty_neighbors") or "").splitlines()
+                   if " - " in l and l.split(" - ")[0].strip() and l.split(" - ")[0].strip() not in known]
+        if unknown:
+            problems.append(f"neighbour slugs the theme does not know: {unknown}")
     # owner rule: wikipedia named at most once in sa_sources (never rendered)
     wiki_lines = [l for l in str(meta.get("sa_sources") or "").splitlines()
                   if "wikipedia.org" in l]
@@ -267,13 +327,18 @@ def check_meta(path: Path) -> list[str]:
     # theme renders the in-page map + geo JSON-LD from them).
     lat = parse_coord(str(meta.get("lat") or meta.get("sa_city_latitude") or ""))
     lng = parse_coord(str(meta.get("lng") or meta.get("sa_city_longitude") or ""))
+    has_map = bool(section_slice(html_of(path), "map")) if path.with_suffix(".html").exists() else False
     if lat is None or lng is None:
-        problems.append("no usable coordinates (lat/lng)")
+        # only a page that claims a map needs coordinates; a county with none on
+        # record is «incomplete», and this line is how it gets reported.
+        problems.append("no usable coordinates (lat/lng)" + (" — the map section cannot render" if has_map else ""))
     elif not (25 <= lat <= 40 and 44 <= lng <= 63.8):
         problems.append(f"coordinates outside Iran: {lat}, {lng}")
     zoom = str(meta.get("sa_map_zoom") or "").strip()
     if zoom and not (8 <= int(float(zoom)) <= 13):
         problems.append(f"zoom out of range 8..13: {zoom}")
+    # فیلتر املا/نگارش روی متن‌های نمایشی متا (سوالات، منابع، توضیح‌ها)
+    problems += [f"fa meta: {line}" for line in fa_scan_meta(meta)]
     # v2.22.87: arabic yeh/kaf leak into display text via copy-paste from wiki.
     for key, val in meta.items():
         if isinstance(val, str) and ("ي" in val or "ك" in val):

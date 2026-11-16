@@ -1,0 +1,233 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-59-probe-ahvaz-open-map.json",
+  "started_utc": "2026-11-16T17:17:17+00:00",
+  "note": "شمارهٔ ۵۸ — بررسی فقط‌خواندنی بعد از نصب 2.22.91 و بازنویسی اهواز: صفحهٔ اهواز، آبادان، استان خوزستان و خانه با پارامتر تازه (بدون کش) خوانده می‌شوند تا کد وضعیت، عنوان، H1، og و سلامت کلی بررسی شود. هیچ نوشتنی نیست.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/ahvaz/?v=2.22.91",
+            "status": 200,
+            "ms": 2560,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اهواز؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ahvaz/",
+            "desc": "راهنمای شهرستان اهواز: کارون و پل‌ها، پل سفید، بازار عبدالحمید، خانهٔ دادرس، تالاب بامدژ، آب‌وهوا، تاریخ و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اهواز — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان اهواز: پایتخت خوزستان؛ شهر کارون و پل‌ها.",
+              "og:url": "https://sarzaminaryan.ir/city/ahvaz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اهواز — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اهواز — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp"
+            ],
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19180,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/abadan/?v=2.22.91",
+            "status": 200,
+            "ms": 1585,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان آبادان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/abadan/",
+            "desc": "راهنمای شهرستان آبادان: جمعیت و تقسیمات، تاریخ پالایشگاه و اروندرود، مسجد رنگونی‌ها، موزه، بازار ته‌لنجی‌ها، آب‌وهوا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان آبادان: تاریخ نفت و اروندرود، جاهای دیدنی، آب‌وهوا و راه رسیدن.",
+              "og:url": "https://sarzaminaryan.ir/city/abadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-abadan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان آبادان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان آبادان — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-abadan.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-abadan.webp"
+            ],
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19530,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/khuzestan/?v=2.22.91",
+            "status": 200,
+            "ms": 1859,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان خوزستان؛ راهنمای کامل سفر، سه اثر جهانی یونسکو و کارون",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/khuzestan/",
+            "desc": "راهنمای کامل استان خوزستان؛ چغازنبیل، شوش و سازه‌های آبی شوشتر در یونسکو، رود کارون و پل سفید، تالاب شادگان، غذاهای محلی، سوغات خرما و بهترین زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان خوزستان؛ راهنمای جامع سفر به دیار چغازنبیل و کارون",
+              "og:description": "همه‌چیز درباره استان خوزستان؛ سه اثر جهانی یونسکو، رود کارون، تالاب شادگان، چاه شماره یک نفت، غذاهای محلی جنوب و سوغات خرما.",
+              "og:url": "https://sarzaminaryan.ir/province/khuzestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/10/khuzestan-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان خوزستان؛ راهنمای جامع سفر به دیار چغازنبیل و کارون",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان خوزستان؛ راهنمای جامع سفر به دیار چغازنبیل و کارون"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/10/khuzestan-1600x700.webp"
+            ],
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 109186,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/?v=2.22.91",
+            "status": 200,
+            "ms": 987,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T17:17:29+00:00"
+}

@@ -46,6 +46,7 @@ import content_audit as ca  # noqa: E402
 from build_fix_batch import balanced  # noqa: E402
 from build_replace_batch import banned_hits, gutenberg_ok  # noqa: E402
 from template import BY_ID, IDS  # noqa: E402
+from fa_lint import scan as fa_scan, scan_meta as fa_scan_meta  # noqa: E402  (فیلتر املا و نگارش فارسی)
 
 SECTIONS = IDS
 
@@ -182,12 +183,15 @@ def spans_of(html: str) -> tuple[dict[str, tuple[int, int]], bool]:
     return spans, False
 
 
-def checks(out: str, words_floor: int | None) -> dict:
+def checks(out: str, words_floor: int | None, fa_meta: dict | None = None) -> dict:
     row = {
         "words_after": ca.analyze_page({"content": out})["words"],
         "tags_ok": balanced(out),
         "gutenberg_ok": gutenberg_ok(out),
         "banned": banned_hits(out),
+        # فیلتر املا/نگارش فارسی (دستور مالک، ۱۶ نوامبر ۱۴۰۵): ماه میلادی،
+        # نیم‌فاصله، حروف عربی و … — هر یافته بیلد را رد می‌کند.
+        "fa_lint": fa_scan(out) + [f"meta: {x}" for x in fa_scan_meta(fa_meta or {})],
     }
     if words_floor is not None:
         row["words_original"] = words_floor
@@ -217,11 +221,16 @@ def cmd_build(read_path: str, live_dir: str, sections_dir: str, out_dir: str) ->
         original = cleaned_base(base)
         out = marked_body(sections)
         floor = len(re.sub(r"<[^>]+>", " ", original).split())
-        row = checks(out, floor)
+        meta_path = os.path.join(sections_dir, page_key + ".meta.json")
+        fa_meta = {}
+        if os.path.exists(meta_path):
+            fa_meta = json.load(open(meta_path, encoding="utf-8"))
+        row = checks(out, floor, fa_meta)
         row.update({"id": page["id"], "slug": page["slug"],
                     "modified_gmt": page["modified_gmt"], "changes": ["rebuild: marked sections"],
                     "bad_cites": []})
-        row["ok"] = (row["volume_ok"] and row["tags_ok"] and row["gutenberg_ok"] and not row["banned"])
+        row["ok"] = (row["volume_ok"] and row["tags_ok"] and row["gutenberg_ok"]
+                     and not row["banned"] and not row["fa_lint"])
         open(os.path.join(out_dir, page_key + ".html"), "w", encoding="utf-8", newline="").write(out)
         summary.append(row)
     json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w", encoding="utf-8"),
@@ -229,6 +238,8 @@ def cmd_build(read_path: str, live_dir: str, sections_dir: str, out_dir: str) ->
     for r in summary:
         print(json.dumps({k: r[k] for k in ("slug", "words_original", "words_after", "ok", "banned")},
                          ensure_ascii=False))
+        for line in r["fa_lint"][:10]:
+            print(f"      املا/نگارش: {line}", file=sys.stderr)
     return 0 if summary and all(r["ok"] for r in summary) else 1
 
 

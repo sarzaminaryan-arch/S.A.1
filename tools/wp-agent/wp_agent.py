@@ -150,11 +150,57 @@ def read_json(path: str | None) -> dict:
     return {} if not path else json.loads(Path(path).read_text(encoding="utf-8"))
 
 
-def check_banned(*texts: str | None) -> None:
+def check_banned(*texts: str | None, fa: bool = True) -> None:
     for t in texts:
         for phrase in BANNED:
             if t and phrase.lower() in t.lower():
                 raise AgentError(f"banned phrase in text: {phrase}")
+    if not fa:
+        return
+    # فیلتر املا و نگارش فارسی (دستور مالک، ۱۶ نوامبر ۱۴۰۵): هیچ متنی با نام ماه
+    # میلادی یا نیم‌فاصلهٔ غلط به سایت نمی‌رود. هر یافته نوشتن را رد می‌کند.
+    from replace_src.fa_lint import scan as fa_scan  # local import: keeps `ping` fast
+    for t in texts:
+        problems = fa_scan(t or "")
+        if problems:
+            raise AgentError("فیلتر املا/نگارش: " + " | ".join(problems[:4]))
+
+
+def check_county_shape(content: str, where: str = "") -> None:
+    """Shape guard for a county body on the write path (owner order 2026-11-17).
+
+    The template registry is only worth something if the thing that touches the
+    live site enforces it: a body that has the retired/removed sections, that
+    lost its section markers, or that carries the theme's own map block is
+    refused here, before a backup is taken. Runs on every `update` so a batch
+    built with last month's template cannot slip through.
+
+    `body` is the marked HTML of a county page; anything that is not a county
+    body (no markers at all) is left to the existing guards.
+    """
+    from replace_src.template import BY_ID, MARK_OPEN, MARK_CLOSE, REQUIRED_IDS, SECTIONS
+    import re as _re
+
+    if not any(MARK_OPEN.format(k) in content for k in BY_ID):
+        return  # not a marked county body — not this guard's business
+    problems = []
+    for s in SECTIONS:
+        key = s["id"]
+        if key in content and (MARK_OPEN.format(key) not in content or MARK_CLOSE.format(key) not in content):
+            problems.append(f"half marker pair for «{key}»")
+        if (s.get("legacy") or s.get("removed") or s.get("retired")) and MARK_OPEN.format(key) in content:
+            problems.append(f"retired/removed section present: «{key}»")
+    # A marked body must mark every required section: mixing a marked chapter
+    # with a hand-written one is how old templates creep back in. The H2
+    # fallback belongs to pre-marker (legacy) pages only, and those carry no
+    # markers at all — `return` above already sent them home.
+    missing = [k for k in REQUIRED_IDS if MARK_OPEN.format(k) not in content]
+    if missing:
+        problems.append(f"required sections missing: {missing}")
+    if 'id="sa-map"' in content or "sa-map__facade" in content:
+        problems.append("map block baked into post_content")
+    if problems:
+        raise AgentError(f"{where}county template: " + "; ".join(problems[:4]))
 
 
 def out(data) -> None:
@@ -196,12 +242,24 @@ class _SeoParser(html.parser.HTMLParser):
         self.lazy_imgs = 0
         self._svg = 0
         self._title_done = False
+        self.map_iframes = 0          # our own map block: iframe.sa-map__frame
+        self.map_coords = False       # the same iframe carries data-lat/data-lng
+        self.map_frame_buttons = 0    # retired «بارگذاری نقشهٔ تعاملی» must never come back
+        self._main = 0
 
     def handle_starttag(self, tag, attrs):
         a = {k.lower(): (v or "") for k, v in attrs}
         if tag == "svg":
             self._svg += 1
         classes = set((a.get("class") or "").split())
+        if tag == "main":
+            self._main += 1
+        if tag == "iframe" and "sa-map__frame" in classes:
+            self.map_iframes += 1
+            if a.get("data-lat", "").strip() and a.get("data-lng", "").strip():
+                self.map_coords = True
+        if "sa-map__load" in classes or "sa-map__facade" in classes:
+            self.map_frame_buttons += 1
         if tag == "figure" and "sa-county-cover" in classes:
             self.county_cover_figures += 1
         if tag == "img" and "sa-county-cover__img" in classes:
@@ -247,6 +305,8 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
+        if tag == "main" and self._main:
+            self._main -= 1
         if tag == "svg" and self._svg:
             self._svg -= 1
         if tag == "title":
@@ -264,7 +324,8 @@ class _SeoParser(html.parser.HTMLParser):
             self.title += data
         if self._in_jsonld:
             self._buf += data
-        elif not self._skip:
+        elif not self._skip and self._main:
+            # متنِ <main> فقط: منو، فوتر و آکاردئون خانه را «واژهٔ مقاله» نمی‌شماریم
             self.text_parts.append(data)
 
 
@@ -357,6 +418,8 @@ def scan_url(url: str) -> dict:
         "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
+        "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
+        "map_coords": p.map_coords,
     }
 
 
@@ -396,7 +459,9 @@ def probe_url(url: str) -> dict:
                 "county_cover_figures": p.county_cover_figures,
                 "county_cover_images": p.county_cover_images,
                 "county_cover_image_srcs": p.county_cover_image_srcs,
-                "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld)})
+                "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
+                "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
+                "map_coords": p.map_coords})
     img = og.get("og:image", "")
     if img:
         try:
@@ -638,8 +703,13 @@ def run(a: argparse.Namespace, c: "Client"):
     elif a.cmd == "draft":
         content = read_text(a.content_file) or ""
         check_banned(a.title, content, a.excerpt)
+        draft_meta = read_json(a.meta_file)
+        from replace_src.fa_lint import scan_meta as fa_scan_meta
+        meta_problems = fa_scan_meta(draft_meta)
+        if meta_problems:
+            raise AgentError("فیلتر املا/نگارش (متا): " + " | ".join(meta_problems[:4]))
         body = {"type": a.type, "title": a.title, "content": content, "excerpt": a.excerpt,
-                "slug": a.slug, "parent": a.parent, "meta": read_json(a.meta_file)}
+                "slug": a.slug, "parent": a.parent, "meta": draft_meta}
         if a.category:
             body["terms"] = {"category": a.category}
         return c.call("POST", "/draft", body=body)
@@ -655,8 +725,14 @@ def run(a: argparse.Namespace, c: "Client"):
         print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
         fields = {k: v for k, v in {"title": a.title, "content": read_text(a.content_file), "excerpt": a.excerpt}.items() if v is not None}
         check_banned(*fields.values())
+        check_county_shape(fields.get("content") or "", f"post {a.id}: ")
+        meta_in = read_json(a.meta_file)
+        from replace_src.fa_lint import scan_meta as fa_scan_meta
+        meta_problems = fa_scan_meta(meta_in)
+        if meta_problems:
+            raise AgentError("فیلتر املا/نگارش (متا): " + " | ".join(meta_problems[:4]))
         body = {"expected_modified_gmt": current["modified_gmt"], "fields": fields,
-                "meta": read_json(a.meta_file), "reason": a.reason}
+                "meta": meta_in, "reason": a.reason}
         if a.owner_approved_live_edit:
             body["owner_approved_live_edit"] = True
         return c.call("POST", f"/post/{a.id}", body=body)
@@ -843,7 +919,8 @@ def job_deferred(job: dict, now: datetime | None = None) -> bool:
 
 
 def unhealthy_pages(probes: list[dict]) -> list[str]:
-    """Live-edit health rule: 200, a title, `index` robots and exactly one H1 on every page."""
+    """Live-edit health rule: 200, a title, `index` robots, exactly one H1 — and on a
+    county page the map is the OPEN interactive iframe (no «بارگذاری» button, 2.22.91)."""
     bad = []
     for pr in probes:
         url = pr.get("url", "?")
@@ -853,6 +930,15 @@ def unhealthy_pages(probes: list[dict]) -> list[str]:
             bad.append(f"{url} robots {pr.get('robots')}")
         elif pr.get("h1") is not None and int(pr.get("h1")) != 1:
             bad.append(f"{url} h1 {pr.get('h1')}")
+        elif "city" in str(pr.get("url", "")) and pr.get("map_iframes") is not None:
+            # A page with an OPEN map must have it (2.22.91: no «بارگذاری» gate,
+            # ever). A county with no coordinates has no map to render and is
+            # «incomplete», not broken — Khorramshahr is that case, and calling
+            # it broken once rolled back a healthy Maragheh edit.
+            if int(pr.get("map_iframes") or 0) < 1 and pr.get("map_coords"):
+                bad.append(f"{url} map iframe missing")
+        if "city" in str(pr.get("url", "")) and pr.get("map_frame_buttons"):
+            bad.append(f"{url} retired map button is back ({pr.get('map_frame_buttons')})")
     return bad
 
 

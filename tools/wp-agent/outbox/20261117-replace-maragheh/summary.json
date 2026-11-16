@@ -1,0 +1,18 @@
+[
+ {
+  "id": 101,
+  "slug": "maragheh",
+  "words_after": 1326,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

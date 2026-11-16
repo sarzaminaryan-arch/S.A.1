@@ -97,6 +97,7 @@ sandbox نشست Arena به sarzaminaryan.ir دسترسی شبکه ندارد. �
 { "cmd": "probe", "url": ["/city/isfahan/", "/city/isfahan-city/"] }
 ```
 
+- **فیلتر املا و نگارش (دستور مالک، ۱۶ نوامبر ۱۴۰۵):** هر `update`/`draft`/`draft-copy` پیش از ارسال از `replace_src/fa_lint.py` می‌گذرد — ماه میلادی و سال میلادی در متن فارسی، نیم‌فاصلهٔ جاافتاده، حروف/ارقام عربی، «ها»ی چسبیده پس از «ه»، واژه‌های ممنوع و واژهٔ لاتین بی‌جا نوشتن را رد می‌کنند (متن و متا). برای دیدن گزارش پیش از ساختن کار: `python3 tools/wp-agent/replace_src/fa_lint.py <dir|file>`؛ برای اصلاح قطعی `--fix`.
 - `update` فقط برای متا یا برچسبِ نوشتهٔ منتشرشده آزاد است. تغییر عنوان یا متن آن را سایت با 409 رد می‌کند؛ از `draft-copy` استفاده کن.
 - برای پیش‌نویس‌ها `update` متن را هم عوض می‌کند و پیش از آن پشتیبان می‌گیرد.
 - `"owner_approved_live_edit": true` فقط با دستور صریح و مکتوب مالک در همان نشست مجاز است، و دلیل آن را در `reason` بنویس.
@@ -123,5 +124,8 @@ python3 tools/wp-agent/wp_agent.py run-job tools/wp-agent/jobs/<name>.json
 - `jobs/`: فایل‌های کار ایجنت.
 - `results/`: نتیجه‌ها. workflow آن‌ها را روی همان شاخه commit می‌کند. مخزن خصوصی است.
 - `outbox/`: متن و متای آماده برای ارسال.
+- `replace_src/county_page.py`: **ساخت صفحهٔ شهرستان از فایل داده** (قالب ۲.۲۲.۹۲). یک فایل `replace_src/data/<slug>.json` + `python3 replace_src/county_page.py <slug>` → سه فایل outbox؛ فیلتر املا، رجیستری قالب (`template.py`) و نگهبان (`check_template.py`) پیش از نوشتن اجرا می‌شوند.
+- `replace_src/template.py`: رجیستری بخش‌ها (تنها جای تعریف چینش و تیتر)، `marked_body()` برای نشانگرهای `sa:sec` و `NEEDS` (بخش نقشه بدون `lat`/`lng` = صفحهٔ ناقص).
+- `replace_src/theme_sources.py`: فهرست دامنه‌های منبع که قالب رندر نمی‌کند، خوانده‌شده از `inc/template-tags.php`؛ پانویس روی این دامنه‌ها ممنوع است.
 - `.github/workflows/wp-agent.yml`: اجراکننده.
 - سمت سایت: `inc/agent-bridge.php`. تست آن در `tests/test-agent-bridge.php` است.
