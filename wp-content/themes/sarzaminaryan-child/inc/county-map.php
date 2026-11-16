@@ -266,7 +266,7 @@ function sa_county_map_footer_script() {
 	if ( ! is_singular( 'city' ) || empty( $GLOBALS['sa_county_map_printed'] ) ) {
 		return;
 	}
-	$url = SA_CHILD_URL . 'assets/js/county-map.js';
+	$url = trailingslashit( get_stylesheet_directory_uri() ) . 'assets/js/county-map.js';
 	$ver = function_exists( 'sa_child_asset_version' ) ? sa_child_asset_version( 'assets/js/county-map.js' ) : SA_CHILD_VERSION;
 	echo '<script src="' . esc_url( $url ) . '?v=' . esc_attr( $ver ) . '" defer></script>' . "\n"; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
 }

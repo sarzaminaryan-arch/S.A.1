@@ -85,6 +85,9 @@ function sa_get_coords( $id ) {
 function sa_county_name( $id, $prefix = false ) {
 	return $prefix ? 'شهرستان نمونه' : 'نمونه';
 }
+function trailingslashit( $s ) { return rtrim( (string) $s, '/' ) . '/'; }
+function get_stylesheet_directory_uri() { return 'https://example.test/wp-content/themes/sarzaminaryan-child'; }
+function sa_child_asset_version( $rel ) { return '42'; }
 
 $theme_dir = dirname( __DIR__ );
 require_once $theme_dir . '/inc/county-map.php';
@@ -201,4 +204,26 @@ $card_src = (string) file_get_contents( $theme_dir . '/template-parts/entity/cou
 sa_cm_assert( false !== strpos( $card_src, 'href="#sa-map"' ), 'card: map button anchors to the in-page map (2.22.87)' );
 sa_cm_assert( false !== strpos( $card_src, "sa_county_map_data( \$sa_id )" ), 'card: anchor only when coordinates are valid' );
 
-echo "PASS: county map (facade block, provider links, parse + Iran bounds, one injection per map section, never stored)\n";
+/* ---- 6. Footer script (the 2.22.87 post-mortem: an undefined constant here
+       fataled every city page; now it is pinned by test, not by hope) ------- */
+
+$GLOBALS['t']['profile'][90] = array( 'lat' => 31.3275, 'lng' => 48.69389, 'center_fa' => 'نمونه‌شهر' );
+$GLOBALS['t']['meta'][90]    = array();
+$GLOBALS['t']['in_loop']     = true;
+$GLOBALS['sa_county_map_injected'] = false;
+$GLOBALS['sa_county_map_printed']  = false;
+$body_with_map = sa_county_map_content_filter( $body );
+sa_cm_assert( ! empty( $GLOBALS['sa_county_map_printed'] ), 'footer: flag set after a real injection' );
+ob_start();
+sa_county_map_footer_script();
+$footer = (string) ob_get_clean();
+sa_cm_assert( false !== strpos( $footer, 'assets/js/county-map.js' ), 'footer: loader script printed on map pages' );
+sa_cm_assert( false !== strpos( $footer, 'defer' ), 'footer: loader is deferred' );
+sa_cm_assert( false === strpos( $footer, 'SA_CHILD_URL' ), 'footer: no undefined constant in the output' );
+// no map on the page → no script at all.
+$GLOBALS['sa_county_map_printed'] = false;
+ob_start();
+sa_county_map_footer_script();
+sa_cm_assert( '' === (string) ob_get_clean(), 'footer: no script without the map block' );
+
+echo "PASS: county map (facade block, provider links, parse + Iran bounds, one injection per map section, never stored, footer loader)\n";
