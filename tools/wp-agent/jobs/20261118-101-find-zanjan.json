@@ -1,0 +1,15 @@
+{
+ "note": "زنجان — یافتن شناسهٔ صفحه (فقط خواندنی).",
+ "steps": [
+  {
+   "cmd": "list",
+   "type": "city",
+   "slug": "zanjan"
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "search": "زنجان"
+  }
+ ]
+}
