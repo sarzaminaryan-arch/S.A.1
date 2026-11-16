@@ -1,0 +1,28 @@
+{
+ "note": "تهران ۲۱۳ — تلاش دوم برای رفع تکرار متن جعبهٔ «مردمِ این‌جا» در بدنه. کار ۶۹ در همان خواندن نخست با خطای شبکه («timed out on GET /post/213») متوقف شد و هیچ نوشتنی انجام نشد؛ expected_modified_gmt همان 2026-11-16 21:25:01 است.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 213,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.meta.json",
+   "expected_modified_gmt": "2026-11-16 21:25:01",
+   "owner_approved_live_edit": true,
+   "reason": "تهران: حذف تکرار متن جعبهٔ «مردمِ این‌جا» از بدنه و جانشینی با پاراگراف سه‌نسلی تازه؛ ۲۳۰۳ واژه"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    213
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/tehran/?sa_probe=29",
+    "/city/maragheh/?sa_probe=29"
+   ]
+  }
+ ]
+}
