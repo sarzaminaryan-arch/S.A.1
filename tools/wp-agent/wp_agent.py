@@ -166,6 +166,43 @@ def check_banned(*texts: str | None, fa: bool = True) -> None:
             raise AgentError("فیلتر املا/نگارش: " + " | ".join(problems[:4]))
 
 
+def check_county_shape(content: str, where: str = "") -> None:
+    """Shape guard for a county body on the write path (owner order 2026-11-17).
+
+    The template registry is only worth something if the thing that touches the
+    live site enforces it: a body that has the retired/removed sections, that
+    lost its section markers, or that carries the theme's own map block is
+    refused here, before a backup is taken. Runs on every `update` so a batch
+    built with last month's template cannot slip through.
+
+    `body` is the marked HTML of a county page; anything that is not a county
+    body (no markers at all) is left to the existing guards.
+    """
+    from replace_src.template import BY_ID, MARK_OPEN, MARK_CLOSE, REQUIRED_IDS, SECTIONS
+    import re as _re
+
+    if not any(MARK_OPEN.format(k) in content for k in BY_ID):
+        return  # not a marked county body — not this guard's business
+    problems = []
+    for s in SECTIONS:
+        key = s["id"]
+        if key in content and (MARK_OPEN.format(key) not in content or MARK_CLOSE.format(key) not in content):
+            problems.append(f"half marker pair for «{key}»")
+        if (s.get("legacy") or s.get("removed") or s.get("retired")) and MARK_OPEN.format(key) in content:
+            problems.append(f"retired/removed section present: «{key}»")
+    # A marked body must mark every required section: mixing a marked chapter
+    # with a hand-written one is how old templates creep back in. The H2
+    # fallback belongs to pre-marker (legacy) pages only, and those carry no
+    # markers at all — `return` above already sent them home.
+    missing = [k for k in REQUIRED_IDS if MARK_OPEN.format(k) not in content]
+    if missing:
+        problems.append(f"required sections missing: {missing}")
+    if 'id="sa-map"' in content or "sa-map__facade" in content:
+        problems.append("map block baked into post_content")
+    if problems:
+        raise AgentError(f"{where}county template: " + "; ".join(problems[:4]))
+
+
 def out(data) -> None:
     print(json.dumps(data, ensure_ascii=False, indent=2))
 
@@ -683,6 +720,7 @@ def run(a: argparse.Namespace, c: "Client"):
         print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
         fields = {k: v for k, v in {"title": a.title, "content": read_text(a.content_file), "excerpt": a.excerpt}.items() if v is not None}
         check_banned(*fields.values())
+        check_county_shape(fields.get("content") or "", f"post {a.id}: ")
         meta_in = read_json(a.meta_file)
         from replace_src.fa_lint import scan_meta as fa_scan_meta
         meta_problems = fa_scan_meta(meta_in)

@@ -85,6 +85,7 @@ jobs:
           python3 tools/wp-agent/test_wp_agent_probe.py
           python3 tools/wp-agent/test_build_replace_batch.py
           python3 tools/wp-agent/test_build_section_batch.py
+          python3 tools/wp-agent/test_county_template.py
 
       - name: Run pending jobs
         env:

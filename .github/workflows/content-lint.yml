@@ -43,6 +43,8 @@ jobs:
 
       - name: Persian spelling filter (ماه میلادی، نیم‌فاصله، حروف عربی)
         run: python3 tools/wp-agent/test_fa_lint.py
+      - name: County template guard (offline)
+        run: python3 tools/wp-agent/test_county_template.py
 
       - name: Full report (warnings + infos, never fails)
         run: |

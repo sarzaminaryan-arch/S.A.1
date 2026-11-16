@@ -35,6 +35,21 @@ Registry flags:
   retired — owner-retired body section (tips, 2026-11-16): new pages must not
             write it; it stays so `remove`/`replace` reaches the old pages.
 
+Registry flags of the 2026-11-17 upgrade (county-generality pass):
+  optional — a section a county may honestly lack (notables). The
+             guard tolerates its absence; the builder never writes an empty
+             heading.
+  (The facts a county cannot be fully rendered without live in NEEDS below and
+  are gated by `county_page.py`, because the Template never sees the county
+  file — it only sees the sections.)
+
+Two ways to build a page, same registry and same guard:
+  1) hand-written: `gen_<slug>.py` (the Ahvaz reference) for one-off work;
+  2) data-driven: `data/<slug>.json` + `county_page.py <slug>` — the default
+     for every new county, because it makes the county file the only thing
+     that changes (owner order 2026-11-17: «برای شهرستان‌های دیگه کارکرد
+     کامل‌تری داشته باشه»).
+
 Usage:
     from template import Template
     t = Template("اهواز", tagline="...")
@@ -47,9 +62,19 @@ Usage:
 """
 from __future__ import annotations
 
-from gen_lib import Page
+try:                                   # script path: replace_src/ on sys.path
+    from gen_lib import Page
+except ImportError:                    # package path: imported by wp_agent.py
+    from .gen_lib import Page
 
 CARD_HEAD = ("شاخص", "مقدار", "توضیح")
+
+# Section markers — the contract with build_section_batch.py: every section is
+# one removable unit, wrapped in an invisible pair of comments. Defined here so
+# the writer (this module) and the editor (build_section_batch.py) can never
+# drift apart.
+MARK_OPEN = "<!-- sa:sec:{} -->"
+MARK_CLOSE = "<!-- /sa:sec:{} -->"
 
 
 # -- renderers ------------------------------------------------------------
@@ -192,6 +217,16 @@ SECTIONS = (
 
 REQUIRED_IDS = ("intro", "map", "history", "people", "economy", "stay")
 
+# What a county file must carry before its page can be complete (owner
+# 2026-11-17): a map section without coordinates is an empty promise — the
+# theme cannot draw the map and the reader gets prose only. Khorramshahr has
+# no coordinates on record, so it is reported as incomplete, not silently
+# rendered (the old `unhealthy_pages()` blind spot).
+NEEDS = {
+    "intro": ("tagline",),
+    "map": ("lat", "lng"),
+}
+
 IDS = tuple(s["id"] for s in SECTIONS)
 BY_ID = {s["id"]: s for s in SECTIONS}
 
@@ -260,6 +295,16 @@ class Template:
 
     def request(self, html):
         self.section("request", html)
+
+    def marked_body(self) -> str:
+        """Every section rendered so far, wrapped in its marker pair, in registry
+        order — the exact body build_section_batch.py expects (and the only body
+        shape in which a single section can later be removed or replaced)."""
+        order = [s["id"] for s in SECTIONS]
+        return "\n\n".join(
+            f"{MARK_OPEN.format(k)}\n{self.captured[k]}\n{MARK_CLOSE.format(k)}"
+            for k in sorted(self.done, key=order.index)
+        )
 
     def finish(self) -> Page:
         """Master shape (owner orders 2026-11-15 evening, 2.22.86):
