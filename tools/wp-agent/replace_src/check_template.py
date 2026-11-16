@@ -14,6 +14,11 @@ into the theme's traveller block, so a new page carries neither as a body
 section (legacy pages may still carry them, in order). A county without honest
 content for a section skips that section (notables is the usual one).
 
+Owner order of 2026-11-16: the body «چند نکتهٔ کوچک» (tips) section is retired —
+its practical notes belong to the traveller block's own tips, so a new page
+carries neither the tips heading nor its markers (old pages may keep it, in
+order).
+
 Evening orders also enforced here: a FAQ question without a solid, sourceable
 answer is dropped entirely (no «no-source» phrasing anywhere — use probability
 words instead), and sa_sources names wikipedia at most once.
@@ -50,10 +55,12 @@ ORDER = order_patterns()
 
 REMOVED = ("card", "request")          # still in the registry, never on a new page
 LEGACY = ("climate", "sights")         # pre-2.22.86 body sections; order-checked when present
-REQUIRED = ("intro", "map", "history", "people", "economy", "stay", "tips")
+RETIRED = ("tips",)                    # owner-retired body section (2026-11-16): new pages must not carry it
+REQUIRED = ("intro", "map", "history", "people", "economy", "stay")
 ORDER = tuple((label, rx) for label, rx in ORDER if label not in REMOVED)
 REMOVED_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in REMOVED)
 LEGACY_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in LEGACY)
+RETIRED_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in RETIRED)
 
 # Section markers written by build_section_batch.py. When present they must
 # exist exactly once per live section, in registry order.
@@ -161,6 +168,13 @@ def check_html(path: Path) -> list[str]:
             problems.append(f"owner-removed section is present: {label}")
         if MARK_OPEN.format(label) in html or MARK_CLOSE.format(label) in html:
             problems.append(f"owner-removed section has markers: {label}")
+    # owner-retired body section (tips, 2026-11-16): its notes belong to the
+    # traveller block; a new page must not carry the body section.
+    for label, rx in RETIRED_PATTERNS:
+        if any(re.search(rx, title) for title in h2):
+            problems.append(f"owner-retired section is present: {label}")
+        if MARK_OPEN.format(label) in html or MARK_CLOSE.format(label) in html:
+            problems.append(f"owner-retired section has markers: {label}")
     # pre-2.22.86 body sections (climate, sights): legacy pages carry them WITH
     # markers and stay valid; a page carrying the H2 WITHOUT its marker was
     # hand-written after the order — that is the violation.

@@ -5,10 +5,14 @@ THE PAGE (top to bottom), registered once so every county looks the same:
   2. تجربهٔ مسافرها (theme block, from data/county-experiences.php):
      کادرهای اطلاعات ← فصل‌ها (کادرهای رنگی) ← جاهای دیدنی [شهرستان] ← نکته‌ها
      ← مردمِ این‌جا. No intro description under the title (owner, 2.22.86).
-  3. THE ARTICLE BODY — the eight sections this module writes, in this order:
-     intro, map, history, people, economy, stay, notables, tips.
+  3. THE ARTICLE BODY — the seven sections this module writes, in this order:
+     intro, map, history, people, economy, stay, notables.
      climate and sights live in the theme block now (seasons cards and
      «جاهای دیدنی»), so new pages carry NEITHER body section (owner, 2.22.86).
+     The body «چند نکتهٔ کوچک» (tips) section is retired for new pages too:
+     its practical notes belong to the block's «نکته‌هایی که کاش قبل از
+     راه‌افتادن بدانید» (owner, 2026-11-16). It stays in the registry as
+     `retired` so `remove`/`replace` can still reach the pages that carry it.
      A county without honest content for a section simply skips that section
      (notables is the usual one) — never an empty heading.
   4. شهرهای هم‌استانی (theme, printed right above منابع — 2.22.86)
@@ -28,6 +32,8 @@ Registry flags:
             order; new pages must not write it.
   removed — owner-removed blocks (card, request): presence on a new page is
             a violation.
+  retired — owner-retired body section (tips, 2026-11-16): new pages must not
+            write it; it stays so `remove`/`replace` reaches the old pages.
 
 Usage:
     from template import Template
@@ -179,12 +185,12 @@ SECTIONS = (
     {"id": "notables", "title": "چهره‌های نام‌آور {name}", "pattern": r"چهره‌ها|نام‌آور|مشاهیر",
      "render": render_notables, "optional": True},
     {"id": "tips", "title": "چند نکتهٔ کوچک از {name}", "pattern": r"چند نکته|اگر فقط یک روز",
-     "render": render_tips},
+     "render": render_tips, "retired": True},
     {"id": "request", "title": "از مردم عزیز شهرستان {name}، یک درخواست داریم",
      "pattern": r"یک درخواست داریم", "render": render_request, "removed": True},
 )
 
-REQUIRED_IDS = ("intro", "map", "history", "people", "economy", "stay", "tips")
+REQUIRED_IDS = ("intro", "map", "history", "people", "economy", "stay")
 
 IDS = tuple(s["id"] for s in SECTIONS)
 BY_ID = {s["id"]: s for s in SECTIONS}
@@ -257,11 +263,13 @@ class Template:
 
     def finish(self) -> Page:
         """Master shape (owner orders 2026-11-15 evening, 2.22.86):
-        required = the eight-section body minus optional notables;
-        legacy (climate/sights) and removed (card/request) must not be written."""
-        banned = [s["id"] for s in SECTIONS if (s.get("legacy") or s.get("removed")) and s["id"] in self.done]
+        required = the seven-section body minus optional notables;
+        legacy (climate/sights), retired (tips — owner 2026-11-16) and
+        removed (card/request) must not be written on a new page."""
+        banned = [s["id"] for s in SECTIONS
+                  if (s.get("legacy") or s.get("removed") or s.get("retired")) and s["id"] in self.done]
         if banned:
-            raise ValueError(f"{self.name}: legacy/owner-removed sections written: {banned}")
+            raise ValueError(f"{self.name}: legacy/retired/owner-removed sections written: {banned}")
         missing = [k for k in REQUIRED_IDS if k not in self.done]
         if missing:
             raise ValueError(f"{self.name}: sections missing before finish: {missing}")
