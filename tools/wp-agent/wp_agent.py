@@ -243,6 +243,7 @@ class _SeoParser(html.parser.HTMLParser):
         self._svg = 0
         self._title_done = False
         self.map_iframes = 0          # our own map block: iframe.sa-map__frame
+        self.map_coords = False       # the same iframe carries data-lat/data-lng
         self.map_frame_buttons = 0    # retired «بارگذاری نقشهٔ تعاملی» must never come back
         self._main = 0
 
@@ -255,6 +256,8 @@ class _SeoParser(html.parser.HTMLParser):
             self._main += 1
         if tag == "iframe" and "sa-map__frame" in classes:
             self.map_iframes += 1
+            if a.get("data-lat", "").strip() and a.get("data-lng", "").strip():
+                self.map_coords = True
         if "sa-map__load" in classes or "sa-map__facade" in classes:
             self.map_frame_buttons += 1
         if tag == "figure" and "sa-county-cover" in classes:
@@ -416,6 +419,7 @@ def scan_url(url: str) -> dict:
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
         "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
+        "map_coords": p.map_coords,
     }
 
 
@@ -456,7 +460,8 @@ def probe_url(url: str) -> dict:
                 "county_cover_images": p.county_cover_images,
                 "county_cover_image_srcs": p.county_cover_image_srcs,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
-                "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons})
+                "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
+                "map_coords": p.map_coords})
     img = og.get("og:image", "")
     if img:
         try:
@@ -926,10 +931,14 @@ def unhealthy_pages(probes: list[dict]) -> list[str]:
         elif pr.get("h1") is not None and int(pr.get("h1")) != 1:
             bad.append(f"{url} h1 {pr.get('h1')}")
         elif "city" in str(pr.get("url", "")) and pr.get("map_iframes") is not None:
-            if int(pr.get("map_iframes") or 0) < 1:
+            # A page with an OPEN map must have it (2.22.91: no «بارگذاری» gate,
+            # ever). A county with no coordinates has no map to render and is
+            # «incomplete», not broken — Khorramshahr is that case, and calling
+            # it broken once rolled back a healthy Maragheh edit.
+            if int(pr.get("map_iframes") or 0) < 1 and pr.get("map_coords"):
                 bad.append(f"{url} map iframe missing")
-            elif int(pr.get("map_frame_buttons") or 0):
-                bad.append(f"{url} map load button is back")
+        if "city" in str(pr.get("url", "")) and pr.get("map_frame_buttons"):
+            bad.append(f"{url} retired map button is back ({pr.get('map_frame_buttons')})")
     return bad
 
 

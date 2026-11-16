@@ -33,4 +33,14 @@ assert old_facade.map_iframes == 0 and old_facade.map_frame_buttons == 2
 archive = wa._SeoParser()
 archive.feed('<html><body><article><img src="x.webp"></article></body></html>')
 assert archive.county_cover_figures == archive.county_cover_images == 0
+# Health rule (2026-11-17): a county without coordinates must not be treated as
+# broken for having no map — that false alarm rolled back a healthy edit.
+no_coords = {"url": "https://x/city/khorramshahr/", "status": 200, "title": "t", "robots": "index, follow",
+             "h1": 1, "map_iframes": 0, "map_frame_buttons": 0, "map_coords": False}
+assert wa.unhealthy_pages([no_coords]) == [], wa.unhealthy_pages([no_coords])
+promised = dict(no_coords, url="https://x/city/maragheh/", map_coords=True)
+assert wa.unhealthy_pages([promised]), "a page that carries coordinates must show its map"
+gated = dict(no_coords, map_iframes=1, map_frame_buttons=1)
+assert wa.unhealthy_pages([gated]), "the retired «بارگذاری نقشه» button must still fail the probe"
+
 print("PASS: probe parser detects county cover markup, JSON-LD images and the open map iframe (no load button).")
