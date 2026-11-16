@@ -1,0 +1,18 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-76-find-isfahan.json",
+  "started_utc": "2026-11-16T22:13:23+00:00",
+  "note": "اصفهان — یافتن شناسهٔ پست شهرستان (فقط خواندنی).",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "list",
+      "result": {
+        "total": 0,
+        "pages": 0,
+        "items": []
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T22:13:25+00:00"
+}

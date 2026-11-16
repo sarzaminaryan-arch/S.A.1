@@ -1,0 +1,401 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-87-find-tabriz.json",
+  "started_utc": "2026-11-16T23:02:04+00:00",
+  "note": "تبریز — یافتن شناسهٔ صفحهٔ زنده با نامک دقیق (فقط خواندنی).",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "list",
+      "result": {
+        "total": 1,
+        "pages": 0,
+        "items": [
+          {
+            "id": 100,
+            "type": "city",
+            "status": "publish",
+            "slug": "tabriz",
+            "title": "شهرستان تبریز",
+            "modified_gmt": "2026-10-07 20:12:36",
+            "link": "https://sarzaminaryan.ir/city/tabriz/",
+            "words": 1412,
+            "featured_media": 3724,
+            "featured_media_missing": false
+          }
+        ]
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "list",
+      "result": {
+        "total": 34,
+        "pages": 2,
+        "items": [
+          {
+            "id": 101,
+            "type": "city",
+            "status": "publish",
+            "slug": "maragheh",
+            "title": "شهرستان مراغه",
+            "modified_gmt": "2026-11-16 17:35:29",
+            "link": "https://sarzaminaryan.ir/city/maragheh/",
+            "words": 1308,
+            "featured_media": 3712,
+            "featured_media_missing": false
+          },
+          {
+            "id": 103,
+            "type": "city",
+            "status": "publish",
+            "slug": "osku",
+            "title": "شهرستان اسکو",
+            "modified_gmt": "2026-11-16 16:25:53",
+            "link": "https://sarzaminaryan.ir/city/osku/",
+            "words": 1210,
+            "featured_media": 3718,
+            "featured_media_missing": false
+          },
+          {
+            "id": 135,
+            "type": "city",
+            "status": "publish",
+            "slug": "salmas",
+            "title": "شهرستان سلماس",
+            "modified_gmt": "2026-11-15 11:34:38",
+            "link": "https://sarzaminaryan.ir/city/salmas/",
+            "words": 1276,
+            "featured_media": 4518,
+            "featured_media_missing": false
+          },
+          {
+            "id": 81,
+            "type": "city",
+            "status": "publish",
+            "slug": "zanjan",
+            "title": "شهرستان زنجان",
+            "modified_gmt": "2026-11-15 11:34:28",
+            "link": "https://sarzaminaryan.ir/city/zanjan/",
+            "words": 1395,
+            "featured_media": 4568,
+            "featured_media_missing": false
+          },
+          {
+            "id": 352,
+            "type": "city",
+            "status": "publish",
+            "slug": "qazvin",
+            "title": "شهرستان قزوین",
+            "modified_gmt": "2026-11-15 11:34:24",
+            "link": "https://sarzaminaryan.ir/city/qazvin/",
+            "words": 1430,
+            "featured_media": 4288,
+            "featured_media_missing": false
+          },
+          {
+            "id": 84,
+            "type": "city",
+            "status": "publish",
+            "slug": "kharadere",
+            "title": "شهرستان خرمدره",
+            "modified_gmt": "2026-11-11 00:07:55",
+            "link": "https://sarzaminaryan.ir/city/kharadere/",
+            "words": 1132,
+            "featured_media": 4558,
+            "featured_media_missing": false
+          },
+          {
+            "id": 356,
+            "type": "city",
+            "status": "publish",
+            "slug": "abyek",
+            "title": "شهرستان آبیک",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/abyek/",
+            "words": 1214,
+            "featured_media": 4280,
+            "featured_media_missing": false
+          },
+          {
+            "id": 353,
+            "type": "city",
+            "status": "publish",
+            "slug": "takestan",
+            "title": "شهرستان تاکستان",
+            "modified_gmt": "2026-10-24 00:59:04",
+            "link": "https://sarzaminaryan.ir/city/takestan/",
+            "words": 1166,
+            "featured_media": 4290,
+            "featured_media_missing": false
+          },
+          {
+            "id": 147,
+            "type": "city",
+            "status": "publish",
+            "slug": "germi",
+            "title": "شهرستان گرمی",
+            "modified_gmt": "2026-10-24 00:59:03",
+            "link": "https://sarzaminaryan.ir/city/germi/",
+            "words": 1003,
+            "featured_media": 3624,
+            "featured_media_missing": false
+          },
+          {
+            "id": 88,
+            "type": "city",
+            "status": "publish",
+            "slug": "soltaniyeh",
+            "title": "شهرستان سلطانیه",
+            "modified_gmt": "2026-10-24 00:59:03",
+            "link": "https://sarzaminaryan.ir/city/soltaniyeh/",
+            "words": 1133,
+            "featured_media": 4564,
+            "featured_media_missing": false
+          },
+          {
+            "id": 111,
+            "type": "city",
+            "status": "publish",
+            "slug": "khoda-afarin",
+            "title": "شهرستان خداآفرین",
+            "modified_gmt": "2026-10-07 20:13:02",
+            "link": "https://sarzaminaryan.ir/city/khoda-afarin/",
+            "words": 1082,
+            "featured_media": 3708,
+            "featured_media_missing": false
+          },
+          {
+            "id": 110,
+            "type": "city",
+            "status": "publish",
+            "slug": "charoymaq",
+            "title": "شهرستان چاراویماق",
+            "modified_gmt": "2026-10-07 20:13:01",
+            "link": "https://sarzaminaryan.ir/city/charoymaq/",
+            "words": 1086,
+            "featured_media": 3696,
+            "featured_media_missing": false
+          },
+          {
+            "id": 109,
+            "type": "city",
+            "status": "publish",
+            "slug": "bonab",
+            "title": "شهرستان بناب",
+            "modified_gmt": "2026-10-07 20:12:56",
+            "link": "https://sarzaminaryan.ir/city/bonab/",
+            "words": 1078,
+            "featured_media": 3692,
+            "featured_media_missing": false
+          },
+          {
+            "id": 108,
+            "type": "city",
+            "status": "publish",
+            "slug": "bostanabad",
+            "title": "شهرستان بستان‌آباد",
+            "modified_gmt": "2026-10-07 20:12:55",
+            "link": "https://sarzaminaryan.ir/city/bostanabad/",
+            "words": 1067,
+            "featured_media": 3694,
+            "featured_media_missing": false
+          },
+          {
+            "id": 106,
+            "type": "city",
+            "status": "publish",
+            "slug": "azarshahr",
+            "title": "شهرستان آذرشهر",
+            "modified_gmt": "2026-10-07 20:12:49",
+            "link": "https://sarzaminaryan.ir/city/azarshahr/",
+            "words": 1070,
+            "featured_media": 3690,
+            "featured_media_missing": false
+          },
+          {
+            "id": 105,
+            "type": "city",
+            "status": "publish",
+            "slug": "jolfa",
+            "title": "شهرستان جلفا",
+            "modified_gmt": "2026-10-07 20:12:49",
+            "link": "https://sarzaminaryan.ir/city/jolfa/",
+            "words": 1061,
+            "featured_media": 3704,
+            "featured_media_missing": false
+          },
+          {
+            "id": 102,
+            "type": "city",
+            "status": "publish",
+            "slug": "marand",
+            "title": "شهرستان مرند",
+            "modified_gmt": "2026-10-07 20:12:41",
+            "link": "https://sarzaminaryan.ir/city/marand/",
+            "words": 1094,
+            "featured_media": 3714,
+            "featured_media_missing": false
+          },
+          {
+            "id": 100,
+            "type": "city",
+            "status": "publish",
+            "slug": "tabriz",
+            "title": "شهرستان تبریز",
+            "modified_gmt": "2026-10-07 20:12:36",
+            "link": "https://sarzaminaryan.ir/city/tabriz/",
+            "words": 1412,
+            "featured_media": 3724,
+            "featured_media_missing": false
+          },
+          {
+            "id": 83,
+            "type": "city",
+            "status": "publish",
+            "slug": "abhar",
+            "title": "شهرستان ابهر",
+            "modified_gmt": "2026-10-07 20:12:18",
+            "link": "https://sarzaminaryan.ir/city/abhar/",
+            "words": 1154,
+            "featured_media": 4554,
+            "featured_media_missing": false
+          },
+          {
+            "id": 137,
+            "type": "city",
+            "status": "publish",
+            "slug": "showt",
+            "title": "شهرستان شوط",
+            "modified_gmt": "2026-10-07 20:12:11",
+            "link": "https://sarzaminaryan.ir/city/showt/",
+            "words": 910,
+            "featured_media": 4524,
+            "featured_media_missing": false
+          },
+          {
+            "id": 125,
+            "type": "city",
+            "status": "publish",
+            "slug": "chaldoran",
+            "title": "شهرستان چالدران",
+            "modified_gmt": "2026-10-07 20:11:40",
+            "link": "https://sarzaminaryan.ir/city/chaldoran/",
+            "words": 1174,
+            "featured_media": 4496,
+            "featured_media_missing": false
+          },
+          {
+            "id": 122,
+            "type": "city",
+            "status": "publish",
+            "slug": "khoy",
+            "title": "شهرستان خوی",
+            "modified_gmt": "2026-10-07 20:11:34",
+            "link": "https://sarzaminaryan.ir/city/khoy/",
+            "words": 1126,
+            "featured_media": 4500,
+            "featured_media_missing": false
+          },
+          {
+            "id": 120,
+            "type": "city",
+            "status": "publish",
+            "slug": "hurand",
+            "title": "شهرستان هوراند",
+            "modified_gmt": "2026-10-07 20:11:32",
+            "link": "https://sarzaminaryan.ir/city/hurand/",
+            "words": 1111,
+            "featured_media": 3702,
+            "featured_media_missing": false
+          },
+          {
+            "id": 119,
+            "type": "city",
+            "status": "publish",
+            "slug": "hashtrud",
+            "title": "شهرستان هشترود",
+            "modified_gmt": "2026-10-07 20:11:31",
+            "link": "https://sarzaminaryan.ir/city/hashtrud/",
+            "words": 1110,
+            "featured_media": 3698,
+            "featured_media_missing": false
+          },
+          {
+            "id": 118,
+            "type": "city",
+            "status": "publish",
+            "slug": "heris",
+            "title": "شهرستان هریس",
+            "modified_gmt": "2026-10-07 20:11:29",
+            "link": "https://sarzaminaryan.ir/city/heris/",
+            "words": 1096,
+            "featured_media": 3700,
+            "featured_media_missing": false
+          },
+          {
+            "id": 117,
+            "type": "city",
+            "status": "publish",
+            "slug": "varzaqan",
+            "title": "شهرستان ورزقان",
+            "modified_gmt": "2026-10-07 20:11:24",
+            "link": "https://sarzaminaryan.ir/city/varzaqan/",
+            "words": 1115,
+            "featured_media": 3728,
+            "featured_media_missing": false
+          },
+          {
+            "id": 116,
+            "type": "city",
+            "status": "publish",
+            "slug": "mianeh",
+            "title": "شهرستان میانه",
+            "modified_gmt": "2026-10-07 20:11:23",
+            "link": "https://sarzaminaryan.ir/city/mianeh/",
+            "words": 1194,
+            "featured_media": 3716,
+            "featured_media_missing": false
+          },
+          {
+            "id": 115,
+            "type": "city",
+            "status": "publish",
+            "slug": "malekan",
+            "title": "شهرستان ملکان",
+            "modified_gmt": "2026-10-07 20:11:18",
+            "link": "https://sarzaminaryan.ir/city/malekan/",
+            "words": 1093,
+            "featured_media": 3710,
+            "featured_media_missing": false
+          },
+          {
+            "id": 114,
+            "type": "city",
+            "status": "publish",
+            "slug": "ajabshir",
+            "title": "شهرستان عجب‌شیر",
+            "modified_gmt": "2026-10-07 20:11:13",
+            "link": "https://sarzaminaryan.ir/city/ajabshir/",
+            "words": 1106,
+            "featured_media": 3688,
+            "featured_media_missing": false
+          },
+          {
+            "id": 113,
+            "type": "city",
+            "status": "publish",
+            "slug": "shabestar",
+            "title": "شهرستان شبستر",
+            "modified_gmt": "2026-10-07 20:11:12",
+            "link": "https://sarzaminaryan.ir/city/shabestar/",
+            "words": 1140,
+            "featured_media": 3722,
+            "featured_media_missing": false
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-16T23:02:07+00:00"
+}

@@ -1,0 +1,18 @@
+[
+ {
+  "id": 100,
+  "slug": "tabriz",
+  "words_after": 1691,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

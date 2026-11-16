@@ -1,0 +1,18 @@
+[
+ {
+  "id": 182,
+  "slug": "karaj",
+  "words_after": 1759,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

@@ -1,0 +1,18 @@
+[
+ {
+  "id": 3429,
+  "slug": "isfahan",
+  "words_after": 2011,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

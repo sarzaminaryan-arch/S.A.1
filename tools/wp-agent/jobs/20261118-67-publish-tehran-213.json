@@ -1,0 +1,36 @@
+{
+ "note": "تهران ۲۱۳ — انتشار زندهٔ بازنویسی با دستور صریح مالک (۲۶ آبان ۱۴۰۵: «سوال نکن، فقط منتشر کن»). بدنهٔ ۲۲۸۲ واژه‌ای، هفت بخش، ۱۴ پرسش متداول، ۵ منبع (فرمانداری تهران، مرکز آمار، همشهری، تابناک/ایرنا، پروندهٔ جهانی کاخ گلستان). اصلاح‌های داده‌ای: جمعیت ۹٬۴۵۰٬۱۳۲→۸٬۷۳۷٬۵۱۰، سال سرشماری ۱۳۹۰→۱۳۹۵، مساحت ۱٬۳۳۶/۱٬۳۰۰٫۳→۱۳۰۱، تعداد شهر ۳→۱، حذف یادداشت تحریریهٔ FAQ. expected_modified_gmt از خواندن زندهٔ کار ۶۶. rollback_on_fail روشن است.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 213,
+   "title": "شهرستان تهران",
+   "content_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.meta.json",
+   "expected_modified_gmt": "2026-10-24 00:59:03",
+   "owner_approved_live_edit": true,
+   "reason": "تهران: بازنویسی کامل در قالب مستر با صدای اول‌شخص، اصلاح جمعیت/سال سرشماری/مساحت/تعداد شهر، حذف یادداشت تحریریه، پنج منبع معتبر و بی‌ویکی‌پدیا — دستور صریح مالک به انتشار"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    213
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/tehran/?sa_probe=26",
+    "/city/maragheh/?sa_probe=26",
+    "/city/ahvaz/?sa_probe=26",
+    "/province/tehran/?sa_probe=26"
+   ]
+  },
+  {
+   "cmd": "content-audit",
+   "type": "city",
+   "workers": 4
+  }
+ ]
+}

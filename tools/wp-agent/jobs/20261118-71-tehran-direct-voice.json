@@ -1,0 +1,28 @@
+{
+ "note": "تهران ۲۱۳ — حذف اشاره به فرایند تحقیق از متن (دستور مالک ۲۶ آبان: «نیاز نیست بگی از دو جا خواندم»). سه پاراگراف بازنویسی شد: خستگی چهره‌ها، شلوغی مترو، و اقامت — همه حالا برداشت مستقیم‌اند. جملهٔ «مسافری که این کار را کرده بود، نوشته» هم به امر مستقیم تبدیل شد. ۲۱۶۱ واژه. شاهدها بیرون از متن، در briefs/tehran-evidence.md.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 213,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.meta.json",
+   "expected_modified_gmt": "2026-11-16 21:29:59",
+   "owner_approved_live_edit": true,
+   "reason": "تهران: برداشت مستقیم جای اشاره به «از دو جا خواندم» و «چند مسافر نوشته‌اند»؛ صفر اشاره به فرایند تحقیق در متن"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    213
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/tehran/?sa_probe=30",
+    "/city/maragheh/?sa_probe=30"
+   ]
+  }
+ ]
+}

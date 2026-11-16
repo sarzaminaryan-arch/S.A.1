@@ -1,0 +1,18 @@
+[
+ {
+  "id": 323,
+  "slug": "shiraz",
+  "words_after": 1760,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

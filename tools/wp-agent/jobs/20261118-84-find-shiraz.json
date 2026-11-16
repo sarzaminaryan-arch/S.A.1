@@ -1,0 +1,17 @@
+{
+ "note": "شیراز — یافتن شناسهٔ صفحهٔ زنده با نامک دقیق (فقط خواندنی).",
+ "steps": [
+  {
+   "cmd": "list",
+   "type": "city",
+   "slug": "shiraz",
+   "per_page": 10
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "search": "شیراز",
+   "per_page": 30
+  }
+ ]
+}

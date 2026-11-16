@@ -1,0 +1,7 @@
+{
+ "note": "کرج — جست‌وجوی دقیق‌تر با واژهٔ کامل «کرج» در فهرست شهرستان‌ها (فقط خواندنی).",
+ "steps": [
+  { "cmd": "list", "type": "city", "slug": "karaj", "per_page": 10 },
+  { "cmd": "list", "type": "city", "search": "کرج", "per_page": 30 }
+ ]
+}
