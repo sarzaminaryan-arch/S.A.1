@@ -328,6 +328,11 @@ function sa_get_valid_faq( $post_id ) {
 		}
 		$out[] = $row;
 	}
+	/* v2.22.87 (دستور مالک): بخش کمتر از ۳ پرسش معتبر، اصلاً بخش نیست —
+	 * نه در صفحه چاپ می‌شود و نه FAQPage می‌سازد؛ هم‌گام با اسکیما. */
+	if ( count( $out ) < 3 ) {
+		return array();
+	}
 	return $out;
 }
 

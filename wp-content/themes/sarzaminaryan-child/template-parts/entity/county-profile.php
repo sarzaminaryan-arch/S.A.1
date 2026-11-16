@@ -447,7 +447,19 @@ $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_
 					<?php if ( '' !== $sa_prov_en ) : ?><small dir="ltr"><?php echo esc_html( strtoupper( $sa_prov_en ) ); ?></small><?php endif; ?>
 				</a>
 			<?php endif; ?>
-			<?php if ( '' !== $sa_map_url ) : ?>
+			<?php
+			// v2.22.87 (تحلیل مالک): وقتی نقشهٔ داخل صفحه رندر می‌شود، دکمهٔ نقشهٔ
+			// شناسنامه لنگرِ همان نقشه می‌شود؛ بدون مختصاتِ سالم، همان لینک بیرونی.
+			$sa_map_on_page = function_exists( 'sa_county_map_data' )
+				&& null !== sa_county_map_data( $sa_id )
+				&& false !== strpos( (string) get_post_field( 'post_content', $sa_id ), '<!-- sa:sec:map -->' );
+			?>
+			<?php if ( $sa_map_on_page ) : ?>
+				<a class="profile-link sa-cyber-id__hud-btn" href="#sa-map">
+					<span>موقعیت روی نقشه</span>
+					<small dir="ltr">MAP</small>
+				</a>
+			<?php elseif ( '' !== $sa_map_url ) : ?>
 				<a class="profile-link sa-cyber-id__hud-btn" href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener noreferrer">
 					<span>نقشه</span>
 					<small dir="ltr">MAP</small>
@@ -511,7 +523,13 @@ $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_
 		foreach ( $sa_sibling_cities as $sa_sib ) {
 			$sa_siblings_html .= '<li><a class="profile-link" href="' . esc_url( $sa_sib['url'] ) . '">' . esc_html( $sa_sib['label'] ) . '</a></li>';
 		}
-		$sa_siblings_html .= '</ul></div></section>';
+		$sa_siblings_html .= '</ul>';
+		// v2.22.87 (تحلیل مالک): در استان‌های پرشهرستان، چیپ‌ها سقف ۱۲تایی دارند؛
+		// لینک «همهٔ شهرستان‌های استان» بن‌بست را می‌شکند و به صفحهٔ استان می‌رسد.
+		if ( $sa_prov_id && 'publish' === get_post_status( $sa_prov_id ) ) {
+			$sa_siblings_html .= '<p class="sa-siblings__all"><a href="' . esc_url( (string) get_permalink( $sa_prov_id ) ) . '">همهٔ شهرستان‌های استان ' . esc_html( $sa_prov_name ) . ' ←</a></p>';
+		}
+		$sa_siblings_html .= '</div></section>';
 		$GLOBALS['sa_county_siblings_html'][ (int) $sa_id ] = $sa_siblings_html;
 	}
 	?>
@@ -587,7 +605,7 @@ $sa_ins = $sa_profile_ext;
 							<div class="sa-field-season__bar">
 								<span class="sa-field-season__name"><?php echo esc_html( (string) $sa_season_name ); ?><?php if ( $sa_is_best ) : ?> <span class="sa-field-season__badge">فصل پیشنهادی</span><?php endif; ?></span>
 								<?php if ( isset( $sa_season_en[ (string) $sa_season_name ] ) ) : ?>
-									<span class="sa-field-season__en" dir="ltr"><?php echo esc_html( $sa_season_en[ (string) $sa_season_name ] ); ?></span>
+									<span class="sa-field-season__en" lang="en" dir="ltr"><?php echo esc_html( $sa_season_en[ (string) $sa_season_name ] ); ?></span>
 								<?php endif; ?>
 							</div>
 							<p><?php echo esc_html( (string) $sa_season_text ); ?></p>

@@ -18,6 +18,14 @@ Evening orders also enforced here: a FAQ question without a solid, sourceable
 answer is dropped entirely (no «no-source» phrasing anywhere — use probability
 words instead), and sa_sources names wikipedia at most once.
 
+Template-analysis orders (2026-11-16, theme 2.22.87): a new page ships with
+clean numeric coordinates (Iran bounds checked; the in-page map is rendered by
+the theme, never baked into post_content), the FAQ section needs at least
+three valid rows, the map section tells the geography WITHOUT re-listing the
+neighbour names (the identity-card chips own that), and no two parts of the
+page may tell the same story (3-gram shingle Jaccard, body↔body and
+body↔traveller-seed).
+
 This checks the built outbox files (not the live site) and prints one line per
 problem. Exit code 1 on any violation so the batch cannot ship half-templated.
 
@@ -61,6 +69,70 @@ def strip(html: str) -> str:
 
 def words(html: str) -> int:
     return len(strip(html).split())
+
+
+def shingles(text: str, n: int = 3) -> set:
+    """Word 3-grams of normalized text (ZWNJ kept, punctuation dropped)."""
+    toks = [t for t in re.split(r"[\s،؛.!؟:«»()\-—]+", strip(text)) if t]
+    return {" ".join(toks[i:i + n]) for i in range(len(toks) - n + 1)}
+
+
+def jaccard(a: set, b: set) -> float:
+    return len(a & b) / len(a | b) if (a or b) else 0.0
+
+
+def section_slice(html: str, key: str) -> str:
+    """Inner HTML of one sa:sec section ('' when the page has no marker)."""
+    m = re.search(
+        re.escape(MARK_OPEN.format(key)) + r"(.*?)" + re.escape(MARK_CLOSE.format(key)),
+        html, re.S,
+    )
+    return m.group(1) if m else ""
+
+
+FA_DIGITS = str.maketrans("۰۱۲۳۴۵۶۷۸۹٫", "0123456789.")
+
+
+def parse_coord(raw: str):
+    """First float in any stored format (persian digits, «شمالی»…), or None."""
+    raw = str(raw or "").translate(FA_DIGITS)
+    m = re.search(r"-?\d+(?:\.\d+)?", raw)
+    return float(m.group(0)) if m else None
+
+
+# body↔traveller-seed overlap: the seed lives in the theme data file; the slug
+# key tells which record to compare against (no record → that pair is skipped).
+SEED_FILE = ROOT.parent.parent / "wp-content/themes/sarzaminaryan-child/data/county-experiences.php"  # ROOT=tools/wp-agent
+SIM_THRESHOLD = 0.35
+
+
+def seed_block(slug: str) -> dict:
+    """Rough per-key extraction of one county record from the bundled seed."""
+    if not SEED_FILE.is_file():
+        return {}
+    src = SEED_FILE.read_text(encoding="utf-8")
+    m = re.search(r"\n\t'" + re.escape(slug) + r"' => array\(.*?\n\t\'[^']+\' => array\(", src, re.S)
+    if not m:
+        return {}
+    blk = m.group(0)
+    out = {}
+    for key in ("road_quality", "access_difficulty", "parking_status",
+                "local_tips", "extra_places", "people_character"):
+        km = re.search(r"'" + key + r"' => '((?:[^'\\]|\\.)*)'", blk, re.S)
+        if km:
+            out[key] = km.group(1).replace("\\n", "\n").replace("\\'", "'")
+    return out
+
+
+# Which parts of the page must not tell the same story (تحلیل مالک، بخش ۲):
+# body section ↔ traveller-block/identity data it could drift into.
+OVERLAP_PAIRS = (
+    ("tips", "seed:local_tips"),
+    ("tips", "seed:extra_places"),
+    ("people", "seed:people_character"),
+    ("stay", "seed:road_quality"),
+    ("map", "seed:access_difficulty"),
+)
 
 
 def check_html(path: Path) -> list[str]:
@@ -110,6 +182,25 @@ def check_html(path: Path) -> list[str]:
             problems.append(f"banned wording: {bad}")
     if re.search(r"<td>https", html):
         problems.append("raw URL inside a table cell")
+    # v2.22.87: the in-page map is INJECTED BY THE THEME (the_content, prio 20);
+    # a baked map block in post_content means someone hardcoded it — never again.
+    if 'id="sa-map"' in html or "sa-map__facade" in html:
+        problems.append("map block baked into post_content (the theme injects it)")
+    # v2.22.87 boundary rule: the map section tells the geography; the neighbour
+    # NAMES belong to the identity-card chips. 3+ names repeated = the old drift.
+    map_html = section_slice(html, "map")
+    if map_html:
+        meta_path = path.with_suffix(".meta.json")
+        if meta_path.exists():
+            meta = json.loads(meta_path.read_text(encoding="utf-8"))
+            labels = []
+            for line in str(meta.get("sa_cty_neighbors") or "").splitlines():
+                name = line.split(" - ")[0].strip()
+                if name:
+                    labels.append(name)
+            hit = [n for n in labels if n in strip(map_html)]
+            if len(hit) >= 3:
+                problems.append(f"map section re-lists neighbour names ({hit[:3]}; the chips own them)")
     return problems
 
 
@@ -150,11 +241,60 @@ def check_meta(path: Path) -> list[str]:
             if bad in blob:
                 problems.append(f"faq wording: {bad}")
                 break
+    # v2.22.87 (تحلیل مالک): بخش FAQ با کمتر از ۳ پرسش معتبر اصلاً بخش نیست.
+    if isinstance(faq, list) and 0 < len(faq) < 3:
+        problems.append(f"faq has only {len(faq)} valid rows (< 3 → drop the section)")
     # owner rule: wikipedia named at most once in sa_sources (never rendered)
     wiki_lines = [l for l in str(meta.get("sa_sources") or "").splitlines()
                   if "wikipedia.org" in l]
     if len(wiki_lines) > 1:
         problems.append(f"sa_sources names wikipedia {len(wiki_lines)} times (max 1)")
+    # v2.22.87: clean numeric coordinates are part of the master template (the
+    # theme renders the in-page map + geo JSON-LD from them).
+    lat = parse_coord(str(meta.get("lat") or meta.get("sa_city_latitude") or ""))
+    lng = parse_coord(str(meta.get("lng") or meta.get("sa_city_longitude") or ""))
+    if lat is None or lng is None:
+        problems.append("no usable coordinates (lat/lng)")
+    elif not (25 <= lat <= 40 and 44 <= lng <= 63.8):
+        problems.append(f"coordinates outside Iran: {lat}, {lng}")
+    zoom = str(meta.get("sa_map_zoom") or "").strip()
+    if zoom and not (8 <= int(float(zoom)) <= 13):
+        problems.append(f"zoom out of range 8..13: {zoom}")
+    # v2.22.87: arabic yeh/kaf leak into display text via copy-paste from wiki.
+    for key, val in meta.items():
+        if isinstance(val, str) and ("ي" in val or "ك" in val):
+            problems.append(f"arabic yeh/kaf in meta {key}")
+            break
+    return problems
+
+
+def check_overlap(html_path: Path, meta_path) -> list[str]:
+    """No two parts of the page may tell the same story (تحلیل مالک، بخش ۲).
+
+    Body↔body pairs drift when a section repeats another; body↔seed pairs when
+    the article copies the traveller block (tips↔local_tips is the classic).
+    3-gram shingle Jaccard must stay under SIM_THRESHOLD.
+    """
+    html = html_path.read_text(encoding="utf-8")
+    problems = []
+    sections = {k: section_slice(html, k) for k in ("map", "people", "stay", "tips", "history", "economy")}
+    body_pairs = (("map", "people"), ("map", "stay"), ("people", "economy"), ("stay", "tips"), ("history", "people"))
+    for a, b in body_pairs:
+        if sections[a] and sections[b]:
+            sim = jaccard(shingles(sections[a]), shingles(sections[b]))
+            if sim >= SIM_THRESHOLD:
+                problems.append(f"sections tell the same story: {a}↔{b} = {sim:.2f}")
+    if meta_path is None:
+        return problems
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
+    slug = str(meta.get("slug") or html_path.stem.rsplit("-", 1)[0])
+    seed = seed_block(slug)
+    for body_key, seed_ref in OVERLAP_PAIRS:
+        seed_key = seed_ref.split(":", 1)[1]
+        if sections.get(body_key) and seed.get(seed_key):
+            sim = jaccard(shingles(sections[body_key]), shingles(seed[seed_key]))
+            if sim >= SIM_THRESHOLD:
+                problems.append(f"body {body_key} copies the traveller block ({seed_key}) = {sim:.2f}")
     return problems
 
 
@@ -171,6 +311,7 @@ def main(argv: list[str]) -> int:
                 problems += check_meta(meta)
             else:
                 problems.append("no .meta.json")
+            problems += check_overlap(html, meta if meta.exists() else None)
             if problems:
                 bad += 1
                 print(f"FAIL {html.relative_to(ROOT)}")

@@ -159,8 +159,10 @@ SECTIONS = (
      "render": render_intro},
     {"id": "card", "title": "شناسنامهٔ کوتاه {name}", "pattern": r"شناسنامهٔ کوتاه",
      "render": render_card, "removed": True},
-    {"id": "map", "title": "کجای نقشه است و همسایه‌هایش کیست‌اند؟", "pattern": r"نقشه|همسایه",
-     "render": render_map},
+    # v2.22.87 (تحلیل مالک): تیتر «کجاست» پرجستجوی سئو؛ نگارش «کیست‌اند» غلط بود.
+    # مرزبندی: بدنه فقط جغرافیای روایی است — اسم همسایه‌ها در چیپ‌های شناسنامه می‌آید.
+    {"id": "map", "title": "شهرستان {name} کجاست؟ موقعیت روی نقشه و همسایه‌ها",
+     "pattern": r"کجاست|نقشه|همسایه", "render": render_map},
     {"id": "climate", "title": "آب‌وهوا و بهترین زمان سفر",
      "pattern": r"آب‌وهوا|آب و هوا|بهترین زمان سفر", "render": render_climate,
      "legacy": True},

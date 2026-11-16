@@ -7705,3 +7705,181 @@ body.bg-lines::before {
 .sa-siblings .sa-cyber-id__subtable {
 	margin: 0;
 }
+
+/* ==========================================================================
+   v2.22.87 — نقشهٔ داخل بخش «کجاست؟» (facade + لودر تنبل) + افزودنی‌های تمپلیت اصلی
+   تحلیل مالک ۲۰۲۶-۱۱-۱۶: نقشه با نسبت ابعاد رزرو می‌شود (CLS صفر)، کنترل‌ها
+   LTR می‌مانند و کپشن/دکمه‌ها RTL؛ موبایل ۴/۳، دسکتاپ ۱۶/۹، سقف ارتفاع ثابت.
+   ========================================================================== */
+.sa-map {
+	margin: 1.75rem 0;
+	border: 1px solid var(--sa-navy-200, #bdd8f1);
+	border-radius: 14px;
+	overflow: hidden;
+	box-shadow: 0 6px 18px rgba(11, 42, 74, 0.08);
+	background: #f4f8fc;
+}
+
+.sa-map__facade,
+.sa-map__frame {
+	display: block;
+	width: 100%;
+	border: 0;
+	aspect-ratio: 4 / 3;
+	min-height: 280px;
+	max-height: 70vh;
+}
+
+.sa-map__facade {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.55rem;
+	cursor: pointer;
+	color: var(--sa-navy-800, #123f73);
+	background:
+		repeating-linear-gradient(0deg, rgba(36, 109, 168, 0.05) 0 1px, transparent 1px 38px),
+		repeating-linear-gradient(90deg, rgba(36, 109, 168, 0.05) 0 1px, transparent 1px 38px),
+		linear-gradient(160deg, #eaf3fb 0%, #f7fafd 55%, #eef5ea 100%);
+}
+
+.sa-map__facade:focus-visible {
+	outline: 2px solid var(--sa-navy-600, #246da8);
+	outline-offset: -2px;
+}
+
+.sa-map__pin {
+	color: #dc2626;
+	filter: drop-shadow(0 3px 4px rgba(220, 38, 38, 0.35));
+}
+
+.sa-map__placeholder {
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+
+.sa-map__load {
+	display: inline-block;
+	padding: 0.55rem 1.3rem;
+	min-height: 44px;
+	box-sizing: border-box;
+	border: 1px solid var(--sa-navy-600, #246da8);
+	border-radius: 10px;
+	background: var(--sa-navy-800, #123f73);
+	color: #fff;
+	font-size: 0.9rem;
+	line-height: 1.9;
+}
+
+.sa-map__caption {
+	margin: 0;
+	padding: 0.6rem 1rem;
+	border-top: 1px solid var(--sa-navy-200, #bdd8f1);
+	background: #fff;
+	color: var(--sa-navy-900, #0b2a4a);
+	font-size: 0.82rem;
+	line-height: 1.9;
+	text-align: center;
+}
+
+.sa-map__caption bdi {
+	color: var(--sa-navy-700, #18558f);
+	font-size: 0.78rem;
+}
+
+.sa-map__actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.65rem 1rem;
+	border-top: 1px solid var(--sa-navy-200, #bdd8f1);
+	background: #fff;
+	font-size: 0.85rem;
+}
+
+.sa-map__actions-list,
+.sa-map__noscript-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin: 0;
+	padding: 0;
+	list-style: none outside none;
+}
+
+.sa-map__actions-list a,
+.sa-map__noscript-list a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 44px;
+	padding: 0.35rem 1rem;
+	box-sizing: border-box;
+	border: 1px solid var(--sa-navy-200, #bdd8f1);
+	border-radius: 10px;
+	background: #f4f8fc;
+	color: var(--sa-navy-800, #123f73);
+	font-weight: 600;
+	text-decoration: none;
+}
+
+.sa-map__actions-list a:hover,
+.sa-map__noscript-list a:hover {
+	background: var(--sa-navy-200, #bdd8f1);
+	color: var(--sa-navy-950, #071a30);
+}
+
+@media (max-width: 767px) {
+	.sa-map__actions-list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		width: 100%;
+	}
+
+	.sa-map__actions-list a {
+		width: 100%;
+	}
+}
+
+@media (min-width: 768px) {
+	.sa-map__facade,
+	.sa-map__frame {
+		aspect-ratio: 16 / 10;
+		min-height: 0;
+		max-height: 420px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.sa-map__facade,
+	.sa-map__frame {
+		aspect-ratio: 16 / 9;
+	}
+}
+
+@media (max-height: 480px) and (orientation: landscape) {
+	.sa-map__facade,
+	.sa-map__frame {
+		max-height: 260px;
+	}
+}
+
+/* فصل‌ها: نام انگلیسی ایزولهٔ دوجهته تا روی هم‌نشینی نام فارسی اثر نگذارد. */
+.sa-field-season__en {
+	unicode-bidi: isolate;
+}
+
+/* «همهٔ شهرستان‌های استان …» زیر چیپ‌های هم‌استانی (سقف ۱۲ چیپ). */
+.sa-siblings__all {
+	margin: 0.55rem 0 0;
+	font-size: 0.85rem;
+}
+
+.sa-siblings__all a {
+	color: var(--sa-navy-700, #18558f);
+	font-weight: 600;
+}

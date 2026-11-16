@@ -131,6 +131,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-insights.php"
 
+      - name: 'Run county map test (نقشهٔ داخل بخش کجاست + آستانهٔ FAQ)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-county-map.php"
+
       - name: 'Run province county-link tests (لینک شهرستان‌ها روی صفحهٔ استان — نامزد نامک و fallback)'
         shell: bash
         run: php "$THEME_DIR/tests/test-province-county-links.php"
