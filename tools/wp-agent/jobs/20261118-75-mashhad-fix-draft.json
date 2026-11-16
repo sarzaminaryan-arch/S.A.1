@@ -1,0 +1,28 @@
+{
+ "note": "مشهد ۶۳ — اصلاح دو ایراد متن منتشرشده: (۱) پاراگراف هفت‌حوض دو بار آمده بود چون جای پاراگراف توس را گرفته بود؛ (۲) عنوان بخش آخر «چهره‌های نام‌آور» بود و با محتوای جاذبه‌ها نمی‌خواند، به «آنچه در مشهد می‌بینید و تجربه می‌کنید» تغییر کرد (الگو هم اصلاح شد). مدلِ الگو عوض شده، پس انتظار modified 2026-11-16 22:10:12 است.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 63,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-mashhad/mashhad-63.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-mashhad/mashhad-63.meta.json",
+   "expected_modified_gmt": "2026-11-16 22:10:12",
+   "owner_approved_live_edit": true,
+   "reason": "مشهد: حذف پاراگراف تکراری هفت‌حوض، بازگرداندن پاراگراف توس، و عنوان درست برای بخش جاذبه‌ها"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    63
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/mashhad/?sa_probe=32",
+    "/city/tehran/?sa_probe=32"
+   ]
+  }
+ ]
+}
