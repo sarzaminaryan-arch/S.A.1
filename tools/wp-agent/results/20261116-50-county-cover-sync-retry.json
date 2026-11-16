@@ -1,0 +1,14 @@
+{
+  "job": "tools/wp-agent/jobs/20261116-50-county-cover-sync-retry.json",
+  "started_utc": "2026-11-16T13:52:37+00:00",
+  "note": "اجرای مجددِ امنِ مسیر کارت‌های شهرستان پس از بهبود ثبت خطاهای workflow؛ اجرای قبلی در مرحلهٔ sync پیش از ساخت گزارش و پیش از هر پیوست/تغییر متا متوقف شد. دستور مالک برقرار است؛ همهٔ ۴۸۵ شهرستان، بدون جایگزینی تصویر شاخص سالم، با پشتیبان و expected_modified_gmt.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "county-covers",
+      "error": "county-covers command failed (node sync-live.mjs; exit 1): file:///home/runner/work/S.A.1/S.A.1/tools/images/county-covers/sync-live.mjs:48\n  throw new Error(`Fresh city count ${freshRows.length}, API total ${first.total}, metadata count ${metadata.expected_live_count}; refusing mismatched rollout.`);\n        ^\n\nError: Fresh city count 484, API total 484, metadata count 485; refusing mismatched rollout.\n    at file:///home/runner/work/S.A.1/S.A.1/tools/images/county-covers/sync-live.mjs:48:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:103:5)\n\nNode.js v22.23.4"
+    }
+  ],
+  "finished_utc": "2026-11-16T13:57:12+00:00"
+}
