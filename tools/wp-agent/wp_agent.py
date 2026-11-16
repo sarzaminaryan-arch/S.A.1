@@ -205,12 +205,21 @@ class _SeoParser(html.parser.HTMLParser):
         self.lazy_imgs = 0
         self._svg = 0
         self._title_done = False
+        self.map_iframes = 0          # our own map block: iframe.sa-map__frame
+        self.map_frame_buttons = 0    # retired «بارگذاری نقشهٔ تعاملی» must never come back
+        self._main = 0
 
     def handle_starttag(self, tag, attrs):
         a = {k.lower(): (v or "") for k, v in attrs}
         if tag == "svg":
             self._svg += 1
         classes = set((a.get("class") or "").split())
+        if tag == "main":
+            self._main += 1
+        if tag == "iframe" and "sa-map__frame" in classes:
+            self.map_iframes += 1
+        if "sa-map__load" in classes or "sa-map__facade" in classes:
+            self.map_frame_buttons += 1
         if tag == "figure" and "sa-county-cover" in classes:
             self.county_cover_figures += 1
         if tag == "img" and "sa-county-cover__img" in classes:
@@ -256,6 +265,8 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
+        if tag == "main" and self._main:
+            self._main -= 1
         if tag == "svg" and self._svg:
             self._svg -= 1
         if tag == "title":
@@ -273,7 +284,8 @@ class _SeoParser(html.parser.HTMLParser):
             self.title += data
         if self._in_jsonld:
             self._buf += data
-        elif not self._skip:
+        elif not self._skip and self._main:
+            # متنِ <main> فقط: منو، فوتر و آکاردئون خانه را «واژهٔ مقاله» نمی‌شماریم
             self.text_parts.append(data)
 
 
@@ -366,6 +378,7 @@ def scan_url(url: str) -> dict:
         "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
+        "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
     }
 
 
@@ -405,7 +418,8 @@ def probe_url(url: str) -> dict:
                 "county_cover_figures": p.county_cover_figures,
                 "county_cover_images": p.county_cover_images,
                 "county_cover_image_srcs": p.county_cover_image_srcs,
-                "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld)})
+                "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
+                "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons})
     img = og.get("og:image", "")
     if img:
         try:
@@ -862,7 +876,8 @@ def job_deferred(job: dict, now: datetime | None = None) -> bool:
 
 
 def unhealthy_pages(probes: list[dict]) -> list[str]:
-    """Live-edit health rule: 200, a title, `index` robots and exactly one H1 on every page."""
+    """Live-edit health rule: 200, a title, `index` robots, exactly one H1 — and on a
+    county page the map is the OPEN interactive iframe (no «بارگذاری» button, 2.22.91)."""
     bad = []
     for pr in probes:
         url = pr.get("url", "?")
@@ -872,6 +887,11 @@ def unhealthy_pages(probes: list[dict]) -> list[str]:
             bad.append(f"{url} robots {pr.get('robots')}")
         elif pr.get("h1") is not None and int(pr.get("h1")) != 1:
             bad.append(f"{url} h1 {pr.get('h1')}")
+        elif "city" in str(pr.get("url", "")) and pr.get("map_iframes") is not None:
+            if int(pr.get("map_iframes") or 0) < 1:
+                bad.append(f"{url} map iframe missing")
+            elif int(pr.get("map_frame_buttons") or 0):
+                bad.append(f"{url} map load button is back")
     return bad
 
 
