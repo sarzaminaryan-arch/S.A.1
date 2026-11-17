@@ -1,0 +1,14 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-127-site-down-check.json",
+  "started_utc": "2026-11-17T11:02:05+00:00",
+  "note": "کار ۱۲۷ (فقط خواندنی): سایت با خطای «Error establishing a database connection» بالا نمی‌آید (mysqli 2002، Resource temporarily unavailable در class-wpdb.php خط ۱۹۹۰). این کار هیچ نوشتنی ندارد؛ فقط ping و خواندن وضعیت خزنده/کش و یک probe برای ثبت وضعیت در مخزن.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "error": "HTTP 500 on GET /ping: {\"code\":\"wp_die\",\"message\":\"<p><code>Resource temporarily unavailable<\\/code><\\/p>\\n<h1>Error establishing a database connection<\\/h1>\\n<p>This either means that the username and password information in your <code>wp-config.php<\\/code> file is incorrect or that contact with the database server at <code>localhost<\\/code> could not be established. This could mean your host&#8217;s database server is down.<\\/p>\\n<ul>\\n<li>Are you sure you have the correct username and password?<\\/li>\\n<li>Are you sure you have typed the correct hostname?<\\/li>\\n<li>Are you sure the database server is running?<\\/li>\\n<\\/ul>\\n<p>If you are unsure what these terms mean you should probably contact your host. If you still need help you can always visit the <a href=\\\"https:\\/\\/wordpress.org\\/support\\/forums\\/\\\">Wor"
+    }
+  ],
+  "finished_utc": "2026-11-17T11:02:06+00:00"
+}
