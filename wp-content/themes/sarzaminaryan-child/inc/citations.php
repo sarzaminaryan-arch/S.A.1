@@ -397,6 +397,10 @@ function sa_citations_filter( $content ) {
 	}
 
 	$input = $content;
+	$photo_credit_captions = array();
+	if ( function_exists( 'sa_protect_photo_credit_captions' ) ) {
+		$content = sa_protect_photo_credit_captions( $content, $photo_credit_captions );
+	}
 
 	// شناسهٔ نوشته برای خواندنِ sa_sources.
 	$post_id = 0;
@@ -503,7 +507,7 @@ function sa_citations_filter( $content ) {
 
 	// اگر هیچ منبعی نداریم ولی محتوا دست‌خورده (مثلاً گوگل حذف شده یا شکسته ترمیم شده)، همان محتوا برگردد.
 	if ( empty( $unified ) ) {
-		return $content;
+		return strtr( $content, $photo_credit_captions );
 	}
 
 	// ساختِ فهرستِ یکپارچه (۵ شرط: تکرار حذف، google حذف، دامنه-تنها گزارش می‌شود اما نمایش می‌ماند).
@@ -548,7 +552,7 @@ function sa_citations_filter( $content ) {
 		. '<h2 id="sa-footnotes-title">منابع</h2>'
 		. '<ol class="sa-footnotes__list">' . $items . '</ol></section>';
 
-	return $content;
+	return strtr( $content, $photo_credit_captions );
 }
 add_filter( 'the_content', 'sa_citations_filter', 13 );
 

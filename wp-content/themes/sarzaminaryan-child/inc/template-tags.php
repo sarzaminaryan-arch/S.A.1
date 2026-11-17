@@ -399,6 +399,39 @@ function sa_get_domain_only_sources( $post_id ) {
  * @param string $content محتوای خام (اختیاری — برای استخراج لینک‌های درون‌متن).
  * @return array[] فهرست یکتا به ترتیب ظهور
  */
+/**
+ * Protect explicit photo-credit captions from the editorial citation parser.
+ * The source of a photograph is attribution, not a source for factual claims.
+ * Only marked credit captions containing a license link qualify.
+ *
+ * @param string $content Article HTML.
+ * @param array  $protected Placeholder => original caption.
+ * @return string HTML with credit captions replaced by inert placeholders.
+ */
+function sa_protect_photo_credit_captions( $content, &$protected ) {
+	$content = (string) $content;
+	$protected = array();
+	$prefix = 'SA_PHOTO_CREDIT_' . hash( 'sha256', $content ) . '_';
+	while ( false !== strpos( $content, $prefix ) ) {
+		$prefix .= 'X';
+	}
+	$result = preg_replace_callback(
+		'#<figcaption\b[^>]*>.*?</figcaption\s*>#isu',
+		static function ( $match ) use ( &$protected, $prefix ) {
+			$caption = $match[0];
+			if ( ! preg_match( '#class=["\']sa-photo-credit-latin["\']#i', $caption ) ||
+				 ! preg_match( '#<a\b[^>]*\brel=["\'][^"\']*\blicense\b[^"\']*["\']#i', $caption ) ) {
+				return $caption;
+			}
+			$key = '<!-- ' . $prefix . count( $protected ) . ' -->';
+			$protected[ $key ] = $caption;
+			return $key;
+		},
+		$content
+	);
+	return is_string( $result ) ? $result : $content;
+}
+
 function sa_build_unified_sources( $post_id, $content = '' ) {
 	$meta = sa_get_sources( $post_id );
 	// نگاشتِ نرمال → رکورد متا (برای یافتن عنوان/سازمان هنگام برخورد با لینک درون‌متن).
@@ -419,6 +452,8 @@ function sa_build_unified_sources( $post_id, $content = '' ) {
 	// اگر محتوا داده شده، لینک‌های درون‌متن را به ترتیبِ حضورشان برداریم.
 	if ( '' !== (string) $content ) {
 		$inline_urls = array();
+		$credit_captions = array();
+		$content = sa_protect_photo_credit_captions( $content, $credit_captions );
 		// ترکیبِ sa-cite و <a> — ترتیبِ ظهور حفظ می‌شود.
 		if ( preg_match_all( '#<sup\b[^>]*class=([\"\'])[^\"\']*\bsa-cite\b[^\"\']*\1[^>]*>\s*<a\b[^>]*href=([\"\'])([^\"\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\'])([^\"\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
 			foreach ( $mm as $hit ) {
