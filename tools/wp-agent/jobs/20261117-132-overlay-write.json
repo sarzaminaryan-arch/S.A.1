@@ -1,0 +1,34 @@
+{
+ "note": "کار ۱۳۲: نصب ۲.۲۲.۱۰۴ و نوشتن نام کوتاه روی عکس. پاسخ import حالا overlay/area را گزارش می‌کند؛ انتظار: 4636 «آیینه‌خانهٔ مفخم» + ناحیه، 4637 «بش‌قارداش» + ناحیه، 4638 «پارک آفرینش»، 4639 «پارک کودک». بعد از آن probe صفحهٔ داخلی و صفحهٔ اول (طرح v3). پشتیبان کامل و برگشت خودکار به ۲.۲۲.۱۰۳.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.104",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/"
+   ],
+   "rollback_to": "2.22.103"
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-bojnord.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/?sa_probe=133",
+    "/city/bojnord/?sa_probe=133"
+   ]
+  }
+ ]
+}
