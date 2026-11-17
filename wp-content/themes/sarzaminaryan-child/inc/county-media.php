@@ -276,6 +276,8 @@ function sa_photo_spotlight( $city_id = 0 ) {
 		<div class="sa-spotlight__grid">
 			<div class="sa-spotlight__media">
 				<?php
+				// ۱:۱ با برش مرکزی. اندازهٔ srct محدود است تا فایل بزرگ مربعی دانلود نشود؛
+				// برش از وردپرس (sa-square 480×480) می‌آید، نه از CSS.
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ساخته‌شده با توابع escape داخلی.
 				echo sa_photo_frame( $lead, 'sa-square', 'sa-spotlight__frame' );
 				?>
@@ -336,6 +338,7 @@ function sa_photo_strip( $city_id = 0 ) {
 					<div class="sa-strip__frame">
 						<?php
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						// قاب ثابت ۴:۳؛ اندازهٔ srct همان کارت ۷۲۰×۴۵۰ است.
 						echo sa_photo_frame( $id, 'sa-gallery-card', 'sa-strip__photo', false );
 						?>
 						<?php if ( '' !== $tag ) : ?>
