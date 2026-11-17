@@ -42,6 +42,7 @@ import base64
 import json
 import os
 import sys
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -78,6 +79,8 @@ def check(photo: dict) -> list[str]:
     lic = normalise_license(str(photo.get("license") or ""))
     if lic not in ALLOWED_LICENSES:
         problems.append(f"license {lic!r} is not reuse-friendly")
+    if not commons_thumb_shape(url):
+        problems.append("thumbnail URL must repeat the file name (/thumb/a/ab/<file>/<N>px-<file>)")
     if not str(photo.get("place") or "").strip():
         problems.append("place is required")
     if not int(photo.get("city_id") or 0):
@@ -86,6 +89,23 @@ def check(photo: dict) -> list[str]:
     if kind not in {"heritage", "fun", "nature", "modern"}:
         problems.append(f"kind {kind!r} must be heritage|fun|nature|modern")
     return problems
+
+
+def commons_thumb_shape(url: str) -> bool:
+    """آیا نشانی، شکل درست «بندانگشتی ویکی‌مدیا» را دارد؟
+
+    خطای واقعی کار ۱۱۷: نشانی بندانگشتی یک بار نام فایل داشت
+    (`/thumb/c/c9/960px-<file>` بدون تکرار نام) و ویکی‌مدیا ۴۰۴ داد. شکل درست:
+    `/thumb/<a>/<ab>/<file>/<عرض>px-<file>` — نام فایل پیش و پس از عرض می‌آید.
+    """
+    path = urllib.parse.unquote(urllib.parse.urlparse(url).path)
+    if "/thumb/" not in path:
+        return True  # فایل اصلی: بررسی شکل لازم ندارد
+    segs = [s for s in path.split("/") if s]
+    if len(segs) < 5:
+        return False
+    width, _, tail = segs[-1].partition("px-")
+    return width.isdigit() and segs[-2] == tail
 
 
 class Client:

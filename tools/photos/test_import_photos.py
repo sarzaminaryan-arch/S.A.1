@@ -54,6 +54,15 @@ assert "update_post_meta( (int) $att_id, SA_PHOTO_META_AUTHOR" in php, "the auth
 required = {"city_id", "place", "kind", "url", "author", "license"}
 assert required <= set(GOOD), "the batch contract carries every required key"
 
+# شکل نشانی بندانگشتی: کار ۱۱۷ سه تصویر را با نشانی یک‌بار-نام‌دار از دست داد و
+# ویکی‌مدیا ۴۰۴ داد. حالا همان خطا پیش از ارسال گرفته می‌شود.
+bad_thumb = "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/960px-x.jpg"
+ok_thumb = "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/x.jpg/960px-x.jpg"
+assert ip.commons_thumb_shape(ok_thumb) is True
+assert ip.commons_thumb_shape(bad_thumb) is False
+assert any("repeat the file name" in p for p in ip.check({**GOOD, "url": bad_thumb})), "a malformed thumb URL is refused before upload"
+assert ip.commons_thumb_shape("https://upload.wikimedia.org/wikipedia/commons/e/ee/x.jpg") is True, "an original file needs no thumb shape"
+
 # هر فایل دستهٔ داخل مخزن هم باید از فیلتر فارسی تمیز بگذرد (قاعدهٔ مالک: بدون «باید»،
 # بدون ماه میلادی، بدون واژهٔ لاتین جاافتاده در متن فارسی).
 try:
