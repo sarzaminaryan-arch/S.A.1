@@ -1,0 +1,70 @@
+{
+ "note": "دستهٔ ۸ — گام سوم: تطبیق پنج شهرستان دوم (اهر، میانه، شهرضا، بهارستان، محمودآباد) با تمپلیت مستر. بدنهٔ تازه ۹۲۰ و ۹۴۶ و ۹۱۸ و ۹۴۲ و ۹۲۰ واژه در شش بخش اجباری با نشانگر، منابع مجاز، متای اصلاح‌شده با مختصات و همسایه‌های بازبینی‌شده (شمال محمودآباد دریا است و در فهرست همسایه‌ها نیامده)، پرسش‌های متداول بازنویسی‌شده. «قلبهٔ قره‌داغ» و تیتر دوبارهٔ میانه در همین بازنویسی از میان رفت. هر نوشتن پیش از تغییر پشتیبان می‌گیرد؛ انتظار modified_gmt از خواندن کار ۱۱۹.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 107,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-ahar/ahar-107.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-ahar/ahar-107.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:12:50",
+   "owner_approved_live_edit": true,
+   "reason": "ahar: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 116,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-mianeh/mianeh-116.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-mianeh/mianeh-116.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:11:23",
+   "owner_approved_live_edit": true,
+   "reason": "mianeh: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 164,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-shahreza/shahreza-164.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-shahreza/shahreza-164.meta.json",
+   "expected_modified_gmt": "2026-10-24 01:15:11",
+   "owner_approved_live_edit": true,
+   "reason": "shahreza: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 220,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-baharestan/baharestan-220.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-baharestan/baharestan-220.meta.json",
+   "expected_modified_gmt": "2026-10-24 00:59:04",
+   "owner_approved_live_edit": true,
+   "reason": "baharestan: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 537,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-mahmudabad/mahmudabad-537.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-mahmudabad/mahmudabad-537.meta.json",
+   "expected_modified_gmt": "2026-10-04 01:31:50",
+   "owner_approved_live_edit": true,
+   "reason": "mahmudabad: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    107,
+    116,
+    164,
+    220,
+    537
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/ahar/",
+    "/city/mianeh/",
+    "/city/shahreza/",
+    "/city/baharestan/",
+    "/city/mahmudabad/"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+[
+ {
+  "id": 220,
+  "slug": "baharestan",
+  "words_after": 942,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

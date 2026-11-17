@@ -1,0 +1,17 @@
+[
+ {
+  "id": 537,
+  "slug": "mahmudabad",
+  "words_after": 920,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
