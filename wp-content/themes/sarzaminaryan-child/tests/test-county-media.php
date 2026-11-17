@@ -133,4 +133,14 @@ $php_all = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.p
 sa_t_assert( false !== strpos( $php_all, 'sa_agent_rest_photos_inventory' ), 'the read-only photo inventory is registered' );
 sa_t_assert( false !== strpos( $php_all, "'publishable'   => sa_photo_is_publishable( \$id )" ) || false !== strpos( $php_all, "'publishable'" ), 'the inventory reports whether each photo may be published' );
 
+/* 7 — the identity of a photo is the place, not the file URL: a re-send with a corrected
+ *     URL updates the same attachment instead of adding a duplicate (job 120 did exactly
+ *     that on the live site: two copies of the same park). */
+sa_t_assert(
+	false !== strpos( $mod, "md5( absint( $city_id ) . '|' . $place )" ),
+	'the photo key identifies the place, so a corrected URL updates instead of duplicating'
+);
+sa_t_assert( false !== strpos( $mod, 'sa_photo_replace_file' ), 'a re-send with a new URL swaps the file in place' );
+sa_t_assert( false !== strpos( $mod, 'sa_photo_write_meta' ), 'provenance is written by one shared helper' );
+
 echo "ALL TESTS PASSED\n";

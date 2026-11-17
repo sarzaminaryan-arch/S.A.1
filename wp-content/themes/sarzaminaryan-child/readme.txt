@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.99
+Stable tag: 2.22.100
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,10 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.100 — 1405-08-26 (2026-11-17) =
+* هویت عکس = مکان، نه نشانی فایل: ارسال دوبارهٔ همان مکان با نشانی اصلاح‌شده فایل را در همان پیوست عوض می‌کند و پرووننس را به‌روز می‌کند (کار ۱۲۰ دو نسخهٔ همان پارک ساخته بود).
+* پذیرش JPEG از روی امضای فایل، نه پسوند (نشانی بندانگشتی هم به `.jpg` تمام می‌شود).
 
 = 2.22.99 — 1405-08-26 (2026-11-17) =
 * مسیر خواندنی `/photos`: فهرست عکس‌های مجاز هر شهرستان با نام عکاس، مجوز، منبع و تاریخ دریافت و شمارش هر شهرستان — برای بازبینی مالک.
