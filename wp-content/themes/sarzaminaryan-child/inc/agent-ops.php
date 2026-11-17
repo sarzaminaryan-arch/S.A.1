@@ -696,6 +696,17 @@ function sa_agent_ops_register_routes() {
 	// می‌گیرد؛ مجوز و نام عکاس پیش از ذخیره اجباری است.
 	register_rest_route(
 		SA_AGENT_NS,
+		'/photos',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_photos_inventory',
+			'permission_callback' => static function () {
+				return is_user_logged_in() && current_user_can( 'edit_others_posts' );
+			},
+		)
+	);
+	register_rest_route(
+		SA_AGENT_NS,
 		'/photos/import',
 		array(
 			'methods'             => 'POST',

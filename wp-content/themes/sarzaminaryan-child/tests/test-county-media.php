@@ -127,4 +127,10 @@ sa_t_assert( false !== strpos( $mod, 'if ( ! $lead ) {' ), 'the spotlight return
 sa_t_assert( false !== strpos( $mod, 'if ( count( $ids ) < 3 ) {' ), 'the strip needs three qualifying photos, not one padded slot' );
 sa_t_assert( false !== strpos( $mod, "'/photos/import'" ) || false !== strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' ), "'/photos/import'" ), 'the guarded import route is registered' );
 
+/* 6 — the inventory route exists so the owner can audit authorship, not just see photos. */
+$php_all = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' )
+	. (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' );
+sa_t_assert( false !== strpos( $php_all, 'sa_agent_rest_photos_inventory' ), 'the read-only photo inventory is registered' );
+sa_t_assert( false !== strpos( $php_all, "'publishable'   => sa_photo_is_publishable( \$id )" ) || false !== strpos( $php_all, "'publishable'" ), 'the inventory reports whether each photo may be published' );
+
 echo "ALL TESTS PASSED\n";

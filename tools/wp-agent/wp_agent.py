@@ -600,6 +600,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--limit", type=int, default=0)
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--template-min-pages", type=int, default=20)
+    p = sub.add_parser("photos", help="read-only: licensed place photos with author, licence and source")
+    p.add_argument("--city-id", type=int, default=0)
     sub.add_parser("relations-audit", help="read-only: published items whose city/province parent is not published (theme 2.22.76+)")
     p = sub.add_parser("updraft", help="UpdraftPlus status; --start begins a backup (owner-approved)")
     p.add_argument("--start", action="store_true")
@@ -726,6 +728,8 @@ def run(a: argparse.Namespace, c: "Client"):
             except Exception as err:  # noqa: BLE001
                 extras[u] = {"status": 0, "error": str(err)[:200]}
         return {"count": len(urls), "extras": extras, "pages": seo_scan(urls, a.workers)}
+    elif a.cmd == "photos":
+        return c.call("GET", "/photos", {"city_id": a.city_id or None})
     elif a.cmd == "get":
         data = c.call("GET", f"/post/{a.id}")
         if a.out:

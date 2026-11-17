@@ -362,6 +362,56 @@ function sa_photo_strip( $city_id = 0 ) {
 }
 
 /**
+ * RETR: GET /photos
+ *
+ * فهرست عکس‌های مجاز هر شهرستان با پرووننس — برای بازبینی مالک و اطمینان از
+ * اینکه هر عکس روی صفحه نام عکاس و مجوز دارد. شمارش هر شهرستان از همین‌جا
+ * در دفتر تصاویر (docs/live-site/photo-credits.md) ثبت می‌شود.
+ *
+ * @param WP_REST_Request $r درخواست (`?city_id=` اختیاری).
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_photos_inventory( $r ) {
+	$city_id = absint( $r->get_param( 'city_id' ) );
+	$args    = array(
+		'post_type'      => 'attachment',
+		'post_status'    => 'inherit',
+		'post_mime_type' => array( 'image/jpeg', 'image/webp' ),
+		'posts_per_page' => 100,
+		'fields'         => 'ids',
+		'no_found_rows'  => true,
+		// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+		'meta_query'     => array( array( 'key' => '_sa_photo_key', 'compare' => 'EXISTS' ) ),
+	);
+	if ( $city_id ) {
+		$args['meta_query'][] = array( 'key' => '_sa_photo_city', 'value' => $city_id );
+	}
+	$rows = array();
+	foreach ( (array) get_posts( $args ) as $id ) {
+		$credit = sa_photo_credit( $id );
+		$rows[] = array(
+			'id'            => (int) $id,
+			'city_id'       => (int) get_post_meta( $id, '_sa_photo_city', true ),
+			'place'         => (string) get_post_meta( $id, SA_PHOTO_META_PLACE, true ),
+			'kind'          => (string) get_post_meta( $id, '_sa_photo_kind', true ),
+			'author'        => $credit['author'],
+			'license'       => $credit['license'],
+			'license_label' => $credit['license_label'],
+			'source'        => $credit['source'],
+			'retrieved'     => $credit['retrieved'],
+			'publishable'   => sa_photo_is_publishable( $id ),
+		);
+	}
+	$per_city = array();
+	foreach ( $rows as $row ) {
+		if ( $row['publishable'] ) {
+			$per_city[ $row['city_id'] ] = isset( $per_city[ $row['city_id'] ] ) ? $per_city[ $row['city_id'] ] + 1 : 1;
+		}
+	}
+	return rest_ensure_response( array( 'count' => count( $rows ), 'per_city' => $per_city, 'photos' => $rows ) );
+}
+
+/**
  * REST: POST /photos/import
  *
  * بدنه: {url, place, kind, note, points, highlight, tag, alt, author, license,
