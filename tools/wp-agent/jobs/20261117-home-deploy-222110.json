@@ -1,0 +1,8 @@
+{
+  "note": "با اجازهٔ مالک، جایگزینی صفحهٔ نخست با طرح تازه؛ بدون پشتیبان تازه و با اتکا به پشتیبان موفق موجود.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.110", "version": "2.22.110", "owner_approved_theme_update": true, "probe": ["/", "/blog/"], "rollback_to": "2.22.109"},
+    {"cmd": "ping"}
+  ]
+}
