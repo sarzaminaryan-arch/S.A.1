@@ -1,0 +1,20 @@
+{
+ "note": "اردبیل — یافتن شناسهٔ صفحه (فقط خواندنی).",
+ "steps": [
+  {
+   "cmd": "list",
+   "type": "city",
+   "slug": "ardabil"
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "slug": "ardabil-city"
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "search": "اردبیل"
+  }
+ ]
+}
