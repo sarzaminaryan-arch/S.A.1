@@ -1,0 +1,60 @@
+{
+ "note": "دستهٔ ۸ — لایهٔ «از تجربهٔ مسافرها» برای پنج شهرستان نخست (شاهین‌شهر و میمه، نجف‌آباد، بوکان، میاندوآب، مرند). هر رکورد با متای مستقل و پشتیبان پیش از تغییر؛ یک نقل‌قول عیناً از گوگل‌مپ با تاریخ دیدن (مرند) و بقیه برداشت تحریریه از منابع خوانده‌شده. انتظار modified_gmt از کار ۱۲.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 163,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/shahin-shahr-meymeh.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:43:20",
+   "reason": "shahin-shahr-meymeh: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، پنج نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 160,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/najafabad.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:43:22",
+   "reason": "najafabad: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، پنج نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 129,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/bukan.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:43:24",
+   "reason": "bukan: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، پنج نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 138,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/miandoab.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:43:26",
+   "reason": "miandoab: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، پنج نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 102,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/marand.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:43:29",
+   "reason": "marand: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، پنج نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    163,
+    160,
+    129,
+    138,
+    102
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/shahin-shahr-meymeh/",
+    "/city/najafabad/",
+    "/city/bukan/",
+    "/city/miandoab/",
+    "/city/marand/"
+   ]
+  }
+ ]
+}
