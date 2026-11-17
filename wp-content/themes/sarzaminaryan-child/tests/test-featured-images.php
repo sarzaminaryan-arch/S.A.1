@@ -390,7 +390,7 @@ if ( false !== $template ) {
 	$pos = array(
 		'hero'    => strpos( $template, "get_template_part( 'template-parts/entity/hero' )" ),
 		'profile' => strpos( $template, "get_template_part( 'template-parts/entity/province-identity' )" ),
-		'county'  => strpos( $template, "get_template_part( 'template-parts/entity/county-profile' )" ),
+		'county'  => strpos( $template, 'echo $sa_county_profile_html' ),
 		'facts'   => strpos( $template, "get_template_part( 'template-parts/entity/facts' )" ),
 		'content' => strpos( $template, 'entry-content' ),
 	);
