@@ -1,0 +1,11 @@
+{
+ "note": "کار ۱۳۸: نصب ۲.۲۲.۱۰۷ (بدون انیمیشن شمارنده). انتظار: شمارنده‌های صفحهٔ اول در HTML همان ۳۱/۴۸۵+/۳۸/۶۷ باشند و در پیش‌نمایش هم لحظه‌ای «۰» دیده نشود. پشتیبان کامل و برگشت خودکار به ۲.۲۲.۱۰۶.",
+ "rollback_on_fail": false,
+ "steps": [
+  { "cmd": "theme-update", "expected_version": "2.22.107", "owner_approved_theme_update": true,
+    "backup_first": true, "backup_nocloud": true, "backup_wait": 900,
+    "probe": ["/", "/city/bojnord/"], "rollback_to": "2.22.106" },
+  { "cmd": "cache-purge", "all": true },
+  { "cmd": "probe", "url": ["/?sa_probe=143"] }
+ ]
+}

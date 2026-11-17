@@ -199,8 +199,9 @@ sa_t_assert( false === strpos( $home_src, 'sa-dash-cta' ), 'home v3 drops the ne
 
 /* 10 — counters must never be zeroed by the enhancement script: the server's number
  *      stays in the markup until the animation itself finishes (job 132 showed «۰»). */
-sa_t_assert( false === strpos( $home_src, 'fa(0)' ), 'home v3 no longer pre-zeroes the counters' );
-sa_t_assert( false !== strpos( $home_src, 'parseInt(b.getAttribute' ), 'the counter animation reads the server number' );
-sa_t_assert( false !== strpos( $home_src, "prefers-reduced-motion" ), 'reduced motion keeps the static numbers' );
+sa_t_assert( false === strpos( $home_src, 'fa(0)' ), 'home v3 never pre-zeroes the counters' );
+sa_t_assert( false === strpos( $home_src, 'requestAnimationFrame' ), 'no count-up animation can show 0 on the first frame' );
+sa_t_assert( false !== strpos( $home_src, 'wp_count_posts' ), 'the counters are counted on the server' );
+sa_t_assert( false !== strpos( $home_src, "'—'" ), 'a genuinely empty count prints a dash, not 0' );
 
 echo "ALL TESTS PASSED\n";

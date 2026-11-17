@@ -246,39 +246,11 @@ a.sa-stat:focus-visible{outline:2px solid var(--accent);outline-offset:6px;borde
 	</div>
 </main>
 
-<script>
-(function () {
-	/* شمارنده‌ها با عدد واقعی از سرور می‌آیند و همین‌جا می‌مانند.
-	   پیش‌تر عدد صفر جای مقدار سرور گذاشته می‌شد تا «شمارش» دیده شود؛ اگر
-	   IntersectionObserver در مرورگر یا پیش‌نمایش اجرا نشود، بازدیدکننده صفر
-	   می‌دید. حالا شمارش فقط یک جلوهٔ اختیاری است: مقدار نهایی هیچ‌وقت جایگزین
-	   نمی‌شود مگر همان لحظه که شمارش کامل شود. */
-	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
-		return;
-	}
-	var nums = document.querySelectorAll('.sa-stat b[data-n]');
-	if (!nums.length) { return; }
-	var fa = function (n) { return n.toLocaleString('fa-IR'); };
-	var io = new IntersectionObserver(function (entries) {
-		entries.forEach(function (entry) {
-			if (!entry.isIntersecting) { return; }
-			var b = entry.target;
-			var target = parseInt(b.getAttribute('data-n'), 10);
-			io.unobserve(b);
-			if (!isFinite(target) || target < 10) { return; }
-			var start = null;
-			var step = function (t) {
-				start = start || t;
-				var p = Math.min((t - start) / 800, 1);
-				b.textContent = fa(Math.round(target * (1 - Math.pow(1 - p, 3))));
-				if (p < 1) { window.requestAnimationFrame(step); }
-			};
-			window.requestAnimationFrame(step);
-		});
-	}, { threshold: 0.2 });
-	Array.prototype.forEach.call(nums, function (b) { io.observe(b); });
-})();
-</script>
+<?php
+/* ۲.۲۲.۱۰۷: انیمیشن شمارنده حذف شد. اعداد از سرور می‌آیند (۳۱ / ۴۸۵+ / ۳۸ / ۶۷) و
+   هر انیمیشنی که از صفر شروع شود، در لحظهٔ اول «۰» نشان می‌دهد — همان چیزی که در
+   پیش‌نمایش و اسکرین‌شات دیده شد. عدد درست، بهتر از جلوهٔ شمارش است. */ ?>
+
 
 <?php
 get_footer();
