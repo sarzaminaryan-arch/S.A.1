@@ -1,0 +1,8 @@
+{
+  "note": "انتشار رنگ‌بندی سرمه‌ای، آبی، کهربایی و سبز روشن صفحهٔ نخست با اجازهٔ مالک؛ بدون پشتیبان تازهٔ سایت.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.111", "version": "2.22.111", "owner_approved_theme_update": true, "probe": ["/", "/blog/"], "rollback_to": "2.22.110"},
+    {"cmd": "ping"}
+  ]
+}

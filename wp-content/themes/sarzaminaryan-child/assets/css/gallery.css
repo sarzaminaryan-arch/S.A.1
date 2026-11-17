@@ -595,9 +595,9 @@
 
 /* ==========================================================================
    v2.22.98 — تصاویر مجاز مکان‌ها: کادر «مکان در یک نگاه» + نوار سه‌کادره
-   دستور مالک: یک تصویر مربع سمت راست (RTL) و نوشته/هشدار سمت چپ؛ سه مکان
-   تفریحی با قاب ثابت و هایلایت توضیح زیر هر قاب. هر عکس، نام عکاس و مجوز
-   را زیر خودش دارد — اعتبار، بخشی از طرح است نه یک خط فراموش‌شدنی.
+   دستور مالک: یک تصویر مربع سمت راست (RTL) و نوشته سمت چپ؛ سه مکان
+   تفریحی با قاب ثابت و هایلایت توضیح زیر هر قاب. نام مکان روی خود تصویر
+   می‌نشیند و نام عکاس با خطی کوچک و کم‌رنگ زیر قاب می‌آید (۱۷ نوامبر ۲۰۲۶).
    ========================================================================== */
 
 .sa-photo__frame,
@@ -616,18 +616,66 @@
 	object-fit: cover;
 }
 
+/* خط اعتبار: کوچک و کم‌رنگ، نام عکاس + پیوند مجوز/منبع.
+   دستور مالک ۱۷ نوامبر ۲۰۲۶: تیتر «عکس:» و نام مجوز جلوی چشم نباشد. */
 .sa-photo__credit {
-	margin: 10px 4px 0;
-	font-size: 0.72rem;
-	line-height: 1.9;
-	color: #64748b;
+	margin: 7px 6px 0;
+	font-size: 0.66rem;
+	line-height: 1.8;
+	color: #93a1b3;
 	direction: rtl;
+	letter-spacing: 0.01em;
 }
 
 .sa-photo__credit a {
-	color: #8a5a10;
+	color: inherit;
 	text-decoration: none;
-	border-bottom: 1px dotted rgba(138, 90, 16, 0.5);
+	border-bottom: 1px dotted rgba(147, 161, 179, 0.75);
+}
+
+.sa-photo__credit a:hover,
+.sa-photo__credit a:focus-visible {
+	color: #6b7a8d;
+	border-bottom-color: currentColor;
+}
+
+/* --- نام مکان روی خود تصویر ----------------------------------------------- */
+
+.sa-photo__caption {
+	position: absolute;
+	inset-inline: 0;
+	bottom: 0;
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 34px 15px 12px;
+	color: #fff;
+	direction: rtl;
+	text-align: start;
+	pointer-events: none;
+	background: linear-gradient(
+		to top,
+		rgba(4, 18, 34, 0.78) 0%,
+		rgba(4, 18, 34, 0.42) 52%,
+		rgba(4, 18, 34, 0) 100%
+	);
+}
+
+.sa-photo__place {
+	font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+	font-weight: 800;
+	line-height: 1.45;
+	letter-spacing: -0.01em;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 8px 22px rgba(0, 0, 0, 0.4);
+}
+
+.sa-photo__area {
+	font-size: 0.7rem;
+	font-weight: 500;
+	line-height: 1.7;
+	opacity: 0.86;
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* --- مکان در یک نگاه ------------------------------------------------------ */
@@ -723,17 +771,6 @@
 	height: 8px;
 	border-radius: 50%;
 	background: linear-gradient(135deg, #c9932c, #9b6a16);
-}
-
-.sa-spotlight__notice {
-	margin: 0;
-	padding: 10px 14px;
-	border-inline-start: 3px solid #c9932c;
-	border-radius: 10px;
-	background: rgba(201, 147, 44, 0.08);
-	font-size: 0.78rem;
-	line-height: 1.95;
-	color: #6b5a37;
 }
 
 @media (max-width: 720px) {
@@ -833,10 +870,28 @@
 	color: #3b4a5f;
 }
 
+.sa-strip__area {
+	margin: 0 0 8px;
+	font-size: 0.72rem;
+	color: #8593a5;
+}
+
 .sa-strip__credit {
 	margin: 0;
-	font-size: 0.68rem;
-	color: #7c8798;
+	font-size: 0.64rem;
+	color: #9aa7b7;
+}
+
+.sa-strip__credit a {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(154, 167, 183, 0.7);
+}
+
+.sa-strip__credit a:hover,
+.sa-strip__credit a:focus-visible {
+	color: #6b7a8d;
+	border-bottom-color: currentColor;
 }
 
 @media (max-width: 860px) {

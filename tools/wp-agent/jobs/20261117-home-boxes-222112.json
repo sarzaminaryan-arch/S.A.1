@@ -1,0 +1,8 @@
+{
+  "note": "انتشار قاب صفحهٔ نخست، چهار کارت رنگی و لوگوی سفید؛ بدون پشتیبان تازهٔ سایت طبق دستور مالک.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.112", "version": "2.22.112", "owner_approved_theme_update": true, "probe": ["/", "/blog/"], "rollback_to": "2.22.111"},
+    {"cmd": "ping"}
+  ]
+}

@@ -38,6 +38,7 @@ const SA_PHOTO_META_SOURCE   = '_sa_photo_source';
 const SA_PHOTO_META_RETRIEVED = '_sa_photo_retrieved';
 const SA_PHOTO_META_PLACE    = '_sa_photo_place';
 const SA_PHOTO_META_NOTE     = '_sa_photo_note';
+const SA_PHOTO_META_AREA     = '_sa_photo_area';
 
 /**
  * مجوزهایی که اجازهٔ انتشار تجاری با نام‌بردن از عکاس را می‌دهند.
@@ -193,12 +194,83 @@ function sa_photo_fun_ids( $city_id, $limit = 3 ) {
 }
 
 /**
- * چاپ یک قاب تصویر با اعتبار عکاس زیرش.
+ * نام مکان برای نوشتن روی خود تصویر.
+ *
+ * عکسی که پیش از این نسخه‌ها وارد شده `_sa_photo_place` دارد و عکس تازه
+ * `_sa_photo_area` (نام کوتاه روی تصویر) هم می‌گیرد؛ اگر نبود، همان نام مکان
+ * کوتاه‌شده به کار می‌رود. عنوان شهرستان اینجا نمی‌آید.
+ *
+ * @param int $attachment_id شناسهٔ پیوست.
+ * @return string
+ */
+function sa_photo_overlay_label( $attachment_id ) {
+	$attachment_id = absint( $attachment_id );
+	$overlay = trim( (string) get_post_meta( $attachment_id, '_sa_photo_overlay', true ) );
+	if ( '' !== $overlay ) {
+		return $overlay;
+	}
+	$area = trim( (string) get_post_meta( $attachment_id, SA_PHOTO_META_AREA, true ) );
+	if ( '' !== $area ) {
+		return $area;
+	}
+	$place = trim( (string) get_post_meta( $attachment_id, SA_PHOTO_META_PLACE, true ) );
+	if ( '' === $place ) {
+		return '';
+	}
+	// «آیینه‌خانهٔ مفخم (بجنورد)» → «آیینه‌خانهٔ مفخم»
+	$place = (string) preg_replace( '/\s*[\(\（][^\)\）]*[\)\）]\s*$/u', '', $place );
+	return trim( $place );
+}
+
+/**
+ * ناحیه‌ای که تصویر در آن نوشته می‌شود (نشانی، محله، روستا…).
+ *
+ * @param int $attachment_id شناسهٔ پیوست.
+ * @return string
+ */
+function sa_photo_area( $attachment_id ) {
+	return trim( (string) get_post_meta( absint( $attachment_id ), SA_PHOTO_META_AREA, true ) );
+}
+
+/**
+ * خط اعتبار تصویر — کوچک و کم‌رنگ زیر قاب.
+ *
+ * دلخواه مالک (۱۷ نوامبر ۲۰۲۶): تیترِ «عکس:» و نام مجوز دیگر جلوی چشم نباشد؛
+ * فقط نام عکاس و پیوند «منبع» (که همان مجوز و اصل فایل را نشان می‌دهد) می‌ماند.
+ * اگر نشانی مجوز ثبت شده باشد، روی همان نام عکاس می‌نشیند تا تعهد حقوقی
+ * (انتساب + پیوند مجوز) حفظ شود، ولی متن اضافه‌ای دیده نشود.
+ *
+ * @param int    $attachment_id شناسهٔ پیوست.
+ * @param string $class         کلاس پاراگراف.
+ * @return string
+ */
+function sa_photo_credit_line( $attachment_id, $class = 'sa-photo__credit' ) {
+	$attachment_id = absint( $attachment_id );
+	if ( ! $attachment_id ) {
+		return '';
+	}
+	$credit = sa_photo_credit( $attachment_id );
+	if ( '' === $credit['author'] ) {
+		return '';
+	}
+	$href  = '' !== $credit['license_url'] ? $credit['license_url'] : $credit['source'];
+	$rel   = '' !== $credit['license_url'] ? 'license nofollow noopener' : 'nofollow noopener';
+	$title = trim( 'عکس: ' . $credit['author'] . ( '' !== $credit['license_label'] ? ' · ' . $credit['license_label'] : '' ) );
+	$out   = '<p class="' . esc_attr( $class ) . '">';
+	$out  .= '' !== $href
+		? '<a href="' . esc_url( $href ) . '" rel="' . esc_attr( $rel ) . '" target="_blank" title="' . esc_attr( $title ) . '">' . esc_html( $credit['author'] ) . '</a>'
+		: esc_html( $credit['author'] );
+	$out .= '</p>';
+	return $out;
+}
+
+/**
+ * چاپ یک قاب تصویر: نام مکان روی خود عکس + خط اعتبار کوچک زیرش.
  *
  * @param int    $attachment_id شناسه.
  * @param string $size          اندازهٔ تصویر.
  * @param string $class         کلاس کادر.
- * @param bool   $with_credit   اعتبار زیر تصویر چاپ شود؟
+ * @param bool   $with_credit   خط اعتبار زیر تصویر چاپ شود؟
  * @return string
  */
 function sa_photo_frame( $attachment_id, $size = 'sa-gallery-card', $class = 'sa-photo__frame', $with_credit = true ) {
@@ -206,8 +278,7 @@ function sa_photo_frame( $attachment_id, $size = 'sa-gallery-card', $class = 'sa
 	if ( ! $attachment_id || ! sa_photo_is_publishable( $attachment_id ) ) {
 		return '';
 	}
-	$credit = sa_photo_credit( $attachment_id );
-	$img    = wp_get_attachment_image(
+	$img = wp_get_attachment_image(
 		$attachment_id,
 		$size,
 		false,
@@ -220,22 +291,22 @@ function sa_photo_frame( $attachment_id, $size = 'sa-gallery-card', $class = 'sa
 	if ( '' === $img ) {
 		return '';
 	}
-	$out  = '<figure class="' . esc_attr( $class ) . '">' . $img;
-	if ( $with_credit ) {
-		$out .= '<figcaption class="sa-photo__credit">';
-		$out .= 'عکس: <span class="sa-photo__author">' . esc_html( $credit['author'] ) . '</span>';
-		$license = $credit['license_label'];
-		if ( '' !== $license ) {
-			$out .= ' · ' . ( '' !== $credit['license_url']
-				? '<a href="' . esc_url( $credit['license_url'] ) . '" rel="license nofollow noopener" target="_blank">' . esc_html( $license ) . '</a>'
-				: esc_html( $license ) );
-		}
-		if ( '' !== $credit['source'] ) {
-			$out .= ' · <a href="' . esc_url( $credit['source'] ) . '" rel="nofollow noopener" target="_blank">منبع</a>';
+	$label = sa_photo_overlay_label( $attachment_id );
+	$area  = sa_photo_area( $attachment_id );
+	$out   = '<figure class="' . esc_attr( $class ) . '">' . $img;
+	if ( '' !== $label ) {
+		// نام مکان روی تصویر، با سایه و لایهٔ تیرهٔ پایین قاب تا روی هر عکسی خوانا بماند.
+		$out .= '<figcaption class="sa-photo__caption">';
+		$out .= '<span class="sa-photo__place">' . esc_html( $label ) . '</span>';
+		if ( '' !== $area ) {
+			$out .= '<span class="sa-photo__area">' . esc_html( $area ) . '</span>';
 		}
 		$out .= '</figcaption>';
 	}
 	$out .= '</figure>';
+	if ( $with_credit ) {
+		$out .= sa_photo_credit_line( $attachment_id );
+	}
 	return $out;
 }
 
@@ -278,6 +349,7 @@ function sa_photo_spotlight( $city_id = 0 ) {
 				<?php
 				// ۱:۱ با برش مرکزی. اندازهٔ srct محدود است تا فایل بزرگ مربعی دانلود نشود؛
 				// برش از وردپرس (sa-square 480×480) می‌آید، نه از CSS.
+				// نام مکان روی خود عکس نوشته می‌شود و خط اعتبار کوچک زیر قاب می‌آید.
 				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ساخته‌شده با توابع escape داخلی.
 				echo sa_photo_frame( $lead, 'sa-square', 'sa-spotlight__frame' );
 				?>
@@ -299,7 +371,6 @@ function sa_photo_spotlight( $city_id = 0 ) {
 						<li><?php echo esc_html( $point ); ?></li>
 					<?php endforeach; ?>
 				</ul>
-				<p class="sa-spotlight__notice">تصاویر این بخش با مجوز آزاد و با نام عکاس استفاده شده‌اند؛ عکس‌های خبرگزاری‌ها و کاربران بدون اجازهٔ کتبی منتشر نمی‌شوند.</p>
 			</div>
 		</div>
 	</section>
@@ -330,15 +401,17 @@ function sa_photo_strip( $city_id = 0 ) {
 		<div class="sa-strip__grid">
 			<?php
 			foreach ( $ids as $id ) :
-				$place = (string) get_post_meta( $id, SA_PHOTO_META_PLACE, true );
 				$line  = (string) get_post_meta( $id, '_sa_photo_highlight', true );
 				$tag   = (string) get_post_meta( $id, '_sa_photo_tag', true );
+				$label = sa_photo_overlay_label( $id );
+				$area  = sa_photo_area( $id );
 				?>
 				<article class="sa-strip__tile">
 					<div class="sa-strip__frame">
 						<?php
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 						// قاب ثابت ۴:۳؛ اندازهٔ srct همان کارت ۷۲۰×۴۵۰ است.
+						// نام مکان روی عکس می‌نشیند (منبع حقیقت: فراداده)، پس متن دوباره زیرش تکرار نمی‌شود.
 						echo sa_photo_frame( $id, 'sa-gallery-card', 'sa-strip__photo', false );
 						?>
 						<?php if ( '' !== $tag ) : ?>
@@ -346,16 +419,16 @@ function sa_photo_strip( $city_id = 0 ) {
 						<?php endif; ?>
 					</div>
 					<div class="sa-strip__highlight">
-						<h3 class="sa-strip__place"><?php echo esc_html( $place ); ?></h3>
 						<?php if ( '' !== $line ) : ?>
 							<p class="sa-strip__line"><?php echo esc_html( $line ); ?></p>
 						<?php endif; ?>
-						<?php
-						$credit = sa_photo_credit( $id );
-						if ( '' !== $credit['author'] ) :
-							?>
-							<p class="sa-strip__credit">عکس: <?php echo esc_html( $credit['author'] ); ?> · <?php echo esc_html( $credit['license_label'] ); ?></p>
+						<?php if ( '' !== $area && false === strpos( $label, $area ) ) : ?>
+							<p class="sa-strip__area"><?php echo esc_html( $area ); ?></p>
 						<?php endif; ?>
+						<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo sa_photo_credit_line( $id, 'sa-strip__credit' );
+						?>
 					</div>
 				</article>
 			<?php endforeach; ?>
@@ -444,6 +517,10 @@ function sa_photo_write_meta( $att_id, $b, $city_id, $place, $kind, $key, $url, 
 	update_post_meta( $att_id, SA_PHOTO_META_SOURCE, esc_url_raw( (string) ( $b['source_page'] ?? '' ) ) );
 	update_post_meta( $att_id, SA_PHOTO_META_RETRIEVED, gmdate( 'Y-m-d' ) );
 	update_post_meta( $att_id, SA_PHOTO_META_PLACE, wp_slash( $place ) );
+	// نام کوتاه روی خود تصویر و ناحیه (نشانی/محله) — تازه در ۲.۲۲.۱۰۲؛ اگر
+	// دستهٔ عکس این‌ها را نداشته باشد، نام مکان بدون پرانتز روی تصویر می‌آید.
+	update_post_meta( $att_id, SA_PHOTO_META_AREA, wp_slash( sanitize_text_field( (string) ( $b['area'] ?? '' ) ) ) );
+	update_post_meta( $att_id, '_sa_photo_overlay', wp_slash( sanitize_text_field( (string) ( $b['overlay'] ?? '' ) ) ) );
 	update_post_meta( $att_id, SA_PHOTO_META_NOTE, wp_slash( sanitize_textarea_field( (string) ( $b['note'] ?? '' ) ) ) );
 	update_post_meta( $att_id, '_sa_photo_points', wp_slash( sanitize_text_field( (string) ( $b['points'] ?? '' ) ) ) );
 	update_post_meta( $att_id, '_sa_photo_highlight', wp_slash( sanitize_text_field( (string) ( $b['highlight'] ?? '' ) ) ) );
@@ -642,6 +719,10 @@ function sa_agent_rest_photo_import( $r ) {
 				'id'       => $att_id,
 				'reused'   => true,
 				'replaced' => $replaced,
+				// ۲.۲۲.۱۰۳: برگشتِ مسیر بازاستفاده هم مثل مسیر تازه، متن روی عکس را
+				// گزارش می‌کند تا معلوم باشد فراداده تازه (overlay/area) نشسته یا نه.
+				'overlay'  => sa_photo_overlay_label( $att_id ),
+				'area'     => sa_photo_area( $att_id ),
 				'url'      => wp_get_attachment_url( $att_id ),
 			)
 		);
@@ -718,6 +799,8 @@ function sa_agent_rest_photo_import( $r ) {
 			'id'      => (int) $att_id,
 			'reused'  => false,
 			'url'     => (string) ( $upload['url'] ?? wp_get_attachment_url( (int) $att_id ) ),
+			'overlay' => sa_photo_overlay_label( (int) $att_id ),
+			'area'    => sa_photo_area( (int) $att_id ),
 			'bytes'   => strlen( $bytes ),
 			'license' => sa_photo_license_label( $license ),
 		)

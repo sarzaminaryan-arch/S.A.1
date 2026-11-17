@@ -1,0 +1,10 @@
+{
+ "note": "دستور مالک: دو عکس مجاز کاخ گلستان و پل طبیعت داخل متن تهران همراه نام پدیدآور و پیوند منبع و مجوز؛ اجازهٔ ذخیرهٔ نسخهٔ کوچک فقط از همین مقاله داده شد.",
+ "rollback_on_fail": true,
+ "steps": [
+  {"cmd": "update", "id": 213, "content_file": "tools/wp-agent/outbox/20261117-tehran-inline.html", "expected_modified_gmt": "2026-11-16 21:41:14", "owner_approved_live_edit": true, "reason": "درخواست مالک: افزودن دو عکس مجاز به متن مقالهٔ تهران همراه اعتبار و منبع"},
+  {"cmd": "cache-purge", "id": [213]},
+  {"cmd": "probe", "url": ["/city/tehran/?sa_probe=inline-photos"]},
+  {"cmd": "get", "id": 213}
+ ]
+}

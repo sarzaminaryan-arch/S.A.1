@@ -57,6 +57,9 @@ function get_post_type( $id = 0 ) {
 function get_the_title( $id = 0 ) {
 	return 'بجنورد';
 }
+function wp_strip_all_tags( $v ) {
+	return trim( strip_tags( (string) $v ) );
+}
 function wp_get_attachment_image( $id, $size, $icon, $attr ) {
 	return '<img src="x.jpg" alt="' . esc_attr( $attr['class'] ?? '' ) . '">';
 }
@@ -103,14 +106,39 @@ sa_t_assert( false === sa_photo_is_publishable( 11 ), 'a photo with no named aut
 $GLOBALS['t']['meta'][12] = array( SA_PHOTO_META_AUTHOR => 'کسی', SA_PHOTO_META_LICENSE => 'cc-by-nd-4' );
 sa_t_assert( false === sa_photo_is_publishable( 12 ), 'a photo with a refused licence is not publishable' );
 
-/* 4 — the credit line always names the photographer and the licence. */
+/* 4 — the credit line names the photographer, quietly (owner order, 17 Nov 2026):
+ *     no «عکس:» headline and no licence name in the visible caption; the licence AND the
+ *     source page stay one tap away as links/titles, and the place name sits on the photo. */
 $credit = sa_photo_credit( 10 );
 sa_t_assert( 'حسین معمری' === $credit['author'], 'credit carries the author' );
 sa_t_assert( 'CC BY 4.0' === $credit['license_label'], 'credit carries the licence label' );
-$html = sa_photo_frame( 10, 'sa-square' );
-sa_t_assert( false !== strpos( $html, 'sa-photo__credit' ), 'the frame prints a credit caption' );
-sa_t_assert( false !== strpos( $html, 'حسین معمری' ), 'the credit caption names the author' );
+$html  = sa_photo_frame( 10, 'sa-square' );
+$visible = wp_strip_all_tags( $html );
+sa_t_assert( false !== strpos( $html, 'sa-photo__credit' ), 'the frame prints a credit line' );
+sa_t_assert( false !== strpos( $html, 'حسین معمری' ), 'the credit line names the author' );
+sa_t_assert( false === strpos( $visible, 'عکس:' ), 'the visible credit drops the «عکس:» headline' );
+sa_t_assert( false === strpos( $visible, 'CC BY' ), 'the visible credit no longer spells out the licence name' );
+sa_t_assert( false !== strpos( $html, 'creativecommons.org/licenses/by/4.0' ), 'the licence link still travels with the photo' );
+sa_t_assert( false !== strpos( $html, 'rel="license nofollow noopener"' ), 'the licence link keeps rel=license (attribution stays machine-readable)' );
+sa_t_assert( false !== strpos( $html, '<p class="sa-photo__credit">' ), 'the credit is a line under the frame, not a caption inside it' );
 sa_t_assert( '' === sa_photo_frame( 11 ), 'no frame is built for an unpublishable photo' );
+
+/* 4c — the place name is written on the photo (clean, transparent) for every county. */
+$GLOBALS['t']['meta'][10][ SA_PHOTO_META_LICENSE_URL ] = 'https://creativecommons.org/licenses/by/4.0/';
+$GLOBALS['t']['meta'][10][ SA_PHOTO_META_PLACE ] = 'باغ فین (کاشان)';
+$GLOBALS['t']['meta'][10][ SA_PHOTO_META_AREA ]  = 'کاشان، خیابان امیرکبیر';
+$overlay = sa_photo_frame( 10, 'sa-square' );
+sa_t_assert( false !== strpos( $overlay, 'class="sa-photo__caption"' ), 'the photo carries an overlay caption' );
+sa_t_assert( false !== strpos( $overlay, '>باغ فین<' ), 'the overlay names the place, without the parenthetical' );
+sa_t_assert( false !== strpos( $overlay, '>کاشان، خیابان امیرکبیر<' ), 'the overlay can carry the address line' );
+sa_t_assert( '' === sa_photo_overlay_label( 11 ), 'a photo without a place gets no overlay text' );
+
+/* 4d — the licence disclaimer paragraph is gone from the block (owner order). */
+$mod_src = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' );
+sa_t_assert( false === strpos( $mod_src, 'sa-spotlight__notice' ), 'the licence disclaimer paragraph is removed' );
+sa_t_assert( false === strpos( $mod_src, 'بدون اجازهٔ کتبی' ), 'the «without written permission» sentence is removed' );
+sa_t_assert( false !== strpos( $mod_src, "'sa-photo__credit'" ) || false !== strpos( $mod_src, 'sa-photo__credit' ), 'the quiet credit helper stays' );
+sa_t_assert( false !== strpos( $mod_src, 'function sa_photo_overlay_label' ), 'the overlay label is a shared helper, not page-specific markup' );
 
 /* 4b — imported photos are JPEG; the lookup must not filter them out. */
 sa_t_assert(
@@ -149,5 +177,25 @@ $all_php = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.p
 sa_t_assert( false !== strpos( $all_php, 'sa_agent_rest_photos_prune' ), 'the duplicate-cleanup route is registered' );
 sa_t_assert( false !== strpos( $all_php, "'dry_run'" ), 'the cleanup can be previewed before it touches anything' );
 sa_t_assert( false !== strpos( $all_php, 'wp_trash_post' ) && false === strpos( $all_php, 'wp_delete_attachment' ), 'cleanup trashes (recoverable), it never deletes' );
+
+/* 9 — the photo block is a template part, not a page-specific snippet: every county
+ *     (past and future) gets the place name on the photo from the same helper. */
+sa_t_assert( false !== strpos( $mod, "const SA_PHOTO_META_AREA" ), 'the area/address meta key is shared' );
+sa_t_assert( false !== strpos( $mod, "'sa-photo__caption'" ), 'the overlay caption markup is built in the helper' );
+$mock_src = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' );
+sa_t_assert(
+	false !== strpos( $mock_src, "sa_photo_credit_line( $id, 'sa-strip__credit' )" ),
+	'the three-tile strip reuses the quiet credit helper instead of printing a licence name'
+);
+sa_t_assert(
+	false === strpos( $mock_src, "<?php echo esc_html( \$credit['license_label'] ); ?>" ),
+	'no template prints the bare licence label as visible text'
+);
+/* Landing CSS stays scoped and is loaded only where it is needed. */
+$home_src = (string) file_get_contents( dirname( __DIR__ ) . '/template-home.php' );
+$home_css = (string) file_get_contents( dirname( __DIR__ ) . '/assets/css/landing.css' );
+sa_t_assert( false !== strpos( $home_src, 'role="search"' ), 'landing page offers search' );
+sa_t_assert( false !== strpos( $home_css, '.sa-landing-wrap{' ), 'landing wrap uses a dedicated class' );
+sa_t_assert( false === strpos( $home_css, "\n.sa-wrap{" ), 'landing styles do not leak to the theme wrap' );
 
 echo "ALL TESTS PASSED\n";

@@ -1,0 +1,8 @@
+{
+ "note": "اصلاح نمایش پیوندهای اعتبار عکس در متن تهران؛ بدون پشتیبان کامل تازه، با استفاده از پشتیبان موجود و ثبت وضعیت سبک قالب.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.113", "version": "2.22.113", "owner_approved_theme_update": true, "probe": ["/", "/city/tehran/", "/blog/"], "rollback_to": "2.22.112"},
+  {"cmd": "ping"}
+ ]
+}

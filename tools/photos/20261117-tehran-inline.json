@@ -1,0 +1,27 @@
+{
+ "note": "دو تصویر مجاز از کاخ گلستان و پل طبیعت برای درج در متن مقالهٔ تهران. هر دو در ویکی‌مدیا با مجوز CC BY-SA 4.0 و نام پدیدآور بررسی شده‌اند؛ برای کاهش حجم از تصویر با اندازهٔ کوچک‌تر استفاده می‌شود.",
+ "photos": [
+  {
+   "city_id": 213,
+   "place": "کاخ گلستان",
+   "kind": "fun",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Outside_view_of_golestan_palace.jpg/960px-Outside_view_of_golestan_palace.jpg",
+   "author": "Ahmadatyabi",
+   "license": "cc-by-sa-4",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Outside_view_of_golestan_palace.jpg",
+   "alt": "نمای بیرونی کاخ گلستان تهران"
+  },
+  {
+   "city_id": 213,
+   "place": "پل طبیعت تهران",
+   "kind": "fun",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Tabiat-Bridge-by-DIBA-group.jpg/1280px-Tabiat-Bridge-by-DIBA-group.jpg",
+   "author": "Diba Tensile Architecture",
+   "license": "cc-by-sa-4",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Tabiat-Bridge-by-DIBA-group.jpg",
+   "alt": "نمای پل طبیعت تهران در پاییز"
+  }
+ ]
+}

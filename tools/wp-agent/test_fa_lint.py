@@ -98,6 +98,12 @@ except wa.AgentError as err:
     assert "فیلتر املا" in str(err)
 wa.check_banned("ظهرهای تیر و مرداد")
 
+# Photo attribution is a legitimate Latin name/licence, not foreign prose.
+credit = '<figcaption>عکس: <span class="sa-photo-credit-latin">Diba Tensile Architecture</span> · <span class="sa-photo-credit-latin">CC BY-SA 4.0</span></figcaption>'
+assert fl.scan(credit) == [], fl.scan(credit)
+assert any("LATIN" in x for x in fl.scan('<p>Diba Tensile Architecture</p>'))
+assert any("FOREIGN" in x for x in fl.scan('<span class="sa-photo-credit-latin">Diba در ماه اوت</span>'))
+
 # 11. CLI: a directory run fails on a bad file and passes after --fix.
 with tempfile.TemporaryDirectory() as d:
     page = Path(d) / "x-1.html"

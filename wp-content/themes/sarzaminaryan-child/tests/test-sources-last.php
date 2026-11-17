@@ -97,6 +97,16 @@ sa_sl_assert( false !== strpos( $stash2, 'عنوان منبع نمونه' ), 'so
 sa_sl_assert( false === strpos( $stash2, 'sa-footnotes__host" dir="ltr">borna.news<' ), 'sources: unlabeled host is not printed twice' );
 sa_sl_assert( false !== strpos( $stash2, 'sa-footnotes__host" dir="ltr">mehrnews.com<' ), 'sources: mapped label still shows the latin host once' );
 
+// Photo attribution is not an editorial source: preserve source and licence links.
+$caption = '<figcaption>عکس: <span class="sa-photo-credit-latin">Photographer</span> · <a href="https://commons.wikimedia.org/wiki/File:Example.jpg">منبع تصویر</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener">مجوز</a></figcaption>';
+$body3 = '<p>یک متن با <a href="https://borna.news/fa/news/1">ارجاع</a>.</p><figure>' . $caption . '</figure>';
+$out3 = sa_citations_filter( $body3 );
+sa_sl_assert( false !== strpos( $out3, $caption ), 'photo attribution: original caption and both links survive' );
+sa_sl_assert( false === strpos( $GLOBALS['sa_sources_section_html'][213], 'creativecommons.org' ), 'photo licence does not become an editorial source' );
+sa_sl_assert( false !== strpos( $out3, 'class="sa-ref"' ), 'ordinary editorial citations still work' );
+$ordinary = sa_citations_filter( '<p><a href="https://commons.wikimedia.org/wiki/File:Example.jpg">منبع عادی</a></p>' );
+sa_sl_assert( false === strpos( $ordinary, 'href="https://commons.wikimedia.org' ), 'forbidden editorial sources remain blocked outside photo credits' );
+
 // v2.22.86: فهرست «شهرهای هم‌استانی» درست بالای منابع چاپ می‌شود.
 $tt86 = (string) file_get_contents( $theme_dir . '/inc/template-tags.php' );
 sa_sl_assert( false !== strpos( $tt86, 'sa_county_siblings_html' ), 'template-tags: sibling-cities list echoed right before the sources section (2.22.86)' );

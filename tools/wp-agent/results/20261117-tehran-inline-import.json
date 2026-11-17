@@ -1,0 +1,68 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-tehran-inline-import.json",
+  "started_utc": "2026-11-17T17:51:50+00:00",
+  "note": "دریافت دو تصویر دارای مجوز برای قرارگیری در متن مقالهٔ تهران؛ این مرحله متن مقاله را تغییر نمی‌دهد.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "photos-import",
+      "result": {
+        "batch": "20261117-tehran-inline",
+        "note": "دو تصویر مجاز از کاخ گلستان و پل طبیعت برای درج در متن مقالهٔ تهران. هر دو در ویکی‌مدیا با مجوز CC BY-SA 4.0 و نام پدیدآور بررسی شده‌اند؛ برای کاهش حجم از تصویر با اندازهٔ کوچک‌تر استفاده می‌شود.",
+        "imported": [
+          {
+            "place": "کاخ گلستان",
+            "id": 4643,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-daa9d8a7d8ae-daafd984d8b3d8aad8a7d986-4e33b0.jpg"
+          },
+          {
+            "place": "پل طبیعت تهران",
+            "id": 4644,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed984-d8b7d8a8db8cd8b9d8aa-d8aad987d8b1d8a7d986-445bd7.jpg"
+          }
+        ],
+        "reused": [],
+        "refused": [],
+        "failed": []
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "photos",
+      "result": {
+        "count": 2,
+        "per_city": {
+          "213": 2
+        },
+        "photos": [
+          {
+            "id": 4644,
+            "city_id": 213,
+            "place": "پل طبیعت تهران",
+            "kind": "fun",
+            "author": "Diba Tensile Architecture",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Tabiat-Bridge-by-DIBA-group.jpg",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4643,
+            "city_id": 213,
+            "place": "کاخ گلستان",
+            "kind": "fun",
+            "author": "Ahmadatyabi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Outside_view_of_golestan_palace.jpg",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T17:52:04+00:00"
+}

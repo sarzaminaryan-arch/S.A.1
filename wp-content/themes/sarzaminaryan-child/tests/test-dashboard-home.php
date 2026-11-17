@@ -117,15 +117,11 @@ sa_dh_assert( 'publish' === $GLOBALS['t']['posts'][55]['status'], 'repair: dashb
 sa_dh_assert( 55 === $GLOBALS['t']['options']['sa_default_pages']['dashboard'], 'repair: canonical page id synced to the option' );
 sa_dh_assert( 9 === (int) $GLOBALS['t']['options']['page_for_posts'], 'repair: dashboard is no longer the posts page' );
 
-/* 5) صفحهٔ نخست: شمارنده‌ها بالای هفت شهرستان برتر؛ بلوک آکاردئونی است. */
+/* 5) صفحهٔ نخست تازه و مسیر داشبورد فقط در صورت وجود برگهٔ منتشرشده. */
 $home = (string) file_get_contents( SA_CHILD_DIR . 'template-home.php' );
-$pos_stats = strpos( $home, 'id="sa-stats"' );
-$pos_top   = strpos( $home, 'CC_UI::top_cities_block( 7 )' );
-sa_dh_assert( false !== $pos_stats && false !== $pos_top && $pos_stats < $pos_top, 'home: four counters render above the top-7 cities block' );
-$cc_ui = (string) file_get_contents( SA_CHILD_DIR . 'inc/city-contrib/includes/class-cc-ui.php' );
-sa_dh_assert( false !== strpos( $cc_ui, '<details class="cc-topbox__acc">' ), 'home: top-7 block is an accordion (details)' );
-sa_dh_assert( false !== strpos( $cc_ui, '<summary class="cc-topbox__head cc-topbox__summary">' ), 'home: accordion header is the tappable summary' );
-$css = (string) file_get_contents( SA_CHILD_DIR . 'assets/css/city-contrib.css' );
-sa_dh_assert( false !== strpos( $css, '.cc-topbox__acc[open] .cc-topbox__chev' ), 'css: accordion chevron rotates when open' );
+$front = (string) file_get_contents( SA_CHILD_DIR . 'front-page.php' );
+sa_dh_assert( false !== strpos( $front, "'/template-home.php'" ), 'front-page uses landing template regardless of front page settings' );
+sa_dh_assert( false !== strpos( $home, 'sa_dashboard_page_url()' ) && false !== strpos( $home, 'if ( $sa_home_dashboard )' ), 'landing links to the dashboard only when available' );
+sa_dh_assert( false !== strpos( $home, 'role="search"' ) && false !== strpos( $home, 'name="s"' ), 'landing keeps WordPress search' );
 
-echo "PASS: dashboard self-heal (template binding, assets, URL fallback, upgrade repair) + home counters-first accordion\n";
+echo "PASS: dashboard self-heal and landing page navigation\n";
