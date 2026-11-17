@@ -1,0 +1,479 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-15-photos-batch8-rest.json",
+  "started_utc": "2026-11-17T23:06:07+00:00",
+  "note": "دستهٔ ۸ — بارگذاری ۱۵ تصویر مجاز (سه برای هر شهرستان) در پنج شهرستان دوم، با نام عکاس و مجوز و صفحهٔ منبع؛ سپس پرج و پراب همان پنج صفحه.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "photos-import",
+      "result": {
+        "batch": "20261119-batch8-rest",
+        "note": "دستهٔ ۸ — تصاویر مجاز برای پنج شهرستان دوم (اهر، میانه، شهرضا، بهارستان، محمودآباد): سه تصویر برای هر شهرستان، همه از ویکی‌مدیا با مجوز CC BY/CC BY-SA/CC0 و نام عکاس؛ آدرس اصلی upload.wikimedia.org.",
+        "imported": [
+          {
+            "place": "بقعهٔ شیخ شهاب‌الدین اهری",
+            "id": 4724,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d982d8b9d987d994-d8b4db8cd8ae-d8b4d987d8a7d8a8d8a7d984d8afdb8cd986-d8a7d987d8b1db8c-4eb03b.jpg"
+          },
+          {
+            "place": "آرامگاه شیخ شهاب‌الدین (نمای صحن)",
+            "id": 4725,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2d8b1d8a7d985daafd8a7d987-d8b4db8cd8ae-d8b4d987d8a7d8a8d8a7d984d8afdb8cd986-d986d985d8a7db8c-d8b5d8add986-5a87e0.jpg"
+          },
+          {
+            "place": "طبیعت ارسباران",
+            "id": 4726,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b7d8a8db8cd8b9d8aa-d8a7d8b1d8b3d8a8d8a7d8b1d8a7d986-b39843.jpg"
+          },
+          {
+            "place": "پل شهرچای میانه",
+            "id": 4727,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed984-d8b4d987d8b1da86d8a7db8c-d985db8cd8a7d986d987-456e3e.jpg"
+          },
+          {
+            "place": "پل شهرچای، نمای شمالی",
+            "id": 4728,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed984-d8b4d987d8b1da86d8a7db8cd88c-d986d985d8a7db8c-d8b4d985d8a7d984db8c-b81f88.jpg"
+          },
+          {
+            "place": "درهٔ شهرچای",
+            "id": 4729,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8b1d987d994-d8b4d987d8b1da86d8a7db8c-d4abbf.jpg"
+          },
+          {
+            "place": "امامزاده شاه‌رضا",
+            "id": 4730,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a7d985d8a7d985d8b2d8a7d8afd987-d8b4d8a7d987d8b1d8b6d8a7-53a834.jpg"
+          },
+          {
+            "place": "مسجد جامع شهرضا",
+            "id": 4731,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8b3d8acd8af-d8acd8a7d985d8b9-d8b4d987d8b1d8b6d8a7-30d99c.jpg"
+          },
+          {
+            "place": "آرامگاه بی‌بی‌خاتون",
+            "id": 4732,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2d8b1d8a7d985daafd8a7d987-d8a8db8cd8a8db8cd8aed8a7d8aad988d986-c621cc.jpg"
+          },
+          {
+            "place": "میدان شهید رجایی نسیم‌شهر",
+            "id": 4733,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985db8cd8afd8a7d986-d8b4d987db8cd8af-d8b1d8acd8a7db8cdb8c-d986d8b3db8cd985d8b4d987d8b1-910b8c.jpg"
+          },
+          {
+            "place": "بلوار امام خمینی نسیم‌شهر",
+            "id": 4734,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d984d988d8a7d8b1-d8a7d985d8a7d985-d8aed985db8cd986db8c-d986d8b3db8cd985d8b4d987d8b1-628106.jpg"
+          },
+          {
+            "place": "مجتمع سیتی‌سنتر آسمان",
+            "id": 4735,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8acd8aad985d8b9-d8b3db8cd8aadb8cd8b3d986d8aad8b1-d8a2d8b3d985d8a7d986-070fd0.jpg"
+          },
+          {
+            "place": "شهر محمودآباد",
+            "id": 4736,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b4d987d8b1-d985d8add985d988d8afd8a2d8a8d8a7d8af-58ef31.jpg"
+          },
+          {
+            "place": "نمای شهری محمودآباد",
+            "id": 4737,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d986d985d8a7db8c-d8b4d987d8b1db8c-d985d8add985d988d8afd8a2d8a8d8a7d8af-a516e5.jpg"
+          },
+          {
+            "place": "سرخرود",
+            "id": 4738,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d8b1d8aed8b1d988d8af-12912a.jpg"
+          }
+        ],
+        "reused": [],
+        "refused": [],
+        "failed": []
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          107,
+          116,
+          164,
+          220,
+          537
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/ahar/",
+            "status": 200,
+            "ms": 1239,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اهر؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ahar/",
+            "desc": "راهنمای شهرستان اهر: جمعیت ۱۵۴٬۵۳۰ نفر (۱۳۹۵)، بقعه و خانقاه شیخ شهاب‌الدین، مسجد جامع، بازار، جنگل ارسباران و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "اهر — دروازهٔ ارسباران و شهر شیخ شهاب‌الدین",
+              "og:description": "از بقعه و خانقاه شیخ شهاب‌الدین تا بازار و جنگل ارسباران؛ راهنمای سفر به شهرستان اهر.",
+              "og:url": "https://sarzaminaryan.ir/city/ahar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahar.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "اهر — دروازهٔ ارسباران و شهر شیخ شهاب‌الدین",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "اهر — دروازهٔ ارسباران و شهر شیخ شهاب‌الدین"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahar.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Abdossamad Talebpour"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahar.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17328,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mianeh/",
+            "status": 200,
+            "ms": 1180,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان میانه؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mianeh/",
+            "desc": "راهنمای شهرستان میانه: جمعیت ۱۸۲٬۸۴۸ نفر (۱۳۹۵)، پل شهرچای، پل دختر، قلعهٔ دختر، امامزاده اسماعیل و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "میانه — شهر پل‌های تاریخی و دروازهٔ شرقی آذربایجان",
+              "og:description": "از پل شهرچای و پل دختر تا بازار و ییلاق‌های کندوان؛ راهنمای سفر به شهرستان میانه.",
+              "og:url": "https://sarzaminaryan.ir/city/mianeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mianeh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "میانه — شهر پل‌های تاریخی و دروازهٔ شرقی آذربایجان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "میانه — شهر پل‌های تاریخی و دروازهٔ شرقی آذربایجان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mianeh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mahnaz noruzi"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mianeh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18988,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shahreza/",
+            "status": 200,
+            "ms": 1283,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شهرضا؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shahreza/",
+            "desc": "راهنمای شهرستان شهرضا: جمعیت ۱۵۹٬۷۹۷ نفر (۱۳۹۵)، مسجد جامع سلجوقی، بازار تاریخی، امامزاده شاه‌رضا، کاروانسرای امین‌آباد و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرضا — قمشهٔ کهن، شهر کره و کاروانسراهای صفوی",
+              "og:description": "از بازار تاریخی و مسجد جامع تا کاروانسرای امین‌آباد و زرچشمه؛ راهنمای سفر به شهرضا.",
+              "og:url": "https://sarzaminaryan.ir/city/shahreza/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahreza.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرضا — قمشهٔ کهن، شهر کره و کاروانسراهای صفوی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرضا — قمشهٔ کهن، شهر کره و کاروانسراهای صفوی"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahreza.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Bernard Gagnon"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahreza.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20888,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/baharestan/",
+            "status": 200,
+            "ms": 1382,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بهارستان؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/baharestan/",
+            "desc": "راهنمای شهرستان بهارستان: جمعیت ۵۳۶٬۳۲۹ نفر (۱۳۹۵)، مساحت ۹۷ کیلومتر مربع، دسترسی از تهران و اسلامشهر و رباط‌کریم.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "بهارستان — شهرستان جوان و پرتراکم جنوب غرب تهران",
+              "og:description": "شهرستانی که در چند دهه ساخته شد؛ جمعیت، محله‌ها و راه رسیدن از تهران.",
+              "og:url": "https://sarzaminaryan.ir/city/baharestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-baharestan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "بهارستان — شهرستان جوان و پرتراکم جنوب غرب تهران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "بهارستان — شهرستان جوان و پرتراکم جنوب غرب تهران"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-baharestan.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "درپیت"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 7,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-baharestan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22336,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mahmudabad/",
+            "status": 200,
+            "ms": 1247,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان محمودآباد؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mahmudabad/",
+            "desc": "راهنمای شهرستان محمودآباد: جمعیت ۱۳۰٬۰۵۴ نفر (۱۳۹۵)، پارک‌های ساحلی، تالاب سرخرود، آب‌بندان و راه رسیدن از هراز.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "محمودآباد — ساحل خزر، شالیزار و تالاب سرخرود",
+              "og:description": "از ساحل و پارک ساحلی تا تالاب سرخرود و شالیزار؛ راهنمای سفر به شهرستان محمودآباد.",
+              "og:url": "https://sarzaminaryan.ir/city/mahmudabad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahmudabad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "محمودآباد — ساحل خزر، شالیزار و تالاب سرخرود",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "محمودآباد — ساحل خزر، شالیزار و تالاب سرخرود"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahmudabad.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mostafameraji"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahmudabad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 23086,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T23:10:08+00:00"
+}

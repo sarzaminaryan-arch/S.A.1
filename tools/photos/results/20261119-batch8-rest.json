@@ -1,0 +1,84 @@
+{
+ "batch": "20261119-batch8-rest",
+ "note": "دستهٔ ۸ — تصاویر مجاز برای پنج شهرستان دوم (اهر، میانه، شهرضا، بهارستان، محمودآباد): سه تصویر برای هر شهرستان، همه از ویکی‌مدیا با مجوز CC BY/CC BY-SA/CC0 و نام عکاس؛ آدرس اصلی upload.wikimedia.org.",
+ "imported": [
+  {
+   "place": "بقعهٔ شیخ شهاب‌الدین اهری",
+   "id": 4724,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d982d8b9d987d994-d8b4db8cd8ae-d8b4d987d8a7d8a8d8a7d984d8afdb8cd986-d8a7d987d8b1db8c-4eb03b.jpg"
+  },
+  {
+   "place": "آرامگاه شیخ شهاب‌الدین (نمای صحن)",
+   "id": 4725,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2d8b1d8a7d985daafd8a7d987-d8b4db8cd8ae-d8b4d987d8a7d8a8d8a7d984d8afdb8cd986-d986d985d8a7db8c-d8b5d8add986-5a87e0.jpg"
+  },
+  {
+   "place": "طبیعت ارسباران",
+   "id": 4726,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b7d8a8db8cd8b9d8aa-d8a7d8b1d8b3d8a8d8a7d8b1d8a7d986-b39843.jpg"
+  },
+  {
+   "place": "پل شهرچای میانه",
+   "id": 4727,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed984-d8b4d987d8b1da86d8a7db8c-d985db8cd8a7d986d987-456e3e.jpg"
+  },
+  {
+   "place": "پل شهرچای، نمای شمالی",
+   "id": 4728,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed984-d8b4d987d8b1da86d8a7db8cd88c-d986d985d8a7db8c-d8b4d985d8a7d984db8c-b81f88.jpg"
+  },
+  {
+   "place": "درهٔ شهرچای",
+   "id": 4729,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8b1d987d994-d8b4d987d8b1da86d8a7db8c-d4abbf.jpg"
+  },
+  {
+   "place": "امامزاده شاه‌رضا",
+   "id": 4730,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a7d985d8a7d985d8b2d8a7d8afd987-d8b4d8a7d987d8b1d8b6d8a7-53a834.jpg"
+  },
+  {
+   "place": "مسجد جامع شهرضا",
+   "id": 4731,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8b3d8acd8af-d8acd8a7d985d8b9-d8b4d987d8b1d8b6d8a7-30d99c.jpg"
+  },
+  {
+   "place": "آرامگاه بی‌بی‌خاتون",
+   "id": 4732,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2d8b1d8a7d985daafd8a7d987-d8a8db8cd8a8db8cd8aed8a7d8aad988d986-c621cc.jpg"
+  },
+  {
+   "place": "میدان شهید رجایی نسیم‌شهر",
+   "id": 4733,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985db8cd8afd8a7d986-d8b4d987db8cd8af-d8b1d8acd8a7db8cdb8c-d986d8b3db8cd985d8b4d987d8b1-910b8c.jpg"
+  },
+  {
+   "place": "بلوار امام خمینی نسیم‌شهر",
+   "id": 4734,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d984d988d8a7d8b1-d8a7d985d8a7d985-d8aed985db8cd986db8c-d986d8b3db8cd985d8b4d987d8b1-628106.jpg"
+  },
+  {
+   "place": "مجتمع سیتی‌سنتر آسمان",
+   "id": 4735,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8acd8aad985d8b9-d8b3db8cd8aadb8cd8b3d986d8aad8b1-d8a2d8b3d985d8a7d986-070fd0.jpg"
+  },
+  {
+   "place": "شهر محمودآباد",
+   "id": 4736,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b4d987d8b1-d985d8add985d988d8afd8a2d8a8d8a7d8af-58ef31.jpg"
+  },
+  {
+   "place": "نمای شهری محمودآباد",
+   "id": 4737,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d986d985d8a7db8c-d8b4d987d8b1db8c-d985d8add985d988d8afd8a2d8a8d8a7d8af-a516e5.jpg"
+  },
+  {
+   "place": "سرخرود",
+   "id": 4738,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d8b1d8aed8b1d988d8af-12912a.jpg"
+  }
+ ],
+ "reused": [],
+ "refused": [],
+ "failed": []
+}
