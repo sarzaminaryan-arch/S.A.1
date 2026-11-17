@@ -1,0 +1,24 @@
+{
+ "note": "دستهٔ ۸ — اصلاح واژهٔ ممنوع «باید» در متای «از تجربهٔ مسافرها»ی شاهین‌شهر و میمه؛ متن بازنویسی شد و بقیهٔ فیلدها دست‌نخورده است. پشتیبان پیش از تغییر گرفته می‌شود.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 163,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/shahin-shahr-meymeh.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:43:20",
+   "reason": "shahin-shahr-meymeh: حذف «باید» از واقعیت جاده و بازنویسی جمله با لحن گزارشی"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    163
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/shahin-shahr-meymeh/"
+   ]
+  }
+ ]
+}
