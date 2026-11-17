@@ -1,0 +1,8 @@
+{
+  "note": "بررسی فقط‌خواندنی مقاله و تصاویر موجود تهران پیش از افزودن تصویر مجاز.",
+  "steps": [
+    {"cmd": "get", "id": 213},
+    {"cmd": "photos", "city_id": 213},
+    {"cmd": "probe", "url": ["/city/tehran/?sa_probe=photo-check"]}
+  ]
+}
