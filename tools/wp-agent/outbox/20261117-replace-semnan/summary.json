@@ -1,0 +1,17 @@
+[
+ {
+  "id": 296,
+  "slug": "semnan",
+  "words_after": 928,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

@@ -1,0 +1,275 @@
+[
+ {
+  "slug": "bushehr-county",
+  "id": 211,
+  "name": "بوشهر",
+  "words_before": 462,
+  "kept_words": 439,
+  "words_after": 422,
+  "sections": [
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [
+   "history",
+   "economy"
+  ],
+  "parked": 3,
+  "hard": [],
+  "gaps": [
+   "only 426 words (< 900)",
+   "missing or out-of-order section: history",
+   "missing or out-of-order section: economy"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "birjand",
+  "id": 241,
+  "name": "بیرجند",
+  "words_before": 1717,
+  "kept_words": 2240,
+  "words_after": 2011,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [
+   "fa: FOREIGN: سال میلادی در متن فارسی «۲۰۱۱» → «۱۴۰۵ و مانند آن» — «…باغ ایرانی» که در سال ۲۰۱۱ در فهرست میراث جهانی…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۵۵» → «۱۴۰۵ و مانند آن» — «…از سال ۱۳۳۴ خورشیدی (۱۹۵۵ میلادی) راه␣اندازی شد…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۵۷» → «۱۴۰۵ و مانند آن» — «…۵۲ میلی␣متر در دوم مه ۱۹۵۷ بوده است. .\u0000\n\n \n\u0000جدول…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۹۱» → «۱۴۰۵ و مانند آن» — «…اده␣های ماهانهٔ دورهٔ ۱۹۹۱–۲۰۲۰ محاسبه شده است (…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۲۰۲۰» → «۱۴۰۵ و مانند آن» — «…ای ماهانهٔ دورهٔ ۱۹۹۱–۲۰۲۰ محاسبه شده است (میانگ…»"
+  ],
+  "gaps": [],
+  "ok": false,
+  "tier": "hold"
+ },
+ {
+  "slug": "ilam",
+  "id": 189,
+  "name": "ایلام",
+  "words_before": 544,
+  "kept_words": 490,
+  "words_after": 464,
+  "sections": [
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [
+   "economy"
+  ],
+  "parked": 3,
+  "hard": [
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۳۶» → «۱۴۰۵ و مانند آن» — «…ام» نخستین بار در سال ۱۹۳۶ میلادی به این منطقه د…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۳۰» → «۱۴۰۵ و مانند آن» — «…آن␣که در میانهٔ دههٔ ۱۹۳۰ به «ایلام» نام␣بردار…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۳۶» → «۱۴۰۵ و مانند آن» — «…ام» نخستین بار در سال ۱۹۳۶ میلادی، پس از فروپاشی…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۳۰» → «۱۴۰۵ و مانند آن» — «…د. \u0000۲\u0000 تا میانهٔ دههٔ ۱۹۳۰ این پهنه «پشتکوه لرست…»",
+   "lint: FOREIGN: سال میلادی در متن فارسی «۱۹۳۶» → «۱۴۰۵ و مانند آن» — «…ام» نخستین بار در سال ۱۹۳۶ میلادی به این منطقه د…»"
+  ],
+  "gaps": [
+   "only 467 words (< 900)",
+   "missing or out-of-order section: economy"
+  ],
+  "ok": false,
+  "tier": "hold"
+ },
+ {
+  "slug": "sharekurd",
+  "id": 1899,
+  "name": "شهرکرد",
+  "words_before": 465,
+  "kept_words": 450,
+  "words_after": 428,
+  "sections": [
+   "history",
+   "intro",
+   "map",
+   "stay"
+  ],
+  "missing": [
+   "people",
+   "economy"
+  ],
+  "parked": 3,
+  "hard": [],
+  "gaps": [
+   "only 431 words (< 900)",
+   "missing or out-of-order section: people",
+   "missing or out-of-order section: economy"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "semnan",
+  "id": 296,
+  "name": "سمنان",
+  "words_before": 1059,
+  "kept_words": 1317,
+  "words_after": 1222,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [
+   "fa: LATIN: واژهٔ لاتین «Choarene» در متن فارسی — «…مل دو بخش «خوار» (Choarene) و «کومس» (Comise…»",
+   "fa: LATIN: واژهٔ لاتین «Comisene» در متن فارسی — «…oarene) و «کومس» (Comisene) دانسته است. پس ا…»",
+   "lint: LATIN: واژهٔ لاتین «Choarene» در متن فارسی — «…مل دو بخش «خوار» (Choarene) و «کومس» (Comise…»",
+   "lint: LATIN: واژهٔ لاتین «Comisene» در متن فارسی — «…oarene) و «کومس» (Comisene) دانسته است. پس ا…»"
+  ],
+  "gaps": [],
+  "ok": false,
+  "tier": "hold"
+ },
+ {
+  "slug": "boyer-ahmad",
+  "id": 430,
+  "name": "بویراحمد",
+  "words_before": 484,
+  "kept_words": 341,
+  "words_after": 340,
+  "sections": [
+   "history",
+   "intro",
+   "map",
+   "people"
+  ],
+  "missing": [
+   "economy",
+   "stay"
+  ],
+  "parked": 3,
+  "hard": [],
+  "gaps": [
+   "only 326 words (< 900)",
+   "missing or out-of-order section: economy",
+   "missing or out-of-order section: stay"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "bandar-lengeh",
+  "id": 638,
+  "name": "بندر لنگه",
+  "words_before": 437,
+  "kept_words": 407,
+  "words_after": 396,
+  "sections": [
+   "history",
+   "intro",
+   "map",
+   "stay"
+  ],
+  "missing": [
+   "people",
+   "economy"
+  ],
+  "parked": 3,
+  "hard": [],
+  "gaps": [
+   "only 401 words (< 900)",
+   "missing or out-of-order section: people",
+   "missing or out-of-order section: economy"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "qeshm",
+  "id": 640,
+  "name": "قشم",
+  "words_before": 438,
+  "kept_words": 420,
+  "words_after": 398,
+  "sections": [
+   "history",
+   "intro",
+   "map",
+   "stay"
+  ],
+  "missing": [
+   "people",
+   "economy"
+  ],
+  "parked": 3,
+  "hard": [],
+  "gaps": [
+   "only 403 words (< 900)",
+   "missing or out-of-order section: people",
+   "missing or out-of-order section: economy"
+  ],
+  "ok": true,
+  "tier": "skeleton"
+ },
+ {
+  "slug": "chabahar",
+  "id": 305,
+  "name": "چابهار",
+  "words_before": 753,
+  "kept_words": 1024,
+  "words_after": 935,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [],
+  "gaps": [],
+  "ok": true,
+  "tier": "ready"
+ },
+ {
+  "slug": "ramsar",
+  "id": 539,
+  "name": "رامسر",
+  "words_before": 796,
+  "kept_words": 949,
+  "words_after": 882,
+  "sections": [
+   "economy",
+   "history",
+   "intro",
+   "map",
+   "people",
+   "stay"
+  ],
+  "missing": [],
+  "parked": 0,
+  "hard": [
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۷۱» → «۱۴۰۵ و مانند آن» — «…ظت از تالاب␣ها در سال ۱۹۷۱ در همین شهر امضا شد و…»",
+   "fa: FOREIGN: سال میلادی در متن فارسی «۱۹۷۱» → «۱۴۰۵ و مانند آن» — «…یخ معاصر رامسر در سال ۱۹۷۱ میلادی رخ داد؛ کنوانس…»",
+   "lint: FOREIGN: سال میلادی در متن فارسی «۱۹۷۱» → «۱۴۰۵ و مانند آن» — «…ظت از تالاب␣ها در سال ۱۹۷۱ در همین شهر امضا شد و…»",
+   "lint: FOREIGN: سال میلادی در متن فارسی «۱۹۷۱» → «۱۴۰۵ و مانند آن» — «…یخ معاصر رامسر در سال ۱۹۷۱ میلادی رخ داد؛ کنوانس…»"
+  ],
+  "gaps": [
+   "only 873 words (< 900)"
+  ],
+  "ok": false,
+  "tier": "hold"
+ }
+]

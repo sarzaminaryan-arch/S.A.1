@@ -1,0 +1,17 @@
+[
+ {
+  "id": 241,
+  "slug": "birjand",
+  "words_after": 939,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

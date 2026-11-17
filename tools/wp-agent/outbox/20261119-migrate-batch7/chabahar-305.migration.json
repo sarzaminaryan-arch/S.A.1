@@ -1,0 +1,17 @@
+{
+ "slug": "chabahar",
+ "id": 305,
+ "tier": "ready",
+ "sections": [
+  "economy",
+  "history",
+  "intro",
+  "map",
+  "people",
+  "stay"
+ ],
+ "missing": [],
+ "parked": [],
+ "words_before": 753,
+ "kept_words": 1024
+}
