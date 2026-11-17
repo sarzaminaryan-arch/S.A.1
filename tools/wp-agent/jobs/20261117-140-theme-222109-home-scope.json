@@ -1,0 +1,11 @@
+{
+ "note": "کار ۱۴۰: نصب ۲.۲.۱۰۹ (محدودکردن استایل صفحهٔ اول به .sa-home تا هدر/فوتر سالم بماند) و probe صفحهٔ اول، بجنورد و یک صفحهٔ داخلی. پشتیبان کامل و برگشت خودکار به ۲.۲۲.۱۰۸.",
+ "rollback_on_fail": false,
+ "steps": [
+  { "cmd": "theme-update", "expected_version": "2.22.109", "owner_approved_theme_update": true,
+    "backup_first": true, "backup_nocloud": true, "backup_wait": 900,
+    "probe": ["/", "/city/bojnord/", "/province/"], "rollback_to": "2.22.108" },
+  { "cmd": "cache-purge", "all": true },
+  { "cmd": "probe", "url": ["/?sa_probe=145"] }
+ ]
+}

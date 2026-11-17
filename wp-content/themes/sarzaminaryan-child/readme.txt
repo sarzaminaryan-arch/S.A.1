@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.108
+Stable tag: 2.22.109
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.109 — 1405-08-26 (2026-11-17) =
+* قاعده‌های ظاهری صفحهٔ اول به `.sa-home` محدود شد تا هدر و فوتر قالب مادر دست‌نخورده بمانند.
 
 = 2.22.108 — 1405-08-26 (2026-11-17) =
 * رفع تگ `<g>` بسته‌نشده در نقشهٔ صفحهٔ اول (نقطه‌های استان‌ها درست رندر می‌شوند).

@@ -209,4 +209,9 @@ sa_t_assert( false !== strpos( $home_src, "'—'" ), 'a genuinely empty count pr
 sa_t_assert( false === strpos( $home_src, '))\"<title>' ), 'the map dot <g> tag is closed before <title>' );
 sa_t_assert( 1 === substr_count( $home_src, 'class=\"sa-dot--soon\"' ), 'the map renders one placeholder group per unpublished province' );
 
+/* 12 — the home stylesheet must not restyle the header/footer: `.sa-wrap` is a
+ *      parent-theme class too, so the v3 rules stay scoped to `.sa-home`. */
+sa_t_assert( false !== strpos( $home_src, '.sa-home .sa-wrap{' ), 'home wrap styles are scoped to the homepage' );
+sa_t_assert( false === strpos( $home_src, "\n.sa-wrap{" ), 'no unscoped .sa-wrap rule leaks into the header/footer' );
+
 echo "ALL TESTS PASSED\n";
