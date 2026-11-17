@@ -9,6 +9,29 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import wp_agent as wa  # noqa: E402
 
+# photos-import refuses a batch path outside the repository and a missing batch.
+try:
+    wa.run_photos_import({"batch": "../../etc/passwd.json"})
+    raise AssertionError("photos-import should refuse a batch outside the repository")
+except wa.AgentError as err:
+    assert "inside the repository" in str(err), err
+try:
+    wa.run_photos_import({})
+    raise AssertionError("photos-import should require a batch")
+except wa.AgentError as err:
+    assert "needs batch" in str(err), err
+
+# photos-prune is owner-gated: no flag, no call (the site enforces the same rule).
+class _NoCall:
+    def call(self, *a, **k):  # pragma: no cover - must never run
+        raise AssertionError("the site must not be called without the owner flag")
+import argparse as _ap
+try:
+    wa.run(_ap.Namespace(cmd="photos-prune", city_id=71, owner_approved=False, dry_run=True), _NoCall())
+    raise AssertionError("photos-prune should refuse to run without --owner-approved")
+except wa.AgentError as err:
+    assert "owner-approved" in str(err), err
+
 # The live cover pipeline requires an explicit owner flag before launching npm or making requests.
 try:
     wa.run_county_covers({"owner_approved": False})

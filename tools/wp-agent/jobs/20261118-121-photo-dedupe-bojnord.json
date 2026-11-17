@@ -1,0 +1,16 @@
+{
+  "note": "کار ۱۲۱: نصب قالب ۲.۲۲.۱۰۰ (هویت عکس = مکان) و پاک‌سازی تکرار: کار ۱۲۰ دو پیوست از «پارک کودک بجنورد» ساخت (۴۶۳۱ کهنه و ۴۶۳۵ تازه). دوباره‌فرستادن دسته حالا همان پیوست را به‌روز می‌کند؛ ۴۶۳۱ با پرچم صریح مالک به زباله‌دان می‌رود (بازگردانی از پشتیبان ممکن است). پشتیبان کامل و برگشت خودکار به ۲.۲۲.۹۹.",
+  "rollback_on_fail": false,
+  "steps": [
+    { "cmd": "ping" },
+    { "cmd": "theme-update", "expected_version": "2.22.100", "owner_approved_theme_update": true,
+      "backup_first": true, "backup_nocloud": true, "backup_wait": 900,
+      "probe": ["/", "/city/bojnord/"], "rollback_to": "2.22.99" },
+    { "cmd": "photos-import", "batch": "tools/photos/20261118-bojnord.json" },
+    { "cmd": "trash", "id": 4631, "owner_approved_trash": true,
+      "reason": "نسخهٔ تکراری پارک کودک (۴۶۳۵ نسخهٔ پاک‌شدهٔ همین عکس است) — دستور مالک" },
+    { "cmd": "photos", "city_id": 71 },
+    { "cmd": "cache-purge", "all": true },
+    { "cmd": "probe", "url": ["/city/bojnord/?sa_probe=61"] }
+  ]
+}

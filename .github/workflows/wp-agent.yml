@@ -86,6 +86,7 @@ jobs:
           python3 tools/wp-agent/test_build_replace_batch.py
           python3 tools/wp-agent/test_build_section_batch.py
           python3 tools/wp-agent/test_county_template.py
+          python3 tools/photos/test_import_photos.py
 
       - name: Run pending jobs
         env:
@@ -131,13 +132,13 @@ jobs:
       - name: Commit results back to the branch
         if: always()
         run: |
-          if [ -z "$(git status --porcelain tools/wp-agent/results 2>/dev/null)" ]; then
+          if [ -z "$(git status --porcelain tools/wp-agent/results tools/photos/results 2>/dev/null)" ]; then
             echo "no new results"
             exit 0
           fi
           git config user.name "wp-agent[bot]"
           git config user.email "wp-agent@users.noreply.github.com"
-          git add tools/wp-agent/results
+          git add tools/wp-agent/results tools/photos/results
           git commit -m "wp-agent: results of run ${{ github.run_id }}"
           for i in 1 2 3; do
             git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0

@@ -245,6 +245,17 @@ class _SeoParser(html.parser.HTMLParser):
         self.map_iframes = 0          # our own map block: iframe.sa-map__frame
         self.map_coords = False       # the same iframe carries data-lat/data-lng
         self.map_frame_buttons = 0    # retired «بارگذاری نقشهٔ تعاملی» must never come back
+        # v2.22.98: licensed place photos — the credit line is part of the design, so a
+        # block without a named photographer is a defect, not a style choice.
+        self.spotlight = 0
+        self.spotlight_credits = 0
+        self.strip_tiles = 0
+        self.strip_credits = 0
+        self._in_spotlight = 0
+        self._in_strip_tile = 0
+        self._in_credit = 0
+        self._credit_buf = ""
+        self.photo_credits = []       # متن خط اعتبارهای چاپ‌شده (نام عکاس + مجوز) برای بازبینی مالک
         self._main = 0
 
     def handle_starttag(self, tag, attrs):
@@ -262,6 +273,17 @@ class _SeoParser(html.parser.HTMLParser):
             self.map_frame_buttons += 1
         if tag == "figure" and "sa-county-cover" in classes:
             self.county_cover_figures += 1
+        if "sa-spotlight" in classes:
+            self.spotlight += 1
+            self._in_spotlight += 1
+        if "sa-strip__tile" in classes:
+            self.strip_tiles += 1
+            self._in_strip_tile += 1
+        if ("sa-photo__credit" in classes or "sa-strip__credit" in classes) and not self._in_credit:
+            # متن اعتبار تا بسته شدن همین عنصر جمع می‌شود و همان‌جا شمرده می‌شود؛
+            # تگ‌های درونی (<a>، <span>) شمارش را جابه‌جا نمی‌کنند.
+            self._in_credit = 1
+            self._credit_buf = ""
         if tag == "img" and "sa-county-cover__img" in classes:
             self.county_cover_images += 1
             src = a.get("src") or a.get("data-src") or ""
@@ -305,6 +327,21 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
+        # خط اعتبار یا <figcaption> است یا <p>؛ تگ‌های درونی (<span>، <a>) آن را نمی‌بندند.
+        if self._in_credit and tag in ("figcaption", "p"):
+            self._in_credit = 0
+            line = " ".join(self._credit_buf.split())
+            if line:
+                if self._in_strip_tile:
+                    self.strip_credits += 1
+                elif self._in_spotlight:
+                    self.spotlight_credits += 1
+                if len(self.photo_credits) < 12:
+                    self.photo_credits.append(line)
+        if tag == "section" and self._in_spotlight:
+            self._in_spotlight -= 1
+        if tag == "article" and self._in_strip_tile:
+            self._in_strip_tile -= 1
         if tag == "main" and self._main:
             self._main -= 1
         if tag == "svg" and self._svg:
@@ -320,6 +357,8 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip -= 1
 
     def handle_data(self, data):
+        if self._in_credit:
+            self._credit_buf += data  # خط اعتبار عکس: نام عکاس + مجوز
         if self._in_title:
             self.title += data
         if self._in_jsonld:
@@ -415,6 +454,9 @@ def scan_url(url: str) -> dict:
         "og_image": bool(p.meta.get("og:image")), "og_title": bool(p.meta.get("og:title")),
         "h1": p.h1, "h2": p.h2, "imgs": p.imgs, "imgs_no_alt": p.imgs_no_alt, "imgs_missing_alt": p.imgs_missing_alt, "no_alt_srcs": p.no_alt_srcs, "lazy_imgs": p.lazy_imgs,
         "county_cover_figures": p.county_cover_figures, "county_cover_images": p.county_cover_images,
+        "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
+        "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
+        "photo_credit_texts": p.photo_credits,
         "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
@@ -459,6 +501,9 @@ def probe_url(url: str) -> dict:
                 "county_cover_figures": p.county_cover_figures,
                 "county_cover_images": p.county_cover_images,
                 "county_cover_image_srcs": p.county_cover_image_srcs,
+                "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
+                "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
+                "photo_credit_texts": p.photo_credits,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
                 "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
                 "map_coords": p.map_coords})
@@ -569,6 +614,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--limit", type=int, default=0)
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--template-min-pages", type=int, default=20)
+    p = sub.add_parser("photos-prune", help="owner-approved: trash duplicate copies of the same place (newest kept)")
+    p.add_argument("--city-id", type=int, required=True)
+    p.add_argument("--owner-approved", action="store_true")
+    p.add_argument("--dry-run", action="store_true", help="report what would be trashed and change nothing")
+    p = sub.add_parser("photos", help="read-only: licensed place photos with author, licence and source")
+    p.add_argument("--city-id", type=int, default=0)
     sub.add_parser("relations-audit", help="read-only: published items whose city/province parent is not published (theme 2.22.76+)")
     p = sub.add_parser("updraft", help="UpdraftPlus status; --start begins a backup (owner-approved)")
     p.add_argument("--start", action="store_true")
@@ -695,6 +746,13 @@ def run(a: argparse.Namespace, c: "Client"):
             except Exception as err:  # noqa: BLE001
                 extras[u] = {"status": 0, "error": str(err)[:200]}
         return {"count": len(urls), "extras": extras, "pages": seo_scan(urls, a.workers)}
+    elif a.cmd == "photos-prune":
+        if not a.owner_approved:
+            raise AgentError("photos-prune needs --owner-approved (owner's explicit order)")
+        body = {"city_id": a.city_id, "owner_approved": True, "dry_run": bool(a.dry_run)}
+        return c.call("POST", "/photos/prune", body=body)
+    elif a.cmd == "photos":
+        return c.call("GET", "/photos", {"city_id": a.city_id or None})
     elif a.cmd == "get":
         data = c.call("GET", f"/post/{a.id}")
         if a.out:
@@ -1008,6 +1066,44 @@ def run_county_covers(step: dict) -> dict:
     return json.loads(reports[0].read_text(encoding="utf-8"))
 
 
+def run_photos_import(step: dict) -> dict:
+    """Import a licensed, attributed photo batch through the site's own /photos/import route.
+
+    Why a separate command: this sandbox cannot download from image hosts, but the site
+    can. The batch file only carries URLs plus the licence and photographer we verified
+    on the source page; the theme re-checks both before it stores anything.
+    """
+    batch = str(step.get("batch") or "").strip()
+    if not batch:
+        raise AgentError("photos-import needs batch: tools/photos/<name>.json")
+    path = (REPO_ROOT / batch).resolve()
+    if REPO_ROOT not in path.parents:
+        raise AgentError("photos-import batch must live inside the repository")
+    tool_dir = REPO_ROOT / "tools" / "photos"
+    env = os.environ.copy()
+    try:
+        completed = subprocess.run(
+            [sys.executable, str(tool_dir / "import_photos.py"), str(path)],
+            cwd=REPO_ROOT, env=env, capture_output=True, text=True, check=False,
+        )
+    except FileNotFoundError as err:
+        raise AgentError(f"photos-import runtime is missing: {err}") from err
+    stdout, stderr = completed.stdout or "", completed.stderr or ""
+    secret = env.get("SA_APP_PASSWORD", "")
+    if secret:
+        stdout, stderr = stdout.replace(secret, "***"), stderr.replace(secret, "***")
+    if stdout:
+        print(stdout[-4000:], end="")
+    if stderr:
+        print(stderr[-4000:], file=sys.stderr, end="")
+    if completed.returncode:
+        raise AgentError(f"photos-import failed (exit {completed.returncode}): {(stderr or stdout).strip()[-1500:]}")
+    report_path = tool_dir / "results" / f"{path.stem}.json"
+    if not report_path.exists():
+        raise AgentError("photos-import finished without a result report")
+    return json.loads(report_path.read_text(encoding="utf-8"))
+
+
 def run_job(job_path: str, c: "Client") -> dict:
     """Run a job file (a list of steps); stop at the first refusal. Writes results/<name>.json."""
     path = (REPO_ROOT / job_path).resolve() if not Path(job_path).is_absolute() else Path(job_path)
@@ -1027,6 +1123,8 @@ def run_job(job_path: str, c: "Client") -> dict:
         try:
             if step.get("cmd") == "county-covers":
                 entry["result"] = run_county_covers(step)
+            elif step.get("cmd") == "photos-import":
+                entry["result"] = run_photos_import(step)
             else:
                 entry["result"] = run(parser.parse_args(step_to_argv(step)), c)
             if step.get("cmd") == "update" and isinstance(entry["result"], dict) and entry["result"].get("backup_id"):

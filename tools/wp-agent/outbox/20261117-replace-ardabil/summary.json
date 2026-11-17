@@ -1,0 +1,18 @@
+[
+ {
+  "id": 141,
+  "slug": "ardabil",
+  "words_after": 1722,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

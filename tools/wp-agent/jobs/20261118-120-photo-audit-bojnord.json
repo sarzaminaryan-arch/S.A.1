@@ -1,0 +1,38 @@
+{
+ "note": "کار ۱۲۰: (۱) نصب قالب ۲.۲۲.۹۹ که مسیر خواندنی /photos را اضافه می‌کند؛ (۲) خواندن فهرست عکس‌های مجاز بجنورد از همان مسیر (عکاس، مجوز، منبع، تاریخ دریافت) برای ثبت در دفتر تصاویر؛ پشتیبان کامل و برگشت خودکار به ۲.۲۲.۹۸.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.99",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/",
+    "/city/ardabil/"
+   ],
+   "rollback_to": "2.22.98"
+  },
+  {
+   "cmd": "photos",
+   "city_id": 71
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bojnord/?sa_probe=60",
+    "/city/ardabil/?sa_probe=60"
+   ]
+  }
+ ]
+}

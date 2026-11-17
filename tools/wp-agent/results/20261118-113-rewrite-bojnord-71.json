@@ -1,0 +1,147 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-113-rewrite-bojnord-71.json",
+  "started_utc": "2026-11-17T00:51:44+00:00",
+  "note": "بجنورد ۷۱ — بازنویسی کامل (۱٬۲۰۱←۱٬۹۴۷ واژه، شش بخش قالب، ۹ یادداشت، ۱۵ پرسش، ۲۰ منبع، صفر خط ویکی‌پدیا): آینه‌خانه و عمارت مفخم (ثبت ۱۱۶۷ و ۹۵۲، معمار ممتحن‌الدوله، تالار آینه ۳×۸)، سبزه‌میدان و کاروانسرای قاجاری با ۳۴ حجره، حسینیهٔ جاجرمی (کتیبهٔ ۱۳۲۵ ق، ثبت ۱۱۰۵۱)، بش‌قارداش (ثبت ۴۵۷۵، پنج سوراخ چشمه و افسانهٔ پنج برادر، سنگ‌نبشتهٔ زرتشتی)، باباامان (۳۰۰–۴۰۰ لیتر در ثانیه)، اسفیدان و آبشار حمید، آش یارمه/مستووه/اوجز/اوماج و آبنبات بجنوردی. شناسنامه: جمعیت شهر ۳۲۴٬۰۸۳ (عدد شهرستان در فیلد شهر!) → ۲۲۸٬۹۳۱؛ مقایسه با منبع رسمی ادارهٔ کل ارتباطات استان: ۳٬۶۱۹ km²، ۲ بخش، ۵ دهستان، ۳ شهر (بجنورد، حصار گرم‌خان، چناران‌شهر)، ۱۵۲ آبادی؛ همسایه‌های لاتین (raz-jargalan/maneh-samalqan) → چهار چیپ فارسی جهت‌دار؛ sameas بازآرایی؛ فهرست POI یک‌خطی شد؛ ۵ خط منبعِ ویکی‌پدیا و خط «FACT CHECK» حذف. صداقت: نبود راه‌آهن (نزدیک‌ترین ایستگاه جاجرم ۱۷۰ km) و فرسودگی ناوگان اتوبوس شهری (۲۵–۳۰ دستگاه کم) و پروازهای نامنظم، هر سه با دو شاهد.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 71,
+        "backup_id": 4629,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 00:51:48",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_slug",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_city_elevation",
+            "sa_city_population",
+            "sa_city_schema_type",
+            "sa_schema_contained_in",
+            "sa_schema_sameas",
+            "sa_cty_center",
+            "sa_cty_population",
+            "sa_cty_census_year",
+            "sa_cty_area",
+            "sa_cty_districts",
+            "sa_cty_cities",
+            "sa_cty_rural_districts",
+            "sa_cty_distance_center",
+            "sa_cty_climate",
+            "sa_cty_best_time",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_offbeat",
+            "neighbors_n",
+            "neighbors_s",
+            "neighbors_e",
+            "neighbors_w",
+            "sa_google_map_url",
+            "sa_access_road",
+            "sa_access_rail",
+            "sa_access_air",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_map_zoom",
+            "sa_facts_checked",
+            "sa_faq",
+            "sa_cty_neighbors"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          71
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/?sa_probe=52",
+            "status": 200,
+            "ms": 1448,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T00:51:53+00:00"
+}

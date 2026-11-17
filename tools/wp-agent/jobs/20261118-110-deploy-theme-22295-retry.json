@@ -1,0 +1,13 @@
+{
+  "note": "تلاش دوم انتشار قالب ۲.۲۲.۹۵ (کار ۱۰۹ با ۴۰۹ رد شد چون Release هنگام اجرا ساخته نشده بود؛ اکنون sarzaminaryan-child-v2.22.95 با ZIP منتشر شده). تنها تغییر داده است: بلوک «از تجربهٔ مسافران» اردبیل دیگر نمی‌گوید «قطار ندارد».",
+  "rollback_on_fail": true,
+  "steps": [
+    { "cmd": "theme-update", "expected_version": "2.22.95", "owner_approved_theme_update": true,
+      "backup_first": true, "backup_nocloud": true, "backup_wait": 900,
+      "probe": ["/", "/city/ardabil/", "/city/zanjan/", "/city/rasht/"],
+      "rollback_to": "2.22.94" },
+    { "cmd": "cache-purge", "all": true },
+    { "cmd": "probe", "url": ["/city/ardabil/?sa_probe=51", "/city/zanjan/?sa_probe=51", "/city/rasht/?sa_probe=51", "/"] },
+    { "cmd": "get", "id": 141 }
+  ]
+}

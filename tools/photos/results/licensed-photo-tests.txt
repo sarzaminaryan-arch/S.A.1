@@ -1,0 +1,6 @@
+== php PHP 8.1.2-1ubuntu2.28 (cli) (built: Oct 19 2026 18:54:45) (NTS)
+ALL TESTS PASSED
+php rc=0
+== python Python 3.10.12
+ALL TESTS PASSED
+python rc=0

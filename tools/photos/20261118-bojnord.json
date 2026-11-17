@@ -1,0 +1,65 @@
+{
+ "note": "بجنورد — گروه اول تصاویر مجاز (۱ میراث + ۳ تفریحی). مجوزها از صفحهٔ هر فایل در ویکی‌مدیا بررسی شد و نام عکاس در خط اعتبار می‌آید؛ هیچ فایلی از خبرگزاری یا گوگل‌مپ بی‌اجازه استفاده نمی‌شود.",
+ "photos": [
+  {
+   "city_id": 71,
+   "place": "آیینه‌خانهٔ مفخم",
+   "kind": "heritage",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Mofakham_Mirror_House_by_Arashk_Rajabpour.jpg/1280px-Mofakham_Mirror_House_by_Arashk_Rajabpour.jpg",
+   "author": "Arashk rp2",
+   "license": "cc-by-sa-3",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Mofakham_Mirror_House_by_Arashk_Rajabpour.jpg",
+   "alt": "نمای بیرونی عمارت آیینه‌خانهٔ مفخم بجنورد با ایوان ستون‌دار قاجاری",
+   "note": "شناسهٔ بجنورد در ذهن بیشتر مسافرها همین عمارت است: خانهٔ یارمحمدخان شادلو، سردار مفخم، با تالاری که دیوارهایش آیینه‌کاری شده و ایوانی که رو به باغ دارد. امروز بخشی از آن موزه و دفتر میراث فرهنگی است و بازدیدش برای کسی که یک بعدازظهر در شهر دارد، ساده‌ترین انتخاب.",
+   "points": "آیینه‌کاری تالار اصلی و ایوان قاجاری|موزه و دفتر میراث فرهنگی در همان مجموعه|بازدید کوتاه، حدود نیم ساعت|در خیابان شریعتی شمالی، دسترسی ساده با تاکسی شهری",
+   "highlight": "در مرکز شهر، یک بازدید نیم‌ساعته که تاریخ خراسان شمالی را جمع می‌کند.",
+   "tag": "تاریخی"
+  },
+  {
+   "city_id": 71,
+   "place": "پارک بش‌قارداش",
+   "kind": "fun",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Beshghardash_park_bojnord.JPG/1280px-Beshghardash_park_bojnord.JPG",
+   "author": "Samin jazmi",
+   "license": "cc-by-sa-3",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Beshghardash_park_bojnord.JPG",
+   "alt": "استخر و محوطهٔ سبز پارک بش‌قارداش در حاشیهٔ جنوبی بجنورد",
+   "note": "چشمهٔ بش‌قارداش و استخر قدیمی‌اش سال‌هاست نقطهٔ تفریح خانوادگی بجنورد است؛ سایهٔ درخت‌های کهنسال، آب معدنی و فاصلهٔ کوتاه از شهر آن را برای عصرهای تابستان پرطرفدار کرده.",
+   "points": "چشمهٔ آب معدنی و استخر قدیمی|درخت‌های کهنسال و مسیر پیاده‌روی|مناسب پیک‌نیک خانوادگی",
+   "highlight": "چشمه و استخر قدیمی؛ عصرهای تابستان پر است از خانواده‌های بجنوردی.",
+   "tag": "تفریحی"
+  },
+  {
+   "city_id": 71,
+   "place": "پارک آفرینش",
+   "kind": "fun",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b4/Afarinesh_park_bojnord_by_arashk_rajabpour.JPG/1280px-Afarinesh_park_bojnord_by_arashk_rajabpour.JPG",
+   "author": "Arashk rp2",
+   "license": "cc-by-sa-3",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Afarinesh_park_bojnord_by_arashk_rajabpour.JPG",
+   "alt": "نمای پارک آفرینش بجنورد با فضای سبز و مسیرهای پیاده",
+   "note": "پارک آفرینش فضای باز وسیع‌تری برای دوچرخه‌سواری بچه‌ها و پیاده‌روی دارد و به همین دلیل برای خانواده‌هایی که دنبال چند ساعت بدون برنامهٔ خاص هستند، گزینهٔ راحت‌تری است.",
+   "points": "فضای باز و مسیر پیاده‌روی|مناسب دوچرخه و اسکیت بچه‌ها|نزدیک به محله‌های شمالی شهر",
+   "highlight": "فضای بازتر برای دوچرخه و پیاده‌روی، با دسترسی از محله‌های شمالی.",
+   "tag": "تفریحی"
+  },
+  {
+   "city_id": 71,
+   "place": "پارک کودک بجنورد",
+   "kind": "fun",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d5/%D8%A8%D8%AC%D9%86%D9%88%D8%B1%D8%AF_%D9%BE%D8%A7%D8%B1%DA%A9_%DA%A9%D9%88%D8%AF%DA%A9.jpg/1280px-%D8%A8%D8%AC%D9%86%D9%88%D8%B1%D8%AF_%D9%BE%D8%A7%D8%B1%DA%A9_%DA%A9%D9%88%D8%AF%DA%A9.jpg",
+   "author": "Mehraddddi",
+   "license": "cc-by-sa-4",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:%D8%A8%D8%AC%D9%86%D9%88%D8%B1%D8%AF_%D9%BE%D8%A7%D8%B1%DA%A9_%DA%A9%D9%88%D8%AF%DA%A9.jpg",
+   "alt": "وسایل بازی پارک کودک بجنورد",
+   "note": "برای خانواده‌ای که با بچه سفر می‌کند، پارک کودک ساده‌ترین گزینهٔ یک‌ساعتهٔ نزدیک مرکز شهر است؛ وسایل بازی و فضای امن برای بچه‌های کم‌سن.",
+   "points": "وسایل بازی برای بچه‌های کم‌سن|نزدیک مرکز شهر|یک توقف یک‌ساعته",
+   "highlight": "توقف یک‌ساعتهٔ بچه‌ها، نزدیک مرکز شهر.",
+   "tag": "خانوادگی"
+  }
+ ]
+}

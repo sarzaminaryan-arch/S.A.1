@@ -1,0 +1,51 @@
+{
+ "note": "کار ۱۲۵: نصب ۲.۲۲.۱۰۱ (مسیر پاک‌سازی نسخه‌های اضافی) و پاک‌سازی کتابخانهٔ بجنورد. سه اجرای واردکردن برای هر مکان چند پیوست ساخت (۹ پیوست برای ۴ مکان). مسیر prune برای هر مکان جدیدترین را نگه می‌دارد و بقیه را به زباله‌دان می‌برد (۳۰ روز قابل بازگردانی). دوباره‌فرستادن دسته هم پیش از پاک‌سازی انجام می‌شود تا کلید «مکان» روی همهٔ پیوست‌ها ثبت شود. پشتیبان کامل و برگشت خودکار به ۲.۲۲.۱۰۰.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.101",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/"
+   ],
+   "rollback_to": "2.22.100"
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-bojnord.json"
+  },
+  {
+   "cmd": "photos-prune",
+   "city_id": 71,
+   "owner_approved": true,
+   "dry_run": true
+  },
+  {
+   "cmd": "photos-prune",
+   "city_id": 71,
+   "owner_approved": true
+  },
+  {
+   "cmd": "photos",
+   "city_id": 71
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bojnord/?sa_probe=64"
+   ]
+  }
+ ]
+}

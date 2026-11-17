@@ -44,3 +44,16 @@ gated = dict(no_coords, map_iframes=1, map_frame_buttons=1)
 assert wa.unhealthy_pages([gated]), "the retired «بارگذاری نقشه» button must still fail the probe"
 
 print("PASS: probe parser detects county cover markup, JSON-LD images and the open map iframe (no load button).")
+
+# 2) Licensed place photos: the credit line is part of the design, so the probe counts it.
+photo_html = """<section class="sa-spotlight"><figure class="sa-photo__frame sa-spotlight__frame">
+<img src="a.jpg" alt="x"><figcaption class="sa-photo__credit">عکس: الف · CC BY-SA 3.0</figcaption></figure></section>
+<section class="sa-strip"><article class="sa-strip__tile"><img src="b.jpg" alt="y">
+<p class="sa-strip__credit">عکس: ب · CC BY-SA 3.0</p></article>
+<article class="sa-strip__tile"><img src="c.jpg" alt="z"></article></section>"""
+pp = wa._SeoParser()
+pp.feed(photo_html)
+assert pp.spotlight == 1 and pp.spotlight_credits == 1, (pp.spotlight, pp.spotlight_credits)
+assert pp.strip_tiles == 2 and pp.strip_credits == 1, (pp.strip_tiles, pp.strip_credits)
+assert pp.imgs == 3 and pp.imgs_no_alt == 0, (pp.imgs, pp.imgs_no_alt)
+print("PASS: probe counts the photo spotlight, the three-tile strip and every credit line")

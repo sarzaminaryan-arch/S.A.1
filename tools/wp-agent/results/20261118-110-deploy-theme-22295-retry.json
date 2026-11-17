@@ -1,0 +1,920 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-110-deploy-theme-22295-retry.json",
+  "started_utc": "2026-11-17T00:30:08+00:00",
+  "note": "تلاش دوم انتشار قالب ۲.۲۲.۹۵ (کار ۱۰۹ با ۴۰۹ رد شد چون Release هنگام اجرا ساخته نشده بود؛ اکنون sarzaminaryan-child-v2.22.95 با ZIP منتشر شده). تنها تغییر داده است: بلوک «از تجربهٔ مسافران» اردبیل دیگر نمی‌گوید «قطار ندارد».",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.93",
+          "loaded": "2.22.93",
+          "log": [
+            {
+              "time_gmt": "2026-11-16T09:51:39+00:00",
+              "from": "2.22.86",
+              "to": "2.22.87",
+              "wanted": "2.22.87",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T09:52:13+00:00",
+              "from": "2.22.87",
+              "to": "2.22.86",
+              "wanted": "2.22.86",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T10:00:04+00:00",
+              "from": "2.22.86",
+              "to": "2.22.88",
+              "wanted": "2.22.88",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T13:42:39+00:00",
+              "from": "2.22.88",
+              "to": "2.22.90",
+              "wanted": "2.22.90",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T17:15:15+00:00",
+              "from": "2.22.90",
+              "to": "2.22.91",
+              "wanted": "2.22.91",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1278,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ardabil/",
+            "status": 200,
+            "ms": 1184,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اردبیل؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ardabil/",
+            "desc": "راهنمای شهرستان اردبیل: جمعیت ۶۰۵٬۹۹۲ نفر و سه بخش، مجموعهٔ جهانی شیخ صفی‌الدین، بازار قیصریه، شورابیل، آش دوغ و حلوای سیاه، و دو واقعیت تلخ شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "og:description": "از شیخ صفی و بازار قیصریه تا شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، خوراک و دو واقعیت تلخ اردبیل.",
+              "og:url": "https://sarzaminaryan.ir/city/ardabil/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19498,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/zanjan/",
+            "status": 200,
+            "ms": 1121,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان زنجان؛ راهنمای سفر، جاذبه‌ها و تاریخ زنجان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/zanjan/",
+            "desc": "راهنمای شهرستان زنجان: جمعیت ۵۲۱٬۳۰۲ نفر و سه بخش، بازار سرپوشیده و رختشویخانه، موزهٔ مردان نمکی، گاوازنگ و حسن ابدال، جغور بغور و چاقوی زنجان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد",
+              "og:description": "از بازار سرپوشیده و رختشویخانه تا مردان نمکی و گاوازنگ؛ راهنمای اقامت، خوراک و دو مشکل واقعی زنجان.",
+              "og:url": "https://sarzaminaryan.ir/city/zanjan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19836,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/rasht/",
+            "status": 200,
+            "ms": 1103,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رشت؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/rasht/",
+            "desc": "راهنمای شهرستان رشت: جمعیت ۹۵۶٬۹۷۱ نفر و شش بخش، بازار بزرگ و میدان شهرداری، پارک جنگلی سراوان، موزهٔ میراث روستایی، میرزاقاسمی و رشته‌خشکار، و مشکل",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "og:description": "از بازار بزرگ و میدان شهرداری تا سراوان و موزهٔ میراث روستایی؛ راهنمای اقامت، خوراک و دو مشکل واقعی رشت.",
+              "og:url": "https://sarzaminaryan.ir/city/rasht/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18634,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "bb04e7f28d3d",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=bb04e7f28d3d دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-17T00:30:18+00:00",
+              "age_seconds": 31,
+              "success": true,
+              "errors": 0,
+              "nonce": "bb04e7f28d3d",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-17T00:30:18+00:00",
+            "job": {
+              "nonce": "bb04e7f28d3d",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.93",
+          "to": "2.22.95",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.95",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794875475",
+            "status": 200,
+            "ms": 1893,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ardabil/?sa_probe=1794875478",
+            "status": 200,
+            "ms": 1365,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اردبیل؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ardabil/",
+            "desc": "راهنمای شهرستان اردبیل: جمعیت ۶۰۵٬۹۹۲ نفر و سه بخش، مجموعهٔ جهانی شیخ صفی‌الدین، بازار قیصریه، شورابیل، آش دوغ و حلوای سیاه، و دو واقعیت تلخ شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "og:description": "از شیخ صفی و بازار قیصریه تا شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، خوراک و دو واقعیت تلخ اردبیل.",
+              "og:url": "https://sarzaminaryan.ir/city/ardabil/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19498,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/zanjan/?sa_probe=1794875480",
+            "status": 200,
+            "ms": 1229,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان زنجان؛ راهنمای سفر، جاذبه‌ها و تاریخ زنجان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/zanjan/",
+            "desc": "راهنمای شهرستان زنجان: جمعیت ۵۲۱٬۳۰۲ نفر و سه بخش، بازار سرپوشیده و رختشویخانه، موزهٔ مردان نمکی، گاوازنگ و حسن ابدال، جغور بغور و چاقوی زنجان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد",
+              "og:description": "از بازار سرپوشیده و رختشویخانه تا مردان نمکی و گاوازنگ؛ راهنمای اقامت، خوراک و دو مشکل واقعی زنجان.",
+              "og:url": "https://sarzaminaryan.ir/city/zanjan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19836,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/rasht/?sa_probe=1794875482",
+            "status": 200,
+            "ms": 1304,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رشت؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/rasht/",
+            "desc": "راهنمای شهرستان رشت: جمعیت ۹۵۶٬۹۷۱ نفر و شش بخش، بازار بزرگ و میدان شهرداری، پارک جنگلی سراوان، موزهٔ میراث روستایی، میرزاقاسمی و رشته‌خشکار، و مشکل",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "og:description": "از بازار بزرگ و میدان شهرداری تا سراوان و موزهٔ میراث روستایی؛ راهنمای اقامت، خوراک و دو مشکل واقعی رشت.",
+              "og:url": "https://sarzaminaryan.ir/city/rasht/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18634,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "all"
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/ardabil/?sa_probe=51",
+            "status": 200,
+            "ms": 2206,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اردبیل؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ardabil/",
+            "desc": "راهنمای شهرستان اردبیل: جمعیت ۶۰۵٬۹۹۲ نفر و سه بخش، مجموعهٔ جهانی شیخ صفی‌الدین، بازار قیصریه، شورابیل، آش دوغ و حلوای سیاه، و دو واقعیت تلخ شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "og:description": "از شیخ صفی و بازار قیصریه تا شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، خوراک و دو واقعیت تلخ اردبیل.",
+              "og:url": "https://sarzaminaryan.ir/city/ardabil/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19498,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/zanjan/?sa_probe=51",
+            "status": 200,
+            "ms": 1355,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان زنجان؛ راهنمای سفر، جاذبه‌ها و تاریخ زنجان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/zanjan/",
+            "desc": "راهنمای شهرستان زنجان: جمعیت ۵۲۱٬۳۰۲ نفر و سه بخش، بازار سرپوشیده و رختشویخانه، موزهٔ مردان نمکی، گاوازنگ و حسن ابدال، جغور بغور و چاقوی زنجان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد",
+              "og:description": "از بازار سرپوشیده و رختشویخانه تا مردان نمکی و گاوازنگ؛ راهنمای اقامت، خوراک و دو مشکل واقعی زنجان.",
+              "og:url": "https://sarzaminaryan.ir/city/zanjan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان زنجان — شهری که چاقو و ملیله و جغور بغور را با هم دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-zanjan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19836,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/rasht/?sa_probe=51",
+            "status": 200,
+            "ms": 1202,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رشت؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/rasht/",
+            "desc": "راهنمای شهرستان رشت: جمعیت ۹۵۶٬۹۷۱ نفر و شش بخش، بازار بزرگ و میدان شهرداری، پارک جنگلی سراوان، موزهٔ میراث روستایی، میرزاقاسمی و رشته‌خشکار، و مشکل",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "og:description": "از بازار بزرگ و میدان شهرداری تا سراوان و موزهٔ میراث روستایی؛ راهنمای اقامت، خوراک و دو مشکل واقعی رشت.",
+              "og:url": "https://sarzaminaryan.ir/city/rasht/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18634,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1217,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "get",
+      "result": {
+        "id": 141,
+        "type": "city",
+        "status": "publish",
+        "slug": "ardabil",
+        "title": "شهرستان اردبیل",
+        "content": "<!-- sa:sec:intro -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اردبیل؛ شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اردبیل روی دشتی بلند در شمال غرب ایران نشسته و از سه طرف در کوه محاصره است: سبلان در غرب، تالش در شرق و بزغوش در جنوب. همین موقعیت، شهر را از دیرباز به یک دژ طبیعی تبدیل کرده و هوایش را چند درجه از دشت‌های اطراف سردتر. زمستانش طولانی است و مردم شهر می‌گویند سالشان دو فصل دارد: فصل سرما و فصل چند هفته‌ای که بهار و تابستانش هست.<sup class=\"sa-cite\"><a href=\"https://sppl.ui.ac.ir/article_30142.html\">1</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>شهرستان اردبیل ۶۰۵٬۹۹۲ نفر جمعیت دارد و خود شهر ۵۲۹٬۳۷۴ نفر، بر پایهٔ سرشماری ۱۳۹۵. سه بخش دارد: مرکزی، هیر و ثمرین؛ ده دهستان و شش شهر: اردبیل، هیر، ثمرین، آراللو، خیارک و وکیل‌آباد. این تقسیمات تازه است؛ بخش ثمرین در سال‌های اخیر شکل گرفت و همین باعث می‌شود آمارهای قدیمی‌تر با امروز نخواند.<sup class=\"sa-cite\"><a href=\"https://sppl.ui.ac.ir/article_30142.html\">1</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای مسافر، اردبیل یک توقف بین‌راهی نیست و هرگز نبوده. مجموعهٔ شیخ صفی‌الدین تنها اثر ثبت جهانی استان است و در دل بافت مرکزی شهر نشسته؛ دریاچهٔ شورابیل هم داخل محدودهٔ شهری است. کمتر شهری در ایران این ترکیب را دارد که هم گنبدی با کاشی‌کاری فیروزه‌ای و چینی‌خانه داشته باشد و هم دریاچه‌ای که مردم عصرها دورش پیاده‌روی می‌کنند.<sup class=\"sa-cite\"><a href=\"https://www.iribnews.ir/fa/news/3055622/\">2</a></sup><sup class=\"sa-cite\"><a href=\"https://tabnak.ir/fa/news/400679/\">3</a></sup></p><!-- /wp:paragraph -->\n<!-- /sa:sec:intro -->\n\n<!-- sa:sec:map -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">شهرستان اردبیل کجاست؟ موقعیت روی نقشه و همسایه‌ها</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>دشت اردبیل یک کاسهٔ بسته است. از غرب و شمال غرب دامنه‌های سبلان بالا می‌آید، از شرق کوه‌های تالش و از جنوب بزغوش؛ و راه خروج شهر از سمت شرق و گردنه‌های سمت آستارا می‌گذرد. رود بالیقلی‌چای از وسط همین دشت می‌آید و از شهر می‌گذرد و پل‌های تاریخی روی همین رود ساخته شده‌اند.<sup class=\"sa-cite\"><a href=\"https://www.destinationiran.com/fa/پل-هفت-چشمه-اردبیل.htm\">4</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>این بسته‌بودن دو نتیجهٔ عملی برای مسافر دارد. اول این‌که رسیدن زمینی زیباتر از راه‌های دشت است اما پیچ و گردنه دارد و در زمستان جدی می‌شود؛ دوم این‌که همه‌چیز در مرکز شهر جمع است و برای رفتن به شهرهای اطراف، از آبگرم تا جنگل، از همین شهر راه می‌افتید. فاصله‌ها کوتاه است، ولی جاده‌ها کوهستانی.<sup class=\"sa-cite\"><a href=\"https://sppl.ui.ac.ir/article_30142.html\">1</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>سه بخش شهرستان سه چهرهٔ متفاوت دارند: بخش مرکزی همان شهر با روستاهای پیرامون است و اردبیل در آن متمرکز شده؛ بخش هیر در شمال شرقی با شهرهای کوچک هیر و آراللو، جایی که باغ‌ها و دامداری بیشتری هست؛ و بخش ثمرین در شمال غربی، در مسیر قدیم اردبیل به مشگین، با روستاهایی که هنوز بافت قدیمشان را نگه داشته‌اند. برای مسافر، هر دو بخش بیرونی برای نیم‌روز گشت روستایی خوب‌اند، نه بیشتر.<sup class=\"sa-cite\"><a href=\"https://sppl.ui.ac.ir/article_30142.html\">1</a></sup></p><!-- /wp:paragraph -->\n<!-- /sa:sec:map -->\n\n<!-- sa:sec:history -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">تاریخ و پیشینه</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اردبیل از شهرهای کهن ایران است و پیش از حملهٔ مغول مرکز آذربایجان بود. نامش را آرتاویل، به معنای شهر مقدس، هم آورده‌اند و در اسناد دورهٔ اسلامی به شکل اردبیل تکرار شده. آنچه امروز اهمیتش را می‌سازد، اما یک دورهٔ خاص است: خاستگاه صفویان.<sup class=\"sa-cite\"><a href=\"https://arums.ac.ir/fa/page/1600/\">5</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>شیخ صفی‌الدین اردبیلی، جد اعلای صفویان، در همین شهر خانقاه داشت و مقبره‌اش را در کنار همان خانقاه ساختند. فرزندانش و بعدها شاهان صفوی، مخصوصاً شاه طهماسب و شاه عباس اول، مجموعه را گسترش دادند: چینی‌خانه، جنت‌سرا، حرم‌خانه و قندیل‌خانه در همین دوره‌ها ساخته یا بازسازی شد. حالا این مجموعه با شمارهٔ ۶۴ در فهرست آثار ملی ثبت است و در مرداد ۱۳۸۹، به‌عنوان یازدهمین اثر ایران، در یونسکو ثبت جهانی شد.<sup class=\"sa-cite\"><a href=\"https://arums.ac.ir/fa/page/1600/\">5</a></sup><sup class=\"sa-cite\"><a href=\"https://www.iribnews.ir/fa/news/3055622/\">2</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>بازار هم از همان اقتصاد صفوی جان گرفت. بازار کنونی یادگار دورهٔ صفوی و قاجار است، اما نامش در سدهٔ چهارم هجری هم آمده؛ سیاحان آن دوره بازار را صلیبی‌شکل با مسجدی در میان توصیف کرده‌اند. مجموعه در ۱۳۶۴ مرمت و با شمارهٔ ۱۶۹۰ ثبت ملی شد و امروز حدود ۲۵ سرا و راسته در آن کار می‌کند.<sup class=\"sa-cite\"><a href=\"https://www.mehrnews.com/news/3923455/\">6</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>قرن چهاردهم شمسی برای اردبیل با یک انتظار طولانی گره خورده: راه‌آهن. عملیات اجرای خط میانه–اردبیل به طول ۱۷۵ کیلومتر از ۱۳۸۴ آغاز شد و تکمیلش حدود دو دهه طول کشید. با افتتاح خط در اسفند ۱۴۰۴، شهری که سال‌ها فقط با جاده و هوا به شبکه وصل بود، صاحب ایستگاه قطار شد و از شهریور ۱۴۰۵ قطار مسافری تهران–اردبیل هم روی همین خط راه افتاد.<sup class=\"sa-cite\"><a href=\"https://www.mehrnews.com/news/6744876/\">7</a></sup><sup class=\"sa-cite\"><a href=\"https://www.yjc.ir/fa/news/9122177/\">8</a></sup></p><!-- /wp:paragraph -->\n<!-- /sa:sec:history -->\n\n<!-- sa:sec:people -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">مردم، زبان و هنرها</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>زبان روزمرهٔ شهر ترکی آذربایجانی است و فارسی همه‌جا کار می‌کند. در استان چند زبان دیگر هم هست، تاتی و تالشی و کردی، اما در خود اردبیل لهجهٔ ترکی شهر غالب است. برای مسافر این یعنی در بازار و تاکسی با ترکی راه می‌افتید و در اداره و هتل با فارسی؛ هیچ‌کدام مانع نیست.<sup class=\"sa-cite\"><a href=\"https://sppl.ui.ac.ir/article_30142.html\">1</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>اردبیلی‌ها را با خونگرمی و سفره می‌شناسند. آش دوغ، که در شهر به آن آیران آشی می‌گویند، از غذاهای امضای استان است و در بیشتر آش‌فروشی‌های مرکز شهر پخته می‌شود؛ ترش و خنک و بیشتر از آنکه پیش‌غذا باشد، یک وعدهٔ کامل است. حلوای سیاه هم شیرینی سنگین شهر است که با آرد جوانهٔ گندم و شیره درست می‌شود و برای سوغات، وزن و ماندگاری زیادی دارد.<sup class=\"sa-cite\"><a href=\"https://www.tahlilbazaar.com/news/43911/\">9</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>چیزی که در چهرهٔ شهر معلوم است، نسبت مردم با سرماست. کوهنوردی و پیاده‌روی در دامنهٔ سبلان بخشی از زندگی روزمره است، پیست اسکی آلوارس هم کمی آن‌سوتر، در شهرستان سرعین و روی دامنهٔ همان کوه، کار می‌کند، و تابستانش هم شب‌های خنکی دارد که بی‌لباس گرم نمی‌گذرد. برای مسافر، همین یک نکته بیشتر کارها را راه می‌اندازد: لباس لایه‌لایه بردارید.<sup class=\"sa-cite\"><a href=\"https://sppl.ui.ac.ir/article_30142.html\">1</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>ترکی آذربایجانی زبان روزمره؛ فارسی زبان اداره و آموزش</li><!-- /wp:list-item --><!-- wp:list-item --><li>آش دوغ (آیران آشی) و حلوای سیاه، غذای امضای شهر</li><!-- /wp:list-item --><!-- wp:list-item --><li>کوهنوردی و اسکی در دامنهٔ سبلان، بخشی از زندگی روزمره</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n<!-- /sa:sec:people -->\n\n<!-- sa:sec:economy -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">اقتصاد و معیشت</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اقتصاد شهرستان بر کشاورزی و دامداری دشت و دامنه‌ها ایستاده است: گندم، جو و سیب‌زمینی در زمین‌های هموار، و دامداری در روستاهای کوهستانی که لبنیاتش، از سرشیر تا کرهٔ محلی، به شهر می‌آید. عسل سبلان هم برند شناخته‌شدهٔ همین دامنه‌هاست و در بازار شهر فروشندگان متعددی دارد.<sup class=\"sa-cite\"><a href=\"https://sppl.ui.ac.ir/article_30142.html\">1</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>در کنار آن، گردشگری در دو دههٔ گذشته سهم بزرگ‌تری گرفته است. مجموعهٔ شیخ صفی و شورابیل دو قطب اصلی‌اند و شهرهای اطراف استان، از سرعین تا فندقلو، بیشتر مسافرانشان را از اردبیل می‌گیرند. در سال ۱۴۰۲ هم اردبیل پایتخت گردشگری کشورهای عضو اکو بود و همین عنوان، توجه و سرمایه‌گذاری تازه‌ای به شهر آورد.<sup class=\"sa-cite\"><a href=\"https://www.iribnews.ir/fa/news/3055622/\">2</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>بازار شهر هنوز نبض اقتصاد روزمره است: راستهٔ قیصریه با فرش و طلا و پارچه، سراهای خشکبار و عطاری، و مغازه‌های عسل و حلوا که برای مسافر کار می‌کنند. صنایع دستی هم هست، گلیم و جاجیم و سفال، اما مثل هر شهر دیگری تفاوت قیمت و کیفیت زیاد است؛ برای خرید جدی، وقت بگذارید و از فروشندهٔ ثابت بخرید.<sup class=\"sa-cite\"><a href=\"https://www.mehrnews.com/news/3923455/\">6</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>کشاورزی دشت: گندم، جو، سیب‌زمینی و باغ‌ها</li><!-- /wp:list-item --><!-- wp:list-item --><li>دامداری دامنه‌ها و لبنیات؛ عسل سبلان</li><!-- /wp:list-item --><!-- wp:list-item --><li>بازار سنتی، صنایع دستی (گلیم، جاجیم، سفال) و گردشگری</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n<!-- /sa:sec:economy -->\n\n<!-- sa:sec:stay -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">راه رسیدن و جای ماندن</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>اقامت اردبیل دو محدودهٔ روشن دارد. مرکز شهر، دور خیابان شیخ صفی و بازار، بهترین انتخاب برای کسی است که می‌خواهد مجموعهٔ شیخ صفی و بازار و بافت قدیم را پیاده ببیند؛ بیشتر هتل‌های قدیمی و اقتصادی شهر هم همین‌جا هستند. محدودهٔ دوم سمت شورابیل است: هتل‌هایی که پنجره‌شان به دریاچه باز می‌شود و برای خانواده با خودرو راحت‌ترند.<sup class=\"sa-cite\"><a href=\"https://www.epersianhotel.com/\">10</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>یک نکتهٔ عملی که در نظر مسافران زیاد تکرار شده: هتل‌های دور دریاچه منظره و موقعیتشان بهتر از امکاناتشان است. چند نظر از اتاق‌هایی می‌گوید که در تابستان کولر نداشته‌اند یا صبحانه‌شان ساده بوده. اگر سفرتان در تیر و مرداد است، پیش از رزرو صریح بپرسید اتاق کولر دارد و صبحانه چه چیزی سرو می‌شود؛ همین یک تماس، تجربهٔ اقامت را عوض می‌کند.<sup class=\"sa-cite\"><a href=\"https://www.hamyarsafar.com/\">11</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>برای اقامت بوم‌گردی، روستاهای اطراف شهر گزینه دارند، از سردابه تا مسیر ثمرین، اما تعدادشان کم است. در تابستان و تعطیلات، شهر به‌خاطر جشنواره‌ها و مسافران استان‌های جنوبی زود پر می‌شود؛ رزرو چند هفته قبل در اردیبهشت و مرداد تفاوت زیادی می‌کند.<sup class=\"sa-cite\"><a href=\"https://www.epersianhotel.com/\">10</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:list --><ul class=\"wp-block-list\"><!-- wp:list-item --><li>مرکز شهر و خیابان شیخ صفی: شیخ صفی و بازار پیاده، هتل‌های قدیمی و اقتصادی</li><!-- /wp:list-item --><!-- wp:list-item --><li>دور شورابیل: منظرهٔ دریاچه، مناسب خودرو و خانواده، امکاناتش را قبل از رزرو بپرسید</li><!-- /wp:list-item --><!-- wp:list-item --><li>بوم‌گردی روستاهای اطراف: طبیعت و سکوت، تعداد کم، رزرو قبلی لازم</li><!-- /wp:list-item --></ul><!-- /wp:list -->\n<!-- /sa:sec:stay -->\n\n<!-- sa:sec:notables -->\n<!-- wp:heading --><h2 class=\"wp-block-heading\">آنچه در اردبیل می‌بینید و تجربه می‌کنید</h2><!-- /wp:heading -->\n\n<!-- wp:paragraph --><p>مجموعهٔ شیخ صفی‌الدین را با حوصله ببینید؛ حداقل دو ساعت. گنبد معروف به الله‌الله، چینی‌خانه با طاق‌نماهای گچی و طلاکاری‌اش، جنت‌سرا، دارالحفاظ و شهیدگاه همه در یک محوطه‌اند و آرامگاه شاه اسماعیل اول هم همین‌جاست. چینی‌خانه در دورهٔ شاه عباس اول محل نگهداری ظروف نفیس اهدایی از چین بود و به همین نام مانده. اگر راهنما بگیرید، قصهٔ صفویه را یک‌جا می‌شنوید؛ بدون آن، نصف بناها شبیه هم به نظر می‌رسند.<sup class=\"sa-cite\"><a href=\"https://arums.ac.ir/fa/page/1600/\">5</a></sup><sup class=\"sa-cite\"><a href=\"https://www.iribnews.ir/fa/news/3055622/\">2</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>بازار بزرگ اردبیل دو طرف خیابان امام خمینی کشیده شده و قدمتش را دست‌کم تا سدهٔ هفتم هجری عقب می‌برند. راستهٔ قیصریه مهم‌ترین بخش آن است و راسته‌هایی به نام زرگران، سراجان، خراطان، قصابان و بقالان دارد. حدود ۲۵ سرا و راسته در آن فعال است و سرای وکیل و تیمچهٔ زنجیرلو از شناخته‌شده‌هایش‌اند. برای خرید عسل و حلوا و گلیم، همین بازار کافی است.<sup class=\"sa-cite\"><a href=\"https://www.mehrnews.com/news/3923455/\">6</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>مسجد جامع، که مردم شهر جمعه‌مسجد می‌نامندش، در محلهٔ پیرشمس‌الدین و در میان گورستانی کهن است و به دورهٔ سلجوقی می‌رسد. بخش تیرپوش آن روی نه ستون چوبی نشسته و مناره‌اش یادگار همان دوره است. مسجد در ۱۳۱۵ ثبت ملی شد و در ۱۳۶۷ کاوش باستان‌شناسی در آن سفال‌هایی از سدهٔ چهارم هجری بیرون داد. اینجا از آن جاهایی است که توریست‌ها کمتر می‌روند و محلی‌ها بیشتر.<sup class=\"sa-cite\"><a href=\"https://jazebeha.com/1398/06/مسجد-جامع-اردبیل\">12</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>پل هفت‌چشمه روی بالیقلی‌چای، در حد فاصل میدان یحیوی و میدان ۱۵ خرداد، یادگار دورهٔ صفوی است و ساختارش با پل‌های اصفهان هم‌خانواده است: پایه‌های سنگی، موج‌شکن و طاق‌های هلالی. در ۱۳۴۸ ثبت ملی شد، در ۱۳۷۴ بازسازی شد و امروز یکی از نقاط خوب شهر برای عکس عصرگاهی است. کنارش می‌شود روی حاشیهٔ رود قدم زد.<sup class=\"sa-cite\"><a href=\"https://www.destinationiran.com/fa/پل-هفت-چشمه-اردبیل.htm\">4</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>دریاچهٔ شورابیل داخل شهر است و همین آن را در ایران کم‌نظیر می‌کند: حدود ۱۸۰ هکتار آب و خشکی دورش، با مسیر پیاده‌روی چند کیلومتری، شهربازی، قایق‌سواری و کافه. عصرهای تابستان پاتوق واقعی مردم است. صادقانه، آبش شور است و شنا در آن معنا ندارد؛ ارزشش در قدم‌زدن و منظره است، نه در آب.<sup class=\"sa-cite\"><a href=\"https://tabnak.ir/fa/news/400679/\">3</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>و یک هشدار که در متن می‌آید: شورابیل وضعیت خوبی ندارد. کارشناسان و اعضای شورای شهر سال‌هاست دربارهٔ ساخت‌وساز در حریم دریاچه، ورود پساب و نخاله از شهرک‌های همجوار و خطر تبدیل‌شدنش به مرداب هشدار می‌دهند. در سال‌های اخیر شورابیل به فهرست تالاب‌های مشمول آیین‌نامهٔ منع تخریب و آلودگی پیوست تا پشتوانهٔ قانونی حفاظتش بیشتر شود. اگر با انتظار یک دریاچهٔ پاک می‌روید، انتظارتان را پایین بیاورید.<sup class=\"sa-cite\"><a href=\"https://tabnak.ir/fa/news/400679/\">3</a></sup><sup class=\"sa-cite\"><a href=\"https://www.irib-news.ir/fa/news/5892908/\">13</a></sup></p><!-- /wp:paragraph -->\n\n<!-- wp:paragraph --><p>خوردن: آش دوغ (آیران آشی) غذای امضای شهر است، ترش و خنک، با سبزی و حبوبات و دوغ؛ در بیشتر آش‌فروشی‌های مرکز شهر پیدا می‌شود و برای ناهار سنگین است. پیچاق‌قیمه با گوشت و خلال بادام، و در سمت شیرینی حلوای سیاه و فطیر و سرشیر. برای سوغات، عسل سبلان را از فروشنده‌ای بخرید که مبدأ و رنگ عسل را توضیح می‌دهد.<sup class=\"sa-cite\"><a href=\"https://www.tahlilbazaar.com/news/43911/\">9</a></sup></p><!-- /wp:paragraph -->\n<!-- /sa:sec:notables -->",
+        "excerpt": "شهرستان اردبیل از مجموعهٔ جهانی شیخ صفی و بازار قیصریه تا دریاچهٔ شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، آش دوغ و حلوای سیاه، و دو واقعیت تلخ: وضع شورابیل و زمستان سخت.",
+        "parent": 0,
+        "menu_order": 0,
+        "author": 1,
+        "date_gmt": "2026-10-07 20:09:48",
+        "modified_gmt": "2026-11-17 00:20:58",
+        "featured_media": 3618,
+        "link": "https://sarzaminaryan.ir/city/ardabil/",
+        "meta": {
+          "sa_city_slug": "ardabil",
+          "sa_city_population": "۵۲۹٬۳۷۴",
+          "sa_city_latitude": "38.2514",
+          "sa_city_longitude": "48.2973",
+          "sa_access_air": "فرودگاه اردبیل با پروازهای داخلی به تهران و مشهد",
+          "sa_access_rail": "ایستگاه راه‌آهن اردبیل در خط میانه–اردبیل؛ قطار مسافری تهران–اردبیل از شهریور ۱۴۰۵",
+          "sa_access_road": "محور تهران–اردبیل از گردنه‌های خلخال و سرچم؛ اردبیل–تبریز حدود ۲۲۰ کیلومتر و اردبیل–سرعین حدود ۳۰ کیلومتر",
+          "sa_google_map_url": "https://maps.google.com/?q=Ardabil+Iran",
+          "sa_city_schema_type": "City + TouristDestination",
+          "sa_schema_sameas": "https://fa.wikipedia.org/wiki/اردبیل",
+          "sa_schema_contained_in": "ardabil",
+          "sa_seo_title": "شهرستان اردبیل؛ شیخ صفی، شورابیل و بازار قیصریه",
+          "sa_seo_description": "راهنمای شهرستان اردبیل: جمعیت ۶۰۵٬۹۹۲ نفر و سه بخش، مجموعهٔ جهانی شیخ صفی‌الدین، بازار قیصریه، شورابیل، آش دوغ و حلوای سیاه، و دو واقعیت تلخ شهر.",
+          "sa_focus_keyword": "شهرستان اردبیل",
+          "sa_og_title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+          "sa_og_description": "از شیخ صفی و بازار قیصریه تا شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، خوراک و دو واقعیت تلخ اردبیل.",
+          "sa_faq": "[{\"q\": \"شهرستان اردبیل در کدام استان است و مرکزش کدام شهر است؟\", \"a\": \"در استان اردبیل؛ مرکز آن شهر اردبیل است که مرکز استان هم هست و در ارتفاع حدود ۱٬۳۵۱ متری روی دشتی بلند قرار دارد.\"}, {\"q\": \"جمعیت شهرستان اردبیل چقدر است؟\", \"a\": \"۶۰۵٬۹۹۲ نفر بر پایهٔ سرشماری ۱۳۹۵؛ شهر اردبیل به تنهایی ۵۲۹٬۳۷۴ نفر جمعیت دارد.\"}, {\"q\": \"شهرستان اردبیل چند بخش و چند شهر دارد؟\", \"a\": \"سه بخش (مرکزی، هیر، ثمرین)، ده دهستان و شش شهر: اردبیل، هیر، ثمرین، آراللو، خیارک و وکیل‌آباد.\"}, {\"q\": \"مساحت شهرستان اردبیل چقدر است؟\", \"a\": \"حدود ۲٬۵۵۷ کیلومتر مربع؛ منبعی دیگر ۳٬۸۱۰ کیلومتر مربع آورده و اختلاف از تغییر تقسیمات و الحاق بخش‌ها می‌آید. عدد ۲٬۵۵۷ مبنای این صفحه است.\"}, {\"q\": \"بهترین زمان سفر به اردبیل کدام فصل است؟\", \"a\": \"خرداد تا شهریور و نیمهٔ اول مهر؛ نیمهٔ اول بهار هنوز سرد است، تیر و مرداد بهترین هوای شهر است و از آبان سرما جدی می‌شود.\"}, {\"q\": \"چرا اردبیل این‌قدر سرد است؟\", \"a\": \"چون روی دشتی بلند و بسته در ارتفاع حدود ۱٬۳۵۰ متری و در میان کوه‌های سبلان، تالش و بزغوش نشسته است؛ همین محاصرهٔ کوهستانی هوا را سرد و زمستان را طولانی می‌کند.\"}, {\"q\": \"چه چیزی را در اردبیل نباید از دست داد؟\", \"a\": \"مجموعهٔ شیخ صفی‌الدین با چینی‌خانه و گنبد الله‌الله، و بعد بازار قیصریه. اگر عصر وقت داشتید، دور شورابیل و پل هفت‌چشمه. یک روز کامل برای شهر کافی است.\"}, {\"q\": \"مجموعهٔ شیخ صفی چه زمانی ثبت جهانی شد؟\", \"a\": \"در مرداد ۱۳۸۹ به‌عنوان یازدهمین اثر ایران در فهرست میراث جهانی یونسکو؛ پیش از آن در ۱۳۱۰ با شمارهٔ ۶۴ در فهرست آثار ملی ثبت شده بود.\"}, {\"q\": \"آش دوغ اردبیل چه غذایی است و کجا بخوریم؟\", \"a\": \"آش دوغ یا آیران آشی، آش سرد و ترش با دوغ و سبزی و حبوبات که غذای امضای شهر است؛ در آش‌فروشی‌های مرکز شهر و اطراف بازار سرو می‌شود.\"}, {\"q\": \"سوغات اردبیل چیست؟\", \"a\": \"عسل سبلان، حلوای سیاه، فطیر و سرشیر از خوراکی؛ گلیم، جاجیم و سفال از صنایع دستی. بازار قیصریه و اطرافش بهترین جا برای خرید است.\"}, {\"q\": \"دریاچهٔ شورابیل ارزش دیدن دارد؟\", \"a\": \"برای قدم‌زدن و عصرگردی بله؛ حدود ۱۸۰ هکتار آب و خشکی داخل شهر با مسیر پیاده‌روی و کافه. اما آبش شور است و وضعیت زیستی‌اش سال‌هاست هشدار کارشناسان را در پی داشته؛ انتظار دریاچهٔ پاک نداشته باشید.\"}, {\"q\": \"آب و هوای اردبیل چطور است؟\", \"a\": \"سرد و نیمه‌خشک کوهستانی؛ زمستان‌های طولانی و برفی و تابستان معتدل. اختلاف دمای روز و شب زیاد است و شب‌های تابستان هم ممکن است سرد شود.\"}, {\"q\": \"بزرگ‌ترین مشکل اردبیل چیست؟\", \"a\": \"دو چیز: فشار ساخت‌وساز و پساب بر دریاچهٔ شورابیل که آن را به سمت مرداب می‌برد، و زمستان سخت که راه‌های کوهستانی را می‌بندد. آلودگی هوا در بیشتر روزها پایین است، اما در روزهای وارونگی زمستان شاخص بالا می‌رود.\"}, {\"q\": \"از اردبیل به کجا می‌شود رفت؟\", \"a\": \"سرعین و آبگرم‌ها حدود ۳۰ کیلومتر در غرب، جنگل فندقلو در شهرستان نمین، دریاچهٔ نئور در مسیر خلخال، و پیست آلوارس در شهرستان سرعین روی دامنهٔ سبلان؛ تبریز حدود ۲۲۰ کیلومتر و تهران حدود ۵۸۰ کیلومتر.\"}, {\"q\": \"کجا اقامت کنیم؟\", \"a\": \"مرکز شهر و خیابان شیخ صفی برای دیدن پیادهٔ شیخ صفی و بازار؛ محدودهٔ شورابیل برای منظره و خانواده با خودرو. در تابستان امکانات اتاق را قبل از رزرو بپرسید.\"}]",
+          "sa_sources": "مجموعهٔ خانقاهی و آرامگاهی شیخ صفی‌الدین اردبیلی در یک نگاه | دانشگاه علوم پزشکی اردبیل | https://arums.ac.ir/fa/page/1600/ | ۱۴۰۵/۰۸/۲۶\nجاذبه‌های گردشگری استان اردبیل؛ آرامگاه شیخ صفی‌الدین | خبرگزاری صداوسیما | https://www.iribnews.ir/fa/news/3055622/ | ۱۴۰۵/۰۸/۲۶\nبازار قیصریه؛ یادگار مراودات تجاری جادهٔ ابریشم در اردبیل | خبرگزاری مهر | https://www.mehrnews.com/news/3923455/ | ۱۴۰۵/۰۸/۲۶\nپل هفت‌چشمه؛ تاریخچه، ثبت ملی و بازسازی | دستینیشن ایران | https://www.destinationiran.com/fa/پل-هفت-چشمه-اردبیل.htm | ۱۴۰۵/۰۸/۲۶\nمسجد جامع اردبیل، از مساجد کهن و تاریخی شهر | جاذبه‌ها | https://jazebeha.com/1398/06/مسجد-جامع-اردبیل | ۱۴۰۵/۰۸/۲۶\nمرگ تدریجی دریاچهٔ شورابیل اردبیل | تابناک | https://tabnak.ir/fa/news/400679/ | ۱۴۰۵/۰۸/۲۶\nشورابیل در فهرست تالاب‌های مشمول آیین‌نامهٔ منع تخریب قرار گرفت | خبرگزاری صداوسیما | https://www.irib-news.ir/fa/news/5892908/ | ۱۴۰۵/۰۸/۲۶\nشاخص آلودگی هوای استان‌ها؛ وضعیت اردبیل | خبرگزاری ایمنا | https://www.imna.ir/news/926893/ | ۱۴۰۵/۰۸/۲۶\nآغاز نخستین سفر ریلی تهران–اردبیل با قطار | باشگاه خبرنگاران جوان | https://www.yjc.ir/fa/news/9122177/ | ۱۴۰۵/۰۸/۲۶\nراه‌آهن میانه–اردبیل با حضور رئیس‌جمهور افتتاح می‌شود | خبرگزاری مهر | https://www.mehrnews.com/news/6744876/ | ۱۴۰۵/۰۸/۲۶\nشناسایی پیشران‌های توسعهٔ پایدار روستایی؛ شهرستان اردبیل | مجلهٔ پژوهش‌های برنامه‌ریزی شهری، دانشگاه اصفهان | https://sppl.ui.ac.ir/article_30142.html | ۱۴۰۵/۰۸/۲۶\nآش دوغ؛ ارزان‌ترین و پول‌سازترین غذا از حیران تا سبلان | تحلیل بازار | https://www.tahlilbazaar.com/news/43911/ | ۱۴۰۵/۰۸/۲۶\nهتل‌های اردبیل و موقعیتشان | ایران هتل | https://www.epersianhotel.com/ | ۱۴۰۵/۰۸/۲۶\nنظر مسافران دربارهٔ هتل‌های اردبیل | همیار سفر | https://www.hamyarsafar.com/ | ۱۴۰۵/۰۸/۲۶",
+          "sa_province_id": "33",
+          "sa_cty_census_year": "۱۳۹۵",
+          "sa_cty_center": "اردبیل",
+          "sa_cty_cities": "6",
+          "sa_cty_districts": "3",
+          "sa_cty_population": "۶۰۵٬۹۹۲",
+          "sa_cty_rural_districts": "10",
+          "sa_city_elevation": "1351",
+          "sa_cty_neighbors": "meshgin-shahr - شمال\nnamin - شرق\nsarein - غرب\nnir - جنوب\ngivi - جنوب شرقی",
+          "sa_cty_best_time": "خرداد تا شهریور و نیمهٔ اول مهر",
+          "sa_cty_climate": "سرد و نیمه‌خشک کوهستانی؛ زمستان طولانی و برفی، تابستان معتدل و خشک، بهار و پاییز کوتاه",
+          "sa_cty_language": "ترکی آذربایجانی در گفتار روزمره؛ فارسی زبان اداره و آموزش",
+          "sa_cty_livelihood": "کشاورزی دشت (گندم، جو، سیب‌زمینی)، دامداری و لبنیات، عسل سبلان، بازار سنتی و صنایع دستی، گردشگری",
+          "sa_cty_poi_heritage": "مجموعهٔ شیخ صفی‌الدین (ثبت جهانی ۱۳۸۹) / بازار قیصریه / مسجد جامع پیرشمس‌الدین / پل هفت‌چشمه",
+          "sa_cty_poi_nature": "دریاچهٔ شورابیل / درهٔ سردابه و آبشارش / دامنه‌های سبلان / حاشیهٔ بالیقلی‌چای",
+          "sa_cty_poi_recreation": "پیست اسکی آلوارس",
+          "cc_rating_sum": "12",
+          "cc_rating_count": "2",
+          "cc_rating_avg": "6",
+          "_thumbnail_id": "3618",
+          "sa_cty_area": "2557",
+          "sa_cty_distance_center": "0",
+          "sa_cty_poi_offbeat": "چینی‌خانه و شهیدگاه / گورستان پیرشمس‌الدین / سراهای خشکبار بازار / حاشیهٔ بالیقلی‌چای",
+          "neighbors_n": "مشگین‌شهر",
+          "neighbors_s": "نیر",
+          "neighbors_e": "نمین",
+          "neighbors_w": "سرعین",
+          "sa_map_zoom": "11",
+          "sa_facts_checked": "2026-11-16"
+        },
+        "terms": {
+          "province_tax": [
+            "ardabil"
+          ],
+          "travel_season": [
+            "spring",
+            "autumn",
+            "summer"
+          ]
+        },
+        "index_gate": {
+          "index": true,
+          "reason": "",
+          "words": 1841,
+          "places": 11,
+          "label": "ایندکس می‌شود"
+        },
+        "featured_media_missing": false
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T00:31:35+00:00"
+}
