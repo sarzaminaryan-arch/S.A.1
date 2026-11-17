@@ -159,6 +159,21 @@ sa_t_assert( false !== strpos( $out, 'sa-toc__item--l2' ), 'H3 headings nest one
 sa_t_assert( 1 === substr_count( $out, 'class="sa-toc"' ), 'the box is printed once' );
 sa_t_assert( $out === sa_toc_filter( $out ), 'a second run for the same post does not stack another box' );
 
+/* County placement captures one accessible accordion while retaining all anchors. */
+sa_toc_reset();
+$GLOBALS['sa_county_toc_capture'] = true;
+$GLOBALS['sa_county_toc_html'] = '';
+sa_toc_register( 'شناسنامه شهرستان', 'county-identity', 5 );
+$county_body = sa_toc_filter( '{{TOC}}' . $article );
+$county_toc = $GLOBALS['sa_county_toc_html'];
+sa_t_assert( false !== strpos( $county_toc, '<details class="sa-county-accordion">' ), 'county TOC is a closed native accordion' );
+sa_t_assert( false !== strpos( $county_toc, '<summary class="sa-county-accordion__summary">' ), 'county TOC has an accessible summary' );
+sa_t_assert( false !== strpos( $county_toc, 'href="#county-identity"' ), 'county profile heading remains in the TOC' );
+sa_t_assert( false !== strpos( $county_toc, 'href="#already"' ), 'body heading remains in the TOC' );
+sa_t_assert( false === strpos( $county_body, 'sa-toc' ) && false === strpos( $county_body, '{{TOC}}' ), 'county TOC is not duplicated in the body' );
+sa_t_assert( false !== strpos( $county_body, '<h2 id="already">' ), 'body anchor still exists after capture' );
+unset( $GLOBALS['sa_county_toc_capture'], $GLOBALS['sa_county_toc_html'] );
+
 /* Hand-written list (owner’s own markup) wins. */
 sa_toc_reset();
 $manual = '<nav class="sa-toc"><ol class="sa-toc__list"></ol></nav><h2>یک</h2><h2>دو</h2>';

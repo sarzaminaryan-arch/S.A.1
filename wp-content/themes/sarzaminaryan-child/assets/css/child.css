@@ -7908,3 +7908,53 @@ body.bg-lines::before {
 	color: var(--sa-navy-700, #18558f);
 	font-weight: 600;
 }
+
+/* County master 2.22.114: native, keyboard-accessible accordions. */
+.sa-entity--city .sa-toc--county,
+.sa-entity--city .sa-siblings {
+	margin: 0 0 clamp(20px, 3.2vw, 32px);
+	padding: 0;
+	border: 0;
+	border-radius: 14px;
+	background: transparent;
+	box-shadow: none;
+	min-width: 0;
+}
+.sa-entity--city .sa-county-accordion {
+	border: 1px solid rgba(13, 43, 76, .16);
+	border-radius: 14px;
+	overflow: hidden;
+	background: #fff;
+}
+.sa-entity--city .sa-county-accordion__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: .9rem 1.1rem;
+	background: #102e50;
+	color: #ffcc60;
+	font-weight: 800;
+	cursor: pointer;
+	list-style: none;
+}
+.sa-entity--city .sa-county-accordion__summary::-webkit-details-marker { display: none; }
+.sa-entity--city .sa-county-accordion__summary:focus-visible { outline: 3px solid #ffcc60; outline-offset: -4px; }
+.sa-entity--city .sa-county-accordion__icon { font-size: 1.6rem; line-height: 1; }
+.sa-entity--city .sa-county-accordion__icon::before { content: "+"; }
+.sa-entity--city details[open] > .sa-county-accordion__summary .sa-county-accordion__icon::before { content: "−"; }
+.sa-entity--city .sa-toc--county .sa-toc__list,
+.sa-entity--city .sa-county-accordion__body { padding: 1rem; }
+.sa-entity--city .sa-siblings__all { margin: .9rem 0 0; }
+/* Keep each source on a single readable line: individual rows scroll rather than truncate. */
+.sa-entity--city .sa-footnotes__item {
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	max-width: 100%;
+	min-width: 0;
+	overflow-x: auto;
+	overscroll-behavior-inline: contain;
+	padding-block: .35rem;
+	border-bottom: 1px solid rgba(11, 20, 36, .09);
+}
+.sa-entity--city .sa-footnotes__item > * { flex-shrink: 0; }

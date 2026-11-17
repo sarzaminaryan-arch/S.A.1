@@ -79,6 +79,18 @@ $pos_faq     = strpos( $single, "get_template_part( 'template-parts/entity/faq' 
 $pos_related = strpos( $single, 'sa_related_articles( $sa_id, $sa_type )' );
 $pos_nav     = strpos( $single, 'sa_entity_navigation( $sa_id, $sa_type )' );
 sa_sl_assert( false !== $pos_sources && false !== $pos_faq && $pos_sources > $pos_faq, 'order: entity template prints sources after the FAQ' );
+
+$pos_featured = strpos( $single, 'echo sa_county_featured_figure( $sa_id )' );
+$pos_toc = strpos( $single, 'echo $sa_county_toc_html' );
+$pos_profile = strpos( $single, 'echo $sa_county_profile_html' );
+$pos_rating = strpos( $single, 'CC_UI::rating_block()' );
+sa_sl_assert( false !== $pos_featured && $pos_featured < $pos_toc && $pos_toc < $pos_profile, 'county: featured image, accordion TOC, identity card' );
+sa_sl_assert( false !== $pos_rating && $pos_rating > $pos_faq && $pos_rating < $pos_sources, 'county: ratings precede sources' );
+$profile = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
+sa_sl_assert( false !== strpos( $profile, '<details class="sa-county-accordion" id="county-siblings">' ), 'county: siblings use the same accordion' );
+$css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+sa_sl_assert( false !== strpos( $css, 'white-space: nowrap;' ) && false !== strpos( $css, 'overflow-x: auto;' ), 'county: long source lines can scroll without wrapping' );
+
 sa_sl_assert( false !== $pos_related && $pos_sources < $pos_related, 'order: sources close the article, above the suggested-counties block' );
 sa_sl_assert( false !== $pos_nav && $pos_nav > $pos_related, 'order: previous/next navigation is the last block of the page' );
 

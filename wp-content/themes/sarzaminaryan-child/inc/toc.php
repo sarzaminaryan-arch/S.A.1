@@ -347,16 +347,22 @@ function sa_toc_sort( $items ) {
  * @param array<int,array<string,mixed>> $items سرفصل‌ها.
  * @return string ('' = نمایش نده).
  */
-function sa_toc_markup( $items ) {
+function sa_toc_markup( $items, $county_accordion = false ) {
 	$items = sa_toc_sort( $items );
 	if ( count( $items ) < sa_toc_min_items() ) {
 		return '';
 	}
 	$total = count( $items );
-	$out   = '<nav class="sa-toc" id="sa-toc" aria-labelledby="sa-toc-title">';
-	$out  .= '<div class="sa-toc__head"><h2 class="sa-toc__title" id="sa-toc-title">' . esc_html( sa_toc_title() ) . '</h2>';
+	$out   = '<nav class="sa-toc' . ( $county_accordion ? ' sa-toc--county' : '' ) . '" id="sa-toc" aria-labelledby="sa-toc-title">';
+	if ( $county_accordion ) {
+		$out .= '<details class="sa-county-accordion"><summary class="sa-county-accordion__summary"><span class="sa-county-accordion__title" id="sa-toc-title">' . esc_html( sa_toc_title() ) . '</span><span class="sa-county-accordion__icon" aria-hidden="true"></span></summary>';
+	} else {
+		$out .= '<div class="sa-toc__head"><h2 class="sa-toc__title" id="sa-toc-title">' . esc_html( sa_toc_title() ) . '</h2>';
+	}
 	/* translators: %s: number of headings. */
+	if ( ! $county_accordion ) {
 	$out  .= '<span class="sa-toc__count">' . esc_html( sprintf( '%s سرفصل', sa_fa_digits( (string) $total ) ) ) . '</span></div>';
+	}
 	$out  .= '<ol class="sa-toc__list">';
 	foreach ( $items as $i => $item ) {
 		$level = max( 1, min( 3, (int) $item['level'] ) );
@@ -366,7 +372,7 @@ function sa_toc_markup( $items ) {
 			. '<span class="sa-toc__label">' . esc_html( $item['label'] ) . '</span>'
 			. '</a></li>';
 	}
-	$out .= '</ol></nav>';
+	$out .= '</ol>' . ( $county_accordion ? '</details>' : '' ) . '</nav>';
 
 	return $out;
 }
@@ -405,7 +411,8 @@ function sa_toc_filter( $content ) {
 	$items = array();
 	$body  = sa_toc_scan_headings( $content, $used, $items );
 	$all   = array_merge( sa_toc_registered(), $items );
-	$toc   = sa_toc_markup( $all );
+	$county_placement = ! empty( $GLOBALS['sa_county_toc_capture'] );
+	$toc   = sa_toc_markup( $all, $county_placement );
 
 	if ( '' === $toc ) {
 		// سرفصل کافی نیست؛ اگر نشان گذاشته شده بود، پاک شود تا در متن نماند.
@@ -413,6 +420,11 @@ function sa_toc_filter( $content ) {
 	}
 
 	$GLOBALS['sa_toc_done'][ $post_id ] = true;
+
+	if ( $county_placement ) {
+		$GLOBALS['sa_county_toc_html'] = $toc;
+		return str_replace( $markers, '', $body );
+	}
 
 	if ( $has_marker ) {
 		return str_replace( $markers, $toc, $body );
