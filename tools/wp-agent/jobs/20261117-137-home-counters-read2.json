@@ -1,0 +1,7 @@
+{
+ "note": "کار ۱۳۷ (فقط خواندنی): خواندن شمارنده‌های صفحهٔ اول از HTML سرور. probe حالا home_stats را از b[data-n] بیرون می‌کشد. بدون نوشتن.",
+ "rollback_on_fail": false,
+ "steps": [
+  { "cmd": "probe", "url": ["/?sa_probe=142", "/city/?sa_probe=142"] }
+ ]
+}
