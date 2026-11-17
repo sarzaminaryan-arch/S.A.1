@@ -1,0 +1,14 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-07-photo-lengeh-finish.json",
+  "started_utc": "2026-11-17T22:17:07+00:00",
+  "note": "دستهٔ ۷ — پایان کار سه شهرستان: تصویر ساحل بندر لنگه دوباره، پاک‌سازی کش سه صفحه و بررسی ۲۰۰. سه انتشار در کار ۲۰۶ پیش از این انجام شد.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "photos-import",
+      "error": "photos-import failed (exit 1): imported 0, reused 0, failed 1, refused 0"
+    }
+  ],
+  "finished_utc": "2026-11-17T22:17:22+00:00"
+}
