@@ -283,11 +283,25 @@ if ( '' === $sa_nb_str && ! empty( $sa_fallback['neighbors'] ) ) {
 }
 
 $sa_acc_pts = array();
+// v2.22.96: «فیلد پر است» با «این مسیر واقعاً هست» یکی نیست. تا امروز هر شهرستانی که
+// جملهٔ «دسترسی ریلی» داشت، در شناسنامه «مسیرهای فعال: ریلی» می‌گرفت؛ حتی بجنورد که
+// همان جمله‌اش می‌گفت ایستگاه قطار ندارد. حالا جمله‌های نبودِ مسیر شناخته و از فهرست
+// «فعال» کنار گذاشته می‌شوند و جایشان در همان سلول، صادقانه گفته می‌شود.
+$sa_acc_absent = array( 'ندارد', 'نرسیده', 'وصل نیست', 'متصل نیست', 'بدون ایستگاه', 'ایستگاه قطار ندارد', 'ایستگاه ندارد', 'فعال نیست', 'برقرار نیست' );
 foreach ( array( 'sa_access_road' => 'جاده‌ای', 'sa_access_rail' => 'ریلی', 'sa_access_air' => 'هوایی' ) as $sa_akey => $sa_albl ) {
 	$sa_aval = trim( (string) get_post_meta( $sa_id, $sa_akey, true ) );
-	if ( '' !== $sa_aval ) {
-		$sa_acc_pts[] = $sa_albl;
+	if ( '' === $sa_aval ) {
+		continue;
 	}
+	$sa_aflat = str_replace( array( 'ي', 'ك' ), array( 'ی', 'ک' ), $sa_aval );
+	$sa_amissing = false;
+	foreach ( $sa_acc_absent as $sa_aneedle ) {
+		if ( false !== mb_strpos( $sa_aflat, $sa_aneedle ) ) {
+			$sa_amissing = true;
+			break;
+		}
+	}
+	$sa_acc_pts[] = $sa_amissing ? ( $sa_albl . ': ندارد' ) : $sa_albl;
 }
 $sa_acc_str = ! empty( $sa_acc_pts )
 	? ( 'مسیرهای فعال: ' . implode( '، ', $sa_acc_pts ) )
