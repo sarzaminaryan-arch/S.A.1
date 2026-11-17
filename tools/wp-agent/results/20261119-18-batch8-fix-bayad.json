@@ -1,0 +1,128 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-18-batch8-fix-bayad.json",
+  "started_utc": "2026-11-17T23:14:35+00:00",
+  "note": "دستهٔ ۸ — اصلاح واژهٔ ممنوع «باید» در متای «از تجربهٔ مسافرها»ی شاهین‌شهر و میمه؛ متن بازنویسی شد و بقیهٔ فیلدها دست‌نخورده است. پشتیبان پیش از تغییر گرفته می‌شود.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 163,
+        "backup_id": 4749,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:43:20",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          163
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+            "status": 200,
+            "ms": 1327,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شاهین‌شهر و میمه؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+            "desc": "راهنمای شهرستان شاهین‌شهر و میمه: جمعیت ۲۳۴٬۶۶۷ نفر (۱۳۹۵)، مسجد جامع و حمام میمه، کاروانسرای وزوان، مورچه‌خورت و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شاهین‌شهر و میمه — شهر صنعتی نو در کنار شهر کهن",
+              "og:description": "از مسجد جامع میمه و کاروانسرای وزوان تا مجموعهٔ تفریحی شاهین‌شهر؛ راهنمای سفر به این شهرستان.",
+              "og:url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahin-shahr-meymeh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شاهین‌شهر و میمه — شهر صنعتی نو در کنار شهر کهن",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شاهین‌شهر و میمه — شهر صنعتی نو در کنار شهر کهن"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahin-shahr-meymeh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "EbrahimFaryabi"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 5,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahin-shahr-meymeh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 30176,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T23:14:42+00:00"
+}
