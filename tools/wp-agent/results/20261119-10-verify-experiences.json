@@ -1,0 +1,737 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-10-verify-experiences.json",
+  "started_utc": "2026-11-17T22:28:18+00:00",
+  "note": "دستهٔ ۷ — بررسی چاپ بلوک «از تجربهٔ مسافرها» روی ده صفحه (شمارش کارت‌های چاپ‌شده در HTML عمومی). فقط خواندن.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/bushehr-county/",
+            "status": 200,
+            "ms": 2391,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بوشهر؛ راهنمای سفر، جاذبه‌ها و تاریخ بوشهر | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bushehr-county/",
+            "desc": "راهنمای شهرستان بوشهر: جمعیت ۲۹۸٬۵۹۴ نفر (۱۳۹۵)، سه بخش، بافت تاریخی، عمارت ملک، جزیرهٔ خارگ، زبان مردم، اقتصاد بندری و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بوشهر — بندر، بافت تاریخی و خلیج فارس",
+              "og:description": "از محله‌های بهبهانی و دهدشتی تا عمارت ملک و اسکلهٔ صیادی؛ راهنمای سفر به شهرستان بوشهر.",
+              "og:url": "https://sarzaminaryan.ir/city/bushehr-county/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bushehr-county.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بوشهر — بندر، بافت تاریخی و خلیج فارس",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بوشهر — بندر، بافت تاریخی و خلیج فارس"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bushehr-county.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mohsen Khazaei"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bushehr-county.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20638,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/birjand/",
+            "status": 200,
+            "ms": 1336,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بیرجند؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان جنوبی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/birjand/",
+            "desc": "راهنمای شهرستان بیرجند: جمعیت ۲۶۱٬۳۲۴ نفر (۱۳۹۵)، باغ اکبریهٔ ثبت جهانی، ارگ کلاه‌فرنگی، بند دره، گویش مردم، اقتصاد زعفران و زرشک و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بیرجند — شهر کاج‌ها و باغ‌های قهستان",
+              "og:description": "از باغ اکبریه و ارگ کلاه‌فرنگی تا بازار زعفران و زرشک؛ راهنمای سفر به شهرستان بیرجند.",
+              "og:url": "https://sarzaminaryan.ir/city/birjand/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-birjand.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بیرجند — شهر کاج‌ها و باغ‌های قهستان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بیرجند — شهر کاج‌ها و باغ‌های قهستان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-birjand.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Alimaddahi"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-birjand.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19968,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ilam/",
+            "status": 200,
+            "ms": 1429,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان ایلام؛ راهنمای سفر، جاذبه‌ها و تاریخ ایلام | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ilam/",
+            "desc": "راهنمای شهرستان ایلام: جمعیت ۲۳۵٬۱۴۴ نفر (۱۳۹۵)، دو بخش، قلعهٔ والی، تنگهٔ دربند، کوه قلاقیران، زبان کردی ایلامی، اقتصاد و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان ایلام — پشتکوه، بلوط و کوه قلاقیران",
+              "og:description": "از قلعهٔ والی و بازار قدیم تا تنگهٔ دربند و دامنهٔ کبیرکوه؛ راهنمای سفر به شهرستان ایلام.",
+              "og:url": "https://sarzaminaryan.ir/city/ilam/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ilam.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان ایلام — پشتکوه، بلوط و کوه قلاقیران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان ایلام — پشتکوه، بلوط و کوه قلاقیران"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ilam.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mehrdad Jamali firouzabadi"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ilam.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17638,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/sharekurd/",
+            "status": 200,
+            "ms": 1125,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شهرکرد؛ راهنمای سفر، جاذبه‌ها و تاریخ چهارمحال و بختیاری | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/sharekurd/",
+            "desc": "راهنمای شهرستان شهرکرد: جمعیت ۳۱۵٬۹۸۰ نفر (۱۳۹۵)، بلندترین مرکز استان ایران، قلعهٔ چالشتر، تنگ صیاد، گویش مردم و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان شهرکرد — بام ایران، میان بادام و برف",
+              "og:description": "از قلعهٔ چالشتر تا تنگ صیاد و باغ‌های بادام؛ راهنمای سفر به بلندترین مرکز استان ایران.",
+              "og:url": "https://sarzaminaryan.ir/city/sharekurd/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sharekurd.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان شهرکرد — بام ایران، میان بادام و برف",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان شهرکرد — بام ایران، میان بادام و برف"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sharekurd.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Niloofar Rakhshan"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sharekurd.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 21720,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/semnan/",
+            "status": 200,
+            "ms": 1312,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان سمنان؛ راهنمای سفر، جاذبه‌ها و تاریخ سمنان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/semnan/",
+            "desc": "راهنمای شهرستان سمنان: جمعیت ۱۹۶٬۵۲۱ نفر (۱۳۹۵)، مسجد جامع و منارهٔ چرخان، بازار قدیم، زبان سمنانی، اقتصاد و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان سمنان — قومس کهن، میان کویر و البرز",
+              "og:description": "از مسجد جامع و بازار قدیم تا دامنه‌های البرز و کویر؛ راهنمای سفر به شهرستان سمنان.",
+              "og:url": "https://sarzaminaryan.ir/city/semnan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-semnan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان سمنان — قومس کهن، میان کویر و البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان سمنان — قومس کهن، میان کویر و البرز"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-semnan.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Arosha-photo (Reza Sobhani)"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-semnan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19884,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/qeshm/",
+            "status": 200,
+            "ms": 1301,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان قشم؛ راهنمای سفر، جاذبه‌ها و تاریخ هرمزگان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/qeshm/",
+            "desc": "راهنمای شهرستان قشم: جمعیت ۱۴۸٬۹۹۳ نفر (۱۳۹۵)، درهٔ ستاره‌ها، تنگهٔ چاهکوه، جنگل حرا، جزیرهٔ هنگام، بازار درگهان و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان قشم — بزرگ‌ترین جزیرهٔ ایران، میان سنگ و دریا",
+              "og:description": "از درهٔ ستاره‌ها و چاهکوه تا حرا و دلفین‌های هنگام؛ راهنمای سفر به شهرستان قشم.",
+              "og:url": "https://sarzaminaryan.ir/city/qeshm/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-qeshm.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان قشم — بزرگ‌ترین جزیرهٔ ایران، میان سنگ و دریا",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان قشم — بزرگ‌ترین جزیرهٔ ایران، میان سنگ و دریا"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-qeshm.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Luna.ocean"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-qeshm.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19088,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ramsar/",
+            "status": 200,
+            "ms": 1247,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رامسر؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ramsar/",
+            "desc": "راهنمای شهرستان رامسر: جمعیت ۷۴٬۱۷۹ نفر (۱۳۹۵)، دو بخش، کاخ مرمر، جواهرده، بلوار ساحلی، گویش مردم و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رامسر — جایی که جنگل هیرکانی به دریا می‌رسد",
+              "og:description": "از بلوار ساحلی و کاخ مرمر تا مه جواهرده و دریاچهٔ میجران؛ راهنمای سفر به شهرستان رامسر.",
+              "og:url": "https://sarzaminaryan.ir/city/ramsar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ramsar.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان رامسر — جایی که جنگل هیرکانی به دریا می‌رسد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رامسر — جایی که جنگل هیرکانی به دریا می‌رسد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ramsar.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "سعید اشتری"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ramsar.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19368,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/boyer-ahmad/",
+            "status": 200,
+            "ms": 1212,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بویراحمد؛ راهنمای سفر، جاذبه‌ها و تاریخ کهگیلویه و بویراحمد | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/boyer-ahmad/",
+            "desc": "راهنمای شهرستان بویراحمد: جمعیت ۲۹۹٬۸۸۵ نفر (۱۳۹۵)، یاسوج، آبشار تنگ تامرادی، پیست کاکان، زبان مردم، اقتصاد و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بویراحمد — یاسوج، مرکز استان و دروازهٔ دنا",
+              "og:description": "از آبشار تنگ تامرادی تا پیست کاکان و دره‌های بلوط؛ راهنمای سفر به شهرستان بویراحمد.",
+              "og:url": "https://sarzaminaryan.ir/city/boyer-ahmad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-boyer-ahmad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بویراحمد — یاسوج، مرکز استان و دروازهٔ دنا",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بویراحمد — یاسوج، مرکز استان و دروازهٔ دنا"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-boyer-ahmad.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Ashkan"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-boyer-ahmad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22094,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bandar-lengeh/",
+            "status": 200,
+            "ms": 1192,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بندر لنگه؛ راهنمای سفر، جاذبه‌ها و تاریخ هرمزگان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bandar-lengeh/",
+            "desc": "راهنمای شهرستان بندر لنگه: جمعیت ۱۵۹٬۳۵۸ نفر (۱۳۹۵)، خانهٔ فکری، بافت تاریخی، موزهٔ دریانوردی کنگ، لنج‌سازی و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بندر لنگه — بندر بادگیرها و برکه‌ها",
+              "og:description": "از خانهٔ فکری و آب‌انبارهای بافت قدیم تا کارگاه لنج‌سازی کنگ؛ راهنمای سفر به شهرستان بندر لنگه.",
+              "og:url": "https://sarzaminaryan.ir/city/bandar-lengeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bandar-lengeh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بندر لنگه — بندر بادگیرها و برکه‌ها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بندر لنگه — بندر بادگیرها و برکه‌ها"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bandar-lengeh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Hasanbardal"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bandar-lengeh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22276,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/chabahar/",
+            "status": 200,
+            "ms": 1192,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان چابهار؛ راهنمای سفر، جاذبه‌ها و تاریخ سیستان و بلوچستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/chabahar/",
+            "desc": "راهنمای شهرستان چابهار: جمعیت ۲۰۳٬۲۹۳ نفر (۱۳۹۵)، کوه‌های مریخی، روستای تیس، قلعهٔ پرتغالی، مردم بلوچ و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان چابهار — تنها بندر اقیانوسی ایران",
+              "og:description": "از کوه‌های مریخی و قلعهٔ تیس تا اسکلهٔ صیادی و بازار بلوچ؛ راهنمای سفر به شهرستان چابهار.",
+              "og:url": "https://sarzaminaryan.ir/city/chabahar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-chabahar.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان چابهار — تنها بندر اقیانوسی ایران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان چابهار — تنها بندر اقیانوسی ایران"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-chabahar.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Amirhossein Nikroo"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 9,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-chabahar.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20194,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T22:28:41+00:00"
+}
