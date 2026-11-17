@@ -1,0 +1,28 @@
+{
+ "note": "اردبیل ۱۴۱ — پاس دوم: آلوارس به شهرستان سرعین نسبت داده شد (پیش‌تر «همین شهرستان» آمده بود)، جملهٔ «کسی بی‌لباس گرم بیرون نمی‌نشیند» که ادعای مطلق بود خنثی شد، و دو جملهٔ زائد/مبهم در بخش اقامت صاف شد.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 141,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-ardabil/ardabil-141.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-ardabil/ardabil-141.meta.json",
+   "excerpt": "شهرستان اردبیل از مجموعهٔ جهانی شیخ صفی و بازار قیصریه تا دریاچهٔ شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، آش دوغ و حلوای سیاه، و دو واقعیت تلخ: وضع شورابیل و زمستان سخت.",
+   "expected_modified_gmt": "2026-11-17 00:18:57",
+   "owner_approved_live_edit": true,
+   "reason": "اردبیل: تصحیح نسبت پیست آلوارس و صاف‌کردن دو جمله"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    141
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/ardabil/?sa_probe=49"
+   ]
+  }
+ ]
+}
