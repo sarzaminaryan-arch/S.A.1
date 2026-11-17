@@ -1,0 +1,9 @@
+{
+  "note": "کار ۱۲۷ (فقط خواندنی): سایت با خطای «Error establishing a database connection» بالا نمی‌آید (mysqli 2002، Resource temporarily unavailable در class-wpdb.php خط ۱۹۹۰). این کار هیچ نوشتنی ندارد؛ فقط ping و خواندن وضعیت خزنده/کش و یک probe برای ثبت وضعیت در مخزن.",
+  "rollback_on_fail": false,
+  "steps": [
+    { "cmd": "ping" },
+    { "cmd": "litespeed" },
+    { "cmd": "probe", "url": ["/?sa_probe=downcheck"] }
+  ]
+}
