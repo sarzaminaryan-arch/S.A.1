@@ -1,0 +1,9 @@
+{
+  "note": "مالک صراحتاً اجازهٔ پشتیبان کامل و نصب تغییرات مستر شهرستان‌ها را داد؛ UpdraftPlus پشتیبان کامل روی سرور، سپس نصب نسخهٔ ۲.۲۲.۱۱۴، پاک‌سازی کش، بررسی چند شهرستان و بازگشت خودکار در صورت خرابی.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.114", "version": "2.22.114", "owner_approved_theme_update": true, "backup_first": true, "backup_nocloud": true, "backup_wait": 1500, "probe": ["/", "/city/tehran/", "/city/mashhad/", "/city/isfahan/", "/city/bojnord/", "/blog/"], "rollback_to": "2.22.113"},
+    {"cmd": "ping"},
+    {"cmd": "updraft"}
+  ]
+}
