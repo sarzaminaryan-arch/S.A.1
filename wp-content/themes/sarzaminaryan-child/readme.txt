@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.105
+Stable tag: 2.22.106
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.106 — 1405-08-26 (2026-11-17) =
+* شمارنده‌های صفحهٔ اول مستقیم شمرده می‌شوند (بدون کش یک‌ساعته) و صفر با خط تیره نمایش داده می‌شود.
 
 = 2.22.105 — 1405-08-26 (2026-11-17) =
 * رفع نمایش «۰» در شمارنده‌های صفحهٔ اول: عدد سرور دیگر پیش از انیمیشن صفر نمی‌شود.

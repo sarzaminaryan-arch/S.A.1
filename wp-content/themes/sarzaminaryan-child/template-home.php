@@ -29,7 +29,17 @@ $sa_pub_provinces = sa_published_entity_ids( 'province' );
 $sa_slogan    = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
 $sa_hero_text = get_theme_mod( 'sa_hero_text', 'ایران را استان به استان بشناسید؛ ۳۱ استان، صدها شهر و دیدنی‌ها طبیعت ایران.' );
 $sa_search_ph = get_theme_mod( 'sa_search_placeholder', 'استان، شهر یا دیدنی…' );
-$sa_counts    = function_exists( 'sa_entity_counts' ) ? (array) sa_entity_counts() : array();
+/* ۲.۲۲.۱۰۶: شمارنده‌ها مستقیم از sa_entity_types() خوانده می‌شوند، نه از transient.
+   کار ۱۳۴ نشان داد سایتی که تازه از قطعی دیتابیس برگشته می‌تواند کش شمارنده را با
+   صفر پر کند و یک ساعت «۰ استان» نشان دهد؛ این خواندن سبک است (یک کوئری برای هر
+   نوع محتوا) و همیشه مقدار واقعی را می‌دهد. اگر واقعاً صفر بود، خط تیره چاپ می‌شود. */
+$sa_counts = array();
+if ( function_exists( 'sa_entity_types' ) ) {
+	foreach ( sa_entity_types() as $sa_count_type ) {
+		$sa_count_obj                   = wp_count_posts( $sa_count_type );
+		$sa_counts[ $sa_count_type ]    = isset( $sa_count_obj->publish ) ? (int) $sa_count_obj->publish : 0;
+	}
+}
 $sa_stat1_num = get_theme_mod( 'sa_stat1_num', isset( $sa_counts['province'] ) ? (string) (int) $sa_counts['province'] : '31' );
 $sa_stat1_lb  = get_theme_mod( 'sa_stat1_label', 'استان‌ها' );
 $sa_stat2_num = get_theme_mod( 'sa_stat2_num', isset( $sa_counts['city'] ) ? (string) (int) $sa_counts['city'] : '0' );
@@ -203,7 +213,10 @@ a.sa-stat:focus-visible{outline:2px solid var(--accent);outline-offset:6px;borde
 			 * @param string $url   نشانی (اختیاری).
 			 */
 			$sa_print_stat = function ( $num, $suf, $label, $url = '' ) {
-				$inner = '<b data-n="' . esc_attr( (int) $num ) . '">' . esc_html( number_format_i18n( (int) $num ) . $suf ) . '</b>'
+				// اگر شمار واقعی صفر باشد، «۰» نمی‌نویسیم؛ خط تیره صادقانه‌تر است و
+				// بازدیدکننده فکر نمی‌کند سایت خالی است.
+				$shown = (int) $num > 0 ? number_format_i18n( (int) $num ) . $suf : '—';
+				$inner = '<b data-n="' . esc_attr( (int) $num ) . '">' . esc_html( $shown ) . '</b>'
 					. '<span>' . esc_html( $label ) . '</span>';
 				if ( '' !== $url ) {
 					echo '<a class="sa-stat" href="' . esc_url( $url ) . '">' . $inner . '</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

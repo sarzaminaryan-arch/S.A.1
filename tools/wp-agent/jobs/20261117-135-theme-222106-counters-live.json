@@ -1,0 +1,11 @@
+{
+ "note": "کار ۱۳۵: نوشتن شمارنده‌های صفحهٔ اول. کار ۱۳۴ نشان داد طرح v3 روی سایت است ولی هر چهار شمارنده «۰» می‌آیند. متن ساده (پایین هیرو) کش نشده و دیده می‌شود، پس مشکل رندر است نه کش. این نسخه (۲.۲۲.۱۰۶) شمارنده‌ها را مستقیم از sa_entity_types() و بدون transient می‌خواند و اگر شمارنده‌ای صفر بماند، به‌جای «۰» خط تیره می‌گذارد. با نصب این نسخه و probe صفحهٔ اول، مقدار واقعی معلوم می‌شود.",
+ "rollback_on_fail": false,
+ "steps": [
+  { "cmd": "theme-update", "expected_version": "2.22.106", "owner_approved_theme_update": true,
+    "backup_first": true, "backup_nocloud": true, "backup_wait": 900,
+    "probe": ["/", "/city/bojnord/"], "rollback_to": "2.22.105" },
+  { "cmd": "cache-purge", "all": true },
+  { "cmd": "probe", "url": ["/?sa_probe=139"] }
+ ]
+}
