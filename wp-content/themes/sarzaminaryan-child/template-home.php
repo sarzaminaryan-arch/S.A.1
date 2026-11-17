@@ -15,6 +15,7 @@ get_header();
 $sa_home_types = sa_nav_entity_types();
 $sa_home_education = function_exists( 'sa_education_nav_item' ) ? sa_education_nav_item() : null;
 $sa_home_dashboard = function_exists( 'sa_dashboard_page_url' ) ? sa_dashboard_page_url() : '';
+$sa_home_logo = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 480 ) : SA_CHILD_URI . 'assets/img/logo-light-480.webp';
 $sa_home_sections = array(
 	'province'   => array( 'number' => '۰۱', 'title' => 'استان‌های ایران', 'text' => 'از شمال تا جنوب، سرزمین‌های گوناگون ایران را بشناسید.', 'icon' => '✳' ),
 	'city'       => array( 'number' => '۰۲', 'title' => 'شهرستان‌ها', 'text' => 'به شهرها و شهرستان‌ها نزدیک‌تر شوید و قصه هر منطقه را بخوانید.', 'icon' => '⌁' ),
@@ -62,14 +63,14 @@ $sa_home_attractions = in_array( 'attraction', $sa_home_types, true ) ? get_post
 		<div class="sa-landing-paths">
 			<?php foreach ( $sa_home_sections as $sa_type => $sa_section ) : ?>
 				<?php if ( ! in_array( $sa_type, $sa_home_types, true ) ) { continue; } ?>
-				<a class="sa-landing-path" href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>">
+				<a class="sa-landing-path sa-landing-path--<?php echo esc_attr( $sa_type ); ?>" href="<?php echo esc_url( sa_archive_url( $sa_type ) ); ?>">
 					<div class="sa-landing-path__top"><span class="sa-landing-path__icon" aria-hidden="true"><?php echo esc_html( $sa_section['icon'] ); ?></span><span><?php echo esc_html( $sa_section['number'] ); ?> /</span></div>
 					<h3><?php echo esc_html( $sa_section['title'] ); ?></h3><p><?php echo esc_html( $sa_section['text'] ); ?></p>
 					<span class="sa-landing-path__link">مشاهده و کاوش <b aria-hidden="true">←</b></span>
 				</a>
 			<?php endforeach; ?>
 			<?php if ( $sa_home_education ) : ?>
-				<a class="sa-landing-path" href="<?php echo esc_url( $sa_home_education['url'] ); ?>"><div class="sa-landing-path__top"><span class="sa-landing-path__icon" aria-hidden="true">✧</span><span>۰۴ /</span></div><h3>آموزش سفر</h3><p>برای طبیعت‌گردی آگاهانه‌تر، راهنماها و آموزش‌ها را بخوانید.</p><span class="sa-landing-path__link">مشاهده و کاوش <b aria-hidden="true">←</b></span></a>
+				<a class="sa-landing-path sa-landing-path--education" href="<?php echo esc_url( $sa_home_education['url'] ); ?>"><div class="sa-landing-path__top"><span class="sa-landing-path__icon" aria-hidden="true">✧</span><span>۰۴ /</span></div><h3>آموزش سفر</h3><p>برای طبیعت‌گردی آگاهانه‌تر، راهنماها و آموزش‌ها را بخوانید.</p><span class="sa-landing-path__link">مشاهده و کاوش <b aria-hidden="true">←</b></span></a>
 			<?php endif; ?>
 		</div>
 	</section>
@@ -91,7 +92,7 @@ $sa_home_attractions = in_array( 'attraction', $sa_home_types, true ) ? get_post
 	<section class="sa-landing-story"><div class="sa-landing-wrap sa-landing-story__inner">
 		<div><p class="sa-landing-kicker">همراه سفرهای شما <span> / ۰۳</span></p><h2>هر سفر، فرصتی برای<br><em>بیشتر شناختن است.</em></h2><p>سرزمین آریان جایی برای آشنایی با جغرافیا، دیدنی‌ها و تنوع ایران است؛ همراهی برای آن‌که سفر بعدی را با شناخت بیشتری آغاز کنید.</p>
 		<?php if ( $sa_home_dashboard ) : ?><a class="sa-landing-button" href="<?php echo esc_url( $sa_home_dashboard ); ?>">کاوش در نقشه ایران <span aria-hidden="true">←</span></a><?php elseif ( in_array( 'province', $sa_home_types, true ) ) : ?><a class="sa-landing-button" href="<?php echo esc_url( sa_archive_url( 'province' ) ); ?>">کاوش استان‌های ایران <span aria-hidden="true">←</span></a><?php endif; ?></div>
-		<div class="sa-landing-story__aside"><span class="sa-landing-story__mark" aria-hidden="true">✳</span><p>ایران را باید<br>زندگی کرد.</p><small>SARZAMIN ARYAN &nbsp; / &nbsp; IRAN</small></div>
+		<div class="sa-landing-story__aside"><img class="sa-landing-story__logo" src="<?php echo esc_url( $sa_home_logo ); ?>" width="480" height="224" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" loading="lazy" decoding="async"></div>
 	</div></section>
 </main>
 <?php get_footer(); ?>

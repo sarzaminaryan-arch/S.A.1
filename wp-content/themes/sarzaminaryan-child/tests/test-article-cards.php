@@ -198,5 +198,12 @@ sa_t_assert( false !== strpos( $home, "'post_status' => 'publish'" ), 'landing p
 sa_t_assert( false !== strpos( $home, "'posts_per_page' => 3" ), 'landing page limits attraction cards' );
 sa_t_assert( false !== strpos( $home, 'sa_nav_entity_types()' ), 'landing navigation uses available entity types' );
 sa_t_assert( false !== strpos( $home, 'get_header();' ) && false !== strpos( $home, 'get_footer();' ), 'landing page keeps the header and footer' );
+$landing_css = (string) file_get_contents( SA_CHILD_DIR . 'assets/css/landing.css' );
+foreach ( array( 'province', 'city', 'attraction', 'education' ) as $path ) {
+	sa_t_assert( false !== strpos( $landing_css, '.sa-landing-path--' . $path ), 'landing path has a stable colour: ' . $path );
+}
+sa_t_assert( false !== strpos( $landing_css, 'var(--sa-ink,#071a30)' ), 'landing uses the footer navy' );
+sa_t_assert( false !== strpos( $home, "sa_brand_logo_url( 'light', 480 )" ) && false !== strpos( $home, 'sa-landing-story__logo' ), 'landing uses the official light logo' );
+
 
 echo "PASS: article cards and landing page content guards\n";
