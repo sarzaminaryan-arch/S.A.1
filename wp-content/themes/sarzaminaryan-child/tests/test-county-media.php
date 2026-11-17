@@ -197,4 +197,10 @@ sa_t_assert( false !== strpos( $home_src, "get_theme_mod( 'sa_home_slogan'" ), '
 sa_t_assert( false === strpos( $home_src, 'sa-sparks' ), 'home v3 drops the animated spark field' );
 sa_t_assert( false === strpos( $home_src, 'sa-dash-cta' ), 'home v3 drops the neon dashboard button' );
 
+/* 10 — counters must never be zeroed by the enhancement script: the server's number
+ *      stays in the markup until the animation itself finishes (job 132 showed «۰»). */
+sa_t_assert( false === strpos( $home_src, 'fa(0)' ), 'home v3 no longer pre-zeroes the counters' );
+sa_t_assert( false !== strpos( $home_src, 'parseInt(b.getAttribute' ), 'the counter animation reads the server number' );
+sa_t_assert( false !== strpos( $home_src, "prefers-reduced-motion" ), 'reduced motion keeps the static numbers' );
+
 echo "ALL TESTS PASSED\n";

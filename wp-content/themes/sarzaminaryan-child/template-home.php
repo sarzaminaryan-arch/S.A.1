@@ -234,32 +234,35 @@ a.sa-stat:focus-visible{outline:2px solid var(--accent);outline-offset:6px;borde
 </main>
 
 <script>
-(function(){
-	var root = document.getElementById('primary');
-	if (!root) { return; }
-	/* شمارنده‌ها آرام بالا می‌آیند؛ اگر کاربر «کاهش حرکت» خواسته باشد یا
-	   مرورگر IntersectionObserver نداشته باشد، عدد نهایی بی‌درنگ می‌ماند. */
-	var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-	var nums = root.querySelectorAll('.sa-stat b[data-n]');
-	if (!nums.length || calm || !('IntersectionObserver' in window)) { return; }
+(function () {
+	/* شمارنده‌ها با عدد واقعی از سرور می‌آیند و همین‌جا می‌مانند.
+	   پیش‌تر عدد صفر جای مقدار سرور گذاشته می‌شد تا «شمارش» دیده شود؛ اگر
+	   IntersectionObserver در مرورگر یا پیش‌نمایش اجرا نشود، بازدیدکننده صفر
+	   می‌دید. حالا شمارش فقط یک جلوهٔ اختیاری است: مقدار نهایی هیچ‌وقت جایگزین
+	   نمی‌شود مگر همان لحظه که شمارش کامل شود. */
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+		return;
+	}
+	var nums = document.querySelectorAll('.sa-stat b[data-n]');
+	if (!nums.length) { return; }
 	var fa = function (n) { return n.toLocaleString('fa-IR'); };
-	Array.prototype.forEach.call(nums, function (b) { b.textContent = fa(0); });
 	var io = new IntersectionObserver(function (entries) {
 		entries.forEach(function (entry) {
 			if (!entry.isIntersecting) { return; }
 			var b = entry.target;
-			var target = +b.getAttribute('data-n') || 0;
+			var target = parseInt(b.getAttribute('data-n'), 10);
+			io.unobserve(b);
+			if (!isFinite(target) || target < 10) { return; }
 			var start = null;
 			var step = function (t) {
 				start = start || t;
-				var p = Math.min((t - start) / 900, 1);
+				var p = Math.min((t - start) / 800, 1);
 				b.textContent = fa(Math.round(target * (1 - Math.pow(1 - p, 3))));
 				if (p < 1) { window.requestAnimationFrame(step); }
 			};
 			window.requestAnimationFrame(step);
-			io.unobserve(b);
 		});
-	}, { threshold: 0.4 });
+	}, { threshold: 0.2 });
 	Array.prototype.forEach.call(nums, function (b) { io.observe(b); });
 })();
 </script>
