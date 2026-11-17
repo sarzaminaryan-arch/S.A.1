@@ -1,0 +1,110 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-126-photo-credits-read.json",
+  "started_utc": "2026-11-17T10:03:49+00:00",
+  "note": "کار ۱۲۶ (فقط خواندنی): خواندن متن خط اعتبار هر عکس روی صفحهٔ زندهٔ بجنورد — نام عکاس و برچسب مجوزی که بازدیدکننده می‌بیند — تا در دفتر تصاویر ثبت شود. هیچ نوشتنی نیست.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.101",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-17T10:03:50+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/?sa_probe=65",
+            "status": 200,
+            "ms": 1725,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 3,
+            "photo_strip_credits": 3,
+            "photo_credit_texts": [
+              "عکس: Arashk rp2 · CC BY-SA 3.0 · منبع",
+              "عکس: Mehraddddi · CC BY-SA 4.0",
+              "عکس: Arashk rp2 · CC BY-SA 3.0",
+              "عکس: Samin jazmi · CC BY-SA 3.0"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T10:03:54+00:00"
+}
