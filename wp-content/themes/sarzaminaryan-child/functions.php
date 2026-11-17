@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.101' );
+define( 'SA_CHILD_VERSION', '2.22.110' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -142,13 +142,12 @@ function sa_child_assets() {
 		array( 'in_footer' => true, 'strategy' => 'defer' )
 	);
 
-	if ( is_front_page() ) {
-		wp_enqueue_script(
-			'sarzaminaryan-counter-buttons',
-			SA_CHILD_URI . 'assets/js/counter-buttons.js',
-			array(),
-			sa_child_asset_version( 'assets/js/counter-buttons.js' ),
-			array( 'in_footer' => true, 'strategy' => 'defer' )
+	if ( is_front_page() || is_page_template( 'template-home.php' ) ) {
+		wp_enqueue_style(
+			'sarzaminaryan-landing',
+			SA_CHILD_URI . 'assets/css/landing.css',
+			array( 'sarzaminaryan-child' ),
+			sa_child_asset_version( 'assets/css/landing.css' )
 		);
 	}
 

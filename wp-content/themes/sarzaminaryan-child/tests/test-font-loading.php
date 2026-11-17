@@ -18,7 +18,7 @@
  *     upem) and size-adjust 108% (mean advance of 57 Persian letters/digits:
  *     Vazirmatn 0.625em vs Noto Naskh Arabic 0.574em). The body stack
  *     (--font-family-body override) and the homepage stack in
- *     template-home.php must both route through that fallback face.
+ *     landing.css must both route through that fallback face.
  *
  * Run with: php wp-content/themes/sarzaminaryan-child/tests/test-font-loading.php
  *
@@ -39,7 +39,7 @@ function sa_font_assert( $condition, $message ) {
 $theme_dir  = dirname( __DIR__ );
 $functions  = file_get_contents( $theme_dir . '/functions.php' );
 $child_css  = file_get_contents( $theme_dir . '/assets/css/child.css' );
-$home_tpl   = file_get_contents( $theme_dir . '/template-home.php' );
+$home_tpl   = file_get_contents( $theme_dir . '/assets/css/landing.css' );
 $bold_font  = dirname( $theme_dir ) . '/sarzaminaryan/assets/fonts/fa/Vazirmatn-Bold.woff2';
 
 // 1. The Bold face that headings wait for actually ships with the parent theme.

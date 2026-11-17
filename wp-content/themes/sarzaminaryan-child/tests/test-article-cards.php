@@ -191,15 +191,12 @@ sa_t_assert( false !== strpos( $js, "'--sa-i'" ), 'the script sets the per-box d
 sa_t_assert( false !== strpos( $js, "querySelectorAll( '.sa-bars, .sa-grid-cards' )" ), 'bars and card grids are the animated groups' );
 
 /* ---------------------------------------------------------------------------
- * 5) Home page: content lists are intentionally archive-only.
+ * 5) The new landing page uses published content and keeps theme chrome.
  * ------------------------------------------------------------------------- */
 $home = (string) file_get_contents( SA_CHILD_DIR . 'template-home.php' );
-foreach ( array( 'new WP_Query', '$sa_latest', '$sa_edu_q', '$sa_attr_q', 'sa-attractions', 'sa-education', 'sa-posts', 'sa-post', 'sa-logo' ) as $removed ) {
-	sa_t_assert( false === strpos( $home, $removed ), 'homepage does not restore removed content: ' . $removed );
-}
-foreach ( array( 'sa-hero', 'sa-map', 'sa-search', 'sa-chips', 'sa-stats', 'CC_UI::top_cities_block( 7 )' ) as $preserved ) {
-	sa_t_assert( false !== strpos( $home, $preserved ), 'homepage preserves intended feature: ' . $preserved );
-}
-sa_t_assert( false !== strpos( $home, 'get_header();' ) && false !== strpos( $home, 'get_footer();' ), 'homepage keeps the header and footer' );
+sa_t_assert( false !== strpos( $home, "'post_status' => 'publish'" ), 'landing page only queries published attractions' );
+sa_t_assert( false !== strpos( $home, "'posts_per_page' => 3" ), 'landing page limits attraction cards' );
+sa_t_assert( false !== strpos( $home, 'sa_nav_entity_types()' ), 'landing navigation uses available entity types' );
+sa_t_assert( false !== strpos( $home, 'get_header();' ) && false !== strpos( $home, 'get_footer();' ), 'landing page keeps the header and footer' );
 
-echo "PASS: article cards (archive cards stay text-safe; homepage content lists stay removed)\n";
+echo "PASS: article cards and landing page content guards\n";
