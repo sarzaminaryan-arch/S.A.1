@@ -1,0 +1,46 @@
+{
+ "note": "کار ۱۲۳ (پس از انتشار Release 2.22.100): نصب ۲.۲۲.۱۰۰ — همان نسخه‌ای که هویت عکس را به «مکان» می‌برد؛ دوباره‌فرستادن دستهٔ بجنورد تا سه عکس با فایل واقعی تازه شوند و پیوست‌ها به‌روز شوند؛ سپس پیوست ۴۶۳۱ (نسخهٔ تکراری پارک کودک، دستور صریح مالک) به زباله‌دان؛ بازخوانی فهرست تصاویر و probe صفحه. پشتیبان کامل و برگشت خودکار به ۲.۲۲.۹۹.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.100",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/"
+   ],
+   "rollback_to": "2.22.99"
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-bojnord.json"
+  },
+  {
+   "cmd": "trash",
+   "id": 4631,
+   "owner_approved_trash": true,
+   "reason": "نسخهٔ تکراری پارک کودک؛ ۴۶۳۵ عکس پاک‌شدهٔ همین مکان است — دستور مالک"
+  },
+  {
+   "cmd": "photos",
+   "city_id": 71
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bojnord/?sa_probe=62"
+   ]
+  }
+ ]
+}
