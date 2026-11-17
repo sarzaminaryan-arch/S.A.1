@@ -1,8 +1,8 @@
 {
-  "note": "کار ۱۲۸ (فقط خواندنی): پس از خطای «Error establishing a database connection» در کار ۱۲۷، هر بار رانر سایت را می‌سنجد و در مخزن ثبت می‌کند که دیتابیس برگشته یا نه — بدون هیچ نوشتنی. اگر برگشته باشد، سه نشانی کلیدی (خانه، بجنورد، اردبیل) هم prob می‌شوند تا مطمئن شویم بلوک‌های تصویر مجاز سالم رندر می‌شوند.",
+  "note": "کار ۱۲۸ (فقط خواندنی): پایش بازگشت سایت پس از خطای دیتابیس. رانر از بیرون سایت را می‌سنجد و نتیجه را در مخزن ثبت می‌کند؛ هیچ نوشتنی روی سایت ندارد.",
   "rollback_on_fail": false,
   "steps": [
     { "cmd": "ping" },
-    { "cmd": "probe", "url": ["/?sa_probe=recover", "/city/bojnord/?sa_probe=recover", "/city/ardabil/?sa_probe=recover"] }
+    { "cmd": "probe", "url": ["/?sa_probe=recover", "/city/bojnord/?sa_probe=recover"] }
   ]
 }
