@@ -719,6 +719,10 @@ function sa_agent_rest_photo_import( $r ) {
 				'id'       => $att_id,
 				'reused'   => true,
 				'replaced' => $replaced,
+				// ۲.۲۲.۱۰۳: برگشتِ مسیر بازاستفاده هم مثل مسیر تازه، متن روی عکس را
+				// گزارش می‌کند تا معلوم باشد فراداده تازه (overlay/area) نشسته یا نه.
+				'overlay'  => sa_photo_overlay_label( $att_id ),
+				'area'     => sa_photo_area( $att_id ),
 				'url'      => wp_get_attachment_url( $att_id ),
 			)
 		);
@@ -795,6 +799,8 @@ function sa_agent_rest_photo_import( $r ) {
 			'id'      => (int) $att_id,
 			'reused'  => false,
 			'url'     => (string) ( $upload['url'] ?? wp_get_attachment_url( (int) $att_id ) ),
+			'overlay' => sa_photo_overlay_label( (int) $att_id ),
+			'area'    => sa_photo_area( (int) $att_id ),
 			'bytes'   => strlen( $bytes ),
 			'license' => sa_photo_license_label( $license ),
 		)
