@@ -48,7 +48,8 @@ php = (HERE.parents[1] / "wp-content/themes/sarzaminaryan-child/inc/county-media
 for token in ("'cc0'", "'pd'", "'cc-by-4'", "'cc-by-sa-4'", "'upload.wikimedia.org'", "'thumb.wikimedia.org'", "sa_photo_is_publishable"):
     assert token in php, token
 assert "cc-by-nd" not in php and "cc-by-nc" not in php, "ND/NC must not be allow-listed"
-assert "update_post_meta( (int) $att_id, SA_PHOTO_META_AUTHOR" in php, "the author is stored with the file"
+assert ("update_post_meta( (int) $att_id, SA_PHOTO_META_AUTHOR" in php
+        or "update_post_meta( $att_id, SA_PHOTO_META_AUTHOR" in php), "the author is stored with the file"
 
 # قرارداد دسته: هر عکس باید کلیدهای اجباری را داشته باشد.
 required = {"city_id", "place", "kind", "url", "author", "license"}

@@ -114,7 +114,7 @@ sa_t_assert( '' === sa_photo_frame( 11 ), 'no frame is built for an unpublishabl
 
 /* 4b — imported photos are JPEG; the lookup must not filter them out. */
 sa_t_assert(
-	false === strpos( $mod_src_early = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' ), "'post_mime_type' => 'image/webp'" ),
+	false === strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' ), "'post_mime_type' => 'image/webp'" ),
 	'the photo lookup accepts the JPEG files the import route writes'
 );
 
