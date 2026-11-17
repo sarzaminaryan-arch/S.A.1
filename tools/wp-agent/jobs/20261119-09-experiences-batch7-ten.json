@@ -1,0 +1,105 @@
+{
+ "note": "دستهٔ ۷ — لایهٔ «از تجربهٔ مسافرها» برای ده شهرستان تازه‌بازنویسی‌شده. رکوردها در tools/county-insights/data/raw ساخته شد، با اسکیمای قالب اعتبارسنجی شد و به‌صورت متای همان صفحه‌ها (که بر دادهٔ همراه قالب اولویت دارد) منتشر می‌شود؛ هیچ متن جدیدی به قالب اضافه نشد و نسخهٔ قالب دست نمی‌خورد.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 211,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/bushehr-county.meta.json",
+   "expected_modified_gmt": "2026-11-17 21:57:35",
+   "reason": "bushehr-county: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 241,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/birjand.meta.json",
+   "expected_modified_gmt": "2026-11-17 21:57:44",
+   "reason": "birjand: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 189,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/ilam.meta.json",
+   "expected_modified_gmt": "2026-11-17 21:57:56",
+   "reason": "ilam: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 1899,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/sharekurd.meta.json",
+   "expected_modified_gmt": "2026-11-17 21:58:21",
+   "reason": "sharekurd: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 296,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/semnan.meta.json",
+   "expected_modified_gmt": "2026-11-17 21:58:24",
+   "reason": "semnan: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 640,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/qeshm.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:01:49",
+   "reason": "qeshm: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 539,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/ramsar.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:01:51",
+   "reason": "ramsar: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 430,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/boyer-ahmad.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:15:55",
+   "reason": "boyer-ahmad: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 638,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/bandar-lengeh.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:15:58",
+   "reason": "bandar-lengeh: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 305,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch7/chabahar.meta.json",
+   "expected_modified_gmt": "2026-11-17 22:16:01",
+   "reason": "chabahar: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، هشت نکتهٔ بومی، نُه جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    211,
+    241,
+    189,
+    1899,
+    296,
+    640,
+    539,
+    430,
+    638,
+    305
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bushehr-county/",
+    "/city/birjand/",
+    "/city/ilam/",
+    "/city/sharekurd/",
+    "/city/semnan/",
+    "/city/qeshm/",
+    "/city/ramsar/",
+    "/city/boyer-ahmad/",
+    "/city/bandar-lengeh/",
+    "/city/chabahar/"
+   ]
+  }
+ ]
+}
