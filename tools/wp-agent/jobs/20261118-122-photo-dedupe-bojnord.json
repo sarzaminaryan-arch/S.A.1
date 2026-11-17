@@ -1,0 +1,46 @@
+{
+ "note": "کار ۱۲۲ (تکرار ۱۲۱): self-test رانر به‌خاطر یک تکهٔ بررسی‌شده در تست تصاویر شکست خورد (تست، دو شکل ذخیرهٔ نام نویسنده را انتظار نداشت)؛ ادعای تست اصلاح شد و همان کار دوباره صف شد: نصب ۲.۲۲.۱۰۰، دوباره‌فرستادن دسته (به‌روزرسانی جای تکرار)، زباله‌دان ۴۶۳۱ (نسخهٔ تکراری پارک کودک، دستور مالک)، بازخوانی فهرست تصاویر و probe.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.100",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/"
+   ],
+   "rollback_to": "2.22.99"
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-bojnord.json"
+  },
+  {
+   "cmd": "trash",
+   "id": 4631,
+   "owner_approved_trash": true,
+   "reason": "نسخهٔ تکراری پارک کودک (۴۶۳۵ نسخهٔ پاک‌شدهٔ همین عکس است) — دستور مالک"
+  },
+  {
+   "cmd": "photos",
+   "city_id": 71
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bojnord/?sa_probe=61"
+   ]
+  }
+ ]
+}
