@@ -79,3 +79,10 @@ except ImportError:
     pass
 
 print("ALL TESTS PASSED")
+
+# overlay/area must reach the site: the body list is explicit, so a forgotten key
+# silently drops the place name from the photo (job 130 proved it).
+src = (HERE / "import_photos.py").read_text(encoding="utf-8")
+body_block = src.split("body = {k: photo.get(k) for k in (")[1].split(")}")[0]
+assert '"overlay"' in body_block and '"area"' in body_block, body_block
+print("ok: batch carries the on-photo name (overlay) and the area line to the site")

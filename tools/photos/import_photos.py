@@ -27,7 +27,9 @@
           "note": "یک پاراگراف راهنما برای کادر «مکان در یک نگاه»",
           "points": "نکتهٔ اول|نکتهٔ دوم|نکتهٔ سوم",
           "highlight": "یک خط هایلایت برای نوار سه‌کادره",
-          "tag": "تفریحی"
+          "tag": "تفریحی",
+          "overlay": "بش‌قارداش",          # اختیاری: نام کوتاه روی خود عکس
+          "area": "جنوب بجنورد"           # اختیاری: ناحیه/نشانی زیر نام"
         }
       ]
     }
@@ -200,6 +202,8 @@ def main(argv: list[str]) -> int:
         body = {k: photo.get(k) for k in (
             "url", "author", "license", "license_url", "source_page", "city_id",
             "place", "kind", "alt", "note", "points", "highlight", "tag",
+            # ۲.۲۲.۱۰۲: نام کوتاه روی خود عکس و ناحیه/نشانی زیرش.
+            "overlay", "area",
         )}
         try:
             out = client.post("/photos/import", body)

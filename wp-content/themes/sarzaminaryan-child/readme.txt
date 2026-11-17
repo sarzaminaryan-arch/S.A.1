@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.103
+Stable tag: 2.22.104
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -37,6 +37,9 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 3. توکن داخل قالب یا بسته‌های انتشار قرار نمی‌گیرد. هر نصب وردپرس باید توکن دسترسی خودش را تنظیم کند.
 
 == Changelog ==
+
+= 2.22.104 — 1405-08-26 (2026-11-17) =
+* ابزار واردکردن حالا `overlay` و `area` را هم به سایت می‌فرستد؛ پیش از این نام کوتاه روی عکس هرگز به سرور نمی‌رسید (تست تازه این را قفل می‌کند).
 
 = 2.22.103 — 1405-08-26 (2026-11-17) =
 * پاسخ `POST /photos/import` حالا `overlay` و `area` را هم برمی‌گرداند (هر دو مسیر: تازه و بازاستفاده) تا معلوم باشد متن روی عکس نوشته شده یا نه.
