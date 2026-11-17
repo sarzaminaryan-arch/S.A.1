@@ -1,0 +1,41 @@
+{
+ "note": "کار ۱۲۹: نصب قالب ۲.۲۲.۱۰۲ روی سایت زنده. سه تغییر مالک را می‌آورد: صفحهٔ اول مینیمال (v3)، نام مکان روی خود تصویر برای همهٔ شهرستان‌ها، و خط اعتبار کوچک و کم‌رنگ بدون «عکس:» و بدون نام مجوز؛ بند «تصاویر با مجوز آزاد…» هم حذف شده است. دستهٔ بجنورد با فیلدهای تازهٔ overlay/area دوباره فرستاده می‌شود تا پیوست‌های موجود همان شناسه‌ها (4636–4639) بمانند و فقط فراداده تازه بگیرند. رانش با پشتیبان کامل، probe چهار نشانی و برگشت خودکار به ۲.۲۲.۱۰۱.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.102",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/"
+   ],
+   "rollback_to": "2.22.101"
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-bojnord.json"
+  },
+  {
+   "cmd": "photos",
+   "city_id": 71
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/?sa_probe=130",
+    "/city/bojnord/?sa_probe=130"
+   ]
+  }
+ ]
+}
