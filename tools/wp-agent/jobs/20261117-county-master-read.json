@@ -1,0 +1,9 @@
+{
+  "note": "بررسی فقط‌خواندنی وضعیت پشتیبان، مقالهٔ تهران و صفحات شهرستان پیش از تغییر قالب مستر.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "updraft"},
+    {"cmd": "get", "id": 213},
+    {"cmd": "probe", "url": ["/city/tehran/?sa_probe=master-read", "/city/mashhad/?sa_probe=master-read"]}
+  ]
+}
