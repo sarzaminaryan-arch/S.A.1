@@ -1,0 +1,20 @@
+{
+ "note": "کار ۱۳۱: بازفرستادن دستهٔ بجنورد با ابزار تازه. ابزار حالا overlay/area هر عکس را در نتیجه گزارش می‌کند (۲.۲۲.۱۰۳ روی سایت نصب است)، پس از نتیجه معلوم می‌شود متن روی عکس — مثل «بش‌قارداش» و «پارک کودک» — واقعاً ثبت شده یا نه. بدون نصب قالب؛ فقط import، پاک‌سازی کش و probe.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-bojnord.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bojnord/?sa_probe=132"
+   ]
+  }
+ ]
+}
