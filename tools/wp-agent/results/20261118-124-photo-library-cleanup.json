@@ -1,0 +1,157 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-124-photo-library-cleanup.json",
+  "started_utc": "2026-11-17T03:09:13+00:00",
+  "note": "کار ۱۲۴: پاک‌سازی کتابخانه پس از سه اجرای واردکردن. برای هر مکان دو نسخه ساخته شد — ۴۶۳۲/۴۶۳۳/۴۶۳۴ (اجرای ۱۱۸) و ۴۶۳۵/۴۶۳۸/۴۶۳۹ (اجرای ۱۲۳). نسخهٔ محفوظِ هر مکان را می‌سنجیم: برای بجنورد ۴۶۳۶ (مفخم) و ۴۶۳۷ (بش‌قارداش) از اجرای ۱۲۳ با نشانی درستِ بندانگشتی‌اند. با دستور صریح مالک، شش نسخهٔ کهنه به زباله‌دان می‌روند (۳۰ روز قابل بازگردانی + پشتیبان). پس از آن فهرست عکس‌ها باید چهار ردیف بدهد و صفحه باید همان یک کادر و سه کادر را نشان بدهد.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.100",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-17T03:09:14+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "photos",
+      "result": {
+        "count": 9,
+        "per_city": {
+          "71": 9
+        },
+        "photos": [
+          {
+            "id": 4639,
+            "city_id": 71,
+            "place": "پارک کودک بجنورد",
+            "kind": "fun",
+            "author": "Mehraddddi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%A8%D8%AC%D9%86%D9%88%D8%B1%D8%AF_%D9%BE%D8%A7%D8%B1%DA%A9_%DA%A9%D9%88%D8%AF%DA%A9.jpg",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4638,
+            "city_id": 71,
+            "place": "پارک آفرینش",
+            "kind": "fun",
+            "author": "Arashk rp2",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Afarinesh_park_bojnord_by_arashk_rajabpour.JPG",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4637,
+            "city_id": 71,
+            "place": "پارک بش‌قارداش",
+            "kind": "fun",
+            "author": "Samin jazmi",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Beshghardash_park_bojnord.JPG",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4636,
+            "city_id": 71,
+            "place": "آیینه‌خانهٔ مفخم",
+            "kind": "heritage",
+            "author": "Arashk rp2",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Mofakham_Mirror_House_by_Arashk_Rajabpour.jpg",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4635,
+            "city_id": 71,
+            "place": "پارک کودک بجنورد",
+            "kind": "fun",
+            "author": "Mehraddddi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%A8%D8%AC%D9%86%D9%88%D8%B1%D8%AF_%D9%BE%D8%A7%D8%B1%DA%A9_%DA%A9%D9%88%D8%AF%DA%A9.jpg",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4634,
+            "city_id": 71,
+            "place": "پارک آفرینش",
+            "kind": "fun",
+            "author": "Arashk rp2",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Afarinesh_park_bojnord_by_arashk_rajabpour.JPG",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4633,
+            "city_id": 71,
+            "place": "پارک بش‌قارداش",
+            "kind": "fun",
+            "author": "Samin jazmi",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Beshghardash_park_bojnord.JPG",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4632,
+            "city_id": 71,
+            "place": "آیینه‌خانهٔ مفخم",
+            "kind": "heritage",
+            "author": "Arashk rp2",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Mofakham_Mirror_House_by_Arashk_Rajabpour.jpg",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          },
+          {
+            "id": 4631,
+            "city_id": 71,
+            "place": "پارک کودک بجنورد",
+            "kind": "fun",
+            "author": "Mehraddddi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%A8%D8%AC%D9%86%D9%88%D8%B1%D8%AF_%D9%BE%D8%A7%D8%B1%DA%A9_%DA%A9%D9%88%D8%AF%DA%A9.jpg",
+            "retrieved": "2026-11-17",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "trash",
+      "error": "HTTP 404 on GET /post/4632: {\"code\":\"sa_agent_not_found\",\"message\":\"\\u0646\\u0648\\u0634\\u062a\\u0647 \\u067e\\u06cc\\u062f\\u0627 \\u0646\\u0634\\u062f \\u06cc\\u0627 \\u0646\\u0648\\u0639\\u0634 \\u0645\\u062c\\u0627\\u0632 \\u0646\\u06cc\\u0633\\u062a.\",\"data\":{\"status\":404}}"
+    }
+  ],
+  "finished_utc": "2026-11-17T03:09:18+00:00"
+}
