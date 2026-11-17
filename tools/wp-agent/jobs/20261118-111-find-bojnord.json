@@ -1,0 +1,6 @@
+{
+ "note": "بجنورد — یافتن شناسهٔ پست زنده با نامک bojnord (فقط خواندنی).",
+ "steps": [
+  {"cmd": "list", "type": "city", "slug": "bojnord", "per_page": 20}
+ ]
+}
