@@ -254,6 +254,8 @@ class _SeoParser(html.parser.HTMLParser):
         self._in_spotlight = 0
         self._in_strip_tile = 0
         self._in_credit = 0
+        self._credit_buf = ""
+        self.photo_credits = []       # متن خط اعتبارهای چاپ‌شده (نام عکاس + مجوز) برای بازبینی مالک
         self._main = 0
 
     def handle_starttag(self, tag, attrs):
@@ -277,12 +279,11 @@ class _SeoParser(html.parser.HTMLParser):
         if "sa-strip__tile" in classes:
             self.strip_tiles += 1
             self._in_strip_tile += 1
-        if "sa-photo__credit" in classes or "sa-strip__credit" in classes:
-            self._in_credit += 1
-            if self._in_strip_tile:
-                self.strip_credits += 1
-            elif self._in_spotlight:
-                self.spotlight_credits += 1
+        if ("sa-photo__credit" in classes or "sa-strip__credit" in classes) and not self._in_credit:
+            # متن اعتبار تا بسته شدن همین عنصر جمع می‌شود و همان‌جا شمرده می‌شود؛
+            # تگ‌های درونی (<a>، <span>) شمارش را جابه‌جا نمی‌کنند.
+            self._in_credit = 1
+            self._credit_buf = ""
         if tag == "img" and "sa-county-cover__img" in classes:
             self.county_cover_images += 1
             src = a.get("src") or a.get("data-src") or ""
@@ -326,8 +327,17 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
-        if tag == "figure" and self._in_credit:
-            self._in_credit -= 1
+        # خط اعتبار یا <figcaption> است یا <p>؛ تگ‌های درونی (<span>، <a>) آن را نمی‌بندند.
+        if self._in_credit and tag in ("figcaption", "p"):
+            self._in_credit = 0
+            line = " ".join(self._credit_buf.split())
+            if line:
+                if self._in_strip_tile:
+                    self.strip_credits += 1
+                elif self._in_spotlight:
+                    self.spotlight_credits += 1
+                if len(self.photo_credits) < 12:
+                    self.photo_credits.append(line)
         if tag == "section" and self._in_spotlight:
             self._in_spotlight -= 1
         if tag == "article" and self._in_strip_tile:
@@ -347,6 +357,8 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip -= 1
 
     def handle_data(self, data):
+        if self._in_credit:
+            self._credit_buf += data  # خط اعتبار عکس: نام عکاس + مجوز
         if self._in_title:
             self.title += data
         if self._in_jsonld:
@@ -444,6 +456,7 @@ def scan_url(url: str) -> dict:
         "county_cover_figures": p.county_cover_figures, "county_cover_images": p.county_cover_images,
         "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
         "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
+        "photo_credit_texts": p.photo_credits,
         "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
@@ -490,6 +503,7 @@ def probe_url(url: str) -> dict:
                 "county_cover_image_srcs": p.county_cover_image_srcs,
                 "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
                 "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
+                "photo_credit_texts": p.photo_credits,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
                 "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
                 "map_coords": p.map_coords})
