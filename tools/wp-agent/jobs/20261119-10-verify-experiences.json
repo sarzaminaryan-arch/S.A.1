@@ -1,0 +1,20 @@
+{
+ "note": "دستهٔ ۷ — بررسی چاپ بلوک «از تجربهٔ مسافرها» روی ده صفحه (شمارش کارت‌های چاپ‌شده در HTML عمومی). فقط خواندن.",
+ "steps": [
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bushehr-county/",
+    "/city/birjand/",
+    "/city/ilam/",
+    "/city/sharekurd/",
+    "/city/semnan/",
+    "/city/qeshm/",
+    "/city/ramsar/",
+    "/city/boyer-ahmad/",
+    "/city/bandar-lengeh/",
+    "/city/chabahar/"
+   ]
+  }
+ ]
+}
