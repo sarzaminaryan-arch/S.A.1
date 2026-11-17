@@ -3,7 +3,7 @@ Contributors: mrlak
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 2.22.110
+Stable tag: 2.22.111
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translation-ready, accessibility-ready
@@ -66,7 +66,7 @@ Tags: rtl-language-support, custom-menu, custom-logo, featured-images, translati
 * دستهٔ عکس دو فیلد تازه پذیرفت: `overlay` (نام کوتاه روی عکس) و `area` (ناحیه/نشانی).
 * probe دو شمارندهٔ تازه می‌دهد: `photo_places` و `photo_place_texts` (نام مکانِ روی تصویر).
 
-= 2.22.110 — 1405-08-26 (2026-11-17) =
+= 2.22.101 — 1405-08-26 (2026-11-17) =
 * مسیر `POST /photos/prune`: برای هر (شهرستان، مکان) جدیدترین پیوست می‌ماند و نسخه‌های اضافی (که با اصلاح نشانی فایل ساخته شده‌اند) با دستور صریح مالک به زباله‌دان می‌روند؛ پیش‌نمایش اجباری است.
 
 = 2.22.100 — 1405-08-26 (2026-11-17) =
