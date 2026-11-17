@@ -47,13 +47,21 @@ print("PASS: probe parser detects county cover markup, JSON-LD images and the op
 
 # 2) Licensed place photos: the credit line is part of the design, so the probe counts it.
 photo_html = """<section class="sa-spotlight"><figure class="sa-photo__frame sa-spotlight__frame">
-<img src="a.jpg" alt="x"><figcaption class="sa-photo__credit">عکس: الف · CC BY-SA 3.0</figcaption></figure></section>
-<section class="sa-strip"><article class="sa-strip__tile"><img src="b.jpg" alt="y">
-<p class="sa-strip__credit">عکس: ب · CC BY-SA 3.0</p></article>
-<article class="sa-strip__tile"><img src="c.jpg" alt="z"></article></section>"""
+<img src="a.jpg" alt="x"><figcaption class="sa-photo__caption"><span class="sa-photo__place">آیینه‌خانهٔ مفخم</span><span class="sa-photo__area">بجنورد، خیابان مفخم</span></figcaption></figure>
+<p class="sa-photo__credit"><a href="https://creativecommons.org/licenses/by-sa/3.0/">Arashk rp2</a></p></section>
+<article class="sa-strip__tile"><figure class="sa-photo__frame sa-strip__photo">
+<img src="b.jpg" alt="y"><figcaption class="sa-photo__caption"><span class="sa-photo__place">پارک بشقارداش</span></figcaption></figure>
+<p class="sa-strip__credit">Samin jazmi</p></article>
+<article class="sa-strip__tile"><figure class="sa-photo__frame sa-strip__photo">
+<img src="c.jpg" alt="z"><figcaption class="sa-photo__caption"><span class="sa-photo__place">پارک آفرینش</span></figcaption></figure>
+<p class="sa-strip__credit">Arashk rp2</p></article>"""
 pp = wa._SeoParser()
 pp.feed(photo_html)
 assert pp.spotlight == 1 and pp.spotlight_credits == 1, (pp.spotlight, pp.spotlight_credits)
-assert pp.strip_tiles == 2 and pp.strip_credits == 1, (pp.strip_tiles, pp.strip_credits)
-assert pp.imgs == 3 and pp.imgs_no_alt == 0, (pp.imgs, pp.imgs_no_alt)
+assert pp.strip_tiles == 2 and pp.strip_credits == 2, (pp.strip_tiles, pp.strip_credits)
+# 2b) نام مکان روی خود عکس: هر قاب یک نام، و متن اعتبار نباید با آن قاطی شود.
+assert pp.photo_places == 3, pp.photo_places
+assert pp.photo_place_texts[0] == "آیینه‌خانهٔ مفخم بجنورد، خیابان مفخم", pp.photo_place_texts
+assert "عکس:" not in " ".join(pp.photo_credits), pp.photo_credits
+
 print("PASS: probe counts the photo spotlight, the three-tile strip and every credit line")

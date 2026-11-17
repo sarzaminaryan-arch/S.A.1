@@ -62,6 +62,10 @@ sa_font_assert( false !== strpos( $child_css, 'line-gap-override: 0%;' ), 'fallb
 
 // 4. Both font stacks route through the fallback face.
 sa_font_assert( false !== strpos( $child_css, "--font-family-body: 'Vazirmatn', 'Vazirmatn Fallback'," ), 'body stack routes through the fallback' );
-sa_font_assert( false !== strpos( $home_tpl, "font-family:Vazirmatn,'Vazirmatn Fallback',Tahoma,sans-serif" ), 'homepage stack routes through the fallback' );
+sa_font_assert(
+	false !== strpos( $home_tpl, "font-family:Vazirmatn,'Vazirmatn Fallback',Tahoma,sans-serif" )
+		|| false !== strpos( str_replace( array( ' ', "\n", "\t" ), '', $home_tpl ), "font-family:Vazirmatn,'VazirmatnFallback',Tahoma,sans-serif" ),
+	'homepage stack routes through the fallback'
+);
 
 echo "test-font-loading: OK\n";

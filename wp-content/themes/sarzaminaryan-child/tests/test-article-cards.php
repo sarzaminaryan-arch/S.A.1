@@ -197,7 +197,7 @@ $home = (string) file_get_contents( SA_CHILD_DIR . 'template-home.php' );
 foreach ( array( 'new WP_Query', '$sa_latest', '$sa_edu_q', '$sa_attr_q', 'sa-attractions', 'sa-education', 'sa-posts', 'sa-post', 'sa-logo' ) as $removed ) {
 	sa_t_assert( false === strpos( $home, $removed ), 'homepage does not restore removed content: ' . $removed );
 }
-foreach ( array( 'sa-hero', 'sa-map', 'sa-search', 'sa-chips', 'sa-stats', 'CC_UI::top_cities_block( 7 )' ) as $preserved ) {
+foreach ( array( 'sa-hero', 'sa-map', 'sa-search', 'sa-chips', 'sa-stats', 'CC_UI::top_cities_block( 7 )', 'sa-stat', 'sa-map__hint' ) as $preserved ) {
 	sa_t_assert( false !== strpos( $home, $preserved ), 'homepage preserves intended feature: ' . $preserved );
 }
 sa_t_assert( false !== strpos( $home, 'get_header();' ) && false !== strpos( $home, 'get_footer();' ), 'homepage keeps the header and footer' );
