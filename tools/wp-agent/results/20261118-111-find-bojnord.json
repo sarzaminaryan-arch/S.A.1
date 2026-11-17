@@ -1,0 +1,31 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-111-find-bojnord.json",
+  "started_utc": "2026-11-17T00:44:55+00:00",
+  "note": "بجنورد — یافتن شناسهٔ پست زنده با نامک bojnord (فقط خواندنی).",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "list",
+      "result": {
+        "total": 1,
+        "pages": 0,
+        "items": [
+          {
+            "id": 71,
+            "type": "city",
+            "status": "publish",
+            "slug": "bojnord",
+            "title": "شهرستان بجنورد",
+            "modified_gmt": "2026-11-15 11:29:04",
+            "link": "https://sarzaminaryan.ir/city/bojnord/",
+            "words": 1104,
+            "featured_media": 4262,
+            "featured_media_missing": false
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T00:44:57+00:00"
+}
