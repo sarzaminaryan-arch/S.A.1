@@ -1,0 +1,536 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-16-experiences-batch8-rest.json",
+  "started_utc": "2026-11-17T23:11:43+00:00",
+  "note": "دستهٔ ۸ — لایهٔ «از تجربهٔ مسافرها» برای پنج شهرستان دوم (اهر، میانه، شهرضا، بهارستان، محمودآباد). هر رکورد با متای مستقل و پشتیبان پیش از تغییر؛ دو نقل‌قول عیناً از گوگل‌مپ با تاریخ دیدن (میانه) و بقیه برداشت تحریریه از منابع خوانده‌شده. انتظار modified_gmt از کار ۱۴.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 107,
+        "backup_id": 4739,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 23:04:07",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 116,
+        "backup_id": 4740,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 23:04:09",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "update",
+      "result": {
+        "id": 164,
+        "backup_id": 4741,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 23:04:12",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "update",
+      "result": {
+        "id": 220,
+        "backup_id": 4742,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 23:04:14",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "update",
+      "result": {
+        "id": 537,
+        "backup_id": 4743,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 23:04:16",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          107,
+          116,
+          164,
+          220,
+          537
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/ahar/",
+            "status": 200,
+            "ms": 1022,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اهر؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ahar/",
+            "desc": "راهنمای شهرستان اهر: جمعیت ۱۵۴٬۵۳۰ نفر (۱۳۹۵)، بقعه و خانقاه شیخ شهاب‌الدین، مسجد جامع، بازار، جنگل ارسباران و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "اهر — دروازهٔ ارسباران و شهر شیخ شهاب‌الدین",
+              "og:description": "از بقعه و خانقاه شیخ شهاب‌الدین تا بازار و جنگل ارسباران؛ راهنمای سفر به شهرستان اهر.",
+              "og:url": "https://sarzaminaryan.ir/city/ahar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahar.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "اهر — دروازهٔ ارسباران و شهر شیخ شهاب‌الدین",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "اهر — دروازهٔ ارسباران و شهر شیخ شهاب‌الدین"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahar.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Abdossamad Talebpour"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahar.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17328,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mianeh/",
+            "status": 200,
+            "ms": 990,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان میانه؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mianeh/",
+            "desc": "راهنمای شهرستان میانه: جمعیت ۱۸۲٬۸۴۸ نفر (۱۳۹۵)، پل شهرچای، پل دختر، قلعهٔ دختر، امامزاده اسماعیل و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "میانه — شهر پل‌های تاریخی و دروازهٔ شرقی آذربایجان",
+              "og:description": "از پل شهرچای و پل دختر تا بازار و ییلاق‌های کندوان؛ راهنمای سفر به شهرستان میانه.",
+              "og:url": "https://sarzaminaryan.ir/city/mianeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mianeh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "میانه — شهر پل‌های تاریخی و دروازهٔ شرقی آذربایجان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "میانه — شهر پل‌های تاریخی و دروازهٔ شرقی آذربایجان"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mianeh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mahnaz noruzi"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mianeh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18988,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/shahreza/",
+            "status": 200,
+            "ms": 973,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شهرضا؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shahreza/",
+            "desc": "راهنمای شهرستان شهرضا: جمعیت ۱۵۹٬۷۹۷ نفر (۱۳۹۵)، مسجد جامع سلجوقی، بازار تاریخی، امامزاده شاه‌رضا، کاروانسرای امین‌آباد و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرضا — قمشهٔ کهن، شهر کره و کاروانسراهای صفوی",
+              "og:description": "از بازار تاریخی و مسجد جامع تا کاروانسرای امین‌آباد و زرچشمه؛ راهنمای سفر به شهرضا.",
+              "og:url": "https://sarzaminaryan.ir/city/shahreza/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahreza.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرضا — قمشهٔ کهن، شهر کره و کاروانسراهای صفوی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرضا — قمشهٔ کهن، شهر کره و کاروانسراهای صفوی"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahreza.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Bernard Gagnon"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahreza.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20888,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/baharestan/",
+            "status": 200,
+            "ms": 1008,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بهارستان؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/baharestan/",
+            "desc": "راهنمای شهرستان بهارستان: جمعیت ۵۳۶٬۳۲۹ نفر (۱۳۹۵)، مساحت ۹۷ کیلومتر مربع، دسترسی از تهران و اسلامشهر و رباط‌کریم.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "بهارستان — شهرستان جوان و پرتراکم جنوب غرب تهران",
+              "og:description": "شهرستانی که در چند دهه ساخته شد؛ جمعیت، محله‌ها و راه رسیدن از تهران.",
+              "og:url": "https://sarzaminaryan.ir/city/baharestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-baharestan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "بهارستان — شهرستان جوان و پرتراکم جنوب غرب تهران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "بهارستان — شهرستان جوان و پرتراکم جنوب غرب تهران"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-baharestan.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "درپیت"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-baharestan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22336,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mahmudabad/",
+            "status": 200,
+            "ms": 965,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان محمودآباد؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mahmudabad/",
+            "desc": "راهنمای شهرستان محمودآباد: جمعیت ۱۳۰٬۰۵۴ نفر (۱۳۹۵)، پارک‌های ساحلی، تالاب سرخرود، آب‌بندان و راه رسیدن از هراز.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "محمودآباد — ساحل خزر، شالیزار و تالاب سرخرود",
+              "og:description": "از ساحل و پارک ساحلی تا تالاب سرخرود و شالیزار؛ راهنمای سفر به شهرستان محمودآباد.",
+              "og:url": "https://sarzaminaryan.ir/city/mahmudabad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahmudabad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "محمودآباد — ساحل خزر، شالیزار و تالاب سرخرود",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "محمودآباد — ساحل خزر، شالیزار و تالاب سرخرود"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahmudabad.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mostafameraji"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahmudabad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 23086,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T23:11:59+00:00"
+}
