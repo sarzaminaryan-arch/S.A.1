@@ -1,0 +1,17 @@
+[
+ {
+  "id": 211,
+  "slug": "bushehr-county",
+  "words_after": 1001,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

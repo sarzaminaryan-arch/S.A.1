@@ -1,0 +1,70 @@
+{
+ "note": "دستهٔ ۷ — گام دوم: تطبیق پنج شهرستان نخست (بوشهر، بیرجند، ایلام، شهرکرد، سمنان) با تمپلیت مستر. بدنهٔ تازه ۱٬۰۰۱ و ۹۳۹ و ۹۳۳ و ۹۱۴ و ۹۲۸ واژه در شش بخش اجباری با نشانگر sa:sec، منابع تازه در دو دامنه یا بیشتر، متای اصلاح‌شده، پرسش‌های متداول بازنویسی‌شده. هر نوشتن پیش از تغییر پشتیبان می‌گیرد؛ انتظار modified_gmt از خواندن کار ۱۱۹.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 211,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-bushehr-county/bushehr-county-211.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-bushehr-county/bushehr-county-211.meta.json",
+   "expected_modified_gmt": "2026-10-24 00:59:04",
+   "owner_approved_live_edit": true,
+   "reason": "bushehr-county: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، حذف تیترهای بازنشسته و متای اصلاح‌شده"
+  },
+  {
+   "cmd": "update",
+   "id": 241,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-birjand/birjand-241.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-birjand/birjand-241.meta.json",
+   "expected_modified_gmt": "2026-10-01 15:39:08",
+   "owner_approved_live_edit": true,
+   "reason": "birjand: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، حذف تیترهای بازنشسته و متای اصلاح‌شده"
+  },
+  {
+   "cmd": "update",
+   "id": 189,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-ilam/ilam-189.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-ilam/ilam-189.meta.json",
+   "expected_modified_gmt": "2026-10-24 00:59:02",
+   "owner_approved_live_edit": true,
+   "reason": "ilam: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، حذف تیترهای بازنشسته و متای اصلاح‌شده"
+  },
+  {
+   "cmd": "update",
+   "id": 1899,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-sharekurd/sharekurd-1899.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-sharekurd/sharekurd-1899.meta.json",
+   "expected_modified_gmt": "2026-10-04 11:33:25",
+   "owner_approved_live_edit": true,
+   "reason": "sharekurd: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، حذف تیترهای بازنشسته و متای اصلاح‌شده"
+  },
+  {
+   "cmd": "update",
+   "id": 296,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-semnan/semnan-296.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-semnan/semnan-296.meta.json",
+   "expected_modified_gmt": "2026-10-24 00:59:03",
+   "owner_approved_live_edit": true,
+   "reason": "semnan: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، حذف تیترهای بازنشسته و متای اصلاح‌شده"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    211,
+    241,
+    189,
+    1899,
+    296
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/bushehr-county/",
+    "/city/birjand/",
+    "/city/ilam/",
+    "/city/sharekurd/",
+    "/city/semnan/"
+   ]
+  }
+ ]
+}

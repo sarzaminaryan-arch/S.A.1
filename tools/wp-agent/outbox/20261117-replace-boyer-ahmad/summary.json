@@ -1,0 +1,17 @@
+[
+ {
+  "id": 430,
+  "slug": "boyer-ahmad",
+  "words_after": 957,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

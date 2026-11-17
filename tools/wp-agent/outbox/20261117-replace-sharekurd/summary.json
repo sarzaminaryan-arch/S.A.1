@@ -1,0 +1,17 @@
+[
+ {
+  "id": 1899,
+  "slug": "sharekurd",
+  "words_after": 914,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

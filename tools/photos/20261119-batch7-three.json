@@ -1,0 +1,50 @@
+{
+ "note": "دستهٔ ۷ — سه شهرستان پایانی (بویراحمد، بندر لنگه، چابهار): یک تصویر شاخص برای هر شهرستان، همه از ویکی‌مدیا با مجوز CC0/CC BY-SA و نام عکاس. هیچ فایل خبرگزاری یا گوگل‌مپ.",
+ "photos": [
+  {
+   "city_id": 430,
+   "place": "آبشار یاسوج",
+   "kind": "nature",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Yasuj_Waterfall_at_the_top.jpg",
+   "author": "Ashkan",
+   "license": "cc0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Yasuj_Waterfall_at_the_top.jpg",
+   "alt": "نمای آبشار یاسوج از بالای صخره در میان درختان بلوط",
+   "note": "آبشار یاسوج در پنج کیلومتری شمال شهر و در دامنه‌ای پر از بلوط است؛ آبشار بلندی که در بهار پرآب‌تر می‌شود و مسیرش پیاده‌روی کوتاهی می‌خواهد. رفتن به بالای آبشار، چشم‌انداز درهٔ بشار را هم باز می‌کند.",
+   "points": "پنج کیلومتر از شهر|پیاده‌روی کوتاه کنار جاده|پرآب در بهار|سایهٔ بلوط در بیشتر مسیر",
+   "highlight": "نزدیک‌ترین آبشار به یاسوج؛ شروع طبیعی گشت طبیعت.",
+   "tag": "طبیعت"
+  },
+  {
+   "city_id": 638,
+   "place": "ساحل بندر لنگه",
+   "kind": "nature",
+   "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/BandarLengeh-Beach-1.jpg/1280px-BandarLengeh-Beach-1.jpg",
+   "author": "Hasanbardal",
+   "license": "cc-by-sa-4",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:BandarLengeh-Beach-1.jpg",
+   "alt": "ساحل و اسکلهٔ بندر لنگه در نور غروب با لنج‌های چوبی",
+   "note": "ساحل بندر لنگه کم‌شیب و کم‌سایه است و بعدازظهر، باد دریا خنک‌ترش می‌کند. لنج‌های چوبی و قایق‌های صیادی در همین کرانه لنگر می‌اندازند و صبح زود، بازار ماهی پشت اسکله پرتردد است.",
+   "points": "اسکله و لنج‌های چوبی|پیاده‌روی عصرگاهی|بازار ماهی صبح|آب کم‌عمق و مناسب کودکان",
+   "highlight": "کرانه‌ای که بادگیرهای شهر را از دریا می‌بینی.",
+   "tag": "طبیعت"
+  },
+  {
+   "city_id": 305,
+   "place": "ساحل چابهار",
+   "kind": "nature",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chabahar_Beach_1.jpg",
+   "author": "Amirhossein Nikroo",
+   "license": "cc-by-sa-3",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Chabahar_Beach_1.jpg",
+   "alt": "خلیج و ساحل سنگی چابهار با آب فیروزه‌ای",
+   "note": "خلیج چابهار آب آرام و ساحل سنگی دارد و کشتی‌های اقیانوسی در همین خلیج لنگر می‌اندازند. عصرها مردم شهر برای قدم‌زدن کنار آب می‌آیند و در زمستان، هوای ساحل تا شب معتدل می‌ماند.",
+   "points": "آب آرام و کم‌موج|دیدِ بندر و کشتی‌ها|پیاده‌روی عصرگاهی|هوای معتدل در زمستان",
+   "highlight": "خلیجی که دریا در آن آرام است؛ تنها بندر اقیانوسی ایران.",
+   "tag": "طبیعت"
+  }
+ ]
+}

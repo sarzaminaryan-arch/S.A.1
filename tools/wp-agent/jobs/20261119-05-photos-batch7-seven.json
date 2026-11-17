@@ -1,0 +1,8 @@
+{
+ "note": "دستهٔ ۷ — تصاویر مجاز: یک تصویر شاخص برای هفت شهرستان بازنویسی‌شده (بوشهر ۲۱۱، بیرجند ۲۴۱، ایلام ۱۸۹، شهرکرد ۱۸۹۹، سمنان ۲۹۶، قشم ۶۴۰، رامسر ۵۳۹). همه از ویکی‌مدیا، مجوز CC BY 4.0 یا CC BY-SA 4.0 با نام عکاس؛ هیچ تصویری از خبرگزاری یا گوگل‌مپ. سپس پاک‌سازی کش و بررسی ۲۰۰.",
+ "steps": [
+  {"cmd": "photos-import", "batch": "tools/photos/20261119-batch7-seven.json"},
+  {"cmd": "cache-purge", "id": [211, 241, 189, 1899, 296, 640, 539]},
+  {"cmd": "probe", "url": ["/city/bushehr-county/", "/city/birjand/", "/city/ilam/", "/city/sharekurd/", "/city/semnan/", "/city/qeshm/", "/city/ramsar/"]}
+ ]
+}

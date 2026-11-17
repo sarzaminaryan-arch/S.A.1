@@ -1,0 +1,17 @@
+[
+ {
+  "id": 539,
+  "slug": "ramsar",
+  "words_after": 951,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

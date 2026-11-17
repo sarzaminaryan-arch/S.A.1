@@ -57,3 +57,21 @@ assert pp.spotlight == 1 and pp.spotlight_credits == 1, (pp.spotlight, pp.spotli
 assert pp.strip_tiles == 2 and pp.strip_credits == 1, (pp.strip_tiles, pp.strip_credits)
 assert pp.imgs == 3 and pp.imgs_no_alt == 0, (pp.imgs, pp.imgs_no_alt)
 print("PASS: probe counts the photo spotlight, the three-tile strip and every credit line")
+
+# 3) «از تجربهٔ مسافرها»: the block is meta-driven, so a probe must be able to
+# tell a rendered block (4 facts, 4 seasons, places, tips) from a missing one.
+exp_html = """<section class="sa-field-notes" id="county-field-notes">
+<div class="sa-field-facts"><div class="sa-field-fact"><span class="sa-field-fact__value">الف</span></div></div>
+<div class="sa-field-seasons"><div class="sa-field-season"><span class="sa-field-season__name">بهار</span></div>
+<div class="sa-field-season"><span class="sa-field-season__name">تابستان</span></div></div>
+<ul class="sa-field-places__list"><li class="sa-field-place"><h4>جا</h4></li><li class="sa-field-place"><h4>جا۲</h4></li></ul>
+<div class="sa-field-tips"><div class="sa-field-tip"><span class="sa-field-tip__cat">هشدار</span></div></div></section>"""
+ep = wa._SeoParser()
+ep.feed(exp_html)
+assert ep.experience_block == 1, ep.experience_block
+assert ep.experience_facts == 1 and ep.experience_seasons == 2, (ep.experience_facts, ep.experience_seasons)
+assert ep.experience_places == 2 and ep.experience_tips == 1, (ep.experience_places, ep.experience_tips)
+plain_page = wa._SeoParser()
+plain_page.feed('<html><body><main><h2>تاریخ</h2><p>متن</p></main></body></html>')
+assert plain_page.experience_block == 0 and plain_page.experience_tips == 0
+print("PASS: probe counts the traveller-experience block (facts, seasons, places, tips)")

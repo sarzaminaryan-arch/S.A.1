@@ -256,6 +256,13 @@ class _SeoParser(html.parser.HTMLParser):
         self._in_credit = 0
         self._credit_buf = ""
         self.photo_credits = []       # متن خط اعتبارهای چاپ‌شده (نام عکاس + مجوز) برای بازبینی مالک
+        # لایهٔ «از تجربهٔ مسافرها» (متای صفحه، بدون ارتقای قالب): شمارش
+        # کارت‌های چاپ‌شده تا معلوم شود بلوک واقعاً روی صفحه هست یا نه.
+        self.experience_block = 0
+        self.experience_facts = 0
+        self.experience_seasons = 0
+        self.experience_places = 0
+        self.experience_tips = 0
         self._main = 0
 
     def handle_starttag(self, tag, attrs):
@@ -273,6 +280,16 @@ class _SeoParser(html.parser.HTMLParser):
             self.map_frame_buttons += 1
         if tag == "figure" and "sa-county-cover" in classes:
             self.county_cover_figures += 1
+        if "sa-field-notes" in classes:
+            self.experience_block += 1
+        if "sa-field-fact__value" in classes:
+            self.experience_facts += 1
+        if "sa-field-season__name" in classes:
+            self.experience_seasons += 1
+        if "sa-field-place" in classes:
+            self.experience_places += 1
+        if "sa-field-tip" in classes:
+            self.experience_tips += 1
         if "sa-spotlight" in classes:
             self.spotlight += 1
             self._in_spotlight += 1
@@ -504,6 +521,11 @@ def probe_url(url: str) -> dict:
                 "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
                 "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
                 "photo_credit_texts": p.photo_credits,
+                "experience_block": p.experience_block,
+                "experience_facts": p.experience_facts,
+                "experience_seasons": p.experience_seasons,
+                "experience_places": p.experience_places,
+                "experience_tips": p.experience_tips,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
                 "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
                 "map_coords": p.map_coords})

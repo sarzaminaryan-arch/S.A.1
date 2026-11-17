@@ -1,0 +1,11 @@
+{
+ "note": "دستهٔ ۷ — گام چهارم: سه شهرستان پایانی (بویراحمد ۴۳۰، بندر لنگه ۶۳۸، چابهار ۳۰۵). بدنه‌های تازه ۹۵۷ و ۹۵۳ و ۹۶۰ واژه در شش بخش نشانه‌دار، ده پرسش، منابع در سه دامنه، متای اصلاح‌شده؛ سپس تصویر شاخص مجاز هر شهرستان، پاک‌سازی کش و بررسی ۲۰۰.",
+ "steps": [
+  {"cmd": "update", "id": 430, "content_file": "tools/wp-agent/outbox/20261117-replace-boyer-ahmad/boyer-ahmad-430.html", "meta_file": "tools/wp-agent/outbox/20261117-replace-boyer-ahmad/boyer-ahmad-430.meta.json", "expected_modified_gmt": "2026-10-02 03:08:27", "owner_approved_live_edit": true, "reason": "boyer-ahmad: تطبیق با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی، حذف تیترهای بازنشسته، منابع تازه، متای اصلاح‌شده"},
+  {"cmd": "update", "id": 638, "content_file": "tools/wp-agent/outbox/20261117-replace-bandar-lengeh/bandar-lengeh-638.html", "meta_file": "tools/wp-agent/outbox/20261117-replace-bandar-lengeh/bandar-lengeh-638.meta.json", "expected_modified_gmt": "2026-10-04 11:50:06", "owner_approved_live_edit": true, "reason": "bandar-lengeh: تطبیق با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی، حذف تیترهای بازنشسته، منابع تازه، متای اصلاح‌شده"},
+  {"cmd": "update", "id": 305, "content_file": "tools/wp-agent/outbox/20261117-replace-chabahar/chabahar-305.html", "meta_file": "tools/wp-agent/outbox/20261117-replace-chabahar/chabahar-305.meta.json", "expected_modified_gmt": "2026-10-03 18:43:39", "owner_approved_live_edit": true, "reason": "chabahar: تطبیق با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی، حذف تیترهای بازنشسته، منابع تازه، اصلاح متای خراب (sameas و contained_in)"},
+  {"cmd": "photos-import", "batch": "tools/photos/20261119-batch7-three.json"},
+  {"cmd": "cache-purge", "id": [430, 638, 305]},
+  {"cmd": "probe", "url": ["/city/boyer-ahmad/", "/city/bandar-lengeh/", "/city/chabahar/"]}
+ ]
+}

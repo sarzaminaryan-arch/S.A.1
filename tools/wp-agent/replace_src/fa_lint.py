@@ -275,6 +275,17 @@ def scan_meta(meta: dict, where: str = "") -> list[str]:
                 if name_fa:
                     issues += scan(name_fa, f"{where}{key}: ")
             continue
+        if key == "local_tips":
+            # قالب خطیِ نکته‌ها: «دسته | عنوان | متن» (و ستون اختیاری شاهد).
+            # دسته واژهٔ ماشینی است (warning/culture/logistics) و ستون شاهد
+            # عیناً حرف کاربر با نام سرویس و تاریخ است؛ پس فقط عنوان و متن
+            # فارسی سنجیده می‌شود.
+            for line in value.splitlines():
+                parts = [part.strip() for part in line.split(" | ")]
+                for part in parts[1:3]:
+                    if part:
+                        issues += scan(part, f"{where}{key}: ")
+            continue
         if key.startswith("sa_cty_poi_"):
             for line in value.splitlines():
                 # «نام فارسی؛ توضیح» — بخش لاتین نام تخصصی مجاز است

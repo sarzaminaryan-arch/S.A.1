@@ -1,0 +1,248 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-08-photo-lengeh-alt.json",
+  "started_utc": "2026-11-17T22:17:59+00:00",
+  "note": "دستهٔ ۷ — تصویر ساحل بندر لنگه از نشانی اصلی فایل، سپس پاک‌سازی کش و بررسی ۲۰۰ سه صفحهٔ پایانی.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "photos-import",
+      "result": {
+        "batch": "20261119-batch7-lengeh-retry2",
+        "note": "دستهٔ ۷ — تصویر ساحل بندر لنگه، این بار از نشانی اصلی فایل در ویکی‌مدیا (تصویر کوچک‌تر از ۱۲۸۰ پیکسل است و نسخهٔ thumbnail_render ندارد). همان مجوز CC BY-SA 4.0 با نام عکاس.",
+        "imported": [
+          {
+            "place": "ساحل بندر لنگه",
+            "id": 4678,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d8a7d8add984-d8a8d986d8afd8b1-d984d986daafd987-57942e.jpg"
+          }
+        ],
+        "reused": [],
+        "refused": [],
+        "failed": []
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          430,
+          638,
+          305
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/boyer-ahmad/",
+            "status": 200,
+            "ms": 1317,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بویراحمد؛ راهنمای سفر، جاذبه‌ها و تاریخ کهگیلویه و بویراحمد | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/boyer-ahmad/",
+            "desc": "راهنمای شهرستان بویراحمد: جمعیت ۲۹۹٬۸۸۵ نفر (۱۳۹۵)، یاسوج، آبشار تنگ تامرادی، پیست کاکان، زبان مردم، اقتصاد و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بویراحمد — یاسوج، مرکز استان و دروازهٔ دنا",
+              "og:description": "از آبشار تنگ تامرادی تا پیست کاکان و دره‌های بلوط؛ راهنمای سفر به شهرستان بویراحمد.",
+              "og:url": "https://sarzaminaryan.ir/city/boyer-ahmad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-boyer-ahmad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بویراحمد — یاسوج، مرکز استان و دروازهٔ دنا",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بویراحمد — یاسوج، مرکز استان و دروازهٔ دنا"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-boyer-ahmad.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Ashkan"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-boyer-ahmad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22094,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bandar-lengeh/",
+            "status": 200,
+            "ms": 1106,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بندر لنگه؛ راهنمای سفر، جاذبه‌ها و تاریخ هرمزگان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bandar-lengeh/",
+            "desc": "راهنمای شهرستان بندر لنگه: جمعیت ۱۵۹٬۳۵۸ نفر (۱۳۹۵)، خانهٔ فکری، بافت تاریخی، موزهٔ دریانوردی کنگ، لنج‌سازی و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بندر لنگه — بندر بادگیرها و برکه‌ها",
+              "og:description": "از خانهٔ فکری و آب‌انبارهای بافت قدیم تا کارگاه لنج‌سازی کنگ؛ راهنمای سفر به شهرستان بندر لنگه.",
+              "og:url": "https://sarzaminaryan.ir/city/bandar-lengeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bandar-lengeh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بندر لنگه — بندر بادگیرها و برکه‌ها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بندر لنگه — بندر بادگیرها و برکه‌ها"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bandar-lengeh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Hasanbardal"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bandar-lengeh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22276,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/chabahar/",
+            "status": 200,
+            "ms": 1140,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان چابهار؛ راهنمای سفر، جاذبه‌ها و تاریخ سیستان و بلوچستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/chabahar/",
+            "desc": "راهنمای شهرستان چابهار: جمعیت ۲۰۳٬۲۹۳ نفر (۱۳۹۵)، کوه‌های مریخی، روستای تیس، قلعهٔ پرتغالی، مردم بلوچ و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان چابهار — تنها بندر اقیانوسی ایران",
+              "og:description": "از کوه‌های مریخی و قلعهٔ تیس تا اسکلهٔ صیادی و بازار بلوچ؛ راهنمای سفر به شهرستان چابهار.",
+              "og:url": "https://sarzaminaryan.ir/city/chabahar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-chabahar.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان چابهار — تنها بندر اقیانوسی ایران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان چابهار — تنها بندر اقیانوسی ایران"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-chabahar.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Amirhossein Nikroo"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-chabahar.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20194,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T22:18:14+00:00"
+}

@@ -1,0 +1,25 @@
+{
+ "note": "دستهٔ ۷ — پایان کار سه شهرستان: تصویر ساحل بندر لنگه دوباره، پاک‌سازی کش سه صفحه و بررسی ۲۰۰. سه انتشار در کار ۲۰۶ پیش از این انجام شد.",
+ "steps": [
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261119-batch7-lengeh-retry.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    430,
+    638,
+    305
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/boyer-ahmad/",
+    "/city/bandar-lengeh/",
+    "/city/chabahar/"
+   ]
+  }
+ ]
+}

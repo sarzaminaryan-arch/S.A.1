@@ -1,0 +1,25 @@
+{
+ "note": "دستهٔ ۷ — تصویر ساحل بندر لنگه از نشانی اصلی فایل، سپس پاک‌سازی کش و بررسی ۲۰۰ سه صفحهٔ پایانی.",
+ "steps": [
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261119-batch7-lengeh-retry2.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    430,
+    638,
+    305
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/boyer-ahmad/",
+    "/city/bandar-lengeh/",
+    "/city/chabahar/"
+   ]
+  }
+ ]
+}

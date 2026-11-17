@@ -1,0 +1,277 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-04-write-batch7-qeshm-ramsar.json",
+  "started_utc": "2026-11-17T22:01:47+00:00",
+  "note": "دستهٔ ۷ — گام سوم: قشم و رامسر. بدنهٔ تازه ۹۴۱ و ۹۵۱ واژه در شش بخش نشانه‌دار، ۱۱ پرسش، منابع در دو دامنه، متای اصلاح‌شده. پشتیبان پیش از هر تغییر؛ انتظار modified_gmt از خواندن کار ۱۱۹.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 640,
+        "backup_id": 4659,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:01:49",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_elevation",
+            "sa_cty_area",
+            "sa_cty_census_year",
+            "sa_cty_center",
+            "sa_cty_cities",
+            "sa_cty_distance_center",
+            "sa_cty_districts",
+            "sa_cty_neighbors",
+            "sa_cty_population",
+            "sa_cty_rural_districts",
+            "sa_city_population",
+            "sa_cty_best_time",
+            "sa_cty_climate",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_google_map_url",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_recreation",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_access_road",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_focus_keyword",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_facts_checked",
+            "sa_county_name",
+            "sa_county_center_city",
+            "sa_county_established_jalali",
+            "sa_importer_version",
+            "sa_province_id",
+            "sa_faq",
+            "_thumbnail_id",
+            "sa_city_slug",
+            "sa_cty_poi_offbeat",
+            "sa_access_rail",
+            "sa_access_air",
+            "sa_schema_contained_in",
+            "sa_schema_sameas",
+            "sa_map_zoom"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 539,
+        "backup_id": 4661,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:01:51",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_elevation",
+            "sa_cty_area",
+            "sa_cty_census_year",
+            "sa_cty_center",
+            "sa_cty_cities",
+            "sa_cty_distance_center",
+            "sa_cty_districts",
+            "sa_cty_neighbors",
+            "sa_cty_poi_offbeat",
+            "sa_cty_population",
+            "sa_cty_rural_districts",
+            "sa_city_population",
+            "sa_cty_best_time",
+            "sa_cty_climate",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_google_map_url",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_city_slug",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_access_air",
+            "sa_access_rail",
+            "sa_access_road",
+            "sa_city_schema_type",
+            "sa_schema_sameas",
+            "sa_schema_contained_in",
+            "sa_cty_villages",
+            "sa_cty_poi_recreation",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_focus_keyword",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "sa_province_id",
+            "_thumbnail_id",
+            "sa_map_zoom"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          640,
+          539
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/qeshm/",
+            "status": 200,
+            "ms": 1127,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان قشم؛ راهنمای سفر، جاذبه‌ها و تاریخ هرمزگان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/qeshm/",
+            "desc": "راهنمای شهرستان قشم: جمعیت ۱۴۸٬۹۹۳ نفر (۱۳۹۵)، درهٔ ستاره‌ها، تنگهٔ چاهکوه، جنگل حرا، جزیرهٔ هنگام، بازار درگهان و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان قشم — بزرگ‌ترین جزیرهٔ ایران، میان سنگ و دریا",
+              "og:description": "از درهٔ ستاره‌ها و چاهکوه تا حرا و دلفین‌های هنگام؛ راهنمای سفر به شهرستان قشم.",
+              "og:url": "https://sarzaminaryan.ir/city/qeshm/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-qeshm.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان قشم — بزرگ‌ترین جزیرهٔ ایران، میان سنگ و دریا",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان قشم — بزرگ‌ترین جزیرهٔ ایران، میان سنگ و دریا"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-qeshm.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-qeshm.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19088,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ramsar/",
+            "status": 200,
+            "ms": 1047,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رامسر؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ramsar/",
+            "desc": "راهنمای شهرستان رامسر: جمعیت ۷۴٬۱۷۹ نفر (۱۳۹۵)، دو بخش، کاخ مرمر، جواهرده، بلوار ساحلی، گویش مردم و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رامسر — جایی که جنگل هیرکانی به دریا می‌رسد",
+              "og:description": "از بلوار ساحلی و کاخ مرمر تا مه جواهرده و دریاچهٔ میجران؛ راهنمای سفر به شهرستان رامسر.",
+              "og:url": "https://sarzaminaryan.ir/city/ramsar/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ramsar.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان رامسر — جایی که جنگل هیرکانی به دریا می‌رسد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رامسر — جایی که جنگل هیرکانی به دریا می‌رسد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ramsar.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ramsar.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19368,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T22:01:57+00:00"
+}

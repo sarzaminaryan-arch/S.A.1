@@ -1,0 +1,13 @@
+{
+ "batch": "20261119-batch7-lengeh-retry",
+ "note": "دستهٔ ۷ — تلاش دوباره برای تصویر ساحل بندر لنگه (بار نخست در درگاه میزبان با خطای ۵۰۲/زمان‌سنجی رد شد). همان فایل مجاز CC BY-SA 4.0 با نام عکاس.",
+ "imported": [],
+ "reused": [],
+ "refused": [],
+ "failed": [
+  {
+   "place": "ساحل بندر لنگه",
+   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch\",\"message\":\"\\u062f\\u0631\\u06cc\\u0627\\u0641\\u062a \\u062a\\u0635\\u0648\\u06cc\\u0631 \\u0646\\u0627\\u0645\\u0648\\u0641\\u0642 \\u0628\\u0648\\u062f: cURL error 28: Connection timed out after 10001 milliseconds\",\"data\":{\"status\":502}}"
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+[
+ {
+  "id": 189,
+  "slug": "ilam",
+  "words_after": 933,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
