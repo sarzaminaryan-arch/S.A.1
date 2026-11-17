@@ -1,0 +1,723 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-115-deploy-theme-22297.json",
+  "started_utc": "2026-11-17T01:08:00+00:00",
+  "note": "قالب ۲.۲۲.۹۷ — صاف‌کردن جملهٔ دسترسی در شناسنامه که در ۲.۲۲.۹۶ درست ولی بدخوان شده بود: «مسیرهای فعال: جاده‌ای، ریلی: ندارد، هوایی» → «مسیرهای فعال: جاده‌ای، هوایی · ریلی: ندارد». Release با ZIP منتشر شده، پشتیبان کامل و برگشت خودکار به ۲.۲۲.۹۶.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.96",
+          "loaded": "2.22.96",
+          "log": [
+            {
+              "time_gmt": "2026-11-16T10:00:04+00:00",
+              "from": "2.22.86",
+              "to": "2.22.88",
+              "wanted": "2.22.88",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T13:42:39+00:00",
+              "from": "2.22.88",
+              "to": "2.22.90",
+              "wanted": "2.22.90",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-16T17:15:15+00:00",
+              "from": "2.22.90",
+              "to": "2.22.91",
+              "wanted": "2.22.91",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-17T00:31:05+00:00",
+              "from": "2.22.93",
+              "to": "2.22.95",
+              "wanted": "2.22.95",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-17T00:58:41+00:00",
+              "from": "2.22.95",
+              "to": "2.22.96",
+              "wanted": "2.22.96",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1461,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/",
+            "status": 200,
+            "ms": 1453,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ardabil/",
+            "status": 200,
+            "ms": 1410,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اردبیل؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ardabil/",
+            "desc": "راهنمای شهرستان اردبیل: جمعیت ۶۰۵٬۹۹۲ نفر و سه بخش، مجموعهٔ جهانی شیخ صفی‌الدین، بازار قیصریه، شورابیل، آش دوغ و حلوای سیاه، و دو واقعیت تلخ شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "og:description": "از شیخ صفی و بازار قیصریه تا شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، خوراک و دو واقعیت تلخ اردبیل.",
+              "og:url": "https://sarzaminaryan.ir/city/ardabil/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19498,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/rasht/",
+            "status": 200,
+            "ms": 1599,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رشت؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/rasht/",
+            "desc": "راهنمای شهرستان رشت: جمعیت ۹۵۶٬۹۷۱ نفر و شش بخش، بازار بزرگ و میدان شهرداری، پارک جنگلی سراوان، موزهٔ میراث روستایی، میرزاقاسمی و رشته‌خشکار، و مشکل",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "og:description": "از بازار بزرگ و میدان شهرداری تا سراوان و موزهٔ میراث روستایی؛ راهنمای اقامت، خوراک و دو مشکل واقعی رشت.",
+              "og:url": "https://sarzaminaryan.ir/city/rasht/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18634,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "760ad777df37",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=760ad777df37 دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.14",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-17T01:08:12+00:00",
+              "age_seconds": 32,
+              "success": true,
+              "errors": 0,
+              "nonce": "760ad777df37",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "mu-plugins",
+                "mu-plugins-size",
+                "others",
+                "others-size"
+              ]
+            },
+            "history_count": 4,
+            "history_latest": "2026-11-17T01:08:12+00:00",
+            "job": {
+              "nonce": "760ad777df37",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.96",
+          "to": "2.22.97",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.97",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1794877750",
+            "status": 200,
+            "ms": 3014,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/?sa_probe=1794877754",
+            "status": 200,
+            "ms": 1484,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ardabil/?sa_probe=1794877757",
+            "status": 200,
+            "ms": 1443,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اردبیل؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ardabil/",
+            "desc": "راهنمای شهرستان اردبیل: جمعیت ۶۰۵٬۹۹۲ نفر و سه بخش، مجموعهٔ جهانی شیخ صفی‌الدین، بازار قیصریه، شورابیل، آش دوغ و حلوای سیاه، و دو واقعیت تلخ شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "og:description": "از شیخ صفی و بازار قیصریه تا شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، خوراک و دو واقعیت تلخ اردبیل.",
+              "og:url": "https://sarzaminaryan.ir/city/ardabil/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19498,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/rasht/?sa_probe=1794877759",
+            "status": 200,
+            "ms": 1347,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان رشت؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/rasht/",
+            "desc": "راهنمای شهرستان رشت: جمعیت ۹۵۶٬۹۷۱ نفر و شش بخش، بازار بزرگ و میدان شهرداری، پارک جنگلی سراوان، موزهٔ میراث روستایی، میرزاقاسمی و رشته‌خشکار، و مشکل",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "og:description": "از بازار بزرگ و میدان شهرداری تا سراوان و موزهٔ میراث روستایی؛ راهنمای اقامت، خوراک و دو مشکل واقعی رشت.",
+              "og:url": "https://sarzaminaryan.ir/city/rasht/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان رشت — شهری که باران، برنج و خوراک را به هم دوخته است"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-rasht.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18634,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "all"
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/?sa_probe=54",
+            "status": 200,
+            "ms": 2247,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ardabil/?sa_probe=54",
+            "status": 200,
+            "ms": 1371,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اردبیل؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ardabil/",
+            "desc": "راهنمای شهرستان اردبیل: جمعیت ۶۰۵٬۹۹۲ نفر و سه بخش، مجموعهٔ جهانی شیخ صفی‌الدین، بازار قیصریه، شورابیل، آش دوغ و حلوای سیاه، و دو واقعیت تلخ شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "og:description": "از شیخ صفی و بازار قیصریه تا شورابیل و پل هفت‌چشمه؛ راهنمای اقامت، خوراک و دو واقعیت تلخ اردبیل.",
+              "og:url": "https://sarzaminaryan.ir/city/ardabil/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اردبیل — شهر سردی که گنبد الله‌الله و دریاچه‌اش را در خود دارد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ardabil.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19498,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T01:09:28+00:00"
+}
