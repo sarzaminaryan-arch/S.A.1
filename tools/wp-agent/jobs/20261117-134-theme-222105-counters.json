@@ -1,0 +1,30 @@
+{
+ "note": "کار ۱۳۴: نصب ۲.۲۲.۱۰۵ (رفع شمارنده‌های صفر). پس از نصب، probe صفحهٔ اول باید طرح v3 را ۲۰۰ بدهد و شمارنده‌ها در HTML همان عدد سرور باشند. پشتیبان کامل و برگشت خودکار به ۲.۲۲.۱۰۴.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.105",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/"
+   ],
+   "rollback_to": "2.22.104"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/?sa_probe=136",
+    "/city/bojnord/?sa_probe=136"
+   ]
+  }
+ ]
+}
