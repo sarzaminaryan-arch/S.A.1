@@ -316,7 +316,7 @@ sa_t_assert( false === strpos( $sa_tpl, '$sa_center = $sa_county_bare' ), 'the c
    ریلی». The template now separates «field filled» from «route exists». */
 sa_t_assert( false !== strpos( $sa_tpl, '$sa_acc_absent' ), 'the card knows the phrases that mean «this route does not exist»' );
 sa_t_assert( false !== strpos( $sa_tpl, '$sa_acc_missing[] = $sa_albl' ), 'a missing route is collected separately, not added to the active list' );
-sa_t_assert( false !== strpos( $sa_tpl, "implode( ' و ', $sa_acc_missing ) . ': ندارد'" ), 'the missing routes are printed after a separator as «ریلی: ندارد»' );
+sa_t_assert( false !== strpos( $sa_tpl, 'implode( \' و \', $sa_acc_missing ) . \': ندارد\'' ), 'the missing routes are printed after a separator as «ریلی: ندارد»' );
 sa_t_assert( false !== strpos( $sa_tpl, 'mb_strpos( $sa_aflat, $sa_aneedle )' ), 'the absence check runs on the normalised (Arabic-letter fixed) text' );
 
 echo "ALL TESTS PASSED\n";
