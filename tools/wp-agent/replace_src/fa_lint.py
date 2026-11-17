@@ -118,6 +118,9 @@ COMMENT_RE = re.compile(r"<!--.*?-->", re.S)
 URL_RE = re.compile(r"https?://[^\s\"'<>]+")
 SCRIPT_RE = re.compile(r"<(script|style)\b.*?</\1>", re.S | re.I)
 LATIN_TOKEN_RE = re.compile(r"[A-Za-z][A-Za-z0-9.'’\-]*")
+# Photo credits must retain the creator’s original name and licence. Their Latin
+# text is exempt only inside an explicitly marked, plain-text credit span.
+PHOTO_CREDIT_RE = re.compile(r'<span\s+class=["\']sa-photo-credit-latin["\']\s*>([^<>]*)</span>', re.I)
 LATIN_ALLOWED = re.compile(
     r"^(?:[A-Z]{2,6}|[A-Z]\.[A-Z]\.G|WordPress|wp|sa|km|kg|mm|m|ID|URL|HTML|CSS|JSON|LD|"
     r"svg|png|webp|jpg|jpeg|gif|pdf|mp4|3G|4G|5G|nba|ci|OSM|GPS|API|FAQ|UNESCO|"
@@ -128,6 +131,7 @@ LATIN_ALLOWED = re.compile(
 def visible_text(text: str) -> str:
     """فقط متنی که خواننده می‌بیند: تگ، کامنت، اسکریپت و نشانی حذف می‌شود."""
     text = SCRIPT_RE.sub(" ", text)
+    text = PHOTO_CREDIT_RE.sub(lambda m: LATIN_TOKEN_RE.sub("", m.group(1)), text)
     text = COMMENT_RE.sub(" ", text)
     text = TAG_RE.sub("\u0000", text)   # مرز بلوک: نه فاصله، نه حرف
     text = URL_RE.sub("\u00a7", text)   # نشانی کامل: یک نشانگر
