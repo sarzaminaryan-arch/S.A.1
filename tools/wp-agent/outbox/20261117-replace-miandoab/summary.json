@@ -1,0 +1,17 @@
+[
+ {
+  "id": 138,
+  "slug": "miandoab",
+  "words_after": 930,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

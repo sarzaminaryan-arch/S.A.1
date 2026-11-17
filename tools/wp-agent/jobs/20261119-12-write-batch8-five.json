@@ -1,0 +1,70 @@
+{
+ "note": "دستهٔ ۸ — گام دوم: تطبیق پنج شهرستان نخست (شاهین‌شهر و میمه، نجف‌آباد، بوکان، میاندوآب، مرند) با تمپلیت مستر. بدنهٔ تازه ۹۱۳ و ۹۴۱ و ۹۳۶ و ۹۳۰ و ۹۱۸ واژه در شش بخش اجباری با نشانگر، منابع مجاز، متای اصلاح‌شده با مختصات و همسایه‌های بازبینی‌شده، پرسش‌های متداول بازنویسی‌شده. هر نوشتن پیش از تغییر پشتیبان می‌گیرد؛ انتظار modified_gmt از خواندن کار ۱۱۹.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 163,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-shahin-shahr-meymeh/shahin-shahr-meymeh-163.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-shahin-shahr-meymeh/shahin-shahr-meymeh-163.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:11:02",
+   "owner_approved_live_edit": true,
+   "reason": "shahin-shahr-meymeh: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 160,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-najafabad/najafabad-160.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-najafabad/najafabad-160.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:10:52",
+   "owner_approved_live_edit": true,
+   "reason": "najafabad: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 129,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-bukan/bukan-129.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-bukan/bukan-129.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:11:52",
+   "owner_approved_live_edit": true,
+   "reason": "bukan: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 138,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-miandoab/miandoab-138.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-miandoab/miandoab-138.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:09:33",
+   "owner_approved_live_edit": true,
+   "reason": "miandoab: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "update",
+   "id": 102,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-marand/marand-102.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-marand/marand-102.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:12:41",
+   "owner_approved_live_edit": true,
+   "reason": "marand: تطبیق کامل با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی با نشانگر، متای اصلاح‌شده، همسایه‌ها و مختصات"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    163,
+    160,
+    129,
+    138,
+    102
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/shahin-shahr-meymeh/",
+    "/city/najafabad/",
+    "/city/bukan/",
+    "/city/miandoab/",
+    "/city/marand/"
+   ]
+  }
+ ]
+}
