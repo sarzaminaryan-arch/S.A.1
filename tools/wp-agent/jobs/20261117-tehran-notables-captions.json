@@ -1,0 +1,10 @@
+{
+  "note": "دستور مالک: اصلاح نام‌آوران تهران، انتقال اطلاعات دیدنی‌ها به پیشینه و حذف توضیح تغییر اندازه از دو کپشن، با حفظ نام عکاس و پیوند منبع و مجوز؛ فقط نسخهٔ کوچک همین مقاله ذخیره شود.",
+  "rollback_on_fail": true,
+  "steps": [
+    {"cmd": "update", "id": 213, "content_file": "tools/wp-agent/outbox/20261117-tehran-master-update.html", "expected_modified_gmt": "2026-11-17 17:53:44", "owner_approved_live_edit": true, "reason": "اصلاح چهره‌های نام‌آور تهران و کپشن عکس‌ها طبق دستور مالک"},
+    {"cmd": "cache-purge", "id": [213]},
+    {"cmd": "probe", "url": ["/city/tehran/?sa_probe=notables-captions"]},
+    {"cmd": "get", "id": 213}
+  ]
+}
