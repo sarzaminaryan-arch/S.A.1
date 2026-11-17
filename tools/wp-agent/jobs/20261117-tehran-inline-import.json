@@ -1,0 +1,7 @@
+{
+ "note": "دریافت دو تصویر دارای مجوز برای قرارگیری در متن مقالهٔ تهران؛ این مرحله متن مقاله را تغییر نمی‌دهد.",
+ "steps": [
+  {"cmd": "photos-import", "batch": "tools/photos/20261117-tehran-inline.json"},
+  {"cmd": "photos", "city_id": 213}
+ ]
+}
