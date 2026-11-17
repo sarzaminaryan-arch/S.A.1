@@ -83,6 +83,17 @@ $sa_type = get_post_type( $sa_id );
 		// (شهرهای هم‌استانی) داخل شناسنامه هست و تکرار بود (تصمیم مالک).
 		?>
 
+		<?php
+		// v2.22.98 — تصاویر مجاز مکان‌ها: کادر «مکان در یک نگاه» و نوار سه مکان تفریحی.
+		// اگر عکسی با مجوز و نام عکاس ثبت نشده باشد، هیچ‌کدام چاپ نمی‌شوند (بدون جای خالی).
+		if ( 'city' === $sa_type && function_exists( 'sa_photo_spotlight' ) ) {
+			sa_photo_spotlight( $sa_id );
+		}
+		if ( 'city' === $sa_type && function_exists( 'sa_photo_strip' ) ) {
+			sa_photo_strip( $sa_id );
+		}
+		?>
+
 		<?php get_template_part( 'template-parts/entity/gallery' ); ?>
 
 		<?php if ( 'city' === $sa_type && class_exists( 'CC_UI' ) ) : ?>

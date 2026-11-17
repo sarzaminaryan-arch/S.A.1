@@ -592,3 +592,261 @@
 		width: 100%;
 	}
 }
+
+/* ==========================================================================
+   v2.22.98 — تصاویر مجاز مکان‌ها: کادر «مکان در یک نگاه» + نوار سه‌کادره
+   دستور مالک: یک تصویر مربع سمت راست (RTL) و نوشته/هشدار سمت چپ؛ سه مکان
+   تفریحی با قاب ثابت و هایلایت توضیح زیر هر قاب. هر عکس، نام عکاس و مجوز
+   را زیر خودش دارد — اعتبار، بخشی از طرح است نه یک خط فراموش‌شدنی.
+   ========================================================================== */
+
+.sa-photo__frame,
+.sa-strip__photo {
+	margin: 0;
+	position: relative;
+	overflow: hidden;
+	border-radius: 22px;
+	background: #eef3f9;
+}
+
+.sa-photo__img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.sa-photo__credit {
+	margin: 10px 4px 0;
+	font-size: 0.72rem;
+	line-height: 1.9;
+	color: #64748b;
+	direction: rtl;
+}
+
+.sa-photo__credit a {
+	color: #8a5a10;
+	text-decoration: none;
+	border-bottom: 1px dotted rgba(138, 90, 16, 0.5);
+}
+
+/* --- مکان در یک نگاه ------------------------------------------------------ */
+
+.sa-spotlight {
+	margin: clamp(30px, 5vw, 62px) 0;
+	padding: clamp(18px, 3.4vw, 30px);
+	border: 1px solid rgba(1, 31, 61, 0.12);
+	border-radius: 26px;
+	background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+	box-shadow: 0 18px 46px rgba(1, 31, 61, 0.08);
+	direction: rtl;
+}
+
+.sa-spotlight__grid {
+	display: grid;
+	grid-template-columns: minmax(210px, 340px) 1fr;
+	gap: clamp(18px, 3vw, 34px);
+	align-items: center;
+}
+
+.sa-spotlight__media {
+	position: relative;
+}
+
+/* تصویر مربع: قاب با نسبت ۱:۱ و برش مرکزی، در هر اندازهٔ صفحه مربع می‌ماند. */
+.sa-spotlight__frame {
+	aspect-ratio: 1 / 1;
+	border-radius: 20px;
+	border: 1px solid rgba(1, 31, 61, 0.1);
+}
+
+.sa-spotlight__badge {
+	position: absolute;
+	inset-inline-start: 14px;
+	top: 14px;
+	padding: 6px 13px;
+	border-radius: 999px;
+	background: rgba(1, 31, 61, 0.86);
+	color: #fff;
+	font-size: 0.74rem;
+	letter-spacing: 0.02em;
+	backdrop-filter: blur(4px);
+}
+
+.sa-spotlight__eyebrow {
+	display: inline-block;
+	margin-bottom: 8px;
+	padding: 5px 12px;
+	border-radius: 999px;
+	background: rgba(155, 106, 22, 0.12);
+	color: #8a5a10;
+	font-size: 0.74rem;
+	font-weight: 700;
+}
+
+.sa-spotlight__title {
+	margin: 0 0 10px;
+	font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+	line-height: 1.5;
+	color: #011f3d;
+}
+
+.sa-spotlight__note {
+	margin: 0 0 14px;
+	font-size: 0.98rem;
+	line-height: 2.05;
+	color: #36465c;
+}
+
+.sa-spotlight__points {
+	margin: 0 0 14px;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 8px;
+}
+
+.sa-spotlight__points li {
+	position: relative;
+	padding-inline-start: 22px;
+	font-size: 0.9rem;
+	line-height: 1.95;
+	color: #1f2f44;
+}
+
+.sa-spotlight__points li::before {
+	content: "";
+	position: absolute;
+	inset-inline-start: 4px;
+	top: 0.72em;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: linear-gradient(135deg, #c9932c, #9b6a16);
+}
+
+.sa-spotlight__notice {
+	margin: 0;
+	padding: 10px 14px;
+	border-inline-start: 3px solid #c9932c;
+	border-radius: 10px;
+	background: rgba(201, 147, 44, 0.08);
+	font-size: 0.78rem;
+	line-height: 1.95;
+	color: #6b5a37;
+}
+
+@media (max-width: 720px) {
+	.sa-spotlight__grid {
+		grid-template-columns: 1fr;
+	}
+	.sa-spotlight__frame {
+		max-width: 340px;
+		margin-inline: auto;
+	}
+}
+
+/* --- نوار سه مکان تفریحی -------------------------------------------------- */
+
+.sa-strip {
+	margin: clamp(30px, 5vw, 62px) 0;
+	padding: clamp(18px, 3.4vw, 28px);
+	border-radius: 26px;
+	border: 1px solid rgba(1, 31, 61, 0.1);
+	background: radial-gradient(circle at top left, rgba(201, 147, 44, 0.1), transparent 42%), #ffffff;
+	direction: rtl;
+}
+
+.sa-strip__head {
+	margin-bottom: clamp(14px, 2.4vw, 22px);
+}
+
+.sa-strip__title {
+	margin: 0 0 6px;
+	font-size: clamp(1.1rem, 2vw, 1.4rem);
+	color: #011f3d;
+}
+
+.sa-strip__sub {
+	margin: 0;
+	font-size: 0.84rem;
+	color: #64748b;
+}
+
+.sa-strip__grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: clamp(12px, 2vw, 20px);
+}
+
+.sa-strip__tile {
+	display: flex;
+	flex-direction: column;
+	border-radius: 20px;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid rgba(1, 31, 61, 0.1);
+	box-shadow: 0 12px 30px rgba(1, 31, 61, 0.07);
+}
+
+/* قاب با اندازهٔ ثابت: هر سه کادر هم‌اندازه، فارغ از اندازهٔ فایل اصلی. */
+.sa-strip__frame {
+	position: relative;
+	aspect-ratio: 4 / 3;
+	overflow: hidden;
+	background: #eef3f9;
+}
+
+.sa-strip__photo {
+	width: 100%;
+	height: 100%;
+	border-radius: 0;
+}
+
+.sa-strip__tag {
+	position: absolute;
+	inset-inline-start: 12px;
+	top: 12px;
+	padding: 5px 11px;
+	border-radius: 999px;
+	background: rgba(1, 31, 61, 0.82);
+	color: #fff;
+	font-size: 0.7rem;
+}
+
+.sa-strip__highlight {
+	padding: 14px 16px 16px;
+	border-top: 3px solid #c9932c;
+	background: linear-gradient(180deg, rgba(201, 147, 44, 0.07), rgba(255, 255, 255, 0));
+}
+
+.sa-strip__place {
+	margin: 0 0 6px;
+	font-size: 1rem;
+	color: #011f3d;
+}
+
+.sa-strip__line {
+	margin: 0 0 10px;
+	font-size: 0.84rem;
+	line-height: 1.95;
+	color: #3b4a5f;
+}
+
+.sa-strip__credit {
+	margin: 0;
+	font-size: 0.68rem;
+	color: #7c8798;
+}
+
+@media (max-width: 860px) {
+	.sa-strip__grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 560px) {
+	.sa-strip__grid {
+		grid-template-columns: 1fr;
+	}
+}

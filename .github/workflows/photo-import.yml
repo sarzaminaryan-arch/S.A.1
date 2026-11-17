@@ -1,0 +1,95 @@
+name: Photo import (licensed, attributed)
+
+# تصاویر مکان‌ها با مجوز آزاد و نام عکاس (قالب ۲.۲۲.۹۸+).
+#
+# چرا این گردش‌کار جدا از wp-agent است: سندباکس ایجنت به دامنه‌های تصویری
+# (upload.wikimedia.org) دسترسی ندارد، ولی رانر گیت‌هاب دارد. ورودی‌های
+# tools/photos/<batch>.json همان چیزی است که ایجنت نوشته و مجوز هرکدام را
+# از صفحهٔ فایل در ویکی‌مدیا بررسی کرده؛ رانر فقط همان‌ها را به
+# POST /wp-json/sa-agent/v1/photos/import می‌دهد و سایت خودش فایل را می‌گیرد،
+# مجوز و نام عکاس را *پیش از* ذخیره بررسی می‌کند و پرووننس را ثبت می‌کند.
+#
+# نتیجه در tools/photos/results/<batch>.json نوشته و به شاخه کامیت می‌شود.
+
+on:
+  # Import runs through the agent job (tools/wp-agent/jobs/*.json) so the theme update
+  # and the photo batch are one transaction. A manual dispatch is the only other trigger:
+  # a push trigger would fire for every batch file the agent commits, before the theme
+  # that understands /photos/import is live on the site.
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: "Batch file inside the repository (tools/photos/<name>.json)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: photo-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    name: Import licensed photos
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+
+      - name: Check secrets are set
+        env:
+          SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
+          SA_USER: ${{ secrets.SA_USER }}
+          SA_APP_PASSWORD: ${{ secrets.SA_APP_PASSWORD }}
+        run: |
+          missing=""
+          [ -n "$SA_SITE_URL" ] || missing="$missing SA_SITE_URL"
+          [ -n "$SA_USER" ] || missing="$missing SA_USER"
+          [ -n "$SA_APP_PASSWORD" ] || missing="$missing SA_APP_PASSWORD"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing"
+            exit 1
+          fi
+
+      - name: Import batches
+        env:
+          SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
+          SA_USER: ${{ secrets.SA_USER }}
+          SA_APP_PASSWORD: ${{ secrets.SA_APP_PASSWORD }}
+          INPUT_BATCH: ${{ inputs.batch }}
+        run: |
+          set -u
+          status=0
+          if [ -n "${INPUT_BATCH:-}" ]; then
+            batches="$INPUT_BATCH"
+          else
+            batches=$(ls tools/photos/*.json 2>/dev/null | grep -v '/results/' || true)
+          fi
+          for batch in $batches; do
+            name=$(basename "$batch" .json)
+            if [ -f "tools/photos/results/$name.json" ]; then
+              echo "skip $batch (already has a result)"
+              continue
+            fi
+            echo "::group::import $batch"
+            python3 tools/photos/import_photos.py "$batch" || status=1
+            echo "::endgroup::"
+          done
+          exit $status
+
+      - name: Commit results back to the branch
+        if: always()
+        run: |
+          if [ -z "$(git status --porcelain tools/photos/results 2>/dev/null)" ]; then
+            echo "no new results"
+            exit 0
+          fi
+          git config user.name "wp-agent[bot]"
+          git config user.email "wp-agent@users.noreply.github.com"
+          git add tools/photos/results
+          git commit -m "photo import: results of run ${{ github.run_id }}"
+          git push origin "HEAD:${{ github.ref_name }}"

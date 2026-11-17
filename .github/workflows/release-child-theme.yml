@@ -143,6 +143,12 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-province-county-links.php"
 
+      - name: 'Run licensed-photo tests (مجوز آزاد + نام عکاس، allow-list دامنه، بلوک خالی بدون عکس مجاز)'
+        shell: bash
+        run: |
+          php "$THEME_DIR/tests/test-county-media.php"
+          python3 tools/photos/test_import_photos.py
+
       - name: 'Run agent-bridge tests (پل ایجنت: فقط پیش‌نویس، پشتیبان پیش از هر تغییر)'
         shell: bash
         run: php "$THEME_DIR/tests/test-agent-bridge.php"

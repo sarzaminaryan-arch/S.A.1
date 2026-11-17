@@ -1,0 +1,14 @@
+{
+  "note": "قالب ۲.۲۲.۹۸ (تصاویر مجاز مکان‌ها) + واردکردن دستهٔ بجنورد: ۱ عکس میراث (آیینه‌خانهٔ مفخم) و ۳ عکس تفریحی، هر چهار تا با مجوز CC BY-SA از ویکی‌مدیا و نام عکاس. خودِ سایت فایل را می‌گیرد و مجوز را پیش از ذخیره بررسی می‌کند.",
+  "rollback_on_fail": false,
+  "steps": [
+    { "cmd": "ping" },
+    { "cmd": "theme-update", "expected_version": "2.22.98", "owner_approved_theme_update": true,
+      "backup_first": true, "backup_nocloud": true, "backup_wait": 900,
+      "probe": ["/", "/city/bojnord/", "/city/ardabil/"],
+      "rollback_to": "2.22.97" },
+    { "cmd": "photos-import", "batch": "tools/photos/20261118-bojnord.json" },
+    { "cmd": "cache-purge", "all": true },
+    { "cmd": "probe", "url": ["/city/bojnord/?sa_probe=57", "/city/ardabil/?sa_probe=57"] }
+  ]
+}

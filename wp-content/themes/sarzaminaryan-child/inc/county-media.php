@@ -1,0 +1,504 @@
+<?php
+/**
+ * تصاویر مجاز مکان‌ها برای صفحهٔ شهرستان (v2.22.98)
+ *
+ * دستور مالک: «فکری برای گذاشتن تصویر مجاز از مکان‌های جذابی که تعریفشان را
+ * می‌کنیم … تصویر را در صورت مجوز نام بردن عکاس، کاملاً قانونی، در سایز و
+ * فرمت مناسب بیاوریم و در سایت بگذاریم؛ یک تصویر مربع سمت راست و نوشتهٔ
+ * توضیح و هشدار کنارش؛ و بخش گالری سه مکان تفریحی با کادر ثابت و هایلایت
+ * توضیحات زیرش.»
+ *
+ * این فایل سه کار می‌کند و هیچ‌کدام بدون داده انجام نمی‌شود:
+ *
+ * ۱) **واردکردن تصویر با مجوز** (`/photos/import` در پل ایجنت).
+ *    خودِ سایت فایل را از دامنهٔ مجاز می‌گیرد (سندباکس ایجنت به اینترنت
+ *    تصویری دسترسی ندارد)، مجوز را *پیش از* ذخیره بررسی می‌کند و پرووننس
+ *    (پدیدآور، مجوز، نشانی اصل، تاریخ) را روی پیوست می‌نویسد. مجوزهای
+ *    مجاز: CC0/PD، CC BY، CC BY-SA. هر چیز دیگر (ND، NC، «همه حقوق
+ *    محفوظ»، بدون مجوز) رد می‌شود — صفحه‌ای که عکاسش را نام نمی‌برد یا
+ *    اجازه‌اش را ندارد، منتشر نمی‌شود.
+ *
+ * ۲) **کادر «مکان در یک نگاه»**: تصویر مربع (sa-square) + متن راهنما و
+ *    هشدار، با ردیف اعتبار عکاس زیر تصویر.
+ *
+ * ۳) **نوار گالری سه‌کادرِ ثابت**: سه مکان تفریحی، هر کدام یک قاب با
+ *    نسبت ثابت و زیرش هایلایت توضیح (نام مکان، یک خط، و لینک/برچسب).
+ *
+ * @package Sarzaminaryan_Child
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+const SA_PHOTO_META_AUTHOR   = '_sa_photo_author';
+const SA_PHOTO_META_LICENSE  = '_sa_photo_license';
+const SA_PHOTO_META_LICENSE_URL = '_sa_photo_license_url';
+const SA_PHOTO_META_SOURCE   = '_sa_photo_source';
+const SA_PHOTO_META_RETRIEVED = '_sa_photo_retrieved';
+const SA_PHOTO_META_PLACE    = '_sa_photo_place';
+const SA_PHOTO_META_NOTE     = '_sa_photo_note';
+
+/**
+ * مجوزهایی که اجازهٔ انتشار تجاری با نام‌بردن از عکاس را می‌دهند.
+ *
+ * @return array<string,string> کد => برچسب فارسی
+ */
+function sa_photo_allowed_licenses() {
+	return array(
+		'cc0'      => 'CC0 1.0 (مالکیت عمومی)',
+		'pd'       => 'مالکیت عمومی (Public Domain)',
+		'cc-by-4'  => 'CC BY 4.0',
+		'cc-by-3'  => 'CC BY 3.0',
+		'cc-by-2'  => 'CC BY 2.0',
+		'cc-by-sa-4' => 'CC BY-SA 4.0',
+		'cc-by-sa-3' => 'CC BY-SA 3.0',
+		'cc-by-sa-2' => 'CC BY-SA 2.0',
+	);
+}
+
+/**
+ * دامنه‌هایی که سایت اجازه دارد از آن‌ها فایل بگیرد.
+ *
+ * @return string[]
+ */
+function sa_photo_allowed_hosts() {
+	// از ۲۰۲۵ نسخهٔ بندانگشتی از thumb.wikimedia.org سرو می‌شود و فایل اصلی
+	// از upload.wikimedia.org؛ هر دو فقط میزبان رسانهٔ ویکی‌مدیا هستند.
+	return array( 'upload.wikimedia.org', 'thumb.wikimedia.org' );
+}
+
+/**
+ * آیا این نشانی برای گرفتن تصویر مجاز است؟
+ *
+ * @param string $url نشانی.
+ * @return bool
+ */
+function sa_photo_url_allowed( $url ) {
+	$parts = wp_parse_url( (string) $url );
+	if ( ! is_array( $parts ) || empty( $parts['scheme'] ) || empty( $parts['host'] ) ) {
+		return false;
+	}
+	if ( 'https' !== strtolower( (string) $parts['scheme'] ) ) {
+		return false;
+	}
+	$host = strtolower( (string) $parts['host'] );
+	foreach ( sa_photo_allowed_hosts() as $allowed ) {
+		if ( $host === $allowed || substr( $host, -strlen( '.' . $allowed ) ) === '.' . $allowed ) {
+			return true;
+		}
+	}
+	return false;
+}
+
+/**
+ * نام فارسی مجوز از کد.
+ *
+ * @param string $code کد.
+ * @return string
+ */
+function sa_photo_license_label( $code ) {
+	$all = sa_photo_allowed_licenses();
+	$key = strtolower( trim( (string) $code ) );
+	// ویکی‌مدیا همین مجوز را با نسخه می‌دهد (`cc-by-sa-3.0`)؛ نسخهٔ ریز تفاوتی در
+	// حق استفاده نمی‌سازد، پس یک شکل پذیرفته می‌شود.
+	$key = (string) preg_replace( '/\.0$/', '', $key );
+	return isset( $all[ $key ] ) ? $all[ $key ] : '';
+}
+
+/**
+ * اعتبار تصویر برای چاپ زیر آن.
+ *
+ * @param int $attachment_id شناسهٔ پیوست.
+ * @return array{author:string,license:string,license_label:string,license_url:string,source:string,retrieved:string}
+ */
+function sa_photo_credit( $attachment_id ) {
+	$attachment_id = absint( $attachment_id );
+	$labels        = sa_photo_allowed_licenses();
+	$code          = strtolower( (string) get_post_meta( $attachment_id, SA_PHOTO_META_LICENSE, true ) );
+	return array(
+		'author'        => (string) get_post_meta( $attachment_id, SA_PHOTO_META_AUTHOR, true ),
+		'license'       => $code,
+		'license_label' => isset( $labels[ $code ] ) ? $labels[ $code ] : '',
+		'license_url'   => (string) get_post_meta( $attachment_id, SA_PHOTO_META_LICENSE_URL, true ),
+		'source'        => (string) get_post_meta( $attachment_id, SA_PHOTO_META_SOURCE, true ),
+		'retrieved'     => (string) get_post_meta( $attachment_id, SA_PHOTO_META_RETRIEVED, true ),
+	);
+}
+
+/**
+ * آیا این پیوست اجازهٔ نمایش دارد؟ (مجوز مجاز + نام پدیدآور)
+ *
+ * @param int $attachment_id شناسه.
+ * @return bool
+ */
+function sa_photo_is_publishable( $attachment_id ) {
+	$credit = sa_photo_credit( $attachment_id );
+	return ( '' !== $credit['author'] && '' !== $credit['license_label'] );
+}
+
+/**
+ * فهرست شناسهٔ عکس‌های یک شهرستان که مکانشان ثبت شده است.
+ *
+ * @param int $city_id  شناسهٔ شهرستان.
+ * @param int $limit    سقف.
+ * @return int[]
+ */
+function sa_photo_place_ids( $city_id, $limit = 24 ) {
+	$q = new WP_Query(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			// تصاویر مجاز به‌صورت JPEG ذخیره می‌شوند (مسیر /photos/import)؛ webp برای
+			// عکس‌هایی است که از قبل در کتابخانه هست. آلبوم قدیمی گالری جدا می‌ماند.
+			'post_mime_type' => array( 'image/jpeg', 'image/webp' ),
+			'posts_per_page' => max( 1, min( 60, (int) $limit ) ),
+			'fields'         => 'ids',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'no_found_rows'  => true,
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+			'meta_query'     => array(
+				array( 'key' => '_sa_photo_city', 'value' => absint( $city_id ) ),
+			),
+		)
+	);
+	$ids = array();
+	foreach ( (array) $q->posts as $id ) {
+		if ( sa_photo_is_publishable( $id ) && ! ( function_exists( 'sa_media_attachment_missing' ) && sa_media_attachment_missing( $id ) ) ) {
+			$ids[] = (int) $id;
+		}
+	}
+	return $ids;
+}
+
+/**
+ * فهرست عکس‌های «تفریحی» (kind=fun) برای نوار سه‌کادره.
+ *
+ * @param int $city_id شناسه.
+ * @param int $limit   سقف.
+ * @return int[]
+ */
+function sa_photo_fun_ids( $city_id, $limit = 3 ) {
+	$ids = array();
+	foreach ( sa_photo_place_ids( $city_id, 24 ) as $id ) {
+		if ( 'fun' === (string) get_post_meta( $id, '_sa_photo_kind', true ) ) {
+			$ids[] = $id;
+		}
+		if ( count( $ids ) >= $limit ) {
+			break;
+		}
+	}
+	return $ids;
+}
+
+/**
+ * چاپ یک قاب تصویر با اعتبار عکاس زیرش.
+ *
+ * @param int    $attachment_id شناسه.
+ * @param string $size          اندازهٔ تصویر.
+ * @param string $class         کلاس کادر.
+ * @param bool   $with_credit   اعتبار زیر تصویر چاپ شود؟
+ * @return string
+ */
+function sa_photo_frame( $attachment_id, $size = 'sa-gallery-card', $class = 'sa-photo__frame', $with_credit = true ) {
+	$attachment_id = absint( $attachment_id );
+	if ( ! $attachment_id || ! sa_photo_is_publishable( $attachment_id ) ) {
+		return '';
+	}
+	$credit = sa_photo_credit( $attachment_id );
+	$img    = wp_get_attachment_image(
+		$attachment_id,
+		$size,
+		false,
+		array(
+			'class'    => 'sa-photo__img',
+			'loading'  => 'lazy',
+			'decoding' => 'async',
+		)
+	);
+	if ( '' === $img ) {
+		return '';
+	}
+	$out  = '<figure class="' . esc_attr( $class ) . '">' . $img;
+	if ( $with_credit ) {
+		$out .= '<figcaption class="sa-photo__credit">';
+		$out .= 'عکس: <span class="sa-photo__author">' . esc_html( $credit['author'] ) . '</span>';
+		$license = $credit['license_label'];
+		if ( '' !== $license ) {
+			$out .= ' · ' . ( '' !== $credit['license_url']
+				? '<a href="' . esc_url( $credit['license_url'] ) . '" rel="license nofollow noopener" target="_blank">' . esc_html( $license ) . '</a>'
+				: esc_html( $license ) );
+		}
+		if ( '' !== $credit['source'] ) {
+			$out .= ' · <a href="' . esc_url( $credit['source'] ) . '" rel="nofollow noopener" target="_blank">منبع</a>';
+		}
+		$out .= '</figcaption>';
+	}
+	$out .= '</figure>';
+	return $out;
+}
+
+/**
+ * کادر «مکان در یک نگاه» — تصویر مربع + راهنما و هشدار.
+ *
+ * @param int $city_id شناسهٔ شهرستان.
+ * @return void
+ */
+function sa_photo_spotlight( $city_id = 0 ) {
+	$city_id = $city_id ? absint( $city_id ) : get_the_ID();
+	if ( 'city' !== get_post_type( $city_id ) ) {
+		return;
+	}
+	$ids = sa_photo_place_ids( $city_id, 12 );
+	$lead = 0;
+	$kind = '';
+	foreach ( $ids as $id ) {
+		if ( 'fun' !== (string) get_post_meta( $id, '_sa_photo_kind', true ) ) {
+			$lead = $id;
+			$kind = (string) get_post_meta( $id, '_sa_photo_kind', true );
+			break;
+		}
+	}
+	if ( ! $lead ) {
+		return;
+	}
+	$place = (string) get_post_meta( $lead, SA_PHOTO_META_PLACE, true );
+	$note  = (string) get_post_meta( $lead, SA_PHOTO_META_NOTE, true );
+	$map   = array(
+		'heritage' => 'میراث تاریخی',
+		'fun'      => 'تفریحی',
+		'nature'   => 'طبیعی',
+		'modern'   => 'مدرن',
+	);
+	?>
+	<section class="sa-spotlight" aria-label="<?php echo esc_attr( 'مکان در یک نگاه: ' . ( $place ? $place : get_the_title( $city_id ) ) ); ?>">
+		<div class="sa-spotlight__grid">
+			<div class="sa-spotlight__media">
+				<?php
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ساخته‌شده با توابع escape داخلی.
+				echo sa_photo_frame( $lead, 'sa-square', 'sa-spotlight__frame' );
+				?>
+				<?php if ( '' !== $place ) : ?>
+					<span class="sa-spotlight__badge"><?php echo esc_html( isset( $map[ $kind ] ) ? $map[ $kind ] : 'دیدنی' ); ?></span>
+				<?php endif; ?>
+			</div>
+			<div class="sa-spotlight__body">
+				<span class="sa-spotlight__eyebrow">مکان در یک نگاه</span>
+				<h2 class="sa-spotlight__title"><?php echo esc_html( '' !== $place ? $place : get_the_title( $city_id ) ); ?></h2>
+				<?php if ( '' !== $note ) : ?>
+					<p class="sa-spotlight__note"><?php echo esc_html( $note ); ?></p>
+				<?php endif; ?>
+				<ul class="sa-spotlight__points">
+					<?php
+					$points = array_filter( array_map( 'trim', explode( '|', (string) get_post_meta( $lead, '_sa_photo_points', true ) ) ) );
+					foreach ( $points as $point ) :
+						?>
+						<li><?php echo esc_html( $point ); ?></li>
+					<?php endforeach; ?>
+				</ul>
+				<p class="sa-spotlight__notice">تصاویر این بخش با مجوز آزاد و با نام عکاس استفاده شده‌اند؛ عکس‌های خبرگزاری‌ها و کاربران بدون اجازهٔ کتبی منتشر نمی‌شوند.</p>
+			</div>
+		</div>
+	</section>
+	<?php
+}
+
+/**
+ * نوار گالری سه مکان تفریحی — قاب ثابت + هایلایت زیرش.
+ *
+ * @param int $city_id شناسهٔ شهرستان.
+ * @return void
+ */
+function sa_photo_strip( $city_id = 0 ) {
+	$city_id = $city_id ? absint( $city_id ) : get_the_ID();
+	if ( 'city' !== get_post_type( $city_id ) ) {
+		return;
+	}
+	$ids = sa_photo_fun_ids( $city_id, 3 );
+	if ( count( $ids ) < 3 ) {
+		return;
+	}
+	?>
+	<section class="sa-strip" aria-label="سه مکان تفریحی">
+		<div class="sa-strip__head">
+			<h2 class="sa-strip__title">سه مکان تفریحی <?php echo esc_html( get_the_title( $city_id ) ); ?></h2>
+			<p class="sa-strip__sub">هر قاب یک مکان؛ زیر هر تصویر، هایلایت همان مکان.</p>
+		</div>
+		<div class="sa-strip__grid">
+			<?php
+			foreach ( $ids as $id ) :
+				$place = (string) get_post_meta( $id, SA_PHOTO_META_PLACE, true );
+				$line  = (string) get_post_meta( $id, '_sa_photo_highlight', true );
+				$tag   = (string) get_post_meta( $id, '_sa_photo_tag', true );
+				?>
+				<article class="sa-strip__tile">
+					<div class="sa-strip__frame">
+						<?php
+						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						echo sa_photo_frame( $id, 'sa-gallery-card', 'sa-strip__photo', false );
+						?>
+						<?php if ( '' !== $tag ) : ?>
+							<span class="sa-strip__tag"><?php echo esc_html( $tag ); ?></span>
+						<?php endif; ?>
+					</div>
+					<div class="sa-strip__highlight">
+						<h3 class="sa-strip__place"><?php echo esc_html( $place ); ?></h3>
+						<?php if ( '' !== $line ) : ?>
+							<p class="sa-strip__line"><?php echo esc_html( $line ); ?></p>
+						<?php endif; ?>
+						<?php
+						$credit = sa_photo_credit( $id );
+						if ( '' !== $credit['author'] ) :
+							?>
+							<p class="sa-strip__credit">عکس: <?php echo esc_html( $credit['author'] ); ?> · <?php echo esc_html( $credit['license_label'] ); ?></p>
+						<?php endif; ?>
+					</div>
+				</article>
+			<?php endforeach; ?>
+		</div>
+	</section>
+	<?php
+}
+
+/**
+ * REST: POST /photos/import
+ *
+ * بدنه: {url, place, kind, note, points, highlight, tag, alt, author, license,
+ *        license_url, source_page, city_id}
+ *
+ * مجوز *باید* از فهرست مجاز باشد و author پر باشد، وگرنه ۴۲۲ برمی‌گردد.
+ *
+ * @param WP_REST_Request $r درخواست.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_photo_import( $r ) {
+	$b        = (array) $r->get_json_params();
+	$url      = isset( $b['url'] ) ? trim( (string) $b['url'] ) : '';
+	$author   = isset( $b['author'] ) ? sanitize_text_field( (string) $b['author'] ) : '';
+	$license  = isset( $b['license'] ) ? strtolower( sanitize_text_field( (string) $b['license'] ) ) : '';
+	$city_id  = isset( $b['city_id'] ) ? absint( $b['city_id'] ) : 0;
+	$place    = isset( $b['place'] ) ? sanitize_text_field( (string) $b['place'] ) : '';
+	$kind     = isset( $b['kind'] ) ? sanitize_text_field( (string) $b['kind'] ) : 'heritage';
+	$alt      = isset( $b['alt'] ) ? sanitize_text_field( (string) $b['alt'] ) : '';
+	$key      = 'sa-photo:' . md5( $url );
+
+	if ( '' === $url || '' === $author || '' === $license ) {
+		return new WP_Error( 'sa_photo_missing', 'url، author و license الزامی است.', array( 'status' => 400 ) );
+	}
+	if ( '' === sa_photo_license_label( $license ) ) {
+		return new WP_Error( 'sa_photo_license', 'این مجوز برای انتشار مجاز نیست؛ فقط CC0/PD/CC BY/CC BY-SA.', array( 'status' => 422 ) );
+	}
+	if ( ! sa_photo_url_allowed( $url ) ) {
+		return new WP_Error( 'sa_photo_host', 'این دامنه برای دریافت تصویر مجاز نیست.', array( 'status' => 422 ) );
+	}
+	if ( ! $city_id || 'city' !== get_post_type( $city_id ) ) {
+		return new WP_Error( 'sa_photo_city', 'شهرستان مقصد معتبر نیست.', array( 'status' => 400 ) );
+	}
+
+	// اجرای دوباره: پیوست سالم با همان کلید بازاستفاده می‌شود (بدون تغییر).
+	$existing = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+			'meta_query'     => array( array( 'key' => '_sa_photo_key', 'value' => $key ) ),
+		)
+	);
+	foreach ( $existing as $att_id ) {
+		$missing = function_exists( 'sa_media_attachment_missing' ) ? sa_media_attachment_missing( (int) $att_id ) : false;
+		if ( ! $missing ) {
+			return rest_ensure_response( array( 'id' => (int) $att_id, 'reused' => true, 'url' => wp_get_attachment_url( (int) $att_id ) ) );
+		}
+	}
+
+	$response = wp_safe_remote_get(
+		$url,
+		array(
+			'timeout'             => 45,
+			'redirection'         => 0,
+			'limit_response_size' => 3 * MB_IN_BYTES,
+			'user-agent'          => 'SarzaminaryanBot/1.0 (https://sarzaminaryan.ir; photo import with attribution)',
+		)
+	);
+	if ( is_wp_error( $response ) ) {
+		return new WP_Error( 'sa_photo_fetch', 'دریافت تصویر ناموفق بود: ' . $response->get_error_message(), array( 'status' => 502 ) );
+	}
+	$code = (int) wp_remote_retrieve_response_code( $response );
+	if ( 200 !== $code ) {
+		return new WP_Error( 'sa_photo_fetch_status', 'سرور مبدأ کد ' . $code . ' برگرداند.', array( 'status' => 502 ) );
+	}
+	$bytes = (string) wp_remote_retrieve_body( $response );
+	$mime  = function_exists( 'sa_agent_detect_image_mime' ) ? sa_agent_detect_image_mime( $bytes ) : '';
+	if ( '' === $mime || 'image/jpeg' !== $mime ) {
+		return new WP_Error( 'sa_photo_mime', 'فقط تصویر واقعی JPEG پذیرفته می‌شود.', array( 'status' => 415 ) );
+	}
+	if ( strlen( $bytes ) < 2000 || strlen( $bytes ) > 3 * MB_IN_BYTES ) {
+		return new WP_Error( 'sa_photo_size', 'حجم فایل مناسب نیست.', array( 'status' => 413 ) );
+	}
+
+	$slug = sanitize_title( $place ? $place : 'photo' );
+	if ( '' === $slug ) {
+		$slug = 'photo';
+	}
+	$filename = 'sa-photo-' . $slug . '-' . substr( $key, -6 ) . '.jpg';
+
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	require_once ABSPATH . 'wp-admin/includes/media.php';
+
+	$upload = wp_upload_bits( $filename, null, $bytes );
+	if ( ! is_array( $upload ) || ! empty( $upload['error'] ) || empty( $upload['file'] ) ) {
+		return new WP_Error( 'sa_photo_upload', 'ذخیرهٔ فایل انجام نشد.', array( 'status' => 500 ) );
+	}
+
+	$att_id = wp_insert_attachment(
+		array(
+			'post_mime_type' => $mime,
+			'post_title'     => wp_slash( '' !== $place ? $place : $filename ),
+			'post_content'   => '',
+			'post_status'    => 'inherit',
+		),
+		$upload['file'],
+		$city_id,
+		true
+	);
+	if ( is_wp_error( $att_id ) || ! $att_id ) {
+		return new WP_Error( 'sa_photo_attachment', 'ثبت پیوست انجام نشد.', array( 'status' => 500 ) );
+	}
+	$meta = wp_generate_attachment_metadata( (int) $att_id, $upload['file'] );
+	if ( is_array( $meta ) ) {
+		wp_update_attachment_metadata( (int) $att_id, $meta );
+	}
+
+	update_post_meta( (int) $att_id, '_wp_attachment_image_alt', wp_slash( '' !== $alt ? $alt : $place ) );
+	update_post_meta( (int) $att_id, SA_PHOTO_META_AUTHOR, wp_slash( $author ) );
+	update_post_meta( (int) $att_id, SA_PHOTO_META_LICENSE, wp_slash( $license ) );
+	update_post_meta( (int) $att_id, SA_PHOTO_META_LICENSE_URL, esc_url_raw( (string) ( $b['license_url'] ?? '' ) ) );
+	update_post_meta( (int) $att_id, SA_PHOTO_META_SOURCE, esc_url_raw( (string) ( $b['source_page'] ?? '' ) ) );
+	update_post_meta( (int) $att_id, SA_PHOTO_META_RETRIEVED, gmdate( 'Y-m-d' ) );
+	update_post_meta( (int) $att_id, SA_PHOTO_META_PLACE, wp_slash( $place ) );
+	update_post_meta( (int) $att_id, SA_PHOTO_META_NOTE, wp_slash( sanitize_textarea_field( (string) ( $b['note'] ?? '' ) ) ) );
+	update_post_meta( (int) $att_id, '_sa_photo_points', wp_slash( sanitize_text_field( (string) ( $b['points'] ?? '' ) ) ) );
+	update_post_meta( (int) $att_id, '_sa_photo_highlight', wp_slash( sanitize_text_field( (string) ( $b['highlight'] ?? '' ) ) ) );
+	update_post_meta( (int) $att_id, '_sa_photo_tag', wp_slash( sanitize_text_field( (string) ( $b['tag'] ?? '' ) ) ) );
+	update_post_meta( (int) $att_id, '_sa_photo_kind', wp_slash( $kind ) );
+	update_post_meta( (int) $att_id, '_sa_photo_city', $city_id );
+	update_post_meta( (int) $att_id, '_sa_photo_key', $key );
+	update_post_meta( (int) $att_id, '_sa_photo_origin', esc_url_raw( $url ) );
+
+	// آلبوم گالری موجود (که فقط image/webp را می‌خواند) دست‌نخورده می‌ماند؛
+	// این عکس‌ها مسیر مستقل خودشان را دارند.
+	return rest_ensure_response(
+		array(
+			'id'      => (int) $att_id,
+			'reused'  => false,
+			'url'     => (string) ( $upload['url'] ?? wp_get_attachment_url( (int) $att_id ) ),
+			'bytes'   => strlen( $bytes ),
+			'license' => sa_photo_license_label( $license ),
+		)
+	);
+}

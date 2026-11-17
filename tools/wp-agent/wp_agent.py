@@ -1008,6 +1008,44 @@ def run_county_covers(step: dict) -> dict:
     return json.loads(reports[0].read_text(encoding="utf-8"))
 
 
+def run_photos_import(step: dict) -> dict:
+    """Import a licensed, attributed photo batch through the site's own /photos/import route.
+
+    Why a separate command: this sandbox cannot download from image hosts, but the site
+    can. The batch file only carries URLs plus the licence and photographer we verified
+    on the source page; the theme re-checks both before it stores anything.
+    """
+    batch = str(step.get("batch") or "").strip()
+    if not batch:
+        raise AgentError("photos-import needs batch: tools/photos/<name>.json")
+    path = (REPO_ROOT / batch).resolve()
+    if REPO_ROOT not in path.parents:
+        raise AgentError("photos-import batch must live inside the repository")
+    tool_dir = REPO_ROOT / "tools" / "photos"
+    env = os.environ.copy()
+    try:
+        completed = subprocess.run(
+            [sys.executable, str(tool_dir / "import_photos.py"), str(path)],
+            cwd=REPO_ROOT, env=env, capture_output=True, text=True, check=False,
+        )
+    except FileNotFoundError as err:
+        raise AgentError(f"photos-import runtime is missing: {err}") from err
+    stdout, stderr = completed.stdout or "", completed.stderr or ""
+    secret = env.get("SA_APP_PASSWORD", "")
+    if secret:
+        stdout, stderr = stdout.replace(secret, "***"), stderr.replace(secret, "***")
+    if stdout:
+        print(stdout[-4000:], end="")
+    if stderr:
+        print(stderr[-4000:], file=sys.stderr, end="")
+    if completed.returncode:
+        raise AgentError(f"photos-import failed (exit {completed.returncode}): {(stderr or stdout).strip()[-1500:]}")
+    report_path = tool_dir / "results" / f"{path.stem}.json"
+    if not report_path.exists():
+        raise AgentError("photos-import finished without a result report")
+    return json.loads(report_path.read_text(encoding="utf-8"))
+
+
 def run_job(job_path: str, c: "Client") -> dict:
     """Run a job file (a list of steps); stop at the first refusal. Writes results/<name>.json."""
     path = (REPO_ROOT / job_path).resolve() if not Path(job_path).is_absolute() else Path(job_path)
@@ -1027,6 +1065,8 @@ def run_job(job_path: str, c: "Client") -> dict:
         try:
             if step.get("cmd") == "county-covers":
                 entry["result"] = run_county_covers(step)
+            elif step.get("cmd") == "photos-import":
+                entry["result"] = run_photos_import(step)
             else:
                 entry["result"] = run(parser.parse_args(step_to_argv(step)), c)
             if step.get("cmd") == "update" and isinstance(entry["result"], dict) and entry["result"].get("backup_id"):
