@@ -1,0 +1,17 @@
+[
+ {
+  "id": 160,
+  "slug": "najafabad",
+  "words_after": 941,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

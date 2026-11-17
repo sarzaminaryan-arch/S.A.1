@@ -1,0 +1,17 @@
+[
+ {
+  "id": 102,
+  "slug": "marand",
+  "words_after": 918,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

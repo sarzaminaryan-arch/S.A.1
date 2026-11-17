@@ -26,6 +26,8 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent.parent.parent
+# خواندنِ زنده و پوشهٔ متن هر دسته با --read/--content عوض می‌شود؛ پیش‌فرض همان
+# دستهٔ ۷ است تا فرمان‌های پیشین بی‌تغییر کار کنند.
 READ = REPO / "tools/wp-agent/results/20261119-01-read-batch7-ten.json"
 CONTENT = HERE / "batch7"
 DATA = HERE / "data"
@@ -40,8 +42,8 @@ REQUIRED_META = (
 )
 
 
-def live_pages() -> dict:
-    data = json.loads(READ.read_text(encoding="utf-8"))
+def live_pages(read_path: Path | None = None) -> dict:
+    data = json.loads((read_path or READ).read_text(encoding="utf-8"))
     out = {}
     for step in data.get("steps", []):
         res = step.get("result")
@@ -99,11 +101,19 @@ def build(slug: str, pages: dict) -> Path:
 
 
 def main(argv=None) -> int:
+    global CONTENT
     ap = argparse.ArgumentParser()
     ap.add_argument("slugs", nargs="*")
     ap.add_argument("--all", action="store_true")
+    ap.add_argument("--read", help="نتیجهٔ کار خواندن (پیش‌فرض: دستهٔ ۷)")
+    ap.add_argument("--content", help="پوشهٔ متن دسته (پیش‌فرض: replace_src/batch7)")
     args = ap.parse_args(argv)
-    pages = live_pages()
+    if args.content:
+        CONTENT = (HERE / args.content) if not Path(args.content).is_absolute() else Path(args.content)
+    read_path = None
+    if args.read:
+        read_path = Path(args.read) if Path(args.read).is_absolute() else REPO / args.read
+    pages = live_pages(read_path)
     slugs = sorted(p.stem for p in CONTENT.glob("*.json")) if args.all else args.slugs
     for slug in slugs:
         if slug not in pages:
