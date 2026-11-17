@@ -65,3 +65,10 @@ assert pp.photo_place_texts[0] == "آیینه‌خانهٔ مفخم بجنورد
 assert "عکس:" not in " ".join(pp.photo_credits), pp.photo_credits
 
 print("PASS: probe counts the photo spotlight, the three-tile strip and every credit line")
+
+# 3) Home counters: the probe reads the server's number, not the JS-animated one.
+home = wa._SeoParser()
+home.feed('<main><div class="sa-stat"><b data-n="123">۱۲۳</b><span>استان‌ها</span></div>'
+          '<a class="sa-stat"><b data-n="1926">۱٬۹۲۶+</b><span>شهرستان‌ها</span></a></main>')
+assert home.home_stats == [{"n": "123", "text": "۱۲۳"}, {"n": "1926", "text": "۱٬۹۲۶+"}], home.home_stats
+print("PASS: probe reports the server-side home counters")

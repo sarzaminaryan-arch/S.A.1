@@ -260,6 +260,12 @@ class _SeoParser(html.parser.HTMLParser):
         self.photo_place_texts = []
         self._in_placecap = 0
         self._place_buf = ""
+        # ۲.۲۲.۱۰۶: شمارنده‌های صفحهٔ اول (b[data-n]) تا از سمت سرور معلوم شود
+        # چه عددی چاپ شده — بدون اجرای جاوااسکریپت و بدون حدس.
+        self.home_stats = []
+        self._in_stat = 0
+        self._stat_n = ""
+        self._stat_buf = ""
         self._main = 0
 
     def handle_starttag(self, tag, attrs):
@@ -295,6 +301,10 @@ class _SeoParser(html.parser.HTMLParser):
             # تگ‌های درونی (<a>، <span>) شمارش را جابه‌جا نمی‌کنند.
             self._in_credit = 1
             self._credit_buf = ""
+        if tag == "b" and a.get("data-n", "") != "" and not self._in_stat:
+            self._in_stat = 1
+            self._stat_n = a.get("data-n", "")
+            self._stat_buf = ""
         if tag == "img" and "sa-county-cover__img" in classes:
             self.county_cover_images += 1
             src = a.get("src") or a.get("data-src") or ""
@@ -338,6 +348,11 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
+        if self._in_stat and tag == "b":
+            self._in_stat = 0
+            text = " ".join(self._stat_buf.split())
+            if len(self.home_stats) < 8:
+                self.home_stats.append({"n": self._stat_n, "text": text})
         if self._in_placecap and tag == "figcaption":
             self._in_placecap = 0
             label = " ".join(self._place_buf.split())
@@ -378,7 +393,9 @@ class _SeoParser(html.parser.HTMLParser):
         if self._in_credit:
             self._credit_buf += data  # خط اعتبار عکس: نام عکاس + مجوز
         if self._in_placecap:
-            self._place_buf += data  # خط اعتبار عکس: نام عکاس + مجوز
+            self._place_buf += data
+        if self._in_stat:
+            self._stat_buf += data  # خط اعتبار عکس: نام عکاس + مجوز
         if self._in_title:
             self.title += data
         if self._in_jsonld:
@@ -478,6 +495,7 @@ def scan_url(url: str) -> dict:
         "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
         "photo_credit_texts": p.photo_credits,
         "photo_places": p.photo_places, "photo_place_texts": p.photo_place_texts,
+        "home_stats": p.home_stats,
         "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
