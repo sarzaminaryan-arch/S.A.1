@@ -245,6 +245,15 @@ class _SeoParser(html.parser.HTMLParser):
         self.map_iframes = 0          # our own map block: iframe.sa-map__frame
         self.map_coords = False       # the same iframe carries data-lat/data-lng
         self.map_frame_buttons = 0    # retired «بارگذاری نقشهٔ تعاملی» must never come back
+        # v2.22.98: licensed place photos — the credit line is part of the design, so a
+        # block without a named photographer is a defect, not a style choice.
+        self.spotlight = 0
+        self.spotlight_credits = 0
+        self.strip_tiles = 0
+        self.strip_credits = 0
+        self._in_spotlight = 0
+        self._in_strip_tile = 0
+        self._in_credit = 0
         self._main = 0
 
     def handle_starttag(self, tag, attrs):
@@ -262,6 +271,18 @@ class _SeoParser(html.parser.HTMLParser):
             self.map_frame_buttons += 1
         if tag == "figure" and "sa-county-cover" in classes:
             self.county_cover_figures += 1
+        if "sa-spotlight" in classes:
+            self.spotlight += 1
+            self._in_spotlight += 1
+        if "sa-strip__tile" in classes:
+            self.strip_tiles += 1
+            self._in_strip_tile += 1
+        if "sa-photo__credit" in classes or "sa-strip__credit" in classes:
+            self._in_credit += 1
+            if self._in_strip_tile:
+                self.strip_credits += 1
+            elif self._in_spotlight:
+                self.spotlight_credits += 1
         if tag == "img" and "sa-county-cover__img" in classes:
             self.county_cover_images += 1
             src = a.get("src") or a.get("data-src") or ""
@@ -305,6 +326,12 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip += 1
 
     def handle_endtag(self, tag):
+        if tag == "figure" and self._in_credit:
+            self._in_credit -= 1
+        if tag == "section" and self._in_spotlight:
+            self._in_spotlight -= 1
+        if tag == "article" and self._in_strip_tile:
+            self._in_strip_tile -= 1
         if tag == "main" and self._main:
             self._main -= 1
         if tag == "svg" and self._svg:
@@ -415,6 +442,8 @@ def scan_url(url: str) -> dict:
         "og_image": bool(p.meta.get("og:image")), "og_title": bool(p.meta.get("og:title")),
         "h1": p.h1, "h2": p.h2, "imgs": p.imgs, "imgs_no_alt": p.imgs_no_alt, "imgs_missing_alt": p.imgs_missing_alt, "no_alt_srcs": p.no_alt_srcs, "lazy_imgs": p.lazy_imgs,
         "county_cover_figures": p.county_cover_figures, "county_cover_images": p.county_cover_images,
+        "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
+        "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
         "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
         "words_rendered": len(text.split()), "viewport": bool(p.meta.get("viewport")),
@@ -459,6 +488,8 @@ def probe_url(url: str) -> dict:
                 "county_cover_figures": p.county_cover_figures,
                 "county_cover_images": p.county_cover_images,
                 "county_cover_image_srcs": p.county_cover_image_srcs,
+                "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
+                "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
                 "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
                 "map_coords": p.map_coords})
