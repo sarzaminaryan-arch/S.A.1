@@ -543,7 +543,8 @@ def probe_url(url: str) -> dict:
                 "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
                 "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
                 "photo_credit_texts": p.photo_credits,
-        "photo_places": p.photo_places, "photo_place_texts": p.photo_place_texts,
+                "photo_places": p.photo_places, "photo_place_texts": p.photo_place_texts,
+                "home_stats": p.home_stats,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
                 "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
                 "map_coords": p.map_coords})
