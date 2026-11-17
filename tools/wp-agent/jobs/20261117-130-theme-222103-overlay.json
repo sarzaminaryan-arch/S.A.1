@@ -1,0 +1,37 @@
+{
+ "note": "کار ۱۳۰: نصب ۲.۲۲.۱۰۳ و نوشتن متن روی عکس‌های موجود. دستهٔ بجنورد بازفرستاده می‌شود تا پیوست‌های ۴۶۳۶–۴۶۳۹ فرادادهٔ overlay/area بگیرند؛ پاسخ import خودش این دو مقدار را گزارش می‌کند، پس از job معلوم است نشسته یا نه. بعد probe صفحهٔ اول و بجنورد: صفحهٔ اول باید طرح v3 باشد و بجنورد باید ۴ قاب با نام مکان روی عکس نشان دهد. پشتیبان کامل و برگشت خودکار به ۲.۲۲.۱۰۲.",
+ "rollback_on_fail": false,
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.103",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/bojnord/"
+   ],
+   "rollback_to": "2.22.102"
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-bojnord.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/?sa_probe=131",
+    "/city/bojnord/?sa_probe=131"
+   ]
+  }
+ ]
+}
