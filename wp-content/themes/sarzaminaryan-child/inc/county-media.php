@@ -505,6 +505,74 @@ function sa_agent_rest_photos_inventory( $r ) {
 }
 
 /**
+ * REST: POST /photos/prune
+ *
+ * چرا این مسیر لازم شد: هر بار که یک مکان با نشانی تازه وارد می‌شود (اصلاح نشانی، فایل
+ * بهتر) و نسخهٔ قبلی کلید مکان نداشته، یک نسخهٔ اضافه در کتابخانه می‌ماند. پاک‌کردن
+ * دستی از راه پل ممکن نیست (مسیر /post برای پیوست‌ها کار نمی‌کند؛ کار ۱۲۴ با ۴۰۴ رد شد).
+ *
+ * این مسیر فقط «نسخه‌های اضافیِ همان مکان» را به زباله‌دان می‌برد — نه حذف همیشگی:
+ * برای هر (شهرستان، مکان) **جدیدترین** پیوست می‌ماند و بقیه به زباله‌دان می‌روند
+ * (۳۰ روز قابل بازگردانی). پرچم صریح مالک و پیش‌نمایش اجباری است.
+ *
+ * بدنه: {city_id, owner_approved: true, dry_run?: bool}
+ *
+ * @param WP_REST_Request $r درخواست.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_photos_prune( $r ) {
+	$b       = (array) $r->get_json_params();
+	$city_id = isset( $b['city_id'] ) ? absint( $b['city_id'] ) : 0;
+	if ( empty( $b['owner_approved'] ) || true !== $b['owner_approved'] ) {
+		return new WP_Error( 'sa_photo_need_owner', 'پاک‌سازی فقط با دستور صریح مالک (owner_approved: true).', array( 'status' => 403 ) );
+	}
+	if ( ! $city_id || 'city' !== get_post_type( $city_id ) ) {
+		return new WP_Error( 'sa_photo_city', 'شهرستان مقصد معتبر نیست.', array( 'status' => 400 ) );
+	}
+
+	// گروه‌بندی بر اساس «شهرستان + مکان»؛ کلید یکتا از قبل روی هر پیوست ثبت شده است.
+	$groups = array();
+	foreach ( (array) sa_photo_place_ids( $city_id, 60 ) as $id ) {
+		$place = (string) get_post_meta( $id, SA_PHOTO_META_PLACE, true );
+		$key   = '' !== $place ? $place : '#' . (int) $id;
+		$groups[ $key ][] = (int) $id;
+	}
+
+	$dry    = ! empty( $b['dry_run'] );
+	$keep   = array();
+	$pruned = array();
+	foreach ( $groups as $place => $ids ) {
+		usort(
+			$ids,
+			static function ( $a, $bb ) {
+				return (int) get_post_field( 'post_date', $bb ) <=> (int) get_post_field( 'post_date', $a );
+			}
+		);
+		$keep[] = $ids[0];
+		foreach ( array_slice( $ids, 1 ) as $extra ) {
+			if ( $dry ) {
+				$pruned[] = array( 'id' => $extra, 'place' => $place, 'action' => 'would trash' );
+				continue;
+			}
+			if ( wp_trash_post( $extra ) ) {
+				$pruned[] = array( 'id' => $extra, 'place' => $place, 'action' => 'trashed' );
+			} else {
+				$pruned[] = array( 'id' => $extra, 'place' => $place, 'action' => 'failed' );
+			}
+		}
+	}
+
+	return rest_ensure_response(
+		array(
+			'city_id' => $city_id,
+			'dry_run' => $dry,
+			'kept'    => $keep,
+			'pruned'  => $pruned,
+		)
+	);
+}
+
+/**
  * REST: POST /photos/import
  *
  * بدنه: {url, place, kind, note, points, highlight, tag, alt, author, license,

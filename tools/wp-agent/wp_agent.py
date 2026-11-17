@@ -600,6 +600,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--limit", type=int, default=0)
     p.add_argument("--workers", type=int, default=4)
     p.add_argument("--template-min-pages", type=int, default=20)
+    p = sub.add_parser("photos-prune", help="owner-approved: trash duplicate copies of the same place (newest kept)")
+    p.add_argument("--city-id", type=int, required=True)
+    p.add_argument("--owner-approved", action="store_true")
+    p.add_argument("--dry-run", action="store_true", help="report what would be trashed and change nothing")
     p = sub.add_parser("photos", help="read-only: licensed place photos with author, licence and source")
     p.add_argument("--city-id", type=int, default=0)
     sub.add_parser("relations-audit", help="read-only: published items whose city/province parent is not published (theme 2.22.76+)")
@@ -728,6 +732,11 @@ def run(a: argparse.Namespace, c: "Client"):
             except Exception as err:  # noqa: BLE001
                 extras[u] = {"status": 0, "error": str(err)[:200]}
         return {"count": len(urls), "extras": extras, "pages": seo_scan(urls, a.workers)}
+    elif a.cmd == "photos-prune":
+        if not a.owner_approved:
+            raise AgentError("photos-prune needs --owner-approved (owner's explicit order)")
+        body = {"city_id": a.city_id, "owner_approved": True, "dry_run": bool(a.dry_run)}
+        return c.call("POST", "/photos/prune", body=body)
     elif a.cmd == "photos":
         return c.call("GET", "/photos", {"city_id": a.city_id or None})
     elif a.cmd == "get":

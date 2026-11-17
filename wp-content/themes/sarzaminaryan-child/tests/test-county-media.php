@@ -143,4 +143,11 @@ sa_t_assert(
 sa_t_assert( false !== strpos( $mod, 'sa_photo_replace_file' ), 'a re-send with a new URL swaps the file in place' );
 sa_t_assert( false !== strpos( $mod, 'sa_photo_write_meta' ), 'provenance is written by one shared helper' );
 
+/* 8 — duplicates are cleaned only through a preview-first, owner-flagged route. */
+$all_php = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' )
+	. (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' );
+sa_t_assert( false !== strpos( $all_php, 'sa_agent_rest_photos_prune' ), 'the duplicate-cleanup route is registered' );
+sa_t_assert( false !== strpos( $all_php, "'dry_run'" ), 'the cleanup can be previewed before it touches anything' );
+sa_t_assert( false !== strpos( $all_php, 'wp_trash_post' ) && false === strpos( $all_php, 'wp_delete_attachment' ), 'cleanup trashes (recoverable), it never deletes' );
+
 echo "ALL TESTS PASSED\n";

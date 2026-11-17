@@ -705,6 +705,18 @@ function sa_agent_ops_register_routes() {
 			},
 		)
 	);
+	// v2.22.101: پاک‌سازی نسخه‌های اضافیِ «همان مکان» (زباله‌دان، با پرچم مالک و پیش‌نمایش).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/photos/prune',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_photos_prune',
+			'permission_callback' => static function () {
+				return is_user_logged_in() && current_user_can( 'edit_others_posts' ) && current_user_can( 'delete_others_posts' );
+			},
+		)
+	);
 	register_rest_route(
 		SA_AGENT_NS,
 		'/photos/import',
