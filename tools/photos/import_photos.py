@@ -207,6 +207,10 @@ def main(argv: list[str]) -> int:
             report["failed"].append({"place": photo.get("place"), "error": str(err)[:400]})
             continue
         row = {"place": photo.get("place"), "id": out.get("id"), "url": out.get("url")}
+        # ۲.۲۲.۱۰۳: متن روی عکس را هم گزارش کن تا معلوم باشد فراداده نشسته یا نه.
+        for key in ("overlay", "area", "replaced"):
+            if out.get(key) not in (None, "", False):
+                row[key] = out[key]
         (report["reused"] if out.get("reused") else report["imported"]).append(row)
 
     RESULT_DIR.mkdir(parents=True, exist_ok=True)
