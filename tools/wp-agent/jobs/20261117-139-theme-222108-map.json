@@ -1,0 +1,11 @@
+{
+ "note": "کار ۱۳۹: نصب ۲.۲.۱۰۸ (رفع تگ نقشه). سپس probe صفحهٔ اول و بجنورد و پاک‌سازی کش. پشتیبان کامل و برگشت خودکار به ۲.۲۲.۱۰۷.",
+ "rollback_on_fail": false,
+ "steps": [
+  { "cmd": "theme-update", "expected_version": "2.22.108", "owner_approved_theme_update": true,
+    "backup_first": true, "backup_nocloud": true, "backup_wait": 900,
+    "probe": ["/", "/city/bojnord/"], "rollback_to": "2.22.107" },
+  { "cmd": "cache-purge", "all": true },
+  { "cmd": "probe", "url": ["/?sa_probe=144", "/city/bojnord/?sa_probe=144"] }
+ ]
+}

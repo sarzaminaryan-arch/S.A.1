@@ -204,4 +204,9 @@ sa_t_assert( false === strpos( $home_src, 'requestAnimationFrame' ), 'no count-u
 sa_t_assert( false !== strpos( $home_src, 'wp_count_posts' ), 'the counters are counted on the server' );
 sa_t_assert( false !== strpos( $home_src, "'—'" ), 'a genuinely empty count prints a dash, not 0' );
 
+/* 11 — markup sanity in the home map: an unclosed <g ...> start tag would swallow
+ *      every following dot (found in the first v3 render, fixed in 2.22.108). */
+sa_t_assert( false === strpos( $home_src, '))\"<title>' ), 'the map dot <g> tag is closed before <title>' );
+sa_t_assert( 1 === substr_count( $home_src, 'class=\"sa-dot--soon\"' ), 'the map renders one placeholder group per unpublished province' );
+
 echo "ALL TESTS PASSED\n";
