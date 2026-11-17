@@ -1,0 +1,323 @@
+{
+  "job": "tools/wp-agent/jobs/20261117-county-master-check-222114.json",
+  "started_utc": "2026-11-17T20:30:41+00:00",
+  "note": "بررسی فقط‌خواندنی ترتیب مستر شهرستان و آکاردئون‌ها پس از نصب قالب.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/tehran/?sa_probe=master-verify",
+            "status": 200,
+            "ms": 2646,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تهران؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/tehran/",
+            "desc": "راهنمای شهرستان تهران: مساحت ۱۳۰۱ کیلومتر مربع و جمعیت ۸٬۷۳۷٬۵۱۰ نفر (۱۳۹۵)، سه بخش، آب‌وهوای دوگانهٔ شمال و جنوب، مترو، فرودگاه مهرآباد و نشانه‌های شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "og:description": "از کاخ گلستانِ ثبت‌شده در یونسکو تا پل طبیعت و مسیرهای دربند و درکه؛ تجربهٔ سفر به تهران، محله‌به‌محله.",
+              "og:url": "https://sarzaminaryan.ir/city/tehran/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز"
+            },
+            "county_master_order": [
+              "cover",
+              "toc",
+              "identity",
+              "rating",
+              "siblings",
+              "sources"
+            ],
+            "county_toc_accordions": 1,
+            "county_siblings_accordions": 1,
+            "county_closed_accordions": 2,
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [],
+            "jsonld": [
+              "AdministrativeArea",
+              "BreadcrumbList",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19236,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/?sa_probe=master-verify",
+            "status": 200,
+            "ms": 1642,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_master_order": [
+              "cover",
+              "toc",
+              "identity",
+              "rating",
+              "siblings",
+              "sources"
+            ],
+            "county_toc_accordions": 1,
+            "county_siblings_accordions": 1,
+            "county_closed_accordions": 2,
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/?sa_probe=master-verify",
+            "status": 200,
+            "ms": 1451,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_master_order": [
+              "cover",
+              "toc",
+              "identity",
+              "rating",
+              "siblings",
+              "sources"
+            ],
+            "county_toc_accordions": 1,
+            "county_siblings_accordions": 1,
+            "county_closed_accordions": 2,
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 3,
+            "photo_strip_credits": 3,
+            "photo_credit_texts": [
+              "Arashk rp2",
+              "Mehraddddi",
+              "Arashk rp2",
+              "Samin jazmi"
+            ],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/?sa_probe=master-verify",
+            "status": 200,
+            "ms": 1391,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای شهرستان اصفهان: جمعیت ۲٬۱۳۰٬۹۷۰ نفر و مساحت ۱٬۶۷۲ کیلومتر مربع، میدان نقش جهان ثبت جهانی، پل‌های تاریخی، کوه صفه، اقامت و وضعیت واقعی زاینده‌رود.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — شهری که میدانش را برای تماشا ساخت",
+              "og:description": "از نقش جهان و جلفا تا کوه صفه و بستر خشک زاینده‌رود؛ تجربهٔ سفر به اصفهان با کمبودهایش.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-isfahan-city.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اصفهان — شهری که میدانش را برای تماشا ساخت",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — شهری که میدانش را برای تماشا ساخت"
+            },
+            "county_master_order": [
+              "cover",
+              "toc",
+              "identity",
+              "rating",
+              "siblings",
+              "sources"
+            ],
+            "county_toc_accordions": 1,
+            "county_siblings_accordions": 1,
+            "county_closed_accordions": 2,
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-isfahan-city.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [],
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-isfahan-city.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20488,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T20:30:52+00:00"
+}
