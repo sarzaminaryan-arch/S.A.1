@@ -157,8 +157,8 @@ jobs:
             echo "== python $(python3 -V 2>&1)"
             python3 tools/photos/test_import_photos.py
             echo "python rc=$?"
-          } > tools/photos/results/_licensed-photo-tests.log 2>&1
-          cat tools/photos/results/_licensed-photo-tests.log
+          } > tools/photos/results/licensed-photo-tests.txt 2>&1
+          cat tools/photos/results/licensed-photo-tests.txt
 
       - name: 'Run agent-bridge tests (پل ایجنت: فقط پیش‌نویس، پشتیبان پیش از هر تغییر)'
         shell: bash
@@ -203,7 +203,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
-          log=tools/photos/results/_licensed-photo-tests.log
+          log=tools/photos/results/licensed-photo-tests.txt
           [ -f "$log" ] || exit 0
           git config user.name "wp-agent[bot]"
           git config user.email "wp-agent@users.noreply.github.com"
