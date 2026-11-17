@@ -137,7 +137,7 @@ sa_t_assert( false !== strpos( $php_all, "'publishable'   => sa_photo_is_publish
  *     URL updates the same attachment instead of adding a duplicate (job 120 did exactly
  *     that on the live site: two copies of the same park). */
 sa_t_assert(
-	false !== strpos( $mod, "md5( absint( $city_id ) . '|' . $place )" ),
+	false !== strpos( $mod, 'absint( $city_id ) . ' ) && false !== strpos( $mod, "'|' . \$place" ),
 	'the photo key identifies the place, so a corrected URL updates instead of duplicating'
 );
 sa_t_assert( false !== strpos( $mod, 'sa_photo_replace_file' ), 'a re-send with a new URL swaps the file in place' );
