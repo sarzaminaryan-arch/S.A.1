@@ -1,0 +1,24 @@
+{
+ "batch": "20261119-batch7-three",
+ "note": "دستهٔ ۷ — سه شهرستان پایانی (بویراحمد، بندر لنگه، چابهار): یک تصویر شاخص برای هر شهرستان، همه از ویکی‌مدیا با مجوز CC0/CC BY-SA و نام عکاس. هیچ فایل خبرگزاری یا گوگل‌مپ.",
+ "imported": [
+  {
+   "place": "آبشار یاسوج",
+   "id": 4676,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2d8a8d8b4d8a7d8b1-db8cd8a7d8b3d988d8ac-0e86f4.jpg"
+  },
+  {
+   "place": "ساحل چابهار",
+   "id": 4677,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d8a7d8add984-da86d8a7d8a8d987d8a7d8b1-586b7c.jpg"
+  }
+ ],
+ "reused": [],
+ "refused": [],
+ "failed": [
+  {
+   "place": "ساحل بندر لنگه",
+   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch\",\"message\":\"\\u062f\\u0631\\u06cc\\u0627\\u0641\\u062a \\u062a\\u0635\\u0648\\u06cc\\u0631 \\u0646\\u0627\\u0645\\u0648\\u0641\\u0642 \\u0628\\u0648\\u062f: cURL error 28: Operation timed out after 10001 milliseconds with 0 out of 0 bytes received\",\"data\":{\"status\":502}}"
+  }
+ ]
+}
