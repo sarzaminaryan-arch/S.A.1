@@ -3,25 +3,27 @@
  "note": "بجنورد — گروه اول تصاویر مجاز (۱ میراث + ۳ تفریحی). مجوزها از صفحهٔ هر فایل در ویکی‌مدیا بررسی شد و نام عکاس در خط اعتبار می‌آید؛ هیچ فایلی از خبرگزاری یا گوگل‌مپ بی‌اجازه استفاده نمی‌شود.",
  "imported": [
   {
+   "place": "آیینه‌خانهٔ مفخم",
+   "id": 4632,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2db8cdb8cd986d987d8aed8a7d986d987d994-d985d981d8aed985-b1113b.jpg"
+  },
+  {
+   "place": "پارک بش‌قارداش",
+   "id": 4633,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed8a7d8b1daa9-d8a8d8b4d982d8a7d8b1d8afd8a7d8b4-1d491d.jpg"
+  },
+  {
+   "place": "پارک آفرینش",
+   "id": 4634,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed8a7d8b1daa9-d8a2d981d8b1db8cd986d8b4-c4aee5.jpg"
+  },
+  {
    "place": "پارک کودک بجنورد",
-   "id": 4631,
-   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed8a7d8b1daa9-daa9d988d8afdaa9-d8a8d8acd986d988d8b1d8af-8f1c6c.jpg"
+   "id": 4635,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed8a7d8b1daa9-daa9d988d8afdaa9-d8a8d8acd986d988d8b1d8af-43e424.jpg"
   }
  ],
  "reused": [],
  "refused": [],
- "failed": [
-  {
-   "place": "آیینه‌خانهٔ مفخم",
-   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch_status\",\"message\":\"\\u0633\\u0631\\u0648\\u0631 \\u0645\\u0628\\u062f\\u0623 \\u06a9\\u062f 404 \\u0628\\u0631\\u06af\\u0631\\u062f\\u0627\\u0646\\u062f.\",\"data\":{\"status\":502}}"
-  },
-  {
-   "place": "پارک بش‌قارداش",
-   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch_status\",\"message\":\"\\u0633\\u0631\\u0648\\u0631 \\u0645\\u0628\\u062f\\u0623 \\u06a9\\u062f 404 \\u0628\\u0631\\u06af\\u0631\\u062f\\u0627\\u0646\\u062f.\",\"data\":{\"status\":502}}"
-  },
-  {
-   "place": "پارک آفرینش",
-   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch_status\",\"message\":\"\\u0633\\u0631\\u0648\\u0631 \\u0645\\u0628\\u062f\\u0623 \\u06a9\\u062f 404 \\u0628\\u0631\\u06af\\u0631\\u062f\\u0627\\u0646\\u062f.\",\"data\":{\"status\":502}}"
-  }
- ]
+ "failed": []
 }
