@@ -229,6 +229,10 @@ class _SeoParser(html.parser.HTMLParser):
         self.imgs_no_alt = 0
         self.imgs_missing_alt = 0  # no alt attribute at all (real a11y/SEO gap)
         self.no_alt_srcs: list[str] = []  # first few srcs without a non-empty alt
+        self.county_master_order: list[str] = []
+        self.county_toc_accordions = 0
+        self.county_siblings_accordions = 0
+        self.county_closed_accordions = 0
         self.county_cover_figures = 0
         self.county_cover_images = 0
         self.county_cover_image_srcs: list[str] = []
@@ -271,6 +275,27 @@ class _SeoParser(html.parser.HTMLParser):
                 self.map_coords = True
         if "sa-map__load" in classes or "sa-map__facade" in classes:
             self.map_frame_buttons += 1
+        marker = ""
+        if tag == "figure" and "sa-county-cover" in classes:
+            marker = "cover"
+        elif tag == "nav" and "sa-toc--county" in classes:
+            marker = "toc"
+        elif a.get("id") == "county-identity":
+            marker = "identity"
+        elif a.get("id") == "cc-rating":
+            marker = "rating"
+        elif tag == "details" and a.get("id") == "county-siblings":
+            marker = "siblings"
+            self.county_siblings_accordions += 1
+        elif a.get("id") == "sources":
+            marker = "sources"
+        if marker:
+            self.county_master_order.append(marker)
+        if tag == "details" and "sa-county-accordion" in classes:
+            if a.get("id") != "county-siblings":
+                self.county_toc_accordions += 1
+            if "open" not in a:
+                self.county_closed_accordions += 1
         if tag == "figure" and "sa-county-cover" in classes:
             self.county_cover_figures += 1
         if "sa-spotlight" in classes:
@@ -498,6 +523,10 @@ def probe_url(url: str) -> dict:
     og = {k: v for k, v in p.meta.items() if k.startswith("og:") or k.startswith("twitter:")}
     out.update({"title": p.title.strip(), "robots": p.meta.get("robots", ""), "canonical": p.canonical,
                 "desc": p.meta.get("description", ""), "h1": p.h1, "og": og,
+                "county_master_order": p.county_master_order,
+                "county_toc_accordions": p.county_toc_accordions,
+                "county_siblings_accordions": p.county_siblings_accordions,
+                "county_closed_accordions": p.county_closed_accordions,
                 "county_cover_figures": p.county_cover_figures,
                 "county_cover_images": p.county_cover_images,
                 "county_cover_image_srcs": p.county_cover_image_srcs,

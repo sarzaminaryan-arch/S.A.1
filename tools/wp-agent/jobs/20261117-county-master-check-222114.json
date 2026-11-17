@@ -1,0 +1,4 @@
+{
+ "note": "بررسی فقط‌خواندنی ترتیب مستر شهرستان و آکاردئون‌ها پس از نصب قالب.",
+ "steps": [{"cmd": "probe", "url": ["/city/tehran/?sa_probe=master-verify", "/city/mashhad/?sa_probe=master-verify", "/city/bojnord/?sa_probe=master-verify", "/city/isfahan-city/?sa_probe=master-verify"]}]
+}

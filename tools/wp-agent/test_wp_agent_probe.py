@@ -57,3 +57,14 @@ assert pp.spotlight == 1 and pp.spotlight_credits == 1, (pp.spotlight, pp.spotli
 assert pp.strip_tiles == 2 and pp.strip_credits == 1, (pp.strip_tiles, pp.strip_credits)
 assert pp.imgs == 3 and pp.imgs_no_alt == 0, (pp.imgs, pp.imgs_no_alt)
 print("PASS: probe counts the photo spotlight, the three-tile strip and every credit line")
+
+# County master render order and closed native accordions on live pages.
+master = wa._SeoParser()
+master.feed('<figure class="sa-county-cover"></figure><nav class="sa-toc sa-toc--county">'
+            '<details class="sa-county-accordion"><summary>فهرست</summary></details></nav>'
+            '<section id="county-identity"></section><section id="cc-rating"></section>'
+            '<details id="county-siblings" class="sa-county-accordion"><summary>شهرها</summary></details>'
+            '<section id="sources"></section>')
+assert master.county_master_order == ["cover", "toc", "identity", "rating", "siblings", "sources"]
+assert (master.county_toc_accordions, master.county_siblings_accordions, master.county_closed_accordions) == (1, 1, 2)
+print("PASS: county master order and closed accordions")
