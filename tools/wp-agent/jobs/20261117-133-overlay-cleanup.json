@@ -1,0 +1,9 @@
+{
+ "note": "کار ۱۳۳ (فایل سنجش، سپس بازفرستادن دسته با overlay تازه). دلیل: در کار ۱۳۲ عکس ۴۶۳۷ نام کوتاه «بش‌قارداش» گرفت ولی probe نشان داد نام کامل مکان از قبل روی عکس مانده. این کار یک بار دیگر دسته را می‌فرستد تا ببینیم overlay/area جایگزین فرادادهٔ قبلی می‌شود یا فقط وقتی خالی است نوشته می‌شود؛ نتیجه در results ثبت می‌شود.",
+ "rollback_on_fail": false,
+ "steps": [
+  { "cmd": "photos-import", "batch": "tools/photos/20261118-bojnord.json" },
+  { "cmd": "cache-purge", "all": true },
+  { "cmd": "probe", "url": ["/city/bojnord/?sa_probe=134"] }
+ ]
+}
