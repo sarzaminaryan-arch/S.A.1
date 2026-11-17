@@ -1,0 +1,37 @@
+{
+ "note": "دستهٔ ۷ — گام سوم: قشم و رامسر. بدنهٔ تازه ۹۴۱ و ۹۵۱ واژه در شش بخش نشانه‌دار، ۱۱ پرسش، منابع در دو دامنه، متای اصلاح‌شده. پشتیبان پیش از هر تغییر؛ انتظار modified_gmt از خواندن کار ۱۱۹.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 640,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-qeshm/qeshm-640.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-qeshm/qeshm-640.meta.json",
+   "expected_modified_gmt": "2026-10-04 11:50:16",
+   "owner_approved_live_edit": true,
+   "reason": "qeshm: تطبیق با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی نشانه‌دار، حذف تیترهای بازنشسته، منابع تازه و متای اصلاح‌شده"
+  },
+  {
+   "cmd": "update",
+   "id": 539,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-ramsar/ramsar-539.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-ramsar/ramsar-539.meta.json",
+   "expected_modified_gmt": "2026-10-04 01:32:30",
+   "owner_approved_live_edit": true,
+   "reason": "ramsar: تطبیق با تمپلیت مستر به دستور مالک (۲۶ آبان ۱۴۰۵) — بدنهٔ شش‌بخشی نشانه‌دار، حذف تیترهای بازنشسته، منابع تازه و متای اصلاح‌شده"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    640,
+    539
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/qeshm/",
+    "/city/ramsar/"
+   ]
+  }
+ ]
+}
