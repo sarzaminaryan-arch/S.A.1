@@ -1,0 +1,28 @@
+{
+ "note": "رشت ۴۵۳ — ثبت تاریخ بازبینی: نشان «بازبینی: ۱۴۰۵/۰۷/۱۲» از sa_facts_checked قبلی (۴ اکتبر) می‌آمد و تاریخ به‌روزرسانی امروز را پنهان می‌کرد؛ مقدار به ۲۰۲۶-۱۱-۱۶ رسید تا نشان با واقعیت انتشار هم‌خوان شود.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 453,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-rasht/rasht-453.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-rasht/rasht-453.meta.json",
+   "excerpt": "شهرستان رشت از بازار بزرگ و میدان شهرداری تا سراوان و موزهٔ میراث روستایی؛ راهنمای اقامت، میرزاقاسمی و رشته‌خشکار، و دو مشکل واقعی شهر: آب‌گرفتگی و ترافیک.",
+   "expected_modified_gmt": "2026-11-16 23:39:29",
+   "owner_approved_live_edit": true,
+   "reason": "رشت: به‌روزرسانی تاریخ بازبینی صفحه"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    453
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/rasht/?sa_probe=43"
+   ]
+  }
+ ]
+}

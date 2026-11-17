@@ -1,0 +1,15 @@
+{
+ "note": "رشت — یافتن شناسهٔ صفحه (فقط خواندنی).",
+ "steps": [
+  {
+   "cmd": "list",
+   "type": "city",
+   "slug": "rasht"
+  },
+  {
+   "cmd": "list",
+   "type": "city",
+   "search": "رشت"
+  }
+ ]
+}
