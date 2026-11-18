@@ -212,6 +212,21 @@ def optimize_to_webp(data: bytes, max_bytes: int = MAX_WEBP_BYTES) -> bytes:
         return data
 
 
+POST_TIMEOUT_SECONDS = 300
+
+
+def write_report(name: str, report: dict) -> None:
+    """گزارش دسته را بنویس، حتی اگر کار در میانه مرده باشد.
+
+    پیش از این، گزارش فقط در پایان نوشته می‌شد؛ کار ۱۳۳ وسط یک تایم‌اوت مرد و
+    هیچ فایلی نگذاشت که بگوید کدام عکس‌ها رسیده‌اند.
+    """
+    RESULT_DIR.mkdir(parents=True, exist_ok=True)
+    (RESULT_DIR / f"{name}.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
+    )
+
+
 def optimized_owner_bytes(photo: dict, data: bytes) -> bytes:
     """بایت‌های آمادهٔ ارسال برای پروندهٔ مالک، همراه با WebP کردن پیش از آپلود."""
     if photo.get("preoptimize") is False:
@@ -349,11 +364,16 @@ class Client:
             method="POST",
         )
         try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
+            # سایت خودش فایل را از ویکی‌مدیا می‌گیرد و ۴:۳ می‌کند؛ برای عکس‌های
+            # چندمگابایتی ۱۲۰ ثانیه کم بود و کل دسته را می‌کشت (کار ۱۳۳).
+            with urllib.request.urlopen(req, timeout=POST_TIMEOUT_SECONDS) as resp:
                 return json.loads(resp.read().decode())
         except urllib.error.HTTPError as err:
             detail = err.read().decode()[:400]
             raise SystemExit(f"HTTP {err.code} on {path}: {detail}") from err
+        except (urllib.error.URLError, TimeoutError, OSError) as err:
+            # یک عکسِ کند نباید بقیهٔ دسته را بی‌نتیجه رها کند؛ بالا در حلقه گرفته می‌شود.
+            raise SystemExit(f"network error on {path}: {err}") from err
 
     def get(self, path: str) -> dict:
         import urllib.request
@@ -414,7 +434,21 @@ def main(argv: list[str]) -> int:
         print("the WordPress account cannot write", file=sys.stderr)
         return 1
 
-    for photo in batch.get("photos", []):
+    photos = batch.get("photos", [])
+    try:
+        _send_all(photos, client, report)
+    finally:
+        # هر خروجی (تایم‌اوت، خطای شبکه، Ctrl-C) گزارش را می‌نویسد.
+        write_report(name, report)
+    print(
+        f"imported {len(report['imported'])}, reused {len(report['reused'])}, "
+        f"failed {len(report['failed'])}, refused {len(report['refused'])}"
+    )
+    return 0 if not report["failed"] else 1
+
+
+def _send_all(photos: list, client: "Client", report: dict) -> None:
+    for photo in photos:
         shared = ("city_id", "place", "kind", "alt", "note", "points",
                   "highlight", "tag", "overlay", "area", "author", "license",
                   "license_url", "source_page")
@@ -444,16 +478,6 @@ def main(argv: list[str]) -> int:
             row["bytes_sent"] = len(data)
             row["mime_sent"] = sniff_mime(data)
         (report["reused"] if out.get("reused") else report["imported"]).append(row)
-
-    RESULT_DIR.mkdir(parents=True, exist_ok=True)
-    (RESULT_DIR / f"{name}.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
-    )
-    print(
-        f"imported {len(report['imported'])}, reused {len(report['reused'])}, "
-        f"failed {len(report['failed'])}, refused {len(report['refused'])}"
-    )
-    return 0 if not report["failed"] else 1
 
 
 if __name__ == "__main__":
