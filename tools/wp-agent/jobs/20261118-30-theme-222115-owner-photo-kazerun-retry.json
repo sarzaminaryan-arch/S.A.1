@@ -1,0 +1,41 @@
+{
+ "note": "تلاش دوبارهٔ کار ۲۹: نصب قالب روی سایت فقط به خاطر تایم‌اوت ۱۰ ثانیه‌ای دانلود بسته از گیت‌هاب ناموفق بود (cURL 28)؛ نسخهٔ روی دیسک ۲.۲۲.۱۱ است (ریلیس موازی دیروز) و نصب ۲.۲۲.۱۱۵ سایت را با main هم‌تراز می‌کند. بقیهٔ گام‌ها همان کار ۲۹.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.115",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/kazerun/",
+    "/city/bojnord/",
+    "/city/nur/"
+   ],
+   "rollback_to": "2.22.114"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-owner-kazerun.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/kazerun/?sa_probe=56",
+    "/city/nur/?sa_probe=56",
+    "/city/bojnord/?sa_probe=56"
+   ]
+  }
+ ]
+}
