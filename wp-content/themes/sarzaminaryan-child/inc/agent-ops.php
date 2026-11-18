@@ -703,10 +703,20 @@ function sa_agent_rest_storage() {
 					$files += isset( $entry[ $key . '-size' ] ) ? (int) $entry[ $key . '-size' ] : 0;
 				}
 			}
+			$live = array();
+			foreach ( (array) $entry as $k => $v ) {
+				if ( '-size' === substr( (string) $k, -5 ) || 'checksums' === $k ) {
+					continue;
+				}
+				if ( in_array( $k, array( 'db', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ), true ) ) {
+					$live[ $k ] = isset( $entry[ $k . '-size' ] ) ? (int) $entry[ $k . '-size' ] : null;
+				}
+			}
 			$out['updraft']['sets'][] = array(
 				'utc'      => gmdate( 'c', (int) $time ),
 				'bytes'    => $files,
 				'entities' => array_values( array_intersect( array_keys( (array) $entry ), array( 'db', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ) ) ),
+				'sizes'    => $live,
 			);
 			$out['updraft']['bytes'] += $files;
 		}
@@ -1272,8 +1282,26 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	if ( $missing_log ) {
 		$out['reasons'][] = 'files_not_confirmed_in_log:' . count( $missing_log );
 	}
-	if ( $out['log_errors'] ) {
-		$out['reasons'][] = 'log_has_errors:' . count( $out['log_errors'] );
+	// v2.22.139: خطای گذرا (مثل OpenSSL SSL_ERROR_SYSCALL در یک retry) اگر همان فایل
+	// بعداً با موفقیت آپلود شده باشد، مانع تأیید نیست — ولی شفاف گزارش می‌شود.
+	$transient = 0;
+	foreach ( $out['log_errors'] as $err_line ) {
+		if ( false === strpos( $err_line, 'upload exception' ) ) {
+			continue;
+		}
+		if ( preg_match( '/(backup_[\-0-9]+_[A-Za-z0-9]+_[0-9a-f]{12}-[a-z0-9]+\.(?:zip|gz))/', $err_line, $mm ) ) {
+			if ( in_array( $mm[1], $out['log_upload_ok'], true ) ) {
+				++$transient;
+				continue;
+			}
+		}
+	}
+	$out['transient_errors'] = $transient;
+	$out['hard_errors'] = array_values( array_filter( $out['log_errors'], static function ( $l ) {
+		return false === strpos( $l, 'upload exception' );
+	} ) );
+	if ( $out['hard_errors'] ) {
+		$out['reasons'][] = 'log_has_errors:' . count( $out['hard_errors'] );
 	}
 	if ( $out['last_backup'] && ! $out['last_backup']['success'] ) {
 		$out['reasons'][] = 'last_backup_not_success';
@@ -1287,7 +1315,7 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	if ( $no_despatch ) {
 		$out['reasons'][] = 'log_says_no_remote_despatch';
 	}
-	$out['complete'] = ( $disk || $out['local_absent_ok'] ) && ! $missing_remote && ! $missing_log && ! $out['log_errors'] && ! $no_despatch && ( ! $out['last_backup'] || $out['last_backup']['success'] );
+	$out['complete'] = ( $disk || $out['local_absent_ok'] ) && ! $missing_remote && ! $missing_log && ! $out['hard_errors'] && ! $no_despatch && ( ! $out['last_backup'] || $out['last_backup']['success'] );
 	return $out;
 }
 
