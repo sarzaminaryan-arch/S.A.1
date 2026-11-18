@@ -171,7 +171,9 @@ function sa_photo_optimize_bytes_to_webp( $bytes, $max_bytes = SA_PHOTO_MAX_WEBP
 		if ( $tmp && false !== @file_put_contents( $tmp, $bytes ) ) { // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged,WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 			$src = @imagecreatefromjpeg( $tmp ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 			if ( $src ) {
-				$src = sa_gallery_normalise_orientation( $src, $tmp );
+				// امضای تابع سه‌آرگومانی است (تصویر، مسیر، نوع)؛ در ۲.۲۲.۱۱۶ آرگومان
+				// سوم جا افتاد و هر واردات JPEG با خطای مرگبار ۵۰۰ می‌افتاد (کار ۱۳۵).
+				$src = sa_gallery_normalise_orientation( $src, $tmp, 'image/jpeg' );
 			}
 		}
 		if ( $tmp && is_file( $tmp ) ) {

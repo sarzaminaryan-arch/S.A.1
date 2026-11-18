@@ -1,0 +1,14 @@
+{
+  "note": "۲.۲۲.۱۱۹: رفع خطای مرگبار ۵۰۰ روی هر واردات JPEG (فراخوانی سه‌آرگومانی با دو آرگومان). پس از نصب، همان چهار عکس مشهد دوباره فرستاده می‌شود؛ این بار سایت باید فایل اصلی را بگیرد، ۴:۳ WebP کند و ذخیره کند. اگر پراب پس از نصب ناسالم بود، به ۲.۲۲.۱۱۸ برمی‌گردد.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.119", "wait_for_release": 300,
+     "owner_approved_theme_update": true, "allow_without_backup": true,
+     "probe": ["/", "/city/mashhad/", "/city/kazerun/"],
+     "rollback_to": "2.22.118"},
+    {"cmd": "photos-import", "batch": "tools/photos/20261118-batch10-mashhad.json"},
+    {"cmd": "photos", "city_id": 63},
+    {"cmd": "probe", "url": ["/city/mashhad/", "/city/kazerun/", "/"]},
+    {"cmd": "ping"}
+  ]
+}

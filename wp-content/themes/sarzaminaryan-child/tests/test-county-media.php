@@ -298,6 +298,24 @@ sa_t_assert( false === sa_photo_bytes_match_mime( 'RIFFxxxxWEBP', 'image/jpeg' )
 sa_t_assert( false === sa_photo_bytes_match_mime( 'GIF89a', 'image/jpeg' ), 'an unlisted format is refused' );
 sa_t_assert( array( 'image/jpeg', 'image/webp', 'image/png' ) === sa_photo_admin_mimes(), 'the panel accepts the same three formats the render path reads' );
 
+/* 13 — هر فراخوانی تابع مشترک باید امضای همان تابع را داشته باشد (۲.۲۲.۱۱۸).
+ *      در ۲.۲۲.۱۱۶ فراخوانی sa_gallery_normalise_orientation() با دو آرگومان نوشته
+ *      شد، در حالی که امضایش سه‌آرگومانی است؛ نتیجه یک خطای مرگبار PHP 500 روی
+ *      *هر* واردات JPEG بود و کار ۱۳۵ چهار عکس مشهد را همین‌طور از دست داد، در
+ *      حالی که همهٔ تست‌های متنی سبز بودند. این تست ارگومان‌ها را می‌شمارد. */
+$sig_src  = (string) file_get_contents( dirname( __DIR__ ) . '/inc/gallery.php' );
+$sig_pat  = '/function\s+sa_gallery_normalise_orientation\s*\(\s*([^)]*)\)/s';
+sa_t_assert( 1 === preg_match( $sig_pat, $sig_src, $sig_m ), 'the orientation helper still exists' );
+$sig_arity = count( array_filter( array_map( 'trim', explode( ',', $sig_m[1] ) ), 'strlen' ) );
+sa_t_assert( 3 === $sig_arity, 'the orientation helper keeps its three arguments (image, path, mime)' );
+$call_src = $mod_src . (string) file_get_contents( dirname( __DIR__ ) . '/inc/gallery.php' );
+preg_match_all( '/sa_gallery_normalise_orientation\s*\(\s*([^)]*)\)/', $call_src, $call_m );
+sa_t_assert( ! empty( $call_m[1] ), 'the orientation helper is actually used' );
+foreach ( $call_m[1] as $arg_list ) {
+	$argc = count( array_filter( array_map( 'trim', explode( ',', $arg_list ) ), 'strlen' ) );
+	sa_t_assert( $sig_arity === $argc, 'every call passes all ' . $sig_arity . ' arguments (found ' . $argc . ': ' . trim( $arg_list ) . ')' );
+}
+
 /* Landing CSS stays scoped and is loaded only where it is needed. */
 $home_src = (string) file_get_contents( dirname( __DIR__ ) . '/template-home.php' );
 $home_css = (string) file_get_contents( dirname( __DIR__ ) . '/assets/css/landing.css' );
