@@ -40,6 +40,10 @@ SLUG_HINTS = {
     "بندرعباس": "bandar-e-abbas", "اراک": "arak", "اسلامشهر": "eslamshahr",
     "زنجان": "zanjan", "سنندج": "sanandaj", "قزوین": "qazvin", "خرم‌آباد": "khorramabad",
     "گرگان": "gorgan", "ساری": "sari", "بجنورد": "bojnord",
+    # دستهٔ ۹: این ده شهرستان رکورد raw ندارند، پس بدون راهنما ردیفشان «—» می‌شد.
+    "نور": "nur", "تالش": "talesh", "ماسال": "masal", "سرعین": "sarein", "جلفا": "jolfa",
+    "مرودشت": "marvdasht", "کازرون": "kazerun", "جهرم": "jahrom", "لارستان": "larestan",
+    "گناوه": "ganaveh",
 }
 
 NOT_AUTHORITY = ("wikipedia", "kojaro", "karnaval", "bartarinha", "google", "neshan",

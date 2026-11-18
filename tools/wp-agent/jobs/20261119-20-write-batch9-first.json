@@ -1,0 +1,76 @@
+{
+ "note": "دستهٔ ۹؛ بازنویسی بدنه و شناسنامه با نسخهٔ خوانده‌شدهٔ کار ۱۹، پشتیبان و کنترل هم‌زمانی هر صفحه، پاک‌سازی کش و پراب عمومی.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 534,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-nur/nur-534.html",
+   "excerpt": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-nur/nur-534.meta.json",
+   "expected_modified_gmt": "2026-10-04 01:31:40",
+   "owner_approved_live_edit": true,
+   "reason": "nur — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 454,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-talesh/talesh-454.html",
+   "excerpt": "راهنمای تالش با مرکزیت هشتپر؛ جغرافیای کرگان‌رود، پیشینهٔ قلعهٔ صلصال و تفاوت اقامت در جلگه و ییلاق سوباتان.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-talesh/talesh-454.meta.json",
+   "expected_modified_gmt": "2026-10-04 17:39:23",
+   "owner_approved_live_edit": true,
+   "reason": "talesh — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 466,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-masal/masal-466.html",
+   "excerpt": "ماسال و شاندرمن در غرب گیلان؛ راه اولسبلنگاه، بازار جمعه، تاریخ ارتفاعات و انتخاب مسیر مناسب برای خانواده.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-masal/masal-466.meta.json",
+   "expected_modified_gmt": "2026-10-04 17:39:18",
+   "owner_approved_live_edit": true,
+   "reason": "masal — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 142,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-sarein/sarein-142.html",
+   "excerpt": "راهنمای سرعین برای سفر خانوادگی؛ تفاوت آبگرم‌های شهر و ارتفاعات آلوارس، روستای کنزق و خرید عسل و سرشیر.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-sarein/sarein-142.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:09:49",
+   "owner_approved_live_edit": true,
+   "reason": "sarein — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 105,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-jolfa/jolfa-105.html",
+   "excerpt": "راهنمای جلفا و کرانهٔ ارس؛ کلیسای سنت استپانوس و نمازخانهٔ چوپان، راه تبریز و تفاوت مسیر بازار با گشت رودکنار.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-jolfa/jolfa-105.meta.json",
+   "expected_modified_gmt": "2026-10-07 20:12:49",
+   "owner_approved_live_edit": true,
+   "reason": "jolfa — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    534,
+    454,
+    466,
+    142,
+    105
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/nur/",
+    "/city/talesh/",
+    "/city/masal/",
+    "/city/sarein/",
+    "/city/jolfa/"
+   ]
+  }
+ ]
+}

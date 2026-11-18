@@ -1,0 +1,106 @@
+{
+ "note": "دستهٔ ۹؛ توصیه‌های تحریریه در متای تجربه؛ بدون ادعای بازدید میدانی، پشتیبان و کنترل هم‌زمانی هر صفحه، پاک‌سازی کش و پراب عمومی.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 534,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/nur.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:16:06",
+   "reason": "nur — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 454,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/talesh.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:16:08",
+   "reason": "talesh — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 466,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/masal.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:16:11",
+   "reason": "masal — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 142,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/sarein.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:16:13",
+   "reason": "sarein — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 105,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/jolfa.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:16:15",
+   "reason": "jolfa — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 324,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/marvdasht.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:10:52",
+   "reason": "marvdasht — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 325,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/kazerun.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:10:55",
+   "reason": "kazerun — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 326,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/jahrom.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:10:59",
+   "reason": "jahrom — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 327,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/larestan.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:11:01",
+   "reason": "larestan — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "update",
+   "id": 203,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch9/ganaveh.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:11:04",
+   "reason": "ganaveh — تکمیل کادر تجربهٔ سفر دستهٔ ۹؛ فقط متا، بدون تغییر بدنه."
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    534,
+    454,
+    466,
+    142,
+    105,
+    324,
+    325,
+    326,
+    327,
+    203
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/nur/",
+    "/city/talesh/",
+    "/city/masal/",
+    "/city/sarein/",
+    "/city/jolfa/",
+    "/city/marvdasht/",
+    "/city/kazerun/",
+    "/city/jahrom/",
+    "/city/larestan/",
+    "/city/ganaveh/"
+   ]
+  }
+ ]
+}

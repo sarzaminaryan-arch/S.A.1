@@ -346,6 +346,15 @@ def check_meta(path: Path) -> list[str]:
     zoom = str(meta.get("sa_map_zoom") or "").strip()
     if zoom and not (8 <= int(float(zoom)) <= 13):
         problems.append(f"zoom out of range 8..13: {zoom}")
+    # دستهٔ ۹ (۱۴۰۵/۰۸/۲۷): شناسنامه فاصله را با `preg_replace('/[^\d]/','')` می‌خواند و
+    # بعد `sa_number()` می‌زند؛ یعنی مقدار بازه‌ای «۲۵ تا ۳۰ کیلومتر تا اردبیل» روی صفحهٔ
+    # زنده «فاصله تا مرکز استان: ۲٬۵۳۰ کیلومتر» چاپ می‌شد. این فیلد یا رقم خالص است یا
+    # خالی — تقریب و بازه جای خودشان در متن بدنه است، نه در کارت عددی.
+    for key in ("distance_to_capital_km", "sa_cty_distance_center"):
+        raw = str(meta.get(key) or "").strip()
+        if raw and not raw.translate(FA_DIGITS).isdigit():
+            problems.append(f"{key} must be plain digits or empty; the identity card strips "
+                            f"every other character and would print «{raw}» as one number")
     # فیلتر املا/نگارش روی متن‌های نمایشی متا (سوالات، منابع، توضیح‌ها)
     problems += [f"fa meta: {line}" for line in fa_scan_meta(meta)]
     # v2.22.87: arabic yeh/kaf leak into display text via copy-paste from wiki.

@@ -166,7 +166,9 @@ def source_lines(sources: dict) -> str:
         else:
             title_org, url = val
             title, _, org = title_org.partition(" | ")
-        lines.append(f"{title.strip()} | {org.strip()} | {url.strip()} | {TODAY}")
+        # Keep old batches reproducible; new research records its actual visit date.
+        seen = val.get("accessed_on", TODAY) if isinstance(val, dict) else TODAY
+        lines.append(f"{title.strip()} | {org.strip()} | {url.strip()} | {seen}")
     return "\n".join(lines)
 
 

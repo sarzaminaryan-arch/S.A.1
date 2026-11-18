@@ -1,0 +1,17 @@
+[
+ {
+  "id": 327,
+  "slug": "larestan",
+  "words_after": 1104,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

@@ -22,6 +22,10 @@ on:
         description: "Batch file inside the repository (tools/photos/<name>.json)"
         required: true
         type: string
+      review_only:
+        description: "Review Commons originals in an artifact; do not contact WordPress"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -31,7 +35,64 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  review:
+    if: ${{ inputs.review_only }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Make a visual proof from the named originals (no WP credentials)
+        env:
+          BATCH: ${{ inputs.batch }}
+        run: |
+          python3 -m venv "$RUNNER_TEMP/review-env"
+          "$RUNNER_TEMP/review-env/bin/pip" install 'Pillow>=11,<14'
+          "$RUNNER_TEMP/review-env/bin/python" tools/photos/review_originals.py "$BATCH" "$RUNNER_TEMP/photo-review"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: commons-photo-review
+          path: ${{ runner.temp }}/photo-review/
+          retention-days: 3
+          if-no-files-found: ignore
+
+  # Keep a compact, attributable proof on the editorial branch: artifact
+  # downloads expire, but later reviewers must be able to check the subjects.
+  record-review:
+    needs: review
+    if: ${{ always() && inputs.review_only && startsWith(github.ref, 'refs/heads/arena/') && needs.review.result != 'cancelled' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: commons-photo-review
+          path: ${{ runner.temp }}/proof
+      - name: Record only the review sheets and the matching attribution table
+        env:
+          BATCH: ${{ inputs.batch }}
+        shell: bash
+        run: |
+          [[ "$BATCH" =~ ^tools/photos/([A-Za-z0-9_-]+)\.json$ ]]
+          dest="tools/photos/reviews/${BASH_REMATCH[1]}"
+          mkdir -p "$dest"
+          cp "$RUNNER_TEMP/proof/credits.json" "$RUNNER_TEMP"/proof/proof-*.jpg "$dest/"
+          git add -- "$dest"
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'photo-review[bot]'
+          git config user.email 'photo-review[bot]@users.noreply.github.com'
+          git commit -m "Record the Commons subject and credit proof for ${dest##*/}"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
   import:
+    if: ${{ !inputs.review_only }}
     name: Import licensed photos
     runs-on: ubuntu-latest
     timeout-minutes: 30

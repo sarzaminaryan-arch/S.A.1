@@ -1,0 +1,17 @@
+[
+ {
+  "id": 326,
+  "slug": "jahrom",
+  "words_after": 1074,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

@@ -1,0 +1,440 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-26-experiences-batch9-north.json",
+  "started_utc": "2026-11-18T10:38:48+00:00",
+  "note": "دستهٔ ۹؛ توصیه‌های تحریریه در متای تجربه (بدون ادعای بازدید میدانی) — کار کوچک‌تر از کار ۲۴ تا یک تایم‌اوت شبکه کل دسته را برنگرداند.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 534,
+        "backup_id": 4818,
+        "status": "publish",
+        "modified_gmt": "2026-11-18 10:32:40",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "people_character",
+            "local_tips",
+            "extra_places",
+            "plate_code",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 454,
+        "backup_id": 4819,
+        "status": "publish",
+        "modified_gmt": "2026-11-18 10:32:20",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "people_character",
+            "local_tips",
+            "extra_places",
+            "plate_code",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "update",
+      "result": {
+        "id": 466,
+        "backup_id": 4820,
+        "status": "publish",
+        "modified_gmt": "2026-11-18 10:32:19",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "people_character",
+            "local_tips",
+            "extra_places",
+            "plate_code",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "update",
+      "result": {
+        "id": 142,
+        "backup_id": 4821,
+        "status": "publish",
+        "modified_gmt": "2026-11-18 10:32:19",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "people_character",
+            "local_tips",
+            "extra_places",
+            "plate_code",
+            "field_update_note",
+            "updated_at",
+            "distance_to_capital_km",
+            "sa_cty_distance_center"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          534,
+          454,
+          466,
+          142
+        ]
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/nur/",
+            "status": 200,
+            "ms": 1174,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان نور؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/nur/",
+            "desc": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "og:description": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+              "og:url": "https://sarzaminaryan.ir/city/nur/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Alireza Javaheri"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17380,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/talesh/",
+            "status": 200,
+            "ms": 1376,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تالش؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/talesh/",
+            "desc": "راهنمای تالش با مرکزیت هشتپر؛ جغرافیای کرگان‌رود، پیشینهٔ قلعهٔ صلصال و تفاوت اقامت در جلگه و ییلاق سوباتان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تالش؛ از بازار سوباتان تا تپهٔ سنگی لیسار",
+              "og:description": "راهنمای تالش با مرکزیت هشتپر؛ جغرافیای کرگان‌رود، پیشینهٔ قلعهٔ صلصال و تفاوت اقامت در جلگه و ییلاق سوباتان.",
+              "og:url": "https://sarzaminaryan.ir/city/talesh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-talesh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تالش؛ از بازار سوباتان تا تپهٔ سنگی لیسار",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تالش؛ از بازار سوباتان تا تپهٔ سنگی لیسار"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-talesh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "آرش روحی پور"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-talesh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18832,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/masal/",
+            "status": 200,
+            "ms": 1377,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان ماسال؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/masal/",
+            "desc": "ماسال و شاندرمن در غرب گیلان؛ راه اولسبلنگاه، بازار جمعه، تاریخ ارتفاعات و انتخاب مسیر مناسب برای خانواده.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان ماسال؛ دو راه جدا به مرتع ماسال و دره‌های شاندرمن",
+              "og:description": "ماسال و شاندرمن در غرب گیلان؛ راه اولسبلنگاه، بازار جمعه، تاریخ ارتفاعات و انتخاب مسیر مناسب برای خانواده.",
+              "og:url": "https://sarzaminaryan.ir/city/masal/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masal.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان ماسال؛ دو راه جدا به مرتع ماسال و دره‌های شاندرمن",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان ماسال؛ دو راه جدا به مرتع ماسال و دره‌های شاندرمن"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masal.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Payam Jahangiri / Persian Dutch Network"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masal.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18800,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/sarein/",
+            "status": 200,
+            "ms": 1387,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان سرعین؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/sarein/",
+            "desc": "راهنمای سرعین برای سفر خانوادگی؛ تفاوت آبگرم‌های شهر و ارتفاعات آلوارس، روستای کنزق و خرید عسل و سرشیر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان سرعین؛ آب گرم در شهر، مرتع و دست‌کند در دامنه",
+              "og:description": "راهنمای سرعین برای سفر خانوادگی؛ تفاوت آبگرم‌های شهر و ارتفاعات آلوارس، روستای کنزق و خرید عسل و سرشیر.",
+              "og:url": "https://sarzaminaryan.ir/city/sarein/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sarein.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان سرعین؛ آب گرم در شهر، مرتع و دست‌کند در دامنه",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان سرعین؛ آب گرم در شهر، مرتع و دست‌کند در دامنه"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sarein.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Abbas Afsharibakhsh / Persian Dutch Network"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sarein.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20292,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T10:39:08+00:00"
+}

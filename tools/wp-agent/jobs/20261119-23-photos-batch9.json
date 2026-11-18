@@ -1,0 +1,79 @@
+{
+ "note": "دستهٔ ۹: وارد کردن سی اصل کامانز بعد از دیدن پنج برگهٔ تطبیق موضوع، نام و مجوز. فهرست پیوست‌ها برای هر نوشته جداگانه خوانده می‌شود؛ کادر عکس اول به تنهایی ملاک نیست.",
+ "steps": [
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261119-batch9.json"
+  },
+  {
+   "cmd": "photos",
+   "city_id": 534
+  },
+  {
+   "cmd": "photos",
+   "city_id": 454
+  },
+  {
+   "cmd": "photos",
+   "city_id": 466
+  },
+  {
+   "cmd": "photos",
+   "city_id": 142
+  },
+  {
+   "cmd": "photos",
+   "city_id": 105
+  },
+  {
+   "cmd": "photos",
+   "city_id": 324
+  },
+  {
+   "cmd": "photos",
+   "city_id": 325
+  },
+  {
+   "cmd": "photos",
+   "city_id": 326
+  },
+  {
+   "cmd": "photos",
+   "city_id": 327
+  },
+  {
+   "cmd": "photos",
+   "city_id": 203
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    534,
+    454,
+    466,
+    142,
+    105,
+    324,
+    325,
+    326,
+    327,
+    203
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/nur/",
+    "/city/talesh/",
+    "/city/masal/",
+    "/city/sarein/",
+    "/city/jolfa/",
+    "/city/marvdasht/",
+    "/city/kazerun/",
+    "/city/jahrom/",
+    "/city/larestan/",
+    "/city/ganaveh/"
+   ]
+  }
+ ]
+}

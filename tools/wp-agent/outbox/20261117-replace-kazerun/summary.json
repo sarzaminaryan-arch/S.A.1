@@ -1,0 +1,17 @@
+[
+ {
+  "id": 325,
+  "slug": "kazerun",
+  "words_after": 1106,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

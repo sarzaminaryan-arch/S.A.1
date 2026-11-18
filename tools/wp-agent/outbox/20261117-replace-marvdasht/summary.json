@@ -1,0 +1,17 @@
+[
+ {
+  "id": 324,
+  "slug": "marvdasht",
+  "words_after": 1061,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

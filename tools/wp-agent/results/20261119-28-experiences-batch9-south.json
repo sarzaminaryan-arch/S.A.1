@@ -1,0 +1,339 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-28-experiences-batch9-south.json",
+  "started_utc": "2026-11-18T10:39:21+00:00",
+  "note": "دستهٔ ۹؛ توصیه‌های تحریریه در متای تجربه (بدون ادعای بازدید میدانی) — کار کوچک‌تر از کار ۲۴ تا یک تایم‌اوت شبکه کل دسته را برنگرداند.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 326,
+        "backup_id": 4825,
+        "status": "publish",
+        "modified_gmt": "2026-11-18 10:10:59",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "people_character",
+            "local_tips",
+            "extra_places",
+            "plate_code",
+            "field_update_note",
+            "updated_at",
+            "distance_to_capital_km",
+            "sa_cty_distance_center"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 327,
+        "backup_id": 4826,
+        "status": "publish",
+        "modified_gmt": "2026-11-18 10:11:01",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "people_character",
+            "local_tips",
+            "extra_places",
+            "plate_code",
+            "field_update_note",
+            "updated_at",
+            "distance_to_capital_km",
+            "sa_cty_distance_center"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "update",
+      "result": {
+        "id": 203,
+        "backup_id": 4827,
+        "status": "publish",
+        "modified_gmt": "2026-11-18 10:11:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "people_character",
+            "local_tips",
+            "extra_places",
+            "plate_code",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          326,
+          327,
+          203
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/jahrom/",
+            "status": 200,
+            "ms": 1343,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان جهرم؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/jahrom/",
+            "desc": "سفر به جهرم از راه خفر؛ بازار سرپوشیده، میراث سنگ‌تراشان، خرمای شاهانی و راه انتخاب گشت و اقامت خانوادگی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان جهرم؛ از چهارسوق بازار تا نخلستان شاهانی",
+              "og:description": "سفر به جهرم از راه خفر؛ بازار سرپوشیده، میراث سنگ‌تراشان، خرمای شاهانی و راه انتخاب گشت و اقامت خانوادگی.",
+              "og:url": "https://sarzaminaryan.ir/city/jahrom/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jahrom.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان جهرم؛ از چهارسوق بازار تا نخلستان شاهانی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان جهرم؛ از چهارسوق بازار تا نخلستان شاهانی"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jahrom.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Pooryaneh"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jahrom.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19356,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/larestan/",
+            "status": 200,
+            "ms": 1401,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان لارستان؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/larestan/",
+            "desc": "راهنمای لارستان؛ پیدا کردن بازار قیصریه در لار قدیم، شناخت برکه‌ها و شهر جدید پس از زمین‌لرزه و خرید مسقطی لاری.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان لارستان؛ یک شهر با دو نشانی؛ قیصریه و شهر جدید",
+              "og:description": "راهنمای لارستان؛ پیدا کردن بازار قیصریه در لار قدیم، شناخت برکه‌ها و شهر جدید پس از زمین‌لرزه و خرید مسقطی لاری.",
+              "og:url": "https://sarzaminaryan.ir/city/larestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-larestan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان لارستان؛ یک شهر با دو نشانی؛ قیصریه و شهر جدید",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان لارستان؛ یک شهر با دو نشانی؛ قیصریه و شهر جدید"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-larestan.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Hesam khandan"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-larestan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20810,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ganaveh/",
+            "status": 200,
+            "ms": 1140,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بندر گناوه؛ راهنمای سفر، جاذبه‌ها و تاریخ بوشهر | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ganaveh/",
+            "desc": "راهنمای گناوه و بندر ریگ؛ بازار اصلی، زندگی کنار خور، هنر گلافی و انتخاب راه و اقامت در ساحل شمالی بوشهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان گناوه؛ بازار و خور، دو سوی زندگی یک بندر",
+              "og:description": "راهنمای گناوه و بندر ریگ؛ بازار اصلی، زندگی کنار خور، هنر گلافی و انتخاب راه و اقامت در ساحل شمالی بوشهر.",
+              "og:url": "https://sarzaminaryan.ir/city/ganaveh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ganaveh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان گناوه؛ بازار و خور، دو سوی زندگی یک بندر",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان گناوه؛ بازار و خور، دو سوی زندگی یک بندر"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ganaveh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mahdi Kalhor"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ganaveh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22598,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T10:39:34+00:00"
+}

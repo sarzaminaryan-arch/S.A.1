@@ -1,0 +1,17 @@
+[
+ {
+  "id": 454,
+  "slug": "talesh",
+  "words_after": 989,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
