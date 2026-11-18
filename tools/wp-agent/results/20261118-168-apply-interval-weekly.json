@@ -1,0 +1,675 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-168-apply-interval-weekly.json",
+  "started_utc": "2026-11-18T19:54:18+00:00",
+  "note": "۲۸ آبان ۱۴۰۵ — تأیید مالک: چون هر سه شاهد نسخهٔ c14767a278da مثبت است، تنظیمات به حالت امن برود: updraft_interval=weekly، retain=1، retain_db=1، delete_local=1. تغییر تنظیمات است، نه پشتیبان؛ زمان‌بندی واقعی WP-Cron هم با متد رسمی افزونه بازسازی می‌شود. سد nocloud دست‌نخورده.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.140",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T19:54:18+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "updraft-settings",
+      "result": {
+        "dry_run": true,
+        "before": {
+          "updraft_interval": "manual",
+          "updraft_retain": "2",
+          "updraft_retain_db": "2",
+          "updraft_delete_local": "1"
+        },
+        "want": {
+          "updraft_interval": "weekly",
+          "updraft_retain": 1,
+          "updraft_retain_db": 1,
+          "updraft_delete_local": 1
+        },
+        "allowed_keys": [
+          "updraft_interval",
+          "updraft_retain",
+          "updraft_retain_db",
+          "updraft_delete_local"
+        ],
+        "applied": false
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "updraft-settings",
+      "result": {
+        "dry_run": false,
+        "before": {
+          "updraft_interval": "manual",
+          "updraft_retain": "2",
+          "updraft_retain_db": "2",
+          "updraft_delete_local": "1"
+        },
+        "want": {
+          "updraft_interval": "weekly",
+          "updraft_retain": 1,
+          "updraft_retain_db": 1,
+          "updraft_delete_local": 1
+        },
+        "allowed_keys": [
+          "updraft_interval",
+          "updraft_retain",
+          "updraft_retain_db",
+          "updraft_delete_local"
+        ],
+        "applied": true,
+        "after": {
+          "updraft_interval": "weekly",
+          "updraft_retain": 1,
+          "updraft_retain_db": 1,
+          "updraft_delete_local": "1"
+        },
+        "schedule": {
+          "files": "weekly",
+          "db": "weekly"
+        },
+        "next_files": "2026-11-18T23:24:20+00:00"
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "updraft",
+      "result": {
+        "active": true,
+        "version": "1.26.16",
+        "wp_cron_disabled": true,
+        "next_resume": "",
+        "last_backup": {
+          "backup_time": "2026-11-18T19:02:51+00:00",
+          "age_seconds": 3090,
+          "success": true,
+          "errors": 0,
+          "nonce": "c14767a278da",
+          "has_db": true,
+          "file_entities": [
+            "plugins",
+            "plugins-size",
+            "themes",
+            "themes-size",
+            "uploads",
+            "uploads-size"
+          ]
+        },
+        "history_count": 8,
+        "history_latest": "2026-11-18T19:02:51+00:00",
+        "job": null,
+        "settings": {
+          "interval": "weekly",
+          "interval_increments": "",
+          "interval_database": "manual",
+          "retain_files": 1,
+          "retain_db": 1,
+          "delete_local": 1,
+          "service": "googledrive",
+          "dir": "updraft"
+        }
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "storage",
+      "result": {
+        "disk": {
+          "free_bytes": null,
+          "total_bytes": null
+        },
+        "agent": {
+          "records": 384,
+          "bytes": 9503271,
+          "oldest": "2026-11-15 05:17:44",
+          "newest": "2026-11-18 10:39:25",
+          "by_kind": {
+            "litespeed": {
+              "records": 1,
+              "bytes": 378
+            },
+            "post": {
+              "records": 383,
+              "bytes": 9502893
+            }
+          }
+        },
+        "updraft": {
+          "active": true,
+          "history": 8,
+          "sets": [
+            {
+              "utc": "2026-11-18T19:02:51+00:00",
+              "bytes": 309655949,
+              "entities": [
+                "plugins",
+                "themes",
+                "uploads",
+                "db"
+              ],
+              "sizes": {
+                "plugins": 16983205,
+                "themes": 27637536,
+                "uploads": 256301415,
+                "db": 8733793
+              }
+            },
+            {
+              "utc": "2026-11-17T12:57:12+00:00",
+              "bytes": 317577542,
+              "entities": [
+                "mu-plugins",
+                "others"
+              ],
+              "sizes": {
+                "mu-plugins": 1165,
+                "others": 4827292
+              }
+            },
+            {
+              "utc": "2026-11-15T13:24:00+00:00",
+              "bytes": 213774214,
+              "entities": [
+                "db",
+                "plugins",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes"
+              ],
+              "sizes": {
+                "db": 6624997,
+                "plugins": 16917458,
+                "others": 4979896,
+                "mu-plugins": 1165,
+                "uploads": 158037683,
+                "themes": 27213015
+              }
+            },
+            {
+              "utc": "2026-11-15T09:14:00+00:00",
+              "bytes": 213375979,
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ],
+              "sizes": {
+                "db": 6226440,
+                "others": 4981400,
+                "mu-plugins": 1165,
+                "uploads": 158037683,
+                "themes": 27211833,
+                "plugins": 16917458
+              }
+            },
+            {
+              "utc": "2026-11-15T09:05:00+00:00",
+              "bytes": 6173752,
+              "entities": [
+                "db"
+              ],
+              "sizes": {
+                "db": 6173752
+              }
+            },
+            {
+              "utc": "2026-10-15T15:42:00+00:00",
+              "bytes": 107072848,
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ],
+              "sizes": {
+                "db": 4263733,
+                "others": 2378186,
+                "mu-plugins": 1269,
+                "uploads": 63501745,
+                "themes": 24050630,
+                "plugins": 12877285
+              }
+            },
+            {
+              "utc": "2026-10-12T23:32:00+00:00",
+              "bytes": 63900184,
+              "entities": [
+                "others",
+                "mu-plugins",
+                "uploads"
+              ],
+              "sizes": {
+                "others": 2344651,
+                "mu-plugins": 1269,
+                "uploads": 61554264
+              }
+            },
+            {
+              "utc": "2026-10-12T23:24:00+00:00",
+              "bytes": 23455638,
+              "entities": [
+                "themes",
+                "db",
+                "plugins"
+              ],
+              "sizes": {
+                "themes": 6993283,
+                "db": 3592489,
+                "plugins": 12869866
+              }
+            }
+          ],
+          "dir": "/home/haftpair/sarzaminaryan.ir/wp-content/plugins/updraftplus",
+          "bytes": 24761881,
+          "set_bytes": 1254986106,
+          "dir_bytes": 24761881,
+          "files": 1604,
+          "file_list": [
+            {
+              "name": "languages/updraftplus-es_CR.po",
+              "bytes": 447290,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bg_BG.po",
+              "bytes": 446289,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ar.po",
+              "bytes": 432473,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "admin.php",
+              "bytes": 384005,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus.pot",
+              "bytes": 372965,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/team-updraft/lib-onboarding-wizard/Wizard/Onboarding/build/index.js",
+              "bytes": 371712,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-da_DK.po",
+              "bytes": 370441,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "class-updraftplus.php",
+              "bytes": 346735,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-sl_SI.po",
+              "bytes": 340330,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-tl.po",
+              "bytes": 338728,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-hu_HU.po",
+              "bytes": 322977,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-id_ID.po",
+              "bytes": 322763,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-fi.po",
+              "bytes": 320938,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bn_BD.po",
+              "bytes": 315939,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-zh_HK.po",
+              "bytes": 313638,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-he_IL.po",
+              "bytes": 313140,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "includes/jstree/jstree.js",
+              "bytes": 310643,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-eu.po",
+              "bytes": 308220,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-es_CR.mo",
+              "bytes": 308016,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-et.po",
+              "bytes": 305969,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-lt_LT.po",
+              "bytes": 305618,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ca.po",
+              "bytes": 304683,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ur.po",
+              "bytes": 304018,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-hi_IN.po",
+              "bytes": 303842,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-sr_RS.po",
+              "bytes": 303564,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bs_BA.po",
+              "bytes": 303337,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ckb.po",
+              "bytes": 303165,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-fr_CA.po",
+              "bytes": 303163,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-af.po",
+              "bytes": 303158,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-te.po",
+              "bytes": 303152,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-th.po",
+              "bytes": 303067,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "includes/updraft-admin-common.js",
+              "bytes": 287299,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "restorer.php",
+              "bytes": 276906,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/components/jquery/jquery.js",
+              "bytes": 255967,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/guzzle/guzzle/src/Guzzle/Http/Resources/cacert.pem",
+              "bytes": 250394,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bg_BG.mo",
+              "bytes": 244724,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "backup.php",
+              "bytes": 240546,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ar.mo",
+              "bytes": 239498,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "includes/handlebars/handlebars.js",
+              "bytes": 215867,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "vendor/phpseclib/phpseclib/phpseclib/Net/SSH2.php",
+              "bytes": 203745,
+              "modified": "2026-11-18T02:42:15+00:00"
+            }
+          ],
+          "sets_detail": [
+            {
+              "nonce": "c14767a278da",
+              "utc": "2026-11-18T19:02:51+00:00",
+              "entities": [
+                "plugins",
+                "themes",
+                "uploads",
+                "db"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "87eaebf2acab",
+              "utc": "2026-11-17T12:57:12+00:00",
+              "entities": [
+                "mu-plugins",
+                "others"
+              ],
+              "files": [
+                {
+                  "name": "backup_2026-11-17-1627_sarzaminaryanir_87eaebf2acab-mu-plugins.zip",
+                  "bytes": 1165,
+                  "exists": true
+                }
+              ],
+              "bytes": 1165,
+              "on_disk": true
+            },
+            {
+              "nonce": "bf982e3d23d3",
+              "utc": "2026-11-15T13:24:00+00:00",
+              "entities": [
+                "db",
+                "plugins",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "94f1be550ca8",
+              "utc": "2026-11-15T09:14:00+00:00",
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "758c5711c564",
+              "utc": "2026-11-15T09:05:00+00:00",
+              "entities": [
+                "db"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "c1c8c1ff93d3",
+              "utc": "2026-10-15T15:42:00+00:00",
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "fd4b7464e160",
+              "utc": "2026-10-12T23:32:00+00:00",
+              "entities": [
+                "others",
+                "mu-plugins",
+                "uploads"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "572357afd4b7",
+              "utc": "2026-10-12T23:24:00+00:00",
+              "entities": [
+                "themes",
+                "db",
+                "plugins"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            }
+          ],
+          "orphans": {
+            "files": [],
+            "bytes": 0,
+            "mb": 0
+          }
+        },
+        "uploads": {
+          "dir": "/home/haftpair/sarzaminaryan.ir/wp-content/uploads",
+          "files": 8354,
+          "bytes": 259710177,
+          "images_over_200kb": 165
+        },
+        "backup_plugin_dirs": [
+          {
+            "path": "/home/haftpair/sarzaminaryan.ir/wp-content/updraft",
+            "files": 8,
+            "bytes": 154595,
+            "file_list": [
+              {
+                "name": "log.87eaebf2acab.txt",
+                "bytes": 63986,
+                "modified": "2026-11-17T12:57:31+00:00"
+              },
+              {
+                "name": "log.c14767a278da.txt",
+                "bytes": 60917,
+                "modified": "2026-11-18T19:04:57+00:00"
+              },
+              {
+                "name": "log.f18c750b62bc.txt",
+                "bytes": 24647,
+                "modified": "2026-10-17T04:15:38+00:00"
+              },
+              {
+                "name": "log.f5e4d079ae0f.txt",
+                "bytes": 3631,
+                "modified": "2026-10-18T20:55:25+00:00"
+              },
+              {
+                "name": "backup_2026-11-17-1627_sarzaminaryanir_87eaebf2acab-mu-plugins.zip",
+                "bytes": 1165,
+                "modified": "2026-11-17T12:57:27+00:00"
+              },
+              {
+                "name": "web.config",
+                "bytes": 124,
+                "modified": "2026-10-12T23:23:03+00:00"
+              },
+              {
+                "name": "index.html",
+                "bytes": 112,
+                "modified": "2026-10-12T23:23:03+00:00"
+              },
+              {
+                "name": ".htaccess",
+                "bytes": 13,
+                "modified": "2026-10-12T23:23:03+00:00"
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "agent: پشتیبان‌های افتراقی پل (رکورد خصوصی در پایگاه‌داده).",
+          "updraft: پشتیبان‌های کاملِ زمان‌بندی‌شده (فقط برای بازگردانی کامل سایت).",
+          "uploads: رسانه‌های سایت؛ عکس‌های شهرستان باید WebP زیر ۱۰۰ کیلوبایت باشند."
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T19:54:24+00:00"
+}
