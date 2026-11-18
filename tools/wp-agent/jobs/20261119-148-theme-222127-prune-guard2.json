@@ -1,0 +1,13 @@
+{
+ "note": "۲.۲۲.۱۲۷ (۲۸ آبان ۱۴۰۵): فقط پشتیبان «نوشته» قابل حذف است؛ نسخهٔ تنظیمات (litespeed/theme_mods) همیشه در protected می‌ماند. این کار نصب و پیش‌نمایش است؛ هیچ حذفی انجام نمی‌شود. بازگشت به ۲.۲۲.۱۲۶.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.127", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.126"},
+  {"cmd": "backups-prune", "per_target": 3, "total": 400},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/"]}
+ ]
+}

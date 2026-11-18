@@ -1072,6 +1072,13 @@ function sa_agent_rest_backups_prune( $r ) {
 		if ( $seen[ $key ] <= $per_target ) {
 			continue;
 		}
+		// v2.22.127 (شرط مالک): فقط پشتیبانِ «نوشته» قابل حذف است. نسخهٔ تنظیمات
+		// (theme_mods / litespeed) سندِ وضع ظاهر و خزنده است و «تنها نسخه»ی آن نوع؛
+		// هرگز در فهرست حذف نمی‌آید — حتی اگر شمارش نوع به هر دلیلی عجیب باشد.
+		if ( 'post' !== $kind ) {
+			$protected[] = array( 'id' => $bid, 'kind' => $kind, 'target' => $target, 'bytes' => $size, 'reason' => 'settings_snapshot_never_pruned' );
+			continue;
+		}
 		if ( isset( $kind_total[ $kind ] ) && $kind_total[ $kind ] <= $per_target ) {
 			// نوعِ کم‌نسخه: نگه می‌داریم و در گزارش می‌گوییم چرا.
 			$protected[] = array( 'id' => $bid, 'kind' => $kind, 'target' => $target, 'bytes' => $size, 'reason' => 'kind_has_few_copies' );
@@ -1111,6 +1118,7 @@ function sa_agent_rest_backups_prune( $r ) {
 		'candidates'    => count( $drop ),
 		'candidate_bytes' => $freed,
 		'protected'     => $protected,
+		'prunable_kinds' => array( 'post' ),
 		'kept'          => $kept,
 		'list'          => $drop,
 	);
