@@ -1,0 +1,76 @@
+{
+ "note": "دستهٔ ۹؛ بازنویسی بدنه و شناسنامه با نسخهٔ خوانده‌شدهٔ کار ۱۹، پشتیبان و کنترل هم‌زمانی هر صفحه، پاک‌سازی کش و پراب عمومی.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 324,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-marvdasht/marvdasht-324.html",
+   "excerpt": "راهنمای مرودشت؛ فرق تخت جمشید، نقش رستم و نقش رجب، سهم آب رود کر در زندگی مردم و برنامهٔ سفر از شیراز.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-marvdasht/marvdasht-324.meta.json",
+   "expected_modified_gmt": "2026-11-15 11:34:30",
+   "owner_approved_live_edit": true,
+   "reason": "marvdasht — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 325,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-kazerun/kazerun-325.html",
+   "excerpt": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-kazerun/kazerun-325.meta.json",
+   "expected_modified_gmt": "2026-11-15 11:34:34",
+   "owner_approved_live_edit": true,
+   "reason": "kazerun — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 326,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-jahrom/jahrom-326.html",
+   "excerpt": "سفر به جهرم از راه خفر؛ بازار سرپوشیده، میراث سنگ‌تراشان، خرمای شاهانی و راه انتخاب گشت و اقامت خانوادگی.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-jahrom/jahrom-326.meta.json",
+   "expected_modified_gmt": "2026-10-03 20:27:19",
+   "owner_approved_live_edit": true,
+   "reason": "jahrom — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 327,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-larestan/larestan-327.html",
+   "excerpt": "راهنمای لارستان؛ پیدا کردن بازار قیصریه در لار قدیم، شناخت برکه‌ها و شهر جدید پس از زمین‌لرزه و خرید مسقطی لاری.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-larestan/larestan-327.meta.json",
+   "expected_modified_gmt": "2026-10-03 20:27:34",
+   "owner_approved_live_edit": true,
+   "reason": "larestan — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "update",
+   "id": 203,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-ganaveh/ganaveh-203.html",
+   "excerpt": "راهنمای گناوه و بندر ریگ؛ بازار اصلی، زندگی کنار خور، هنر گلافی و انتخاب راه و اقامت در ساحل شمالی بوشهر.",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-ganaveh/ganaveh-203.meta.json",
+   "expected_modified_gmt": "2026-10-24 00:59:04",
+   "owner_approved_live_edit": true,
+   "reason": "ganaveh — دستور مالک ۲۷ آبان ۱۴۰۵: بازنویسی و به‌روزرسانی ده شهرستان بعدی با تمپلیت مستر؛ پشتیبان پیش از تغییر."
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    324,
+    325,
+    326,
+    327,
+    203
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/marvdasht/",
+    "/city/kazerun/",
+    "/city/jahrom/",
+    "/city/larestan/",
+    "/city/ganaveh/"
+   ]
+  }
+ ]
+}

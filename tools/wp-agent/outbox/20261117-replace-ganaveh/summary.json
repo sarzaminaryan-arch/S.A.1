@@ -1,0 +1,17 @@
+[
+ {
+  "id": 203,
+  "slug": "ganaveh",
+  "words_after": 1048,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
