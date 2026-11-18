@@ -1054,6 +1054,14 @@ function sa_agent_rest_backups_prune( $r ) {
 	$seen  = array();
 	$drop  = array();
 	$bytes = 0;
+	// v2.22.126 (شرط مالک): انواعی که در کل سایت نسخهٔ کمی دارند (مثل تنظیمات LiteSpeed با
+	// یک نسخه) هرگز حذف نمی‌شوند؛ «تنها نسخهٔ موجود از یک تغییر» نباید قربانی نگه‌داری شود.
+	$kind_total = array();
+	foreach ( $ids as $bid ) {
+		$k = (string) get_post_meta( $bid, '_sa_backup_kind', true );
+		$kind_total[ $k ] = isset( $kind_total[ $k ] ) ? $kind_total[ $k ] + 1 : 1;
+	}
+	$protected = array();
 	foreach ( $ids as $bid ) {
 		$target = (int) get_post_meta( $bid, '_sa_backup_target', true );
 		$kind   = (string) get_post_meta( $bid, '_sa_backup_kind', true );
@@ -1061,9 +1069,15 @@ function sa_agent_rest_backups_prune( $r ) {
 		$bytes += $size;
 		$key    = $kind . ':' . $target;
 		$seen[ $key ] = isset( $seen[ $key ] ) ? $seen[ $key ] + 1 : 1;
-		if ( $seen[ $key ] > $per_target ) {
-			$drop[] = array( 'id' => $bid, 'kind' => $kind, 'target' => $target, 'bytes' => $size, 'date_gmt' => (string) get_post_field( 'post_date_gmt', $bid ) );
+		if ( $seen[ $key ] <= $per_target ) {
+			continue;
 		}
+		if ( isset( $kind_total[ $kind ] ) && $kind_total[ $kind ] <= $per_target ) {
+			// نوعِ کم‌نسخه: نگه می‌داریم و در گزارش می‌گوییم چرا.
+			$protected[] = array( 'id' => $bid, 'kind' => $kind, 'target' => $target, 'bytes' => $size, 'reason' => 'kind_has_few_copies' );
+			continue;
+		}
+		$drop[] = array( 'id' => $bid, 'kind' => $kind, 'target' => $target, 'bytes' => $size, 'date_gmt' => (string) get_post_field( 'post_date_gmt', $bid ) );
 	}
 	$kept = count( $ids ) - count( $drop );
 	if ( $kept > $total ) {
@@ -1096,6 +1110,7 @@ function sa_agent_rest_backups_prune( $r ) {
 		'bytes'         => $bytes,
 		'candidates'    => count( $drop ),
 		'candidate_bytes' => $freed,
+		'protected'     => $protected,
 		'kept'          => $kept,
 		'list'          => $drop,
 	);

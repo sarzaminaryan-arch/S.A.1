@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۲۶ (۲۸ آبان ۱۴۰۵): نگهبان «تنها نسخه» در نگه‌داری پشتیبان‌ها — رکورد litespeed (تنها نسخهٔ آن نوع) از فهرست حذف بیرون می‌رود. این کار فقط نصب و پیش‌نمایش است؛ هیچ حذفی انجام نمی‌شود. بازگشت به ۲.۲۲.۱۲۵.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.126", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/", "/city/kazerun/"],
+   "rollback_to": "2.22.125"},
+  {"cmd": "backups-prune", "per_target": 3, "total": 400},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/"]}
+ ]
+}
