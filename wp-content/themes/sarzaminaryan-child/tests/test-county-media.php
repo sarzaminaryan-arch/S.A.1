@@ -116,9 +116,14 @@ sa_t_assert( false === sa_photo_is_publishable( 12 ), 'a photo with a refused li
 /* 4 — the credit line names the photographer, quietly (owner order, 17 Nov 2026):
  *     no «عکس:» headline and no licence name in the visible caption; the licence AND the
  *     source page stay one tap away as links/titles, and the place name sits on the photo. */
+// پروندهٔ ویکی‌مدیا همیشه نشانی مجوز را دارد؛ بدون آن، اعتبار عکس به متن ساده تبدیل
+// می‌شد و «تک‌کلیک تا مجوز» از دست می‌رفت. (این خط پیش‌تر جا افتاده بود و تست را
+// از کار ۲۲۲.۹۸ قرمز نگه می‌داشت.)
+$GLOBALS['t']['meta'][10][ SA_PHOTO_META_LICENSE_URL ] = 'https://creativecommons.org/licenses/by/4.0/';
 $credit = sa_photo_credit( 10 );
 sa_t_assert( 'حسین معمری' === $credit['author'], 'credit carries the author' );
 sa_t_assert( 'CC BY 4.0' === $credit['license_label'], 'credit carries the licence label' );
+sa_t_assert( 'https://creativecommons.org/licenses/by/4.0/' === $credit['license_url'], 'credit carries the licence URL' );
 $html  = sa_photo_frame( 10, 'sa-square' );
 $visible = wp_strip_all_tags( $html );
 sa_t_assert( false !== strpos( $html, 'sa-photo__credit' ), 'the frame prints a credit line' );
