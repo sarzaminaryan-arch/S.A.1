@@ -264,7 +264,9 @@ $update_end   = strpos( $bridge, 'function sa_agent_draft_copy(', $update_start 
 $update_body  = false !== $update_start && false !== $update_end ? substr( $bridge, $update_start, $update_end - $update_start ) : '';
 sa_ig_assert( false !== strpos( $bridge, "if ( '_thumbnail_id' === \$key )" ), 'agent metadata policy permits the featured-image pointer' );
 $stale_check = strpos( $update_body, "if ( \$expected !== \$before['modified_gmt'] )" );
-$backup_call = strpos( $update_body, 'sa_agent_create_backup(' );
+// v2.22.120: نوشتنِ نوشته پشتیبان افتراقی می‌گیرد (sa_agent_create_diff_backup → sa_agent_create_backup).
+$backup_call = strpos( $update_body, 'sa_agent_create_diff_backup(' );
+sa_ig_assert( false !== $backup_call, 'the post write takes a diff backup (v2.22.120)' );
 $meta_write  = strpos( $update_body, 'update_post_meta(' );
 sa_ig_assert( false !== $stale_check && false !== $backup_call && $stale_check < $backup_call, 'concurrency check runs before a post backup/write' );
 sa_ig_assert( false !== $backup_call && false !== $meta_write && $backup_call < $meta_write, 'post backup is made before assigning _thumbnail_id' );

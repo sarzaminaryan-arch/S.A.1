@@ -1,0 +1,140 @@
+name: Build gates (heavy work on the runner, never on the site)
+
+# چرا این گردش‌کار (دستور مالک، ۲۸ آبان ۱۴۰۵): هاست سایت سقف حجم دارد و هر بار که
+# «سنگین» روی سرور اجرا شود (تولید متن، فیلتر املا، نگهبان قالب، بهینه‌سازی تصویر،
+# تست چیدمان) هم زمانِ سرور گرفته می‌شود و هم جای حجم. از این پس:
+#
+#   commit در گیت‌هاب → همین گردش‌کار: فیلترها + نگهبان‌ها + بیلد خروجی (artifact)
+#   → کار wp-agent فقط انتشار همان خروجی (و فقط رکوردهای تغییریافته) را انجام می‌دهد.
+#
+# هیچ رمز وردپرس در این گردش‌کار نیست و هیچ درخواستی به سایت زده نمی‌شود. اگر این
+# گردش‌کار قرمز باشد، انتشار نباید انجام شود (gate:publish).
+
+on:
+  push:
+    branches:
+      - main
+      - "arena/**"
+    paths:
+      - "tools/wp-agent/replace_src/**"
+      - "tools/photos/**"
+      - "tools/county-insights/**"
+      - "wp-content/themes/sarzaminaryan-child/**"
+      - ".github/workflows/build-gates.yml"
+  pull_request:
+    paths:
+      - "tools/wp-agent/replace_src/**"
+      - "tools/photos/**"
+      - "wp-content/themes/sarzaminaryan-child/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-gates-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  guards:
+    name: Persian lint + county template + photo rules (offline)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: PHP runtime for the theme guards
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends php-cli
+
+      - name: Byte-compile every tool
+        run: |
+          python3 -m py_compile tools/wp-agent/*.py
+          python3 -m py_compile tools/wp-agent/replace_src/*.py
+          python3 -m py_compile tools/photos/*.py
+
+      - name: 'Persian spelling filter (ماه میلادی، نیم‌فاصله، حروف عربی، ارقام عربی)'
+        run: python3 tools/wp-agent/test_fa_lint.py
+
+      - name: County template guard (order, retired sections, word floor)
+        run: python3 tools/wp-agent/test_county_template.py
+
+      - name: Agent job safety (not_before, rollback_on_fail, step → argv)
+        run: python3 tools/wp-agent/test_wp_agent_jobs.py
+
+      - name: Licensed-photo rules (licence, author, host, 4:3 WebP under 100 KB)
+        run: |
+          python3 tools/photos/test_import_photos.py
+          php wp-content/themes/sarzaminaryan-child/tests/test-county-media.php
+
+      - name: Diff-backup and retention rules (v2.22.120)
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-agent-bridge.php
+
+      - name: 'Agent ops guards (index gate, storage, prune, theme rollback)'
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-index-gate.php
+
+  build:
+    name: Build county pages changed in this push (artifact, no site contact)
+    needs: guards
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Find the county data files touched by this push
+        id: changed
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            base="origin/${{ github.base_ref }}"
+            git fetch --no-tags origin "${{ github.base_ref }}" || true
+            files=$(git diff --name-only "$base"...HEAD -- 'tools/wp-agent/replace_src/data/*.json' || true)
+          else
+            files=$(git diff --name-only HEAD^ HEAD -- 'tools/wp-agent/replace_src/data/*.json' 2>/dev/null || true)
+          fi
+          slugs=$(printf '%s\n' "$files" | sed -n 's#.*/data/\(.*\)\.json#\1#p' | tr '\n' ' ')
+          echo "slugs=$slugs" >> "$GITHUB_OUTPUT"
+          echo "county files changed: ${slugs:-none}"
+
+      - name: Build + guard each changed county (no writes)
+        if: steps.changed.outputs.slugs != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          for slug in ${{ steps.changed.outputs.slugs }}; do
+            echo "::group::build $slug"
+            python3 tools/wp-agent/replace_src/county_page.py "$slug"
+            echo "::endgroup::"
+          done
+
+      - name: Guard every rebuilt page (check_template.py)
+        if: steps.changed.outputs.slugs != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          for dir in $(git status --porcelain tools/wp-agent/outbox | awk '{print $2}' | xargs -r -n1 dirname | sort -u); do
+            echo "::group::check $dir"
+            python3 tools/wp-agent/replace_src/check_template.py "$dir"
+            echo "::endgroup::"
+          done
+
+      - name: Upload the ready-to-publish pages as an artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: county-pages-${{ github.run_id }}
+          path: |
+            tools/wp-agent/outbox/**
+            tools/photos/results/**
+          retention-days: 14
+          if-no-files-found: ignore

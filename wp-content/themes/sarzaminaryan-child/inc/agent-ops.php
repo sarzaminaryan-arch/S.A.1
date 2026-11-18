@@ -3,13 +3,14 @@
  * v2.22.75 — عملیات نگه‌داری پل ایجنت (sa-agent/v1): دروازهٔ ایندکس، پشتیبان کامل
  * UpdraftPlus و به‌روزرسانی/بازگشت قالب از انتشار گیت‌هاب.
  *
- * روال استاندارد هر به‌روزرسانی (دستور مالک، ۱۵ نوامبر ۲۰۲۶):
- *   ۱) POST /updraft  — پشتیبان کامل UpdraftPlus (پایگاه‌داده + فایل‌ها)؛
- *   ۲) GET  /updraft?nonce=… تا jobstatus = finished و success = 1؛
- *   ۳) POST /theme-update — نصب انتشار تازه با Theme_Upgrader::upgrade() هسته
+ * روال استاندارد هر به‌روزرسانی (v2.22.120، دستور مالک ۲۸ آبان ۱۴۰۵ — سبک‌سازی):
+ *   ۱) POST /theme-update — نصب انتشار تازه با Theme_Upgrader::upgrade() هسته
  *      (temp_backup از وردپرس ۶٫۳: اگر نصب نیمه‌کاره بماند، نسخهٔ قبلی خودکار برمی‌گردد)؛
- *   ۴) probe صفحه‌ها؛ اگر خراب بود POST /theme-update با version نسخهٔ قبلی (بازگشت)،
- *      و برای پایگاه‌داده بازگردانی همان پشتیبان UpdraftPlus.
+ *      پشتیبان کامل UpdraftPlus دیگر پیش‌شرط نیست (کد در گیت‌هاب تگ‌دار است)؛
+ *   ۲) probe صفحه‌ها؛ اگر خراب بود POST /theme-update با version نسخهٔ قبلی (بازگشت)؛
+ *   ۳) GET /storage — دیدن حجم واقعی پیش از هر پاک‌سازی؛
+ *   ۴) POST /backups/prune — نگه‌داری پشتیبان‌های افتراقی (پیش‌نمایش، بعد حذف با پرچم).
+ * UpdraftPlus فقط برای پشتیبان کاملِ زمان‌بندی‌شده (روزانه/هفتگی) می‌ماند.
  *
  * همهٔ مسیرها فقط برای مدیر کل (manage_options) و به‌روزرسانی قالب فقط با update_themes.
  * هیچ مسیری چیزی پاک نمی‌کند.
@@ -337,8 +338,10 @@ function sa_agent_theme_disk_version() {
  * POST /theme-update — نصب تازه‌ترین انتشار یا نسخهٔ مشخص (بازگشت).
  *
  * بدنه: owner_approved_theme_update:true، expected_version (نسخه‌ای که باید نصب شود)،
- * version (اختیاری؛ برای بازگشت به نسخهٔ قدیمی‌تر)، allow_without_updraft (فقط اگر
- * UpdraftPlus نصب نیست). بدون پشتیبان کامل موفقِ کمتر از ۶ ساعت، نصب انجام نمی‌شود.
+ * version (اختیاری؛ برای بازگشت به نسخهٔ قدیمی‌تر). از ۲.۲۲.۱۲۰ پشتیبان کامل لازم
+ * نیست (کد قالب در گیت‌هاب تگ‌دار است و بازگشت با نصب همان نسخه انجام می‌شود)؛
+ * فقط اگر بدنه require_full_backup:true بفرستد، همان دروازهٔ ۶ ساعتِ قدیمی برمی‌گردد.
+ * allow_without_updraft/allow_without_backup برای سازگاری با کارهای قدیمی پذیرفته می‌شوند.
  *
  * @param WP_REST_Request $r درخواست.
  * @return WP_REST_Response|WP_Error
@@ -352,12 +355,20 @@ function sa_agent_rest_theme_update( $r ) {
 	if ( ! preg_match( '/^\d+\.\d+\.\d+$/', $expected ) ) {
 		return new WP_Error( 'sa_agent_bad_version', 'expected_version لازم است (مثلاً 2.22.75).', array( 'status' => 400 ) );
 	}
-	if ( sa_agent_updraft() ) {
-		if ( empty( $b['allow_without_backup'] ) && ! sa_agent_updraft_recent_ok( 6 * HOUR_IN_SECONDS ) ) {
-			return new WP_Error( 'sa_agent_need_backup', 'اول یک پشتیبان کامل و موفق UpdraftPlus بگیرید (کمتر از ۶ ساعت پیش، با پایگاه‌داده).', array( 'status' => 409 ) );
-		}
-	} elseif ( empty( $b['allow_without_updraft'] ) && empty( $b['allow_without_backup'] ) ) {
-		return new WP_Error( 'sa_agent_need_backup', 'UpdraftPlus فعال نیست؛ برای ادامه allow_without_updraft: true لازم است.', array( 'status' => 409 ) );
+	/*
+	 * v2.22.120 (دستور مالک، ۲۸ آبان ۱۴۰۵ — سبک‌سازی بک‌آپ):
+	 * نصب قالب دیگر «پشتیبان کامل کمتر از ۶ ساعت» نمی‌خواهد. دلیل: کد قالب در گیت‌هاب
+	 * تگ و نسخه دارد و بازگشت با نصب همان نسخهٔ قبلی از انتشار گیت‌هاب انجام می‌شود
+	 * (`rollback_to`) و پشتیبان فایل‌های هسته/رسانه را دست نمی‌زند. پس تنها شرطِ
+	 * لازم، وجود همان انتشار و نسخهٔ مشخص است — که پایین‌تر سنجیده می‌شود.
+	 * UpdraftPlus کامل فقط برای بازگردانی کاملِ سایت (زمان‌بندی‌شده) می‌ماند.
+	 */
+	$gate = array(
+		'require_full_backup' => ! empty( $b['require_full_backup'] ),
+		'backup_fresh'        => sa_agent_updraft() ? sa_agent_updraft_recent_ok( 6 * HOUR_IN_SECONDS ) : false,
+	);
+	if ( $gate['require_full_backup'] && ! $gate['backup_fresh'] ) {
+		return new WP_Error( 'sa_agent_need_backup', 'این نصب با درخواست صریح پشتیبان کامل آمده؛ پشتیبان موفق کمتر از ۶ ساعت با پایگاه‌داده لازم است.', array( 'status' => 409, 'gate' => $gate ) );
 	}
 	if ( ! class_exists( 'SA_GitHub_Theme_Updater' ) ) {
 		return new WP_Error( 'sa_agent_no_updater', 'به‌روزرسان گیت‌هاب قالب بار نشده.', array( 'status' => 500 ) );
@@ -596,6 +607,262 @@ function sa_agent_rest_media_upload( $r ) {
 	);
 }
 
+/* -------------------------------------------------------------------------
+ * ۱-ب) وضعیت حجم (v2.22.120) — پیش از هر پاک‌سازی، عدد واقعی.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * GET /storage — حجم واقعی چیزهایی که هاست را پر می‌کنند، فقط خواندنی.
+ *
+ * چرا (دستور مالک، ۲۸ آبان ۱۴۰۵): هاست سقف حجم دارد و باید بدانیم کدام بخش
+ * واقعاً جا می‌گیرد: پشتیبان‌های ایجنت، نسخه‌های UpdraftPlus، رسانه‌ها، یا
+ * فایل‌های موقت. این مسیر هیچ چیزی را تغییر نمی‌دهد و هیچ فایلی را حذف نمی‌کند.
+ *
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_storage() {
+	$out = array(
+		'disk'    => array( 'free_bytes' => null, 'total_bytes' => null ),
+		'agent'   => array( 'records' => 0, 'bytes' => 0, 'oldest' => '', 'newest' => '', 'by_kind' => array() ),
+		'updraft' => array( 'active' => false, 'history' => 0, 'sets' => array(), 'dir' => '', 'bytes' => 0 ),
+		'uploads' => array( 'dir' => '', 'files' => 0, 'bytes' => 0, 'images_over_200kb' => 0 ),
+		'backup_plugin_dirs' => array(),
+		'notes'   => array(),
+	);
+	if ( function_exists( 'disk_free_space' ) && function_exists( 'ABSPATH' ) ) {
+		$free              = @disk_free_space( ABSPATH ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		$total             = @disk_total_space( ABSPATH ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		$out['disk']['free_bytes']  = false === $free ? null : (int) $free;
+		$out['disk']['total_bytes'] = false === $total ? null : (int) $total;
+	}
+
+	$ids = get_posts(
+		array(
+			'post_type'      => SA_AGENT_BACKUP_TYPE,
+			'post_status'    => 'private',
+			'posts_per_page' => 5000,
+			'fields'         => 'ids',
+			'orderby'        => 'date',
+			'order'          => 'ASC',
+			'no_found_rows'  => true,
+		)
+	);
+	foreach ( (array) $ids as $bid ) {
+		$bytes = get_post_meta( $bid, '_sa_backup_bytes', true );
+		if ( '' === $bytes ) {
+			// پشتیبان‌های پیش از ۲.۲۲.۱۲۰ اندازه ندارند؛ همان‌جا سنجیده می‌شود.
+			$bytes = strlen( (string) get_post_meta( $bid, '_sa_backup_json', true ) );
+		}
+		$bytes = (int) $bytes;
+		$kind  = (string) get_post_meta( $bid, '_sa_backup_kind', true );
+		$out['agent']['records']++;
+		$out['agent']['bytes'] += $bytes;
+		if ( ! isset( $out['agent']['by_kind'][ $kind ] ) ) {
+			$out['agent']['by_kind'][ $kind ] = array( 'records' => 0, 'bytes' => 0 );
+		}
+		$out['agent']['by_kind'][ $kind ]['records']++;
+		$out['agent']['by_kind'][ $kind ]['bytes'] += $bytes;
+	}
+	if ( $ids ) {
+		$out['agent']['oldest'] = (string) get_post_field( 'post_date_gmt', (int) $ids[0] );
+		$out['agent']['newest'] = (string) get_post_field( 'post_date_gmt', (int) end( $ids ) );
+	}
+
+	$up = function_exists( 'sa_agent_updraft' ) ? sa_agent_updraft() : null;
+	$out['updraft']['active'] = (bool) $up;
+	if ( $up ) {
+		$history = function_exists( 'sa_agent_updraft_option' ) ? (array) sa_agent_updraft_option( 'updraft_backup_history', array() ) : array();
+		$out['updraft']['history'] = count( $history );
+		foreach ( $history as $time => $entry ) {
+			$files = 0;
+			foreach ( array( 'db', 'db-size', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ) as $key ) {
+				if ( isset( $entry[ $key ] ) || isset( $entry[ $key . '-size' ] ) ) {
+					$files += isset( $entry[ $key . '-size' ] ) ? (int) $entry[ $key . '-size' ] : 0;
+				}
+			}
+			$out['updraft']['sets'][] = array(
+				'utc'      => gmdate( 'c', (int) $time ),
+				'bytes'    => $files,
+				'entities' => array_values( array_intersect( array_keys( (array) $entry ), array( 'db', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ) ) ),
+			);
+			$out['updraft']['bytes'] += $files;
+		}
+		// پوشهٔ پشتیبان UpdraftPlus (اگر روی همین هاست باشد) — با تحمل نبود دسترسی.
+		$dir = defined( 'UPDRAFTPLUS_DIR' ) ? UPDRAFTPLUS_DIR : WP_CONTENT_DIR . '/updraft';
+		if ( function_exists( 'wp_upload_dir' ) ) {
+			$up_dir = trailingslashit( wp_upload_dir()['basedir'] ) . 'updraft';
+			if ( is_dir( $up_dir ) ) {
+				$dir = $up_dir;
+			}
+		}
+		$out['updraft']['dir'] = $dir;
+		$sum = sa_agent_storage_dir_bytes( $dir );
+		if ( null !== $sum ) {
+			$out['updraft']['bytes'] = max( (int) $out['updraft']['bytes'], $sum['bytes'] );
+			$out['updraft']['files'] = $sum['files'];
+		}
+	}
+
+	$uploads = wp_upload_dir();
+	$out['uploads']['dir'] = (string) $uploads['basedir'];
+	$up_sum = sa_agent_storage_dir_bytes( (string) $uploads['basedir'], true );
+	if ( null !== $up_sum ) {
+		$out['uploads']['files'] = $up_sum['files'];
+		$out['uploads']['bytes'] = $up_sum['bytes'];
+		$out['uploads']['images_over_200kb'] = $up_sum['big'];
+	}
+
+	foreach ( array( 'updraft', 'backups', 'backup', 'ai1wm-backups', 'wpvividbackups' ) as $name ) {
+		$path = trailingslashit( WP_CONTENT_DIR ) . $name;
+		if ( ! is_dir( $path ) ) {
+			continue;
+		}
+		$sum = sa_agent_storage_dir_bytes( $path );
+		if ( null !== $sum ) {
+			$out['backup_plugin_dirs'][] = array( 'path' => $path, 'files' => $sum['files'], 'bytes' => $sum['bytes'] );
+		}
+	}
+	$out['notes'][] = 'agent: پشتیبان‌های افتراقی پل (رکورد خصوصی در پایگاه‌داده).';
+	$out['notes'][] = 'updraft: پشتیبان‌های کاملِ زمان‌بندی‌شده (فقط برای بازگردانی کامل سایت).';
+	$out['notes'][] = 'uploads: رسانه‌های سایت؛ عکس‌های شهرستان باید WebP زیر ۱۰۰ کیلوبایت باشند.';
+	return rest_ensure_response( $out );
+}
+
+/**
+ * حجم و شمار فایل‌های یک پوشه (پیمایش تخت، بدون symlink) — فقط خواندنی.
+ *
+ * @param string $dir     مسیر.
+ * @param bool   $audit   آیا تصاویر بزرگ هم شمرده شوند (برای گزارش رسانه).
+ * @return array{files:int,bytes:int,big:int}|null
+ */
+function sa_agent_storage_dir_bytes( $dir, $audit = false ) {
+	$dir = (string) $dir;
+	if ( '' === $dir || ! is_dir( $dir ) ) {
+		return null;
+	}
+	$files = 0;
+	$bytes = 0;
+	$big   = 0;
+	try {
+		$it = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $dir, FilesystemIterator::SKIP_DOTS ),
+			RecursiveIteratorIterator::LEAVES_ONLY,
+			RecursiveIteratorIterator::CATCH_GET_CHILD
+		);
+		foreach ( $it as $file ) {
+			if ( ! $file->isFile() || $file->isLink() ) {
+				continue;
+			}
+			++$files;
+			$size   = (int) $file->getSize();
+			$bytes += $size;
+			if ( $audit && $size > 200 * 1024 && preg_match( '/\.(jpe?g|png|gif|webp|avif)$/i', $file->getFilename() ) ) {
+				++$big;
+			}
+			if ( $files > 60000 ) {
+				break; // سقف ایمنی برای هاست‌های کوچک و تایم‌اوت PHP.
+			}
+		}
+	} catch ( Exception $e ) {
+		return null;
+	}
+	return array( 'files' => $files, 'bytes' => $bytes, 'big' => $big );
+}
+
+/**
+ * POST /backups/prune — نگه‌داری پشتیبان‌ها: پیش‌نمایش، و حذف فقط با پرچم مالک.
+ *
+ * پیش‌فرض همیشه پیش‌نمایش است (`dry_run` نبود یعنی پیش‌نمایش). حذف فقط رکوردهای
+ * پشتیبانِ پل را می‌برد و هیچ نوشته/رسانه‌ای را لمس نمی‌کند.
+ *
+ * بدنه: owner_approved_prune:true (برای حذف)، per_target (پیش‌فرض ۳)، total (پیش‌فرض ۴۰۰)،
+ *       dry_run:false برای حذف واقعی.
+ *
+ * @param WP_REST_Request $r درخواست.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_backups_prune( $r ) {
+	$b          = (array) $r->get_json_params();
+	$dry_run    = ! isset( $b['dry_run'] ) || false !== $b['dry_run'];
+	$per_target = max( 1, (int) ( isset( $b['per_target'] ) ? $b['per_target'] : 3 ) );
+	$total      = max( $per_target, (int) ( isset( $b['total'] ) ? $b['total'] : 400 ) );
+	if ( ! $dry_run && empty( $b['owner_approved_prune'] ) ) {
+		return new WP_Error( 'sa_agent_need_owner', 'حذف پشتیبان‌های کهنه فقط با owner_approved_prune: true.', array( 'status' => 403 ) );
+	}
+	$ids = get_posts(
+		array(
+			'post_type'      => SA_AGENT_BACKUP_TYPE,
+			'post_status'    => 'private',
+			'posts_per_page' => 5000,
+			'fields'         => 'ids',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'no_found_rows'  => true,
+		)
+	);
+	$ids   = array_map( 'intval', (array) $ids );
+	$seen  = array();
+	$drop  = array();
+	$bytes = 0;
+	foreach ( $ids as $bid ) {
+		$target = (int) get_post_meta( $bid, '_sa_backup_target', true );
+		$kind   = (string) get_post_meta( $bid, '_sa_backup_kind', true );
+		$size   = (int) get_post_meta( $bid, '_sa_backup_bytes', true );
+		$bytes += $size;
+		$key    = $kind . ':' . $target;
+		$seen[ $key ] = isset( $seen[ $key ] ) ? $seen[ $key ] + 1 : 1;
+		if ( $seen[ $key ] > $per_target ) {
+			$drop[] = array( 'id' => $bid, 'kind' => $kind, 'target' => $target, 'bytes' => $size, 'date_gmt' => (string) get_post_field( 'post_date_gmt', $bid ) );
+		}
+	}
+	$kept = count( $ids ) - count( $drop );
+	if ( $kept > $total ) {
+		// سقف کل: از قدیمی‌ترین‌ها می‌زنیم (فهرست از تازه به قدیم است).
+		foreach ( array_slice( $ids, $total ) as $bid ) {
+			foreach ( $drop as $d ) {
+				if ( $d['id'] === (int) $bid ) {
+					continue 2;
+				}
+			}
+			$drop[] = array(
+				'id'        => (int) $bid,
+				'kind'      => (string) get_post_meta( $bid, '_sa_backup_kind', true ),
+				'target'    => (int) get_post_meta( $bid, '_sa_backup_target', true ),
+				'bytes'     => (int) get_post_meta( $bid, '_sa_backup_bytes', true ),
+				'date_gmt'  => (string) get_post_field( 'post_date_gmt', $bid ),
+			);
+			--$kept;
+		}
+	}
+	$freed = 0;
+	foreach ( $drop as $d ) {
+		$freed += (int) $d['bytes'];
+	}
+	$out = array(
+		'dry_run'       => $dry_run,
+		'per_target'    => $per_target,
+		'total_limit'   => $total,
+		'records'       => count( $ids ),
+		'bytes'         => $bytes,
+		'candidates'    => count( $drop ),
+		'candidate_bytes' => $freed,
+		'kept'          => $kept,
+		'list'          => $drop,
+	);
+	if ( ! $dry_run ) {
+		$deleted = 0;
+		foreach ( $drop as $d ) {
+			if ( sa_agent_delete_backup_record( (int) $d['id'] ) ) {
+				++$deleted;
+			}
+		}
+		$out['deleted']       = $deleted;
+		$out['bytes_after']   = max( 0, $bytes - $freed );
+		$out['kept_after']    = max( 0, $kept );
+	}
+	return rest_ensure_response( $out );
+}
+
 /**
  * ثبت مسیرها.
  */
@@ -612,6 +879,26 @@ function sa_agent_ops_register_routes() {
 			'permission_callback' => static function () {
 				return is_user_logged_in() && current_user_can( 'edit_posts' );
 			},
+		)
+	);
+	// v2.22.120: گزارش حجم (پشتیبان افتراقی، UpdraftPlus، رسانه) — فقط خواندنی.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/storage',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_storage',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.120: نگه‌داری پشتیبان‌ها — پیش‌نمایش پیش‌فرض، حذف فقط با پرچم مالک.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/backups/prune',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_backups_prune',
+			'permission_callback' => $admin,
 		)
 	);
 	register_rest_route(

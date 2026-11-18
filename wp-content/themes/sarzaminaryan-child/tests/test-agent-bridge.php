@@ -6,8 +6,9 @@
  *
  * Locks in the owner's rules for direct WordPress writes:
  *   - new articles are always drafts (a "publish" status in the request is ignored);
- *   - every change to an existing post or to theme settings takes a full backup
- *     first, and nothing is written if the backup fails;
+ *   - every change to an existing post or to theme settings takes a backup first
+ *     (v2.22.120: a *diff* backup holding only the fields/meta that write touched),
+ *     and nothing is written if the backup fails;
  *   - published text is never overwritten without the explicit owner flag —
  *     a side draft (draft-copy) is created instead;
  *   - no DELETE route exists; protected meta, unknown terms and banned phrases
@@ -155,6 +156,10 @@ function apply_filters( $hook, $value ) {
 	if ( 'litespeed_conf' === $hook ) {
 		return isset( $GLOBALS['t']['ls'][ $value ] ) ? $GLOBALS['t']['ls'][ $value ] : null;
 	}
+	// v2.22.120: سیاست نگه‌داری پشتیبان در تست قابل تنظیم است.
+	if ( 'sa_agent_backup_retention' === $hook && isset( $GLOBALS['t']['retention'] ) ) {
+		return array_merge( (array) $value, (array) $GLOBALS['t']['retention'] );
+	}
 	return $value;
 }
 function do_action( $hook, $arg = null ) {
@@ -257,6 +262,29 @@ function wp_set_object_terms( $id, $ids, $tax ) {
 function get_theme_mods() {
 	return $GLOBALS['t']['mods'];
 }
+// v2.22.120: پشتیبان افتراقی + سیاست نگه‌داری، برای سنجش بدون وردپرس واقعی.
+if ( ! defined( 'OBJECT' ) ) {
+	define( 'OBJECT', 'OBJECT' );
+}
+function get_posts( $args = array() ) {
+	$ids = array();
+	foreach ( $GLOBALS['t']['posts'] as $id => $p ) {
+		if ( isset( $args['post_type'] ) && $p->post_type !== $args['post_type'] ) {
+			continue;
+		}
+		if ( isset( $args['post_status'] ) && $p->post_status !== $args['post_status'] ) {
+			continue;
+		}
+		$ids[] = (int) $id;
+	}
+	sort( $ids );
+	return array_reverse( $ids ); // تازه‌ترین اول، مثل orderby=date DESC
+}
+function wp_delete_post( $id, $force = false ) {
+	unset( $GLOBALS['t']['posts'][ $id ], $GLOBALS['t']['meta'][ $id ] );
+	return true;
+}
+
 function set_theme_mod( $k, $v ) {
 	$GLOBALS['t']['mods'][ $k ] = $v;
 }
@@ -342,7 +370,11 @@ $u = sa_agent_update_post( $live, array( 'expected_modified_gmt' => $snap['modif
 sa_t_assert( is_array( $u ) && $u['backup_id'] > 0, '4f: meta update returns a backup id' );
 sa_t_assert( 'new' === $t['meta'][ $live ]['sa_note'], '4g: meta changed' );
 $b = sa_agent_read_backup( $u['backup_id'] );
-sa_t_assert( 'old' === $b['data']['meta']['sa_note'] && 'متن اصلی' === $b['data']['content'] && 'private' === $t['posts'][ $u['backup_id'] ]->post_status, '4h: backup holds the prior state, stored privately' );
+// v2.22.120: پشتیبان افتراقی است — فقط همان متایی که عوض شد، نه کل رکورد ۱٬۱۰۰ واژه‌ای.
+sa_t_assert( true === $b['data']['diff'] && 'old' === $b['data']['meta']['sa_note'], '4h: diff backup holds the prior value of the changed meta' );
+sa_t_assert( ! isset( $b['data']['fields']['content'] ) && ! isset( $b['data']['content'] ), '4h-b: unchanged content is not copied into the backup' );
+sa_t_assert( 'private' === $t['posts'][ $u['backup_id'] ]->post_status, '4h-c: backup record is private' );
+sa_t_assert( (int) get_post_meta( $u['backup_id'], '_sa_backup_bytes', true ) > 0 && strlen( (string) $t['meta'][ $u['backup_id'] ]['_sa_backup_json'] ) < 600, '4h-d: diff backup stays small (under 600 bytes)' );
 sa_t_assert( 'publish' === $t['posts'][ $live ]->post_status, '4i: status never changed by an update' );
 $e = sa_agent_update_post( $live, array( 'expected_modified_gmt' => $t['posts'][ $live ]->post_modified_gmt, 'fields' => array( 'status' => 'trash', 'slug' => 'x' ) ) );
 sa_t_assert( is_wp_error( $e ) && 'sa_agent_nothing' === $e->code, '4j: status/slug are not editable fields' );
@@ -366,7 +398,7 @@ $res = sa_agent_restore( $u2['backup_id'] );
 sa_t_assert( is_array( $res ) && 'متن اصلی' === $t['posts'][ $live ]->post_content, '7b: restore brings back the prior text' );
 sa_t_assert( ! isset( $t['meta'][ $live ]['sa_added'] ) && 'new' === $t['meta'][ $live ]['sa_note'], '7c: restore brings back prior meta' );
 $pre = sa_agent_read_backup( $res['backup_id'] );
-sa_t_assert( 'متن تأییدشده' === $pre['data']['content'], '7d: restore itself backed up the state it replaced' );
+sa_t_assert( true === $pre['data']['diff'] && 'متن تأییدشده' === $pre['data']['fields']['content'], '7d: restore itself backed up the exact state it replaced (diff)' );
 
 /* 8. Theme settings: backup first, only sa_* or existing keys, scalar values. */
 $m = sa_agent_theme_mods_snapshot();
@@ -390,9 +422,16 @@ sa_t_assert( false === $reg['public'] && false === $reg['show_in_rest'] && false
 
 /* 10. The bridge never publishes or deletes; trash exists only inside the guarded duplicate-trash function. */
 $src = file_get_contents( dirname( __DIR__ ) . '/inc/agent-bridge.php' );
-foreach ( array( 'wp_publish_post', 'wp_delete_post', 'force_delete', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
+foreach ( array( 'wp_publish_post', 'force_delete', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
 	sa_t_assert( false === strpos( $src, $needle ), "10: bridge source never contains $needle" );
 }
+// v2.22.120: حذف فقط برای رکورد پشتیبان کهنه، در یک تابع نگهبان با بررسی نوع.
+sa_t_assert( 1 === substr_count( $src, 'wp_delete_post(' ), '10-a: wp_delete_post is called exactly once (backup retention)' );
+$ret_start = strpos( $src, 'function sa_agent_delete_backup_record(' );
+$ret_end   = strpos( $src, "\n}\n", $ret_start );
+$del_at    = strpos( $src, 'wp_delete_post(' );
+sa_t_assert( false !== $ret_start && $del_at > $ret_start && $del_at < $ret_end, '10-b: …only inside sa_agent_delete_backup_record' );
+sa_t_assert( false !== strpos( substr( $src, $ret_start, $ret_end - $ret_start ), 'SA_AGENT_BACKUP_TYPE !== $post->post_type' ), '10-c: …and it refuses anything that is not a backup record' );
 sa_t_assert( 1 === substr_count( $src, 'wp_trash_post(' ), '10b: wp_trash_post is called exactly once' );
 $fn_start = strpos( $src, 'function sa_agent_trash_redirect_source(' );
 $fn_end   = strpos( $src, "\n}\n", $fn_start );
@@ -457,5 +496,62 @@ sa_agent_restore( $ok['backup_id'] );
 sa_t_assert( false === $t['ls']['crawler'] && '' === $t['ls']['crawler-sitemap'], '12j: LiteSpeed restore works' );
 $t['caps'] = array( 'edit_posts' => true, 'edit_others_posts' => true, 'edit_theme_options' => true );
 sa_t_assert( ! sa_agent_can_admin(), '12k: LiteSpeed routes need manage_options' );
+
+/* 13. v2.22.120 — پشتیبان افتراقی و سیاست نگه‌داری (دستور مالک: هاست پر نشود). */
+
+/* 13a. تنها فیلد عوض‌شده در پشتیبان می‌آید؛ متن ۱٬۱۰۰ واژه‌ای کپی نمی‌شود. */
+$long = str_repeat( 'متن بلند شهرستان. ', 60 ); // ~۱٬۱۰۰ نویسه
+$dp   = wp_insert_post( array( 'post_type' => 'city', 'post_status' => 'publish', 'post_title' => 'دزپارت', 'post_content' => $long ) );
+update_post_meta( $dp, 'sa_province_id', 71 );
+update_post_meta( $dp, 'sa_source_1', 'قدیم' );
+$snap = sa_agent_snapshot_post( $dp );
+$res  = sa_agent_update_post( $dp, array( 'expected_modified_gmt' => $snap['modified_gmt'], 'meta' => array( 'sa_source_1' => 'تازه' ), 'owner_approved_live_edit' => true, 'reason' => 'اصلاح منبع' ) );
+sa_t_assert( is_array( $res ) && $res['backup_id'] > 0, '13a-1: a meta-only write still gets a backup' );
+$bd = sa_agent_read_backup( $res['backup_id'] );
+sa_t_assert( 'قدیم' === $bd['data']['meta']['sa_source_1'] && ! isset( $bd['data']['meta']['sa_province_id'] ), '13a-2: only the changed meta is kept' );
+sa_t_assert( ! isset( $bd['data']['fields']['content'] ) && ! isset( $bd['data']['content'] ), '13a-3: the untouched 1,100-character body is not copied' );
+$bytes = (int) $t['meta'][ $res['backup_id'] ]['_sa_backup_bytes'];
+sa_t_assert( $bytes > 0 && $bytes < 800, '13a-4: diff backup is under 800 bytes (was the whole record before)' );
+sa_t_assert( $bytes < strlen( $long ) / 2, '13a-5: the backup is far smaller than the body it protects (' . $bytes . ' bytes)' );
+
+/* 13b. کلید تازه‌ای که آن نوشتن ساخته بود، در بازگردانی برداشته می‌شود. */
+$snap = sa_agent_snapshot_post( $dp );
+$res2 = sa_agent_update_post( $dp, array( 'expected_modified_gmt' => $snap['modified_gmt'], 'meta' => array( 'sa_new_key' => 'x' ) ) );
+$bd2  = sa_agent_read_backup( $res2['backup_id'] );
+sa_t_assert( in_array( 'sa_new_key', (array) $bd2['data']['missing_meta'], true ), '13b-1: a key that did not exist is recorded as missing' );
+sa_agent_restore( $res2['backup_id'] );
+sa_t_assert( ! isset( $t['meta'][ $dp ]['sa_new_key'] ), '13b-2: restore removes the key it had created' );
+
+/* 13c. بدون تفاوت واقعی، نه پشتیبان و نه نوشتن. */
+$snap = sa_agent_snapshot_post( $dp );
+$before_posts = count( $t['posts'] );
+$e = sa_agent_update_post( $dp, array( 'expected_modified_gmt' => $snap['modified_gmt'], 'meta' => array( 'sa_source_1' => 'تازه' ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_nothing' === $e->code && count( $t['posts'] ) === $before_posts, '13c: an identical write creates no backup and no change' );
+
+/* 13d. سیاست نگه‌داری: از هر هدف فقط N نسخهٔ آخر می‌ماند، و سقف کل. */
+$t['retention'] = array( 'per_target' => 2, 'total' => 1000 );
+$rp = wp_insert_post( array( 'post_type' => 'city', 'post_status' => 'publish', 'post_title' => 'شهر تست نگه‌داری' ) );
+for ( $i = 1; $i <= 5; $i++ ) {
+	$sn = sa_agent_snapshot_post( $rp );
+	sa_agent_update_post( $rp, array( 'expected_modified_gmt' => $sn['modified_gmt'], 'meta' => array( 'sa_seq' => (string) $i ) ) );
+}
+$kept = 0;
+foreach ( $t['posts'] as $pid => $pp ) {
+	if ( SA_AGENT_BACKUP_TYPE === $pp->post_type && (int) $t['meta'][ $pid ]['_sa_backup_target'] === $rp ) {
+		++$kept;
+	}
+}
+sa_t_assert( 2 === $kept, '13d-1: only the last 2 backups of one target are kept (found ' . $kept . ')' );
+$t['retention'] = array( 'per_target' => 3, 'total' => 4 );
+$summary = sa_agent_backup_enforce_retention( 'meta' );
+$total   = 0;
+foreach ( $t['posts'] as $pid => $pp ) {
+	if ( SA_AGENT_BACKUP_TYPE === $pp->post_type ) {
+		++$total;
+	}
+}
+sa_t_assert( $total <= 4 && isset( $summary['total_deleted'] ), '13d-2: the global ceiling is enforced (' . $total . ' kept)' );
+$t['retention'] = array();
+sa_t_assert( false === sa_agent_delete_backup_record( $dp ), '13d-3: the retention deleter refuses a normal post' );
 
 echo "PASS: agent bridge (drafts only, backup before every change, live text protected, restore, theme-mod backups, editors-only Application Passwords, no DELETE, owner-approved trash only for 301 duplicates, LiteSpeed crawler keys only)\n";
