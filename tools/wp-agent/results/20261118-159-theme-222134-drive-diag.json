@@ -1,0 +1,470 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-159-theme-222134-drive-diag.json",
+  "started_utc": "2026-11-18T19:01:56+00:00",
+  "note": "۲.۲۲.۱۳۴ (۲۷ آبان ۱۴۰۵): نصب تشخیص دقیق جای توکن Drive و تکرار تست اتصال. فقط خواندنی؛ هیچ حذف و هیچ تغییر تنظیماتی نیست. بازگشت به ۲.۲۲.۱۳۳.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.133",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T19:01:56+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.133",
+          "loaded": "2.22.133",
+          "log": [
+            {
+              "time_gmt": "2026-11-18T18:05:56+00:00",
+              "from": "2.22.128",
+              "to": "2.22.129",
+              "wanted": "2.22.129",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T18:10:46+00:00",
+              "from": "2.22.129",
+              "to": "2.22.130",
+              "wanted": "2.22.130",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T18:14:44+00:00",
+              "from": "2.22.130",
+              "to": "2.22.131",
+              "wanted": "2.22.131",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T18:28:39+00:00",
+              "from": "2.22.131",
+              "to": "2.22.132",
+              "wanted": "2.22.132",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T18:59:36+00:00",
+              "from": "2.22.132",
+              "to": "2.22.133",
+              "wanted": "2.22.133",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1311,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/",
+            "status": 200,
+            "ms": 1636,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "county_gallery": 1,
+            "county_gallery_slides": 4,
+            "county_zoom_frames": 4,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [
+              "Mostafameraji",
+              "IA (Wikimedia Commons)",
+              "Nader Rajabnezhad",
+              "mohammad hosein tabatabaeian"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 12,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "install": {
+          "updated": true,
+          "from": "2.22.133",
+          "to": "2.22.134",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.134",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1795028574",
+            "status": 200,
+            "ms": 1649,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/?sa_probe=1795028577",
+            "status": 200,
+            "ms": 1910,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "county_gallery": 1,
+            "county_gallery_slides": 4,
+            "county_zoom_frames": 4,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [
+              "Mostafameraji",
+              "IA (Wikimedia Commons)",
+              "Nader Rajabnezhad",
+              "mohammad hosein tabatabaeian"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 12,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "updraft-drive-test",
+      "result": {
+        "configured": false,
+        "has_client": false,
+        "has_secret": false,
+        "has_refresh": false,
+        "token_ok": false,
+        "listing_ok": false,
+        "file_count": 0,
+        "sample": [],
+        "error": "incomplete_credentials",
+        "error_hint": "در پیشخوان → تنظیمات → UpdraftPlus → «تنظیمات فضای ذخیره‌سازی»: Google Drive را باز کنید و «Connect with Google Drive» را بزنید تا توکن تازه ساخته شود.",
+        "connected": false,
+        "option_keys": [
+          "version",
+          "settings"
+        ],
+        "stored": {
+          "updraft_googledrive_type": "array",
+          "updraft_service": "googledrive",
+          "googledrive_clientid_len": 0,
+          "googledrive_secret_len": 0,
+          "tmp_access_token_present": false,
+          "refreshtoken_option_len": 0
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "updraft",
+      "result": {
+        "active": true,
+        "version": "1.26.16",
+        "wp_cron_disabled": true,
+        "next_resume": "",
+        "last_backup": {
+          "backup_time": "2026-11-18T11:58:18+00:00",
+          "age_seconds": 25483,
+          "success": true,
+          "errors": 0,
+          "nonce": "82738db7b8c9",
+          "has_db": true,
+          "file_entities": [
+            "plugins",
+            "plugins-size",
+            "themes",
+            "themes-size",
+            "uploads",
+            "uploads-size",
+            "uploads1-size"
+          ]
+        },
+        "history_count": 2,
+        "history_latest": "2026-11-18T11:58:18+00:00",
+        "job": null,
+        "settings": {
+          "interval": "manual",
+          "interval_increments": "",
+          "interval_database": "manual",
+          "retain_files": 1,
+          "retain_db": 1,
+          "delete_local": 1,
+          "service": "googledrive",
+          "dir": "updraft"
+        }
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T19:03:03+00:00"
+}
