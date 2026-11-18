@@ -64,7 +64,7 @@ assert ip.commons_thumb_shape(bad_thumb) is False
 assert any("repeat the file name" in p for p in ip.check({**GOOD, "url": bad_thumb})), "a malformed thumb URL is refused before upload"
 assert ip.commons_thumb_shape("https://upload.wikimedia.org/wikipedia/commons/e/ee/x.jpg") is True, "an original file needs no thumb shape"
 
-# v2.22.114 — پروندهٔ ارسالی مالک: بدون میزبان ویکی‌مدیا و بدون مجوز کامانز، ولی با
+# v2.22.115 — پروندهٔ ارسالی مالک: بدون میزبان ویکی‌مدیا و بدون مجوز کامانز، ولی با
 # فایل واقعی داخل مخزن، بایت‌های هم‌خوان و نام پدیدآور. مسیرش /photos/upload است.
 assert ip.sniff_mime(b"\xff\xd8\xff\xe0junk") == "image/jpeg", "jpeg magic bytes are sniffed"
 assert ip.sniff_mime(b"RIFFxxxxWEBPjunk") == "image/webp", "webp magic bytes are sniffed"

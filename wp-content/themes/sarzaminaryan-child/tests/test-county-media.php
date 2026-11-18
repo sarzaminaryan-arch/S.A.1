@@ -7,7 +7,7 @@
  * which licences pass, which URLs the site may fetch, and that the credit
  * line always carries the author.
  *
- * Since 2.22.114 they also pin the owner's hand on the photos: both blocks are
+ * Since 2.22.115 they also pin the owner's hand on the photos: both blocks are
  * sliders, the owner can hide / re-order / replace a photo from the county edit
  * screen, and a file he sends himself (not hosted by Wikimedia) is accepted only
  * with real bytes and a named author.
@@ -197,7 +197,7 @@ sa_t_assert(
 	false === strpos( $mock_src, "<?php echo esc_html( \$credit['license_label'] ); ?>" ),
 	'no template prints the bare licence label as visible text'
 );
-/* 10 — v2.22.114 (owner order, 18 Nov 2026): the «مکان در یک نگاه» box keeps its shape
+/* 10 — v2.22.115 (owner order, 18 Nov 2026): the «مکان در یک نگاه» box keeps its shape
  *     and size, but holds up to four views of one place as a slider you can swipe; the
  *     bottom block is the county gallery slider and takes up to twelve photos. */
 sa_t_assert( false !== strpos( $mod, 'function sa_photo_slider' ), 'one shared slider shell builds both blocks' );
