@@ -1,0 +1,16 @@
+{
+  "note": "استقرار قالب ۲.۲۲.۱۱۷ (گالری تصاویر شهرستان + ترتیب تازهٔ صفحه + آکاردئون‌ها) طبق دستور مالک بدون پشتیبان تازه، سپس بهینه‌سازی همهٔ عکس‌های موجود شهرستان‌ها به WebP ۴:۳ زیر ۱۰۰ کیلوبایت. اگر پراب صفحهٔ نخست/کازرون/بجنورد سالم نبود، همان مسیر، نسخهٔ ۲.۲۲.۱۱۵ را برمی‌گرداند.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.117",
+     "owner_approved_theme_update": true, "allow_without_backup": true,
+     "probe": ["/", "/city/kazerun/", "/city/bojnord/"],
+     "rollback_to": "2.22.115"},
+    {"cmd": "photos-optimize", "owner_approved": true, "limit": 30},
+    {"cmd": "photos-optimize", "owner_approved": true, "limit": 30},
+    {"cmd": "photos-optimize", "owner_approved": true, "limit": 30},
+    {"cmd": "photos", "city_id": 325},
+    {"cmd": "probe", "url": ["/city/kazerun/", "/city/bojnord/"]},
+    {"cmd": "ping"}
+  ]
+}
