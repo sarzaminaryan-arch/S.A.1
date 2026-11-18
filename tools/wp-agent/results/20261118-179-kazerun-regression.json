@@ -1,0 +1,196 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-179-kazerun-regression.json",
+  "started_utc": "2026-11-18T23:07:48+00:00",
+  "note": "۲۸ آبان ۱۴۰۵: فقط‌خواندنی — پروب کازرون (شهرستان کم‌محتوا) برای تکمیل مقایسهٔ قبل/بعد رجیستری. هیچ تغییری روی سایت نیست.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.146",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T23:07:50+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/kazerun/",
+            "status": 200,
+            "ms": 2103,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان کازرون؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/kazerun/",
+            "desc": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "og:description": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+              "og:url": "https://sarzaminaryan.ir/city/kazerun/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 3,
+            "photo_strip_credits": 3,
+            "county_gallery": 1,
+            "county_gallery_slides": 3,
+            "county_zoom_frames": 3,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [
+              "سرزمین آریان",
+              "Ziegler175",
+              "Wiki-in-basel"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20862,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/tabriz/",
+            "status": 200,
+            "ms": 1652,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تبریز؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/tabriz/",
+            "desc": "راهنمای شهرستان تبریز: جمعیت ۱٬۷۷۳٬۰۳۲ نفر و سه بخش، بازار تاریخی ثبت جهانی، مسجد کبود، مقبره‌الشعرا، عینالی و ائل‌گلی، کوفته تبریزی و قرابیه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تبریز — بازاری که هزار سال داد و ستد کرد و هنوز بسته نشده",
+              "og:description": "از بازار جهانی و مسجد کبود تا عینالی و ائل‌گلی؛ راهنمای اقامت، غذا و دو کمبود جدی تبریز.",
+              "og:url": "https://sarzaminaryan.ir/city/tabriz/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tabriz.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تبریز — بازاری که هزار سال داد و ستد کرد و هنوز بسته نشده",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تبریز — بازاری که هزار سال داد و ستد کرد و هنوز بسته نشده"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tabriz.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 8,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tabriz.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19082,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T23:07:56+00:00"
+}
