@@ -353,10 +353,10 @@ function sa_agent_rest_theme_update( $r ) {
 		return new WP_Error( 'sa_agent_bad_version', 'expected_version لازم است (مثلاً 2.22.75).', array( 'status' => 400 ) );
 	}
 	if ( sa_agent_updraft() ) {
-		if ( ! sa_agent_updraft_recent_ok( 6 * HOUR_IN_SECONDS ) ) {
+		if ( empty( $b['allow_without_backup'] ) && ! sa_agent_updraft_recent_ok( 6 * HOUR_IN_SECONDS ) ) {
 			return new WP_Error( 'sa_agent_need_backup', 'اول یک پشتیبان کامل و موفق UpdraftPlus بگیرید (کمتر از ۶ ساعت پیش، با پایگاه‌داده).', array( 'status' => 409 ) );
 		}
-	} elseif ( empty( $b['allow_without_updraft'] ) ) {
+	} elseif ( empty( $b['allow_without_updraft'] ) && empty( $b['allow_without_backup'] ) ) {
 		return new WP_Error( 'sa_agent_need_backup', 'UpdraftPlus فعال نیست؛ برای ادامه allow_without_updraft: true لازم است.', array( 'status' => 409 ) );
 	}
 	if ( ! class_exists( 'SA_GitHub_Theme_Updater' ) ) {
@@ -737,6 +737,30 @@ function sa_agent_ops_register_routes() {
 		array(
 			'methods'             => 'POST',
 			'callback'            => 'sa_agent_rest_photo_upload',
+			'permission_callback' => static function () {
+				return is_user_logged_in() && current_user_can( 'edit_others_posts' ) && current_user_can( 'upload_files' );
+			},
+		)
+	);
+	// v2.22.116: تبدیل دسته‌ای تصاویر موجود شهرستان‌ها به WebP چهار‌به‌سه زیر ۱۰۰ کیلوبایت.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/photos/optimize',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_photos_optimize',
+			'permission_callback' => static function () {
+				return is_user_logged_in() && current_user_can( 'edit_others_posts' ) && current_user_can( 'upload_files' );
+			},
+		)
+	);
+	// v2.22.116: مدیریت پنهان‌سازی، ترتیب، تصویر اول، جداسازی و زباله‌دان تصاویر شهرستان.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/photos/manage',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_photos_manage',
 			'permission_callback' => static function () {
 				return is_user_logged_in() && current_user_can( 'edit_others_posts' ) && current_user_can( 'upload_files' );
 			},

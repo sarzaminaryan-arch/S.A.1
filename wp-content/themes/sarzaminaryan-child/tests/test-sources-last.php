@@ -112,5 +112,18 @@ $tt86 = (string) file_get_contents( $theme_dir . '/inc/template-tags.php' );
 sa_sl_assert( false !== strpos( $tt86, 'sa_county_siblings_html' ), 'template-tags: sibling-cities list echoed right before the sources section (2.22.86)' );
 $tp86 = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
 sa_sl_assert( false !== strpos( $tp86, 'sa_county_siblings_html' ), 'template part: sibling list stashed for the article end (2.22.86)' );
+// v2.22.116 (owner order, 18 Nov 2026): the sibling list is a CLOSED accordion
+// («شهرهای هم‌استانی» with a + sign), so it takes one line above the sources
+// instead of a wall of links.
+sa_sl_assert( false !== strpos( $tp86, '<details class="sa-county-accordion" id="county-siblings">' ), 'siblings: the list opens as a closed accordion (2.22.116)' );
+sa_sl_assert( false === strpos( $tp86, 'id="county-siblings" open' ), 'siblings: the accordion never starts open (2.22.116)' );
+
+// The county order the owner fixed for 2.22.116: gallery → user rating → sources.
+$pos_gallery = strpos( $single, 'sa_photo_strip( $sa_id )' );
+$pos_rating  = strpos( $single, 'CC_UI::rating_block()' );
+sa_sl_assert( false !== $pos_gallery, 'order: the county gallery is printed in the entity template (2.22.116)' );
+sa_sl_assert( false !== $pos_rating && $pos_gallery < $pos_rating, 'order: the gallery sits above the user rating box (2.22.116)' );
+sa_sl_assert( $pos_rating < $pos_sources, 'order: the user rating box sits above the sources (2.22.116)' );
+sa_sl_assert( false === strpos( $single, 'sa_photo_spotlight' ), 'order: «مکان در یک نگاه» is gone from the county page (2.22.116)' );
 
 echo "PASS: sources last (list stashed during body render, printed as the last article section, prev/next navigation closes the page)\n";

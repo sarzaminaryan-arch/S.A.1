@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.115' );
+define( 'SA_CHILD_VERSION', '2.22.116' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -48,8 +48,8 @@ $sa_child_includes = array(
 	'inc/education.php', // بخش «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار استان/شهرستان/دیدنی در منو، صفحهٔ اول و فوتر
 	'inc/entity-bars.php', // v2.13.3: فهرست ۳۱ استان + نوارهای مینیمال استان/شهرستان برای آرشیوها (و نقشهٔ هیرو)
 	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
-	'inc/county-media.php', // v2.22.98: تصاویر مجاز مکان‌ها (مجوز + نام عکاس) + کادر «مکان در یک نگاه»؛ v2.22.115: اسلایدر نماها + گالری شهرستان
-	'inc/county-photos-admin.php', // v2.22.115: پنل افزودن/تعویض/حذف/ترتیب تصاویر شهرستان در صفحهٔ ویرایش (دستور مالک)
+	'inc/county-media.php', // v2.22.98: تصاویر مجاز مکان‌ها (مجوز + نام عکاس)؛ v2.22.116: گالری اسلایدری شهرستان + WebP ۴:۳ زیر ۱۰۰ کیلوبایت
+	'inc/county-photos-admin.php', // v2.22.116: پنل کامل گالری شهرستان در صفحهٔ ویرایش — افزودن، تعویض، ترتیب، بهینه‌سازی و زباله‌دان (دستور مالک)
 	'inc/geo-counties.php',
 	'inc/county-profile.php', // شناسنامهٔ شهرستان: کلیدهای استاندارد + کارت county-identity
 	'inc/county-map.php', // v2.22.87: نقشهٔ داخل بخش «کجاست؟» — facade + لودر تنبل، هرگز داخل post_content

@@ -91,7 +91,7 @@ assert "'sa-archive'" in php_src, "the theme's licence table carries the owner-a
 assert "sa_photo_bytes_match_mime" in php_src, "the theme re-checks the declared mime against the real bytes"
 assert "function sa_photo_replace_with_attachment" in php_src, "the theme can swap a photo's file in place"
 admin_src = (HERE.parents[1] / "wp-content/themes/sarzaminaryan-child/inc/county-photos-admin.php").read_text(encoding="utf-8")
-for token in ("add_meta_box( 'sa-county-photos'", "wp_ajax_sa_photo_attach", "wp_ajax_sa_photo_swap", "wp_ajax_sa_photo_detach", "wp_ajax_sa_photo_save"):
+for token in ("'sa-county-photos'", "wp_ajax_sa_photo_attach", "wp_ajax_sa_photo_swap", "wp_ajax_sa_photo_detach", "wp_ajax_sa_photo_save", "wp_ajax_sa_photo_trash", "wp_ajax_sa_photo_optimize", "sa_photo_optimize_attachment"):
     assert token in admin_src, token
 
 # هر فایل دستهٔ داخل مخزن هم باید از فیلتر فارسی تمیز بگذرد (قاعدهٔ مالک: بدون «باید»،
@@ -107,5 +107,54 @@ try:
             assert not hits, f"{batch_file.name} / {photo.get('place')}: {hits}"
 except ImportError:
     pass
+
+# --- v2.22.116: هر عکس شهرستان ۴:۳ و WebP زیر ۱۰۰ کیلوبایت -------------------
+assert ip.MAX_WEBP_BYTES == 99_000 and ip.MAX_WEBP_BYTES < 100 * 1024, "the byte budget stays under 100 KB"
+assert (ip.TARGET_W, ip.TARGET_H) == (800, 600), "the target frame is 4:3"
+assert ip.WEBP_QUALITIES[0] == 84 and ip.WEBP_QUALITIES[-1] == 60, "the quality ladder starts high and ends usable"
+
+# همان محاسبهٔ sa_photo_crop_box در قالب.
+assert ip.crop_box(1600, 1200) == (0, 0, 800, 600), "a 4:3 source keeps the whole frame"
+assert ip.crop_box(1200, 1600) == (0, 280, 800, 600), "a portrait source is cropped from the top (40 % of the slack)"
+assert ip.crop_box(300, 200)[2] <= 300, "a small source is never upscaled"
+
+# شکل نشانی بندانگشتی: عرض ۸۰۰px و نام فایل تکرارشده.
+assert ip.commons_source_url(
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/x.jpg/640px-x.jpg"
+) == "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/x.jpg/800px-x.jpg"
+assert ip.commons_source_url("https://upload.wikimedia.org/wikipedia/commons/e/ee/x.jpg").endswith("/e/ee/x.jpg"), "an original file URL is left alone"
+
+try:
+    from io import BytesIO
+
+    from PIL import Image
+
+    src = Image.new("RGB", (1600, 1000), (120, 90, 60))
+    buf = BytesIO()
+    src.save(buf, "JPEG", quality=92)
+    webp = ip.optimize_to_webp(buf.getvalue())
+    assert webp[:4] == b"RIFF" and webp[8:12] == b"WEBP", "the optimizer really writes WebP"
+    with Image.open(BytesIO(webp)) as out:
+        assert out.size == (800, 600), out.size
+    assert len(webp) <= ip.MAX_WEBP_BYTES, len(webp)
+    # پروندهٔ مالک هم از همین مسیر می‌رود، مگر این‌که صریحاً خاموش شود.
+    assert ip.optimized_owner_bytes({"preoptimize": False}, buf.getvalue()) == buf.getvalue()
+    assert ip.optimized_owner_bytes({}, buf.getvalue()) == webp
+    kazerun = HERE / "files" / "kazerun-anahita-aerial.webp"
+    if kazerun.is_file():
+        with Image.open(BytesIO(kazerun.read_bytes())) as out:
+            assert out.size == (800, 600), out.size
+except ImportError:
+    # بدون Pillow ابزار باید فایل را دست‌نخورده بفرستد، نه این‌که بترکد.
+    raw = b"\xff\xd8\xff\xe0junk"
+    assert ip.optimize_to_webp(raw) == raw, "without Pillow the bytes pass through untouched"
+
+# بودجهٔ بایت لازم نیست Pillow داشته باشد: پروندهٔ مالک همیشه باید زیر ۱۰۰ کیلوبایت
+# و WebP باشد، چون سایت فقط همین را روی صفحه می‌گذارد.
+kazerun = HERE / "files" / "kazerun-anahita-aerial.webp"
+if kazerun.is_file():
+    data = kazerun.read_bytes()
+    assert len(data) <= ip.MAX_WEBP_BYTES, f"the owner's aerial is {len(data)} bytes"
+    assert ip.sniff_mime(data) == "image/webp", ip.sniff_mime(data)
 
 print("ALL TESTS PASSED")

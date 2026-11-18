@@ -7,10 +7,12 @@
  * which licences pass, which URLs the site may fetch, and that the credit
  * line always carries the author.
  *
- * Since 2.22.115 they also pin the owner's hand on the photos: both blocks are
- * sliders, the owner can hide / re-order / replace a photo from the county edit
- * screen, and a file he sends himself (not hosted by Wikimedia) is accepted only
- * with real bytes and a named author.
+ * Since 2.22.116 they pin the owner's hand on the photos: the «مکان در یک نگاه»
+ * box is gone and the county gallery is the only photo block (a responsive slider),
+ * every photo is stored as a 4:3 WebP under 100 KB, and the owner can hide /
+ * re-order / replace / trash a photo from the county edit screen — plus a file he
+ * sends himself (not hosted by Wikimedia) is accepted only with real bytes and a
+ * named author.
  *
  * Run: php wp-content/themes/sarzaminaryan-child/tests/test-county-media.php
  *
@@ -145,19 +147,21 @@ sa_t_assert( false === strpos( $mod_src, 'بدون اجازهٔ کتبی' ), 'th
 sa_t_assert( false !== strpos( $mod_src, "'sa-photo__credit'" ) || false !== strpos( $mod_src, 'sa-photo__credit' ), 'the quiet credit helper stays' );
 sa_t_assert( false !== strpos( $mod_src, 'function sa_photo_overlay_label' ), 'the overlay label is a shared helper, not page-specific markup' );
 
-/* 4b — imported photos are JPEG; the lookup must not filter them out. */
+/* 4b — photos arrive as JPEG, WebP or PNG; the *lookup* must never be narrowed to
+ *      one format. (Writing a WebP attachment is a different code path and is fine.) */
 sa_t_assert(
-	false === strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' ), "'post_mime_type' => 'image/webp'" ),
-	'the photo lookup accepts the JPEG files the import route writes'
+	false !== strpos( $mod_src, "'post_mime_type' => array( 'image/jpeg', 'image/webp', 'image/png' )" ),
+	'the photo lookup accepts the JPEG files the import route writes, plus WebP and PNG'
 );
+
 
 /* 5 — the template renders nothing when no licensed photo exists. */
 $src = (string) file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/single.php' );
-sa_t_assert( false !== strpos( $src, 'sa_photo_spotlight' ), 'the county page calls the spotlight block' );
-sa_t_assert( false !== strpos( $src, 'sa_photo_strip' ), 'the county page calls the three-tile strip' );
+sa_t_assert( false === strpos( $src, 'sa_photo_spotlight' ), 'v2.22.116: the county page no longer calls the «مکان در یک نگاه» box' );
+sa_t_assert( false !== strpos( $src, 'sa_photo_strip' ), 'the county page calls the county photo gallery' );
+sa_t_assert( false === strpos( $mod_src, 'function sa_photo_spotlight' ), 'v2.22.116: the spotlight renderer is deleted, not merely unused' );
 $mod = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' );
-sa_t_assert( false !== strpos( $mod, 'if ( ! $lead ) {' ), 'the spotlight returns early when no photo qualifies' );
-sa_t_assert( false !== strpos( $mod, 'if ( ! $ids ) {' ), 'the gallery strip renders nothing when no photo qualifies — it never pads an empty slot' );
+sa_t_assert( false !== strpos( $mod, 'if ( ! $ids ) {' ), 'the gallery renders nothing when no photo qualifies — it never pads an empty slot' );
 sa_t_assert( false !== strpos( $mod, 'function sa_photo_county_ids' ), 'one helper decides which county photos are shown, and in what order' );
 sa_t_assert( false !== strpos( $mod, "'/photos/import'" ) || false !== strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' ), "'/photos/import'" ), 'the guarded import route is registered' );
 
@@ -197,36 +201,80 @@ sa_t_assert(
 	false === strpos( $mock_src, "<?php echo esc_html( \$credit['license_label'] ); ?>" ),
 	'no template prints the bare licence label as visible text'
 );
-/* 10 — v2.22.115 (owner order, 18 Nov 2026): the «مکان در یک نگاه» box keeps its shape
- *     and size, but holds up to four views of one place as a slider you can swipe; the
- *     bottom block is the county gallery slider and takes up to twelve photos. */
-sa_t_assert( false !== strpos( $mod, 'function sa_photo_slider' ), 'one shared slider shell builds both blocks' );
-sa_t_assert( false !== strpos( $mod, 'if ( count( $slides ) >= 4 ) {' ), 'the spotlight box stays its old size: at most four views inside it' );
-sa_t_assert( false !== strpos( $mod, 'sa_photo_county_ids( $city_id, 12 )' ), 'the gallery slider can carry twelve county photos' );
+/* 10 — v2.22.116 (owner order, 18 Nov 2026): «مکان در یک نگاه» is gone; the county
+ *     gallery is the only photo block and every county photo is a 4:3 WebP < 100 KB. */
+sa_t_assert( false !== strpos( $mod, 'function sa_photo_slider' ), 'one shared slider shell builds the gallery' );
+sa_t_assert( false !== strpos( $mod, 'sa_photo_county_ids( $city_id, 24 )' ), 'the county gallery can carry up to 24 county photos' );
+sa_t_assert( false !== strpos( $mod, 'id="county-gallery"' ), 'the gallery has its own anchor for the table-of-contents tail link' );
+sa_t_assert( false !== strpos( $mod, 'sa-strip__badge' ), 'the gallery header shows how many photos it carries' );
+sa_t_assert( false !== strpos( $mod, 'data-sa-zoom' ), 'each frame opens the lightbox' );
 sa_t_assert( false !== strpos( $mod, '_sa_photo_hide' ), 'the owner can hide a photo from the page without deleting the file' );
 sa_t_assert( false !== strpos( $mod, '_sa_photo_lead' ) && false !== strpos( $mod, '_sa_photo_order' ), 'the owner picks the first view and the order by hand' );
 $css = (string) file_get_contents( dirname( __DIR__ ) . '/assets/css/gallery.css' );
 sa_t_assert( false !== strpos( $css, 'scroll-snap-type: x mandatory' ), 'swiping left/right is native scroll-snap, so it works even without JS' );
 sa_t_assert( false !== strpos( $css, 'touch-action: pan-x' ), 'the track leaves the horizontal swipe to the browser' );
 sa_t_assert( false === strpos( $css, '.sa-strip__grid' ), 'the old fixed three-column grid is gone from the gallery strip' );
+sa_t_assert( false === strpos( $css, '.sa-spotlight' ), 'v2.22.116: the spotlight styles are deleted with the block' );
+sa_t_assert( false !== strpos( $css, 'aspect-ratio: 4 / 3' ), 'every gallery frame keeps a 4:3 box' );
+sa_t_assert( substr_count( $css, '.sa-strip .sa-slider__slide' ) >= 1, 'the gallery slide width is set per breakpoint' );
 $gal_js = (string) file_get_contents( dirname( __DIR__ ) . '/assets/js/gallery.js' );
 sa_t_assert( false !== strpos( $gal_js, 'data-sa-slider' ), 'the slider controls are wired in the gallery script' );
 sa_t_assert( false !== strpos( $gal_js, 'ArrowLeft' ) && false !== strpos( $gal_js, 'ArrowRight' ), 'the arrow keys move between views' );
+sa_t_assert( false !== strpos( $gal_js, 'saCountyOpenGallery' ), 'a gallery frame opens the lightbox at that slide' );
+sa_t_assert( false !== strpos( $gal_js, 'sa-slider--fits' ), 'arrows and dots disappear when every frame already fits' );
+
+/* 10b — every county photo is stored as a 4:3 WebP under 100 KB (owner order,
+ *      18 Nov 2026), and nothing else on the site is touched by that promise. */
+sa_t_assert( 99000 === SA_PHOTO_MAX_WEBP_BYTES, 'the byte ceiling is the 100 KB budget with headroom' );
+sa_t_assert( 800 === SA_PHOTO_TARGET_W && 600 === SA_PHOTO_TARGET_H, 'the target frame is 4:3 (800×600)' );
+$crop = sa_photo_crop_box( 1600, 1200 );
+sa_t_assert( 1600 === $crop['crop_w'] && 1200 === $crop['crop_h'], 'an already 4:3 source is not cropped' );
+$crop2 = sa_photo_crop_box( 1200, 1600 );
+sa_t_assert( $crop2['crop_w'] === 1200 && $crop2['crop_h'] < 1600, 'a portrait source is cropped to 4:3 from the top' );
+$crop3 = sa_photo_crop_box( 300, 200 );
+sa_t_assert( $crop3['dst_w'] <= 300, 'a small source is never upscaled' );
+sa_t_assert( false !== strpos( $mod, 'function sa_photo_optimize_attachment' ), 'the optimizer works on one attachment at a time' );
+sa_t_assert( false !== strpos( $mod, 'function sa_photo_optimize_bytes_to_webp' ), 'the re-encode helper is shared by import, upload and the panel' );
+sa_t_assert( false !== strpos( $mod, "'image/webp'" ) && false !== strpos( $mod, 'sa_photo_store_webp_meta' ), 'the result is stored as a single WebP (no leftover JPEG plus sizes)' );
+sa_t_assert( false !== strpos( $mod, '_sa_photo_bytes' ), 'the stored byte count travels with the photo' );
+sa_t_assert( false !== strpos( $mod, 'post_content' ), 'old files still referenced by a county body are never deleted' );
 
 /* 11 — the owner edits the photos himself from the county edit screen: add, replace,
  *     remove, re-order. Removing a photo from a county never deletes the file. */
 $admin = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-photos-admin.php' );
-sa_t_assert( false !== strpos( $admin, "add_meta_box( 'sa-county-photos'" ), 'the county edit screen gets a photo panel' );
+sa_t_assert( false !== strpos( $admin, "'sa-county-photos'" ), 'the county edit screen gets a photo panel' );
 sa_t_assert( false !== strpos( $admin, 'wp_enqueue_media' ), 'adding a photo goes through the WordPress media library' );
-foreach ( array( 'sa_photo_attach', 'sa_photo_swap', 'sa_photo_detach', 'sa_photo_save' ) as $ajax ) {
+foreach ( array( 'sa_photo_attach', 'sa_photo_swap', 'sa_photo_detach', 'sa_photo_save', 'sa_photo_trash', 'sa_photo_optimize' ) as $ajax ) {
 	sa_t_assert( false !== strpos( $admin, "wp_ajax_{$ajax}" ), "the panel handles {$ajax}" );
 }
 sa_t_assert( false !== strpos( $admin, "check_ajax_referer( 'sa_photo_admin'" ), 'every panel call is nonce-checked' );
 sa_t_assert( false !== strpos( $admin, "current_user_can( 'edit_post'" ), 'the panel is closed to anyone who cannot edit that county' );
 sa_t_assert( false === strpos( $admin, 'wp_delete_attachment' ), 'the panel never deletes a media file' );
+sa_t_assert( false !== strpos( $admin, 'wp_trash_post' ), 'the panel trashes recoverably instead of deleting' );
 sa_t_assert( false !== strpos( $admin, 'save_post_city' ), 'the same rows are saved with the post itself' );
+sa_t_assert( false !== strpos( $admin, 'sa_photo_optimize_attachment' ), 'the panel re-encodes added photos to WebP' );
+sa_t_assert( false !== strpos( $admin, 'sa_photo_admin_is_shared' ), 'a photo used as a featured image elsewhere is copied, never touched' );
+sa_t_assert( false !== strpos( $admin, 'sa_photo_normalize_license' ), 'the licence picker stores the same codes the render path reads' );
+$admin_js = (string) file_get_contents( dirname( __DIR__ ) . '/assets/js/county-photos-admin.js' );
+sa_t_assert( false === strpos( $admin_js, 'new FormData( box )' ) && false === strpos( $admin_js, 'new FormData(box)' ), 'the panel is a div, not a form: fields are collected one by one' );
+sa_t_assert( false !== strpos( $admin_js, 'sa_photo_optimize' ), 'the one-click WebP button calls the optimizer' );
+sa_t_assert( false !== strpos( $admin_js, 'sa_photo_trash' ), 'the trash button is wired' );
+sa_t_assert( false !== strpos( $admin_js, 'data-dir' ), 'the row buttons move a photo up or down' );
 $func_src = (string) file_get_contents( dirname( __DIR__ ) . '/functions.php' );
 sa_t_assert( false !== strpos( $func_src, "'inc/county-photos-admin.php'" ), 'the photo panel file is loaded by the theme' );
+
+/* 11b — v2.22.116: the same two operations exist on the agent bridge so a batch can
+ *      optimize or manage a whole county without the owner opening wp-admin. */
+sa_t_assert( false !== strpos( $php_all, 'sa_agent_rest_photos_optimize' ), 'the batch optimizer route exists' );
+sa_t_assert( false !== strpos( $php_all, 'sa_agent_rest_photos_manage' ), 'the batch manage route exists' );
+$agent_ops = (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' );
+sa_t_assert( false !== strpos( $agent_ops, "'/photos/optimize'" ) && false !== strpos( $agent_ops, "'/photos/manage'" ), 'both routes are registered on the agent namespace' );
+sa_t_assert( false !== strpos( $php_all, 'owner_approved' ), 'both routes demand an explicit owner approval' );
+/* 11c — «مکان در یک نگاه» از قالب حذف شده و دیگر هیچ فایلی آن را صدا نمی‌زند. */
+foreach ( array( 'template-parts/entity/single.php', 'inc/county-media.php', 'assets/js/gallery.js', 'assets/css/gallery.css' ) as $sa_rel ) {
+	$sa_file = (string) file_get_contents( dirname( __DIR__ ) . '/' . $sa_rel );
+	sa_t_assert( false === strpos( $sa_file, 'spotlight' ), $sa_rel . ' carries no leftover spotlight markup or style (v2.22.116)' );
+}
 
 /* 12 — a file the owner sends himself (his own aerial shot, no Wikimedia host) is
  *     accepted only with real bytes, an allowed licence code and a named author. */

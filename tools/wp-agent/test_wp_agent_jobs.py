@@ -50,6 +50,31 @@ assert wa.job_deferred({"not_before": "2026-11-16T06:00:00Z"}, t)
 assert not wa.job_deferred({"not_before": "2026-11-16T04:00:00Z"}, t)
 assert not wa.job_deferred({}, t)
 
+# 1b. v2.22.116: the owner's «deploy without a new backup» order travels as an explicit
+#     flag, and a rollback is never blocked by the backup gate (it is the safety net).
+seen = {}
+
+
+class _ThemeClient:
+    base = "https://example.test/wp-json/sa-agent/v1"
+
+    def __init__(self):
+        pass
+
+    def call(self, method, route, params=None, body=None):
+        seen[route] = body
+        return {"updated": True}
+
+
+wa.theme_install(_ThemeClient(), "2.22.116", "2.22.116", False)
+_body = seen["/theme-update"]
+assert _body["owner_approved_theme_update"] is True and _body["expected_version"] == "2.22.116"
+assert _body.get("version") == "2.22.116" and "allow_without_backup" not in _body, seen
+wa.theme_install(_ThemeClient(), "2.22.116", "2.22.116", True)
+assert seen["/theme-update"].get("allow_without_backup") is True, seen
+wa.theme_install(_ThemeClient(), "2.22.115", "2.22.115", True)
+assert seen["/theme-update"]["version"] == "2.22.115", seen
+
 # 2. Health rule after a live edit.
 ok = {"url": "u", "status": 200, "title": "x", "robots": "index, follow", "h1": 1}
 assert wa.unhealthy_pages([ok]) == []

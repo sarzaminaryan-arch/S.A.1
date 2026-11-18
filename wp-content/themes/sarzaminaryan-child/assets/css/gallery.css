@@ -678,156 +678,91 @@
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* --- مکان در یک نگاه ------------------------------------------------------ */
-
-.sa-spotlight {
-	margin: clamp(30px, 5vw, 62px) 0;
-	padding: clamp(18px, 3.4vw, 30px);
-	border: 1px solid rgba(1, 31, 61, 0.12);
-	border-radius: 26px;
-	background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
-	box-shadow: 0 18px 46px rgba(1, 31, 61, 0.08);
-	direction: rtl;
-}
-
-.sa-spotlight__grid {
-	display: grid;
-	grid-template-columns: minmax(210px, 340px) 1fr;
-	gap: clamp(18px, 3vw, 34px);
-	align-items: center;
-}
-
-.sa-spotlight__media {
-	position: relative;
-}
-
-/* تصویر مربع: قاب با نسبت ۱:۱ و برش مرکزی، در هر اندازهٔ صفحه مربع می‌ماند. */
-.sa-spotlight__frame {
-	aspect-ratio: 1 / 1;
-	border-radius: 20px;
-	border: 1px solid rgba(1, 31, 61, 0.1);
-}
-
-.sa-spotlight__badge {
-	position: absolute;
-	inset-inline-start: 14px;
-	top: 14px;
-	padding: 6px 13px;
-	border-radius: 999px;
-	background: rgba(1, 31, 61, 0.86);
-	color: #fff;
-	font-size: 0.74rem;
-	letter-spacing: 0.02em;
-	backdrop-filter: blur(4px);
-}
-
-.sa-spotlight__eyebrow {
-	display: inline-block;
-	margin-bottom: 8px;
-	padding: 5px 12px;
-	border-radius: 999px;
-	background: rgba(155, 106, 22, 0.12);
-	color: #8a5a10;
-	font-size: 0.74rem;
-	font-weight: 700;
-}
-
-.sa-spotlight__title {
-	margin: 0 0 10px;
-	font-size: clamp(1.25rem, 2.4vw, 1.75rem);
-	line-height: 1.5;
-	color: #011f3d;
-}
-
-.sa-spotlight__note {
-	margin: 0 0 14px;
-	font-size: 0.98rem;
-	line-height: 2.05;
-	color: #36465c;
-}
-
-.sa-spotlight__points {
-	margin: 0 0 14px;
-	padding: 0;
-	list-style: none;
-	display: grid;
-	gap: 8px;
-}
-
-.sa-spotlight__points li {
-	position: relative;
-	padding-inline-start: 22px;
-	font-size: 0.9rem;
-	line-height: 1.95;
-	color: #1f2f44;
-}
-
-.sa-spotlight__points li::before {
-	content: "";
-	position: absolute;
-	inset-inline-start: 4px;
-	top: 0.72em;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: linear-gradient(135deg, #c9932c, #9b6a16);
-}
-
-@media (max-width: 720px) {
-	.sa-spotlight__grid {
-		grid-template-columns: 1fr;
-	}
-	.sa-spotlight__frame {
-		max-width: 340px;
-		margin-inline: auto;
-	}
-}
-
-/* --- نوار سه مکان تفریحی -------------------------------------------------- */
+/* --- گالری تصاویر شهرستان (v2.22.116 — جایگزین «مکان در یک نگاه») -------- */
 
 .sa-strip {
-	margin: clamp(30px, 5vw, 62px) 0;
-	padding: clamp(18px, 3.4vw, 28px);
-	border-radius: 26px;
-	border: 1px solid rgba(1, 31, 61, 0.1);
-	background: radial-gradient(circle at top left, rgba(201, 147, 44, 0.1), transparent 42%), #ffffff;
+	margin: clamp(18px, 3vw, 30px) 0;
+	padding: clamp(14px, 2.5vw, 22px);
+	border-radius: 18px;
+	border: 1px solid rgba(11, 37, 69, 0.14);
+	background: radial-gradient(circle at top left, rgba(201, 147, 44, 0.08), transparent 44%), #ffffff;
+	box-shadow: 0 10px 28px rgba(11, 37, 69, 0.06);
 	direction: rtl;
+	min-width: 0;
 }
 
 .sa-strip__head {
-	margin-bottom: clamp(14px, 2.4vw, 22px);
+	margin-bottom: clamp(10px, 1.8vw, 15px);
+}
+
+.sa-strip__title-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 8px 12px;
 }
 
 .sa-strip__title {
-	margin: 0 0 6px;
-	font-size: clamp(1.1rem, 2vw, 1.4rem);
-	color: #011f3d;
-}
-
-.sa-strip__sub {
 	margin: 0;
-	font-size: 0.84rem;
-	color: #64748b;
+	font-size: clamp(1.04rem, 1.8vw, 1.28rem);
+	font-weight: 800;
+	line-height: 1.45;
+	color: #0b2545;
 }
 
-/* از ۲.۲۲.۱۱۵ قاب‌ها داخل اسلایدر می‌نشینند؛ گرید سه‌ستونهٔ قدیمی برداشته شد. */
+.sa-strip__badge {
+	display: inline-flex;
+	align-items: center;
+	padding: 3px 10px;
+	border-radius: 999px;
+	background: #0b2545;
+	color: #ffcc60;
+	font-size: 0.74rem;
+	font-weight: 700;
+	line-height: 1.5;
+}
 
 .sa-strip__tile {
 	display: flex;
 	flex-direction: column;
-	border-radius: 20px;
+	height: 100%;
+	border-radius: 15px;
 	overflow: hidden;
 	background: #fff;
-	border: 1px solid rgba(1, 31, 61, 0.1);
-	box-shadow: 0 12px 30px rgba(1, 31, 61, 0.07);
+	border: 1px solid rgba(11, 37, 69, 0.11);
+	box-shadow: 0 8px 20px rgba(11, 37, 69, 0.06);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* قاب با اندازهٔ ثابت: هر سه کادر هم‌اندازه، فارغ از اندازهٔ فایل اصلی. */
+.sa-strip__tile:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 14px 28px rgba(11, 37, 69, 0.11);
+}
+
+/* قاب با نسبت ثابت ۴:۳ در تمام دستگاه‌ها (دسکتاپ، تبلت و موبایل). */
 .sa-strip__frame {
 	position: relative;
 	aspect-ratio: 4 / 3;
 	overflow: hidden;
 	background: #eef3f9;
+}
+
+.sa-strip__frame[data-sa-zoom] {
+	cursor: zoom-in;
+}
+
+.sa-strip__frame[data-sa-zoom]:focus-visible {
+	outline: 2px solid #c9932c;
+	outline-offset: -3px;
+}
+
+.sa-strip__frame .sa-photo__img {
+	transition: transform 0.28s ease;
+}
+
+.sa-strip__frame[data-sa-zoom]:hover .sa-photo__img {
+	transform: scale(1.03);
 }
 
 .sa-strip__photo {
@@ -838,69 +773,70 @@
 
 .sa-strip__tag {
 	position: absolute;
-	inset-inline-start: 12px;
-	top: 12px;
-	padding: 5px 11px;
+	inset-inline-start: 10px;
+	top: 10px;
+	z-index: 2;
+	padding: 3px 10px;
 	border-radius: 999px;
-	background: rgba(1, 31, 61, 0.82);
+	background: rgba(11, 37, 69, 0.85);
 	color: #fff;
-	font-size: 0.7rem;
+	font-size: 0.68rem;
+	font-weight: 600;
+	backdrop-filter: blur(3px);
 }
 
 .sa-strip__highlight {
-	padding: 14px 16px 16px;
-	border-top: 3px solid #c9932c;
-	background: linear-gradient(180deg, rgba(201, 147, 44, 0.07), rgba(255, 255, 255, 0));
-}
-
-.sa-strip__place {
-	margin: 0 0 6px;
-	font-size: 1rem;
-	color: #011f3d;
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 5px;
+	padding: 10px 13px 11px;
+	border-top: 2px solid #c9932c;
+	background: linear-gradient(180deg, rgba(201, 147, 44, 0.06), rgba(255, 255, 255, 0));
 }
 
 .sa-strip__line {
-	margin: 0 0 10px;
-	font-size: 0.84rem;
-	line-height: 1.95;
-	color: #3b4a5f;
+	margin: 0;
+	font-size: 0.81rem;
+	line-height: 1.72;
+	color: #2f3f54;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
 }
 
 .sa-strip__area {
-	margin: 0 0 8px;
-	font-size: 0.72rem;
-	color: #8593a5;
+	margin: 0;
+	font-size: 0.71rem;
+	color: #7b8a9d;
 }
 
 .sa-strip__credit {
 	margin: 0;
 	font-size: 0.64rem;
-	color: #9aa7b7;
+	line-height: 1.5;
+	color: #8f9eb0;
 }
 
 .sa-strip__credit a {
 	color: inherit;
 	text-decoration: none;
-	border-bottom: 1px dotted rgba(154, 167, 183, 0.7);
+	border-bottom: 1px dotted rgba(143, 158, 176, 0.7);
 }
 
 .sa-strip__credit a:hover,
 .sa-strip__credit a:focus-visible {
-	color: #6b7a8d;
+	color: #5b6b7f;
 	border-bottom-color: currentColor;
 }
 
-/* --- اسلایدر نماها (v2.22.115) -------------------------------------------
- * دستور مالک: کادر «مکان در یک نگاه» همان شکل و اندازه بماند ولی دو-سه نما از
- * یک مکان را نشان دهد و با کشیدن دست به چپ و راست عوض شود. پس خودِ کادر دست
- * نخورده است و اسلایدر داخل همان `.sa-spotlight__media` می‌نشیند؛ نوار پایین هم
- * از گرید سه‌ستونه به اسلایدر تبدیل شد تا تعداد بیشتری قاب جا بگیرد.
- * کشیدن انگشت کار خودِ مرورگر است (scroll-snap بومی + touch-action)، و دکمه‌ها،
- * نقطه‌ها و شمارنده با assets/js/gallery.js زنده می‌شوند.
- * -------------------------------------------------------------------------- */
+/* --- اسلایدر واکنش‌گرای گالری شهرستان ------------------------------------- */
 
 .sa-slider {
 	direction: rtl;
+	min-width: 0;
 }
 
 .sa-slider__stage {
@@ -909,7 +845,8 @@
 
 .sa-slider__track {
 	display: flex;
-	gap: clamp(10px, 1.6vw, 16px);
+	align-items: stretch;
+	gap: clamp(10px, 1.5vw, 14px);
 	overflow-x: auto;
 	overflow-y: hidden;
 	scroll-snap-type: x mandatory;
@@ -918,6 +855,7 @@
 	touch-action: pan-x;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
+	padding-block: 2px;
 }
 
 .sa-slider__track::-webkit-scrollbar {
@@ -929,7 +867,7 @@
 .sa-slider__track:focus-visible {
 	outline: 2px solid rgba(155, 106, 22, 0.5);
 	outline-offset: 4px;
-	border-radius: 20px;
+	border-radius: 14px;
 }
 
 .sa-slider__slide {
@@ -939,49 +877,45 @@
 	scroll-snap-stop: always;
 }
 
-/* کادر یک‌نگاه: هر نما تمام عرض قاب را می‌گیرد تا اندازهٔ مربع قبلی حفظ شود. */
-.sa-spotlight .sa-slider__slide {
-	flex-basis: 100%;
-}
-
-.sa-spotlight__slide .sa-spotlight__frame {
-	margin: 0;
-}
-
-/* گالری پایین: در صفحهٔ پهن سه قاب، در تبلت دو، در موبایل یکی. */
+/* دسکتاپ: سه قاب کنار هم | تبلت: دو قاب | موبایل: یک قاب با کشیدن انگشت. */
 .sa-strip .sa-slider__slide {
-	flex-basis: calc((100% - 2 * clamp(10px, 1.6vw, 16px)) / 3);
+	flex-basis: calc((100% - 2 * clamp(10px, 1.5vw, 14px)) / 3);
 }
 
 .sa-slider__nav {
 	position: absolute;
-	top: 50%;
+	top: 42%;
 	transform: translateY(-50%);
 	z-index: 3;
 	display: grid;
 	place-items: center;
-	width: 38px;
-	height: 38px;
+	width: 36px;
+	height: 36px;
 	padding: 0;
-	border: 1px solid rgba(1, 31, 61, 0.14);
+	border: 1px solid rgba(11, 37, 69, 0.16);
 	border-radius: 50%;
-	background: rgba(255, 255, 255, 0.92);
-	color: #011f3d;
-	font-size: 1.5rem;
+	background: rgba(255, 255, 255, 0.94);
+	color: #0b2545;
+	font-size: 1.45rem;
 	line-height: 1;
 	cursor: pointer;
-	box-shadow: 0 8px 22px rgba(1, 31, 61, 0.16);
+	box-shadow: 0 6px 18px rgba(11, 37, 69, 0.16);
 	backdrop-filter: blur(3px);
+	transition: opacity 0.18s ease, background 0.18s ease;
 }
 
-.sa-slider__nav:hover,
-.sa-slider__nav:focus-visible {
-	background: #fff;
-	border-color: rgba(155, 106, 22, 0.5);
-	color: #8a5a10;
+.sa-slider__nav:disabled {
+	opacity: 0.35;
+	cursor: default;
 }
 
-/* در چیدمان راست‌به‌چپ: «قبلی» یعنی سمت راست، «بعدی» یعنی سمت چپ. */
+.sa-slider__nav:not(:disabled):hover,
+.sa-slider__nav:not(:disabled):focus-visible {
+	background: #0b2545;
+	border-color: #0b2545;
+	color: #ffcc60;
+}
+
 .sa-slider__nav--prev {
 	inset-inline-start: 8px;
 }
@@ -992,9 +926,10 @@
 
 .sa-slider__dots {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
-	gap: 7px;
-	margin-top: 12px;
+	gap: 6px;
+	margin-top: 10px;
 }
 
 .sa-slider__dot {
@@ -1003,41 +938,36 @@
 	padding: 0;
 	border: 0;
 	border-radius: 999px;
-	background: rgba(1, 31, 61, 0.22);
+	background: rgba(11, 37, 69, 0.2);
 	cursor: pointer;
 	transition: width 0.2s ease, background 0.2s ease;
 }
 
 .sa-slider__dot.is-active {
-	width: 24px;
-	background: #c9932c;
+	width: 22px;
+	background: #0b2545;
 }
 
 .sa-slider__count {
 	display: block;
-	margin-top: 8px;
+	margin-top: 6px;
 	text-align: center;
 	font-size: 0.72rem;
-	color: #8593a5;
+	color: #7b8a9d;
 	direction: rtl;
 }
 
 .sa-slider__dots:empty,
-.sa-slider__count:empty {
-	display: none;
-}
-
-/* بدون جاوااسکریپت: کشیدن دستی کار می‌کند، پس دکمه و نقطهٔ بی‌جان چاپ نمی‌شود. */
+.sa-slider__count:empty,
 .no-js .sa-slider__nav,
 .no-js .sa-slider__dots,
-.no-js .sa-slider__count {
-	display: none;
-}
-
-/* تک‌نما: چیزی برای لغزاندن نیست، پس کنترل‌ها پنهان می‌مانند. */
+.no-js .sa-slider__count,
 .sa-slider--single .sa-slider__nav,
 .sa-slider--single .sa-slider__dots,
-.sa-slider--single .sa-slider__count {
+.sa-slider--single .sa-slider__count,
+.sa-slider--fits .sa-slider__nav,
+.sa-slider--fits .sa-slider__dots,
+.sa-slider--fits .sa-slider__count {
 	display: none;
 }
 
@@ -1047,19 +977,24 @@
 
 @media (max-width: 900px) {
 	.sa-strip .sa-slider__slide {
-		flex-basis: calc((100% - clamp(10px, 1.6vw, 16px)) / 2);
+		flex-basis: calc((100% - clamp(10px, 1.5vw, 14px)) / 2);
 	}
 }
 
-@media (max-width: 620px) {
+@media (max-width: 600px) {
+	.sa-strip {
+		padding: 12px;
+		border-radius: 14px;
+	}
+
 	.sa-strip .sa-slider__slide {
 		flex-basis: 100%;
 	}
 
 	.sa-slider__nav {
-		width: 34px;
-		height: 34px;
-		font-size: 1.3rem;
+		width: 33px;
+		height: 33px;
+		font-size: 1.28rem;
 	}
 }
 
@@ -1068,7 +1003,9 @@
 		scroll-behavior: auto;
 	}
 
-	.sa-slider__dot {
+	.sa-slider__dot,
+	.sa-strip__tile,
+	.sa-strip__frame .sa-photo__img {
 		transition: none;
 	}
 }

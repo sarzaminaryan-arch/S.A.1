@@ -270,4 +270,50 @@ foreach ( $records as $key => $record ) {
 }
 sa_t_assert( $checked >= 95, 'all bundled articles were checked (' . $checked . ')' );
 
+/* ---------------------------------------------------------------------------
+ * 7) v2.22.116 (owner order, 18 Nov 2026): on a county page the list is a CLOSED
+ *    dark-blue accordion (+ / −) under the featured image, the county gallery gets
+ *    its own tail anchor, and the paper box with «۴ سرفصل» is not used there.
+ * ------------------------------------------------------------------------- */
+function sa_photo_county_ids( $post_id, $limit = 12 ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	return ! empty( $GLOBALS['t']['county_photos'][ $post_id ] ) ? array( 4828 ) : array();
+}
+sa_toc_reset();
+$GLOBALS['t']['post_type']       = 'city';
+$GLOBALS['t']['current']         = 7;
+$GLOBALS['t']['faq'][7]          = array( array( 'q' => 'پرسش', 'a' => 'پاسخ' ) );
+$GLOBALS['t']['sources'][7]      = array( array( 'title' => 'منبع' ) );
+$GLOBALS['t']['county_photos'][7] = true;
+sa_toc_register_tail( 7 );
+$GLOBALS['sa_county_toc_capture'] = true;
+$GLOBALS['sa_county_toc_html']    = '';
+$county_body = '<h2>تاریخ و پیشینه</h2><p>متن.</p><h2>جاذبه‌های دیدنی</h2><p>متن.</p>';
+sa_toc_filter( $county_body );
+$county_toc = (string) $GLOBALS['sa_county_toc_html'];
+unset( $GLOBALS['sa_county_toc_capture'], $GLOBALS['sa_county_toc_html'] );
+sa_t_assert( '' !== $county_toc, 'the county list is captured instead of being prepended to the body' );
+sa_t_assert( false !== strpos( $county_toc, 'sa-toc--county' ), 'the county list is the county flavour of the box' );
+sa_t_assert( false !== strpos( $county_toc, '<details class="sa-county-accordion">' ), 'the county list is a closed accordion' );
+sa_t_assert( false === strpos( $county_toc, '<details class="sa-county-accordion" open' ), 'the accordion is closed by default (+ sign)' );
+sa_t_assert( false !== strpos( $county_toc, 'sa-county-accordion__icon' ), 'the accordion draws its own +/− icon' );
+sa_t_assert( false === strpos( $county_toc, 'sa-toc__count' ), 'the paper-box count line («۴ سرفصل») is not printed inside the accordion' );
+sa_t_assert( false !== strpos( $county_toc, 'href="#county-gallery"' ), 'the county gallery joins the list' );
+sa_t_assert( false !== strpos( $county_toc, '>گالری تصاویر شهرستان<' ), 'the gallery entry is labelled for the reader' );
+sa_t_assert( false !== strpos( $county_toc, 'href="#sources"' ) && false !== strpos( $county_toc, 'href="#faq"' ), 'sources and FAQ stay in the list' );
+sa_t_assert( strpos( $county_toc, 'href="#faq"' ) < strpos( $county_toc, 'href="#county-gallery"' ), 'the gallery is listed after the FAQ' );
+sa_t_assert( strpos( $county_toc, 'href="#county-gallery"' ) < strpos( $county_toc, 'href="#sources"' ), 'the gallery is listed above the sources' );
+sa_t_assert( 1 === substr_count( $county_toc, 'class="sa-toc__list"' ), 'the accordion holds one list, not nested copies' );
+sa_t_assert( false === strpos( $county_body, 'county-gallery' ), 'the body itself stays free of the box markup' );
+
+sa_toc_reset();
+$GLOBALS['t']['county_photos'][7] = false;
+sa_toc_register_tail( 7 );
+$GLOBALS['sa_county_toc_capture'] = true;
+$GLOBALS['sa_county_toc_html']    = '';
+sa_toc_filter( $county_body );
+$no_gallery_toc = (string) $GLOBALS['sa_county_toc_html'];
+unset( $GLOBALS['sa_county_toc_capture'], $GLOBALS['sa_county_toc_html'] );
+sa_t_assert( false === strpos( $no_gallery_toc, '#county-gallery' ), 'a county with no photo gets no dead gallery anchor' );
+$GLOBALS['t']['post_type'] = 'post';
+
 echo "PASS: table of contents (all " . $checked . " bundled articles, stable anchors, template sections in page order, no editor/feed/archive output)\n";
