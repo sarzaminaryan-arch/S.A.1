@@ -1,0 +1,14 @@
+{
+ "note": "۲.۲۲.۱۳۸ (۲۸ آبان ۱۴۰۵): اصلاح ابزار سنجش (uploaded in / local_absent_ok) و تکرار سه‌شاهدی برای nonce=c14767a278da. فقط خواندنی — هیچ حذف، هیچ تغییر تنظیمات، هیچ پشتیبان تازه. بازگشت به ۲.۲۲.۱۳۷.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.138", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.137"},
+  {"cmd": "updraft"},
+  {"cmd": "updraft-cloud", "nonce": "c14767a278da"},
+  {"cmd": "storage"},
+  {"cmd": "updraft-log", "nonce": "82738db7b8c9", "limit": 50}
+ ]
+}

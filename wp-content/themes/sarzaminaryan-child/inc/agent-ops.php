@@ -1116,6 +1116,7 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 		'log_upload_ok'  => array(),
 		'log_errors'     => array(),
 		'log_service_lines' => array(),
+		'log_local_deleted' => array(),
 		'no_remote_despatch' => false,
 		'log_lines'      => 0,
 		'last_backup'    => null,
@@ -1216,13 +1217,16 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 		$lines = preg_split( "/\r\n|\n/", $body );
 		$out['log_lines'] = count( (array) $lines );
 		foreach ( (array) $lines as $line ) {
+			if ( false !== strpos( $line, 'Deleting local file: ' ) ) {
+				$out['log_local_deleted'][] = trim( $line );
+			}
 			if ( preg_match( '/(No remote despatch|Cloud backup selection|Beginning dispatch|Recording as successfully uploaded)/', $line ) ) {
 				$out['log_service_lines'][] = trim( $line );
 			}
-			if ( false !== strpos( $line, 'OK: Archive ' ) && false !== strpos( $line, 'uploaded to ' ) ) {
-				if ( preg_match( '/OK: Archive (.+?) uploaded to /', $line, $m ) ) {
-					$out['log_upload_ok'][] = trim( $m[1] );
-				}
+			// v2.22.138: نسخه‌های تازه «uploaded in 9.54 seconds» می‌نویسند، نه
+			// «uploaded to …»؛ نسخهٔ قبلی این خطوط را نمی‌دید و نتیجهٔ «آپلود نشده» می‌داد.
+			if ( false !== strpos( $line, 'OK: Archive ' ) && preg_match( '/OK: Archive (.+?) uploaded (?:to|in) /', $line, $m ) ) {
+				$out['log_upload_ok'][] = trim( $m[1] );
 			} elseif ( sa_agent_updraft_log_is_error( $line ) ) {
 				$out['log_errors'][] = trim( substr( $line, 0, 300 ) );
 			}
@@ -1256,7 +1260,10 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	}
 	$missing_remote = array_values( array_diff( $disk, $remote_names ) );
 	$missing_log    = array_values( array_diff( $disk, $out['log_upload_ok'] ) );
-	if ( ! $disk ) {
+	// v2.22.138: نبودِ فایل محلی «خطا» نیست؛ با delete_local=1 فایل‌ها بلافاصله پس از
+	// آپلود موفق پاک می‌شوند. داوری باید بر شاهدهای ابری و لاگ بایستد، نه وجود دیسک.
+	$out['local_absent_ok'] = ( ! $disk && 1 === (int) sa_agent_updraft_option( 'updraft_delete_local', 0 ) );
+	if ( ! $disk && ! $out['local_absent_ok'] ) {
 		$out['reasons'][] = 'no_local_files';
 	}
 	if ( $missing_remote ) {
@@ -1280,7 +1287,7 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	if ( $no_despatch ) {
 		$out['reasons'][] = 'log_says_no_remote_despatch';
 	}
-	$out['complete'] = $disk && ! $missing_remote && ! $missing_log && ! $out['log_errors'] && ! $no_despatch && ( ! $out['last_backup'] || $out['last_backup']['success'] );
+	$out['complete'] = ( $disk || $out['local_absent_ok'] ) && ! $missing_remote && ! $missing_log && ! $out['log_errors'] && ! $no_despatch && ( ! $out['last_backup'] || $out['last_backup']['success'] );
 	return $out;
 }
 
