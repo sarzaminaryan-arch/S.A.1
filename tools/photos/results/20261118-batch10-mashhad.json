@@ -1,25 +1,29 @@
 {
  "batch": "20261118-batch10-mashhad",
  "note": "دستهٔ ۱۰ — مشهد (۶۳) که تا امروز هیچ عکس مجوزی در گالری نداشت. نام عکاس، مجوز و صفحهٔ منبع هر فایل تک‌به‌تک از extmetadata همان پرونده در ویکی‌مدیا خوانده و ثبت شده؛ عکس‌های خبرگزاری (تسنیم) کنار گذاشته شدند چون سیاست سایت عکس خبری نمی‌پذیرد.",
- "imported": [],
- "reused": [],
- "refused": [],
- "failed": [
+ "imported": [
   {
    "place": "حرم امام رضا؛ گنبد در شب",
-   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
+   "id": 4829,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8add8b1d985-d8a7d985d8a7d985-d8b1d8b6d8a7d89b-daafd986d8a8d8af-d8afd8b1-d8b4d8a8-9d83c9.webp"
   },
   {
    "place": "مقبرهٔ نادر شاه افشار",
-   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
+   "id": 4830,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d982d8a8d8b1d987d994-d986d8a7d8afd8b1-d8b4d8a7d987-d8a7d981d8b4d8a7d8b1-af3fc7.webp"
   },
   {
    "place": "حرم امام رضا؛ صحن عتیق",
-   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
+   "id": 4831,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8add8b1d985-d8a7d985d8a7d985-d8b1d8b6d8a7d89b-d8b5d8add986-d8b9d8aadb8cd982-f8ba2c.webp"
   },
   {
    "place": "مجسمهٔ نادر شاه در میدان نادر",
-   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
+   "id": 4832,
+   "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8acd8b3d985d987d994-d986d8a7d8afd8b1-d8b4d8a7d987-d8afd8b1-d985db8cd8afd8a7d986-d986d8a7d8afd8b1-02ac8f.webp"
   }
- ]
+ ],
+ "reused": [],
+ "refused": [],
+ "failed": []
 }
