@@ -923,6 +923,45 @@ function sa_agent_updraft_log_is_error( $line ) {
  *
  * @return array
  */
+/**
+ * v2.22.137: آیا جدول‌های *options خود افزونه (نه wp_options) توکن نگه می‌دارند؟
+ *
+ * نسخهٔ نصب‌شده (۱.۲۶.۱۶) حساب Google Drive را در ساختار instance نگه می‌دارد و
+ * ممکن است مقادیر محرمانه در جدول‌های جدای افزونه باشند، نه در wp_options. برای
+ * اینکه «تنظیم نشده» را به‌غلط گزارش نکنیم، وجود و شمارش ردیف‌ها و کلیدها بررسی
+ * می‌شود — هرگز مقدارها خوانده یا برگردانده نمی‌شوند.
+ *
+ * @return array
+ */
+function sa_agent_updraft_secret_store() {
+	global $wpdb;
+	$out = array( 'tables' => array(), 'any_secret_row' => false );
+	$like = $wpdb->esc_like( 'updraft' ) . '%';
+	$tables = $wpdb->get_col( $wpdb->prepare( 'SHOW TABLES LIKE %s', $like ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+	foreach ( (array) $tables as $t ) {
+		$rows = (int) $wpdb->get_var( "SELECT COUNT(*) FROM `$t`" ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery
+		$cols = $wpdb->get_col( "SHOW COLUMNS FROM `$t`" ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery
+		$has_secret_col = false;
+		$key_hits       = array();
+		foreach ( (array) $cols as $c ) {
+			$lc = strtolower( (string) $c );
+			if ( in_array( $lc, array( 'value', 'option_value', 'settings', 'data' ), true ) ) {
+				$has_secret_col = true;
+			}
+		}
+		$out['tables'][] = array(
+			'name'   => $t,
+			'rows'   => $rows,
+			'cols'   => array_values( (array) $cols ),
+			'has_secret_col' => $has_secret_col,
+		);
+		if ( $has_secret_col && $rows > 0 ) {
+			$out['any_secret_row'] = true;
+		}
+	}
+	return $out;
+}
+
 function sa_agent_updraft_drive_test() {
 	$out = array(
 		'configured'      => false,
@@ -1017,6 +1056,7 @@ function sa_agent_updraft_drive_test() {
 	$out['has_secret']  = '' !== $secret;
 	$out['has_refresh'] = '' !== $refresh;
 	if ( ! $out['has_client'] || ! $out['has_secret'] || ! $out['has_refresh'] ) {
+		$out['secret_store'] = sa_agent_updraft_secret_store();
 		$out['error']      = 'incomplete_credentials';
 		$out['error_hint'] = 'در پیشخوان → تنظیمات → UpdraftPlus → «تنظیمات فضای ذخیره‌سازی»: Google Drive را باز کنید و «Connect with Google Drive» را بزنید تا توکن تازه ساخته شود.';
 		return $out;
