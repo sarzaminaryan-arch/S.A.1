@@ -60,6 +60,37 @@ jobs:
           retention-days: 3
           if-no-files-found: ignore
 
+  # Keep a compact, attributable proof on the editorial branch: artifact
+  # downloads expire, but later reviewers must be able to check the subjects.
+  record-review:
+    needs: review
+    if: ${{ always() && inputs.review_only && startsWith(github.ref, 'refs/heads/arena/') && needs.review.result != 'cancelled' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: commons-photo-review
+          path: ${{ runner.temp }}/proof
+      - name: Record only the review sheets and the matching attribution table
+        env:
+          BATCH: ${{ inputs.batch }}
+        shell: bash
+        run: |
+          [[ "$BATCH" =~ ^tools/photos/([A-Za-z0-9_-]+)\.json$ ]]
+          dest="tools/photos/reviews/${BASH_REMATCH[1]}"
+          mkdir -p "$dest"
+          cp "$RUNNER_TEMP/proof/credits.json" "$RUNNER_TEMP"/proof/proof-*.jpg "$dest/"
+          git add -- "$dest"
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'photo-review[bot]'
+          git config user.email 'photo-review[bot]@users.noreply.github.com'
+          git commit -m "Record the Commons subject and credit proof for ${dest##*/}"
+          git pull --rebase origin "$GITHUB_REF_NAME"
+          git push origin "HEAD:$GITHUB_REF_NAME"
+
   import:
     if: ${{ !inputs.review_only }}
     name: Import licensed photos
