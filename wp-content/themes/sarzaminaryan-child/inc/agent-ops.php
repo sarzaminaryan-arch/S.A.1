@@ -937,12 +937,40 @@ function sa_agent_updraft_drive_test() {
 		'error_hint'      => '',
 		'connected'       => false,
 	);
-	$opts = sa_agent_updraft_option( 'updraft_googledrive', array() );
-	if ( ! is_array( $opts ) ) {
-		$opts = array();
+	$raw = sa_agent_updraft_option( 'updraft_googledrive', array() );
+	if ( ! is_array( $raw ) ) {
+		$raw = array();
 	}
 	// تشخیص: کدام کلیدهای همکار با Drive در دیتابیس هستند (فقط وجود/طول، نه مقدار).
-	$out['option_keys'] = array_keys( $opts );
+	$out['option_keys'] = array_keys( $raw );
+	$out['option_structure'] = 'flat';
+	$opts = $raw;
+	// v2.22.135: ساختار تازهٔ افزونه کلیدها را زیر settings نگه می‌دارد.
+	if ( isset( $raw['settings'] ) && is_array( $raw['settings'] ) ) {
+		$out['option_structure']    = 'nested_settings';
+		$out['settings_keys']       = array_keys( $raw['settings'] );
+		$out['settings_sub_keys']   = array();
+		foreach ( $raw['settings'] as $sk => $sv ) {
+			$out['settings_sub_keys'][ $sk ] = is_array( $sv ) ? array_keys( $sv ) : gettype( $sv );
+		}
+		$opts = $raw['settings'];
+	}
+	$find = static function ( $arr, $keys ) {
+		foreach ( $keys as $k ) {
+			if ( isset( $arr[ $k ] ) && '' !== (string) $arr[ $k ] ) {
+				return (string) $arr[ $k ];
+			}
+		}
+		return '';
+	};
+	$clientid = $find( $opts, array( 'clientid', 'client_id', 'clientId' ) );
+	$secret   = $find( $opts, array( 'secret', 'client_secret', 'clientSecret' ) );
+	$refresh  = $find( $opts, array( 'token', 'refresh_token', 'refreshToken' ) );
+	$out['resolved_keys'] = array(
+		'clientid' => '' !== $clientid,
+		'secret'   => '' !== $secret,
+		'refresh'  => '' !== $refresh,
+	);
 	$out['stored']      = array(
 		'updraft_googledrive_type'   => gettype( sa_agent_updraft_option( 'updraft_googledrive', null ) ),
 		'updraft_service'            => sa_agent_updraft_option( 'updraft_service', null ),
@@ -951,9 +979,6 @@ function sa_agent_updraft_drive_test() {
 		'tmp_access_token_present'   => '' !== (string) sa_agent_updraft_option( 'updraftplus_tmp_googledrive_access_token', '' ),
 		'refreshtoken_option_len'    => strlen( (string) sa_agent_updraft_option( 'updraft_googledrive_refreshtoken', '' ) ),
 	);
-	$clientid = isset( $opts['clientid'] ) ? (string) $opts['clientid'] : '';
-	$secret   = isset( $opts['secret'] ) ? (string) $opts['secret'] : '';
-	$refresh  = isset( $opts['token'] ) ? (string) $opts['token'] : '';
 	$out['configured']  = ( '' !== $clientid || '' !== $secret || '' !== $refresh );
 	$out['has_client']  = '' !== $clientid;
 	$out['has_secret']  = '' !== $secret;
