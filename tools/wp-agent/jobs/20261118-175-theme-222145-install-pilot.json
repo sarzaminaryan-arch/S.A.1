@@ -1,0 +1,16 @@
+{
+ "note": "۲.۲۲.۱۴۵ (۲۸ آبان ۱۴۰۵): نصب قالب مدولار و آزمون سکشن روی ده شهرستان. سه گام فقط‌خواندنی: نصب، سنجش خشک سکشن (بدون نوشتن)، و پروب ده صفحه + دو صفحهٔ شاهد. بازگشت به ۲.۲۲.۱۴۴.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.145", "wait_for_release": 300,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.144"},
+  {"cmd": "section-tests", "file": "tools/wp-agent/sections/pilot-10.json", "dry_run": true},
+  {"cmd": "probe", "url": [
+    "/city/tehran/", "/city/mashhad/", "/city/isfahan/", "/city/tabriz/", "/city/karaj/",
+    "/city/shiraz/", "/city/ahvaz/", "/city/qom/", "/city/kermanshah/", "/city/rasht/",
+    "/city/nur/", "/city/talesh/"
+  ]}
+ ]
+}
