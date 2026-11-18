@@ -1,0 +1,17 @@
+[
+ {
+  "id": 534,
+  "slug": "nur",
+  "words_after": 927,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

@@ -24,9 +24,15 @@ sys.path.insert(0, str(HERE / "replace_src"))
 
 import wp_agent as wa  # noqa: E402
 from replace_src import check_template as ct  # noqa: E402
-from replace_src.county_page import build  # noqa: E402
+from replace_src.county_page import build, source_lines  # noqa: E402
 from replace_src.template import MARK_OPEN, MARK_CLOSE, Template  # noqa: E402
 
+
+# Source dates belong to the evidence, not the day an old batch is rebuilt.
+lines = source_lines({"a": ["الف | نهاد", "https://example.org/a"],
+                      "b": {"title": "ب", "org": "نهاد", "url": "https://example.org/b",
+                            "accessed_on": "۱۴۰۵/۰۸/۲۷"}}).splitlines()
+assert lines[0].endswith(" | ۱۴۰۵/۰۸/۲۶") and lines[1].endswith(" | ۱۴۰۵/۰۸/۲۷")
 
 # --- 1. a county with no notables -----------------------------------------
 def county(notables=True, meta=None):

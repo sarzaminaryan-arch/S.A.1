@@ -1,0 +1,17 @@
+[
+ {
+  "id": 105,
+  "slug": "jolfa",
+  "words_after": 946,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+  "id": 466,
+  "slug": "masal",
+  "words_after": 931,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
