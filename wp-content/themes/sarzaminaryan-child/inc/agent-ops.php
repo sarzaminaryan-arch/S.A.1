@@ -954,6 +954,39 @@ function sa_agent_updraft_drive_test() {
 			$out['settings_sub_keys'][ $sk ] = is_array( $sv ) ? array_keys( $sv ) : gettype( $sv );
 		}
 		$opts = $raw['settings'];
+		// v2.22.136: نسخهٔ افزونه هر حساب را در یک «instance» (کلید s-…) نگه می‌دارد:
+		// settings → s-xxxx → {clientid, secret, token, …}. حسابِ instance_enabled را برمی‌داریم.
+		$instances = array();
+		foreach ( $raw['settings'] as $sk => $sv ) {
+			if ( 0 === strpos( (string) $sk, 's-' ) && is_array( $sv ) ) {
+				$instances[ $sk ] = $sv;
+			}
+		}
+		$out['instances'] = array();
+		$chosen = null;
+		foreach ( $instances as $sk => $sv ) {
+			$enabled = false;
+			if ( isset( $sv['instance_enabled'] ) ) {
+				$enabled = ! empty( $sv['instance_enabled'] ) && '1' !== (string) $sv['instance_enabled'] ? (bool) $sv['instance_enabled'] : (bool) (int) $sv['instance_enabled'];
+			}
+			$out['instances'][ $sk ] = array(
+				'enabled'      => $enabled,
+				'has_client'   => ! empty( $sv['clientid'] ),
+				'has_secret'   => ! empty( $sv['secret'] ),
+				'has_token'    => ! empty( $sv['token'] ),
+				'has_tmp'      => ! empty( $sv['tmp_access_token'] ),
+				'owner_email'  => isset( $sv['owneremail'] ) ? (string) $sv['owneremail'] : '',
+				'folder'       => isset( $sv['folder'] ) ? (string) $sv['folder'] : '',
+				'token_len'    => isset( $sv['token'] ) ? strlen( (string) $sv['token'] ) : 0,
+			);
+			if ( null === $chosen && ( $enabled || 1 === count( $instances ) ) ) {
+				$chosen = $sv;
+			}
+		}
+		if ( is_array( $chosen ) ) {
+			$opts = $chosen;
+			$out['instance_used'] = $sk;
+		}
 	}
 	$find = static function ( $arr, $keys ) {
 		foreach ( $keys as $k ) {
