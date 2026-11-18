@@ -1,0 +1,217 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-178-isfahan-city-probe.json",
+  "started_utc": "2026-11-18T21:57:16+00:00",
+  "note": "۲.۲۲.۱۴۶ (۲۸ آبان ۱۴۰۵): /city/isfahan/ با ۳۰۱ به /city/isfahan-city/ می‌رود؛ همان صفحه با نامک درست خوانده می‌شود تا اصفهان هم در رگرسیون ده شهرستان باشد. فقط خواندنی.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.146",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T21:57:17+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "status": 200,
+            "ms": 1634,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان اصفهان؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/isfahan-city/",
+            "desc": "راهنمای شهرستان اصفهان: جمعیت ۲٬۱۳۰٬۹۷۰ نفر و مساحت ۱٬۶۷۲ کیلومتر مربع، میدان نقش جهان ثبت جهانی، پل‌های تاریخی، کوه صفه، اقامت و وضعیت واقعی زاینده‌رود.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان اصفهان — شهری که میدانش را برای تماشا ساخت",
+              "og:description": "از نقش جهان و جلفا تا کوه صفه و بستر خشک زاینده‌رود؛ تجربهٔ سفر به اصفهان با کمبودهایش.",
+              "og:url": "https://sarzaminaryan.ir/city/isfahan-city/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-isfahan-city.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان اصفهان — شهری که میدانش را برای تماشا ساخت",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان اصفهان — شهری که میدانش را برای تماشا ساخت"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-isfahan-city.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 11,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-isfahan-city.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20488,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "section-tests",
+      "result": {
+        "ok": true,
+        "dry_run": true,
+        "remove": false,
+        "posts": [
+          {
+            "slug": "tehran",
+            "id": 213,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 27767,
+            "ok": true,
+            "chars_after": 28704
+          },
+          {
+            "slug": "mashhad",
+            "id": 63,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 23550,
+            "ok": true,
+            "chars_after": 24487
+          },
+          {
+            "slug": "isfahan-city",
+            "id": 3429,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 23088,
+            "ok": true,
+            "chars_after": 24025
+          },
+          {
+            "slug": "tabriz",
+            "id": 100,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 20314,
+            "ok": true,
+            "chars_after": 21251
+          },
+          {
+            "slug": "karaj",
+            "id": 182,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 22005,
+            "ok": true,
+            "chars_after": 22942
+          },
+          {
+            "slug": "shiraz",
+            "id": 323,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 21419,
+            "ok": true,
+            "chars_after": 22356
+          },
+          {
+            "slug": "ahvaz",
+            "id": 271,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 18422,
+            "ok": true,
+            "chars_after": 19359
+          },
+          {
+            "slug": "qom",
+            "id": 358,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 20784,
+            "ok": true,
+            "chars_after": 21721
+          },
+          {
+            "slug": "kermanshah",
+            "id": 416,
+            "sections_found": 0,
+            "had_tests": false,
+            "chars_before": 9665,
+            "ok": true,
+            "chars_after": 10602
+          },
+          {
+            "slug": "rasht",
+            "id": 453,
+            "sections_found": 7,
+            "had_tests": false,
+            "chars_before": 19234,
+            "ok": true,
+            "chars_after": 20171
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T21:57:21+00:00"
+}
