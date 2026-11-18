@@ -1,0 +1,13 @@
+{
+ "note": "۲.۲۲.۱۱۸ → ۲.۲۲.۱۲۱ (۲۸ آبان ۱۴۰۵): فقط اندازه‌گیری بایت‌های پشتیبان‌های قدیمی درست شد. پس از نصب، پیش‌نمایش نگه‌داری دوباره گرفته می‌شود تا فهرست واقعی حذف و صرفه‌جویی روشن شود؛ هیچ رکوردی در این کار حذف نمی‌شود. بازگشت به ۲.۲۲.۱۲۰ تعبیه است.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.121", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/", "/city/kazerun/"],
+   "rollback_to": "2.22.120"},
+  {"cmd": "storage"},
+  {"cmd": "backups-prune", "per_target": 3, "total": 400},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/"]}
+ ]
+}

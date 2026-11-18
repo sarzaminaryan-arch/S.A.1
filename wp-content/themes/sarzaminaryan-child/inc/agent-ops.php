@@ -648,12 +648,7 @@ function sa_agent_rest_storage() {
 		)
 	);
 	foreach ( (array) $ids as $bid ) {
-		$bytes = get_post_meta( $bid, '_sa_backup_bytes', true );
-		if ( '' === $bytes ) {
-			// پشتیبان‌های پیش از ۲.۲۲.۱۲۰ اندازه ندارند؛ همان‌جا سنجیده می‌شود.
-			$bytes = strlen( (string) get_post_meta( $bid, '_sa_backup_json', true ) );
-		}
-		$bytes = (int) $bytes;
+		$bytes = sa_agent_backup_bytes( $bid );
 		$kind  = (string) get_post_meta( $bid, '_sa_backup_kind', true );
 		$out['agent']['records']++;
 		$out['agent']['bytes'] += $bytes;
@@ -770,6 +765,21 @@ function sa_agent_storage_dir_bytes( $dir, $audit = false ) {
 }
 
 /**
+ * بایت‌های یک رکورد پشتیبان — برای رکوردهای پیش از ۲.۲۲.۱۲۰ اندازه ذخیره نشده،
+ * پس همان‌جا از طول JSON سنجیده می‌شود (فقط خواندن).
+ *
+ * @param int $bid شناسهٔ رکورد پشتیبان.
+ * @return int
+ */
+function sa_agent_backup_bytes( $bid ) {
+	$bytes = get_post_meta( (int) $bid, '_sa_backup_bytes', true );
+	if ( '' === $bytes || null === $bytes ) {
+		$bytes = strlen( (string) get_post_meta( (int) $bid, '_sa_backup_json', true ) );
+	}
+	return (int) $bytes;
+}
+
+/**
  * POST /backups/prune — نگه‌داری پشتیبان‌ها: پیش‌نمایش، و حذف فقط با پرچم مالک.
  *
  * پیش‌فرض همیشه پیش‌نمایش است (`dry_run` نبود یعنی پیش‌نمایش). حذف فقط رکوردهای
@@ -807,7 +817,7 @@ function sa_agent_rest_backups_prune( $r ) {
 	foreach ( $ids as $bid ) {
 		$target = (int) get_post_meta( $bid, '_sa_backup_target', true );
 		$kind   = (string) get_post_meta( $bid, '_sa_backup_kind', true );
-		$size   = (int) get_post_meta( $bid, '_sa_backup_bytes', true );
+		$size   = sa_agent_backup_bytes( $bid );
 		$bytes += $size;
 		$key    = $kind . ':' . $target;
 		$seen[ $key ] = isset( $seen[ $key ] ) ? $seen[ $key ] + 1 : 1;
@@ -828,7 +838,7 @@ function sa_agent_rest_backups_prune( $r ) {
 				'id'        => (int) $bid,
 				'kind'      => (string) get_post_meta( $bid, '_sa_backup_kind', true ),
 				'target'    => (int) get_post_meta( $bid, '_sa_backup_target', true ),
-				'bytes'     => (int) get_post_meta( $bid, '_sa_backup_bytes', true ),
+				'bytes'     => sa_agent_backup_bytes( $bid ),
 				'date_gmt'  => (string) get_post_field( 'post_date_gmt', $bid ),
 			);
 			--$kept;
