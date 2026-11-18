@@ -235,7 +235,10 @@ jobs:
         run: |
           set -euo pipefail
           if git rev-parse --verify --quiet "refs/tags/$TAG" >/dev/null; then
-            if ! git diff --quiet "refs/tags/$TAG" -- "$THEME_DIR"; then
+            # The guard protects what a visitor actually receives. A change under tests/ (or the
+            # changelog) never ships to the site, so fixing a stale assertion must not force a
+            # version bump on every push — that is how 2.22.117 was burned on a test-only fix.
+            if ! git diff --quiet "refs/tags/$TAG" -- "$THEME_DIR" ":(exclude)$THEME_DIR/tests" ":(exclude)$THEME_DIR/CHANGELOG.md"; then
               echo "Theme code changed without a version bump; $TAG already points to different theme files." >&2
               exit 1
             fi
