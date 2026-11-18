@@ -1,0 +1,1006 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-144-theme-222124-updraft-sets.json",
+  "started_utc": "2026-11-18T17:24:59+00:00",
+  "note": "۲.۲۲.۱۲۴ (۲۸ آبان ۱۴۰۵): فهرست فایل هر نسخهٔ UpdraftPlus خوانده می‌شود تا فهرست حذف، دقیق و به‌نام به مالک داده شود. هیچ حذفی در این کار نیست، حتی پیش‌نمایش حذف. بازگشت به ۲.۲۲.۱۲۳ تعبیه است.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.123",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T17:24:59+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.123",
+          "loaded": "2.22.123",
+          "log": [
+            {
+              "time_gmt": "2026-11-18T14:21:21+00:00",
+              "from": "2.22.118",
+              "to": "2.22.119",
+              "wanted": "2.22.119",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T17:14:47+00:00",
+              "from": "2.22.119",
+              "to": "2.22.120",
+              "wanted": "2.22.120",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T17:18:21+00:00",
+              "from": "2.22.120",
+              "to": "2.22.121",
+              "wanted": "2.22.121",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T17:20:41+00:00",
+              "from": "2.22.121",
+              "to": "2.22.122",
+              "wanted": "2.22.122",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T17:23:02+00:00",
+              "from": "2.22.122",
+              "to": "2.22.123",
+              "wanted": "2.22.123",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1335,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/",
+            "status": 200,
+            "ms": 1555,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "county_gallery": 1,
+            "county_gallery_slides": 4,
+            "county_zoom_frames": 4,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [
+              "Mostafameraji",
+              "IA (Wikimedia Commons)",
+              "Nader Rajabnezhad",
+              "mohammad hosein tabatabaeian"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 12,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "install": {
+          "updated": true,
+          "from": "2.22.123",
+          "to": "2.22.124",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.124",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1795022749",
+            "status": 200,
+            "ms": 1926,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/?sa_probe=1795022752",
+            "status": 200,
+            "ms": 1732,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "county_gallery": 1,
+            "county_gallery_slides": 4,
+            "county_zoom_frames": 4,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [
+              "Mostafameraji",
+              "IA (Wikimedia Commons)",
+              "Nader Rajabnezhad",
+              "mohammad hosein tabatabaeian"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 12,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "storage",
+      "result": {
+        "disk": {
+          "free_bytes": null,
+          "total_bytes": null
+        },
+        "agent": {
+          "records": 661,
+          "bytes": 16082756,
+          "oldest": "2026-11-15 05:14:16",
+          "newest": "2026-11-18 10:39:25",
+          "by_kind": {
+            "post": {
+              "records": 660,
+              "bytes": 16082378
+            },
+            "litespeed": {
+              "records": 1,
+              "bytes": 378
+            }
+          }
+        },
+        "updraft": {
+          "active": true,
+          "history": 2,
+          "sets": [
+            {
+              "utc": "2026-11-18T11:58:18+00:00",
+              "bytes": 471708013,
+              "entities": [
+                "plugins",
+                "themes",
+                "uploads",
+                "db"
+              ]
+            },
+            {
+              "utc": "2026-11-17T12:57:12+00:00",
+              "bytes": 317577542,
+              "entities": [
+                "mu-plugins",
+                "others"
+              ]
+            }
+          ],
+          "dir": "/home/haftpair/sarzaminaryan.ir/wp-content/plugins/updraftplus",
+          "bytes": 24761881,
+          "set_bytes": 789285555,
+          "dir_bytes": 24761881,
+          "files": 1604,
+          "file_list": [
+            {
+              "name": "languages/updraftplus-es_CR.po",
+              "bytes": 447290,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bg_BG.po",
+              "bytes": 446289,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ar.po",
+              "bytes": 432473,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "admin.php",
+              "bytes": 384005,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus.pot",
+              "bytes": 372965,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/team-updraft/lib-onboarding-wizard/Wizard/Onboarding/build/index.js",
+              "bytes": 371712,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-da_DK.po",
+              "bytes": 370441,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "class-updraftplus.php",
+              "bytes": 346735,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-sl_SI.po",
+              "bytes": 340330,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-tl.po",
+              "bytes": 338728,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-hu_HU.po",
+              "bytes": 322977,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-id_ID.po",
+              "bytes": 322763,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-fi.po",
+              "bytes": 320938,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bn_BD.po",
+              "bytes": 315939,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-zh_HK.po",
+              "bytes": 313638,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-he_IL.po",
+              "bytes": 313140,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "includes/jstree/jstree.js",
+              "bytes": 310643,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-eu.po",
+              "bytes": 308220,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-es_CR.mo",
+              "bytes": 308016,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-et.po",
+              "bytes": 305969,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-lt_LT.po",
+              "bytes": 305618,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ca.po",
+              "bytes": 304683,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ur.po",
+              "bytes": 304018,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-hi_IN.po",
+              "bytes": 303842,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-sr_RS.po",
+              "bytes": 303564,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bs_BA.po",
+              "bytes": 303337,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ckb.po",
+              "bytes": 303165,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-fr_CA.po",
+              "bytes": 303163,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-af.po",
+              "bytes": 303158,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-te.po",
+              "bytes": 303152,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-th.po",
+              "bytes": 303067,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "includes/updraft-admin-common.js",
+              "bytes": 287299,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "restorer.php",
+              "bytes": 276906,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/components/jquery/jquery.js",
+              "bytes": 255967,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/guzzle/guzzle/src/Guzzle/Http/Resources/cacert.pem",
+              "bytes": 250394,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bg_BG.mo",
+              "bytes": 244724,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "backup.php",
+              "bytes": 240546,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ar.mo",
+              "bytes": 239498,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "includes/handlebars/handlebars.js",
+              "bytes": 215867,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "vendor/phpseclib/phpseclib/phpseclib/Net/SSH2.php",
+              "bytes": 203745,
+              "modified": "2026-11-18T02:42:15+00:00"
+            }
+          ],
+          "sets_detail": [
+            {
+              "nonce": "82738db7b8c9",
+              "utc": "2026-11-18T11:58:18+00:00",
+              "entities": [
+                "plugins",
+                "themes",
+                "uploads",
+                "db"
+              ],
+              "files": [
+                {
+                  "name": "backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-db.gz",
+                  "bytes": 0,
+                  "exists": false
+                }
+              ],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "87eaebf2acab",
+              "utc": "2026-11-17T12:57:12+00:00",
+              "entities": [
+                "mu-plugins",
+                "others"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            }
+          ]
+        },
+        "uploads": {
+          "dir": "/home/haftpair/sarzaminaryan.ir/wp-content/uploads",
+          "files": 8354,
+          "bytes": 259710177,
+          "images_over_200kb": 165
+        },
+        "backup_plugin_dirs": [
+          {
+            "path": "/home/haftpair/sarzaminaryan.ir/wp-content/updraft",
+            "files": 13,
+            "bytes": 514401876,
+            "file_list": [
+              {
+                "name": "backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads.zip",
+                "bytes": 417525494,
+                "modified": "2026-11-18T11:58:35+00:00"
+              },
+              {
+                "name": "backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads2.zip",
+                "bytes": 42538162,
+                "modified": "2026-11-18T11:58:40+00:00"
+              },
+              {
+                "name": "backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-themes.zip",
+                "bytes": 27584642,
+                "modified": "2026-11-18T11:58:25+00:00"
+              },
+              {
+                "name": "backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-plugins.zip",
+                "bytes": 16983205,
+                "modified": "2026-11-18T11:58:23+00:00"
+              },
+              {
+                "name": "backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-db.gz",
+                "bytes": 9614672,
+                "modified": "2026-11-18T11:58:43+00:00"
+              },
+              {
+                "name": "log.87eaebf2acab.txt",
+                "bytes": 63986,
+                "modified": "2026-11-17T12:57:31+00:00"
+              },
+              {
+                "name": "log.82738db7b8c9.txt",
+                "bytes": 62023,
+                "modified": "2026-11-18T11:58:43+00:00"
+              },
+              {
+                "name": "log.f18c750b62bc.txt",
+                "bytes": 24647,
+                "modified": "2026-10-17T04:15:38+00:00"
+              },
+              {
+                "name": "log.f5e4d079ae0f.txt",
+                "bytes": 3631,
+                "modified": "2026-10-18T20:55:25+00:00"
+              },
+              {
+                "name": "backup_2026-11-17-1627_sarzaminaryanir_87eaebf2acab-mu-plugins.zip",
+                "bytes": 1165,
+                "modified": "2026-11-17T12:57:27+00:00"
+              },
+              {
+                "name": "web.config",
+                "bytes": 124,
+                "modified": "2026-10-12T23:23:03+00:00"
+              },
+              {
+                "name": "index.html",
+                "bytes": 112,
+                "modified": "2026-10-12T23:23:03+00:00"
+              },
+              {
+                "name": ".htaccess",
+                "bytes": 13,
+                "modified": "2026-10-12T23:23:03+00:00"
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "agent: پشتیبان‌های افتراقی پل (رکورد خصوصی در پایگاه‌داده).",
+          "updraft: پشتیبان‌های کاملِ زمان‌بندی‌شده (فقط برای بازگردانی کامل سایت).",
+          "uploads: رسانه‌های سایت؛ عکس‌های شهرستان باید WebP زیر ۱۰۰ کیلوبایت باشند."
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1333,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/",
+            "status": 200,
+            "ms": 1693,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "county_gallery": 1,
+            "county_gallery_slides": 4,
+            "county_zoom_frames": 4,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [
+              "Mostafameraji",
+              "IA (Wikimedia Commons)",
+              "Nader Rajabnezhad",
+              "mohammad hosein tabatabaeian"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 12,
+            "experience_tips": 8,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/tehran/",
+            "status": 200,
+            "ms": 2757,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تهران؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/tehran/",
+            "desc": "راهنمای شهرستان تهران: مساحت ۱۳۰۱ کیلومتر مربع و جمعیت ۸٬۷۳۷٬۵۱۰ نفر (۱۳۹۵)، سه بخش، آب‌وهوای دوگانهٔ شمال و جنوب، مترو، فرودگاه مهرآباد و نشانه‌های شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "og:description": "از کاخ گلستانِ ثبت‌شده در یونسکو تا پل طبیعت و مسیرهای دربند و درکه؛ تجربهٔ سفر به تهران، محله‌به‌محله.",
+              "og:url": "https://sarzaminaryan.ir/city/tehran/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp"
+            ],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 2,
+            "photo_strip_credits": 2,
+            "county_gallery": 1,
+            "county_gallery_slides": 2,
+            "county_zoom_frames": 2,
+            "county_accordions": 2,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 2,
+            "photo_credit_texts": [
+              "Diba Tensile Architecture",
+              "Ahmadatyabi"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 10,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "BreadcrumbList",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19236,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T17:26:04+00:00"
+}
