@@ -1,0 +1,14 @@
+{
+ "note": "۲.۲۲.۱۳۱ (۲۷ آبان ۱۴۰۵): تأیید نهایی وضعیت ابری نسخهٔ 82738db7b8c9 با شاهد «No remote despatch». فقط خواندنی؛ هیچ حذفی نیست. بازگشت به ۲.۲۲.۱۳۰.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.131", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.130"},
+  {"cmd": "updraft-cloud", "nonce": "82738db7b8c9"},
+  {"cmd": "updraft-cloud", "nonce": "87eaebf2acab"},
+  {"cmd": "updraft-delete-local", "nonce": "82738db7b8c9"},
+  {"cmd": "storage"}
+ ]
+}

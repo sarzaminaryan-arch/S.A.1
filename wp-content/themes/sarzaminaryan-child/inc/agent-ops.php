@@ -890,6 +890,10 @@ function sa_agent_updraft_log_is_error( $line ) {
 	if ( false !== strpos( $line, 'no errors' ) || false !== strpos( $line, 'ERROR_FOR_DIVISION_BY_ZERO' ) ) {
 		return false;
 	}
+	// خطاهای واقعی UpdraftPlus با نشانگر «(error)» در انتهای خط لاگ می‌آیند.
+	if ( preg_match( '/((\*\*\*)?\s*\(?error\)?\s*$)/i', $line ) && false === strpos( $line, 'no errors' ) ) {
+		return true;
+	}
 	return (bool) preg_match( '/(\bERROR:\s|Failed to upload|failed to open|will not be able to|Could not |unable to)/i', $line );
 }
 
@@ -903,6 +907,8 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 		'log_file'       => '',
 		'log_upload_ok'  => array(),
 		'log_errors'     => array(),
+		'log_service_lines' => array(),
+		'no_remote_despatch' => false,
 		'log_lines'      => 0,
 		'last_backup'    => null,
 		'complete'       => false,
@@ -1002,6 +1008,9 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 		$lines = preg_split( "/\r\n|\n/", $body );
 		$out['log_lines'] = count( (array) $lines );
 		foreach ( (array) $lines as $line ) {
+			if ( preg_match( '/(No remote despatch|Cloud backup selection|Beginning dispatch|Recording as successfully uploaded)/', $line ) ) {
+				$out['log_service_lines'][] = trim( $line );
+			}
 			if ( false !== strpos( $line, 'OK: Archive ' ) && false !== strpos( $line, 'uploaded to ' ) ) {
 				if ( preg_match( '/OK: Archive (.+?) uploaded to /', $line, $m ) ) {
 					$out['log_upload_ok'][] = trim( $m[1] );
@@ -1054,7 +1063,16 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	if ( $out['last_backup'] && ! $out['last_backup']['success'] ) {
 		$out['reasons'][] = 'last_backup_not_success';
 	}
-	$out['complete'] = $disk && ! $missing_remote && ! $missing_log && ! $out['log_errors'] && ( ! $out['last_backup'] || $out['last_backup']['success'] );
+	// شاهد ۲ب (v2.22.131): اگر لاگ صریحاً بگوید «No remote despatch» یعنی UpdraftPlus
+	// اصلاً به فضای ابری نفرستاده؛ این قوی‌ترین شاهد منفی است و باید کل بررسی را رد کند.
+	$no_despatch = array_values( array_filter( $out['log_service_lines'], static function ( $l ) {
+		return false !== strpos( $l, 'No remote despatch' );
+	} ) );
+	$out['no_remote_despatch'] = (bool) $no_despatch;
+	if ( $no_despatch ) {
+		$out['reasons'][] = 'log_says_no_remote_despatch';
+	}
+	$out['complete'] = $disk && ! $missing_remote && ! $missing_log && ! $out['log_errors'] && ! $no_despatch && ( ! $out['last_backup'] || $out['last_backup']['success'] );
 	return $out;
 }
 
