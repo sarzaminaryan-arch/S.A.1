@@ -1,0 +1,10 @@
+{
+ "note": "تأیید سه‌شاهدی نسخهٔ تازه (۲۸ آبان ۱۴۰۵): آیا nonce=c14767a278da واقعاً و کامل روی Google Drive است؟ فقط خواندنی — هیچ حذف، هیچ تغییر تنظیمات، هیچ پشتیبان تازه. اگر نسخه در تاریخچه نبود، /updraft فهرست را می‌دهد.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "updraft"},
+  {"cmd": "updraft-cloud", "nonce": "c14767a278da"},
+  {"cmd": "updraft-log", "nonce": "c14767a278da", "limit": 200},
+  {"cmd": "storage"}
+ ]
+}
