@@ -652,6 +652,9 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("storage", help="read-only: real size of agent backups, UpdraftPlus sets and uploads")
+    p = sub.add_parser("updraft-log", help="read-only: relevant lines of one UpdraftPlus set log (theme 2.22.130+)")
+    p.add_argument("--nonce", required=True)
+    p.add_argument("--limit", type=int, default=200)
     p = sub.add_parser("updraft-cloud", help="read-only: three evidences that a set really uploaded to the cloud (theme 2.22.129+)")
     p.add_argument("--nonce", required=True)
     p = sub.add_parser("updraft-delete-local", help="delete a set's local files, only after the cloud copy is verified (dry run unless --owner-approved-prune)")
@@ -941,6 +944,8 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("GET", "/backups", {"target": a.target or None})
     elif a.cmd == "storage":
         return c.call("GET", "/storage")
+    elif a.cmd == "updraft-log":
+        return c.call("GET", "/updraft/log", {"nonce": a.nonce, "limit": a.limit})
     elif a.cmd == "updraft-cloud":
         return c.call("GET", "/updraft/cloud", {"nonce": a.nonce})
     elif a.cmd == "updraft-delete-local":

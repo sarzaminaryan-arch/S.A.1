@@ -872,6 +872,27 @@ function sa_agent_updraft_dirs() {
  * @param string $nonce شناسهٔ نسخه.
  * @return array
  */
+/**
+ * v2.22.130: آیا این خط لاگ UpdraftPlus خطای واقعی است؟
+ *
+ * نسخهٔ اول هر خطی با «ERROR/failed» را خطا می‌شمرد و دو خط بی‌گناه را هم برداشته بود:
+ * «SQL compatibility mode is now: ERROR_FOR_DIVISION_BY_ZERO» و «There were no errors…».
+ * حالا فقط نشانه‌های واقعی خطا پذیرفته می‌شوند.
+ *
+ * @param string $line خط لاگ.
+ * @return bool
+ */
+function sa_agent_updraft_log_is_error( $line ) {
+	$line = (string) $line;
+	if ( '' === trim( $line ) ) {
+		return false;
+	}
+	if ( false !== strpos( $line, 'no errors' ) || false !== strpos( $line, 'ERROR_FOR_DIVISION_BY_ZERO' ) ) {
+		return false;
+	}
+	return (bool) preg_match( '/(\bERROR:\s|Failed to upload|failed to open|will not be able to|Could not |unable to)/i', $line );
+}
+
 function sa_agent_updraft_cloud_probe( $nonce ) {
 	$nonce = preg_replace( '/[^a-f0-9]/', '', strtolower( (string) $nonce ) );
 	$out   = array(
@@ -910,7 +931,22 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	$services = array_values( array_filter( array_map( 'strval', (array) $services ), static function ( $v ) {
 		return '' !== $v && 'none' !== $v;
 	} ) );
-	$out['services'] = $services;
+	// v2.22.130: تاریخچهٔ این سایت کلید service را نگه نمی‌دارد؛ در این حالت از
+	// خدمتِ پیکربندی‌شده در تنظیمات استفاده می‌کنیم تا بررسی «هیچ» انجام نشود.
+	$service_source = 'history';
+	if ( ! $services ) {
+		$conf = sa_agent_updraft_option( 'updraft_service', '' );
+		if ( is_string( $conf ) ) {
+			$conf = array( $conf );
+		}
+		$services = array_values( array_filter( array_map( 'strval', (array) $conf ), static function ( $v ) {
+			return '' !== $v && 'none' !== $v;
+		} ) );
+		$service_source = 'settings';
+	}
+	$out['services']      = $services;
+	$out['service_source'] = $service_source;
+	$out['history_keys']  = array_keys( (array) $entry );
 
 	// شاهد ۱: فهرست واقعی فایل‌های همان نسخه روی فضای ابری.
 	if ( defined( 'UPDRAFTPLUS_DIR' ) ) {
@@ -970,7 +1006,7 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 				if ( preg_match( '/OK: Archive (.+?) uploaded to /', $line, $m ) ) {
 					$out['log_upload_ok'][] = trim( $m[1] );
 				}
-			} elseif ( preg_match( '/(ERROR|Failed to upload|will not be able|failed)/i', $line ) ) {
+			} elseif ( sa_agent_updraft_log_is_error( $line ) ) {
 				$out['log_errors'][] = trim( substr( $line, 0, 300 ) );
 			}
 		}
@@ -1339,6 +1375,58 @@ function sa_agent_rest_backups_prune( $r ) {
  * @param WP_REST_Request $r درخواست: nonce.
  * @return WP_REST_Response|WP_Error
  */
+/**
+ * GET /updraft/log — خطوط مرتبط یک لاگ پشتیبان (فقط خواندنی، الگوهای مجاز).
+ *
+ * برای اینکه «حدس» نزنیم و لاگ را واقعاً ببینیم؛ فقط خطوط مربوط به آپلود/خدمت/خطا
+ * برمی‌گردند و هر نشانهٔ توکن پاک می‌شود.
+ *
+ * @param WP_REST_Request $r درخواست: nonce، limit.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_updraft_log( $r ) {
+	$nonce = isset( $r['nonce'] ) ? preg_replace( '/[^a-f0-9]/', '', strtolower( (string) $r['nonce'] ) ) : '';
+	if ( '' === $nonce ) {
+		return new WP_Error( 'sa_agent_bad_nonce', 'nonce نسخهٔ پشتیبان لازم است.', array( 'status' => 400 ) );
+	}
+	$limit = isset( $r['limit'] ) ? max( 10, min( 400, (int) $r['limit'] ) ) : 200;
+	$out   = array( 'nonce' => $nonce, 'file' => '', 'bytes' => 0, 'lines_total' => 0, 'matched' => array(), 'upload_ok' => array(), 'errors' => array(), 'service_lines' => array() );
+	foreach ( (array) sa_agent_updraft_dirs() as $dir ) {
+		$file = trailingslashit( $dir ) . 'log.' . $nonce . '.txt';
+		if ( ! is_file( $file ) ) {
+			continue;
+		}
+		$out['file'] = $file;
+		$body        = (string) @file_get_contents( $file ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		$out['bytes'] = strlen( $body );
+		$lines        = preg_split( "/\r\n|\n/", $body );
+		$out['lines_total'] = count( (array) $lines );
+		foreach ( (array) $lines as $line ) {
+			$line = trim( $line );
+			if ( '' === $line ) {
+				continue;
+			}
+			if ( preg_match( '/(Bearer|access_token|refresh_token|client_secret)/i', $line ) ) {
+				$line = preg_replace( '/(Bearer\s+\S+|access_token=[^&\s]+|refresh_token=[^&\s]+|client_secret=[^&\s]+)/i', '[redacted]', $line );
+			}
+			if ( preg_match( '/Google Drive|googledrive|upload/i', $line ) && count( $out['matched'] ) < $limit ) {
+				$out['matched'][] = $line;
+			}
+			if ( false !== strpos( $line, 'OK: Archive ' ) && false !== strpos( $line, 'uploaded to ' ) ) {
+				$out['upload_ok'][] = $line;
+			}
+			if ( sa_agent_updraft_log_is_error( $line ) && count( $out['errors'] ) < 40 ) {
+				$out['errors'][] = $line;
+			}
+			if ( preg_match( '/(service|Service|retain|prune|nonce)/', $line ) && count( $out['service_lines'] ) < 60 ) {
+				$out['service_lines'][] = $line;
+			}
+		}
+		break;
+	}
+	return rest_ensure_response( $out );
+}
+
 function sa_agent_rest_updraft_cloud( $r ) {
 	$nonce = isset( $r['nonce'] ) ? (string) $r['nonce'] : '';
 	if ( '' === $nonce ) {
@@ -1507,6 +1595,16 @@ function sa_agent_ops_register_routes() {
 		array(
 			'methods'             => 'POST',
 			'callback'            => 'sa_agent_rest_backups_prune',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.130: خواندن خطوط مرتبط لاگ یک نسخه (فقط خواندنی).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/log',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_updraft_log',
 			'permission_callback' => $admin,
 		)
 	);
