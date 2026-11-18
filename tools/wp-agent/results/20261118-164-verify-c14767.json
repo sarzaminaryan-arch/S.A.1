@@ -1,0 +1,831 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-164-verify-c14767.json",
+  "started_utc": "2026-11-18T19:41:27+00:00",
+  "note": "تأیید سه‌شاهدی نسخهٔ تازه (۲۸ آبان ۱۴۰۵): آیا nonce=c14767a278da واقعاً و کامل روی Google Drive است؟ فقط خواندنی — هیچ حذف، هیچ تغییر تنظیمات، هیچ پشتیبان تازه. اگر نسخه در تاریخچه نبود، /updraft فهرست را می‌دهد.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.137",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T19:41:27+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "updraft",
+      "result": {
+        "active": true,
+        "version": "1.26.16",
+        "wp_cron_disabled": true,
+        "next_resume": "",
+        "last_backup": {
+          "backup_time": "2026-11-18T19:02:51+00:00",
+          "age_seconds": 2317,
+          "success": true,
+          "errors": 0,
+          "nonce": "c14767a278da",
+          "has_db": true,
+          "file_entities": [
+            "plugins",
+            "plugins-size",
+            "themes",
+            "themes-size",
+            "uploads",
+            "uploads-size"
+          ]
+        },
+        "history_count": 8,
+        "history_latest": "2026-11-18T19:02:51+00:00",
+        "job": null,
+        "settings": {
+          "interval": "manual",
+          "interval_increments": "",
+          "interval_database": "manual",
+          "retain_files": 2,
+          "retain_db": 2,
+          "delete_local": 1,
+          "service": "googledrive",
+          "dir": "updraft"
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "updraft-cloud",
+      "result": {
+        "nonce": "c14767a278da",
+        "services": [
+          "googledrive"
+        ],
+        "remote_files": [],
+        "remote_bytes": 0,
+        "log_file": "/home/haftpair/sarzaminaryan.ir/wp-content/updraft/log.c14767a278da.txt",
+        "log_upload_ok": [],
+        "log_errors": [
+          "0040.033 (0) Google Drive: ERROR: upload exception (UDP_Google_IO_Exception): OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to www.googleapis.com:443  (line: 120, file: /home/haftpair/sarzaminaryan.ir/wp-content/plugins/updraftplus/includes/Google/IO/Curl.php)"
+        ],
+        "log_service_lines": [
+          "0005.737 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0005.738 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0017.366 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-plugins.zip",
+          "0019.146 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0019.146 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0049.626 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-themes.zip",
+          "0061.038 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0061.039 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0110.501 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip",
+          "0113.348 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0113.349 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0122.117 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-db.gz"
+        ],
+        "no_remote_despatch": false,
+        "log_lines": 510,
+        "last_backup": {
+          "backup_time": "2026-11-18T19:02:51+00:00",
+          "success": true,
+          "errors": 0
+        },
+        "complete": false,
+        "reasons": [
+          "no_local_files",
+          "log_has_errors:1"
+        ],
+        "service_source": "history",
+        "history_keys": [
+          "plugins",
+          "plugins-size",
+          "themes",
+          "themes-size",
+          "uploads",
+          "uploads-size",
+          "db",
+          "db-size",
+          "checksums",
+          "nonce",
+          "service",
+          "service_instance_ids",
+          "always_keep",
+          "files_enumerated_at",
+          "created_by_version",
+          "last_saved_by_version",
+          "is_multisite"
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "updraft-log",
+      "result": {
+        "nonce": "c14767a278da",
+        "file": "/home/haftpair/sarzaminaryan.ir/wp-content/updraft/log.c14767a278da.txt",
+        "bytes": 60917,
+        "lines_total": 510,
+        "matched": [
+          "0005.737 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0005.738 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0007.827 (0) Google Drive: quota usage: used=1566 MB, total=15360 MB, available=13794 MB",
+          "0007.828 (0) Google Drive: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-plugins.zip: Attempting to upload to Google Drive (into folder id: 1BUdDCDBg9p--LWLzM4LN_3lLWxql90gq)",
+          "0009.831 (0) Googledrive chunked upload: 6.2 % uploaded (1048576 - increasing chunk size to 2048 KB - memory usage: 7.6 / 10)",
+          "0011.020 (0) Googledrive chunked upload: 18.5 % uploaded (3145728 - increasing chunk size to 4096 KB - memory usage: 7.6 / 10)",
+          "0013.332 (0) Googledrive chunked upload: 43.2 % uploaded (7340032 - increasing chunk size to 8192 KB - memory usage: 7.6 / 10)",
+          "0015.015 (0) Googledrive chunked upload: 92.6 % uploaded (15728640 - increasing chunk size to 16384 KB - memory usage: 7.6 / 10)",
+          "0017.365 (0) Googledrive chunked upload: 100 % uploaded (15728640)",
+          "0017.366 (0) Google Drive: OK: Archive backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-plugins.zip uploaded in 9.54 seconds",
+          "0017.366 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-plugins.zip",
+          "0019.146 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0019.146 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0027.090 (0) Google Drive: quota usage: used=1582.2 MB, total=15360 MB, available=13777.8 MB",
+          "0027.090 (0) Google Drive: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-themes.zip: Attempting to upload to Google Drive (into folder id: 1BUdDCDBg9p--LWLzM4LN_3lLWxql90gq)",
+          "0040.033 (0) Google Drive: ERROR: upload exception (UDP_Google_IO_Exception): OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to www.googleapis.com:443  (line: 120, file: /home/haftpair/sarzaminaryan.ir/wp-content/plugins/updraftplus/includes/Google/IO/Curl.php)",
+          "0041.980 (0) Googledrive chunked upload: 3.8 % uploaded (1048576 - increasing chunk size to 2048 KB - memory usage: 7.9 / 12)",
+          "0043.197 (0) Googledrive chunked upload: 11.4 % uploaded (3145728 - increasing chunk size to 4096 KB - memory usage: 7.9 / 12)",
+          "0044.497 (0) Googledrive chunked upload: 26.6 % uploaded (7340032 - increasing chunk size to 8192 KB - memory usage: 7.9 / 12)",
+          "0046.321 (0) Googledrive chunked upload: 56.9 % uploaded (15728640 - increasing chunk size to 16384 KB - memory usage: 7.9 / 12)",
+          "0049.624 (0) Googledrive chunked upload: 100 % uploaded (15728640)",
+          "0049.626 (0) Google Drive: OK: Archive backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-themes.zip uploaded in 22.54 seconds",
+          "0049.626 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-themes.zip",
+          "0049.633 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots,wp-staging",
+          "0049.634 (0) Looking for candidates to backup in: /home/haftpair/sarzaminaryan.ir/wp-content/uploads",
+          "0049.635 (0) Beginning creation of dump of uploads (split every: 400 MB)",
+          "0049.758 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 100 files added (on-disk size: 0 KB)",
+          "0049.761 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 200 files added (on-disk size: 0 KB)",
+          "0049.764 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 300 files added (on-disk size: 0 KB)",
+          "0049.767 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 400 files added (on-disk size: 0 KB)",
+          "0049.769 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 500 files added (on-disk size: 0 KB)",
+          "0049.772 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 600 files added (on-disk size: 0 KB)",
+          "0049.775 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 700 files added (on-disk size: 0 KB)",
+          "0049.777 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 800 files added (on-disk size: 0 KB)",
+          "0049.780 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 900 files added (on-disk size: 0 KB)",
+          "0049.783 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1000 files added (on-disk size: 0 KB)",
+          "0053.232 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1100 files added (on-disk size: 105218.9 KB)",
+          "0053.234 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1200 files added (on-disk size: 105218.9 KB)",
+          "0053.237 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1300 files added (on-disk size: 105218.9 KB)",
+          "0053.240 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1400 files added (on-disk size: 105218.9 KB)",
+          "0053.242 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1500 files added (on-disk size: 105218.9 KB)",
+          "0053.245 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1600 files added (on-disk size: 105218.9 KB)",
+          "0053.247 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1700 files added (on-disk size: 105218.9 KB)",
+          "0053.250 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1800 files added (on-disk size: 105218.9 KB)",
+          "0053.252 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 1900 files added (on-disk size: 105218.9 KB)",
+          "0053.255 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2000 files added (on-disk size: 105218.9 KB)",
+          "0054.405 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2100 files added (on-disk size: 136065.3 KB)",
+          "0054.408 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2200 files added (on-disk size: 136065.3 KB)",
+          "0054.411 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2300 files added (on-disk size: 136065.3 KB)",
+          "0054.413 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2400 files added (on-disk size: 136065.3 KB)",
+          "0054.416 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2500 files added (on-disk size: 136065.3 KB)",
+          "0054.418 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2600 files added (on-disk size: 136065.3 KB)",
+          "0054.421 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2700 files added (on-disk size: 136065.3 KB)",
+          "0054.423 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2800 files added (on-disk size: 136065.3 KB)",
+          "0054.426 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 2900 files added (on-disk size: 136065.3 KB)",
+          "0054.429 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3000 files added (on-disk size: 136065.3 KB)",
+          "0054.943 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3100 files added (on-disk size: 148509.9 KB)",
+          "0054.946 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3200 files added (on-disk size: 148509.9 KB)",
+          "0054.948 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3300 files added (on-disk size: 148509.9 KB)",
+          "0054.951 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3400 files added (on-disk size: 148509.9 KB)",
+          "0054.954 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3500 files added (on-disk size: 148509.9 KB)",
+          "0054.956 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3600 files added (on-disk size: 148509.9 KB)",
+          "0054.959 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3700 files added (on-disk size: 148509.9 KB)",
+          "0054.962 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3800 files added (on-disk size: 148509.9 KB)",
+          "0054.964 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 3900 files added (on-disk size: 148509.9 KB)",
+          "0054.967 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4000 files added (on-disk size: 148509.9 KB)",
+          "0055.521 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4100 files added (on-disk size: 161110.9 KB)",
+          "0055.524 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4200 files added (on-disk size: 161110.9 KB)",
+          "0055.527 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4300 files added (on-disk size: 161110.9 KB)",
+          "0055.529 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4400 files added (on-disk size: 161110.9 KB)",
+          "0055.532 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4500 files added (on-disk size: 161110.9 KB)",
+          "0055.534 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4600 files added (on-disk size: 161110.9 KB)",
+          "0055.537 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4700 files added (on-disk size: 161110.9 KB)",
+          "0055.539 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4800 files added (on-disk size: 161110.9 KB)",
+          "0055.542 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 4900 files added (on-disk size: 161110.9 KB)",
+          "0055.545 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5000 files added (on-disk size: 161110.9 KB)",
+          "0056.029 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5100 files added (on-disk size: 173720.8 KB)",
+          "0056.032 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5200 files added (on-disk size: 173720.8 KB)",
+          "0056.035 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5300 files added (on-disk size: 173720.8 KB)",
+          "0056.038 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5400 files added (on-disk size: 173720.8 KB)",
+          "0056.040 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5500 files added (on-disk size: 173720.8 KB)",
+          "0056.043 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5600 files added (on-disk size: 173720.8 KB)",
+          "0056.046 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5700 files added (on-disk size: 173720.8 KB)",
+          "0056.048 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5800 files added (on-disk size: 173720.8 KB)",
+          "0056.051 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 5900 files added (on-disk size: 173720.8 KB)",
+          "0056.054 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6000 files added (on-disk size: 173720.8 KB)",
+          "0056.592 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6100 files added (on-disk size: 186135.8 KB)",
+          "0056.595 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6200 files added (on-disk size: 186135.8 KB)",
+          "0056.598 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6300 files added (on-disk size: 186135.8 KB)",
+          "0056.601 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6400 files added (on-disk size: 186135.8 KB)",
+          "0056.604 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6500 files added (on-disk size: 186135.8 KB)",
+          "0056.607 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6600 files added (on-disk size: 186135.8 KB)",
+          "0056.610 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6700 files added (on-disk size: 186135.8 KB)",
+          "0056.614 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6800 files added (on-disk size: 186135.8 KB)",
+          "0056.618 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 6900 files added (on-disk size: 186135.8 KB)",
+          "0056.622 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7000 files added (on-disk size: 186135.8 KB)",
+          "0057.124 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7100 files added (on-disk size: 198614.3 KB)",
+          "0057.127 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7200 files added (on-disk size: 198614.3 KB)",
+          "0057.130 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7300 files added (on-disk size: 198614.3 KB)",
+          "0057.133 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7400 files added (on-disk size: 198614.3 KB)",
+          "0057.135 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7500 files added (on-disk size: 198614.3 KB)",
+          "0057.138 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7600 files added (on-disk size: 198614.3 KB)",
+          "0057.141 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7700 files added (on-disk size: 198614.3 KB)",
+          "0057.144 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7800 files added (on-disk size: 198614.3 KB)",
+          "0057.147 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 7900 files added (on-disk size: 198614.3 KB)",
+          "0057.150 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 8000 files added (on-disk size: 198614.3 KB)",
+          "0058.066 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 8100 files added (on-disk size: 235236 KB)",
+          "0058.069 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 8200 files added (on-disk size: 235236 KB)",
+          "0058.072 (0) Zip: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.tmp: 8300 files added (on-disk size: 235236 KB)",
+          "0058.298 (0) Creating zip file manifest (backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.list-temp.tmp)",
+          "0061.033 (0) Created uploads zip (0) - 250294.4 KB in 11.4 s (22021.4 KB/s) (sha1: 2ad382830ad20ea8807446090494af24b2e33223, sha256: ef7cfc3b7bd66571e82b0ad0713c8cbbe17a7d118aab1fd874c016ab1e0d9cc3)",
+          "0061.038 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0061.039 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0061.721 (0) Google Drive: quota usage: used=1608.5 MB, total=15360 MB, available=13751.5 MB",
+          "0061.722 (0) Google Drive: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip: Attempting to upload to Google Drive (into folder id: 1BUdDCDBg9p--LWLzM4LN_3lLWxql90gq)",
+          "0063.756 (0) Googledrive chunked upload: 0.4 % uploaded (1048576 - increasing chunk size to 2048 KB - memory usage: 8 / 14)",
+          "0066.047 (0) Googledrive chunked upload: 1.2 % uploaded (3145728 - increasing chunk size to 4096 KB - memory usage: 8 / 14)",
+          "0068.353 (0) Googledrive chunked upload: 2.9 % uploaded (7340032 - increasing chunk size to 8192 KB - memory usage: 8 / 14)",
+          "0070.045 (0) Googledrive chunked upload: 6.1 % uploaded (15728640 - increasing chunk size to 16384 KB - memory usage: 8 / 14)",
+          "0073.398 (0) Googledrive chunked upload: 12.7 % uploaded (32505856)",
+          "0076.392 (0) Googledrive chunked upload: 19.2 % uploaded (49283072)",
+          "0079.715 (0) Googledrive chunked upload: 25.8 % uploaded (66060288)",
+          "0082.632 (0) Googledrive chunked upload: 32.3 % uploaded (82837504)",
+          "0085.565 (0) Googledrive chunked upload: 38.9 % uploaded (99614720)",
+          "0088.810 (0) Googledrive chunked upload: 45.4 % uploaded (116391936)",
+          "0092.124 (0) Googledrive chunked upload: 52 % uploaded (133169152)",
+          "0094.567 (0) Googledrive chunked upload: 58.5 % uploaded (149946368 - increasing chunk size to 32768 KB - memory usage: 8 / 14)",
+          "0098.465 (0) Googledrive chunked upload: 71.6 % uploaded (183500800)",
+          "0103.701 (0) Googledrive chunked upload: 84.7 % uploaded (217055232)",
+          "0107.698 (0) Googledrive chunked upload: 97.8 % uploaded (250609664)",
+          "0110.499 (0) Googledrive chunked upload: 100 % uploaded (250609664)",
+          "0110.501 (0) Google Drive: OK: Archive backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip uploaded in 48.78 seconds",
+          "0110.501 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip",
+          "0110.526 (0) Deleting local file: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip: OK",
+          "0113.344 (0) backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-plugins.zip: plugins: This file has already been successfully uploaded",
+          "0113.345 (0) backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-themes.zip: themes: This file has already been successfully uploaded",
+          "0113.345 (0) backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip: uploads: This file has already been successfully uploaded",
+          "0113.346 (0) backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-db.gz: db: This file has not yet been successfully uploaded: will queue",
+          "0113.347 (0) Requesting upload of the files that have not yet been successfully uploaded (1)",
+          "0113.348 (0) Cloud backup selection (1/1): googledrive with instance (1/1) (last)",
+          "0113.349 (0) Beginning dispatch of backup to remote (googledrive) (instance identifier s-7da9bb433b03763cf5fc81c5005e6301)",
+          "0114.019 (0) Google Drive: quota usage: used=1852.9 MB, total=15360 MB, available=13507.1 MB",
+          "0114.020 (0) Google Drive: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-db.gz: Attempting to upload to Google Drive (into folder id: 1BUdDCDBg9p--LWLzM4LN_3lLWxql90gq)",
+          "0116.013 (0) Googledrive chunked upload: 12 % uploaded (1048576 - increasing chunk size to 2048 KB - memory usage: 6.8 / 34)",
+          "0117.281 (0) Googledrive chunked upload: 36 % uploaded (3145728 - increasing chunk size to 4096 KB - memory usage: 6.8 / 34)",
+          "0119.590 (0) Googledrive chunked upload: 84 % uploaded (7340032 - increasing chunk size to 8192 KB - memory usage: 6.8 / 34)",
+          "0122.115 (0) Googledrive chunked upload: 100 % uploaded (7340032)",
+          "0122.117 (0) Google Drive: OK: Archive backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-db.gz uploaded in 8.1 seconds",
+          "0122.117 (0) Recording as successfully uploaded: backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-db.gz",
+          "0122.123 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-db.gz, service=googledrive",
+          "0124.391 (0) Google Drive: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-db.gz: Deletion failed: file was not found",
+          "0124.394 (0) uploads: over retain limit (1); will delete this file entity",
+          "0124.394 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-plugins.zip, service=googledrive",
+          "0124.395 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-themes.zip, service=googledrive",
+          "0124.396 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads.zip, service=googledrive",
+          "0124.396 (0) Deleting local copy (backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads.zip)",
+          "0124.397 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads2.zip, service=googledrive",
+          "0124.397 (0) Deleting local copy (backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads2.zip)",
+          "0125.343 (0) Google Drive: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-plugins.zip: Deletion failed: file was not found",
+          "0125.344 (0) Google Drive: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-themes.zip: Deletion failed: file was not found",
+          "0125.344 (0) Google Drive: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads.zip: Deletion failed: file was not found",
+          "0125.345 (0) Google Drive: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads2.zip: Deletion failed: file was not found",
+          "0125.351 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled",
+          "0125.354 (0) Deleting zip manifest (backup_2026-11-18-2232_sarzaminaryanir_c14767a278da-uploads.zip.list.tmp)"
+        ],
+        "upload_ok": [],
+        "errors": [
+          "0040.033 (0) Google Drive: ERROR: upload exception (UDP_Google_IO_Exception): OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to www.googleapis.com:443  (line: 120, file: /home/haftpair/sarzaminaryan.ir/wp-content/plugins/updraftplus/includes/Google/IO/Curl.php)"
+        ],
+        "service_lines": [
+          "0000.044 (0) Backup run: resumption=0, nonce=c14767a278da, file_nonce=c14767a278da begun at=1795028571 (0s ago), job type=backup",
+          "0122.121 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=1, retain_db=1",
+          "0122.122 (0) Examining (for databases) backup set with group_id=0, nonce=c14767a278da, datestamp=1795028571 (Nov 18 2026 19:02:51)",
+          "0122.123 (0) Examining (for databases) backup set with group_id=0, nonce=82738db7b8c9, datestamp=1795003098 (Nov 18 2026 11:58:18)",
+          "0122.123 (0) 1795003098: db: over retain limit (1); will delete this database",
+          "0122.123 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-db.gz, service=googledrive",
+          "0124.393 (0) This backup set remains non-empty (f=1/d=0); will retain in history",
+          "0124.393 (0) Examining (for databases) backup set with group_id=0, nonce=87eaebf2acab, datestamp=1794920232 (Nov 17 2026 12:57:12)",
+          "0124.394 (0) Examining (for files) backup set with nonce=c14767a278da, datestamp=1795028571 (Nov 18 2026 19:02:51)",
+          "0124.394 (0) This backup set remains non-empty (f=1/d=1); will retain in history",
+          "0124.394 (0) Examining (for files) backup set with nonce=82738db7b8c9, datestamp=1795003098 (Nov 18 2026 11:58:18)",
+          "0124.394 (0) plugins: over retain limit (1); will delete this file entity",
+          "0124.394 (0) themes: over retain limit (1); will delete this file entity",
+          "0124.394 (0) uploads: over retain limit (1); will delete this file entity",
+          "0124.394 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-plugins.zip, service=googledrive",
+          "0124.395 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-themes.zip, service=googledrive",
+          "0124.396 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads.zip, service=googledrive",
+          "0124.397 (0) Delete file: backup_2026-11-18-1528_sarzaminaryanir_82738db7b8c9-uploads2.zip, service=googledrive",
+          "0125.347 (0) Examining (for files) backup set with nonce=87eaebf2acab, datestamp=1794920232 (Nov 17 2026 12:57:12)",
+          "0125.347 (0) This backup set remains non-empty (f=1/d=0); will retain in history",
+          "0125.347 (0) Retain: saving new backup history (sets now: 2) and finishing retain operation"
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "storage",
+      "result": {
+        "disk": {
+          "free_bytes": null,
+          "total_bytes": null
+        },
+        "agent": {
+          "records": 384,
+          "bytes": 9503271,
+          "oldest": "2026-11-15 05:17:44",
+          "newest": "2026-11-18 10:39:25",
+          "by_kind": {
+            "litespeed": {
+              "records": 1,
+              "bytes": 378
+            },
+            "post": {
+              "records": 383,
+              "bytes": 9502893
+            }
+          }
+        },
+        "updraft": {
+          "active": true,
+          "history": 8,
+          "sets": [
+            {
+              "utc": "2026-11-18T19:02:51+00:00",
+              "bytes": 309655949,
+              "entities": [
+                "plugins",
+                "themes",
+                "uploads",
+                "db"
+              ]
+            },
+            {
+              "utc": "2026-11-17T12:57:12+00:00",
+              "bytes": 317577542,
+              "entities": [
+                "mu-plugins",
+                "others"
+              ]
+            },
+            {
+              "utc": "2026-11-15T13:24:00+00:00",
+              "bytes": 213774214,
+              "entities": [
+                "db",
+                "plugins",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes"
+              ]
+            },
+            {
+              "utc": "2026-11-15T09:14:00+00:00",
+              "bytes": 213375979,
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ]
+            },
+            {
+              "utc": "2026-11-15T09:05:00+00:00",
+              "bytes": 6173752,
+              "entities": [
+                "db"
+              ]
+            },
+            {
+              "utc": "2026-10-15T15:42:00+00:00",
+              "bytes": 107072848,
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ]
+            },
+            {
+              "utc": "2026-10-12T23:32:00+00:00",
+              "bytes": 63900184,
+              "entities": [
+                "others",
+                "mu-plugins",
+                "uploads"
+              ]
+            },
+            {
+              "utc": "2026-10-12T23:24:00+00:00",
+              "bytes": 23455638,
+              "entities": [
+                "themes",
+                "db",
+                "plugins"
+              ]
+            }
+          ],
+          "dir": "/home/haftpair/sarzaminaryan.ir/wp-content/plugins/updraftplus",
+          "bytes": 24761881,
+          "set_bytes": 1254986106,
+          "dir_bytes": 24761881,
+          "files": 1604,
+          "file_list": [
+            {
+              "name": "languages/updraftplus-es_CR.po",
+              "bytes": 447290,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bg_BG.po",
+              "bytes": 446289,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ar.po",
+              "bytes": 432473,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "admin.php",
+              "bytes": 384005,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus.pot",
+              "bytes": 372965,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/team-updraft/lib-onboarding-wizard/Wizard/Onboarding/build/index.js",
+              "bytes": 371712,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-da_DK.po",
+              "bytes": 370441,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "class-updraftplus.php",
+              "bytes": 346735,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-sl_SI.po",
+              "bytes": 340330,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-tl.po",
+              "bytes": 338728,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-hu_HU.po",
+              "bytes": 322977,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-id_ID.po",
+              "bytes": 322763,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-fi.po",
+              "bytes": 320938,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bn_BD.po",
+              "bytes": 315939,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-zh_HK.po",
+              "bytes": 313638,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-he_IL.po",
+              "bytes": 313140,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "includes/jstree/jstree.js",
+              "bytes": 310643,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-eu.po",
+              "bytes": 308220,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-es_CR.mo",
+              "bytes": 308016,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-et.po",
+              "bytes": 305969,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-lt_LT.po",
+              "bytes": 305618,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ca.po",
+              "bytes": 304683,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ur.po",
+              "bytes": 304018,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-hi_IN.po",
+              "bytes": 303842,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-sr_RS.po",
+              "bytes": 303564,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bs_BA.po",
+              "bytes": 303337,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ckb.po",
+              "bytes": 303165,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-fr_CA.po",
+              "bytes": 303163,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-af.po",
+              "bytes": 303158,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-te.po",
+              "bytes": 303152,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-th.po",
+              "bytes": 303067,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "includes/updraft-admin-common.js",
+              "bytes": 287299,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "restorer.php",
+              "bytes": 276906,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/components/jquery/jquery.js",
+              "bytes": 255967,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "vendor/guzzle/guzzle/src/Guzzle/Http/Resources/cacert.pem",
+              "bytes": 250394,
+              "modified": "2026-11-18T02:42:15+00:00"
+            },
+            {
+              "name": "languages/updraftplus-bg_BG.mo",
+              "bytes": 244724,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "backup.php",
+              "bytes": 240546,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "languages/updraftplus-ar.mo",
+              "bytes": 239498,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "includes/handlebars/handlebars.js",
+              "bytes": 215867,
+              "modified": "2026-11-18T02:42:14+00:00"
+            },
+            {
+              "name": "vendor/phpseclib/phpseclib/phpseclib/Net/SSH2.php",
+              "bytes": 203745,
+              "modified": "2026-11-18T02:42:15+00:00"
+            }
+          ],
+          "sets_detail": [
+            {
+              "nonce": "c14767a278da",
+              "utc": "2026-11-18T19:02:51+00:00",
+              "entities": [
+                "plugins",
+                "themes",
+                "uploads",
+                "db"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "87eaebf2acab",
+              "utc": "2026-11-17T12:57:12+00:00",
+              "entities": [
+                "mu-plugins",
+                "others"
+              ],
+              "files": [
+                {
+                  "name": "backup_2026-11-17-1627_sarzaminaryanir_87eaebf2acab-mu-plugins.zip",
+                  "bytes": 1165,
+                  "exists": true
+                }
+              ],
+              "bytes": 1165,
+              "on_disk": true
+            },
+            {
+              "nonce": "bf982e3d23d3",
+              "utc": "2026-11-15T13:24:00+00:00",
+              "entities": [
+                "db",
+                "plugins",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "94f1be550ca8",
+              "utc": "2026-11-15T09:14:00+00:00",
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "758c5711c564",
+              "utc": "2026-11-15T09:05:00+00:00",
+              "entities": [
+                "db"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "c1c8c1ff93d3",
+              "utc": "2026-10-15T15:42:00+00:00",
+              "entities": [
+                "db",
+                "others",
+                "mu-plugins",
+                "uploads",
+                "themes",
+                "plugins"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "fd4b7464e160",
+              "utc": "2026-10-12T23:32:00+00:00",
+              "entities": [
+                "others",
+                "mu-plugins",
+                "uploads"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            },
+            {
+              "nonce": "572357afd4b7",
+              "utc": "2026-10-12T23:24:00+00:00",
+              "entities": [
+                "themes",
+                "db",
+                "plugins"
+              ],
+              "files": [],
+              "bytes": 0,
+              "on_disk": false
+            }
+          ],
+          "orphans": {
+            "files": [],
+            "bytes": 0,
+            "mb": 0
+          }
+        },
+        "uploads": {
+          "dir": "/home/haftpair/sarzaminaryan.ir/wp-content/uploads",
+          "files": 8354,
+          "bytes": 259710177,
+          "images_over_200kb": 165
+        },
+        "backup_plugin_dirs": [
+          {
+            "path": "/home/haftpair/sarzaminaryan.ir/wp-content/updraft",
+            "files": 8,
+            "bytes": 154595,
+            "file_list": [
+              {
+                "name": "log.87eaebf2acab.txt",
+                "bytes": 63986,
+                "modified": "2026-11-17T12:57:31+00:00"
+              },
+              {
+                "name": "log.c14767a278da.txt",
+                "bytes": 60917,
+                "modified": "2026-11-18T19:04:57+00:00"
+              },
+              {
+                "name": "log.f18c750b62bc.txt",
+                "bytes": 24647,
+                "modified": "2026-10-17T04:15:38+00:00"
+              },
+              {
+                "name": "log.f5e4d079ae0f.txt",
+                "bytes": 3631,
+                "modified": "2026-10-18T20:55:25+00:00"
+              },
+              {
+                "name": "backup_2026-11-17-1627_sarzaminaryanir_87eaebf2acab-mu-plugins.zip",
+                "bytes": 1165,
+                "modified": "2026-11-17T12:57:27+00:00"
+              },
+              {
+                "name": "web.config",
+                "bytes": 124,
+                "modified": "2026-10-12T23:23:03+00:00"
+              },
+              {
+                "name": "index.html",
+                "bytes": 112,
+                "modified": "2026-10-12T23:23:03+00:00"
+              },
+              {
+                "name": ".htaccess",
+                "bytes": 13,
+                "modified": "2026-10-12T23:23:03+00:00"
+              }
+            ]
+          }
+        ],
+        "notes": [
+          "agent: پشتیبان‌های افتراقی پل (رکورد خصوصی در پایگاه‌داده).",
+          "updraft: پشتیبان‌های کاملِ زمان‌بندی‌شده (فقط برای بازگردانی کامل سایت).",
+          "uploads: رسانه‌های سایت؛ عکس‌های شهرستان باید WebP زیر ۱۰۰ کیلوبایت باشند."
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T19:41:48+00:00"
+}
