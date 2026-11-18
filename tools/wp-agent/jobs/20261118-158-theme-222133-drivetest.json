@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۳۳ (۲۷ آبان ۱۴۰۵): نصب ابزار تست واقعی اتصال Drive + خواندن وضعیت. مرحلهٔ ۱ دستور مالک. هیچ حذف و هیچ تغییری در تنظیمات UpdraftPlus انجام نمی‌شود. بازگشت به ۲.۲۲.۱۳۲.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.133", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.132"},
+  {"cmd": "updraft-drive-test"},
+  {"cmd": "updraft"}
+ ]
+}

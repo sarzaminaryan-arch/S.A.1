@@ -1,0 +1,13 @@
+{
+ "note": "تلاش دوباره برای نصب ۲.۲۲.۱۳۲ (۲۷ آبان ۱۴۰۵) پس از timeout شبکه در کار ۱۵۴؛ اگر سایت هنوز نسخهٔ ۱۳۱ است همین کافی است. فقط خواندنی پس از نصب. هیچ حذفی نیست. بازگشت به ۲.۲۲.۱۳۱.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.132", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.131"},
+  {"cmd": "updraft"},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/"]}
+ ]
+}

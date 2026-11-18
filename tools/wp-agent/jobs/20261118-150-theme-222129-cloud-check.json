@@ -1,0 +1,13 @@
+{
+ "note": "۲.۲۲.۱۲۹ (۲۷ آبان ۱۴۰۵): بررسی مستند آپلود UpdraftPlus روی فضای ابری + گزارش تنظیمات نگه‌داری. هیچ حذفی در این کار نیست. بازگشت به ۲.۲۲.۱۲۸.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.129", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.128"},
+  {"cmd": "updraft"},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/"]}
+ ]
+}

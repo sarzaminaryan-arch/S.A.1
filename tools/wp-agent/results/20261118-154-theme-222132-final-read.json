@@ -1,0 +1,37 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-154-theme-222132-final-read.json",
+  "started_utc": "2026-11-18T18:17:43+00:00",
+  "note": "۲.۲۲.۱۳۲ (۲۷ آبان ۱۴۰۵): سد «پشتیبان بدون ابر» + خواندن نهایی وضعیت. هیچ حذفی در این کار نیست. بازگشت به ۲.۲۲.۱۳۱.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.131",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T18:17:43+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "error": "network error on POST /theme-update: timed out"
+    }
+  ],
+  "finished_utc": "2026-11-18T18:21:18+00:00"
+}

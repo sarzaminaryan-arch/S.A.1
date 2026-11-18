@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۳۵ (۲۷ آبان ۱۴۰۵): تست Drive ساختارآگاه — روشن می‌کند توکن زیر settings هست یا نه. فقط خواندنی، بدون تغییر تنظیمات و بدون حذف. بازگشت به ۲.۲۲.۱۳۴.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.135", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.134"},
+  {"cmd": "updraft-drive-test"},
+  {"cmd": "updraft"}
+ ]
+}

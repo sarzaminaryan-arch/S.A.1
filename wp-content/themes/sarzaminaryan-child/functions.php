@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.128' );
+define( 'SA_CHILD_VERSION', '2.22.146' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -47,6 +47,9 @@ $sa_child_includes = array(
 	'inc/toc.php', // v2.18.17: «فهرست مطالب» ابتدای همهٔ مقاله‌ها (سرفصل‌های بدنه + بخش‌های قالب)
 	'inc/education.php', // بخش «آموزش‌ها» (دستهٔ کمپینگ و بقا) کنار استان/شهرستان/دیدنی در منو، صفحهٔ اول و فوتر
 	'inc/entity-bars.php', // v2.13.3: فهرست ۳۱ استان + نوارهای مینیمال استان/شهرستان برای آرشیوها (و نقشهٔ هیرو)
+	'inc/county-fallback-card.php', // v2.22.144: کارت جایگزین موقت برای نوشته‌های بی‌عکس (نه شهرستان)
+	'inc/county-sections.php', // v2.22.145: رجیستری واحد سکشن‌های صفحهٔ شهرستان (ترتیب، فعال/غیرفعال، شرط نمایش)
+	'inc/county-sections-loader.php', // v2.22.145: تبدیل هر سکشن به رشته از template-parts/county/ + کش هم‌استانی
 	'inc/gallery.php', // گالری آلبومی استان/شهرستان + تبدیل خودکار WebP
 	'inc/county-media.php', // v2.22.98: تصاویر مجاز مکان‌ها (مجوز + نام عکاس)؛ v2.22.116: گالری اسلایدری شهرستان + WebP ۴:۳ زیر ۱۰۰ کیلوبایت
 	'inc/county-photos-admin.php', // v2.22.116: پنل کامل گالری شهرستان در صفحهٔ ویرایش — افزودن، تعویض، ترتیب، بهینه‌سازی و زباله‌دان (دستور مالک)

@@ -1,0 +1,13 @@
+{
+ "note": "۲.۲۲.۱۳۹ (۲۸ آبان ۱۴۰۵): تأیید نهایی نسخهٔ c14767a278da با تفکیک خطای گذرا/سخت و اندازهٔ هر جزء. فقط خواندنی — هیچ حذف و هیچ تغییر تنظیماتی. بازگشت به ۲.۲۲.۱۳۸.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.139", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.138"},
+  {"cmd": "updraft"},
+  {"cmd": "updraft-cloud", "nonce": "c14767a278da"},
+  {"cmd": "storage"}
+ ]
+}

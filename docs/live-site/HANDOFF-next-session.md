@@ -1,3 +1,46 @@
+## ۲.۲۲.۱۳۸–۱۴۰ — تأیید ابری نسخهٔ c14767a278da و تنظیمات امن (۲۸ آبان ۱۴۰۵)
+
+- **تأیید شد:** نسخهٔ `c14767a278da` کامل روی Google Drive است — ۴ فایل
+  (uploads 244.4 MB، themes 26.4، plugins 16.2، db 8.3 = **۲۹۵.۳ MB**)،
+  `listfiles` ۲۹ شیء دید، ۴ خط `OK: Archive … uploaded in …`،
+  `last_backup.success=true`، پوشش اجزا کامل.
+- **دیسک آزاد شد:** ۵۱۴٬۴۰۱٬۸۷۶ → ۱۵۴٬۵۹۵ بایت = **۴۹۰.۴ مگابایت**؛ اورفن ۰.
+  (کار خود UpdraftPlus بود، نه حذف دستی.)
+- **تنظیمات:** `interval=weekly`, `retain=1`, `retain_db=1`, `delete_local=1`;
+  WP-Cron واقعی بازسازی شد (اولین اجرا `2026-11-18T23:24:20Z`).
+- **سه باگ در ابزار سنجش خودم پیدا و اصلاح شد** (ر.ک بخش ۹ سند backup-pipeline):
+  الگوی `uploaded in`، نبود فایل محلی با `delete_local=1`، و صدق تهی که با
+  ۰ فایل ابری هم `complete:true` می‌داد.
+- سد `nocloud` (۲.۲۲.۱۳۲) دست‌نخورده است.
+
+## ۲.۲۲.۱۳۳–۱۳۷ — تست واقعی اتصال Drive (۲۷ آبان ۱۴۰۵)
+
+- **اتصال Drive معتبر نیست:** ساختار `updraft_googledrive → settings → s-7da9bb43…`
+  با `owneremail=sarzaminaryan@gmail.com` و `folder=UpdraftPlus` و
+  `instance_enabled=true` وجود دارد، اما `clientid`, `secret`, `token` همه خالی‌اند
+  (`tmp_access_token` هست، ولی refresh token نیست). جدول `updraft*` با ردیف هم
+  وجود ندارد → جای دیگری ذخیره نشده. نتیجه: `incomplete_credentials`.
+- مسیر: `GET /updraft/drive-test` (+ `GET/POST /updraft/settings` برای بعد).
+- **ترتیب درست:** اتصال مجدد Drive در پیشخوان → سپس تنظیمات → سپس پشتیبان دستی.
+  تغییر `interval` به `weekly` قبل از آن، با `retain=1`+`delete_local=1` تنها نسخهٔ
+  محلی را نابود می‌کند (چون آپلود ابری کار نمی‌کند). تا آن زمان `manual` می‌ماند.
+- هیچ تغییری در تنظیمات و هیچ حذفی انجام نشد. جزئیات: `backup-pipeline.md` بخش ۸.
+
+## ۲.۲۲.۱۲۹–۱۳۲ — بررسی ابری نسخه‌های UpdraftPlus (۲۷ آبان ۱۴۰۵)
+
+- **نتیجهٔ قطعی:** نسخهٔ `82738db7b8c9` (۴۹۰ مگابایتی، تنها نسخهٔ کامل) روی Google Drive
+  **نیست**. لاگ خودش می‌گوید `Cloud backup selection (1/1): none` و
+  `No remote despatch`. تاریخ آخرین نسخهٔ کامل موفق روی Drive: **پیدا نشد**.
+- `updraft_last_backup.success=true` گمراه‌کننده است (موفقیت محلی). کلید `service`
+  در تاریخچه خالی است در حالی که تنظیمات `googledrive` است.
+- تنظیمات واقعی: `retain_files=1`, `retain_db=1`, `delete_local=1`, `interval=manual`.
+- **ریسک کد افزونه:** `prune_file()` نسخهٔ محلی قبلی را پیش از ارسال ابری پاک می‌کند؛
+  با `retain_files=1` یک پشتیبان ناموفق = از دست رفتن تنها نسخه. سد ۲.۲۲.۱۳۲:
+  `nocloud` با خدمت ابری پیکربندی‌شده ۴۰۹ می‌دهد (`sa_agent_nocloud_blocked`).
+- ابزارهای تازه: `GET /updraft/cloud`، `GET /updraft/log`، `POST /updraft/delete-local`
+  (نگهبان: بدون `complete=true` هیچ حذفی نمی‌کند)، `settings` در `GET /updraft`.
+- **هیچ فایلی حذف نشد.** گزارش کامل: `docs/live-site/backup-pipeline.md` بخش ۷.
+
 # فایل تحویل نشست بعدی — وضعیت سایت سرزمین آریان و هدف کار (آبان ۱۴۰۵)
 
 > این فایل را اول نشست بخوان. فشرده است و جزئیات هر بند در فایلِ ارجاع‌شده آمده.

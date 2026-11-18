@@ -1,0 +1,8 @@
+{
+ "note": "۲.۲۲.۱۴۶ (۲۸ آبان ۱۴۰۵): /city/isfahan/ با ۳۰۱ به /city/isfahan-city/ می‌رود؛ همان صفحه با نامک درست خوانده می‌شود تا اصفهان هم در رگرسیون ده شهرستان باشد. فقط خواندنی.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "probe", "url": ["/city/isfahan-city/"]},
+  {"cmd": "section-tests", "file": "tools/wp-agent/sections/pilot-10-fixed.json", "dry_run": true}
+ ]
+}

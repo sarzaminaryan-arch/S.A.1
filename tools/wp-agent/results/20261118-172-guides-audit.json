@@ -1,0 +1,558 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-172-guides-audit.json",
+  "started_utc": "2026-11-18T21:07:18+00:00",
+  "note": "کار خواندنی (۲۸ آبان ۱۴۰۵): منبع نوشته‌های بی‌شاخص راهنما (ready-guides) را می‌خواهم ببینم؛ فهرست دقیق slug/title و اینکه آیا داده‌های راهنما عکسی دارند. هیچ تغییری روی سایت نیست.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.143",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T21:07:20+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "featured-audit",
+      "result": {
+        "total_city_published": 67,
+        "marker": "featured-audit-v143",
+        "has_featured": 1,
+        "suppressed": 10,
+        "no_featured": 56,
+        "group_a_no_image": [
+          {
+            "id": 2846,
+            "slug": "can-cookware-diy",
+            "title": "ساخت قابلمه، فنجان و کفگیر از قوطی کنسرو در طبیعت",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2912,
+            "slug": "leg-fracture-first-aid",
+            "title": "شکستگی پا در طبیعت؛ تا رسیدن پزشک چه کنیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2910,
+            "slug": "lost-in-nature-guide",
+            "title": "گم‌شدن در طبیعت؛ قدم‌های درست وقتی مسیر را گم کردیم",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2908,
+            "slug": "paper-map-reading",
+            "title": "خواندن نقشه کاغذی؛ زبان زمین را بخوانیم",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2906,
+            "slug": "personal-hygiene-outdoor",
+            "title": "بهداشت فردی در طبیعت؛ تمیز و سالم ماندن بدون آسیب به طبیعت",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2904,
+            "slug": "navigation-by-sun",
+            "title": "مسیریابی با خورشید؛ جهت‌یابی روز بدون قطب‌نما",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2902,
+            "slug": "outdoor-cooking-minimal",
+            "title": "آشپزی در طبیعت با کمترین امکانات؛ گرم، ساده و ایمن",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2900,
+            "slug": "rescue-signaling-guide",
+            "title": "نشانه‌های نجات در طبیعت؛ چطور دیده و شنیده شویم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2898,
+            "slug": "safe-food-storage-outdoor",
+            "title": "نگهداری ایمن غذا در طبیعت؛ کمپ را بی‌بو و امن کنیم",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2896,
+            "slug": "stray-dog-encounter",
+            "title": "رفتار صحیح با سگ‌های ولگرد؛ در مسیر چه کنیم که گاز نگیرند؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2894,
+            "slug": "water-safety-children",
+            "title": "ایمنی آبی برای بچه‌ها؛ چطور بازی کنار آب را برایشان امن کنیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2892,
+            "slug": "wild-boar-encounter",
+            "title": "مواجهه با گراز وحشی؛ چه کنیم که دیدار، بی‌حادثه بماند؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2890,
+            "slug": "night-wildlife-defense",
+            "title": "حیوانات وحشی در شب؛ کمپ را چطور ایمن نگه داریم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2888,
+            "slug": "snake-encounter-guide",
+            "title": "مواجهه با مار در طبیعت؛ چطور مسیر را امن ببینیم و چه کنیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2886,
+            "slug": "knot-tying-guide",
+            "title": "راهنمای گره‌زدن در طبیعت؛ سه گره‌ای که همیشه لازمت می‌شود",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2884,
+            "slug": "international-distress-signals",
+            "title": "سیگنال‌های بین‌المللی اضطراری؛ زبان مشترک کمک‌خواستن",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2881,
+            "slug": "navigation-by-stars",
+            "title": "مسیریابی با ستاره‌ها؛ شمال را در شب پیدا کنیم",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2879,
+            "slug": "ground-insulation-sleeping",
+            "title": "عایق‌کاری زمین برای خواب؛ چرا زیر بدن مهم‌تر از روی بدن است؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2877,
+            "slug": "diy-water-container",
+            "title": "ظرف آب در طبیعت؛ کدام ظرف را ببریم و چطور آب را سالم نگه داریم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2875,
+            "slug": "choosing-campsite",
+            "title": "انتخاب محل مناسب کمپ؛ کجا چادر بزنیم تا شب امن بگذرد؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2873,
+            "slug": "children-outdoor-safety",
+            "title": "ایمنی کودکان در طبیعت؛ ماجراجویی امن با بچه‌ها",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2871,
+            "slug": "bear-encounter-guide",
+            "title": "مواجهه با خرس؛ در منطقهٔ خرس‌خیز چه رفتاری درست است؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2869,
+            "slug": "diy-hammock-trees",
+            "title": "ساخت تخت معلق بین درخت‌ها؛ نصب ایمن هاموک در جنگل",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2847,
+            "slug": "build-shelter-branches",
+            "title": "ساخت سرپناه با شاخه و برگ بدون چادر",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2848,
+            "slug": "trash-bag-emergency-raincoat",
+            "title": "ساخت بارانی موقت با کیسه زباله؛ صورت آزاد و تهویهٔ باز",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2857,
+            "slug": "newspaper-insulation-bed",
+            "title": "بالش و تشک اضطراری با روزنامه و گونی در طبیعت",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2855,
+            "slug": "old-clothes-bandage-wick",
+            "title": "استفادهٔ دوباره از لباس و جوراب کهنه: باند، دستکش و فتیلهٔ آتش",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2853,
+            "slug": "plastic-bottle-shovel-funnel",
+            "title": "ساخت بیلچه، قیف و ظرف کوچک از بطری پلاستیکی",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2851,
+            "slug": "pull-tab-tools-diy",
+            "title": "حلقهٔ قوطی نوشابه؛ محدودیت قلاب و ساخت زیپ‌کش کمکی",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2849,
+            "slug": "diy-bottle-lantern",
+            "title": "ساخت فانوس با بطری آب برای روشنایی کمپ",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2843,
+            "slug": "heatstroke-first-aid",
+            "title": "کمک‌های اولیه گرمازدگی در طبیعت: گیج شد؟ خنک کن، همین حالا",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2830,
+            "slug": "unconscious-drowning-cpr",
+            "title": "نجات فرد بیهوش از آب: وقتی رفیقت بی‌حرکت روی آب شناور است",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2827,
+            "slug": "snake-insect-bite-first-aid",
+            "title": "کمک‌های اولیه گزیدگی مار و حشرات در طبیعت: بی‌حرکت کن، آرام باش، برسان",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2824,
+            "slug": "self-rescue-drowning",
+            "title": "آموزش نجات خویشتن در آب: خودت افتادی توی آب سرد؟ اول نفس، بعد شنا.",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2821,
+            "slug": "overdose-rescue-guide",
+            "title": "کمک‌های اولیه اوردوز دارویی در طبیعت: راه هوایی را نگه دار، ۱۱۵ را خبر کن، استفراغ نده",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2815,
+            "slug": "burn-injury-first-aid",
+            "title": "کمک‌های اولیه سوختگی در طبیعت: آب خنک، نه خمیردندان",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2812,
+            "slug": "bleeding-wound-first-aid",
+            "title": "کمک‌های اولیه خونریزی شدید در طبیعت: دستت را از روی زخم برندار",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2809,
+            "slug": "ankle-sprain-first-aid",
+            "title": "کمک‌های اولیه پیچ‌خوردگی مچ پا در طبیعت: پیچ خورده، در رفته یا شکسته؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2806,
+            "slug": "hypothermia-first-aid",
+            "title": "کمک‌های اولیه سرمازدگی در طبیعت: وقتی لرز قطع می‌شود، خطر تازه شروع شده",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2794,
+            "slug": "maintain-fire-in-rain",
+            "title": "نگهداری آتش در باد و بارون؛ چطور تو طوفان آتیش رو زنده نگه داریم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2791,
+            "slug": "how-to-extinguish-campfire",
+            "title": "خاموش کردن کامل و ایمن آتش در طبیعت؛ چطور ردپای آتیشمون رو پاک کنیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2788,
+            "slug": "first-aid-kit-checklist",
+            "title": "کیف کمک‌های اولیه کمپینگ؛ چی توش باشه که جونت رو نجات بده؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2782,
+            "slug": "how-to-choose-camping-tent",
+            "title": "راهنمای انتخاب چادر مناسب؛ خونه‌ی موقتت رو درست انتخاب کن!",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2776,
+            "slug": "outdoor-clothing-guide",
+            "title": "لباس مناسب طبیعت در هر فصل؛ چی بپوشیم که نه سردمون بشه نه گرم",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2773,
+            "slug": "outdoor-cooking-equipment",
+            "title": "تجهیزات پخت‌وپز در طبیعت؛ چی ببریم که هم غذا بخوریم هم بار اضافه نکشیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2758,
+            "slug": "how-to-start-campfire",
+            "title": "آموزش روشن کردن اصولی آتش در طبیعت؛ چطور بدون دود و دردسر، کمپ رو گرم کنیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2756,
+            "slug": "fire-without-lighter",
+            "title": "روشن کردن آتش بدون فندک و کبریت؛ چطور وقتی ابزارمون شکست خورد، آتش بسازیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2754,
+            "slug": "essential-camping-equipment",
+            "title": "وسایل ضروری کمپینگ برای یک شب؛ چک‌لیست و انتخاب ایمن",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2751,
+            "slug": "sleeping-bag-guide",
+            "title": "راهنمای انتخاب کیسه‌خواب مناسب؛ شب‌های سرد طبیعت رو راحت بخواب",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2749,
+            "slug": "emergency-water-purification",
+            "title": "روش‌های تصفیه آب در شرایط اضطراری؛ چطور آب رودخونه رو به آب معدنی تبدیل کنیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2747,
+            "slug": "drowning-rescue-guide",
+            "title": "آموزش نجات غریق: رفیقت توی آب افتاد؟ آروم باش. بخون و عمل کن.",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2745,
+            "slug": "drinking-water-in-nature",
+            "title": "تأمین آب آشامیدنی در طبیعت؛ چطور آب سالم پیدا کنیم و مسموم نشیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2740,
+            "slug": "diy-emergency-torch",
+            "title": "ساخت مشعل اضطراری؛ چطور تو تاریکی مطلق، نور و گرما رو به کمپ برگردونیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2737,
+            "slug": "diy-compass",
+            "title": "ساخت قطب‌نما با سوزن و آب؛ چطور وقتی گم شدیم جهت شمال رو پیدا کنیم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2732,
+            "slug": "camping-water-planning",
+            "title": "آب آشامیدنی در کمپ؛ برنامه‌ریزی، تصفیه و نگهداری ایمن",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          },
+          {
+            "id": 2723,
+            "slug": "camping-essential-checklist",
+            "title": "چک‌لیست کامل وسایل ضروری کمپینگ؛ چی با خودم ببرم که کم نیارم؟",
+            "province": 0,
+            "gallery": [],
+            "inline": [],
+            "candidate": 0
+          }
+        ],
+        "group_b_has_image": [],
+        "group_c_unexpected": [],
+        "gallery_images_total": 0,
+        "thumb_from_filter": 0,
+        "group_counts": {
+          "a": 56,
+          "b": 0,
+          "c": 0
+        }
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T21:07:22+00:00"
+}

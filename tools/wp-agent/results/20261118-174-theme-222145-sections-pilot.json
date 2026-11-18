@@ -1,0 +1,37 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-174-theme-222145-sections-pilot.json",
+  "started_utc": "2026-11-18T21:08:07+00:00",
+  "note": "۲.۲۲.۱۴۵ (۲۸ آبان ۱۴۰۵): مدولارسازی سکشن‌ها — نصب قالب و آزمون سکشن روی ده شهرستان. آزمون خشک (بدون نوشتن)، بعد خواندن برگشتی همان ده صفحه. بازگشت به ۲.۲۲.۱۴۴.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.144",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T21:08:08+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "error": "HTTP 409 on POST /theme-update: {\"code\":\"sa_agent_version_mismatch\",\"message\":\"\\u0627\\u0646\\u062a\\u0634\\u0627\\u0631 \\u067e\\u06cc\\u062f\\u0627\\u0634\\u062f\\u0647 2.22.144 \\u0627\\u0633\\u062a\\u060c \\u0646\\u0647 2.22.145.\",\"data\":{\"status\":409}}"
+    }
+  ],
+  "finished_utc": "2026-11-18T21:16:20+00:00"
+}

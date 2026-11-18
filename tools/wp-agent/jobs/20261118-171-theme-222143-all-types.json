@@ -1,0 +1,14 @@
+{
+ "note": "۲.۲۲.۱۴۳ (۲۸ آبان ۱۴۰۵): ممیزی تصویر شاخص برای هر چهار نوع (city/attraction/post/province). فقط خواندنی. بازگشت به ۲.۲.۱۴۲.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.143", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.142"},
+  {"cmd": "featured-audit", "type": "city"},
+  {"cmd": "featured-audit", "type": "attraction"},
+  {"cmd": "featured-audit", "type": "post"},
+  {"cmd": "featured-audit", "type": "province"}
+ ]
+}

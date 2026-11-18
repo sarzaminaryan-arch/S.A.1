@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۳۰ (۲۷ آبان ۱۴۰۵): اصلاح تشخیص خطای لاگ و منبع خدمت ابری + خواندن واقعی لاگ نسخهٔ 82738db7b8c9. فقط خواندنی؛ هیچ حذفی نیست. بازگشت به ۲.۲۲.۱۲۹.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.130", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.129"},
+  {"cmd": "updraft-cloud", "nonce": "82738db7b8c9"},
+  {"cmd": "updraft-log", "nonce": "82738db7b8c9", "limit": 120}
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۴۰ (۲۸ آبان ۱۴۰۵): داوری اصلاح‌شده (پوشش اجزا) + خواندن وضعیت listfiles. فقط خواندنی — هیچ حذف و هیچ تغییر تنظیماتی. بازگشت به ۲.۲۲.۱۳۹.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.140", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.139"},
+  {"cmd": "updraft-cloud", "nonce": "c14767a278da"},
+  {"cmd": "updraft-cloud", "nonce": "87eaebf2acab"}
+ ]
+}

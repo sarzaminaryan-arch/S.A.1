@@ -229,6 +229,32 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+// v2.22.140: داوری نباید با صفر فایل ابری true بدهد.
+sa_ig_assert( false !== strpos( $ops, 'entities_missing' ) && false !== strpos( $ops, 'expected_entities' ), 'cloud probe checks entity coverage' );
+sa_ig_assert( false !== strpos( $ops, "count( \$out['remote_files'] ) >= count( \$out['expected_entities'] )" ), 'cloud probe requires remote files to cover the entities' );
+// v2.22.133: تست واقعی اتصال Drive + اصلاح امن تنظیمات.
+sa_ig_assert( false !== strpos( $ops, 'function sa_agent_updraft_drive_test' ), 'drive connection test exists' );
+sa_ig_assert( false !== strpos( $ops, "'/updraft/drive-test'" ), 'drive-test route registered' );
+sa_ig_assert( false !== strpos( $ops, "'/updraft/settings'" ) && false !== strpos( $ops, 'owner_approved_settings' ), 'settings route needs the owner flag' );
+sa_ig_assert( false !== strpos( $ops, 'schedule_backup_database' ), 'settings change rebuilds the real WP-Cron schedule' );
+sa_ig_assert( false !== strpos( $ops, "'updraft_delete_local', 'updraft_interval'" ) || false !== strpos( $ops, "array( 'updraft_interval', 'updraft_retain', 'updraft_retain_db', 'updraft_delete_local' )" ), 'settings route only accepts the allowed keys' );
+// v2.22.132: سد «پشتیبان بدون ابر» وقتی خدمت ابری پیکربندی شده.
+sa_ig_assert( false !== strpos( $ops, 'sa_agent_nocloud_blocked' ), 'nocloud with a configured cloud service is refused' );
+sa_ig_assert( false !== strpos( $ops, "owner_approved_nocloud" ), 'nocloud needs an explicit owner flag' );
+// v2.22.131: شاهد «No remote despatch» بررسی ابری را رد می‌کند.
+sa_ig_assert( false !== strpos( $ops, 'No remote despatch' ) && false !== strpos( $ops, 'log_says_no_remote_despatch' ), 'probe rejects a set whose log says no remote despatch' );
+sa_ig_assert( false !== strpos( $ops, 'log_service_lines' ), 'probe reports the service decision lines of the log' );
+// v2.22.130: تشخیص خطای لاگ دقیق + منبع خدمت + خواندن لاگ.
+sa_ig_assert( false !== strpos( $ops, 'function sa_agent_updraft_log_is_error' ), 'log error detector exists' );
+sa_ig_assert( false !== strpos( $ops, 'ERROR_FOR_DIVISION_BY_ZERO' ) && false !== strpos( $ops, 'no errors' ), 'innocent log lines are not counted as errors' );
+sa_ig_assert( false !== strpos( $ops, 'service_source' ), 'cloud probe reports where the service list came from' );
+sa_ig_assert( false !== strpos( $ops, "'/updraft/log'" ), 'log reader route registered' );
+// v2.22.129: بررسی مستند ابری + حذف محلی با نگهبان، و نشانگر پاسخ.
+sa_ig_assert( false !== strpos( $ops, 'function sa_agent_updraft_cloud_probe' ), 'cloud probe helper exists' );
+sa_ig_assert( false !== strpos( $ops, "OK: Archive " ) && false !== strpos( $ops, "uploaded to " ), 'cloud probe reads the upload confirmation line of the log' );
+sa_ig_assert( false !== strpos( $ops, "function sa_agent_rest_updraft_delete_local" ) && false !== strpos( $ops, "'cloud_copy_not_verified'" ), 'local delete is blocked unless the cloud copy is verified' );
+sa_ig_assert( false !== strpos( $ops, "'/updraft/cloud'" ) && false !== strpos( $ops, "'/updraft/delete-local'" ), 'cloud + delete-local routes registered' );
+sa_ig_assert( false !== strpos( $ops, "'marker'        => 'prune-v129'" ), 'prune response carries a version marker' );
 // v2.22.128: سد دوم در حلقهٔ حذف — هر چیزی جز post رد می‌شود.
 sa_ig_assert( false !== strpos( $ops, "if ( 'post' !== (string) ( isset( \$d['kind'] ) ? \$d['kind'] : '' ) )" ), 'the delete loop refuses any non-post record' );
 // v2.22.127 (شرط مالک): نسخهٔ تنظیمات هرگز حذف نمی‌شود؛ فقط پشتیبان نوشته.

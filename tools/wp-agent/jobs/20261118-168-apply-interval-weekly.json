@@ -1,0 +1,11 @@
+{
+ "note": "۲۸ آبان ۱۴۰۵ — تأیید مالک: چون هر سه شاهد نسخهٔ c14767a278da مثبت است، تنظیمات به حالت امن برود: updraft_interval=weekly، retain=1، retain_db=1، delete_local=1. تغییر تنظیمات است، نه پشتیبان؛ زمان‌بندی واقعی WP-Cron هم با متد رسمی افزونه بازسازی می‌شود. سد nocloud دست‌نخورده.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "updraft-settings", "interval": "weekly", "retain": 1, "retain_db": 1, "delete_local": 1},
+  {"cmd": "updraft-settings", "interval": "weekly", "retain": 1, "retain_db": 1, "delete_local": 1,
+   "apply": true, "owner_approved_settings": true},
+  {"cmd": "updraft"},
+  {"cmd": "storage"}
+ ]
+}

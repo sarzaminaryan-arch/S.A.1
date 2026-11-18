@@ -209,6 +209,17 @@ function sa_agent_updraft_status( $nonce = '' ) {
 	if ( ! $up ) {
 		return $out;
 	}
+	// v2.22.129: تنظیمات زمان‌بندی و نگه‌داری — فقط خواندنی، برای تصمیم مستند مالک.
+	$out['settings'] = array(
+		'interval'            => (string) sa_agent_updraft_option( 'updraft_interval', '' ),
+		'interval_increments' => (string) sa_agent_updraft_option( 'updraft_interval_increments', '' ),
+		'interval_database'   => (string) sa_agent_updraft_option( 'updraft_interval_database', '' ),
+		'retain_files'        => (int) sa_agent_updraft_option( 'updraft_retain', 2 ),
+		'retain_db'           => (int) sa_agent_updraft_option( 'updraft_retain_db', (int) sa_agent_updraft_option( 'updraft_retain', 2 ) ),
+		'delete_local'        => (int) sa_agent_updraft_option( 'updraft_delete_local', 1 ),
+		'service'             => sa_agent_updraft_option( 'updraft_service', '' ),
+		'dir'                 => (string) sa_agent_updraft_option( 'updraft_dir', '' ),
+	);
 	$last = sa_agent_updraft_option( 'updraft_last_backup', array() );
 	if ( is_array( $last ) && ! empty( $last['backup_time'] ) ) {
 		$out['last_backup'] = array(
@@ -282,6 +293,23 @@ function sa_agent_rest_updraft_start( $r ) {
 	$job  = sa_agent_updraft_status();
 	if ( $job['last_backup'] && $job['last_backup']['age_seconds'] < 120 ) {
 		return new WP_Error( 'sa_agent_backup_recent', 'کمتر از دو دقیقه پیش پشتیبانی تمام شده؛ دوباره نمی‌گیریم.', array( 'status' => 409 ) );
+	}
+	// v2.22.132 (سد ایمنی، شرط مالک): پشتیبانی که نسخهٔ ابری ندارد، پشتیبان نیست؛
+	// خطر واقعی که در کد UpdraftPlus دیدیم: prune_file() نسخهٔ قبلی را روی دیسک
+	// بی‌قید‌و‌شرط پاک می‌کند (فقط پس از آن سراغ ابر می‌رود). پس اگر خدمت ابری
+	// پیکربندی شده باشد، مجاز نیستیم پشتیبانِ nocloud شروع کنیم — وگرنه پشتیبان
+	// تنها روی دیسک پاک می‌شود و هیچ نسخه‌ای در ابر نیست.
+	$svc = sa_agent_updraft_option( 'updraft_service', '' );
+	$svc = is_array( $svc ) ? $svc : array( $svc );
+	$svc = array_values( array_filter( array_map( 'strval', $svc ), static function ( $v ) {
+		return '' !== $v && 'none' !== $v;
+	} ) );
+	if ( ! empty( $b['nocloud'] ) && $svc && empty( $b['owner_approved_nocloud'] ) ) {
+		return new WP_Error(
+			'sa_agent_nocloud_blocked',
+			'خدمت ابری پیکربندی شده است (' . implode( ',', $svc ) . '); پشتیبان بدون ارسال به ابر اجازه ندارد چون نسخهٔ قبلی روی دیسک حذف می‌شود. برای عبور، owner_approved_nocloud:true لازم است.',
+			array( 'status' => 409 )
+		);
 	}
 	$nonce   = (string) $up->backup_time_nonce();
 	$options = array(
@@ -620,6 +648,108 @@ function sa_agent_rest_media_upload( $r ) {
  *
  * @return WP_REST_Response
  */
+/**
+ * GET /featured-audit — ممیزی تصویر شاخص شهرستان‌ها (فقط خواندنی، v2.22.141).
+ *
+ * برای هر شهرستان منتشرشده که تصویر شاخص ندارد، سه زیر-دسته را از هم جدا می‌کند:
+ *   (ب) در محتوا/گالری عکس هست            → با تنظیم خودکار قابل رفع است
+ *   (الف) هیچ عکسی در هیچ‌جا نیست           → فقط جایگزین بصری موقت
+ *   (ج) استثنا (فایل شاخص هست ولی گم‌شده)  → نیاز به تصمیم مالک
+ * همچنین نوشته‌هایی که به‌طور صریح شاخص را حذف کرده‌اند جدا شمرده می‌شوند.
+ *
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_featured_audit() {
+	// v2.22.143: انواع دیگر هم شمرده می‌شوند تا عدد ۵۸۹ رجیستری به یک نوع نسبت
+	// داده نشود؛ محور اصلی همچنان city است.
+	$type = isset( $_GET['type'] ) ? sanitize_key( (string) $_GET['type'] ) : 'city'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( ! in_array( $type, array( 'city', 'attraction', 'post', 'province' ), true ) ) {
+		$type = 'city';
+	}
+	$out['post_type'] = $type;
+	$ids = get_posts(
+		array(
+			'post_type'      => $type,
+			'post_status'    => 'publish',
+			'posts_per_page' => 5000,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+		)
+	);
+	$out = array(
+		'total_city_published' => count( (array) $ids ),
+		'marker'               => 'featured-audit-v143',
+		'has_featured'         => 0,
+		'suppressed'           => 0,
+		'no_featured'          => 0,
+		'group_a_no_image'     => array(),
+		'group_b_has_image'    => array(),
+		'group_c_unexpected'   => array(),
+		'gallery_images_total' => 0,
+		'thumb_from_filter'    => 0,
+	);
+	foreach ( (array) $ids as $pid ) {
+		$pid   = (int) $pid;
+		$thumb = (int) get_post_thumbnail_id( $pid );
+		// v2.22.142: کدام منبع؟ raw متای _thumbnail_id یا فیلترهای get_post_thumbnail_id
+		// (که ممکن است جانشین برگردانند و «همه شاخص دارند» کاذب بسازند).
+		$raw_thumb = (int) get_post_meta( $pid, '_thumbnail_id', true );
+		if ( $thumb > 0 && 0 === $raw_thumb ) {
+			++$out['thumb_from_filter'];
+		}
+		if ( $thumb > 0 ) {
+			$missing = function_exists( 'sa_media_attachment_missing' ) ? (bool) sa_media_attachment_missing( $thumb ) : false;
+			if ( $missing ) {
+				$out['group_c_unexpected'][] = array( 'id' => $pid, 'slug' => get_post_field( 'post_name', $pid ), 'reason' => 'thumb_file_missing', 'thumb' => $thumb );
+				continue;
+			}
+			++$out['has_featured'];
+			continue;
+		}
+		if ( function_exists( 'sa_featured_image_suppressed' ) && sa_featured_image_suppressed( $pid ) ) {
+			++$out['suppressed'];
+			continue;
+		}
+		++$out['no_featured'];
+		$content  = (string) get_post_field( 'post_content', $pid );
+		$province = function_exists( 'sa_gallery_city_province_id' ) ? (int) sa_gallery_city_province_id( $pid ) : 0;
+		$gallery  = ( $province && function_exists( 'sa_gallery_image_ids' ) ) ? (array) sa_gallery_image_ids( $province, $pid, 5 ) : array();
+		$inline   = array();
+		if ( preg_match_all( '/wp-image-(\d+)/', $content, $mm ) ) {
+			$inline = array_values( array_unique( array_map( 'intval', $mm[1] ) ) );
+		}
+		$first = 0;
+		foreach ( $gallery as $gid ) {
+			$first = (int) $gid;
+			break;
+		}
+		if ( ! $first && $inline ) {
+			$first = (int) $inline[0];
+		}
+		$row = array(
+			'id'        => $pid,
+			'slug'      => (string) get_post_field( 'post_name', $pid ),
+			'title'     => (string) get_post_field( 'post_title', $pid ),
+			'province'  => $province,
+			'gallery'   => array_map( 'intval', $gallery ),
+			'inline'    => $inline,
+			'candidate' => $first,
+		);
+		if ( $first ) {
+			$out['group_b_has_image'][] = $row;
+			$out['gallery_images_total'] += count( $gallery );
+		} else {
+			$out['group_a_no_image'][] = $row;
+		}
+	}
+	$out['group_counts'] = array(
+		'a' => count( $out['group_a_no_image'] ),
+		'b' => count( $out['group_b_has_image'] ),
+		'c' => count( $out['group_c_unexpected'] ),
+	);
+	return rest_ensure_response( $out );
+}
+
 function sa_agent_rest_storage() {
 	$out = array(
 		'disk'    => array( 'free_bytes' => null, 'total_bytes' => null ),
@@ -675,10 +805,20 @@ function sa_agent_rest_storage() {
 					$files += isset( $entry[ $key . '-size' ] ) ? (int) $entry[ $key . '-size' ] : 0;
 				}
 			}
+			$live = array();
+			foreach ( (array) $entry as $k => $v ) {
+				if ( '-size' === substr( (string) $k, -5 ) || 'checksums' === $k ) {
+					continue;
+				}
+				if ( in_array( $k, array( 'db', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ), true ) ) {
+					$live[ $k ] = isset( $entry[ $k . '-size' ] ) ? (int) $entry[ $k . '-size' ] : null;
+				}
+			}
 			$out['updraft']['sets'][] = array(
 				'utc'      => gmdate( 'c', (int) $time ),
 				'bytes'    => $files,
 				'entities' => array_values( array_intersect( array_keys( (array) $entry ), array( 'db', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ) ) ),
+				'sizes'    => $live,
 			);
 			$out['updraft']['bytes'] += $files;
 		}
@@ -849,6 +989,474 @@ function sa_agent_updraft_dirs() {
  *
  * @return array{files:array[],bytes:int}
  */
+/**
+ * v2.22.129: بررسی مستند وضعیت آپلود یک نسخهٔ UpdraftPlus روی فضای ابری.
+ *
+ * چرا این‌طور: UpdraftPlus مسیر فایل‌ها را در تاریخچه ذخیره نمی‌کند و «اتصال برقرار
+ * است» هیچ چیزی دربارهٔ موفقیت آپلود نمی‌گوید. بنابراین سه شاهد خوانده می‌شود:
+ *   ۱) فهرست واقعی فایل‌های همان نسخه روی فضای ابری (متد listfiles خود افزونه)،
+ *   ۲) خط «OK: Archive … uploaded to …» در فایل لاگ همان نسخه،
+ *   ۳) وضعیت و خطاهای آخرین پشتیبان (updraft_last_backup).
+ *
+ * @param string $nonce شناسهٔ نسخه.
+ * @return array
+ */
+/**
+ * v2.22.130: آیا این خط لاگ UpdraftPlus خطای واقعی است؟
+ *
+ * نسخهٔ اول هر خطی با «ERROR/failed» را خطا می‌شمرد و دو خط بی‌گناه را هم برداشته بود:
+ * «SQL compatibility mode is now: ERROR_FOR_DIVISION_BY_ZERO» و «There were no errors…».
+ * حالا فقط نشانه‌های واقعی خطا پذیرفته می‌شوند.
+ *
+ * @param string $line خط لاگ.
+ * @return bool
+ */
+function sa_agent_updraft_log_is_error( $line ) {
+	$line = (string) $line;
+	if ( '' === trim( $line ) ) {
+		return false;
+	}
+	if ( false !== strpos( $line, 'no errors' ) || false !== strpos( $line, 'ERROR_FOR_DIVISION_BY_ZERO' ) ) {
+		return false;
+	}
+	// خطاهای واقعی UpdraftPlus با نشانگر «(error)» در انتهای خط لاگ می‌آیند.
+	if ( preg_match( '/((\*\*\*)?\s*\(?error\)?\s*$)/i', $line ) && false === strpos( $line, 'no errors' ) ) {
+		return true;
+	}
+	return (bool) preg_match( '/(\bERROR:\s|Failed to upload|failed to open|will not be able to|Could not |unable to)/i', $line );
+}
+
+/**
+ * v2.22.133: تست واقعی اتصال Google Drive — نه «تنظیمات چه می‌گوید».
+ *
+ * مسیر رسمی خود افزونه: دریافت access_token با refresh_token، سپس صدا زدن
+ * listfiles('backup_') که به Drive واقعی وصل می‌شود. اگر توکن منقضی/باطل باشد،
+ * خطای دقیق برگردانده می‌شود تا مالک بداند چه کاری در پیشخوان لازم است.
+ *
+ * @return array
+ */
+/**
+ * v2.22.137: آیا جدول‌های *options خود افزونه (نه wp_options) توکن نگه می‌دارند؟
+ *
+ * نسخهٔ نصب‌شده (۱.۲۶.۱۶) حساب Google Drive را در ساختار instance نگه می‌دارد و
+ * ممکن است مقادیر محرمانه در جدول‌های جدای افزونه باشند، نه در wp_options. برای
+ * اینکه «تنظیم نشده» را به‌غلط گزارش نکنیم، وجود و شمارش ردیف‌ها و کلیدها بررسی
+ * می‌شود — هرگز مقدارها خوانده یا برگردانده نمی‌شوند.
+ *
+ * @return array
+ */
+function sa_agent_updraft_secret_store() {
+	global $wpdb;
+	$out = array( 'tables' => array(), 'any_secret_row' => false );
+	$like = $wpdb->esc_like( 'updraft' ) . '%';
+	$tables = $wpdb->get_col( $wpdb->prepare( 'SHOW TABLES LIKE %s', $like ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+	foreach ( (array) $tables as $t ) {
+		$rows = (int) $wpdb->get_var( "SELECT COUNT(*) FROM `$t`" ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery
+		$cols = $wpdb->get_col( "SHOW COLUMNS FROM `$t`" ); // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared,WordPress.DB.DirectDatabaseQuery
+		$has_secret_col = false;
+		$key_hits       = array();
+		foreach ( (array) $cols as $c ) {
+			$lc = strtolower( (string) $c );
+			if ( in_array( $lc, array( 'value', 'option_value', 'settings', 'data' ), true ) ) {
+				$has_secret_col = true;
+			}
+		}
+		$out['tables'][] = array(
+			'name'   => $t,
+			'rows'   => $rows,
+			'cols'   => array_values( (array) $cols ),
+			'has_secret_col' => $has_secret_col,
+		);
+		if ( $has_secret_col && $rows > 0 ) {
+			$out['any_secret_row'] = true;
+		}
+	}
+	return $out;
+}
+
+function sa_agent_updraft_drive_test() {
+	$out = array(
+		'configured'      => false,
+		'has_client'      => false,
+		'has_secret'      => false,
+		'has_refresh'     => false,
+		'token_ok'        => false,
+		'listing_ok'      => false,
+		'file_count'      => 0,
+		'sample'          => array(),
+		'error'           => '',
+		'error_hint'      => '',
+		'connected'       => false,
+	);
+	$raw = sa_agent_updraft_option( 'updraft_googledrive', array() );
+	if ( ! is_array( $raw ) ) {
+		$raw = array();
+	}
+	// تشخیص: کدام کلیدهای همکار با Drive در دیتابیس هستند (فقط وجود/طول، نه مقدار).
+	$out['option_keys'] = array_keys( $raw );
+	$out['option_structure'] = 'flat';
+	$opts = $raw;
+	// v2.22.135: ساختار تازهٔ افزونه کلیدها را زیر settings نگه می‌دارد.
+	if ( isset( $raw['settings'] ) && is_array( $raw['settings'] ) ) {
+		$out['option_structure']    = 'nested_settings';
+		$out['settings_keys']       = array_keys( $raw['settings'] );
+		$out['settings_sub_keys']   = array();
+		foreach ( $raw['settings'] as $sk => $sv ) {
+			$out['settings_sub_keys'][ $sk ] = is_array( $sv ) ? array_keys( $sv ) : gettype( $sv );
+		}
+		$opts = $raw['settings'];
+		// v2.22.136: نسخهٔ افزونه هر حساب را در یک «instance» (کلید s-…) نگه می‌دارد:
+		// settings → s-xxxx → {clientid, secret, token, …}. حسابِ instance_enabled را برمی‌داریم.
+		$instances = array();
+		foreach ( $raw['settings'] as $sk => $sv ) {
+			if ( 0 === strpos( (string) $sk, 's-' ) && is_array( $sv ) ) {
+				$instances[ $sk ] = $sv;
+			}
+		}
+		$out['instances'] = array();
+		$chosen = null;
+		foreach ( $instances as $sk => $sv ) {
+			$enabled = false;
+			if ( isset( $sv['instance_enabled'] ) ) {
+				$enabled = ! empty( $sv['instance_enabled'] ) && '1' !== (string) $sv['instance_enabled'] ? (bool) $sv['instance_enabled'] : (bool) (int) $sv['instance_enabled'];
+			}
+			$out['instances'][ $sk ] = array(
+				'enabled'      => $enabled,
+				'has_client'   => ! empty( $sv['clientid'] ),
+				'has_secret'   => ! empty( $sv['secret'] ),
+				'has_token'    => ! empty( $sv['token'] ),
+				'has_tmp'      => ! empty( $sv['tmp_access_token'] ),
+				'owner_email'  => isset( $sv['owneremail'] ) ? (string) $sv['owneremail'] : '',
+				'folder'       => isset( $sv['folder'] ) ? (string) $sv['folder'] : '',
+				'token_len'    => isset( $sv['token'] ) ? strlen( (string) $sv['token'] ) : 0,
+			);
+			if ( null === $chosen && ( $enabled || 1 === count( $instances ) ) ) {
+				$chosen = $sv;
+			}
+		}
+		if ( is_array( $chosen ) ) {
+			$opts = $chosen;
+			$out['instance_used'] = $sk;
+		}
+	}
+	$find = static function ( $arr, $keys ) {
+		foreach ( $keys as $k ) {
+			if ( isset( $arr[ $k ] ) && '' !== (string) $arr[ $k ] ) {
+				return (string) $arr[ $k ];
+			}
+		}
+		return '';
+	};
+	$clientid = $find( $opts, array( 'clientid', 'client_id', 'clientId' ) );
+	$secret   = $find( $opts, array( 'secret', 'client_secret', 'clientSecret' ) );
+	$refresh  = $find( $opts, array( 'token', 'refresh_token', 'refreshToken' ) );
+	$out['resolved_keys'] = array(
+		'clientid' => '' !== $clientid,
+		'secret'   => '' !== $secret,
+		'refresh'  => '' !== $refresh,
+	);
+	$out['stored']      = array(
+		'updraft_googledrive_type'   => gettype( sa_agent_updraft_option( 'updraft_googledrive', null ) ),
+		'updraft_service'            => sa_agent_updraft_option( 'updraft_service', null ),
+		'googledrive_clientid_len'   => strlen( (string) sa_agent_updraft_option( 'updraft_googledrive_clientid', '' ) ),
+		'googledrive_secret_len'     => strlen( (string) sa_agent_updraft_option( 'updraft_googledrive_secret', '' ) ),
+		'tmp_access_token_present'   => '' !== (string) sa_agent_updraft_option( 'updraftplus_tmp_googledrive_access_token', '' ),
+		'refreshtoken_option_len'    => strlen( (string) sa_agent_updraft_option( 'updraft_googledrive_refreshtoken', '' ) ),
+	);
+	$out['configured']  = ( '' !== $clientid || '' !== $secret || '' !== $refresh );
+	$out['has_client']  = '' !== $clientid;
+	$out['has_secret']  = '' !== $secret;
+	$out['has_refresh'] = '' !== $refresh;
+	if ( ! $out['has_client'] || ! $out['has_secret'] || ! $out['has_refresh'] ) {
+		$out['secret_store'] = sa_agent_updraft_secret_store();
+		$out['error']      = 'incomplete_credentials';
+		$out['error_hint'] = 'در پیشخوان → تنظیمات → UpdraftPlus → «تنظیمات فضای ذخیره‌سازی»: Google Drive را باز کنید و «Connect with Google Drive» را بزنید تا توکن تازه ساخته شود.';
+		return $out;
+	}
+	if ( ! defined( 'UPDRAFTPLUS_DIR' ) || ! is_file( UPDRAFTPLUS_DIR . '/methods/googledrive.php' ) ) {
+		$out['error'] = 'plugin_dir_unknown';
+		return $out;
+	}
+	require_once UPDRAFTPLUS_DIR . '/methods/googledrive.php';
+	if ( ! class_exists( 'UpdraftPlus_BackupModule_googledrive' ) ) {
+		$out['error'] = 'class_missing';
+		return $out;
+	}
+	$obj = new UpdraftPlus_BackupModule_googledrive();
+	// شاهد ۱: توکن واقعی از Google گرفته می‌شود.
+	$getter = new ReflectionMethod( 'UpdraftPlus_BackupModule_googledrive', 'access_token' );
+	$getter->setAccessible( true );
+	$token = $getter->invoke( $obj, $refresh, $clientid, $secret );
+	$out['token_ok'] = is_string( $token ) && '' !== $token;
+	if ( ! $out['token_ok'] ) {
+		$out['error']      = 'token_refresh_failed';
+		$out['error_hint'] = 'توکن Google Drive تازه نشد (منقضی یا باطل است). در پیشخوان → UpdraftPlus → Settings → Google Drive: «Unlink» و بعد دوباره «Connect with Google Drive»؛ دسترسی را تأیید کنید.';
+		return $out;
+	}
+	// شاهد ۲: فهرست واقعی فایل‌های همان حساب.
+	$files = $obj->listfiles( 'backup_' );
+	if ( is_wp_error( $files ) ) {
+		$out['error']      = 'listing_failed: ' . $files->get_error_code();
+		$out['error_message'] = $files->get_error_message();
+		$out['error_hint'] = 'توکن گرفته شد ولی دسترسی به پوشهٔ Drive برقرار نشد؛ در پیشخوان اتصال را دوباره برقرار کنید.';
+		return $out;
+	}
+	if ( ! is_array( $files ) ) {
+		$out['error'] = 'listing_not_array';
+		return $out;
+	}
+	$out['listing_ok'] = true;
+	$out['file_count'] = count( $files );
+	foreach ( array_slice( $files, 0, 10 ) as $f ) {
+		$out['sample'][] = array(
+			'name'  => isset( $f['name'] ) ? (string) $f['name'] : '',
+			'bytes' => isset( $f['size'] ) ? (int) $f['size'] : 0,
+		);
+	}
+	$out['connected'] = true;
+	return $out;
+}
+
+function sa_agent_updraft_cloud_probe( $nonce ) {
+	$nonce = preg_replace( '/[^a-f0-9]/', '', strtolower( (string) $nonce ) );
+	$out   = array(
+		'nonce'          => $nonce,
+		'services'       => array(),
+		'remote_files'   => array(),
+		'remote_bytes'   => 0,
+		'log_file'       => '',
+		'log_upload_ok'  => array(),
+		'log_errors'     => array(),
+		'log_service_lines' => array(),
+		'log_local_deleted' => array(),
+		'no_remote_despatch' => false,
+		'log_lines'      => 0,
+		'last_backup'    => null,
+		'complete'       => false,
+		'reasons'        => array(),
+	);
+	if ( '' === $nonce ) {
+		$out['reasons'][] = 'bad_nonce';
+		return $out;
+	}
+	$history = (array) sa_agent_updraft_option( 'updraft_backup_history', array() );
+	$entry   = null;
+	foreach ( $history as $time => $row ) {
+		if ( is_array( $row ) && isset( $row['nonce'] ) && (string) $row['nonce'] === $nonce ) {
+			$entry = $row;
+			break;
+		}
+	}
+	if ( null === $entry ) {
+		$out['reasons'][] = 'not_in_history';
+		return $out;
+	}
+	$services = isset( $entry['service'] ) ? $entry['service'] : array();
+	if ( is_string( $services ) ) {
+		$services = array( $services );
+	}
+	$services = array_values( array_filter( array_map( 'strval', (array) $services ), static function ( $v ) {
+		return '' !== $v && 'none' !== $v;
+	} ) );
+	// v2.22.130: تاریخچهٔ این سایت کلید service را نگه نمی‌دارد؛ در این حالت از
+	// خدمتِ پیکربندی‌شده در تنظیمات استفاده می‌کنیم تا بررسی «هیچ» انجام نشود.
+	$service_source = 'history';
+	if ( ! $services ) {
+		$conf = sa_agent_updraft_option( 'updraft_service', '' );
+		if ( is_string( $conf ) ) {
+			$conf = array( $conf );
+		}
+		$services = array_values( array_filter( array_map( 'strval', (array) $conf ), static function ( $v ) {
+			return '' !== $v && 'none' !== $v;
+		} ) );
+		$service_source = 'settings';
+	}
+	$out['services']      = $services;
+	$out['service_source'] = $service_source;
+	$out['history_keys']  = array_keys( (array) $entry );
+
+	// v2.22.140: چه چیزهایی باید روی ابر باشند؟ از خود تاریخچه.
+	$out['expected_entities'] = array_values( array_intersect( array_keys( (array) $entry ), array( 'db', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ) ) );
+	$out['listfiles_status']  = 'not_called';
+	// شاهد ۱: فهرست واقعی فایل‌های همان نسخه روی فضای ابری.
+	if ( defined( 'UPDRAFTPLUS_DIR' ) ) {
+		foreach ( $services as $service ) {
+			$path = UPDRAFTPLUS_DIR . '/methods/' . $service . '.php';
+			if ( ! is_file( $path ) ) {
+				$out['reasons'][] = 'no_method_' . $service;
+				continue;
+			}
+			require_once $path;
+			$class = 'UpdraftPlus_BackupModule_' . $service;
+			if ( ! class_exists( $class ) ) {
+				$out['reasons'][] = 'no_class_' . $service;
+				continue;
+			}
+			$obj = new $class();
+			if ( ! method_exists( $obj, 'listfiles' ) ) {
+				$out['reasons'][] = 'no_listfiles_' . $service;
+				continue;
+			}
+			$files = $obj->listfiles( 'backup_' );
+			if ( is_wp_error( $files ) ) {
+				$out['listfiles_status'] = 'error:' . $files->get_error_code() . ':' . $files->get_error_message();
+				$out['reasons'][] = 'listfiles_error_' . $service . ':' . $files->get_error_code();
+				continue;
+			}
+			if ( ! is_array( $files ) ) {
+				$out['listfiles_status'] = 'not_array';
+				$out['reasons'][] = 'listfiles_empty_' . $service;
+				continue;
+			}
+			$out['listfiles_status'] = 'ok:' . count( $files ) . ' remote objects seen';
+			$out['remote_total_seen'] = ( $out['remote_total_seen'] ?? 0 ) + count( $files );
+			foreach ( $files as $f ) {
+				$name = isset( $f['name'] ) ? (string) $f['name'] : '';
+				if ( '' === $name || false === strpos( $name, $nonce ) ) {
+					continue;
+				}
+				$size = isset( $f['size'] ) ? (int) $f['size'] : 0;
+				$out['remote_files'][] = array( 'service' => $service, 'name' => $name, 'bytes' => $size );
+				$out['remote_bytes']  += $size;
+			}
+		}
+	} else {
+		$out['reasons'][] = 'updraftplus_dir_unknown';
+	}
+
+	// شاهد ۲: لاگ همان نسخه.
+	$dirs = function_exists( 'sa_agent_updraft_dirs' ) ? sa_agent_updraft_dirs() : array();
+	foreach ( $dirs as $dir ) {
+		$log = trailingslashit( $dir ) . 'log.' . $nonce . '.txt';
+		if ( ! is_file( $log ) ) {
+			continue;
+		}
+		$out['log_file'] = $log;
+		$body = (string) @file_get_contents( $log ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		$lines = preg_split( "/\r\n|\n/", $body );
+		$out['log_lines'] = count( (array) $lines );
+		foreach ( (array) $lines as $line ) {
+			if ( false !== strpos( $line, 'Deleting local file: ' ) ) {
+				$out['log_local_deleted'][] = trim( $line );
+			}
+			if ( preg_match( '/(No remote despatch|Cloud backup selection|Beginning dispatch|Recording as successfully uploaded)/', $line ) ) {
+				$out['log_service_lines'][] = trim( $line );
+			}
+			// v2.22.138: نسخه‌های تازه «uploaded in 9.54 seconds» می‌نویسند، نه
+			// «uploaded to …»؛ نسخهٔ قبلی این خطوط را نمی‌دید و نتیجهٔ «آپلود نشده» می‌داد.
+			if ( false !== strpos( $line, 'OK: Archive ' ) && preg_match( '/OK: Archive (.+?) uploaded (?:to|in) /', $line, $m ) ) {
+				$out['log_upload_ok'][] = trim( $m[1] );
+			} elseif ( sa_agent_updraft_log_is_error( $line ) ) {
+				$out['log_errors'][] = trim( substr( $line, 0, 300 ) );
+			}
+		}
+		break;
+	}
+	if ( '' === $out['log_file'] ) {
+		$out['reasons'][] = 'no_log_file';
+	}
+
+	// شاهد ۳: آخرین پشتیبان (موفق/ناموفق + خطاها).
+	$last = sa_agent_updraft_option( 'updraft_last_backup', array() );
+	if ( is_array( $last ) && isset( $last['backup_nonce'] ) && (string) $last['backup_nonce'] === $nonce ) {
+		$out['last_backup'] = array(
+			'backup_time' => isset( $last['backup_time'] ) ? gmdate( 'c', (int) $last['backup_time'] ) : '',
+			'success'     => ! empty( $last['success'] ),
+			'errors'      => isset( $last['errors'] ) ? count( (array) $last['errors'] ) : 0,
+		);
+	}
+
+	// داوری: هر فایلِ روی دیسک باید هم‌نامش روی فضای ابری باشد، هم در لاگ تأیید شده باشد.
+	$disk = array();
+	foreach ( function_exists( 'sa_agent_updraft_set_files' ) ? sa_agent_updraft_set_files( array( $nonce => $entry ) ) : array() as $set ) {
+		foreach ( (array) $set['files'] as $f ) {
+			$disk[] = $f['name'];
+		}
+	}
+	$remote_names = array();
+	foreach ( $out['remote_files'] as $f ) {
+		$remote_names[] = $f['name'];
+	}
+	$missing_remote = array_values( array_diff( $disk, $remote_names ) );
+	$missing_log    = array_values( array_diff( $disk, $out['log_upload_ok'] ) );
+	// v2.22.138: نبودِ فایل محلی «خطا» نیست؛ با delete_local=1 فایل‌ها بلافاصله پس از
+	// آپلود موفق پاک می‌شوند. داوری باید بر شاهدهای ابری و لاگ بایستد، نه وجود دیسک.
+	$out['local_absent_ok'] = ( ! $disk && 1 === (int) sa_agent_updraft_option( 'updraft_delete_local', 0 ) );
+	if ( ! $disk && ! $out['local_absent_ok'] ) {
+		$out['reasons'][] = 'no_local_files';
+	}
+	if ( $missing_remote ) {
+		$out['reasons'][] = 'files_missing_remote:' . count( $missing_remote );
+	}
+	if ( $missing_log ) {
+		$out['reasons'][] = 'files_not_confirmed_in_log:' . count( $missing_log );
+	}
+	// v2.22.139: خطای گذرا (مثل OpenSSL SSL_ERROR_SYSCALL در یک retry) اگر همان فایل
+	// بعداً با موفقیت آپلود شده باشد، مانع تأیید نیست — ولی شفاف گزارش می‌شود.
+	$transient = 0;
+	foreach ( $out['log_errors'] as $err_line ) {
+		if ( false === strpos( $err_line, 'upload exception' ) ) {
+			continue;
+		}
+		if ( preg_match( '/(backup_[\-0-9]+_[A-Za-z0-9]+_[0-9a-f]{12}-[a-z0-9]+\.(?:zip|gz))/', $err_line, $mm ) ) {
+			if ( in_array( $mm[1], $out['log_upload_ok'], true ) ) {
+				++$transient;
+				continue;
+			}
+		}
+	}
+	$out['transient_errors'] = $transient;
+	$out['hard_errors'] = array_values( array_filter( $out['log_errors'], static function ( $l ) {
+		return false === strpos( $l, 'upload exception' );
+	} ) );
+	if ( $out['hard_errors'] ) {
+		$out['reasons'][] = 'log_has_errors:' . count( $out['hard_errors'] );
+	}
+	if ( $out['last_backup'] && ! $out['last_backup']['success'] ) {
+		$out['reasons'][] = 'last_backup_not_success';
+	}
+	// شاهد ۲ب (v2.22.131): اگر لاگ صریحاً بگوید «No remote despatch» یعنی UpdraftPlus
+	// اصلاً به فضای ابری نفرستاده؛ این قوی‌ترین شاهد منفی است و باید کل بررسی را رد کند.
+	$no_despatch = array_values( array_filter( $out['log_service_lines'], static function ( $l ) {
+		return false !== strpos( $l, 'No remote despatch' );
+	} ) );
+	$out['no_remote_despatch'] = (bool) $no_despatch;
+	if ( $no_despatch ) {
+		$out['reasons'][] = 'log_says_no_remote_despatch';
+	}
+	// v2.22.140 (اصلاح باگ): اگر دیسک خالی باشد، شرط «هر فایل دیسک روی ابر هست» تهی
+	// می‌شود و می‌توانست با صفر فایل ابری هم true بدهد. حالا پوشش اجزای تاریخچه
+	// جداگانه سنجیده می‌شود: هر جزء (db/plugins/themes/uploads/…) باید فایل ابری
+	// و خط آپلود موفق داشته باشد.
+	$covered = array();
+	foreach ( $out['remote_files'] as $rf ) {
+		foreach ( $out['expected_entities'] as $ent ) {
+			$needle = ( 'mu-plugins' === $ent ) ? '-mu-plugins.zip' : '-' . $ent;
+			if ( false !== strpos( $rf['name'], $needle ) ) {
+				$covered[ $ent ] = true;
+			}
+		}
+	}
+	if ( isset( $covered['others'] ) && ! isset( $covered['uploads'] ) ) {
+		// «others» با نام -others.zip می‌آید؛ برای uploads نام -uploads.zip است.
+	}
+	$out['entities_covered'] = array_keys( $covered );
+	$out['entities_missing'] = array_values( array_diff( $out['expected_entities'], array_keys( $covered ) ) );
+	if ( $out['expected_entities'] && $out['entities_missing'] ) {
+		$out['reasons'][] = 'entities_missing:' . implode( ',', $out['entities_missing'] );
+	}
+	$out['complete'] = $out['expected_entities']
+		&& ! $out['entities_missing']
+		&& ( $disk || $out['local_absent_ok'] )
+		&& count( $out['remote_files'] ) >= count( $out['expected_entities'] )
+		&& ! $missing_remote
+		&& ! $missing_log
+		&& ! $out['hard_errors']
+		&& ! $no_despatch
+		&& ( ! $out['last_backup'] || $out['last_backup']['success'] );
+	return $out;
+}
+
 function sa_agent_updraft_orphan_files() {
 	$history = (array) sa_agent_updraft_option( 'updraft_backup_history', array() );
 	$known   = array();
@@ -1095,6 +1703,17 @@ function sa_agent_rest_backups_prune( $r ) {
 					continue 2;
 				}
 			}
+			// v2.22.129 (شرط مالک): نوعِ محافظت‌شده با سقف کل هم حذف نمی‌شود.
+			if ( 'post' !== (string) get_post_meta( $bid, '_sa_backup_kind', true ) ) {
+				$protected[] = array(
+					'id'     => (int) $bid,
+					'kind'   => (string) get_post_meta( $bid, '_sa_backup_kind', true ),
+					'target' => (int) get_post_meta( $bid, '_sa_backup_target', true ),
+					'bytes'  => sa_agent_backup_bytes( $bid ),
+					'reason' => 'settings_snapshot_never_pruned',
+				);
+				continue;
+			}
 			$drop[] = array(
 				'id'        => (int) $bid,
 				'kind'      => (string) get_post_meta( $bid, '_sa_backup_kind', true ),
@@ -1110,6 +1729,7 @@ function sa_agent_rest_backups_prune( $r ) {
 		$freed += (int) $d['bytes'];
 	}
 	$out = array(
+		'marker'        => 'prune-v129',
 		'dry_run'       => $dry_run,
 		'per_target'    => $per_target,
 		'total_limit'   => $total,
@@ -1148,6 +1768,257 @@ function sa_agent_rest_backups_prune( $r ) {
  * @param WP_REST_Request $r درخواست.
  * @return WP_REST_Response|WP_Error
  */
+/**
+ * GET /updraft/cloud — سه شاهدِ آپلود یک نسخه روی فضای ابری (فقط خواندنی).
+ *
+ * @param WP_REST_Request $r درخواست: nonce.
+ * @return WP_REST_Response|WP_Error
+ */
+/**
+ * GET /updraft/log — خطوط مرتبط یک لاگ پشتیبان (فقط خواندنی، الگوهای مجاز).
+ *
+ * برای اینکه «حدس» نزنیم و لاگ را واقعاً ببینیم؛ فقط خطوط مربوط به آپلود/خدمت/خطا
+ * برمی‌گردند و هر نشانهٔ توکن پاک می‌شود.
+ *
+ * @param WP_REST_Request $r درخواست: nonce، limit.
+ * @return WP_REST_Response|WP_Error
+ */
+/**
+ * GET /updraft/drive-test — تست واقعی اتصال Google Drive (فقط خواندنی).
+ *
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_updraft_drive_test() {
+	return rest_ensure_response( sa_agent_updraft_drive_test() );
+}
+
+/**
+ * POST /updraft/settings — اصلاح زمان‌بندی و نگه‌داری، فقط کلیدهای مجاز.
+ *
+ * نگهبان‌ها: ۱) پرچم صریح مالک، ۲) پیش‌فرض پیش‌نمایش، ۳) فقط چهار کلید مجاز
+ * (`updraft_interval`, `updraft_retain`, `updraft_retain_db`, `updraft_delete_local`)،
+ * ۴) مقدارها اعتبارسنجی می‌شوند، ۵) زمان‌بندی واقعی WP-Cron با متد رسمی افزونه
+ * بازسازی می‌شود تا مقدار فقط در دیتابیس نماند.
+ *
+ * @param WP_REST_Request $r درخواست.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_updraft_settings( $r ) {
+	$b       = (array) $r->get_json_params();
+	$dry_run = ! isset( $b['dry_run'] ) || false !== $b['dry_run'];
+	$allowed = array( 'updraft_interval', 'updraft_retain', 'updraft_retain_db', 'updraft_delete_local' );
+	$before  = array();
+	foreach ( $allowed as $k ) {
+		$before[ $k ] = sa_agent_updraft_option( $k, null );
+	}
+	$want = array();
+	if ( isset( $b['updraft_interval'] ) ) {
+		$v = (string) $b['updraft_interval'];
+		$ok = array( 'manual', 'weekly', 'daily', 'monthly', 'hourly', 'twicedaily', 'every4hours', 'every8hours', 'every12hours' );
+		if ( ! in_array( $v, $ok, true ) ) {
+			return new WP_Error( 'sa_agent_bad_interval', 'مقدار مجاز نیست: ' . $v, array( 'status' => 400 ) );
+		}
+		$want['updraft_interval'] = $v;
+	}
+	foreach ( array( 'updraft_retain', 'updraft_retain_db' ) as $k ) {
+		if ( isset( $b[ $k ] ) ) {
+			$n = (int) $b[ $k ];
+			if ( $n < 1 || $n > 30 ) {
+				return new WP_Error( 'sa_agent_bad_retain', 'مقدار نگه‌داری باید بین ۱ و ۳۰ باشد: ' . $k, array( 'status' => 400 ) );
+			}
+			$want[ $k ] = $n;
+		}
+	}
+	if ( isset( $b['updraft_delete_local'] ) ) {
+		$want['updraft_delete_local'] = empty( $b['updraft_delete_local'] ) ? 0 : 1;
+	}
+	if ( ! $want ) {
+		return new WP_Error( 'sa_agent_nothing', 'هیچ کلید مجازی برای تغییر فرستاده نشد.', array( 'status' => 400 ) );
+	}
+	$out = array(
+		'dry_run'       => $dry_run,
+		'before'        => $before,
+		'want'          => $want,
+		'allowed_keys'  => $allowed,
+		'applied'       => false,
+	);
+	if ( $dry_run ) {
+		return rest_ensure_response( $out );
+	}
+	if ( empty( $b['owner_approved_settings'] ) ) {
+		return new WP_Error( 'sa_agent_need_owner', 'تغییر تنظیمات فقط با owner_approved_settings: true.', array( 'status' => 403 ) );
+	}
+	foreach ( $want as $k => $v ) {
+		if ( class_exists( 'UpdraftPlus_Options' ) && method_exists( 'UpdraftPlus_Options', 'update_updraft_option' ) ) {
+			UpdraftPlus_Options::update_updraft_option( $k, $v );
+		} else {
+			update_option( $k, $v );
+		}
+	}
+	$after = array();
+	foreach ( $allowed as $k ) {
+		$after[ $k ] = sa_agent_updraft_option( $k, null );
+	}
+	// زمان‌بندی واقعی WP-Cron با متد رسمی افزونه بازسازی می‌شود.
+	$schedule = array();
+	$up       = sa_agent_updraft();
+	if ( $up && method_exists( $up, 'schedule_backup' ) ) {
+		$schedule['files'] = $up->schedule_backup( (string) $after['updraft_interval'] );
+	}
+	if ( $up && method_exists( $up, 'schedule_backup_database' ) ) {
+		$schedule['db'] = $up->schedule_backup_database( (string) $after['updraft_interval'] );
+	}
+	$out['after']       = $after;
+	$out['schedule']    = $schedule;
+	$out['next_files']  = wp_next_scheduled( 'updraft_backup' ) ? gmdate( 'c', (int) wp_next_scheduled( 'updraft_backup' ) ) : '';
+	$out['applied']     = ( $after != $before );
+	return rest_ensure_response( $out );
+}
+
+function sa_agent_rest_updraft_log( $r ) {
+	$nonce = isset( $r['nonce'] ) ? preg_replace( '/[^a-f0-9]/', '', strtolower( (string) $r['nonce'] ) ) : '';
+	if ( '' === $nonce ) {
+		return new WP_Error( 'sa_agent_bad_nonce', 'nonce نسخهٔ پشتیبان لازم است.', array( 'status' => 400 ) );
+	}
+	$limit = isset( $r['limit'] ) ? max( 10, min( 400, (int) $r['limit'] ) ) : 200;
+	$out   = array( 'nonce' => $nonce, 'file' => '', 'bytes' => 0, 'lines_total' => 0, 'matched' => array(), 'upload_ok' => array(), 'errors' => array(), 'service_lines' => array() );
+	foreach ( (array) sa_agent_updraft_dirs() as $dir ) {
+		$file = trailingslashit( $dir ) . 'log.' . $nonce . '.txt';
+		if ( ! is_file( $file ) ) {
+			continue;
+		}
+		$out['file'] = $file;
+		$body        = (string) @file_get_contents( $file ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+		$out['bytes'] = strlen( $body );
+		$lines        = preg_split( "/\r\n|\n/", $body );
+		$out['lines_total'] = count( (array) $lines );
+		foreach ( (array) $lines as $line ) {
+			$line = trim( $line );
+			if ( '' === $line ) {
+				continue;
+			}
+			if ( preg_match( '/(Bearer|access_token|refresh_token|client_secret)/i', $line ) ) {
+				$line = preg_replace( '/(Bearer\s+\S+|access_token=[^&\s]+|refresh_token=[^&\s]+|client_secret=[^&\s]+)/i', '[redacted]', $line );
+			}
+			if ( preg_match( '/Google Drive|googledrive|upload/i', $line ) && count( $out['matched'] ) < $limit ) {
+				$out['matched'][] = $line;
+			}
+			if ( false !== strpos( $line, 'OK: Archive ' ) && false !== strpos( $line, 'uploaded to ' ) ) {
+				$out['upload_ok'][] = $line;
+			}
+			if ( sa_agent_updraft_log_is_error( $line ) && count( $out['errors'] ) < 40 ) {
+				$out['errors'][] = $line;
+			}
+			if ( preg_match( '/(service|Service|retain|prune|nonce)/', $line ) && count( $out['service_lines'] ) < 60 ) {
+				$out['service_lines'][] = $line;
+			}
+		}
+		break;
+	}
+	return rest_ensure_response( $out );
+}
+
+function sa_agent_rest_updraft_cloud( $r ) {
+	$nonce = isset( $r['nonce'] ) ? (string) $r['nonce'] : '';
+	if ( '' === $nonce ) {
+		return new WP_Error( 'sa_agent_bad_nonce', 'nonce نسخهٔ پشتیبان لازم است.', array( 'status' => 400 ) );
+	}
+	$res = sa_agent_updraft_cloud_probe( $nonce );
+	return rest_ensure_response( $res );
+}
+
+/**
+ * POST /updraft/delete-local — حذف فایل‌های محلیِ یک نسخه، فقط وقتی شواهد آپلود کامل است.
+ *
+ * این مسیر سه شرط را با هم می‌سنجد و اگر هر کدام نباشد، هیچ فایلی پاک نمی‌شود:
+ *   ۱) پرچم صریح مالک، ۲) probe با complete=true، ۳) فایل‌ها داخل پوشهٔ پشتیبان.
+ *
+ * @param WP_REST_Request $r درخواست: nonce، dry_run، owner_approved_prune.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_updraft_delete_local( $r ) {
+	$b       = (array) $r->get_json_params();
+	$dry_run = ! isset( $b['dry_run'] ) || false !== $b['dry_run'];
+	$nonce   = isset( $b['nonce'] ) ? (string) $b['nonce'] : '';
+	if ( '' === $nonce ) {
+		return new WP_Error( 'sa_agent_bad_nonce', 'nonce نسخهٔ پشتیبان لازم است.', array( 'status' => 400 ) );
+	}
+	$probe = sa_agent_updraft_cloud_probe( $nonce );
+	$out   = array(
+		'dry_run'    => $dry_run,
+		'probe'      => $probe,
+		'deleted'    => array(),
+		'kept'       => array(),
+		'bytes'      => 0,
+		'mb'         => 0,
+	);
+	if ( empty( $probe['complete'] ) ) {
+		$out['blocked'] = 'cloud_copy_not_verified';
+		return rest_ensure_response( $out );
+	}
+	if ( $dry_run ) {
+		$out['would_delete'] = array();
+		foreach ( $probe['remote_files'] as $f ) {
+			$out['would_delete'][] = $f['name'];
+		}
+		return rest_ensure_response( $out );
+	}
+	if ( empty( $b['owner_approved_prune'] ) ) {
+		return new WP_Error( 'sa_agent_need_owner', 'حذف فایل محلی فقط با owner_approved_prune: true.', array( 'status' => 403 ) );
+	}
+	$nonce   = $probe['nonce'];
+	$history = (array) sa_agent_updraft_option( 'updraft_backup_history', array() );
+	$sets    = sa_agent_updraft_set_files( $history );
+	$target  = null;
+	foreach ( $sets as $set ) {
+		if ( $set['nonce'] === $nonce ) {
+			$target = $set;
+			break;
+		}
+	}
+	if ( null === $target ) {
+		$out['blocked'] = 'set_not_found';
+		return rest_ensure_response( $out );
+	}
+	// فقط فایل‌هایی که هم روی دیسک‌اند و هم در probe تأیید شده‌اند حذف می‌شوند.
+	$verified = array();
+	foreach ( $probe['remote_files'] as $f ) {
+		$verified[ $f['name'] ] = true;
+	}
+	$dirs = function_exists( 'sa_agent_updraft_dirs' ) ? sa_agent_updraft_dirs() : array();
+	foreach ( $target['files'] as $file ) {
+		$name = basename( (string) $file['name'] );
+		if ( empty( $verified[ $name ] ) ) {
+			$out['kept'][] = $name . ' (not verified remotely)';
+			continue;
+		}
+		$done = false;
+		foreach ( $dirs as $dir ) {
+			$path = trailingslashit( $dir ) . $name;
+			if ( ! is_file( $path ) ) {
+				continue;
+			}
+			$real = realpath( $path );
+			$root = realpath( $dir );
+			if ( false === $real || false === $root || 0 !== strpos( $real, $root ) ) {
+				continue;
+			}
+			$size = (int) filesize( $real );
+			if ( @unlink( $real ) ) { // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+				$out['deleted'][] = $name;
+				$out['bytes']    += $size;
+				$done             = true;
+			}
+			break;
+		}
+		if ( ! $done ) {
+			$out['kept'][] = $name;
+		}
+	}
+	$out['mb'] = round( $out['bytes'] / 1048576, 1 );
+	return rest_ensure_response( $out );
+}
+
 function sa_agent_rest_updraft_prune( $r ) {
 	$b       = (array) $r->get_json_params();
 	$dry_run = ! isset( $b['dry_run'] ) || false !== $b['dry_run'];
@@ -1198,6 +2069,16 @@ function sa_agent_ops_register_routes() {
 			},
 		)
 	);
+	// v2.22.141: ممیزی تصویر شاخص شهرستان‌ها (فقط خواندنی).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/featured-audit',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_featured_audit',
+			'permission_callback' => $admin,
+		)
+	);
 	// v2.22.120: گزارش حجم (پشتیبان افتراقی، UpdraftPlus، رسانه) — فقط خواندنی.
 	register_rest_route(
 		SA_AGENT_NS,
@@ -1215,6 +2096,66 @@ function sa_agent_ops_register_routes() {
 		array(
 			'methods'             => 'POST',
 			'callback'            => 'sa_agent_rest_backups_prune',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.133: تست واقعی اتصال Drive (فقط خواندنی).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/drive-test',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_updraft_drive_test',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.133: اصلاح زمان‌بندی/نگه‌داری — پیش‌فرض پیش‌نمایش، تغییر با پرچم مالک.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/settings',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_updraft_settings',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.130: خواندن خطوط مرتبط لاگ یک نسخه (فقط خواندنی).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/log',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_updraft_log',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.145: افزودن دسته‌ای سکشن‌های آزمون به ده شهرستان (پیش‌فرض dry-run).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/section-tests',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_section_tests',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.129: بررسی مستند آپلود نسخه روی فضای ابری (فقط خواندنی).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/cloud',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_updraft_cloud',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.129: حذف فایل محلی فقط پس از تأیید کامل‌بودن نسخهٔ ابری.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/delete-local',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_updraft_delete_local',
 			'permission_callback' => $admin,
 		)
 	);
@@ -1382,3 +2323,96 @@ function sa_agent_ops_register_routes() {
 	);
 }
 add_action( 'rest_api_init', 'sa_agent_ops_register_routes' );
+
+/* -------------------------------------------------------------------------
+ * ۱-ج) سکشن‌های آزمون ده شهرستان (v2.22.145) — پیش‌فرض فقط آزمون خشک.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * POST /section-tests — افزودن دسته‌ای «سکشن آزمون» به ده شهرستان.
+ *
+ * چرا: مدولارسازی سکشن‌ها باید اول روی ده شهرستان آزمایش شود و گسترش به ۴۸۴
+ * تای دیگر فقط با تأیید مالک. پس آزمون باید **قابل برداشتن** باشد: با
+ * `dry_run: false` و `apply: true` انجام می‌شود و با `remove: true` دقیقاً
+ * همان بلوک برداشته می‌شود؛ هیچ چیز دیگری نوشته نمی‌شود.
+ *
+ * محافظت‌ها:
+ *   • `apply` بدون پرچم صریح رد می‌شود (همان قاعدهٔ بقیهٔ مسیرهای نویسنده).
+ *   • فقط اگر نوشته `city` منتشرشده باشد.
+ *   • بلوک با نشانه‌های `<!-- sa:tests -->` / `<!-- /sa:tests -->` بسته می‌شود،
+ *     پس برداشتنش یک جایگزینی رشته است، نه بازنویسی بدنه.
+ *   • پیش از هر نوشتن، شکل فعلی بدنه با `check_county_shape` سنجیده نمی‌شود
+ *     (این‌جا بدنه بازتولید نمی‌شود)؛ به‌جایش نشانه‌های سکشن‌های اصلی شمرده و
+ *     در خروجی گزارش می‌شوند تا تغییر ناخواسته دیده شود.
+ *
+ * @param WP_REST_Request $request درخواست.
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_section_tests( $request ) {
+	$tests = $request->get_param( 'tests' );
+	if ( ! is_array( $tests ) || ! $tests ) {
+		return new WP_REST_Response( array( 'ok' => false, 'error' => 'tests required' ), 400 );
+	}
+	$dry   = (bool) $request->get_param( 'dry_run' );
+	$apply = (bool) $request->get_param( 'apply' );
+	$remove = (bool) $request->get_param( 'remove' );
+	if ( ! $dry && ! $apply ) {
+		return new WP_REST_Response( array( 'ok' => false, 'error' => 'apply requires apply:true (owner approval)' ), 403 );
+	}
+	$open  = '<!-- sa:tests -->';
+	$close = '<!-- /sa:tests -->';
+	$out   = array( 'ok' => true, 'dry_run' => $dry, 'remove' => $remove, 'posts' => array() );
+
+	foreach ( $tests as $test ) {
+		$slug = isset( $test['slug'] ) ? sanitize_title( (string) $test['slug'] ) : '';
+		$html = isset( $test['html'] ) ? (string) $test['html'] : '';
+		if ( '' === $slug || '' === $html ) {
+			$out['posts'][] = array( 'slug' => $slug, 'ok' => false, 'error' => 'slug and html required' );
+			continue;
+		}
+		$post = get_page_by_path( $slug, OBJECT, 'city' );
+		if ( ! $post || 'publish' !== $post->post_status ) {
+			$out['posts'][] = array( 'slug' => $slug, 'ok' => false, 'error' => 'no published county with this slug' );
+			continue;
+		}
+		$body    = (string) $post->post_content;
+		$has     = false !== strpos( $body, $open );
+		$blocks  = preg_match_all( '/<!--\s*sa:sec:([a-z_]+)\s*-->/', $body, $m ) ? $m[1] : array();
+		$row     = array(
+			'slug'           => $slug,
+			'id'             => (int) $post->ID,
+			'sections_found' => count( $blocks ),
+			'had_tests'      => $has,
+			'chars_before'   => strlen( $body ),
+		);
+		if ( $dry ) {
+			$row['ok']           = true;
+			$row['chars_after']  = $has ? strlen( $body ) : strlen( $body . "\n\n" . $open . "\n" . $html . "\n" . $close );
+			$out['posts'][]      = $row;
+			continue;
+		}
+		if ( $remove || $has ) {
+			$body = preg_replace( '/' . preg_quote( $open, '/' ) . '.*?' . preg_quote( $close, '/' ) . '\s*/s', '', $body );
+		}
+		if ( ! $remove ) {
+			$body = rtrim( (string) $body ) . "\n\n" . $open . "\n" . $html . "\n" . $close;
+		}
+		$res = wp_update_post(
+			array(
+				'ID'           => (int) $post->ID,
+				'post_content' => $body,
+			),
+			true
+		);
+		if ( is_wp_error( $res ) ) {
+			$row['ok']    = false;
+			$row['error'] = $res->get_error_message();
+		} else {
+			$row['ok']          = true;
+			$row['chars_after'] = strlen( $body );
+			$row['verified']    = ( ! $remove ) === ( false !== strpos( (string) get_post_field( 'post_content', $post->ID ), $open ) );
+		}
+		$out['posts'][] = $row;
+	}
+	return new WP_REST_Response( $out, 200 );
+}

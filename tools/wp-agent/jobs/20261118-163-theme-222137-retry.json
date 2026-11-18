@@ -1,0 +1,11 @@
+{
+ "note": "تلاش دوبارهٔ نصب ۲.۲۲.۱۳۷ (۲۷ آبان ۱۴۰۵) بعد از timeout شبکه؛ همان کار خواندنی. بازگشت به ۲.۲۲.۱۳۶.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.137", "wait_for_release": 30,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.136"},
+  {"cmd": "updraft-drive-test"}
+ ]
+}
