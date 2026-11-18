@@ -166,7 +166,9 @@ sa_t_assert(
 
 
 /* 5 — the template renders nothing when no licensed photo exists. */
-$src = (string) file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/single.php' );
+/* v2.22.145 — the county gallery is its own section; the claim follows the code. */
+$src = (string) file_get_contents( dirname( __DIR__ ) . '/template-parts/county/section-photos.php' )
+	. (string) file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/single.php' );
 sa_t_assert( false === strpos( $src, 'sa_photo_spotlight' ), 'v2.22.116: the county page no longer calls the «مکان در یک نگاه» box' );
 sa_t_assert( false !== strpos( $src, 'sa_photo_strip' ), 'the county page calls the county photo gallery' );
 sa_t_assert( false === strpos( $mod_src, 'function sa_photo_spotlight' ), 'v2.22.116: the spotlight renderer is deleted, not merely unused' );
@@ -281,7 +283,7 @@ $agent_ops = (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.ph
 sa_t_assert( false !== strpos( $agent_ops, "'/photos/optimize'" ) && false !== strpos( $agent_ops, "'/photos/manage'" ), 'both routes are registered on the agent namespace' );
 sa_t_assert( false !== strpos( $php_all, 'owner_approved' ), 'both routes demand an explicit owner approval' );
 /* 11c — «مکان در یک نگاه» از قالب حذف شده و دیگر هیچ فایلی آن را صدا نمی‌زند. */
-foreach ( array( 'template-parts/entity/single.php', 'inc/county-media.php', 'assets/js/gallery.js', 'assets/css/gallery.css' ) as $sa_rel ) {
+foreach ( array( 'template-parts/entity/single.php', 'template-parts/county/section-photos.php', 'inc/county-media.php', 'assets/js/gallery.js', 'assets/css/gallery.css' ) as $sa_rel ) {
 	$sa_file = (string) file_get_contents( dirname( __DIR__ ) . '/' . $sa_rel );
 	sa_t_assert( false === strpos( $sa_file, 'spotlight' ), $sa_rel . ' carries no leftover spotlight markup or style (v2.22.116)' );
 }

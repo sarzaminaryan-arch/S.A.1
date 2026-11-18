@@ -207,7 +207,8 @@ $helpers_src = (string) file_get_contents( $theme_dir . '/inc/helpers.php' );
 sa_cm_assert( false !== strpos( $helpers_src, 'count( $out ) < 3' ), 'faq: fewer than 3 valid rows means NO section and NO FAQPage (2.22.87)' );
 
 // And the identity-card MAP button becomes the in-page anchor when the map renders.
-$card_src = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
+// v2.22.145 — the identity card is its own section file.
+$card_src = (string) file_get_contents( $theme_dir . '/template-parts/county/section-identity.php' );
 sa_cm_assert( false !== strpos( $card_src, 'href="#sa-map"' ), 'card: map button anchors to the in-page map (2.22.87)' );
 sa_cm_assert( false !== strpos( $card_src, "sa_county_map_data( \$sa_id )" ), 'card: anchor only when coordinates are valid' );
 

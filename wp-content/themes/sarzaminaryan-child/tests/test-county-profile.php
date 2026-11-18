@@ -300,7 +300,8 @@ $GLOBALS['t']['meta'][22] = array( 'population' => '31903' );
 sa_t_eq( false, sa_county_profile_data( 22 )['population_shown'], 'a number without its year is never printed' );
 
 /* 12 — the card template obeys the output rules (static source checks). */
-$sa_tpl = (string) file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/county-profile.php' );
+/* v2.22.145 — کارت شناسنامه سکشن مستقل خودش است. */
+$sa_tpl = (string) file_get_contents( dirname( __DIR__ ) . '/template-parts/county/section-identity.php' );
 sa_t_assert( '' !== $sa_tpl, 'the county identity-card template is readable' );
 sa_t_assert( false !== strpos( $sa_tpl, "'11 // MAIN_CITY'" ), 'the card renders the MAIN_CITY tile' );
 sa_t_assert( false !== strpos( $sa_tpl, 'sa_county_profile_main_city' ), 'the MAIN_CITY tile reads the canonical keys' );

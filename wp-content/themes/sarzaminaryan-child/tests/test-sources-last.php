@@ -74,13 +74,29 @@ $printed_guide = ob_get_clean();
 sa_sl_assert( $stash === $printed_guide, 'sources: guide variant prints the same stashed list' );
 
 $single = (string) file_get_contents( $theme_dir . '/template-parts/entity/single.php' );
-$pos_sources = strpos( $single, 'sa_sources_section( $sa_id )' );
-$pos_faq     = strpos( $single, "get_template_part( 'template-parts/entity/faq' )" );
-$pos_related = strpos( $single, 'sa_related_articles( $sa_id, $sa_type )' );
-$pos_nav     = strpos( $single, 'sa_entity_navigation( $sa_id, $sa_type )' );
-sa_sl_assert( false !== $pos_sources && false !== $pos_faq && $pos_sources > $pos_faq, 'order: entity template prints sources after the FAQ' );
-sa_sl_assert( false !== $pos_related && $pos_sources < $pos_related, 'order: sources close the article, above the suggested-counties block' );
-sa_sl_assert( false !== $pos_nav && $pos_nav > $pos_related, 'order: previous/next navigation is the last block of the page' );
+// v2.22.145: for counties these blocks live in the section files. The generic
+// (non-county) path in single.php still prints them, so both are checked.
+$sa_src_section = (string) file_get_contents( $theme_dir . '/template-parts/county/section-sources.php' );
+$sa_rel_section = (string) file_get_contents( $theme_dir . '/template-parts/county/section-related.php' );
+$sa_nav_section = (string) file_get_contents( $theme_dir . '/template-parts/county/section-nav.php' );
+$pos_sources = strpos( $sa_src_section, 'sa_sources_section( $sa_id )' );
+$pos_faq     = strpos( $sa_src_section, 'sa_faq' ) !== false ? 0 : strpos( $single, "get_template_part( 'template-parts/entity/faq' )" );
+$pos_related = strpos( $sa_rel_section, 'sa_related_articles( $sa_id, \'city\' )' );
+$pos_nav     = strpos( $sa_nav_section, 'sa_entity_navigation( $sa_id, \'city\' )' );
+sa_sl_assert( false !== $pos_sources, 'order: the county sources section prints the sources list' );
+sa_sl_assert( false !== $pos_related && false !== $pos_nav, 'order: the related and navigation sections exist (2.22.145)' );
+// Cross-file positions are not comparable, so the county order is read from the
+// registry itself: faq → gallery → sources → related → nav.
+$sa_reg = (string) file_get_contents( $theme_dir . '/inc/county-sections.php' );
+$sa_pos = array();
+foreach ( array( 'sa-county-faq', 'sa-county-gallery', 'sa-county-sources', 'sa-county-related', 'sa-county-nav' ) as $sa_okey ) {
+	$sa_pos[ $sa_okey ] = strpos( $sa_reg, "'" . $sa_okey . "'" );
+	sa_sl_assert( false !== $sa_pos[ $sa_okey ], 'registry: ' . $sa_okey . ' is declared (2.22.145)' );
+}
+sa_sl_assert( $sa_pos['sa-county-faq'] < $sa_pos['sa-county-gallery'], 'order: the FAQ comes before the gallery' );
+sa_sl_assert( $sa_pos['sa-county-gallery'] < $sa_pos['sa-county-sources'], 'order: sources come after the gallery' );
+sa_sl_assert( $sa_pos['sa-county-sources'] < $sa_pos['sa-county-related'], 'order: sources close the article, above the suggested-counties block' );
+sa_sl_assert( $sa_pos['sa-county-related'] < $sa_pos['sa-county-nav'], 'order: previous/next navigation is the last block of the page' );
 
 /* v2.22.85 — شمارهٔ فهرستِ چسبیده به عنوان منبع حذف می‌شود؛ دامنهٔ بی‌برچسب دوبار چاپ نمی‌شود. */
 $GLOBALS['t']['meta'][213]['sa_sources'] = "3. عنوان منبع نمونه | خبرگزاری برنا | https://borna.news/fa/news/1 | ۱۴۰۵/۰۸/۲۴\n۷۸ شیء تاریخی کشف شد | خبرگزاری مهر | https://www.mehrnews.com/news/2 | ۱۴۰۵/۰۸/۲۴\n";
@@ -110,7 +126,9 @@ sa_sl_assert( false === strpos( $ordinary, 'href="https://commons.wikimedia.org'
 // v2.22.86: فهرست «شهرهای هم‌استانی» درست بالای منابع چاپ می‌شود.
 $tt86 = (string) file_get_contents( $theme_dir . '/inc/template-tags.php' );
 sa_sl_assert( false !== strpos( $tt86, 'sa_county_siblings_html' ), 'template-tags: sibling-cities list echoed right before the sources section (2.22.86)' );
-$tp86 = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
+/* v2.22.145 — بخش‌های صفحه در فایل‌های سکشن جدا شده‌اند؛ ادعاهای ترتیب روی
+ * همان سکشن‌ها بررسی می‌شوند (رجیستری: گالری → امتیاز → منابع). */
+$tp86 = (string) file_get_contents( $theme_dir . '/template-parts/county/section-identity.php' );
 sa_sl_assert( false !== strpos( $tp86, 'sa_county_siblings_html' ), 'template part: sibling list stashed for the article end (2.22.86)' );
 // v2.22.116 (owner order, 18 Nov 2026): the sibling list is a CLOSED accordion
 // («شهرهای هم‌استانی» with a + sign), so it takes one line above the sources
@@ -119,8 +137,10 @@ sa_sl_assert( false !== strpos( $tp86, '<details class="sa-county-accordion" id=
 sa_sl_assert( false === strpos( $tp86, 'id="county-siblings" open' ), 'siblings: the accordion never starts open (2.22.116)' );
 
 // The county order the owner fixed for 2.22.116: gallery → user rating → sources.
-$pos_gallery = strpos( $single, 'sa_photo_strip( $sa_id )' );
-$pos_rating  = strpos( $single, 'CC_UI::rating_block()' );
+$sa_registry = (string) file_get_contents( $theme_dir . '/inc/county-sections.php' );
+$pos_gallery = strpos( $sa_registry, "'sa-county-gallery'" );
+$pos_rating  = strpos( $sa_registry, "'sa-county-rating'" );
+$pos_sources = strpos( $sa_registry, "'sa-county-sources'" );
 sa_sl_assert( false !== $pos_gallery, 'order: the county gallery is printed in the entity template (2.22.116)' );
 sa_sl_assert( false !== $pos_rating && $pos_gallery < $pos_rating, 'order: the gallery sits above the user rating box (2.22.116)' );
 sa_sl_assert( $pos_rating < $pos_sources, 'order: the user rating box sits above the sources (2.22.116)' );

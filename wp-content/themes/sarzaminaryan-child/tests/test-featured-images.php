@@ -390,7 +390,7 @@ if ( false !== $template ) {
 	$pos = array(
 		'hero'    => strpos( $template, "get_template_part( 'template-parts/entity/hero' )" ),
 		'profile' => strpos( $template, "get_template_part( 'template-parts/entity/province-identity' )" ),
-		'county'  => strpos( $template, "get_template_part( 'template-parts/entity/county-profile' )" ),
+		'county'  => strpos( $template, "sa_county_render_sections( $sa_id )" ),
 		'facts'   => strpos( $template, "get_template_part( 'template-parts/entity/facts' )" ),
 		'content' => strpos( $template, 'entry-content' ),
 	);
@@ -402,29 +402,35 @@ if ( false !== $template ) {
 	sa_t_assert( false !== $sa_pcover, 'the province page prints its featured image (v2.22.70)' );
 	sa_t_assert( $sa_pcover < $pos['profile'], 'the province featured image sits above the identity card (v2.22.70)' );
 	sa_t_assert( 1 === substr_count( $template, 'sa_province_featured_figure(' ), 'the province featured image is printed in one place only (v2.22.70)' );
-	$sa_ccover = strpos( $template, 'sa_county_featured_figure( $sa_id )' );
-	sa_t_assert( false !== $sa_ccover, 'the county page prints its featured image (v2.22.90)' );
-	sa_t_assert( $sa_ccover < $pos['county'], 'the county featured image sits above the county identity card (v2.22.90)' );
-	sa_t_assert( 1 === substr_count( $template, 'sa_county_featured_figure(' ), 'the county featured image is printed in one place only (v2.22.90)' );
-	sa_t_assert( $pos['county'] < $pos['content'], 'county identity card comes before body content' );
-	// v2.22.116 (owner order, 18 Nov 2026): the closed county TOC is captured from
-	// the body render and printed right under the featured image, above the identity
-	// card — so the reader sees the cover, then the «+» list, then the profile.
-	$sa_ctoc_print = strpos( $template, 'echo $sa_county_toc_html;' );
-	$sa_cprofile   = strpos( $template, 'echo $sa_county_profile_html;' );
-	sa_t_assert( false !== $sa_ctoc_print, 'the county page prints the captured table of contents (2.22.116)' );
-	sa_t_assert( false !== $sa_cprofile, 'the county identity card is buffered and printed after the body render (2.22.116)' );
-	sa_t_assert( $sa_ccover < $sa_ctoc_print, 'the county TOC sits below the featured image (2.22.116)' );
-	sa_t_assert( $sa_ctoc_print < $sa_cprofile, 'the county TOC sits above the identity card on the page (2.22.116)' );
-	sa_t_assert( 1 === substr_count( $template, 'echo $sa_county_toc_html;' ), 'the county TOC is printed in one place only (2.22.116)' );
-	sa_t_assert( false !== strpos( $template, "\$GLOBALS['sa_county_toc_capture'] = true;" ), 'the TOC is captured from the body render, not prepended to it (2.22.116)' );
+	// v2.22.145 — the county branch moved out of single.php into the section registry.
+	// The guarantees are unchanged, so they are asserted where the code now lives:
+	//   cover is printed once, TOC printed once, cover → TOC → identity → body.
+	$sa_registry = file_get_contents( dirname( __DIR__ ) . '/inc/county-sections.php' );
+	$sa_cover_tpl = file_get_contents( dirname( __DIR__ ) . '/template-parts/county/section-cover.php' );
+	$sa_body_tpl  = file_get_contents( dirname( __DIR__ ) . '/template-parts/county/section-body.php' );
+	sa_t_assert( false !== $sa_registry, 'the county section registry is readable (v2.22.145)' );
+	sa_t_assert( false !== $sa_cover_tpl, 'the county cover section exists (v2.22.145)' );
+	sa_t_assert( false !== $sa_body_tpl, 'the county body section exists (v2.22.145)' );
+	sa_t_assert( false !== strpos( $template, 'sa_county_render_sections( $sa_id )' ), 'the county page is rendered from the registry (v2.22.145)' );
+	sa_t_assert( 1 === substr_count( (string) $sa_cover_tpl, 'sa_county_featured_figure(' ), 'the county featured image is printed in one place only (v2.22.90/2.22.145)' );
+	sa_t_assert( false !== strpos( (string) $sa_body_tpl, 'echo $sa_toc_html;' ), 'the county page prints the captured table of contents (2.22.116)' );
+	sa_t_assert( 1 === substr_count( (string) $sa_body_tpl, 'echo $sa_toc_html;' ), 'the county TOC is printed in one place only (2.22.116)' );
+	sa_t_assert( false !== strpos( (string) $sa_body_tpl, "\$GLOBALS['sa_county_toc_capture'] = true;" ), 'the TOC is captured from the body render, not prepended to it (2.22.116)' );
+	$sa_order = array();
+	foreach ( array( 'sa-county-cover', 'sa-county-toc', 'sa-county-identity', 'sa-county-body' ) as $sa_key ) {
+		$sa_order[ $sa_key ] = strpos( (string) $sa_registry, "'" . $sa_key . "'" );
+		sa_t_assert( false !== $sa_order[ $sa_key ], 'the registry declares ' . $sa_key . ' (2.22.145)' );
+	}
+	sa_t_assert( $sa_order['sa-county-cover'] < $sa_order['sa-county-toc'], 'the county TOC sits below the featured image (2.22.116)' );
+	sa_t_assert( $sa_order['sa-county-toc'] < $sa_order['sa-county-identity'], 'the county TOC sits above the identity card on the page (2.22.116)' );
+	sa_t_assert( $sa_order['sa-county-identity'] < $sa_order['sa-county-body'], 'county identity card comes before body content' );
 
 	foreach ( array(
-		'province-identity.php'   => 'sa-cyber-id--province',
-		'county-profile.php'      => 'sa-cyber-id--county',
-		'identity-attraction.php' => 'sa-cyber-id--attraction',
+		'entity/province-identity.php'   => 'sa-cyber-id--province',
+		'county/section-identity.php'    => 'sa-cyber-id--county',
+		'entity/identity-attraction.php' => 'sa-cyber-id--attraction',
 	) as $id_file => $expected_class ) {
-		$id_tpl = file_get_contents( dirname( __DIR__ ) . '/template-parts/entity/' . $id_file );
+		$id_tpl = file_get_contents( dirname( __DIR__ ) . '/template-parts/' . $id_file );
 		sa_t_assert( false !== $id_tpl && false !== strpos( $id_tpl, $expected_class ), $id_file . ' renders its distinct cyber-tech class ' . $expected_class );
 		sa_t_assert( false !== strpos( $id_tpl, '<span class="sa-cyber-id__badge">شناسنامه</span>' ), $id_file . ' carries the «شناسنامه» badge' );
 		sa_t_assert( false !== strpos( $id_tpl, 'sa_cyber_id_value_or_review' ), $id_file . ' uses sa_cyber_id_value_or_review for «نیازمند بازبینی» fallback' );

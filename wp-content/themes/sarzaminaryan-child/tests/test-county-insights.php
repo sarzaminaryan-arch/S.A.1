@@ -473,7 +473,9 @@ foreach ( $kashan71['extra_places'] as $kashan71_place ) {
 }
 sa_ci_assert( in_array( 'بوستان فیروزی', $kashan71_names, true ), 'bundled: kashan lists the open Firuzi park without the unopened pavilion (2.22.71)' );
 
-$tpl = (string) file_get_contents( $theme_dir . '/template-parts/entity/county-profile.php' );
+/* v2.22.145 — بلوک «تجربهٔ مسافرها» به سکشن مستقل خودش منتقل شد؛ تست همان
+ * ادعاهای قبلی را روی فایل جدید بررسی می‌کند (نسخهٔ ۲.۲۲.۸۶ دست‌نخورده). */
+$tpl = (string) file_get_contents( $theme_dir . '/template-parts/county/section-field-notes.php' );
 sa_ci_assert( false !== strpos( $tpl, 'id="county-field-notes"' ), 'template: block anchor exists for the TOC' );
 sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6 )" ), 'template: TOC entry registered with the clean block title (2.22.86)' );
 /* 2.22.86 (دستور مالک): بلوک تجربهٔ مسافرها عنوان تمیز دارد؛ توضیح زیر عنوان
