@@ -1,0 +1,60 @@
+{
+ "note": "دستهٔ ۹؛ خواندن دوبارهٔ ده صفحه پس از بازگشت خودکار کار ۲۴ (تایم‌اوت شبکه روی جلفا) تا مهر زمانی تازه و وضعیت واقعی متای تجربه معلوم شود.",
+ "steps": [
+  {
+   "cmd": "get",
+   "id": 534
+  },
+  {
+   "cmd": "get",
+   "id": 454
+  },
+  {
+   "cmd": "get",
+   "id": 466
+  },
+  {
+   "cmd": "get",
+   "id": 142
+  },
+  {
+   "cmd": "get",
+   "id": 105
+  },
+  {
+   "cmd": "get",
+   "id": 324
+  },
+  {
+   "cmd": "get",
+   "id": 325
+  },
+  {
+   "cmd": "get",
+   "id": 326
+  },
+  {
+   "cmd": "get",
+   "id": 327
+  },
+  {
+   "cmd": "get",
+   "id": 203
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/nur/",
+    "/city/talesh/",
+    "/city/masal/",
+    "/city/sarein/",
+    "/city/jolfa/",
+    "/city/marvdasht/",
+    "/city/kazerun/",
+    "/city/jahrom/",
+    "/city/larestan/",
+    "/city/ganaveh/"
+   ]
+  }
+ ]
+}
