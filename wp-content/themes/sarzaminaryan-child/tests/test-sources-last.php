@@ -80,9 +80,8 @@ $sa_src_section = (string) file_get_contents( $theme_dir . '/template-parts/coun
 $sa_rel_section = (string) file_get_contents( $theme_dir . '/template-parts/county/section-related.php' );
 $sa_nav_section = (string) file_get_contents( $theme_dir . '/template-parts/county/section-nav.php' );
 $pos_sources = strpos( $sa_src_section, 'sa_sources_section( $sa_id )' );
-$pos_faq     = strpos( $sa_src_section, 'sa_faq' ) !== false ? 0 : strpos( $single, "get_template_part( 'template-parts/entity/faq' )" );
-$pos_related = strpos( $sa_rel_section, 'sa_related_articles( $sa_id, \'city\' )' );
-$pos_nav     = strpos( $sa_nav_section, 'sa_entity_navigation( $sa_id, \'city\' )' );
+$pos_related = strpos( $sa_rel_section, "sa_related_articles( \$sa_id, 'city' )" );
+$pos_nav     = strpos( $sa_nav_section, "sa_entity_navigation( \$sa_id, 'city' )" );
 sa_sl_assert( false !== $pos_sources, 'order: the county sources section prints the sources list' );
 sa_sl_assert( false !== $pos_related && false !== $pos_nav, 'order: the related and navigation sections exist (2.22.145)' );
 // Cross-file positions are not comparable, so the county order is read from the

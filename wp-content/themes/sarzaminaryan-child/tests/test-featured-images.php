@@ -390,7 +390,8 @@ if ( false !== $template ) {
 	$pos = array(
 		'hero'    => strpos( $template, "get_template_part( 'template-parts/entity/hero' )" ),
 		'profile' => strpos( $template, "get_template_part( 'template-parts/entity/province-identity' )" ),
-		'county'  => strpos( $template, "sa_county_render_sections( $sa_id )" ),
+		// نقل‌قول تک: با نقل‌قول جفتی، $sa_id در رشته تفسیر می‌شد و جست‌وجو شکست می‌خورد.
+		'county'  => strpos( $template, 'sa_county_render_sections( $sa_id )' ),
 		'facts'   => strpos( $template, "get_template_part( 'template-parts/entity/facts' )" ),
 		'content' => strpos( $template, 'entry-content' ),
 	);
