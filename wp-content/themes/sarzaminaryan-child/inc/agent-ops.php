@@ -660,9 +660,16 @@ function sa_agent_rest_media_upload( $r ) {
  * @return WP_REST_Response
  */
 function sa_agent_rest_featured_audit() {
+	// v2.22.143: انواع دیگر هم شمرده می‌شوند تا عدد ۵۸۹ رجیستری به یک نوع نسبت
+	// داده نشود؛ محور اصلی همچنان city است.
+	$type = isset( $_GET['type'] ) ? sanitize_key( (string) $_GET['type'] ) : 'city'; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	if ( ! in_array( $type, array( 'city', 'attraction', 'post', 'province' ), true ) ) {
+		$type = 'city';
+	}
+	$out['post_type'] = $type;
 	$ids = get_posts(
 		array(
-			'post_type'      => 'city',
+			'post_type'      => $type,
 			'post_status'    => 'publish',
 			'posts_per_page' => 5000,
 			'fields'         => 'ids',
@@ -671,6 +678,7 @@ function sa_agent_rest_featured_audit() {
 	);
 	$out = array(
 		'total_city_published' => count( (array) $ids ),
+		'marker'               => 'featured-audit-v143',
 		'has_featured'         => 0,
 		'suppressed'           => 0,
 		'no_featured'          => 0,
@@ -739,7 +747,6 @@ function sa_agent_rest_featured_audit() {
 		'b' => count( $out['group_b_has_image'] ),
 		'c' => count( $out['group_c_unexpected'] ),
 	);
-	$out['marker'] = 'featured-audit-v141';
 	return rest_ensure_response( $out );
 }
 
