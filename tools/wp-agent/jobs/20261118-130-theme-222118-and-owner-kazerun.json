@@ -1,0 +1,14 @@
+{
+  "note": "قالب ۲.۲۲.۱۱۸: بستن تکرار نشانی روی عکس و شمرده‌نشدن tests/ در دروازهٔ نسخه. سپس پروندهٔ ارسالی مالک (نمای هوایی معبد آناهیتا، کازرون) از مسیر /photos/upload وارد می‌شود و گالری سه شهرستان دوباره پراب می‌شود. اگر پراب پس از نصب سالم نبود، همان مسیر نسخهٔ ۲.۲۲.۱۱۷ را برمی‌گرداند.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.118",
+     "owner_approved_theme_update": true, "allow_without_backup": true,
+     "probe": ["/", "/city/kazerun/", "/city/bojnord/"],
+     "rollback_to": "2.22.117"},
+    {"cmd": "photos-import", "batch": "tools/photos/20261118-owner-kazerun.json"},
+    {"cmd": "photos", "city_id": 325},
+    {"cmd": "probe", "url": ["/city/kazerun/", "/city/bojnord/", "/"]},
+    {"cmd": "ping"}
+  ]
+}
