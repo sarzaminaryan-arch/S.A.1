@@ -1,0 +1,11 @@
+{
+ "note": "۲.۲۲.۱۴۶ (۲۸ آبان ۱۴۰۵): نصب نسخهٔ اصلاح‌شده و بازآزمون همان ده شهرستان. انتظار: آکاردئون هم‌استانی دوباره ۲ (مثل قبل)، بقیهٔ شمارنده‌ها بدون تغییر. بازگشت به ۲.۲۲.۱۴۵.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.146", "wait_for_release": 300,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/"], "rollback_to": "2.22.145"},
+  {"cmd": "probe", "url": ["/city/tehran/", "/city/mashhad/", "/city/tabriz/", "/city/karaj/", "/city/shiraz/", "/city/ahvaz/", "/city/qom/", "/city/kermanshah/", "/city/rasht/", "/city/nur/"]},
+  {"cmd": "section-tests", "file": "tools/wp-agent/sections/pilot-10.json", "dry_run": true}
+ ]
+}
