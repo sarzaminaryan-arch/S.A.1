@@ -1,0 +1,17 @@
+[
+ {
+  "id": 116,
+  "slug": "mianeh",
+  "words_after": 946,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

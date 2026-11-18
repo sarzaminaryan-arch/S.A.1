@@ -1,0 +1,17 @@
+[
+ {
+  "id": 164,
+  "slug": "shahreza",
+  "words_after": 918,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

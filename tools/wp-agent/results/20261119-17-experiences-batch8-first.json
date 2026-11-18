@@ -1,0 +1,536 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-17-experiences-batch8-first.json",
+  "started_utc": "2026-11-17T23:13:03+00:00",
+  "note": "دستهٔ ۸ — لایهٔ «از تجربهٔ مسافرها» برای پنج شهرستان نخست (شاهین‌شهر و میمه، نجف‌آباد، بوکان، میاندوآب، مرند). هر رکورد با متای مستقل و پشتیبان پیش از تغییر؛ یک نقل‌قول عیناً از گوگل‌مپ با تاریخ دیدن (مرند) و بقیه برداشت تحریریه از منابع خوانده‌شده. انتظار modified_gmt از کار ۱۲.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "update",
+      "result": {
+        "id": 163,
+        "backup_id": 4744,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:43:20",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 160,
+        "backup_id": 4745,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:43:22",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "update",
+      "result": {
+        "id": 129,
+        "backup_id": 4746,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:43:24",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "update",
+      "result": {
+        "id": 138,
+        "backup_id": 4747,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:43:26",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "update",
+      "result": {
+        "id": 102,
+        "backup_id": 4748,
+        "status": "publish",
+        "modified_gmt": "2026-11-17 22:43:29",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "road_quality",
+            "mobile_internet",
+            "access_difficulty",
+            "parking_status",
+            "season_spring",
+            "season_summer",
+            "season_autumn",
+            "season_winter",
+            "local_tips",
+            "extra_places",
+            "people_character",
+            "field_update_note",
+            "updated_at"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          163,
+          160,
+          129,
+          138,
+          102
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+            "status": 200,
+            "ms": 1240,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان شاهین‌شهر و میمه؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+            "desc": "راهنمای شهرستان شاهین‌شهر و میمه: جمعیت ۲۳۴٬۶۶۷ نفر (۱۳۹۵)، مسجد جامع و حمام میمه، کاروانسرای وزوان، مورچه‌خورت و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شاهین‌شهر و میمه — شهر صنعتی نو در کنار شهر کهن",
+              "og:description": "از مسجد جامع میمه و کاروانسرای وزوان تا مجموعهٔ تفریحی شاهین‌شهر؛ راهنمای سفر به این شهرستان.",
+              "og:url": "https://sarzaminaryan.ir/city/shahin-shahr-meymeh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahin-shahr-meymeh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شاهین‌شهر و میمه — شهر صنعتی نو در کنار شهر کهن",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شاهین‌شهر و میمه — شهر صنعتی نو در کنار شهر کهن"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahin-shahr-meymeh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "EbrahimFaryabi"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 5,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-shahin-shahr-meymeh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 30176,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/najafabad/",
+            "status": 200,
+            "ms": 1252,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان نجف‌آباد؛ راهنمای سفر، جاذبه‌ها و تاریخ اصفهان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/najafabad/",
+            "desc": "راهنمای شهرستان نجف‌آباد: جمعیت ۳۱۹٬۲۰۵ نفر (۱۳۹۵)، کبوترخانه‌های خارون و صفا، عصارخانهٔ آقا، موزهٔ مردم‌شناسی و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "نجف‌آباد — شهر کبوترخانه‌ها و عصارخانه‌ها",
+              "og:description": "از برج‌های کبوترخانه و عصارخانهٔ صفوی تا بازار و باغ‌های انار؛ راهنمای سفر به نجف‌آباد.",
+              "og:url": "https://sarzaminaryan.ir/city/najafabad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-najafabad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "نجف‌آباد — شهر کبوترخانه‌ها و عصارخانه‌ها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "نجف‌آباد — شهر کبوترخانه‌ها و عصارخانه‌ها"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-najafabad.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "MajidRezaeiMirghaed"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 5,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-najafabad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 21068,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bukan/",
+            "status": 200,
+            "ms": 1214,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بوکان؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان غربی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bukan/",
+            "desc": "راهنمای شهرستان بوکان: جمعیت ۲۵۱٬۴۰۹ نفر (۱۳۹۵)، تپه و غار قلایچی، قلعهٔ سردار، مسجد جامع، دریاچهٔ سد و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "بوکان — شهر ماناها، سردار مکری و دریاچهٔ سد",
+              "og:description": "از تپهٔ قلایچی و قلعهٔ سردار تا دریاچهٔ سد؛ راهنمای سفر به شهرستان بوکان.",
+              "og:url": "https://sarzaminaryan.ir/city/bukan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bukan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "بوکان — شهر ماناها، سردار مکری و دریاچهٔ سد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "بوکان — شهر ماناها، سردار مکری و دریاچهٔ سد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bukan.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mbukan"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 5,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bukan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19734,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/miandoab/",
+            "status": 200,
+            "ms": 1042,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان میاندوآب؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان غربی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/miandoab/",
+            "desc": "راهنمای شهرستان میاندوآب: جمعیت ۲۷۳٬۹۴۹ نفر (۱۳۹۵)، تالاب و سد نوروزلو، درهٔ دلمه، کارخانهٔ قند و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "میاندوآب — شهر دو رود و دشت چغندرقند",
+              "og:description": "از تالاب نوروزلو و درهٔ دلمه تا بازار و کارخانهٔ قند؛ راهنمای سفر به شهرستان میاندوآب.",
+              "og:url": "https://sarzaminaryan.ir/city/miandoab/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-miandoab.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "میاندوآب — شهر دو رود و دشت چغندرقند",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "میاندوآب — شهر دو رود و دشت چغندرقند"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-miandoab.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Chitoro"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 5,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-miandoab.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22114,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/marand/",
+            "status": 200,
+            "ms": 1055,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مرند؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/marand/",
+            "desc": "راهنمای شهرستان مرند: جمعیت ۲۴۴٬۹۷۱ نفر (۱۳۹۵)، مسجد جامع با کتیبهٔ ۷۳۱، بازار کوزه‌فروشان، قلعهٔ مانداگارانا و راه رسیدن.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "مرند — دروازهٔ شمال‌غرب ایران و شهر زردآلو",
+              "og:description": "از مسجد جامع و بازار کوزه‌فروشان تا باغ‌های زردآلو و روستاهای ییلاقی؛ راهنمای سفر به مرند.",
+              "og:url": "https://sarzaminaryan.ir/city/marand/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-marand.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "مرند — دروازهٔ شمال‌غرب ایران و شهر زردآلو",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "مرند — دروازهٔ شمال‌غرب ایران و شهر زردآلو"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-marand.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Muhamad reza17"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 5,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-marand.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18632,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-17T23:13:23+00:00"
+}

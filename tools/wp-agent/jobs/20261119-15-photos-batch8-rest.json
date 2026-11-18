@@ -1,0 +1,29 @@
+{
+ "note": "دستهٔ ۸ — بارگذاری ۱۵ تصویر مجاز (سه برای هر شهرستان) در پنج شهرستان دوم، با نام عکاس و مجوز و صفحهٔ منبع؛ سپس پرج و پراب همان پنج صفحه.",
+ "steps": [
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261119-batch8-rest.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    107,
+    116,
+    164,
+    220,
+    537
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/ahar/",
+    "/city/mianeh/",
+    "/city/shahreza/",
+    "/city/baharestan/",
+    "/city/mahmudabad/"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,60 @@
+{
+ "note": "دستهٔ ۸ — لایهٔ «از تجربهٔ مسافرها» برای پنج شهرستان دوم (اهر، میانه، شهرضا، بهارستان، محمودآباد). هر رکورد با متای مستقل و پشتیبان پیش از تغییر؛ دو نقل‌قول عیناً از گوگل‌مپ با تاریخ دیدن (میانه) و بقیه برداشت تحریریه از منابع خوانده‌شده. انتظار modified_gmt از کار ۱۴.",
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 107,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/ahar.meta.json",
+   "expected_modified_gmt": "2026-11-17 23:04:07",
+   "reason": "ahar: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، شش نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 116,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/mianeh.meta.json",
+   "expected_modified_gmt": "2026-11-17 23:04:09",
+   "reason": "mianeh: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، شش نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 164,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/shahreza.meta.json",
+   "expected_modified_gmt": "2026-11-17 23:04:12",
+   "reason": "shahreza: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، شش نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 220,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/baharestan.meta.json",
+   "expected_modified_gmt": "2026-11-17 23:04:14",
+   "reason": "baharestan: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، شش نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "update",
+   "id": 537,
+   "meta_file": "tools/wp-agent/outbox/20261117-experiences-batch8/mahmudabad.meta.json",
+   "expected_modified_gmt": "2026-11-17 23:04:16",
+   "reason": "mahmudabad: لایهٔ «از تجربهٔ مسافرها» — چهار واقعیت سریع، چهار فصل، شش نکتهٔ بومی، شش جای بیشتر و ویژگی مردم، از برداشت تحریریه (پیش‌نویس راستی‌آزمایی‌نشده)"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    107,
+    116,
+    164,
+    220,
+    537
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/ahar/",
+    "/city/mianeh/",
+    "/city/shahreza/",
+    "/city/baharestan/",
+    "/city/mahmudabad/"
+   ]
+  }
+ ]
+}
