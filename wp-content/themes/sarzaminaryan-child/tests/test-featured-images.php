@@ -407,6 +407,17 @@ if ( false !== $template ) {
 	sa_t_assert( $sa_ccover < $pos['county'], 'the county featured image sits above the county identity card (v2.22.90)' );
 	sa_t_assert( 1 === substr_count( $template, 'sa_county_featured_figure(' ), 'the county featured image is printed in one place only (v2.22.90)' );
 	sa_t_assert( $pos['county'] < $pos['content'], 'county identity card comes before body content' );
+	// v2.22.116 (owner order, 18 Nov 2026): the closed county TOC is captured from
+	// the body render and printed right under the featured image, above the identity
+	// card — so the reader sees the cover, then the «+» list, then the profile.
+	$sa_ctoc_print = strpos( $template, 'echo $sa_county_toc_html;' );
+	$sa_cprofile   = strpos( $template, 'echo $sa_county_profile_html;' );
+	sa_t_assert( false !== $sa_ctoc_print, 'the county page prints the captured table of contents (2.22.116)' );
+	sa_t_assert( false !== $sa_cprofile, 'the county identity card is buffered and printed after the body render (2.22.116)' );
+	sa_t_assert( $sa_ccover < $sa_ctoc_print, 'the county TOC sits below the featured image (2.22.116)' );
+	sa_t_assert( $sa_ctoc_print < $sa_cprofile, 'the county TOC sits above the identity card on the page (2.22.116)' );
+	sa_t_assert( 1 === substr_count( $template, 'echo $sa_county_toc_html;' ), 'the county TOC is printed in one place only (2.22.116)' );
+	sa_t_assert( false !== strpos( $template, "\$GLOBALS['sa_county_toc_capture'] = true;" ), 'the TOC is captured from the body render, not prepended to it (2.22.116)' );
 
 	foreach ( array(
 		'province-identity.php'   => 'sa-cyber-id--province',

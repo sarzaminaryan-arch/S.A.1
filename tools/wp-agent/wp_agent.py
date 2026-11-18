@@ -58,6 +58,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -247,15 +248,27 @@ class _SeoParser(html.parser.HTMLParser):
         self.map_frame_buttons = 0    # retired «بارگذاری نقشهٔ تعاملی» must never come back
         # v2.22.98: licensed place photos — the credit line is part of the design, so a
         # block without a named photographer is a defect, not a style choice.
+        # v2.22.116: «مکان در یک نگاه» برداشته شد؛ گالری تصاویر شهرستان
+        # (section.sa-county-gallery) جای آن را گرفته است. شمارندهٔ spotlight
+        # نگه داشته شده تا اگر قالب قدیمی برگردد، پروب آن را ببیند و هشدار دهد.
         self.spotlight = 0
         self.spotlight_credits = 0
         self.strip_tiles = 0
         self.strip_credits = 0
+        self.county_gallery = 0          # section.sa-county-gallery#county-gallery
+        self.county_gallery_slides = 0   # slide.sa-strip__slide داخل همان گالری
+        self.county_zoom_frames = 0      # قاب‌های data-sa-zoom (بازشدن لایت‌باکس)
         self._in_spotlight = 0
         self._in_strip_tile = 0
+        self._in_county_gallery = 0
         self._in_credit = 0
         self._credit_buf = ""
         self.photo_credits = []       # متن خط اعتبارهای چاپ‌شده (نام عکاس + مجوز) برای بازبینی مالک
+        # آکاردئون‌های بستهٔ v2.22.116: فهرست شهرستان‌های هم‌استان + منابع
+        self.accordions = 0          # details.sa-county-accordion
+        self.accordions_open = 0     # همان‌ها که با open شروع می‌شوند (باید صفر باشد)
+        self.accordion_summaries = 0
+        self._details_open = []
         # لایهٔ «از تجربهٔ مسافرها» (متای صفحه، بدون ارتقای قالب): شمارش
         # کارت‌های چاپ‌شده تا معلوم شود بلوک واقعاً روی صفحه هست یا نه.
         self.experience_block = 0
@@ -293,9 +306,23 @@ class _SeoParser(html.parser.HTMLParser):
         if "sa-spotlight" in classes:
             self.spotlight += 1
             self._in_spotlight += 1
+        if "sa-county-gallery" in classes:
+            self.county_gallery += 1
+            self._in_county_gallery += 1
+        if "sa-strip__slide" in classes and self._in_county_gallery:
+            self.county_gallery_slides += 1
+        if a.get("data-sa-zoom") and "sa-strip__frame" in classes:
+            self.county_zoom_frames += 1
         if "sa-strip__tile" in classes:
             self.strip_tiles += 1
             self._in_strip_tile += 1
+        if tag == "details" and "sa-county-accordion" in classes:
+            self.accordions += 1
+            self._details_open.append("open" in a)
+            if "open" in a:
+                self.accordions_open += 1
+        if tag == "summary" and "sa-county-accordion__summary" in classes:
+            self.accordion_summaries += 1
         if ("sa-photo__credit" in classes or "sa-strip__credit" in classes) and not self._in_credit:
             # متن اعتبار تا بسته شدن همین عنصر جمع می‌شود و همان‌جا شمرده می‌شود؛
             # تگ‌های درونی (<a>، <span>) شمارش را جابه‌جا نمی‌کنند.
@@ -357,6 +384,10 @@ class _SeoParser(html.parser.HTMLParser):
                     self.photo_credits.append(line)
         if tag == "section" and self._in_spotlight:
             self._in_spotlight -= 1
+        if tag == "section" and self._in_county_gallery:
+            self._in_county_gallery -= 1
+        if tag == "details" and self._details_open:
+            self._details_open.pop()
         if tag == "article" and self._in_strip_tile:
             self._in_strip_tile -= 1
         if tag == "main" and self._main:
@@ -473,6 +504,10 @@ def scan_url(url: str) -> dict:
         "county_cover_figures": p.county_cover_figures, "county_cover_images": p.county_cover_images,
         "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
         "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
+        "county_gallery": p.county_gallery, "county_gallery_slides": p.county_gallery_slides,
+        "county_zoom_frames": p.county_zoom_frames,
+        "county_accordions": p.accordions, "county_accordions_open": p.accordions_open,
+        "county_accordion_summaries": p.accordion_summaries,
         "photo_credit_texts": p.photo_credits,
         "county_cover_image_srcs": p.county_cover_image_srcs, "jsonld": _jsonld_types(p.jsonld),
         "jsonld_images": _jsonld_images(p.jsonld), "internal_links": p.links_internal,
@@ -520,6 +555,10 @@ def probe_url(url: str) -> dict:
                 "county_cover_image_srcs": p.county_cover_image_srcs,
                 "photo_spotlight": p.spotlight, "photo_spotlight_credits": p.spotlight_credits,
                 "photo_strip_tiles": p.strip_tiles, "photo_strip_credits": p.strip_credits,
+                "county_gallery": p.county_gallery, "county_gallery_slides": p.county_gallery_slides,
+                "county_zoom_frames": p.county_zoom_frames,
+                "county_accordions": p.accordions, "county_accordions_open": p.accordions_open,
+                "county_accordion_summaries": p.accordion_summaries,
                 "photo_credit_texts": p.photo_credits,
                 "experience_block": p.experience_block,
                 "experience_facts": p.experience_facts,
@@ -642,6 +681,21 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--dry-run", action="store_true", help="report what would be trashed and change nothing")
     p = sub.add_parser("photos", help="read-only: licensed place photos with author, licence and source")
     p.add_argument("--city-id", type=int, default=0)
+    p = sub.add_parser("photos-optimize", help="owner-approved: re-encode a county's photos to 4:3 WebP under 100 KB")
+    p.add_argument("--city-id", type=int, default=0, help="0 = every county with photos")
+    p.add_argument("--photo-id", action="append", type=int, default=[], help="limit to these attachment ids")
+    p.add_argument("--force", action="store_true", help="re-encode even when the file already fits")
+    p.add_argument("--limit", type=int, default=30, help="photos per call (the response says how many remain)")
+    p.add_argument("--owner-approved", action="store_true")
+    p = sub.add_parser("photos-manage", help="owner-approved: hide/unhide, lead, detach, trash or edit one county photo")
+    p.add_argument("--photo-id", type=int, required=True)
+    p.add_argument("--action", required=True, choices=["hide", "unhide", "lead", "detach", "trash", "update"])
+    p.add_argument("--order", type=int, default=0)
+    p.add_argument("--place", default="")
+    p.add_argument("--highlight", default="")
+    p.add_argument("--tag", default="")
+    p.add_argument("--note", default="")
+    p.add_argument("--owner-approved", action="store_true")
     sub.add_parser("relations-audit", help="read-only: published items whose city/province parent is not published (theme 2.22.76+)")
     p = sub.add_parser("updraft", help="UpdraftPlus status; --start begins a backup (owner-approved)")
     p.add_argument("--start", action="store_true")
@@ -660,6 +714,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--backup-wait", type=int, default=1500)
     p.add_argument("--probe", action="append", default=[], help="path that must answer 200/301 after the update")
     p.add_argument("--rollback-to", default="", help="version to reinstall if a probe fails")
+    p.add_argument("--allow-without-backup", action="store_true",
+                   help="owner order: skip the 6-hour UpdraftPlus freshness gate (rollback still armed)")
+    p.add_argument("--wait-for-release", type=int, default=0,
+                   help="seconds to wait for a just-pushed release (the release job runs in parallel)")
     return ap
 
 
@@ -713,11 +771,36 @@ def probes_healthy(probes: list[dict]) -> bool:
     return True
 
 
-def theme_install(c: "Client", version: str, expected: str) -> dict:
+THEME_RELEASE_WAIT_SECONDS = 300
+THEME_RELEASE_POLL_SECONDS = 15
+
+
+def theme_install(c: "Client", version: str, expected: str, allow_without_backup: bool = False,
+                  wait_seconds: int = 0, sleep=time.sleep) -> dict:
+    """Install one release. `allow_without_backup` (theme 2.22.116+) is the owner's explicit
+    «no new UpdraftPlus backup» order: it skips the 6-hour freshness gate, while the theme
+    still reinstalls `--rollback-to` when a post-change probe is unhealthy.
+
+    `wait_seconds` exists because the push that bumps the version starts two workflows at once:
+    the release job that publishes the ZIP and the agent job that installs it. When the agent
+    wins that race the site answers 409 («انتشار پیدا نشده»), which is not a real failure — the
+    release appears a minute later. Jobs 127 and 130 both died that way and each needed a
+    manual re-run, so the install now waits for the release instead of failing on the first 409.
+    """
     body = {"owner_approved_theme_update": True, "expected_version": expected}
     if version:
         body["version"] = version
-    return c.call("POST", "/theme-update", body=body)
+    if allow_without_backup:
+        body["allow_without_backup"] = True
+    deadline = time.monotonic() + max(0, int(wait_seconds or 0))
+    while True:
+        try:
+            return c.call("POST", "/theme-update", body=body)
+        except AgentError as err:
+            pending = "sa_agent_version_mismatch" in str(err)
+            if not pending or time.monotonic() >= deadline:
+                raise
+            sleep(THEME_RELEASE_POLL_SECONDS)
 
 
 def run(a: argparse.Namespace, c: "Client"):
@@ -775,6 +858,23 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("POST", "/photos/prune", body=body)
     elif a.cmd == "photos":
         return c.call("GET", "/photos", {"city_id": a.city_id or None})
+    elif a.cmd == "photos-optimize":
+        if not a.owner_approved:
+            raise AgentError("photos-optimize needs --owner-approved (owner's explicit order)")
+        body = {"city_id": a.city_id, "photo_ids": [int(i) for i in a.photo_id],
+                "force": bool(a.force), "limit": int(a.limit or 0), "owner_approved": True}
+        return c.call("POST", "/photos/optimize", body=body)
+    elif a.cmd == "photos-manage":
+        if not a.owner_approved:
+            raise AgentError("photos-manage needs --owner-approved (owner's explicit order)")
+        body = {"id": a.photo_id, "action": a.action, "owner_approved": True}
+        if a.order:
+            body["order"] = int(a.order)
+        for field in ("place", "highlight", "tag", "note"):
+            value = getattr(a, field)
+            if value:
+                body[field] = value
+        return c.call("POST", "/photos/manage", body=body)
     elif a.cmd == "get":
         data = c.call("GET", f"/post/{a.id}")
         if a.out:
@@ -936,7 +1036,8 @@ def run(a: argparse.Namespace, c: "Client"):
             if not ((report["backup"]["status"].get("job") or {}).get("finished") and last.get("success")):
                 raise AgentError("UpdraftPlus backup did not finish successfully in time; theme NOT updated: "
                                  + json.dumps(report["backup"]["status"], ensure_ascii=False)[:600])
-        report["install"] = theme_install(c, a.version, a.expected_version)
+        report["install"] = theme_install(c, a.version, a.expected_version, bool(a.allow_without_backup),
+                                          wait_seconds=a.wait_for_release)
         time.sleep(5)
         try:  # theme 2.22.77+: visitors must not keep the old cached output
             report["cache_purge"] = c.call("POST", "/cache-purge", body={"scope": "all"})
@@ -946,7 +1047,8 @@ def run(a: argparse.Namespace, c: "Client"):
         report["probe_after"] = [probe_url(bust(u)) for u in urls]
         report["healthy"] = probes_healthy(report["probe_after"])
         if not report["healthy"] and a.rollback_to:
-            report["rollback"] = theme_install(c, a.rollback_to, a.rollback_to)
+            # A rollback is never blocked by the backup gate: it is the safety net itself.
+            report["rollback"] = theme_install(c, a.rollback_to, a.rollback_to, True)
             time.sleep(5)
             report["probe_after_rollback"] = [probe_url(bust(u)) for u in urls]
             # compact probe verdict first — the full report is too big for the error string
@@ -1156,7 +1258,14 @@ def run_job(job_path: str, c: "Client") -> dict:
                 if bad:
                     raise AgentError("post-change probe failed: " + "; ".join(bad))
         except (AgentError, SystemExit) as err:
-            entry["error"] = str(err)
+            # argparse exits with code 2 and no message when a step carries a flag the parser
+            # does not know; "error: 2" told nobody what was wrong (jobs 43 and 128 died that way).
+            entry["error"] = (
+                f"bad step {i} ({step.get('cmd')}): a flag in this step is not accepted by the "
+                f"command — run tools/wp-agent/test_wp_agent_jobs.py"
+                if isinstance(err, SystemExit) and not isinstance(err, AgentError)
+                else str(err)
+            )
             report["ok"] = False
             report["steps"].append(entry)
             break

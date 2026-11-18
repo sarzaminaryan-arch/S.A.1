@@ -7908,3 +7908,247 @@ body.bg-lines::before {
 	color: var(--sa-navy-700, #18558f);
 	font-weight: 600;
 }
+
+/* ==========================================================================
+   v2.22.116 — تمپلیت مستر شهرستان: فهرست مطالب جمع‌وجور آکاردئونی آبی تیره
+   با علامت + درست زیر تصویر شاخص، آکاردئون هم‌شکل شهرهای هم‌استانی، و منابع
+   تک‌خطی با پیمایش افقی در موبایل.
+   ========================================================================== */
+.sa-entity--city .sa-county-cover {
+	margin-bottom: clamp(10px, 1.8vw, 14px);
+}
+
+.sa-entity--city .sa-toc--county {
+	max-width: 900px;
+	margin: 0 auto clamp(12px, 2vw, 18px);
+	padding: 0;
+	border: 0;
+	border-radius: 12px;
+	background: transparent;
+	box-shadow: none;
+	min-width: 0;
+}
+
+.sa-entity--city .sa-siblings {
+	margin: clamp(12px, 2vw, 18px) 0;
+	padding: 0;
+	border: 0;
+	border-radius: 12px;
+	background: transparent;
+	box-shadow: none;
+	min-width: 0;
+}
+
+.sa-entity--city .sa-county-accordion {
+	border: 1px solid rgba(11, 37, 69, .22);
+	border-radius: 12px;
+	overflow: hidden;
+	background: #f8fbff;
+	box-shadow: 0 6px 18px rgba(11, 37, 69, .08);
+	direction: rtl;
+}
+
+.sa-entity--city .sa-county-accordion__summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: .65rem;
+	min-height: 42px;
+	padding: .58rem .95rem;
+	background: linear-gradient(135deg, #0b2545 0%, #10325a 100%);
+	color: #fff;
+	font-size: .94rem;
+	font-weight: 800;
+	line-height: 1.4;
+	cursor: pointer;
+	list-style: none;
+	user-select: none;
+	-webkit-tap-highlight-color: transparent;
+	transition: background .18s ease;
+}
+
+.sa-entity--city .sa-county-accordion__summary:hover {
+	background: linear-gradient(135deg, #0e2e56 0%, #154073 100%);
+}
+
+.sa-entity--city .sa-county-accordion__summary::-webkit-details-marker {
+	display: none;
+}
+
+.sa-entity--city .sa-county-accordion__summary::marker {
+	content: none;
+}
+
+.sa-entity--city .sa-county-accordion__summary:focus-visible {
+	outline: 2px solid #ffcc60;
+	outline-offset: -3px;
+}
+
+.sa-entity--city .sa-county-accordion__title {
+	color: #ffcc60;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.sa-entity--city .sa-county-accordion__icon {
+	flex: 0 0 auto;
+	display: inline-grid;
+	place-items: center;
+	width: 26px;
+	height: 26px;
+	border-radius: 7px;
+	border: 1px solid rgba(255, 204, 96, .35);
+	background: rgba(255, 255, 255, .08);
+	color: #ffcc60;
+	font-size: 1.25rem;
+	font-weight: 700;
+	line-height: 1;
+}
+
+.sa-entity--city .sa-county-accordion__icon::before {
+	content: "+";
+}
+
+.sa-entity--city details[open] > .sa-county-accordion__summary .sa-county-accordion__icon::before {
+	content: "−";
+}
+
+/* ردیف‌های فهرست مطالب شهرستان: جمع‌وجور، نزدیک به هم و کاملاً واکنش‌گرا. */
+.sa-entity--city .sa-toc--county .sa-toc__list {
+	padding: .45rem .6rem;
+	margin: 0;
+	gap: 2px;
+	max-height: min(52vh, 19rem);
+	background: #0d2747;
+	border-top: 1px solid rgba(255, 255, 255, .1);
+	scrollbar-color: rgba(255, 204, 96, .45) transparent;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__item {
+	margin: 0;
+	min-width: 0;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__item--l2 {
+	padding-inline-start: 12px;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__item--l3 {
+	padding-inline-start: 22px;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__link {
+	gap: 7px;
+	padding: .3rem .5rem;
+	border-radius: 8px;
+	font-size: .86rem;
+	line-height: 1.45;
+	color: #eaf2fc;
+	transform: none;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__link:hover,
+.sa-entity--city .sa-toc--county .sa-toc__link:focus-visible {
+	background: rgba(255, 255, 255, .1);
+	color: #ffcc60;
+	transform: none;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__num {
+	width: 20px;
+	height: 20px;
+	border-radius: 6px;
+	background: rgba(255, 204, 96, .16);
+	color: #ffcc60;
+	font-size: .7rem;
+	font-weight: 700;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__item--l2 .sa-toc__num,
+.sa-entity--city .sa-toc--county .sa-toc__item--l3 .sa-toc__num {
+	width: 18px;
+	height: 18px;
+	background: rgba(255, 255, 255, .1);
+	color: #cfe0f5;
+	font-size: .66rem;
+}
+
+.sa-entity--city .sa-toc--county .sa-toc__label {
+	overflow-wrap: anywhere;
+}
+
+@media (min-width: 780px) {
+	.sa-entity--city .sa-toc--county .sa-toc__list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		column-gap: 8px;
+		row-gap: 2px;
+	}
+}
+
+.sa-entity--city .sa-county-accordion__body {
+	padding: .75rem .9rem;
+	background: #fff;
+}
+
+.sa-entity--city .sa-siblings__all {
+	margin: .65rem 0 0;
+}
+
+#county-identity,
+#county-field-notes,
+#county-gallery,
+#cc-rating,
+#county-siblings {
+	scroll-margin-top: 96px;
+}
+
+@media (max-width: 640px) {
+	.sa-entity--city .sa-county-accordion {
+		border-radius: 10px;
+	}
+
+	.sa-entity--city .sa-county-accordion__summary {
+		min-height: 40px;
+		padding: .5rem .78rem;
+		font-size: .88rem;
+	}
+
+	.sa-entity--city .sa-county-accordion__icon {
+		width: 24px;
+		height: 24px;
+		font-size: 1.15rem;
+	}
+
+	.sa-entity--city .sa-toc--county .sa-toc__list {
+		padding: .38rem .48rem;
+		gap: 1px;
+		max-height: min(55vh, 17rem);
+	}
+
+	.sa-entity--city .sa-toc--county .sa-toc__link {
+		padding: .28rem .42rem;
+		font-size: .82rem;
+		line-height: 1.42;
+		gap: 6px;
+	}
+
+	.sa-entity--city .sa-county-accordion__body {
+		padding: .65rem .75rem;
+	}
+}
+
+/* هر منبع در یک خط بدون شکست؛ پیمایش افقی نرم در موبایل برای حفظ متن و پیوند. */
+.sa-entity--city .sa-footnotes__item {
+	flex-wrap: nowrap;
+	white-space: nowrap;
+	max-width: 100%;
+	min-width: 0;
+	overflow-x: auto;
+	overscroll-behavior-inline: contain;
+	padding-block: .35rem;
+	border-bottom: 1px solid rgba(11, 20, 36, .09);
+}
+
+.sa-entity--city .sa-footnotes__item > * {
+	flex-shrink: 0;
+}

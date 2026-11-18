@@ -1,11 +1,9 @@
 /* global document, window, wp, FormData */
 /**
- * پنل «تصاویر شهرستان» در صفحهٔ ویرایش (v2.22.115).
+ * پنل «گالری تصاویر شهرستان» در صفحهٔ ویرایش (v2.22.115 → v2.22.116).
  *
- * دستور مالک: «در بخش ویرایش مقاله در پیشنویس، جایی برای آپلود تصویر بگذار که اگر
- * خواستم تصویر جدید بگذارم، حذف کنم، و در هر صورت تصویر را بتوانم تغییر بدهم.»
- * افزودن و تعویض از کتابخانهٔ رسانهٔ خود وردپرس می‌آید (آپلود تازه هم در همان
- * پنجره ممکن است)، پس قالبِ پرونده و امنیت بارگذاری همان مسیر همیشگی است.
+ * افزودن، تعویض، برداشتن، انتقال به زباله‌دان، مرتب‌سازی بالا/پایین، ذخیرهٔ مستقل
+ * (سازگار با ویرایشگر کلاسیک و بلوکی) و بهینه‌سازی WebP زیر ۱۰۰ کیلوبایت.
  */
 (function () {
 	'use strict';
@@ -36,24 +34,36 @@
 		});
 	}
 
-	function statusBox(box) {
-		return box.querySelector('.sa-photo-admin__status');
+	function collectBoxFields(box) {
+		var body = new FormData();
+		box.querySelectorAll('input[name^="sa_photo_"], select[name^="sa_photo_"], textarea[name^="sa_photo_"]').forEach(function (field) {
+			if (field.disabled || !field.name) {
+				return;
+			}
+			if ((field.type === 'checkbox' || field.type === 'radio') && !field.checked) {
+				return;
+			}
+			body.append(field.name, field.value);
+		});
+		return body;
 	}
 
 	function say(box, text) {
-		var status = statusBox(box);
+		var status = box.querySelector('.sa-photo-admin__status');
 		if (status) {
 			status.textContent = text;
 		}
 	}
 
-	/**
-	 * پنجرهٔ کتابخانهٔ رسانه.
-	 *
-	 * @param {string}   title    عنوان پنجره.
-	 * @param {boolean}  multiple انتخاب چندتایی.
-	 * @param {Function} onPick   با فهرست شناسه‌ها صدا زده می‌شود.
-	 */
+	function renumberRows(box) {
+		box.querySelectorAll('tbody tr[data-sa-photo-row]').forEach(function (row, index) {
+			var input = row.querySelector('.sa-photo-admin__order-input');
+			if (input) {
+				input.value = String(index + 1);
+			}
+		});
+	}
+
 	function mediaFrame(title, multiple, onPick) {
 		if (!window.wp || !wp.media) {
 			window.alert('کتابخانهٔ رسانه در این صفحه بار نشده است.');
@@ -61,7 +71,7 @@
 		}
 		var frame = wp.media({
 			title: title,
-			button: { text: 'انتخاب' },
+			button: { text: 'انتخاب و بهینه‌سازی WebP' },
 			library: { type: 'image' },
 			multiple: !!multiple
 		});
@@ -87,9 +97,11 @@
 		var addButton = box.querySelector('.sa-photo-admin__add');
 		if (addButton) {
 			addButton.addEventListener('click', function () {
-				mediaFrame('افزودن تصویر به این شهرستان', true, function (ids) {
-					say(box, 'در حال افزودن…');
-					post('sa_photo_attach', { ids: ids }).then(function (res) {
+				var creditToggle = box.querySelector('.sa-photo-admin__default-credit');
+				var useDefaultCredit = !creditToggle || creditToggle.checked ? '1' : '';
+				mediaFrame('افزودن تصویر به گالری شهرستان', true, function (ids) {
+					say(box, 'در حال افزودن و تبدیل به WebP زیر ۱۰۰ کیلوبایت…');
+					post('sa_photo_attach', { ids: ids, default_credit: useDefaultCredit }).then(function (res) {
 						if (res && res.success) {
 							window.location.reload();
 						} else {
@@ -106,7 +118,7 @@
 		if (saveButton) {
 			saveButton.addEventListener('click', function () {
 				say(box, 'در حال ذخیره…');
-				var body = new FormData(box);
+				var body = collectBoxFields(box);
 				body.append('action', 'sa_photo_save');
 				body.append('nonce', cfg.nonce || '');
 				body.append('post_id', cfg.postId || 0);
@@ -118,7 +130,7 @@
 					return response.json();
 				}).then(function (res) {
 					if (res && res.success) {
-						say(box, 'ذخیره شد — ' + (res.data && res.data.saved ? res.data.saved : 0) + ' ردیف.');
+						say(box, 'ذخیره شد (' + (res.data && res.data.saved ? res.data.saved : 0) + ' تصویر).');
 					} else {
 						say(box, (res && res.data && res.data.message) || 'ذخیره نشد.');
 					}
@@ -128,11 +140,46 @@
 			});
 		}
 
+		var optButton = box.querySelector('.sa-photo-admin__optimize');
+		if (optButton) {
+			optButton.addEventListener('click', function () {
+				say(box, 'در حال تبدیل تصاویر به WebP زیر ۱۰۰ کیلوبایت…');
+				post('sa_photo_optimize', {}).then(function (res) {
+					if (res && res.success) {
+						window.location.reload();
+					} else {
+						say(box, (res && res.data && res.data.message) || 'بهینه‌سازی انجام نشد.');
+					}
+				}).catch(function () {
+					say(box, 'بهینه‌سازی انجام نشد.');
+				});
+			});
+		}
+
+		box.querySelectorAll('.sa-photo-admin__move').forEach(function (button) {
+			button.addEventListener('click', function () {
+				var row = button.closest('tr');
+				var dir = parseInt(button.getAttribute('data-dir') || '0', 10);
+				if (!row || !row.parentNode) {
+					return;
+				}
+				if (dir < 0 && row.previousElementSibling) {
+					row.parentNode.insertBefore(row, row.previousElementSibling);
+					renumberRows(box);
+					say(box, 'ترتیب تغییر کرد — دکمهٔ «ذخیرهٔ تغییرات گالری» را بزنید.');
+				} else if (dir > 0 && row.nextElementSibling) {
+					row.parentNode.insertBefore(row.nextElementSibling, row);
+					renumberRows(box);
+					say(box, 'ترتیب تغییر کرد — دکمهٔ «ذخیرهٔ تغییرات گالری» را بزنید.');
+				}
+			});
+		});
+
 		box.querySelectorAll('.sa-photo-admin__swap').forEach(function (button) {
 			button.addEventListener('click', function () {
 				var attId = button.getAttribute('data-id');
-				mediaFrame('انتخاب فایل جایگزین', false, function (ids) {
-					say(box, 'در حال تعویض فایل…');
+				mediaFrame('انتخاب تصویر جایگزین', false, function (ids) {
+					say(box, 'در حال تعویض و تبدیل به WebP زیر ۱۰۰ کیلوبایت…');
 					post('sa_photo_swap', { att_id: attId, src_id: ids[0] }).then(function (res) {
 						if (res && res.success) {
 							window.location.reload();
@@ -149,7 +196,7 @@
 		box.querySelectorAll('.sa-photo-admin__detach').forEach(function (button) {
 			button.addEventListener('click', function () {
 				var attId = button.getAttribute('data-id');
-				if (!window.confirm('این تصویر از شهرستان برداشته شود؟ فایل در کتابخانهٔ رسانه می‌ماند.')) {
+				if (!window.confirm('این تصویر از گالری این شهرستان برداشته شود؟ (فایل در کتابخانهٔ رسانه باقی می‌ماند)')) {
 					return;
 				}
 				say(box, 'در حال برداشتن…');
@@ -158,13 +205,38 @@
 						var row = button.closest('tr');
 						if (row) {
 							row.remove();
+							renumberRows(box);
 						}
-						say(box, 'برداشته شد.');
+						say(box, 'از گالری برداشته شد.');
 					} else {
 						say(box, (res && res.data && res.data.message) || 'برداشتن انجام نشد.');
 					}
 				}).catch(function () {
 					say(box, 'برداشتن انجام نشد.');
+				});
+			});
+		});
+
+		box.querySelectorAll('.sa-photo-admin__trash').forEach(function (button) {
+			button.addEventListener('click', function () {
+				var attId = button.getAttribute('data-id');
+				if (!window.confirm('این تصویر به زباله‌دان رسانه منتقل شود؟ (تا ۳۰ روز قابل بازگردانی است)')) {
+					return;
+				}
+				say(box, 'در حال انتقال به زباله‌دان…');
+				post('sa_photo_trash', { att_id: attId }).then(function (res) {
+					if (res && res.success) {
+						var row = button.closest('tr');
+						if (row) {
+							row.remove();
+							renumberRows(box);
+						}
+						say(box, 'به زباله‌دان منتقل شد.');
+					} else {
+						say(box, (res && res.data && res.data.message) || 'حذف انجام نشد.');
+					}
+				}).catch(function () {
+					say(box, 'حذف انجام نشد.');
 				});
 			});
 		});

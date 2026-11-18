@@ -200,21 +200,133 @@
 	}
 }
 
+/* v2.22.116 — امتیاز کاربران: کادر مستقل، جمع‌وجور و کاملاً واکنش‌گرا بالای منابع. */
+.cc-block.cc-rating {
+	margin: clamp(14px, 2.2vw, 22px) 0;
+	padding: .85rem 1.05rem;
+	background: #ffffff;
+	border: 1px solid rgba(11, 37, 69, .18);
+	border-inline-start: 4px solid #0b2545;
+	border-radius: 13px;
+	box-shadow: 0 6px 20px rgba(11, 37, 69, .06);
+}
+
+.cc-rating .cc-block__title {
+	margin: 0 0 .4rem;
+	font-size: 1rem;
+	font-weight: 800;
+	line-height: 1.45;
+	color: #0b2545;
+	gap: .4rem;
+}
+
+.cc-rating .cc-block__title::before {
+	width: 8px;
+	height: 8px;
+	border-radius: 2px;
+	background: #0b2545;
+	box-shadow: 2px 2px 0 #d6e6f7;
+}
+
+.cc-rating .cc-rating__row {
+	gap: .35rem .75rem;
+	margin-bottom: .45rem;
+}
+
+.cc-rating .cc-rating__avg {
+	font-size: .88rem;
+	line-height: 1.5;
+}
+
+.cc-rating .cc-rating__avg b {
+	font-size: 1.06rem;
+	color: #0b2545;
+}
+
+.cc-rating .cc-rating__avg span {
+	font-size: .8rem;
+}
+
+.cc-rating .cc-rating__rank {
+	background: #0b2545;
+	font-size: .75rem;
+	padding: .18rem .6rem;
+}
+
+.cc-rating .cc-rating__picker {
+	gap: .45rem .65rem;
+	padding: .55rem .7rem;
+	border-radius: 10px;
+	background: #f6f9fe;
+	border: 1px solid #dbe7f5;
+}
+
+.cc-rating .cc-rating__picker-label {
+	margin: 0;
+	font-size: .82rem;
+	line-height: 1.45;
+	color: #1c3553;
+}
+
+.cc-rating .cc-rating__stars {
+	gap: .25rem;
+	flex-wrap: nowrap;
+}
+
+.cc-rating .cc-rating__stars button {
+	min-width: 36px;
+	padding: .22rem .22rem .28rem;
+	border-radius: 8px;
+	gap: .05rem;
+	background: #fff;
+}
+
+.cc-rating .cc-rating__stars button .cc-rating__num {
+	font-size: .68rem;
+}
+
+.cc-rating .cc-rating__stars button .cc-rating__glyph {
+	font-size: 1.2rem;
+}
+
+.cc-rating .cc-rating__submit {
+	min-height: 36px;
+	padding: .36rem 1.05rem;
+	font-size: .84rem;
+	border-radius: 8px;
+	background: #0b2545;
+}
+
+.cc-rating .cc-rating__submit:hover {
+	background: #143b6b;
+}
+
+.cc-rating .cc-rating__status {
+	margin: .45rem 0 0;
+	padding: .38rem .65rem;
+	font-size: .78rem;
+	line-height: 1.55;
+	border-radius: 8px;
+	background: #f1f6fc;
+}
+
 /* v2.22.51 — امتیازدهی جمع‌وجور: ستاره‌ها در موبایل هم یک خط می‌مانند. */
 @media (max-width: 640px) {
 	.cc-block { margin: 1.4rem 0; padding: 1rem .9rem; }
+	.cc-block.cc-rating { margin: .85rem 0; padding: .72rem .78rem; border-radius: 11px; }
 	.cc-block__title { font-size: 1.08rem; margin-bottom: .6rem; }
-	.cc-rating__row { gap: .4rem .8rem; margin-bottom: .45rem; }
-	.cc-rating__avg { font-size: .95rem; }
-	.cc-rating__avg b { font-size: 1.15rem; }
-	.cc-rating__picker { padding: .65rem .6rem; gap: .55rem; }
-	.cc-rating__picker-label { font-size: .85rem; }
-	.cc-rating__stars { flex-wrap: nowrap; gap: .22rem; width: 100%; }
-	.cc-rating__stars button { flex: 1 1 0; min-width: 0; padding: .28rem .1rem .34rem; border-radius: 8px; }
-	.cc-rating__stars button .cc-rating__glyph { font-size: 1.15rem; }
-	.cc-rating__stars button .cc-rating__num { font-size: .68rem; }
-	.cc-rating__submit { min-height: 40px; padding: .5rem 1.1rem; font-size: .92rem; }
-	.cc-rating__status { font-size: .84rem; padding: .55rem .7rem; }
+	.cc-rating .cc-block__title { font-size: .92rem; margin-bottom: .32rem; }
+	.cc-rating__row { gap: .3rem .6rem; margin-bottom: .38rem; }
+	.cc-rating .cc-rating__avg { font-size: .82rem; }
+	.cc-rating .cc-rating__avg b { font-size: .98rem; }
+	.cc-rating .cc-rating__picker { padding: .48rem .52rem; gap: .4rem; }
+	.cc-rating .cc-rating__picker-label { font-size: .78rem; }
+	.cc-rating .cc-rating__stars { flex-wrap: nowrap; gap: .18rem; width: 100%; }
+	.cc-rating .cc-rating__stars button { flex: 1 1 0; min-width: 0; padding: .2rem .06rem .25rem; border-radius: 7px; }
+	.cc-rating .cc-rating__stars button .cc-rating__glyph { font-size: 1.02rem; }
+	.cc-rating .cc-rating__stars button .cc-rating__num { font-size: .63rem; }
+	.cc-rating .cc-rating__submit { width: 100%; min-height: 35px; padding: .35rem .9rem; font-size: .83rem; }
+	.cc-rating .cc-rating__status { font-size: .75rem; padding: .35rem .55rem; margin-top: .38rem; }
 }
 
 /* v2.22.54 — هفت شهرستان برتر صفحهٔ نخست آکاردئونی است: سربرگ نقش دکمه را

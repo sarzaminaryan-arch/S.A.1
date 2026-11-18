@@ -116,6 +116,15 @@ jobs:
             exit 1
           fi
 
+      # v2.22.116: هر عکس شهرستان ۴:۳ و WebP زیر ۱۰۰ کیلوبایت است. Pillow همین‌جا
+      # نصب می‌شود تا پروندهٔ مالک *پیش از* آپلود به همان قالب تبدیل شود؛ اگر نصب
+      # نشود، ابزار فایل را دست‌نخورده می‌فرستد و خودِ سایت تبدیل می‌کند.
+      - name: WebP toolchain (4:3, under 100 KB)
+        continue-on-error: true
+        run: |
+          python3 -m venv "$RUNNER_TEMP/photo-env"
+          "$RUNNER_TEMP/photo-env/bin/pip" install 'Pillow>=11,<14'
+
       - name: Import batches
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
@@ -137,7 +146,11 @@ jobs:
               continue
             fi
             echo "::group::import $batch"
-            python3 tools/photos/import_photos.py "$batch" || status=1
+            if [ -x "$RUNNER_TEMP/photo-env/bin/python" ]; then
+              "$RUNNER_TEMP/photo-env/bin/python" tools/photos/import_photos.py "$batch" || status=1
+            else
+              python3 tools/photos/import_photos.py "$batch" || status=1
+            fi
             echo "::endgroup::"
           done
           exit $status

@@ -25,7 +25,7 @@
     },
     {
       "cmd": "probe",
-      "paths": [
+      "url": [
         "/city/ramshir/",
         "/city/aghajari/",
         "/city/andika/",

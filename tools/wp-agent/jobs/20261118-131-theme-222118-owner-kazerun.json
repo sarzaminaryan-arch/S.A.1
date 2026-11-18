@@ -1,0 +1,14 @@
+{
+  "note": "تکرار کار ۱۳۰ پس از رفع مسابقهٔ انتشار: ۴۰۹ «نسخه منتشر نشده» را ابزار حالا تا ۵ دقیقه تحمل می‌کند. نصب ۲.۲۲.۱۱۸ (منتشر شد)، سپس پروندهٔ ارسالی مالک (نمای هوایی معبد آناهیتا، کازرون) از مسیر /photos/upload، و پراب سه صفحه. بازگشت به ۲.۲۲.۱۱۷ مسلح است.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "theme-update", "expected_version": "2.22.118", "wait_for_release": 300,
+     "owner_approved_theme_update": true, "allow_without_backup": true,
+     "probe": ["/", "/city/kazerun/", "/city/bojnord/"],
+     "rollback_to": "2.22.117"},
+    {"cmd": "photos-import", "batch": "tools/photos/20261118-owner-kazerun.json"},
+    {"cmd": "photos", "city_id": 325},
+    {"cmd": "probe", "url": ["/city/kazerun/", "/city/bojnord/", "/"]},
+    {"cmd": "ping"}
+  ]
+}

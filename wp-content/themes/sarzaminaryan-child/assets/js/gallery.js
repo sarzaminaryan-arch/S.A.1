@@ -202,7 +202,11 @@
 			var caption = image.caption || 'توضیحی برای این تصویر ثبت نشده است.';
 			descEl.textContent = (meta.length ? meta.join(' · ') + ' — ' : '') + caption;
 			downloadEl.href = image.download || image.full || image.src || '#';
-			downloadEl.removeAttribute('hidden');
+			if (image.noDownload) {
+				downloadEl.setAttribute('hidden', 'hidden');
+			} else {
+				downloadEl.removeAttribute('hidden');
+			}
 			countEl.textContent = faNumber(activeIndex + 1) + ' / ' + faNumber(images.length);
 		} else {
 			placeEl.textContent = activeAlbum ? activeAlbum.cityTitle || 'آلبوم آماده' : 'آلبوم آماده';
@@ -293,14 +297,33 @@
 	} else {
 		bindCards();
 	}
+
+	/**
+	 * درِ ورودی لایت‌باکس برای گالری عکس شهرستان (v2.22.116).
+	 * کلیک روی هر قاب `[data-sa-zoom]` همین تابع را صدا می‌زند تا همان آلبوم با
+	 * نمای همان قاب باز شود؛ برای عکس‌های شهرستان دکمهٔ دانلود پنهان می‌ماند.
+	 *
+	 * @param {Object} album آلبوم { title, images }.
+	 * @param {number} index نمای آغازین.
+	 */
+	window.saCountyOpenGallery = function (album, index) {
+		if (!album || !Array.isArray(album.images) || !album.images.length) {
+			return;
+		}
+		openAlbum(album);
+		if (typeof index === 'number' && index > 0) {
+			updateSlide(index, true);
+		}
+	};
 }());
 
-/* اسلایدر نماهای شهرستان (v2.22.115) ----------------------------------------
- * کادر «مکان در یک نگاه» و گالری پایین صفحهٔ شهرستان هر دو از همین پوستهٔ
- * `.sa-slider` استفاده می‌کنند. کشیدن انگشت کار خودِ مرورگر است (scroll-snap +
- * touch-action در CSS)؛ این اسکریپت فقط دکمه‌ها، نقطه‌ها، شمارنده، کلیدهای جهت‌دار
- * و همگام‌سازی نمای فعال را زنده می‌کند. اسکوپ جدا از لایت‌باکس آلبوم است تا
- * متغیر track آنجا دست‌نخورده بماند.
+/* اسلایدر گالری تصاویر شهرستان (v2.22.116) ---------------------------------
+ * گالری «تصاویر شهرستان» از همین پوستهٔ `.sa-slider` استفاده می‌کند: دسکتاپ سه
+ * قاب، تبلت دو قاب، موبایل یک قاب. کشیدن انگشت کار خودِ مرورگر است (scroll-snap
+ * + touch-action در CSS)؛ این اسکریپت دکمه‌ها، نقطه‌ها، شمارنده، کلیدهای جهت‌دار،
+ * همگام‌سازی نمای فعال و پنهان‌کردن کنترل‌ها وقتی همهٔ قاب‌ها جا می‌شوند را
+ * زنده می‌کند. بازکردن لایت‌باکس با `window.saCountyOpenGallery` انجام می‌شود
+ * تا متغیرهای اسکوپ لایت‌باکس دست‌نخورده بمانند.
  * --------------------------------------------------------------------------- */
 (function () {
 	'use strict';
@@ -374,11 +397,18 @@
 			if (countEl) {
 				countEl.textContent = faNumber(index + 1) + ' از ' + faNumber(slides.length);
 			}
+			var fitsAll = track.scrollWidth <= track.clientWidth + 4;
+			slider.classList.toggle('sa-slider--fits', fitsAll);
 			if (prev) {
 				prev.disabled = index === 0;
 			}
 			if (next) {
-				next.disabled = index === slides.length - 1;
+				var lastRect = slides[slides.length - 1].getBoundingClientRect();
+				var trackRect = track.getBoundingClientRect();
+				var atEnd = isRtl
+					? Math.abs(lastRect.left - trackRect.left) <= 3
+					: Math.abs(lastRect.right - trackRect.right) <= 3;
+				next.disabled = atEnd || index === slides.length - 1;
 			}
 		}
 
@@ -458,6 +488,59 @@
 		});
 
 		paint(readIndex());
+	}
+
+	function initCountyZoom() {
+		document.querySelectorAll('.sa-county-gallery').forEach(function (gallery) {
+			if (gallery.getAttribute('data-sa-zoom-ready') === '1') {
+				return;
+			}
+			gallery.setAttribute('data-sa-zoom-ready', '1');
+			var frames = Array.prototype.slice.call(gallery.querySelectorAll('.sa-strip__frame[data-sa-zoom]'));
+			if (!frames.length) {
+				return;
+			}
+			var headingEl = gallery.querySelector('.sa-strip__title');
+			var albumTitle = headingEl ? headingEl.textContent.trim() : 'گالری تصاویر شهرستان';
+			var images = frames.map(function (el) {
+				return {
+					src: el.getAttribute('data-sa-zoom') || '',
+					place: el.getAttribute('data-sa-title') || albumTitle,
+					caption: el.getAttribute('data-sa-note') || '',
+					contributor: el.getAttribute('data-sa-author') || '',
+					alt: el.getAttribute('data-sa-title') || albumTitle,
+					noDownload: true
+				};
+			});
+			frames.forEach(function (el, index) {
+				var downX = 0;
+				var downY = 0;
+				function openAt() {
+					if (typeof window.saCountyOpenGallery === 'function') {
+						window.saCountyOpenGallery({ title: albumTitle, images: images }, index);
+					}
+				}
+				// کشیدن انگشت روی قاب برای ورق‌زدن است، نه بازکردن لایت‌باکس؛ پس فقط
+				// وقتی باز می‌شود که انگشت/ماوس تقریباً همان‌جا رها شده باشد.
+				el.addEventListener('pointerdown', function (event) {
+					downX = event.clientX;
+					downY = event.clientY;
+				}, { passive: true });
+				el.addEventListener('click', function (event) {
+					var moved = Math.abs(event.clientX - downX) + Math.abs(event.clientY - downY);
+					if (moved > 12) {
+						return;
+					}
+					openAt();
+				});
+				el.addEventListener('keydown', function (event) {
+					if (event.key === 'Enter' || event.key === ' ') {
+						event.preventDefault();
+						openAt();
+					}
+				});
+			});
+		});
 	}
 
 	function initSliders() {

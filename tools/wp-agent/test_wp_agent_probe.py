@@ -46,17 +46,49 @@ assert wa.unhealthy_pages([gated]), "the retired «بارگذاری نقشه» b
 print("PASS: probe parser detects county cover markup, JSON-LD images and the open map iframe (no load button).")
 
 # 2) Licensed place photos: the credit line is part of the design, so the probe counts it.
-photo_html = """<section class="sa-spotlight"><figure class="sa-photo__frame sa-spotlight__frame">
-<img src="a.jpg" alt="x"><figcaption class="sa-photo__credit">عکس: الف · CC BY-SA 3.0</figcaption></figure></section>
-<section class="sa-strip"><article class="sa-strip__tile"><img src="b.jpg" alt="y">
-<p class="sa-strip__credit">عکس: ب · CC BY-SA 3.0</p></article>
-<article class="sa-strip__tile"><img src="c.jpg" alt="z"></article></section>"""
+#    From 2.22.116 the spotligh box is gone and the county gallery (slider) is the block
+#    that must be present, with a data-sa-zoom frame per slide for the lightbox.
+photo_html = """<section class="sa-strip sa-county-gallery" id="county-gallery">
+<div class="sa-strip__head"><div class="sa-strip__title-row"><h2 class="sa-strip__title">گالری تصاویر کازرون</h2>
+<span class="sa-strip__badge">۴ تصویر</span></div></div>
+<div class="sa-slider" data-sa-slider><div class="sa-slider__stage"><div class="sa-slider__track">
+<div class="sa-slider__slide sa-strip__slide"><article class="sa-strip__tile">
+<div class="sa-strip__frame" data-sa-zoom="https://example.test/a.webp" data-sa-title="بیشاپور">
+<img src="a.webp" alt="بیشاپور"><span class="sa-strip__tag">میراث</span></div>
+<div class="sa-strip__highlight"><p class="sa-strip__line">یک خط</p>
+<p class="sa-strip__credit">عکس: الف · CC BY-SA 3.0</p></div></article></div>
+<div class="sa-slider__slide sa-strip__slide"><article class="sa-strip__tile">
+<div class="sa-strip__frame"><img src="b.webp" alt="ب"></div></article></div>
+</div></div></div></section>"""
 pp = wa._SeoParser()
 pp.feed(photo_html)
-assert pp.spotlight == 1 and pp.spotlight_credits == 1, (pp.spotlight, pp.spotlight_credits)
+assert pp.county_gallery == 1, pp.county_gallery
+assert pp.county_gallery_slides == 2, pp.county_gallery_slides
+assert pp.county_zoom_frames == 1, pp.county_zoom_frames
 assert pp.strip_tiles == 2 and pp.strip_credits == 1, (pp.strip_tiles, pp.strip_credits)
-assert pp.imgs == 3 and pp.imgs_no_alt == 0, (pp.imgs, pp.imgs_no_alt)
-print("PASS: probe counts the photo spotlight, the three-tile strip and every credit line")
+assert pp.imgs == 2 and pp.imgs_no_alt == 0, (pp.imgs, pp.imgs_no_alt)
+assert pp.spotlight == 0 and pp.spotlight_credits == 0, (pp.spotlight, pp.spotlight_credits)
+print("PASS: probe counts the county gallery slider, its zoom frames and every credit line")
+
+# 2b) v2.22.116 accordions: the county TOC, the same-province siblings and the
+#     sources box are <details> that must start CLOSED (`+`), never pre-expanded.
+acc = wa._SeoParser()
+acc.feed('<html><body><nav class="sa-toc sa-toc--county" id="sa-toc">'
+         '<details class="sa-county-accordion"><summary class="sa-county-accordion__summary">'
+         '<span class="sa-county-accordion__title" id="sa-toc-title">فهرست</span>'
+         '<span class="sa-county-accordion__icon"></span></summary><ol><li>یک</li></ol></details></nav>'
+         '<details class="sa-county-accordion" id="county-siblings">'
+         '<summary class="sa-county-accordion__summary">شهرهای هم‌استانی</summary>'
+         '<ol><li>دو</li></ol></details>'
+         '<details class="sa-county-accordion sa-sources-accordion">'
+         '<summary class="sa-county-accordion__summary">منابع</summary></details>'
+         '</body></html>')
+assert acc.accordions == 3 and acc.accordion_summaries == 3, (acc.accordions, acc.accordion_summaries)
+assert acc.accordions_open == 0, acc.accordions_open
+opened = wa._SeoParser()
+opened.feed('<details class="sa-county-accordion" open><summary class="sa-county-accordion__summary">x</summary></details>')
+assert opened.accordions_open == 1
+print("PASS: probe counts the closed county accordions and flags a pre-opened one")
 
 # 3) «از تجربهٔ مسافرها»: the block is meta-driven, so a probe must be able to
 # tell a rendered block (4 facts, 4 seasons, places, tips) from a missing one.

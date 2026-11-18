@@ -57,6 +57,24 @@
 مجاز باشد؛ برای پروندهٔ مالک، خودِ فایل باید داخل مخزن، در سقف ۳ مگابایت و
 با بایت‌های هم‌خوانِ jpeg/webp/png باشد. آن‌گاه سایت همان قواعد را دوباره
 اعمال می‌کند (دفاع در دو لایه).
+
+قالب ۲.۲۲.۱۱۶ — WebP چهار‌به‌سه زیر ۱۰۰ کیلوبایت
+------------------------------------------------
+هر عکس شهرستان روی سایت باید ۴:۳ و کم‌حجم باشد. پیش از ارسال، همان کار در
+همین ابزار انجام می‌شود تا پهنای باند رانر و سرور تلف نشود و نتیجه از پیش
+قابل بازبینی باشد:
+
+* پروندهٔ مالک (`file`) با Pillow خوانده، به کادر ۴:۳ برش مرکزی می‌خورد، با
+  Lanczos به ۸۰۰×۶۰۰ می‌رسد و با `libwebp` و `method=6` در نردبان کیفیت
+  ۸۴→۶۰ تا رسیدن به ≤ ۹۹٬۰۰۰ بایت ذخیره می‌شود (بدون بزرگ‌نمایی منابع کوچک).
+  اگر Pillow نصب نباشد یا WebP پشتیبانی نشود، فایل دست‌نخورده می‌رود و سایت
+  همان تبدیل را انجام می‌دهد.
+* عکس ویکی‌مدیا (`url`) با نشانی بندانگشتی ۸۰۰px خواسته می‌شود (نسبت ۴:۳
+  همان‌جا حفظ می‌شود) و سایت هم هنگام ذخیره دوباره به WebP زیر ۱۰۰ کیلوبایت
+  تبدیلش می‌کند.
+
+سقف ۹۹٬۰۰۰ بایت عمداً کمی زیر ۱۰۰ کیلوبایت (۱۰۲٬۴۰۰ بایت) است تا هدر WebP و
+تفاوت گردکردن، هیچ‌گاه از بودجهٔ مالک رد نشود.
 """
 from __future__ import annotations
 
@@ -86,6 +104,12 @@ MIME_BY_MAGIC = (
     (b"\x89PNG", "image/png"),
 )
 
+# v2.22.116 — همان بودجهٔ قالب: قاب ۴:۳، ۸۰۰×۶۰۰، و سقف ۹۹٬۰۰۰ بایت.
+MAX_WEBP_BYTES = 99_000
+TARGET_W, TARGET_H = 800, 600
+WEBP_QUALITIES = (84, 78, 72, 66, 60)
+COMMONS_THUMB_WIDTH = 800
+
 
 def normalise_license(code: str) -> str:
     """ویکی‌مدیا مجوز را با نسخه می‌دهد (`cc-by-sa-3.0`); یک شکل کافی است."""
@@ -106,6 +130,109 @@ def sniff_mime(data: bytes) -> str:
         if data.startswith(magic):
             return mime
     return ""
+
+
+def crop_box(src_w: int, src_h: int, target_w: int = TARGET_W, target_h: int = TARGET_H) -> tuple[int, int, int, int]:
+    """کادر برش ۴:۳ — همان محاسبهٔ `sa_photo_crop_box` در قالب.
+
+    تصویر افقی از وسط بریده می‌شود و تصویر عمودی از ۴۰٪ بالا، تا سرِ بناها و
+    افق در کادر بماند. منابع کوچک‌تر هرگز بزرگ‌نمایی نمی‌شوند.
+    """
+    src_w, src_h = max(1, int(src_w)), max(1, int(src_h))
+    want, have = target_w / target_h, src_w / src_h
+    if have > want:
+        crop_h = src_h
+        crop_w = min(src_w, max(1, round(src_h * want)))
+        src_x, src_y = max(0, (src_w - crop_w) // 2), 0
+    else:
+        crop_w = src_w
+        crop_h = min(src_h, max(1, round(src_w / want)))
+        src_x, src_y = 0, max(0, int((src_h - crop_h) * 0.40))
+    scale = min(1.0, target_w / crop_w, target_h / crop_h)
+    return (src_x, src_y, max(1, round(crop_w * scale)), max(1, round(crop_h * scale)))
+
+
+def optimize_to_webp(data: bytes, max_bytes: int = MAX_WEBP_BYTES) -> bytes:
+    """JPEG/PNG/WebP → WebP چهار‌به‌سه زیر سقف بایت.
+
+    اگر Pillow یا پشتیبانی WebP در دسترس نباشد، همان بایت‌های ورودی برمی‌گردد؛
+    سایت هنگام ذخیره همان تبدیل را انجام می‌دهد، پس نبودِ Pillow هیچ‌گاه
+    جلوی واردات را نمی‌گیرد.
+    """
+    try:
+        from io import BytesIO
+
+        from PIL import Image, ImageOps
+    except ImportError:
+        return data
+    try:
+        with Image.open(BytesIO(data)) as img:
+            img = ImageOps.exif_transpose(img)
+            has_alpha = img.mode in ("RGBA", "LA") or (img.mode == "P" and "transparency" in img.info)
+            img = img.convert("RGBA" if has_alpha else "RGB")
+            src_w, src_h = img.size
+            want, have = TARGET_W / TARGET_H, src_w / src_h
+            if abs(have - want) > 0.02:
+                if have > want:
+                    crop_w = min(src_w, max(1, round(src_h * want)))
+                    box = (max(0, (src_w - crop_w) // 2), 0,
+                           max(0, (src_w - crop_w) // 2) + crop_w, src_h)
+                else:
+                    crop_h = min(src_h, max(1, round(src_w / want)))
+                    top = max(0, int((src_h - crop_h) * 0.40))
+                    box = (0, top, src_w, top + crop_h)
+                img = img.crop(box)
+            scale = min(1.0, TARGET_W / img.width, TARGET_H / img.height)
+            if scale < 1.0:
+                img = img.resize(
+                    (max(1, round(img.width * scale)), max(1, round(img.height * scale))),
+                    Image.Resampling.LANCZOS,
+                )
+            best = b""
+            for quality in WEBP_QUALITIES:
+                buf = BytesIO()
+                img.save(buf, format="WEBP", quality=quality, method=6)
+                best = buf.getvalue()
+                if len(best) <= max_bytes:
+                    break
+            if not best:
+                return data
+            # اگر حتی کم‌ترین کیفیت هم از بودجه رد شد، یک پله کوچک‌تر می‌کنیم.
+            if len(best) > max_bytes:
+                smaller = img.resize(
+                    (max(1, round(img.width * 0.85)), max(1, round(img.height * 0.85))),
+                    Image.Resampling.LANCZOS,
+                )
+                buf = BytesIO()
+                smaller.save(buf, format="WEBP", quality=WEBP_QUALITIES[-1], method=6)
+                if len(buf.getvalue()) < len(best):
+                    best = buf.getvalue()
+            return best
+    except Exception:  # noqa: BLE001 — هر خطای تصویری: فایل دست‌نخورده می‌رود.
+        return data
+
+
+def optimized_owner_bytes(photo: dict, data: bytes) -> bytes:
+    """بایت‌های آمادهٔ ارسال برای پروندهٔ مالک، همراه با WebP کردن پیش از آپلود."""
+    if photo.get("preoptimize") is False:
+        return data
+    return optimize_to_webp(data)
+
+
+def commons_source_url(url: str) -> str:
+    """نشانی بندانگشتی ۸۰۰px ویکی‌مدیا (نسبت ۴:۳ خودِ فایل حفظ می‌شود).
+
+    نشانی اصلی و شکل نامعتبر دست‌نخورده برمی‌گردند تا سنجهٔ `commons_thumb_shape`
+    همان‌جا خطا بدهد، نه این‌که خطا پنهان شود.
+    """
+    if "/thumb/" not in url or not commons_thumb_shape(url):
+        return url
+    head, _, tail = url.partition("/thumb/")
+    segs = [seg for seg in tail.split("/") if seg]
+    if len(segs) < 3:
+        return url
+    segs[-1] = f"{COMMONS_THUMB_WIDTH}px-{segs[-2]}"
+    return f"{head}/thumb/" + "/".join(segs)
 
 
 def owner_file(photo: dict) -> tuple[Path, str]:
@@ -293,14 +420,17 @@ def main(argv: list[str]) -> int:
                   "license_url", "source_page")
         if str(photo.get("file") or "").strip():
             path, _ = owner_file(photo)
-            data = path.read_bytes()
+            data = optimized_owner_bytes(photo, path.read_bytes())
             body = {k: photo.get(k) for k in shared + ("order", "lead")}
             body["file_base64"] = base64.b64encode(data).decode()
-            body["filename"] = path.name
+            # نام فایل با پسوند واقعی بایت‌های ارسالی هم‌خوان می‌شود؛ سایت هم
+            # پیش از ذخیره همان سنجه را دوباره انجام می‌دهد.
+            body["filename"] = f"{path.stem}.webp" if sniff_mime(data) == "image/webp" else path.name
             body["mime"] = sniff_mime(data)
             endpoint = "/photos/upload"
         else:
             body = {k: photo.get(k) for k in shared + ("url",)}
+            body["url"] = commons_source_url(str(photo.get("url") or ""))
             endpoint = "/photos/import"
         body = {k: v for k, v in body.items() if v is not None}
         try:
@@ -311,6 +441,8 @@ def main(argv: list[str]) -> int:
         row = {"place": photo.get("place"), "id": out.get("id"), "url": out.get("url")}
         if endpoint == "/photos/upload":
             row["owner_file"] = str(photo.get("file"))
+            row["bytes_sent"] = len(data)
+            row["mime_sent"] = sniff_mime(data)
         (report["reused"] if out.get("reused") else report["imported"]).append(row)
 
     RESULT_DIR.mkdir(parents=True, exist_ok=True)
