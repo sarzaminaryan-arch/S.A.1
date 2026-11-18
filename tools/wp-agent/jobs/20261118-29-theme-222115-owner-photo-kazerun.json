@@ -1,0 +1,41 @@
+{
+ "note": "قالب ۲.۲۲.۱۱۵ (دست مالک روی تصاویر: اسلایدر کادر یک‌نگاه، گالری اسلایدری شهرستان، پنل ویرایش تصاویر، مسیر /photos/upload) + پروندهٔ ارسالی مالک برای کازرون (نمای هوایی معبد آناهیتای بیشاپور، نمای اول). ترتیب: نصب قالب با پشتیبان و برگشت خودکار → پاک‌کردن کش → واردکردن دستهٔ مالک → کش → پراب. مجوز مالک: خودِ دستور او برای همین تغییرهاست.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.115",
+   "owner_approved_theme_update": true,
+   "backup_first": true,
+   "backup_nocloud": true,
+   "backup_wait": 900,
+   "probe": [
+    "/",
+    "/city/kazerun/",
+    "/city/bojnord/",
+    "/city/nur/"
+   ],
+   "rollback_to": "2.22.113"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "photos-import",
+   "batch": "tools/photos/20261118-owner-kazerun.json"
+  },
+  {
+   "cmd": "cache-purge",
+   "all": true
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/kazerun/?sa_probe=56",
+    "/city/nur/?sa_probe=56",
+    "/city/bojnord/?sa_probe=56"
+   ]
+  }
+ ]
+}
