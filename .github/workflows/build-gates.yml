@@ -70,6 +70,9 @@ jobs:
       - name: Collapsible county identity card on mobile (v2.22.147)
         run: php wp-content/themes/sarzaminaryan-child/tests/test-identity-fold.php
 
+      - name: County heading hierarchy (v2.22.148)
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-heading-levels.php
+
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
 

@@ -107,9 +107,10 @@ function sa_toc_reset() {
  * @param string $label  متن سرفصل.
  * @param string $id     شناسهٔ لنگر (باید در صفحه وجود داشته باشد).
  * @param float  $weight ترتیب (کوچک‌تر = بالاتر).
+ * @param int    $level  پلهٔ سرفصل در فهرست: ۱ هم‌تراز بدنه، ۲ زیرمجموعه (v2.22.148).
  * @return void
  */
-function sa_toc_register( $label, $id, $weight = 100 ) {
+function sa_toc_register( $label, $id, $weight = 100, $level = 1 ) {
 	$label = trim( wp_strip_all_tags( (string) $label ) );
 	$id    = trim( (string) $id );
 	if ( '' === $label || '' === $id ) {
@@ -126,7 +127,7 @@ function sa_toc_register( $label, $id, $weight = 100 ) {
 	$GLOBALS['sa_toc_registry'][] = array(
 		'label'  => $label,
 		'id'     => $id,
-		'level'  => 1,
+		'level'  => max( 1, min( 3, (int) $level ) ),
 		'weight' => (float) $weight,
 		'order'  => count( $GLOBALS['sa_toc_registry'] ),
 	);
