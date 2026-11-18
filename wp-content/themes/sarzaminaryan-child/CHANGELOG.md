@@ -1,3 +1,11 @@
+## 2.22.134 — ۲۷ آبان ۱۴۰۵ · 2026-11-18
+
+- **تشخیص دقیق جای توکن Drive.** تست ۲.۲۲.۱۳۳ نشان داد `updraft_googledrive` خالی
+  است، در حالی که `updraft_service=googledrive` ثبت شده. برای اینکه حدس نزنیم،
+  پاسخ تست حالا `option_keys` و `stored` را هم می‌دهد: نوع و طول کلیدها (نه مقدار
+  محرمانه)، وجود توکن موقت و کلیدهای تکی `updraft_googledrive_clientid/secret`.
+- سد `nocloud` و همهٔ نگهبان‌های قبلی دست‌نخورده‌اند.
+
 ## 2.22.133 — ۲۷ آبان ۱۴۰۵ · 2026-11-18
 
 - **تست واقعی اتصال Google Drive** — `GET /updraft/drive-test`: با refresh token

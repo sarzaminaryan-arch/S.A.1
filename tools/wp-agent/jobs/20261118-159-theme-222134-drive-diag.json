@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۳۴ (۲۷ آبان ۱۴۰۵): نصب تشخیص دقیق جای توکن Drive و تکرار تست اتصال. فقط خواندنی؛ هیچ حذف و هیچ تغییر تنظیماتی نیست. بازگشت به ۲.۲۲.۱۳۳.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.134", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.133"},
+  {"cmd": "updraft-drive-test"},
+  {"cmd": "updraft"}
+ ]
+}

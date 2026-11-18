@@ -941,6 +941,16 @@ function sa_agent_updraft_drive_test() {
 	if ( ! is_array( $opts ) ) {
 		$opts = array();
 	}
+	// تشخیص: کدام کلیدهای همکار با Drive در دیتابیس هستند (فقط وجود/طول، نه مقدار).
+	$out['option_keys'] = array_keys( $opts );
+	$out['stored']      = array(
+		'updraft_googledrive_type'   => gettype( sa_agent_updraft_option( 'updraft_googledrive', null ) ),
+		'updraft_service'            => sa_agent_updraft_option( 'updraft_service', null ),
+		'googledrive_clientid_len'   => strlen( (string) sa_agent_updraft_option( 'updraft_googledrive_clientid', '' ) ),
+		'googledrive_secret_len'     => strlen( (string) sa_agent_updraft_option( 'updraft_googledrive_secret', '' ) ),
+		'tmp_access_token_present'   => '' !== (string) sa_agent_updraft_option( 'updraftplus_tmp_googledrive_access_token', '' ),
+		'refreshtoken_option_len'    => strlen( (string) sa_agent_updraft_option( 'updraft_googledrive_refreshtoken', '' ) ),
+	);
 	$clientid = isset( $opts['clientid'] ) ? (string) $opts['clientid'] : '';
 	$secret   = isset( $opts['secret'] ) ? (string) $opts['secret'] : '';
 	$refresh  = isset( $opts['token'] ) ? (string) $opts['token'] : '';
