@@ -64,6 +64,36 @@ assert ip.commons_thumb_shape(bad_thumb) is False
 assert any("repeat the file name" in p for p in ip.check({**GOOD, "url": bad_thumb})), "a malformed thumb URL is refused before upload"
 assert ip.commons_thumb_shape("https://upload.wikimedia.org/wikipedia/commons/e/ee/x.jpg") is True, "an original file needs no thumb shape"
 
+# v2.22.114 — پروندهٔ ارسالی مالک: بدون میزبان ویکی‌مدیا و بدون مجوز کامانز، ولی با
+# فایل واقعی داخل مخزن، بایت‌های هم‌خوان و نام پدیدآور. مسیرش /photos/upload است.
+assert ip.sniff_mime(b"\xff\xd8\xff\xe0junk") == "image/jpeg", "jpeg magic bytes are sniffed"
+assert ip.sniff_mime(b"RIFFxxxxWEBPjunk") == "image/webp", "webp magic bytes are sniffed"
+assert ip.sniff_mime(b"\x89PNG\r\n\x1a\njunk") == "image/png", "png magic bytes are sniffed"
+assert ip.sniff_mime(b"GIF89ajunk") == "", "an unlisted format has no mime"
+OWNER = {
+    "city_id": 325,
+    "place": "معبد آناهیتای بیشاپور (نمای هوایی)",
+    "kind": "heritage",
+    "file": "tools/photos/files/kazerun-anahita-aerial.webp",
+    "author": "سرزمین آریان",
+    "license": "sa-archive",
+}
+if (HERE / "files" / "kazerun-anahita-aerial.webp").is_file():
+    assert ip.check(OWNER) == [], "the owner's aerial passes with a named author and the archive licence"
+assert any("license" in x for x in ip.check({**OWNER, "license": "cc-by-nd-4"})), "ND stays refused even for owner files"
+assert any("license" in x for x in ip.check({**OWNER, "license": ""})), "an owner file still needs a licence code"
+assert any("author" in x for x in ip.check({**OWNER, "author": ""})), "an owner file still names its author"
+assert any("not in the repository" in x for x in ip.check({**OWNER, "file": "tools/photos/files/nope.webp"})), "a missing file is refused before any upload"
+assert any("tools/photos/files/" in x for x in ip.check({**OWNER, "file": "/etc/passwd"})), "a file outside the repo folder is refused"
+assert any("kind" in x for x in ip.check({**OWNER, "kind": "food"})), "the kind vocabulary is shared by both routes"
+php_src = (HERE.parents[1] / "wp-content/themes/sarzaminaryan-child/inc/county-media.php").read_text(encoding="utf-8")
+assert "'sa-archive'" in php_src, "the theme's licence table carries the owner-archive code"
+assert "sa_photo_bytes_match_mime" in php_src, "the theme re-checks the declared mime against the real bytes"
+assert "function sa_photo_replace_with_attachment" in php_src, "the theme can swap a photo's file in place"
+admin_src = (HERE.parents[1] / "wp-content/themes/sarzaminaryan-child/inc/county-photos-admin.php").read_text(encoding="utf-8")
+for token in ("add_meta_box( 'sa-county-photos'", "wp_ajax_sa_photo_attach", "wp_ajax_sa_photo_swap", "wp_ajax_sa_photo_detach", "wp_ajax_sa_photo_save"):
+    assert token in admin_src, token
+
 # هر فایل دستهٔ داخل مخزن هم باید از فیلتر فارسی تمیز بگذرد (قاعدهٔ مالک: بدون «باید»،
 # بدون ماه میلادی، بدون واژهٔ لاتین جاافتاده در متن فارسی).
 try:

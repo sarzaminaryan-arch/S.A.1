@@ -7,6 +7,11 @@
  * which licences pass, which URLs the site may fetch, and that the credit
  * line always carries the author.
  *
+ * Since 2.22.114 they also pin the owner's hand on the photos: both blocks are
+ * sliders, the owner can hide / re-order / replace a photo from the county edit
+ * screen, and a file he sends himself (not hosted by Wikimedia) is accepted only
+ * with real bytes and a named author.
+ *
  * Run: php wp-content/themes/sarzaminaryan-child/tests/test-county-media.php
  *
  * @package Sarzaminaryan_Child
@@ -152,7 +157,8 @@ sa_t_assert( false !== strpos( $src, 'sa_photo_spotlight' ), 'the county page ca
 sa_t_assert( false !== strpos( $src, 'sa_photo_strip' ), 'the county page calls the three-tile strip' );
 $mod = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' );
 sa_t_assert( false !== strpos( $mod, 'if ( ! $lead ) {' ), 'the spotlight returns early when no photo qualifies' );
-sa_t_assert( false !== strpos( $mod, 'if ( count( $ids ) < 3 ) {' ), 'the strip needs three qualifying photos, not one padded slot' );
+sa_t_assert( false !== strpos( $mod, 'if ( ! $ids ) {' ), 'the gallery strip renders nothing when no photo qualifies — it never pads an empty slot' );
+sa_t_assert( false !== strpos( $mod, 'function sa_photo_county_ids' ), 'one helper decides which county photos are shown, and in what order' );
 sa_t_assert( false !== strpos( $mod, "'/photos/import'" ) || false !== strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' ), "'/photos/import'" ), 'the guarded import route is registered' );
 
 /* 6 — the inventory route exists so the owner can audit authorship, not just see photos. */
@@ -191,6 +197,49 @@ sa_t_assert(
 	false === strpos( $mock_src, "<?php echo esc_html( \$credit['license_label'] ); ?>" ),
 	'no template prints the bare licence label as visible text'
 );
+/* 10 — v2.22.114 (owner order, 18 Nov 2026): the «مکان در یک نگاه» box keeps its shape
+ *     and size, but holds up to four views of one place as a slider you can swipe; the
+ *     bottom block is the county gallery slider and takes up to twelve photos. */
+sa_t_assert( false !== strpos( $mod, 'function sa_photo_slider' ), 'one shared slider shell builds both blocks' );
+sa_t_assert( false !== strpos( $mod, 'if ( count( $slides ) >= 4 ) {' ), 'the spotlight box stays its old size: at most four views inside it' );
+sa_t_assert( false !== strpos( $mod, 'sa_photo_county_ids( $city_id, 12 )' ), 'the gallery slider can carry twelve county photos' );
+sa_t_assert( false !== strpos( $mod, '_sa_photo_hide' ), 'the owner can hide a photo from the page without deleting the file' );
+sa_t_assert( false !== strpos( $mod, '_sa_photo_lead' ) && false !== strpos( $mod, '_sa_photo_order' ), 'the owner picks the first view and the order by hand' );
+$css = (string) file_get_contents( dirname( __DIR__ ) . '/assets/css/gallery.css' );
+sa_t_assert( false !== strpos( $css, 'scroll-snap-type: x mandatory' ), 'swiping left/right is native scroll-snap, so it works even without JS' );
+sa_t_assert( false !== strpos( $css, 'touch-action: pan-x' ), 'the track leaves the horizontal swipe to the browser' );
+sa_t_assert( false === strpos( $css, '.sa-strip__grid' ), 'the old fixed three-column grid is gone from the gallery strip' );
+$gal_js = (string) file_get_contents( dirname( __DIR__ ) . '/assets/js/gallery.js' );
+sa_t_assert( false !== strpos( $gal_js, 'data-sa-slider' ), 'the slider controls are wired in the gallery script' );
+sa_t_assert( false !== strpos( $gal_js, 'ArrowLeft' ) && false !== strpos( $gal_js, 'ArrowRight' ), 'the arrow keys move between views' );
+
+/* 11 — the owner edits the photos himself from the county edit screen: add, replace,
+ *     remove, re-order. Removing a photo from a county never deletes the file. */
+$admin = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-photos-admin.php' );
+sa_t_assert( false !== strpos( $admin, "add_meta_box( 'sa-county-photos'" ), 'the county edit screen gets a photo panel' );
+sa_t_assert( false !== strpos( $admin, 'wp_enqueue_media' ), 'adding a photo goes through the WordPress media library' );
+foreach ( array( 'sa_photo_attach', 'sa_photo_swap', 'sa_photo_detach', 'sa_photo_save' ) as $ajax ) {
+	sa_t_assert( false !== strpos( $admin, "wp_ajax_{$ajax}" ), "the panel handles {$ajax}" );
+}
+sa_t_assert( false !== strpos( $admin, "check_ajax_referer( 'sa_photo_admin'" ), 'every panel call is nonce-checked' );
+sa_t_assert( false !== strpos( $admin, "current_user_can( 'edit_post'" ), 'the panel is closed to anyone who cannot edit that county' );
+sa_t_assert( false === strpos( $admin, 'wp_delete_attachment' ), 'the panel never deletes a media file' );
+sa_t_assert( false !== strpos( $admin, 'save_post_city' ), 'the same rows are saved with the post itself' );
+$func_src = (string) file_get_contents( dirname( __DIR__ ) . '/functions.php' );
+sa_t_assert( false !== strpos( $func_src, "'inc/county-photos-admin.php'" ), 'the photo panel file is loaded by the theme' );
+
+/* 12 — a file the owner sends himself (his own aerial shot, no Wikimedia host) is
+ *     accepted only with real bytes, an allowed licence code and a named author. */
+sa_t_assert( false !== strpos( $php_all, 'sa_agent_rest_photo_upload' ), 'the owner-upload route exists' );
+sa_t_assert( false !== strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' ), "'/photos/upload'" ), 'the owner-upload route is registered' );
+sa_t_assert( '' !== sa_photo_license_label( 'sa-archive' ), 'owner-sent files have their own licence code' );
+sa_t_assert( '' !== sa_photo_license_label( 'cc-by-4' ), 'the Commons licences still pass' );
+sa_t_assert( true === sa_photo_bytes_match_mime( "\xFF\xD8\xFF\xE0junk", 'image/jpeg' ), 'JPEG magic bytes pass' );
+sa_t_assert( true === sa_photo_bytes_match_mime( 'RIFFxxxxWEBP', 'image/webp' ), 'WebP magic bytes pass' );
+sa_t_assert( false === sa_photo_bytes_match_mime( 'RIFFxxxxWEBP', 'image/jpeg' ), 'a WebP file cannot pretend to be a JPEG' );
+sa_t_assert( false === sa_photo_bytes_match_mime( 'GIF89a', 'image/jpeg' ), 'an unlisted format is refused' );
+sa_t_assert( array( 'image/jpeg', 'image/webp', 'image/png' ) === sa_photo_admin_mimes(), 'the panel accepts the same three formats the render path reads' );
+
 /* Landing CSS stays scoped and is loaded only where it is needed. */
 $home_src = (string) file_get_contents( dirname( __DIR__ ) . '/template-home.php' );
 $home_css = (string) file_get_contents( dirname( __DIR__ ) . '/assets/css/landing.css' );

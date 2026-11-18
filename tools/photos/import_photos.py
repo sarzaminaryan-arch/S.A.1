@@ -32,9 +32,31 @@
       ]
     }
 
+پروندهٔ ارسالی مالک (قالب ۲.۲۲.۱۱۴+)
+-------------------------------------
+همهٔ عکس‌ها از ویکی‌مدیا نمی‌آیند: مالک خودش هم پرونده می‌فرستد (مثلاً نمای
+هوایی معبد آناهیتای بیشاپور). آن پرونده‌ها میزبان و مجوز کریتیوکامنز ندارند،
+پس به‌جای `url` کلید `file` (مسیر داخل مخزن) می‌گیرند و به‌صورت base64 به
+`POST /wp-json/sa-agent/v1/photos/upload` می‌روند؛ کد مجوزشان `sa-archive`
+(«بایگانی سرزمین آریان — ارسالی مالک») است و نام پدیدآور همچنان اجباری است.
+
+    {
+      "city_id": 325,
+      "place": "معبد آناهیتای بیشاپور (نمای هوایی)",
+      "overlay": "نمای هوایی معبد آناهیتا",
+      "kind": "heritage",
+      "file": "tools/photos/files/kazerun-anahita-aerial.webp",
+      "author": "سرزمین آریان",
+      "license": "sa-archive",
+      "lead": true,          # نمای اول کادر «مکان در یک نگاه»
+      "order": 1             # ترتیب دستی در اسلایدر
+    }
+
 هر عکس پیش از ارسال در همین‌جا هم سنجیده می‌شود: مجوز باید در فهرست مجاز
-باشد، نام عکاس خالی نباشد، نشانی https و از دامنهٔ مجاز باشد. آن‌گاه سایت
-همان قواعد را دوباره اعمال می‌کند (دفاع در دو لایه).
+باشد، نام عکاس خالی نباشد، و برای عکس دارای `url` نشانی https و از دامنهٔ
+مجاز باشد؛ برای پروندهٔ مالک، خودِ فایل باید داخل مخزن، در سقف ۳ مگابایت و
+با بایت‌های هم‌خوانِ jpeg/webp/png باشد. آن‌گاه سایت همان قواعد را دوباره
+اعمال می‌کند (دفاع در دو لایه).
 """
 from __future__ import annotations
 
@@ -54,6 +76,16 @@ ALLOWED_LICENSES = {
 ALLOWED_HOSTS = {"upload.wikimedia.org", "thumb.wikimedia.org"}
 RESULT_DIR = ROOT / "tools" / "photos" / "results"
 
+# v2.22.114 — پروندهٔ ارسالی مالک: میزبان ویکی‌مدیا ندارد، پس کد مجوز داخلی
+# `sa-archive` می‌گیرد (در قالب هم مجاز است) و بایت‌هایش باید با نوع اعلام‌شده بخواند.
+OWNER_LICENSES = ALLOWED_LICENSES | {"sa-archive"}
+OWNER_FILE_DIR = ROOT / "tools" / "photos" / "files"
+MAX_BYTES = 3 * 1024 * 1024  # همان سقف مسیر واردات کامانز
+MIME_BY_MAGIC = (
+    (b"\xff\xd8\xff", "image/jpeg"),
+    (b"\x89PNG", "image/png"),
+)
+
 
 def normalise_license(code: str) -> str:
     """ویکی‌مدیا مجوز را با نسخه می‌دهد (`cc-by-sa-3.0`); یک شکل کافی است."""
@@ -66,8 +98,35 @@ def host(url: str) -> str:
     return rest.split("/", 1)[0].lower()
 
 
+def sniff_mime(data: bytes) -> str:
+    """نوع واقعی فایل از بایت‌های اول — نه از پسوند نام فایل."""
+    if data[:4] == b"RIFF" and data[8:12] == b"WEBP":
+        return "image/webp"
+    for magic, mime in MIME_BY_MAGIC:
+        if data.startswith(magic):
+            return mime
+    return ""
+
+
+def owner_file(photo: dict) -> tuple[Path, str]:
+    """مسیر و خطای پروندهٔ ارسالی مالک (خالی یعنی درست)."""
+    raw = str(photo.get("file") or "").strip()
+    path = Path(raw if os.path.isabs(raw) else ROOT / raw)
+    try:
+        path = path.resolve()
+    except OSError:
+        return Path(raw), "file path cannot be resolved"
+    if OWNER_FILE_DIR not in path.parents:
+        return path, "file must live inside tools/photos/files/"
+    if not path.is_file():
+        return path, f"file {raw!r} is not in the repository"
+    return path, ""
+
+
 def check(photo: dict) -> list[str]:
     """Everything that would make the photo illegal to publish."""
+    if str(photo.get("file") or "").strip():
+        return check_owner_file(photo)
     problems = []
     url = str(photo.get("url") or "")
     if not url.startswith("https://"):
@@ -81,6 +140,38 @@ def check(photo: dict) -> list[str]:
         problems.append(f"license {lic!r} is not reuse-friendly")
     if not commons_thumb_shape(url):
         problems.append("thumbnail URL must repeat the file name (/thumb/a/ab/<file>/<N>px-<file>)")
+    if not str(photo.get("place") or "").strip():
+        problems.append("place is required")
+    if not int(photo.get("city_id") or 0):
+        problems.append("city_id is required")
+    kind = str(photo.get("kind") or "")
+    if kind not in {"heritage", "fun", "nature", "modern"}:
+        problems.append(f"kind {kind!r} must be heritage|fun|nature|modern")
+    return problems
+
+
+def check_owner_file(photo: dict) -> list[str]:
+    """سنجش پرونده‌ای که مالک فرستاده: فایل واقعی، نوع هم‌خوان، سقف حجم، اعتبار."""
+    problems = []
+    path, err = owner_file(photo)
+    if err:
+        problems.append(err)
+    else:
+        data = path.read_bytes()
+        if len(data) < 2000:
+            problems.append("file is smaller than 2 KB (probably not a real photo)")
+        if len(data) > MAX_BYTES:
+            problems.append(f"file is {len(data)} bytes, over the {MAX_BYTES}-byte ceiling")
+        mime = sniff_mime(data)
+        if not mime:
+            problems.append("file bytes are not jpeg, webp or png")
+        elif str(photo.get("mime") or mime) != mime:
+            problems.append(f"declared mime does not match the file bytes ({mime})")
+    if not str(photo.get("author") or "").strip():
+        problems.append("author is required (the photographer must be named)")
+    lic = normalise_license(str(photo.get("license") or ""))
+    if lic not in OWNER_LICENSES:
+        problems.append(f"license {lic!r} is not allowed for an owner-sent file")
     if not str(photo.get("place") or "").strip():
         problems.append("place is required")
     if not int(photo.get("city_id") or 0):
@@ -197,16 +288,29 @@ def main(argv: list[str]) -> int:
         return 1
 
     for photo in batch.get("photos", []):
-        body = {k: photo.get(k) for k in (
-            "url", "author", "license", "license_url", "source_page", "city_id",
-            "place", "kind", "alt", "note", "points", "highlight", "tag",
-        )}
+        shared = ("city_id", "place", "kind", "alt", "note", "points",
+                  "highlight", "tag", "overlay", "area", "author", "license",
+                  "license_url", "source_page")
+        if str(photo.get("file") or "").strip():
+            path, _ = owner_file(photo)
+            data = path.read_bytes()
+            body = {k: photo.get(k) for k in shared + ("order", "lead")}
+            body["file_base64"] = base64.b64encode(data).decode()
+            body["filename"] = path.name
+            body["mime"] = sniff_mime(data)
+            endpoint = "/photos/upload"
+        else:
+            body = {k: photo.get(k) for k in shared + ("url",)}
+            endpoint = "/photos/import"
+        body = {k: v for k, v in body.items() if v is not None}
         try:
-            out = client.post("/photos/import", body)
+            out = client.post(endpoint, body)
         except SystemExit as err:  # پیام دقیق سرور در خروجی می‌ماند
             report["failed"].append({"place": photo.get("place"), "error": str(err)[:400]})
             continue
         row = {"place": photo.get("place"), "id": out.get("id"), "url": out.get("url")}
+        if endpoint == "/photos/upload":
+            row["owner_file"] = str(photo.get("file"))
         (report["reused"] if out.get("reused") else report["imported"]).append(row)
 
     RESULT_DIR.mkdir(parents=True, exist_ok=True)

@@ -55,6 +55,11 @@ function sa_photo_allowed_licenses() {
 		'cc-by-sa-4' => 'CC BY-SA 4.0',
 		'cc-by-sa-3' => 'CC BY-SA 3.0',
 		'cc-by-sa-2' => 'CC BY-SA 2.0',
+		// v2.22.114 (دستور مالک، ۲۷ آبان ۱۴۰۵): پرونده‌هایی که خود مالک برای سایت
+		// می‌فرستد نه مجوز کریتیوکامنز دارند نه میزبان ویکی‌مدیا؛ این کد فقط برای همان
+		// پرونده‌هاست (مسیر /photos/upload و پنل تصاویر در صفحهٔ ویرایش) و مسیر واردات
+		// کامانز همان فهرست پیشین را می‌پذیرد.
+		'sa-archive' => 'بایگانی سرزمین آریان (ارسالی مالک)',
 	);
 }
 
@@ -151,8 +156,9 @@ function sa_photo_place_ids( $city_id, $limit = 24 ) {
 			'post_type'      => 'attachment',
 			'post_status'    => 'inherit',
 			// تصاویر مجاز به‌صورت JPEG ذخیره می‌شوند (مسیر /photos/import)؛ webp برای
-			// عکس‌هایی است که از قبل در کتابخانه هست. آلبوم قدیمی گالری جدا می‌ماند.
-			'post_mime_type' => array( 'image/jpeg', 'image/webp' ),
+			// عکس‌هایی است که از قبل در کتابخانه هست و png از ۲.۲۲.۱۱۴ برای پروندهٔ
+			// ارسالی مالک. آلبوم قدیمی گالری جدا می‌ماند.
+			'post_mime_type' => array( 'image/jpeg', 'image/webp', 'image/png' ),
 			'posts_per_page' => max( 1, min( 60, (int) $limit ) ),
 			'fields'         => 'ids',
 			'orderby'        => 'date',
@@ -173,25 +179,6 @@ function sa_photo_place_ids( $city_id, $limit = 24 ) {
 	return $ids;
 }
 
-/**
- * فهرست عکس‌های «تفریحی» (kind=fun) برای نوار سه‌کادره.
- *
- * @param int $city_id شناسه.
- * @param int $limit   سقف.
- * @return int[]
- */
-function sa_photo_fun_ids( $city_id, $limit = 3 ) {
-	$ids = array();
-	foreach ( sa_photo_place_ids( $city_id, 24 ) as $id ) {
-		if ( 'fun' === (string) get_post_meta( $id, '_sa_photo_kind', true ) ) {
-			$ids[] = $id;
-		}
-		if ( count( $ids ) >= $limit ) {
-			break;
-		}
-	}
-	return $ids;
-}
 
 /**
  * نام مکان برای نوشتن روی خود تصویر.
@@ -311,7 +298,74 @@ function sa_photo_frame( $attachment_id, $size = 'sa-gallery-card', $class = 'sa
 }
 
 /**
- * کادر «مکان در یک نگاه» — تصویر مربع + راهنما و هشدار.
+ * ترتیب نمایش عکس‌های یک شهرستان: نخست عکس lead، بعد ترتیب دستی مالک
+ * (`_sa_photo_order`) و در پایان تازه‌ترین. عکس‌های پنهان‌شده (`_sa_photo_hide`)
+ * هرگز روی صفحه نمی‌آیند ولی در پنل ویرایش می‌مانند (v2.22.114).
+ *
+ * @param int $city_id شناسهٔ شهرستان.
+ * @param int $limit   سقف.
+ * @return int[]
+ */
+function sa_photo_county_ids( $city_id, $limit = 12 ) {
+	$ids = array();
+	foreach ( sa_photo_place_ids( $city_id, 60 ) as $id ) {
+		if ( '1' === (string) get_post_meta( $id, '_sa_photo_hide', true ) ) {
+			continue;
+		}
+		$ids[] = (int) $id;
+	}
+	usort(
+		$ids,
+		static function ( $a, $b ) {
+			$la = '1' === (string) get_post_meta( $a, '_sa_photo_lead', true ) ? 0 : 1;
+			$lb = '1' === (string) get_post_meta( $b, '_sa_photo_lead', true ) ? 0 : 1;
+			if ( $la !== $lb ) {
+				return $la <=> $lb;
+			}
+			$oa = (int) get_post_meta( $a, '_sa_photo_order', true );
+			$ob = (int) get_post_meta( $b, '_sa_photo_order', true );
+			$oa = $oa > 0 ? $oa : PHP_INT_MAX;
+			$ob = $ob > 0 ? $ob : PHP_INT_MAX;
+			if ( $oa !== $ob ) {
+				return $oa <=> $ob;
+			}
+			return strcmp( (string) get_post_field( 'post_date', $b ), (string) get_post_field( 'post_date', $a ) );
+		}
+	);
+	return array_slice( $ids, 0, max( 1, min( 24, (int) $limit ) ) );
+}
+
+/**
+ * پوستهٔ اسلایدر مشترک: 트랙ِ snap دار + دکمهٔ قبلی/بعدی + نقطه‌ها.
+ * دکمه‌ها و نقطه‌ها با gallery.js پر می‌شوند؛ بدون JS هم 트랙 با کشیدن کار می‌کند.
+ *
+ * @param string $slides_html قاب‌های داخل ترک.
+ * @param string $label       برچسب دسترس‌پذیر ترک.
+ * @return string
+ */
+function sa_photo_slider( $slides_html, $label ) {
+	// صحنه (stage) فقط ترک و دو دکمه را در بر می‌گیرد تا دکمه‌ها دقیقاً روی میانهٔ
+	// قاب بنشینند؛ نقطه‌ها و شمارنده زیر صحنه می‌مانند و جای قاب را تنگ نمی‌کنند.
+	$out  = '<div class="sa-slider" data-sa-slider>';
+	$out .= '<div class="sa-slider__stage">';
+	$out .= '<div class="sa-slider__track" tabindex="0" aria-label="' . esc_attr( $label ) . '">';
+	$out .= $slides_html;
+	$out .= '</div>';
+	$out .= '<button type="button" class="sa-slider__nav sa-slider__nav--prev" aria-label="نمای قبلی">&#8250;</button>';
+	$out .= '<button type="button" class="sa-slider__nav sa-slider__nav--next" aria-label="نمای بعدی">&#8249;</button>';
+	$out .= '</div>';
+	$out .= '<div class="sa-slider__dots"></div>';
+	$out .= '<span class="sa-slider__count" aria-live="polite"></span>';
+	$out .= '</div>';
+	return $out;
+}
+
+/**
+ * کادر «مکان در یک نگاه» — اسلایدر دو تا چهار نمای همان مکان + راهنما و هشدار.
+ *
+ * دستور مالک (۲۷ آبان ۱۴۰۵): شکل و اندازهٔ کادر عالی است؛ فقط بشود دو سه تصویر
+ * در همان باکس گذاشت و با کشیدن به چپ و راست، چند نمای یک مکان را دید. نماهای
+ * هم‌مکان اولویت دارند و اگر کمتر بود، با عکس‌های دیگر شهرستان پر می‌شود.
  *
  * @param int $city_id شناسهٔ شهرستان.
  * @return void
@@ -321,7 +375,7 @@ function sa_photo_spotlight( $city_id = 0 ) {
 	if ( 'city' !== get_post_type( $city_id ) ) {
 		return;
 	}
-	$ids = sa_photo_place_ids( $city_id, 12 );
+	$ids  = sa_photo_county_ids( $city_id, 12 );
 	$lead = 0;
 	$kind = '';
 	foreach ( $ids as $id ) {
@@ -336,22 +390,43 @@ function sa_photo_spotlight( $city_id = 0 ) {
 	}
 	$place = (string) get_post_meta( $lead, SA_PHOTO_META_PLACE, true );
 	$note  = (string) get_post_meta( $lead, SA_PHOTO_META_NOTE, true );
+
+	// نماهای همان مکان، بعد بقیهٔ عکس‌های شهرستان؛ سقف چهار قاب در کادر.
+	$slides = array( $lead );
+	foreach ( $ids as $id ) {
+		if ( count( $slides ) >= 4 ) {
+			break;
+		}
+		if ( in_array( $id, $slides, true ) ) {
+			continue;
+		}
+		$same = '' !== $place && (string) get_post_meta( $id, SA_PHOTO_META_PLACE, true ) === $place;
+		if ( $same || count( $slides ) < 2 ) {
+			$slides[] = $id;
+		}
+	}
+	$slides = array_slice( $slides, 0, 4 );
+
 	$map   = array(
 		'heritage' => 'میراث تاریخی',
 		'fun'      => 'تفریحی',
 		'nature'   => 'طبیعی',
 		'modern'   => 'مدرن',
 	);
+	$track = '';
+	foreach ( $slides as $slide_id ) {
+		$track .= '<div class="sa-slider__slide sa-spotlight__slide">';
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ساخته‌شده با توابع escape داخلی.
+		$track .= sa_photo_frame( $slide_id, 'sa-square', 'sa-spotlight__frame' );
+		$track .= '</div>';
+	}
 	?>
 	<section class="sa-spotlight" aria-label="<?php echo esc_attr( 'مکان در یک نگاه: ' . ( $place ? $place : get_the_title( $city_id ) ) ); ?>">
 		<div class="sa-spotlight__grid">
 			<div class="sa-spotlight__media">
 				<?php
-				// ۱:۱ با برش مرکزی. اندازهٔ srct محدود است تا فایل بزرگ مربعی دانلود نشود؛
-				// برش از وردپرس (sa-square 480×480) می‌آید، نه از CSS.
-				// نام مکان روی خود عکس نوشته می‌شود و خط اعتبار کوچک زیر قاب می‌آید.
-				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ساخته‌شده با توابع escape داخلی.
-				echo sa_photo_frame( $lead, 'sa-square', 'sa-spotlight__frame' );
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- اسلایدر با توابع داخلی ساخته شده.
+				echo sa_photo_slider( $track, 'نماهای ' . ( $place ? $place : get_the_title( $city_id ) ) );
 				?>
 				<?php if ( '' !== $place ) : ?>
 					<span class="sa-spotlight__badge"><?php echo esc_html( isset( $map[ $kind ] ) ? $map[ $kind ] : 'دیدنی' ); ?></span>
@@ -378,7 +453,12 @@ function sa_photo_spotlight( $city_id = 0 ) {
 }
 
 /**
- * نوار گالری سه مکان تفریحی — قاب ثابت + هایلایت زیرش.
+ * گالری پایین صفحهٔ شهرستان — اسلایدر همهٔ عکس‌های مجاز شهرستان.
+ *
+ * پیش از ۲.۲۲.۱۱۴ این بلوک فقط با سه عکس «تفریحی» چاپ می‌شد و بدون آن‌ها اصلاً
+ * نبود؛ دستور مالک (۲۷ آبان ۱۴۰۵): کارکرد اسلایدی درست شود، تصویر بیشتر جا بگیرد
+ * و چیدمان از پنل ویرایش دستی شود. حالا همهٔ عکس‌های شهرستان (ترتیب دستی/lead/تاریخ)
+ * در یک ترک snap دار می‌آیند؛ هر قاب یک نما با هایلایت و خط اعتبار خودش.
  *
  * @param int $city_id شناسهٔ شهرستان.
  * @return void
@@ -388,51 +468,47 @@ function sa_photo_strip( $city_id = 0 ) {
 	if ( 'city' !== get_post_type( $city_id ) ) {
 		return;
 	}
-	$ids = sa_photo_fun_ids( $city_id, 3 );
-	if ( count( $ids ) < 3 ) {
+	$ids = sa_photo_county_ids( $city_id, 12 );
+	if ( ! $ids ) {
 		return;
 	}
+	$track = '';
+	foreach ( $ids as $id ) {
+		$line  = (string) get_post_meta( $id, '_sa_photo_highlight', true );
+		$tag   = (string) get_post_meta( $id, '_sa_photo_tag', true );
+		$label = sa_photo_overlay_label( $id );
+		$area  = sa_photo_area( $id );
+		$track .= '<div class="sa-slider__slide sa-strip__slide">';
+		$track .= '<article class="sa-strip__tile">';
+		$track .= '<div class="sa-strip__frame">';
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		// قاب ثابت ۴:۳؛ نام مکان روی عکس می‌نشیند (منبع حقیقت: فراداده).
+		$track .= sa_photo_frame( $id, 'sa-gallery-card', 'sa-strip__photo', false );
+		if ( '' !== $tag ) {
+			$track .= '<span class="sa-strip__tag">' . esc_html( $tag ) . '</span>';
+		}
+		$track .= '</div>';
+		$track .= '<div class="sa-strip__highlight">';
+		if ( '' !== $line ) {
+			$track .= '<p class="sa-strip__line">' . esc_html( $line ) . '</p>';
+		}
+		if ( '' !== $area && false === strpos( $label, $area ) ) {
+			$track .= '<p class="sa-strip__area">' . esc_html( $area ) . '</p>';
+		}
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		$track .= sa_photo_credit_line( $id, 'sa-strip__credit' );
+		$track .= '</div></article></div>';
+	}
 	?>
-	<section class="sa-strip" aria-label="سه مکان تفریحی">
+	<section class="sa-strip" aria-label="<?php echo esc_attr( 'گالری تصاویر ' . get_the_title( $city_id ) ); ?>">
 		<div class="sa-strip__head">
-			<h2 class="sa-strip__title">سه مکان تفریحی <?php echo esc_html( get_the_title( $city_id ) ); ?></h2>
-			<p class="sa-strip__sub">هر قاب یک مکان؛ زیر هر تصویر، هایلایت همان مکان.</p>
+			<h2 class="sa-strip__title">گالری تصاویر <?php echo esc_html( get_the_title( $city_id ) ); ?></h2>
+			<p class="sa-strip__sub">هر قاب یک نما از شهرستان؛ با کشیدن یا دکمه‌های کنار قاب، نماهای دیگر را ببینید.</p>
 		</div>
-		<div class="sa-strip__grid">
-			<?php
-			foreach ( $ids as $id ) :
-				$line  = (string) get_post_meta( $id, '_sa_photo_highlight', true );
-				$tag   = (string) get_post_meta( $id, '_sa_photo_tag', true );
-				$label = sa_photo_overlay_label( $id );
-				$area  = sa_photo_area( $id );
-				?>
-				<article class="sa-strip__tile">
-					<div class="sa-strip__frame">
-						<?php
-						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						// قاب ثابت ۴:۳؛ اندازهٔ srct همان کارت ۷۲۰×۴۵۰ است.
-						// نام مکان روی عکس می‌نشیند (منبع حقیقت: فراداده)، پس متن دوباره زیرش تکرار نمی‌شود.
-						echo sa_photo_frame( $id, 'sa-gallery-card', 'sa-strip__photo', false );
-						?>
-						<?php if ( '' !== $tag ) : ?>
-							<span class="sa-strip__tag"><?php echo esc_html( $tag ); ?></span>
-						<?php endif; ?>
-					</div>
-					<div class="sa-strip__highlight">
-						<?php if ( '' !== $line ) : ?>
-							<p class="sa-strip__line"><?php echo esc_html( $line ); ?></p>
-						<?php endif; ?>
-						<?php if ( '' !== $area && false === strpos( $label, $area ) ) : ?>
-							<p class="sa-strip__area"><?php echo esc_html( $area ); ?></p>
-						<?php endif; ?>
-						<?php
-						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo sa_photo_credit_line( $id, 'sa-strip__credit' );
-						?>
-					</div>
-				</article>
-			<?php endforeach; ?>
-		</div>
+		<?php
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ترک با توابع escape داخلی ساخته شده.
+		echo sa_photo_slider( $track, 'گالری تصاویر ' . get_the_title( $city_id ) );
+		?>
 	</section>
 	<?php
 }
@@ -801,6 +877,228 @@ function sa_agent_rest_photo_import( $r ) {
 			'url'     => (string) ( $upload['url'] ?? wp_get_attachment_url( (int) $att_id ) ),
 			'overlay' => sa_photo_overlay_label( (int) $att_id ),
 			'area'    => sa_photo_area( (int) $att_id ),
+			'bytes'   => strlen( $bytes ),
+			'license' => sa_photo_license_label( $license ),
+		)
+	);
+}
+
+/* -------------------------------------------------------------------------
+ * v2.22.114 — ویرایش دستی تصاویر شهرستان (دستور مالک، ۲۷ آبان ۱۴۰۵)
+ *
+ * دستور مالک: «در بخش ویرایش مقاله در پیشنویس، جایی برای آپلود تصویر بگذار که اگر
+ * خواستم تصویر جدید بگذارم، حذف کنم، و در هر صورت تصویر را بتوانم تغییر بدهم.»
+ * پس مالک هم می‌تواند فایل یک قاب را عوض کند، هم عکس بی‌ارزش (مثلاً نمای نزدیک
+ * دیوار) را از صفحه بردارد. این‌جا سه ابزار ذخیره‌سازی آن کار است؛ خودِ پنل و
+ * هندلرهای ajax در inc/county-photos-admin.php نشسته‌اند.
+ *
+ * ترتیب اسلایدرها هم دستی است: _sa_photo_order (عدد)، _sa_photo_lead (نمای اول
+ * کادر «مکان در یک نگاه») و _sa_photo_hide (برداشتن از صفحه بدون حذف از کتابخانه).
+ * ---------------------------------------------------------------------- */
+
+/**
+ * mime هایی که پنل و مسیر بارگذاری مالک می‌پذیرند.
+ *
+ * @return string[]
+ */
+function sa_photo_admin_mimes() {
+	return array( 'image/jpeg', 'image/webp', 'image/png' );
+}
+
+/**
+ * آیا این بایت‌ها با mime اعلام‌شده یکی است؟ (جلوگیری از پوشیدن قالب فایل)
+ *
+ * @param string $bytes بایت‌های فایل.
+ * @param string $mime  mime اعلام‌شده.
+ * @return bool
+ */
+function sa_photo_bytes_match_mime( $bytes, $mime ) {
+	if ( 'image/jpeg' === $mime ) {
+		return "\xFF\xD8\xFF" === substr( $bytes, 0, 3 );
+	}
+	if ( 'image/webp' === $mime ) {
+		return 'RIFF' === substr( $bytes, 0, 4 ) && 'WEBP' === substr( $bytes, 8, 4 );
+	}
+	if ( 'image/png' === $mime ) {
+		return "\x89PNG" === substr( $bytes, 0, 4 );
+	}
+	return false;
+}
+
+/**
+ * جایگزینی فایل یک پیوست با فایل پیوستی دیگر از کتابخانهٔ رسانه (تعویض دستی مالک).
+ *
+ * @param int $att_id پیوست مقصد (همان مکان، فایل تازه).
+ * @param int $src_id پیوست منبع در کتابخانه.
+ * @return true|WP_Error
+ */
+function sa_photo_replace_with_attachment( $att_id, $src_id ) {
+	$att_id = absint( $att_id );
+	$src_id = absint( $src_id );
+	if ( ! $att_id || ! $src_id || 'attachment' !== get_post_type( $att_id ) || 'attachment' !== get_post_type( $src_id ) ) {
+		return new WP_Error( 'sa_photo_swap_ids', 'پیوست مقصد یا منبع معتبر نیست.', array( 'status' => 400 ) );
+	}
+	$mime = (string) get_post_mime_type( $src_id );
+	if ( ! in_array( $mime, sa_photo_admin_mimes(), true ) ) {
+		return new WP_Error( 'sa_photo_swap_mime', 'فایل منبع jpeg/webp/png نیست.', array( 'status' => 415 ) );
+	}
+	$src_file = (string) get_attached_file( $src_id );
+	if ( '' === $src_file || ! is_readable( $src_file ) ) {
+		return new WP_Error( 'sa_photo_swap_file', 'فایل منبع روی سرور خوانده نمی‌شود.', array( 'status' => 404 ) );
+	}
+	$bytes = (string) file_get_contents( $src_file ); // phpcs:ignore WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown
+	if ( strlen( $bytes ) < 2000 || strlen( $bytes ) > 3 * MB_IN_BYTES || ! sa_photo_bytes_match_mime( $bytes, $mime ) ) {
+		return new WP_Error( 'sa_photo_swap_bytes', 'فایل منبع سالم یا در سقف ۳ مگابایت نیست.', array( 'status' => 415 ) );
+	}
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	$place    = (string) get_post_meta( $att_id, SA_PHOTO_META_PLACE, true );
+	$ext      = 'image/jpeg' === $mime ? '.jpg' : ( 'image/webp' === $mime ? '.webp' : '.png' );
+	$filename = 'sa-photo-' . sanitize_title( '' !== $place ? $place : 'photo' ) . '-' . substr( md5( $src_file ), -6 ) . $ext;
+	$upload   = wp_upload_bits( $filename, null, $bytes );
+	if ( ! is_array( $upload ) || ! empty( $upload['error'] ) || empty( $upload['file'] ) ) {
+		return new WP_Error( 'sa_photo_swap_save', 'ذخیرهٔ فایل تازه انجام نشد.', array( 'status' => 500 ) );
+	}
+	update_attached_file( $att_id, $upload['file'] );
+	wp_update_post(
+		array(
+			'ID'             => $att_id,
+			'post_mime_type' => $mime,
+			'post_status'    => 'inherit',
+		)
+	);
+	$meta = wp_generate_attachment_metadata( $att_id, $upload['file'] );
+	if ( is_array( $meta ) ) {
+		wp_update_attachment_metadata( $att_id, $meta );
+	}
+	return true;
+}
+
+
+/**
+ * REST: POST /photos/upload (v2.22.114)
+ *
+ * بدنه: {file_base64, filename, mime, city_id, place, kind, author, license,
+ *        license_url, source_page, alt, note, points, highlight, tag, area,
+ *        overlay, lead, order}
+ *
+ * برای پرونده‌هایی که خود مالک می‌فرستد و روی میزبان ویکی‌مدیا نیستند؛ سندباکس
+ * ایجنت به سایت دسترسی ندارد، پس رانر گیت‌هاب بایت‌های پروندهٔ داخل مخزن را
+ * base64 می‌فرستد. همهٔ قاعده‌های اعتبار (پدیدآور + مجوز مجاز + سقف ۳ مگابایت +
+ * تطبیق بایت با mime) همین‌جا اجرا می‌شود؛ ارسال دوبارهٔ همان مکان، فایل همان
+ * پیوست را عوض می‌کند (کلید بر اساس مکان، نه نشانی).
+ *
+ * @param WP_REST_Request $r درخواست.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_photo_upload( $r ) {
+	$b        = (array) $r->get_json_params();
+	$author   = isset( $b['author'] ) ? sanitize_text_field( (string) $b['author'] ) : '';
+	$license  = isset( $b['license'] ) ? strtolower( sanitize_text_field( (string) $b['license'] ) ) : '';
+	$city_id  = isset( $b['city_id'] ) ? absint( $b['city_id'] ) : 0;
+	$place    = isset( $b['place'] ) ? sanitize_text_field( (string) $b['place'] ) : '';
+	$kind     = isset( $b['kind'] ) ? sanitize_text_field( (string) $b['kind'] ) : 'heritage';
+	$mime     = isset( $b['mime'] ) ? strtolower( sanitize_text_field( (string) $b['mime'] ) ) : '';
+	$filename = isset( $b['filename'] ) ? sanitize_file_name( (string) $b['filename'] ) : 'owner-photo';
+	$payload  = isset( $b['file_base64'] ) ? (string) $b['file_base64'] : '';
+
+	if ( '' === $payload || '' === $author || '' === $license || '' === $place ) {
+		return new WP_Error( 'sa_photo_missing', 'file_base64، author، license و place الزامی است.', array( 'status' => 400 ) );
+	}
+	if ( '' === sa_photo_license_label( $license ) ) {
+		return new WP_Error( 'sa_photo_license', 'این مجوز برای انتشار مجاز نیست.', array( 'status' => 422 ) );
+	}
+	if ( ! in_array( $mime, sa_photo_admin_mimes(), true ) ) {
+		return new WP_Error( 'sa_photo_mime', 'فقط فایل jpeg/webp/png پذیرفته می‌شود.', array( 'status' => 415 ) );
+	}
+	if ( ! $city_id || 'city' !== get_post_type( $city_id ) ) {
+		return new WP_Error( 'sa_photo_city', 'شهرستان مقصد معتبر نیست.', array( 'status' => 400 ) );
+	}
+	$bytes = base64_decode( $payload, true );
+	if ( false === $bytes || strlen( $bytes ) < 2000 || strlen( $bytes ) > 3 * MB_IN_BYTES ) {
+		return new WP_Error( 'sa_photo_bytes', 'فایل خوانده نشد یا بیرون سقف ۳ مگابایت است.', array( 'status' => 415 ) );
+	}
+	if ( ! sa_photo_bytes_match_mime( $bytes, $mime ) ) {
+		return new WP_Error( 'sa_photo_mime', 'محتوای فایل با نوع اعلام‌شده یکی نیست.', array( 'status' => 415 ) );
+	}
+	if ( ! in_array( $kind, array( 'heritage', 'fun', 'nature', 'modern' ), true ) ) {
+		$kind = 'heritage';
+	}
+
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	require_once ABSPATH . 'wp-admin/includes/image.php';
+	$ext  = 'image/jpeg' === $mime ? '.jpg' : ( 'image/webp' === $mime ? '.webp' : '.png' );
+	$slug = sanitize_title( $place );
+	$base = 'sa-photo-' . ( '' !== $slug ? $slug : 'photo' ) . '-' . substr( md5( $city_id . '|' . $place ), -6 );
+	$key  = 'sa-photo:' . md5( $city_id . '|' . $place );
+
+	$existing = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+			'meta_query'     => array( array( 'key' => '_sa_photo_key', 'value' => $key ) ),
+		)
+	);
+	$reused = (bool) $existing;
+	$att_id = $reused ? (int) $existing[0] : 0;
+	$upload = wp_upload_bits( $base . ( $reused ? '-r' . gmdate( 'YmdHis' ) : '' ) . $ext, null, $bytes );
+	if ( ! is_array( $upload ) || ! empty( $upload['error'] ) || empty( $upload['file'] ) ) {
+		return new WP_Error( 'sa_photo_upload', 'ذخیرهٔ فایل انجام نشد.', array( 'status' => 500 ) );
+	}
+	if ( $reused ) {
+		update_attached_file( $att_id, $upload['file'] );
+		wp_update_post(
+			array(
+				'ID'             => $att_id,
+				'post_mime_type' => $mime,
+				'post_title'     => wp_slash( $place ),
+				'post_status'    => 'inherit',
+			)
+		);
+	} else {
+		$att_id = (int) wp_insert_attachment(
+			array(
+				'post_mime_type' => $mime,
+				'post_title'     => wp_slash( $place ),
+				'post_content'   => '',
+				'post_status'    => 'inherit',
+			),
+			$upload['file'],
+			$city_id,
+			true
+		);
+		if ( ! $att_id ) {
+			return new WP_Error( 'sa_photo_attachment', 'ثبت پیوست انجام نشد.', array( 'status' => 500 ) );
+		}
+	}
+	$meta = wp_generate_attachment_metadata( $att_id, $upload['file'] );
+	if ( is_array( $meta ) ) {
+		wp_update_attachment_metadata( $att_id, $meta );
+	}
+
+	sa_photo_write_meta( $att_id, $b, $city_id, $place, $kind, $key, '', $author, $license );
+	update_post_meta( $att_id, '_sa_photo_origin', 'owner-upload:' . $filename );
+	if ( isset( $b['order'] ) ) {
+		update_post_meta( $att_id, '_sa_photo_order', max( 0, absint( $b['order'] ) ) );
+	}
+	if ( ! empty( $b['lead'] ) ) {
+		foreach ( sa_photo_place_ids( $city_id, 60 ) as $other ) {
+			if ( (int) $other !== $att_id ) {
+				update_post_meta( (int) $other, '_sa_photo_lead', '' );
+			}
+		}
+		update_post_meta( $att_id, '_sa_photo_lead', '1' );
+	}
+
+	return rest_ensure_response(
+		array(
+			'id'      => $att_id,
+			'reused'  => $reused,
+			'url'     => (string) wp_get_attachment_url( $att_id ),
 			'bytes'   => strlen( $bytes ),
 			'license' => sa_photo_license_label( $license ),
 		)
