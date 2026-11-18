@@ -1,0 +1,84 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-151-cloud-probe-82738.json",
+  "started_utc": "2026-11-18T18:07:57+00:00",
+  "note": "بررسی مستند (۲۷ آبان ۱۴۰۵): آیا نسخهٔ 82738db7b8c9 (همان ۴۹۰ مگابایتی محلی) واقعاً و کامل روی Google Drive آپلود شده؟ سه شاهد: فهرست فایل‌های Drive، لاگ همان نسخه، وضعیت آخرین پشتیبان. فقط خواندنی؛ هیچ حذفی نیست.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.129",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T18:07:56+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "updraft-cloud",
+      "result": {
+        "nonce": "82738db7b8c9",
+        "services": [],
+        "remote_files": [],
+        "remote_bytes": 0,
+        "log_file": "/home/haftpair/sarzaminaryan.ir/wp-content/updraft/log.82738db7b8c9.txt",
+        "log_upload_ok": [],
+        "log_errors": [
+          "0021.976 (0) SQL compatibility mode is now: ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION",
+          "0025.062 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled"
+        ],
+        "log_lines": 526,
+        "last_backup": {
+          "backup_time": "2026-11-18T11:58:18+00:00",
+          "success": true,
+          "errors": 0
+        },
+        "complete": false,
+        "reasons": [
+          "files_missing_remote:5",
+          "files_not_confirmed_in_log:5",
+          "log_has_errors:2"
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "updraft-cloud",
+      "result": {
+        "nonce": "87eaebf2acab",
+        "services": [],
+        "remote_files": [],
+        "remote_bytes": 0,
+        "log_file": "/home/haftpair/sarzaminaryan.ir/wp-content/updraft/log.87eaebf2acab.txt",
+        "log_upload_ok": [],
+        "log_errors": [
+          "0016.391 (0) SQL compatibility mode is now: ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION",
+          "0019.427 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled"
+        ],
+        "log_lines": 560,
+        "last_backup": null,
+        "complete": false,
+        "reasons": [
+          "files_missing_remote:1",
+          "files_not_confirmed_in_log:1",
+          "log_has_errors:2"
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T18:08:00+00:00"
+}
