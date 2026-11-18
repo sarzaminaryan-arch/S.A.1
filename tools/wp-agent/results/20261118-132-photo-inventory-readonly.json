@@ -1,0 +1,816 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-132-photo-inventory-readonly.json",
+  "started_utc": "2026-11-18T14:03:04+00:00",
+  "note": "کار خواندنی (۲۸ آبان ۱۴۰۵): فهرست عکس‌های هر شهرستان تا معلوم شود کدام شهرستان هنوز صفر یا یک عکس دارد. هیچ تغییری ساخته نمی‌شود؛ فقط شمارش و شناسه‌ها برای دستهٔ بعدی تصاویر.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 7,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 8,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 9,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 10,
+      "cmd": "photos",
+      "result": {
+        "count": 2,
+        "total": 2,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "213": 2
+        },
+        "photos": [
+          {
+            "id": 4643,
+            "city_id": 213,
+            "place": "کاخ گلستان",
+            "overlay": "کاخ گلستان",
+            "kind": "fun",
+            "author": "Ahmadatyabi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Outside_view_of_golestan_palace.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 94876,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-daa9d8a7d8ae-daafd984d8b3d8aad8a7d986-4e33b0.webp"
+          },
+          {
+            "id": 4644,
+            "city_id": 213,
+            "place": "پل طبیعت تهران",
+            "overlay": "پل طبیعت تهران",
+            "kind": "fun",
+            "author": "Diba Tensile Architecture",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Tabiat-Bridge-by-DIBA-group.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 72318,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed984-d8b7d8a8db8cd8b9d8aa-d8aad987d8b1d8a7d986-445bd7.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 11,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "189": 1
+        },
+        "photos": [
+          {
+            "id": 4665,
+            "city_id": 189,
+            "place": "قلعهٔ والی",
+            "overlay": "قلعهٔ والی",
+            "kind": "heritage",
+            "author": "Mehrdad Jamali firouzabadi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:1798_%D9%82%D9%84%D8%B9%D9%87_%D9%88%D8%A7%D9%84%DB%8C_%D8%A7%DB%8C%D9%84%D8%A7%D9%85.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 97384,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d982d984d8b9d987d994-d988d8a7d984db8c-9c9c75.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 12,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "211": 1
+        },
+        "photos": [
+          {
+            "id": 4663,
+            "city_id": 211,
+            "place": "عمارت ملک",
+            "overlay": "عمارت ملک",
+            "kind": "heritage",
+            "author": "Mohsen Khazaei",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%B9%D9%85%D8%A7%D8%B1%D8%AA_%D9%85%D9%84%DA%A9_%D8%A8%D9%88%D8%B4%D9%87%D8%B1.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 88038,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b9d985d8a7d8b1d8aa-d985d984daa9-62e9e6.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 13,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "241": 1
+        },
+        "photos": [
+          {
+            "id": 4664,
+            "city_id": 241,
+            "place": "باغ اکبریه",
+            "overlay": "باغ اکبریه",
+            "kind": "heritage",
+            "author": "Alimaddahi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Bagh_akbarie_birjand.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 95292,
+            "width": 640,
+            "height": 480,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d8a7d8ba-d8a7daa9d8a8d8b1db8cd987-cb7ad5.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 14,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "296": 1
+        },
+        "photos": [
+          {
+            "id": 4667,
+            "city_id": 296,
+            "place": "مسجد جامع سمنان",
+            "overlay": "مسجد جامع سمنان",
+            "kind": "heritage",
+            "author": "Arosha-photo (Reza Sobhani)",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Jameh_Mosque_of_Semnan_2018-11-20.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 61798,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8b3d8acd8af-d8acd8a7d985d8b9-d8b3d985d986d8a7d986-f8670b.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 15,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "305": 1
+        },
+        "photos": [
+          {
+            "id": 4677,
+            "city_id": 305,
+            "place": "ساحل چابهار",
+            "overlay": "ساحل چابهار",
+            "kind": "nature",
+            "author": "Amirhossein Nikroo",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Chabahar_Beach_1.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 87050,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d8a7d8add984-da86d8a7d8a8d987d8a7d8b1-586b7c.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 16,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "430": 1
+        },
+        "photos": [
+          {
+            "id": 4676,
+            "city_id": 430,
+            "place": "آبشار یاسوج",
+            "overlay": "آبشار یاسوج",
+            "kind": "nature",
+            "author": "Ashkan",
+            "license": "cc0",
+            "license_label": "CC0 1.0 (مالکیت عمومی)",
+            "source": "https://commons.wikimedia.org/wiki/File:Yasuj_Waterfall_at_the_top.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 71236,
+            "width": 511,
+            "height": 383,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2d8a8d8b4d8a7d8b1-db8cd8a7d8b3d988d8ac-0e86f4.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 17,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "539": 1
+        },
+        "photos": [
+          {
+            "id": 4669,
+            "city_id": 539,
+            "place": "کاخ مرمر (کاخ موزهٔ رامسر)",
+            "overlay": "کاخ مرمر",
+            "kind": "heritage",
+            "author": "سعید اشتری",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Royal_Palace_Ramsar_1.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 83152,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-daa9d8a7d8ae-d985d8b1d985d8b1-daa9d8a7d8ae-d985d988d8b2d987d994-d8b1d8a7d985d8b3d8b1-14fa5e.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 18,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "638": 1
+        },
+        "photos": [
+          {
+            "id": 4678,
+            "city_id": 638,
+            "place": "ساحل بندر لنگه",
+            "overlay": "ساحل بندر لنگه",
+            "kind": "nature",
+            "author": "Hasanbardal",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:BandarLengeh-Beach-1.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 80324,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d8a7d8add984-d8a8d986d8afd8b1-d984d986daafd987-57942e.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 19,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "640": 1
+        },
+        "photos": [
+          {
+            "id": 4668,
+            "city_id": 640,
+            "place": "درهٔ ستاره‌ها",
+            "overlay": "درهٔ ستاره‌ها",
+            "kind": "nature",
+            "author": "Luna.ocean",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Stars_valley(Qeshm_island).jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 68782,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8b1d987d994-d8b3d8aad8a7d8b1d987d987d8a7-ac4157.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 20,
+      "cmd": "photos",
+      "result": {
+        "count": 1,
+        "total": 1,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": {
+          "1899": 1
+        },
+        "photos": [
+          {
+            "id": 4666,
+            "city_id": 1899,
+            "place": "قلعهٔ چالشتر",
+            "overlay": "قلعهٔ چالشتر",
+            "kind": "heritage",
+            "author": "Niloofar Rakhshan",
+            "license": "cc-by-4",
+            "license_label": "CC BY 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Chaleshtor_Castle_13970106_03.jpg",
+            "retrieved": "2026-11-17",
+            "mime": "image/webp",
+            "bytes": 47054,
+            "width": 800,
+            "height": 600,
+            "lead": false,
+            "hidden": false,
+            "order": 0,
+            "publishable": true,
+            "visible": true,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d982d984d8b9d987d994-da86d8a7d984d8b4d8aad8b1-f0c4ab.webp"
+          }
+        ]
+      }
+    },
+    {
+      "n": 21,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 22,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 23,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 24,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 25,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 26,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 27,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 28,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 29,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 30,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 31,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 32,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 33,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    },
+    {
+      "n": 34,
+      "cmd": "photos",
+      "result": {
+        "count": 0,
+        "total": 0,
+        "page": 1,
+        "pages": 1,
+        "max_bytes": 99000,
+        "over_100kb": 0,
+        "non_webp": 0,
+        "per_city": [],
+        "photos": []
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T14:03:29+00:00"
+}
