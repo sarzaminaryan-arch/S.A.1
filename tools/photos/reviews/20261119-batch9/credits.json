@@ -194,13 +194,18 @@
   {
     "city_id": 105,
     "place": "نمازخانهٔ چوپان",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Iran.jolfa.choopan_church.jpg",
-    "author": "Baharaksoleimani56",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Chupan_church.jpg",
+    "author": "aydin tabrizi",
     "license": "cc-by-sa-4",
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source_page": "https://commons.wikimedia.org/wiki/File:Iran.jolfa.choopan_church.jpg",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Chupan_church.jpg",
     "number": 13,
-    "error": "oversized or incomplete JPEG"
+    "sha256": "3c5c15cf055b7900a9335af40b6b9f6c72f308491557f67a155223cbd42505e5",
+    "bytes": 533869,
+    "size": [
+      800,
+      533
+    ]
   },
   {
     "city_id": 105,
@@ -269,13 +274,18 @@
   {
     "city_id": 324,
     "place": "آرامگاه داریوش در نقش رستم",
-    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/171206yb_Naqsh-e_Rostam_tombe_de_Darius_Ier.jpg",
-    "author": "Perri.G",
-    "license": "cc-by-sa-4",
-    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
-    "source_page": "https://commons.wikimedia.org/wiki/File:171206yb_Naqsh-e_Rostam_tombe_de_Darius_Ier.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/11/Kreuzf%C3%B6rmige_Felsengrab_von_Darius_I._%28Darius_dem_Gro%C3%9Fen%29_Mohammad_Nemat_Zadeh.jpg",
+    "author": "M-nemat",
+    "license": "cc0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source_page": "https://commons.wikimedia.org/wiki/File:Kreuzf%C3%B6rmige_Felsengrab_von_Darius_I._(Darius_dem_Gro%C3%9Fen)_Mohammad_Nemat_Zadeh.jpg",
     "number": 18,
-    "error": "unexpected format or dimensions"
+    "sha256": "14df241d106fea6ebfcf1f3dc0de275d44f529dc1652ccbcd15616bc12af2d3c",
+    "bytes": 313562,
+    "size": [
+      1280,
+      853
+    ]
   },
   {
     "city_id": 325,
