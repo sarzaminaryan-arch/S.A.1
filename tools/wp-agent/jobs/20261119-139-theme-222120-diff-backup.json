@@ -1,0 +1,13 @@
+{
+ "note": "۲.۲۲.۱۲۰ (۲۸ آبان ۱۴۰۵): بک‌آپ افتراقی و نگه‌داری حجم. این نسخه بدون پشتیبان کامل نصب می‌شود؛ بازگشت با rollback_to: 2.22.119 تعبیه است (انتشار گیت‌هاب ۲.۲۲.۱۱۹ موجود است). پس از نصب، مسیر خواندنی /storage سنجیده می‌شود تا حجم واقعی هاست دیده شود؛ هیچ حذفی در این کار نیست.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.120", "wait_for_release": 360,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/", "/city/kazerun/", "/city/tehran/"],
+   "rollback_to": "2.22.119"},
+  {"cmd": "ping"},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/", "/city/kazerun/"]}
+ ]
+}
