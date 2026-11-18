@@ -1,0 +1,27 @@
+{
+ "note": "۲.۲۲.۱۴۷ (۲۸ آبان ۱۴۰۵): نصب شناسنامهٔ تاشوی موبایل و وارسی همان سه شهرستان. انتظار: نسخهٔ فعال ۲.۲۲.۱۴۷، هر سه صفحه ۲۰۰ با h1=1، شناسنامه ۱۲ خانه (داده دست‌نخورده) و دکمهٔ «نمایش کامل» ۱. در صورت خطا، بازگشت به ۲.۲۲.۱۴۶.",
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.147",
+   "wait_for_release": 300,
+   "owner_approved_theme_update": true,
+   "allow_without_backup": true,
+   "probe": [
+    "/"
+   ],
+   "rollback_to": "2.22.146"
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/tehran/",
+    "/city/mashhad/",
+    "/city/kazerun/"
+   ]
+  }
+ ]
+}

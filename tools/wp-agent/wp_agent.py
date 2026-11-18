@@ -276,6 +276,12 @@ class _SeoParser(html.parser.HTMLParser):
         self.experience_seasons = 0
         self.experience_places = 0
         self.experience_tips = 0
+        # v2.22.147: شناسنامهٔ تاشو — شمارش خانه‌های جدول شناسنامه و دکمهٔ
+        # «نمایش کامل»، تا وارسیِ بعد از انتشار ببیند هر شهرستان چند خانه دارد و
+        # دکمه سر جایش است (فقط‌خواندنی، هیچ اثری روی صفحه ندارد).
+        self.identity_cells = 0
+        self.identity_fold_buttons = 0
+        self._in_county_grid = 0
         self._main = 0
 
     def handle_starttag(self, tag, attrs):
@@ -303,6 +309,12 @@ class _SeoParser(html.parser.HTMLParser):
             self.experience_places += 1
         if "sa-field-tip" in classes:
             self.experience_tips += 1
+        if tag == "div" and "sa-cyber-grid" in classes:
+            self._in_county_grid = 1 if "sa-cyber-grid--county" in classes else 0
+        elif tag == "div" and "sa-cyber-grid__cell" in classes and self._in_county_grid:
+            self.identity_cells += 1
+        if tag == "button" and "sa-cyber-id__fold-btn" in classes:
+            self.identity_fold_buttons += 1
         if "sa-spotlight" in classes:
             self.spotlight += 1
             self._in_spotlight += 1
@@ -565,6 +577,7 @@ def probe_url(url: str) -> dict:
                 "experience_seasons": p.experience_seasons,
                 "experience_places": p.experience_places,
                 "experience_tips": p.experience_tips,
+                "identity_cells": p.identity_cells, "identity_fold_buttons": p.identity_fold_buttons,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
                 "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
                 "map_coords": p.map_coords})

@@ -115,4 +115,19 @@
 			io.observe( group );
 		} );
 	}() );
+
+	// v2.22.147 — شناسنامهٔ تاشوی موبایل (دستور مالک): دکمهٔ «نمایش کامل» فقط
+	// کلاس `is-open` را روی پوشهٔ جدول می‌گذارد؛ پنهان‌سازی و بازشدن کاملاً با CSS
+	// انجام می‌شود، پس بدون این اسکریپت همهٔ خانه‌ها دیده می‌شوند (خرابی نرم).
+	document.querySelectorAll( '.sa-cyber-id__fold-btn' ).forEach( function ( btn ) {
+		btn.addEventListener( 'click', function () {
+			var wrap = btn.closest( '.sa-cyber-id__table-wrap' );
+			if ( ! wrap ) {
+				return;
+			}
+			var open = wrap.classList.toggle( 'is-open' );
+			btn.setAttribute( 'aria-expanded', open ? 'true' : 'false' );
+			btn.querySelector( '.sa-cyber-id__fold-btn-text' ).textContent = open ? 'بستن' : 'نمایش کامل';
+		} );
+	} );
 } )();
