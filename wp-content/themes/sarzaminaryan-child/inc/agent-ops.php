@@ -294,6 +294,23 @@ function sa_agent_rest_updraft_start( $r ) {
 	if ( $job['last_backup'] && $job['last_backup']['age_seconds'] < 120 ) {
 		return new WP_Error( 'sa_agent_backup_recent', 'کمتر از دو دقیقه پیش پشتیبانی تمام شده؛ دوباره نمی‌گیریم.', array( 'status' => 409 ) );
 	}
+	// v2.22.132 (سد ایمنی، شرط مالک): پشتیبانی که نسخهٔ ابری ندارد، پشتیبان نیست؛
+	// خطر واقعی که در کد UpdraftPlus دیدیم: prune_file() نسخهٔ قبلی را روی دیسک
+	// بی‌قید‌و‌شرط پاک می‌کند (فقط پس از آن سراغ ابر می‌رود). پس اگر خدمت ابری
+	// پیکربندی شده باشد، مجاز نیستیم پشتیبانِ nocloud شروع کنیم — وگرنه پشتیبان
+	// تنها روی دیسک پاک می‌شود و هیچ نسخه‌ای در ابر نیست.
+	$svc = sa_agent_updraft_option( 'updraft_service', '' );
+	$svc = is_array( $svc ) ? $svc : array( $svc );
+	$svc = array_values( array_filter( array_map( 'strval', $svc ), static function ( $v ) {
+		return '' !== $v && 'none' !== $v;
+	} ) );
+	if ( ! empty( $b['nocloud'] ) && $svc && empty( $b['owner_approved_nocloud'] ) ) {
+		return new WP_Error(
+			'sa_agent_nocloud_blocked',
+			'خدمت ابری پیکربندی شده است (' . implode( ',', $svc ) . '); پشتیبان بدون ارسال به ابر اجازه ندارد چون نسخهٔ قبلی روی دیسک حذف می‌شود. برای عبور، owner_approved_nocloud:true لازم است.',
+			array( 'status' => 409 )
+		);
+	}
 	$nonce   = (string) $up->backup_time_nonce();
 	$options = array(
 		'nocloud'   => ! empty( $b['nocloud'] ) ? 1 : 0,

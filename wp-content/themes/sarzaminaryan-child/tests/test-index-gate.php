@@ -229,6 +229,9 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+// v2.22.132: سد «پشتیبان بدون ابر» وقتی خدمت ابری پیکربندی شده.
+sa_ig_assert( false !== strpos( $ops, 'sa_agent_nocloud_blocked' ), 'nocloud with a configured cloud service is refused' );
+sa_ig_assert( false !== strpos( $ops, "owner_approved_nocloud" ), 'nocloud needs an explicit owner flag' );
 // v2.22.131: شاهد «No remote despatch» بررسی ابری را رد می‌کند.
 sa_ig_assert( false !== strpos( $ops, 'No remote despatch' ) && false !== strpos( $ops, 'log_says_no_remote_despatch' ), 'probe rejects a set whose log says no remote despatch' );
 sa_ig_assert( false !== strpos( $ops, 'log_service_lines' ), 'probe reports the service decision lines of the log' );

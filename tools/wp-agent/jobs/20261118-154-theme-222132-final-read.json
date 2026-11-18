@@ -1,0 +1,13 @@
+{
+ "note": "۲.۲۲.۱۳۲ (۲۷ آبان ۱۴۰۵): سد «پشتیبان بدون ابر» + خواندن نهایی وضعیت. هیچ حذفی در این کار نیست. بازگشت به ۲.۲۲.۱۳۱.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.132", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.131"},
+  {"cmd": "updraft"},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/", "/city/kazerun/"]}
+ ]
+}
