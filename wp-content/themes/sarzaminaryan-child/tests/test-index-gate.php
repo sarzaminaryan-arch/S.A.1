@@ -229,6 +229,16 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+// v2.22.128: سد دوم در حلقهٔ حذف — هر چیزی جز post رد می‌شود.
+sa_ig_assert( false !== strpos( $ops, "if ( 'post' !== (string) ( isset( \$d['kind'] ) ? \$d['kind'] : '' ) )" ), 'the delete loop refuses any non-post record' );
+// v2.22.127 (شرط مالک): نسخهٔ تنظیمات هرگز حذف نمی‌شود؛ فقط پشتیبان نوشته.
+sa_ig_assert( false !== strpos( $ops, "if ( 'post' !== \$kind )" ), 'only post backups are prunable' );
+sa_ig_assert( false !== strpos( $ops, 'settings_snapshot_never_pruned' ), 'settings snapshots are reported as protected' );
+sa_ig_assert( false !== strpos( $ops, "'prunable_kinds' => array( 'post' )" ), 'prune response declares the prunable kinds' );
+// v2.22.126 (شرط مالک): نگه‌داری هرگز تنها نسخهٔ یک نوع تغییر را حذف نمی‌کند.
+sa_ig_assert( false !== strpos( $ops, 'kind_has_few_copies' ), 'retention reports the low-count kind it protected' );
+sa_ig_assert( false !== strpos( $ops, '$kind_total[ $kind ] <= $per_target' ), 'retention refuses to drop a kind with few copies' );
+sa_ig_assert( false !== strpos( $ops, "'protected'" ) && false !== strpos( $ops, "'candidates'" ), 'prune response separates protected records from the delete list' );
 sa_ig_assert( false !== strpos( $ops, "'/relations-audit'" ) && false !== strpos( $ops, 'pp.ID IS NULL OR pp.post_status <> \'publish\'' ), 'relations-audit route (read-only) exists' );
 sa_ig_assert( false !== strpos( $ops, "'/cache-purge'" ) && false !== strpos( $ops, "do_action( 'litespeed_purge_all'" ) && false !== strpos( $ops, "do_action( 'litespeed_purge_post'" ), 'cache-purge uses the official LiteSpeed hooks' );
 $act = file_get_contents( $theme_dir . '/inc/activation.php' );
@@ -264,7 +274,9 @@ $update_end   = strpos( $bridge, 'function sa_agent_draft_copy(', $update_start 
 $update_body  = false !== $update_start && false !== $update_end ? substr( $bridge, $update_start, $update_end - $update_start ) : '';
 sa_ig_assert( false !== strpos( $bridge, "if ( '_thumbnail_id' === \$key )" ), 'agent metadata policy permits the featured-image pointer' );
 $stale_check = strpos( $update_body, "if ( \$expected !== \$before['modified_gmt'] )" );
-$backup_call = strpos( $update_body, 'sa_agent_create_backup(' );
+// v2.22.120: نوشتنِ نوشته پشتیبان افتراقی می‌گیرد (sa_agent_create_diff_backup → sa_agent_create_backup).
+$backup_call = strpos( $update_body, 'sa_agent_create_diff_backup(' );
+sa_ig_assert( false !== $backup_call, 'the post write takes a diff backup (v2.22.120)' );
 $meta_write  = strpos( $update_body, 'update_post_meta(' );
 sa_ig_assert( false !== $stale_check && false !== $backup_call && $stale_check < $backup_call, 'concurrency check runs before a post backup/write' );
 sa_ig_assert( false !== $backup_call && false !== $meta_write && $backup_call < $meta_write, 'post backup is made before assigning _thumbnail_id' );

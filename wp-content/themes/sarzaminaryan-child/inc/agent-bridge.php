@@ -292,11 +292,17 @@ function sa_agent_snapshot_post( $post_id ) {
  * ---------------------------------------------------------------------- */
 
 /**
- * یک پشتیبان می‌سازد. JSON در متای _sa_backup_json می‌نشیند (متا از فیلتر kses نمی‌گذرد).
+ * یک «پشتیبان» می‌سازد — از v2.22.120 به بعد پشتیبان **افتراقی** است.
  *
- * @param string $kind      post | theme_mods | litespeed.
+ * چرا افتراقی (دستور مالک، ۱۴۰۵-۰۸-۲۸): هاست سایت سقف حجم دارد و پشتیبان کامل یا
+ * سنگین به‌ازای هر نوشتن آن را پر می‌کرد. حالا فقط چیزی ذخیره می‌شود که واقعاً
+ * بازگردانی می‌خواهد: یک رکورد (یک نوشته با متن/چکیده/عنوان و متاهای نوشتنی)،
+ * یا تنظیمات قالب، یا کلیدهای خزندهٔ LiteSpeed. کل جدول `wp_posts` و پوشهٔ
+ * `uploads` هیچ‌وقت این‌جا کپی نمی‌شود؛ آن‌ها کار UpdraftPlusِ زمان‌بندی‌شده‌اند.
+ *
+ * @param string $kind      post | meta | theme_mods | litespeed.
  * @param int    $target_id شناسهٔ نوشتهٔ هدف (برای theme_mods صفر).
- * @param array  $data      داده.
+ * @param array  $data      داده (برای kind=meta فقط دلتای متا).
  * @param string $reason    دلیل (برای فهرست پیشخوان).
  * @return int|WP_Error شناسهٔ پشتیبان.
  */
@@ -321,11 +327,191 @@ function sa_agent_create_backup( $kind, $target_id, array $data, $reason ) {
 	update_post_meta( $id, '_sa_backup_target', (int) $target_id );
 	update_post_meta( $id, '_sa_backup_reason', $reason );
 	update_post_meta( $id, '_sa_backup_json', wp_slash( $json ) );
+	// v2.22.120: اندازه و اثر انگشت، تا سقف نگه‌داری و گزارش حجم بدون بازکردن پشتیبان سنجیده شود.
+	update_post_meta( $id, '_sa_backup_bytes', strlen( $json ) );
+	update_post_meta( $id, '_sa_backup_hash', md5( $json ) );
 	$stored = get_post_meta( $id, '_sa_backup_json', true );
 	if ( ! is_string( $stored ) || '' === $stored ) {
 		return sa_agent_error( 'sa_agent_backup_verify', 'پشتیبان ذخیره نشد؛ هیچ تغییری اعمال نشد.', 500 );
 	}
+	sa_agent_backup_enforce_retention( (string) $kind );
 	return (int) $id;
+}
+
+/**
+ * پشتیبان **فقط از تفاوت**: نسخهٔ قبلی همان فیلدها/متاها که واقعاً عوض می‌شود.
+ *
+ * این تابع قلب سبک‌سازی است (دستور مالک، ۲۸ آبان ۱۴۰۵): برای هر نوشتن یک رکورد
+ * کوچک ساخته می‌شود که فقط کلیدهای تغییریافته را دارد — نه متن کامل ۱٬۱۰۰ واژه‌ای
+ * صفحه وقتی تنها `sa_source_1` عوض شده. اگر محتوا هم عوض شود، همان یک فیلد می‌آید.
+ *
+ * @param array  $before    اسنپ‌شات کامل قبل از تغییر (sa_agent_snapshot_post).
+ * @param array  $new_values مقدار تازهٔ فیلدهای متنی (کلید: title|content|excerpt).
+ * @param array  $new_meta  متای تازه (null یعنی حذف کلید).
+ * @param array  $terms     تاکسونومی‌های تازه.
+ * @param string $reason    دلیل.
+ * @return int|WP_Error شناسهٔ پشتیبان، یا 0 وقتی تفاوتی نیست.
+ */
+function sa_agent_create_diff_backup( array $before, array $new_values, array $new_meta, array $terms, $reason ) {
+	$diff = array(
+		'id'     => (int) $before['id'],
+		'type'   => (string) $before['type'],
+		'title'  => (string) $before['title'],
+		'diff'   => true,
+		'fields' => array(),
+		'meta'   => array(),
+		'missing_meta' => array(),
+		'terms'  => array(),
+	);
+	// فیلدهای متنی (عنوان/متن/چکیده): فقط آن‌هایی که مقدار تازه‌شان با نسخهٔ قبل یکی نیست.
+	foreach ( array( 'title', 'content', 'excerpt' ) as $in ) {
+		if ( ! array_key_exists( $in, $new_values ) ) {
+			continue;
+		}
+		$old = isset( $before[ $in ] ) ? (string) $before[ $in ] : '';
+		if ( $old !== (string) $new_values[ $in ] ) {
+			$diff['fields'][ $in ] = $old;
+		}
+	}
+	foreach ( $new_meta as $key => $value ) {
+		$old        = array_key_exists( $key, (array) $before['meta'] ) ? $before['meta'][ $key ] : null;
+		$had        = array_key_exists( $key, (array) $before['meta'] );
+		$old_clean  = $had ? $old : null;
+		$same       = ( null === $value ) ? ! $had : ( $had && sa_agent_backup_same( $old_clean, $value ) );
+		if ( $same ) {
+			continue;
+		}
+		if ( $had ) {
+			$diff['meta'][ $key ] = $old_clean;
+		} else {
+			// کلید تازه بود: برای بازگردانی باید برداشته شود، نه بازنویسی.
+			$diff['missing_meta'][] = $key;
+		}
+	}
+	foreach ( $terms as $tax => $ids ) {
+		// اسنپ‌شات، نامک‌ها را دارد (خواندنی)؛ ولی بازگردانی شناسهٔ ترم می‌خواهد.
+		$old_slugs = isset( $before['terms'][ $tax ] ) ? array_values( (array) $before['terms'][ $tax ] ) : array();
+		$old_ids   = array();
+		foreach ( $old_slugs as $slug ) {
+			$tid = $slug;
+			if ( ! is_numeric( $slug ) && function_exists( 'get_term_by' ) ) {
+				$term = get_term_by( 'slug', $slug, $tax );
+				$tid  = $term ? (int) $term->term_id : 0;
+			}
+			$old_ids[] = (int) $tid;
+		}
+		$new_ids = array_map( 'intval', array_values( (array) $ids ) );
+		sort( $old_ids );
+		sort( $new_ids );
+		if ( $old_ids !== $new_ids ) {
+			$diff['terms'][ $tax ] = $old_ids;
+		}
+	}
+	if ( ! $diff['fields'] && ! $diff['meta'] && ! $diff['missing_meta'] && ! $diff['terms'] ) {
+		// تفاوتی نیست؛ پشتیبانِ خالی هم ساخته نمی‌شود (کاهش حجم).
+		return 0;
+	}
+	return sa_agent_create_backup( 'meta', (int) $before['id'], $diff, $reason );
+}
+
+/**
+ * مقایسهٔ مقدار متا با تحمل سریال‌شدن (آرایه‌ها و عددها).
+ *
+ * @param mixed $a مقدار قدیم.
+ * @param mixed $b مقدار تازه.
+ * @return bool
+ */
+function sa_agent_backup_same( $a, $b ) {
+	if ( $a === $b ) {
+		return true;
+	}
+	if ( is_scalar( $a ) && is_scalar( $b ) ) {
+		return (string) $a === (string) $b;
+	}
+	return wp_json_encode( $a ) === wp_json_encode( $b );
+}
+
+/**
+ * حذف قطعی **یک رکورد پشتیبان** (نه پست سایت) — تنها راه حذف در پل.
+ *
+ * این تابع فقط نوشته‌ای را می‌برد که نوعش دقیقاً `sa_agent_backup` باشد؛ هیچ نوشته،
+ * برگه یا رسانه‌ای از این مسیر حذف نمی‌شود. برای نگه‌داری حجم لازم است (دستور مالک،
+ * ۲۸ آبان ۱۴۰۵): بدون آن، پشتیبان‌های کهنه هاست را پر می‌کنند.
+ *
+ * @param int $id شناسهٔ رکورد پشتیبان.
+ * @return bool
+ */
+function sa_agent_delete_backup_record( $id ) {
+	$id   = (int) $id;
+	$post = $id > 0 ? get_post( $id ) : null;
+	if ( ! $post || SA_AGENT_BACKUP_TYPE !== $post->post_type ) {
+		return false;
+	}
+	return (bool) wp_delete_post( $id, true );
+}
+
+/**
+ * سیاست نگه‌داری پشتیبان‌ها: چند نسخهٔ آخر هر هدف، و سقف کل.
+ *
+ * چرا: هاست سقف حجم دارد. پشتیبان‌های ایجنت رکوردهای خصوصی کوچکی هستند ولی بدون
+ * سقف، در ۱۶۰ نوشتنِ یک هفته به هزاران رکورد می‌رسند. مقدارها با فیلتر
+ * `sa_agent_backup_retention` قابل تغییرند.
+ *
+ * @param string $kind نوعی که تازه ساخته شد (فقط برای گزارش).
+ * @return array{same_target_deleted:int,total_deleted:int,kept:int}
+ */
+function sa_agent_backup_enforce_retention( $kind = '' ) {
+	$limits = apply_filters(
+		'sa_agent_backup_retention',
+		array(
+			'per_target' => 3,   // سه نسخهٔ آخر هر نوشته/هدف
+			'total'      => 400, // و حداکثر این تعداد در کل
+		)
+	);
+	$per_target = max( 1, (int) ( isset( $limits['per_target'] ) ? $limits['per_target'] : 3 ) );
+	$total      = max( $per_target, (int) ( isset( $limits['total'] ) ? $limits['total'] : 400 ) );
+	$out        = array( 'same_target_deleted' => 0, 'total_deleted' => 0, 'kept' => 0 );
+	$ids        = get_posts(
+		array(
+			'post_type'      => SA_AGENT_BACKUP_TYPE,
+			'post_status'    => 'private',
+			'posts_per_page' => 2000,
+			'fields'         => 'ids',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'no_found_rows'  => true,
+		)
+	);
+	$ids        = array_map( 'intval', (array) $ids );
+	$by_target  = array();
+	foreach ( $ids as $bid ) {
+		$t = (int) get_post_meta( $bid, '_sa_backup_target', true );
+		if ( ! isset( $by_target[ $t ] ) ) {
+			$by_target[ $t ] = 0;
+		}
+		++$by_target[ $t ];
+		if ( $by_target[ $t ] > $per_target ) {
+			sa_agent_delete_backup_record( $bid ); // فقط رکورد پشتیبان؛ هیچ پستی حذف نمی‌شود.
+			++$out['same_target_deleted'];
+		}
+	}
+	$left = array_values(
+		array_filter(
+			$ids,
+			static function ( $bid ) {
+				return null !== get_post( $bid );
+			}
+		)
+	);
+	$out['kept'] = count( $left );
+	if ( count( $left ) > $total ) {
+		foreach ( array_slice( $left, $total ) as $bid ) {
+			sa_agent_delete_backup_record( $bid );
+			++$out['total_deleted'];
+			--$out['kept'];
+		}
+	}
+	return $out;
 }
 
 /**
@@ -512,9 +698,17 @@ function sa_agent_update_post( $post_id, array $args ) {
 		return sa_agent_error( 'sa_agent_nothing', 'تغییری فرستاده نشده است.', 400 );
 	}
 	$reason    = isset( $args['reason'] ) ? sanitize_text_field( (string) $args['reason'] ) : 'به‌روزرسانی';
-	$backup_id = sa_agent_create_backup( 'post', $before['id'], $before, $reason );
+	$new_vals  = array();
+	foreach ( array( 'title', 'content', 'excerpt' ) as $in ) {
+		$new_vals[ $in ] = isset( $args['fields'][ $in ] ) ? (string) $args['fields'][ $in ] : ( isset( $before[ $in ] ) ? (string) $before[ $in ] : '' );
+	}
+	// v2.22.120 (دستور مالک، سبک‌سازی بک‌آپ): فقط تفاوت ذخیره می‌شود، نه رکورد کامل.
+	$backup_id = sa_agent_create_diff_backup( $before, $new_vals, $meta, $terms, $reason );
 	if ( is_wp_error( $backup_id ) ) {
 		return $backup_id;
+	}
+	if ( $backup_id <= 0 ) {
+		return sa_agent_error( 'sa_agent_nothing', 'تغییری نسبت به وضع موجود نیست؛ پشتیبان و نوشتن انجام نشد.', 409 );
 	}
 	if ( $fields ) {
 		$fields['ID'] = $before['id'];
@@ -647,6 +841,52 @@ function sa_agent_restore( $backup_id ) {
 		if ( null === $now ) {
 			return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
 		}
+	}
+	// v2.22.120: پشتیبان‌های تازه افتراقی‌اند — فقط فیلدها/متاهایی که آن نوشتن عوض کرده
+	// بود برمی‌گردند و بقیهٔ صفحه دست نمی‌خورد. پشتیبان‌های کاملِ قدیمی همان مسیر قبلی را
+	// می‌روند (بازگردانی کامل رکورد).
+	if ( ! empty( $b['data']['diff'] ) ) {
+		$diff_fields = array();
+		foreach ( array( 'title', 'content', 'excerpt' ) as $in ) {
+			if ( array_key_exists( $in, (array) $b['data']['fields'] ) ) {
+				$diff_fields[ $in ] = (string) $b['data']['fields'][ $in ];
+			}
+		}
+		$diff_meta = array();
+		foreach ( (array) $b['data']['meta'] as $key => $value ) {
+			if ( sa_agent_meta_key_writable( $key ) ) {
+				$diff_meta[ $key ] = $value;
+			}
+		}
+		foreach ( (array) ( isset( $b['data']['missing_meta'] ) ? $b['data']['missing_meta'] : array() ) as $key ) {
+			if ( sa_agent_meta_key_writable( $key ) ) {
+				$diff_meta[ $key ] = null; // کلیدی که آن نوشتن ساخته بود، برداشته می‌شود.
+			}
+		}
+		$diff_terms = array();
+		foreach ( (array) ( isset( $b['data']['terms'] ) ? $b['data']['terms'] : array() ) as $tax => $slugs ) {
+			// پشتیبان نامک‌ها را نگه می‌دارد (خواندنی برای انسان)، ولی نوشتن شناسه می‌خواهد.
+			$ids = array();
+			foreach ( (array) $slugs as $tid ) {
+				$ids[] = is_numeric( $tid ) ? (int) $tid : 0;
+			}
+			$diff_terms[ $tax ] = $ids;
+		}
+		if ( ! $diff_fields && ! $diff_meta && ! $diff_terms ) {
+			return sa_agent_error( 'sa_agent_no_backup', 'این پشتیبان تفاوتی برای بازگردانی ندارد.', 404 );
+		}
+		return sa_agent_update_post(
+			$now['id'],
+			array(
+				'expected_modified_gmt'    => $now['modified_gmt'],
+				'fields'                   => $diff_fields,
+				'meta'                     => $diff_meta,
+				'terms'                    => $diff_terms,
+				'owner_approved_live_edit' => true, // بازگردانی یعنی برگشت به نسخه‌ای که خودِ سایت داشته.
+				'reason'                   => 'بازگردانی پشتیبان #' . $b['id'],
+				'__restore'                => true, // فقط داخلی؛ از REST حذف می‌شود.
+			)
+		);
 	}
 	$meta = array();
 	foreach ( (array) $b['data']['meta'] as $key => $value ) {

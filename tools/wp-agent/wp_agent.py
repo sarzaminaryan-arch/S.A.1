@@ -651,6 +651,16 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--expected-modified-gmt", help="refuse if the post changed since this snapshot (edit was prepared from it)")
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
+    p = sub.add_parser("storage", help="read-only: real size of agent backups, UpdraftPlus sets and uploads")
+    p = sub.add_parser("updraft-prune", help="delete the files of one outdated UpdraftPlus set (dry run unless --owner-approved-prune)")
+    p.add_argument("--nonce", required=True, help="the set's nonce from GET /storage")
+    p.add_argument("--owner-approved-prune", action="store_true")
+    p.add_argument("--apply", action="store_true", help="really delete (still needs --owner-approved-prune)")
+    p = sub.add_parser("backups-prune", help="retention for agent diff backups (dry run unless --owner-approved-prune)")
+    p.add_argument("--per-target", type=int, default=3, help="how many backups to keep per post/target")
+    p.add_argument("--total", type=int, default=400, help="global ceiling of backup records")
+    p.add_argument("--owner-approved-prune", action="store_true", help="owner order: actually delete the old records")
+    p.add_argument("--apply", action="store_true", help="do the delete (still needs --owner-approved-prune)")
     p = sub.add_parser("restore")
     p.add_argument("backup_id", type=int)
     p = sub.add_parser("run-job")
@@ -777,9 +787,12 @@ THEME_RELEASE_POLL_SECONDS = 15
 
 def theme_install(c: "Client", version: str, expected: str, allow_without_backup: bool = False,
                   wait_seconds: int = 0, sleep=time.sleep) -> dict:
-    """Install one release. `allow_without_backup` (theme 2.22.116+) is the owner's explicit
-    «no new UpdraftPlus backup» order: it skips the 6-hour freshness gate, while the theme
-    still reinstalls `--rollback-to` when a post-change probe is unhealthy.
+    """Install one release. The rollback stays armed (`--rollback-to` is reinstalled when a
+    post-change probe is unhealthy) and the theme is re-downloaded from its GitHub release.
+
+    v2.22.120 (owner order, 28 Aban 1405 — slimmer backups): the 6-hour full-site UpdraftPlus
+    gate is gone. Theme code is tagged in Git and a rollback is «install release N-1», which
+    never needed a site-wide backup. `allow_without_backup` is kept for old job files.
 
     `wait_seconds` exists because the push that bumps the version starts two workflows at once:
     the release job that publishes the ZIP and the agent job that installs it. When the agent
@@ -790,6 +803,8 @@ def theme_install(c: "Client", version: str, expected: str, allow_without_backup
     body = {"owner_approved_theme_update": True, "expected_version": expected}
     if version:
         body["version"] = version
+    # No full-site backup is requested for a theme install any more (2.22.120). An owner who
+    # explicitly wants one sends require_full_backup through the job step / the site gate.
     if allow_without_backup:
         body["allow_without_backup"] = True
     deadline = time.monotonic() + max(0, int(wait_seconds or 0))
@@ -918,6 +933,23 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("POST", f"/post/{a.id}", body=body)
     elif a.cmd == "backups":
         return c.call("GET", "/backups", {"target": a.target or None})
+    elif a.cmd == "storage":
+        return c.call("GET", "/storage")
+    elif a.cmd == "updraft-prune":
+        if a.apply and not a.owner_approved_prune:
+            raise AgentError("updraft-prune --apply needs --owner-approved-prune (owner's explicit order)")
+        body = {"nonce": a.nonce, "dry_run": not (a.apply and a.owner_approved_prune)}
+        if a.owner_approved_prune:
+            body["owner_approved_prune"] = True
+        return c.call("POST", "/updraft/prune", body=body)
+    elif a.cmd == "backups-prune":
+        if a.apply and not a.owner_approved_prune:
+            raise AgentError("backups-prune --apply needs --owner-approved-prune (owner's explicit order)")
+        body = {"per_target": a.per_target, "total": a.total,
+                "dry_run": not (a.apply and a.owner_approved_prune)}
+        if a.owner_approved_prune:
+            body["owner_approved_prune"] = True
+        return c.call("POST", "/backups/prune", body=body)
     elif a.cmd == "restore":
         b = c.call("GET", f"/backup/{a.backup_id}")
         if b.get("kind") == "post" and b.get("target"):
@@ -1030,6 +1062,9 @@ def run(a: argparse.Namespace, c: "Client"):
         urls = [u if u.startswith("http") else site + u for u in (a.probe or ["/"])]
         report["probe_before"] = [probe_url(u) for u in urls]
         if a.backup_first:
+            # Deprecated in 2.22.120 (owner order: no full-site backup per change). Kept so an
+            # old job file still runs, but no new job should set it; the theme install itself
+            # is reversible through its Git-tagged release.
             started = updraft_start(c, "all", bool(a.backup_nocloud))
             report["backup"] = {"started": started, "status": updraft_wait(c, started.get("nonce", ""), a.backup_wait)}
             last = report["backup"]["status"].get("last_backup") or {}

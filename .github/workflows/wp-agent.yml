@@ -88,6 +88,25 @@ jobs:
           python3 tools/wp-agent/test_county_template.py
           python3 tools/photos/test_import_photos.py
 
+      # v2.22.120 (دستور مالک: سنگین‌ها روی رانر، سایت فقط هنگام انتشار):
+      # اگر برای همین کامیت، گردش‌کار «Build gates» اجرا شده و **قرمز** بوده،
+      # نوشتن روی سایت انجام نمی‌شود. نبودِ اجرا مانع نیست (همهٔ کامیت‌ها فایل
+      # شهرستان ندارند)، ولی اجرای قرمز یعنی بیلد سالم نیست.
+      - name: Refuse live writes when the build gates failed for this commit
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          conclusion=$(gh api "repos/${{ github.repository }}/commits/$SHA/check-runs?per_page=100" \
+            --jq '[.check_runs[] | select(.name | test("guards|build"; "i")) | {status, conclusion}] | map(select(.status=="completed")) | .[0].conclusion // "none"' 2>/dev/null || echo none)
+          echo "build-gates conclusion for $SHA: $conclusion"
+          if [ "$conclusion" = "failure" ] || [ "$conclusion" = "timed_out" ]; then
+            echo "::error::Build gates failed for this commit; no live write is allowed until they are green."
+            exit 1
+          fi
+
       - name: Run pending jobs
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
@@ -120,14 +139,17 @@ jobs:
           echo "jobs run: $ran"
           exit $status
 
-      - name: Upload runner-side backups (private artifact)
+      # v2.22.120: این فایل‌های محلی فقط «پیش-تصویرِ وضع قبلی همان یک رکورد» هستند
+      # (نه پشتیبان کل سایت). نگه‌داری ۹۰ روز حجم رانر را بی‌دلیل می‌خورد؛ ۱۴ روز
+      # کافی است، چون بازگشت واقعی از تاریخ گیت و پشتیبان افتراقی سمت سایت می‌آید.
+      - name: Upload runner-side pre-write snapshots (private artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: wp-agent-backups-${{ github.run_id }}
           path: backup/agent/
           if-no-files-found: ignore
-          retention-days: 90
+          retention-days: 14
 
       - name: Commit results back to the branch
         if: always()

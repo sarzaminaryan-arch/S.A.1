@@ -1,0 +1,37 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-137-storage-inventory-readonly.json",
+  "started_utc": "2026-11-18T17:09:52+00:00",
+  "note": "کار خواندنی (۲۸ آبان ۱۴۰۵): پیش از هر پاک‌سازی، حجم واقعی هاست دیده شود — پشتیبان‌های افتراقی ایجنت، نسخه‌های UpdraftPlus، رسانه‌ها و پوشه‌های پشتیبان. هیچ چیزی نوشته یا حذف نمی‌شود؛ فقط شمارش و بایت. بعد از نصب ۲.۲۲.۱۲۰ اجرا شود (مسیر /storage در همان نسخه است).",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.119",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T17:09:53+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "storage",
+      "error": "HTTP 404 on GET /storage: {\"code\":\"rest_no_route\",\"message\":\"\\u0647\\u06cc\\u0686 \\u0645\\u0633\\u06cc\\u0631\\u06cc \\u0645\\u0646\\u0637\\u0628\\u0642 \\u0628\\u0627 URL \\u0648 \\u0631\\u0648\\u0634 \\u062f\\u0631\\u062e\\u0648\\u0627\\u0633\\u062a \\u067e\\u06cc\\u062f\\u0627 \\u0646\\u0634\\u062f.\",\"data\":{\"status\":404}}"
+    }
+  ],
+  "finished_utc": "2026-11-18T17:09:56+00:00"
+}
