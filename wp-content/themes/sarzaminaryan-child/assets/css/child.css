@@ -8199,3 +8199,70 @@ body.bg-lines::before {
 		font-size: 11.5px;
 	}
 }
+
+/* ==========================================================================
+   v2.22.147 — شناسنامهٔ تاشو روی موبایل (دستور مالک)
+   --------------------------------------------------------------------------
+   - دسکتاپ (≥۶۴۱px): هیچ تغییری نیست؛ همهٔ خانه‌ها و دکمه پنهان است.
+   - موبایل (≤۶۴۰px): خانهٔ پنجم به بعد پیش‌فرض پنهان، دکمهٔ «نمایش کامل» بازش می‌کند.
+   - بدون JS هم صفحه سالم است: با `.sa-cyber-id__table-wrap` بدون کلاس باز، همه دیده می‌شوند.
+   ========================================================================== */
+.sa-cyber-id__fold-btn {
+	display: none;
+	width: 100%;
+	margin-top: 8px;
+	padding: 9px 12px;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	font: inherit;
+	font-size: 0.8rem;
+	font-weight: 800;
+	color: var(--cyber-accent-dark);
+	background: var(--cyber-cell-bg);
+	border: 1px solid var(--cyber-cell-border);
+	border-radius: 9px;
+	cursor: pointer;
+}
+
+.sa-cyber-id__fold-btn:hover,
+.sa-cyber-id__fold-btn:focus-visible {
+	color: var(--cyber-accent);
+	border-color: var(--cyber-accent);
+}
+
+.sa-cyber-id__fold-btn-icon {
+	width: 0;
+	height: 0;
+	border-inline: 5px solid transparent;
+	border-top: 6px solid currentColor;
+	transition: transform 0.18s ease;
+}
+
+.sa-cyber-id__table-wrap.is-open .sa-cyber-id__fold-btn-icon {
+	transform: rotate(180deg);
+}
+
+@media (max-width: 640px) {
+	/* دکمه فقط وقتی چاپ شده باشد (شناسنامهٔ بلندتر از ۴ خانه) نمایان می‌شود. */
+	.sa-cyber-grid--foldable + .sa-cyber-id__fold-btn {
+		display: flex;
+	}
+
+	/* پیش‌فرض: فقط ۴ خانهٔ اول. */
+	.sa-cyber-grid--foldable > .sa-cyber-grid__cell:nth-child(n + 5) {
+		display: none;
+	}
+
+	/* باز شده: همان چیدمان قبلی موبایل، بدون هیچ خانهٔ پنهان. */
+	.sa-cyber-id__table-wrap.is-open .sa-cyber-grid--foldable > .sa-cyber-grid__cell:nth-child(n + 5) {
+		display: flex;
+	}
+
+	/* چاپ کاغذی باید کامل باشد. */
+	@media print {
+		.sa-cyber-grid--foldable > .sa-cyber-grid__cell:nth-child(n + 5) {
+			display: flex !important;
+		}
+	}
+}

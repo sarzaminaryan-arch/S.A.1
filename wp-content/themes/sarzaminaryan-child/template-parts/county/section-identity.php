@@ -514,8 +514,16 @@ $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_
 		<?php endif; ?>
 	</div>
 
+	<?php
+	// v2.22.147 (دستور مالک): شناسنامهٔ تاشو روی موبایل — پیش‌فرض فقط ۴ خانهٔ اول
+	// دیده می‌شود و بقیه با دکمهٔ «نمایش کامل» باز می‌شوند. خانهٔ پنجم به بعد
+	// فقط زیر ۶۴۰ پیکسل پنهان می‌شوند (CSS در child.css)؛ روی دسکتاپ همهٔ خانه‌ها
+	// بدون تغییر و بدون دکمه دیده می‌شوند. دکمه فقط وقتی چاپ می‌شود که خانهٔ
+	// پنجمی وجود داشته باشد، پس شناسنامهٔ کوتاه دکمهٔ بی‌اثر نمی‌گیرد.
+	$sa_fold_extra = count( $sa_county_cells ) - 4;
+	?>
 	<div class="sa-cyber-id__table-wrap" role="region" aria-label="جدول شناسنامه شهرستان">
-		<div class="sa-cyber-grid sa-cyber-grid--county">
+		<div class="sa-cyber-grid sa-cyber-grid--county<?php echo $sa_fold_extra > 0 ? ' sa-cyber-grid--foldable' : ''; ?>" id="county-identity-grid">
 			<?php foreach ( $sa_county_cells as $sa_cell ) : ?>
 				<?php
 				$sa_cell_cls = 'profile-box sa-cyber-grid__cell';
@@ -534,6 +542,12 @@ $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_
 				</div>
 			<?php endforeach; ?>
 		</div>
+		<?php if ( $sa_fold_extra > 0 ) : ?>
+			<button type="button" class="sa-cyber-id__fold-btn" data-sa-fold="county-identity" aria-expanded="false" aria-controls="county-identity-grid">
+				<span class="sa-cyber-id__fold-btn-text">نمایش کامل</span>
+				<span class="sa-cyber-id__fold-btn-icon" aria-hidden="true"></span>
+			</button>
+		<?php endif; ?>
 	</div>
 
 	<?php
