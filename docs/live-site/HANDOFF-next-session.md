@@ -1,3 +1,16 @@
+## ۲.۲۲.۱۳۳–۱۳۷ — تست واقعی اتصال Drive (۲۷ آبان ۱۴۰۵)
+
+- **اتصال Drive معتبر نیست:** ساختار `updraft_googledrive → settings → s-7da9bb43…`
+  با `owneremail=sarzaminaryan@gmail.com` و `folder=UpdraftPlus` و
+  `instance_enabled=true` وجود دارد، اما `clientid`, `secret`, `token` همه خالی‌اند
+  (`tmp_access_token` هست، ولی refresh token نیست). جدول `updraft*` با ردیف هم
+  وجود ندارد → جای دیگری ذخیره نشده. نتیجه: `incomplete_credentials`.
+- مسیر: `GET /updraft/drive-test` (+ `GET/POST /updraft/settings` برای بعد).
+- **ترتیب درست:** اتصال مجدد Drive در پیشخوان → سپس تنظیمات → سپس پشتیبان دستی.
+  تغییر `interval` به `weekly` قبل از آن، با `retain=1`+`delete_local=1` تنها نسخهٔ
+  محلی را نابود می‌کند (چون آپلود ابری کار نمی‌کند). تا آن زمان `manual` می‌ماند.
+- هیچ تغییری در تنظیمات و هیچ حذفی انجام نشد. جزئیات: `backup-pipeline.md` بخش ۸.
+
 ## ۲.۲۲.۱۲۹–۱۳۲ — بررسی ابری نسخه‌های UpdraftPlus (۲۷ آبان ۱۴۰۵)
 
 - **نتیجهٔ قطعی:** نسخهٔ `82738db7b8c9` (۴۹۰ مگابایتی، تنها نسخهٔ کامل) روی Google Drive
