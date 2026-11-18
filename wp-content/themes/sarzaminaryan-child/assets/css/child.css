@@ -8152,3 +8152,50 @@ body.bg-lines::before {
 .sa-entity--city .sa-footnotes__item > * {
 	flex-shrink: 0;
 }
+
+/* ==========================================================================
+   v2.22.144 — کارت جایگزین موقت برای نوشته‌های بی‌عکس (راهنما/دیدنی)
+   رنگ‌ها از همان پالت نیوی + کهربایی سایت؛ SVG، پس سبک و مقیاس‌پذیر.
+   ========================================================================== */
+.sa-fallback-card {
+	max-width: 900px;
+	margin: 0 auto clamp(14px, 2.4vw, 22px);
+	padding: clamp(5px, 1vw, 8px);
+	border: 1px solid rgba(11, 42, 74, .14);
+	border-radius: 18px;
+	background: #fff;
+	box-shadow: 0 14px 34px rgba(11, 42, 74, .10);
+}
+
+.sa-fallback-card__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 1200 / 630;
+	object-fit: cover;
+	border-radius: 13px;
+	background: var(--sa-navy-900, #0b2a4a);
+}
+
+.sa-fallback-card__caption {
+	margin: 8px 4px 2px;
+	font-size: 12.5px;
+	line-height: 1.7;
+	color: #52627a;
+	text-align: center;
+}
+
+@media (max-width: 640px) {
+	.sa-fallback-card {
+		padding: 4px;
+		border-radius: 13px;
+	}
+
+	.sa-fallback-card__img {
+		border-radius: 9px;
+	}
+
+	.sa-fallback-card__caption {
+		font-size: 11.5px;
+	}
+}

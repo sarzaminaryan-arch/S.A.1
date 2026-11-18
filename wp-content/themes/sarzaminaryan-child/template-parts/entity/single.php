@@ -64,6 +64,13 @@ $sa_county_toc_html     = '';
 		}
 		?>
 
+		<?php
+		// v2.22.144: کارت جایگزین موقت برای نوشته‌های بی‌عکس (فقط post/attraction).
+		// بالای محتوا و بیرون از بدنهٔ مقاله، پس هیچ سکشن یا ترتیبی عوض نمی‌شود.
+		if ( ! in_array( $sa_type, array( 'province', 'city' ), true ) && function_exists( 'sa_fallback_card_html' ) ) {
+			echo sa_fallback_card_html( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built with esc_* inside.
+		}
+		?>
 		<?php if ( 'attraction' === $sa_type && function_exists( 'sa_attraction_featured_figure' ) && function_exists( 'sa_attraction_images_visible' ) && sa_attraction_images_visible() ) : ?>
 			<?php echo sa_attraction_featured_figure( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<?php endif; ?>
