@@ -678,10 +678,17 @@ function sa_agent_rest_featured_audit() {
 		'group_b_has_image'    => array(),
 		'group_c_unexpected'   => array(),
 		'gallery_images_total' => 0,
+		'thumb_from_filter'    => 0,
 	);
 	foreach ( (array) $ids as $pid ) {
 		$pid   = (int) $pid;
 		$thumb = (int) get_post_thumbnail_id( $pid );
+		// v2.22.142: کدام منبع؟ raw متای _thumbnail_id یا فیلترهای get_post_thumbnail_id
+		// (که ممکن است جانشین برگردانند و «همه شاخص دارند» کاذب بسازند).
+		$raw_thumb = (int) get_post_meta( $pid, '_thumbnail_id', true );
+		if ( $thumb > 0 && 0 === $raw_thumb ) {
+			++$out['thumb_from_filter'];
+		}
 		if ( $thumb > 0 ) {
 			$missing = function_exists( 'sa_media_attachment_missing' ) ? (bool) sa_media_attachment_missing( $thumb ) : false;
 			if ( $missing ) {

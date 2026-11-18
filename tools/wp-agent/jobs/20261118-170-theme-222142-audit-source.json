@@ -1,0 +1,11 @@
+{
+ "note": "۲.۲.۱۴۲ (۲۸ آبان ۱۴۰۵): آزمون فرضیه — آیا تصویر شاخص شهرستان‌ها از متای خام می‌آید یا از فیلتر؟ فقط خواندنی، بدون تغییر و بدون حذف. بازگشت به ۲.۲.۱۴۱.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.142", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.141"},
+  {"cmd": "featured-audit"}
+ ]
+}
