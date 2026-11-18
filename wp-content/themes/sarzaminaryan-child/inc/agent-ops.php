@@ -728,5 +728,19 @@ function sa_agent_ops_register_routes() {
 			},
 		)
 	);
+	// v2.22.115: پروندهٔ ارسالی مالک که روی میزبان ویکی‌مدیا نیست (مثلاً عکس هوایی که
+	// خود مالک فرستاده). سندباکس ایجنت فایل را به سایت نمی‌دهد؛ رانر گیت‌هاب بایت‌های
+	// پروندهٔ داخل مخزن را base64 می‌فرستد و سایت همان قاعده‌های اعتبار را اجرا می‌کند.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/photos/upload',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_photo_upload',
+			'permission_callback' => static function () {
+				return is_user_logged_in() && current_user_can( 'edit_others_posts' ) && current_user_can( 'upload_files' );
+			},
+		)
+	);
 }
 add_action( 'rest_api_init', 'sa_agent_ops_register_routes' );

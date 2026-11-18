@@ -810,11 +810,7 @@
 	color: #64748b;
 }
 
-.sa-strip__grid {
-	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: clamp(12px, 2vw, 20px);
-}
+/* از ۲.۲۲.۱۱۵ قاب‌ها داخل اسلایدر می‌نشینند؛ گرید سه‌ستونهٔ قدیمی برداشته شد. */
 
 .sa-strip__tile {
 	display: flex;
@@ -894,14 +890,185 @@
 	border-bottom-color: currentColor;
 }
 
-@media (max-width: 860px) {
-	.sa-strip__grid {
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+/* --- اسلایدر نماها (v2.22.115) -------------------------------------------
+ * دستور مالک: کادر «مکان در یک نگاه» همان شکل و اندازه بماند ولی دو-سه نما از
+ * یک مکان را نشان دهد و با کشیدن دست به چپ و راست عوض شود. پس خودِ کادر دست
+ * نخورده است و اسلایدر داخل همان `.sa-spotlight__media` می‌نشیند؛ نوار پایین هم
+ * از گرید سه‌ستونه به اسلایدر تبدیل شد تا تعداد بیشتری قاب جا بگیرد.
+ * کشیدن انگشت کار خودِ مرورگر است (scroll-snap بومی + touch-action)، و دکمه‌ها،
+ * نقطه‌ها و شمارنده با assets/js/gallery.js زنده می‌شوند.
+ * -------------------------------------------------------------------------- */
+
+.sa-slider {
+	direction: rtl;
+}
+
+.sa-slider__stage {
+	position: relative;
+}
+
+.sa-slider__track {
+	display: flex;
+	gap: clamp(10px, 1.6vw, 16px);
+	overflow-x: auto;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	overscroll-behavior-x: contain;
+	touch-action: pan-x;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.sa-slider__track::-webkit-scrollbar {
+	width: 0;
+	height: 0;
+	display: none;
+}
+
+.sa-slider__track:focus-visible {
+	outline: 2px solid rgba(155, 106, 22, 0.5);
+	outline-offset: 4px;
+	border-radius: 20px;
+}
+
+.sa-slider__slide {
+	flex: 0 0 100%;
+	min-width: 0;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+}
+
+/* کادر یک‌نگاه: هر نما تمام عرض قاب را می‌گیرد تا اندازهٔ مربع قبلی حفظ شود. */
+.sa-spotlight .sa-slider__slide {
+	flex-basis: 100%;
+}
+
+.sa-spotlight__slide .sa-spotlight__frame {
+	margin: 0;
+}
+
+/* گالری پایین: در صفحهٔ پهن سه قاب، در تبلت دو، در موبایل یکی. */
+.sa-strip .sa-slider__slide {
+	flex-basis: calc((100% - 2 * clamp(10px, 1.6vw, 16px)) / 3);
+}
+
+.sa-slider__nav {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	z-index: 3;
+	display: grid;
+	place-items: center;
+	width: 38px;
+	height: 38px;
+	padding: 0;
+	border: 1px solid rgba(1, 31, 61, 0.14);
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.92);
+	color: #011f3d;
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	box-shadow: 0 8px 22px rgba(1, 31, 61, 0.16);
+	backdrop-filter: blur(3px);
+}
+
+.sa-slider__nav:hover,
+.sa-slider__nav:focus-visible {
+	background: #fff;
+	border-color: rgba(155, 106, 22, 0.5);
+	color: #8a5a10;
+}
+
+/* در چیدمان راست‌به‌چپ: «قبلی» یعنی سمت راست، «بعدی» یعنی سمت چپ. */
+.sa-slider__nav--prev {
+	inset-inline-start: 8px;
+}
+
+.sa-slider__nav--next {
+	inset-inline-end: 8px;
+}
+
+.sa-slider__dots {
+	display: flex;
+	justify-content: center;
+	gap: 7px;
+	margin-top: 12px;
+}
+
+.sa-slider__dot {
+	width: 8px;
+	height: 8px;
+	padding: 0;
+	border: 0;
+	border-radius: 999px;
+	background: rgba(1, 31, 61, 0.22);
+	cursor: pointer;
+	transition: width 0.2s ease, background 0.2s ease;
+}
+
+.sa-slider__dot.is-active {
+	width: 24px;
+	background: #c9932c;
+}
+
+.sa-slider__count {
+	display: block;
+	margin-top: 8px;
+	text-align: center;
+	font-size: 0.72rem;
+	color: #8593a5;
+	direction: rtl;
+}
+
+.sa-slider__dots:empty,
+.sa-slider__count:empty {
+	display: none;
+}
+
+/* بدون جاوااسکریپت: کشیدن دستی کار می‌کند، پس دکمه و نقطهٔ بی‌جان چاپ نمی‌شود. */
+.no-js .sa-slider__nav,
+.no-js .sa-slider__dots,
+.no-js .sa-slider__count {
+	display: none;
+}
+
+/* تک‌نما: چیزی برای لغزاندن نیست، پس کنترل‌ها پنهان می‌مانند. */
+.sa-slider--single .sa-slider__nav,
+.sa-slider--single .sa-slider__dots,
+.sa-slider--single .sa-slider__count {
+	display: none;
+}
+
+.sa-slider--single .sa-slider__track {
+	overflow: hidden;
+}
+
+@media (max-width: 900px) {
+	.sa-strip .sa-slider__slide {
+		flex-basis: calc((100% - clamp(10px, 1.6vw, 16px)) / 2);
 	}
 }
 
-@media (max-width: 560px) {
-	.sa-strip__grid {
-		grid-template-columns: 1fr;
+@media (max-width: 620px) {
+	.sa-strip .sa-slider__slide {
+		flex-basis: 100%;
+	}
+
+	.sa-slider__nav {
+		width: 34px;
+		height: 34px;
+		font-size: 1.3rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-slider__track {
+		scroll-behavior: auto;
+	}
+
+	.sa-slider__dot {
+		transition: none;
 	}
 }

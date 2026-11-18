@@ -294,3 +294,179 @@
 		bindCards();
 	}
 }());
+
+/* اسلایدر نماهای شهرستان (v2.22.115) ----------------------------------------
+ * کادر «مکان در یک نگاه» و گالری پایین صفحهٔ شهرستان هر دو از همین پوستهٔ
+ * `.sa-slider` استفاده می‌کنند. کشیدن انگشت کار خودِ مرورگر است (scroll-snap +
+ * touch-action در CSS)؛ این اسکریپت فقط دکمه‌ها، نقطه‌ها، شمارنده، کلیدهای جهت‌دار
+ * و همگام‌سازی نمای فعال را زنده می‌کند. اسکوپ جدا از لایت‌باکس آلبوم است تا
+ * متغیر track آنجا دست‌نخورده بماند.
+ * --------------------------------------------------------------------------- */
+(function () {
+	'use strict';
+
+	function faNumber(value) {
+		return String(value).replace(/[0-9]/g, function (digit) {
+			return '۰۱۲۳۴۵۶۷۸۹'[parseInt(digit, 10)];
+		});
+	}
+
+	function initSlider(slider) {
+		var track = slider.querySelector('.sa-slider__track');
+		if (!track || slider.getAttribute('data-sa-slider-ready') === '1') {
+			return;
+		}
+		var slides = Array.prototype.slice.call(track.querySelectorAll('.sa-slider__slide'));
+		var prev = slider.querySelector('.sa-slider__nav--prev');
+		var next = slider.querySelector('.sa-slider__nav--next');
+		var dotsBox = slider.querySelector('.sa-slider__dots');
+		var countEl = slider.querySelector('.sa-slider__count');
+		var dots = [];
+		var active = 0;
+		var frame = 0;
+
+		if (slides.length < 2) {
+			slider.classList.add('sa-slider--single');
+			slider.setAttribute('data-sa-slider-ready', '1');
+			return;
+		}
+		slider.setAttribute('data-sa-slider-ready', '1');
+
+		var isRtl = window.getComputedStyle(track).direction === 'rtl';
+
+		function slideStep() {
+			var first = slides[0].getBoundingClientRect();
+			var second = slides[1].getBoundingClientRect();
+			var step = isRtl ? first.left - second.left : second.left - first.left;
+			return step > 4 ? step : first.width;
+		}
+
+		function readIndex() {
+			var trackRect = track.getBoundingClientRect();
+			var firstRect = slides[0].getBoundingClientRect();
+			var lastRect = slides[slides.length - 1].getBoundingClientRect();
+			// لبهٔ آغاز: در راست‌به‌چپ لبهٔ راستِ اولین قاب روی لبهٔ راستِ ترک است.
+			var atStart = isRtl
+				? Math.abs(firstRect.right - trackRect.right) <= 2
+				: Math.abs(firstRect.left - trackRect.left) <= 2;
+			if (atStart) {
+				return 0;
+			}
+			// لبهٔ پایان: چند قاب آخر دیگر به لبهٔ «آغاز» نمی‌رسند (ترک تا ته رفته)،
+			// پس هندسهٔ لبه بر تقسیم فاصله اولویت دارد تا شمارنده درست بماند.
+			var atEnd = isRtl
+				? Math.abs(lastRect.left - trackRect.left) <= 2
+				: Math.abs(lastRect.right - trackRect.right) <= 2;
+			if (atEnd) {
+				return slides.length - 1;
+			}
+			var travelled = isRtl ? firstRect.right - trackRect.right : trackRect.left - firstRect.left;
+			var index = Math.round(travelled / slideStep());
+			return Math.max(0, Math.min(slides.length - 1, index));
+		}
+
+		function paint(index) {
+			active = index;
+			dots.forEach(function (dot, i) {
+				dot.classList.toggle('is-active', i === index);
+				dot.setAttribute('aria-current', i === index ? 'true' : 'false');
+			});
+			if (countEl) {
+				countEl.textContent = faNumber(index + 1) + ' از ' + faNumber(slides.length);
+			}
+			if (prev) {
+				prev.disabled = index === 0;
+			}
+			if (next) {
+				next.disabled = index === slides.length - 1;
+			}
+		}
+
+		function goTo(index) {
+			var target = Math.max(0, Math.min(slides.length - 1, index));
+			// scrollIntoView جهت راست‌به‌چپ را خودش می‌فهمد؛ علامت scrollLeft در
+			// مرورگرهای مختلف یکی نیست، پس هندسه را به مرورگر می‌سپاریم.
+			slides[target].scrollIntoView({
+				behavior: 'smooth',
+				inline: 'start',
+				block: 'nearest'
+			});
+			paint(target);
+		}
+
+		if (dotsBox) {
+			slides.forEach(function (slide, i) {
+				var dot = document.createElement('button');
+				dot.type = 'button';
+				dot.className = 'sa-slider__dot';
+				dot.setAttribute('aria-label', 'نمای ' + faNumber(i + 1));
+				dot.addEventListener('click', function () {
+					goTo(i);
+				});
+				dotsBox.appendChild(dot);
+				dots.push(dot);
+			});
+		}
+
+		if (prev) {
+			prev.addEventListener('click', function () {
+				goTo(readIndex() - 1);
+			});
+		}
+		if (next) {
+			next.addEventListener('click', function () {
+				goTo(readIndex() + 1);
+			});
+		}
+
+		track.addEventListener('keydown', function (event) {
+			// در چیدمان راست‌به‌چپ، کلید چپ یعنی نمای بعدی.
+			if (event.key === 'ArrowLeft') {
+				event.preventDefault();
+				goTo(readIndex() + 1);
+			} else if (event.key === 'ArrowRight') {
+				event.preventDefault();
+				goTo(readIndex() - 1);
+			} else if (event.key === 'Home') {
+				event.preventDefault();
+				goTo(0);
+			} else if (event.key === 'End') {
+				event.preventDefault();
+				goTo(slides.length - 1);
+			}
+		});
+
+		track.addEventListener('scroll', function () {
+			if (frame) {
+				window.cancelAnimationFrame(frame);
+			}
+			frame = window.requestAnimationFrame(function () {
+				frame = 0;
+				var index = readIndex();
+				if (index !== active) {
+					paint(index);
+				}
+			});
+		}, { passive: true });
+
+		// تصویرها lazy بار می‌شوند؛ پس از نشست‌کردن ابعاد، نمای فعال دوباره خوانده می‌شود.
+		window.addEventListener('load', function () {
+			paint(readIndex());
+		});
+		window.addEventListener('resize', function () {
+			paint(readIndex());
+		});
+
+		paint(readIndex());
+	}
+
+	function initSliders() {
+		document.querySelectorAll('[data-sa-slider]').forEach(initSlider);
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initSliders);
+	} else {
+		initSliders();
+	}
+}());
