@@ -161,7 +161,8 @@
   "sa_cty_poi_recreation": "گاومیش‌گلی | داخل سرعین | برنامهٔ پذیرش مجموعه را قبل از رفتن بپرسید.\nآبگرم سبلان | بافت شهری | برای همراه کم‌توان مسیر رختکن تا استخر را جویا شوید.\nبش‌باجیلار | سرعین | نوبت مناسب اعضای خانواده را جداگانه هماهنگ کنید.",
   "sa_cty_poi_offbeat": "",
   "sa_cty_poi_keys": "heritage\nnature\nrecreation",
-  "sa_cty_distance_center": "۲۵ تا ۳۰ کیلومتر تا اردبیل",
-  "sa_city_elevation": "1650"
+  "sa_cty_distance_center": "28",
+  "sa_city_elevation": "1650",
+  "distance_to_capital_km": "28"
  }
 }

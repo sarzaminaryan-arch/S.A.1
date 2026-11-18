@@ -4,7 +4,7 @@
  "sa_cty_census_year": "1395",
  "sa_cty_center": "کازرون",
  "sa_cty_cities": "4",
- "sa_cty_distance_center": "حدود ۱۲۰ کیلومتر تا شیراز",
+ "sa_cty_distance_center": "120",
  "sa_cty_districts": "4",
  "sa_cty_neighbors": "mamasani - شمال‌غرب\ndashtestan - غرب\nfarashband - جنوب\nfiruzabad - جنوب‌شرق\nshiraz - شرق",
  "sa_cty_poi_heritage": "بیشاپور | راه کازرون به تنگ چوگان | برای مسیر پیادهٔ میان بخش‌های شهر آب همراه ببرید.\nمعبد آناهیتا | در محوطهٔ بیشاپور | به اختلاف تراز کف بنا با زمین بیرون توجه کنید.\nتنگ چوگان | درهٔ رود شاپور | برای دیدن نقش‌ها از مسیر مشخص کنار سنگ بروید.\nغار شاپور | ارتفاعات بالای تنگ | راه سربالا را با بازدید آسان محوطهٔ بیشاپور یکی نگیرید.",
@@ -50,5 +50,6 @@
  "neighbors_n": "شهرستان کوه‌چنار",
  "neighbors_s": "فراشبند",
  "neighbors_e": "شیراز",
- "neighbors_w": "دشتستان"
+ "neighbors_w": "دشتستان",
+ "distance_to_capital_km": "120"
 }

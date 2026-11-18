@@ -178,6 +178,8 @@
   "sa_cty_poi_recreation": "بازار قیصریه | لار قدیم | چهارسوق برای پیدا کردن جهت راسته‌ها نشانهٔ خوبی است.\nشهر جدید لار | جدا از بافت بازار | شبکهٔ خیابان‌های پس از زمین‌لرزه را با گذرهای قدیمی مقایسه کنید.",
   "sa_cty_poi_offbeat": "",
   "sa_cty_poi_keys": "heritage\nrecreation",
-  "sa_cty_villages": ""
+  "sa_cty_villages": "",
+  "sa_cty_distance_center": "380",
+  "distance_to_capital_km": "380"
  }
 }

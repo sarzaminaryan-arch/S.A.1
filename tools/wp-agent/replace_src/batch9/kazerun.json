@@ -200,6 +200,8 @@
   "neighbors_n": "شهرستان کوه‌چنار",
   "neighbors_s": "فراشبند",
   "neighbors_e": "شیراز",
-  "neighbors_w": "دشتستان"
+  "neighbors_w": "دشتستان",
+  "sa_cty_distance_center": "120",
+  "distance_to_capital_km": "120"
  }
 }

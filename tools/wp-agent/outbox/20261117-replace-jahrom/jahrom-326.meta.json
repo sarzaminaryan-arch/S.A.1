@@ -5,7 +5,7 @@
  "sa_cty_census_year": "1395",
  "sa_cty_center": "جهرم",
  "sa_cty_cities": "3",
- "sa_cty_distance_center": "حدود ۱۹۰ کیلومتر تا شیراز",
+ "sa_cty_distance_center": "190",
  "sa_cty_districts": "3",
  "sa_cty_neighbors": "khafr - شمال‌غرب\nfasa - شمال‌شرق\nzarrin-dasht - جنوب‌شرق\nqir-va-karzin - جنوب‌غرب\njooyom - جنوب\nfiruzabad - غرب",
  "sa_cty_population": "228532",
@@ -46,5 +46,6 @@
  "sa_cty_area_km2": "3925",
  "sa_cty_divisions": "۳ بخش، ۳ شهر، ۷ دهستان",
  "sa_map_zoom": "10",
- "sa_cty_poi_keys": "heritage\nrecreation\noffbeat"
+ "sa_cty_poi_keys": "heritage\nrecreation\noffbeat",
+ "distance_to_capital_km": "190"
 }

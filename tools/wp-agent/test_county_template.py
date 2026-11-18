@@ -119,6 +119,26 @@ with tempfile.TemporaryDirectory() as td:
     assert any("nosuchplace" in x for x in found), found
     print("ok  a neighbour slug the theme cannot link is reported")
 
+# --- 2c. the identity card prints only digits for the distance ------------
+# دستهٔ ۹: «۲۵ تا ۳۰ کیلومتر تا اردبیل» روی صفحهٔ سرعین «۲٬۵۳۰ کیلومتر» چاپ شد،
+# چون قالب هر نویسهٔ غیررقم را از این فیلد دور می‌اندازد.
+with tempfile.TemporaryDirectory() as td:
+    d = Path(td)
+    (d / "testville-999.html").write_text(body, encoding="utf-8", newline="")
+    base = {"sa_cty_neighbors": "bonab - غرب", "sa_cty_climate": "معتدل",
+            "sa_cty_best_time": "بهار", "sa_cty_language": "فارسی", "sa_cty_livelihood": "کشاورزی",
+            "sa_faq": json.dumps([{"q": "کجاست؟", "a": "اینجا."}] * 3, ensure_ascii=False),
+            "sa_sources": "یک | صداوسیما | https://www.irib-news.ir/a | ۱۴۰۵/۰۸/۲۶\n"
+                          "دو | تسنیم | https://www.tasnimnews.com/b | ۱۴۰۵/۰۸/۲۶",
+            "lat": "35.0", "lng": "51.0"}
+    for value, refused in (("۲۵ تا ۳۰ کیلومتر تا اردبیل", True), ("حدود ۴۵ کیلومتر", True),
+                           ("۲۸", False), ("28", False), ("", False)):
+        meta = dict(base, sa_cty_distance_center=value)
+        json.dump(meta, open(d / "testville-999.meta.json", "w", encoding="utf-8"), ensure_ascii=False)
+        found = [x for x in ct.check_meta(d / "testville-999.meta.json") if "distance" in x]
+        assert bool(found) is refused, (value, found)
+    print("ok  a distance the identity card would glue into one number is refused")
+
 # --- 3. ordering still comes from the registry only -----------------------
 t = Template("تست‌آباد", tagline="آزمون")
 t.section("intro", ["آغاز"])

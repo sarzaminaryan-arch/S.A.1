@@ -22,7 +22,7 @@
  "sa_cty_center": "سرعین",
  "sa_cty_districts": "2",
  "sa_cty_population": "18200",
- "sa_cty_distance_center": "۲۵ تا ۳۰ کیلومتر تا اردبیل",
+ "sa_cty_distance_center": "28",
  "sa_cty_neighbors": "sarab - جنوب‌غرب\nmeshgin-shahr - شمال‌غرب\nardabil-city - شرق\nnir - جنوب",
  "sa_cty_best_time": "تابستان",
  "sa_cty_climate": "کوهستانی؛ تابستان خنک و زمستان برفی",
@@ -42,5 +42,6 @@
  "sa_cty_poi_heritage": "کنزق | شرق سرعین | برای دیدن دست‌کندها روی سقف سنگی نروید.",
  "sa_cty_poi_offbeat": "",
  "sa_cty_poi_keys": "heritage\nnature\nrecreation",
- "sa_city_elevation": "1650"
+ "sa_city_elevation": "1650",
+ "distance_to_capital_km": "28"
 }

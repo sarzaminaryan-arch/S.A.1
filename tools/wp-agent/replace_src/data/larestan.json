@@ -40,7 +40,7 @@
   "sa_cty_center": "لار",
   "sa_cty_cities": "7",
   "sa_cty_climate": "گرم و خشک با بارش کم و نامنظم",
-  "sa_cty_distance_center": "حدود ۳۳۰ کیلومتر تا شیراز",
+  "sa_cty_distance_center": "380",
   "sa_cty_neighbors": "jooyom - شمال‌غرب\nzarrin-dasht - شمال\ndarab - شمال‌شرق\nevaz - غرب\ngerash - غرب\nlamerd - جنوب‌غرب\nbastak - جنوب\nkhamir - جنوب‌شرق\nhajjiabad - شرق\nbandar-e-abbas - شرق",
   "sa_cty_population": "213920",
   "sa_cty_rural_districts": "9",
@@ -80,7 +80,8 @@
   "sa_cty_area_km2": "10740",
   "sa_cty_divisions": "۴ بخش، ۷ شهر، ۹ دهستان",
   "sa_map_zoom": "10",
-  "sa_cty_poi_keys": "heritage\nrecreation"
+  "sa_cty_poi_keys": "heritage\nrecreation",
+  "distance_to_capital_km": "380"
  },
  "intro": [
   {

@@ -51,7 +51,7 @@
   "sa_cty_census_year": "1395",
   "sa_cty_center": "مرودشت",
   "sa_cty_cities": "8",
-  "sa_cty_distance_center": "حدود ۴۵ کیلومتر تا شیراز",
+  "sa_cty_distance_center": "45",
   "sa_cty_districts": "5",
   "sa_cty_neighbors": "arsanjan - شرق\nkharameh - جنوب‌شرق\npasargad - شمال‌شرق\nbeyza - جنوب‌غرب\neqlid - شمال\nsepidan - غرب\nzarghan - جنوب",
   "sa_cty_population": "323434",
@@ -92,7 +92,8 @@
   "sa_cty_area_km2": "3637",
   "sa_cty_divisions": "۵ بخش، ۸ شهر، ۱۵ دهستان",
   "sa_map_zoom": "10",
-  "sa_cty_poi_keys": "heritage\nnature\noffbeat"
+  "sa_cty_poi_keys": "heritage\nnature\noffbeat",
+  "distance_to_capital_km": "45"
  },
  "intro": [
   "اگر از شیراز به مرودشت برویم و فقط نشانی «تخت جمشید» را دنبال کنیم، از کنار شهری می‌گذریم که زندگی‌اش تنها به مسافر و بلیت ورودی وابسته نیست. وسط دشت، راه باربری و خط آهن و مزرعه به هم می‌رسند. کمی دورتر، سکوی سنگی کاخ‌ها به کوه رحمت تکیه داده است. آنچه امروز از بالای سکو دیده می‌شود، همان زمینی است که آب رود کر و کار چند نسل کشاورز شکل آن را عوض کرده‌اند. برای شناخت مرودشت، هر دو سوی این منظره اهمیت دارد.",
