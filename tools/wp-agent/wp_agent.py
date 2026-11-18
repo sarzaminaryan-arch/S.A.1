@@ -649,6 +649,18 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--reason", default="به‌روزرسانی ایجنت")
     p.add_argument("--owner-approved-live-edit", action="store_true")
     p.add_argument("--expected-modified-gmt", help="refuse if the post changed since this snapshot (edit was prepared from it)")
+    p = sub.add_parser("section-tests", help="add a batch of county sections from a tests/ file (runner-side, idempotent)")
+    p.add_argument("--file", required=True, help="tests file inside the repository")
+    p.add_argument("--dry-run", action="store_true")
+    p.add_argument("--apply", action="store_true", help="write (owner-approved); without it the endpoint stays read-only")
+    p.add_argument("--remove", action="store_true", help="remove the test block from the ten counties")
+    p = sub.add_parser("sections", help="replace ONE marked content section inside a county body (diff-based, keeps the rest)")
+    p.add_argument("--section", required=True, help="section id from the template registry (intro, map, history, ...)")
+    p.add_argument("--id", type=int, required=True)
+    p.add_argument("--section-file", required=True, help="file holding the new section HTML (without markers)")
+    p.add_argument("--expected-modified-gmt", default="")
+    p.add_argument("--reason", default="")
+    p.add_argument("--owner-approved-live-edit", action="store_true")
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("featured-audit", help="read-only: featured-image audit (a/b/c groups, theme 2.22.141+)")
@@ -950,6 +962,43 @@ def run(a: argparse.Namespace, c: "Client"):
         if a.owner_approved_live_edit:
             body["owner_approved_live_edit"] = True
         return c.call("POST", f"/post/{a.id}", body=body)
+    elif a.cmd == "section-tests":
+        data = read_json(Path(a.file) if Path(a.file).is_absolute() else (REPO_ROOT / a.file))
+        tests = data.get("tests") or []
+        if not tests:
+            raise AgentError("tests file carries no tests")
+        out = c.call("POST", "/section-tests", body={"tests": tests, "dry_run": bool(a.dry_run) or not a.apply,
+                                                     "apply": bool(a.apply), "remove": bool(a.remove)})
+        return out
+    elif a.cmd == "sections":
+        from replace_src.template import MARK_CLOSE, MARK_OPEN
+        current = c.call("GET", f"/post/{a.id}")
+        if a.expected_modified_gmt and current.get("modified_gmt") != a.expected_modified_gmt:
+            raise AgentError(f"post {a.id} changed since the snapshot ({a.expected_modified_gmt} -> {current.get('modified_gmt')}); re-read and re-prepare")
+        content = current.get("content") or ""
+        open_mark = MARK_OPEN.format(a.section)
+        close_mark = MARK_CLOSE.format(a.section)
+        start = content.find(open_mark)
+        if start < 0:
+            raise AgentError(f"section '{a.section}' not found on post {a.id}")
+        end = content.find(close_mark, start)
+        if end < 0:
+            raise AgentError(f"section '{a.section}' has no closing marker on post {a.id}")
+        new_html = read_text(a.section_file).strip()
+        check_banned(new_html)
+        from replace_src.fa_lint import scan as fa_scan
+        problems = fa_scan(new_html, where=f"{a.id}:{a.section}")
+        if problems:
+            raise AgentError("فیلتر املا/نگارش (سکشن): " + " | ".join(problems[:4]))
+        replaced = content[:start] + open_mark + "\n" + new_html + "\n" + close_mark + content[end + len(close_mark):]
+        check_county_shape(replaced, f"post {a.id}: ")
+        save_local_backup(f"post-{a.id}-{a.section}", {"id": a.id, "content": content})
+        body = {"expected_modified_gmt": current["modified_gmt"], "fields": {"content": replaced},
+                "meta": {}, "reason": a.reason or f"بازتولید سکشن {a.section}"}
+        if a.owner_approved_live_edit:
+            body["owner_approved_live_edit"] = True
+        result = c.call("POST", f"/post/{a.id}", body=body)
+        return {"section": a.section, "id": a.id, "chars_before": len(content), "chars_after": len(replaced), "result": result}
     elif a.cmd == "backups":
         return c.call("GET", "/backups", {"target": a.target or None})
     elif a.cmd == "featured-audit":

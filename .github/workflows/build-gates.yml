@@ -64,6 +64,9 @@ jobs:
       - name: Featured-image fallback card (v2.22.144)
         run: php wp-content/themes/sarzaminaryan-child/tests/test-fallback-card.php
 
+      - name: County section registry (v2.22.145)
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-county-sections.php
+
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
 

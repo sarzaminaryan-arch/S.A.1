@@ -2129,6 +2129,16 @@ function sa_agent_ops_register_routes() {
 			'permission_callback' => $admin,
 		)
 	);
+	// v2.22.145: افزودن دسته‌ای سکشن‌های آزمون به ده شهرستان (پیش‌فرض dry-run).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/section-tests',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_section_tests',
+			'permission_callback' => $admin,
+		)
+	);
 	// v2.22.129: بررسی مستند آپلود نسخه روی فضای ابری (فقط خواندنی).
 	register_rest_route(
 		SA_AGENT_NS,
@@ -2313,3 +2323,96 @@ function sa_agent_ops_register_routes() {
 	);
 }
 add_action( 'rest_api_init', 'sa_agent_ops_register_routes' );
+
+/* -------------------------------------------------------------------------
+ * ۱-ج) سکشن‌های آزمون ده شهرستان (v2.22.145) — پیش‌فرض فقط آزمون خشک.
+ * ---------------------------------------------------------------------- */
+
+/**
+ * POST /section-tests — افزودن دسته‌ای «سکشن آزمون» به ده شهرستان.
+ *
+ * چرا: مدولارسازی سکشن‌ها باید اول روی ده شهرستان آزمایش شود و گسترش به ۴۸۴
+ * تای دیگر فقط با تأیید مالک. پس آزمون باید **قابل برداشتن** باشد: با
+ * `dry_run: false` و `apply: true` انجام می‌شود و با `remove: true` دقیقاً
+ * همان بلوک برداشته می‌شود؛ هیچ چیز دیگری نوشته نمی‌شود.
+ *
+ * محافظت‌ها:
+ *   • `apply` بدون پرچم صریح رد می‌شود (همان قاعدهٔ بقیهٔ مسیرهای نویسنده).
+ *   • فقط اگر نوشته `city` منتشرشده باشد.
+ *   • بلوک با نشانه‌های `<!-- sa:tests -->` / `<!-- /sa:tests -->` بسته می‌شود،
+ *     پس برداشتنش یک جایگزینی رشته است، نه بازنویسی بدنه.
+ *   • پیش از هر نوشتن، شکل فعلی بدنه با `check_county_shape` سنجیده نمی‌شود
+ *     (این‌جا بدنه بازتولید نمی‌شود)؛ به‌جایش نشانه‌های سکشن‌های اصلی شمرده و
+ *     در خروجی گزارش می‌شوند تا تغییر ناخواسته دیده شود.
+ *
+ * @param WP_REST_Request $request درخواست.
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_section_tests( $request ) {
+	$tests = $request->get_param( 'tests' );
+	if ( ! is_array( $tests ) || ! $tests ) {
+		return new WP_REST_Response( array( 'ok' => false, 'error' => 'tests required' ), 400 );
+	}
+	$dry   = (bool) $request->get_param( 'dry_run' );
+	$apply = (bool) $request->get_param( 'apply' );
+	$remove = (bool) $request->get_param( 'remove' );
+	if ( ! $dry && ! $apply ) {
+		return new WP_REST_Response( array( 'ok' => false, 'error' => 'apply requires apply:true (owner approval)' ), 403 );
+	}
+	$open  = '<!-- sa:tests -->';
+	$close = '<!-- /sa:tests -->';
+	$out   = array( 'ok' => true, 'dry_run' => $dry, 'remove' => $remove, 'posts' => array() );
+
+	foreach ( $tests as $test ) {
+		$slug = isset( $test['slug'] ) ? sanitize_title( (string) $test['slug'] ) : '';
+		$html = isset( $test['html'] ) ? (string) $test['html'] : '';
+		if ( '' === $slug || '' === $html ) {
+			$out['posts'][] = array( 'slug' => $slug, 'ok' => false, 'error' => 'slug and html required' );
+			continue;
+		}
+		$post = get_page_by_path( $slug, OBJECT, 'city' );
+		if ( ! $post || 'publish' !== $post->post_status ) {
+			$out['posts'][] = array( 'slug' => $slug, 'ok' => false, 'error' => 'no published county with this slug' );
+			continue;
+		}
+		$body    = (string) $post->post_content;
+		$has     = false !== strpos( $body, $open );
+		$blocks  = preg_match_all( '/<!--\s*sa:sec:([a-z_]+)\s*-->/', $body, $m ) ? $m[1] : array();
+		$row     = array(
+			'slug'           => $slug,
+			'id'             => (int) $post->ID,
+			'sections_found' => count( $blocks ),
+			'had_tests'      => $has,
+			'chars_before'   => strlen( $body ),
+		);
+		if ( $dry ) {
+			$row['ok']           = true;
+			$row['chars_after']  = $has ? strlen( $body ) : strlen( $body . "\n\n" . $open . "\n" . $html . "\n" . $close );
+			$out['posts'][]      = $row;
+			continue;
+		}
+		if ( $remove || $has ) {
+			$body = preg_replace( '/' . preg_quote( $open, '/' ) . '.*?' . preg_quote( $close, '/' ) . '\s*/s', '', $body );
+		}
+		if ( ! $remove ) {
+			$body = rtrim( (string) $body ) . "\n\n" . $open . "\n" . $html . "\n" . $close;
+		}
+		$res = wp_update_post(
+			array(
+				'ID'           => (int) $post->ID,
+				'post_content' => $body,
+			),
+			true
+		);
+		if ( is_wp_error( $res ) ) {
+			$row['ok']    = false;
+			$row['error'] = $res->get_error_message();
+		} else {
+			$row['ok']          = true;
+			$row['chars_after'] = strlen( $body );
+			$row['verified']    = ( ! $remove ) === ( false !== strpos( (string) get_post_field( 'post_content', $post->ID ), $open ) );
+		}
+		$out['posts'][] = $row;
+	}
+	return new WP_REST_Response( $out, 200 );
+}
