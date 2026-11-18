@@ -1,0 +1,69 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-31-verify-kazerun-photos.json",
+  "started_utc": "2026-11-18T12:02:34+00:00",
+  "note": "خواندنِ فقط‌خواندنی: فهرست تصاویر کازرون پس از نصب ۲.۲۲.۱۱ و ورود پروندهٔ مالک (رسانهٔ ۴۸۲۸ باید با مجوز sa-archive و publishable=true دیده شود).",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "photos",
+      "result": {
+        "count": 4,
+        "per_city": {
+          "325": 4
+        },
+        "photos": [
+          {
+            "id": 4828,
+            "city_id": 325,
+            "place": "معبد آناهیتای بیشاپور (نمای هوایی)",
+            "kind": "heritage",
+            "author": "سرزمین آریان",
+            "license": "sa-archive",
+            "license_label": "بایگانی سرزمین آریان (ارسالی مالک)",
+            "source": "",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4800,
+            "city_id": 325,
+            "place": "معبد آناهیتای بیشاپور",
+            "kind": "heritage",
+            "author": "Majid Taghipour",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Anahita_temple,_Bishapur_08.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4799,
+            "city_id": 325,
+            "place": "نقش شاپور در تنگ چوگان",
+            "kind": "heritage",
+            "author": "Ziegler175",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:IranBishapurShapursIdreifacherSieg.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4798,
+            "city_id": 325,
+            "place": "پیکرهٔ غار شاپور",
+            "kind": "heritage",
+            "author": "Wiki-in-basel",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:The_Colossal_Statue_of_Shapur_I.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T12:02:36+00:00"
+}
