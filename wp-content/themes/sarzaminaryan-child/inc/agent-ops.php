@@ -702,6 +702,7 @@ function sa_agent_rest_storage() {
 			$out['updraft']['files'] = $sum['files'];
 		}
 		$out['updraft']['file_list'] = sa_agent_storage_list_files( $dir, 40 );
+		$out['updraft']['sets_detail'] = sa_agent_updraft_set_files( (array) sa_agent_updraft_option( 'updraft_backup_history', array() ) );
 	}
 
 	$uploads = wp_upload_dir();
@@ -773,6 +774,132 @@ function sa_agent_storage_dir_bytes( $dir, $audit = false ) {
 		return null;
 	}
 	return array( 'files' => $files, 'bytes' => $bytes, 'big' => $big );
+}
+
+/**
+ * فایل‌های هر نسخهٔ UpdraftPlus از تاریخچهٔ خودش (فقط خواندن).
+ *
+ * چرا: پوشهٔ `wp-content/updraft` فایل‌های نسخه‌های قدیمی را نگه می‌دارد که دیگر در
+ * تاریخچه نیستند؛ برای تصمیم حذف باید دانست هر فایل به کدام نسخه تعلق دارد.
+ *
+ * @param array $history تاریخچهٔ `updraft_backup_history`.
+ * @return array[] هر ردیف: nonce، utc، files[] و bytes.
+ */
+function sa_agent_updraft_set_files( array $history ) {
+	$out = array();
+	foreach ( $history as $time => $entry ) {
+		if ( ! is_array( $entry ) ) {
+			continue;
+		}
+		$files = array();
+		$bytes = 0;
+		foreach ( (array) $entry as $key => $value ) {
+			if ( ! is_string( $value ) || ! preg_match( '/\.(zip|gz|tar|bz2)$/i', $value ) ) {
+				continue;
+			}
+			$folder = '';
+			foreach ( (array) ( isset( $entry['backup_dir'] ) ? array( $entry['backup_dir'] ) : array() ) as $candidate ) {
+				$folder = (string) $candidate;
+			}
+			if ( '' === $folder && function_exists( 'wp_upload_dir' ) ) {
+				$folder = trailingslashit( wp_upload_dir()['basedir'] ) . 'updraft';
+			}
+			$path = trailingslashit( $folder ) . $value;
+			$size = is_file( $path ) ? (int) filesize( $path ) : 0;
+			$bytes += $size;
+			$files[] = array( 'name' => $value, 'bytes' => $size, 'exists' => is_file( $path ) );
+		}
+		$out[] = array(
+			'nonce'    => isset( $entry['nonce'] ) ? (string) $entry['nonce'] : '',
+			'utc'      => gmdate( 'c', (int) $time ),
+			'entities' => array_values( array_intersect( array_keys( (array) $entry ), array( 'db', 'plugins', 'themes', 'uploads', 'uploads2', 'others', 'mu-plugins' ) ) ),
+			'files'    => $files,
+			'bytes'    => $bytes,
+			'on_disk'  => (bool) array_filter( $files, static function ( $f ) { return $f['exists']; } ),
+		);
+	}
+	return $out;
+}
+
+/**
+ * پاک‌کردن فایل‌های یک نسخهٔ UpdraftPlus از تاریخچه — فقط با پرچم مالک.
+ *
+ * چرا (دستور مالک، ۲۸ آبان ۱۴۰۵): هاست سقف حجم دارد و فایل‌های نسخه‌های قدیمی
+ * در پوشهٔ `wp-content/updraft` مانده‌اند. این تنها راه حذف فایل در کل قالب است و
+ * عمداً تنگ است: فقط فایل‌هایی که نامشان در تاریخچهٔ خودِ UpdraftPlus آمده، فقط
+ * داخل پوشهٔ پشتیبان، و فقط با `owner_approved_prune`. هیچ فایل افزونه/رسانه/قالب
+ * از این مسیر حذف نمی‌شود.
+ *
+ * @param string $nonce شناسهٔ نسخه.
+ * @return array|WP_Error
+ */
+function sa_agent_updraft_prune_set( $nonce ) {
+	$nonce = preg_replace( '/[^a-z0-9]/', '', strtolower( (string) $nonce ) );
+	if ( '' === $nonce ) {
+		return new WP_Error( 'sa_agent_bad_nonce', 'شناسهٔ نسخهٔ پشتیبان لازم است.', array( 'status' => 400 ) );
+	}
+	$history = (array) sa_agent_updraft_option( 'updraft_backup_history', array() );
+	$sets    = sa_agent_updraft_set_files( $history );
+	$target  = null;
+	foreach ( $sets as $set ) {
+		if ( $set['nonce'] === $nonce ) {
+			$target = $set;
+			break;
+		}
+	}
+	if ( null === $target ) {
+		return new WP_Error( 'sa_agent_no_set', 'این نسخه در تاریخچهٔ UpdraftPlus نیست؛ چیزی حذف نشد.', array( 'status' => 404 ) );
+	}
+	$uploads = function_exists( 'wp_upload_dir' ) ? trailingslashit( wp_upload_dir()['basedir'] ) . 'updraft' : '';
+	$dirs    = array_filter( array( $uploads, WP_CONTENT_DIR . '/updraft' ) );
+	$deleted = array();
+	$freed   = 0;
+	$kept    = array();
+	foreach ( $target['files'] as $file ) {
+		$name = basename( (string) $file['name'] );
+		$done = false;
+		foreach ( $dirs as $dir ) {
+			$path = trailingslashit( $dir ) . $name;
+			if ( ! is_file( $path ) ) {
+				continue;
+			}
+			// فقط داخل پوشهٔ پشتیبان؛ اگر مسیر واقعی بیرون بزند، دست نمی‌زنیم.
+			$real = realpath( $path );
+			if ( false === $real || 0 !== strpos( $real, realpath( $dir ) ) ) {
+				continue;
+			}
+			$size = (int) filesize( $real );
+			if ( @unlink( $real ) ) { // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
+				$deleted[] = $name;
+				$freed    += $size;
+				$done      = true;
+			}
+			break;
+		}
+		if ( ! $done ) {
+			$kept[] = $name;
+		}
+	}
+	if ( $deleted ) {
+		// نسخه‌ای که فایل‌هایش رفته، از تاریخچه برداشته می‌شود تا افزونه نسخهٔ ناقص نشان ندهد.
+		foreach ( $history as $time => $entry ) {
+			if ( is_array( $entry ) && isset( $entry['nonce'] ) && (string) $entry['nonce'] === $nonce ) {
+				unset( $history[ $time ] );
+			}
+		}
+		if ( class_exists( 'UpdraftPlus_Options' ) && method_exists( 'UpdraftPlus_Options', 'update_updraft_option' ) ) {
+			UpdraftPlus_Options::update_updraft_option( 'updraft_backup_history', $history );
+		} else {
+			update_option( 'updraft_backup_history', $history );
+		}
+	}
+	return array(
+		'nonce'   => $nonce,
+		'deleted' => $deleted,
+		'kept'    => $kept,
+		'bytes'   => $freed,
+		'mb'      => round( $freed / 1048576, 1 ),
+	);
 }
 
 /**
@@ -926,6 +1053,46 @@ function sa_agent_rest_backups_prune( $r ) {
 }
 
 /**
+ * POST /updraft/prune — حذف فایل یک نسخهٔ UpdraftPlus (فقط با پرچم مالک).
+ *
+ * بدنه: owner_approved_prune:true، nonce (شناسهٔ نسخه)، dry_run (پیش‌فرض true).
+ *
+ * @param WP_REST_Request $r درخواست.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_updraft_prune( $r ) {
+	$b       = (array) $r->get_json_params();
+	$dry_run = ! isset( $b['dry_run'] ) || false !== $b['dry_run'];
+	$nonce   = isset( $b['nonce'] ) ? (string) $b['nonce'] : '';
+	if ( '' === $nonce ) {
+		return new WP_Error( 'sa_agent_bad_nonce', 'nonce نسخهٔ پشتیبان لازم است.', array( 'status' => 400 ) );
+	}
+	$history = (array) sa_agent_updraft_option( 'updraft_backup_history', array() );
+	$sets    = sa_agent_updraft_set_files( $history );
+	$target  = null;
+	foreach ( $sets as $set ) {
+		if ( $set['nonce'] === preg_replace( '/[^a-z0-9]/', '', strtolower( $nonce ) ) ) {
+			$target = $set;
+			break;
+		}
+	}
+	if ( null === $target ) {
+		return new WP_Error( 'sa_agent_no_set', 'این نسخه در تاریخچهٔ UpdraftPlus نیست؛ چیزی حذف نشد.', array( 'status' => 404 ) );
+	}
+	if ( $dry_run ) {
+		return rest_ensure_response( array( 'dry_run' => true, 'set' => $target, 'mb' => round( (int) $target['bytes'] / 1048576, 1 ) ) );
+	}
+	if ( empty( $b['owner_approved_prune'] ) ) {
+		return new WP_Error( 'sa_agent_need_owner', 'حذف فایل پشتیبان فقط با owner_approved_prune: true.', array( 'status' => 403 ) );
+	}
+	$res = sa_agent_updraft_prune_set( $nonce );
+	if ( is_wp_error( $res ) ) {
+		return $res;
+	}
+	return rest_ensure_response( $res );
+}
+
+/**
  * ثبت مسیرها.
  */
 function sa_agent_ops_register_routes() {
@@ -960,6 +1127,16 @@ function sa_agent_ops_register_routes() {
 		array(
 			'methods'             => 'POST',
 			'callback'            => 'sa_agent_rest_backups_prune',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.124: حذف فایل یک نسخهٔ قدیمی UpdraftPlus — فقط با پرچم صریح مالک.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/prune',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_updraft_prune',
 			'permission_callback' => $admin,
 		)
 	);

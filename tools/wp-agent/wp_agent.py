@@ -652,6 +652,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("storage", help="read-only: real size of agent backups, UpdraftPlus sets and uploads")
+    p = sub.add_parser("updraft-prune", help="delete the files of one outdated UpdraftPlus set (dry run unless --owner-approved-prune)")
+    p.add_argument("--nonce", required=True, help="the set's nonce from GET /storage")
+    p.add_argument("--owner-approved-prune", action="store_true")
+    p.add_argument("--apply", action="store_true", help="really delete (still needs --owner-approved-prune)")
     p = sub.add_parser("backups-prune", help="retention for agent diff backups (dry run unless --owner-approved-prune)")
     p.add_argument("--per-target", type=int, default=3, help="how many backups to keep per post/target")
     p.add_argument("--total", type=int, default=400, help="global ceiling of backup records")
@@ -931,6 +935,13 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("GET", "/backups", {"target": a.target or None})
     elif a.cmd == "storage":
         return c.call("GET", "/storage")
+    elif a.cmd == "updraft-prune":
+        if a.apply and not a.owner_approved_prune:
+            raise AgentError("updraft-prune --apply needs --owner-approved-prune (owner's explicit order)")
+        body = {"nonce": a.nonce, "dry_run": not (a.apply and a.owner_approved_prune)}
+        if a.owner_approved_prune:
+            body["owner_approved_prune"] = True
+        return c.call("POST", "/updraft/prune", body=body)
     elif a.cmd == "backups-prune":
         if a.apply and not a.owner_approved_prune:
             raise AgentError("backups-prune --apply needs --owner-approved-prune (owner's explicit order)")

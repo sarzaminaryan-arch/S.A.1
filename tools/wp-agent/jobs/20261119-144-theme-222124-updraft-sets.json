@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۲۴ (۲۸ آبان ۱۴۰۵): فهرست فایل هر نسخهٔ UpdraftPlus خوانده می‌شود تا فهرست حذف، دقیق و به‌نام به مالک داده شود. هیچ حذفی در این کار نیست، حتی پیش‌نمایش حذف. بازگشت به ۲.۲۲.۱۲۳ تعبیه است.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.124", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.123"},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/", "/city/tehran/"]}
+ ]
+}
