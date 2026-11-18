@@ -171,6 +171,15 @@ foreach ( sa_county_sections_registry() as $sa_cs_key => $sa_cs_def ) {
 	sa_cs_assert( 2 === $sa_cs_ref->getNumberOfParameters() || 1 === $sa_cs_ref->getNumberOfParameters(), "{$sa_cs_key}: render takes (post_id[, context])" );
 }
 
+// ---------------------------------------------------------------------------
+// ۶) رگرسیون واقعی ۲.۲۲.۱۴۵: آکاردئون هم‌استانی فقط یک‌بار چاپ شود
+// ---------------------------------------------------------------------------
+$sa_cs_sources = (string) file_get_contents( SA_CHILD_DIR . 'template-parts/county/section-sources.php' );
+sa_cs_assert(
+	false === strpos( $sa_cs_sources, "'sa_county_siblings_html'" ),
+	'the sources section does not print the sibling accordion twice (sa_sources_section owns it)'
+);
+
 if ( 0 === $sa_cs_fail ) {
 	echo "PASS: county section registry (keys, order, filters, conditions, files)\n";
 } else {

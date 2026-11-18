@@ -125,6 +125,10 @@ sa_sl_assert( false === strpos( $ordinary, 'href="https://commons.wikimedia.org'
 // v2.22.86: فهرست «شهرهای هم‌استانی» درست بالای منابع چاپ می‌شود.
 $tt86 = (string) file_get_contents( $theme_dir . '/inc/template-tags.php' );
 sa_sl_assert( false !== strpos( $tt86, 'sa_county_siblings_html' ), 'template-tags: sibling-cities list echoed right before the sources section (2.22.86)' );
+// v2.22.145: sa_sources_section() already prints the siblings; the section file must
+// not print them a second time (that put two identical accordions on the page).
+$sa_src_only = (string) file_get_contents( $theme_dir . '/template-parts/county/section-sources.php' );
+sa_sl_assert( false === strpos( $sa_src_only, "'sa_county_siblings_html'" ), 'sources section: the sibling accordion is printed once, by sa_sources_section (2.22.145)' );
 /* v2.22.145 — بخش‌های صفحه در فایل‌های سکشن جدا شده‌اند؛ ادعاهای ترتیب روی
  * همان سکشن‌ها بررسی می‌شوند (رجیستری: گالری → امتیاز → منابع). */
 $tp86 = (string) file_get_contents( $theme_dir . '/template-parts/county/section-identity.php' );

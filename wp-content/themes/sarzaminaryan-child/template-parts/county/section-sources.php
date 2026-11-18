@@ -18,9 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $sa_id          = isset( $sa_id ) ? (int) $sa_id : (int) get_the_ID();
 $sa_context     = isset( $sa_context ) ? (array) $sa_context : array();
 $sa_profile_ext = isset( $sa_profile_ext ) ? (array) $sa_profile_ext : array();
-if ( ! empty( $GLOBALS['sa_county_siblings_html'][ (int) $sa_id ] ) ) {
-	echo $GLOBALS['sa_county_siblings_html'][ (int) $sa_id ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- ساخته‌شده با escape داخلی در شناسنامه.
-}
+// مهم: «شهرهای هم‌استانی» را خودِ sa_sources_section() چاپ می‌کند (v2.22.86)؛
+// این‌جا تکرار نمی‌شود وگرنه آکاردئون دوبار روی صفحه می‌آید (رگرسیون ۲.۲۲.۱۴۵).
 if ( function_exists( 'sa_sources_section' ) ) {
 	sa_sources_section( $sa_id );
 }
