@@ -1,0 +1,966 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-30-theme-222115-owner-photo-kazerun-retry.json",
+  "started_utc": "2026-11-18T11:58:04+00:00",
+  "note": "تلاش دوبارهٔ کار ۲۹: نصب قالب روی سایت فقط به خاطر تایم‌اوت ۱۰ ثانیه‌ای دانلود بسته از گیت‌هاب ناموفق بود (cURL 28)؛ نسخهٔ روی دیسک ۲.۲۲.۱۱ است (ریلیس موازی دیروز) و نصب ۲.۲۲.۱۱۵ سایت را با main هم‌تراز می‌کند. بقیهٔ گام‌ها همان کار ۲۹.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.22.114",
+          "loaded": "2.22.114",
+          "log": [
+            {
+              "time_gmt": "2026-11-17T14:47:14+00:00",
+              "from": "2.22.110",
+              "to": "2.22.111",
+              "wanted": "2.22.111",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-17T15:55:55+00:00",
+              "from": "2.22.111",
+              "to": "2.22.112",
+              "wanted": "2.22.112",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-17T17:57:04+00:00",
+              "from": "2.22.112",
+              "to": "2.22.113",
+              "wanted": "2.22.113",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-17T20:29:06+00:00",
+              "from": "2.22.113",
+              "to": "2.22.114",
+              "wanted": "2.22.114",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T11:54:45+00:00",
+              "from": "2.22.114",
+              "to": "2.22.114",
+              "wanted": "2.22.115",
+              "ok": false,
+              "errors": [
+                "دریافت بسته از گیت‌هاب انجام نشد: cURL error 28: Operation timed out after 10001 milliseconds with 0 out of 0 bytes received"
+              ]
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 6345,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/kazerun/",
+            "status": 200,
+            "ms": 1234,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان کازرون؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/kazerun/",
+            "desc": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "og:description": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+              "og:url": "https://sarzaminaryan.ir/city/kazerun/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Majid Taghipour"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20862,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/",
+            "status": 200,
+            "ms": 1075,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 3,
+            "photo_strip_credits": 3,
+            "photo_credit_texts": [
+              "Arashk rp2",
+              "Mehraddddi",
+              "Arashk rp2",
+              "Samin jazmi"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/nur/",
+            "status": 200,
+            "ms": 1046,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان نور؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/nur/",
+            "desc": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "og:description": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+              "og:url": "https://sarzaminaryan.ir/city/nur/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Alireza Javaheri"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17380,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "backup": {
+          "started": {
+            "started": true,
+            "nonce": "82738db7b8c9",
+            "what": "all",
+            "nocloud": true,
+            "note": "وضعیت را با GET /updraft?nonce=82738db7b8c9 دنبال کنید."
+          },
+          "status": {
+            "active": true,
+            "version": "1.26.16",
+            "wp_cron_disabled": true,
+            "next_resume": "",
+            "last_backup": {
+              "backup_time": "2026-11-18T11:58:18+00:00",
+              "age_seconds": 32,
+              "success": true,
+              "errors": 0,
+              "nonce": "82738db7b8c9",
+              "has_db": true,
+              "file_entities": [
+                "plugins",
+                "plugins-size",
+                "themes",
+                "themes-size",
+                "uploads",
+                "uploads-size",
+                "uploads1-size"
+              ]
+            },
+            "history_count": 2,
+            "history_latest": "2026-11-18T11:58:18+00:00",
+            "job": {
+              "nonce": "82738db7b8c9",
+              "found": false,
+              "jobstatus": "",
+              "in_history": true,
+              "finished": true
+            }
+          }
+        },
+        "install": {
+          "updated": true,
+          "from": "2.22.114",
+          "to": "2.22.115",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.22.115",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1795003159",
+            "status": 200,
+            "ms": 1745,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/kazerun/?sa_probe=1795003162",
+            "status": 200,
+            "ms": 1266,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان کازرون؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/kazerun/",
+            "desc": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "og:description": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+              "og:url": "https://sarzaminaryan.ir/city/kazerun/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 2,
+            "photo_strip_tiles": 3,
+            "photo_strip_credits": 3,
+            "photo_credit_texts": [
+              "Majid Taghipour",
+              "Ziegler175",
+              "Majid Taghipour",
+              "Ziegler175",
+              "Wiki-in-basel"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20862,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/?sa_probe=1795003164",
+            "status": 200,
+            "ms": 1318,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 2,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "photo_credit_texts": [
+              "Arashk rp2",
+              "Mehraddddi",
+              "Mehraddddi",
+              "Arashk rp2",
+              "Samin jazmi",
+              "Arashk rp2"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/nur/?sa_probe=1795003166",
+            "status": 200,
+            "ms": 1218,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان نور؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/nur/",
+            "desc": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "og:description": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+              "og:url": "https://sarzaminaryan.ir/city/nur/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 2,
+            "photo_strip_tiles": 3,
+            "photo_strip_credits": 3,
+            "photo_credit_texts": [
+              "Alireza Javaheri",
+              "Mahdi Kalhor",
+              "Alireza Javaheri",
+              "Mahdi Kalhor",
+              "ENMIRAN"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17380,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "all"
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "photos-import",
+      "result": {
+        "batch": "20261118-owner-kazerun",
+        "note": "پروندهٔ ارسالی مالک (۲۷ آبان ۱۴۰۵): نمای هوایی معبد آناهیتای بیشاپور. این عکس میزبان و مجوز ویکی‌مدیا ندارد، پس با کد sa-archive («بایگانی سرزمین آریان — ارسالی مالک») و نام «سرزمین آریان» ثبت می‌شود و از مسیر /photos/upload می‌رود. نمای هوایی به‌عنوان «نمای اول» کادر «مکان در یک نگاه» کازرون می‌نشیند و کنار نمای زمینی همان معبد، دو زاویهٔ دید از یک مکان می‌سازد؛ مالک هر لحظه می‌تواند از پنل «تصاویر شهرستان» در صفحهٔ ویرایش، آن را جابه‌جا، تعویض یا پنهان کند.",
+        "imported": [
+          {
+            "place": "معبد آناهیتای بیشاپور (نمای هوایی)",
+            "id": 4828,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8b9d8a8d8af-d8a2d986d8a7d987db8cd8aad8a7db8c-d8a8db8cd8b4d8a7d9bed988d8b1-d986d985d8a7db8c-d987d988d8a7db8cdb8c-0b32c2.webp",
+            "owner_file": "tools/photos/files/kazerun-anahita-aerial.webp"
+          }
+        ],
+        "reused": [],
+        "refused": [],
+        "failed": []
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "all"
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/kazerun/?sa_probe=56",
+            "status": 200,
+            "ms": 2145,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان کازرون؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/kazerun/",
+            "desc": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "og:description": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+              "og:url": "https://sarzaminaryan.ir/city/kazerun/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 2,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "photo_credit_texts": [
+              "سرزمین آریان",
+              "Majid Taghipour",
+              "سرزمین آریان",
+              "Majid Taghipour",
+              "Ziegler175",
+              "Wiki-in-basel"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20862,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/nur/?sa_probe=56",
+            "status": 200,
+            "ms": 1233,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان نور؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/nur/",
+            "desc": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "og:description": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+              "og:url": "https://sarzaminaryan.ir/city/nur/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 2,
+            "photo_strip_tiles": 3,
+            "photo_strip_credits": 3,
+            "photo_credit_texts": [
+              "Alireza Javaheri",
+              "Mahdi Kalhor",
+              "Alireza Javaheri",
+              "Mahdi Kalhor",
+              "ENMIRAN"
+            ],
+            "experience_block": 1,
+            "experience_facts": 4,
+            "experience_seasons": 4,
+            "experience_places": 6,
+            "experience_tips": 6,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17380,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/bojnord/?sa_probe=56",
+            "status": 200,
+            "ms": 1268,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بجنورد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان شمالی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/bojnord/",
+            "desc": "راهنمای شهرستان بجنورد: جمعیت ۳۲۴٬۰۸۳ نفر و دو بخش، آینه‌خانهٔ مفخم و سبزه‌میدان، بش‌قارداش و باباامان، آش یارمه و آبنبات بجنوردی، و دو کمبود واقعی شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "og:description": "از آینه‌خانهٔ مفخم و سبزه‌میدان تا بش‌قارداش و باباامان؛ راهنمای اقامت، خوراک محلی و کمبودهای واقعی بجنورد.",
+              "og:url": "https://sarzaminaryan.ir/city/bojnord/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بجنورد — مرکز خراسان شمالی، میان آلاداغ و کپه‌داغ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 2,
+            "photo_strip_tiles": 4,
+            "photo_strip_credits": 4,
+            "photo_credit_texts": [
+              "Arashk rp2",
+              "Mehraddddi",
+              "Mehraddddi",
+              "Arashk rp2",
+              "Samin jazmi",
+              "Arashk rp2"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-bojnord.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20396,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T11:59:42+00:00"
+}
