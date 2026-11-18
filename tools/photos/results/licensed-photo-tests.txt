@@ -1,2 +1,2 @@
 == php PHP 8.1.2-1ubuntu2.28 (cli) (built: Oct 19 2026 18:54:45) (NTS)
-FAIL: the overlay names the place, without the parenthetical
+FAIL: the overlay caption markup is built in the helper
