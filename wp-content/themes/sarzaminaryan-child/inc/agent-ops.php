@@ -691,9 +691,14 @@ function sa_agent_rest_storage() {
 			}
 		}
 		$out['updraft']['dir'] = $dir;
+		// دو عدد جدا: حجم «نسخه‌های ثبت‌شده در تاریخچه» و حجم «فایل‌های واقعی روی دیسک».
+		// max گرفتنِ این دو، عدد گمراه‌کننده می‌داد (تاریخچه نسخه‌هایی را می‌شمرد که
+		// فایلشان قبلاً پاک شده بود).
+		$out['updraft']['set_bytes'] = (int) $out['updraft']['bytes'];
 		$sum = sa_agent_storage_dir_bytes( $dir );
+		$out['updraft']['dir_bytes'] = null === $sum ? null : (int) $sum['bytes'];
 		if ( null !== $sum ) {
-			$out['updraft']['bytes'] = max( (int) $out['updraft']['bytes'], $sum['bytes'] );
+			$out['updraft']['bytes'] = (int) $sum['bytes'];
 			$out['updraft']['files'] = $sum['files'];
 		}
 		$out['updraft']['file_list'] = sa_agent_storage_list_files( $dir, 40 );
