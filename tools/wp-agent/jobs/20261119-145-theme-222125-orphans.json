@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۲۵ (۲۸ آبان ۱۴۰۵): فهرست واقعی فایل‌های پشتیبان — کدام فایل به کدام نسخهٔ UpdraftPlus تعلق دارد و کدام «یتیم» است (در تاریخچه نیست). فقط خواندنی؛ هیچ حذفی در این کار نیست. بازگشت به ۲.۲۲.۱۲۴.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.125", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.124"},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/"]}
+ ]
+}

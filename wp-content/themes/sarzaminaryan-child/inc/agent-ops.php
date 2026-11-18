@@ -703,6 +703,12 @@ function sa_agent_rest_storage() {
 		}
 		$out['updraft']['file_list'] = sa_agent_storage_list_files( $dir, 40 );
 		$out['updraft']['sets_detail'] = sa_agent_updraft_set_files( (array) sa_agent_updraft_option( 'updraft_backup_history', array() ) );
+		$orphans                      = sa_agent_updraft_orphan_files();
+		$out['updraft']['orphans']    = array(
+			'files' => $orphans['files'],
+			'bytes' => $orphans['bytes'],
+			'mb'    => round( $orphans['bytes'] / 1048576, 1 ),
+		);
 	}
 
 	$uploads = wp_upload_dir();
@@ -786,39 +792,94 @@ function sa_agent_storage_dir_bytes( $dir, $audit = false ) {
  * @return array[] هر ردیف: nonce، utc، files[] و bytes.
  */
 function sa_agent_updraft_set_files( array $history ) {
-	$out = array();
+	$out  = array();
+	$dirs = sa_agent_updraft_dirs();
+	// همهٔ فایل‌های پشتیبانِ روی دیسک، یک‌بار خوانده می‌شوند؛ بعد به نسخه نسبت داده می‌شوند.
+	$disk = array();
+	foreach ( $dirs as $dir ) {
+		foreach ( (array) glob( trailingslashit( $dir ) . 'backup_*' ) as $path ) {
+			if ( is_file( $path ) ) {
+				$disk[] = array( 'path' => $path, 'name' => basename( $path ), 'bytes' => (int) filesize( $path ) );
+			}
+		}
+	}
 	foreach ( $history as $time => $entry ) {
 		if ( ! is_array( $entry ) ) {
 			continue;
 		}
+		$nonce = isset( $entry['nonce'] ) ? (string) $entry['nonce'] : '';
 		$files = array();
 		$bytes = 0;
-		foreach ( (array) $entry as $key => $value ) {
-			if ( ! is_string( $value ) || ! preg_match( '/\.(zip|gz|tar|bz2)$/i', $value ) ) {
+		foreach ( $disk as $f ) {
+			// نام فایل‌های UpdraftPlus شناسهٔ نسخه (nonce) را در خود دارد.
+			if ( '' === $nonce || false === strpos( $f['name'], $nonce ) ) {
 				continue;
 			}
-			$folder = '';
-			foreach ( (array) ( isset( $entry['backup_dir'] ) ? array( $entry['backup_dir'] ) : array() ) as $candidate ) {
-				$folder = (string) $candidate;
-			}
-			if ( '' === $folder && function_exists( 'wp_upload_dir' ) ) {
-				$folder = trailingslashit( wp_upload_dir()['basedir'] ) . 'updraft';
-			}
-			$path = trailingslashit( $folder ) . $value;
-			$size = is_file( $path ) ? (int) filesize( $path ) : 0;
-			$bytes += $size;
-			$files[] = array( 'name' => $value, 'bytes' => $size, 'exists' => is_file( $path ) );
+			$bytes  += $f['bytes'];
+			$files[] = array( 'name' => $f['name'], 'bytes' => $f['bytes'], 'exists' => true );
 		}
 		$out[] = array(
-			'nonce'    => isset( $entry['nonce'] ) ? (string) $entry['nonce'] : '',
+			'nonce'    => $nonce,
 			'utc'      => gmdate( 'c', (int) $time ),
 			'entities' => array_values( array_intersect( array_keys( (array) $entry ), array( 'db', 'plugins', 'themes', 'uploads', 'uploads2', 'others', 'mu-plugins' ) ) ),
 			'files'    => $files,
 			'bytes'    => $bytes,
-			'on_disk'  => (bool) array_filter( $files, static function ( $f ) { return $f['exists']; } ),
+			'on_disk'  => (bool) $files,
 		);
 	}
 	return $out;
+}
+
+/**
+ * پوشه‌های ممکن پشتیبان UpdraftPlus (هر دو حالت افزونه و پیش‌فرض وردپرس).
+ *
+ * @return string[]
+ */
+function sa_agent_updraft_dirs() {
+	$dirs = array();
+	if ( function_exists( 'wp_upload_dir' ) ) {
+		$dirs[] = trailingslashit( wp_upload_dir()['basedir'] ) . 'updraft';
+	}
+	$dirs[] = WP_CONTENT_DIR . '/updraft';
+	return array_values( array_filter( $dirs, 'is_dir' ) );
+}
+
+/**
+ * فایل‌های پشتیبانی که در هیچ نسخه‌ای از تاریخچه نیستند (یتیم) — فقط خواندن.
+ *
+ * @return array{files:array[],bytes:int}
+ */
+function sa_agent_updraft_orphan_files() {
+	$history = (array) sa_agent_updraft_option( 'updraft_backup_history', array() );
+	$known   = array();
+	foreach ( $history as $entry ) {
+		if ( is_array( $entry ) && isset( $entry['nonce'] ) ) {
+			$known[] = (string) $entry['nonce'];
+		}
+	}
+	$out   = array();
+	$bytes = 0;
+	foreach ( sa_agent_updraft_dirs() as $dir ) {
+		foreach ( (array) glob( trailingslashit( $dir ) . 'backup_*' ) as $path ) {
+			if ( ! is_file( $path ) ) {
+				continue;
+			}
+			$keep = false;
+			foreach ( $known as $nonce ) {
+				if ( '' !== $nonce && false !== strpos( basename( $path ), $nonce ) ) {
+					$keep = true;
+					break;
+				}
+			}
+			if ( $keep ) {
+				continue;
+			}
+			$size   = (int) filesize( $path );
+			$bytes += $size;
+			$out[]  = array( 'name' => basename( $path ), 'dir' => $dir, 'bytes' => $size );
+		}
+	}
+	return array( 'files' => $out, 'bytes' => $bytes );
 }
 
 /**
