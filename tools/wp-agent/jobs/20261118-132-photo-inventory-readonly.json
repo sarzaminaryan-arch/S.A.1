@@ -1,0 +1,141 @@
+{
+ "note": "کار خواندنی (۲۸ آبان ۱۴۰۵): فهرست عکس‌های هر شهرستان تا معلوم شود کدام شهرستان هنوز صفر یا یک عکس دارد. هیچ تغییری ساخته نمی‌شود؛ فقط شمارش و شناسه‌ها برای دستهٔ بعدی تصاویر.",
+ "steps": [
+  {
+   "cmd": "photos",
+   "city_id": 63
+  },
+  {
+   "cmd": "photos",
+   "city_id": 3429
+  },
+  {
+   "cmd": "photos",
+   "city_id": 182
+  },
+  {
+   "cmd": "photos",
+   "city_id": 323
+  },
+  {
+   "cmd": "photos",
+   "city_id": 100
+  },
+  {
+   "cmd": "photos",
+   "city_id": 358
+  },
+  {
+   "cmd": "photos",
+   "city_id": 453
+  },
+  {
+   "cmd": "photos",
+   "city_id": 141
+  },
+  {
+   "cmd": "photos",
+   "city_id": 81
+  },
+  {
+   "cmd": "photos",
+   "city_id": 213
+  },
+  {
+   "cmd": "photos",
+   "city_id": 189
+  },
+  {
+   "cmd": "photos",
+   "city_id": 211
+  },
+  {
+   "cmd": "photos",
+   "city_id": 241
+  },
+  {
+   "cmd": "photos",
+   "city_id": 296
+  },
+  {
+   "cmd": "photos",
+   "city_id": 305
+  },
+  {
+   "cmd": "photos",
+   "city_id": 430
+  },
+  {
+   "cmd": "photos",
+   "city_id": 539
+  },
+  {
+   "cmd": "photos",
+   "city_id": 638
+  },
+  {
+   "cmd": "photos",
+   "city_id": 640
+  },
+  {
+   "cmd": "photos",
+   "city_id": 1899
+  },
+  {
+   "cmd": "photos",
+   "city_id": 271
+  },
+  {
+   "cmd": "photos",
+   "city_id": 416
+  },
+  {
+   "cmd": "photos",
+   "city_id": 121
+  },
+  {
+   "cmd": "photos",
+   "city_id": 304
+  },
+  {
+   "cmd": "photos",
+   "city_id": 1923
+  },
+  {
+   "cmd": "photos",
+   "city_id": 489
+  },
+  {
+   "cmd": "photos",
+   "city_id": 1936
+  },
+  {
+   "cmd": "photos",
+   "city_id": 1885
+  },
+  {
+   "cmd": "photos",
+   "city_id": 565
+  },
+  {
+   "cmd": "photos",
+   "city_id": 395
+  },
+  {
+   "cmd": "photos",
+   "city_id": 352
+  },
+  {
+   "cmd": "photos",
+   "city_id": 514
+  },
+  {
+   "cmd": "photos",
+   "city_id": 439
+  },
+  {
+   "cmd": "photos",
+   "city_id": 526
+  }
+ ]
+}

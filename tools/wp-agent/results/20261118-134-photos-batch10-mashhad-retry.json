@@ -1,0 +1,37 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-134-photos-batch10-mashhad-retry.json",
+  "started_utc": "2026-11-18T14:12:49+00:00",
+  "note": "تکرار دستهٔ ۱۰ (مشهد) پس از رفع دو نقص ابزار در کار ۱۳۳: تایم‌اوت ۱۲۰ ثانیه‌ای برای عکسی که سایت باید خودش دانلود و ۴:۳ کند کوتاه بود و کل دسته را بدون گزارش می‌کشت؛ حالا تایم‌اوت ۳۰۰ ثانیه است، خطای شبکه فقط همان عکس را failed می‌کند، و گزارش در هر خروجی نوشته می‌شود. هیچ عکسی در کار ۱۳۳ وارد نشد (فایل نتیجه‌ای ساخته نشد).",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.118",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T14:12:49+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "photos-import",
+      "error": "photos-import failed (exit 1): imported 0, reused 0, failed 4, refused 0"
+    }
+  ],
+  "finished_utc": "2026-11-18T14:12:57+00:00"
+}

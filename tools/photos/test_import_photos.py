@@ -118,11 +118,19 @@ assert ip.crop_box(1600, 1200) == (0, 0, 800, 600), "a 4:3 source keeps the whol
 assert ip.crop_box(1200, 1600) == (0, 280, 800, 600), "a portrait source is cropped from the top (40 % of the slack)"
 assert ip.crop_box(300, 200)[2] <= 300, "a small source is never upscaled"
 
-# شکل نشانی بندانگشتی: عرض ۸۰۰px و نام فایل تکرارشده.
+# v2.22.118 (کار ۱۳۴) — ویکی‌مدیا از پاییز ۲۰۲۶ بندانگشتی با عرض دلخواه را با
+# خطای ۴۰۰ («Use thumbnail sizes listed on https://w.wiki/GHai») رد می‌کند.
+# کار ۱۳۴ هر چهار عکس مشهد را با ۸۰۰px فرستاد و سایت ۵۰۲ گرفت. حالا هر نشانی به
+# «فایل اصلی» برگردانده می‌شود؛ خودِ سایت آن را ۴:۳ و WebP می‌کند (سقف ۱۰ مگابایت).
 assert ip.commons_source_url(
     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/x.jpg/640px-x.jpg"
-) == "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/x.jpg/800px-x.jpg"
+) == "https://upload.wikimedia.org/wikipedia/commons/e/ee/x.jpg", "a thumb URL falls back to the original file"
+assert ip.commons_source_url(
+    "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ee/My%20Photo%20(2).jpg/960px-My%20Photo%20(2).jpg?x=1"
+) == "https://upload.wikimedia.org/wikipedia/commons/e/ee/My Photo (2).jpg", "thumb host and query string are dropped"
 assert ip.commons_source_url("https://upload.wikimedia.org/wikipedia/commons/e/ee/x.jpg").endswith("/e/ee/x.jpg"), "an original file URL is left alone"
+assert "/thumb/" not in ip.commons_source_url(
+    "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/x.jpg/1280px-x.jpg")
 
 try:
     from io import BytesIO

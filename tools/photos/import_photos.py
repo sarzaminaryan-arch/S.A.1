@@ -212,6 +212,21 @@ def optimize_to_webp(data: bytes, max_bytes: int = MAX_WEBP_BYTES) -> bytes:
         return data
 
 
+POST_TIMEOUT_SECONDS = 300
+
+
+def write_report(name: str, report: dict) -> None:
+    """گزارش دسته را بنویس، حتی اگر کار در میانه مرده باشد.
+
+    پیش از این، گزارش فقط در پایان نوشته می‌شد؛ کار ۱۳۳ وسط یک تایم‌اوت مرد و
+    هیچ فایلی نگذاشت که بگوید کدام عکس‌ها رسیده‌اند.
+    """
+    RESULT_DIR.mkdir(parents=True, exist_ok=True)
+    (RESULT_DIR / f"{name}.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
+    )
+
+
 def optimized_owner_bytes(photo: dict, data: bytes) -> bytes:
     """بایت‌های آمادهٔ ارسال برای پروندهٔ مالک، همراه با WebP کردن پیش از آپلود."""
     if photo.get("preoptimize") is False:
@@ -219,20 +234,36 @@ def optimized_owner_bytes(photo: dict, data: bytes) -> bytes:
     return optimize_to_webp(data)
 
 
-def commons_source_url(url: str) -> str:
-    """نشانی بندانگشتی ۸۰۰px ویکی‌مدیا (نسبت ۴:۳ خودِ فایل حفظ می‌شود).
+COMMONS_THUMB_WIDTH = 800
 
-    نشانی اصلی و شکل نامعتبر دست‌نخورده برمی‌گردند تا سنجهٔ `commons_thumb_shape`
-    همان‌جا خطا بدهد، نه این‌که خطا پنهان شود.
+
+def commons_original_url(url: str) -> str:
+    """نشانی «فایل اصلی» ویکی‌مدیا از هر شکلی از نشانی.
+
+    درس کار ۱۳۴: ویکی‌مدیا از پاییز ۲۰۲۶ بندانگشتی با عرض دلخواه (۸۰۰px، ۶۴۰px…)
+    را با خطای ۴۰۰ «Use thumbnail sizes listed on https://w.wiki/GHai» رد می‌کند،
+    پس سایت ۵۰۲ می‌گرفت و هیچ عکسی از دستهٔ مشهد وارد نشد. دسته‌های موفق پیش از
+    این (۷، ۸، ۹) همه نشانی فایل اصلی داشتند. حالا هر نشانی بندانگشتی به همان
+    فایل اصلی برگردانده می‌شود؛ خودِ سایت فایل را ۴:۳ و WebP می‌کند و سقف دریافت
+    ۱۰ مگابایت است، پس کیفیت هم بهتر می‌شود.
     """
-    if "/thumb/" not in url or not commons_thumb_shape(url):
+    parsed = urllib.parse.urlparse(url)
+    path = urllib.parse.unquote(parsed.path)
+    if "/thumb/" not in path:
         return url
-    head, _, tail = url.partition("/thumb/")
+    head, _, tail = path.partition("/thumb/")
     segs = [seg for seg in tail.split("/") if seg]
-    if len(segs) < 3:
+    if len(segs) < 4:
         return url
-    segs[-1] = f"{COMMONS_THUMB_WIDTH}px-{segs[-2]}"
-    return f"{head}/thumb/" + "/".join(segs)
+    original = "/".join(segs[:-1])          # …/commons/a/ab/<file> (فقط عرض می‌افتد)
+    # thumb.wikimedia.org فقط میزبان بندانگشتی است؛ فایل اصلی روی upload است.
+    host = "upload.wikimedia.org" if parsed.netloc.endswith("thumb.wikimedia.org") else parsed.netloc
+    return urllib.parse.urlunparse(parsed._replace(netloc=host, path=f"{head}/{original}", query=""))
+
+
+def commons_source_url(url: str) -> str:
+    """نشانی امن برای ارسال به سایت (همیشه فایل اصلی)."""
+    return commons_original_url(str(url or "").strip())
 
 
 def owner_file(photo: dict) -> tuple[Path, str]:
@@ -349,11 +380,16 @@ class Client:
             method="POST",
         )
         try:
-            with urllib.request.urlopen(req, timeout=120) as resp:
+            # سایت خودش فایل را از ویکی‌مدیا می‌گیرد و ۴:۳ می‌کند؛ برای عکس‌های
+            # چندمگابایتی ۱۲۰ ثانیه کم بود و کل دسته را می‌کشت (کار ۱۳۳).
+            with urllib.request.urlopen(req, timeout=POST_TIMEOUT_SECONDS) as resp:
                 return json.loads(resp.read().decode())
         except urllib.error.HTTPError as err:
             detail = err.read().decode()[:400]
             raise SystemExit(f"HTTP {err.code} on {path}: {detail}") from err
+        except (urllib.error.URLError, TimeoutError, OSError) as err:
+            # یک عکسِ کند نباید بقیهٔ دسته را بی‌نتیجه رها کند؛ بالا در حلقه گرفته می‌شود.
+            raise SystemExit(f"network error on {path}: {err}") from err
 
     def get(self, path: str) -> dict:
         import urllib.request
@@ -414,7 +450,21 @@ def main(argv: list[str]) -> int:
         print("the WordPress account cannot write", file=sys.stderr)
         return 1
 
-    for photo in batch.get("photos", []):
+    photos = batch.get("photos", [])
+    try:
+        _send_all(photos, client, report)
+    finally:
+        # هر خروجی (تایم‌اوت، خطای شبکه، Ctrl-C) گزارش را می‌نویسد.
+        write_report(name, report)
+    print(
+        f"imported {len(report['imported'])}, reused {len(report['reused'])}, "
+        f"failed {len(report['failed'])}, refused {len(report['refused'])}"
+    )
+    return 0 if not report["failed"] else 1
+
+
+def _send_all(photos: list, client: "Client", report: dict) -> None:
+    for photo in photos:
         shared = ("city_id", "place", "kind", "alt", "note", "points",
                   "highlight", "tag", "overlay", "area", "author", "license",
                   "license_url", "source_page")
@@ -444,16 +494,6 @@ def main(argv: list[str]) -> int:
             row["bytes_sent"] = len(data)
             row["mime_sent"] = sniff_mime(data)
         (report["reused"] if out.get("reused") else report["imported"]).append(row)
-
-    RESULT_DIR.mkdir(parents=True, exist_ok=True)
-    (RESULT_DIR / f"{name}.json").write_text(
-        json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8"
-    )
-    print(
-        f"imported {len(report['imported'])}, reused {len(report['reused'])}, "
-        f"failed {len(report['failed'])}, refused {len(report['refused'])}"
-    )
-    return 0 if not report["failed"] else 1
 
 
 if __name__ == "__main__":

@@ -1,0 +1,37 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-133-photos-batch10-mashhad.json",
+  "started_utc": "2026-11-18T14:07:22+00:00",
+  "note": "دستهٔ ۱۰ تصاویر — مشهد (۶۳)، نخستین شهرستان بزرگِ بی‌عکس. چهار عکس با مجوز آزاد و نام عکاسِ تأییدشده از extmetadata ویکی‌مدیا (حرم در شب، مقبرهٔ نادر شاه، صحن عتیق، مجسمهٔ نادر). سایت خودش مجوز و نام عکاس را پیش از ذخیره دوباره می‌سنجد و فایل ۴:۳ WebP زیر ۱۰۰ کیلوبایت می‌شود. سپس شمارش گالری مشهد و پراب.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.118",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T14:07:22+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "photos-import",
+      "error": "photos-import failed (exit 1): /S.A.1/S.A.1/tools/photos/import_photos.py\", line 437, in main\n    out = client.post(endpoint, body)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/work/S.A.1/S.A.1/tools/photos/import_photos.py\", line 352, in post\n    with urllib.request.urlopen(req, timeout=120) as resp:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py\", line 515, in open\n    response = self._open(req, data)\n               ^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py\", line 532, in _open\n    result = self._call_chain(self.handle_open, protocol, protocol +\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py\", line 1405, in https_open\n    return self.do_open(http.client.HTTPSConnection, req,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/hostedtoolcache/Python/3.12.16/x64/lib/python3.12/urllib/request.py\", line 1360, in do_open\n    raise URLError(err)\nurllib.error.URLError: <urlopen error timed out>"
+    }
+  ],
+  "finished_utc": "2026-11-18T14:10:07+00:00"
+}

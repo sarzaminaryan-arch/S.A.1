@@ -1,0 +1,69 @@
+{
+ "note": "دستهٔ ۱۰ — مشهد (۶۳) که تا امروز هیچ عکس مجوزی در گالری نداشت. نام عکاس، مجوز و صفحهٔ منبع هر فایل تک‌به‌تک از extmetadata همان پرونده در ویکی‌مدیا خوانده و ثبت شده؛ عکس‌های خبرگزاری (تسنیم) کنار گذاشته شدند چون سیاست سایت عکس خبری نمی‌پذیرد.",
+ "photos": [
+  {
+   "city_id": 63,
+   "place": "حرم امام رضا؛ گنبد در شب",
+   "kind": "heritage",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/5/59/Imam_Reza_shrine.jpg",
+   "author": "mohammad hosein tabatabaeian",
+   "license": "cc-by-sa-3",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Imam_Reza_shrine.jpg",
+   "alt": "گنبد و ایوان حرم امام رضا در شب",
+   "note": "حرم در مرکز شهر است و شب‌ها صحن‌ها تا دیروقت باز می‌مانند.",
+   "points": "مرکز مشهد|صحن‌های شبانه|نمای گنبد",
+   "highlight": "حرم امام رضا؛ شب",
+   "tag": "میراث",
+   "commons_page_id": 18299221
+  },
+  {
+   "city_id": 63,
+   "place": "مقبرهٔ نادر شاه افشار",
+   "kind": "heritage",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Tomb_of_Nader_Shah.JPG",
+   "author": "Nader Rajabnezhad",
+   "license": "cc-by-sa-4",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Tomb_of_Nader_Shah.JPG",
+   "alt": "بنای مقبرهٔ نادر شاه افشار و مجسمهٔ او در چهارراه نادر مشهد",
+   "note": "طراحی بنا از هوشنگ سیحون است و موزهٔ سلاح‌های دورهٔ افشاریه کنار همان مجموعه است.",
+   "points": "طراحی هوشنگ سیحون|موزهٔ افشاریه|چهارراه نادر",
+   "highlight": "مقبرهٔ نادر شاه؛ چهارراه نادر",
+   "tag": "میراث",
+   "commons_page_id": 44066631
+  },
+  {
+   "city_id": 63,
+   "place": "حرم امام رضا؛ صحن عتیق",
+   "kind": "heritage",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Imam_reza_shrine_in_Mashhad_(Longitudinal_Cropped).jpg",
+   "author": "IA (Wikimedia Commons)",
+   "license": "cc-by-3",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Imam_reza_shrine_in_Mashhad_(Longitudinal_Cropped).jpg",
+   "alt": "نمای طولی صحن عتیق و ایوان‌های حرم امام رضا",
+   "note": "صحن عتیق قدیمی‌ترین صحن مجموعه است و از خیابان امام رضا مستقیم به آن می‌رسید.",
+   "points": "صحن عتیق|ایوان طلا|بافت تاریخی",
+   "highlight": "صحن عتیق؛ حرم امام رضا",
+   "tag": "میراث",
+   "commons_page_id": 52168004
+  },
+  {
+   "city_id": 63,
+   "place": "مجسمهٔ نادر شاه در میدان نادر",
+   "kind": "heritage",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/37/Nader_(7).jpg",
+   "author": "Mostafameraji",
+   "license": "cc-by-sa-4",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "source_page": "https://commons.wikimedia.org/wiki/File:Nader_(7).jpg",
+   "alt": "مجسمهٔ سوارکاری نادر شاه بر فراز مقبرهٔ او",
+   "note": "مجسمهٔ برنزی نادر سوار بر اسب، نشانهٔ میدان نادر است و از دور هم دیده می‌شود.",
+   "points": "مجسمهٔ برنزی|میدان نادر|نشانهٔ شهری",
+   "highlight": "مجسمهٔ نادر شاه",
+   "tag": "میراث",
+   "commons_page_id": 54876960
+  }
+ ]
+}
