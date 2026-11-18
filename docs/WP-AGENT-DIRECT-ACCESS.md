@@ -127,7 +127,7 @@ sarzaminaryan.ir/wp-json/sa-agent/v1   (inc/agent-bridge.php در قالب فر�
 به‌روزرسانی قالب پشتیبان کامل تازه گرفته نشود. گام کار همان می‌ماند با یک کلید اضافه:
 
 ```json
-{"cmd": "theme-update", "expected_version": "2.22.116", "owner_approved_theme_update": true,
+{"cmd": "theme-update", "expected_version": "2.22.117", "owner_approved_theme_update": true,
  "allow_without_backup": true, "probe": ["/", "/city/kazerun/"], "rollback_to": "2.22.115"}
 ```
 
@@ -140,7 +140,7 @@ sarzaminaryan.ir/wp-json/sa-agent/v1   (inc/agent-bridge.php در قالب فر�
 - کار ۱۲: ۲.۲۲.۷۵ ← ۲.۲۲.۷۶؛
 - کار ۱۳: ← ۲.۲۲.۷۷؛
 - کار ۱۴: ← ۲.۲۲.۷۸؛
-- کار ۱۲۷: ← ۲.۲۲.۱۱۶ (بدون پشتیبان تازه، بازگشت به ۲.۲۲.۱۱۵ مسلح).
+- کار ۱۲۷: ← ۲.۲۲.۱۱۷ (بستهٔ گالری تصاویر شهرستان؛ بدون پشتیبان تازه، بازگشت به ۲.۲۲.۱۱۵ مسلح).
 
 هر سه سالم و هر کدام حدود ۴ تا ۷ دقیقه.
 
