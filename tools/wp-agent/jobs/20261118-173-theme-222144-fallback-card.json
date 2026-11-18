@@ -1,12 +1,33 @@
 {
  "note": "۲.۲۲.۱۴۴ (۲۸ آبان ۱۴۰۵): کارت جایگزین موقت برای نوشته‌های بی‌عکس. نصب قالب + بررسی چشمی فقط با خواندن صفحه (probe + get). هیچ تغییری در نوشته‌ها، هیچ حذفی، بدون بکاپ سنگین. بازگشت به ۲.۲۲.۱۴۳.",
  "steps": [
-  {"cmd": "ping"},
-  {"cmd": "theme-update", "expected_version": "2.22.144", "wait_for_release": 480,
-   "owner_approved_theme_update": true, "allow_without_backup": true,
-   "probe": ["/", "/city/mashhad/"],
-   "rollback_to": "2.22.143"},
-  {"cmd": "get", "id": 910},
-  {"cmd": "probe", "urls": ["/leg-fracture-first-aid/", "/diy-can-stove/", "/nozhian-waterfall-khorramabad/", "/city/mashhad/"]}
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.144",
+   "wait_for_release": 480,
+   "owner_approved_theme_update": true,
+   "allow_without_backup": true,
+   "probe": [
+    "/",
+    "/city/mashhad/"
+   ],
+   "rollback_to": "2.22.143"
+  },
+  {
+   "cmd": "get",
+   "id": 910
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/leg-fracture-first-aid/",
+    "/diy-can-stove/",
+    "/nozhian-waterfall-khorramabad/",
+    "/city/mashhad/"
+   ]
+  }
  ]
 }
