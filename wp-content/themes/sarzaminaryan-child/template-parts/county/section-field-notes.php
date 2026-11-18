@@ -19,7 +19,7 @@ $sa_profile_ext = isset( $sa_profile_ext ) && is_array( $sa_profile_ext )
 $sa_ins = $sa_profile_ext;
 $sa_county_full = function_exists( 'sa_county_name' ) ? sa_county_name( $sa_id, true ) : get_the_title( $sa_id );
 if ( function_exists( 'sa_toc_register' ) && ! empty( $sa_ins['has_insights'] ) ) {
-	sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6 );
+	sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6, 2 );
 }
 ?>
 <?php
@@ -34,7 +34,32 @@ $sa_ins = $sa_profile_ext;
 <?php if ( ! empty( $sa_ins['has_insights'] ) ) : ?>
 	<section class="sa-field-notes" id="county-field-notes" aria-label="تجربهٔ مسافرها">
 		<div class="profile-box sa-field-notes__head">
-			<h2>تجربهٔ مسافرها</h2>
+			<?php
+			// v2.22.148 (دستور مالک، مرحلهٔ ۳): سلسله‌مراتب تیترها. بدنهٔ اصلی مقاله
+			// H2 است، پس «تجربهٔ مسافرها» که بر آن مقدم است H3 می‌شود و زیربخش‌هایش
+			// یک پله پایین‌تر می‌آیند. این بلوک با یک `<h3>` ادغام یا جابه‌جا نمی‌شود؛
+			// فقط سطح تیتر و شماره‌گذاریِ عنوان عوض شده است.
+			// هم‌ترتیب با همان شرط‌هایی که زیربخش‌ها را چاپ می‌کنند، تا شماره با
+			// عنوان هر کادر روبه‌رو باشد. کادرهای اطلاعات عنوان تیتر ندارند و
+			// صفر شمرده می‌شوند.
+			$sa_fn_sections = array(); // شمارهٔ پیوستهٔ زیربخش‌های موجود.
+			foreach ( array( 'seasons', 'extra_places', 'local_tips', 'people_character' ) as $sa_fn_key ) {
+				if ( ! empty( $sa_ins[ $sa_fn_key ] ) ) {
+					$sa_fn_sections[] = $sa_fn_key;
+				}
+			}
+			$sa_fn_total = count( $sa_fn_sections );
+			$sa_fn_num   = static function ( $sa_fn_id ) use ( $sa_fn_sections, $sa_fn_total ) {
+				$sa_fn_at = array_search( $sa_fn_id, $sa_fn_sections, true );
+				if ( false === $sa_fn_at ) {
+					return '';
+				}
+				$sa_fn_seq = (string) ( $sa_fn_at + 1 );
+				$sa_fn_seq = function_exists( 'sa_digits' ) ? sa_digits( $sa_fn_seq ) : $sa_fn_seq;
+				return $sa_fn_total > 1 ? $sa_fn_seq . '. ' : '';
+			};
+			?>
+			<h3>تجربهٔ مسافرها</h3>
 		</div>
 
 		<?php if ( ! empty( $sa_ins['access_facts'] ) ) : ?>
@@ -50,7 +75,7 @@ $sa_ins = $sa_profile_ext;
 
 		<?php if ( ! empty( $sa_ins['seasons'] ) ) : ?>
 			<div class="profile-box sa-field-seasons">
-				<h3>اقلیم و آب‌وهوا، فصل‌به‌فصل</h3>
+				<h4><?php echo esc_html( $sa_fn_num( 'seasons' ) ); ?>اقلیم و آب‌وهوا، فصل‌به‌فصل</h4>
 				<div class="sa-field-seasons__grid">
 					<?php $sa_season_slugs = array( 'بهار' => 'spring', 'تابستان' => 'summer', 'پاییز' => 'autumn', 'زمستان' => 'winter' ); ?>
 					<?php $sa_season_en = array( 'بهار' => 'Spring', 'تابستان' => 'Summer', 'پاییز' => 'Autumn', 'زمستان' => 'Winter' ); ?>
@@ -81,7 +106,7 @@ $sa_ins = $sa_profile_ext;
 
 		<?php if ( ! empty( $sa_ins['extra_places'] ) ) : ?>
 			<div class="profile-box sa-field-places">
-				<h3>جاهای دیدنی <?php echo esc_html( $sa_county_full ); ?></h3>
+				<h4><?php echo esc_html( $sa_fn_num( 'extra_places' ) ); ?>جاهای دیدنی <?php echo esc_html( $sa_county_full ); ?></h4>
 				<ul class="sa-field-places__list">
 					<?php foreach ( (array) $sa_ins['extra_places'] as $sa_place ) : ?>
 						<li class="sa-field-place">
@@ -100,7 +125,7 @@ $sa_ins = $sa_profile_ext;
 
 		<?php if ( ! empty( $sa_ins['local_tips'] ) ) : ?>
 			<div class="profile-box sa-field-tips">
-				<h3>نکته‌هایی که کاش قبل از راه‌افتادن بدانید</h3>
+				<h4><?php echo esc_html( $sa_fn_num( 'local_tips' ) ); ?>نکته‌هایی که کاش قبل از راه‌افتادن بدانید</h4>
 				<div class="sa-field-tips__grid">
 					<?php foreach ( (array) $sa_ins['local_tips'] as $sa_tip ) : ?>
 						<div class="sa-field-tip sa-field-tip--<?php echo esc_attr( (string) $sa_tip['category'] ); ?>">
@@ -118,7 +143,7 @@ $sa_ins = $sa_profile_ext;
 
 		<?php if ( ! empty( $sa_ins['people_character'] ) ) : ?>
 			<div class="profile-box sa-field-people">
-				<h3>مردمِ این‌جا، از نگاه مسافرها</h3>
+				<h4><?php echo esc_html( $sa_fn_num( 'people_character' ) ); ?>مردمِ این‌جا، از نگاه مسافرها</h4>
 				<p><?php echo esc_html( (string) $sa_ins['people_character'] ); ?></p>
 			</div>
 		<?php endif; ?>

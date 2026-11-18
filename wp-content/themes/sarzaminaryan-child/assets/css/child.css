@@ -6979,7 +6979,8 @@ body.bg-lines::before {
 	margin-top: 1rem;
 }
 
-.sa-field-notes__head h2 {
+.sa-field-notes__head h2,
+.sa-field-notes__head h3 {
 	margin: 0 0 .5rem;
 	font-size: 1.35rem;
 }
@@ -7026,7 +7027,11 @@ body.bg-lines::before {
 .sa-field-seasons h3,
 .sa-field-places h3,
 .sa-field-tips h3,
-.sa-field-people h3 {
+.sa-field-people h3,
+.sa-field-seasons h4,
+.sa-field-places h4,
+.sa-field-tips h4,
+.sa-field-people h4 {
 	margin: 0 0 .7rem;
 	font-size: 1.05rem;
 }
@@ -7421,7 +7426,8 @@ body.bg-lines::before {
 	padding: 1.1rem 1.25rem;
 }
 
-.sa-field-notes__head h2 {
+.sa-field-notes__head h2,
+.sa-field-notes__head h3 {
 	font-size: 1.55rem;
 	font-weight: 900;
 }
@@ -8266,3 +8272,12 @@ body.bg-lines::before {
 		}
 	}
 }
+
+/* ==========================================================================
+   v2.22.148 — سلسله‌مراتب تیتر «تجربهٔ مسافرها» (دستور مالک، مرحلهٔ ۳)
+   --------------------------------------------------------------------------
+   بدنهٔ اصلی مقاله H2 است؛ این بلوک که بر آن مقدم است H3 شد و زیربخش‌هایش
+   H4. هیچ استایل تازه‌ای این‌جا لازم نیست — قاعده‌های بالا هر دو سطح را
+   یکسان می‌آرایند تا ظاهر کادرها دست‌نخورده بماند. اگر روزی سطح تیتر عوض شد،
+   همین دو گروه انتخابگر باید همراه آن عوض شوند.
+   ========================================================================== */

@@ -481,11 +481,11 @@ $tpl_field  = (string) file_get_contents( $theme_dir . '/template-parts/county/s
 $tpl_ident  = (string) file_get_contents( $theme_dir . '/template-parts/county/section-identity.php' );
 $tpl        = $tpl_field . "\n" . $tpl_ident;
 sa_ci_assert( false !== strpos( $tpl, 'id="county-field-notes"' ), 'template: block anchor exists for the TOC' );
-sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6 )" ), 'template: TOC entry registered with the clean block title (2.22.86)' );
+sa_ci_assert( false !== strpos( $tpl, "sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6, 2 )" ), 'template: TOC entry registered with the clean block title (2.22.86) and one level under the body (2.22.148)' );
 /* 2.22.86 (دستور مالک): بلوک تجربهٔ مسافرها عنوان تمیز دارد؛ توضیح زیر عنوان
  * و سطر «آخرین به‌روزرسانی این بخش» حذف شدند و زیر عنوان مستقیم کادرهای
  * اطلاعات، فصل‌ها، جاهای دیدنی شهرستان و نکته‌ها می‌آیند. */
-sa_ci_assert( false !== strpos( $tpl, '<h2>تجربهٔ مسافرها</h2>' ), 'template: clean traveller-block title (2.22.86)' );
+sa_ci_assert( false !== strpos( $tpl, '<h3>تجربهٔ مسافرها</h3>' ), 'template: clean traveller-block title (2.22.86) at H3, one level under the body H2 (2.22.148)' );
 sa_ci_assert( false === strpos( $tpl, 'گوگل‌مپ، نشان، بلد' ), 'template: long sourcing note removed from the page (2.22.86)' );
 sa_ci_assert( false === strpos( $tpl, 'ممکن است بعضی جزئیات' ), 'template: uncertainty note removed (2.22.86)' );
 sa_ci_assert( false === strpos( $tpl, 'دوباره به‌روز می‌کنیم' ), 'template: re-update promise removed (2.22.86)' );
