@@ -652,6 +652,12 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("storage", help="read-only: real size of agent backups, UpdraftPlus sets and uploads")
+    p = sub.add_parser("updraft-cloud", help="read-only: three evidences that a set really uploaded to the cloud (theme 2.22.129+)")
+    p.add_argument("--nonce", required=True)
+    p = sub.add_parser("updraft-delete-local", help="delete a set's local files, only after the cloud copy is verified (dry run unless --owner-approved-prune)")
+    p.add_argument("--nonce", required=True)
+    p.add_argument("--apply", action="store_true")
+    p.add_argument("--owner-approved-prune", action="store_true")
     p = sub.add_parser("updraft-prune", help="delete the files of one outdated UpdraftPlus set (dry run unless --owner-approved-prune)")
     p.add_argument("--nonce", required=True, help="the set's nonce from GET /storage")
     p.add_argument("--owner-approved-prune", action="store_true")
@@ -935,6 +941,13 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("GET", "/backups", {"target": a.target or None})
     elif a.cmd == "storage":
         return c.call("GET", "/storage")
+    elif a.cmd == "updraft-cloud":
+        return c.call("GET", "/updraft/cloud", {"nonce": a.nonce})
+    elif a.cmd == "updraft-delete-local":
+        if a.apply and not a.owner_approved_prune:
+            raise AgentError("updraft-delete-local --apply needs --owner-approved-prune (owner's explicit order)")
+        body = {"nonce": a.nonce, "dry_run": not a.apply, "owner_approved_prune": bool(a.owner_approved_prune)}
+        return c.call("POST", "/updraft/delete-local", body=body)
     elif a.cmd == "updraft-prune":
         if a.apply and not a.owner_approved_prune:
             raise AgentError("updraft-prune --apply needs --owner-approved-prune (owner's explicit order)")

@@ -229,6 +229,12 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+// v2.22.129: بررسی مستند ابری + حذف محلی با نگهبان، و نشانگر پاسخ.
+sa_ig_assert( false !== strpos( $ops, 'function sa_agent_updraft_cloud_probe' ), 'cloud probe helper exists' );
+sa_ig_assert( false !== strpos( $ops, "OK: Archive " ) && false !== strpos( $ops, "uploaded to " ), 'cloud probe reads the upload confirmation line of the log' );
+sa_ig_assert( false !== strpos( $ops, "function sa_agent_rest_updraft_delete_local" ) && false !== strpos( $ops, "'cloud_copy_not_verified'" ), 'local delete is blocked unless the cloud copy is verified' );
+sa_ig_assert( false !== strpos( $ops, "'/updraft/cloud'" ) && false !== strpos( $ops, "'/updraft/delete-local'" ), 'cloud + delete-local routes registered' );
+sa_ig_assert( false !== strpos( $ops, "'marker'        => 'prune-v129'" ), 'prune response carries a version marker' );
 // v2.22.128: سد دوم در حلقهٔ حذف — هر چیزی جز post رد می‌شود.
 sa_ig_assert( false !== strpos( $ops, "if ( 'post' !== (string) ( isset( \$d['kind'] ) ? \$d['kind'] : '' ) )" ), 'the delete loop refuses any non-post record' );
 // v2.22.127 (شرط مالک): نسخهٔ تنظیمات هرگز حذف نمی‌شود؛ فقط پشتیبان نوشته.
