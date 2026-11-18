@@ -69,7 +69,7 @@ if ( preg_match_all( "/^\\t\\t'([a-z-]+)'\\s+=> array\\(/m", $sa_hl_reg, $sa_hl_
 	$sa_hl_keys = $sa_hl_m[1];
 }
 sa_hl_assert(
-	array( 'sa-county-cover', 'sa-county-toc', 'sa-county-identity', 'sa-county-notes', 'sa-county-field', 'sa-county-body', 'sa-county-faq', 'sa-county-photos', 'sa-county-rating', 'sa-county-sources', 'sa-county-contrib', 'sa-county-related', 'sa-county-nav' ) === $sa_hl_keys,
+	array( 'sa-county-cover', 'sa-county-toc', 'sa-county-identity', 'sa-county-notes', 'sa-county-field', 'sa-county-body', 'sa-county-faq', 'sa-county-gallery', 'sa-county-rating', 'sa-county-sources', 'sa-county-contrib', 'sa-county-related', 'sa-county-nav' ) === $sa_hl_keys,
 	'ترتیب سیزده سکشن رجیستری عوض نشده است'
 );
 sa_hl_assert( false !== strpos( $sa_hl_reg, "'render' => 'sa_county_field_notes_html'," ), 'سکشن تجربه همان رندرکنندهٔ قبلی را دارد' );
