@@ -1,0 +1,1399 @@
+{
+  "job": "tools/wp-agent/jobs/20261119-23-photos-batch9.json",
+  "started_utc": "2026-11-18T10:22:26+00:00",
+  "note": "دستهٔ ۹: وارد کردن سی اصل کامانز بعد از دیدن پنج برگهٔ تطبیق موضوع، نام و مجوز. فهرست پیوست‌ها برای هر نوشته جداگانه خوانده می‌شود؛ کادر عکس اول به تنهایی ملاک نیست.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "photos-import",
+      "result": {
+        "batch": "20261119-batch9",
+        "note": "دستهٔ ۹ — سی اصل کامانز؛ شناسهٔ پرونده و اندازه از اطلاعات همان نسخه. عکس خبری، بندانگشتی یا اثر با عکاس نامعلوم وارد نمی‌شود.",
+        "imported": [
+          {
+            "place": "پارک جنگلی نور",
+            "id": 4780,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bed8a7d8b1daa9-d8acd986daafd984db8c-d986d988d8b1-ee7136.jpg"
+          },
+          {
+            "place": "درهٔ لاویج",
+            "id": 4781,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8b1d987d994-d984d8a7d988db8cd8ac-ca9e2a.jpg"
+          },
+          {
+            "place": "خانهٔ نیما در یوش",
+            "id": 4782,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8aed8a7d986d987d994-d986db8cd985d8a7-d8afd8b1-db8cd988d8b4-22e3a5.jpg"
+          },
+          {
+            "place": "لیسار تالش",
+            "id": 4783,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d984db8cd8b3d8a7d8b1-d8aad8a7d984d8b4-f6df53.jpg"
+          },
+          {
+            "place": "بازار سوباتان",
+            "id": 4784,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d8a7d8b2d8a7d8b1-d8b3d988d8a8d8a7d8aad8a7d986-66b309.jpg"
+          },
+          {
+            "place": "ییلاق سوباتان",
+            "id": 4785,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-db8cdb8cd984d8a7d982-d8b3d988d8a8d8a7d8aad8a7d986-c88131.jpg"
+          },
+          {
+            "place": "رود خالکایی",
+            "id": 4786,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b1d988d8af-d8aed8a7d984daa9d8a7db8cdb8c-73763a.jpg"
+          },
+          {
+            "place": "جنگل شاندرمن",
+            "id": 4787,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8acd986daafd984-d8b4d8a7d986d8afd8b1d985d986-0b464e.jpg"
+          },
+          {
+            "place": "دامنه‌های ماسال",
+            "id": 4788,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8a7d985d986d987d987d8a7db8c-d985d8a7d8b3d8a7d984-abaff8.jpg"
+          },
+          {
+            "place": "مجتمع ارشاد سرعین",
+            "id": 4789,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8acd8aad985d8b9-d8a7d8b1d8b4d8a7d8af-d8b3d8b1d8b9db8cd986-f8dac6.jpg"
+          },
+          {
+            "place": "دامنه‌های سرعین",
+            "id": 4790,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8a7d985d986d987d987d8a7db8c-d8b3d8b1d8b9db8cd986-5f9bd6.jpg"
+          },
+          {
+            "place": "بالابر آلوارس",
+            "id": 4791,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d8a7d984d8a7d8a8d8b1-d8a2d984d988d8a7d8b1d8b3-ebbf12.jpg"
+          },
+          {
+            "place": "نمازخانهٔ چوپان",
+            "id": 4792,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d986d985d8a7d8b2d8aed8a7d986d987d994-da86d988d9bed8a7d986-43cfd5.jpg"
+          },
+          {
+            "place": "حمام کردشت",
+            "id": 4793,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8add985d8a7d985-daa9d8b1d8afd8b4d8aa-dfacd8.jpg"
+          },
+          {
+            "place": "صومعهٔ سنت استپانوس",
+            "id": 4794,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b5d988d985d8b9d987d994-d8b3d986d8aa-d8a7d8b3d8aad9bed8a7d986d988d8b3-115899.jpg"
+          },
+          {
+            "place": "سنگ‌نگارهٔ نقش رجب",
+            "id": 4795,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d986daafd986daafd8a7d8b1d987d994-d986d982d8b4-d8b1d8acd8a8-13afa7.jpg"
+          },
+          {
+            "place": "دروازهٔ ملل در عکس تاریخی",
+            "id": 4796,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8b1d988d8a7d8b2d987d994-d985d984d984-d8afd8b1-d8b9daa9d8b3-d8aad8a7d8b1db8cd8aedb8c-b19076.jpg"
+          },
+          {
+            "place": "آرامگاه داریوش در نقش رستم",
+            "id": 4797,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a2d8b1d8a7d985daafd8a7d987-d8afd8a7d8b1db8cd988d8b4-d8afd8b1-d986d982d8b4-d8b1d8b3d8aad985-4e8123.jpg"
+          },
+          {
+            "place": "پیکرهٔ غار شاپور",
+            "id": 4798,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d9bedb8cdaa9d8b1d987d994-d8bad8a7d8b1-d8b4d8a7d9bed988d8b1-6611d9.jpg"
+          },
+          {
+            "place": "نقش شاپور در تنگ چوگان",
+            "id": 4799,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d986d982d8b4-d8b4d8a7d9bed988d8b1-d8afd8b1-d8aad986daaf-da86d988daafd8a7d986-03c98a.jpg"
+          },
+          {
+            "place": "معبد آناهیتای بیشاپور",
+            "id": 4800,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8b9d8a8d8af-d8a2d986d8a7d987db8cd8aad8a7db8c-d8a8db8cd8b4d8a7d9bed988d8b1-bf671b.jpg"
+          },
+          {
+            "place": "موزهٔ جهرم",
+            "id": 4801,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d988d8b2d987d994-d8acd987d8b1d985-0ff3d3.jpg"
+          },
+          {
+            "place": "مسجد جامع جهرم",
+            "id": 4802,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d985d8b3d8acd8af-d8acd8a7d985d8b9-d8acd987d8b1d985-e58231.jpg"
+          },
+          {
+            "place": "دروازهٔ پیرشبیب",
+            "id": 4803,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8afd8b1d988d8a7d8b2d987d994-d9bedb8cd8b1d8b4d8a8db8cd8a8-f8c32b.jpg"
+          },
+          {
+            "place": "قلعهٔ اژدهاپیکر",
+            "id": 4804,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d982d984d8b9d987d994-d8a7da98d8afd987d8a7d9bedb8cdaa9d8b1-4c0b97.jpg"
+          },
+          {
+            "place": "برج ننه‌نادر لار",
+            "id": 4805,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d8b1d8ac-d986d986d987d986d8a7d8afd8b1-d984d8a7d8b1-395033.jpg"
+          },
+          {
+            "place": "بازار قیصریهٔ لار",
+            "id": 4806,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d8a7d8b2d8a7d8b1-d982db8cd8b5d8b1db8cd987d994-d984d8a7d8b1-392165.jpg"
+          },
+          {
+            "place": "بلوار شهری بندر گناوه",
+            "id": 4807,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d984d988d8a7d8b1-d8b4d987d8b1db8c-d8a8d986d8afd8b1-daafd986d8a7d988d987-a636ed.jpg"
+          },
+          {
+            "place": "ساحل خلیج فارس در گناوه",
+            "id": 4808,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8b3d8a7d8add984-d8aed984db8cd8ac-d981d8a7d8b1d8b3-d8afd8b1-daafd986d8a7d988d987-84a5bc.jpg"
+          },
+          {
+            "place": "بازار گناوه",
+            "id": 4809,
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/sa-photo-d8a8d8a7d8b2d8a7d8b1-daafd986d8a7d988d987-5f8cfe.jpg"
+          }
+        ],
+        "reused": [],
+        "refused": [],
+        "failed": []
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "534": 3
+        },
+        "photos": [
+          {
+            "id": 4782,
+            "city_id": 534,
+            "place": "خانهٔ نیما در یوش",
+            "kind": "heritage",
+            "author": "Alireza Javaheri",
+            "license": "cc-by-3",
+            "license_label": "CC BY 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Nima_house.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4781,
+            "city_id": 534,
+            "place": "درهٔ لاویج",
+            "kind": "nature",
+            "author": "Mahdi Kalhor",
+            "license": "cc-by-3",
+            "license_label": "CC BY 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Lavij_Village_%D8%A2%D8%A8%DA%AF%D8%B1%D9%85_%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C_%D8%B2%DB%8C%D8%A8%D8%A7%DB%8C_%D9%84%D8%A7%D9%88%DB%8C%D8%AC_-_panoramio.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4780,
+            "city_id": 534,
+            "place": "پارک جنگلی نور",
+            "kind": "nature",
+            "author": "ENMIRAN",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Nur_Forest_Park_1.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "454": 3
+        },
+        "photos": [
+          {
+            "id": 4785,
+            "city_id": 454,
+            "place": "ییلاق سوباتان",
+            "kind": "nature",
+            "author": "آرش روحی پور",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%B3%D9%88%D8%A8%D8%A7%D8%AA%D8%A7%D9%86.JPG",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4784,
+            "city_id": 454,
+            "place": "بازار سوباتان",
+            "kind": "fun",
+            "author": "آرش روحی پور",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%D8%B3%D9%88%D8%A8%D8%A7%D8%AA%D8%A7%D9%86.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4783,
+            "city_id": 454,
+            "place": "لیسار تالش",
+            "kind": "nature",
+            "author": "آرش روحی پور",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D9%84%DB%8C%D8%B3%D8%A7%D8%B1.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "466": 3
+        },
+        "photos": [
+          {
+            "id": 4788,
+            "city_id": 466,
+            "place": "دامنه‌های ماسال",
+            "kind": "nature",
+            "author": "Payam Jahangiri / Persian Dutch Network",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Masal_-_Gilan_Province_of_Persia.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4787,
+            "city_id": 466,
+            "place": "جنگل شاندرمن",
+            "kind": "nature",
+            "author": "Lhamzarei",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%AC%D9%86%DA%AF%D9%84_%D8%B4%D8%A7%D9%86%D8%AF%D8%B1%D9%85%D9%86.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4786,
+            "city_id": 466,
+            "place": "رود خالکایی",
+            "kind": "nature",
+            "author": "Rasool abbasi17",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%B1%D9%88%D8%AF%D8%AE%D8%A7%D9%86%D9%87_%D8%AE%D8%A7%D9%84%DA%A9%D8%A7%DB%8C%DB%8C.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "142": 3
+        },
+        "photos": [
+          {
+            "id": 4791,
+            "city_id": 142,
+            "place": "بالابر آلوارس",
+            "kind": "fun",
+            "author": "Soroush90gh",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Alvars2.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4790,
+            "city_id": 142,
+            "place": "دامنه‌های سرعین",
+            "kind": "nature",
+            "author": "Abbas Afsharibakhsh / Persian Dutch Network",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Sareyn_Ardebil_Province_of_Persia_July_2011.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4789,
+            "city_id": 142,
+            "place": "مجتمع ارشاد سرعین",
+            "kind": "modern",
+            "author": "Tohid mosazadeh",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%AC%D8%AA%D9%85%D8%B9_%D8%A2%D8%A8%D8%AF%D8%B1%D9%85%D8%A7%D9%86%DB%8C_%D9%88%D9%87%D8%AA%D9%84_%D8%A2%D9%BE%D8%A7%D8%B1%D8%AA%D9%85%D8%A7%D9%86_%D8%A7%D8%B1%D8%B4%D8%A7%D8%AF.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "105": 3
+        },
+        "photos": [
+          {
+            "id": 4794,
+            "city_id": 105,
+            "place": "صومعهٔ سنت استپانوس",
+            "kind": "heritage",
+            "author": "Ninara",
+            "license": "cc-by-2",
+            "license_label": "CC BY 2.0",
+            "source": "https://commons.wikimedia.org/wiki/File:History_History_IMG_4239_Jolfa,_Iran_(5244684349).jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4793,
+            "city_id": 105,
+            "place": "حمام کردشت",
+            "kind": "heritage",
+            "author": "Fatemehemami",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Bath_kordasht.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4792,
+            "city_id": 105,
+            "place": "نمازخانهٔ چوپان",
+            "kind": "heritage",
+            "author": "aydin tabrizi",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Chupan_church.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 7,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "324": 3
+        },
+        "photos": [
+          {
+            "id": 4797,
+            "city_id": 324,
+            "place": "آرامگاه داریوش در نقش رستم",
+            "kind": "heritage",
+            "author": "M-nemat",
+            "license": "cc0",
+            "license_label": "CC0 1.0 (مالکیت عمومی)",
+            "source": "https://commons.wikimedia.org/wiki/File:Kreuzf%C3%B6rmige_Felsengrab_von_Darius_I._(Darius_dem_Gro%C3%9Fen)_Mohammad_Nemat_Zadeh.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4796,
+            "city_id": 324,
+            "place": "دروازهٔ ملل در عکس تاریخی",
+            "kind": "heritage",
+            "author": "Luigi Pesce",
+            "license": "cc0",
+            "license_label": "CC0 1.0 (مالکیت عمومی)",
+            "source": "https://commons.wikimedia.org/wiki/File:(10)_-Gate_of_all_Nations,_Persepolis,_Fars-_MET_DP203034.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4795,
+            "city_id": 324,
+            "place": "سنگ‌نگارهٔ نقش رجب",
+            "kind": "heritage",
+            "author": "Sasha India",
+            "license": "cc-by-2",
+            "license_label": "CC BY 2.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Naqsh-E_Rajab_(13)_(28614462075).jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 8,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "325": 3
+        },
+        "photos": [
+          {
+            "id": 4800,
+            "city_id": 325,
+            "place": "معبد آناهیتای بیشاپور",
+            "kind": "heritage",
+            "author": "Majid Taghipour",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Anahita_temple,_Bishapur_08.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4799,
+            "city_id": 325,
+            "place": "نقش شاپور در تنگ چوگان",
+            "kind": "heritage",
+            "author": "Ziegler175",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:IranBishapurShapursIdreifacherSieg.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4798,
+            "city_id": 325,
+            "place": "پیکرهٔ غار شاپور",
+            "kind": "heritage",
+            "author": "Wiki-in-basel",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:The_Colossal_Statue_of_Shapur_I.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 9,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "326": 3
+        },
+        "photos": [
+          {
+            "id": 4803,
+            "city_id": 326,
+            "place": "دروازهٔ پیرشبیب",
+            "kind": "heritage",
+            "author": "Pooryaneh",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:GATE03.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4802,
+            "city_id": 326,
+            "place": "مسجد جامع جهرم",
+            "kind": "heritage",
+            "author": "F rahmanian",
+            "license": "cc-by-sa-3",
+            "license_label": "CC BY-SA 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D9%85%D8%B3%D8%AC%D8%AF_%D8%AC%D8%A7%D9%85%D8%B9_%D8%AC%D9%87%D8%B1%D9%85.JPG",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4801,
+            "city_id": 326,
+            "place": "موزهٔ جهرم",
+            "kind": "heritage",
+            "author": "Rizorius",
+            "license": "cc-by-4",
+            "license_label": "CC BY 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Jahrom_museum.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 10,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "327": 3
+        },
+        "photos": [
+          {
+            "id": 4806,
+            "city_id": 327,
+            "place": "بازار قیصریهٔ لار",
+            "kind": "heritage",
+            "author": "Hesam khandan",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%D9%82%DB%8C%D8%B5%D8%B1%DB%8C%D9%87_%D9%84%D8%A7%D8%B1.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4805,
+            "city_id": 327,
+            "place": "برج ننه‌نادر لار",
+            "kind": "heritage",
+            "author": "Hesamkhandan",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D8%A8%D8%B1%D8%AC_%D9%85%D8%A7%D8%AF%D8%B1_%D9%86%D8%A7%D8%AF%D8%B1_%D8%B4%D8%A7%D9%87_%D9%84%D8%A7%D8%B1_(%D8%A8%D8%B1%D8%AC_%D9%86%D9%86%D9%87_%D9%86%D8%A7%D8%AF%D8%B1).jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4804,
+            "city_id": 327,
+            "place": "قلعهٔ اژدهاپیکر",
+            "kind": "heritage",
+            "author": "Hesamkhandan",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:%D9%82%D9%84%D8%B9%D9%87_%D8%A7%DA%98%D8%AF%D9%87%D8%A7_%D9%BE%DB%8C%DA%A9%D8%B1_%D8%AF%D8%B1_%D8%B4%D8%A8.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 11,
+      "cmd": "photos",
+      "result": {
+        "count": 3,
+        "per_city": {
+          "203": 3
+        },
+        "photos": [
+          {
+            "id": 4809,
+            "city_id": 203,
+            "place": "بازار گناوه",
+            "kind": "fun",
+            "author": "Ebrahimf7",
+            "license": "cc-by-sa-4",
+            "license_label": "CC BY-SA 4.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Genave.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4808,
+            "city_id": 203,
+            "place": "ساحل خلیج فارس در گناوه",
+            "kind": "nature",
+            "author": "Mahdi Kalhor",
+            "license": "cc-by-3",
+            "license_label": "CC BY 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Persian_Gulf,_Heat_of_the_Day,_Bandar_Ganaveh_%D8%AE%D9%84%DB%8C%D8%AC_%D9%81%D8%A7%D8%B1%D8%B3%D8%8C_%D8%A8%D8%A7%DB%8C%D8%AF%D8%AF%D9%84_%D8%B1%D9%88_%D8%A8%D9%87_%D8%AF%D8%B1%DB%8C%D8%A7%D8%B2%D8%AF%D8%8C%D8%A8%D9%86%D8%AF%D8%B1%DA%AF%D9%86%D8%A7%D9%88%D9%87_-_panoramio.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          },
+          {
+            "id": 4807,
+            "city_id": 203,
+            "place": "بلوار شهری بندر گناوه",
+            "kind": "modern",
+            "author": "Alireza Javaheri",
+            "license": "cc-by-3",
+            "license_label": "CC BY 3.0",
+            "source": "https://commons.wikimedia.org/wiki/File:Bandar_Genaveh_Blvd.jpg",
+            "retrieved": "2026-11-18",
+            "publishable": true
+          }
+        ]
+      }
+    },
+    {
+      "n": 12,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          534,
+          454,
+          466,
+          142,
+          105,
+          324,
+          325,
+          326,
+          327,
+          203
+        ]
+      }
+    },
+    {
+      "n": 13,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/nur/",
+            "status": 200,
+            "ms": 1041,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان نور؛ راهنمای سفر، جاذبه‌ها و تاریخ مازندران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/nur/",
+            "desc": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "og:description": "راهنمای نور مازندران؛ فرق راه ساحل با مسیر چمستان و لاویج، خانهٔ نیما در یوش و انتخاب اقامت میان جلگه و بلده.",
+              "og:url": "https://sarzaminaryan.ir/city/nur/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان نور؛ از ساحل نور تا خانهٔ نیما در یوش"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Alireza Javaheri"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-nur.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17380,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/talesh/",
+            "status": 200,
+            "ms": 1086,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تالش؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/talesh/",
+            "desc": "راهنمای تالش با مرکزیت هشتپر؛ جغرافیای کرگان‌رود، پیشینهٔ قلعهٔ صلصال و تفاوت اقامت در جلگه و ییلاق سوباتان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تالش؛ از بازار سوباتان تا تپهٔ سنگی لیسار",
+              "og:description": "راهنمای تالش با مرکزیت هشتپر؛ جغرافیای کرگان‌رود، پیشینهٔ قلعهٔ صلصال و تفاوت اقامت در جلگه و ییلاق سوباتان.",
+              "og:url": "https://sarzaminaryan.ir/city/talesh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-talesh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تالش؛ از بازار سوباتان تا تپهٔ سنگی لیسار",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تالش؛ از بازار سوباتان تا تپهٔ سنگی لیسار"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-talesh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "آرش روحی پور"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-talesh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18832,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/masal/",
+            "status": 200,
+            "ms": 1048,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان ماسال؛ راهنمای سفر، جاذبه‌ها و تاریخ گیلان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/masal/",
+            "desc": "ماسال و شاندرمن در غرب گیلان؛ راه اولسبلنگاه، بازار جمعه، تاریخ ارتفاعات و انتخاب مسیر مناسب برای خانواده.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان ماسال؛ دو راه جدا به مرتع ماسال و دره‌های شاندرمن",
+              "og:description": "ماسال و شاندرمن در غرب گیلان؛ راه اولسبلنگاه، بازار جمعه، تاریخ ارتفاعات و انتخاب مسیر مناسب برای خانواده.",
+              "og:url": "https://sarzaminaryan.ir/city/masal/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masal.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان ماسال؛ دو راه جدا به مرتع ماسال و دره‌های شاندرمن",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان ماسال؛ دو راه جدا به مرتع ماسال و دره‌های شاندرمن"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masal.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Payam Jahangiri / Persian Dutch Network"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masal.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 18800,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/sarein/",
+            "status": 200,
+            "ms": 982,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان سرعین؛ راهنمای سفر، جاذبه‌ها و تاریخ اردبیل | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/sarein/",
+            "desc": "راهنمای سرعین برای سفر خانوادگی؛ تفاوت آبگرم‌های شهر و ارتفاعات آلوارس، روستای کنزق و خرید عسل و سرشیر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان سرعین؛ آب گرم در شهر، مرتع و دست‌کند در دامنه",
+              "og:description": "راهنمای سرعین برای سفر خانوادگی؛ تفاوت آبگرم‌های شهر و ارتفاعات آلوارس، روستای کنزق و خرید عسل و سرشیر.",
+              "og:url": "https://sarzaminaryan.ir/city/sarein/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sarein.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان سرعین؛ آب گرم در شهر، مرتع و دست‌کند در دامنه",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان سرعین؛ آب گرم در شهر، مرتع و دست‌کند در دامنه"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sarein.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Abbas Afsharibakhsh / Persian Dutch Network"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-sarein.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20292,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/jolfa/",
+            "status": 200,
+            "ms": 1034,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان جلفا؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/jolfa/",
+            "desc": "راهنمای جلفا و کرانهٔ ارس؛ کلیسای سنت استپانوس و نمازخانهٔ چوپان، راه تبریز و تفاوت مسیر بازار با گشت رودکنار.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان جلفا؛ جایی که راه‌آهن به ارس می‌رسد",
+              "og:description": "راهنمای جلفا و کرانهٔ ارس؛ کلیسای سنت استپانوس و نمازخانهٔ چوپان، راه تبریز و تفاوت مسیر بازار با گشت رودکنار.",
+              "og:url": "https://sarzaminaryan.ir/city/jolfa/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jolfa.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان جلفا؛ جایی که راه‌آهن به ارس می‌رسد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان جلفا؛ جایی که راه‌آهن به ارس می‌رسد"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jolfa.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Ninara"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jolfa.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 17768,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/marvdasht/",
+            "status": 200,
+            "ms": 1031,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مرودشت؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/marvdasht/",
+            "desc": "راهنمای مرودشت؛ فرق تخت جمشید، نقش رستم و نقش رجب، سهم آب رود کر در زندگی مردم و برنامهٔ سفر از شیراز.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مرودشت؛ دشت رود کر و سه محوطه از سه روایت تاریخ",
+              "og:description": "راهنمای مرودشت؛ فرق تخت جمشید، نقش رستم و نقش رجب، سهم آب رود کر در زندگی مردم و برنامهٔ سفر از شیراز.",
+              "og:url": "https://sarzaminaryan.ir/city/marvdasht/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-marvdasht.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مرودشت؛ دشت رود کر و سه محوطه از سه روایت تاریخ",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مرودشت؛ دشت رود کر و سه محوطه از سه روایت تاریخ"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-marvdasht.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "M-nemat"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-marvdasht.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22316,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/kazerun/",
+            "status": 200,
+            "ms": 979,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان کازرون؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/kazerun/",
+            "desc": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "og:description": "راهنمای کازرون؛ شهر ساسانی بیشاپور و تنگ چوگان در یک مسیر، نرگس‌زار جره و بالاده در مسیری دیگر و راه اقامت در شهر.",
+              "og:url": "https://sarzaminaryan.ir/city/kazerun/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان کازرون؛ بیشاپور کنار رود و نرگس در زمین دیم"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Majid Taghipour"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-kazerun.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20862,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/jahrom/",
+            "status": 200,
+            "ms": 984,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان جهرم؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/jahrom/",
+            "desc": "سفر به جهرم از راه خفر؛ بازار سرپوشیده، میراث سنگ‌تراشان، خرمای شاهانی و راه انتخاب گشت و اقامت خانوادگی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان جهرم؛ از چهارسوق بازار تا نخلستان شاهانی",
+              "og:description": "سفر به جهرم از راه خفر؛ بازار سرپوشیده، میراث سنگ‌تراشان، خرمای شاهانی و راه انتخاب گشت و اقامت خانوادگی.",
+              "og:url": "https://sarzaminaryan.ir/city/jahrom/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jahrom.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان جهرم؛ از چهارسوق بازار تا نخلستان شاهانی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان جهرم؛ از چهارسوق بازار تا نخلستان شاهانی"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jahrom.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Pooryaneh"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-jahrom.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19356,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/larestan/",
+            "status": 200,
+            "ms": 1155,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان لارستان؛ راهنمای سفر، جاذبه‌ها و تاریخ فارس | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/larestan/",
+            "desc": "راهنمای لارستان؛ پیدا کردن بازار قیصریه در لار قدیم، شناخت برکه‌ها و شهر جدید پس از زمین‌لرزه و خرید مسقطی لاری.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان لارستان؛ یک شهر با دو نشانی؛ قیصریه و شهر جدید",
+              "og:description": "راهنمای لارستان؛ پیدا کردن بازار قیصریه در لار قدیم، شناخت برکه‌ها و شهر جدید پس از زمین‌لرزه و خرید مسقطی لاری.",
+              "og:url": "https://sarzaminaryan.ir/city/larestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-larestan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان لارستان؛ یک شهر با دو نشانی؛ قیصریه و شهر جدید",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان لارستان؛ یک شهر با دو نشانی؛ قیصریه و شهر جدید"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-larestan.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Hesam khandan"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-larestan.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20810,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/ganaveh/",
+            "status": 200,
+            "ms": 1242,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بندر گناوه؛ راهنمای سفر، جاذبه‌ها و تاریخ بوشهر | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/ganaveh/",
+            "desc": "راهنمای گناوه و بندر ریگ؛ بازار اصلی، زندگی کنار خور، هنر گلافی و انتخاب راه و اقامت در ساحل شمالی بوشهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان گناوه؛ بازار و خور، دو سوی زندگی یک بندر",
+              "og:description": "راهنمای گناوه و بندر ریگ؛ بازار اصلی، زندگی کنار خور، هنر گلافی و انتخاب راه و اقامت در ساحل شمالی بوشهر.",
+              "og:url": "https://sarzaminaryan.ir/city/ganaveh/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ganaveh.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان گناوه؛ بازار و خور، دو سوی زندگی یک بندر",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان گناوه؛ بازار و خور، دو سوی زندگی یک بندر"
+            },
+            "county_cover_figures": 1,
+            "county_cover_images": 2,
+            "county_cover_image_srcs": [
+              "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjgwMCIgdmlld0JveD0iMCAwIDEyMDAgODAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==",
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ganaveh.webp"
+            ],
+            "photo_spotlight": 1,
+            "photo_spotlight_credits": 1,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "photo_credit_texts": [
+              "Mahdi Kalhor"
+            ],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ganaveh.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 22598,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-18T10:28:41+00:00"
+}
