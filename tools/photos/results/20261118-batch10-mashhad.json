@@ -7,19 +7,19 @@
  "failed": [
   {
    "place": "حرم امام رضا؛ گنبد در شب",
-   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch_status\",\"message\":\"\\u0633\\u0631\\u0648\\u0631 \\u0645\\u0628\\u062f\\u0623 \\u06a9\\u062f 400 \\u0628\\u0631\\u06af\\u0631\\u062f\\u0627\\u0646\\u062f.\",\"data\":{\"status\":502}}"
+   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
   },
   {
    "place": "مقبرهٔ نادر شاه افشار",
-   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch_status\",\"message\":\"\\u0633\\u0631\\u0648\\u0631 \\u0645\\u0628\\u062f\\u0623 \\u06a9\\u062f 400 \\u0628\\u0631\\u06af\\u0631\\u062f\\u0627\\u0646\\u062f.\",\"data\":{\"status\":502}}"
+   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
   },
   {
    "place": "حرم امام رضا؛ صحن عتیق",
-   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch_status\",\"message\":\"\\u0633\\u0631\\u0648\\u0631 \\u0645\\u0628\\u062f\\u0623 \\u06a9\\u062f 400 \\u0628\\u0631\\u06af\\u0631\\u062f\\u0627\\u0646\\u062f.\",\"data\":{\"status\":502}}"
+   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
   },
   {
    "place": "مجسمهٔ نادر شاه در میدان نادر",
-   "error": "HTTP 502 on /photos/import: {\"code\":\"sa_photo_fetch_status\",\"message\":\"\\u0633\\u0631\\u0648\\u0631 \\u0645\\u0628\\u062f\\u0623 \\u06a9\\u062f 400 \\u0628\\u0631\\u06af\\u0631\\u062f\\u0627\\u0646\\u062f.\",\"data\":{\"status\":502}}"
+   "error": "HTTP 500 on /photos/import: {\"code\":\"internal_server_error\",\"message\":\"<p>\\u06cc\\u06a9 \\u062e\\u0637\\u0627\\u06cc \\u0645\\u0647\\u0645 \\u062f\\u0631 \\u0627\\u06cc\\u0646 \\u0648\\u0628 \\u0633\\u0627\\u06cc\\u062a \\u0631\\u062e \\u062f\\u0627\\u062f\\u0647 \\u0627\\u0633\\u062a.<\\/p><p><a href=\\\"https:\\/\\/wordpress.org\\/documentation\\/article\\/faq-troubleshooting\\/\\\">\\u062f\\u0631\\u0628\\u0627\\u0631\\u0647\\u0654 \\u0639\\u"
   }
  ]
 }

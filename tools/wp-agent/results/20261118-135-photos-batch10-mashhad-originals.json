@@ -1,0 +1,37 @@
+{
+  "job": "tools/wp-agent/jobs/20261118-135-photos-batch10-mashhad-originals.json",
+  "started_utc": "2026-11-18T14:16:24+00:00",
+  "note": "دستهٔ ۱۰ (مشهد) — بار سوم و این بار با علت درست: ویکی‌مدیا بندانگشتی ۸۰۰px را با ۴۰۰ رد می‌کند، پس هر دو کار ۱۳۳ و ۱۳۴ پیش از ذخیره شکستند (صفر عکس وارد شد، چیزی روی سایت عوض نشد). حالا ابزار همیشه فایل اصلی را می‌فرستد و خودِ سایت آن را ۴:۳ و WebP می‌کند. چهار عکس با مجوز آزاد و نام عکاسِ خوانده‌شده از extmetadata.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.22.118",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-18T14:16:24+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "photos-import",
+      "error": "photos-import failed (exit 1): imported 0, reused 0, failed 4, refused 0"
+    }
+  ],
+  "finished_utc": "2026-11-18T14:16:42+00:00"
+}
