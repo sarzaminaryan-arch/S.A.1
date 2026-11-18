@@ -686,12 +686,15 @@ function sa_photo_frame( $attachment_id, $size = 'sa-gallery-card', $class = 'sa
 	$label = sa_photo_overlay_label( $attachment_id );
 	$area  = sa_photo_area( $attachment_id );
 	$out   = '<figure class="' . esc_attr( $class ) . '">' . $img;
+	// اگر برچسبِ روی عکس خودش همان نشانی باشد (area)، خط دوم تکرارش نمی‌کند؛
+	// پیش از این همان جمله دو بار روی عکس می‌آمد. (۲.۲۲.۱۱۷)
+	$sub = ( '' !== $area && $area !== $label ) ? $area : '';
 	if ( '' !== $label ) {
 		// نام مکان روی تصویر، با سایه و لایهٔ تیرهٔ پایین قاب تا روی هر عکسی خوانا بماند.
 		$out .= '<figcaption class="sa-photo__caption">';
 		$out .= '<span class="sa-photo__place">' . esc_html( $label ) . '</span>';
-		if ( '' !== $area ) {
-			$out .= '<span class="sa-photo__area">' . esc_html( $area ) . '</span>';
+		if ( '' !== $sub ) {
+			$out .= '<span class="sa-photo__area">' . esc_html( $sub ) . '</span>';
 		}
 		$out .= '</figcaption>';
 	}

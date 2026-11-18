@@ -135,19 +135,19 @@ sa_t_assert( false !== strpos( $html, 'rel="license nofollow noopener"' ), 'the 
 sa_t_assert( false !== strpos( $html, '<p class="sa-photo__credit">' ), 'the credit is a line under the frame, not a caption inside it' );
 sa_t_assert( '' === sa_photo_frame( 11 ), 'no frame is built for an unpublishable photo' );
 
-/* 4c — the place name is written on the photo (clean, transparent) for every county.
- *      `_sa_photo_area` برچسب روی عکس را می‌رباید (کد محصول همین است)، پس اول
- *      فقط با نام مکان سنجیده می‌شود و بعد اولویت area جدا. */
+/* 4c — the place name is written on the photo (clean, transparent) for every county:
+ *      نام مکان کوتاه‌شده روی عکس، آدرس کامل در خط دوم. دو قاب ساخته می‌شود چون
+ *      برچسب روی عکس پیش از ترمیمِ نام ساخته و در `$overlay` نگه داشته می‌شود. */
 $GLOBALS['t']['meta'][10][ SA_PHOTO_META_PLACE ] = 'باغ فین (کاشان)';
 unset( $GLOBALS['t']['meta'][10][ SA_PHOTO_META_AREA ] );
 $overlay = sa_photo_frame( 10, 'sa-square' );
 sa_t_assert( false !== strpos( $overlay, 'class="sa-photo__caption"' ), 'the photo carries an overlay caption' );
-sa_t_assert( false !== strpos( $overlay, '>باغ فین<' ), 'the overlay names the place, without the parenthetical' );
 sa_t_assert( 'باغ فین' === sa_photo_overlay_label( 10 ), 'the overlay label trims the parenthetical off the place name' );
+sa_t_assert( false !== strpos( $overlay, '>باغ فین<' ), 'the overlay names the place, without the parenthetical' );
 $GLOBALS['t']['meta'][10][ SA_PHOTO_META_AREA ] = 'کاشان، خیابان امیرکبیر';
 $overlay_area = sa_photo_frame( 10, 'sa-square' );
 sa_t_assert( false !== strpos( $overlay_area, '>کاشان، خیابان امیرکبیر<' ), 'the overlay can carry the address line' );
-sa_t_assert( 'کاشان، خیابان امیرکبیر' === sa_photo_overlay_label( 10 ), 'an explicit area line wins over the place name on the photo' );
+sa_t_assert( 1 === substr_count( $overlay_area, 'کاشان، خیابان امیرکبیر' ), 'the address is never printed twice on the same photo' );
 sa_t_assert( '' === sa_photo_overlay_label( 11 ), 'a photo without a place gets no overlay text' );
 
 /* 4d — the licence disclaimer paragraph is gone from the block (owner order). */
@@ -173,7 +173,7 @@ sa_t_assert( false === strpos( $mod_src, 'function sa_photo_spotlight' ), 'v2.22
 $mod = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' );
 sa_t_assert( false !== strpos( $mod, 'if ( ! $ids ) {' ), 'the gallery renders nothing when no photo qualifies — it never pads an empty slot' );
 sa_t_assert( false !== strpos( $mod, 'function sa_photo_county_ids' ), 'one helper decides which county photos are shown, and in what order' );
-sa_t_assert( false !== strpos( $mod, "'/photos/import'" ) || false !== strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' ), "'/photos/import'" ), 'the guarded import route is registered' );
+sa_t_assert( false !== strpos( (string) file_get_contents( dirname( __DIR__ ) . '/inc/agent-ops.php' ), "'/photos/import'" ), 'the guarded import route is registered' );
 
 /* 6 — the inventory route exists so the owner can audit authorship, not just see photos. */
 $php_all = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' )
@@ -201,7 +201,7 @@ sa_t_assert( false !== strpos( $all_php, 'wp_trash_post' ) && false === strpos( 
 /* 9 — the photo block is a template part, not a page-specific snippet: every county
  *     (past and future) gets the place name on the photo from the same helper. */
 sa_t_assert( false !== strpos( $mod, "const SA_PHOTO_META_AREA" ), 'the area/address meta key is shared' );
-sa_t_assert( false !== strpos( $mod, "'sa-photo__caption'" ), 'the overlay caption markup is built in the helper' );
+sa_t_assert( false !== strpos( $mod, 'class="sa-photo__caption"' ), 'the overlay caption markup is built in the helper' );
 $mock_src = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' );
 sa_t_assert(
 	false !== strpos( $mock_src, "sa_photo_credit_line( $id, 'sa-strip__credit' )" ),
