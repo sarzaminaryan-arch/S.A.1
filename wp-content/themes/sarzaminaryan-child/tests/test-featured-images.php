@@ -412,9 +412,10 @@ if ( false !== $template ) {
 	sa_t_assert( false !== $sa_cover_tpl, 'the county cover section exists (v2.22.145)' );
 	sa_t_assert( false !== $sa_body_tpl, 'the county body section exists (v2.22.145)' );
 	sa_t_assert( false !== strpos( $template, 'sa_county_render_sections( $sa_id )' ), 'the county page is rendered from the registry (v2.22.145)' );
-	sa_t_assert( 1 === substr_count( (string) $sa_cover_tpl, 'sa_county_featured_figure(' ), 'the county featured image is printed in one place only (v2.22.90/2.22.145)' );
-	sa_t_assert( false !== strpos( (string) $sa_body_tpl, 'echo $sa_toc_html;' ), 'the county page prints the captured table of contents (2.22.116)' );
-	sa_t_assert( 1 === substr_count( (string) $sa_body_tpl, 'echo $sa_toc_html;' ), 'the county TOC is printed in one place only (2.22.116)' );
+	// با آرگومان شمرده می‌شود تا اشارهٔ نام تابع در توضیح فایل، شمارش را بالا نبرد.
+	sa_t_assert( 1 === substr_count( (string) $sa_cover_tpl, 'sa_county_featured_figure( $sa_id )' ), 'the county featured image is printed in one place only (v2.22.90/2.22.145)' );
+	sa_t_assert( false !== strpos( (string) $sa_body_tpl, 'echo $sa_toc_html' ), 'the county page prints the captured table of contents (2.22.116)' );
+	sa_t_assert( 1 === substr_count( (string) $sa_body_tpl, 'echo $sa_toc_html' ), 'the county TOC is printed in one place only (2.22.116)' );
 	sa_t_assert( false !== strpos( (string) $sa_body_tpl, "\$GLOBALS['sa_county_toc_capture'] = true;" ), 'the TOC is captured from the body render, not prepended to it (2.22.116)' );
 	$sa_order = array();
 	foreach ( array( 'sa-county-cover', 'sa-county-toc', 'sa-county-identity', 'sa-county-body' ) as $sa_key ) {
