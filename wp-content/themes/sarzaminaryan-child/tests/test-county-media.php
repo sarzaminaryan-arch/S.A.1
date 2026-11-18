@@ -204,7 +204,7 @@ sa_t_assert( false !== strpos( $mod, "const SA_PHOTO_META_AREA" ), 'the area/add
 sa_t_assert( false !== strpos( $mod, 'class="sa-photo__caption"' ), 'the overlay caption markup is built in the helper' );
 $mock_src = (string) file_get_contents( dirname( __DIR__ ) . '/inc/county-media.php' );
 sa_t_assert(
-	false !== strpos( $mock_src, "sa_photo_credit_line( $id, 'sa-strip__credit' )" ),
+	false !== strpos( $mock_src, 'sa_photo_credit_line( $id, \'sa-strip__credit\' )' ),
 	'the three-tile strip reuses the quiet credit helper instead of printing a licence name'
 );
 sa_t_assert(
