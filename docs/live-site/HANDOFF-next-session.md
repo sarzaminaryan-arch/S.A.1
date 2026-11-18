@@ -1,3 +1,18 @@
+## ۲.۲۲.۱۲۹–۱۳۲ — بررسی ابری نسخه‌های UpdraftPlus (۲۷ آبان ۱۴۰۵)
+
+- **نتیجهٔ قطعی:** نسخهٔ `82738db7b8c9` (۴۹۰ مگابایتی، تنها نسخهٔ کامل) روی Google Drive
+  **نیست**. لاگ خودش می‌گوید `Cloud backup selection (1/1): none` و
+  `No remote despatch`. تاریخ آخرین نسخهٔ کامل موفق روی Drive: **پیدا نشد**.
+- `updraft_last_backup.success=true` گمراه‌کننده است (موفقیت محلی). کلید `service`
+  در تاریخچه خالی است در حالی که تنظیمات `googledrive` است.
+- تنظیمات واقعی: `retain_files=1`, `retain_db=1`, `delete_local=1`, `interval=manual`.
+- **ریسک کد افزونه:** `prune_file()` نسخهٔ محلی قبلی را پیش از ارسال ابری پاک می‌کند؛
+  با `retain_files=1` یک پشتیبان ناموفق = از دست رفتن تنها نسخه. سد ۲.۲۲.۱۳۲:
+  `nocloud` با خدمت ابری پیکربندی‌شده ۴۰۹ می‌دهد (`sa_agent_nocloud_blocked`).
+- ابزارهای تازه: `GET /updraft/cloud`، `GET /updraft/log`، `POST /updraft/delete-local`
+  (نگهبان: بدون `complete=true` هیچ حذفی نمی‌کند)، `settings` در `GET /updraft`.
+- **هیچ فایلی حذف نشد.** گزارش کامل: `docs/live-site/backup-pipeline.md` بخش ۷.
+
 # فایل تحویل نشست بعدی — وضعیت سایت سرزمین آریان و هدف کار (آبان ۱۴۰۵)
 
 > این فایل را اول نشست بخوان. فشرده است و جزئیات هر بند در فایلِ ارجاع‌شده آمده.
