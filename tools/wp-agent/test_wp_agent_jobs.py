@@ -75,6 +75,57 @@ assert seen["/theme-update"].get("allow_without_backup") is True, seen
 wa.theme_install(_ThemeClient(), "2.22.115", "2.22.115", True)
 assert seen["/theme-update"]["version"] == "2.22.115", seen
 
+# 1d. A push starts the release job and the agent job at the same time. When the agent wins,
+#     the site answers 409 «this version is not published yet». Jobs 127 and 130 both stopped
+#     there and needed a manual re-run; with --wait-for-release the install waits instead, and
+#     any other refusal (a real mismatch, a 403) still fails immediately.
+class _PendingRelease:
+    base = "https://example.test/wp-json/sa-agent/v1"
+
+    def __init__(self, pending_calls: int):
+        self.left = pending_calls
+        self.calls = 0
+
+    def call(self, method, route, params=None, body=None):
+        self.calls += 1
+        if self.left:
+            self.left -= 1
+            raise wa.AgentError('HTTP 409 on POST /theme-update: {"code":"sa_agent_version_mismatch"}')
+        return {"updated": True, "to": body.get("version")}
+
+
+_slept = []
+_pending = _PendingRelease(2)
+assert wa.theme_install(_pending, "2.22.118", "2.22.118", True, wait_seconds=300,
+                        sleep=_slept.append)["updated"] is True
+assert _pending.calls == 3 and _slept == [wa.THEME_RELEASE_POLL_SECONDS] * 2, (_pending.calls, _slept)
+
+_hard = _PendingRelease(99)
+try:
+    wa.theme_install(_hard, "2.22.118", "2.22.118", True, wait_seconds=0, sleep=_slept.append)
+    raise AssertionError("a 409 must still fail when the job asked for no wait")
+except wa.AgentError as err:
+    assert "sa_agent_version_mismatch" in str(err) and _hard.calls == 1
+
+
+class _Refused:
+    base = "https://example.test/wp-json/sa-agent/v1"
+
+    def call(self, method, route, params=None, body=None):
+        raise wa.AgentError('HTTP 403 on POST /theme-update: {"code":"sa_photo_need_owner"}')
+
+
+try:
+    wa.theme_install(_Refused(), "2.22.118", "2.22.118", True, wait_seconds=300, sleep=_slept.append)
+    raise AssertionError("only the not-yet-published refusal may be retried")
+except wa.AgentError as err:
+    assert "403" in str(err)
+
+# The CLI flag exists, so a job step can ask for the wait.
+assert wa.build_parser().parse_args(wa.step_to_argv(
+    {"cmd": "theme-update", "expected_version": "2.22.118", "owner_approved_theme_update": True,
+     "wait_for_release": 300})).wait_for_release == 300
+
 # 1c. Every step written into tools/wp-agent/jobs/ must survive the job -> argv -> argparse
 #     translation. A flag the parser doesn't know (e.g. a step field named "limit" when the
 #     command had no --limit) makes argparse exit with code 2, and the live job stops at that

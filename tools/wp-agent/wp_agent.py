@@ -58,6 +58,7 @@ import json
 import os
 import subprocess
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -715,6 +716,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--rollback-to", default="", help="version to reinstall if a probe fails")
     p.add_argument("--allow-without-backup", action="store_true",
                    help="owner order: skip the 6-hour UpdraftPlus freshness gate (rollback still armed)")
+    p.add_argument("--wait-for-release", type=int, default=0,
+                   help="seconds to wait for a just-pushed release (the release job runs in parallel)")
     return ap
 
 
@@ -768,16 +771,36 @@ def probes_healthy(probes: list[dict]) -> bool:
     return True
 
 
-def theme_install(c: "Client", version: str, expected: str, allow_without_backup: bool = False) -> dict:
+THEME_RELEASE_WAIT_SECONDS = 300
+THEME_RELEASE_POLL_SECONDS = 15
+
+
+def theme_install(c: "Client", version: str, expected: str, allow_without_backup: bool = False,
+                  wait_seconds: int = 0, sleep=time.sleep) -> dict:
     """Install one release. `allow_without_backup` (theme 2.22.116+) is the owner's explicit
     «no new UpdraftPlus backup» order: it skips the 6-hour freshness gate, while the theme
-    still reinstalls `--rollback-to` when a post-change probe is unhealthy."""
+    still reinstalls `--rollback-to` when a post-change probe is unhealthy.
+
+    `wait_seconds` exists because the push that bumps the version starts two workflows at once:
+    the release job that publishes the ZIP and the agent job that installs it. When the agent
+    wins that race the site answers 409 («انتشار پیدا نشده»), which is not a real failure — the
+    release appears a minute later. Jobs 127 and 130 both died that way and each needed a
+    manual re-run, so the install now waits for the release instead of failing on the first 409.
+    """
     body = {"owner_approved_theme_update": True, "expected_version": expected}
     if version:
         body["version"] = version
     if allow_without_backup:
         body["allow_without_backup"] = True
-    return c.call("POST", "/theme-update", body=body)
+    deadline = time.monotonic() + max(0, int(wait_seconds or 0))
+    while True:
+        try:
+            return c.call("POST", "/theme-update", body=body)
+        except AgentError as err:
+            pending = "sa_agent_version_mismatch" in str(err)
+            if not pending or time.monotonic() >= deadline:
+                raise
+            sleep(THEME_RELEASE_POLL_SECONDS)
 
 
 def run(a: argparse.Namespace, c: "Client"):
@@ -1013,7 +1036,8 @@ def run(a: argparse.Namespace, c: "Client"):
             if not ((report["backup"]["status"].get("job") or {}).get("finished") and last.get("success")):
                 raise AgentError("UpdraftPlus backup did not finish successfully in time; theme NOT updated: "
                                  + json.dumps(report["backup"]["status"], ensure_ascii=False)[:600])
-        report["install"] = theme_install(c, a.version, a.expected_version, bool(a.allow_without_backup))
+        report["install"] = theme_install(c, a.version, a.expected_version, bool(a.allow_without_backup),
+                                          wait_seconds=a.wait_for_release)
         time.sleep(5)
         try:  # theme 2.22.77+: visitors must not keep the old cached output
             report["cache_purge"] = c.call("POST", "/cache-purge", body={"scope": "all"})
