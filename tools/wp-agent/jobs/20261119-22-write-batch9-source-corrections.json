@@ -1,0 +1,71 @@
+{
+ "note": "اصلاح استناد به جدول استانیِ سرشماری شامل شهر و روستا (نه فقط جمعیت شهری)، تکمیل یادداشت مکان‌ها و توضیح محلی؛ با قفل زمانی بعد از کار ۲۰ و پشتیبان تازه.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 534,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-nur/nur-534.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-nur/nur-534.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:00:28",
+   "owner_approved_live_edit": true,
+   "reason": "اصلاح استناد به جدول استانیِ سرشماری شامل شهر و روستا (نه فقط جمعیت شهری)، تکمیل یادداشت مکان‌ها و توضیح محلی؛ با قفل زمانی بعد از کار ۲۰ و پشتیبان تازه."
+  },
+  {
+   "cmd": "update",
+   "id": 454,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-talesh/talesh-454.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-talesh/talesh-454.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:00:30",
+   "owner_approved_live_edit": true,
+   "reason": "اصلاح استناد به جدول استانیِ سرشماری شامل شهر و روستا (نه فقط جمعیت شهری)، تکمیل یادداشت مکان‌ها و توضیح محلی؛ با قفل زمانی بعد از کار ۲۰ و پشتیبان تازه."
+  },
+  {
+   "cmd": "update",
+   "id": 466,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-masal/masal-466.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-masal/masal-466.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:00:32",
+   "owner_approved_live_edit": true,
+   "reason": "اصلاح استناد به جدول استانیِ سرشماری شامل شهر و روستا (نه فقط جمعیت شهری)، تکمیل یادداشت مکان‌ها و توضیح محلی؛ با قفل زمانی بعد از کار ۲۰ و پشتیبان تازه."
+  },
+  {
+   "cmd": "update",
+   "id": 142,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-sarein/sarein-142.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-sarein/sarein-142.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:00:33",
+   "owner_approved_live_edit": true,
+   "reason": "اصلاح استناد به جدول استانیِ سرشماری شامل شهر و روستا (نه فقط جمعیت شهری)، تکمیل یادداشت مکان‌ها و توضیح محلی؛ با قفل زمانی بعد از کار ۲۰ و پشتیبان تازه."
+  },
+  {
+   "cmd": "update",
+   "id": 105,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-jolfa/jolfa-105.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-jolfa/jolfa-105.meta.json",
+   "expected_modified_gmt": "2026-11-18 10:00:35",
+   "owner_approved_live_edit": true,
+   "reason": "اصلاح استناد به جدول استانیِ سرشماری شامل شهر و روستا (نه فقط جمعیت شهری)، تکمیل یادداشت مکان‌ها و توضیح محلی؛ با قفل زمانی بعد از کار ۲۰ و پشتیبان تازه."
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [
+    534,
+    454,
+    466,
+    142,
+    105
+   ]
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/nur/",
+    "/city/talesh/",
+    "/city/masal/",
+    "/city/sarein/",
+    "/city/jolfa/"
+   ]
+  }
+ ]
+}

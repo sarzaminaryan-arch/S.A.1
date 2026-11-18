@@ -1,5 +1,5 @@
 {
- "sa_sources": "جمعیت به تفکیک شهر و شهرستان در سرشماری ۱۳۹۵ | مرکز آمار ایران | https://www.amar.org.ir/Portals/0/census/1395/results/population-urban-95.xlsx | ۱۴۰۵/۰۸/۲۷\nجاذبه‌های گردشگری شهرستان نور | تابناک | https://www.tabnak.ir/fa/news/529337/%D8%AC%D8%A7%D8%B0%D8%A8%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C-%DA%AF%D8%B1%D8%AF%D8%B4%DA%AF%D8%B1%DB%8C-%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86-%D9%86%D9%88%D8%B1 | ۱۴۰۵/۰۸/۲۷\nسفر به سرزمین زیبای یوش | تابناک | https://tabnak.ir/fa/news/440505/%D8%B3%D9%81%D8%B1-%D8%A8%D9%87-%D8%B3%D8%B1%D8%B2%D9%85%DB%8C%D9%86-%D8%B2%DB%8C%D8%A8%D8%A7%DB%8C-%DB%8C%D9%88%D8%B4 | ۱۴۰۵/۰۸/۲۷",
+ "sa_sources": "جمعیت به تفکیک شهر و شهرستان در سرشماری ۱۳۹۵ | مرکز آمار ایران | https://www.amar.org.ir/Portals/0/census/1395/results/abadi/CN95_HouseholdPopulationVillage_02.xlsx | ۱۴۰۵/۰۸/۲۷\nجاذبه‌های گردشگری شهرستان نور | تابناک | https://www.tabnak.ir/fa/news/529337/%D8%AC%D8%A7%D8%B0%D8%A8%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C-%DA%AF%D8%B1%D8%AF%D8%B4%DA%AF%D8%B1%DB%8C-%D8%B4%D9%87%D8%B1%D8%B3%D8%AA%D8%A7%D9%86-%D9%86%D9%88%D8%B1 | ۱۴۰۵/۰۸/۲۷\nسفر به سرزمین زیبای یوش | تابناک | https://tabnak.ir/fa/news/440505/%D8%B3%D9%81%D8%B1-%D8%A8%D9%87-%D8%B3%D8%B1%D8%B2%D9%85%DB%8C%D9%86-%D8%B2%DB%8C%D8%A8%D8%A7%DB%8C-%DB%8C%D9%88%D8%B4 | ۱۴۰۵/۰۸/۲۷\nخانه‌موزهٔ نیما، قلعهٔ پولاد و راه‌های نور | باشگاه خبرنگاران جوان | https://www.yjc.ir/fa/news/6458840/%DB%B1%DB%B0-%D8%AC%D8%A7%DB%8C-%D8%AF%DB%8C%D8%AF%D9%86%DB%8C-%D9%85%D8%A7%D8%B2%D9%86%D8%AF%D8%B1%D8%A7%D9%86-%D8%B3%D9%81%D8%B1-%D8%A8%D9%87-%D8%AA%D8%A7%D8%AC-%D8%B3%D8%B1%D8%B3%D8%A8%D8%B2-%D8%A7%DB%8C%D8%B1%D8%A7%D9%86 | ۱۴۰۵/۰۸/۲۷\nسولده، جنگل جلگه‌ای و بافته‌های شهرستان نور | باشگاه خبرنگاران جوان | https://www.yjc.ir/fa/news/5274651/%D8%A8%D8%B2%D8%B1%DA%AF-%D8%AA%D8%B1%DB%8C%D9%86-%D9%BE%D8%A7%D8%B1%DA%A9-%D8%AC%D9%86%DA%AF%D9%84%DB%8C-%D8%AE%D8%A7%D9%88%D8%B1%D9%85%DB%8C%D8%A7%D9%86%D9%87-%D8%AF%D8%B1-%D9%85%D8%A7%D8%B2%D9%86%D8%AF%D8%B1%D8%A7%D9%86 | ۱۴۰۵/۰۸/۲۷",
  "sa_city_elevation": "-18",
  "sa_cty_area": "2675",
  "sa_cty_census_year": "1395",
@@ -7,8 +7,8 @@
  "sa_cty_distance_center": "",
  "sa_cty_districts": "3",
  "sa_cty_neighbors": "mahmudabad - شمال‌شرق\nkaraj - جنوب‌غرب\nshemiranat - جنوب\namol - شرق\nnowshahr - غرب\nchalus - غرب",
- "sa_cty_poi_heritage": "خانهٔ نیما\nقلعهٔ پولاد",
- "sa_cty_poi_nature": "کشپل\nلاویج\nساحل رویان\nپارک جنگلی نور",
+ "sa_cty_poi_heritage": "خانهٔ نیما | یوش، بخش بلده | برای تماشای ارسی‌ها و حیاط وقت بگذارید؛ ساعت پذیرش را از خانه بپرسید.\nقلعهٔ پولاد | بلندی مشرف به بلده | برای دید کلی به جایگاه دژ نیازی به بالا رفتن از بقایای دیوار نیست.",
+ "sa_cty_poi_nature": "کشپل | راه چمستان به لاویج | توقف در محدودهٔ مشخص پارک، ورود خودرو به زمین جنگل را کم می‌کند.\nلاویج | بالادست چمستان | نشانی آبادی و محل اقامت را جدا از نشانی آبگرم بگیرید.\nساحل رویان | نوار ساحلی غرب نور | محل دسترسی عمومی به آب را انتخاب کنید.\nپارک جنگلی نور | حاشیهٔ جلگه در شرق شهر | برای گردش خانوادگی جایگزینی برای رفتن به ارتفاعات است.",
  "sa_cty_poi_offbeat": "",
  "sa_cty_population": "121531",
  "sa_city_population": "26947",

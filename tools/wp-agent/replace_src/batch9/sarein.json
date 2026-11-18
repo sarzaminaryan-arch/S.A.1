@@ -8,7 +8,7 @@
   "amar": {
    "title": "جمعیت به تفکیک شهر و شهرستان در سرشماری ۱۳۹۵",
    "org": "مرکز آمار ایران",
-   "url": "https://www.amar.org.ir/Portals/0/census/1395/results/population-urban-95.xlsx",
+   "url": "https://www.amar.org.ir/Portals/0/census/1395/results/abadi/CN95_HouseholdPopulationVillage_24.xlsx",
    "accessed_on": "۱۴۰۵/۰۸/۲۷"
   },
   "water": {
@@ -156,9 +156,9 @@
   "sa_cty_districts": "2",
   "sa_cty_cities": "2",
   "sa_cty_rural_districts": "4",
-  "sa_cty_poi_heritage": "کنزق",
-  "sa_cty_poi_nature": "ساری‌دره\nآلوارس",
-  "sa_cty_poi_recreation": "گاومیش‌گلی\nآبگرم سبلان\nبش‌باجیلار",
+  "sa_cty_poi_heritage": "کنزق | شرق سرعین | برای دیدن دست‌کندها روی سقف سنگی نروید.",
+  "sa_cty_poi_nature": "ساری‌دره | پیرامون کنزق | از راه عمومی دره قدم بزنید و وارد باغ‌ها نشوید.\nآلوارس | ارتفاعات غرب سرعین | سفر به روستا را از استفاده از پیست جدا برنامه‌ریزی کنید.",
+  "sa_cty_poi_recreation": "گاومیش‌گلی | داخل سرعین | برنامهٔ پذیرش مجموعه را قبل از رفتن بپرسید.\nآبگرم سبلان | بافت شهری | برای همراه کم‌توان مسیر رختکن تا استخر را جویا شوید.\nبش‌باجیلار | سرعین | نوبت مناسب اعضای خانواده را جداگانه هماهنگ کنید.",
   "sa_cty_poi_offbeat": "",
   "sa_cty_poi_keys": "heritage\nnature\nrecreation",
   "sa_cty_distance_center": "۲۵ تا ۳۰ کیلومتر تا اردبیل",

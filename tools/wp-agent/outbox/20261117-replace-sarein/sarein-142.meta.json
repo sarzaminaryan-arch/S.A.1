@@ -1,5 +1,5 @@
 {
- "sa_sources": "جمعیت به تفکیک شهر و شهرستان در سرشماری ۱۳۹۵ | مرکز آمار ایران | https://www.amar.org.ir/Portals/0/census/1395/results/population-urban-95.xlsx | ۱۴۰۵/۰۸/۲۷\nسرعین؛ چشمه‌ها، کنزق و درهٔ گلستان | باشگاه خبرنگاران جوان | https://www.yjc.ir/fa/news/6867857/%D8%B3%D8%B1%D8%B9%DB%8C%D9%86-%D8%A8%D9%88%D9%85%D9%90-%D9%86%D9%82%D8%A7%D8%B4%DB%8C-%D8%B7%D8%A8%DB%8C%D8%B9%D8%AA-%D8%B4%D9%87%D8%B1-%DA%86%D8%B4%D9%85%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C-%D8%A8%D9%87%D8%B4%D8%AA%DB%8C-%D9%88-%D8%B4%D9%82%D8%A7%DB%8C%D9%82%E2%80%8C%D9%87%D8%A7%DB%8C-%DA%A9%D9%88%D9%87%DB%8C-%D8%A2%D9%85%D8%A7%D8%AF%D9%87-%D9%85%DB%8C%D8%B2%D8%A8%D8%A7%D9%86%DB%8C-%D8%A7%D8%B2-%DA%AF%D8%B1%D8%AF%D8%B4%DA%AF%D8%B1%D8%A7%D9%86-%D9%86%D9%88%D8%B1%D9%88%D8%B2%DB%8C | ۱۴۰۵/۰۸/۲۷\nچشمه‌ها، بافته‌ها و سوغات سرعین | خبرگزاری صداوسیما | https://www.iribnews.ir/fa/news/1700569/%D8%B3%D8%B1%D8%B9%DB%8C%D9%86-%D8%B4%D9%87%D8%B1-%DA%86%D8%B4%D9%85%D9%87-%D9%87%D8%A7%DB%8C-%D8%A8%D9%87%D8%B4%D8%AA%DB%8C-%D8%A8%D8%A7-%D8%A2%D8%A8-%D9%88-%D9%87%D9%88%D8%A7%DB%8C-%D8%AE%D9%86%DA%A9 | ۱۴۰۵/۰۸/۲۷",
+ "sa_sources": "جمعیت به تفکیک شهر و شهرستان در سرشماری ۱۳۹۵ | مرکز آمار ایران | https://www.amar.org.ir/Portals/0/census/1395/results/abadi/CN95_HouseholdPopulationVillage_24.xlsx | ۱۴۰۵/۰۸/۲۷\nسرعین؛ چشمه‌ها، کنزق و درهٔ گلستان | باشگاه خبرنگاران جوان | https://www.yjc.ir/fa/news/6867857/%D8%B3%D8%B1%D8%B9%DB%8C%D9%86-%D8%A8%D9%88%D9%85%D9%90-%D9%86%D9%82%D8%A7%D8%B4%DB%8C-%D8%B7%D8%A8%DB%8C%D8%B9%D8%AA-%D8%B4%D9%87%D8%B1-%DA%86%D8%B4%D9%85%D9%87%E2%80%8C%D9%87%D8%A7%DB%8C-%D8%A8%D9%87%D8%B4%D8%AA%DB%8C-%D9%88-%D8%B4%D9%82%D8%A7%DB%8C%D9%82%E2%80%8C%D9%87%D8%A7%DB%8C-%DA%A9%D9%88%D9%87%DB%8C-%D8%A2%D9%85%D8%A7%D8%AF%D9%87-%D9%85%DB%8C%D8%B2%D8%A8%D8%A7%D9%86%DB%8C-%D8%A7%D8%B2-%DA%AF%D8%B1%D8%AF%D8%B4%DA%AF%D8%B1%D8%A7%D9%86-%D9%86%D9%88%D8%B1%D9%88%D8%B2%DB%8C | ۱۴۰۵/۰۸/۲۷\nچشمه‌ها، بافته‌ها و سوغات سرعین | خبرگزاری صداوسیما | https://www.iribnews.ir/fa/news/1700569/%D8%B3%D8%B1%D8%B9%DB%8C%D9%86-%D8%B4%D9%87%D8%B1-%DA%86%D8%B4%D9%85%D9%87-%D9%87%D8%A7%DB%8C-%D8%A8%D9%87%D8%B4%D8%AA%DB%8C-%D8%A8%D8%A7-%D8%A2%D8%A8-%D9%88-%D9%87%D9%88%D8%A7%DB%8C-%D8%AE%D9%86%DA%A9 | ۱۴۰۵/۰۸/۲۷",
  "sa_city_slug": "sarein",
  "sa_city_population": "5459",
  "sa_city_latitude": "38.15028",
@@ -28,8 +28,8 @@
  "sa_cty_climate": "کوهستانی؛ تابستان خنک و زمستان برفی",
  "sa_cty_language": "ترکی آذربایجانی و فارسی",
  "sa_cty_livelihood": "آبگرم و هتل‌داری، زنبورداری، دامداری و فروش لبنیات",
- "sa_cty_poi_nature": "ساری‌دره\nآلوارس",
- "sa_cty_poi_recreation": "گاومیش‌گلی\nآبگرم سبلان\nبش‌باجیلار",
+ "sa_cty_poi_nature": "ساری‌دره | پیرامون کنزق | از راه عمومی دره قدم بزنید و وارد باغ‌ها نشوید.\nآلوارس | ارتفاعات غرب سرعین | سفر به روستا را از استفاده از پیست جدا برنامه‌ریزی کنید.",
+ "sa_cty_poi_recreation": "گاومیش‌گلی | داخل سرعین | برنامهٔ پذیرش مجموعه را قبل از رفتن بپرسید.\nآبگرم سبلان | بافت شهری | برای همراه کم‌توان مسیر رختکن تا استخر را جویا شوید.\nبش‌باجیلار | سرعین | نوبت مناسب اعضای خانواده را جداگانه هماهنگ کنید.",
  "_thumbnail_id": "3638",
  "lat": "38.15028",
  "lng": "48.07056",
@@ -39,7 +39,7 @@
  "sa_map_zoom": "11",
  "sa_cty_cities": "2",
  "sa_cty_rural_districts": "4",
- "sa_cty_poi_heritage": "کنزق",
+ "sa_cty_poi_heritage": "کنزق | شرق سرعین | برای دیدن دست‌کندها روی سقف سنگی نروید.",
  "sa_cty_poi_offbeat": "",
  "sa_cty_poi_keys": "heritage\nnature\nrecreation",
  "sa_city_elevation": "1650"
