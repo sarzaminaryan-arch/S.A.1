@@ -135,14 +135,19 @@ sa_t_assert( false !== strpos( $html, 'rel="license nofollow noopener"' ), 'the 
 sa_t_assert( false !== strpos( $html, '<p class="sa-photo__credit">' ), 'the credit is a line under the frame, not a caption inside it' );
 sa_t_assert( '' === sa_photo_frame( 11 ), 'no frame is built for an unpublishable photo' );
 
-/* 4c — the place name is written on the photo (clean, transparent) for every county. */
-$GLOBALS['t']['meta'][10][ SA_PHOTO_META_LICENSE_URL ] = 'https://creativecommons.org/licenses/by/4.0/';
+/* 4c — the place name is written on the photo (clean, transparent) for every county.
+ *      `_sa_photo_area` برچسب روی عکس را می‌رباید (کد محصول همین است)، پس اول
+ *      فقط با نام مکان سنجیده می‌شود و بعد اولویت area جدا. */
 $GLOBALS['t']['meta'][10][ SA_PHOTO_META_PLACE ] = 'باغ فین (کاشان)';
-$GLOBALS['t']['meta'][10][ SA_PHOTO_META_AREA ]  = 'کاشان، خیابان امیرکبیر';
+unset( $GLOBALS['t']['meta'][10][ SA_PHOTO_META_AREA ] );
 $overlay = sa_photo_frame( 10, 'sa-square' );
 sa_t_assert( false !== strpos( $overlay, 'class="sa-photo__caption"' ), 'the photo carries an overlay caption' );
 sa_t_assert( false !== strpos( $overlay, '>باغ فین<' ), 'the overlay names the place, without the parenthetical' );
-sa_t_assert( false !== strpos( $overlay, '>کاشان، خیابان امیرکبیر<' ), 'the overlay can carry the address line' );
+sa_t_assert( 'باغ فین' === sa_photo_overlay_label( 10 ), 'the overlay label trims the parenthetical off the place name' );
+$GLOBALS['t']['meta'][10][ SA_PHOTO_META_AREA ] = 'کاشان، خیابان امیرکبیر';
+$overlay_area = sa_photo_frame( 10, 'sa-square' );
+sa_t_assert( false !== strpos( $overlay_area, '>کاشان، خیابان امیرکبیر<' ), 'the overlay can carry the address line' );
+sa_t_assert( 'کاشان، خیابان امیرکبیر' === sa_photo_overlay_label( 10 ), 'an explicit area line wins over the place name on the photo' );
 sa_t_assert( '' === sa_photo_overlay_label( 11 ), 'a photo without a place gets no overlay text' );
 
 /* 4d — the licence disclaimer paragraph is gone from the block (owner order). */
