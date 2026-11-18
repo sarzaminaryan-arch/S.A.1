@@ -87,7 +87,7 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-featured-images.php"
 
-      - name: Run county section registry tests (v2.22.145: order, filters, conditions, files)
+      - name: Run county section registry tests (order, filters, conditions, files) v2.22.145
         shell: bash
         run: php "$THEME_DIR/tests/test-county-sections.php"
 
