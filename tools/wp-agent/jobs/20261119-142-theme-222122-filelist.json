@@ -1,0 +1,12 @@
+{
+ "note": "۲.۲۲.۱۲۲ (۲۸ آبان ۱۴۰۵): فهرست نام و حجم فایل‌های پشتیبان روی هاست، برای تأیید حذف توسط مالک. فقط خواندنی؛ بازگشت به ۲.۲۲.۱۲۱ تعبیه است.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.122", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/"],
+   "rollback_to": "2.22.121"},
+  {"cmd": "storage"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/", "/city/kazerun/"]}
+ ]
+}

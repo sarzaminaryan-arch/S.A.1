@@ -696,6 +696,7 @@ function sa_agent_rest_storage() {
 			$out['updraft']['bytes'] = max( (int) $out['updraft']['bytes'], $sum['bytes'] );
 			$out['updraft']['files'] = $sum['files'];
 		}
+		$out['updraft']['file_list'] = sa_agent_storage_list_files( $dir, 40 );
 	}
 
 	$uploads = wp_upload_dir();
@@ -714,7 +715,12 @@ function sa_agent_rest_storage() {
 		}
 		$sum = sa_agent_storage_dir_bytes( $path );
 		if ( null !== $sum ) {
-			$out['backup_plugin_dirs'][] = array( 'path' => $path, 'files' => $sum['files'], 'bytes' => $sum['bytes'] );
+			$out['backup_plugin_dirs'][] = array(
+				'path'      => $path,
+				'files'     => $sum['files'],
+				'bytes'     => $sum['bytes'],
+				'file_list' => sa_agent_storage_list_files( $path, 25 ),
+			);
 		}
 	}
 	$out['notes'][] = 'agent: پشتیبان‌های افتراقی پل (رکورد خصوصی در پایگاه‌داده).';
@@ -762,6 +768,47 @@ function sa_agent_storage_dir_bytes( $dir, $audit = false ) {
 		return null;
 	}
 	return array( 'files' => $files, 'bytes' => $bytes, 'big' => $big );
+}
+
+/**
+ * فهرست بزرگ‌ترین فایل‌های یک پوشه (نام، بایت، تاریخ) — فقط خواندن، برای تصمیم حذف.
+ *
+ * @param string $dir   مسیر.
+ * @param int    $limit حداکثر تعداد.
+ * @return array[]
+ */
+function sa_agent_storage_list_files( $dir, $limit = 40 ) {
+	$dir = (string) $dir;
+	if ( '' === $dir || ! is_dir( $dir ) ) {
+		return array();
+	}
+	$out = array();
+	try {
+		$it = new RecursiveIteratorIterator(
+			new RecursiveDirectoryIterator( $dir, FilesystemIterator::SKIP_DOTS ),
+			RecursiveIteratorIterator::LEAVES_ONLY,
+			RecursiveIteratorIterator::CATCH_GET_CHILD
+		);
+		foreach ( $it as $file ) {
+			if ( ! $file->isFile() || $file->isLink() ) {
+				continue;
+			}
+			$out[] = array(
+				'name'     => ltrim( str_replace( $dir, '', $file->getPathname() ), '/\\' ),
+				'bytes'    => (int) $file->getSize(),
+				'modified' => gmdate( 'c', (int) $file->getMTime() ),
+			);
+		}
+	} catch ( Exception $e ) {
+		return array();
+	}
+	usort(
+		$out,
+		static function ( $a, $b ) {
+			return $b['bytes'] <=> $a['bytes'];
+		}
+	);
+	return array_slice( $out, 0, max( 1, (int) $limit ) );
 }
 
 /**
