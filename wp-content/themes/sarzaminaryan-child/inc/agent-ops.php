@@ -648,6 +648,94 @@ function sa_agent_rest_media_upload( $r ) {
  *
  * @return WP_REST_Response
  */
+/**
+ * GET /featured-audit — ممیزی تصویر شاخص شهرستان‌ها (فقط خواندنی، v2.22.141).
+ *
+ * برای هر شهرستان منتشرشده که تصویر شاخص ندارد، سه زیر-دسته را از هم جدا می‌کند:
+ *   (ب) در محتوا/گالری عکس هست            → با تنظیم خودکار قابل رفع است
+ *   (الف) هیچ عکسی در هیچ‌جا نیست           → فقط جایگزین بصری موقت
+ *   (ج) استثنا (فایل شاخص هست ولی گم‌شده)  → نیاز به تصمیم مالک
+ * همچنین نوشته‌هایی که به‌طور صریح شاخص را حذف کرده‌اند جدا شمرده می‌شوند.
+ *
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_featured_audit() {
+	$ids = get_posts(
+		array(
+			'post_type'      => 'city',
+			'post_status'    => 'publish',
+			'posts_per_page' => 5000,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+		)
+	);
+	$out = array(
+		'total_city_published' => count( (array) $ids ),
+		'has_featured'         => 0,
+		'suppressed'           => 0,
+		'no_featured'          => 0,
+		'group_a_no_image'     => array(),
+		'group_b_has_image'    => array(),
+		'group_c_unexpected'   => array(),
+		'gallery_images_total' => 0,
+	);
+	foreach ( (array) $ids as $pid ) {
+		$pid   = (int) $pid;
+		$thumb = (int) get_post_thumbnail_id( $pid );
+		if ( $thumb > 0 ) {
+			$missing = function_exists( 'sa_media_attachment_missing' ) ? (bool) sa_media_attachment_missing( $thumb ) : false;
+			if ( $missing ) {
+				$out['group_c_unexpected'][] = array( 'id' => $pid, 'slug' => get_post_field( 'post_name', $pid ), 'reason' => 'thumb_file_missing', 'thumb' => $thumb );
+				continue;
+			}
+			++$out['has_featured'];
+			continue;
+		}
+		if ( function_exists( 'sa_featured_image_suppressed' ) && sa_featured_image_suppressed( $pid ) ) {
+			++$out['suppressed'];
+			continue;
+		}
+		++$out['no_featured'];
+		$content  = (string) get_post_field( 'post_content', $pid );
+		$province = function_exists( 'sa_gallery_city_province_id' ) ? (int) sa_gallery_city_province_id( $pid ) : 0;
+		$gallery  = ( $province && function_exists( 'sa_gallery_image_ids' ) ) ? (array) sa_gallery_image_ids( $province, $pid, 5 ) : array();
+		$inline   = array();
+		if ( preg_match_all( '/wp-image-(\d+)/', $content, $mm ) ) {
+			$inline = array_values( array_unique( array_map( 'intval', $mm[1] ) ) );
+		}
+		$first = 0;
+		foreach ( $gallery as $gid ) {
+			$first = (int) $gid;
+			break;
+		}
+		if ( ! $first && $inline ) {
+			$first = (int) $inline[0];
+		}
+		$row = array(
+			'id'        => $pid,
+			'slug'      => (string) get_post_field( 'post_name', $pid ),
+			'title'     => (string) get_post_field( 'post_title', $pid ),
+			'province'  => $province,
+			'gallery'   => array_map( 'intval', $gallery ),
+			'inline'    => $inline,
+			'candidate' => $first,
+		);
+		if ( $first ) {
+			$out['group_b_has_image'][] = $row;
+			$out['gallery_images_total'] += count( $gallery );
+		} else {
+			$out['group_a_no_image'][] = $row;
+		}
+	}
+	$out['group_counts'] = array(
+		'a' => count( $out['group_a_no_image'] ),
+		'b' => count( $out['group_b_has_image'] ),
+		'c' => count( $out['group_c_unexpected'] ),
+	);
+	$out['marker'] = 'featured-audit-v141';
+	return rest_ensure_response( $out );
+}
+
 function sa_agent_rest_storage() {
 	$out = array(
 		'disk'    => array( 'free_bytes' => null, 'total_bytes' => null ),
@@ -1965,6 +2053,16 @@ function sa_agent_ops_register_routes() {
 			'permission_callback' => static function () {
 				return is_user_logged_in() && current_user_can( 'edit_posts' );
 			},
+		)
+	);
+	// v2.22.141: ممیزی تصویر شاخص شهرستان‌ها (فقط خواندنی).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/featured-audit',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_featured_audit',
+			'permission_callback' => $admin,
 		)
 	);
 	// v2.22.120: گزارش حجم (پشتیبان افتراقی، UpdraftPlus، رسانه) — فقط خواندنی.

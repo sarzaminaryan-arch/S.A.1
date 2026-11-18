@@ -651,6 +651,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--expected-modified-gmt", help="refuse if the post changed since this snapshot (edit was prepared from it)")
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
+    p = sub.add_parser("featured-audit", help="read-only: county featured-image audit (a/b/c groups, theme 2.22.141+)")
     p = sub.add_parser("storage", help="read-only: real size of agent backups, UpdraftPlus sets and uploads")
     p = sub.add_parser("updraft-drive-test", help="read-only: real Google Drive connection test (token + listing, theme 2.22.133+)")
     p = sub.add_parser("updraft-settings", help="change only interval/retain/retain_db/delete_local (dry run unless --owner-approved-settings)")
@@ -950,6 +951,8 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("POST", f"/post/{a.id}", body=body)
     elif a.cmd == "backups":
         return c.call("GET", "/backups", {"target": a.target or None})
+    elif a.cmd == "featured-audit":
+        return c.call("GET", "/featured-audit")
     elif a.cmd == "storage":
         return c.call("GET", "/storage")
     elif a.cmd == "updraft-drive-test":
