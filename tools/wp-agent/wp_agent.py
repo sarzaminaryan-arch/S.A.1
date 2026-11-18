@@ -652,6 +652,14 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("backups")
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("storage", help="read-only: real size of agent backups, UpdraftPlus sets and uploads")
+    p = sub.add_parser("updraft-drive-test", help="read-only: real Google Drive connection test (token + listing, theme 2.22.133+)")
+    p = sub.add_parser("updraft-settings", help="change only interval/retain/retain_db/delete_local (dry run unless --owner-approved-settings)")
+    p.add_argument("--interval", default="")
+    p.add_argument("--retain", type=int, default=0)
+    p.add_argument("--retain-db", type=int, default=0)
+    p.add_argument("--delete-local", type=int, default=-1, choices=[-1, 0, 1])
+    p.add_argument("--apply", action="store_true")
+    p.add_argument("--owner-approved-settings", action="store_true")
     p = sub.add_parser("updraft-log", help="read-only: relevant lines of one UpdraftPlus set log (theme 2.22.130+)")
     p.add_argument("--nonce", required=True)
     p.add_argument("--limit", type=int, default=200)
@@ -944,6 +952,23 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("GET", "/backups", {"target": a.target or None})
     elif a.cmd == "storage":
         return c.call("GET", "/storage")
+    elif a.cmd == "updraft-drive-test":
+        return c.call("GET", "/updraft/drive-test")
+    elif a.cmd == "updraft-settings":
+        body: dict = {"dry_run": not a.apply}
+        if a.interval:
+            body["updraft_interval"] = a.interval
+        if a.retain:
+            body["updraft_retain"] = a.retain
+        if a.retain_db:
+            body["updraft_retain_db"] = a.retain_db
+        if a.delete_local in (0, 1):
+            body["updraft_delete_local"] = a.delete_local
+        if a.apply:
+            if not a.owner_approved_settings:
+                raise AgentError("updraft-settings --apply needs --owner-approved-settings (owner's explicit order)")
+            body["owner_approved_settings"] = True
+        return c.call("POST", "/updraft/settings", body=body)
     elif a.cmd == "updraft-log":
         return c.call("GET", "/updraft/log", {"nonce": a.nonce, "limit": a.limit})
     elif a.cmd == "updraft-cloud":

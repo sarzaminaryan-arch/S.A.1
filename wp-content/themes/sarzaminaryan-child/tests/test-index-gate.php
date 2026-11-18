@@ -229,6 +229,12 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+// v2.22.133: تست واقعی اتصال Drive + اصلاح امن تنظیمات.
+sa_ig_assert( false !== strpos( $ops, 'function sa_agent_updraft_drive_test' ), 'drive connection test exists' );
+sa_ig_assert( false !== strpos( $ops, "'/updraft/drive-test'" ), 'drive-test route registered' );
+sa_ig_assert( false !== strpos( $ops, "'/updraft/settings'" ) && false !== strpos( $ops, 'owner_approved_settings' ), 'settings route needs the owner flag' );
+sa_ig_assert( false !== strpos( $ops, 'schedule_backup_database' ), 'settings change rebuilds the real WP-Cron schedule' );
+sa_ig_assert( false !== strpos( $ops, "'updraft_delete_local', 'updraft_interval'" ) || false !== strpos( $ops, "array( 'updraft_interval', 'updraft_retain', 'updraft_retain_db', 'updraft_delete_local' )" ), 'settings route only accepts the allowed keys' );
 // v2.22.132: سد «پشتیبان بدون ابر» وقتی خدمت ابری پیکربندی شده.
 sa_ig_assert( false !== strpos( $ops, 'sa_agent_nocloud_blocked' ), 'nocloud with a configured cloud service is refused' );
 sa_ig_assert( false !== strpos( $ops, "owner_approved_nocloud" ), 'nocloud needs an explicit owner flag' );

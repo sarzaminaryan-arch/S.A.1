@@ -914,6 +914,89 @@ function sa_agent_updraft_log_is_error( $line ) {
 	return (bool) preg_match( '/(\bERROR:\s|Failed to upload|failed to open|will not be able to|Could not |unable to)/i', $line );
 }
 
+/**
+ * v2.22.133: تست واقعی اتصال Google Drive — نه «تنظیمات چه می‌گوید».
+ *
+ * مسیر رسمی خود افزونه: دریافت access_token با refresh_token، سپس صدا زدن
+ * listfiles('backup_') که به Drive واقعی وصل می‌شود. اگر توکن منقضی/باطل باشد،
+ * خطای دقیق برگردانده می‌شود تا مالک بداند چه کاری در پیشخوان لازم است.
+ *
+ * @return array
+ */
+function sa_agent_updraft_drive_test() {
+	$out = array(
+		'configured'      => false,
+		'has_client'      => false,
+		'has_secret'      => false,
+		'has_refresh'     => false,
+		'token_ok'        => false,
+		'listing_ok'      => false,
+		'file_count'      => 0,
+		'sample'          => array(),
+		'error'           => '',
+		'error_hint'      => '',
+		'connected'       => false,
+	);
+	$opts = sa_agent_updraft_option( 'updraft_googledrive', array() );
+	if ( ! is_array( $opts ) ) {
+		$opts = array();
+	}
+	$clientid = isset( $opts['clientid'] ) ? (string) $opts['clientid'] : '';
+	$secret   = isset( $opts['secret'] ) ? (string) $opts['secret'] : '';
+	$refresh  = isset( $opts['token'] ) ? (string) $opts['token'] : '';
+	$out['configured']  = ( '' !== $clientid || '' !== $secret || '' !== $refresh );
+	$out['has_client']  = '' !== $clientid;
+	$out['has_secret']  = '' !== $secret;
+	$out['has_refresh'] = '' !== $refresh;
+	if ( ! $out['has_client'] || ! $out['has_secret'] || ! $out['has_refresh'] ) {
+		$out['error']      = 'incomplete_credentials';
+		$out['error_hint'] = 'در پیشخوان → تنظیمات → UpdraftPlus → «تنظیمات فضای ذخیره‌سازی»: Google Drive را باز کنید و «Connect with Google Drive» را بزنید تا توکن تازه ساخته شود.';
+		return $out;
+	}
+	if ( ! defined( 'UPDRAFTPLUS_DIR' ) || ! is_file( UPDRAFTPLUS_DIR . '/methods/googledrive.php' ) ) {
+		$out['error'] = 'plugin_dir_unknown';
+		return $out;
+	}
+	require_once UPDRAFTPLUS_DIR . '/methods/googledrive.php';
+	if ( ! class_exists( 'UpdraftPlus_BackupModule_googledrive' ) ) {
+		$out['error'] = 'class_missing';
+		return $out;
+	}
+	$obj = new UpdraftPlus_BackupModule_googledrive();
+	// شاهد ۱: توکن واقعی از Google گرفته می‌شود.
+	$getter = new ReflectionMethod( 'UpdraftPlus_BackupModule_googledrive', 'access_token' );
+	$getter->setAccessible( true );
+	$token = $getter->invoke( $obj, $refresh, $clientid, $secret );
+	$out['token_ok'] = is_string( $token ) && '' !== $token;
+	if ( ! $out['token_ok'] ) {
+		$out['error']      = 'token_refresh_failed';
+		$out['error_hint'] = 'توکن Google Drive تازه نشد (منقضی یا باطل است). در پیشخوان → UpdraftPlus → Settings → Google Drive: «Unlink» و بعد دوباره «Connect with Google Drive»؛ دسترسی را تأیید کنید.';
+		return $out;
+	}
+	// شاهد ۲: فهرست واقعی فایل‌های همان حساب.
+	$files = $obj->listfiles( 'backup_' );
+	if ( is_wp_error( $files ) ) {
+		$out['error']      = 'listing_failed: ' . $files->get_error_code();
+		$out['error_message'] = $files->get_error_message();
+		$out['error_hint'] = 'توکن گرفته شد ولی دسترسی به پوشهٔ Drive برقرار نشد؛ در پیشخوان اتصال را دوباره برقرار کنید.';
+		return $out;
+	}
+	if ( ! is_array( $files ) ) {
+		$out['error'] = 'listing_not_array';
+		return $out;
+	}
+	$out['listing_ok'] = true;
+	$out['file_count'] = count( $files );
+	foreach ( array_slice( $files, 0, 10 ) as $f ) {
+		$out['sample'][] = array(
+			'name'  => isset( $f['name'] ) ? (string) $f['name'] : '',
+			'bytes' => isset( $f['size'] ) ? (int) $f['size'] : 0,
+		);
+	}
+	$out['connected'] = true;
+	return $out;
+}
+
 function sa_agent_updraft_cloud_probe( $nonce ) {
 	$nonce = preg_replace( '/[^a-f0-9]/', '', strtolower( (string) $nonce ) );
 	$out   = array(
@@ -1419,6 +1502,98 @@ function sa_agent_rest_backups_prune( $r ) {
  * @param WP_REST_Request $r درخواست: nonce، limit.
  * @return WP_REST_Response|WP_Error
  */
+/**
+ * GET /updraft/drive-test — تست واقعی اتصال Google Drive (فقط خواندنی).
+ *
+ * @return WP_REST_Response
+ */
+function sa_agent_rest_updraft_drive_test() {
+	return rest_ensure_response( sa_agent_updraft_drive_test() );
+}
+
+/**
+ * POST /updraft/settings — اصلاح زمان‌بندی و نگه‌داری، فقط کلیدهای مجاز.
+ *
+ * نگهبان‌ها: ۱) پرچم صریح مالک، ۲) پیش‌فرض پیش‌نمایش، ۳) فقط چهار کلید مجاز
+ * (`updraft_interval`, `updraft_retain`, `updraft_retain_db`, `updraft_delete_local`)،
+ * ۴) مقدارها اعتبارسنجی می‌شوند، ۵) زمان‌بندی واقعی WP-Cron با متد رسمی افزونه
+ * بازسازی می‌شود تا مقدار فقط در دیتابیس نماند.
+ *
+ * @param WP_REST_Request $r درخواست.
+ * @return WP_REST_Response|WP_Error
+ */
+function sa_agent_rest_updraft_settings( $r ) {
+	$b       = (array) $r->get_json_params();
+	$dry_run = ! isset( $b['dry_run'] ) || false !== $b['dry_run'];
+	$allowed = array( 'updraft_interval', 'updraft_retain', 'updraft_retain_db', 'updraft_delete_local' );
+	$before  = array();
+	foreach ( $allowed as $k ) {
+		$before[ $k ] = sa_agent_updraft_option( $k, null );
+	}
+	$want = array();
+	if ( isset( $b['updraft_interval'] ) ) {
+		$v = (string) $b['updraft_interval'];
+		$ok = array( 'manual', 'weekly', 'daily', 'monthly', 'hourly', 'twicedaily', 'every4hours', 'every8hours', 'every12hours' );
+		if ( ! in_array( $v, $ok, true ) ) {
+			return new WP_Error( 'sa_agent_bad_interval', 'مقدار مجاز نیست: ' . $v, array( 'status' => 400 ) );
+		}
+		$want['updraft_interval'] = $v;
+	}
+	foreach ( array( 'updraft_retain', 'updraft_retain_db' ) as $k ) {
+		if ( isset( $b[ $k ] ) ) {
+			$n = (int) $b[ $k ];
+			if ( $n < 1 || $n > 30 ) {
+				return new WP_Error( 'sa_agent_bad_retain', 'مقدار نگه‌داری باید بین ۱ و ۳۰ باشد: ' . $k, array( 'status' => 400 ) );
+			}
+			$want[ $k ] = $n;
+		}
+	}
+	if ( isset( $b['updraft_delete_local'] ) ) {
+		$want['updraft_delete_local'] = empty( $b['updraft_delete_local'] ) ? 0 : 1;
+	}
+	if ( ! $want ) {
+		return new WP_Error( 'sa_agent_nothing', 'هیچ کلید مجازی برای تغییر فرستاده نشد.', array( 'status' => 400 ) );
+	}
+	$out = array(
+		'dry_run'       => $dry_run,
+		'before'        => $before,
+		'want'          => $want,
+		'allowed_keys'  => $allowed,
+		'applied'       => false,
+	);
+	if ( $dry_run ) {
+		return rest_ensure_response( $out );
+	}
+	if ( empty( $b['owner_approved_settings'] ) ) {
+		return new WP_Error( 'sa_agent_need_owner', 'تغییر تنظیمات فقط با owner_approved_settings: true.', array( 'status' => 403 ) );
+	}
+	foreach ( $want as $k => $v ) {
+		if ( class_exists( 'UpdraftPlus_Options' ) && method_exists( 'UpdraftPlus_Options', 'update_updraft_option' ) ) {
+			UpdraftPlus_Options::update_updraft_option( $k, $v );
+		} else {
+			update_option( $k, $v );
+		}
+	}
+	$after = array();
+	foreach ( $allowed as $k ) {
+		$after[ $k ] = sa_agent_updraft_option( $k, null );
+	}
+	// زمان‌بندی واقعی WP-Cron با متد رسمی افزونه بازسازی می‌شود.
+	$schedule = array();
+	$up       = sa_agent_updraft();
+	if ( $up && method_exists( $up, 'schedule_backup' ) ) {
+		$schedule['files'] = $up->schedule_backup( (string) $after['updraft_interval'] );
+	}
+	if ( $up && method_exists( $up, 'schedule_backup_database' ) ) {
+		$schedule['db'] = $up->schedule_backup_database( (string) $after['updraft_interval'] );
+	}
+	$out['after']       = $after;
+	$out['schedule']    = $schedule;
+	$out['next_files']  = wp_next_scheduled( 'updraft_backup' ) ? gmdate( 'c', (int) wp_next_scheduled( 'updraft_backup' ) ) : '';
+	$out['applied']     = ( $after != $before );
+	return rest_ensure_response( $out );
+}
+
 function sa_agent_rest_updraft_log( $r ) {
 	$nonce = isset( $r['nonce'] ) ? preg_replace( '/[^a-f0-9]/', '', strtolower( (string) $r['nonce'] ) ) : '';
 	if ( '' === $nonce ) {
@@ -1630,6 +1805,26 @@ function sa_agent_ops_register_routes() {
 		array(
 			'methods'             => 'POST',
 			'callback'            => 'sa_agent_rest_backups_prune',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.133: تست واقعی اتصال Drive (فقط خواندنی).
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/drive-test',
+		array(
+			'methods'             => 'GET',
+			'callback'            => 'sa_agent_rest_updraft_drive_test',
+			'permission_callback' => $admin,
+		)
+	);
+	// v2.22.133: اصلاح زمان‌بندی/نگه‌داری — پیش‌فرض پیش‌نمایش، تغییر با پرچم مالک.
+	register_rest_route(
+		SA_AGENT_NS,
+		'/updraft/settings',
+		array(
+			'methods'             => 'POST',
+			'callback'            => 'sa_agent_rest_updraft_settings',
 			'permission_callback' => $admin,
 		)
 	);

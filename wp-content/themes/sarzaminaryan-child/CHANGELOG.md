@@ -1,3 +1,17 @@
+## 2.22.133 — ۲۷ آبان ۱۴۰۵ · 2026-11-18
+
+- **تست واقعی اتصال Google Drive** — `GET /updraft/drive-test`: با refresh token
+  واقعاً access token از Google گرفته می‌شود و بعد `listfiles()` روی حساب اجرا
+  می‌شود. اگر توکن باطل باشد، خطای دقیق + راهنمای گام‌به‌گام پیشخوان برگردانده
+  می‌شود. «تنظیمات می‌گوید googledrive» هیچ چیزی را اثبات نمی‌کند.
+- **اصلاح امن تنظیمات** — `POST /updraft/settings` فقط چهار کلید را می‌پذیرد
+  (`updraft_interval`, `updraft_retain`, `updraft_retain_db`, `updraft_delete_local`)،
+  مقدارها اعتبارسنجی می‌شوند، پیش‌فرض پیش‌نمایش است و تغییر فقط با
+  `owner_approved_settings: true`. بعد از تغییر، زمان‌بندی واقعی WP-Cron با
+  متدهای رسمی `schedule_backup()` / `schedule_backup_database()` بازسازی می‌شود
+  و `next_files` گزارش می‌شود — چون نوشتن مقدار در دیتابیس بدون بازسازی cron،
+  زمان‌بندی را عوض نمی‌کند.
+
 ## 2.22.132 — ۲۷ آبان ۱۴۰۵ · 2026-11-18
 
 - **سد ایمنی «پشتیبان بدون ابر».** در کد UpdraftPlus دیدیم `prune_file()` نسخهٔ قبلی
