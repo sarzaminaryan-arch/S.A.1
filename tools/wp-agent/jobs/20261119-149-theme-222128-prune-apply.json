@@ -1,0 +1,16 @@
+{
+ "note": "۲.۲۲.۱۲۸ (۲۸ آبان ۱۴۰۵) — اجرای تأییدشدهٔ مالک: حذف ۲۷۸ رکورد پشتیبان کهنهٔ ایجنت با سیاست «۳ نسخهٔ آخر هر هدف + سقف ۴۰۰». دو سد ایمنی در کد: رکورد غیرنوشته (theme_mods/litespeed) در فهرست هم که بیاید حذف نمی‌شود و حذف فقط روی sa_agent_backup اعمال می‌شود. پیش از حذف، گزارش پیش‌نمایش گرفته می‌شود و بعد از حذف، شمارش تازه.",
+ "steps": [
+  {"cmd": "ping"},
+  {"cmd": "theme-update", "expected_version": "2.22.128", "wait_for_release": 420,
+   "owner_approved_theme_update": true, "allow_without_backup": true,
+   "probe": ["/", "/city/mashhad/", "/city/kazerun/"],
+   "rollback_to": "2.22.127"},
+  {"cmd": "storage"},
+  {"cmd": "backups"},
+  {"cmd": "backups-prune", "per_target": 3, "total": 400, "apply": true, "owner_approved_prune": true},
+  {"cmd": "storage"},
+  {"cmd": "backups"},
+  {"cmd": "probe", "url": ["/", "/city/mashhad/", "/city/kazerun/", "/city/tehran/"]}
+ ]
+}

@@ -229,6 +229,8 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+// v2.22.128: سد دوم در حلقهٔ حذف — هر چیزی جز post رد می‌شود.
+sa_ig_assert( false !== strpos( $ops, "if ( 'post' !== (string) ( isset( \$d['kind'] ) ? \$d['kind'] : '' ) )" ), 'the delete loop refuses any non-post record' );
 // v2.22.127 (شرط مالک): نسخهٔ تنظیمات هرگز حذف نمی‌شود؛ فقط پشتیبان نوشته.
 sa_ig_assert( false !== strpos( $ops, "if ( 'post' !== \$kind )" ), 'only post backups are prunable' );
 sa_ig_assert( false !== strpos( $ops, 'settings_snapshot_never_pruned' ), 'settings snapshots are reported as protected' );

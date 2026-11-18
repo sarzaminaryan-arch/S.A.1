@@ -1125,6 +1125,10 @@ function sa_agent_rest_backups_prune( $r ) {
 	if ( ! $dry_run ) {
 		$deleted = 0;
 		foreach ( $drop as $d ) {
+			// سد دوم: حتی اگر فهرست به هر دلیلی آلوده باشد، فقط رکورد «نوشته» حذف می‌شود.
+			if ( 'post' !== (string) ( isset( $d['kind'] ) ? $d['kind'] : '' ) ) {
+				continue;
+			}
 			if ( sa_agent_delete_backup_record( (int) $d['id'] ) ) {
 				++$deleted;
 			}
