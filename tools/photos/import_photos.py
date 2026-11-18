@@ -234,20 +234,36 @@ def optimized_owner_bytes(photo: dict, data: bytes) -> bytes:
     return optimize_to_webp(data)
 
 
-def commons_source_url(url: str) -> str:
-    """نشانی بندانگشتی ۸۰۰px ویکی‌مدیا (نسبت ۴:۳ خودِ فایل حفظ می‌شود).
+COMMONS_THUMB_WIDTH = 800
 
-    نشانی اصلی و شکل نامعتبر دست‌نخورده برمی‌گردند تا سنجهٔ `commons_thumb_shape`
-    همان‌جا خطا بدهد، نه این‌که خطا پنهان شود.
+
+def commons_original_url(url: str) -> str:
+    """نشانی «فایل اصلی» ویکی‌مدیا از هر شکلی از نشانی.
+
+    درس کار ۱۳۴: ویکی‌مدیا از پاییز ۲۰۲۶ بندانگشتی با عرض دلخواه (۸۰۰px، ۶۴۰px…)
+    را با خطای ۴۰۰ «Use thumbnail sizes listed on https://w.wiki/GHai» رد می‌کند،
+    پس سایت ۵۰۲ می‌گرفت و هیچ عکسی از دستهٔ مشهد وارد نشد. دسته‌های موفق پیش از
+    این (۷، ۸، ۹) همه نشانی فایل اصلی داشتند. حالا هر نشانی بندانگشتی به همان
+    فایل اصلی برگردانده می‌شود؛ خودِ سایت فایل را ۴:۳ و WebP می‌کند و سقف دریافت
+    ۱۰ مگابایت است، پس کیفیت هم بهتر می‌شود.
     """
-    if "/thumb/" not in url or not commons_thumb_shape(url):
+    parsed = urllib.parse.urlparse(url)
+    path = urllib.parse.unquote(parsed.path)
+    if "/thumb/" not in path:
         return url
-    head, _, tail = url.partition("/thumb/")
+    head, _, tail = path.partition("/thumb/")
     segs = [seg for seg in tail.split("/") if seg]
-    if len(segs) < 3:
+    if len(segs) < 4:
         return url
-    segs[-1] = f"{COMMONS_THUMB_WIDTH}px-{segs[-2]}"
-    return f"{head}/thumb/" + "/".join(segs)
+    original = "/".join(segs[:-1])          # …/commons/a/ab/<file> (فقط عرض می‌افتد)
+    # thumb.wikimedia.org فقط میزبان بندانگشتی است؛ فایل اصلی روی upload است.
+    host = "upload.wikimedia.org" if parsed.netloc.endswith("thumb.wikimedia.org") else parsed.netloc
+    return urllib.parse.urlunparse(parsed._replace(netloc=host, path=f"{head}/{original}", query=""))
+
+
+def commons_source_url(url: str) -> str:
+    """نشانی امن برای ارسال به سایت (همیشه فایل اصلی)."""
+    return commons_original_url(str(url or "").strip())
 
 
 def owner_file(photo: dict) -> tuple[Path, str]:
