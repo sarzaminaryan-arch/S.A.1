@@ -13,7 +13,7 @@
    "probe": ["/", "/city/abadan/", "/city/ramshir/", "/city/aghajari/", "/city/dargaz/"],
    "rollback_to": "2.22.81"},
   {"cmd": "cache-purge", "all": true},
-  {"cmd": "probe", "paths": ["/city/abadan/", "/city/khorramshahr/", "/city/shadegan/", "/", "/city/ramshir/"]},
+  {"cmd": "probe", "url": ["/city/abadan/", "/city/khorramshahr/", "/city/shadegan/", "/", "/city/ramshir/"]},
   {"cmd": "content-audit", "type": "city", "workers": 4}
  ]
 }

@@ -3,9 +3,7 @@
  "steps": [
   {
    "cmd": "get",
-   "id": [
-    130
-   ]
+   "id": 130
   },
   {
    "cmd": "list",

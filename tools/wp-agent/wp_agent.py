@@ -684,6 +684,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--city-id", type=int, default=0, help="0 = every county with photos")
     p.add_argument("--photo-id", action="append", type=int, default=[], help="limit to these attachment ids")
     p.add_argument("--force", action="store_true", help="re-encode even when the file already fits")
+    p.add_argument("--limit", type=int, default=30, help="photos per call (the response says how many remain)")
     p.add_argument("--owner-approved", action="store_true")
     p = sub.add_parser("photos-manage", help="owner-approved: hide/unhide, lead, detach, trash or edit one county photo")
     p.add_argument("--photo-id", type=int, required=True)
@@ -837,8 +838,8 @@ def run(a: argparse.Namespace, c: "Client"):
     elif a.cmd == "photos-optimize":
         if not a.owner_approved:
             raise AgentError("photos-optimize needs --owner-approved (owner's explicit order)")
-        body = {"city_id": a.city_id, "photo_ids": [int(i) for i in a.photo_ids],
-                "force": bool(a.force), "owner_approved": True}
+        body = {"city_id": a.city_id, "photo_ids": [int(i) for i in a.photo_id],
+                "force": bool(a.force), "limit": int(a.limit or 0), "owner_approved": True}
         return c.call("POST", "/photos/optimize", body=body)
     elif a.cmd == "photos-manage":
         if not a.owner_approved:
@@ -1233,7 +1234,14 @@ def run_job(job_path: str, c: "Client") -> dict:
                 if bad:
                     raise AgentError("post-change probe failed: " + "; ".join(bad))
         except (AgentError, SystemExit) as err:
-            entry["error"] = str(err)
+            # argparse exits with code 2 and no message when a step carries a flag the parser
+            # does not know; "error: 2" told nobody what was wrong (jobs 43 and 128 died that way).
+            entry["error"] = (
+                f"bad step {i} ({step.get('cmd')}): a flag in this step is not accepted by the "
+                f"command — run tools/wp-agent/test_wp_agent_jobs.py"
+                if isinstance(err, SystemExit) and not isinstance(err, AgentError)
+                else str(err)
+            )
             report["ok"] = False
             report["steps"].append(entry)
             break

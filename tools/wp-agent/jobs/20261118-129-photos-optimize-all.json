@@ -1,0 +1,14 @@
+{
+  "note": "قالب ۲.۲۲.۱۱۷ دیشب نصب شد (کار ۱۲۸) ولی گام بهینه‌سازی با خطای «2» ایستاد: پرچم limit در CLI نبود و کد به photo_ids نگاه می‌کرد. هر دو رفع شد و تست کارها حالا هر گام jobs/ را با پارسر می‌سنجد. این کار فقط کار زندهٔ باقی‌مانده را انجام می‌دهد: بهینه‌سازی همهٔ عکس‌های شهرستان‌ها به WebP ۴:۳ زیر ۱۰۰ کیلوبایت، پنهان‌کردن عکس ۴۸۰۰ کازرون (درخواست مالک)، شمارش گالری/آکاردئون‌ها و حجم فایل‌ها.",
+  "steps": [
+    {"cmd": "ping"},
+    {"cmd": "photos-optimize", "owner_approved": true, "limit": 60},
+    {"cmd": "photos-optimize", "owner_approved": true, "limit": 60},
+    {"cmd": "photos-optimize", "owner_approved": true, "limit": 60},
+    {"cmd": "photos-optimize", "owner_approved": true, "limit": 60},
+    {"cmd": "photos-manage", "photo_id": 4800, "action": "hide", "owner_approved": true},
+    {"cmd": "photos", "city_id": 325},
+    {"cmd": "probe", "url": ["/city/kazerun/", "/city/bojnord/", "/city/tehran-county/"]},
+    {"cmd": "ping"}
+  ]
+}

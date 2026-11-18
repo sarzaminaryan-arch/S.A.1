@@ -75,6 +75,32 @@ assert seen["/theme-update"].get("allow_without_backup") is True, seen
 wa.theme_install(_ThemeClient(), "2.22.115", "2.22.115", True)
 assert seen["/theme-update"]["version"] == "2.22.115", seen
 
+# 1c. Every step written into tools/wp-agent/jobs/ must survive the job -> argv -> argparse
+#     translation. A flag the parser doesn't know (e.g. a step field named "limit" when the
+#     command had no --limit) makes argparse exit with code 2, and the live job stops at that
+#     step with an error that is just "2" — which is exactly how job 128 died after the
+#     theme had already been installed. This test turns that into a red build instead.
+_parser = wa.build_parser()
+_seen_cmds = set()
+for _job_file in sorted((wa.REPO_ROOT / "tools/wp-agent/jobs").glob("*.json")):
+    _job = json.loads(_job_file.read_text(encoding="utf-8"))
+    _steps = _job.get("steps", _job if isinstance(_job, list) else [])
+    for _step in _steps:
+        if _step.get("cmd") in ("photos-import", "county-covers"):
+            continue  # these two have their own step handlers, not the CLI parser
+        _argv = wa.step_to_argv(_step)
+        _ns = _parser.parse_args(_argv)  # SystemExit(2) here = a job the runner cannot run
+        _seen_cmds.add(_ns.cmd)
+assert {"photos-optimize", "photos-prune", "theme-update"} <= _seen_cmds, _seen_cmds
+assert "photos-manage" in _parser._subparsers._group_actions[0].choices, "the owner's hide/lead/detach command must stay reachable from a job step"
+
+# photos-optimize sends photo ids as the body's photo_ids and a batch size as limit;
+# the parser flag is --photo-id, so reading a.photo_ids silently optimised everything.
+_opt = _parser.parse_args(wa.step_to_argv(
+    {"cmd": "photos-optimize", "owner_approved": True, "photo_id": [42, 43], "limit": 5, "city_id": 325}))
+assert _opt.photo_id == [42, 43] and _opt.limit == 5 and _opt.city_id == 325, _opt
+assert _parser.parse_args(wa.step_to_argv({"cmd": "photos-optimize", "owner_approved": True})).limit == 30
+
 # 2. Health rule after a live edit.
 ok = {"url": "u", "status": 200, "title": "x", "robots": "index, follow", "h1": 1}
 assert wa.unhealthy_pages([ok]) == []
