@@ -1,0 +1,27 @@
+{
+ "note": "۲.۲۲.۱۴۸ (۲۸ آبان ۱۴۰۵): نصب سلسله‌مراتب تازهٔ تیترها و وارسی تهران/مشهد/کازرون. انتظار: نسخهٔ فعال ۲.۲۲.۱۴۸، تیتر بلوک H3 و چهار زیربخش H4، شمارنده‌ها بدون تغییر. بازگشت خودکار به ۲.۲۲.۱۴۷ در صورت خطا.",
+ "steps": [
+  {
+   "cmd": "ping"
+  },
+  {
+   "cmd": "theme-update",
+   "expected_version": "2.22.148",
+   "wait_for_release": 300,
+   "owner_approved_theme_update": true,
+   "allow_without_backup": true,
+   "probe": [
+    "/"
+   ],
+   "rollback_to": "2.22.147"
+  },
+  {
+   "cmd": "probe",
+   "url": [
+    "/city/tehran/",
+    "/city/mashhad/",
+    "/city/kazerun/"
+   ]
+  }
+ ]
+}
