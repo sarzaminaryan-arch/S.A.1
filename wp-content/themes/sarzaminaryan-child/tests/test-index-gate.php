@@ -229,6 +229,9 @@ $ops = file_get_contents( $theme_dir . '/inc/agent-ops.php' );
 foreach ( array( "'owner_approved_theme_update'", "'owner_approved_backup'", 'sa_agent_updraft_recent_ok(', '->upgrade( $slug )', "'sa_agent_need_backup'", "current_user_can( 'update_themes' )" ) as $needle ) {
 	sa_ig_assert( false !== strpos( $ops, $needle ), "agent-ops contains {$needle}" );
 }
+// v2.22.140: داوری نباید با صفر فایل ابری true بدهد.
+sa_ig_assert( false !== strpos( $ops, 'entities_missing' ) && false !== strpos( $ops, 'expected_entities' ), 'cloud probe checks entity coverage' );
+sa_ig_assert( false !== strpos( $ops, "count( \$out['remote_files'] ) >= count( \$out['expected_entities'] )" ), 'cloud probe requires remote files to cover the entities' );
 // v2.22.133: تست واقعی اتصال Drive + اصلاح امن تنظیمات.
 sa_ig_assert( false !== strpos( $ops, 'function sa_agent_updraft_drive_test' ), 'drive connection test exists' );
 sa_ig_assert( false !== strpos( $ops, "'/updraft/drive-test'" ), 'drive-test route registered' );

@@ -1173,6 +1173,9 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	$out['service_source'] = $service_source;
 	$out['history_keys']  = array_keys( (array) $entry );
 
+	// v2.22.140: چه چیزهایی باید روی ابر باشند؟ از خود تاریخچه.
+	$out['expected_entities'] = array_values( array_intersect( array_keys( (array) $entry ), array( 'db', 'plugins', 'themes', 'uploads', 'others', 'mu-plugins' ) ) );
+	$out['listfiles_status']  = 'not_called';
 	// شاهد ۱: فهرست واقعی فایل‌های همان نسخه روی فضای ابری.
 	if ( defined( 'UPDRAFTPLUS_DIR' ) ) {
 		foreach ( $services as $service ) {
@@ -1194,13 +1197,17 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 			}
 			$files = $obj->listfiles( 'backup_' );
 			if ( is_wp_error( $files ) ) {
+				$out['listfiles_status'] = 'error:' . $files->get_error_code() . ':' . $files->get_error_message();
 				$out['reasons'][] = 'listfiles_error_' . $service . ':' . $files->get_error_code();
 				continue;
 			}
 			if ( ! is_array( $files ) ) {
+				$out['listfiles_status'] = 'not_array';
 				$out['reasons'][] = 'listfiles_empty_' . $service;
 				continue;
 			}
+			$out['listfiles_status'] = 'ok:' . count( $files ) . ' remote objects seen';
+			$out['remote_total_seen'] = ( $out['remote_total_seen'] ?? 0 ) + count( $files );
 			foreach ( $files as $f ) {
 				$name = isset( $f['name'] ) ? (string) $f['name'] : '';
 				if ( '' === $name || false === strpos( $name, $nonce ) ) {
@@ -1315,7 +1322,36 @@ function sa_agent_updraft_cloud_probe( $nonce ) {
 	if ( $no_despatch ) {
 		$out['reasons'][] = 'log_says_no_remote_despatch';
 	}
-	$out['complete'] = ( $disk || $out['local_absent_ok'] ) && ! $missing_remote && ! $missing_log && ! $out['hard_errors'] && ! $no_despatch && ( ! $out['last_backup'] || $out['last_backup']['success'] );
+	// v2.22.140 (اصلاح باگ): اگر دیسک خالی باشد، شرط «هر فایل دیسک روی ابر هست» تهی
+	// می‌شود و می‌توانست با صفر فایل ابری هم true بدهد. حالا پوشش اجزای تاریخچه
+	// جداگانه سنجیده می‌شود: هر جزء (db/plugins/themes/uploads/…) باید فایل ابری
+	// و خط آپلود موفق داشته باشد.
+	$covered = array();
+	foreach ( $out['remote_files'] as $rf ) {
+		foreach ( $out['expected_entities'] as $ent ) {
+			$needle = ( 'mu-plugins' === $ent ) ? '-mu-plugins.zip' : '-' . $ent;
+			if ( false !== strpos( $rf['name'], $needle ) ) {
+				$covered[ $ent ] = true;
+			}
+		}
+	}
+	if ( isset( $covered['others'] ) && ! isset( $covered['uploads'] ) ) {
+		// «others» با نام -others.zip می‌آید؛ برای uploads نام -uploads.zip است.
+	}
+	$out['entities_covered'] = array_keys( $covered );
+	$out['entities_missing'] = array_values( array_diff( $out['expected_entities'], array_keys( $covered ) ) );
+	if ( $out['expected_entities'] && $out['entities_missing'] ) {
+		$out['reasons'][] = 'entities_missing:' . implode( ',', $out['entities_missing'] );
+	}
+	$out['complete'] = $out['expected_entities']
+		&& ! $out['entities_missing']
+		&& ( $disk || $out['local_absent_ok'] )
+		&& count( $out['remote_files'] ) >= count( $out['expected_entities'] )
+		&& ! $missing_remote
+		&& ! $missing_log
+		&& ! $out['hard_errors']
+		&& ! $no_despatch
+		&& ( ! $out['last_backup'] || $out['last_backup']['success'] );
 	return $out;
 }
 
