@@ -85,7 +85,7 @@ jobs:
           python3 tools/wp-agent/test_county_template.py
           python3 tools/photos/test_import_photos.py
 
-      # Fail closed until the exact main commit's Build gates push run succeeds.
+      # Fail closed unless the exact main commit's Build gates push run already succeeded.
       - name: Verify build gates for this exact commit
         env:
           GH_TOKEN: ${{ github.token }}

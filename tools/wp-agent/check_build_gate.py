@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Wait for the latest main push Build gates run on the exact commit, fail closed."""
+"""Require a completed successful main push Build gates run for the exact commit."""
 import json
 import os
 import subprocess
 import sys
-import time
 from urllib.parse import urlencode
 
 
@@ -26,24 +25,21 @@ def main():
     sha, repo = os.environ['GATE_SHA'], os.environ['GATE_REPOSITORY']
     endpoint = f"repos/{repo}/actions/workflows/build-gates.yml/runs?" + urlencode(
         {'head_sha': sha, 'event': 'push', 'branch': 'main', 'per_page': 100})
-    deadline = time.monotonic() + 1200
-    while True:
+    try:
         proc = subprocess.run(['gh', 'api', endpoint], text=True, capture_output=True)
         if proc.returncode:
             print('Build gate API request failed; production is blocked.', file=sys.stderr)
             return 1
-        try:
-            state = gate_state(json.loads(proc.stdout), sha)
-        except (ValueError, TypeError, AttributeError) as exc:
-            print(f'Invalid build gate response: {exc}', file=sys.stderr)
-            return 1
-        if state == 'success':
-            print(f'Build gates passed for {sha}')
-            return 0
-        if state == 'failure' or time.monotonic() >= deadline:
-            print(f'Build gate {state}; production is blocked for {sha}', file=sys.stderr)
-            return 1
-        time.sleep(15)
+        state = gate_state(json.loads(proc.stdout), sha)
+    except (OSError, ValueError, TypeError, AttributeError) as exc:
+        print(f'Cannot verify build gate: {exc}', file=sys.stderr)
+        return 1
+    if state != 'success':
+        print(f'Build gate {state}; production is blocked for {sha}', file=sys.stderr)
+        return 1
+    print(f'Build gates passed for {sha}')
+    return 0
+
 
 
 if __name__ == '__main__':

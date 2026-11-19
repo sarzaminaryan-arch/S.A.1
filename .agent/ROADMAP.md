@@ -8,7 +8,7 @@
 
 - [x] مورد ۱: محافظت از اجراهای production در برابر شاخه‌های غیرمعتبر (`arena/**`)
 
-- [ ] مورد ۲: Fail-Closed کردن دروازه ساخت production (Build Gates) در صورت خطا/عدم وجود وضعیت
+- [x] مورد ۲: Fail-Closed کردن دروازه ساخت production (Build Gates) در صورت خطا/عدم وجود وضعیت
 
 - [ ] مورد ۳: پایدارسازی اجرا، ثبت State مستقل از branch و فرایند Rollback در `wp_agent.py`
 
