@@ -1,12 +1,7 @@
 # وضعیت فعلی پروژه
 
-- آخرین commit ادغام‌شده در main: `50373e5` (PR #76).
-- تست‌های محلی سبز قبلی (دوباره اجرا نشوند): `tests/test_ai_cleaner.py`، `tools/photos/test_import_photos.py`، `tools/wp-agent/test_job_state_recovery.py` و `tools/wp-agent/test_job_exception_recovery.py`.
-- مورد ۳ هنوز باز است: journal محلی روی runner موقت پایدار نیست؛ پیامد نوشتن نامعلوم به بررسی دستی نیاز دارد.
-- CI برای آخرین merge به دلیل skip اجرا نشده و وضعیت سبز ندارد؛ CI در GitHub باید به‌طور کامل اجرا شود.
-- LAK-15 و LAK-24 برای فاز بعدی باز هستند؛ production آماده اعلام نمی‌شود.
-
-- تست اختصاصی پوشش CI افزوده شد؛ CI خودِ تست‌های بازیابی و محافظت production را نیز اجرا خواهد کرد. وضعیت CI تا اجرای راه دور نامشخص است.
-
-- آزمون تازهٔ `tools/wp-agent/test_write_reconciliation.py`: پنج تست محلی سبز (hash، مغایرت، قطع و خطای استعلام). hash برابر به‌تنهایی اثبات اجرای همان درخواست یا شناسهٔ backup نیست؛ قفل تا بررسی دستی باقی می‌ماند.
-- CI گیت ساخت و محافظت فایل‌های PR برای commit `94f72f0` در GitHub موفق شد: https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/44505693623 و https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/44505693625. نتیجهٔ commitهای بعدی باید جداگانه بررسی شود؛ این به معنی آمادگی production نیست.
+- آخرین commit شناخته‌شدهٔ `main` هنگام ثبت این وضعیت: `50373e5` (پیش از ادغام PR #77).
+- CI در GitHub برای commit `6eea22f` در PR #77 سبز است؛ برای هر commit جدید CI باید جداگانه سبز شود.
+- تست‌های محلی سبز قبلی (دوباره اجرا نشوند): `tests/test_ai_cleaner.py`، `tools/photos/test_import_photos.py`، `tools/wp-agent/test_job_state_recovery.py`، `tools/wp-agent/test_job_exception_recovery.py` و `tools/wp-agent/test_write_reconciliation.py`.
+- گام بعدی: LAK-15.
+- سیاست production فقط اجرای دستی از main است؛ runner میزبانی‌شدهٔ فعلی به دلیل نبود state پایدار اجرای کار، حتی دستی، را نیز فعلاً مسدود می‌کند. نوشتن با نتیجهٔ نامعلوم نیازمند بررسی دستی است.
