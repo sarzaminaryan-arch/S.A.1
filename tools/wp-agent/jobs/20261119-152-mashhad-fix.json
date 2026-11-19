@@ -1,0 +1,24 @@
+{
+ "note": "مشهد ۶۳ — اصلاح باگ جمعیت صفر و تقریبی‌سازی: (۱) sa_cty_population و sa_city_population از رشتهٔ فارسی به عدد ۳۳۷۳۰۰۰ (گرد به نزدیک هزار) تا بلوک اطلاعات کلیدی صفر نشان ندهد؛ (۲) جمعیت/مساحت در متن و FAQ و سئو تقریبی شد (حدود ۳٫۴ میلیون در سرشماری ۱۳۹۵، حدود ۹٬۱۷۰ کیلومتر مربع). ۲۱۰۷ واژه، check_template و fa_lint سبز. expected_modified_gmt آخرین مقدار ثبت‌شدهٔ کار ۷۵ است؛ اگر get تازه چیز دیگری نشان داد، کار با 409 می‌ایستد.",
+ "rollback_on_fail": true,
+ "steps": [
+  {
+   "cmd": "update",
+   "id": 63,
+   "content_file": "tools/wp-agent/outbox/20261117-replace-mashhad/mashhad-63.html",
+   "meta_file": "tools/wp-agent/outbox/20261117-replace-mashhad/mashhad-63.meta.json",
+   "excerpt": "شهرستان مشهد از حرم امام رضا تا آرامگاه فردوسی و هفت‌حوض؛ راهنمای اقامت، شلوغی فصل زیارت، مترو خط سه و تفرجگاه‌هایی که مردم شهر برای عصرهایشان انتخاب می‌کنند.",
+   "expected_modified_gmt": "2026-11-16 22:10:12",
+   "owner_approved_live_edit": true,
+   "reason": "مشهد: اصلاح جمعیت صفر در اطلاعات کلیدی و تقریبی‌سازی جمعیت/مساحت طبق قاعدهٔ مالک"
+  },
+  {
+   "cmd": "cache-purge",
+   "id": [63]
+  },
+  {
+   "cmd": "probe",
+   "url": ["/city/mashhad/?sa_probe=152"]
+  }
+ ]
+}
