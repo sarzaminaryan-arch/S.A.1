@@ -1,0 +1,10 @@
+{
+  "note": "پیش‌نویس حذف بخش نام‌آوران تهران بر پایهٔ خواندن کار ۱۵۰؛ سایر بخش‌ها بدون تغییر. پیش از اجرا نسخهٔ مبنا بازبینی شود.",
+  "steps": [
+    {
+      "cmd": "draft-copy",
+      "id": 213,
+      "content_file": "tools/wp-agent/outbox/remove-notables/tehran-213.html"
+    }
+  ]
+}
