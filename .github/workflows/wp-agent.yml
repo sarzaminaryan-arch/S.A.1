@@ -55,6 +55,7 @@ jobs:
           node-version: 22
 
       - name: Check secrets are set
+        if: ${{ github.ref == 'refs/heads/main' }}
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
           SA_USER: ${{ secrets.SA_USER }}
@@ -93,6 +94,7 @@ jobs:
         run: python3 tools/wp-agent/check_build_gate.py
 
       - name: Run pending jobs
+        if: ${{ github.ref == 'refs/heads/main' }}
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
           SA_USER: ${{ secrets.SA_USER }}
