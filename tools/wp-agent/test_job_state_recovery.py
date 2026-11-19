@@ -104,10 +104,13 @@ with patch.object(a, 'run', side_effect=run): a.run_job(sys.argv[1], Client())
         with patch.dict(os.environ, {'SA_WP_AGENT_STATE_DIR': str(agent.REPO_ROOT / '.agent')}):
             with self.assertRaises(agent.AgentError): agent.run_job(str(self.job), self.client)
 
-    def test_github_hosted_runner_fails_closed_without_durable_storage(self):
-        with patch.dict(os.environ, {'GITHUB_ACTIONS': 'true', 'RUNNER_ENVIRONMENT': 'github-hosted'}), patch.object(agent, 'run') as run:
-            with self.assertRaises(agent.AgentError): agent.run_job(str(self.job), self.client)
-            run.assert_not_called()
+    def test_github_hosted_runner_uses_default_local_journal(self):
+        with patch.dict(os.environ, {'GITHUB_ACTIONS': 'true', 'RUNNER_ENVIRONMENT': 'github-hosted',
+                                     'SA_WP_AGENT_STATE_DIR': '', 'HOME': str(self.root)}), \
+                patch.object(agent, 'run', side_effect=[{'backup_id': 21}, {'ok': True}]) as run:
+            agent.run_job(str(self.job), self.client)
+        self.assertEqual(run.call_count, 2)
+        self.assertTrue((self.root / '.local/state/sa-wp-agent/state.json').is_file())
 
 
 if __name__ == '__main__':
