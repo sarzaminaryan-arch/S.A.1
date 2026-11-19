@@ -15,17 +15,8 @@ on:
     branches:
       - main
       - "arena/**"
-    paths:
-      - "tools/wp-agent/replace_src/**"
-      - "tools/photos/**"
-      - "tools/county-insights/**"
-      - "wp-content/themes/sarzaminaryan-child/**"
-      - ".github/workflows/build-gates.yml"
+    # Every main commit must have a gate run, including job-only and result commits.
   pull_request:
-    paths:
-      - "tools/wp-agent/replace_src/**"
-      - "tools/photos/**"
-      - "wp-content/themes/sarzaminaryan-child/**"
   workflow_dispatch:
 
 permissions:
@@ -46,6 +37,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Install cleaner test dependencies
+        run: python3 -m pip install ".[test]"
+
+      - name: Cleaner regression tests
+        run: python3 -m pytest -q
 
       - name: PHP runtime for the theme guards
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends php-cli
@@ -70,6 +67,9 @@ jobs:
       - name: Collapsible county identity card on mobile (v2.22.147)
         run: php wp-content/themes/sarzaminaryan-child/tests/test-identity-fold.php
 
+      - name: Changed county detection regression tests
+        run: python3 tools/wp-agent/test_changed_counties.py
+
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
 
@@ -92,7 +92,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -101,16 +101,14 @@ jobs:
       - name: Find the county data files touched by this push
         id: changed
         shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           set -euo pipefail
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
-            base="origin/${{ github.base_ref }}"
-            git fetch --no-tags origin "${{ github.base_ref }}" || true
-            files=$(git diff --name-only "$base"...HEAD -- 'tools/wp-agent/replace_src/data/*.json' || true)
-          else
-            files=$(git diff --name-only HEAD^ HEAD -- 'tools/wp-agent/replace_src/data/*.json' 2>/dev/null || true)
-          fi
-          slugs=$(printf '%s\n' "$files" | sed -n 's#.*/data/\(.*\)\.json#\1#p' | tr '\n' ' ')
+          slugs=$(python3 tools/wp-agent/changed_counties.py)
           echo "slugs=$slugs" >> "$GITHUB_OUTPUT"
           echo "county files changed: ${slugs:-none}"
 
@@ -130,10 +128,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for dir in $(git status --porcelain tools/wp-agent/outbox | awk '{print $2}' | xargs -r -n1 dirname | sort -u); do
-            echo "::group::check $dir"
+          for slug in ${{ steps.changed.outputs.slugs }}; do
+            dir="tools/wp-agent/outbox/20261117-replace-$slug"
+            test -n "$(find "$dir" -maxdepth 1 -name '*.html' -print -quit)"
             python3 tools/wp-agent/replace_src/check_template.py "$dir"
-            echo "::endgroup::"
           done
 
       - name: Upload the ready-to-publish pages as an artifact

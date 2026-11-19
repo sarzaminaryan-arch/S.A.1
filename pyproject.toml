@@ -9,5 +9,14 @@ description = "پاک‌سازی جمله‌های هوش مصنوعی از مق
 requires-python = ">=3.11"
 dependencies = []
 
+[project.optional-dependencies]
+test = ["pytest>=7,<10"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.setuptools]
+packages = ["ai_cleaner"]
+
+[tool.setuptools.package-data]
+ai_cleaner = ["patterns.yaml"]

@@ -18,26 +18,19 @@ name: WP agent (direct WordPress — drafts only, backup first)
 #   SA_USER          WordPress username that owns the Application Password
 #   SA_APP_PASSWORD  the Application Password
 
+# Production credentials must not be used on unreviewed branch pushes or schedules.
+# Dispatch only from main after the job has been reviewed and merged.
 on:
-  push:
-    branches:
-      - main
-      - "arena/**"
-    paths:
-      - "tools/wp-agent/jobs/**.json"
-  # Daily run on the default branch picks up jobs whose `not_before` has passed
-  # (e.g. the next batch of at most 10 live edits per day). Jobs without a result run once.
-  schedule:
-    - cron: "30 6 * * *"
   workflow_dispatch:
     inputs:
       job:
-        description: "Job file inside the repository (tools/wp-agent/jobs/<name>.json)"
+        description: "Reviewed job on main (tools/wp-agent/jobs/<name>.json)"
         required: true
         type: string
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: wp-agent
@@ -45,12 +38,13 @@ concurrency:
 
 jobs:
   run:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref }}
+          ref: ${{ github.sha }}
 
       - uses: actions/setup-python@v5
         with:
@@ -81,6 +75,8 @@ jobs:
           python3 tools/wp-agent/test_content_audit.py
           python3 tools/wp-agent/test_content_fix.py
           python3 tools/wp-agent/test_wp_agent_jobs.py
+          python3 tools/wp-agent/test_workflow_safety.py
+          python3 tools/wp-agent/test_build_gate.py
           python3 tools/wp-agent/test_fa_lint.py
           python3 tools/wp-agent/test_wp_agent_probe.py
           python3 tools/wp-agent/test_build_replace_batch.py
@@ -88,24 +84,13 @@ jobs:
           python3 tools/wp-agent/test_county_template.py
           python3 tools/photos/test_import_photos.py
 
-      # v2.22.120 (دستور مالک: سنگین‌ها روی رانر، سایت فقط هنگام انتشار):
-      # اگر برای همین کامیت، گردش‌کار «Build gates» اجرا شده و **قرمز** بوده،
-      # نوشتن روی سایت انجام نمی‌شود. نبودِ اجرا مانع نیست (همهٔ کامیت‌ها فایل
-      # شهرستان ندارند)، ولی اجرای قرمز یعنی بیلد سالم نیست.
-      - name: Refuse live writes when the build gates failed for this commit
+      # Fail closed until the exact main commit's Build gates push run succeeds.
+      - name: Verify build gates for this exact commit
         env:
           GH_TOKEN: ${{ github.token }}
-          SHA: ${{ github.sha }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          conclusion=$(gh api "repos/${{ github.repository }}/commits/$SHA/check-runs?per_page=100" \
-            --jq '[.check_runs[] | select(.name | test("guards|build"; "i")) | {status, conclusion}] | map(select(.status=="completed")) | .[0].conclusion // "none"' 2>/dev/null || echo none)
-          echo "build-gates conclusion for $SHA: $conclusion"
-          if [ "$conclusion" = "failure" ] || [ "$conclusion" = "timed_out" ]; then
-            echo "::error::Build gates failed for this commit; no live write is allowed until they are green."
-            exit 1
-          fi
+          GATE_SHA: ${{ github.sha }}
+          GATE_REPOSITORY: ${{ github.repository }}
+        run: python3 tools/wp-agent/check_build_gate.py
 
       - name: Run pending jobs
         env:
@@ -116,14 +101,10 @@ jobs:
         run: |
           set -u
           status=0
-          if [ -n "${INPUT_JOB:-}" ]; then
-            case "$INPUT_JOB" in
-              tools/wp-agent/jobs/*.json) jobs="$INPUT_JOB" ;;
-              *) echo "::error::job must be tools/wp-agent/jobs/<name>.json"; exit 1 ;;
-            esac
-          else
-            jobs=$(ls tools/wp-agent/jobs/*.json 2>/dev/null || true)
+          if [[ ! "${INPUT_JOB:-}" =~ ^tools/wp-agent/jobs/[A-Za-z0-9._-]+\.json$ ]]; then
+            echo "::error::job must be a single tools/wp-agent/jobs/<name>.json file"; exit 1
           fi
+          jobs="$INPUT_JOB"
           ran=0
           for job in $jobs; do
             name=$(basename "$job")

@@ -10,6 +10,7 @@ import re
 from dataclasses import dataclass, field
 
 from .normalize import normalize_for_match, parse_number, to_digit_script
+from .protection import split_protected
 
 BAD_HOSTS = {"google.com", "www.google.com", "chatgpt.com", "www.chatgpt.com",
              "chat.openai.com", "openai.com"}
@@ -89,7 +90,7 @@ _LIST_ITEM = re.compile(
 )
 
 
-def clean_sources(text: str) -> SourcesResult:
+def _clean_sources_unprotected(text: str, protected_prefix: str = "") -> SourcesResult:
     """منابع بد را حذف و شماره‌ها و ارجاع‌ها را مرتب می‌کند.
 
     اگر هیچ تغییری لازم نباشد، همان متن ورودی (بایت‌به‌بایت) برمی‌گردد.
@@ -137,7 +138,7 @@ def clean_sources(text: str) -> SourcesResult:
             continue
         body = m.group(5)
         hosts = _hosts_in(line)
-        if _is_bad_only(hosts):
+        if _is_bad_only(hosts) and not (protected_prefix and protected_prefix in line):
             findings.append(
                 SourceFinding(start + 2 + offset, "bad-source-only", line.strip(), "source-deleted")
             )
@@ -168,27 +169,22 @@ def clean_sources(text: str) -> SourcesResult:
 
     def _fix_citation(match: re.Match[str]) -> str:
         inner = match.group(1)
-        parts = re.split(r"([,،])", inner)
-        out: list[str] = []
-        any_mapped = False
-        for part in parts:
-            token = part.strip()
-            num = parse_number(token) if token and token not in ",،" else None
+        # Keep the separator immediately preceding each surviving reference, but
+        # discard separators belonging to removed references (no dangling commas).
+        tokens = re.split(r"(\s*[,،]\s*)", inner)
+        surviving: list[str] = []
+        for i in range(0, len(tokens), 2):
+            token = tokens[i].strip()
+            num = parse_number(token) if token else None
             if num is None:
-                out.append(part)
-                continue
-            any_mapped = True
+                return match.group(0)  # ambiguous syntax: leave it unchanged
             if num in removed_numbers:
-                continue  # ارجاع به منبع حذف‌شده می‌افتد، جمله نمی‌افتد
-            if num in old_to_new:
-                sample = token
-                out.append(to_digit_script(old_to_new[num], sample))
-            else:
-                out.append(part)
-        joined = "".join(out).strip(" ,،")
-        if not joined:
-            return ""
-        return f"[{joined}]"
+                continue
+            value = to_digit_script(old_to_new[num], token) if num in old_to_new else token
+            if surviving:
+                surviving.append(tokens[i - 1])
+            surviving.append(value)
+        return f"[{''.join(surviving)}]" if surviving else ""
 
     # بازسازی با حفظ ترتیب اصلی و اصلاح ارجاع‌های [n] فقط بیرونِ بخش منابع
     before = "\n".join(lines[: start + 1])
@@ -204,3 +200,30 @@ def clean_sources(text: str) -> SourcesResult:
         parts.append(rebuilt_after)
     result = "\n".join(parts)
     return SourcesResult(result, findings, removed_chars)
+
+
+def clean_sources(text: str) -> SourcesResult:
+    """Clean sources while keeping metadata, code, and comments byte-for-byte intact."""
+    replacements: dict[str, str] = {}
+    prefix = "SA_PROTECTED_TOKEN_"
+    while prefix in text:
+        prefix += "X"
+
+    def mask(value: str) -> str:
+        # Separate tokens per line keep heading recognition and finding line numbers intact.
+        def replace(m: re.Match[str]) -> str:
+            token = f"{prefix}{len(replacements)}_END"
+            replacements[token] = m.group(0)
+            return token
+        return re.sub(r"[^\r\n]+", replace, value)
+
+    chunks = []
+    for segment, protected in split_protected(text):
+        if protected:
+            chunks.append(mask(segment))
+        else:
+            chunks.append(re.sub(r"`[^`\n]*`", lambda m: mask(m.group(0)), segment))
+    result = _clean_sources_unprotected("".join(chunks), prefix)
+    for token, original in replacements.items():
+        result.text = result.text.replace(token, original)
+    return result

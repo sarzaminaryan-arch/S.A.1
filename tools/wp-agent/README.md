@@ -64,13 +64,14 @@ sandbox نشست Arena به sarzaminaryan.ir دسترسی شبکه ندارد. �
    }
    ```
 
-3. commit و push روی شاخهٔ همان نشست انجام بده. workflow «WP agent» خودکار اجرا می‌شود.
+3. کار را روی شاخهٔ کاری بررسی کن و پس از تأیید مالک در `main` ادغام کن. workflow «WP agent» فقط با اجرای دستی از `main` و انتخاب یک فایل کار اجرا می‌شود؛ push شاخه و برنامهٔ زمان‌بندی‌شده اجرا را آغاز نمی‌کنند.
 4. اجرا را دنبال کن و نتیجه را بخوان:
 
    ```bash
+   gh workflow run wp-agent.yml --ref main -f job=tools/wp-agent/jobs/20261115-01-ping.json
    gh run list --workflow wp-agent.yml --limit 3
    gh run watch <run-id> --exit-status
-   git pull --ff-only origin <branch>
+   # نتیجه را از شاخهٔ main دریافت و بررسی کن
    cat tools/wp-agent/results/20261115-01-ping.json
    ```
 
