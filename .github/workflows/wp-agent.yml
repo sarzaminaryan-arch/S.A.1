@@ -18,21 +18,13 @@ name: WP agent (direct WordPress — drafts only, backup first)
 #   SA_USER          WordPress username that owns the Application Password
 #   SA_APP_PASSWORD  the Application Password
 
+# Production credentials must not be used on unreviewed branch pushes or schedules.
+# Dispatch only from main after the job has been reviewed and merged.
 on:
-  push:
-    branches:
-      - main
-      - "arena/**"
-    paths:
-      - "tools/wp-agent/jobs/**.json"
-  # Daily run on the default branch picks up jobs whose `not_before` has passed
-  # (e.g. the next batch of at most 10 live edits per day). Jobs without a result run once.
-  schedule:
-    - cron: "30 6 * * *"
   workflow_dispatch:
     inputs:
       job:
-        description: "Job file inside the repository (tools/wp-agent/jobs/<name>.json)"
+        description: "Reviewed job on main (tools/wp-agent/jobs/<name>.json)"
         required: true
         type: string
 
@@ -45,6 +37,7 @@ concurrency:
 
 jobs:
   run:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -81,6 +74,7 @@ jobs:
           python3 tools/wp-agent/test_content_audit.py
           python3 tools/wp-agent/test_content_fix.py
           python3 tools/wp-agent/test_wp_agent_jobs.py
+          python3 tools/wp-agent/test_workflow_safety.py
           python3 tools/wp-agent/test_fa_lint.py
           python3 tools/wp-agent/test_wp_agent_probe.py
           python3 tools/wp-agent/test_build_replace_batch.py
@@ -116,14 +110,10 @@ jobs:
         run: |
           set -u
           status=0
-          if [ -n "${INPUT_JOB:-}" ]; then
-            case "$INPUT_JOB" in
-              tools/wp-agent/jobs/*.json) jobs="$INPUT_JOB" ;;
-              *) echo "::error::job must be tools/wp-agent/jobs/<name>.json"; exit 1 ;;
-            esac
-          else
-            jobs=$(ls tools/wp-agent/jobs/*.json 2>/dev/null || true)
+          if [[ ! "${INPUT_JOB:-}" =~ ^tools/wp-agent/jobs/[A-Za-z0-9._-]+\.json$ ]]; then
+            echo "::error::job must be a single tools/wp-agent/jobs/<name>.json file"; exit 1
           fi
+          jobs="$INPUT_JOB"
           ran=0
           for job in $jobs; do
             name=$(basename "$job")
