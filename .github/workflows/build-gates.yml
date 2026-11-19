@@ -15,12 +15,7 @@ on:
     branches:
       - main
       - "arena/**"
-    paths:
-      - "tools/wp-agent/replace_src/**"
-      - "tools/photos/**"
-      - "tools/county-insights/**"
-      - "wp-content/themes/sarzaminaryan-child/**"
-      - ".github/workflows/build-gates.yml"
+    # Every main commit must have a gate run, including job-only and result commits.
   pull_request:
     paths:
       - "tools/wp-agent/replace_src/**"

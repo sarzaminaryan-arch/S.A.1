@@ -14,6 +14,7 @@ class ProductionWorkflowTests(unittest.TestCase):
         self.assertNotIn('  push:', triggers)
         self.assertNotIn('  schedule:', triggers)
         self.assertIn("if: ${{ github.ref == 'refs/heads/main' }}", workflow)
+        self.assertIn('ref: ${{ github.sha }}', workflow)
         self.assertIn('INPUT_JOB:-', workflow)
         self.assertNotIn('jobs=$(ls tools/wp-agent/jobs/', workflow)
 
