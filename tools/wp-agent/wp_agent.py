@@ -285,6 +285,13 @@ class _SeoParser(html.parser.HTMLParser):
         # دکمه سر جایش است (فقط‌خواندنی، هیچ اثری روی صفحه ندارد).
         self.identity_cells = 0
         self.identity_fold_buttons = 0
+        # v2.22.148: سلسله‌مراتب تیتر «تجربهٔ مسافرها» — بلوک باید H3 و
+        # زیربخش‌هایش H4 باشند و عنوان‌ها شمارهٔ فارسی بگیرند.
+        self.traveller_h3 = 0
+        self.traveller_h4 = 0
+        self.traveller_numbered = 0
+        self._in_traveller = 0
+        self._heading_buf = None
         self._in_county_grid = 0
         self._main = 0
 
@@ -319,6 +326,14 @@ class _SeoParser(html.parser.HTMLParser):
             self.identity_cells += 1
         if tag == "button" and "sa-cyber-id__fold-btn" in classes:
             self.identity_fold_buttons += 1
+        if tag == "section" and "sa-field-notes" in classes:
+            self._in_traveller = 1
+        if self._in_traveller and tag in ("h3", "h4"):
+            if tag == "h3":
+                self.traveller_h3 += 1
+            else:
+                self.traveller_h4 += 1
+            self._heading_buf = ""
         if "sa-spotlight" in classes:
             self.spotlight += 1
             self._in_spotlight += 1
@@ -402,6 +417,13 @@ class _SeoParser(html.parser.HTMLParser):
             self._in_spotlight -= 1
         if tag == "section" and self._in_county_gallery:
             self._in_county_gallery -= 1
+        if tag in ("h3", "h4") and self._heading_buf is not None:
+            # شمارهٔ فارسی ابتدای عنوان («۱. ») نشانهٔ شماره‌گذاری زیربخش است.
+            if re.match(r"^[0-9\u06F0-\u06F9]+\.", self._heading_buf.strip()):
+                self.traveller_numbered += 1
+            self._heading_buf = None
+        if tag == "section" and self._in_traveller:
+            self._in_traveller = 0
         if tag == "details" and self._details_open:
             self._details_open.pop()
         if tag == "article" and self._in_strip_tile:
@@ -421,6 +443,8 @@ class _SeoParser(html.parser.HTMLParser):
             self._skip -= 1
 
     def handle_data(self, data):
+        if self._heading_buf is not None:
+            self._heading_buf += data
         if self._in_credit:
             self._credit_buf += data  # خط اعتبار عکس: نام عکاس + مجوز
         if self._in_title:
@@ -582,6 +606,8 @@ def probe_url(url: str) -> dict:
                 "experience_places": p.experience_places,
                 "experience_tips": p.experience_tips,
                 "identity_cells": p.identity_cells, "identity_fold_buttons": p.identity_fold_buttons,
+                "traveller_h3": p.traveller_h3, "traveller_h4": p.traveller_h4,
+                "traveller_numbered": p.traveller_numbered,
                 "jsonld": _jsonld_types(p.jsonld), "jsonld_images": _jsonld_images(p.jsonld),
                 "map_iframes": p.map_iframes, "map_frame_buttons": p.map_frame_buttons,
                 "map_coords": p.map_coords})
