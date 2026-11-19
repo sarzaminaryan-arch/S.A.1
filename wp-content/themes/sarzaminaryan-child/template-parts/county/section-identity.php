@@ -64,7 +64,7 @@ $sa_fallback = function_exists( 'sa_cyber_id_county_fallback' )
 // An empty value never invents data — its tile is dropped before rendering.
 $sa_profile_ext = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $sa_id ) : array();
 if ( ! empty( $sa_profile_ext['has_insights'] ) && function_exists( 'sa_toc_register' ) ) {
-	sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6 );
+	sa_toc_register( 'تجربهٔ مسافرها', 'county-field-notes', 6, 2 );
 }
 $sa_pget        = function ( $sa_key ) use ( $sa_profile_ext ) {
 	return isset( $sa_profile_ext[ $sa_key ] ) ? $sa_profile_ext[ $sa_key ] : '';
