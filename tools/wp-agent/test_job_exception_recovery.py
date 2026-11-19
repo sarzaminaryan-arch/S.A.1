@@ -21,7 +21,7 @@ class RecoveryTests(unittest.TestCase):
                     self.restored.append(route)
                     return {'restored': route}
             client = Client()
-            with patch.object(agent, 'RESULTS_DIR', root / 'results'), patch.object(
+            with patch.dict('os.environ', {'GITHUB_ACTIONS': 'false', 'SA_WP_AGENT_STATE_DIR': str(root / 'state')}), patch.object(agent, 'RESULTS_DIR', root / 'results'), patch.object(
                     agent, 'run', side_effect=[{'backup_id': 101}, {'backup_id': 102}, RuntimeError('unexpected')]):
                 report = agent.run_job(str(job), client)
             self.assertFalse(report['ok'])
