@@ -1274,8 +1274,11 @@ def rollback(c: "Client", backup_ids: list[int]) -> list[dict]:
     for bid in reversed(backup_ids):
         try:
             out.append({"backup_id": bid, "result": c.call("POST", f"/restore/{bid}", body={})})
-        except AgentError as err:
-            out.append({"backup_id": bid, "error": str(err)})
+        except Exception as err:
+            # Unexpected failures must not prevent attempts for earlier backups.
+            # Do not put arbitrary exception text (which may contain secrets) in reports.
+            message = str(err) if isinstance(err, AgentError) else f"{type(err).__name__}: restore failed"
+            out.append({"backup_id": bid, "error": message})
     return out
 
 
@@ -1401,14 +1404,15 @@ def run_job(job_path: str, c: "Client") -> dict:
                 bad = unhealthy_pages(entry["result"].get("probes", []))
                 if bad:
                     raise AgentError("post-change probe failed: " + "; ".join(bad))
-        except (AgentError, SystemExit) as err:
+        except (Exception, SystemExit) as err:
             # argparse exits with code 2 and no message when a step carries a flag the parser
             # does not know; "error: 2" told nobody what was wrong (jobs 43 and 128 died that way).
             entry["error"] = (
                 f"bad step {i} ({step.get('cmd')}): a flag in this step is not accepted by the "
                 f"command — run tools/wp-agent/test_wp_agent_jobs.py"
                 if isinstance(err, SystemExit) and not isinstance(err, AgentError)
-                else str(err)
+                else str(err) if isinstance(err, AgentError)
+                else f"{type(err).__name__}: unexpected step failure"
             )
             report["ok"] = False
             report["steps"].append(entry)

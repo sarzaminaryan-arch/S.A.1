@@ -76,6 +76,7 @@ jobs:
           python3 tools/wp-agent/test_content_audit.py
           python3 tools/wp-agent/test_content_fix.py
           python3 tools/wp-agent/test_wp_agent_jobs.py
+          python3 tools/wp-agent/test_job_exception_recovery.py
           python3 tools/wp-agent/test_workflow_safety.py
           python3 tools/wp-agent/test_build_gate.py
           python3 tools/wp-agent/test_fa_lint.py
