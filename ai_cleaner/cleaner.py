@@ -17,11 +17,10 @@ from dataclasses import dataclass, field
 from .normalize import normalize_for_match
 from .patterns import Pattern
 from .sources import clean_sources
+from .protection import split_protected as _split_protected
 
 SENTENCE_END = ".!?؟؛"
 _SENTENCE_RE = re.compile(r"[^.!?؟؛\n]+(?:[.!?؟؛]+)?")
-_FRONT_MATTER_RE = re.compile(r"\A---[ \t]*\r?\n.*?\r?\n---[ \t]*(?:\r?\n|\Z)", re.DOTALL)
-_CODE_FENCE_RE = re.compile(r"(```.*?```|~~~.*?~~~|<!--.*?-->)", re.DOTALL)
 _INLINE_PROTECTED_RE = re.compile(
     r"(`[^`\n]*`"  # کد درون‌خطی
     r"|<[^>\n]+>"  # تگ HTML
@@ -65,25 +64,6 @@ def extract_title(text: str, fallback: str = "") -> str:
     if m:
         return m.group(1).strip()
     return fallback
-
-
-def _split_protected(text: str) -> list[tuple[str, bool]]:
-    """[(بخش، محافظت‌شده؟)] — front matter و بلوک‌های کد محافظت‌شده‌اند."""
-    parts: list[tuple[str, bool]] = []
-    rest = text
-    m = _FRONT_MATTER_RE.match(rest)
-    if m:
-        parts.append((m.group(0), True))
-        rest = rest[m.end() :]
-    for chunk in _CODE_FENCE_RE.split(rest):
-        if not chunk:
-            continue
-        protected = (
-            (chunk.startswith(("```", "~~~")) and chunk.rstrip().endswith(("```", "~~~")))
-            or (chunk.startswith("<!--") and chunk.rstrip().endswith("-->"))
-        )
-        parts.append((chunk, protected))
-    return parts
 
 
 def iter_sentences(text: str):

@@ -159,3 +159,21 @@ def test_batches_are_alphabetical_20s():
     batches = make_batches(files, 20)
     assert [len(b) for b in batches] == [20, 20, 5]
     assert batches[0] == sorted(batches[0])
+
+
+def test_source_cleaning_preserves_protected_regions():
+    protected = ('---\nurl: https://example.ir/?utm_source=chatgpt.com\n---\n'
+                 '```\n## منابع\n1. https://google.com/?utm_source=chatgpt.com\n[3]\n```\n'
+                 '<!-- [3] https://a.ir/?utm_source=chatgpt.com -->\n'
+                 '`[3] https://a.ir/?utm_source=chatgpt.com`\n')
+    src = protected + ('متن [3] و https://a.ir/?utm_source=chatgpt.com\n## منابع\n'
+                       '1. https://example.ir/a\n2. https://google.com/a\n3. https://example.ir/c\n')
+    out = clean_sources(src).text
+    assert out.startswith(protected)
+    assert 'متن [2] و https://a.ir/' in out
+    assert '2. https://example.ir/c' in out
+
+
+def test_source_line_with_inline_code_is_not_deleted():
+    text = "## منابع\n1. https://google.com/ `keep me`\n"
+    assert '`keep me`' in clean_sources(text).text
