@@ -73,6 +73,15 @@ jobs:
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
 
+      - name: Production workflow and recovery safety regressions
+        run: |
+          python3 tools/wp-agent/test_ci_coverage.py
+          python3 tools/wp-agent/test_workflow_safety.py
+          python3 tools/wp-agent/test_build_gate.py
+          python3 tools/wp-agent/test_job_exception_recovery.py
+          python3 tools/wp-agent/test_job_state_recovery.py
+          python3 tools/wp-agent/test_write_reconciliation.py
+
       - name: Licensed-photo rules (licence, author, host, 4:3 WebP under 100 KB)
         run: |
           python3 tools/photos/test_import_photos.py

@@ -10,6 +10,8 @@ import os
 from pathlib import Path
 import tempfile
 
+from write_verification import verify_intent
+
 
 class StateError(Exception):
     pass
@@ -92,6 +94,19 @@ class Journal:
                 self.data['active'] = None
                 self.save()
                 return
+            intent = active.get('intent')
+            if (active.get('phase') == 'executing' and active.get('command') == 'update'
+                    and isinstance(intent, dict) and type(intent.get('target')) is int
+                    and intent['target'] > 0):
+                try:
+                    snapshot = client.call('GET', f"/post/{intent['target']}")
+                    outcome = verify_intent(intent, snapshot)
+                except Exception:
+                    outcome = 'unknown'
+                active['verification'] = outcome
+                self.save()
+            # A matching snapshot does not prove this job applied the update, nor
+            # recover a backup ID. Never replay/rollback without an operation receipt.
             raise StateError('Interrupted job may have changed the site; manual reconciliation required.')
         if (active.get('phase') == 'restoring' or active.get('untracked') or
                 (active.get('phase') == 'executing' and active.get('command') not in READ_ONLY)):

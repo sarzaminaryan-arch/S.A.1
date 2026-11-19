@@ -67,6 +67,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from job_state import Journal, READ_ONLY, StateError
+from write_verification import make_intent
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # content_audit.py
@@ -1378,11 +1379,29 @@ def run_photos_import(step: dict) -> dict:
     return json.loads(report_path.read_text(encoding="utf-8"))
 
 
+class JournalledClient:
+    """Checkpoint the hash immediately before sending a supported post update."""
+    def __init__(self, client, journal):
+        self._client, self._journal = client, journal
+
+    def __getattr__(self, name):
+        return getattr(self._client, name)
+
+    def call(self, method, path, params=None, body=None):
+        active = self._journal.data['active']
+        match = re.fullmatch(r"/post/(\d+)", path)
+        if (active and active.get('phase') == 'executing' and active.get('command') == 'update'
+                and method == 'POST' and match):
+            active['intent'] = make_intent(int(match.group(1)), body)
+            self._journal.save()  # failure means the live write is never sent
+        return self._client.call(method, path, params=params, body=body)
+
+
 def run_job(job_path: str, c: "Client") -> dict:
     """Execute under an independent, locked state journal; fail closed on uncertainty."""
     try:
         with Journal(REPO_ROOT.resolve()) as journal:
-            return _run_job(job_path, c, journal)
+            return _run_job(job_path, JournalledClient(c, journal), journal)
     except (StateError, OSError) as err:
         raise AgentError(f"job state: {err}") from err
 
