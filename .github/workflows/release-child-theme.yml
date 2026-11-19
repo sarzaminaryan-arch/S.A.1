@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - "arena/**"
     paths:
       - "wp-content/themes/sarzaminaryan-child/**"
       - ".github/workflows/release-child-theme.yml"
@@ -19,6 +18,7 @@ concurrency:
 
 jobs:
   package-and-release:
+    if: ${{ github.ref == 'refs/heads/main' }}
     name: Validate, package and publish
     runs-on: ubuntu-22.04
     timeout-minutes: 30
@@ -147,22 +147,25 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-province-county-links.php"
 
+      - name: Test licensed-photo release failure handling
+        run: python3 tools/photos/test_release_gate.py
+
       - name: 'Run licensed-photo tests (مجوز آزاد + نام عکاس، allow-list دامنه، بلوک خالی بدون عکس مجاز)'
         shell: bash
-        # گزارش این تست در مخزن گذاشته می‌شود: لاگ اکشن‌ها از سندباکس ایجنت خواندنی نیست،
-        # پس تنها راه دیدن دلیل شکست، همین فایل است. تا سبز شدن، انتشار را نمی‌بندد.
-        continue-on-error: true
+        # Keep the report even when a test fails, but do not publish a failed release.
         run: |
           mkdir -p tools/photos/results
+          status=0
           {
             echo "== php $(php -v | head -n 1)"
-            php "$THEME_DIR/tests/test-county-media.php"
-            echo "php rc=$?"
+            php "$THEME_DIR/tests/test-county-media.php" || status=1
+            echo "php status=$status"
             echo "== python $(python3 -V 2>&1)"
-            python3 tools/photos/test_import_photos.py
-            echo "python rc=$?"
+            python3 tools/photos/test_import_photos.py || status=1
+            echo "combined status=$status"
           } > tools/photos/results/licensed-photo-tests.txt 2>&1
           cat tools/photos/results/licensed-photo-tests.txt
+          exit "$status"
 
       - name: 'Run agent-bridge tests (پل ایجنت: فقط پیش‌نویس، پشتیبان پیش از هر تغییر)'
         shell: bash
