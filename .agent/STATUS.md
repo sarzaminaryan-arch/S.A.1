@@ -9,3 +9,4 @@
 - تست اختصاصی پوشش CI افزوده شد؛ CI خودِ تست‌های بازیابی و محافظت production را نیز اجرا خواهد کرد. وضعیت CI تا اجرای راه دور نامشخص است.
 
 - آزمون تازهٔ `tools/wp-agent/test_write_reconciliation.py`: پنج تست محلی سبز (hash، مغایرت، قطع و خطای استعلام). hash برابر به‌تنهایی اثبات اجرای همان درخواست یا شناسهٔ backup نیست؛ قفل تا بررسی دستی باقی می‌ماند.
+- CI گیت ساخت و محافظت فایل‌های PR برای commit `94f72f0` در GitHub موفق شد: https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/44505693623 و https://github.com/sarzaminaryan-arch/S.A.1/actions/runs/44505693625. نتیجهٔ commitهای بعدی باید جداگانه بررسی شود؛ این به معنی آمادگی production نیست.
