@@ -169,27 +169,22 @@ def _clean_sources_unprotected(text: str, protected_prefix: str = "") -> Sources
 
     def _fix_citation(match: re.Match[str]) -> str:
         inner = match.group(1)
-        parts = re.split(r"([,،])", inner)
-        out: list[str] = []
-        any_mapped = False
-        for part in parts:
-            token = part.strip()
-            num = parse_number(token) if token and token not in ",،" else None
+        # Keep the separator immediately preceding each surviving reference, but
+        # discard separators belonging to removed references (no dangling commas).
+        tokens = re.split(r"(\s*[,،]\s*)", inner)
+        surviving: list[str] = []
+        for i in range(0, len(tokens), 2):
+            token = tokens[i].strip()
+            num = parse_number(token) if token else None
             if num is None:
-                out.append(part)
-                continue
-            any_mapped = True
+                return match.group(0)  # ambiguous syntax: leave it unchanged
             if num in removed_numbers:
-                continue  # ارجاع به منبع حذف‌شده می‌افتد، جمله نمی‌افتد
-            if num in old_to_new:
-                sample = token
-                out.append(to_digit_script(old_to_new[num], sample))
-            else:
-                out.append(part)
-        joined = "".join(out).strip(" ,،")
-        if not joined:
-            return ""
-        return f"[{joined}]"
+                continue
+            value = to_digit_script(old_to_new[num], token) if num in old_to_new else token
+            if surviving:
+                surviving.append(tokens[i - 1])
+            surviving.append(value)
+        return f"[{''.join(surviving)}]" if surviving else ""
 
     # بازسازی با حفظ ترتیب اصلی و اصلاح ارجاع‌های [n] فقط بیرونِ بخش منابع
     before = "\n".join(lines[: start + 1])

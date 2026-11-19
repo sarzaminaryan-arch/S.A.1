@@ -177,3 +177,13 @@ def test_source_cleaning_preserves_protected_regions():
 def test_source_line_with_inline_code_is_not_deleted():
     text = "## منابع\n1. https://google.com/ `keep me`\n"
     assert '`keep me`' in clean_sources(text).text
+
+
+@pytest.mark.parametrize(('citation', 'expected'), [
+    ('[1,2,3]', '[1,2]'), ('[2,3]', '[2]'), ('[1,2]', '[1]'),
+    ('[2]', ''), ('[۱، ۲، ۳]', '[۱، ۲]'), ('[1,2,9]', '[1,9]'),
+])
+def test_grouped_citation_renumbering(citation, expected):
+    text = (f'پژوهش {citation}\n## منابع\n1. https://example.ir/a\n'
+            '2. https://google.com/a\n3. https://example.ir/c\n')
+    assert clean_sources(text).text.splitlines()[0] == f'پژوهش {expected}'
