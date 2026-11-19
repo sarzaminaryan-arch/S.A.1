@@ -8,7 +8,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-$sa_id   = get_the_ID();
+$sa_id   = isset( $args['post_id'] ) ? (int) $args['post_id'] : get_the_ID();
 $sa_rows = sa_entity_facts( $sa_id );
 $sa_map  = sa_map_url( $sa_id );
 if ( ! $sa_rows && ! $sa_map ) {

@@ -5,8 +5,7 @@
  * این تست سه چیز را تضمین می‌کند:
  *   ۱) رجیستری کامل و بی‌تکرار است، هر سکشن تابع رندرِ موجود دارد و فایل
  *      `template-parts/county/section-<name>.php` واقعاً روی دیسک است.
- *   ۲) ترتیب پیش‌فرض دقیقاً همان چیدمانی است که پیش از این مدولارسازی روی صفحه
- *      بود — پس این تغییر ظاهر هیچ صفحه‌ای را عوض نمی‌کند (تست رگرسیون ساختاری).
+ *   ۲) خلاصهٔ فشرده درست بعد از تصویر شاخص و پیش از فهرست مطالب می‌آید.
  *   ۳) `order` و `enabled` کار می‌کنند: جابه‌جایی و خاموش‌کردن فقط با رجیستری.
  *
  * اجرا: php tests/test-county-sections.php  (یا از طریق build-gates)
@@ -80,7 +79,7 @@ require_once SA_CHILD_DIR . 'inc/county-sections-loader.php';
 // ۱) ساختار رجیستری
 // ---------------------------------------------------------------------------
 $sa_cs_registry = sa_county_sections_registry();
-sa_cs_assert( count( $sa_cs_registry ) >= 13, 'the registry lists every county section (at least 13)' );
+sa_cs_assert( count( $sa_cs_registry ) >= 14, 'the registry lists every county section (at least 14)' );
 
 foreach ( $sa_cs_registry as $sa_cs_key => $sa_cs_def ) {
 	sa_cs_assert( is_string( $sa_cs_key ) && '' !== $sa_cs_key, 'every section has a string key' );
@@ -91,17 +90,18 @@ foreach ( $sa_cs_registry as $sa_cs_key => $sa_cs_def ) {
 }
 
 // هر تابع رندر باید فایل سکشن خودش را داشته باشد.
-$sa_cs_files = array( 'cover', 'toc', 'identity', 'notes', 'field-notes', 'body', 'faq', 'photos', 'rating', 'sources', 'contrib', 'related', 'nav' );
+$sa_cs_files = array( 'cover', 'summary', 'toc', 'identity', 'notes', 'field-notes', 'body', 'faq', 'photos', 'rating', 'sources', 'contrib', 'related', 'nav' );
 foreach ( $sa_cs_files as $sa_cs_file ) {
 	$sa_cs_path = SA_CHILD_DIR . 'template-parts/county/section-' . $sa_cs_file . '.php';
 	sa_cs_assert( is_readable( $sa_cs_path ), "section-{$sa_cs_file}.php exists" );
 }
 
 // ---------------------------------------------------------------------------
-// ۲) ترتیب پیش‌فرض = چیدمان قبلی (رگرسیون ساختاری)
+// ۲) ترتیب پیش‌فرض (رگرسیون ساختاری)
 // ---------------------------------------------------------------------------
 $sa_cs_expected = array(
 	'sa-county-cover',
+	'sa-county-summary',
 	'sa-county-toc',
 	'sa-county-identity',
 	'sa-county-notes',
@@ -118,12 +118,32 @@ $sa_cs_expected = array(
 $sa_cs_actual = array_values( array_column( sa_county_sections_ordered(), 'key' ) );
 sa_cs_assert(
 	$sa_cs_expected === $sa_cs_actual,
-	'the default order is exactly the pre-2.22.145 page order'
+	'the compact summary follows the cover and precedes the TOC'
 );
 if ( $sa_cs_expected !== $sa_cs_actual ) {
 	echo '  expected: ' . implode( ' → ', $sa_cs_expected ) . "\n";
 	echo '  actual:   ' . implode( ' → ', $sa_cs_actual ) . "\n";
 }
+
+// رندر واقعی سکشن با دادهٔ پست درخواست‌شده، نه پست سراسری.
+function has_excerpt( $id ) {
+	return 42 === $id;
+}
+function get_the_excerpt( $id ) {
+	return '<خلاصه> ' . $id;
+}
+function esc_html( $value ) {
+	return htmlspecialchars( $value, ENT_QUOTES, 'UTF-8' );
+}
+function get_template_part( $name, $variant = null, $args = array() ) {
+	if ( 'template-parts/entity/facts' === $name && 42 === $args['post_id'] ) {
+		echo '<section id="facts"></section>';
+	}
+}
+$sa_cs_summary = sa_county_summary_html( 42 );
+sa_cs_assert( false !== strpos( $sa_cs_summary, '&lt;خلاصه&gt; 42' ), 'summary escapes the requested county excerpt' );
+sa_cs_assert( 1 === substr_count( $sa_cs_summary, 'id="facts"' ), 'summary renders the requested county facts once' );
+sa_cs_assert( '' === sa_county_summary_html( 43 ), 'no wrapper when excerpt and facts are absent' );
 
 // ---------------------------------------------------------------------------
 // ۳) order / enabled فقط از رجیستری

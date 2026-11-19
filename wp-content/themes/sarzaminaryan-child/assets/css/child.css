@@ -8281,3 +8281,38 @@ body.bg-lines::before {
    یکسان می‌آرایند تا ظاهر کادرها دست‌نخورده بماند. اگر روزی سطح تیتر عوض شد،
    همین دو گروه انتخابگر باید همراه آن عوض شوند.
    ========================================================================== */
+
+/* County summary directly below the featured image. */
+.sa-county-summary {
+	margin-block: .75rem;
+	font-size: .875rem;
+}
+
+.sa-county-summary .sa-entity__lead {
+	margin: 0 0 .5rem;
+	padding: 0;
+	font-size: inherit;
+	line-height: 1.65;
+	background: none;
+	border: 0;
+	box-shadow: none;
+}
+
+.sa-county-summary .sa-facts {
+	padding: .65rem .85rem;
+	box-shadow: none;
+}
+
+.sa-county-summary .sa-facts__title {
+	margin-block-end: .35rem;
+	padding-block-end: .25rem;
+	font-size: inherit;
+}
+
+.sa-county-summary .sa-facts__list {
+	gap: .2rem;
+}
+
+.sa-county-summary .sa-facts__row {
+	font-size: inherit;
+}

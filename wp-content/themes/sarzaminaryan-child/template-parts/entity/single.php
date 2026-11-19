@@ -7,8 +7,8 @@
  * - Each of the 3 primary entities (`province`, `city`, `attraction`) displays its own
  *   Cyber-Tech Light-Mode Tabular Identity Card (`شناسنامه`) at the top of the page.
  * - Duplicate lead paragraphs and duplicate `اطلاعات کلیدی` (`facts.php`) boxes are
- *   omitted on `province`, `city`, and `attraction` so information inside the `شناسنامه`
- *   is never repeated outside it.
+ *   omitted here on `province`, `city`, and `attraction`; counties render
+ *   their compact summary through the section registry.
  *
  * v2.22.145 — the county branch is no longer written here. `city` reads
  * `inc/county-sections.php` (one registry: key, order, enabled, condition) and
@@ -38,7 +38,7 @@ $sa_type = get_post_type( $sa_id );
 				echo sa_province_featured_figure( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 			get_template_part( 'template-parts/entity/province-identity' );
-		} elseif ( 'attraction' !== $sa_type ) {
+		} elseif ( ! in_array( $sa_type, array( 'city', 'attraction' ), true ) ) {
 			if ( has_excerpt() ) {
 				echo '<p class="sa-entity__lead">' . esc_html( get_the_excerpt() ) . '</p>';
 			}
@@ -56,8 +56,7 @@ $sa_type = get_post_type( $sa_id );
 		<?php
 		// v2.22.145 — صفحهٔ شهرستان حالا کامل از رجیستری ساخته می‌شود:
 		// `inc/county-sections.php` می‌گوید کدام سکشن، با چه ترتیبی و با چه شرطی.
-		// ترتیب فعلی معادل دقیق چیدمان نسخهٔ ۲.۲۲.۱۴۴ است، پس ظاهر صفحه عوض نشده؛
-		// فقط جایش در یک فایل خوانا جمع شده است. تغییر ترتیب/خاموش‌کردن هر بخش =
+		// تغییر ترتیب/خاموش‌کردن هر بخش =
 		// یک سطر در همان رجیستری، بدون دست‌زدن به هیچ نوشته‌ای در دیتابیس.
 		if ( 'city' === $sa_type && function_exists( 'sa_county_render_sections' ) ) {
 			echo sa_county_render_sections( $sa_id ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- هر سکشن با escape داخلی ساخته می‌شود.

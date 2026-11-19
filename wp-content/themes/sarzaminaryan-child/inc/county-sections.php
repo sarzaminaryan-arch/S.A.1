@@ -48,6 +48,12 @@ function sa_county_sections_registry() {
 			'render' => 'sa_county_cover_html',
 			'when'   => 'always',
 		),
+		'sa-county-summary'  => array(
+			'label'  => 'خلاصه و اطلاعات کلیدی',
+			'group'  => 'structure',
+			'render' => 'sa_county_summary_html',
+			'when'   => 'always',
+		),
 		// ۲) فهرست مطالب آکاردئونی — ساختاری؛ بالای شناسنامه (v2.22.116).
 		'sa-county-toc'      => array(
 			'label'  => 'فهرست مطالب',

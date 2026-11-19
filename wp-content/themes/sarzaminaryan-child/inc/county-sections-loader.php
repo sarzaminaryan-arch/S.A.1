@@ -7,6 +7,7 @@
  * صدا بزند. سکشن‌ها در `template-parts/county/` زندگی می‌کنند:
  *
  *   section-cover.php        تصویر شاخص (ساختاری)
+ *   section-summary.php      خلاصه و اطلاعات کلیدی (ساختاری)
  *   section-toc.php          فهرست مطالب (ساختاری)
  *   section-identity.php     شناسنامه (ساختاری)
  *   section-notes.php        نکته‌های کوتاه (محتوایی)
@@ -63,6 +64,13 @@ function sa_county_section_part( $name, $post_id, $context = array() ) {
  */
 function sa_county_cover_html( $post_id, $context = array() ) {
 	return sa_county_section_part( 'cover', $post_id, $context );
+}
+
+/**
+ * خلاصه و اطلاعات کلیدی زیر تصویر شاخص.
+ */
+function sa_county_summary_html( $post_id, $context = array() ) {
+	return sa_county_section_part( 'summary', $post_id, $context );
 }
 
 /**
