@@ -55,6 +55,7 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import hashlib
 import os
 import subprocess
 import sys
@@ -64,6 +65,8 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+
+from job_state import Journal, READ_ONLY, StateError
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))  # content_audit.py
@@ -1274,8 +1277,11 @@ def rollback(c: "Client", backup_ids: list[int]) -> list[dict]:
     for bid in reversed(backup_ids):
         try:
             out.append({"backup_id": bid, "result": c.call("POST", f"/restore/{bid}", body={})})
-        except AgentError as err:
-            out.append({"backup_id": bid, "error": str(err)})
+        except Exception as err:
+            # Unexpected failures must not prevent attempts for earlier backups.
+            # Do not put arbitrary exception text (which may contain secrets) in reports.
+            message = str(err) if isinstance(err, AgentError) else f"{type(err).__name__}: restore failed"
+            out.append({"backup_id": bid, "error": message})
     return out
 
 
@@ -1373,14 +1379,29 @@ def run_photos_import(step: dict) -> dict:
 
 
 def run_job(job_path: str, c: "Client") -> dict:
+    """Execute under an independent, locked state journal; fail closed on uncertainty."""
+    try:
+        with Journal(REPO_ROOT.resolve()) as journal:
+            return _run_job(job_path, c, journal)
+    except (StateError, OSError) as err:
+        raise AgentError(f"job state: {err}") from err
+
+
+def _run_job(job_path: str, c: "Client", journal: Journal) -> dict:
     """Run a job file (a list of steps); stop at the first refusal. Writes results/<name>.json."""
     path = (REPO_ROOT / job_path).resolve() if not Path(job_path).is_absolute() else Path(job_path)
     job = json.loads(path.read_text(encoding="utf-8"))
-    steps = job.get("steps", job if isinstance(job, list) else [])
+    steps = job.get("steps", []) if isinstance(job, dict) else job
     opts = job if isinstance(job, dict) else {}
     if job_deferred(opts):
         print(f"deferred {path.name}: not_before {opts['not_before']}", file=sys.stderr)
         return {"deferred": True, "not_before": opts["not_before"]}
+    fingerprint = hashlib.sha256(path.read_bytes()).hexdigest()
+    journal.recover(c, requested_job=path.name, fingerprint=fingerprint)
+    if (RESULTS_DIR / path.name).exists():
+        raise StateError('Result already exists; do not rerun the job.')
+    journal.start(path.name, opts.get("rollback_on_fail"), fingerprint,
+                  all(isinstance(step, dict) and step.get("cmd") in READ_ONLY for step in steps))
     parser = build_parser()
     report = {"job": str(path.relative_to(REPO_ROOT)) if REPO_ROOT in path.parents else str(path),
               "started_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -1388,6 +1409,7 @@ def run_job(job_path: str, c: "Client") -> dict:
     backups: list[int] = []
     for i, step in enumerate(steps, 1):
         entry = {"n": i, "cmd": step.get("cmd")}
+        journal.before_step(step.get("cmd"))
         try:
             if step.get("cmd") == "county-covers":
                 entry["result"] = run_county_covers(step)
@@ -1397,25 +1419,48 @@ def run_job(job_path: str, c: "Client") -> dict:
                 entry["result"] = run(parser.parse_args(step_to_argv(step)), c)
             if step.get("cmd") == "update" and isinstance(entry["result"], dict) and entry["result"].get("backup_id"):
                 backups.append(int(entry["result"]["backup_id"]))
+            journal.after_step(step.get("cmd"), entry["result"])
             if step.get("cmd") == "probe" and opts.get("rollback_on_fail"):
                 bad = unhealthy_pages(entry["result"].get("probes", []))
                 if bad:
                     raise AgentError("post-change probe failed: " + "; ".join(bad))
-        except (AgentError, SystemExit) as err:
+        except (OSError, StateError):
+            # Never continue or restore when the journal itself may not be durable.
+            raise
+        except (Exception, SystemExit) as err:
             # argparse exits with code 2 and no message when a step carries a flag the parser
             # does not know; "error: 2" told nobody what was wrong (jobs 43 and 128 died that way).
             entry["error"] = (
                 f"bad step {i} ({step.get('cmd')}): a flag in this step is not accepted by the "
                 f"command — run tools/wp-agent/test_wp_agent_jobs.py"
                 if isinstance(err, SystemExit) and not isinstance(err, AgentError)
-                else str(err)
+                else str(err) if isinstance(err, AgentError)
+                else f"{type(err).__name__}: unexpected step failure"
             )
             report["ok"] = False
             report["steps"].append(entry)
             break
         report["steps"].append(entry)
-    if not report["ok"] and opts.get("rollback_on_fail") and backups:
-        report["rollback"] = rollback(c, backups)
+    if not report["ok"]:
+        active = journal.data['active']
+        # An error in a write may mean the server changed state but the response was lost.
+        # Never replay or roll back blindly in that case.
+        if active['phase'] == 'executing' and active.get('command') not in READ_ONLY:
+            report['recovery'] = 'manual reconciliation required: write outcome unknown'
+        elif active['untracked']:
+            report['recovery'] = 'manual reconciliation required: non-reversible step'
+        elif opts.get("rollback_on_fail") and backups:
+            try:
+                journal.recover(c, allow_rollback=True)
+            except StateError as err:
+                if journal.data['active'] is not None:
+                    report['recovery'] = str(err)
+                else:
+                    report['rollback'] = [{'backup_id': bid, 'restored': True} for bid in reversed(backups)]
+        else:
+            journal.finish('failed')
+    else:
+        journal.finish('complete')
     report["finished_utc"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     (RESULTS_DIR / path.name).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

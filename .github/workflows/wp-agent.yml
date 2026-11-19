@@ -55,6 +55,7 @@ jobs:
           node-version: 22
 
       - name: Check secrets are set
+        if: ${{ github.ref == 'refs/heads/main' }}
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
           SA_USER: ${{ secrets.SA_USER }}
@@ -75,6 +76,8 @@ jobs:
           python3 tools/wp-agent/test_content_audit.py
           python3 tools/wp-agent/test_content_fix.py
           python3 tools/wp-agent/test_wp_agent_jobs.py
+          python3 tools/wp-agent/test_job_exception_recovery.py
+          python3 tools/wp-agent/test_job_state_recovery.py
           python3 tools/wp-agent/test_workflow_safety.py
           python3 tools/wp-agent/test_build_gate.py
           python3 tools/wp-agent/test_fa_lint.py
@@ -84,7 +87,7 @@ jobs:
           python3 tools/wp-agent/test_county_template.py
           python3 tools/photos/test_import_photos.py
 
-      # Fail closed until the exact main commit's Build gates push run succeeds.
+      # Fail closed unless the exact main commit's Build gates push run already succeeded.
       - name: Verify build gates for this exact commit
         env:
           GH_TOKEN: ${{ github.token }}
@@ -93,11 +96,13 @@ jobs:
         run: python3 tools/wp-agent/check_build_gate.py
 
       - name: Run pending jobs
+        if: ${{ github.ref == 'refs/heads/main' }}
         env:
           SA_SITE_URL: ${{ secrets.SA_SITE_URL }}
           SA_USER: ${{ secrets.SA_USER }}
           SA_APP_PASSWORD: ${{ secrets.SA_APP_PASSWORD }}
           INPUT_JOB: ${{ inputs.job }}
+          SA_WP_AGENT_STATE_DIR: ${{ vars.SA_WP_AGENT_STATE_DIR }}
         run: |
           set -u
           status=0
@@ -107,11 +112,6 @@ jobs:
           jobs="$INPUT_JOB"
           ran=0
           for job in $jobs; do
-            name=$(basename "$job")
-            if [ -f "tools/wp-agent/results/$name" ]; then
-              echo "skip $job (already has a result)"
-              continue
-            fi
             echo "::group::run $job"
             python3 tools/wp-agent/wp_agent.py run-job "$job" || status=1
             echo "::endgroup::"

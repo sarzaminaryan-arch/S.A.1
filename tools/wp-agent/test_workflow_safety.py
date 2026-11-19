@@ -14,6 +14,13 @@ class ProductionWorkflowTests(unittest.TestCase):
             self.assertIn(path, readme)
             self.assertTrue((ROOT / path).is_file())
 
+    def test_secret_steps_are_explicitly_guarded_by_main(self):
+        workflow = (ROOT / '.github/workflows/wp-agent.yml').read_text(encoding='utf-8')
+        for name in ('Check secrets are set', 'Run pending jobs'):
+            step = workflow.split(f'      - name: {name}\n', 1)[1].split('\n      - name:', 1)[0]
+            self.assertIn("        if: ${{ github.ref == 'refs/heads/main' }}", step)
+            self.assertIn('${{ secrets.SA_APP_PASSWORD }}', step)
+
     def test_agent_is_manual_main_only(self):
         workflow = (ROOT / '.github/workflows/wp-agent.yml').read_text(encoding='utf-8')
         triggers = workflow.split('\non:\n', 1)[1].split('\npermissions:', 1)[0]

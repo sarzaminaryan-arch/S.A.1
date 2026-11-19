@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline tests for job-runner safety: not_before deferral, probe health rule, auto-rollback."""
 import json
+import os
 import sys
 import tempfile
 from datetime import datetime, timezone
@@ -183,6 +184,9 @@ class FakeClient:
 wa.save_local_backup = lambda name, data: wa.REPO_ROOT / "backup" / "test"  # no disk writes in tests
 wa.probe_url = lambda url: {"url": url, "status": 200, "title": "t", "robots": "noindex", "h1": 1}
 with tempfile.TemporaryDirectory() as d:
+    # Tests use an isolated simulated persistent disk, never a live Actions runner.
+    os.environ['GITHUB_ACTIONS'] = 'false'
+    os.environ['SA_WP_AGENT_STATE_DIR'] = str(Path(d) / 'state')
     html = Path(d) / "a.html"
     html.write_text("<p>متن</p>", encoding="utf-8")
     job = Path(d) / "job.json"

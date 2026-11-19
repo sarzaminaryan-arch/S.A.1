@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 import unittest
+import json
+from unittest.mock import patch
+from types import SimpleNamespace
+import check_build_gate
 from check_build_gate import gate_state
 
 SHA = 'abcd'
@@ -29,6 +33,28 @@ class BuildGateTests(unittest.TestCase):
     def test_malformed_is_error(self):
         with self.assertRaises(ValueError):
             gate_state({}, SHA)
+
+
+class GateExitTests(unittest.TestCase):
+    def test_uncertain_and_failed_responses_immediately_fail_closed(self):
+        cases = [
+            SimpleNamespace(returncode=1, stdout=''),
+            SimpleNamespace(returncode=0, stdout='not json'),
+            SimpleNamespace(returncode=0, stdout=json.dumps({'workflow_runs': []})),
+            SimpleNamespace(returncode=0, stdout=json.dumps({'workflow_runs': [run(status='queued', conclusion=None)]})),
+            SimpleNamespace(returncode=0, stdout=json.dumps({'workflow_runs': [run(conclusion='cancelled')]})),
+        ]
+        for response in cases:
+            with self.subTest(response=response), patch.dict('os.environ', {'GATE_SHA': SHA, 'GATE_REPOSITORY': 'a/b'}), \
+                    patch.object(check_build_gate.subprocess, 'run', return_value=response) as call:
+                self.assertEqual(check_build_gate.main(), 1)
+                call.assert_called_once()
+
+    def test_exact_commit_success_allows(self):
+        response = SimpleNamespace(returncode=0, stdout=json.dumps({'workflow_runs': [run()]}))
+        with patch.dict('os.environ', {'GATE_SHA': SHA, 'GATE_REPOSITORY': 'a/b'}), \
+                patch.object(check_build_gate.subprocess, 'run', return_value=response):
+            self.assertEqual(check_build_gate.main(), 0)
 
 
 if __name__ == '__main__':
