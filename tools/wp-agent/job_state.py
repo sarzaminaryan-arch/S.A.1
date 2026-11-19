@@ -1,8 +1,7 @@
 """Lightweight, locked run journal stored outside the Git checkout.
 
-A local disk journal is durable only while that disk survives. GitHub-hosted
-runners are ephemeral and are deliberately rejected; a persistent self-hosted
-runner requires an explicitly configured state directory outside the checkout.
+A local disk journal is durable only while that disk survives. On GitHub-hosted
+runners, the default journal does not survive a new workflow run.
 """
 import fcntl
 import json
@@ -24,9 +23,6 @@ READ_ONLY = {'ping', 'list', 'get', 'backups', 'probe', 'inventory', 'seo-scan',
 class Journal:
     def __init__(self, repo):
         configured = os.environ.get('SA_WP_AGENT_STATE_DIR')
-        if os.environ.get('GITHUB_ACTIONS') == 'true':
-            if os.environ.get('RUNNER_ENVIRONMENT') != 'self-hosted' or not configured:
-                raise StateError('A persistent self-hosted runner and SA_WP_AGENT_STATE_DIR are required; GitHub-hosted disks are ephemeral.')
         self.dir = Path(configured or (Path.home() / '.local/state/sa-wp-agent')).expanduser().resolve()
         if self.dir == repo or repo in self.dir.parents:
             raise StateError('State directory must be outside the Git checkout.')
