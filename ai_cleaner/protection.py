@@ -22,4 +22,3 @@ def split_protected(text: str) -> list[tuple[str, bool]]:
         )
         parts.append((chunk, protected))
     return parts
-
