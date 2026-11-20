@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.22.149' );
+define( 'SA_CHILD_VERSION', '2.23.2' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -76,6 +76,7 @@ $sa_child_includes = array(
 	'inc/social-publish.php', // انتشار خودکار در تلگرام و اینستاگرام — داخلی قالب، بدون افزونه
 	'inc/telegram-bot.php',   // ربات راهنمای تلگرام (استان ← شهر ← دیدنی) — داخلی قالب، بدون افزونه
 	'inc/github-updater.php',
+	'inc/design-2026.php', // v2.23.0: بازطراحی ۱۴۰۵ — پالت، دارایی‌ها و دادهٔ قالب‌های تازه
 	'inc/activation.php',
 );
 
@@ -146,7 +147,10 @@ function sa_child_assets() {
 		array( 'in_footer' => true, 'strategy' => 'defer' )
 	);
 
-	if ( is_front_page() || is_page_template( 'template-home.php' ) ) {
+	// 2026 refresh: the front page now uses the 2026 template (assets/css/sa-2026.css),
+	// so the legacy landing stylesheet only loads where the old page template is used.
+	$sa_legacy_design = function_exists( 'sa_2026_design_enabled' ) && ! sa_2026_design_enabled();
+	if ( is_page_template( 'template-home.php' ) || ( $sa_legacy_design && is_front_page() ) ) {
 		wp_enqueue_style(
 			'sarzaminaryan-landing',
 			SA_CHILD_URI . 'assets/css/landing.css',

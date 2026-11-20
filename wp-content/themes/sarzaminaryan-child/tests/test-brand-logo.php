@@ -92,11 +92,16 @@ $footer = (string) file_get_contents( $theme_dir . '/footer.php' );
 $schema = (string) file_get_contents( $theme_dir . '/inc/schema.php' );
 $css    = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 
-sa_brand_logo_assert( false !== strpos( $header, "sa_brand_logo_url( 'light', 480 )" ), 'header uses the bundled white lockup (480)' );
-sa_brand_logo_assert( false !== strpos( $header, "sa_brand_logo_url( 'light', 960 )" ), 'header uses the bundled white lockup (960)' );
-sa_brand_logo_assert( false !== strpos( $header, 'srcset=' ), 'header exposes responsive logo variants' );
-sa_brand_logo_assert( false !== strpos( $header, 'width="106" height="44"' ), 'header logo declares the wide 106x44 box (no CLS)' );
-sa_brand_logo_assert( false !== strpos( $footer, "sa_brand_logo_url( 'light', 480 )" ), 'footer uses the bundled white lockup' );
+/*
+ * 2026 refresh: the sticky header is a light surface with the mockup's teal
+ * brand tile, so it carries the bundled white MAP ICON (never a redrawn logo),
+ * and the light footer carries the bundled DARK lockup. Both still come from
+ * the official asset helpers and keep an explicit box to avoid CLS.
+ */
+sa_brand_logo_assert( false !== strpos( $header, 'sa_brand_icon_light_url( 96 )' ), 'header uses the bundled white map icon' );
+sa_brand_logo_assert( false !== strpos( $header, 'width="24" height="24"' ), 'header icon declares its 24x24 box (no CLS)' );
+sa_brand_logo_assert( false !== strpos( $header, 'class="sa-hf-brand"' ), 'header brand link keeps the sa-hf-brand hook' );
+sa_brand_logo_assert( false !== strpos( $footer, "sa_brand_logo_url( 'dark', 480 )" ), 'footer uses the bundled dark lockup on its light surface' );
 sa_brand_logo_assert( false !== strpos( $footer, 'width="72" height="30"' ), 'footer logo declares the wide 72x30 box (no CLS)' );
 sa_brand_logo_assert( false !== strpos( $schema, "sa_brand_logo( 'dark', 1200 )" ), 'Organization schema uses the bundled dark lockup' );
 sa_brand_logo_assert( false !== strpos( $seo, "'site_icon_url', 'sa_brand_site_icon_url'" ), 'site icon URL filter uses the bundled logo' );

@@ -1,9 +1,11 @@
 <?php
 /**
- * Header — Sarzamin Aryan Child (v2 dark design).
+ * Header — Sarzamin Aryan, 2026 design refresh.
  *
- * Dark navy bar matching the unified v2.4 palette (navy #0b2a4a, blue #18558f),
- * official logo, site name and the patriotic slogan under it.
+ * Reproduces the sticky top bar of the approved mockups (home / province /
+ * county / attraction). Brand colours come from the active palette that
+ * `inc/design-2026.php` puts on <body>, so the same markup serves all four
+ * page designs.
  *
  * @package Sarzaminaryan_Child
  */
@@ -12,77 +14,84 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sa_logo_480 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 480 ) : SA_CHILD_URI . 'assets/img/logo-light-480.webp';
-$sa_logo_960 = function_exists( 'sa_brand_logo_url' ) ? sa_brand_logo_url( 'light', 960 ) : SA_CHILD_URI . 'assets/img/logo-light-960.webp';
-$sa_slogan = get_theme_mod( 'sa_home_slogan', 'چو ایران نباشد، تن من مباد' );
+// Safety switch: with the 2026 design off, render the previous header verbatim.
+if ( function_exists( 'sa_2026_render_legacy' ) && sa_2026_render_legacy( 'header' ) ) {
+	return;
+}
+
+$sa_brand   = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
+$sa_tagline = 'دانشنامه سفر و شناخت ایران';
+$sa_nav     = function_exists( 'sa_2026_nav_items' ) ? sa_2026_nav_items() : array();
+$sa_cta     = function_exists( 'sa_2026_experience_cta' ) ? sa_2026_experience_cta() : array( 'label' => 'ثبت تجربه', 'url' => '#' );
 ?><!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="scroll-smooth">
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class( 'bg-canvas text-ink font-sans antialiased selection:bg-petrol selection:text-white overflow-x-hidden' ); ?>>
 <?php wp_body_open(); ?>
 
 <a class="skip-link screen-reader-text" href="#primary">پرش به محتوا</a>
 
-<header id="masthead" class="site-header sa-hf-head">
-	<div class="sa-hf-bar">
-		<div class="container sa-hf-in">
+<header class="sa-site-header sticky top-0 z-50 bg-surface/95 backdrop-blur-md border-b border-line">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
 
-			<?php $sa_brand = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' ); ?>
-			<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $sa_brand . ' — صفحهٔ اصلی' ); ?>">
-				<span class="sa-hf-logo"><img src="<?php echo esc_url( $sa_logo_480 ); ?>" srcset="<?php echo esc_url( $sa_logo_480 ); ?> 480w, <?php echo esc_url( $sa_logo_960 ); ?> 960w" sizes="(max-width: 480px) 82px, 106px" width="106" height="44" alt="" decoding="async" fetchpriority="high" loading="eager" data-no-lazy="1"></span>
-				<span class="sa-hf-text">
-					<span class="site-title"><?php echo esc_html( $sa_brand ); ?></span>
-					<span class="sa-hf-slogan"><?php echo esc_html( $sa_slogan ); ?></span>
-				</span>
-			</a>
+		<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $sa_brand . ' — ' . $sa_tagline ); ?>">
+			<span class="sa-hf-brand__tile w-10 h-10 rounded-2xl bg-petrol text-white flex items-center justify-center shadow-xs transition-colors shrink-0">
+				<?php /* Official mark: the bundled white map icon, never a redrawn logo. */ ?>
+				<img src="<?php echo esc_url( sa_brand_icon_light_url( 96 ) ); ?>" alt="" width="24" height="24"
+					class="w-6 h-6 object-contain" loading="eager" fetchpriority="high" data-no-lazy="1" decoding="async">
+			</span>
+			<span class="sa-hf-brand__text block">
+				<strong><?php echo esc_html( $sa_brand ); ?></strong>
+				<span><?php echo esc_html( $sa_tagline ); ?></span>
+			</span>
+		</a>
 
-			<nav id="site-navigation" class="main-navigation" aria-label="منوی اصلی">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<span class="screen-reader-text">منو</span>
-					<span class="menu-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
-				</button>
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'primary',
-						'menu_id'        => 'primary-menu',
-						'container'      => false,
-						'fallback_cb'    => 'sa_fallback_menu',
-						'depth'          => 2,
-					)
-				);
-				?>
-			</nav>
-
-			<div class="site-header__actions">
-				<button class="search-toggle" aria-expanded="false" aria-controls="header-search" aria-label="باز کردن جست‌وجو">
-					<svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-				</button>
-			</div>
-
-		</div>
-	</div>
-
-	<div id="header-search" class="header-search" hidden>
-		<div class="container">
-			<?php get_search_form(); ?>
-		</div>
-	</div>
-
-	<?php if ( has_nav_menu( 'secondary' ) ) : ?>
-		<nav class="sa-subnav" aria-label="دسترسی سریع">
-			<div class="container">
-				<?php wp_nav_menu( array( 'theme_location' => 'secondary', 'container' => false, 'depth' => 1, 'menu_class' => 'sa-subnav__list' ) ); ?>
-			</div>
+		<nav aria-label="منوی اصلی" class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+			<?php foreach ( $sa_nav as $sa_item ) : ?>
+				<a href="<?php echo esc_url( $sa_item['url'] ); ?>"
+					class="<?php echo ! empty( $sa_item['active'] ) ? 'text-petrol font-bold border-b-2 border-ochre py-2' : 'hover:text-petrol transition-colors py-2'; ?>">
+					<?php echo esc_html( $sa_item['label'] ); ?>
+				</a>
+			<?php endforeach; ?>
 		</nav>
-	<?php endif; ?>
-</header>
 
-<?php if ( ! is_front_page() ) : ?>
-	<div class="container"><?php sa_breadcrumbs(); ?></div>
-<?php endif; ?>
+		<div class="flex items-center gap-2">
+			<button type="button"
+				class="hidden sm:inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold bg-ochreSoft text-ochre hover:bg-ochre hover:text-white border border-ochre/30 px-3.5 py-2 rounded-xl transition-colors"
+				data-sa-open-experience
+				aria-haspopup="dialog">
+				<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+				</svg>
+				<span><?php echo esc_html( $sa_cta['label'] ); ?></span>
+			</button>
+
+			<button type="button"
+				class="lg:hidden w-10 h-10 rounded-xl border border-line bg-surface text-petrol flex items-center justify-center"
+				data-sa-toggle-nav
+				aria-controls="sa-mobile-nav"
+				aria-expanded="false">
+				<span class="screen-reader-text">منو</span>
+				<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
+				</svg>
+			</button>
+		</div>
+	</div>
+
+	<div id="sa-mobile-nav" class="lg:hidden hidden border-t border-line bg-surface">
+		<nav aria-label="منوی موبایل" class="max-w-7xl mx-auto px-4 sm:px-6 py-3 grid gap-1 text-sm font-semibold text-slate-700">
+			<?php foreach ( $sa_nav as $sa_item ) : ?>
+				<a href="<?php echo esc_url( $sa_item['url'] ); ?>"
+					class="px-3 py-2.5 rounded-xl <?php echo ! empty( $sa_item['active'] ) ? 'bg-petrolSoft text-petrol font-bold' : 'hover:bg-sand'; ?>">
+					<?php echo esc_html( $sa_item['label'] ); ?>
+				</a>
+			<?php endforeach; ?>
+		</nav>
+	</div>
+</header>

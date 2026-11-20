@@ -1,0 +1,14 @@
+{
+  "name": "sa-design-2026",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Build tooling for the Sarzamin Aryan 2026 design refresh (compiled CSS is committed; Node is only needed while editing).",
+  "scripts": {
+    "build": "bash build.sh",
+    "lint:php": "node lint-php.js"
+  },
+  "devDependencies": {
+    "php-parser": "3.2.3",
+    "tailwindcss": "3.4.17"
+  }
+}

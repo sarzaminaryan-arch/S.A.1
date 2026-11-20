@@ -632,10 +632,12 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 				}
 			}
 			$rows[] = array(
-				'name' => $name,
-				'en'   => trim( (string) get_post_meta( $post->ID, 'sa_english_name', true ) ),
-				'type' => $type,
-				'url'  => (string) get_permalink( $post ),
+				'name'     => $name,
+				'en'       => trim( (string) get_post_meta( $post->ID, 'sa_english_name', true ) ),
+				'type'     => $type,
+				'url'      => (string) get_permalink( $post ),
+				'distance' => trim( (string) get_post_meta( $post->ID, 'sa_distance_from_county_center', true ) ),
+				'note'     => '',
 			);
 		}
 	}
@@ -659,10 +661,12 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 			}
 			$mark_seen( $poi['name'] );
 			$rows[]               = array(
-				'name' => $poi['name'],
-				'en'   => '',
-				'type' => $label,
-				'url'  => '',
+				'name'     => $poi['name'],
+				'en'       => '',
+				'type'     => $label,
+				'url'      => '',
+				'distance' => (string) $poi['distance'],
+				'note'     => (string) $poi['note'],
 			);
 		}
 	}
