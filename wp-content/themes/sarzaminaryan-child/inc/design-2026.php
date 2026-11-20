@@ -157,9 +157,11 @@ function sa_2026_nav_items() {
 		),
 		array(
 			'label'  => 'آموزش سفر',
-			'url'    => home_url( '/travel-guide/' ),
+			// v2.23.4: the section URL now comes from one helper (this used to be a
+			// hard-coded /travel-guide/ that answered 404 on the live site).
+			'url'    => function_exists( 'sa_2026_guide_url' ) ? sa_2026_guide_url() : home_url( '/travel-guide/' ),
 			'key'    => 'guide',
-			'active' => false,
+			'active' => function_exists( 'sa_guide_is_section' ) ? sa_guide_is_section() : false,
 		),
 	);
 
@@ -187,7 +189,7 @@ function sa_2026_footer_explore() {
 		),
 		array(
 			'label' => 'آموزش و راهنمای سفر',
-			'url'   => home_url( '/travel-guide/' ),
+			'url'   => function_exists( 'sa_2026_guide_url' ) ? sa_2026_guide_url() : home_url( '/travel-guide/' ),
 		),
 	);
 }
