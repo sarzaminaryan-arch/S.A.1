@@ -17,15 +17,20 @@
 
 ## انتشار
 
-نسخهٔ منتشرشدهٔ این طرح: [`sarzaminaryan-child-v2.23.3`](https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.23.3)
+نسخهٔ منتشرشده: [`sarzaminaryan-child-v2.23.4`](https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.23.4)
+(ZIP + SHA-256).
 
-این نسخه اصلاحات پیام ۲۹ آبان مالک را هم دارد: کاشی لوگوی هدر، فهرست مطالب
-آکاردئونی سراسری، تبدیل جدول‌های بدنه به متن (`inc/content-2026.php`)، صفحهٔ واقعی
-«ثبت تجربه» (`/city-contrib/`) با ارسال متن و عکس به پیشخوان
-(`inc/experience-form.php`)، و دیدگاه‌های فعال با بلوک فشردهٔ `.sa-comments`
-(`inc/comments-2026.php` + `comments.php`).
-(ZIP + SHA-256). نصب روی سایت **دستی** است: پیشخوان وردپرس → به‌روزرسانی‌ها →
-به‌روزرسانی قالب، پس از پشتیبان. بازگشت فوری: [`ROLLBACK.md`](ROLLBACK.md).
+- **۲.۲۳.۳** اصلاحات پیام ۲۹ آبان مالک: کاشی لوگوی هدر، فهرست مطالب آکاردئونی
+  سراسری، تبدیل جدول‌های بدنه به متن (`inc/content-2026.php`)، صفحهٔ واقعی
+  «ثبت تجربه» (`/city-contrib/`) با ارسال متن و عکس به پیشخوان
+  (`inc/experience-form.php`)، و دیدگاه‌های فعال با بلوک فشردهٔ `.sa-comments`
+  (`inc/comments-2026.php` + `comments.php`).
+- **۲.۲۳.۴** بخش «آموزش سفر»: `/travel-guide/` از ۴۰۴ درآمد و هاب + آرشیو دسته‌ها
+  به سبک ۱۴۰۵ بازسازی شد (`inc/guide-hub.php`,
+  `template-parts/2026/guide-hub.php`, `category.php`).
+
+نصب روی سایت **دستی** است: پیشخوان وردپرس → به‌روزرسانی‌ها → به‌روزرسانی قالب، پس از
+پشتیبان. بازگشت فوری: [`ROLLBACK.md`](ROLLBACK.md).
 
 ## معماری اجرا
 
@@ -103,3 +108,4 @@ node tools/design/2026-refresh/lint-php.js  # بررسی نحوی قالب‌ه�
 ```bash
 cd docs/design/2026-11-refresh/preview && python3 -m http.server 8080 --bind 0.0.0.0
 ```
+
