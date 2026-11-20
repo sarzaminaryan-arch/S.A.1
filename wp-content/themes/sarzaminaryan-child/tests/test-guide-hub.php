@@ -130,26 +130,31 @@ sa_guide_assert( false !== strpos( $nav, 'sa_guide_is_section()' ), 'the section
 sa_guide_assert( false !== strpos( $front, 'sa_2026_guide_url()' ), 'front-page pillar asks the helper for the URL' );
 sa_guide_assert( 2 === substr_count( $nav, 'sa_2026_guide_url()' ), 'nav and footer column both use the helper' );
 
-/* 2 — the route --------------------------------------------------------------- */
-sa_guide_assert( false !== strpos( $module, "add_rewrite_rule( '^travel-guide/?$', 'index.php?sa_guide_hub=1', 'top' )" ), 'the /travel-guide/ route exists' );
-sa_guide_assert( false !== strpos( $module, "^travel-guide/page/([0-9]{1,4})/?$" ), 'paged hub URLs are routed too' );
-sa_guide_assert( false !== strpos( $module, 'function sa_guide_page()' ), 'page detection exists' );
-sa_guide_assert( false !== strpos( $module, "if ( sa_guide_page() ) {\n\t\treturn;\n\t}" ), 'the route is not registered when the owner has a page' );
-sa_guide_assert( false !== strpos( $module, "add_filter( 'query_vars', 'sa_guide_query_vars' )" ), 'the route registers its query vars' );
-sa_guide_assert( false !== strpos( $module, "add_filter( 'template_include', 'sa_guide_template_include', 20 )" ), 'the route has its own template' );
-sa_guide_assert( false !== strpos( $module, "get_page_by_path( 'travel-guide' )" ), 'the owner page with that slug is detected' );
-sa_guide_assert( false !== strpos( $module, 'wp_safe_redirect( (string) get_permalink( $page ), 301 )' ), 'a real page always wins over the cached route' );
+/* 2 — the hub is the archive of the section's own type ----------------------- */
+$cpt     = sa_guide_file( 'inc/guide-cpt.php' );
+$archive = sa_guide_file( 'archive-guide.php' );
+$single  = sa_guide_file( 'single-guide.php' );
+sa_guide_assert( '' !== $cpt, 'inc/guide-cpt.php ships' );
+sa_guide_assert( false !== strpos( $cpt, "'has_archive'         => \$slug," ), 'the type archive is the section URL' );
+sa_guide_assert( false !== strpos( $cpt, "'show_in_menu'        => 'sarzaminaryan'," ), 'the guides have their own admin menu, not «نوشته‌ها»' );
+sa_guide_assert( false !== strpos( $module, 'get_post_type_archive_link( sa_guide_type() )' ), 'the canonical URL is the type archive' );
+sa_guide_assert( false === strpos( $module, 'add_rewrite_rule(' ), 'no virtual route shadows the real archive' );
+sa_guide_assert( false !== strpos( $module, "add_filter( 'query_vars', 'sa_guide_query_vars' )" ), 'the hub registers its own search var' );
+sa_guide_assert( false !== strpos( $module, "add_filter( 'template_include', 'sa_guide_template_include', 20 )" ), 'the hub has its own template' );
+sa_guide_assert( '' !== $archive && false !== strpos( $archive, "require __DIR__ . '/template-guide.php';" ), 'archive-guide.php prints the hub page' );
 sa_guide_assert( '' !== $wrap, 'template-guide.php ships' );
 sa_guide_assert( false !== strpos( $wrap, 'get_header()' ) && false !== strpos( $wrap, 'get_footer()' ), 'the hub template prints header and footer' );
 sa_guide_assert( false !== strpos( $wrap, 'template-parts/2026/guide-hub' ), 'the hub template renders the shared listing' );
+sa_guide_assert( '' !== $single && false !== strpos( $single, "get_template_part( 'template-parts/content-single', 'post' )" ), 'a guide keeps the same article layout' );
 
-/* 3 — never 404 again --------------------------------------------------------- */
-sa_guide_assert( false !== strpos( $module, '$wp_query->is_404 = false' ), 'the route clears the 404 flag' );
-sa_guide_assert( false !== strpos( $module, 'status_header( 200 )' ), 'the route answers 200' );
-sa_guide_assert( false !== strpos( $module, 'if ( $max > 0 && $paged > $max )' ), 'an out-of-range page is handled' );
+/* 3 — the listing query ------------------------------------------------------- */
 sa_guide_assert( false !== strpos( $module, "add_action( 'pre_get_posts', 'sa_guide_pre_get_posts' )" ), 'the listing query is built on pre_get_posts' );
-sa_guide_assert( false !== strpos( $module, '$query->set( \'post_type\', \'post\' )' ), 'the hub lists posts' );
+sa_guide_assert( false !== strpos( $module, '$query->set( \'sa_guide_hub\', 1 )' ), 'the archive marks itself as the hub' );
 sa_guide_assert( false !== strpos( $module, '$query->set( \'post_status\', \'publish\' )' ), 'only published guides are listed' );
+sa_guide_assert( false !== strpos( $module, "'post_type', sa_guide_types()" ), 'the hub search stays inside the section' );
+sa_guide_assert( false !== strpos( $module, "apply_filters( 'sa_guide_per_page', 12 )" ), 'the page size is filterable' );
+sa_guide_assert( false !== strpos( $module, 'sa_guide_has_guides()' ), 'the archive falls back before the migration' );
+sa_guide_assert( false !== strpos( $module, "'category__in'" ), 'that fallback is limited to the section categories' );
 sa_guide_assert( false !== strpos( $module, "add_filter( 'pre_get_document_title', 'sa_guide_document_title', 20 )" ), 'the hub has its own document title' );
 
 /* 4 — one canonical index ----------------------------------------------------- */

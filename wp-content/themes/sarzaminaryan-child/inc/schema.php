@@ -484,7 +484,7 @@ function sa_schema_output() {
 			if ( $faq_node ) {
 				$graph[] = $faq_node;
 			}
-		} elseif ( ! $plugin && 'post' === $post->post_type ) {
+		} elseif ( ! $plugin && ( 'post' === $post->post_type || ( function_exists( 'sa_is_guide_type' ) && sa_is_guide_type( $post->post_type ) ) ) ) {
 			$graph[] = sa_schema_article( $post );
 		} elseif ( ! $plugin ) {
 			$graph[] = array(

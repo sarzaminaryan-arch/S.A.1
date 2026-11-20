@@ -223,7 +223,7 @@ foreach ( get_posts(
 					'chip'  => 'bg-sand text-ochreDark',
 					'url'   => $sa_guide,
 					'cta'   => 'ورود به آموزش سفر',
-					'count' => sa_2026_num( sa_2026_count( 'post' ) ) . ' مقاله',
+					'count' => sa_2026_num( function_exists( 'sa_guide_count' ) ? sa_guide_count() : sa_2026_count( 'post' ) ) . ' راهنما',
 				),
 			);
 			foreach ( $sa_pillars as $sa_pillar ) :

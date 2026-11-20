@@ -41,11 +41,12 @@ $sa_paginate_args = array(
 	'next_text' => 'بعدی',
 	'type'      => 'array',
 );
-if ( ! empty( $sa_ctx['is_hub'] ) ) {
-	$sa_paginate_args['base']   = trailingslashit( $sa_hub ) . 'page/%#%/';
-	$sa_paginate_args['format'] = '';
-} elseif ( '' !== $sa_search ) {
-	$sa_paginate_args['add_args'] = array( 's' => rawurlencode( $sa_search ) );
+if ( '' !== $sa_search ) {
+	// On-hub search: the query string has to survive the paging links.
+	$sa_paginate_args['add_args'] = array(
+		's'               => rawurlencode( $sa_search ),
+		'sa_guide_search' => 1,
+	);
 }
 ?>
 
@@ -87,6 +88,7 @@ if ( ! empty( $sa_ctx['is_hub'] ) ) {
 		</div>
 
 		<form method="get" action="<?php echo esc_url( $sa_hub ); ?>" class="relative z-10 flex flex-col sm:flex-row gap-2 max-w-xl" role="search">
+			<input type="hidden" name="sa_guide_search" value="1">
 			<label for="sa-guide-search" class="screen-reader-text">جست‌وجو در آموزش سفر</label>
 			<input type="search" id="sa-guide-search" name="s" value="<?php echo esc_attr( $sa_search ); ?>"
 				placeholder="چه مهارتی را می‌خواهید یاد بگیرید؟ مثلاً کمک‌های اولیه"

@@ -91,6 +91,26 @@ function sa_ready_guides_data() {
 }
 
 /**
+ * Post type a ready article is stored as.
+ *
+ * v2.24.0: the educational guides left `post` for their own `guide` type. As soon as
+ * that type holds content, the ready-guides importer has to write there too —
+ * otherwise a freshly inserted guide would land inside «نوشته‌ها» and never show up in
+ * the section. While the migration has not run yet, posts stay posts.
+ *
+ * @param array<string,mixed> $article Ready-article record.
+ * @return string
+ */
+function sa_ready_article_target_type( $article ) {
+	$type = isset( $article['type'] ) ? (string) $article['type'] : 'post';
+	if ( 'post' === $type && function_exists( 'sa_guide_has_guides' ) && sa_guide_has_guides() ) {
+		return sa_guide_type();
+	}
+
+	return $type;
+}
+
+/**
  * Fill the optional keys of a ready-article record with safe defaults.
  *
  * @param array<string,mixed> $article Raw record.
@@ -254,7 +274,7 @@ add_action( 'admin_enqueue_scripts', 'sa_ready_articles_assets' );
 function sa_ready_articles_find_post( $article ) {
 	$found = get_posts(
 		array(
-			'post_type'        => $article['type'],
+			'post_type'        => sa_ready_article_target_type( $article ),
 			'name'             => $article['slug'],
 			'post_status'      => 'any',
 			'posts_per_page'   => 1,
@@ -267,7 +287,7 @@ function sa_ready_articles_find_post( $article ) {
 	}
 	$found = get_posts(
 		array(
-			'post_type'      => $article['type'],
+			'post_type'      => sa_ready_article_target_type( $article ),
 			'post_status'    => 'any',
 			'title'          => $article['title'],
 			'posts_per_page' => 1,
@@ -855,7 +875,7 @@ function sa_ready_article_import( $key, $overwrite_published = false, $publish =
 	 */
 
 	$postarr = array(
-		'post_type'    => $article['type'],
+		'post_type'    => sa_ready_article_target_type( $article ),
 		'post_status'  => $post_id ? $status : 'draft', // new articles start as drafts; owner approval publishes below.
 		'post_name'    => $article['slug'],
 		'post_title'   => $article['title'],

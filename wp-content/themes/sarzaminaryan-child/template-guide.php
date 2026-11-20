@@ -1,9 +1,10 @@
 <?php
 /**
- * «آموزش سفر» hub — virtual template for `/travel-guide/`.
+ * «آموزش سفر» hub — template of `/travel-guide/`.
  *
- * Served by `inc/guide-hub.php` while the owner has no real page with the
- * `travel-guide` slug. The listing itself lives in
+ * Since v2.24.0 this address is the archive of the `guide` post type, so
+ * `archive-guide.php` requires this file and `inc/guide-hub.php` serves it for the
+ * hub's own search as well. The listing itself lives in
  * `template-parts/2026/guide-hub.php` so the category archives share it.
  *
  * With the 2026 design switched off, the same list is printed with the classic

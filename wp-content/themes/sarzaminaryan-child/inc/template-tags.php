@@ -661,9 +661,10 @@ function sa_guide_related( $post_id ) {
 	if ( is_wp_error( $cats ) || ! $cats ) {
 		return;
 	}
+	$type  = get_post_type( (int) $post_id );
 	$posts = get_posts(
 		array(
-			'post_type'      => 'post',
+			'post_type'      => $type ? $type : 'post',
 			'post_status'    => 'publish',
 			'posts_per_page' => 3,
 			'orderby'        => 'rand',

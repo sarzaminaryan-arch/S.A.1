@@ -541,7 +541,7 @@ function sa_seo_head() {
 		$id       = get_queried_object_id();
 		$og_title = get_post_meta( $id, 'sa_og_title', true ) ? get_post_meta( $id, 'sa_og_title', true ) : $og_title;
 		$og_desc  = get_post_meta( $id, 'sa_og_description', true ) ? get_post_meta( $id, 'sa_og_description', true ) : $og_desc;
-		$og_type  = 'post' === get_post_type( $id ) ? 'article' : ( sa_is_entity( $id ) ? 'place' : 'website' );
+		$og_type  = 'post' === get_post_type( $id ) || sa_is_guide_type( get_post_type( $id ) ) ? 'article' : ( sa_is_entity( $id ) ? 'place' : 'website' );
 		// v2.15.0: تصویری که فایلش روی سرور نیست در og:image نمی‌آید (اشتراک‌گذاری تصویر شکسته).
 		$sa_thumb_id = get_post_thumbnail_id( $id );
 		$sa_thumb_ok = $sa_thumb_id && ( ! function_exists( 'sa_media_attachment_missing' ) || ! sa_media_attachment_missing( $sa_thumb_id ) );
@@ -595,7 +595,7 @@ function sa_seo_head() {
 		echo '<meta name="twitter:card" content="summary">' . "\n";
 	}
 	echo '<meta name="twitter:title" content="' . esc_attr( $og_title ) . '">' . "\n";
-	if ( is_singular( 'post' ) ) {
+	if ( is_singular( 'post' ) || ( function_exists( 'sa_guide_types' ) && is_singular( sa_guide_types() ) ) ) {
 		echo '<meta property="article:published_time" content="' . esc_attr( get_the_date( 'c' ) ) . '">' . "\n";
 		echo '<meta property="article:modified_time" content="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . "\n";
 	}

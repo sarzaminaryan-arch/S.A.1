@@ -21,10 +21,10 @@ function sa_admin_menu() {
 	$edu_slug = function_exists( 'sa_education_category_slug' ) ? sa_education_category_slug() : 'camping-survival';
 	add_submenu_page(
 		'sarzaminaryan',
-		'آموزش (طبیعت‌گردی و بقا) — نوشته‌ها',
+		'آموزش (طبیعت‌گردی و بقا) — راهنماهای سفر',
 		'آموزش (طبیعت‌گردی و بقا)',
 		'edit_posts',
-		'edit.php?category_name=' . rawurlencode( $edu_slug )
+		'edit.php?' . ( post_type_exists( 'guide' ) ? 'post_type=guide&' : '' ) . 'category_name=' . rawurlencode( $edu_slug )
 	);
 
 	// Also add a direct filter link inside the WordPress «نوشته‌ها» (edit.php) menu.

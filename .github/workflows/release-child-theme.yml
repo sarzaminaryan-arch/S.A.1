@@ -147,6 +147,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-guide-hub.php"
 
+      - name: 'Run guide content-type tests (نوع مستقل «راهنمای سفر»، ۳۰۱ آدرس‌های قدیمی، مهاجرت پشتیبان‌دار)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-guide-cpt.php"
+
       - name: 'Run Persian spelling filter tests (ماه میلادی، نیم‌فاصله، حروف عربی)'
         shell: bash
         run: python3 tools/wp-agent/test_fa_lint.py

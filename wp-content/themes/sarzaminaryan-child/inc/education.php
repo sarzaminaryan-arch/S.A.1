@@ -55,6 +55,24 @@ function sa_education_category() {
 }
 
 /**
+ * Post types the education bar reads its guides from.
+ *
+ * v2.24.0: the guides became their own content type (`guide`) while the older entries
+ * of this category may still be ordinary posts, so both are asked for until the
+ * migration has run — the bar must not disappear the moment the owner migrates.
+ *
+ * @return array<int,string>
+ */
+function sa_education_post_types() {
+	$types = array( 'post' );
+	if ( function_exists( 'sa_guide_types' ) ) {
+		$types = array_merge( $types, (array) sa_guide_types() );
+	}
+
+	return array_values( array_unique( $types ) );
+}
+
+/**
  * Number of published guides (term count only counts published posts).
  *
  * @return int
@@ -173,7 +191,7 @@ function sa_education_filter_tags() {
 	}
 	$ids = get_posts(
 		array(
-			'post_type'              => 'post',
+			'post_type'              => sa_education_post_types(),
 			'post_status'            => 'publish',
 			'posts_per_page'         => 200,
 			'cat'                    => (int) $term->term_id,
@@ -220,7 +238,7 @@ function sa_education_latest_query( $limit = 6 ) {
 	}
 	return new WP_Query(
 		array(
-			'post_type'           => 'post',
+			'post_type'           => sa_education_post_types(),
 			'post_status'         => 'publish',
 			'posts_per_page'      => max( 1, (int) $limit ),
 			'cat'                 => (int) $term->term_id,
