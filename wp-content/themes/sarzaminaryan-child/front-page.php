@@ -26,7 +26,7 @@ $sa_latest    = sa_2026_latest( 6 );
 $sa_archive_p = function_exists( 'sa_archive_url' ) ? sa_archive_url( 'province' ) : home_url( '/provinces/' );
 $sa_archive_c = function_exists( 'sa_archive_url' ) ? sa_archive_url( 'city' ) : home_url( '/cities/' );
 $sa_archive_a = function_exists( 'sa_archive_url' ) ? sa_archive_url( 'attraction' ) : home_url( '/attractions/' );
-$sa_guide     = home_url( '/travel-guide/' );
+$sa_guide     = function_exists( 'sa_2026_guide_url' ) ? sa_2026_guide_url() : home_url( '/travel-guide/' );
 $sa_contrib   = sa_2026_contrib_url();
 
 /* Instant-search index: provinces, counties and the newest attractions. */

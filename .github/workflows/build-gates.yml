@@ -79,6 +79,9 @@ jobs:
       - name: 'Experience form and comments (صفحهٔ ثبت تجربه + دیدگاه جمع‌وجور)'
         run: php wp-content/themes/sarzaminaryan-child/tests/test-experience-form.php
 
+      - name: 'Guide hub (بخش «آموزش سفر»: مسیر /travel-guide/ به‌جای ۴۰۴ + ظاهر ۱۴۰۵)'
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-guide-hub.php
+
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
 

@@ -26,6 +26,12 @@ const targets = [
   'inc/comments-2026.php',
   'inc/toc.php',
   'template-parts/content-single-post.php',
+  'template-guide.php',
+  'category.php',
+  'legacy/category.php',
+  'template-parts/2026/guide-hub.php',
+  'inc/guide-hub.php',
+  'tests/test-guide-hub.php',
 ];
 
 const parser = new engine({ parser: { extractDoc: true }, ast: { withPositions: true } });
