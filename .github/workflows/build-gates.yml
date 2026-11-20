@@ -80,15 +80,7 @@ jobs:
         run: php wp-content/themes/sarzaminaryan-child/tests/test-experience-form.php
 
       - name: 'Guide hub (بخش «آموزش سفر»: مسیر /travel-guide/ به‌جای ۴۰۴ + ظاهر ۱۴۰۵)'
-        run: |
-          out="$(php wp-content/themes/sarzaminaryan-child/tests/test-guide-hub.php 2>&1)" || {
-            status=$?
-            msg="$(printf '%s' "$out" | tr '\n' ' ' | cut -c1-900)"
-            echo "::error file=wp-content/themes/sarzaminaryan-child/tests/test-guide-hub.php::${msg}"
-            echo "$out"
-            exit $status
-          }
-          echo "$out"
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-guide-hub.php
 
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
