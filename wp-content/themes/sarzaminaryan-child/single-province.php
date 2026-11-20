@@ -39,22 +39,16 @@ while ( have_posts() ) :
 			if ( '' === $sa_neighbor_name ) {
 				continue;
 			}
-			$sa_neigh[] = array( 'id' => 0, 'title' => $sa_neighbor_name, 'url' => '#' );
+			$sa_neighbor_id = sa_province_profile_neighbor_post_id( $sa_neighbor_name );
+			if ( (int) $sa_neighbor_id === (int) $sa_id ) {
+				continue;
+			}
+			$sa_neighbor_key = $sa_neighbor_id ? 'p' . $sa_neighbor_id : $sa_neighbor_name;
+			$sa_neigh[ $sa_neighbor_key ] = array( 'id' => $sa_neighbor_id, 'title' => $sa_neighbor_name, 'url' => $sa_neighbor_id ? get_permalink( $sa_neighbor_id ) : '' );
 		}
 	}
 
 	$sa_center      = isset( $sa_fact['capital'] ) ? (string) $sa_fact['capital'] : '';
-	$sa_capital_url = '';
-	if ( $sa_center ) {
-		$sa_capital_post = get_page_by_path( sanitize_title( $sa_center ), OBJECT, 'city' );
-		if ( ! $sa_capital_post ) {
-			$sa_capital_post = get_page_by_path( sanitize_title( $sa_center ), OBJECT, 'post' );
-		}
-		if ( $sa_capital_post instanceof WP_Post && 'publish' === $sa_capital_post->post_status ) {
-			$sa_capital_url = (string) get_permalink( $sa_capital_post );
-		}
-	}
-
 	$sa_county_count = isset( $sa_stats['county_count'] ) ? (int) $sa_stats['county_count'] : count( $sa_counties );
 	$sa_population   = isset( $sa_stats['population'] ) ? (int) $sa_stats['population'] : (int) ( $sa_fact['population'] ?? 0 );
 	$sa_pop_year     = isset( $sa_profile['population_year'] ) ? (int) $sa_profile['population_year'] : 1395;
@@ -129,13 +123,7 @@ while ( have_posts() ) :
 						<?php if ( $sa_center ) : ?>
 							<div class="bg-surface p-3 rounded-xl border border-line/70">
 								<dt class="text-muted text-xs mb-0.5">مرکز استان</dt>
-								<dd class="font-bold text-ink">
-									<?php if ( $sa_capital_url && ! in_array( $sa_capital_url, array_column( $sa_counties, 'url' ), true ) ) : ?>
-										<a href="<?php echo esc_url( $sa_capital_url ); ?>" class="text-petrol hover:underline"><?php echo esc_html( $sa_center ); ?></a>
-									<?php else : ?>
-										<?php echo esc_html( $sa_center ); ?>
-									<?php endif; ?>
-								</dd>
+								<dd class="font-bold text-ink"><?php echo esc_html( $sa_center ); ?></dd>
 							</div>
 						<?php endif; ?>
 
@@ -260,7 +248,7 @@ while ( have_posts() ) :
 				</h2>
 			</div>
 			<div class="sa-2026-prose">
-				<?php sa_2026_relation_content( array_column( $sa_counties, 'url' ) ); ?>
+				<?php sa_2026_relation_content( array_merge( array( get_permalink( $sa_id ) ), array_column( $sa_counties, 'url' ), array_column( $sa_neigh, 'url' ) ) ); ?>
 			</div>
 		</section>
 
@@ -365,10 +353,11 @@ while ( have_posts() ) :
 				</div>
 				<div class="flex flex-wrap items-center gap-2 text-xs">
 					<?php foreach ( $sa_neigh as $sa_neighbor ) : ?>
-						<a href="<?php echo esc_url( $sa_neighbor['url'] ); ?>"
-							class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface hover:bg-petrolSoft text-ink hover:text-petrol border border-line font-medium transition-colors">
-							<?php echo esc_html( $sa_neighbor['title'] ); ?>
-						</a>
+						<?php if ( $sa_neighbor['url'] ) : ?>
+							<a href="<?php echo esc_url( $sa_neighbor['url'] ); ?>" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface hover:bg-petrolSoft text-ink hover:text-petrol border border-line font-medium transition-colors"><?php echo esc_html( $sa_neighbor['title'] ); ?></a>
+						<?php else : ?>
+							<span class="inline-flex items-center px-3 py-1.5 rounded-xl border border-line"><?php echo esc_html( $sa_neighbor['title'] ); ?></span>
+						<?php endif; ?>
 					<?php endforeach; ?>
 				</div>
 			</section>

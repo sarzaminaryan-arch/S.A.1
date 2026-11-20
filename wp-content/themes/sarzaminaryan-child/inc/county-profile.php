@@ -90,30 +90,31 @@ function sa_county_profile_meta( $post_id, $key ) {
 }
 
 /**
- * Resolve the province post for a county (province_id → registry slug).
+ * Registered counties use the registry parent; stale post meta cannot move a county.
  *
  * @param int $post_id County post ID.
  * @return WP_Post|null
  */
 function sa_county_profile_province_post( $post_id ) {
+	if ( function_exists( 'sa_county_of_post' ) ) {
+		$reg = sa_county_of_post( $post_id );
+		if ( ! $reg && function_exists( 'sa_county' ) ) {
+			$city = get_post( $post_id );
+			if ( $city && 'city' === $city->post_type ) {
+				$slug = $city->post_name;
+				$reg  = sa_county( '-city' === substr( $slug, -5 ) ? substr( $slug, 0, -5 ) : $slug . '-city' );
+			}
+		}
+		if ( $reg && ! empty( $reg['province'] ) ) {
+			$post = get_page_by_path( (string) $reg['province'], OBJECT, 'province' );
+			return $post && 'province' === $post->post_type && 'publish' === $post->post_status ? $post : null;
+		}
+	}
 	$province_id = (int) sa_county_profile_meta( $post_id, 'province_id' );
 	if ( $province_id && 'province' === get_post_type( $province_id ) ) {
 		$post = get_post( $province_id );
 		if ( $post && 'publish' === $post->post_status ) {
 			return $post;
-		}
-	}
-	if ( function_exists( 'sa_county_of_post' ) ) {
-		$reg = sa_county_of_post( $post_id );
-		if ( ! $reg && function_exists( 'sa_county' ) ) {
-			$city = get_post( $post_id );
-			$reg  = $city ? sa_county( $city->post_name . '-city' ) : null;
-		}
-		if ( $reg && ! empty( $reg['province'] ) ) {
-			$post = get_page_by_path( (string) $reg['province'], OBJECT, 'province' );
-			if ( $post && 'publish' === $post->post_status ) {
-				return $post;
-			}
 		}
 	}
 	if ( function_exists( 'sa_get_parent' ) ) {

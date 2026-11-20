@@ -61,6 +61,7 @@ jobs:
       - name: Reciprocal county link counts and rendered destination checks
         run: |
           php wp-content/themes/sarzaminaryan-child/tests/test-county-profile.php
+          php wp-content/themes/sarzaminaryan-child/tests/test-province-county-links.php
           python3 tools/live-site/test_relation_html.py
           python3 tools/live-site/render_contract_fixture.py --all
 
