@@ -36,10 +36,15 @@ while ( have_posts() ) :
 				continue;
 			}
 			$sa_nearby[] = $sa_nearby_post;
-			if ( count( $sa_nearby ) >= 8 ) {
+			if ( count( $sa_nearby ) >= 4 ) {
 				break;
 			}
 		}
+	}
+	// Only reserve destinations that actually have a card on this page.
+	$sa_card_urls = array_map( 'get_permalink', $sa_nearby );
+	if ( $sa_city ) {
+		$sa_card_urls[] = get_permalink( $sa_city );
 	}
 	$sa_coords  = function_exists( 'sa_get_coords' ) ? sa_get_coords( $sa_id ) : null;
 	$sa_map_url = function_exists( 'sa_map_url' ) ? sa_map_url( $sa_id ) : '';
@@ -187,7 +192,7 @@ while ( have_posts() ) :
 					</h2>
 				</div>
 				<div class="sa-2026-prose">
-					<?php sa_2026_relation_content( $sa_city ? array( get_permalink( $sa_city ) ) : array() ); ?>
+					<?php sa_2026_relation_content( $sa_card_urls ); ?>
 				</div>
 			</section>
 
@@ -280,7 +285,7 @@ while ( have_posts() ) :
 				</div>
 
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-					<?php foreach ( array_slice( (array) $sa_nearby, 0, 4 ) as $sa_post ) : ?>
+					<?php foreach ( $sa_nearby as $sa_post ) : ?>
 						<a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>"
 							class="group bg-surface rounded-2xl border border-line overflow-hidden hover:border-brand-forest hover:shadow-sm transition-all">
 							<span class="block aspect-[16/10] overflow-hidden bg-canvas">

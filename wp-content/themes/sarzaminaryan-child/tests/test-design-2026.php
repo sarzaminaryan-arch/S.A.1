@@ -131,6 +131,21 @@ sa_design_assert( false !== strpos( $nav, 'گنجینه دیدنی‌ها' ), 'p
 $functions = sa_design_file( 'functions.php' );
 sa_design_assert( false !== strpos( $functions, "'inc/design-2026.php'" ), 'functions.php loads the 2026 layer' );
 
+// Exercise the actual formatting path; source-text checks did not catch cast-to-zero.
+function add_action() {}
+function add_filter() {}
+function get_theme_mod( $key, $default ) { return $default; }
+require SA_DESIGN_DIR . 'inc/helpers.php';
+require SA_DESIGN_DIR . 'inc/design-2026.php';
+foreach ( array( '۱٬۸۶۹٬۰۰۱', '١٨٦٩٠٠١', '1,869,001', 1869001 ) as $input ) {
+	$label = sa_2026_census_label( $input, '۱۳۹۵' );
+	sa_design_assert( '۱٬۸۶۹٬۰۰۰' === $label['number'] && '۱۳۹۵' === $label['year'], 'localized census number and ungrouped year' );
+}
+foreach ( array( array( '', '۱۳۹۵' ), array( '۰', '۱۳۹۵' ), array( '۱٬۲', '۱۳۹۵' ), array( '120', '' ) ) as $invalid ) {
+	sa_design_assert( null === sa_2026_census_label( $invalid[0], $invalid[1] ), 'invalid or undated population is omitted' );
+}
+sa_design_assert( '۳۵۰' === sa_2026_census_label( '350', '1395' )['number'], 'small counts do not round to zero' );
+
 if ( $failures > 0 ) {
 	fwrite( STDERR, "FAILED: {$failures} design guard(s)\n" );
 	exit( 1 );

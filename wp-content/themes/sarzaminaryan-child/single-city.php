@@ -31,6 +31,7 @@ while ( have_posts() ) :
 		return isset( $sa_data[ $key ] ) && '' !== $sa_data[ $key ] ? $sa_data[ $key ] : $fallback;
 	};
 
+	$sa_census = sa_2026_census_label( $sa_get( 'population' ), $sa_get( 'population_year' ) );
 	$sa_county_en = $sa_get( 'name_en' ) ? strtoupper( (string) $sa_get( 'name_en' ) ) : strtoupper( get_post_field( 'post_name', $sa_id ) );
 	$sa_prov_name = $sa_get( 'province_name' );
 	$sa_prov_url  = $sa_get( 'province_url' );
@@ -226,15 +227,15 @@ while ( have_posts() ) :
 								</div>
 							<?php endif; ?>
 
-							<?php if ( $sa_get( 'population_shown' ) || $sa_get( 'area_km2' ) ) : ?>
+							<?php if ( $sa_census || $sa_get( 'area_km2' ) ) : ?>
 								<div class="bg-surface p-3 rounded-xl border border-line/80">
 									<div class="flex items-center justify-between gap-2">
 										<dt class="text-muted text-xs font-mono">03 // جمعیت و مساحت</dt>
 										<dd class="font-bold text-ink">
 											<?php
 											$sa_bits = array();
-											if ( $sa_get( 'population_shown' ) ) {
-												$sa_bits[] = sa_2026_num( $sa_get( 'population' ) ) . ' نفر';
+											if ( $sa_census ) {
+												$sa_bits[] = $sa_census['number'] . ' نفر';
 											}
 											if ( $sa_get( 'area_km2' ) ) {
 												$sa_bits[] = sa_2026_num( $sa_get( 'area_km2' ) ) . ' کیلومتر مربع';
@@ -243,9 +244,9 @@ while ( have_posts() ) :
 											?>
 										</dd>
 									</div>
-									<?php if ( $sa_get( 'population_year' ) ) : ?>
+									<?php if ( $sa_census ) : ?>
 										<p class="text-[11px] text-muted mt-1">
-											<?php echo esc_html( 'مبنای جمعیت: سرشماری رسمی ' . sa_2026_num( $sa_get( 'population_year' ) ) . '؛ عدد به نزدیک‌ترین هزار نفر گرد شده است.' ); ?>
+											<?php echo esc_html( 'مبنای جمعیت: سرشماری رسمی ' . $sa_census['year'] . ( $sa_census['rounded'] ? '؛ عدد به نزدیک‌ترین هزار نفر گرد شده است.' : '.' ) ); ?>
 										</p>
 									<?php endif; ?>
 								</div>
