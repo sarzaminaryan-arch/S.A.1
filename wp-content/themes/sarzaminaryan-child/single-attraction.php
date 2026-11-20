@@ -28,7 +28,7 @@ while ( have_posts() ) :
 		$sa_city = null;
 	}
 	$sa_prov    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'province' ) : null;
-	$sa_facts   = function_exists( 'sa_entity_facts' ) ? sa_entity_facts( $sa_id ) : array();
+	$sa_facts   = function_exists( 'sa_entity_facts' ) ? sa_entity_facts( $sa_id, false ) : array();
 	$sa_nearby  = array();
 	if ( $sa_city instanceof WP_Post && function_exists( 'sa_get_children' ) ) {
 		foreach ( (array) sa_get_children( $sa_city->ID, 'attraction' ) as $sa_nearby_post ) {

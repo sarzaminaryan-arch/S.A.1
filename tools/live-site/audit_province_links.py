@@ -20,7 +20,7 @@ def route(url):
     return None
 
 
-def main(all_contract=None):
+def main(all_contract=None, *, write_report=True):
     OUT.mkdir(exist_ok=True, parents=True)
     records = load('docs/live-site/registry/live-articles.json')['records']
     work = load('tools/wp-agent/template_worklist.json')
@@ -74,7 +74,8 @@ def main(all_contract=None):
               'ترتیب بدنهٔ بازنویسی ثبت‌شدهٔ شیراز (`outbox/20261117-replace-shiraz/shiraz-323.html`): معرفی، نقشه، تاریخ، مردم، اقتصاد، راه رسیدن و اقامت، نام‌آوران. این ترتیب با تمپلیت شهرستان سازگار است؛ جابه‌جایی بدنه پیشنهاد نمی‌شود. دیدنی‌ها در «تجربهٔ مسافرها» و فهرست الفبایی هم‌استانی‌ها بالای منابع بمانند.', '',
               'نمونهٔ خروجی خارجی: در همان فایل شیراز نشانی `https://shiraz.farsp.ir/RContent/000C7X5-` شانزده بار در ارجاعات آمده است. این تکرار دلیل خراب‌بودن یا حذف منبع نیست؛ ابتدا اعتبار مقصد و ادعای متصل به هر ارجاع بررسی شود و در صورت یکی‌بودن منبع، ارجاعات به یک مدخل منابع وصل شوند.', '',
               'گام بعد: خواندن HTML نهایی استان، شهرستان‌ها و دیدنی‌های فارس؛ ثبت لینک‌های تولیدشده توسط قالب، مقصد نهایی پس از انتقال، کد پاسخ لینک‌های داخلی و خارجی، ترتیب واقعی بخش‌ها و لینک‌های تکراری. ۴۰۳ یا وقفهٔ شبکه به معنی لینک مرده نیست. پس از این بررسی، نسخهٔ نمونه با پشتیبان و فقط در پیش‌نویس بازنویسی آماده شود.']
-    (OUT / 'baseline.md').write_text('\n'.join(lines) + '\n')
+    if write_report:
+        (OUT / 'baseline.md').write_text('\n'.join(lines) + '\n')
 
 
 if __name__ == '__main__':
