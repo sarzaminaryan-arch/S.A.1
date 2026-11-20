@@ -12,6 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Safety switch: with the 2026 design off, render the previous template verbatim.
+if ( function_exists( 'sa_2026_render_legacy' ) && sa_2026_render_legacy( 'footer' ) ) {
+	return;
+}
+
 $sa_brand     = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
 $sa_explore   = function_exists( 'sa_2026_footer_explore' ) ? sa_2026_footer_explore() : array();
 $sa_about_url = home_url( '/about/' );

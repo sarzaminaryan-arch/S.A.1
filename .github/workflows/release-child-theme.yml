@@ -99,6 +99,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-brand-logo.php"
 
+      - name: Run 2026 design tests (compiled stylesheet, offline-only, rollback switch, owner rules)
+        shell: bash
+        run: php "$THEME_DIR/tests/test-design-2026.php"
+
       - name: Run AI-visibility tests (robots GPTBot/AI-search rules, llms.txt, schema, header a11y)
         shell: bash
         run: php "$THEME_DIR/tests/test-ai-visibility.php"

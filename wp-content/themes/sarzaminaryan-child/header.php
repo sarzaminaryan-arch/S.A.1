@@ -14,6 +14,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Safety switch: with the 2026 design off, render the previous header verbatim.
+if ( function_exists( 'sa_2026_render_legacy' ) && sa_2026_render_legacy( 'header' ) ) {
+	return;
+}
+
 $sa_brand   = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
 $sa_tagline = 'دانشنامه سفر و شناخت ایران';
 $sa_nav     = function_exists( 'sa_2026_nav_items' ) ? sa_2026_nav_items() : array();

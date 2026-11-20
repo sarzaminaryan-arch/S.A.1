@@ -73,6 +73,9 @@ jobs:
       - name: County heading hierarchy (v2.22.148)
         run: php wp-content/themes/sarzaminaryan-child/tests/test-heading-levels.php
 
+      - name: '2026 design bundle (compiled CSS, rollback switch, owner rules)'
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-design-2026.php
+
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
 

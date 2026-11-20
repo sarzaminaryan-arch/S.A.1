@@ -12,7 +12,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* ---------------------------------------------------------------------------
+ * Brand palettes — plain CSS on purpose.
+ *
+ * These are the only rules that are NOT inside a Tailwind @layer: the palette
+ * class is built at runtime (`sa-palette--' . sa_2026_palette()`), so Tailwind's
+ * content scanner can never see it and would drop the whole block. Keeping the
+ * palettes outside @layer guarantees all three ship in the compiled file.
+ * ------------------------------------------------------------------------- */
+
   /* Default palette: province + county (teal / copper / cream). */
   :root {
     --sa-brand: 15 76 92;          /* #0F4C5C */
@@ -64,7 +72,8 @@
     --sa-line: 229 226 218;        /* #E5E2DA */
   }
 
-  html {
+
+@layer base {  html {
     scroll-behavior: smooth;
   }
 
@@ -114,7 +123,7 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    font-family: Vazirmatn, Tahoma, system-ui, sans-serif;
+    font-family: Vazirmatn, 'Vazirmatn Fallback', Tahoma, system-ui, sans-serif;
     background-color: rgb(var(--sa-canvas));
     color: rgb(var(--sa-ink));
   }

@@ -15,6 +15,62 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Is the 2026 design active on this request?
+ *
+ * Three independent switches, cheapest first, so the owner can put the previous
+ * design back within seconds without reinstalling any ZIP:
+ *
+ *   1. `define( 'SA_2026_DESIGN', false );` in wp-config.php (works even when
+ *      the admin is unreachable because of a fatal error);
+ *   2. the `sa_2026_design` option (string "0"/"1" — set from the Customizer,
+ *      WP‑CLI or the dashboard);
+ *   3. the `sa_2026_design_enabled` filter for one-off overrides.
+ *
+ * Default: enabled.
+ *
+ * @return bool
+ */
+function sa_2026_design_enabled() {
+	$enabled = true;
+
+	if ( defined( 'SA_2026_DESIGN' ) ) {
+		$enabled = (bool) SA_2026_DESIGN;
+	} else {
+		$option = get_option( 'sa_2026_design', null );
+		if ( null !== $option && '' !== $option ) {
+			$enabled = ! in_array( (string) $option, array( '0', 'off', 'false', 'no' ), true );
+		}
+	}
+
+	return (bool) apply_filters( 'sa_2026_design_enabled', $enabled );
+}
+
+/**
+ * Render the pre-refresh template when the design is switched off.
+ *
+ * Every 2026 template starts with
+ * `if ( sa_2026_render_legacy( '<name>' ) ) { return; }`, so switching the
+ * design off restores the exact 2.22.149 templates shipped in `legacy/`.
+ *
+ * @param string $name Template name (header, footer, front-page, single-city…).
+ * @return bool True when the legacy template was rendered (caller must return).
+ */
+function sa_2026_render_legacy( $name ) {
+	if ( sa_2026_design_enabled() ) {
+		return false;
+	}
+
+	$file = SA_CHILD_DIR . 'legacy/' . preg_replace( '/[^a-z0-9-]/', '', strtolower( (string) $name ) ) . '.php';
+	if ( ! is_readable( $file ) ) {
+		return false;
+	}
+
+	include $file;
+
+	return true;
+}
+
+/**
  * Which palette the current request uses.
  *
  * @return string home|treasure|teal
@@ -38,6 +94,10 @@ function sa_2026_palette() {
  * @return string[]
  */
 function sa_2026_body_class( $classes ) {
+	if ( ! sa_2026_design_enabled() ) {
+		return $classes;
+	}
+
 	$classes[] = 'sa-2026';
 	$classes[] = 'sa-palette--' . sa_2026_palette();
 
@@ -49,6 +109,10 @@ add_filter( 'body_class', 'sa_2026_body_class' );
  * Load the compiled design-system stylesheet and the page interactions.
  */
 function sa_2026_assets() {
+	if ( ! sa_2026_design_enabled() ) {
+		return;
+	}
+
 	wp_enqueue_style(
 		'sa-2026',
 		SA_CHILD_URI . 'assets/css/sa-2026.css',

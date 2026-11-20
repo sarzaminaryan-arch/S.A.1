@@ -12,6 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Safety switch: with the 2026 design off, render the previous template verbatim.
+if ( function_exists( 'sa_2026_render_legacy' ) && sa_2026_render_legacy( 'single-province' ) ) {
+	return;
+}
+
 get_header();
 
 while ( have_posts() ) :

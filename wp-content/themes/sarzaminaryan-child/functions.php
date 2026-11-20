@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.23.1' );
+define( 'SA_CHILD_VERSION', '2.23.2' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -149,7 +149,8 @@ function sa_child_assets() {
 
 	// 2026 refresh: the front page now uses the 2026 template (assets/css/sa-2026.css),
 	// so the legacy landing stylesheet only loads where the old page template is used.
-	if ( is_page_template( 'template-home.php' ) ) {
+	$sa_legacy_design = function_exists( 'sa_2026_design_enabled' ) && ! sa_2026_design_enabled();
+	if ( is_page_template( 'template-home.php' ) || ( $sa_legacy_design && is_front_page() ) ) {
 		wp_enqueue_style(
 			'sarzaminaryan-landing',
 			SA_CHILD_URI . 'assets/css/landing.css',

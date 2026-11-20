@@ -13,6 +13,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Safety switch: with the 2026 design off, render the previous template verbatim.
+if ( function_exists( 'sa_2026_render_legacy' ) && sa_2026_render_legacy( 'front-page' ) ) {
+	return;
+}
+
 get_header();
 
 $sa_stats     = sa_2026_site_stats();
