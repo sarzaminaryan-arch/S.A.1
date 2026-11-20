@@ -325,6 +325,8 @@ while ( have_posts() ) :
 			</div>
 		</section>
 
+		<?php sa_comments_2026_render(); ?>
+
 	</main>
 
 	<?php

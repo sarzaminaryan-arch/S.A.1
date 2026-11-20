@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.23.2' );
+define( 'SA_CHILD_VERSION', '2.23.3' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -77,6 +77,9 @@ $sa_child_includes = array(
 	'inc/telegram-bot.php',   // ربات راهنمای تلگرام (استان ← شهر ← دیدنی) — داخلی قالب، بدون افزونه
 	'inc/github-updater.php',
 	'inc/design-2026.php', // v2.23.0: بازطراحی ۱۴۰۵ — پالت، دارایی‌ها و دادهٔ قالب‌های تازه
+	'inc/content-2026.php', // v2.23.3: جدول‌های بدنه → فهرست متن (درخواست مالک ۲۹ آبان) + عکس واقعی به‌جای کاور تکراری
+	'inc/experience-form.php', // v2.23.3: صفحهٔ واقعی «ثبت تجربه» به‌جای ۴۰۴ — متن + عکس → پیشخوان
+	'inc/comments-2026.php', // v2.23.3: فعال‌سازی دیدگاه‌ها با بلوک جمع‌وجور .sa-comments
 	'inc/activation.php',
 );
 

@@ -17,6 +17,15 @@ const targets = [
   'single-attraction.php',
   'inc/design-2026.php',
   'template-parts/2026/experience-modal.php',
+  'template-experience.php',
+  'template-parts/2026/experience-page.php',
+  'comments.php',
+  'page.php',
+  'inc/content-2026.php',
+  'inc/experience-form.php',
+  'inc/comments-2026.php',
+  'inc/toc.php',
+  'template-parts/content-single-post.php',
 ];
 
 const parser = new engine({ parser: { extractDoc: true }, ast: { withPositions: true } });

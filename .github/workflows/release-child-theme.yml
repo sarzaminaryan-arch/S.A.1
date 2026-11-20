@@ -139,6 +139,10 @@ jobs:
         shell: bash
         run: php "$THEME_DIR/tests/test-county-insights.php"
 
+      - name: 'Run experience-form tests (صفحهٔ «ثبت تجربه»، ارسال به پیشخوان، دیدگاه‌ها)'
+        shell: bash
+        run: php "$THEME_DIR/tests/test-experience-form.php"
+
       - name: 'Run Persian spelling filter tests (ماه میلادی، نیم‌فاصله، حروف عربی)'
         shell: bash
         run: python3 tools/wp-agent/test_fa_lint.py

@@ -164,11 +164,14 @@ $sa_cat_map   = array(
 				$sa_terms     = get_the_terms( $sa_att_id, 'attraction_type' );
 				$sa_term      = is_array( $sa_terms ) && $sa_terms ? $sa_terms[0] : null;
 				$sa_cat       = $sa_term ? (string) $sa_term->name : '';
-				$sa_cover     = function_exists( 'sa_2026_cover' ) ? sa_2026_cover( $sa_att_id, 'large' ) : '';
 				?>
 				<article class="group bg-surface rounded-2xl border border-line overflow-hidden hover:border-brand-forest hover:shadow-card transition-all flex flex-col">
 					<a href="<?php the_permalink(); ?>" class="block aspect-[16/10] overflow-hidden bg-brand-forestSoft">
-						<img src="<?php echo esc_url( $sa_cover ); ?>" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
+						<?php
+						echo function_exists( 'sa_2026_cover_markup' )
+							? sa_2026_cover_markup( $sa_att_id, 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300', $sa_cat ? $sa_cat : 'گنجینه دیدنی‌ها' ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							: '';
+						?>
 					</a>
 					<div class="p-4 flex flex-col justify-between flex-1 gap-3">
 						<div class="space-y-1.5">
