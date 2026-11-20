@@ -365,33 +365,52 @@ function sa_2026_provinces( $limit = 8 ) {
 	return $out;
 }
 
+/** Exact internal page keys; leave fragments, queries and external sources alone. */
+function sa_2026_relation_key( $url ) {
+	$parts = wp_parse_url( (string) $url );
+	if ( ! is_array( $parts ) || empty( $parts['path'] ) || '/' !== substr( $parts['path'], 0, 1 ) || isset( $parts['query'] ) || isset( $parts['fragment'] ) ) {
+		return '';
+	}
+	if ( isset( $parts['host'] ) && 0 !== strcasecmp( $parts['host'], (string) wp_parse_url( home_url(), PHP_URL_HOST ) ) ) {
+		return '';
+	}
+	return rtrim( $parts['path'], '/' );
+}
+
+/** Preserve wording, inline markup and anchors, without linking a structural destination twice. */
+function sa_2026_relation_content( $urls ) {
+	$keys = array_fill_keys( array_filter( array_map( 'sa_2026_relation_key', $urls ) ), true );
+	$filter = static function ( $html ) use ( $keys ) {
+		$tags = new WP_HTML_Tag_Processor( $html );
+		while ( $tags->next_tag( 'A' ) ) {
+			if ( isset( $keys[ sa_2026_relation_key( $tags->get_attribute( 'href' ) ) ] ) ) {
+				$tags->remove_attribute( 'href' );
+			}
+		}
+		return $tags->get_updated_html();
+	};
+	add_filter( 'the_content', $filter, PHP_INT_MAX );
+	try {
+		the_content();
+	} finally {
+		remove_filter( 'the_content', $filter, PHP_INT_MAX );
+	}
+}
+
 /**
  * Published counties of a province (for the province grid and county chips).
  *
  * @param int $province_id Province post ID.
- * @param int $limit       Max rows.
- * @return array<int,array{id:int,title:string,url:string,cover:string,summary:string}>
+ * @return array[] One card per published member, without a display cap.
  */
-function sa_2026_province_counties( $province_id, $limit = 24 ) {
-	$children = function_exists( 'sa_get_children' ) ? sa_get_children( (int) $province_id, 'city' ) : array();
-	$out      = array();
-
-	foreach ( (array) $children as $post ) {
-		if ( ! $post instanceof WP_Post || 'publish' !== $post->post_status ) {
-			continue;
-		}
-
+function sa_2026_province_counties( $province_id ) {
+	$out = array();
+	foreach ( sa_county_link_roster( get_post( $province_id ) ) as $row ) {
 		$out[] = array(
-			'id'      => (int) $post->ID,
-			'title'   => get_the_title( $post ),
-			'url'     => (string) get_permalink( $post ),
-			'cover'   => sa_2026_cover( $post->ID, 'medium' ),
-			'summary' => function_exists( 'sa_summary' ) ? sa_summary( $post, 24 ) : '',
+			'title'   => $row['label'],
+			'url'     => $row['url'],
+			'summary' => function_exists( 'sa_summary' ) ? sa_summary( get_post( $row['id'] ), 24 ) : '',
 		);
-
-		if ( count( $out ) >= $limit ) {
-			break;
-		}
 	}
 
 	return $out;

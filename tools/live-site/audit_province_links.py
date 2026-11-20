@@ -1,4 +1,5 @@
 """Offline, reproducible link baseline. Never fetch or mutate WordPress."""
+import argparse
 import csv
 import json
 from pathlib import Path
@@ -19,7 +20,7 @@ def route(url):
     return None
 
 
-def main():
+def main(all_contract=None):
     OUT.mkdir(exist_ok=True, parents=True)
     records = load('docs/live-site/registry/live-articles.json')['records']
     work = load('tools/wp-agent/template_worklist.json')
@@ -29,13 +30,15 @@ def main():
     provinces = [r for r in records if r['post_type'] == 'province']
     cities = {r['id']: live[r['id']] for r in work if r['id'] in live}
     edges = {r['wp_id']: {route(urljoin(r['permalink'], link)) for link in r['internal_links']} - {None} for r in records}
+    page_url = {r['wp_id']: r['permalink'] for r in records}
+    page_url.update({i: c['link'] for i, c in cities.items()})
     places = [r for r in records if r['post_type'] == 'attraction']
     lines = ['# بازبینی پیوندهای ۳۱ استان | ۲۰ نوامبر ۲۰۲۶', '',
              'گزارش فقط‌خواندنی است. مقصدهای یکتای ثبت‌شده در `docs/live-site/registry/live-articles.json` (۱۱ نوامبر) با شناسه‌های شهرستان در `template_worklist.json` و موجودی شهرستان‌های ۱۷ نوامبر تطبیق داده شدند. جدول، پیوندِ مشاهده‌شده در آن خروجی را می‌شمارد، نه وضعیت امروز یا همهٔ پیوندهای تولیدشده توسط قالب. لینک‌های دارای پارامتر، ایمیل و لینک به آرشیو در شمارش رابطه‌های مستقیم نیستند.', '',
              'هر کسر = مشاهده‌شده / مورد انتظار. جهت مهم است: شیراز ← مرودشت جای مرودشت ← شیراز را نمی‌گیرد. ستون «بدنهٔ موجود» پوشش منبع در رجیستری ۱۱ نوامبر است. ستون دیدنی فقط مقصد دارای صفحه و والد شهرستانِ منطبق در همان داده را می‌سنجد؛ ۰/۰ یعنی داده‌ای برای سنجش نیست.', '',
-             '| استان | بدنهٔ موجود / شهرستان | استان به شهرستان | شهرستان به استان | شهرستان به هم‌استانی | شهرستان به دیدنی |', '|---|---:|---:|---:|---:|---:|']
+             '| استان | بدنهٔ موجود / شهرستان | استان به شهرستان | شهرستان به استان | شهرستان به هم‌استانی | شهرستان به دیدنی | دیدنی به شهرستان |', '|---|---:|---:|---:|---:|---:|---:|']
     totals = [0, 0, 0]
-    with (OUT / 'fars-links.csv').open('w', newline='', encoding='utf-8-sig') as file:
+    with (all_contract or OUT / 'fars-links.csv').open('w', newline='', encoding='utf-8-sig') as file:
         w = csv.writer(file, lineterminator="\n")
         w.writerow(['مبدأ', 'مقصد', 'رابطه', 'وضعیت در خروجی ۱۱ نوامبر', 'اقدام پیشنهادی'])
         for p in sorted(provinces, key=lambda r: r['title']):
@@ -47,13 +50,14 @@ def main():
                 ('شهرستان به استان', [(i, p['permalink']) for i in group]),
                 ('هم‌استانی', [(i, c['link']) for i in group for j, c in group.items() if i != j]),
                 ('دیدنی', [(a['relations']['city_id'], a['permalink']) for a in places if a['relations'].get('city_id') in group]),
+                ('دیدنی به شهرستان', [(a['wp_id'], group[a['relations']['city_id']]['link']) for a in places if a['relations'].get('city_id') in group]),
             ]:
                 found = 0
                 for i, url in pairs:
                     seen = route(url) in edges.get(i, set())
                     found += seen
-                    if p['slug'] == 'fars':
-                        w.writerow([group[i]['link'] if i in group else p['permalink'], url, kind,
+                    if all_contract or p['slug'] == 'fars':
+                        w.writerow([page_url[i], url, kind,
                                     'ثبت‌شده' if seen else ('ثبت‌نشده' if i in edges else 'بدنه ناموجود'),
                                     'حفظ پس از تأیید مقصد' if seen else 'اول بررسی در صفحهٔ رندرشده؛ افزودن فقط در صورت نبودن'])
                 counts.append(f'{found}/{len(pairs)}')
@@ -62,7 +66,7 @@ def main():
                     totals[1] += len(pairs)
                     totals[2] += n > 13
             lines.append('| ' + ' | '.join([p['title'], f'{len(group.keys() & edges.keys())}/{n}', *counts]) + ' |')
-    lines += ['', f'**نتیجهٔ سراسری:** برای {len(cities)} شهرستانِ فهرست کار، {totals[1]} پیوند جهت‌دار هم‌استانی انتظار می‌رود؛ {totals[0]} مورد در رجیستری ثبت است. در {totals[2]} استان، سقف پیش‌فرض ۱۲ مقصد در `sa_county_profile_sibling_cities()` برای پوشش همهٔ هم‌استانی‌ها کافی نیست. این محدودیتِ یک بخش است؛ نبودن لینک در کل صفحه را اثبات نمی‌کند.', '',
+    lines += ['', f'**نتیجهٔ سراسری:** برای {len(cities)} شهرستانِ فهرست کار، {totals[1]} پیوند جهت‌دار هم‌استانی انتظار می‌رود؛ {totals[0]} مورد در رجیستری ثبت است. در نسخهٔ پیش از اصلاح قالب، در {totals[2]} استان سقف پیش‌فرض ۱۲ مقصد در `sa_county_profile_sibling_cities()` برای پوشش همهٔ هم‌استانی‌ها کافی نبود. این محدودیتِ یک بخش است؛ نبودن لینک در کل صفحه را اثبات نمی‌کند.', '',
               'مرز موجودی: «شهر بوشهر» (۲۰۱) در موجودی منتشرشده هست ولی شهرستان جداگانه در فهرست کار نیست. چهار پیش‌نویس نیز وارد شبکه نشده‌اند. دو رابطهٔ قدیمی دیدنی‌های اصفهان به شناسه‌های خارج از فهرست کار وصل‌اند (میدان نقش جهان و سی‌وسه‌پل)؛ خروجی‌های بعدی پل، والد ۳۴۲۹ را نشان می‌دهند. این دو در مخرج جدول نیامده‌اند؛ پیش از هر اصلاح دوباره خوانده شوند.', '',
               '## نمونهٔ فارس — پیشنهاد برای بازبینی، نه تغییر منتشرشده', '',
               'در [جدول مبدأ و مقصد فارس](fars-links.csv) هر دو جهت را می‌توان با فیلتر ستون مبدأ یا مقصد دید. پیوند به صفحهٔ استان جای پیوند مستقیم به شهرستان دیگر محسوب نشده است.', '',
@@ -74,4 +78,6 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--all-contract", type=Path, help="Write all 31 provinces to this CSV instead of the Fars sample")
+    main(parser.parse_args().all_contract)

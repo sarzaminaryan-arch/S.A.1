@@ -100,7 +100,7 @@ function sa_sync_relations( $post_id, $type ) {
  * @return int[]
  */
 function sa_get_children_ids( $parent_id, $child_type, $meta_key, $published = true ) {
-	$cache_key = 'sa_rel_' . md5( $parent_id . '|' . $child_type . '|' . $meta_key . '|' . ( $published ? 1 : 0 ) );
+	$cache_key = 'sa_rel_v2_' . md5( $parent_id . '|' . $child_type . '|' . $meta_key . '|' . ( $published ? 1 : 0 ) );
 	$ids       = get_transient( $cache_key );
 	if ( false !== $ids ) {
 		return (array) $ids;
@@ -109,7 +109,7 @@ function sa_get_children_ids( $parent_id, $child_type, $meta_key, $published = t
 		array(
 			'post_type'        => $child_type,
 			'post_status'      => $published ? 'publish' : array( 'publish', 'draft', 'pending', 'future', 'private' ),
-			'posts_per_page'   => 500,
+			'posts_per_page'   => $published && in_array( $child_type, array( 'city', 'attraction' ), true ) ? -1 : 500,
 			'fields'           => 'ids',
 			'orderby'          => 'title',
 			'order'            => 'ASC',

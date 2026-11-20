@@ -24,6 +24,9 @@ while ( have_posts() ) :
 
 	$sa_id      = get_the_ID();
 	$sa_city    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'city' ) : null;
+	if ( $sa_city && 'city' !== $sa_city->post_type ) {
+		$sa_city = null;
+	}
 	$sa_prov    = function_exists( 'sa_get_parent' ) ? sa_get_parent( $sa_id, 'province' ) : null;
 	$sa_facts   = function_exists( 'sa_entity_facts' ) ? sa_entity_facts( $sa_id ) : array();
 	$sa_nearby  = array();
@@ -60,7 +63,7 @@ while ( have_posts() ) :
 				<?php endif; ?>
 				<?php if ( $sa_city ) : ?>
 					<span aria-hidden="true">›</span>
-					<a href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>" class="hover:text-brand-forest transition-colors"><?php echo esc_html( get_the_title( $sa_city ) ); ?></a>
+					<a href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>" data-sa-relation class="hover:text-brand-forest transition-colors"><?php echo esc_html( get_the_title( $sa_city ) ); ?></a>
 				<?php endif; ?>
 				<span aria-hidden="true">›</span>
 				<span class="text-ink font-bold" aria-current="page"><?php the_title(); ?></span>
@@ -184,7 +187,7 @@ while ( have_posts() ) :
 					</h2>
 				</div>
 				<div class="sa-2026-prose">
-					<?php the_content(); ?>
+					<?php sa_2026_relation_content( $sa_city ? array( get_permalink( $sa_city ) ) : array() ); ?>
 				</div>
 			</section>
 
@@ -274,9 +277,6 @@ while ( have_posts() ) :
 							<?php echo esc_html( 'دیدنی‌های نزدیک' . ( $sa_city ? ' در ' . get_the_title( $sa_city ) : '' ) ); ?>
 						</h2>
 					</div>
-					<?php if ( $sa_city ) : ?>
-						<a href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>" class="text-xs font-bold text-brand-forest hover:underline">همه دیدنی‌های شهرستان ←</a>
-					<?php endif; ?>
 				</div>
 
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -316,11 +316,6 @@ while ( have_posts() ) :
 						</svg>
 						<span>ثبت تجربه بازدید</span>
 					</button>
-					<?php if ( $sa_city ) : ?>
-						<a href="<?php echo esc_url( get_permalink( $sa_city ) ); ?>" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 transition-colors">
-							<span><?php echo esc_html( 'بازگشت به ' . get_the_title( $sa_city ) ); ?></span>
-						</a>
-					<?php endif; ?>
 				</div>
 			</div>
 		</section>
