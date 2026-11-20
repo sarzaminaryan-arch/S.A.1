@@ -120,7 +120,13 @@ sa_dh_assert( 9 === (int) $GLOBALS['t']['options']['page_for_posts'], 'repair: d
 /* 5) صفحهٔ نخست تازه و مسیر داشبورد فقط در صورت وجود برگهٔ منتشرشده. */
 $home = (string) file_get_contents( SA_CHILD_DIR . 'template-home.php' );
 $front = (string) file_get_contents( SA_CHILD_DIR . 'front-page.php' );
-sa_dh_assert( false !== strpos( $front, "'/template-home.php'" ), 'front-page uses landing template regardless of front page settings' );
+/*
+ * 2026 refresh: the front page is its own template now (front-page.php renders
+ * the approved 2026 design) and must not fall back to the legacy landing
+ * template any more. The legacy template stays available for pages only.
+ */
+sa_dh_assert( false === strpos( $front, "'/template-home.php'" ), 'front page no longer renders the legacy landing template' );
+sa_dh_assert( false !== strpos( $front, 'hero-heading' ) && false !== strpos( $front, 'data-sa-search-input' ), 'front page renders the 2026 hero with its instant search' );
 sa_dh_assert( false !== strpos( $home, 'sa_dashboard_page_url()' ) && false !== strpos( $home, 'if ( $sa_home_dashboard )' ), 'landing links to the dashboard only when available' );
 sa_dh_assert( false !== strpos( $home, 'role="search"' ) && false !== strpos( $home, 'name="s"' ), 'landing keeps WordPress search' );
 
