@@ -91,7 +91,7 @@ sa_cpt_assert( true === sa_is_guide_type( 'guide' ), 'runtime: a guide is recogn
 sa_cpt_assert( false === sa_is_guide_type( 'post' ), 'runtime: an ordinary post is NOT a guide' );
 sa_cpt_assert( false === sa_is_guide_type( 'page' ), 'runtime: a page is NOT a guide' );
 sa_cpt_assert( array( 'post', 'guide' ) === sa_guide_comment_types( array( 'post' ) ), 'runtime: comments follow the new type' );
-sa_cpt_assert( 'article' === sa_guide_og_type( 'website', 0 ), 'runtime: other requests keep their Open Graph type' );
+sa_cpt_assert( 'website' === sa_guide_og_type( 'website', 0 ), 'runtime: a request without a post keeps its Open Graph type' );
 
 $cpt      = sa_cpt_file( 'inc/guide-cpt.php' );
 $migrate  = sa_cpt_file( 'inc/guide-migrate.php' );
