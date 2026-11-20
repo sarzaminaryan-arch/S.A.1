@@ -109,6 +109,19 @@
     color: #fff;
   }
 
+  /* Local Vazirmatn only (parent theme ships 400/500/700); no Google Fonts. */
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: Vazirmatn, Tahoma, system-ui, sans-serif;
+    background-color: rgb(var(--sa-canvas));
+    color: rgb(var(--sa-ink));
+  }
+  b, strong {
+    font-weight: 700;
+  }
+
   /* Attraction filter tabs. */
   .attr-tab.is-active {
     background-color: rgb(var(--sa-brand));
