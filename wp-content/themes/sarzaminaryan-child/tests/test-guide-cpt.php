@@ -45,6 +45,9 @@ function sa_cpt_assert( $condition, $message ) {
 	}
 	++$failures;
 	fwrite( STDERR, "FAIL: {$message}\n" );
+	// Also surface the message as a GitHub annotation, so a red build says *what* broke
+	// even when the raw step log is not reachable.
+	echo "::error::{$message}\n";
 }
 
 /**
