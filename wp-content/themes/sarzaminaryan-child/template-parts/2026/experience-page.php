@@ -155,7 +155,7 @@ if ( isset( $_GET['city'] ) ) { // phpcs:ignore WordPress.Security.NonceVerifica
 </main>
 
 <script>
-	// No alert(): scroll the result notice into view so the visitor sees it.
+	// Nothing is thrown as a browser dialog: the result notice is scrolled into view.
 	(function () {
 		var notice = document.getElementById('sa-notice');
 		if (notice) {
