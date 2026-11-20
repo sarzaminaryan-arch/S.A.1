@@ -2,24 +2,26 @@
 /**
  * «آموزش سفر» — the fourth main section of the site.
  *
- * Owner report (۲۹ آبان ۱۴۰۵): the menu entry «آموزش سفر» pointed at
- * https://sarzaminaryan.ir/travel-guide/ and that address answered **404** — there
- * was no page and no post with that slug, while the section's URL was hard-coded in
- * three places (header nav, footer column, front-page pillar).
+ * History: the menu entry pointed at https://sarzaminaryan.ir/travel-guide/ and that
+ * address answered **404** (v2.23.3 fixed it with a virtual route), then the route
+ * crashed on a `usort()` call (v2.23.4 → hotfix v2.23.5).
  *
- * What this module does, without writing anything to the database:
+ * v2.24.0 finishes the move the owner asked for («این بخش مقالات در قسمت نوشته‌های
+ * اصلی وردپرس هستند»): the section is now its own content type (`inc/guide-cpt.php`)
+ * whose **archive is** `/travel-guide/`, so this module keeps only what is left to do
+ * around it:
  *
- *   1. One canonical URL for the section (`sa_2026_guide_url()`), used everywhere.
- *   2. A virtual route at `/travel-guide/` (and `/travel-guide/page/2/`) that renders
- *      the real list of published guides with HTTP **200**, styled by the 2026 design.
- *   3. The old posts page (`/blog/`) and the empty `travel-guide` category are sent to
- *      the hub with a 301, so two identical listings never compete — both redirects
- *      stop automatically as soon as the owner creates a real page with that slug or
- *      puts posts inside the category.
- *   4. The category archives of the guides (`/category/…`) get the same 2026 listing
+ *   1. one canonical URL for the section (`sa_2026_guide_url()`), used everywhere;
+ *   2. the listing query of the archive — scoped to the section, never the whole site;
+ *   3. the hub's own search, which stays inside the section instead of turning into a
+ *      site-wide search page;
+ *   4. the old posts page (`/blog/`) and the empty `travel-guide` category are sent to
+ *      the hub with a 301, so two identical listings never compete;
+ *   5. the category archives of the guides (`/category/…`) get the same 2026 listing
  *      (see `category.php`), so the section looks like the rest of the site.
  *
- * Nothing here is public storage: no page, no term, no option with content.
+ * Before the owner runs the migration the archive lists the guides that are still
+ * ordinary posts — it can never go empty, and no database row is written here.
  *
  * @package Sarzaminaryan_Child
  */
@@ -29,31 +31,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * The owner's own page for the hub, when it exists and is published.
- *
- * @return WP_Post|false
- */
-function sa_guide_page() {
-	static $page = null;
-
-	if ( null !== $page ) {
-		return $page;
-	}
-
-	$found = get_page_by_path( 'travel-guide' );
-	$page  = ( $found instanceof WP_Post && 'publish' === $found->post_status ) ? $found : false;
-
-	return $page;
-}
-
-/**
- * Canonical URL of the «آموزش سفر» section.
+ * Canonical URL of the «آموزش سفر» section (the archive of the `guide` type).
  *
  * @return string
  */
 function sa_2026_guide_url() {
-	$page = sa_guide_page();
-	$url  = $page ? (string) get_permalink( $page ) : home_url( '/travel-guide/' );
+	$url = '';
+	if ( function_exists( 'sa_guide_type' ) && function_exists( 'get_post_type_archive_link' ) ) {
+		$url = (string) get_post_type_archive_link( sa_guide_type() );
+	}
+	if ( '' === $url ) {
+		$url = home_url( '/travel-guide/' );
+	}
 
 	return (string) apply_filters( 'sa_2026_guide_url', $url );
 }
@@ -65,7 +54,7 @@ function sa_2026_guide_url() {
  * @return string
  */
 function sa_guide_url( array $args = array() ) {
-	$url = sa_2026_guide_url();
+	$url  = sa_2026_guide_url();
 	$args = array_filter(
 		$args,
 		static function ( $value ) {
@@ -77,12 +66,19 @@ function sa_guide_url( array $args = array() ) {
 }
 
 /**
- * Is the current request the virtual hub?
+ * Is the current request the hub — the archive itself or its on-hub search?
+ *
+ * The archive sets `sa_guide_hub` in `pre_get_posts()` (see below), so the answer stays
+ * true even while the archive is still listing ordinary posts before the migration.
  *
  * @return bool
  */
 function sa_guide_is_hub() {
-	return (bool) get_query_var( 'sa_guide_hub' );
+	if ( isset( $GLOBALS['wp_query'] ) && $GLOBALS['wp_query'] instanceof WP_Query && $GLOBALS['wp_query']->get( 'sa_guide_hub' ) ) {
+		return true;
+	}
+
+	return (bool) get_query_var( 'sa_guide_search' );
 }
 
 /**
@@ -96,56 +92,25 @@ function sa_guide_is_section() {
 	if ( sa_guide_is_hub() || is_category() ) {
 		return true;
 	}
+	if ( function_exists( 'sa_guide_types' ) && is_singular( sa_guide_types() ) ) {
+		return true;
+	}
 
 	return is_singular( 'post' ) || ( is_home() && ! is_front_page() );
 }
 
 /**
- * Virtual route for /travel-guide/ and /travel-guide/page/N/.
- *
- * Registered only while the owner has no real page with that slug: their page must
- * always win.
- *
- * @return void
- */
-function sa_guide_register_route() {
-	if ( sa_guide_page() ) {
-		return;
-	}
-
-	add_rewrite_rule( '^travel-guide/page/([0-9]{1,4})/?$', 'index.php?sa_guide_hub=1&sa_guide_page=$matches[1]', 'top' );
-	add_rewrite_rule( '^travel-guide/?$', 'index.php?sa_guide_hub=1', 'top' );
-}
-add_action( 'init', 'sa_guide_register_route', 8 );
-
-/**
- * Query vars of the route.
+ * Query var of the hub's own search.
  *
  * @param array<int,string> $vars Existing vars.
  * @return array<int,string>
  */
 function sa_guide_query_vars( $vars ) {
-	$vars[] = 'sa_guide_hub';
-	$vars[] = 'sa_guide_page';
+	$vars[] = 'sa_guide_search';
 
 	return $vars;
 }
 add_filter( 'query_vars', 'sa_guide_query_vars' );
-
-/**
- * Flush the rewrite rules once per release (the route is new).
- *
- * @return void
- */
-function sa_guide_maybe_flush() {
-	$flag = 'sa_guide_route_version';
-	if ( get_option( $flag ) === SA_CHILD_VERSION ) {
-		return;
-	}
-	flush_rewrite_rules( false );
-	update_option( $flag, SA_CHILD_VERSION, false );
-}
-add_action( 'init', 'sa_guide_maybe_flush', 21 );
 
 /**
  * Build the listing query of the hub.
@@ -157,35 +122,47 @@ function sa_guide_pre_get_posts( $query ) {
 	if ( is_admin() || ! $query instanceof WP_Query || ! $query->is_main_query() ) {
 		return;
 	}
-	if ( ! $query->get( 'sa_guide_hub' ) ) {
+
+	$requested = $query->get( 'post_type' );
+	$requested = is_array( $requested ) ? (string) reset( $requested ) : (string) $requested;
+	$archive   = ! empty( $query->is_post_type_archive ) && function_exists( 'sa_guide_type' ) && sa_guide_type() === $requested;
+	$on_hub  = (bool) $query->get( 'sa_guide_search' );
+
+	if ( ! $archive && ! $on_hub ) {
 		return;
 	}
 
-	$query->set( 'post_type', 'post' );
+	if ( $archive ) {
+		// Mark the request as the hub: helpers and the template must not have to guess
+		// it from `post_type`, which is switched below while the guides are still posts.
+		$query->set( 'sa_guide_hub', 1 );
+	}
+
 	$query->set( 'post_status', 'publish' );
 	$query->set( 'posts_per_page', (int) apply_filters( 'sa_guide_per_page', 12 ) );
 	$query->set( 'ignore_sticky_posts', true );
 
-	// Only the section's own categories (the guides), not every post of the site.
-	$section_terms = function_exists( 'sa_guide_category_ids' ) ? sa_guide_category_ids() : array();
-	if ( $section_terms ) {
-		$query->set( 'category__in', $section_terms );
+	if ( ! function_exists( 'sa_guide_has_guides' ) || ! sa_guide_has_guides() ) {
+		// Not migrated yet: the section's guides are ordinary posts, so list those —
+		// limited to the section's categories — instead of an empty archive.
+		$query->set( 'post_type', 'post' );
+		$scoped = function_exists( 'sa_guide_category_ids' ) ? sa_guide_category_ids() : array();
+		if ( $scoped ) {
+			$query->set( 'category__in', $scoped );
+		}
+
+		return;
 	}
 
-	$paged = max( 1, (int) $query->get( 'sa_guide_page' ) );
-	if ( $paged > 1 ) {
-		$query->set( 'paged', $paged );
+	if ( $on_hub ) {
+		// Search inside the hub: the section's own types, never the whole site.
+		$query->set( 'post_type', sa_guide_types() );
 	}
-
-	// The route is a listing, not the blog home: other code must not treat it as one.
-	$query->is_home             = false;
-	$query->is_archive          = true;
-	$query->is_post_type_archive = false;
 }
 add_action( 'pre_get_posts', 'sa_guide_pre_get_posts' );
 
 /**
- * Render the hub with its own template.
+ * Render the hub (archive or on-hub search) with its own template.
  *
  * @param string $template Template path.
  * @return string
@@ -202,51 +179,14 @@ function sa_guide_template_include( $template ) {
 add_filter( 'template_include', 'sa_guide_template_include', 20 );
 
 /**
- * The virtual route answers 200 (core marks every empty query as a 404) and an
- * out-of-range page number goes back to the first page instead of a dead end.
- *
- * @return void
- */
-function sa_guide_template_redirect() {
-	if ( ! sa_guide_is_hub() ) {
-		return;
-	}
-
-	// A real page always wins over the virtual route, even if an old rewrite rule is
-	// still cached in the options table.
-	$page = sa_guide_page();
-	if ( $page ) {
-		wp_safe_redirect( (string) get_permalink( $page ), 301 );
-		exit;
-	}
-
-	global $wp_query;
-	if ( $wp_query instanceof WP_Query ) {
-		$wp_query->is_404 = false; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
-
-		$max   = (int) $wp_query->max_num_pages;
-		$paged = max( 1, (int) get_query_var( 'sa_guide_page' ) );
-		if ( $max > 0 && $paged > $max ) {
-			wp_safe_redirect( sa_guide_url(), 301 );
-			exit;
-		}
-	}
-
-	status_header( 200 );
-	nocache_headers();
-}
-add_action( 'template_redirect', 'sa_guide_template_redirect', 1 );
-
-/**
  * The old posts page (`/blog/`) lists exactly the same guides: one canonical index.
  *
  * Turn it off with `add_filter( 'sa_guide_redirect_posts_page', '__return_false' );`
- * or by creating a real page with the `travel-guide` slug.
  *
  * @return void
  */
 function sa_guide_redirect_posts_page() {
-	if ( is_admin() || sa_guide_is_hub() || sa_guide_page() ) {
+	if ( is_admin() || sa_guide_is_hub() ) {
 		return;
 	}
 	if ( ! is_home() || is_front_page() ) {
@@ -287,7 +227,7 @@ function sa_guide_redirect_empty_category() {
 add_action( 'template_redirect', 'sa_guide_redirect_empty_category', 5 );
 
 /**
- * Document title of the hub.
+ * Document title of the hub and of its search.
  *
  * @param string $title Title.
  * @return string
@@ -441,7 +381,9 @@ function sa_guide_topics( $current = '' ) {
  */
 function sa_guide_context() {
 	$is_hub   = sa_guide_is_hub();
-	$total    = (int) wp_count_posts( 'post' )->publish;
+	// Before the migration the guides are ordinary posts, after it they are `guide`s:
+	// the hero's counter must not drop to zero in between.
+	$total    = function_exists( 'sa_guide_count' ) ? (int) sa_guide_count() : (int) wp_count_posts( 'post' )->publish;
 	$found    = (int) $GLOBALS['wp_query']->found_posts;
 	$search   = trim( (string) get_query_var( 's' ) );
 	$current  = '';
@@ -464,6 +406,7 @@ function sa_guide_context() {
 
 	return array(
 		'is_hub'  => $is_hub,
+		'is_guide_type' => function_exists( 'sa_guide_type' ) ? sa_guide_type() : 'post',
 		'is_cat'  => is_category(),
 		'title'   => $title,
 		'lead'    => $lead,

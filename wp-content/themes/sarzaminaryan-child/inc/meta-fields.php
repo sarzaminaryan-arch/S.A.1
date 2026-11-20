@@ -19,7 +19,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string[]
  */
 function sa_seo_post_types() {
-	return array_merge( array( 'post', 'page' ), sa_entity_types() );
+	$types = array_merge( array( 'post', 'page' ), sa_entity_types() );
+	if ( function_exists( 'sa_guide_type' ) ) {
+		$types[] = sa_guide_type();
+	}
+
+	return array_values( array_unique( $types ) );
 }
 
 /**

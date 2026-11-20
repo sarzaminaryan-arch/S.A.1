@@ -51,6 +51,12 @@ function sa_get_breadcrumb_items() {
 					$items[]   = array( 'name' => $city_name, 'url' => get_permalink( $city ) );
 				}
 			}
+		} elseif ( function_exists( 'sa_is_guide_type' ) && sa_is_guide_type( $type ) ) {
+			$items[] = array( 'name' => 'آموزش سفر', 'url' => sa_2026_guide_url() );
+			$cats    = get_the_category( $post->ID );
+			if ( $cats ) {
+				$items[] = array( 'name' => $cats[0]->name, 'url' => get_category_link( $cats[0] ) );
+			}
 		} elseif ( 'post' === $type ) {
 			$blog = (int) get_option( 'page_for_posts' );
 			if ( $blog ) {

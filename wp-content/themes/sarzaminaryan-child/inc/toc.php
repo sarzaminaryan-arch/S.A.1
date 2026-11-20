@@ -61,6 +61,9 @@ function sa_toc_min_items() {
  */
 function sa_toc_post_types() {
 	$types = array_merge( array( 'post' ), function_exists( 'sa_entity_types' ) ? sa_entity_types() : array() );
+	if ( function_exists( 'sa_guide_type' ) ) {
+		$types[] = sa_guide_type();
+	}
 
 	/**
 	 * نوع‌های محتوایی که «فهرست مطالب» می‌گیرند.

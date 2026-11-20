@@ -406,7 +406,7 @@ function sa_2026_province_counties( $province_id, $limit = 24 ) {
 function sa_2026_latest( $limit = 6 ) {
 	return get_posts(
 		array(
-			'post_type'      => array( 'attraction', 'city', 'province', 'post' ),
+			'post_type'      => array_merge( array( 'attraction', 'city', 'province', 'post' ), function_exists( 'sa_guide_types' ) ? sa_guide_types() : array() ),
 			'post_status'    => 'publish',
 			'posts_per_page' => (int) $limit,
 			'orderby'        => 'modified',
@@ -436,7 +436,10 @@ function sa_2026_site_stats() {
 			'label' => 'دیدنی',
 		),
 		array(
-			'value' => sa_2026_num( sa_2026_count( 'travel_route' ) + sa_2026_count( 'post' ) ),
+			'value' => sa_2026_num(
+				sa_2026_count( 'travel_route' ) + sa_2026_count( 'post' )
+				+ ( function_exists( 'sa_guide_count' ) ? sa_guide_count() : 0 )
+			),
 			'label' => 'راهنما و مقاله',
 		),
 	);

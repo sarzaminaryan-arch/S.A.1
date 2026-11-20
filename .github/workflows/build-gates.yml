@@ -82,6 +82,9 @@ jobs:
       - name: 'Guide hub (بخش «آموزش سفر»: مسیر /travel-guide/ به‌جای ۴۰۴ + ظاهر ۱۴۰۵)'
         run: php wp-content/themes/sarzaminaryan-child/tests/test-guide-hub.php
 
+      - name: 'Guide content type (نوع مستقل «راهنمای سفر»: منو، ابزارها، ۳۰۱، مهاجرت پشتیبان‌دار)'
+        run: php wp-content/themes/sarzaminaryan-child/tests/test-guide-cpt.php
+
       - name: Agent job safety (not_before, rollback_on_fail, step → argv)
         run: python3 tools/wp-agent/test_wp_agent_jobs.py
 

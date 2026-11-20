@@ -31,7 +31,18 @@ const targets = [
   'legacy/category.php',
   'template-parts/2026/guide-hub.php',
   'inc/guide-hub.php',
+  'inc/guide-cpt.php',
+  'inc/guide-migrate.php',
+  'inc/education.php',
+  'inc/seo.php',
+  'inc/schema.php',
+  'inc/breadcrumbs.php',
+  'inc/template-tags.php',
+  'inc/meta-fields.php',
+  'archive-guide.php',
+  'single-guide.php',
   'tests/test-guide-hub.php',
+  'tests/test-guide-cpt.php',
 ];
 
 const parser = new engine({ parser: { extractDoc: true }, ast: { withPositions: true } });
