@@ -36,7 +36,7 @@ while ( have_posts() ) :
 	$sa_seasons   = $sa_get( 'seasons', array() );
 	$sa_access    = $sa_get( 'access_facts', array() );
 	$sa_neighbors = $sa_get( 'neighbors', array() );
-	$sa_attracts  = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id, 12 ) : array();
+	$sa_attracts  = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id, 8 ) : array();
 	$sa_siblings  = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id, 8 ) : array();
 	$sa_updated   = $sa_get( 'field_update_note' );
 
@@ -157,8 +157,19 @@ while ( have_posts() ) :
 									<span><?php echo esc_html( 'همسایه‌های جغرافیایی ' . get_the_title() . ':' ); ?></span>
 								</div>
 								<div class="flex flex-wrap items-center gap-2 text-xs">
-									<?php foreach ( $sa_neighbors as $sa_nb ) : ?>
-										<?php if ( empty( $sa_nb['label'] ) ) { continue; } ?>
+									<?php
+									$sa_nb_seen = array();
+									foreach ( $sa_neighbors as $sa_nb ) :
+										if ( empty( $sa_nb['label'] ) ) {
+											continue;
+										}
+										$sa_nb_key = trim( str_replace( array( 'شهرستان', 'ي', 'ك', '‌' ), array( '', 'ی', 'ک', ' ' ), (string) $sa_nb['label'] ) );
+										$sa_nb_key = preg_replace( '/\s+/u', ' ', $sa_nb_key );
+										if ( '' === $sa_nb_key || isset( $sa_nb_seen[ $sa_nb_key ] ) ) {
+											continue;
+										}
+										$sa_nb_seen[ $sa_nb_key ] = true;
+										?>
 										<a href="<?php echo esc_url( ! empty( $sa_nb['url'] ) ? $sa_nb['url'] : '#' ); ?>"
 											class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-canvas hover:bg-petrolSoft text-ink hover:text-petrol border border-line font-medium transition-colors">
 											<span class="text-muted"><?php echo esc_html( $sa_nb['direction'] ); ?>:</span>
@@ -351,8 +362,20 @@ while ( have_posts() ) :
 								</h3>
 
 								<p class="text-xs text-slate-600 leading-relaxed">
-									<?php echo esc_html( ! empty( $sa_row['en'] ) ? $sa_row['en'] : 'از جاذبه‌های شناخته‌شده و قابل بازدید این شهرستان.' ); ?>
+									<?php
+									$sa_desc = ! empty( $sa_row['note'] ) ? $sa_row['note'] : ( ! empty( $sa_row['en'] ) ? $sa_row['en'] : 'از جاذبه‌های شناخته‌شده و قابل بازدید این شهرستان.' );
+									echo esc_html( $sa_desc );
+									?>
 								</p>
+								<?php if ( ! empty( $sa_row['distance'] ) ) : ?>
+									<p class="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
+										<svg class="w-3.5 h-3.5 text-petrol" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+										</svg>
+										<span><?php echo esc_html( $sa_row['distance'] ); ?></span>
+									</p>
+								<?php endif; ?>
 							</div>
 
 							<?php if ( $sa_url ) : ?>

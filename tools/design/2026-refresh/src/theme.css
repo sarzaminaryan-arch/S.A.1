@@ -159,6 +159,47 @@
     background-color: rgb(var(--sa-brand-dark));
   }
 
+  /* WordPress pagination on the treasure hub and the archives. */
+  .sa-pagination .nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+  .sa-pagination .page-numbers {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    padding: 0.45rem 0.7rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgb(var(--sa-line));
+    background-color: rgb(var(--sa-surface));
+    color: rgb(var(--sa-ink));
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .sa-pagination .page-numbers:hover {
+    border-color: rgb(var(--sa-brand));
+    color: rgb(var(--sa-brand));
+  }
+  .sa-pagination .page-numbers.current {
+    background-color: rgb(var(--sa-brand));
+    border-color: rgb(var(--sa-brand));
+    color: #fff;
+    font-weight: 700;
+  }
+  .sa-pagination .screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
   .search-chip.is-active {
     background-color: rgb(var(--sa-brand));
     color: #fff;

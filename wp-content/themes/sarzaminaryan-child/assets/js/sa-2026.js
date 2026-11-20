@@ -19,6 +19,7 @@
 		initHomeSearch();
 		initCountySearch();
 		initAttractionTabs();
+		initAutoSubmit();
 		initScrollSpy();
 		initBookmark();
 	});
@@ -253,6 +254,26 @@
 					var cardCategory = card.getAttribute('data-sa-attr-card');
 					card.classList.toggle('hidden', category !== 'all' && cardCategory !== category);
 				});
+			});
+		});
+	}
+
+	/* ------------------------------------------------------------------ */
+	/* Filter selects that submit their GET form on change                 */
+	/* ------------------------------------------------------------------ */
+	function initAutoSubmit() {
+		$$('[data-sa-auto-submit]').forEach(function (field) {
+			field.addEventListener('change', function () {
+				var form = field.form;
+				if (!form) {
+					return;
+				}
+				// Keep the free-text query when a select changes.
+				if (typeof form.requestSubmit === 'function') {
+					form.requestSubmit();
+				} else {
+					form.submit();
+				}
 			});
 		});
 	}

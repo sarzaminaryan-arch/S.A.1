@@ -86,7 +86,7 @@ function sa_2026_nav_items() {
 			'active' => is_post_type_archive( 'city' ) || is_singular( 'city' ),
 		),
 		array(
-			'label'  => 'دیدنی‌ها',
+			'label'  => 'گنجینه دیدنی‌ها',
 			'url'    => function_exists( 'sa_archive_url' ) ? sa_archive_url( 'attraction' ) : home_url( '/attractions/' ),
 			'key'    => 'attraction',
 			'active' => is_post_type_archive( 'attraction' ) || is_singular( 'attraction' ),
@@ -118,7 +118,7 @@ function sa_2026_footer_explore() {
 			'url'   => function_exists( 'sa_archive_url' ) ? sa_archive_url( 'city' ) : home_url( '/cities/' ),
 		),
 		array(
-			'label' => 'دیدنی‌های ایران',
+			'label' => 'گنجینه دیدنی‌های ایران',
 			'url'   => function_exists( 'sa_archive_url' ) ? sa_archive_url( 'attraction' ) : home_url( '/attractions/' ),
 		),
 		array(
@@ -359,3 +359,322 @@ function sa_2026_province_neighbours( $province_id, $limit = 8 ) {
 
 	return $out;
 }
+
+/* -------------------------------------------------------------------------
+ * «گنجینه دیدنی‌های ایران» — hub page, filters and POI codes
+ *
+ * Owner brief (29 آبان ۱۴۰۵): the attractions section is named «گنجینه دیدنی‌های
+ * ایران», it has a mother page filtering by province / county / type, and every
+ * attraction carries a stable public code such as `POI-TBZ-001`.
+ * The public URL base (`/attraction/…`) is NOT renamed yet: 38 attraction URLs
+ * are already indexed, so the `/treasure/` shape is served as a 301 alias until
+ * the owner signs the migration (see docs/design/2026-11-refresh/OWNER-NOTES.md).
+ * ---------------------------------------------------------------------- */
+
+/**
+ * Mother-page URL of the treasure section.
+ *
+ * @return string
+ */
+function sa_2026_treasure_url() {
+	$url = function_exists( 'sa_archive_url' ) ? sa_archive_url( 'attraction' ) : '';
+	return $url ? $url : home_url( '/treasure/' );
+}
+
+/**
+ * Three-letter code of a county, used inside POI codes (`POI-<CODE>-<NNN>`).
+ *
+ * Known destinations use the code the owner's brief shows (Tabriz → TBZ);
+ * everything else falls back to the county's Latin slug consonants so the code
+ * stays stable and readable.
+ *
+ * @param int $city_id County (city CPT) ID.
+ * @return string
+ */
+function sa_2026_poi_city_code( $city_id ) {
+	static $cache = array();
+	$city_id      = (int) $city_id;
+	if ( isset( $cache[ $city_id ] ) ) {
+		return $cache[ $city_id ];
+	}
+
+	$stored = function_exists( 'sa_meta' ) ? (string) sa_meta( $city_id, 'sa_poi_city_code' ) : '';
+	if ( '' !== $stored ) {
+		return $cache[ $city_id ] = strtoupper( substr( preg_replace( '/[^A-Za-z]/', '', $stored ), 0, 4 ) );
+	}
+
+	$slug = (string) get_post_field( 'post_name', $city_id );
+	$map  = array(
+		'tabriz' => 'TBZ', 'tehran' => 'THR', 'isfahan' => 'ISF', 'shiraz' => 'SYZ',
+		'mashhad' => 'MHD', 'yazd' => 'YZD', 'kerman' => 'KER', 'rasht' => 'RAS',
+		'ahvaz' => 'AWZ', 'kermanshah' => 'KSH', 'hamedan' => 'HMD', 'qom' => 'QOM',
+		'khorramabad' => 'KHD', 'urmia' => 'OMH', 'ardabil' => 'ADU', 'bandar-abbas' => 'BND',
+		'bushehr' => 'BUZ', 'zahedan' => 'ZAH', 'semnan' => 'SNX', 'qazvin' => 'QZV',
+		'zanjan' => 'JWN', 'sanandaj' => 'SDG', 'gorgan' => 'GBT', 'sari' => 'SRY',
+		'karaj' => 'KRJ', 'birjand' => 'XBJ', 'bojnord' => 'BJB', 'shahr-e-kord' => 'CQD',
+		'asaluyeh' => 'ASA', 'kish' => 'KIH', 'qeshm' => 'GSM', 'kashan' => 'KSN',
+		'dorud' => 'DRD', 'tabas' => 'TBS', 'masouleh' => 'MSL',
+	);
+	$key = str_replace( '_', '-', strtolower( $slug ) );
+	while ( '' !== $key && ! isset( $map[ $key ] ) && false !== strpos( $key, '-' ) ) {
+		$key = substr( $key, 0, (int) strrpos( $key, '-' ) );
+	}
+	if ( '' !== $key && isset( $map[ $key ] ) ) {
+		return $cache[ $city_id ] = $map[ $key ];
+	}
+
+	$letters = strtoupper( preg_replace( '/[^a-z]/i', '', $key ? $key : $slug ) );
+	$code    = substr( preg_replace( '/[AEIOU]/', '', $letters ), 0, 3 );
+	if ( strlen( $code ) < 3 ) {
+		$code = substr( $letters, 0, 3 );
+	}
+	if ( strlen( $code ) < 3 ) {
+		$code = str_pad( $code, 3, 'X' );
+	}
+
+	return $cache[ $city_id ] = $code;
+}
+
+/**
+ * Public, stable code of one attraction: `POI-<COUNTY>-<NNN>`.
+ *
+ * Accepts the stored `sa_poi_code` meta when the editorial team pins a code;
+ * otherwise the code is derived from the county and the attraction's position
+ * inside that county (ordered by post ID, so it never changes on re-save).
+ *
+ * @param int $post_id Attraction ID.
+ * @return string
+ */
+function sa_2026_poi_code( $post_id ) {
+	$post_id = (int) $post_id;
+	$stored  = function_exists( 'sa_meta' ) ? (string) sa_meta( $post_id, 'sa_poi_code' ) : '';
+	if ( '' !== $stored ) {
+		return $stored;
+	}
+
+	if ( ! function_exists( 'sa_get_parent' ) ) {
+		return 'POI-IRN-' . str_pad( (string) $post_id, 3, '0', STR_PAD_LEFT );
+	}
+
+	$city = sa_get_parent( $post_id, 'city' );
+	if ( ! $city instanceof WP_Post ) {
+		return 'POI-IRN-' . str_pad( (string) $post_id, 3, '0', STR_PAD_LEFT );
+	}
+
+	static $positions = array();
+	$city_id          = (int) $city->ID;
+	if ( ! isset( $positions[ $city_id ] ) ) {
+		$ids                       = get_posts(
+			array(
+				'post_type'      => 'attraction',
+				'post_status'    => 'publish',
+				'posts_per_page' => 200,
+				'fields'         => 'ids',
+				'orderby'        => 'ID',
+				'order'          => 'ASC',
+				'no_found_rows'  => true,
+				'meta_query'     => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+					array(
+						'key'   => 'sa_city_id',
+						'value' => $city_id,
+					),
+				),
+			)
+		);
+		$positions[ $city_id ] = array_flip( array_map( 'intval', (array) $ids ) );
+	}
+
+	$index = isset( $positions[ $city_id ][ $post_id ] ) ? $positions[ $city_id ][ $post_id ] + 1 : 1;
+
+	return 'POI-' . sa_2026_poi_city_code( $city_id ) . '-' . str_pad( (string) $index, 3, '0', STR_PAD_LEFT );
+}
+
+/**
+ * Attraction-type terms shown as filter chips on the treasure hub.
+ *
+ * @return array<int,array{slug:string,label:string,count:int}>
+ */
+function sa_2026_treasure_types() {
+	static $out = null;
+	if ( null !== $out ) {
+		return $out;
+	}
+
+	$out   = array();
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'attraction_type',
+			'hide_empty' => true,
+			'orderby'    => 'count',
+			'order'      => 'DESC',
+		)
+	);
+	if ( is_array( $terms ) && ! is_wp_error( $terms ) ) {
+		foreach ( $terms as $term ) {
+			$out[] = array(
+				'slug'  => (string) $term->slug,
+				'label' => (string) $term->name,
+				'count' => (int) $term->count,
+			);
+		}
+	}
+
+	return $out;
+}
+
+/**
+ * Province options of the treasure hub filter.
+ *
+ * @return array<int,array{slug:string,label:string,count:int}>
+ */
+function sa_2026_treasure_provinces() {
+	static $out = null;
+	if ( null !== $out ) {
+		return $out;
+	}
+
+	$out   = array();
+	$terms = get_terms(
+		array(
+			'taxonomy'   => 'province_tax',
+			'hide_empty' => true,
+			'orderby'    => 'name',
+		)
+	);
+	if ( is_array( $terms ) && ! is_wp_error( $terms ) ) {
+		foreach ( $terms as $term ) {
+			$out[] = array(
+				'slug'  => (string) $term->slug,
+				'label' => (string) $term->name,
+				'count' => (int) $term->count,
+			);
+		}
+	}
+
+	return $out;
+}
+
+/**
+ * Currently selected filters on the treasure hub.
+ *
+ * @return array{province:string,county:string,type:string}
+ */
+function sa_2026_treasure_filters() {
+	$get = function ( $key ) {
+		return isset( $_GET[ $key ] ) ? sanitize_text_field( wp_unslash( $_GET[ $key ] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+	};
+
+	return array(
+		'province' => sanitize_title( $get( 'province_tax' ) ),
+		'county'   => sanitize_title( $get( 'sa_county' ) ),
+		'type'     => sanitize_title( $get( 'attraction_type' ) ),
+	);
+}
+
+/**
+ * URL of the treasure hub with the given filters applied.
+ *
+ * @param array<string,string> $args Filter values (empty value removes it).
+ * @return string
+ */
+function sa_2026_treasure_filter_url( array $args = array() ) {
+	$base   = sa_2026_treasure_url();
+	$keep   = array_filter(
+		sa_2026_treasure_filters(),
+		static function ( $value ) {
+			return '' !== $value;
+		}
+	);
+	$merged = array_merge( $keep, $args );
+	$merged = array_filter(
+		$merged,
+		static function ( $value ) {
+			return '' !== $value && null !== $value;
+		}
+	);
+
+	return $merged ? add_query_arg( $merged, $base ) : $base;
+}
+
+/**
+ * County filter of the treasure hub (`?sa_county=<city slug>`).
+ *
+ * @param WP_Query $query Main query.
+ * @return void
+ */
+function sa_2026_treasure_filter_query( $query ) {
+	if ( is_admin() || ! $query instanceof WP_Query || ! $query->is_main_query() ) {
+		return;
+	}
+	if ( ! $query->is_post_type_archive( 'attraction' ) ) {
+		return;
+	}
+
+	$filters = sa_2026_treasure_filters();
+	if ( '' === $filters['county'] ) {
+		return;
+	}
+
+	$city = get_page_by_path( $filters['county'], OBJECT, 'city' );
+	if ( ! $city instanceof WP_Post ) {
+		return;
+	}
+
+	$query->set(
+		'meta_query',
+		array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+			array(
+				'key'   => 'sa_city_id',
+				'value' => (int) $city->ID,
+			),
+		)
+	);
+	$query->set( 'sa_treasure_county', (int) $city->ID );
+}
+add_action( 'pre_get_posts', 'sa_2026_treasure_filter_query' );
+
+/**
+ * `/treasure/…` → `/attraction/…` 301 alias.
+ *
+ * The owner's brief names the section «گنجینه دیدنی‌های ایران» with a
+ * `/treasure/` URL shape. The live site already ranks 38 `/attraction/` URLs, so
+ * the requested shape is answered with a permanent redirect instead of a base
+ * migration nobody approved yet.
+ *
+ * @return void
+ */
+function sa_2026_treasure_alias_redirect() {
+	if ( is_admin() || ( function_exists( 'is_preview' ) && is_preview() ) ) {
+		return;
+	}
+	if ( ! isset( $_SERVER['REQUEST_URI'] ) ) {
+		return;
+	}
+
+	if ( ! is_404() ) {
+		return; // A real page/entity at this path always wins.
+	}
+
+	$path = (string) wp_parse_url( (string) wp_unslash( $_SERVER['REQUEST_URI'] ), PHP_URL_PATH ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+	$path = '/' . trim( $path, '/' );
+	if ( ! preg_match( '#^/treasure(?:/([^/]+))?/?$#u', $path, $matches ) ) {
+		return;
+	}
+
+	$tail = isset( $matches[1] ) ? trim( (string) $matches[1] ) : '';
+	if ( '' === $tail ) {
+		$target = sa_2026_treasure_url();
+	} else {
+		$post = get_page_by_path( $tail, OBJECT, 'attraction' );
+		if ( ! $post instanceof WP_Post || 'publish' !== $post->post_status ) {
+			return; // Let WordPress answer with its own 404.
+		}
+		$target = (string) get_permalink( $post );
+	}
+
+	if ( $target ) {
+		wp_safe_redirect( $target, 301, 'Sarzamin Aryan' );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'sa_2026_treasure_alias_redirect', 2 );

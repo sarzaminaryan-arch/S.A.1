@@ -27,6 +27,7 @@ module.exports = {
     path.join(THEME, 'footer.php'),
     path.join(THEME, 'front-page.php'),
     path.join(THEME, 'page.php'),
+    path.join(THEME, 'archive-attraction.php'),
     path.join(THEME, 'single.php'),
     path.join(THEME, 'single-*.php'),
     path.join(THEME, 'template-parts/2026/**/*.php'),

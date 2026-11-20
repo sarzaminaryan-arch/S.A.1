@@ -38,7 +38,8 @@ while ( have_posts() ) :
 	$sa_summary = function_exists( 'sa_summary' ) ? sa_summary( get_post(), 55 ) : '';
 	$sa_terms   = get_the_terms( $sa_id, 'attraction_type' );
 	$sa_type    = ( $sa_terms && ! is_wp_error( $sa_terms ) ) ? $sa_terms[0]->name : 'جاذبه دیدنی';
-	$sa_short   = 'POI-' . strtoupper( substr( preg_replace( '/[^a-z0-9]/i', '', get_post_field( 'post_name', $sa_id ) ), 0, 8 ) );
+	// Owner brief: a stable public code in the POI-<COUNTY>-<NNN> shape.
+	$sa_short   = function_exists( 'sa_2026_poi_code' ) ? sa_2026_poi_code( $sa_id ) : 'POI-' . $sa_id;
 	$sa_cover   = sa_2026_cover( $sa_id, 'large' );
 	?>
 
@@ -47,7 +48,7 @@ while ( have_posts() ) :
 			<nav aria-label="مسیر صفحه" class="flex items-center gap-1.5 flex-wrap">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-brand-forest transition-colors">خانه</a>
 				<span aria-hidden="true">›</span>
-				<a href="<?php echo esc_url( function_exists( 'sa_archive_url' ) ? sa_archive_url( 'attraction' ) : home_url( '/' ) ); ?>" class="hover:text-brand-forest transition-colors">گنجینه دیدنی‌ها</a>
+				<a href="<?php echo esc_url( function_exists( 'sa_archive_url' ) ? sa_archive_url( 'attraction' ) : home_url( '/' ) ); ?>" class="hover:text-brand-forest transition-colors">گنجینه دیدنی‌های ایران</a>
 				<?php if ( $sa_prov ) : ?>
 					<span aria-hidden="true">›</span>
 					<a href="<?php echo esc_url( get_permalink( $sa_prov ) ); ?>" class="hover:text-brand-forest transition-colors"><?php echo esc_html( get_the_title( $sa_prov ) ); ?></a>
