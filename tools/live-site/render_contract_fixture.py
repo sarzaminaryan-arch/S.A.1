@@ -14,7 +14,7 @@ import tempfile
 from pathlib import Path
 
 from audit_province_links import ROOT, attraction_records, main as contract
-from check_relation_html import check
+from check_relation_html import Links, check, key
 
 CORE = 'https://codeload.github.com/WordPress/WordPress/tar.gz/ba9e7f97f08a7fbb88fbfa35641bcc230500b37a'  # 6.8.3
 SQLITE = 'https://codeload.github.com/WordPress/sqlite-database-integration/tar.gz/5a5c7b99dbc97a4f31c8169d74301a34ba5f6f37'  # 2.2.16
@@ -77,7 +77,10 @@ def seed(wp, all_pages):
     with sqlite3.connect(db) as conn:
         for i, kind, slug, title, meta in pages:
             body = snippet
+            if slug == 'eram-garden' and kind == 'attraction':
+                body += '<p><a href="/attraction/vakil-complex/">بازار وکیل</a> و <a href="/attraction/shah-cheragh/">شاهچراغ</a></p>'
             if i == 323:
+                meta.update({'sa_cty_population': '۱٬۸۶۹٬۰۰۱', 'sa_cty_census_year': '۱۳۹۵'})
                 body += (ROOT / 'tools/wp-agent/outbox/20261117-replace-shiraz/shiraz-323.html').read_text()
             conn.execute('INSERT INTO wp_posts (ID,post_type,post_name,post_title,post_content,post_date,post_modified,post_date_gmt) '
                          'VALUES (?,?,?,?,?,?,?,?)', (i, kind, slug, title, body, *['2026-11-17 12:00:00'] * 3))
@@ -109,6 +112,14 @@ def main():
             html = subprocess.check_output([args.php, 'render.php', str(i), kind, slug], cwd=wp)
             if b'</html>' not in html or b'Fatal error:' in html or b'WordPress database error' in html:
                 raise RuntimeError(f'incomplete render: {kind}/{slug}')
+            if kind == 'attraction' and slug == 'eram-garden':
+                targets = [key(f'https://sarzaminaryan.ir/attraction/{s}/') for s in ('vakil-complex', 'shah-cheragh')]
+                seen = Links('https://sarzaminaryan.ir/attraction/eram-garden/', targets)
+                seen.feed(html.decode('utf-8'))
+                if any(seen.article[t] != 1 for t in targets):
+                    raise RuntimeError('Eram: card and body must share one link per destination')
+            if i == 323 and not all(label.encode() in html for label in ('۱٬۸۶۹٬۰۰۰ نفر', 'سرشماری رسمی ۱۳۹۵')):
+                raise RuntimeError('Shiraz: incorrect localized population or census year')
             (directory / 'index.html').write_bytes(html)
         problems = check(csv_path, mirror)
         print(f'{len(sources)} expected WordPress pages, {len(problems)} discrepancies')

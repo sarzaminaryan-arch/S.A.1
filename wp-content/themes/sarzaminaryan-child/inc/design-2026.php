@@ -262,6 +262,24 @@ function sa_2026_num( $value ) {
 	return number_format_i18n( (float) $value );
 }
 
+/** County census card: parse localized integers, keep the original meta untouched. */
+function sa_2026_census_label( $population, $year ) {
+	$raw  = trim( (string) $population );
+	$year = trim( (string) $year );
+	if ( ! preg_match( '/^(?:[0-9۰-۹٠-٩]+|[0-9۰-۹٠-٩]{1,3}(?:[,٬][0-9۰-۹٠-٩]{3})+)$/uD', $raw ) || ! preg_match( '/^[1-9۱-۹١-٩][0-9۰-۹٠-٩]{3}$/uD', $year ) ) {
+		return null;
+	}
+	$count = (int) str_replace( ',', '', sa_en_digits( $raw ) );
+	if ( $count <= 0 ) {
+		return null;
+	}
+	return array(
+		'number' => $count < 1000 ? sa_number( $count ) : sa_number( round( $count / 1000 ) * 1000 ),
+		'year'   => sa_digits( sa_en_digits( $year ) ), // A year is not a grouped quantity.
+		'rounded' => $count >= 1000,
+	);
+}
+
 /**
  * Cover image URL for a post (falls back to the site landscape).
  *
