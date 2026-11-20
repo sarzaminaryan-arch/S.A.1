@@ -176,7 +176,9 @@ sa_cpt_assert( false !== strpos( $migrate, 'function sa_guide_rollback(' ), 'the
 sa_cpt_assert( false !== strpos( $migrate, "set_post_type( \$id, 'post' )" ), 'the rollback really returns the rows to posts' );
 sa_cpt_assert( false !== strpos( $migrate, "if ( ! \$scope ) {" ), 'an empty category scope means “nothing to do”' );
 sa_cpt_assert( false !== strpos( $migrate, "'category__in'           => \$scope," ), 'the migration never selects every post: it is limited to the section categories' );
-sa_cpt_assert( false !== strpos( $migrate, 'در این فهرست نمی‌آید' ), 'the panel states the dry-run scope' );
+sa_cpt_assert( false !== strpos( $migrate, 'function sa_guide_scope_counts()' ), 'the panel counts what the plan covers' );
+sa_cpt_assert( false !== strpos( $migrate, "'outside' => max( 0, \$all - \$inside )," ), 'the count includes the posts left behind' );
+sa_cpt_assert( false !== strpos( $migrate, 'منتقل نمی‌شود (بیرون از دسته‌های بخش)' ), 'the panel names the posts that will not move' );
 
 if ( $failures > 0 ) {
 	fwrite( STDERR, "\n{$failures} failure(s) in the «راهنمای سفر» content-type guard.\n" );

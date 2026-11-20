@@ -116,6 +116,46 @@ function sa_guide_migrated_ids() {
 }
 
 /**
+ * How many published posts the plan covers, and how many it leaves behind.
+ *
+ * The panel must be honest: a guide that sits outside the section's categories will not
+ * be moved and will therefore disappear from the hub. Showing the number lets the owner
+ * file those posts before pressing the button — nothing is changed here.
+ *
+ * @return array{inside:int,outside:int}
+ */
+function sa_guide_scope_counts() {
+	$scope = function_exists( 'sa_guide_category_ids' ) ? sa_guide_category_ids() : array();
+	$base  = array(
+		'post_type'              => 'post',
+		'post_status'            => 'publish',
+		'fields'                 => 'ids',
+		'posts_per_page'         => 1,
+		'ignore_sticky_posts'    => true,
+		'update_post_term_cache' => false,
+		'update_post_meta_cache' => false,
+	);
+
+	$all_query = new WP_Query( $base );
+	$all       = (int) $all_query->found_posts;
+
+	if ( ! $scope ) {
+		return array(
+			'inside'  => 0,
+			'outside' => $all,
+		);
+	}
+
+	$inside_query = new WP_Query( array_merge( $base, array( 'category__in' => $scope ) ) );
+	$inside       = (int) $inside_query->found_posts;
+
+	return array(
+		'inside'  => $inside,
+		'outside' => max( 0, $all - $inside ),
+	);
+}
+
+/**
  * Write the snapshot of everything the migration would touch.
  *
  * @param array<int,int> $ids Post IDs.
@@ -413,6 +453,7 @@ function sa_guide_migration_page() {
 
 	$plan     = sa_guide_migration_ids();
 	$migrated = sa_guide_migrated_ids();
+	$counts   = sa_guide_scope_counts();
 	$backup   = sa_guide_last_backup();
 	$notice   = get_transient( 'sa_guide_notice_' . (int) get_current_user_id() );
 	if ( $notice ) {
@@ -439,11 +480,20 @@ function sa_guide_migration_page() {
 		<table class="widefat striped" style="max-width:640px;margin:1em 0">
 			<tbody>
 				<tr><th>در محدودهٔ بخش (نوشته)</th><td><?php echo esc_html( number_format_i18n( count( $plan ) ) ); ?></td></tr>
-				<tr><th>آمادهٔ مهاجرت نیست (بدون دستهٔ بخش)</th><td>در این فهرست نمی‌آید</td></tr>
+				<tr><th>منتشرشده در دسته‌های بخش</th><td><?php echo esc_html( number_format_i18n( (int) $counts['inside'] ) ); ?></td></tr>
+				<tr><th>منتقل نمی‌شود (بیرون از دسته‌های بخش)</th><td><?php echo esc_html( number_format_i18n( (int) $counts['outside'] ) ); ?></td></tr>
 				<tr><th>هم‌اکنون «راهنمای سفر»</th><td><?php echo esc_html( number_format_i18n( count( $migrated ) ) ); ?></td></tr>
 				<tr><th>آخرین پشتیبان</th><td><?php echo $backup ? esc_html( basename( $backup ) ) : 'ساخته نشده'; ?></td></tr>
 			</tbody>
 		</table>
+
+		<?php if ( ! $scope_empty && (int) $counts['outside'] > 0 ) : ?>
+			<div class="notice notice-warning"><p>
+				<?php echo esc_html( number_format_i18n( (int) $counts['outside'] ) ); ?> نوشتهٔ منتشرشده بیرون از
+				دسته‌های بخش است و منتقل نمی‌شود؛ اگر جزو راهنماهاست، پیش از مهاجرت دستهٔ آن را
+				از دسته‌های «آموزش سفر» انتخاب کنید.
+			</p></div>
+		<?php endif; ?>
 
 		<?php if ( $scope_empty ) : ?>
 			<div class="notice notice-warning"><p>
