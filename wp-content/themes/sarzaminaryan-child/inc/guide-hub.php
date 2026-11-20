@@ -166,6 +166,12 @@ function sa_guide_pre_get_posts( $query ) {
 	$query->set( 'posts_per_page', (int) apply_filters( 'sa_guide_per_page', 12 ) );
 	$query->set( 'ignore_sticky_posts', true );
 
+	// Only the section's own categories (the guides), not every post of the site.
+	$section_terms = function_exists( 'sa_guide_category_ids' ) ? sa_guide_category_ids() : array();
+	if ( $section_terms ) {
+		$query->set( 'category__in', $section_terms );
+	}
+
 	$paged = max( 1, (int) $query->get( 'sa_guide_page' ) );
 	if ( $paged > 1 ) {
 		$query->set( 'paged', $paged );
@@ -302,6 +308,76 @@ function sa_guide_document_title( $title ) {
 add_filter( 'pre_get_document_title', 'sa_guide_document_title', 20 );
 
 /**
+ * Label of one guide: its most specific category, never the WordPress placeholder.
+ *
+ * Kept as a function (not inline in the template) so it can be unit-tested, and
+ * without `usort()`: sorting by reference is what threw the fatal error of v2.23.4
+ * (`usort(): Argument #1 could not be passed by reference`).
+ *
+ * @param int $post_id Post ID.
+ * @return string
+ */
+function sa_guide_post_label( $post_id ) {
+	$terms = get_the_category( (int) $post_id );
+	if ( ! is_array( $terms ) || ! $terms ) {
+		return 'آموزش سفر';
+	}
+
+	$pick = null;
+	$depth = -1;
+	foreach ( $terms as $term ) {
+		if ( ! is_object( $term ) || ! isset( $term->slug, $term->name ) ) {
+			continue;
+		}
+		if ( 'uncategorized' === $term->slug ) {
+			continue;
+		}
+		$level = ! empty( $term->parent ) ? 1 : 0;
+		// A child category (more specific) always beats a parent one.
+		if ( $level > $depth ) {
+			$pick  = $term;
+			$depth = $level;
+		}
+	}
+
+	return $pick ? (string) $pick->name : 'آموزش سفر';
+}
+
+/**
+ * Categories that belong to the «آموزش سفر» section.
+ *
+ * The owner's note (۲۹ آبان): the guides are ordinary WordPress posts, so the hub
+ * must not become a dump of every future post (news, culture, …). The listing is
+ * therefore scoped to the section's own categories; the list is filterable and
+ * falls back to "all posts" when none of those categories has content, so the page
+ * can never go empty after a taxonomy change.
+ *
+ * @return array<int,int> Category IDs (empty = no scoping).
+ */
+function sa_guide_category_ids() {
+	$slugs = (array) apply_filters(
+		'sa_guide_category_slugs',
+		array( 'travel-guide', 'camping-survival' )
+	);
+
+	$ids = array();
+	foreach ( $slugs as $slug ) {
+		$term = get_term_by( 'slug', (string) $slug, 'category' );
+		if ( ! $term instanceof WP_Term || (int) $term->count < 1 ) {
+			continue;
+		}
+		$ids[] = (int) $term->term_id;
+		foreach ( (array) get_term_children( (int) $term->term_id, 'category' ) as $child_id ) {
+			$ids[] = (int) $child_id;
+		}
+	}
+
+	$ids = array_values( array_unique( array_filter( $ids ) ) );
+
+	return (array) apply_filters( 'sa_guide_category_ids', $ids );
+}
+
+/**
  * Chips of the section: the categories that really hold guides.
  *
  * @param string $current Slug of the active category ('' on the hub).
@@ -316,14 +392,29 @@ function sa_guide_topics( $current = '' ) {
 		$hidden[] = (int) $default->term_id;
 	}
 
-	$terms = get_categories(
+	$section = function_exists( 'sa_guide_category_ids' ) ? sa_guide_category_ids() : array();
+	$terms   = get_categories(
 		array(
 			'hide_empty' => true,
 			'exclude'    => $hidden,
+			'include'    => $section ? $section : array(),
 			'orderby'    => 'count',
 			'order'      => 'DESC',
 		)
 	);
+
+	if ( ! $terms && $section ) {
+		// Scoping produced nothing usable (taxonomy changed): fall back to every
+		// non-empty category instead of an empty chip row.
+		$terms = get_categories(
+			array(
+				'hide_empty' => true,
+				'exclude'    => $hidden,
+				'orderby'    => 'count',
+				'order'      => 'DESC',
+			)
+		);
+	}
 
 	$topics = array();
 	foreach ( $terms as $term ) {

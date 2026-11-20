@@ -60,6 +60,53 @@ function sa_guide_file( $relative ) {
 	return is_readable( $path ) ? (string) file_get_contents( $path ) : '';
 }
 
+/* ---------------------------------------------------------------------------
+ * 0) Runtime regression: the fatal of v2.23.4.
+ *
+ * `usort( (array) $terms, … )` threw `usort(): Argument #1 could not be passed by
+ * reference` on the live site. The label is now produced by a helper, and this block
+ * really executes it with stubbed WordPress functions — a text check could never
+ * have caught that crash.
+ * ------------------------------------------------------------------------- */
+if ( ! function_exists( 'add_action' ) ) {
+	function add_action() {
+		return true;
+	}
+	function add_filter() {
+		return true;
+	}
+	function apply_filters( $tag, $value = null ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundBeforeLastUsed
+		return $value;
+	}
+}
+
+if ( ! function_exists( 'get_the_category' ) ) {
+	/**
+	 * Stub: the terms of the current post.
+	 *
+	 * @return array<int,object>
+	 */
+	function get_the_category( $post_id = 0 ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+		return isset( $GLOBALS['sa_guide_terms'] ) ? $GLOBALS['sa_guide_terms'] : array();
+	}
+}
+
+require_once dirname( __DIR__ ) . '/inc/guide-hub.php';
+
+$GLOBALS['sa_guide_terms'] = array(
+	(object) array( 'slug' => 'camping-survival', 'name' => 'آموزش‌های ضروری کمپینگ و بقا', 'parent' => 0, 'term_id' => 5 ),
+	(object) array( 'slug' => 'camping-first-aid', 'name' => 'کمک‌های اولیه در طبیعت', 'parent' => 5, 'term_id' => 6 ),
+);
+sa_guide_assert( 'کمک‌های اولیه در طبیعت' === sa_guide_post_label( 1 ), 'runtime: a child category beats its parent' );
+
+$GLOBALS['sa_guide_terms'] = array(
+	(object) array( 'slug' => 'uncategorized', 'name' => 'دستهٔ منتشرنشده', 'parent' => 0, 'term_id' => 1 ),
+);
+sa_guide_assert( 'آموزش سفر' === sa_guide_post_label( 1 ), 'runtime: the WordPress placeholder is never used as a label' );
+
+$GLOBALS['sa_guide_terms'] = array();
+sa_guide_assert( 'آموزش سفر' === sa_guide_post_label( 2 ), 'runtime: a post without categories still gets a label' );
+
 $module  = sa_guide_file( 'inc/guide-hub.php' );
 $wrap    = sa_guide_file( 'template-guide.php' );
 $part    = sa_guide_file( 'template-parts/2026/guide-hub.php' );
@@ -120,6 +167,12 @@ sa_guide_assert( false !== strpos( $part, 'sa_2026_cover_markup' ), 'cards use t
 sa_guide_assert( false !== strpos( $part, 'data-sa-open-experience' ), 'the hub offers the experience dialog' );
 sa_guide_assert( false !== strpos( $part, 'function_exists( \'sa_guide_context\' )' ) || false !== strpos( $part, 'sa_guide_context()' ), 'the listing reads one shared context' );
 sa_guide_assert( false !== strpos( $module, 'function sa_guide_context()' ), 'the context helper exists' );
+sa_guide_assert( false !== strpos( $module, 'function sa_guide_post_label(' ), 'the card label is a testable helper, not inline template code' );
+sa_guide_assert( false === strpos( $part, "\tusort(" ) && false === strpos( $part, "\t\tusort(" ), 'the template never sorts terms by reference (v2.23.4 fatal)' );
+sa_guide_assert( false !== strpos( $part, 'sa_guide_post_label( $sa_post_id )' ), 'cards call the label helper' );
+sa_guide_assert( false !== strpos( $module, 'function sa_guide_category_ids(' ), 'the section has its own category scope' );
+sa_guide_assert( false !== strpos( $module, "apply_filters(\n\t\t'sa_guide_category_slugs'" ) || false !== strpos( $module, "'sa_guide_category_slugs'" ), 'that scope is filterable' );
+sa_guide_assert( false !== strpos( $module, "'category__in'" ), 'the hub query is limited to the section categories' );
 sa_guide_assert( false !== strpos( $module, 'function sa_guide_topics(' ), 'category chips are built from real terms' );
 sa_guide_assert( false !== strpos( $cat, 'sa_2026_render_legacy( \'category\' )' ), 'category.php honours the rollback switch' );
 sa_guide_assert( false !== strpos( $cat, 'template-parts/2026/guide-hub' ), 'category archives share the same listing' );

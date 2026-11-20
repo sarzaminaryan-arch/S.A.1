@@ -147,24 +147,10 @@ if ( ! empty( $sa_ctx['is_hub'] ) ) {
 					the_post();
 
 					$sa_post_id   = (int) get_the_ID();
-					$sa_terms     = get_the_category( $sa_post_id );
-					$sa_term      = array();
-					// Prefer the most specific category (a sub-category), and never the
-					// WordPress placeholder.
-					usort(
-						(array) $sa_terms,
-						static function ( $a, $b ) {
-							return (int) $b->parent <=> (int) $a->parent;
-						}
-					);
-					foreach ( (array) $sa_terms as $sa_candidate ) {
-						if ( 'uncategorized' === $sa_candidate->slug ) {
-							continue;
-						}
-						$sa_term = $sa_candidate;
-						break;
-					}
-					$sa_label     = $sa_term ? (string) $sa_term->name : 'آموزش سفر';
+					// v2.23.5 hotfix: the label comes from a helper instead of an inline
+					// usort() — usort() takes its array by reference, so passing a cast
+					// expression `(array) $terms` was a fatal TypeError on the live site.
+					$sa_label     = function_exists( 'sa_guide_post_label' ) ? sa_guide_post_label( $sa_post_id ) : 'آموزش سفر';
 					$sa_excerpt   = function_exists( 'sa_summary' ) ? sa_summary( get_post(), 26 ) : '';
 					$sa_minutes   = function_exists( 'sa_guide_reading_time' ) ? sa_guide_reading_time( $sa_post_id ) : 0;
 					?>
