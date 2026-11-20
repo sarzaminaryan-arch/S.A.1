@@ -21,6 +21,7 @@ while ( have_posts() ) :
 
 	$sa_id   = get_the_ID();
 	$sa_data = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $sa_id ) : array();
+	$sa_data = is_array( $sa_data ) ? $sa_data : array();
 	$sa_get  = static function ( $key, $fallback = '' ) use ( $sa_data ) {
 		return isset( $sa_data[ $key ] ) && '' !== $sa_data[ $key ] ? $sa_data[ $key ] : $fallback;
 	};
@@ -35,7 +36,6 @@ while ( have_posts() ) :
 	$sa_seasons   = $sa_get( 'seasons', array() );
 	$sa_access    = $sa_get( 'access_facts', array() );
 	$sa_neighbors = $sa_get( 'neighbors', array() );
-	$sa_pleaces   = $sa_get( 'extra_places', array() );
 	$sa_attracts  = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id, 12 ) : array();
 	$sa_siblings  = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id, 8 ) : array();
 	$sa_updated   = $sa_get( 'field_update_note' );
