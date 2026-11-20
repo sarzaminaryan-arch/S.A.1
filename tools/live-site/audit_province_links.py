@@ -2,6 +2,7 @@
 import argparse
 import csv
 import json
+import re
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 
@@ -20,6 +21,17 @@ def route(url):
     return None
 
 
+def attraction_records(records):
+    """Use the confirmed post-write GET for parent IDs, not the intended writes."""
+    verification = load('tools/wp-agent/results/20261115-07-repoint-trash-crawler.json')
+    assert verification['ok'], 'missing confirmed parent corrections'
+    parents = {step['result']['id']: int(step['result']['meta']['sa_city_id'])
+               for step in verification['steps'] if step['cmd'] == 'get'
+               and step['result']['type'] == 'attraction' and step['result']['status'] == 'publish'}
+    return [{**r, 'relations': {**r['relations'], 'city_id': parents.get(r['wp_id'], r['relations'].get('city_id'))}}
+            for r in records if r['post_type'] == 'attraction' and r['status'] == 'publish']
+
+
 def main(all_contract=None, *, write_report=True):
     OUT.mkdir(exist_ok=True, parents=True)
     records = load('docs/live-site/registry/live-articles.json')['records']
@@ -32,7 +44,10 @@ def main(all_contract=None, *, write_report=True):
     edges = {r['wp_id']: {route(urljoin(r['permalink'], link)) for link in r['internal_links']} - {None} for r in records}
     page_url = {r['wp_id']: r['permalink'] for r in records}
     page_url.update({i: c['link'] for i, c in cities.items()})
-    places = [r for r in records if r['post_type'] == 'attraction']
+    redirects = (ROOT / 'wp-content/themes/sarzaminaryan-child/data/redirects.php').read_text()
+    moved = dict(re.findall(r"^\s*'(/attraction/[^']+)'\s*=>\s*'(/[^']+)'", redirects, re.M))
+    published_paths = {route(url) for url in page_url.values()}
+    places = [r for r in attraction_records(records) if moved.get(route(r['permalink'])) not in published_paths]
     lines = ['# بازبینی پیوندهای ۳۱ استان | ۲۰ نوامبر ۲۰۲۶', '',
              'گزارش فقط‌خواندنی است. مقصدهای یکتای ثبت‌شده در `docs/live-site/registry/live-articles.json` (۱۱ نوامبر) با شناسه‌های شهرستان در `template_worklist.json` و موجودی شهرستان‌های ۱۷ نوامبر تطبیق داده شدند. جدول، پیوندِ مشاهده‌شده در آن خروجی را می‌شمارد، نه وضعیت امروز یا همهٔ پیوندهای تولیدشده توسط قالب. لینک‌های دارای پارامتر، ایمیل و لینک به آرشیو در شمارش رابطه‌های مستقیم نیستند.', '',
              'هر کسر = مشاهده‌شده / مورد انتظار. جهت مهم است: شیراز ← مرودشت جای مرودشت ← شیراز را نمی‌گیرد. ستون «بدنهٔ موجود» پوشش منبع در رجیستری ۱۱ نوامبر است. ستون دیدنی فقط مقصد دارای صفحه و والد شهرستانِ منطبق در همان داده را می‌سنجد؛ ۰/۰ یعنی داده‌ای برای سنجش نیست.', '',
@@ -67,7 +82,7 @@ def main(all_contract=None, *, write_report=True):
                     totals[2] += n > 13
             lines.append('| ' + ' | '.join([p['title'], f'{len(group.keys() & edges.keys())}/{n}', *counts]) + ' |')
     lines += ['', f'**نتیجهٔ سراسری:** برای {len(cities)} شهرستانِ فهرست کار، {totals[1]} پیوند جهت‌دار هم‌استانی انتظار می‌رود؛ {totals[0]} مورد در رجیستری ثبت است. در نسخهٔ پیش از اصلاح قالب، در {totals[2]} استان سقف پیش‌فرض ۱۲ مقصد در `sa_county_profile_sibling_cities()` برای پوشش همهٔ هم‌استانی‌ها کافی نبود. این محدودیتِ یک بخش است؛ نبودن لینک در کل صفحه را اثبات نمی‌کند.', '',
-              'مرز موجودی: «شهر بوشهر» (۲۰۱) در موجودی منتشرشده هست ولی شهرستان جداگانه در فهرست کار نیست. چهار پیش‌نویس نیز وارد شبکه نشده‌اند. دو رابطهٔ قدیمی دیدنی‌های اصفهان به شناسه‌های خارج از فهرست کار وصل‌اند (میدان نقش جهان و سی‌وسه‌پل)؛ خروجی‌های بعدی پل، والد ۳۴۲۹ را نشان می‌دهند. این دو در مخرج جدول نیامده‌اند؛ پیش از هر اصلاح دوباره خوانده شوند.', '',
+              'مرز موجودی: «شهر بوشهر» (۲۰۱) در موجودی منتشرشده هست ولی شهرستان جداگانه در فهرست کار نیست. چهار پیش‌نویس نیز وارد شبکه نشده‌اند. رابطهٔ میدان نقش جهان و سی‌وسه‌پل با بازخوانیِ پس از تغییر در `20261115-07-repoint-trash-crawler.json` تطبیق داده شد: والد هر دو شهرستان اصفهان (۳۴۲۹) است. صفحهٔ فهرستی «جاهای دیدنی طبس» به خودِ شهرستان طبس تغییرمسیر دارد؛ دیدنیِ مستقل محسوب نمی‌شود.', '',
               '## نمونهٔ فارس — پیشنهاد برای بازبینی، نه تغییر منتشرشده', '',
               'در [جدول مبدأ و مقصد فارس](fars-links.csv) هر دو جهت را می‌توان با فیلتر ستون مبدأ یا مقصد دید. پیوند به صفحهٔ استان جای پیوند مستقیم به شهرستان دیگر محسوب نشده است.', '',
               'برای [شهرستان شیراز](https://sarzaminaryan.ir/city/shiraz/)، سه مقصد ثبت‌شده برای بخش «جاهای دیدنی» عبارت‌اند از: ' + '، '.join(f"[{a['title']}]({a['permalink']})" for a in places if a['relations'].get('city_id') == 323) + '. هر کدام فقط یک‌بار، در جای نام همان دیدنی؛ اگر قالب از قبل لینک ساخته باشد به متن اضافه نشود.', '',

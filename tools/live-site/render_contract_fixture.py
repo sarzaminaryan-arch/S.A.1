@@ -5,6 +5,7 @@ production DB, or HTTP requests to the site. Only pinned core/plugin downloads.
 With --all, render all baseline pages; default is the Fars pilot.
 """
 import argparse
+import csv
 import json
 import shutil
 import sqlite3
@@ -12,7 +13,7 @@ import subprocess
 import tempfile
 from pathlib import Path
 
-from audit_province_links import ROOT, main as contract
+from audit_province_links import ROOT, attraction_records, main as contract
 from check_relation_html import check
 
 CORE = 'https://codeload.github.com/WordPress/WordPress/tar.gz/ba9e7f97f08a7fbb88fbfa35641bcc230500b37a'  # 6.8.3
@@ -69,8 +70,7 @@ def seed(wp, all_pages):
     pages += [(i, 'city', r['slug'], 'شهرستان ' + r['name'], {'sa_province_id': provinces[r['province']]['wp_id']})
               for i, r in cities.items()]
     pages += [(r['wp_id'], 'attraction', r['slug'], r['title'], {'sa_city_id': r['relations']['city_id'],
-               'sa_province_id': r['relations']['province_id']}) for r in records if r['post_type'] == 'attraction'
-              and r['status'] == 'publish' and r['relations'].get('city_id') in cities]
+               'sa_province_id': r['relations']['province_id']}) for r in attraction_records(records) if r['relations'].get('city_id') in cities]
     db = wp / 'wp-content/database/.ht.sqlite'
     assert db.is_file(), 'installer failed to create disposable SQLite database'
     snippet = '<p><a href="/city/shiraz/">شیراز</a> و <a href="/province/fars/">استان فارس</a></p>'
@@ -99,7 +99,11 @@ def main():
         if args.all:
             csv_path = Path(tmp) / 'all.csv'
             contract(csv_path, write_report=False)
+        with csv_path.open(encoding='utf-8-sig', newline='') as f:
+            sources = {row['مبدأ'] for row in csv.DictReader(f)}
         for i, kind, slug, _, _ in pages:
+            if f'https://sarzaminaryan.ir/{kind}/{slug}/' not in sources:
+                continue  # Still seed redirect sources so they can expose erroneous inbound links.
             directory = mirror / kind / slug
             directory.mkdir(parents=True)
             html = subprocess.check_output([args.php, 'render.php', str(i), kind, slug], cwd=wp)
@@ -107,7 +111,7 @@ def main():
                 raise RuntimeError(f'incomplete render: {kind}/{slug}')
             (directory / 'index.html').write_bytes(html)
         problems = check(csv_path, mirror)
-        print(f'{len(pages)} WordPress pages, {len(problems)} discrepancies')
+        print(f'{len(sources)} expected WordPress pages, {len(problems)} discrepancies')
         for problem in problems:
             print(problem)
         return bool(problems)

@@ -624,6 +624,11 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 			if ( ! $post || 'publish' !== $post->post_status ) {
 				continue;
 			}
+			// A moved list article (e.g. Tabas) is not an independent attraction.
+			$redirect = function_exists( 'sa_redirect_target_for_path' ) ? sa_redirect_target_for_path( '/attraction/' . $post->post_name . '/' ) : '';
+			if ( '' !== $redirect && sa_redirect_target_exists( $redirect ) ) {
+				continue;
+			}
 			$name = get_the_title( $post );
 			$url  = (string) get_permalink( $post );
 			if ( '' === $name || '' === $url || isset( $seen_urls[ $url ] ) ) {
