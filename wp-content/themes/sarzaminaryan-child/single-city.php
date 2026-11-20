@@ -638,6 +638,8 @@ while ( have_posts() ) :
 			</section>
 		<?php endif; ?>
 
+		<?php sa_comments_2026_render(); ?>
+
 	</main>
 
 	<?php

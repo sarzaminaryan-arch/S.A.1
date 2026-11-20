@@ -22,6 +22,15 @@ if ( function_exists( 'sa_2026_render_legacy' ) && sa_2026_render_legacy( 'page'
 }
 
 get_header();
+
+// «ثبت تجربه»: the owner's page (slug city-contrib, or the virtual route) gets the
+// real submission form instead of an empty body — the 404/blank-page regression
+// of ۲۹ آبان.
+if ( function_exists( 'sa_experience_is_form_request' ) && sa_experience_is_form_request() ) {
+	get_template_part( 'template-parts/2026/experience-page' );
+	get_footer();
+	return;
+}
 ?>
 
 <main id="primary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">

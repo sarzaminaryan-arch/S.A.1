@@ -81,4 +81,6 @@ $sa_policy = get_page_by_path( 'editorial-policy' );
 
 		<?php sa_guide_related( $sa_id ); ?>
 	</div>
+
+	<?php sa_comments_2026_render(); ?>
 </article>

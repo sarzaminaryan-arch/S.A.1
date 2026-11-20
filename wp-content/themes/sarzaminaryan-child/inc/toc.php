@@ -360,19 +360,27 @@ function sa_toc_markup( $items, $county_accordion = false ) {
 	if ( count( $items ) < sa_toc_min_items() ) {
 		return '';
 	}
+
 	$total = count( $items );
-	$out   = '<nav class="sa-toc' . ( $county_accordion ? ' sa-toc--county' : '' ) . '" id="sa-toc" aria-labelledby="sa-toc-title">';
-	if ( $county_accordion ) {
-		$out .= '<details class="sa-county-accordion">'
-			. '<summary class="sa-county-accordion__summary">'
-			. '<span class="sa-county-accordion__title" id="sa-toc-title">' . esc_html( sa_toc_title() ) . '</span>'
-			. '<span class="sa-county-accordion__icon" aria-hidden="true"></span>'
-			. '</summary>';
-	} else {
-		$out .= '<div class="sa-toc__head"><h2 class="sa-toc__title" id="sa-toc-title">' . esc_html( sa_toc_title() ) . '</h2>';
-		/* translators: %s: number of headings. */
-		$out .= '<span class="sa-toc__count">' . esc_html( sprintf( '%s سرفصل', sa_fa_digits( (string) $total ) ) ) . '</span></div>';
-	}
+
+	/*
+	 * One markup for the whole site (2026 design): a compact accordion whose
+	 * summary is the title itself, so the box never eats a third of the screen
+	 * on phones. `$county_accordion` now only flips a modifier class, which keeps
+	 * the county page's own spacing (and its 2.22.116 guard) intact.
+	 */
+	// The `<nav>` keeps the plain `sa-toc` class (guard: a hand-written list is detected and
+	// counted with class="sa-toc") and the county flavour only adds its modifier.
+	$out  = '<nav class="sa-toc' . ( $county_accordion ? ' sa-toc--county' : '' ) . '" id="sa-toc" aria-labelledby="sa-toc-title">';
+	$out .= '<details class="sa-county-accordion">';
+	$out .= '<summary class="sa-county-accordion__summary sa-toc__summary">';
+	$out .= '<h2 class="sa-county-accordion__title sa-toc__title" id="sa-toc-title">' . esc_html( sa_toc_title() ) . '</h2>';
+	/* translators: %s: number of headings. */
+	// `.sa-toc__badge` (not `.sa-toc__count`): the county guard requires the paper-box
+	// count line to stay out of the accordion, while the badge stays in every flavour.
+	$out .= '<span class="sa-toc__badge">' . esc_html( sprintf( '%s سرفصل', sa_fa_digits( (string) $total ) ) ) . '</span>';
+	$out .= '<span class="sa-county-accordion__icon sa-toc__icon" aria-hidden="true"></span>';
+	$out .= '</summary>';
 	$out .= '<ol class="sa-toc__list">';
 	foreach ( $items as $i => $item ) {
 		$level = max( 1, min( 3, (int) $item['level'] ) );
@@ -382,7 +390,7 @@ function sa_toc_markup( $items, $county_accordion = false ) {
 			. '<span class="sa-toc__label">' . esc_html( $item['label'] ) . '</span>'
 			. '</a></li>';
 	}
-	$out .= '</ol>' . ( $county_accordion ? '</details>' : '' ) . '</nav>';
+	$out .= '</ol></details></nav>';
 
 	return $out;
 }

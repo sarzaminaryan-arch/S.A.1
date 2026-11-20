@@ -272,8 +272,11 @@ foreach ( get_posts(
 					<a href="<?php echo esc_url( $sa_province['url'] ); ?>"
 						class="group bg-surface rounded-2xl border border-line overflow-hidden hover:border-petrol hover:shadow-card transition-all flex flex-col">
 						<span class="block aspect-[16/10] overflow-hidden bg-sand">
-							<img src="<?php echo esc_url( $sa_province['cover'] ); ?>" alt=""
-								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
+							<?php
+							echo function_exists( 'sa_2026_cover_markup' )
+								? sa_2026_cover_markup( $sa_province['id'], 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300', $sa_province['title'] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								: '';
+							?>
 						</span>
 						<span class="block p-4 space-y-1.5">
 							<strong class="block text-base font-extrabold text-ink group-hover:text-petrol transition-colors"><?php echo esc_html( $sa_province['title'] ); ?></strong>

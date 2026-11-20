@@ -198,6 +198,12 @@ function sa_2026_footer_explore() {
  * @return string
  */
 function sa_2026_contrib_url() {
+	// v2.23.3: the form module owns the canonical URL (real page first, virtual route
+	// otherwise) so this call can never lead to a 404 again.
+	if ( function_exists( 'sa_experience_form_url' ) ) {
+		return (string) apply_filters( 'sa_2026_contrib_url', sa_experience_form_url() );
+	}
+
 	$page = get_page_by_path( 'city-contrib' );
 	if ( $page instanceof WP_Post ) {
 		return (string) get_permalink( $page );
@@ -265,6 +271,22 @@ function sa_2026_cover( $post_id, $size = 'large' ) {
 	$post_id = (int) $post_id;
 	$url     = get_the_post_thumbnail_url( $post_id, $size );
 
+	if ( ! $url ) {
+		/*
+		 * Owner report: every treasure card showed the same placeholder while the
+		 * articles already carry photos. Promote the first in-content image before
+		 * any placeholder is considered.
+		 */
+		if ( function_exists( 'sa_2026_content_image' ) ) {
+			$found = sa_2026_content_image( $post_id );
+			if ( ! empty( $found['url'] ) ) {
+				return (string) $found['url'];
+			}
+		}
+	}
+
+	// Keep the pre-existing size fallback: a thumbnail that only exists at full size
+	// still beats a stock placeholder.
 	if ( ! $url && function_exists( 'sa_cover_image_size' ) ) {
 		$url = get_the_post_thumbnail_url( $post_id, 'full' );
 	}
@@ -274,6 +296,29 @@ function sa_2026_cover( $post_id, $size = 'large' ) {
 	}
 
 	return (string) $url;
+}
+
+/**
+ * Real photo or an honest gradient tile (never a shared stock image on cards).
+ *
+ * @param int    $post_id Post ID.
+ * @param string $classes Classes of the <img>.
+ * @param string $label   Short label printed on the gradient tile.
+ * @return string HTML.
+ */
+function sa_2026_cover_markup( $post_id, $classes = 'w-full h-full object-cover', $label = '' ) {
+	$post_id = (int) $post_id;
+	$thumb   = get_the_post_thumbnail_url( $post_id, 'large' );
+	$found   = ( ! $thumb && function_exists( 'sa_2026_content_image' ) ) ? sa_2026_content_image( $post_id ) : array( 'url' => '' );
+	$url     = $thumb ? $thumb : (string) ( isset( $found['url'] ) ? $found['url'] : '' );
+
+	if ( $url ) {
+		return '<img src="' . esc_url( $url ) . '" alt="" class="' . esc_attr( $classes ) . '" loading="lazy" decoding="async">';
+	}
+
+	return '<span class="w-full h-full flex items-center justify-center bg-brand-forestSoft text-brand-forest text-[11px] font-bold px-3 text-center">'
+		. esc_html( $label ? $label : 'بدون عکس' )
+		. '</span>';
 }
 
 /**

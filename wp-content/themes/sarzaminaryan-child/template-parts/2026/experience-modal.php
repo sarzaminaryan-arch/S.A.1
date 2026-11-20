@@ -14,7 +14,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$sa_contrib = function_exists( 'sa_2026_contrib_url' ) ? sa_2026_contrib_url() : home_url( '/city-contrib/' );
+$sa_contrib_args = array();
+if ( is_singular( 'city' ) || is_singular( 'attraction' ) ) {
+	$sa_contrib_args['city'] = get_the_title();
+}
+
+$sa_contrib = function_exists( 'sa_experience_form_url' ) ? sa_experience_form_url() : ( function_exists( 'sa_2026_contrib_url' ) ? sa_2026_contrib_url() : home_url( '/city-contrib/' ) );
+if ( $sa_contrib_args ) {
+	$sa_contrib = add_query_arg( $sa_contrib_args, $sa_contrib );
+}
 ?>
 <div id="experience-modal"
 	class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs"
@@ -36,9 +44,9 @@ $sa_contrib = function_exists( 'sa_2026_contrib_url' ) ? sa_2026_contrib_url() :
 				تجربهٔ شما دربارهٔ مسیر، ساعت کاری، پارکینگ یا جاذبه‌ای که در متن نیست، پس از بررسی تحریریه و با نام خودتان منتشر می‌شود.
 			</p>
 			<ul class="space-y-1.5 list-disc pr-4">
-				<li>ورود با کد پیامکی، بدون نیاز به ثبت‌نام طولانی.</li>
-				<li>امکان افزودن عکس از مکان (با ذکر نام عکاس).</li>
-				<li>پاسخ تحریریه پس از بررسی.</li>
+				<li>بدون ثبت‌نام؛ فقط متن تجربه و نام دلخواه.</li>
+				<li>یک عکس از مکان (اختیاری، تا ۶ مگابایت).</li>
+				<li>بررسی تحریریه پیش از انتشار، با نام خودتان.</li>
 			</ul>
 		</div>
 
