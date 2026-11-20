@@ -17,6 +17,33 @@ if ( function_exists( 'sa_2026_render_legacy' ) && sa_2026_render_legacy( 'foote
 	return;
 }
 
+/**
+ * Link to one of the seeded pages (about/contact/privacy/policy/…).
+ *
+ * Locked by tests/test-trust-bundle.php after the 2026-11-15 live audit:
+ *   • a draft page (e.g. the «policy» page created by activation) is NEVER linked;
+ *   • «policy» resolves the live «editorial-policy» page when it is published;
+ *   • when no published page exists, no link is printed at all (no guessed 404).
+ *
+ * @param string $slug Page slug.
+ * @return string URL or empty string.
+ */
+function sa_seeded_page_link( $slug ) {
+	$sa_ids = get_option( 'sa_default_pages', array() );
+	if ( ! empty( $sa_ids[ $slug ] ) && 'publish' === get_post_status( (int) $sa_ids[ $slug ] ) ) {
+		return get_permalink( (int) $sa_ids[ $slug ] );
+	}
+	$sa_slugs = 'policy' === $slug ? array( 'editorial-policy', 'policy' ) : array( $slug );
+	foreach ( $sa_slugs as $sa_try ) {
+		$sa_page = get_page_by_path( $sa_try );
+		if ( $sa_page instanceof WP_Post && 'publish' === $sa_page->post_status ) {
+			return get_permalink( $sa_page );
+		}
+	}
+
+	return '';
+}
+
 $sa_brand     = function_exists( 'sa_brand_name' ) ? sa_brand_name() : get_bloginfo( 'name' );
 $sa_explore   = function_exists( 'sa_2026_footer_explore' ) ? sa_2026_footer_explore() : array();
 $sa_about_url = home_url( '/about/' );
@@ -50,15 +77,27 @@ $sa_year       = function_exists( 'sa_jalali_year' ) ? sa_jalali_year() : '۱۴�
 			</div>
 
 			<div class="md:col-span-3 space-y-2.5">
-				<h2 class="text-xs font-bold text-ink uppercase tracking-wider">ارتباط و مشارکت</h2>
+				<h2 class="text-xs font-bold text-ink uppercase tracking-wider">اعتماد و ارتباط</h2>
 				<ul class="space-y-2 text-xs sm:text-sm text-slate-600">
-					<li><a href="<?php echo esc_url( $sa_about_url ); ?>" class="hover:text-petrol transition-colors">درباره ما</a></li>
-					<li><a href="<?php echo esc_url( $sa_contact ); ?>" class="hover:text-petrol transition-colors">تماس با تحریریه</a></li>
-					<li>
-						<a href="<?php echo esc_url( $sa_contrib ); ?>" class="hover:text-petrol transition-colors" data-sa-open-experience>
-							ثبت تجربه در بخش شهر من
-						</a>
-					</li>
+					<?php
+					/*
+					 * 2.22.73 rule (kept by tests/test-trust-bundle.php): only published pages are
+					 * linked; «policy» resolves the live «editorial-policy» page; nothing is guessed.
+					 */
+					$sa_trust_links = array(
+						'about'   => 'درباره ما',
+						'contact' => 'تماس با تحریریه',
+						'policy'  => 'سیاست تحریریه',
+					);
+					foreach ( $sa_trust_links as $sa_slug => $sa_label ) :
+						$sa_page_url = sa_seeded_page_link( $sa_slug );
+						if ( ! $sa_page_url ) {
+							continue;
+						}
+						?>
+						<li><a href="<?php echo esc_url( $sa_page_url ); ?>" class="hover:text-petrol transition-colors"><?php echo esc_html( $sa_label ); ?></a></li>
+					<?php endforeach; ?>
+					<li><a href="<?php echo esc_url( $sa_contrib ); ?>" class="hover:text-petrol transition-colors">ثبت تجربه و مشارکت</a></li>
 				</ul>
 			</div>
 		</div>
