@@ -15,6 +15,12 @@
 | `شهرستان.md` | `html/county.html` | شهرستان (`single-city.php`) | فیروزه‌ای `#0F4C5C` + مسی `#C87D32` + کرم `#FAF9F6` |
 | `گنجینه دیدنی های ایران.md` | `html/treasure.html` | دیدنی (`single-attraction.php`) | جنگلی `#14533C` + گِلی `#C86D2D` + کرم `#FAF9F6` |
 
+## انتشار
+
+نسخهٔ منتشرشدهٔ این طرح: [`sarzaminaryan-child-v2.23.2`](https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.23.2)
+(ZIP + SHA-256). نصب روی سایت **دستی** است: پیشخوان وردپرس → به‌روزرسانی‌ها →
+به‌روزرسانی قالب، پس از پشتیبان. بازگشت فوری: [`ROLLBACK.md`](ROLLBACK.md).
+
 ## معماری اجرا
 
 طرح‌ها با Tailwind CDN ساخته شده‌اند و نسخهٔ تولیدی سایت نباید به CDN وابسته باشد.
