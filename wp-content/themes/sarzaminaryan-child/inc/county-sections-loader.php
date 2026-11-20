@@ -218,9 +218,9 @@ function sa_county_nav_html( $post_id, $context = array() ) {
  * @param int $limit   بیشینهٔ تعداد.
  * @return array[]
  */
-function sa_county_siblings_cached( $post_id, $limit = 12 ) {
+function sa_county_siblings_cached( $post_id, $limit = 0 ) {
 	$post_id = (int) $post_id;
-	$limit   = max( 1, (int) $limit );
+	$limit   = max( 0, (int) $limit );
 	$key     = 'sa_sib_' . $post_id . '_' . $limit . '_' . (int) get_post_modified_time( 'U', true, $post_id );
 	$cached  = get_transient( $key );
 	if ( is_array( $cached ) ) {

@@ -641,6 +641,8 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 			);
 		}
 	}
+	// Never hide a published guide behind the card limit; cap only unlinked fillers.
+	$published_count = count( $rows );
 	$groups = array(
 		'sa_cty_poi_nature'     => 'طبیعت‌گردی',
 		'sa_cty_poi_offbeat'    => 'بکر و کمتر دیده‌شده',
@@ -670,7 +672,7 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 			);
 		}
 	}
-	return array_slice( $rows, 0, max( 1, (int) $limit ) );
+	return array_slice( $rows, 0, max( $published_count, 1, (int) $limit ) );
 }
 
 /**
@@ -680,30 +682,29 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
  * @param int $limit   Max chips.
  * @return array<int,array{label:string,url:string}>
  */
-function sa_county_profile_sibling_cities( $post_id, $limit = 12 ) {
+function sa_county_profile_sibling_cities( $post_id, $limit = 0 ) {
+	$province = sa_county_profile_province_post( $post_id );
+	if ( ! $province || ! function_exists( 'sa_province_profile_county_entries' ) ) {
+		return array();
+	}
+	$self = (string) get_permalink( $post_id );
 	$out  = array();
-	$data = sa_county_profile_data( $post_id );
-	if ( ! function_exists( 'sa_counties' ) || '' === $data['province_slug'] ) {
-		return $out;
-	}
-	foreach ( sa_counties() as $row ) {
-		if ( ! isset( $row['province'], $row['slug'], $row['name'] ) || $row['province'] !== $data['province_slug'] ) {
+	// Use the same published destinations and slug aliases as the province page.
+	foreach ( sa_province_profile_county_entries( $province->post_name, $province->ID ) as $entry ) {
+		$row = sa_county( $entry['slug'] );
+		$url = $entry['url'];
+		if ( ! $row || $row['province'] !== $province->post_name || '' === $url || $self === $url || isset( $out[ $url ] ) ) {
 			continue;
 		}
-		$current = function_exists( 'sa_county_of_post' ) ? sa_county_of_post( $post_id ) : null;
-		if ( $current && $current['slug'] === $row['slug'] ) {
-			continue;
-		}
-		$url = function_exists( 'sa_county_permalink' ) ? sa_county_permalink( $row['slug'] ) : '';
-		if ( '' === $url ) {
-			continue; // Only counties that really have a published page are linked.
-		}
-		$out[] = array( 'label' => 'شهرستان ' . $row['name'], 'url' => $url );
-		if ( count( $out ) >= max( 1, (int) $limit ) ) {
-			break;
-		}
+		$out[ $url ] = array( 'label' => 'شهرستان ' . $row['name'], 'url' => $url );
 	}
-	return $out;
+	// A deterministic Persian collation even on WordPress hosts without intl.
+	$alphabet = preg_split( '//u', 'آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی', -1, PREG_SPLIT_NO_EMPTY );
+	$weights  = array_combine( $alphabet, array_map( 'chr', range( 65, 64 + count( $alphabet ) ) ) );
+	usort( $out, static function ( $a, $b ) use ( $weights ) {
+		return strcmp( strtr( $a['label'], $weights ), strtr( $b['label'], $weights ) );
+	} );
+	return $limit > 0 ? array_slice( $out, 0, $limit ) : $out;
 }
 
 /* -------------------------------------------------------------------------

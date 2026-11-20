@@ -81,11 +81,16 @@ function sa_province_name_for_post( $post_or_id ) {
 	return get_the_title( $post_or_id );
 }
 function sa_counties() {
-	return array(
+	return array_merge( $GLOBALS['extra_counties'] ?? array(), array(
 		array( 'slug' => 'dorud', 'name' => 'دورود', 'province' => 'lorestan', 'status' => 'empty' ),
 		array( 'slug' => 'azna', 'name' => 'ازنا', 'province' => 'lorestan', 'status' => 'empty' ),
 		array( 'slug' => 'borujerd', 'name' => 'بروجرد', 'province' => 'lorestan', 'status' => 'empty' ),
-	);
+	) );
+}
+function sa_province_profile_county_entries( $province_slug, $province_id ) {
+	return array_map( static function ( $row ) {
+		return $row + array( 'url' => sa_county_permalink( $row['slug'] ) );
+	}, sa_counties() );
 }
 function sa_county( $slug ) {
 	foreach ( sa_counties() as $row ) {
@@ -264,6 +269,18 @@ $sibs = sa_county_profile_sibling_cities( 20 );
 $labels = array_column( $sibs, 'label' );
 sa_t_assert( in_array( 'شهرستان ازنا', $labels, true ) && in_array( 'شهرستان بروجرد', $labels, true ), 'same-province counties listed' );
 sa_t_assert( ! in_array( 'شهرستان دورود', $labels, true ), 'current county excluded from siblings' );
+
+// Former caps (8/12) must not truncate large provinces or published guides.
+foreach ( range( 1, 16 ) as $i ) {
+	$slug = 'county-' . $i;
+	$GLOBALS['extra_counties'][] = array( 'slug' => $slug, 'name' => 'پارسی' . $i, 'province' => 'lorestan' );
+	sa_t_post( 100 + $i, 'city', $slug, 'پارسی' . $i, 16 === $i ? 'draft' : 'publish' );
+	$GLOBALS['t']['children'][20]['attraction'][] = sa_t_post( 200 + $i, 'attraction', 'place-' . $i, 'دیدنی ' . $i );
+}
+$all = sa_county_profile_sibling_cities( 20 );
+sa_t_eq( 17, count( $all ), 'all published peers, not self or draft' );
+sa_t_eq( 'شهرستان ازنا', $all[0]['label'], 'sorted by Persian name, not insertion order' );
+sa_t_eq( 17, count( sa_county_profile_attractions( 20, 8 ) ), 'every published guide survives the featured limit' );
 
 /* 9 — villages count and the short prose block fields. */
 $GLOBALS['t']['meta'][22] = array( 'sa_cty_villages' => '41', 'industry_main' => 'متن نمونه صنعت' );
