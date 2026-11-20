@@ -34,6 +34,22 @@ lines = source_lines({"a": ["الف | نهاد", "https://example.org/a"],
                             "accessed_on": "۱۴۰۵/۰۸/۲۷"}}).splitlines()
 assert lines[0].endswith(" | ۱۴۰۵/۰۸/۲۶") and lines[1].endswith(" | ۱۴۰۵/۰۸/۲۷")
 
+# Two individually acceptable pages may exceed the editorial stage budget.
+from unittest.mock import patch
+
+wiki = "دانشنامه | https://FA.WIKIPEDIA.ORG/wiki/test"
+assert ct.wikipedia_lines({"sa_sources": "تصویر | https://commons.wikimedia.org/wiki/File:X",
+                           "sa_schema_sameas": "https://fa.wikipedia.org/wiki/شهر"}) == []
+with tempfile.TemporaryDirectory(dir=HERE) as tmp:
+    batch = Path(tmp)
+    for name in ("a", "b"):
+        (batch / f"{name}.html").write_text("")
+        (batch / f"{name}.meta.json").write_text(json.dumps({"sa_sources": wiki}))
+    with patch.object(ct, "check_html", return_value=[]), patch.object(ct, "check_meta", return_value=[]), patch.object(ct, "check_overlap", return_value=[]):
+        assert ct.main(["guard", str(batch)]) == 1
+        (batch / "b.meta.json").write_text('{"sa_sources":""}')
+        assert ct.main(["guard", str(batch)]) == 0
+
 # --- 1. a county with no notables -----------------------------------------
 def county(notables=True, meta=None):
     data = {

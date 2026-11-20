@@ -12,10 +12,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Facts table rows for an entity: label → formatted value (empty values skipped).
  *
- * @param int $post_id Post ID.
+ * @param int  $post_id Post ID.
+ * @param bool $link_parents Link parent names unless the template already links them.
  * @return array[] [ ['label'=>…, 'value'=>…, 'html'=>bool] ]
  */
-function sa_entity_facts( $post_id ) {
+function sa_entity_facts( $post_id, $link_parents = true ) {
 	$type = get_post_type( $post_id );
 	$e    = sa_entity( $type );
 	if ( ! $e ) {
@@ -26,11 +27,16 @@ function sa_entity_facts( $post_id ) {
 	// Parents first.
 	$province = sa_get_parent( $post_id, 'province' );
 	$city     = sa_get_parent( $post_id, 'city' );
-	if ( 'province' !== $type && $province ) {
-		$rows[] = array( 'label' => 'استان', 'value' => '<a href="' . esc_url( get_permalink( $province ) ) . '">' . esc_html( sa_province_name_for_post( $province ) ) . '</a>', 'html' => true );
-	}
-	if ( $city && ! in_array( $type, array( 'province', 'city' ), true ) ) {
-		$rows[] = array( 'label' => 'شهر', 'value' => '<a href="' . esc_url( get_permalink( $city ) ) . '">' . esc_html( get_the_title( $city ) ) . '</a>', 'html' => true );
+	foreach ( array( 'province' => $province, 'city' => $city ) as $kind => $parent ) {
+		if ( ! $parent || $kind !== $parent->post_type || 'province' === $type || $kind === $type ) {
+			continue;
+		}
+		$name   = 'province' === $kind ? sa_province_name_for_post( $parent ) : get_the_title( $parent );
+		$rows[] = array(
+			'label' => 'province' === $kind ? 'استان' : 'شهر',
+			'value' => $link_parents ? '<a href="' . esc_url( get_permalink( $parent ) ) . '">' . esc_html( $name ) . '</a>' : $name,
+			'html'  => $link_parents,
+		);
 	}
 
 	// Taxonomy enums.

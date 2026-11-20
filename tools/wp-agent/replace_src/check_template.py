@@ -52,6 +52,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -279,6 +280,18 @@ def html_of(path: Path) -> str:
     return h.read_text(encoding="utf-8") if h.exists() else ""
 
 
+def wikipedia_lines(meta: dict) -> list[str]:
+    """Count bibliographic entries, not image credits or JSON-LD identities."""
+    lines = []
+    for line in str(meta.get("sa_sources") or "").splitlines():
+        for url in re.findall(r"https?://[^\s|]+", line, re.I):
+            host = (urlsplit(url).hostname or "").lower().rstrip(".")
+            if host == "wikipedia.org" or host.endswith(".wikipedia.org"):
+                lines.append(line)
+                break
+    return lines
+
+
 def check_meta(path: Path) -> list[str]:
     meta = json.loads(path.read_text(encoding="utf-8"))
     need = ["sa_cty_neighbors", "sa_cty_climate", "sa_cty_best_time", "sa_cty_language",
@@ -319,8 +332,7 @@ def check_meta(path: Path) -> list[str]:
         if unknown:
             problems.append(f"neighbour slugs the theme does not know: {unknown}")
     # owner rule: wikipedia named at most once in sa_sources (never rendered)
-    wiki_lines = [l for l in str(meta.get("sa_sources") or "").splitlines()
-                  if "wikipedia.org" in l]
+    wiki_lines = wikipedia_lines(meta)
     if len(wiki_lines) > 1:
         problems.append(f"sa_sources names wikipedia {len(wiki_lines)} times (max 1)")
     # owner order 2026-11-26 (سخت‌گیرانه): ویکی‌پدیا فقط یک خط، و تنها وقتی که منبع رسمی
@@ -399,13 +411,15 @@ def main(argv: list[str]) -> int:
     dirs = [Path(a).resolve() for a in argv[1:]] or sorted((ROOT / "outbox").glob("*-replace-*"))
     total = 0
     bad = 0
-    for d in dirs:
+    stage_wiki = []
+    for d in dict.fromkeys(dirs):
         for html in sorted(d.glob("*.html")):
             total += 1
             problems = check_html(html)
             meta = html.with_suffix(".meta.json")
             if meta.exists():
                 problems += check_meta(meta)
+                stage_wiki += [html.stem] * len(wikipedia_lines(json.loads(meta.read_text(encoding="utf-8"))))
             else:
                 problems.append("no .meta.json")
             problems += check_overlap(html, meta if meta.exists() else None)
@@ -417,7 +431,14 @@ def main(argv: list[str]) -> int:
             else:
                 print(f"OK   {html.relative_to(ROOT)}")
     print(f"\n{total - bad}/{total} pages conform to the county template")
-    return 1 if bad else 0
+    # Explicit directories are one editorial stage. With no arguments this is
+    # a historical archive scan, not a new publication stage.
+    if argv[1:]:
+        print(f"Stage Wikipedia sources: {len(stage_wiki)} (target 0; maximum 1)")
+    if argv[1:] and len(stage_wiki) > 1:
+        print(f"FAIL stage: {len(stage_wiki)} Wikipedia source entries (max 1 across all pages): {stage_wiki}")
+        return 1
+    return 1 if bad or not total else 0
 
 
 if __name__ == "__main__":

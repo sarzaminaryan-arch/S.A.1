@@ -33,7 +33,7 @@ while ( have_posts() ) :
 
 	$sa_county_en = $sa_get( 'name_en' ) ? strtoupper( (string) $sa_get( 'name_en' ) ) : strtoupper( get_post_field( 'post_name', $sa_id ) );
 	$sa_prov_name = $sa_get( 'province_name' );
-	$sa_prov_url  = $sa_get( 'province_url', home_url( '/' ) );
+	$sa_prov_url  = $sa_get( 'province_url' );
 	$sa_center    = $sa_get( 'center_fa' ) ? $sa_get( 'center_fa' ) : $sa_get( 'main_city' );
 	$sa_faq       = function_exists( 'sa_get_valid_faq' ) ? sa_get_valid_faq( $sa_id ) : array();
 	$sa_tips      = $sa_get( 'local_tips', array() );
@@ -42,7 +42,9 @@ while ( have_posts() ) :
 	$sa_access    = $sa_get( 'access_facts', array() );
 	$sa_neighbors = $sa_get( 'neighbors', array() );
 	$sa_attracts  = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id, 8 ) : array();
-	$sa_siblings  = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id, 8 ) : array();
+	$sa_siblings  = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id ) : array();
+	$sa_relation_urls = array_merge( array( $sa_prov_url ), array_column( $sa_siblings, 'url' ), array_column( $sa_attracts, 'url' ) );
+	$sa_relation_keys = array_fill_keys( array_filter( array_map( 'sa_2026_relation_key', $sa_relation_urls ) ), true );
 	$sa_updated   = $sa_get( 'field_update_note' );
 
 	$sa_tip_groups = array(
@@ -80,8 +82,8 @@ while ( have_posts() ) :
 				<span aria-hidden="true">›</span>
 				<a href="<?php echo esc_url( function_exists( 'sa_archive_url' ) ? sa_archive_url( 'province' ) : home_url( '/' ) ); ?>" class="hover:text-petrol transition-colors">استان‌ها</a>
 				<span aria-hidden="true">›</span>
-				<?php if ( $sa_prov_name ) : ?>
-					<a href="<?php echo esc_url( $sa_prov_url ); ?>" class="hover:text-petrol transition-colors"><?php echo esc_html( $sa_prov_name ); ?></a>
+				<?php if ( $sa_prov_name && $sa_prov_url ) : ?>
+					<a href="<?php echo esc_url( $sa_prov_url ); ?>" data-sa-relation class="hover:text-petrol transition-colors"><?php echo esc_html( $sa_prov_name ); ?></a>
 					<span aria-hidden="true">›</span>
 				<?php endif; ?>
 				<span class="text-ink font-bold" aria-current="page"><?php echo esc_html( get_the_title() ); ?></span>
@@ -164,6 +166,7 @@ while ( have_posts() ) :
 								<div class="flex flex-wrap items-center gap-2 text-xs">
 									<?php
 									$sa_nb_seen = array();
+
 									foreach ( $sa_neighbors as $sa_nb ) :
 										if ( empty( $sa_nb['label'] ) ) {
 											continue;
@@ -174,12 +177,17 @@ while ( have_posts() ) :
 											continue;
 										}
 										$sa_nb_seen[ $sa_nb_key ] = true;
+										$sa_link_neighbor = ! empty( $sa_nb['url'] ) && ! isset( $sa_relation_keys[ sa_2026_relation_key( $sa_nb['url'] ) ] );
 										?>
-										<a href="<?php echo esc_url( ! empty( $sa_nb['url'] ) ? $sa_nb['url'] : '#' ); ?>"
+										<?php if ( $sa_link_neighbor ) : ?>
+										<a href="<?php echo esc_url( $sa_nb['url'] ); ?>"
+										<?php else : ?>
+										<span
+										<?php endif; ?>
 											class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-canvas hover:bg-petrolSoft text-ink hover:text-petrol border border-line font-medium transition-colors">
 											<span class="text-muted"><?php echo esc_html( $sa_nb['direction'] ); ?>:</span>
 											<strong class="font-bold"><?php echo esc_html( $sa_nb['label'] ); ?></strong>
-										</a>
+										<?php echo $sa_link_neighbor ? '</a>' : '</span>'; ?>
 									<?php endforeach; ?>
 								</div>
 							</div>
@@ -207,7 +215,7 @@ while ( have_posts() ) :
 							<?php if ( $sa_prov_name ) : ?>
 								<div class="bg-surface p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
 									<dt class="text-muted text-xs font-mono">01 // استان</dt>
-									<dd class="font-bold text-petrol"><a href="<?php echo esc_url( $sa_prov_url ); ?>" class="hover:underline"><?php echo esc_html( $sa_prov_name ); ?></a></dd>
+									<dd class="font-bold text-ink"><?php echo esc_html( $sa_prov_name ); ?></dd>
 								</div>
 							<?php endif; ?>
 
@@ -360,7 +368,7 @@ while ( have_posts() ) :
 
 								<h3 class="text-base sm:text-lg font-extrabold text-ink group-hover:text-petrol transition-colors leading-snug">
 									<?php if ( $sa_url ) : ?>
-										<a href="<?php echo esc_url( $sa_url ); ?>" class="focus:outline-none"><?php echo esc_html( $sa_row['name'] ); ?></a>
+										<a href="<?php echo esc_url( $sa_url ); ?>" data-sa-relation class="focus:outline-none"><?php echo esc_html( $sa_row['name'] ); ?></a>
 									<?php else : ?>
 										<?php echo esc_html( $sa_row['name'] ); ?>
 									<?php endif; ?>
@@ -383,16 +391,6 @@ while ( have_posts() ) :
 								<?php endif; ?>
 							</div>
 
-							<?php if ( $sa_url ) : ?>
-								<div class="mt-4 pt-3.5 border-t border-line/70">
-									<a href="<?php echo esc_url( $sa_url ); ?>" class="w-full inline-flex items-center justify-between px-3 py-2 rounded-xl bg-canvas group-hover:bg-petrol text-petrol group-hover:text-white text-xs font-bold transition-colors">
-										<span>مشاهده راهنمای بازدید</span>
-										<svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-										</svg>
-									</a>
-								</div>
-							<?php endif; ?>
 						</article>
 					<?php endforeach; ?>
 				</div>
@@ -411,7 +409,7 @@ while ( have_posts() ) :
 				</h2>
 			</div>
 			<div class="sa-2026-prose">
-				<?php the_content(); ?>
+				<?php sa_2026_relation_content( $sa_relation_urls ); ?>
 			</div>
 		</section>
 
@@ -553,7 +551,7 @@ while ( have_posts() ) :
 									<?php if ( $sa_place['note'] ) : ?>
 										<p class="text-xs text-slate-600 leading-relaxed"><?php echo esc_html( $sa_place['note'] ); ?></p>
 									<?php endif; ?>
-									<?php if ( ! empty( $sa_place['url'] ) ) : ?>
+									<?php if ( ! empty( $sa_place['url'] ) && ! isset( $sa_relation_keys[ sa_2026_relation_key( $sa_place['url'] ) ] ) ) : ?>
 										<a href="<?php echo esc_url( $sa_place['url'] ); ?>" class="inline-flex items-center gap-1 text-[11px] font-bold text-petrol hover:underline">پیوند بیشتر ←</a>
 									<?php endif; ?>
 								</div>
@@ -606,11 +604,6 @@ while ( have_posts() ) :
 						</svg>
 						<span>ارسال تجربه سفر من</span>
 					</button>
-					<?php if ( $sa_prov_name ) : ?>
-						<a href="<?php echo esc_url( $sa_prov_url ); ?>" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 transition-colors">
-							<span><?php echo esc_html( 'بازگشت به ' . $sa_prov_name ); ?></span>
-						</a>
-					<?php endif; ?>
 				</div>
 			</div>
 		</section>
@@ -622,14 +615,11 @@ while ( have_posts() ) :
 						<span class="text-xs font-bold text-ochre"><?php echo esc_html( 'ادامه کاوش در ' . ( $sa_prov_name ? $sa_prov_name : 'این استان' ) ); ?></span>
 						<h2 id="related-counties-heading" class="text-xl font-extrabold text-ink mt-0.5">شهرستان‌های هم‌استانی و مقصدهای پیشنهادی بعدی</h2>
 					</div>
-					<?php if ( $sa_prov_url ) : ?>
-						<a href="<?php echo esc_url( $sa_prov_url ); ?>" class="text-xs font-bold text-petrol hover:underline">مشاهده همه شهرستان‌های استان ←</a>
-					<?php endif; ?>
 				</div>
 
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 					<?php foreach ( $sa_siblings as $sa_sibling ) : ?>
-						<a href="<?php echo esc_url( $sa_sibling['url'] ); ?>" class="group bg-surface rounded-2xl border border-line p-4 hover:border-petrol hover:shadow-sm transition-all">
+						<a href="<?php echo esc_url( $sa_sibling['url'] ); ?>" data-sa-relation class="group bg-surface rounded-2xl border border-line p-4 hover:border-petrol hover:shadow-sm transition-all">
 							<h3 class="text-base font-extrabold text-ink group-hover:text-petrol transition-colors"><?php echo esc_html( $sa_sibling['label'] ); ?></h3>
 							<p class="text-xs text-slate-600 mt-1">شهرستان‌های هم‌استانی و مقصدهای نزدیک را ببینید.</p>
 						</a>

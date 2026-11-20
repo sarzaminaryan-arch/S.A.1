@@ -359,6 +359,7 @@ function sa_province_profile_county_entries( $province_slug, $province_id, $coun
 			'name'    => $name,
 			'english' => $english,
 			'url'     => $post ? $post_url( $post ) : '',
+			'post_id' => $post ? (int) $post->ID : 0,
 		);
 	}
 
@@ -372,6 +373,7 @@ function sa_province_profile_county_entries( $province_slug, $province_id, $coun
 			'name'    => sa_province_profile_county_label( $post, $province_slug ),
 			'english' => sa_province_profile_english_name( $slug ),
 			'url'     => $post_url( $post ),
+			'post_id' => (int) $post->ID,
 		);
 	}
 

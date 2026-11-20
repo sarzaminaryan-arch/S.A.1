@@ -30,7 +30,7 @@ while ( have_posts() ) :
 
 	$sa_profile  = function_exists( 'sa_province_profile' ) ? sa_province_profile( $sa_slug ) : array();
 	$sa_stats    = isset( $sa_profile['stats'] ) && is_array( $sa_profile['stats'] ) ? $sa_profile['stats'] : array();
-	$sa_counties = sa_2026_province_counties( $sa_id, 60 );
+	$sa_counties = sa_2026_province_counties( $sa_id );
 	$sa_routes   = function_exists( 'sa_get_children' ) ? sa_get_children( $sa_id, 'travel_route' ) : array();
 	$sa_neigh    = sa_2026_province_neighbours( $sa_id, 10 );
 	if ( ! $sa_neigh && ! empty( $sa_fact['neighbors'] ) ) {
@@ -50,7 +50,7 @@ while ( have_posts() ) :
 		if ( ! $sa_capital_post ) {
 			$sa_capital_post = get_page_by_path( sanitize_title( $sa_center ), OBJECT, 'post' );
 		}
-		if ( $sa_capital_post instanceof WP_Post ) {
+		if ( $sa_capital_post instanceof WP_Post && 'publish' === $sa_capital_post->post_status ) {
 			$sa_capital_url = (string) get_permalink( $sa_capital_post );
 		}
 	}
@@ -130,7 +130,7 @@ while ( have_posts() ) :
 							<div class="bg-surface p-3 rounded-xl border border-line/70">
 								<dt class="text-muted text-xs mb-0.5">مرکز استان</dt>
 								<dd class="font-bold text-ink">
-									<?php if ( $sa_capital_url ) : ?>
+									<?php if ( $sa_capital_url && ! in_array( $sa_capital_url, array_column( $sa_counties, 'url' ), true ) ) : ?>
 										<a href="<?php echo esc_url( $sa_capital_url ); ?>" class="text-petrol hover:underline"><?php echo esc_html( $sa_center ); ?></a>
 									<?php else : ?>
 										<?php echo esc_html( $sa_center ); ?>
@@ -220,7 +220,7 @@ while ( have_posts() ) :
 
 				<div id="counties-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 					<?php foreach ( $sa_counties as $sa_county ) : ?>
-						<a href="<?php echo esc_url( $sa_county['url'] ); ?>"
+						<a href="<?php echo esc_url( $sa_county['url'] ); ?>" data-sa-relation
 							data-sa-county-card
 							data-sa-county-name="<?php echo esc_attr( $sa_county['title'] ); ?>"
 							class="group bg-surface rounded-2xl border border-line p-4 hover:border-petrol hover:shadow-sm transition-all flex flex-col justify-between">
@@ -260,7 +260,7 @@ while ( have_posts() ) :
 				</h2>
 			</div>
 			<div class="sa-2026-prose">
-				<?php the_content(); ?>
+				<?php sa_2026_relation_content( array_column( $sa_counties, 'url' ) ); ?>
 			</div>
 		</section>
 

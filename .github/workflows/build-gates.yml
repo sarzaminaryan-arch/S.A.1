@@ -45,7 +45,7 @@ jobs:
         run: python3 -m pytest -q
 
       - name: PHP runtime for the theme guards
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends php-cli
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends php-cli php-sqlite3 php-mbstring php-xml
 
       - name: Byte-compile every tool
         run: |
@@ -58,6 +58,12 @@ jobs:
 
       - name: County template guard (order, retired sections, word floor)
         run: python3 tools/wp-agent/test_county_template.py
+      - name: Reciprocal county link counts and rendered destination checks
+        run: |
+          php wp-content/themes/sarzaminaryan-child/tests/test-county-profile.php
+          python3 tools/live-site/test_relation_html.py
+          python3 tools/live-site/render_contract_fixture.py --all
+
       - name: Featured-image fallback card (v2.22.144)
         run: php wp-content/themes/sarzaminaryan-child/tests/test-fallback-card.php
 

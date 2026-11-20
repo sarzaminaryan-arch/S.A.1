@@ -566,8 +566,6 @@ $sa_sibling_cities = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_
 			$sa_siblings_html .= '<li><a class="profile-link" href="' . esc_url( $sa_sib['url'] ) . '">' . esc_html( $sa_sib['label'] ) . '</a></li>';
 		}
 		$sa_siblings_html .= '</ul>';
-		// v2.22.87 (تحلیل مالک): در استان‌های پرشهرستان، چیپ‌ها سقف ۱۲تایی دارند؛
-		// لینک «همهٔ شهرستان‌های استان» بن‌بست را می‌شکند و به صفحهٔ استان می‌رسد.
 		if ( $sa_prov_id && 'publish' === get_post_status( $sa_prov_id ) ) {
 			$sa_siblings_html .= '<p class="sa-siblings__all"><a href="' . esc_url( (string) get_permalink( $sa_prov_id ) ) . '">همهٔ شهرستان‌های استان ' . esc_html( $sa_prov_name ) . ' ←</a></p>';
 		}

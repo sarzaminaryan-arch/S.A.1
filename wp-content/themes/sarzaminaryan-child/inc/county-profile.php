@@ -99,22 +99,26 @@ function sa_county_profile_province_post( $post_id ) {
 	$province_id = (int) sa_county_profile_meta( $post_id, 'province_id' );
 	if ( $province_id && 'province' === get_post_type( $province_id ) ) {
 		$post = get_post( $province_id );
-		if ( $post ) {
+		if ( $post && 'publish' === $post->post_status ) {
 			return $post;
 		}
 	}
 	if ( function_exists( 'sa_county_of_post' ) ) {
 		$reg = sa_county_of_post( $post_id );
+		if ( ! $reg && function_exists( 'sa_county' ) ) {
+			$city = get_post( $post_id );
+			$reg  = $city ? sa_county( $city->post_name . '-city' ) : null;
+		}
 		if ( $reg && ! empty( $reg['province'] ) ) {
 			$post = get_page_by_path( (string) $reg['province'], OBJECT, 'province' );
-			if ( $post ) {
+			if ( $post && 'publish' === $post->post_status ) {
 				return $post;
 			}
 		}
 	}
 	if ( function_exists( 'sa_get_parent' ) ) {
 		$parent = sa_get_parent( $post_id, 'province' );
-		if ( $parent ) {
+		if ( $parent && 'province' === $parent->post_type && 'publish' === $parent->post_status ) {
 			return $parent;
 		}
 	}
@@ -595,8 +599,9 @@ function sa_county_profile_parse_places( $raw ) {
  * @return array<int,array{name:string,en:string,type:string,url:string}>
  */
 function sa_county_profile_attractions( $post_id, $limit = 8 ) {
-	$rows = array();
-	$seen = array();
+	$rows      = array();
+	$seen      = array();
+	$seen_urls = array();
 	$norm = static function ( $s ) {
 		$s = trim( (string) preg_replace( '/\s*\(.*?\)\s*/u', ' ', (string) $s ) );
 		$s = str_replace( array( 'ي', 'ك', "\xE2\x80\x8C" ), array( 'ی', 'ک', ' ' ), $s );
@@ -619,10 +624,17 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 			if ( ! $post || 'publish' !== $post->post_status ) {
 				continue;
 			}
-			$name = get_the_title( $post );
-			if ( '' === $name || isset( $seen[ $name ] ) || isset( $seen[ $norm( $name ) ] ) ) {
+			// A moved list article (e.g. Tabas) is not an independent attraction.
+			$redirect = function_exists( 'sa_redirect_target_for_path' ) ? sa_redirect_target_for_path( '/attraction/' . $post->post_name . '/' ) : '';
+			if ( '' !== $redirect && sa_redirect_target_exists( $redirect ) ) {
 				continue;
 			}
+			$name = get_the_title( $post );
+			$url  = (string) get_permalink( $post );
+			if ( '' === $name || '' === $url || isset( $seen_urls[ $url ] ) ) {
+				continue;
+			}
+			$seen_urls[ $url ] = true;
 			$mark_seen( $name );
 			$type           = '';
 			if ( function_exists( 'get_the_terms' ) ) {
@@ -635,12 +647,14 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 				'name'     => $name,
 				'en'       => trim( (string) get_post_meta( $post->ID, 'sa_english_name', true ) ),
 				'type'     => $type,
-				'url'      => (string) get_permalink( $post ),
+				'url'      => $url,
 				'distance' => trim( (string) get_post_meta( $post->ID, 'sa_distance_from_county_center', true ) ),
 				'note'     => '',
 			);
 		}
 	}
+	// Never hide a published guide behind the card limit; cap only unlinked fillers.
+	$published_count = count( $rows );
 	$groups = array(
 		'sa_cty_poi_nature'     => 'طبیعت‌گردی',
 		'sa_cty_poi_offbeat'    => 'بکر و کمتر دیده‌شده',
@@ -670,40 +684,53 @@ function sa_county_profile_attractions( $post_id, $limit = 8 ) {
 			);
 		}
 	}
-	return array_slice( $rows, 0, max( 1, (int) $limit ) );
+	return array_slice( $rows, 0, max( $published_count, 1, (int) $limit ) );
 }
 
-/**
- * Published counties of the same province (for the هم‌استانی chips row).
- *
- * @param int $post_id County post ID.
- * @param int $limit   Max chips.
- * @return array<int,array{label:string,url:string}>
- */
-function sa_county_profile_sibling_cities( $post_id, $limit = 12 ) {
-	$out  = array();
-	$data = sa_county_profile_data( $post_id );
-	if ( ! function_exists( 'sa_counties' ) || '' === $data['province_slug'] ) {
-		return $out;
+/** The common roster for the province grid and every county in its network. */
+function sa_county_link_roster( $province ) {
+	if ( ! $province || 'publish' !== $province->post_status || ! function_exists( 'sa_province_profile_county_entries' ) ) {
+		return array();
 	}
-	foreach ( sa_counties() as $row ) {
-		if ( ! isset( $row['province'], $row['slug'], $row['name'] ) || $row['province'] !== $data['province_slug'] ) {
+	$out = array();
+	foreach ( sa_province_profile_county_entries( $province->post_name, $province->ID ) as $entry ) {
+		$row = sa_county( $entry['slug'] );
+		$url = $entry['url'];
+		if ( ! $row || $row['province'] !== $province->post_name || '' === $url || isset( $out[ $url ] ) ) {
 			continue;
 		}
-		$current = function_exists( 'sa_county_of_post' ) ? sa_county_of_post( $post_id ) : null;
-		if ( $current && $current['slug'] === $row['slug'] ) {
+		$id = (int) $entry['post_id'];
+		if ( $url !== get_permalink( $id ) ) {
+			// The resolver followed a legacy redirect: check the final post, not the alias.
+			$id = url_to_postid( $url );
+		}
+		$post   = $id ? get_post( $id ) : null;
+		$parent = $post ? sa_county_profile_province_post( $id ) : null;
+		if ( ! $post || 'publish' !== $post->post_status || 'city' !== $post->post_type || ! $parent || $province->ID !== $parent->ID ) {
 			continue;
 		}
-		$url = function_exists( 'sa_county_permalink' ) ? sa_county_permalink( $row['slug'] ) : '';
-		if ( '' === $url ) {
-			continue; // Only counties that really have a published page are linked.
-		}
-		$out[] = array( 'label' => 'شهرستان ' . $row['name'], 'url' => $url );
-		if ( count( $out ) >= max( 1, (int) $limit ) ) {
-			break;
-		}
+		$out[ $url ] = array( 'id' => $id, 'label' => 'شهرستان ' . $row['name'], 'url' => $url );
 	}
+	// A deterministic Persian collation even on WordPress hosts without intl.
+	$alphabet = preg_split( '//u', 'آابپتثجچحخدذرزژسشصضطظعغفقکگلمنوهی', -1, PREG_SPLIT_NO_EMPTY );
+	$weights  = array_combine( $alphabet, array_map( 'chr', range( 65, 64 + count( $alphabet ) ) ) );
+	usort( $out, static function ( $a, $b ) use ( $weights ) {
+		return strcmp( strtr( $a['label'], $weights ), strtr( $b['label'], $weights ) );
+	} );
 	return $out;
+}
+
+/** Only members exchange links; a province with N members yields N-1 peers per member. */
+function sa_county_profile_sibling_cities( $post_id, $limit = 0 ) {
+	$roster = sa_county_link_roster( sa_county_profile_province_post( $post_id ) );
+	$id     = (int) $post_id;
+	if ( ! in_array( $id, array_column( $roster, 'id' ), true ) ) {
+		return array();
+	}
+	$peers = array_values( array_filter( $roster, static function ( $row ) use ( $id ) {
+		return $row['id'] !== $id;
+	} ) );
+	return $limit > 0 ? array_slice( $peers, 0, $limit ) : $peers;
 }
 
 /* -------------------------------------------------------------------------
