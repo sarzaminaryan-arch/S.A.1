@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>استان آذربایجان شرقی؛ راهنمای جامع سفر، شهرستان‌ها و جاذبه‌ها | سرزمین آریان</title>
+  <meta name="description" content="راهنمای جامع سفر به استان آذربایجان شرقی، معرفی کامل شهرستان‌ها، بهترین زمان سفر، مسیرهای پیشنهادی ایران‌گردی و شناسنامه فرهنگی در دانشنامه سرزمین آریان.">
+  <!-- فونت فارسی وزیرمتن از Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: \['Vazirmatn', 'sans-serif'\],
+          },
+          colors: {
+            brand: {
+              teal: '#0F4C5C',      /\* فیروزه‌ای/نفتی تیره اصلی \*/
+              tealLight: '#196B80',
+              tealSoft: '#EBF4F6',
+              copper: '#C87D32',    /\* مسی/طلایی گرم مکمل \*/
+              copperSoft: '#FDF5ED',
+              cream: '#FAF9F6',     /\* پس‌زمینه روشن و تمیز \*/
+              ink: '#1E293B',       /\* رنگ متن اصلی \*/
+              muted: '#64748B',     /\* رنگ متن ثانویه \*/
+              border: '#E2E8F0'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- اسکیمای BreadcrumbList و AdministrativeArea برای سئوی ساختاریافته -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": \[
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "خانه",
+        "item": "https://sarzaminaryan.ir/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "استان‌های ایران",
+        "item": "https://sarzaminaryan.ir/provinces/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "استان آذربایجان شرقی",
+        "item": "https://sarzaminaryan.ir/province/east-azerbaijan/"
+      }
+    \]
+  }
+  </script>
+</head>
+<body class="bg-brand-cream text-brand-ink font-sans antialiased selection:bg-brand-teal selection:text-white">
+
+  <!-- ==================== ۱. هدر سایت (ساده، تمیز و بدون تکرار اضافی) ==================== -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- لوگو و هویت برند -->
+      <a href="/" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-9 h-9 rounded-xl bg-brand-teal text-white flex items-center justify-center shadow-sm group-hover:bg-brand-tealLight transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-extrabold text-lg text-brand-teal tracking-tight block leading-none">سرزمین آریان</span>
+          <span class="text-\[11px\] text-brand-muted block mt-0.5">دانشنامه سفر و ایران‌شناسی</span>
+        </div>
+      </a>
+
+      <!-- منوی ناوبری اصلی -->
+      <nav aria-label="منوی اصلی" class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700">
+        <a href="/provinces/" class="text-brand-teal font-semibold border-b-2 border-brand-copper py-5">استان‌ها</a>
+        <a href="/cities/" class="hover:text-brand-teal transition-colors py-5">شهرستان‌ها</a>
+        <a href="/attractions/" class="hover:text-brand-teal transition-colors py-5">دیدنی‌ها</a>
+        <a href="/travel-guide/" class="hover:text-brand-teal transition-colors py-5">آموزش سفر</a>
+      </nav>
+
+      <!-- دکمه دسترسی سریع به لیست شهرستان‌ها در موبایل و دسکتاپ -->
+      <div class="flex items-center gap-2">
+        <a href="#counties-section" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium bg-brand-tealSoft text-brand-teal hover:bg-brand-teal hover:text-white px-3.5 py-2 rounded-xl transition-colors">
+          <span>فهرست شهرستان‌ها</span>
+          <span class="bg-white/80 text-brand-teal text-xs font-bold px-1.5 py-0.5 rounded-md">۱۶</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== نوار مسیر (Breadcrumb) ==================== -->
+  <div class="bg-white border-b border-brand-border/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between text-xs text-brand-muted">
+      <nav aria-label="مسیر صفحه" class="flex items-center gap-1.5 flex-wrap">
+        <a href="/" class="hover:text-brand-teal transition-colors">خانه</a>
+        <span aria-hidden="true">/</span>
+        <a href="/provinces/" class="hover:text-brand-teal transition-colors">استان‌ها</a>
+        <span aria-hidden="true">/</span>
+        <span class="text-brand-ink font-semibold" aria-current="page">استان آذربایجان شرقی</span>
+      </nav>
+      <span class="hidden sm:inline-block font-mono text-\[11px\] text-brand-muted bg-slate-100 px-2 py-0.5 rounded">
+        SYS.ID // PRV-EAZ
+      </span>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-12">
+
+    <!-- ==================== ۲. بخش آغازین (Hero) و شناسنامه داده‌محور استان ==================== -->
+    <section aria-labelledby="province-title" class="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+      <!-- المان تزئینی هندسی ظریف در گوشه -->
+      <div class="absolute -left-16 -top-16 w-64 h-64 rounded-full bg-brand-tealSoft/60 pointer-events-none"></div>
+      <div class="absolute -left-6 top-24 w-32 h-32 rounded-full bg-brand-copperSoft/70 pointer-events-none"></div>
+
+      <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <!-- ستون راست: معرفی تحریریه و سئومحور -->
+        <div class="lg:col-span-7 space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-copperSoft text-brand-copper text-xs font-semibold">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-copper"></span>
+            <span>شمال‌غرب ایران · منطقه آذربایجان</span>
+          </div>
+
+          <h1 id="province-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink leading-tight">
+            استان آذربایجان شرقی؛ راهنمای جامع سفر، شهرستان‌ها و جاذبه‌ها
+          </h1>
+
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            استان آذربایجان شرقی سرزمینی است که در آن تاریخ کهن تجارت در جاده ابریشم، معماری آجری بازارهای تاریخی، کوهستان‌های سرافراز سهند و جنگل‌های بکر ارسباران در کنار هم قرار گرفته‌اند. از <strong>تبریز</strong> و رصدخانه تاریخی <strong>مراغه</strong> تا روستای صخره‌ای <strong>کندوان</strong> و کرانه رود ارس در <strong>جلفا</strong>، هر شهرستان این استان تجربه‌ای متفاوت برای ایران‌گردها دارد.
+          </p>
+
+          <!-- لینک‌های پرش سریع به بخش‌های صفحه (بهبود UX و Sitelinks در گوگل) -->
+          <div class="pt-2 flex flex-wrap items-center gap-2 text-xs font-medium">
+            <span class="text-brand-muted ml-1">دسترسی سریع:</span>
+            <a href="#counties-section" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-brand-tealSoft hover:text-brand-teal transition-colors">شهرستان‌های استان</a>
+            <a href="#routes-section" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-brand-tealSoft hover:text-brand-teal transition-colors">مسیرهای پیشنهادی سفر</a>
+            <a href="#climate-section" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-brand-tealSoft hover:text-brand-teal transition-colors">بهترین فصل و نکات سفر</a>
+            <a href="#neighbors-section" class="px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-brand-tealSoft hover:text-brand-teal transition-colors">استان‌های همسایه</a>
+          </div>
+        </div>
+
+        <!-- ستون چپ: باکس شناسنامه داده‌محور (Data Sheet) -->
+        <div class="lg:col-span-5 bg-brand-cream rounded-2xl border border-brand-border p-5">
+          <div class="flex items-center justify-between border-b border-brand-border pb-3 mb-4">
+            <h2 class="text-sm font-bold text-brand-teal flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+              <span>شناسنامه و داده‌های کلیدی استان</span>
+            </h2>
+            <span class="font-mono text-\[11px\] text-brand-muted">PRV-EAZ</span>
+          </div>
+
+          <dl class="grid grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">مرکز استان</dt>
+              <dd class="font-bold text-brand-ink">
+                <a href="/city/tabriz/" class="text-brand-teal hover:underline">کلان‌شهر تبریز</a>
+              </dd>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">تعداد شهرستان‌ها</dt>
+              <dd class="font-bold text-brand-ink">۲۱ شهرستان <span class="text-xs font-normal text-brand-muted">(۱۶ راهنمای فعال)</span></dd>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">مساحت استان</dt>
+              <dd class="font-bold text-brand-ink">۴۵,۴۹۱ کیلومتر مربع</dd>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">اقلیم غالب</dt>
+              <dd class="font-bold text-brand-ink">کوهستانی معتدل و سرد</dd>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">بهترین زمان سفر</dt>
+              <dd class="font-bold text-brand-copper">اردیبهشت تا مهر</dd>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">زبان و فرهنگ</dt>
+              <dd class="font-bold text-brand-ink">ترکی آذربایجانی، فارسی</dd>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">پیش‌شماره تلفن</dt>
+              <dd class="font-bold text-brand-ink font-mono">۰۴۱</dd>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-brand-border/70">
+              <dt class="text-brand-muted text-xs mb-0.5">کد پلاک خودرو</dt>
+              <dd class="font-bold text-brand-ink font-mono">۱۵ · ۲۵ · ۳۵</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ۳ و ۴. نوار جست‌وجو، فیلتر هوشمند و شبکه شهرستان‌ها ==================== -->
+    <section id="counties-section" aria-labelledby="counties-heading" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-brand-copper uppercase tracking-wider">کاوش جغرافیایی</span>
+          <h2 id="counties-heading" class="text-xl sm:text-2xl font-extrabold text-brand-ink mt-1">
+            شهرستان‌های استان آذربایجان شرقی
+          </h2>
+          <p class="text-sm text-brand-muted mt-1">
+            برای مشاهده راهنمای کامل سفر، جاذبه‌ها و تجربه‌های مسافرها، شهرستان مورد نظرتان را انتخاب یا فیلتر کنید.
+          </p>
+        </div>
+        <div class="text-xs text-brand-muted bg-white px-3 py-2 rounded-xl border border-brand-border self-start md:self-auto">
+          نمایش <strong id="visible-count" class="text-brand-teal font-bold">۱۶</strong> شهرستان منتشرشده
+        </div>
+      </div>
+
+      <!-- نوار ابزار جست‌وجو و فیلتر دسته‌بندی -->
+      <div class="bg-white p-4 rounded-2xl border border-brand-border shadow-sm space-y-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-center">
+          <!-- کادر جست‌وجوی زنده -->
+          <div class="lg:col-span-5 relative">
+            <label for="county-search" class="sr-only">جست‌وجو در شهرستان‌های آذربایجان شرقی</label>
+            <input
+              type="text"
+              id="county-search"
+              placeholder="نام شهرستان یا جاذبه را بنویسید (مثلاً: جلفا، کندوان، ارس...)"
+              class="w-full pl-10 pr-4 py-2.5 text-sm bg-brand-cream border border-brand-border rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-teal/30 focus:border-brand-teal transition-all"
+            >
+            <svg class="w-4 h-4 text-brand-muted absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+
+          <!-- دکمه‌های فیلتر بر اساس سبک سفر -->
+          <div class="lg:col-span-7 flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0 no-scrollbar" role="group" aria-label="فیلتر نوع سفر">
+            <button type="button" data-filter="all" class="filter-btn active shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-teal text-white transition-colors">
+              همه شهرستان‌ها
+            </button>
+            <button type="button" data-filter="historical" class="filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-cream text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">
+              تاریخی و فرهنگی
+            </button>
+            <button type="button" data-filter="nature" class="filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-cream text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">
+              طبیعت‌گردی و کوهستانی
+            </button>
+            <button type="button" data-filter="border" class="filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-cream text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">
+              مرزی و تجاری
+            </button>
+            <button type="button" data-filter="ecotourism" class="filter-btn shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-brand-cream text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">
+              بوم‌گردی و روستایی
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- شبکه کارت‌های شهرستان‌ها (بهینه برای ۱۰ تا ۲۰ کارت بدون سنگینی بصری) -->
+      <div id="counties-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- کارت‌ها به صورت پویا از داده‌های ساختاریافته رندر می‌شوند و همچنین در HTML قابل ایندکس هستند -->
+      </div>
+
+      <!-- پیام عدم یافتن نتیجه در جست‌وجو -->
+      <div id="empty-state" class="hidden bg-white rounded-2xl border border-brand-border p-8 text-center space-y-3">
+        <p class="text-base font-bold text-brand-ink">شهرستانی با این مشخصات پیدا نشد</p>
+        <p class="text-xs text-brand-muted">عبارت جست‌وجو را تغییر دهید یا فیلترها را به حالت نمایش همه برگردانید.</p>
+        <button type="button" id="reset-filters-btn" class="inline-flex items-center px-4 py-2 rounded-xl text-xs font-semibold bg-brand-teal text-white hover:bg-brand-tealLight transition-colors">
+          نمایش همه شهرستان‌ها
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== ۵. بخش «کجا را اول ببینیم؟» (مسیرهای پیشنهادی سفر در استان) ==================== -->
+    <section id="routes-section" aria-labelledby="routes-heading" class="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-brand-border pb-4">
+        <div>
+          <span class="text-xs font-bold text-brand-copper">برنامه‌ریزی هوشمند</span>
+          <h2 id="routes-heading" class="text-xl sm:text-2xl font-extrabold text-brand-ink mt-0.5">
+            کجا را اول ببینیم؟ مسیرهای پیشنهادی سفر در استان
+          </h2>
+        </div>
+        <span class="text-xs text-brand-muted">پیشنهاد تحریریه سرزمین آریان</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- مسیر ۱ -->
+        <article class="bg-brand-cream rounded-2xl border border-brand-border p-5 flex flex-col justify-between hover:border-brand-teal/50 transition-colors">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-brand-tealSoft text-brand-teal">مسیر ۰۱ · تاریخ و معماری</span>
+              <span class="text-xs text-brand-muted">۳ تا ۴ روز</span>
+            </div>
+            <h3 class="text-base font-bold text-brand-ink">مثلث تاریخ، هنر و صخره</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              سفر را از بازار تاریخی و موزه آذربایجان در <strong>تبریز</strong> آغاز کنید، یک نیم‌روز را در معماری صخره‌ای کندوان در <strong>اسکو</strong> بگذرانید و به سمت رصدخانه و گنبدهای <strong>مراغه</strong> بروید.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-brand-border/80 flex flex-wrap items-center gap-1.5 text-xs">
+            <a href="/city/tabriz/" class="font-semibold text-brand-teal hover:underline">تبریز</a>
+            <span class="text-brand-muted">←</span>
+            <a href="/city/osku/" class="font-semibold text-brand-teal hover:underline">اسکو</a>
+            <span class="text-brand-muted">←</span>
+            <a href="/city/maragheh/" class="font-semibold text-brand-teal hover:underline">مراغه</a>
+          </div>
+        </article>
+
+        <!-- مسیر ۲ -->
+        <article class="bg-brand-cream rounded-2xl border border-brand-border p-5 flex flex-col justify-between hover:border-brand-teal/50 transition-colors">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-brand-copperSoft text-brand-copper">مسیر ۰۲ · طبیعت ارسباران</span>
+              <span class="text-xs text-brand-muted">۲ تا ۳ روز</span>
+            </div>
+            <h3 class="text-base font-bold text-brand-ink">جاده مه، جنگل و قلعه بابک</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              مسیر سرسبز شمال‌شرق استان را از <strong>اهر</strong> به سمت جنگل‌های مه‌آلود ارسباران و قلعه بابک در <strong>کلیبر</strong> دنبال کنید؛ ایده‌آل برای بهار و تابستان.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-brand-border/80 flex flex-wrap items-center gap-1.5 text-xs">
+            <a href="/city/ahar/" class="font-semibold text-brand-teal hover:underline">اهر</a>
+            <span class="text-brand-muted">←</span>
+            <a href="/city/kaleybar/" class="font-semibold text-brand-teal hover:underline">کلیبر</a>
+            <span class="text-brand-muted">←</span>
+            <a href="/city/varzaqan/" class="font-semibold text-brand-teal hover:underline">ورزقان</a>
+          </div>
+        </article>
+
+        <!-- مسیر ۳ -->
+        <article class="bg-brand-cream rounded-2xl border border-brand-border p-5 flex flex-col justify-between hover:border-brand-teal/50 transition-colors">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-700">مسیر ۰۳ · کرانه ارس</span>
+              <span class="text-xs text-brand-muted">۲ روز</span>
+            </div>
+            <h3 class="text-base font-bold text-brand-ink">از باغ‌های مرند تا کلیسای سنت استپانوس</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              با عبور از <strong>مرند</strong> و دره زیبای قشلاق، به منطقه آزاد <strong>جلفا</strong> برسید و از کلیسای جهانی سنت استپانوس، آسیاب خرابه و حاشیه رود ارس دیدن کنید.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t border-brand-border/80 flex flex-wrap items-center gap-1.5 text-xs">
+            <a href="/city/marand/" class="font-semibold text-brand-teal hover:underline">مرند</a>
+            <span class="text-brand-muted">←</span>
+            <a href="/city/jolfa/" class="font-semibold text-brand-teal hover:underline">جلفا</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== ۶. اقلیم، زمان سفر و نکات کاربردی استان ==================== -->
+    <section id="climate-section" aria-labelledby="climate-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- راهنمای فصلی -->
+      <div class="lg:col-span-7 bg-white rounded-3xl border border-brand-border p-6 sm:p-8 shadow-sm space-y-5">
+        <div>
+          <span class="text-xs font-bold text-brand-copper">تقویم سفر</span>
+          <h2 id="climate-heading" class="text-xl font-extrabold text-brand-ink mt-0.5">
+            اقلیم و بهترین زمان سفر به آذربایجان شرقی
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
+          <div class="p-4 rounded-2xl bg-emerald-50/70 border border-emerald-200/70">
+            <div class="font-bold text-emerald-900 mb-1 flex items-center justify-between">
+              <span>بهار (اردیبهشت و خرداد)</span>
+              <span class="text-\[11px\] bg-emerald-600 text-white px-2 py-0.5 rounded-full">ایده‌آل</span>
+            </div>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              اوج سرسبزی دشت‌ها، شکوفه‌های باغ‌های مرند و مراغه و هوای مطبوع در تمام شهرستان‌ها.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-sky-50/70 border border-sky-200/70">
+            <div class="font-bold text-sky-900 mb-1 flex items-center justify-between">
+              <span>تابستان (تیر تا شهریور)</span>
+              <span class="text-\[11px\] bg-sky-600 text-white px-2 py-0.5 rounded-full">خنک و ییلاقی</span>
+            </div>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              پناهگاهی خنک از گرمای مرکز کشور؛ بهترین فصل برای جنگل‌های ارسباران، کلیبر، سراب و دامنه‌های سهند.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-50/70 border border-amber-200/70">
+            <div class="font-bold text-amber-900 mb-1 flex items-center justify-between">
+              <span>پاییز (مهر و آبان)</span>
+              <span class="text-\[11px\] bg-amber-600 text-white px-2 py-0.5 rounded-full">هزاررنگ</span>
+            </div>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              مهرماه برای عکاسی پاییزی در ارسباران و جلفا فوق‌العاده است؛ از آبان هوا به سرعت سرد می‌شود.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-slate-100 border border-slate-200">
+            <div class="font-bold text-slate-800 mb-1 flex items-center justify-between">
+              <span>زمستان (آذر تا اسفند)</span>
+              <span class="text-\[11px\] bg-slate-600 text-white px-2 py-0.5 rounded-full">سرد و برفی</span>
+            </div>
+            <p class="text-slate-600 text-xs leading-relaxed">
+              مناسب علاقه‌مندان به ورزش‌های زمستانی، پیست اسکی سهند و تجربه فضای گرم بازارها و قهوه‌خانه‌های تبریز.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- نکات کاربردی گشت‌وگذار -->
+      <div class="lg:col-span-5 bg-brand-teal text-white rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between space-y-6">
+        <div class="space-y-4">
+          <span class="text-xs font-bold text-amber-300">تجربه میدانی</span>
+          <h2 class="text-xl font-extrabold">۳ نکته کاربردی برای سفر در این استان</h2>
+
+          <ul class="space-y-4 text-xs sm:text-sm text-slate-100">
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-lg bg-white/15 text-amber-300 font-bold flex items-center justify-center shrink-0 mt-0.5">۱</span>
+              <p class="leading-relaxed">
+                <strong>پوشاک لایه‌ای همراه داشته باشید:</strong> حتی در میانه تابستان، شب‌های مناطق کوهستانی مانند کلیبر، ورزقان و سراب خنک است.
+              </p>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-lg bg-white/15 text-amber-300 font-bold flex items-center justify-center shrink-0 mt-0.5">۲</span>
+              <p class="leading-relaxed">
+                <strong>تبریز را پایگاه اقامت قرار دهید:</strong> به دلیل فاصله مناسب اغلب شهرستان‌ها (۴۵ دقیقه تا ۲.۵ ساعت)، می‌توانید با اقامت در تبریز سفرهای یک‌روزه متعددی داشته باشید.
+              </p>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-lg bg-white/15 text-amber-300 font-bold flex items-center justify-center shrink-0 mt-0.5">۳</span>
+              <p class="leading-relaxed">
+                <strong>مدارک شناسایی برای مناطق مرزی:</strong> هنگام بازدید از نوار مرزی جلفا و کرانه رود ارس، کارت ملی یا مدارک شناسایی معتبر همراه داشته باشید.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-white/15 flex items-center justify-between text-xs text-slate-200">
+          <span>تجربه‌ای از سفر به این استان دارید؟</span>
+          <a href="/share-experience/" class="font-bold text-amber-300 hover:underline">ثبت تجربه سفر ←</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ۷. بخش استان‌های همسایه (لینک‌سازی افقی بین استان‌ها) ==================== -->
+    <section id="neighbors-section" aria-labelledby="neighbors-heading" class="bg-white rounded-3xl border border-brand-border p-6 sm:p-8 shadow-sm">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h2 id="neighbors-heading" class="text-lg font-extrabold text-brand-ink">
+            استان‌های همسایه آذربایجان شرقی
+          </h2>
+          <p class="text-xs text-brand-muted mt-1">
+            اگر قصد دارید سفرتان را در شمال‌غرب ایران ادامه دهید، راهنمای استان‌های هم‌جوار را ببینید:
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2.5">
+          <a href="/province/west-azerbaijan/" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border text-xs sm:text-sm font-semibold transition-colors">
+            <span>استان آذربایجان غربی</span>
+            <span class="text-brand-muted text-xs">(غرب)</span>
+          </a>
+          <a href="/province/ardabil/" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border text-xs sm:text-sm font-semibold transition-colors">
+            <span>استان اردبیل</span>
+            <span class="text-brand-muted text-xs">(شرق)</span>
+          </a>
+          <a href="/province/zanjan/" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border text-xs sm:text-sm font-semibold transition-colors">
+            <span>استان زنجان</span>
+            <span class="text-brand-muted text-xs">(جنوب)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== فوتر منظم سرزمین آریان ==================== -->
+  <footer class="bg-white border-t border-brand-border mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-brand-border">
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-copper"></span>
+            <span class="font-extrabold text-lg text-brand-teal">سرزمین آریان</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md">
+            دانشنامه جامع ایران‌شناسی، معرفی استان‌ها، شهرستان‌ها و جاذبه‌های گردشگری ایران با تکیه بر داده‌های دقیق جغرافیایی و تجربه واقعی مسافرها.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 space-y-2.5">
+          <h3 class="text-xs font-bold text-brand-ink uppercase tracking-wider">بخش‌های دانشنامه</h3>
+          <ul class="grid grid-cols-2 gap-2 text-xs sm:text-sm text-slate-600">
+            <li><a href="/provinces/" class="hover:text-brand-teal transition-colors">فهرست استان‌ها</a></li>
+            <li><a href="/cities/" class="hover:text-brand-teal transition-colors">شهرستان‌های ایران</a></li>
+            <li><a href="/attractions/" class="hover:text-brand-teal transition-colors">دیدنی‌های منتخب</a></li>
+            <li><a href="/travel-guide/" class="hover:text-brand-teal transition-colors">راهنما و آموزش سفر</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 space-y-2.5">
+          <h3 class="text-xs font-bold text-brand-ink uppercase tracking-wider">همراهی و ارتباط</h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+            <li><a href="/about/" class="hover:text-brand-teal transition-colors">درباره سرزمین آریان</a></li>
+            <li><a href="/contact/" class="hover:text-brand-teal transition-colors">ارتباط با تحریریه</a></li>
+            <li><a href="/share-experience/" class="hover:text-brand-teal transition-colors">ارسال تجربه سفر</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-brand-muted">
+        <p>© ۱۴۰۵ سرزمین آریان — تمامی حقوق محفوظ است.</p>
+        <p>ایران را دوباره کشف کن؛ هر گوشه، داستانی تازه.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== اسکریپت رندر، جست‌وجو و فیلتر زنده شهرستان‌ها ==================== -->
+  <script>
+    // داده‌های ۱۶ شهرستان منتشرشده استان آذربایجان شرقی
+    const countiesData = \[
+      {
+        name: "تبریز",
+        slug: "tabriz",
+        tag: "پایتخت تاریخی و مرکز استان",
+        category: "historical",
+        description: "بزرگ‌ترین بازار مسقف جهان، مسجد کبود، ائل‌گلی و میراث پرشکوه تاریخ مشروطه.",
+        distance: "مرکز استان",
+        bestSeason: "بهار و تابستان",
+        featured: true
+      },
+      {
+        name: "مراغه",
+        slug: "maragheh",
+        tag: "تاریخ و رصدخانه",
+        category: "historical",
+        description: "پایتخت ایلخانان، رصدخانه تاریخی خواجه نصیرالدین طوسی و گنبدهای آجری بی‌نظیر.",
+        distance: "۱۳۰ کیلومتر",
+        bestSeason: "بهار و پاییز",
+        featured: true
+      },
+      {
+        name: "جلفا",
+        slug: "jolfa",
+        tag: "مرزی، تجاری و جهانی",
+        category: "border",
+        description: "کلیسای ثبت جهانی سنت استپانوس، آبشار آسیاب خرابه و چشم‌اندازهای رود مرزی ارس.",
+        distance: "۱۳۵ کیلومتر",
+        bestSeason: "بهار و مهر",
+        featured: true
+      },
+      {
+        name: "کلیبر",
+        slug: "kaleybar",
+        tag: "طبیعت ارسباران",
+        category: "nature",
+        description: "جنگل‌های مه‌آلود ارسباران، قلعه باشکوه بابک خرمدین و ییلاق‌های سرسبز کوهستانی.",
+        distance: "۱۶۵ کیلومتر",
+        bestSeason: "اردیبهشت تا شهریور",
+        featured: true
+      },
+      {
+        name: "اسکو",
+        slug: "osku",
+        tag: "بوم‌گردی و صخره‌ای",
+        category: "ecotourism",
+        description: "میزبان روستای شگفت‌انگیز و صخره‌ای کندوان، چاپ باتیک و باغات گردو در دامنه سهند.",
+        distance: "۴۰ کیلومتر",
+        bestSeason: "بهار و تابستان",
+        featured: false
+      },
+      {
+        name: "مرند",
+        slug: "marand",
+        tag: "باغ‌شهر تاریخی",
+        category: "historical",
+        description: "دروازه شمال‌غرب، کاروانسرای پیام، آبشار عیش‌آباد و باغ‌های پربار زردآلو و سیب.",
+        distance: "۷۰ کیلومتر",
+        bestSeason: "بهار و تابستان",
+        featured: false
+      },
+      {
+        name: "اهر",
+        slug: "ahar",
+        tag: "قلب قره‌داغ",
+        category: "historical",
+        description: "بقعه شیخ شهاب‌الدین اهری، بازار سنتی و نقطه آغازین مسیرهای طبیعت‌گردی قره‌داغ.",
+        distance: "۱۱۰ کیلومتر",
+        bestSeason: "بهار و تابستان",
+        featured: false
+      },
+      {
+        name: "سراب",
+        slug: "sarab",
+        tag: "کوهستان و چشمه‌های آبگرم",
+        category: "nature",
+        description: "واقع در میان سبلان و بزقوش با چشمه‌های آبگرم معدنی، سنگ‌نبشته اوراتویی و طبیعت ییلاقی.",
+        distance: "۱۳۰ کیلومتر",
+        bestSeason: "تابستان",
+        featured: false
+      },
+      {
+        name: "میانه",
+        slug: "miyaneh",
+        tag: "پل‌های تاریخی و قافلانکوه",
+        category: "historical",
+        description: "پل تاریخی دختر، قلعه دختر، رشته‌کوه قافلانکوه و گذرگاه قدیمی کاروان‌های جاده ابریشم.",
+        distance: "۱۶۵ کیلومتر",
+        bestSeason: "بهار و پاییز",
+        featured: false
+      },
+      {
+        name: "بناب",
+        slug: "bonab",
+        tag: "کباب اصیل و تاریخ",
+        category: "historical",
+        description: "مشهور به کباب بناب، مسجد جامع مهرآباد و پل پنج‌چشمه در مجاورت دریاچه ارومیه.",
+        distance: "۱۲۰ کیلومتر",
+        bestSeason: "بهار و پاییز",
+        featured: false
+      },
+      {
+        name: "شبستر",
+        slug: "shabestar",
+        tag: "بوم‌گردی و عرفان",
+        category: "ecotourism",
+        description: "زادگاه شیخ محمود شبستری، آبشار سرکنددیزج و روستاهای سرسبز دامنه کوه میشو.",
+        distance: "۶۵ کیلومتر",
+        bestSeason: "بهار و تابستان",
+        featured: false
+      },
+      {
+        name: "عجب‌شیر",
+        slug: "ajabshir",
+        tag: "ساحل و طبیعت",
+        category: "nature",
+        description: "بندر رحمانلو، قلعه ضحاک و چشم‌اندازهای تماشایی کرانه شرقی دریاچه ارومیه.",
+        distance: "۹۵ کیلومتر",
+        bestSeason: "بهار و پاییز",
+        featured: false
+      },
+      {
+        name: "آذرشهر",
+        slug: "azarshahr",
+        tag: "چشمه‌های آهکی و تاریخ",
+        category: "nature",
+        description: "چشمه پلکانی و رنگارنگ تاپ‌تاپان، مسجد گورستان بادامیار و باغات بادام و گردو.",
+        distance: "۵۵ کیلومتر",
+        bestSeason: "بهار و تابستان",
+        featured: false
+      },
+      {
+        name: "بستان‌آباد",
+        slug: "bostanabad",
+        tag: "آبگرم و دشت‌های سرسبز",
+        category: "nature",
+        description: "چشمه آبگرم معدنی بستان‌آباد، تالاب قوری‌گل و دشت‌های خنک دامنه شرقی سهند.",
+        distance: "۶۰ کیلومتر",
+        bestSeason: "تابستان",
+        featured: false
+      },
+      {
+        name: "ورزقان",
+        slug: "varzaqan",
+        tag: "جنگل و دره‌های بکر",
+        category: "nature",
+        description: "منطقه حفاظت‌شده چیچکلو، آبشار گل‌آخور و روستاهای پلکانی و جنگلی ارسباران.",
+        distance: "۷۵ کیلومتر",
+        bestSeason: "اردیبهشت تا شهریور",
+        featured: false
+      },
+      {
+        name: "هریس",
+        slug: "heris",
+        tag: "خاستگاه فرش دستباف",
+        category: "ecotourism",
+        description: "شهرت جهانی در هنر فرش‌بافی اصیل آذربایجان و روستاهای کوهپایه‌ای دامنه سبلان.",
+        distance: "۱۰۰ کیلومتر",
+        bestSeason: "بهار و تابستان",
+        featured: false
+      }
+    \];
+
+    const gridEl = document.getElementById('counties-grid');
+    const searchInput = document.getElementById('county-search');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const visibleCountEl = document.getElementById('visible-count');
+    const emptyStateEl = document.getElementById('empty-state');
+    const resetBtn = document.getElementById('reset-filters-btn');
+
+    let currentFilter = 'all';
+    let currentQuery = '';
+
+    // تابع تبدیل اعداد انگلیسی به فارسی برای نمایش یکدست
+    function toPersianDigits(str) {
+      return String(str).replace(/\\d/g, d => '۰۱۲۳۴۵۶۷۸۹'\[d\]);
+    }
+
+    // رندر کارت‌های شهرستان‌ها با طراحی سبک، خوانا و سئومحور
+    function renderCounties() {
+      const filtered = countiesData.filter(item => {
+        const matchesFilter = currentFilter === 'all' || item.category === currentFilter;
+        const q = currentQuery.trim();
+        const matchesSearch = !q ||
+          item.name.includes(q) ||
+          item.tag.includes(q) ||
+          item.description.includes(q);
+        return matchesFilter && matchesSearch;
+      });
+
+      visibleCountEl.textContent = toPersianDigits(filtered.length);
+
+      if (filtered.length === 0) {
+        gridEl.innerHTML = '';
+        emptyStateEl.classList.remove('hidden');
+        return;
+      }
+
+      emptyStateEl.classList.add('hidden');
+
+      gridEl.innerHTML = filtered.map(county => \`
+        <article class="group bg-white rounded-2xl border ${county.featured ? 'border-brand-teal/35 ring-1 ring-brand-teal/10' : 'border-brand-border'} p-5 flex flex-col justify-between hover:border-brand-teal hover:shadow-md transition-all duration-200">
+          <div>
+            <!-- ردیف بالای کارت: برچسب شاخص -->
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-\[11px\] font-semibold px-2.5 py-1 rounded-lg ${county.featured ? 'bg-brand-copperSoft text-brand-copper' : 'bg-brand-tealSoft text-brand-teal'}">
+                ${county.tag}
+              </span>
+              ${county.featured ? '<span class="text-\[10px\] font-bold text-brand-muted">شاخص</span>' : ''}
+            </div>
+
+            <!-- عنوان شهرستان به عنوان لینک اصلی به صفحه شهرستان -->
+            <h3 class="text-lg font-extrabold text-brand-ink group-hover:text-brand-teal transition-colors">
+              <a href="/city/${county.slug}/" class="focus:outline-none">
+                شهرستان ${county.name}
+              </a>
+            </h3>
+
+            <!-- توضیح کوتاه یک‌خطی/دوخطی -->
+            <p class="text-xs text-slate-600 leading-relaxed mt-2 line-clamp-2">
+              ${county.description}
+            </p>
+          </div>
+
+          <!-- متادیتای پایین کارت: فاصله و بهترین فصل + دکمه ورود -->
+          <div class="mt-4 pt-3.5 border-t border-brand-border/70 space-y-3">
+            <div class="flex items-center justify-between text-\[11px\] text-brand-muted">
+              <span class="inline-flex items-center gap-1" title="فاصله از مرکز استان">
+                <svg class="w-3.5 h-3.5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                ${county.distance}
+              </span>
+              <span class="inline-flex items-center gap-1" title="بهترین فصل بازدید">
+                <svg class="w-3.5 h-3.5 text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+                </svg>
+                ${county.bestSeason}
+              </span>
+            </div>
+
+            <a href="/city/${county.slug}/" class="w-full inline-flex items-center justify-between px-3 py-2 rounded-xl bg-brand-cream group-hover:bg-brand-teal text-brand-teal group-hover:text-white text-xs font-bold transition-colors">
+              <span>مشاهده راهنمای ${county.name}</span>
+              <svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      \`).join('');
+    }
+
+    // رویداد جست‌وجوی زنده
+    searchInput.addEventListener('input', (e) => {
+      currentQuery = e.target.value;
+      renderCounties();
+    });
+
+    // رویداد دکمه‌های فیلتر دسته‌بندی
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-brand-teal', 'text-white');
+          b.classList.add('bg-brand-cream', 'text-slate-700', 'border', 'border-brand-border');
+        });
+        btn.classList.add('active', 'bg-brand-teal', 'text-white');
+        btn.classList.remove('bg-brand-cream', 'text-slate-700', 'border', 'border-brand-border');
+
+        currentFilter = btn.dataset.filter;
+        renderCounties();
+      });
+    });
+
+    // دکمه بازنشانی فیلترها
+    resetBtn.addEventListener('click', () => {
+      currentFilter = 'all';
+      currentQuery = '';
+      searchInput.value = '';
+      filterBtns.forEach(b => {
+        b.classList.remove('active', 'bg-brand-teal', 'text-white');
+        b.classList.add('bg-brand-cream', 'text-slate-700', 'border', 'border-brand-border');
+      });
+      filterBtns\[0\].classList.add('active', 'bg-brand-teal', 'text-white');
+      filterBtns\[0\].classList.remove('bg-brand-cream', 'text-slate-700', 'border', 'border-brand-border');
+      renderCounties();
+    });
+
+    // اجرای اولیه هنگام بارگذاری صفحه
+    window.addEventListener('DOMContentLoaded', renderCounties);
+  </script>
+</body>
+</html>

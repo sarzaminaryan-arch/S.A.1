@@ -1,0 +1,267 @@
+/**
+ * Sarzamin Aryan — 2026 design system (source).
+ *
+ * Compiled to wp-content/themes/sarzaminaryan-child/assets/css/sa-2026.css.
+ * Values below are copied verbatim from the four approved mockups:
+ *   • home      → petrol #0F5257 / ochre #C47A2B / canvas #F8F6F1
+ *   • province  → teal   #0F4C5C / copper #C87D32 / cream #FAF9F6
+ *   • county    → teal   #0F4C5C / copper #C87D32 / cream #FAF9F6
+ *   • treasure  → forest #14533C / terracotta #C86D2D / cream #FAF9F6
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Default palette: province + county (teal / copper / cream). */
+  :root {
+    --sa-brand: 15 76 92;          /* #0F4C5C */
+    --sa-brand-light: 25 107 128;  /* #196B80 */
+    --sa-brand-dark: 11 58 71;     /* darker teal for hovers */
+    --sa-brand-soft: 235 244 246;  /* #EBF4F6 */
+    --sa-accent: 200 125 50;       /* #C87D32 */
+    --sa-accent-dark: 165 96 33;
+    --sa-accent-soft: 253 245 237; /* #FDF5ED */
+    --sa-surface: 255 255 255;
+    --sa-canvas: 250 249 246;      /* #FAF9F6 */
+    --sa-sand: 244 241 234;
+    --sa-ink: 30 41 59;            /* #1E293B */
+    --sa-muted: 100 116 139;       /* #64748B */
+    --sa-line: 226 232 240;        /* #E2E8F0 */
+  }
+
+  /* Home page palette (petrol / ochre / paper canvas). */
+  body.sa-palette--home {
+    --sa-brand: 15 82 87;          /* #0F5257 */
+    --sa-brand-light: 22 104 110;
+    --sa-brand-dark: 10 59 63;     /* #0A3B3F */
+    --sa-brand-soft: 230 240 241;  /* #E6F0F1 */
+    --sa-accent: 196 122 43;       /* #C47A2B */
+    --sa-accent-dark: 159 97 32;   /* #9F6120 */
+    --sa-accent-soft: 251 242 230; /* #FBF2E6 */
+    --sa-surface: 255 255 255;
+    --sa-canvas: 248 246 241;      /* #F8F6F1 */
+    --sa-sand: 241 237 228;        /* #F1EDE4 */
+    --sa-ink: 20 26 26;            /* #141A1A */
+    --sa-muted: 82 94 94;          /* #525E5E */
+    --sa-line: 226 221 213;        /* #E2DDD5 */
+  }
+
+  /* Attraction / treasure palette (forest / terracotta / cream). */
+  body.sa-palette--treasure {
+    --sa-brand: 20 83 60;          /* #14533C */
+    --sa-brand-light: 30 111 81;   /* #1E6F51 */
+    --sa-brand-dark: 14 62 45;
+    --sa-brand-soft: 235 243 240;  /* #EBF3F0 */
+    --sa-accent: 200 109 45;       /* #C86D2D */
+    --sa-accent-dark: 166 86 32;
+    --sa-accent-soft: 253 243 236; /* #FDF3EC */
+    --sa-surface: 255 255 255;
+    --sa-canvas: 250 249 246;      /* #FAF9F6 */
+    --sa-sand: 244 241 234;
+    --sa-ink: 19 22 28;            /* #13161C */
+    --sa-muted: 92 100 112;        /* #5C6470 */
+    --sa-line: 229 226 218;        /* #E5E2DA */
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: rgb(var(--sa-canvas));
+    color: rgb(var(--sa-ink));
+  }
+
+  /* WP admin bar pushes the sticky header down instead of covering it. */
+  body.admin-bar .sa-site-header {
+    top: 32px;
+  }
+
+  @media screen and (max-width: 782px) {
+    body.admin-bar .sa-site-header {
+      top: 46px;
+    }
+  }
+}
+
+@layer components {
+  /* Hidden scrollbar for the jump bar / tab strips (from the mockups). */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Faint engineering grid behind the dashboard-style cards (home mockup). */
+  .grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Jump-link active state (scroll-spy, county + treasure pages). */
+  .jump-link.is-active {
+    background-color: rgb(var(--sa-brand));
+    color: #fff;
+  }
+
+  /* Attraction filter tabs. */
+  .attr-tab.is-active {
+    background-color: rgb(var(--sa-brand));
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* Brand lockup link in the 2026 sticky header (official mark + wordmark). */
+  .sa-hf-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    flex-shrink: 0;
+    text-decoration: none;
+    outline: none;
+  }
+  .sa-hf-brand .sa-hf-brand__text strong {
+    display: block;
+    font-weight: 800;
+    font-size: 1.0625rem;
+    line-height: 1.1;
+    color: rgb(var(--sa-brand));
+  }
+  .sa-hf-brand .sa-hf-brand__text span {
+    display: block;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-top: 2px;
+    color: rgb(var(--sa-muted));
+  }
+  .sa-hf-brand:hover .sa-hf-brand__text strong {
+    color: rgb(var(--sa-brand-dark));
+  }
+  .sa-hf-brand:hover .sa-hf-brand__tile {
+    background-color: rgb(var(--sa-brand-dark));
+  }
+
+  .search-chip.is-active {
+    background-color: rgb(var(--sa-brand));
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /*
+   * Editorial body (`the_content()`) inside the new cards.
+   * Replaces the old theme's article typography scoped to the 2026 pages.
+   */
+  .sa-2026-prose {
+    color: rgb(var(--sa-ink) / 0.86);
+    font-size: 0.9375rem;
+    line-height: 2;
+  }
+  @media (min-width: 640px) {
+    .sa-2026-prose {
+      font-size: 1rem;
+    }
+  }
+  .sa-2026-prose > * + * {
+    margin-top: 0.95rem;
+  }
+  .sa-2026-prose h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: rgb(var(--sa-ink));
+    margin-top: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgb(var(--sa-line));
+  }
+  .sa-2026-prose h3 {
+    font-size: 1.0625rem;
+    font-weight: 800;
+    color: rgb(var(--sa-ink));
+    margin-top: 1.5rem;
+  }
+  .sa-2026-prose h4 {
+    font-size: 0.9375rem;
+    font-weight: 800;
+    color: rgb(var(--sa-brand));
+    margin-top: 1.25rem;
+  }
+  .sa-2026-prose p,
+  .sa-2026-prose li {
+    line-height: 2;
+  }
+  .sa-2026-prose strong {
+    color: rgb(var(--sa-ink));
+    font-weight: 700;
+  }
+  .sa-2026-prose a {
+    color: rgb(var(--sa-brand));
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .sa-2026-prose a:hover {
+    color: rgb(var(--sa-accent));
+  }
+  .sa-2026-prose ul,
+  .sa-2026-prose ol {
+    padding-inline-start: 1.25rem;
+  }
+  .sa-2026-prose ul {
+    list-style: disc;
+  }
+  .sa-2026-prose ol {
+    list-style: decimal;
+  }
+  .sa-2026-prose li + li {
+    margin-top: 0.4rem;
+  }
+  .sa-2026-prose blockquote {
+    background-color: rgb(var(--sa-canvas));
+    border-inline-start: 4px solid rgb(var(--sa-accent));
+    border-radius: 1rem;
+    padding: 1rem 1.15rem;
+    color: rgb(var(--sa-ink) / 0.85);
+    font-size: 0.875rem;
+  }
+  .sa-2026-prose img {
+    border-radius: 1rem;
+    border: 1px solid rgb(var(--sa-line));
+    max-width: 100%;
+    height: auto;
+  }
+  .sa-2026-prose figure {
+    margin-top: 1.25rem;
+  }
+  .sa-2026-prose figcaption {
+    font-size: 0.75rem;
+    color: rgb(var(--sa-muted));
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+  .sa-2026-prose table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8125rem;
+    border: 1px solid rgb(var(--sa-line));
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+  .sa-2026-prose th,
+  .sa-2026-prose td {
+    border: 1px solid rgb(var(--sa-line));
+    padding: 0.55rem 0.7rem;
+    text-align: start;
+  }
+  .sa-2026-prose th {
+    background-color: rgb(var(--sa-canvas));
+    font-weight: 700;
+    color: rgb(var(--sa-ink));
+  }
+  .sa-2026-prose hr {
+    border-color: rgb(var(--sa-line));
+    margin: 1.75rem 0;
+  }
+}

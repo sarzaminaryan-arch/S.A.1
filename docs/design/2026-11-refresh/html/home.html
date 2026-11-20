@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>سرزمین آریان | دانشنامه سفر، شناخت ایران، استان‌ها و گنجینه دیدنی‌ها</title>
+  <meta
+    name="description"
+    content="سرزمین آریان؛ دانشنامه جامع سفر، ایران‌شناسی، معرفی ۳۱ استان و شهرستان‌های ایران، گنجینه دیدنی‌ها، رتبه‌بندی مقصدها و تجربه‌های واقعی مسافرها."
+  />
+  <meta
+    name="keywords"
+    content="سرزمین آریان, دانشنامه سفر ایران, استان‌های ایران, شهرستان‌های ایران, گنجینه دیدنی‌های ایران, راهنمای سفر, رتبه‌بندی شهرهای ایران"
+  />
+  <link rel="canonical" href="https://sarzaminaryan.ir/" />
+
+  <!-- بارگذاری فونت فارسی وزیرمتن از Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- بارگذاری Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: \['Vazirmatn', 'system-ui', 'sans-serif'\],
+            mono: \['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'\],
+          },
+          colors: {
+            surface: '#FFFFFF',
+            canvas: '#F8F6F1',
+            sand: '#F1EDE4',
+            petrol: '#0F5257',
+            petrolDark: '#0A3B3F',
+            petrolSoft: '#E6F0F1',
+            ochre: '#C47A2B',
+            ochreDark: '#9F6120',
+            ochreSoft: '#FBF2E6',
+            ink: '#141A1A',
+            muted: '#525E5E',
+            line: '#E2DDD5',
+          },
+          boxShadow: {
+            card: '0 4px 20px -6px rgba(20, 26, 26, 0.06)',
+            floating: '0 14px 34px -10px rgba(15, 82, 87, 0.16)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /\* مخفی‌سازی نوار اسکرول افقی در تب‌های موبایل و نوار چیپ‌ها \*/
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /\* الگوی شبکه‌ای ظریف و هندسی برای پس‌زمینه کارت شاخص \*/
+    .grid-pattern {
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+
+  <!-- داده‌های ساختاریافته JSON-LD برای Organization و WebSite با SearchAction -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": \[
+        {
+          "@type": "Organization",
+          "@id": "https://sarzaminaryan.ir/#organization",
+          "name": "سرزمین آریان",
+          "alternateName": "Sarzamin Aryan",
+          "url": "https://sarzaminaryan.ir/",
+          "description": "دانشنامه جامع سفر، شناخت جغرافیا، استان‌ها، شهرستان‌ها و گنجینه دیدنی‌های ایران.",
+          "sameAs": \[
+            "https://sarzaminaryan.ir/provinces/",
+            "https://sarzaminaryan.ir/cities/",
+            "https://sarzaminaryan.ir/treasure/"
+          \]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://sarzaminaryan.ir/#website",
+          "url": "https://sarzaminaryan.ir/",
+          "name": "سرزمین آریان — دانشنامه سفر و شناخت ایران",
+          "description": "ایران را دوباره کشف کن؛ معرفی استان‌ها، شهرستان‌ها، گنجینه دیدنی‌ها، رتبه‌بندی مقصدها و تجربه‌های واقعی مسافرها.",
+          "inLanguage": "fa-IR",
+          "publisher": {
+            "@id": "https://sarzaminaryan.ir/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://sarzaminaryan.ir/?q={search\_term\_string}"
+            },
+            "query-input": "required name=search\_term\_string"
+          }
+        }
+      \]
+    }
+  </script>
+</head>
+<body class="bg-canvas text-ink font-sans antialiased selection:bg-petrol selection:text-white overflow-x-hidden">
+
+  <!-- ==================== ۱. نوار بالایی هویت، ناوبری تمیز و دکمه ورود/عضویت ==================== -->
+  <header class="sticky top-0 z-40 bg-surface/95 backdrop-blur-md border-b border-line">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
+      <!-- لوگو و عنوان برند -->
+      <a href="https://sarzaminaryan.ir/" class="flex items-center gap-2.5 group focus:outline-none shrink-0">
+        <div class="w-10 h-10 rounded-2xl bg-petrol text-white flex items-center justify-center shadow-xs group-hover:bg-petrolDark transition-colors">
+          <!-- نماد قطب‌نمای هندسی با SVG -->
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364-6.364l-1.414 1.414M7.05 16.95l-1.414 1.414m12.728 0l-1.414-1.414M7.05 7.05L5.636 5.636M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-extrabold text-lg sm:text-xl text-petrol tracking-tight block leading-none">سرزمین آریان</span>
+          <span class="text-\[11px\] text-muted block mt-0.5">دانشنامه سفر و شناخت ایران</span>
+        </div>
+      </a>
+
+      <!-- منوی اصلی بدون برچسب تکراری جست‌وجو -->
+      <nav aria-label="منوی ناوبری اصلی" class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-700">
+        <a href="#pillars-section" class="hover:text-petrol transition-colors py-2">استان‌ها</a>
+        <a href="#pillars-section" class="hover:text-petrol transition-colors py-2">شهرستان‌ها</a>
+        <a href="#spotlight-section" class="hover:text-petrol transition-colors py-2">گنجینه دیدنی‌ها</a>
+        <a href="#spotlight-section" class="hover:text-petrol transition-colors py-2">رتبه‌بندی شهرها</a>
+        <a href="#updates-section" class="hover:text-petrol transition-colors py-2">تازه‌ها و تجربه‌ها</a>
+        <a href="#about-encyclopedia" class="hover:text-petrol transition-colors py-2">درباره دانشنامه</a>
+      </nav>
+
+      <!-- دکمه‌های اقدام سمت چپ (در RTL): پرش به جست‌وجو و مودال ورود/عضویت -->
+      <div class="flex items-center gap-2 shrink-0">
+        <a
+          href="#hero-search-input"
+          onclick="focusHeroSearch(event)"
+          aria-label="رفتن به کادر جست‌وجوی مقصد"
+          class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-sand hover:bg-petrolSoft text-petrol border border-line transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
+          </svg>
+        </a>
+
+        <button
+          type="button"
+          onclick="openAuthModal()"
+          class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-xl bg-sand hover:bg-petrol hover:text-white text-ink border border-line text-xs sm:text-sm font-bold transition-colors"
+        >
+          <svg class="w-4 h-4 text-ochre group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+          <span>ورود / عضویت</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- نوار لینک سریع در موبایل و تبلت -->
+    <div class="lg:hidden border-t border-line/70 bg-canvas/90">
+      <div class="max-w-7xl mx-auto px-4 py-2 flex items-center gap-2 overflow-x-auto no-scrollbar text-xs font-semibold">
+        <a href="#pillars-section" class="shrink-0 px-3 py-1 rounded-lg bg-surface border border-line text-ink hover:text-petrol">استان‌ها و شهرستان‌ها</a>
+        <a href="#spotlight-section" class="shrink-0 px-3 py-1 rounded-lg bg-surface border border-line text-ink hover:text-petrol">پیشنهاد فصل و رتبه‌بندی</a>
+        <a href="#spotlight-section" class="shrink-0 px-3 py-1 rounded-lg bg-surface border border-line text-ink hover:text-petrol">گنجینه دیدنی‌ها</a>
+        <a href="#updates-section" class="shrink-0 px-3 py-1 rounded-lg bg-surface border border-line text-ink hover:text-petrol">تجربه مسافرها</a>
+        <a href="#about-encyclopedia" class="shrink-0 px-3 py-1 rounded-lg bg-surface border border-line text-ink hover:text-petrol">درباره دانشنامه</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7 sm:py-11 space-y-14 sm:space-y-16">
+
+    <!-- ==================== ۲. بخش آغازین (Hero)، جست‌وجوی آنی و کارت شاخص شناسنامه ==================== -->
+    <section aria-labelledby="hero-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-8 items-stretch">
+      <!-- ستون اصلی جست‌وجو و معرفی (۷ ستون) -->
+      <div class="lg:col-span-7 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-card flex flex-col justify-between space-y-6 relative">
+        <div class="space-y-4">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ochreSoft text-ochreDark text-xs font-bold border border-ochre/20">
+            <span class="w-2 h-2 rounded-full bg-ochre"></span>
+            <span>پاییز و زمستان ۱۴۰۵ · راهنمای هوشمند سفر و شناخت ایران</span>
+          </div>
+
+          <h1 id="hero-heading" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-ink tracking-tight leading-\[1.2\]">
+            ایران را دوباره کشف کن.
+          </h1>
+
+          <p class="text-muted text-sm sm:text-base leading-relaxed max-w-2xl">
+            در <strong class="text-ink font-bold">سرزمین آریان</strong>، هر استان، شهرستان و دیدنی با داده‌های دقیق جغرافیایی، اقلیم فصلی، رتبه‌بندی مقصدها و روایت میدانی مسافرها کنار هم آمده تا سفری آگاهانه و ماندگار بسازید.
+          </p>
+        </div>
+
+        <!-- کادر جست‌وجوی آنی مقصد، شهرستان و دیدنی + چیپ‌های فیلتر سریع -->
+        <div class="space-y-3.5 relative">
+          <form id="hero-search-form" onsubmit="handleSearchSubmit(event)" class="relative">
+            <label for="hero-search-input" class="sr-only">جست‌وجوی استان، شهرستان، دیدنی یا راهنمای سفر</label>
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-canvas p-2 rounded-2xl border border-line focus-within:border-petrol focus-within:ring-4 focus-within:ring-petrol/10 transition-all">
+              <div class="relative flex-1 flex items-center">
+                <svg class="w-5 h-5 text-petrol mr-3 shrink-0 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" />
+                </svg>
+                <input
+                  id="hero-search-input"
+                  type="search"
+                  autocomplete="off"
+                  placeholder="نام استان، شهرستان، دیدنی یا موضوع را بنویسید (مثلاً: تبریز، شیراز، کاشان، کویر...)"
+                  class="w-full bg-transparent px-3 py-2.5 text-sm sm:text-base text-ink placeholder:text-muted/80 focus:outline-none"
+                />
+                <button
+                  type="button"
+                  id="clear-search-btn"
+                  onclick="clearSearchInput()"
+                  aria-label="پاک کردن عبارت جست‌وجو"
+                  class="hidden text-xs text-muted hover:text-ink px-2 py-1 rounded-lg"
+                >
+                  ✕
+                </button>
+              </div>
+              <button
+                type="submit"
+                class="px-5 py-3 rounded-xl bg-petrol hover:bg-petrolDark text-white text-sm font-bold transition-colors shrink-0 shadow-xs"
+              >
+                جست‌وجو در دانشنامه
+              </button>
+            </div>
+          </form>
+
+          <!-- چیپ‌های فیلتر سریع دسته‌ها -->
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1" role="group" aria-label="فیلتر سریع بخش‌ها">
+            <span class="text-xs text-muted font-semibold shrink-0 ml-1">فیلتر سریع:</span>
+            <button
+              type="button"
+              data-chip="all"
+              onclick="selectSearchChip('all')"
+              class="search-chip active shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold bg-petrol text-white transition-colors"
+            >
+              همه بخش‌ها
+            </button>
+            <button
+              type="button"
+              data-chip="استان‌ها"
+              onclick="selectSearchChip('استان‌ها')"
+              class="search-chip shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sand hover:bg-petrolSoft text-ink hover:text-petrol border border-line transition-colors"
+            >
+              استان‌ها
+            </button>
+            <button
+              type="button"
+              data-chip="شهرستان‌ها"
+              onclick="selectSearchChip('شهرستان‌ها')"
+              class="search-chip shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sand hover:bg-petrolSoft text-ink hover:text-petrol border border-line transition-colors"
+            >
+              شهرستان‌ها
+            </button>
+            <button
+              type="button"
+              data-chip="گنجینه دیدنی‌ها"
+              onclick="selectSearchChip('گنجینه دیدنی‌ها')"
+              class="search-chip shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sand hover:bg-petrolSoft text-ink hover:text-petrol border border-line transition-colors"
+            >
+              گنجینه دیدنی‌ها
+            </button>
+            <button
+              type="button"
+              data-chip="آموزش سفر"
+              onclick="selectSearchChip('آموزش سفر')"
+              class="search-chip shrink-0 px-3 py-1.5 rounded-xl text-xs font-semibold bg-sand hover:bg-petrolSoft text-ink hover:text-petrol border border-line transition-colors"
+            >
+              آموزش سفر
+            </button>
+          </div>
+
+          <!-- پنل نتایج آنی جست‌وجو -->
+          <div
+            id="live-search-panel"
+            aria-live="polite"
+            class="bg-canvas rounded-2xl border border-line p-4 space-y-3"
+          >
+            <div class="flex items-center justify-between text-xs">
+              <span id="search-results-heading" class="font-bold text-petrol">پیشنهادهای پرجستجو و سریع</span>
+              <span id="search-results-count" class="text-muted font-mono">۶ مورد</span>
+            </div>
+            <div id="live-search-results" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <!-- آیتم‌ها با JavaScript رندر می‌شوند -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- کارت شاخص دانشنامه در سمت چپ (۵ ستون) با شناسه IDX-IRAN-2026 -->
+      <aside aria-labelledby="spotlight-card-title" class="lg:col-span-5 bg-petrol text-white rounded-3xl p-6 sm:p-8 shadow-floating flex flex-col justify-between relative overflow-hidden grid-pattern">
+        <!-- المان تزئینی کهربایی در گوشه -->
+        <div class="absolute -left-16 -bottom-16 w-56 h-56 rounded-full bg-ochre/20 blur-2xl pointer-events-none"></div>
+
+        <div class="relative z-10 space-y-5">
+          <div class="flex items-center justify-between gap-2 border-b border-white/15 pb-3.5">
+            <span class="font-mono text-xs text-amber-200 tracking-wide bg-white/10 px-3 py-1 rounded-lg">
+              SYS.ID // IDX-IRAN-2026
+            </span>
+            <span class="text-xs font-semibold text-white/85 bg-ochre px-2.5 py-1 rounded-lg">
+              شاخص جامع ۱۴۰۵
+            </span>
+          </div>
+
+          <div class="space-y-2">
+            <span class="text-xs font-semibold text-amber-200 block">نبض داده‌های ایران‌شناسی در سرزمین آریان</span>
+            <h2 id="spotlight-card-title" class="text-xl sm:text-2xl font-extrabold leading-snug">
+              نقشه جامع مقاصد، رتبه‌بندی و تجربه‌های میدانی در یک نگاه
+            </h2>
+            <p class="text-xs sm:text-sm text-white/80 leading-relaxed">
+              تمامی استان‌ها و شهرستان‌ها با ساختار یکپارچه شناسنامه‌ای، اقلیم چهارفصل و پیوند مستقیم به دیدنی‌های شاخص منتشر شده‌اند.
+            </p>
+          </div>
+
+          <!-- شاخص‌های کلیدی دانشنامه -->
+          <dl class="grid grid-cols-2 gap-3 pt-1">
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 border border-white/15">
+              <dt class="text-\[11px\] text-white/75">پوشش جغرافیایی</dt>
+              <dd class="text-lg sm:text-xl font-extrabold text-white mt-0.5">۳۱ استان · ۴۰۰+ شهر</dd>
+            </div>
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 border border-white/15">
+              <dt class="text-\[11px\] text-white/75">فصل پیشنهادی امروز</dt>
+              <dd class="text-base sm:text-lg font-extrabold text-amber-300 mt-0.5">کویر، جنوب و تاریخ</dd>
+            </div>
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 border border-white/15">
+              <dt class="text-\[11px\] text-white/75">گنجینه دیدنی‌ها</dt>
+              <dd class="text-lg sm:text-xl font-extrabold text-white mt-0.5">ثبت جهانی و ملی</dd>
+            </div>
+            <div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 border border-white/15">
+              <dt class="text-\[11px\] text-white/75">به‌روزرسانی میدانی</dt>
+              <dd class="text-base sm:text-lg font-extrabold text-amber-200 mt-0.5">آبان ۱۴۰۵</dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- لینک سریع به منتخب فصل و رتبه‌بندی -->
+        <div class="relative z-10 pt-5 mt-6 border-t border-white/15 flex items-center justify-between gap-3">
+          <div class="text-xs text-white/85">
+            <strong class="block text-white font-bold">منتخب پاییز و زمستان</strong>
+            <span>شیراز، یزد، کاشان و تبریز</span>
+          </div>
+          <a
+            href="#spotlight-section"
+            class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-ochre hover:bg-ochreDark text-white text-xs font-bold transition-colors shrink-0"
+          >
+            <span>مشاهده شاخص‌ها</span>
+            <span aria-hidden="true">←</span>
+          </a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ==================== ۳. چهار ستون اصلی کاوش (۰۱ تا ۰۴) ==================== -->
+    <section id="pillars-section" aria-labelledby="pillars-heading" class="space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+        <div>
+          <span class="text-xs font-bold text-ochreDark uppercase tracking-wider">معماری دانشنامه</span>
+          <h2 id="pillars-heading" class="text-2xl sm:text-3xl font-extrabold text-ink mt-1">
+            چهار مسیر اصلی کاوش در سرزمین آریان
+          </h2>
+          <p class="text-sm text-muted mt-1">
+            از شناخت کلان استان‌ها و جزئیات شهرستان‌ها تا گنجینه دیدنی‌ها و آموزش عملی سفر.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- ستون ۰۱ / استان‌های ایران -->
+        <article class="bg-surface rounded-3xl border border-line p-6 sm:p-7 shadow-card hover:border-petrol/50 transition-all flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-extrabold px-3 py-1 rounded-xl bg-petrolSoft text-petrol">
+                ۰۱ / استان‌های ایران
+              </span>
+              <span class="text-xs text-muted font-medium">پهنه‌های جغرافیایی و اقلیمی</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-ink">
+              شناخت استان‌ها، همسایه‌ها و مسیرهای پیشنهادی سفر
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              بررسی جامع هر استان همراه با شناسنامه جغرافیایی، فهرست شهرستان‌ها، بهترین فصل سفر، مسیرهای چندروزه و ارتباط با استان‌های هم‌جوار.
+            </p>
+          </div>
+
+          <div class="space-y-4 pt-3 border-t border-line/80">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="text-muted font-semibold ml-1">صفحات شاخص:</span>
+              <a href="https://sarzaminaryan.ir/province/east-azerbaijan/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-petrolSoft text-petrol font-semibold border border-line transition-colors">
+                آذربایجان شرقی
+              </a>
+              <a href="https://sarzaminaryan.ir/province/fars/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-petrolSoft text-petrol font-semibold border border-line transition-colors">
+                فارس
+              </a>
+              <a href="https://sarzaminaryan.ir/province/khorasan-razavi/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-petrolSoft text-petrol font-semibold border border-line transition-colors">
+                خراسان رضوی
+              </a>
+            </div>
+
+            <a
+              href="https://sarzaminaryan.ir/provinces/"
+              class="w-full inline-flex items-center justify-between px-4 py-3 rounded-2xl bg-canvas hover:bg-petrol text-petrol hover:text-white border border-line text-xs sm:text-sm font-bold transition-colors"
+            >
+              <span>کاوش در فهرست استان‌های ایران</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ستون ۰۲ / شهرستان‌ها -->
+        <article class="bg-surface rounded-3xl border border-line p-6 sm:p-7 shadow-card hover:border-petrol/50 transition-all flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-extrabold px-3 py-1 rounded-xl bg-ochreSoft text-ochreDark">
+                ۰۲ / شهرستان‌ها
+              </span>
+              <span class="text-xs text-muted font-medium">شناسنامه، آب‌وهوا و وضعیت میدانی</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-ink">
+              راهنمای کاربردی هر شهرستان برای برنامه‌ریزی دقیق سفر
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              اطلاعات شناسنامه‌ای، مختصات و ارتفاع، وضعیت جاده و حمل‌ونقل، آب‌وهوای فصل‌به‌فصل، نکات طلایی سفر و فهرست جاذبه‌های هر شهرستان.
+            </p>
+          </div>
+
+          <div class="space-y-4 pt-3 border-t border-line/80">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="text-muted font-semibold ml-1">مقصدهای پرجستجو:</span>
+              <a href="https://sarzaminaryan.ir/city/tabriz/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-petrolSoft text-petrol font-semibold border border-line transition-colors">
+                تبریز
+              </a>
+              <a href="https://sarzaminaryan.ir/city/shiraz/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-petrolSoft text-petrol font-semibold border border-line transition-colors">
+                شیراز
+              </a>
+              <a href="https://sarzaminaryan.ir/city/kashan/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-petrolSoft text-petrol font-semibold border border-line transition-colors">
+                کاشان
+              </a>
+            </div>
+
+            <a
+              href="https://sarzaminaryan.ir/cities/"
+              class="w-full inline-flex items-center justify-between px-4 py-3 rounded-2xl bg-canvas hover:bg-petrol text-petrol hover:text-white border border-line text-xs sm:text-sm font-bold transition-colors"
+            >
+              <span>مشاهده همه شهرستان‌های ایران</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ستون ۰۳ / گنجینه دیدنی‌های ایران -->
+        <article class="bg-surface rounded-3xl border border-line p-6 sm:p-7 shadow-card hover:border-petrol/50 transition-all flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-extrabold px-3 py-1 rounded-xl bg-petrolSoft text-petrol">
+                ۰۳ / گنجینه دیدنی‌های ایران
+              </span>
+              <span class="text-xs text-muted font-medium">آثار تاریخی، طبیعی و معماری</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-ink">
+              روایت، ساعت بازدید، دسترسی و جزئیات هر جاذبه شاخص
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              معرفی دقیق بناهای ثبت جهانی، بازارها، پل‌ها، باغ‌ها و شگفتی‌های طبیعی ایران همراه با نکات دسترسی، عکاسی و دیدنی‌های نزدیک در همان حوالی.
+            </p>
+          </div>
+
+          <div class="space-y-4 pt-3 border-t border-line/80">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="text-muted font-semibold ml-1">دیدنی‌های برگزیده:</span>
+              <a href="https://sarzaminaryan.ir/treasure/tabriz-historic-bazaar/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-ochreSoft text-ochreDark font-semibold border border-line transition-colors">
+                بازار بزرگ تبریز
+              </a>
+              <a href="https://sarzaminaryan.ir/treasure/shah-cheragh/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-ochreSoft text-ochreDark font-semibold border border-line transition-colors">
+                حرم شاهچراغ
+              </a>
+              <a href="https://sarzaminaryan.ir/treasure/vank-cathedral/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-ochreSoft text-ochreDark font-semibold border border-line transition-colors">
+                کلیسای وانک
+              </a>
+              <a href="https://sarzaminaryan.ir/treasure/khaju-bridge/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-ochreSoft text-ochreDark font-semibold border border-line transition-colors">
+                پل خواجو
+              </a>
+            </div>
+
+            <a
+              href="https://sarzaminaryan.ir/treasure/"
+              class="w-full inline-flex items-center justify-between px-4 py-3 rounded-2xl bg-canvas hover:bg-petrol text-petrol hover:text-white border border-line text-xs sm:text-sm font-bold transition-colors"
+            >
+              <span>ورود به گنجینه دیدنی‌های ایران</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- ستون ۰۴ / آموزش سفر -->
+        <article class="bg-surface rounded-3xl border border-line p-6 sm:p-7 shadow-card hover:border-petrol/50 transition-all flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="font-mono text-xs font-extrabold px-3 py-1 rounded-xl bg-ochreSoft text-ochreDark">
+                ۰۴ / آموزش سفر
+              </span>
+              <span class="text-xs text-muted font-medium">مهارت میدانی و ایمنی مسیر</span>
+            </div>
+            <h3 class="text-xl font-extrabold text-ink">
+              راهنمای عملی سفر در فصل‌های مختلف، کوهستان و جاده
+            </h3>
+            <p class="text-sm text-muted leading-relaxed">
+              چک‌لیست‌های کاربردی رانندگی بین‌شهری، آمادگی برای مناطق کوهستانی و سردسیر، انتخاب پوشش مناسب و اصول سفر مسئولانه در طبیعت ایران.
+            </p>
+          </div>
+
+          <div class="space-y-4 pt-3 border-t border-line/80">
+            <div class="flex flex-wrap items-center gap-2 text-xs">
+              <span class="text-muted font-semibold ml-1">راهنماهای کاربردی:</span>
+              <a href="https://sarzaminaryan.ir/travel-guide/autumn-winter-travel/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-ochreSoft text-ochreDark font-semibold border border-line transition-colors">
+                راهنمای سفر پاییز و زمستان
+              </a>
+              <a href="https://sarzaminaryan.ir/travel-guide/mountain-and-road-tips/" class="px-2.5 py-1 rounded-lg bg-canvas hover:bg-ochreSoft text-ochreDark font-semibold border border-line transition-colors">
+                نکات کوهستان و جاده
+              </a>
+            </div>
+
+            <a
+              href="https://sarzaminaryan.ir/travel-guide/"
+              class="w-full inline-flex items-center justify-between px-4 py-3 rounded-2xl bg-canvas hover:bg-petrol text-petrol hover:text-white border border-line text-xs sm:text-sm font-bold transition-colors"
+            >
+              <span>مطالعه راهنماهای آموزش سفر</span>
+              <span aria-hidden="true">←</span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== ۴. بخش پیشنهادهای منتخب فصل، رتبه‌بندی شهرها و گنجینه دیدنی‌ها ==================== -->
+    <section id="spotlight-section" aria-labelledby="spotlight-heading" class="bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-card space-y-6">
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-line pb-5">
+        <div>
+          <span class="text-xs font-bold text-ochreDark">منتخب سردبیری و شاخص‌های کلیدی</span>
+          <h2 id="spotlight-heading" class="text-2xl sm:text-3xl font-extrabold text-ink mt-1">
+            پیشنهادهای منتخب فصل و شاخص‌های ایران
+          </h2>
+          <p class="text-sm text-muted mt-1">
+            با تغییر تب زیر، مقصدهای مناسب فصل جاری، رتبه‌بندی شاخص شهرها و دیدنی‌های برگزیده را ببینید.
+          </p>
+        </div>
+
+        <!-- تب‌های تعاملی -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 lg:pb-0" role="tablist" aria-label="دسته‌بندی پیشنهادها و شاخص‌ها">
+          <button
+            type="button"
+            role="tab"
+            aria-selected="true"
+            data-spotlight-tab="seasonal"
+            onclick="switchSpotlightTab('seasonal')"
+            class="spotlight-tab shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-petrol text-white transition-colors"
+          >
+            پیشنهاد فصل پاییز و زمستان
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-spotlight-tab="ranking"
+            onclick="switchSpotlightTab('ranking')"
+            class="spotlight-tab shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-canvas hover:bg-petrolSoft text-ink hover:text-petrol border border-line transition-colors"
+          >
+            شهرهای شاخص و رتبه‌بندی
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected="false"
+            data-spotlight-tab="treasure"
+            onclick="switchSpotlightTab('treasure')"
+            class="spotlight-tab shrink-0 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-canvas hover:bg-petrolSoft text-ink hover:text-petrol border border-line transition-colors"
+          >
+            گنجینه دیدنی‌ها
+          </button>
+        </div>
+      </div>
+
+      <!-- شبکه کارت‌های پویای بخش شاخص‌ها -->
+      <div id="spotlight-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- کارت‌ها توسط JavaScript رندر می‌شوند -->
+      </div>
+    </section>
+
+    <!-- ==================== ۵. تازه‌ترین به‌روزرسانی‌ها و تجربه‌های مسافرها ==================== -->
+    <section id="updates-section" aria-labelledby="updates-heading" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-ochreDark">نبض میدانی دانشنامه</span>
+          <h2 id="updates-heading" class="text-2xl sm:text-3xl font-extrabold text-ink mt-1">
+            تازه‌ترین به‌روزرسانی‌ها و تجربه‌های مسافرها
+          </h2>
+          <p class="text-sm text-muted mt-1">
+            گزارش‌های به‌روز شده از مسیرها، فصل‌ها و یادداشت‌های واقعی سفرکنندگان در سرزمین آریان.
+          </p>
+        </div>
+
+        <button
+          type="button"
+          onclick="openNoteModal()"
+          class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-ochre hover:bg-ochreDark text-white text-xs sm:text-sm font-bold transition-colors self-start sm:self-auto shadow-xs"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+          </svg>
+          <span>ثبت تجربه یا پیشنهاد جدید</span>
+        </button>
+      </div>
+
+      <div id="field-notes-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- کارت ۱ -->
+        <article class="bg-surface rounded-3xl border border-line p-6 shadow-card flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-2 text-xs">
+              <span class="font-bold px-2.5 py-1 rounded-lg bg-petrolSoft text-petrol">به‌روزرسانی شهرستان</span>
+              <time datetime="1405-08-25" class="text-muted font-medium">به‌روزرسانی ۲۸ آبان ۱۴۰۵</time>
+            </div>
+            <h3 class="text-lg font-extrabold text-ink leading-snug">
+              <a href="https://sarzaminaryan.ir/city/tabriz/" class="hover:text-petrol transition-colors">
+                بررسی میدانی مترو، پارکینگ و بازار تبریز در فصل سرد
+              </a>
+            </h3>
+            <p class="text-xs sm:text-sm text-muted leading-relaxed">
+              تکمیل راهنمای خط ۱ مترو، ساعات فعالیت بازار سرپوشیده در روزهای هفته و هشدار مه در گردنه شبلی برای سفرهای پاییزی و زمستانی.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-line/80 flex items-center justify-between text-xs">
+            <span class="text-ink font-semibold">تحریریه سرزمین آریان</span>
+            <a href="https://sarzaminaryan.ir/city/tabriz/" class="text-petrol font-bold hover:underline">مشاهده صفحه تبریز ←</a>
+          </div>
+        </article>
+
+        <!-- کارت ۲ -->
+        <article class="bg-surface rounded-3xl border border-line p-6 shadow-card flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-2 text-xs">
+              <span class="font-bold px-2.5 py-1 rounded-lg bg-ochreSoft text-ochreDark">تجربه مسافر</span>
+              <time datetime="1405-08-22" class="text-muted font-medium">ثبت‌شده در ۲۵ آبان ۱۴۰۵</time>
+            </div>
+            <h3 class="text-lg font-extrabold text-ink leading-snug">
+              <a href="https://sarzaminaryan.ir/treasure/tabriz-historic-bazaar/" class="hover:text-petrol transition-colors">
+                «بهترین نورگیرهای تیمچه مظفریه حوالی ساعت ۱۰:۳۰ صبح است»
+              </a>
+            </h3>
+            <p class="text-xs sm:text-sm text-muted leading-relaxed">
+              یادداشت «سارا کاظمی» پس از بازدید از بازار بزرگ تبریز: پیاده‌روی از ایستگاه مترو میدان ساعت تا تیمچه مظفریه و صرف ناهار پیش از اوج شلوغی ظهر.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-line/80 flex items-center justify-between text-xs">
+            <span class="text-ink font-semibold">سارا کاظمی · مسافر</span>
+            <a href="https://sarzaminaryan.ir/treasure/tabriz-historic-bazaar/" class="text-petrol font-bold hover:underline">جزئیات دیدنی ←</a>
+          </div>
+        </article>
+
+        <!-- کارت ۳ -->
+        <article class="bg-surface rounded-3xl border border-line p-6 shadow-card flex flex-col justify-between space-y-4">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-2 text-xs">
+              <span class="font-bold px-2.5 py-1 rounded-lg bg-petrolSoft text-petrol">به‌روزرسانی استان</span>
+              <time datetime="1405-08-18" class="text-muted font-medium">به‌روزرسانی ۲۰ آبان ۱۴۰۵</time>
+            </div>
+            <h3 class="text-lg font-extrabold text-ink leading-snug">
+              <a href="https://sarzaminaryan.ir/province/east-azerbaijan/" class="hover:text-petrol transition-colors">
+                تکمیل نقشه شهرستان‌ها و مسیرهای پیشنهادی استان آذربایجان شرقی
+              </a>
+            </h3>
+            <p class="text-xs sm:text-sm text-muted leading-relaxed">
+              افزودن فیلتر سبک سفر برای شهرستان‌ها، تفکیک مسیرهای تاریخ و معماری، جنگل ارسباران و کرانه ارس، و به‌روزرسانی تقویم فصلی استان.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-line/80 flex items-center justify-between text-xs">
+            <span class="text-ink font-semibold">واحد داده‌های جغرافیایی</span>
+            <a href="https://sarzaminaryan.ir/province/east-azerbaijan/" class="text-petrol font-bold hover:underline">مشاهده صفحه استان ←</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== ۶. بخش تحریریه و سئو: درباره دانشنامه سرزمین آریان ==================== -->
+    <section id="about-encyclopedia" aria-labelledby="about-heading" class="bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-card space-y-6">
+      <div class="max-w-3xl space-y-2">
+        <span class="text-xs font-bold text-ochreDark">مرجع ساختاریافته ایران‌شناسی</span>
+        <h2 id="about-heading" class="text-2xl sm:text-3xl font-extrabold text-ink">
+          درباره دانشنامه سرزمین آریان
+        </h2>
+        <p class="text-sm sm:text-base text-muted leading-relaxed">
+          سرزمین آریان با هدف ایجاد یک مرجع منسجم، دقیق و خوانا برای کشف ایران شکل گرفته است؛ جایی که اطلاعات کلان جغرافیایی با جزئیات کاربردی سفر و تجربه‌های واقعی مسافرها پیوند می‌خورند.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-2">
+        <div class="bg-canvas rounded-2xl border border-line p-5 space-y-2">
+          <span class="font-mono text-xs font-bold text-petrol">لایه ۰۱ · استان‌ها</span>
+          <h3 class="text-base font-extrabold text-ink">دید کلان به پهنه‌ها و همسایه‌ها</h3>
+          <p class="text-xs sm:text-sm text-muted leading-relaxed">
+            صفحات استان‌ها تصویری جامع از موقعیت منطقه‌ای، اقلیم، فهرست شهرستان‌ها و مسیرهای چندروزه ارائه می‌دهند تا مسافر بداند سفرش را از کجا آغاز کند و چگونه ادامه دهد.
+          </p>
+        </div>
+
+        <div class="bg-canvas rounded-2xl border border-line p-5 space-y-2">
+          <span class="font-mono text-xs font-bold text-ochreDark">لایه ۰۲ · شهرستان‌ها</span>
+          <h3 class="text-base font-extrabold text-ink">شناسنامه، آب‌وهوا و واقعیت میدانی</h3>
+          <p class="text-xs sm:text-sm text-muted leading-relaxed">
+            هر شهرستان با داده‌های شناسنامه‌ای شفاف، وضعیت راه‌ها و حمل‌ونقل، تغییرات فصلی دما و هزینه‌ها، و نکات کاربردی پیش از سفر معرفی می‌شود تا تصمیم‌گیری ساده و دقیق باشد.
+          </p>
+        </div>
+
+        <div class="bg-canvas rounded-2xl border border-line p-5 space-y-2">
+          <span class="font-mono text-xs font-bold text-petrol">لایه ۰۳ · گنجینه دیدنی‌ها</span>
+          <h3 class="text-base font-extrabold text-ink">عمق روایت و پیوند مکان‌ها به هم</h3>
+          <p class="text-xs sm:text-sm text-muted leading-relaxed">
+            هر جاذبه تاریخی، طبیعی یا فرهنگی علاوه بر روایت معماری و پیشینه، ساعت بازدید، روش دسترسی، نکات عکاسی و دیدنی‌های نزدیک را نمایش می‌دهد و به شهرستان و استان مادر متصل است.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== فوتر تمیز و بدون تکرار اضافی ==================== -->
+  <footer class="bg-surface border-t border-line mt-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-line">
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-ochre"></span>
+            <span class="font-extrabold text-lg text-petrol">سرزمین آریان</span>
+          </div>
+          <p class="text-xs sm:text-sm text-muted leading-relaxed max-w-md">
+            دانشنامه سفر، شناخت ایران، استان‌ها، شهرستان‌ها و گنجینه دیدنی‌ها؛ همراه دقیق مسافران، طبیعت‌گردان و پژوهشگران ایران‌شناسی.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 space-y-2.5">
+          <h3 class="text-xs font-extrabold text-ink uppercase tracking-wider">بخش‌های دانشنامه</h3>
+          <ul class="grid grid-cols-2 gap-2.5 text-xs sm:text-sm text-muted">
+            <li><a href="https://sarzaminaryan.ir/provinces/" class="hover:text-petrol transition-colors">استان‌های ایران</a></li>
+            <li><a href="https://sarzaminaryan.ir/cities/" class="hover:text-petrol transition-colors">شهرستان‌های ایران</a></li>
+            <li><a href="https://sarzaminaryan.ir/treasure/" class="hover:text-petrol transition-colors">گنجینه دیدنی‌ها</a></li>
+            <li><a href="https://sarzaminaryan.ir/travel-guide/" class="hover:text-petrol transition-colors">آموزش سفر</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 space-y-2.5">
+          <h3 class="text-xs font-extrabold text-ink uppercase tracking-wider">مشارکت و حساب کاربری</h3>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-muted">
+            <li><a href="#about-encyclopedia" class="hover:text-petrol transition-colors">درباره سرزمین آریان</a></li>
+            <li><button type="button" onclick="openNoteModal()" class="hover:text-petrol transition-colors">ثبت تجربه یا پیشنهاد</button></li>
+            <li><button type="button" onclick="openAuthModal()" class="hover:text-petrol transition-colors">ورود / عضویت</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-muted">
+        <p>© ۱۴۰۵ سرزمین آریان — تمامی حقوق محفوظ است.</p>
+        <p>ایران را دوباره کشف کن؛ هر گوشه، داستانی تازه.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== مودال ۱: ورود / عضویت (بدون alert بومی) ==================== -->
+  <div
+    id="auth-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/60 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="auth-modal-title"
+  >
+    <div class="bg-surface rounded-3xl border border-line max-w-md w-full p-6 sm:p-7 shadow-floating space-y-5">
+      <div class="flex items-center justify-between border-b border-line pb-3.5">
+        <div>
+          <span class="font-mono text-\[11px\] font-bold text-ochreDark">حساب سفر و یادداشت‌ها</span>
+          <h3 id="auth-modal-title" class="text-lg font-extrabold text-ink">ورود یا عضویت در سرزمین آریان</h3>
+        </div>
+        <button
+          type="button"
+          onclick="closeAuthModal()"
+          aria-label="بستن پنجره ورود"
+          class="w-8 h-8 rounded-xl bg-canvas hover:bg-sand text-muted hover:text-ink flex items-center justify-center transition-colors"
+        >
+          ✕
+        </button>
+      </div>
+
+      <form id="auth-form" class="space-y-4 text-xs sm:text-sm">
+        <div>
+          <label for="auth-contact" class="block font-bold text-ink mb-1.5">شماره موبایل یا ایمیل</label>
+          <input
+            id="auth-contact"
+            type="text"
+            required
+            placeholder="مثلاً: 09120000000 یا name@example.com"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-canvas border border-line focus:outline-none focus:border-petrol"
+          />
+        </div>
+        <div>
+          <label for="auth-name" class="block font-bold text-ink mb-1.5">نام نمایشی (اختیاری برای عضویت)</label>
+          <input
+            id="auth-name"
+            type="text"
+            placeholder="نام شما در یادداشت‌های سفر"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-canvas border border-line focus:outline-none focus:border-petrol"
+          />
+        </div>
+
+        <div id="auth-feedback" class="hidden p-3 rounded-xl bg-petrolSoft border border-petrol/25 text-petrol text-xs font-bold">
+          درخواست ورود/عضویت ثبت شد. در صورت نیاز می‌توانید بلافاصله تجربه سفر خود را هم ثبت کنید.
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button
+            type="button"
+            onclick="closeAuthModal()"
+            class="px-4 py-2.5 rounded-xl bg-canvas hover:bg-sand text-muted font-semibold transition-colors"
+          >
+            بستن
+          </button>
+          <button
+            type="submit"
+            class="px-5 py-2.5 rounded-xl bg-petrol hover:bg-petrolDark text-white font-bold transition-colors"
+          >
+            ادامه
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== مودال ۲: ثبت تجربه یا پیشنهاد جدید ==================== -->
+  <div
+    id="note-modal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/60 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="note-modal-title"
+  >
+    <div class="bg-surface rounded-3xl border border-line max-w-lg w-full p-6 sm:p-7 shadow-floating space-y-5">
+      <div class="flex items-center justify-between border-b border-line pb-3.5">
+        <div>
+          <span class="font-mono text-\[11px\] font-bold text-ochreDark">مشارکت میدانی در دانشنامه</span>
+          <h3 id="note-modal-title" class="text-lg font-extrabold text-ink">ثبت تجربه یا پیشنهاد جدید</h3>
+        </div>
+        <button
+          type="button"
+          onclick="closeNoteModal()"
+          aria-label="بستن پنجره ثبت تجربه"
+          class="w-8 h-8 rounded-xl bg-canvas hover:bg-sand text-muted hover:text-ink flex items-center justify-center transition-colors"
+        >
+          ✕
+        </button>
+      </div>
+
+      <form id="note-form" class="space-y-4 text-xs sm:text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="note-author" class="block font-bold text-ink mb-1.5">نام شما</label>
+            <input
+              id="note-author"
+              type="text"
+              required
+              placeholder="مثلاً: رضا کریمی"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-canvas border border-line focus:outline-none focus:border-petrol"
+            />
+          </div>
+          <div>
+            <label for="note-place" class="block font-bold text-ink mb-1.5">شهرستان یا دیدنی مرتبط</label>
+            <input
+              id="note-place"
+              type="text"
+              required
+              placeholder="مثلاً: شیراز، یزد، کاشان یا تبریز"
+              class="w-full px-3.5 py-2.5 rounded-xl bg-canvas border border-line focus:outline-none focus:border-petrol"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label for="note-title" class="block font-bold text-ink mb-1.5">عنوان کوتاه تجربه یا پیشنهاد</label>
+          <input
+            id="note-title"
+            type="text"
+            required
+            placeholder="مثلاً: وضعیت مسیر کویری یا نکته بازدید از بازار"
+            class="w-full px-3.5 py-2.5 rounded-xl bg-canvas border border-line focus:outline-none focus:border-petrol"
+          />
+        </div>
+
+        <div>
+          <label for="note-body" class="block font-bold text-ink mb-1.5">شرح تجربه یا پیشنهاد</label>
+          <textarea
+            id="note-body"
+            rows="3"
+            required
+            placeholder="نکته کاربردی، وضعیت فصل یا پیشنهاد خود را بنویسید..."
+            class="w-full px-3.5 py-2.5 rounded-xl bg-canvas border border-line focus:outline-none focus:border-petrol"
+          ></textarea>
+        </div>
+
+        <div id="note-feedback" class="hidden p-3 rounded-xl bg-petrolSoft border border-petrol/25 text-petrol text-xs font-bold">
+          سپاسگزاریم! یادداشت شما ثبت و در فهرست تجربه‌های صفحه نمایش داده شد.
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button
+            type="button"
+            onclick="closeNoteModal()"
+            class="px-4 py-2.5 rounded-xl bg-canvas hover:bg-sand text-muted font-semibold transition-colors"
+          >
+            انصراف
+          </button>
+          <button
+            type="submit"
+            class="px-5 py-2.5 rounded-xl bg-ochre hover:bg-ochreDark text-white font-bold transition-colors"
+          >
+            ثبت در دانشنامه
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== اسکریپت‌های تعاملی جست‌وجوی آنی، تب‌ها و مودال‌ها ==================== -->
+  <script>
+    // تبدیل رقم‌های لاتین به فارسی برای نمایش یکدست
+    function toPersianDigits(input) {
+      return String(input).replace(/\\d/g, (d) => '۰۱۲۳۴۵۶۷۸۹'\[d\]);
+    }
+
+    // داده‌های جست‌وجوی آنی در بخش‌های کلیدی دانشنامه
+    const searchIndexData = \[
+      {
+        title: 'استان آذربایجان شرقی',
+        pillar: 'استان‌ها',
+        meta: '۱۶ راهنمای فعال · مرکز: تبریز',
+        url: 'https://sarzaminaryan.ir/province/east-azerbaijan/',
+        keywords: 'تبریز مراغه جلفا کلیبر کندوان ارسباران آذربایجان شرقی استان',
+      },
+      {
+        title: 'استان فارس',
+        pillar: 'استان‌ها',
+        meta: 'میراث کهن · مرکز: شیراز',
+        url: 'https://sarzaminaryan.ir/province/fars/',
+        keywords: 'شیراز تخت جمشید پاسارگاد شاهچراغ فارس استان',
+      },
+      {
+        title: 'شهرستان تبریز',
+        pillar: 'شهرستان‌ها',
+        meta: 'ارتفاع ۱۳۴۰ متر · مترو خط ۱ و بازار جهانی',
+        url: 'https://sarzaminaryan.ir/city/tabriz/',
+        keywords: 'تبریز بازار کندوان ائل گلی لیقوان عینالی شهرستان',
+      },
+      {
+        title: 'شهرستان کاشان',
+        pillar: 'شهرستان‌ها',
+        meta: 'کویر، گلاب و خانه‌های تاریخی',
+        url: 'https://sarzaminaryan.ir/city/kashan/',
+        keywords: 'کاشان مرنجاب کویر خانه بروجردی نیاسر شهرستان',
+      },
+      {
+        title: 'بازار بزرگ تبریز',
+        pillar: 'گنجینه دیدنی‌ها',
+        meta: 'ثبت جهانی یونسکو · تیمچه مظفریه',
+        url: 'https://sarzaminaryan.ir/treasure/tabriz-historic-bazaar/',
+        keywords: 'بازار بزرگ تبریز تیمچه مظفریه فرش دیدنی',
+      },
+      {
+        title: 'حرم شاهچراغ و پل خواجو',
+        pillar: 'گنجینه دیدنی‌ها',
+        meta: 'معماری و میراث فرهنگی شیراز و اصفهان',
+        url: 'https://sarzaminaryan.ir/treasure/shah-cheragh/',
+        keywords: 'حرم شاهچراغ کلیسای وانک پل خواجو شیراز اصفهان دیدنی',
+      },
+      {
+        title: 'راهنمای سفر پاییز و زمستان',
+        pillar: 'آموزش سفر',
+        meta: 'مقصدهای کویری، جنوب و نکات فصل سرد',
+        url: 'https://sarzaminaryan.ir/travel-guide/autumn-winter-travel/',
+        keywords: 'پاییز زمستان کویر جنوب سرمای جاده آموزش سفر',
+      },
+      {
+        title: 'نکات کوهستان و جاده',
+        pillar: 'آموزش سفر',
+        meta: 'پوشاک لایه‌ای، گردنه‌ها و ایمنی سفر',
+        url: 'https://sarzaminaryan.ir/travel-guide/mountain-and-road-tips/',
+        keywords: 'کوهستان جاده گردنه ایمنی تجهیزات آموزش سفر',
+      },
+    \];
+
+    let activeSearchChip = 'all';
+    const searchInputEl = document.getElementById('hero-search-input');
+    const clearSearchBtn = document.getElementById('clear-search-btn');
+    const liveSearchResultsEl = document.getElementById('live-search-results');
+    const searchResultsHeadingEl = document.getElementById('search-results-heading');
+    const searchResultsCountEl = document.getElementById('search-results-count');
+
+    function focusHeroSearch(event) {
+      if (event) event.preventDefault();
+      searchInputEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => searchInputEl.focus(), 250);
+    }
+
+    function selectSearchChip(chipValue) {
+      activeSearchChip = chipValue;
+      document.querySelectorAll('.search-chip').forEach((btn) => {
+        const isActive = btn.dataset.chip === chipValue;
+        if (isActive) {
+          btn.classList.add('bg-petrol', 'text-white', 'font-bold');
+          btn.classList.remove('bg-sand', 'text-ink', 'font-semibold', 'border', 'border-line');
+        } else {
+          btn.classList.remove('bg-petrol', 'text-white', 'font-bold');
+          btn.classList.add('bg-sand', 'text-ink', 'font-semibold', 'border', 'border-line');
+        }
+      });
+      renderLiveSearch();
+    }
+
+    function clearSearchInput() {
+      searchInputEl.value = '';
+      clearSearchBtn.classList.add('hidden');
+      renderLiveSearch();
+      searchInputEl.focus();
+    }
+
+    function handleSearchSubmit(event) {
+      event.preventDefault();
+      renderLiveSearch(true);
+    }
+
+    function renderLiveSearch(fromSubmit = false) {
+      const rawQuery = searchInputEl.value.trim();
+      clearSearchBtn.classList.toggle('hidden', rawQuery.length === 0);
+
+      const matches = searchIndexData.filter((item) => {
+        const matchesPillar = activeSearchChip === 'all' || item.pillar === activeSearchChip;
+        const matchesText =
+          !rawQuery ||
+          item.title.includes(rawQuery) ||
+          item.meta.includes(rawQuery) ||
+          item.pillar.includes(rawQuery) ||
+          item.keywords.includes(rawQuery);
+        return matchesPillar && matchesText;
+      });
+
+      const displayed = rawQuery || activeSearchChip !== 'all' ? matches : matches.slice(0, 6);
+      searchResultsHeadingEl.textContent = rawQuery
+        ? \`نتایج جست‌وجو برای «${rawQuery}»\`
+        : activeSearchChip === 'all'
+        ? 'پیشنهادهای پرجستجو و سریع'
+        : \`موارد مرتبط با «${activeSearchChip}»\`;
+
+      searchResultsCountEl.textContent = \`${toPersianDigits(displayed.length)} مورد\`;
+
+      if (displayed.length === 0) {
+        liveSearchResultsEl.innerHTML = \`
+          <div class="sm:col-span-2 bg-surface rounded-xl border border-line p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+            <span class="text-muted">موردی با عبارت «${rawQuery}» یافت نشد. نام شهر، استان یا دیدنی دیگری را امتحان کنید.</span>
+            <button type="button" onclick="resetSearchAll()" class="px-3 py-1.5 rounded-lg bg-petrol text-white font-bold shrink-0">
+              نمایش پیشنهادها
+            </button>
+          </div>
+        \`;
+        return;
+      }
+
+      liveSearchResultsEl.innerHTML = displayed
+        .map(
+          (item) => \`
+          <a
+            href="${item.url}"
+            class="group bg-surface hover:bg-petrolSoft/50 rounded-xl border border-line hover:border-petrol/40 p-3 flex items-center justify-between gap-3 transition-all ${fromSubmit ? 'ring-1 ring-petrol/20' : ''}"
+          >
+            <div class="min-w-0">
+              <div class="flex items-center gap-1.5">
+                <span class="text-\[10px\] font-bold px-2 py-0.5 rounded-md bg-ochreSoft text-ochreDark shrink-0">${item.pillar}</span>
+                <h3 class="text-xs sm:text-sm font-extrabold text-ink group-hover:text-petrol truncate transition-colors">${item.title}</h3>
+              </div>
+              <p class="text-\[11px\] text-muted truncate mt-1">${item.meta}</p>
+            </div>
+            <span class="text-petrol text-xs font-bold shrink-0 group-hover:-translate-x-0.5 transition-transform" aria-hidden="true">←</span>
+          </a>
+        \`
+        )
+        .join('');
+    }
+
+    function resetSearchAll() {
+      searchInputEl.value = '';
+      activeSearchChip = 'all';
+      selectSearchChip('all');
+    }
+
+    searchInputEl.addEventListener('input', () => renderLiveSearch(false));
+
+    // داده‌های بخش تب‌های پیشنهاد فصل، رتبه‌بندی شهرها و گنجینه دیدنی‌ها
+    const spotlightCollections = {
+      seasonal: \[
+        {
+          tag: 'مقصد کویری و پاییزی',
+          title: 'کویر مرنجاب و کاشان',
+          subtitle: 'استان اصفهان · شهرستان کاشان',
+          desc: 'هوای خنک و دلپذیر پاییز و زمستان، رمل‌های شنی، کاروانسرای تاریخی و آسمان پرستاره در فاصله‌ای مناسب از مرکز کشور.',
+          badge: 'اوج فصل: مهر تا اسفند',
+          url: 'https://sarzaminaryan.ir/city/kashan/',
+        },
+        {
+          tag: 'اقلیم معتدل و فرهنگی',
+          title: 'شیراز و پهنه فارس',
+          subtitle: 'استان فارس · مرکز استان',
+          desc: 'ترکیب باغ‌های ایرانی، آثار باستانی و بافت تاریخی در روزهایی که هوا برای پیاده‌روی در شهر و بازدید از محوطه‌ها مطبوع است.',
+          badge: 'مناسب پاییز و اوایل بهار',
+          url: 'https://sarzaminaryan.ir/province/fars/',
+        },
+        {
+          tag: 'معماری سرپوشیده و زمستانی',
+          title: 'تبریز و بازار جهانی',
+          subtitle: 'استان آذربایجان شرقی · شهرستان تبریز',
+          desc: 'گشت‌وگذار در دالان‌های آجری و گرم بازار تبریز، چشیدن خوراکی‌های سنتی و برنامه‌ریزی سفر زمستانی با تجهیزات کامل.',
+          badge: 'تیمچه مظفریه و خط ۱ مترو',
+          url: 'https://sarzaminaryan.ir/city/tabriz/',
+        },
+        {
+          tag: 'آمادگی فصل سرد',
+          title: 'راهنمای سفر پاییز و زمستان',
+          subtitle: 'بخش آموزش سفر',
+          desc: 'چک‌لیست پوشاک لایه‌ای، بررسی مه‌گرفتگی گردنه‌ها، تنظیم برنامه روزانه پیش از غروب و انتخاب مقصد متناسب با شرایط جوی.',
+          badge: 'چک‌لیست عملی سفر',
+          url: 'https://sarzaminaryan.ir/travel-guide/autumn-winter-travel/',
+        },
+      \],
+      ranking: \[
+        {
+          tag: 'رتبه ۰۱ · میراث و معماری',
+          title: 'کلان‌شهر تبریز',
+          subtitle: 'استان آذربایجان شرقی',
+          desc: 'شاخص در تنوع معماری آجری و بازار ثبت جهانی، دسترسی ریلی و هوایی و پیوند سریع با کندوان، مرند و جلفا.',
+          badge: 'شاخص جامع: ۹۴ / ۱۰۰',
+          url: 'https://sarzaminaryan.ir/city/tabriz/',
+        },
+        {
+          tag: 'رتبه ۰۲ · فرهنگ و باغ‌شهر',
+          title: 'کلان‌شهر شیراز',
+          subtitle: 'استان فارس',
+          desc: 'برجسته در غنای تاریخی، باغ‌های سنتی، میزبانی گردشگران داخلی و خارجی و نزدیکی به آثار ثبت جهانی فارس.',
+          badge: 'شاخص جامع: ۹۳ / ۱۰۰',
+          url: 'https://sarzaminaryan.ir/city/shiraz/',
+        },
+        {
+          tag: 'رتبه ۰۳ · تاریخ و کویر',
+          title: 'شهرستان کاشان',
+          subtitle: 'استان اصفهان',
+          desc: 'ترکیب کم‌نظیر خانه‌های تاریخی، باغ فین، صنایع‌دستی و دسترسی مستقیم به مناطق کویری و ارتفاعات نیاسر.',
+          badge: 'شاخص جامع: ۸۹ / ۱۰۰',
+          url: 'https://sarzaminaryan.ir/city/kashan/',
+        },
+        {
+          tag: 'معیار رتبه‌بندی سرزمین آریان',
+          title: 'چطور شهرها رتبه‌بندی می‌شوند؟',
+          subtitle: 'متدولوژی دانشنامه',
+          desc: 'امتیازدهی بر اساس تنوع جاذبه‌ها، کیفیت دسترسی و حمل‌ونقل، تنوع فصلی و بازخورد میدانی مسافرها انجام می‌شود.',
+          badge: 'به‌روزرسانی دوره‌ای',
+          url: 'https://sarzaminaryan.ir/cities/',
+        },
+      \],
+      treasure: \[
+        {
+          tag: 'ثبت جهانی یونسکو',
+          title: 'بازار بزرگ تبریز',
+          subtitle: 'تبریز · آذربایجان شرقی',
+          desc: 'بزرگ‌ترین مجموعه بازار سرپوشیده آجری جهان با دالان‌ها، سراها و تیمچه مظفریه؛ شنبه تا پنجشنبه فعال است.',
+          badge: 'POI-TBZ-001',
+          url: 'https://sarzaminaryan.ir/treasure/tabriz-historic-bazaar/',
+        },
+        {
+          tag: 'میراث مذهبی و معماری',
+          title: 'حرم شاهچراغ',
+          subtitle: 'شیراز · فارس',
+          desc: 'آرامگاه سید احمد بن موسی با آیینه‌کاری‌های درخشان، صحن‌های تاریخی و جایگاه ویژه در بافت کهن شیراز.',
+          badge: 'دیدنی شاخص شیراز',
+          url: 'https://sarzaminaryan.ir/treasure/shah-cheragh/',
+        },
+        {
+          tag: 'هنر و تاریخ جلفا',
+          title: 'کلیسای وانک',
+          subtitle: 'اصفهان · محله جلفا',
+          desc: 'مجموعه تاریخی با نقاشی‌های دیواری چشم‌نواز، کتابخانه نفیس و موزه مردم‌شناسی ارمنیان در اصفهان.',
+          badge: 'دیدنی شاخص اصفهان',
+          url: 'https://sarzaminaryan.ir/treasure/vank-cathedral/',
+        },
+        {
+          tag: 'معماری و زاینده‌رود',
+          title: 'پل خواجو',
+          subtitle: 'اصفهان · زاینده‌رود',
+          desc: 'یکی از زیباترین پل‌ها و سدهای تاریخی ایران با غرفه‌ها، طاق‌های قرینه و فضای خاطره‌انگیز پیاده‌روی.',
+          badge: 'دیدنی شاخص اصفهان',
+          url: 'https://sarzaminaryan.ir/treasure/khaju-bridge/',
+        },
+      \],
+    };
+
+    const spotlightGridEl = document.getElementById('spotlight-grid');
+
+    function switchSpotlightTab(tabKey) {
+      document.querySelectorAll('.spotlight-tab').forEach((btn) => {
+        const isSelected = btn.dataset.spotlightTab === tabKey;
+        btn.setAttribute('aria-selected', String(isSelected));
+        if (isSelected) {
+          btn.classList.add('bg-petrol', 'text-white', 'font-bold');
+          btn.classList.remove('bg-canvas', 'hover:bg-petrolSoft', 'text-ink', 'hover:text-petrol', 'font-semibold', 'border', 'border-line');
+        } else {
+          btn.classList.remove('bg-petrol', 'text-white', 'font-bold');
+          btn.classList.add('bg-canvas', 'hover:bg-petrolSoft', 'text-ink', 'hover:text-petrol', 'font-semibold', 'border', 'border-line');
+        }
+      });
+
+      const items = spotlightCollections\[tabKey\] || spotlightCollections.seasonal;
+      spotlightGridEl.innerHTML = items
+        .map(
+          (card) => \`
+          <article class="group bg-canvas hover:bg-surface rounded-2xl border border-line hover:border-petrol/50 p-5 flex flex-col justify-between space-y-4 transition-all">
+            <div class="space-y-2.5">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-\[11px\] font-bold px-2.5 py-1 rounded-lg bg-ochreSoft text-ochreDark">${card.tag}</span>
+              </div>
+              <h3 class="text-lg font-extrabold text-ink group-hover:text-petrol transition-colors">
+                <a href="${card.url}" class="focus:outline-none">${card.title}</a>
+              </h3>
+              <p class="text-\[11px\] font-semibold text-petrol">${card.subtitle}</p>
+              <p class="text-xs text-muted leading-relaxed">${card.desc}</p>
+            </div>
+
+            <div class="pt-3 border-t border-line/80 flex items-center justify-between gap-2 text-xs">
+              <span class="text-\[11px\] font-semibold text-muted">${card.badge}</span>
+              <a href="${card.url}" class="font-bold text-petrol hover:underline shrink-0">مشاهده ←</a>
+            </div>
+          </article>
+        \`
+        )
+        .join('');
+    }
+
+    // مدیریت مودال ورود / عضویت
+    const authModal = document.getElementById('auth-modal');
+    const authForm = document.getElementById('auth-form');
+    const authFeedback = document.getElementById('auth-feedback');
+
+    function openAuthModal() {
+      authFeedback.classList.add('hidden');
+      authModal.classList.remove('hidden');
+      authModal.classList.add('flex');
+    }
+
+    function closeAuthModal() {
+      authModal.classList.add('hidden');
+      authModal.classList.remove('flex');
+    }
+
+    authModal.addEventListener('click', (e) => {
+      if (e.target === authModal) closeAuthModal();
+    });
+
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      authFeedback.classList.remove('hidden');
+      setTimeout(() => {
+        authForm.reset();
+        closeAuthModal();
+      }, 1600);
+    });
+
+    // مدیریت مودال ثبت تجربه یا پیشنهاد جدید و افزودن زنده به بخش تازه‌ها
+    const noteModal = document.getElementById('note-modal');
+    const noteForm = document.getElementById('note-form');
+    const noteFeedback = document.getElementById('note-feedback');
+    const fieldNotesGrid = document.getElementById('field-notes-grid');
+
+    function openNoteModal() {
+      noteFeedback.classList.add('hidden');
+      noteModal.classList.remove('hidden');
+      noteModal.classList.add('flex');
+    }
+
+    function closeNoteModal() {
+      noteModal.classList.add('hidden');
+      noteModal.classList.remove('flex');
+    }
+
+    noteModal.addEventListener('click', (e) => {
+      if (e.target === noteModal) closeNoteModal();
+    });
+
+    noteForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const author = document.getElementById('note-author').value.trim();
+      const place = document.getElementById('note-place').value.trim();
+      const title = document.getElementById('note-title').value.trim();
+      const body = document.getElementById('note-body').value.trim();
+
+      if (author && place && title && body) {
+        const card = document.createElement('article');
+        card.className = 'bg-surface rounded-3xl border-2 border-petrol/35 p-6 shadow-card flex flex-col justify-between space-y-4';
+        card.innerHTML = \`
+          <div class="space-y-3">
+            <div class="flex items-center justify-between gap-2 text-xs">
+              <span class="font-bold px-2.5 py-1 rounded-lg bg-ochreSoft text-ochreDark">تجربه جدید · ${place}</span>
+              <span class="text-petrol font-bold">همین الان</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-ink leading-snug">${title}</h3>
+            <p class="text-xs sm:text-sm text-muted leading-relaxed">${body}</p>
+          </div>
+          <div class="pt-3 border-t border-line/80 flex items-center justify-between text-xs">
+            <span class="text-ink font-semibold">${author} · مسافر</span>
+            <span class="text-petrol font-bold">ثبت‌شده در صفحه</span>
+          </div>
+        \`;
+        fieldNotesGrid.prepend(card);
+      }
+
+      noteFeedback.classList.remove('hidden');
+      noteForm.reset();
+      setTimeout(() => {
+        closeNoteModal();
+      }, 1500);
+    });
+
+    // بستن مودال‌های باز با کلید Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAuthModal();
+        closeNoteModal();
+      }
+    });
+
+    // مقداردهی اولیه هنگام بارگذاری صفحه
+    window.addEventListener('DOMContentLoaded', () => {
+      renderLiveSearch(false);
+      switchSpotlightTab('seasonal');
+    });
+  </script>
+</body>
+</html>

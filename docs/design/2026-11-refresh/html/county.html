@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شهرستان تبریز؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی | سرزمین آریان</title>
+  <meta name="description" content="راهنمای جامع سفر به شهرستان تبریز، معرفی جاذبه‌های تاریخی و طبیعی (بازار تبریز، ائل‌گلی، کندوان، لیقوان)، وضعیت جاده‌ها، آب‌وهوا، مترو و تجربه واقعی مسافرها در سرزمین آریان.">
+
+  <!-- فونت فارسی وزیرمتن (Vazirmatn) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: \['Vazirmatn', 'sans-serif'\],
+          },
+          colors: {
+            brand: {
+              teal: '#0F4C5C',       /\* فیروزه‌ای/نفتی تیره اصلی \*/
+              tealLight: '#196B80',
+              tealSoft: '#EBF4F6',
+              copper: '#C87D32',     /\* مسی/طلایی گرم مکمل \*/
+              copperSoft: '#FDF5ED',
+              cream: '#FAF9F6',      /\* پس‌زمینه روشن و کاغذی \*/
+              ink: '#1E293B',        /\* متن اصلی تیره \*/
+              muted: '#64748B',      /\* متن ثانویه \*/
+              border: '#E2E8F0'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /\* مخفی‌سازی اسکرول‌بار افقی در نوار دسترسی سریع و تب‌ها \*/
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+  <!-- اسکیمای BreadcrumbList برای سئوی ساختاریافته گوگل -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": \[
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "خانه",
+        "item": "https://sarzaminaryan.ir/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "استان‌ها",
+        "item": "https://sarzaminaryan.ir/provinces/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "استان آذربایجان شرقی",
+        "item": "https://sarzaminaryan.ir/province/east-azerbaijan/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "شهرستان تبریز",
+        "item": "https://sarzaminaryan.ir/city/tabriz/"
+      }
+    \]
+  }
+  </script>
+</head>
+<body class="bg-brand-cream text-brand-ink font-sans antialiased selection:bg-brand-teal selection:text-white">
+
+  <!-- ==================== ۱. هدر ثابت و ناوبری اصلی ==================== -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <!-- لوگو و عنوان برند -->
+      <a href="/" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-9 h-9 rounded-xl bg-brand-teal text-white flex items-center justify-center shadow-sm group-hover:bg-brand-tealLight transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-extrabold text-lg text-brand-teal tracking-tight block leading-none">سرزمین آریان</span>
+          <span class="text-\[11px\] text-brand-muted block mt-0.5">دانشنامه سفر و شناخت ایران</span>
+        </div>
+      </a>
+
+      <!-- منوی دسکتاپ -->
+      <nav aria-label="منوی اصلی" class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700">
+        <a href="/provinces/" class="hover:text-brand-teal transition-colors py-5">استان‌ها</a>
+        <a href="/cities/" class="text-brand-teal font-semibold border-b-2 border-brand-copper py-5">شهرستان‌ها</a>
+        <a href="/attractions/" class="hover:text-brand-teal transition-colors py-5">دیدنی‌ها</a>
+        <a href="/travel-guide/" class="hover:text-brand-teal transition-colors py-5">آموزش سفر</a>
+      </nav>
+
+      <!-- دکمه اقدام سریع در هدر -->
+      <div class="flex items-center gap-2">
+        <button type="button" onclick="openExperienceModal()" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold bg-brand-copperSoft text-brand-copper hover:bg-brand-copper hover:text-white border border-brand-copper/30 px-3.5 py-2 rounded-xl transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+          </svg>
+          <span>ثبت تجربه در تبریز</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== مسیر راهنما (Breadcrumb) ==================== -->
+  <div class="bg-white border-b border-brand-border/70">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between gap-2 text-xs text-brand-muted">
+      <nav aria-label="مسیر صفحه" class="flex items-center gap-1.5 flex-wrap">
+        <a href="/" class="hover:text-brand-teal transition-colors">خانه</a>
+        <span aria-hidden="true">›</span>
+        <a href="/provinces/" class="hover:text-brand-teal transition-colors">استان‌ها</a>
+        <span aria-hidden="true">›</span>
+        <a href="/province/east-azerbaijan/" class="hover:text-brand-teal transition-colors">استان آذربایجان شرقی</a>
+        <span aria-hidden="true">›</span>
+        <span class="text-brand-ink font-bold" aria-current="page">شهرستان تبریز</span>
+      </nav>
+      <span class="hidden sm:inline-block font-mono text-\[11px\] text-brand-teal bg-brand-tealSoft px-2.5 py-0.5 rounded-md font-semibold">
+        SYS.ID // CTY-TABRIZ
+      </span>
+    </div>
+  </div>
+
+  <!-- ==================== ۳. نوار دسترسی سریع چسبان (Sticky Jump-to-Section Bar) ==================== -->
+  <div class="sticky top-16 z-40 bg-brand-cream/95 backdrop-blur-md border-b border-brand-border shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav aria-label="بخش‌های صفحه شهرستان" class="flex items-center gap-1.5 sm:gap-2 py-2.5 overflow-x-auto no-scrollbar text-xs font-semibold">
+        <span class="text-brand-muted ml-1 shrink-0 hidden sm:inline">پرش سریع:</span>
+        <a href="#identity-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-brand-teal text-white transition-colors">شناسنامه</a>
+        <a href="#attractions-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">جاذبه‌های دیدنی</a>
+        <a href="#field-experience-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">تجربه مسافرها</a>
+        <a href="#weather-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">آب‌وهوا</a>
+        <a href="#golden-tips-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">نکات سفر</a>
+        <a href="#neighbor-counties-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">شهرستان‌های هم‌استانی</a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-12">
+
+    <!-- ==================== ۲. بخش Hero و شناسنامه شهرستان (SYS.ID // CTY-TABRIZ) ==================== -->
+    <section id="identity-section" aria-labelledby="county-title" class="scroll-mt-32 bg-white rounded-3xl border border-brand-border p-6 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+      <!-- دایره تزئینی ظریف پس‌زمینه -->
+      <div class="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-brand-tealSoft/60 pointer-events-none"></div>
+      <div class="absolute -left-8 top-32 w-36 h-36 rounded-full bg-brand-copperSoft/70 pointer-events-none"></div>
+
+      <div class="relative z-10 space-y-8">
+        <!-- ردیف معرفی اصلی Hero -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-copperSoft text-brand-copper text-xs font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand-copper"></span>
+                مرکز استان آذربایجان شرقی
+              </span>
+              <span class="font-mono text-xs text-brand-muted bg-slate-100 px-2.5 py-1 rounded-full">
+                SYS.ID // CTY-TABRIZ
+              </span>
+            </div>
+
+            <h1 id="county-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-brand-ink leading-tight">
+              شهرستان تبریز؛ راهنمای سفر، جاذبه‌ها و تاریخ آذربایجان شرقی
+            </h1>
+
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+              تبریز، پایتخت تاریخی و فرهنگی آذربایجان، شهری است که در دامنه‌های شمالی کوه سهند و در گذرگاه کهن جاده ابریشم قد برافراشته است. این شهرستان با میزبانی از <strong>بزرگ‌ترین بازار سرپوشیده آجری جهان (ثبت جهانی یونسکو)</strong>، معماری دوران ایلخانی و صفوی، خاستگاه انقلاب مشروطه و ییلاق‌های سرسبز پیرامونش، یکی از کامل‌ترین مقصدهای ایران‌گردی برای علاقه‌مندان به تاریخ، طبیعت و فرهنگ اصیل ایرانی است.
+            </p>
+
+            <!-- بخش همسایه‌های شهرستان (اصلاح‌شده: دقیق، بدون تکرار و لینک‌دار) -->
+            <div class="pt-3 border-t border-brand-border/80 space-y-2.5">
+              <div class="flex items-center gap-2 text-xs font-bold text-brand-ink">
+                <svg class="w-4 h-4 text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                </svg>
+                <span>همسایه‌های جغرافیایی شهرستان تبریز:</span>
+              </div>
+              <div class="flex flex-wrap items-center gap-2 text-xs">
+                <a href="/city/shabestar/" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border font-medium transition-colors">
+                  <span class="text-brand-muted">شمال‌غرب و شمال:</span>
+                  <strong class="font-bold">شهرستان شبستر</strong>
+                </a>
+                <a href="/city/varzaqan/" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border font-medium transition-colors">
+                  <span class="text-brand-muted">شمال:</span>
+                  <strong class="font-bold">شهرستان ورزقان</strong>
+                </a>
+                <a href="/city/heris/" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border font-medium transition-colors">
+                  <span class="text-brand-muted">شرق:</span>
+                  <strong class="font-bold">شهرستان هریس</strong>
+                </a>
+                <a href="/city/bostanabad/" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border font-medium transition-colors">
+                  <span class="text-brand-muted">جنوب‌شرق:</span>
+                  <strong class="font-bold">شهرستان بستان‌آباد</strong>
+                </a>
+                <a href="/city/osku/" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-brand-cream hover:bg-brand-tealSoft text-brand-ink hover:text-brand-teal border border-brand-border font-medium transition-colors">
+                  <span class="text-brand-muted">جنوب و جنوب‌غرب:</span>
+                  <strong class="font-bold">شهرستان اسکو</strong>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ستون چپ: باکس داده‌های کلیدی شناسنامه شهرستان (۰۱ تا ۰۷) -->
+          <div class="lg:col-span-5 bg-brand-cream rounded-2xl border border-brand-border p-5">
+            <div class="flex items-center justify-between border-b border-brand-border pb-3 mb-4">
+              <h2 class="text-sm font-bold text-brand-teal flex items-center gap-2">
+                <svg class="w-4 h-4 text-brand-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span>شناسنامه داده‌محور شهرستان</span>
+              </h2>
+              <span class="text-\[11px\] text-brand-muted">به‌روزرسانی آبان ۱۴۰۵</span>
+            </div>
+
+            <dl class="space-y-2.5 text-xs sm:text-sm">
+              <div class="bg-white p-3 rounded-xl border border-brand-border/80 flex items-center justify-between gap-2">
+                <dt class="text-brand-muted text-xs font-mono">01 // استان</dt>
+                <dd class="font-bold text-brand-teal">
+                  <a href="/province/east-azerbaijan/" class="hover:underline">آذربایجان شرقی</a>
+                </dd>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-brand-border/80 flex items-center justify-between gap-2">
+                <dt class="text-brand-muted text-xs font-mono">02 // مرکز شهرستان</dt>
+                <dd class="font-bold text-brand-ink">کلان‌شهر تبریز <span class="text-\[11px\] font-normal text-brand-muted">(شامل باسمنج و سردرود)</span></dd>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-brand-border/80">
+                <div class="flex items-center justify-between gap-2">
+                  <dt class="text-brand-muted text-xs font-mono">03 // جمعیت و مساحت</dt>
+                  <dd class="font-bold text-brand-ink">۱,۷۷۳,۰۳۳ نفر · ۲,۱۶۷ کیلومتر مربع</dd>
+                </div>
+                <p class="text-\[11px\] text-brand-muted mt-1">
+                  مبنای جمعیت: آخرین سرشماری رسمی عمومی نفوس و مسکن (۱۳۹۵)؛ برآورد کنونی بالای ۲ میلیون نفر است.
+                </p>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-brand-border/80 flex items-center justify-between gap-2 flex-wrap">
+                <dt class="text-brand-muted text-xs font-mono">04 // مختصات و ارتفاع</dt>
+                <dd class="font-bold text-brand-ink text-left">
+                  <span class="font-mono text-xs text-brand-teal">38.0833° N, 46.2833° E</span>
+                  <span class="text-xs font-normal text-brand-muted mr-1.5">| ارتفاع ۱۳۴۰ متر</span>
+                </dd>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-brand-border/80 flex items-center justify-between gap-2">
+                <dt class="text-brand-muted text-xs font-mono">05 // زبان و معیشت غالب</dt>
+                <dd class="font-bold text-brand-ink">ترکی آذربایجانی · صنعت، بازرگانی و فرش</dd>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-brand-border/80 flex items-center justify-between gap-2">
+                <dt class="text-brand-muted text-xs font-mono">06 // پلاک و پیش‌شماره</dt>
+                <dd class="font-bold text-brand-ink font-mono">پلاک ۱۵ و ۳۵ | پیش‌شماره ۰۴۱</dd>
+              </div>
+
+              <div class="bg-white p-3 rounded-xl border border-brand-border/80 flex items-center justify-between gap-2">
+                <dt class="text-brand-muted text-xs font-mono">07 // راه‌های دسترسی</dt>
+                <dd class="font-bold text-brand-ink">آزادراه پیامبر اعظم، راه‌آهن، فرودگاه بین‌المللی</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ۴. بخش «جاذبه‌های شاخص شهرستان تبریز» (کامل، دسته‌بندی‌شده و فیلتردار) ==================== -->
+    <section id="attractions-section" aria-labelledby="attractions-heading" class="scroll-mt-32 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold text-brand-copper">دیدنی‌های منتخب و پیرامون</span>
+          <h2 id="attractions-heading" class="text-xl sm:text-2xl font-extrabold text-brand-ink mt-1">
+            جاذبه‌های شاخص شهرستان تبریز
+          </h2>
+          <p class="text-sm text-brand-muted mt-1">
+            مجموعه‌ای کامل از بناهای ثبت جهانی، آثار تاریخی، تفرجگاه‌های شهری و ییلاق‌های محبوب مسافرها:
+          </p>
+        </div>
+
+        <!-- تب‌های فیلتر دسته‌بندی جاذبه‌ها -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0" role="tablist" aria-label="فیلتر دسته‌بندی جاذبه‌ها">
+          <button type="button" data-category="all" class="attr-tab active shrink-0 px-3.5 py-2 rounded-xl text-xs font-bold bg-brand-teal text-white transition-colors">
+            همه جاذبه‌ها (۸)
+          </button>
+          <button type="button" data-category="historical" class="attr-tab shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">
+            تاریخی و معماری
+          </button>
+          <button type="button" data-category="nature" class="attr-tab shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">
+            طبیعت و ییلاق
+          </button>
+          <button type="button" data-category="urban" class="attr-tab shrink-0 px-3.5 py-2 rounded-xl text-xs font-semibold bg-white text-slate-700 hover:bg-brand-tealSoft hover:text-brand-teal border border-brand-border transition-colors">
+            تفریحی و شهری
+          </button>
+        </div>
+      </div>
+
+      <!-- شبکه کارت‌های جاذبه‌های تبریز -->
+      <div id="attractions-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- کارت‌ها توسط JavaScript از داده‌های ساختاریافته رندر می‌شوند -->
+      </div>
+    </section>
+
+    <!-- ==================== ۵. بخش «از تجربهٔ مسافرها و وضعیت میدانی» (به‌روزرسانی آبان ۱۴۰۵) ==================== -->
+    <section id="field-experience-section" aria-labelledby="field-heading" class="scroll-mt-32 bg-white rounded-3xl border border-brand-border p-6 sm:p-8 shadow-sm space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-brand-border pb-4">
+        <div>
+          <span class="text-xs font-bold text-brand-copper">گزارش میدانی و واقعی</span>
+          <h2 id="field-heading" class="text-xl sm:text-2xl font-extrabold text-brand-ink mt-0.5">
+            از تجربهٔ مسافرها و وضعیت میدانی
+          </h2>
+        </div>
+        <span class="inline-flex items-center gap-1.5 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 rounded-full self-start sm:self-auto">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          به‌روزرسانی آبان ۱۴۰۵
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- کارت ۱: وضعیت جاده و دسترسی -->
+        <article class="bg-brand-cream rounded-2xl border border-brand-border p-5 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-brand-ink flex items-center gap-2">
+              <span class="w-8 h-8 rounded-xl bg-brand-tealSoft text-brand-teal flex items-center justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                </svg>
+              </span>
+              وضعیت جاده و دسترسی از تهران
+            </h3>
+            <span class="text-\[11px\] font-bold px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800">آزادراهی و ایمن</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            مسیر تهران تا تبریز (حدود ۶۲۰ کیلومتر، ۶.۵ تا ۷ ساعت رانندگی) تماماً <strong>آزادراهی و دوطرفه تفکیک‌شده</strong> است. در گردنه شبلی (نزدیکی بستان‌آباد) در فصل سرد احتمال مه‌گرفتگی و لغزندگی وجود دارد. قطارهای شب‌رو و پروازهای روزانه نیز فعال و منظم هستند.
+          </p>
+        </article>
+
+        <!-- کارت ۲: اینترنت و آنتن‌دهی -->
+        <article class="bg-brand-cream rounded-2xl border border-brand-border p-5 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-brand-ink flex items-center gap-2">
+              <span class="w-8 h-8 rounded-xl bg-brand-tealSoft text-brand-teal flex items-center justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                </svg>
+              </span>
+              اینترنت و آنتن‌دهی موبایل
+            </h3>
+            <span class="text-\[11px\] font-bold px-2.5 py-0.5 rounded-md bg-sky-100 text-sky-800">4G / 5G پایدار</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            در تمام مناطق شهری تبریز، ائل‌گلی و مسیر کندوان پوشش <strong>4G و در نقاط مرکزی 5G</strong> با سرعت مناسب برقرار است. تنها در بخش‌های عمیق دره لیقوان و برخی پیچ‌های گردنه‌های کوهستانی افت موقت آنتن دیده می‌شود؛ نقشه آفلاین همراه داشته باشید.
+          </p>
+        </article>
+
+        <!-- کارت ۳: حمل‌ونقل شهری و مترو -->
+        <article class="bg-brand-cream rounded-2xl border border-brand-border p-5 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-brand-ink flex items-center gap-2">
+              <span class="w-8 h-8 rounded-xl bg-brand-copperSoft text-brand-copper flex items-center justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h8m-8 4h8m-4 4v3m-6 0h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+              </span>
+              حمل‌ونقل شهری و مترو تبریز
+            </h3>
+            <span class="text-\[11px\] font-bold px-2.5 py-0.5 rounded-md bg-brand-tealSoft text-brand-teal">خط ۱ (۱۸ ایستگاه)</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <strong>خط ۱ متروی تبریز</strong> با ۱۸ ایستگاه فعال، تفرجگاه ائل‌گلی در جنوب‌شرق را مستقیماً به مرکز شهر (میدان ساعت، بازار، محققی) و شمال‌غرب متصل می‌کند. اتوبوس‌های تندرو (BRT) نیز از میدان راه‌آهن تا آبرسان و باسمنج بهترین گزینه بدون ترافیک هستند.
+          </p>
+        </article>
+
+        <!-- کارت ۴: وضعیت پارکینگ -->
+        <article class="bg-brand-cream rounded-2xl border border-brand-border p-5 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-bold text-brand-ink flex items-center gap-2">
+              <span class="w-8 h-8 rounded-xl bg-brand-copperSoft text-brand-copper flex items-center justify-center">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                </svg>
+              </span>
+              وضعیت پارکینگ در مرکز شهر و ائل‌گلی
+            </h3>
+            <span class="text-\[11px\] font-bold px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-800">شلوغ در عصرها</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+            در محدوده <strong>بازار تبریز، تربیت و خیابان امام</strong> جای پارک حاشیه‌ای به‌سختی پیدا می‌شود؛ از پارکینگ‌های طبقاتی شمس تبریزی، فجر یا ۲۹ بهمن استفاده کنید. در <strong>ائل‌گلی</strong> پارکینگ‌های روباز گسترده وجود دارد اما پنجشنبه و جمعه عصرها ظرفیت سریع تکمیل می‌شود.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== ۶. بخش «اقلیم و آب‌وهوا، فصل‌به‌فصل» ==================== -->
+    <section id="weather-section" aria-labelledby="weather-heading" class="scroll-mt-32 space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold text-brand-copper">تقویم سفر</span>
+          <h2 id="weather-heading" class="text-xl sm:text-2xl font-extrabold text-brand-ink mt-1">
+            اقلیم و آب‌وهوا، فصل‌به‌فصل
+          </h2>
+        </div>
+        <p class="text-xs text-brand-muted">مقایسه دما، میزان شلوغی گردشگران و هزینه اقامت در طول سال</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <!-- بهار -->
+        <article class="bg-white rounded-2xl border-2 border-emerald-500/40 p-5 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-base font-extrabold text-emerald-800">بهار</span>
+              <span class="text-\[11px\] font-bold bg-emerald-600 text-white px-2.5 py-0.5 rounded-full">پیشنهاد ویژه</span>
+            </div>
+            <p class="text-xs font-semibold text-brand-muted">فروردین تا خرداد · ۱۰ تا ۲۴ درجه</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              اوج طراوت پارک‌های تبریز، شکوفه‌های بهاری و سرسبزی دره لیقوان و کندوان. فروردین هوا خنک و بارانی و اردیبهشت بسیار دلپذیر است.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-brand-border space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-brand-muted">میزان شلوغی:</span>
+              <span class="font-bold text-amber-600">زیاد (به‌ویژه نوروز و اردیبهشت)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-brand-muted">هزینه سفر:</span>
+              <span class="font-bold text-brand-ink">متوسط رو به بالا</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- تابستان -->
+        <article class="bg-white rounded-2xl border border-brand-border p-5 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-base font-extrabold text-sky-800">تابستان</span>
+              <span class="text-\[11px\] font-bold bg-sky-100 text-sky-800 px-2.5 py-0.5 rounded-full">ملایم و ییلاقی</span>
+            </div>
+            <p class="text-xs font-semibold text-brand-muted">تیر تا شهریور · ۲۰ تا ۳۲ درجه</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              به دور از شرجی و گرمای طاقت‌فرسا؛ شب‌های تبریز خنک است و بهترین زمان برای صعود به عینالی و پیاده‌روی شبانه در ائل‌گلی محسوب می‌شود.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-brand-border space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-brand-muted">میزان شلوغی:</span>
+              <span class="font-bold text-rose-600">بسیار زیاد (اوج سفرهای تابستانی)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-brand-muted">هزینه سفر:</span>
+              <span class="font-bold text-brand-ink">بالا</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- پاییز -->
+        <article class="bg-white rounded-2xl border border-brand-border p-5 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-base font-extrabold text-amber-800">پاییز</span>
+              <span class="text-\[11px\] font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">هزاررنگ و آرام</span>
+            </div>
+            <p class="text-xs font-semibold text-brand-muted">مهر تا آذر · ۳ تا ۱۸ درجه</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              مهرماه یکی از رویایی‌ترین زمان‌ها برای عکاسی از برگ‌ریزان باغ‌های تبریز و بازارگردی بدون ازدحام است؛ از نیمه آبان هوا به سرعت سرد می‌شود.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-brand-border space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-brand-muted">میزان شلوغی:</span>
+              <span class="font-bold text-emerald-700">کم تا متوسط</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-brand-muted">هزینه سفر:</span>
+              <span class="font-bold text-emerald-700">مقرون‌به‌صرفه</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- زمستان -->
+        <article class="bg-white rounded-2xl border border-brand-border p-5 shadow-sm flex flex-col justify-between space-y-4">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-base font-extrabold text-slate-800">زمستان</span>
+              <span class="text-\[11px\] font-bold bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-full">سرد و برفی</span>
+            </div>
+            <p class="text-xs font-semibold text-brand-muted">دی تا اسفند · منفی ۶ تا ۷ درجه</p>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              زمستان‌های تبریز سرد و برفی است؛ برای اسکی در پیست سهند، چشیدن آش‌های داغ محلی و گشت‌وگذار در دالان‌های گرم بازار سرپوشیده جذاب است.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-brand-border space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-brand-muted">میزان شلوغی:</span>
+              <span class="font-bold text-emerald-700">خلوت و آرام</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-brand-muted">هزینه سفر:</span>
+              <span class="font-bold text-emerald-700">اقتصادی (به‌جز پیست اسکی)</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== ۷. بخش «نکته‌های طلایی قبل از سفر» (دسته‌بندی رنگی) ==================== -->
+    <section id="golden-tips-section" aria-labelledby="tips-heading" class="scroll-mt-32 space-y-6">
+      <div>
+        <span class="text-xs font-bold text-brand-copper">راهنمای کاربردی</span>
+        <h2 id="tips-heading" class="text-xl sm:text-2xl font-extrabold text-brand-ink mt-1">
+          نکته‌های طلایی قبل از سفر به تبریز
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <!-- باکس ۱: هشدارها و زمان‌بندی (نارنجی/مسی) -->
+        <div class="bg-amber-50/80 rounded-3xl border border-amber-200 p-6 space-y-3">
+          <div class="flex items-center gap-2.5 text-amber-900 font-extrabold text-base">
+            <span class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center shrink-0">!</span>
+            <h3>هشدارها و ساعت‌های کاری</h3>
+          </div>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-amber-950/90 leading-relaxed list-disc pr-4">
+            <li><strong>بازار تبریز جمعه‌ها تعطیل است:</strong> برای دیدن تیمچه مظفریه و راسته‌های اصلی بازار، حتماً شنبه تا پنجشنبه (ساعت ۱۰ تا ۱۸) برنامه‌ریزی کنید.</li>
+            <li><strong>تغییر ناگهانی هوا:</strong> حتی در بهار و تابستان، برای بازدید از کندوان، لیقوان و تله‌کابین عینالی یک ژاکت یا بادگیر سبک همراه ببرید.</li>
+            <li><strong>کفش مناسب سنگ‌فرش:</strong> پیاده‌راه تربیت، بازار و کوچه‌های سنگ‌فرش کندوان نیازمند کفش راحت و غیرلغزنده هستند.</li>
+          </ul>
+        </div>
+
+        <!-- باکس ۲: نکات کاربردی گشت‌وگذار (فیروزه‌ای) -->
+        <div class="bg-brand-tealSoft/80 rounded-3xl border border-brand-teal/20 p-6 space-y-3">
+          <div class="flex items-center gap-2.5 text-brand-teal font-extrabold text-base">
+            <span class="w-8 h-8 rounded-xl bg-brand-teal text-white flex items-center justify-center shrink-0">✓</span>
+            <h3>نکات کاربردی گشت‌وگذار</h3>
+          </div>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-slate-700 leading-relaxed list-disc pr-4">
+            <li><strong>کارت بلیت شهروندی:</strong> برای استفاده آسان از مترو و اتوبوس‌های BRT، از باجه‌های ایستگاه‌ها کارت بلیت تهیه کنید.</li>
+            <li><strong>بهترین زمان عکاسی از مسجد کبود:</strong> صبح‌ها پیش از ظهر، نور خورشید از پنجره‌ها به کاشی‌های فیروزه‌ای می‌تابد و جلوه‌ای بی‌نظیر می‌سازد.</li>
+            <li><strong>ترکیب کندوان و اسکو:</strong> بازدید از روستای کندوان را با گشت‌وگذار در باغات اسکو و خرید پارچه‌های دست‌چاپ باتیک ترکیب کنید.</li>
+          </ul>
+        </div>
+
+        <!-- باکس ۳: فرهنگ، زبان و خوراکی‌های محلی (زمردی/گرم) -->
+        <div class="bg-emerald-50/80 rounded-3xl border border-emerald-200 p-6 space-y-3">
+          <div class="flex items-center gap-2.5 text-emerald-900 font-extrabold text-base">
+            <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center shrink-0">★</span>
+            <h3>فرهنگ، خوراکی‌ها و سوغات</h3>
+          </div>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-emerald-950/90 leading-relaxed list-disc pr-4">
+            <li><strong>طعم‌های اصیل:</strong> چشیدن <strong>کوفته تبریزی</strong>، دیزی سنگی و کباب بناب در رستوران‌های سنتی بازار را از دست ندهید.</li>
+            <li><strong>سوغات شیرین و ماندگار:</strong> شیرینی <strong>قرابیه</strong>، <strong>نوقا (لوکا)</strong>، باقلوا، آجیل تبریز و کفش چرم دست‌دوز بهترین یادگاری‌ها هستند.</li>
+            <li><strong>چند واژه ترکی کاربردی:</strong> «یاشاسین» (زنده باد)، «چوخ ساغول» (خیلی ممنون) و «خوش گلیبسیز» (خوش آمدید) لبخند گرم میزبان‌ها را به همراه دارد.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ۸. بخش تعاملی «ثبت تجربه سفر در تبریز» + «شهرستان‌های هم‌استانی» ==================== -->
+    <section aria-labelledby="cta-heading" class="bg-brand-teal text-white rounded-3xl p-6 sm:p-10 shadow-sm relative overflow-hidden">
+      <div class="absolute -left-16 -bottom-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none"></div>
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div class="space-y-2.5 max-w-2xl">
+          <span class="inline-block text-xs font-bold text-amber-300 uppercase tracking-wider">مشارکت در بخش شهر من</span>
+          <h2 id="cta-heading" class="text-xl sm:text-2xl lg:text-3xl font-extrabold">
+            تجربه‌ای از سفر یا زندگی در تبریز دارید؟
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+            نکته جدیدی درباره مسیرهای دسترسی، کافه‌ها، رستوران‌های محلی یا وضعیت جاده‌های تبریز می‌دانید؟ تجربه خودتان را ثبت کنید تا پس از بررسی تحریریه، به نام شما در دانشنامه <strong>سرزمین آریان</strong> منتشر شود.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3 shrink-0">
+          <button type="button" onclick="openExperienceModal()" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-brand-copper hover:bg-amber-600 text-white font-bold text-xs sm:text-sm shadow-md transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+            </svg>
+            <span>ارسال تجربه سفر من</span>
+          </button>
+          <a href="/province/east-azerbaijan/" class="inline-flex items-center gap-2 px-5 py-3.5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm border border-white/20 transition-colors">
+            <span>بازگشت به استان آذربایجان شرقی</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- بخش شهرستان‌های هم‌استانی و مسیرهای بعدی -->
+    <section id="neighbor-counties-section" aria-labelledby="related-counties-heading" class="scroll-mt-32 space-y-5">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+        <div>
+          <span class="text-xs font-bold text-brand-copper">ادامه کاوش در آذربایجان شرقی</span>
+          <h2 id="related-counties-heading" class="text-xl font-extrabold text-brand-ink mt-0.5">
+            شهرستان‌های هم‌استانی و مقصدهای پیشنهادی بعدی
+          </h2>
+        </div>
+        <a href="/province/east-azerbaijan/#counties-section" class="text-xs font-bold text-brand-teal hover:underline">
+          مشاهده همه ۱۶ شهرستان استان ←
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <a href="/city/osku/" class="group bg-white rounded-2xl border border-brand-border p-4 hover:border-brand-teal hover:shadow-sm transition-all">
+          <div class="flex items-center justify-between text-xs text-brand-muted mb-1.5">
+            <span class="text-brand-copper font-semibold">۴۰ کیلومتری جنوب‌غرب</span>
+            <span>۴۵ دقیقه</span>
+          </div>
+          <h3 class="text-base font-extrabold text-brand-ink group-hover:text-brand-teal transition-colors">شهرستان اسکو</h3>
+          <p class="text-xs text-slate-600 mt-1 line-clamp-2">روستای صخره‌ای کندوان، چاپ باتیک و باغ‌های گردو در دامنه سهند.</p>
+        </a>
+
+        <a href="/city/maragheh/" class="group bg-white rounded-2xl border border-brand-border p-4 hover:border-brand-teal hover:shadow-sm transition-all">
+          <div class="flex items-center justify-between text-xs text-brand-muted mb-1.5">
+            <span class="text-brand-teal font-semibold">۱۳۰ کیلومتری جنوب</span>
+            <span>۱ ساعت و ۴۵ دقیقه</span>
+          </div>
+          <h3 class="text-base font-extrabold text-brand-ink group-hover:text-brand-teal transition-colors">شهرستان مراغه</h3>
+          <p class="text-xs text-slate-600 mt-1 line-clamp-2">پایتخت ایلخانان، رصدخانه خواجه نصیر و گنبدهای تاریخی آجری.</p>
+        </a>
+
+        <a href="/city/jolfa/" class="group bg-white rounded-2xl border border-brand-border p-4 hover:border-brand-teal hover:shadow-sm transition-all">
+          <div class="flex items-center justify-between text-xs text-brand-muted mb-1.5">
+            <span class="text-brand-teal font-semibold">۱۳۵ کیلومتری شمال‌غرب</span>
+            <span>۱ ساعت و ۵۰ دقیقه</span>
+          </div>
+          <h3 class="text-base font-extrabold text-brand-ink group-hover:text-brand-teal transition-colors">شهرستان جلفا</h3>
+          <p class="text-xs text-slate-600 mt-1 line-clamp-2">کلیسای جهانی سنت استپانوس، آسیاب خرابه و کرانه رود ارس.</p>
+        </a>
+
+        <a href="/city/kaleybar/" class="group bg-white rounded-2xl border border-brand-border p-4 hover:border-brand-teal hover:shadow-sm transition-all">
+          <div class="flex items-center justify-between text-xs text-brand-muted mb-1.5">
+            <span class="text-emerald-700 font-semibold">۱۶۵ کیلومتری شمال‌شرق</span>
+            <span>۲ ساعت و ۲۰ دقیقه</span>
+          </div>
+          <h3 class="text-base font-extrabold text-brand-ink group-hover:text-brand-teal transition-colors">شهرستان کلیبر</h3>
+          <p class="text-xs text-slate-600 mt-1 line-clamp-2">جنگل‌های مه‌آلود ارسباران، قلعه بابک و ییلاق‌های سرسبز.</p>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== ۹. فوتر تمیز و بدون تکرار ==================== -->
+  <footer class="bg-white border-t border-brand-border mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-8 border-b border-brand-border">
+        <div class="md:col-span-5 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-copper"></span>
+            <span class="font-extrabold text-lg text-brand-teal">سرزمین آریان</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-md">
+            دانشنامه سفر و شناخت ایران؛ مرجع معرفی استان‌ها، شهرستان‌ها و جاذبه‌های گردشگری با تکیه بر داده‌های دقیق جغرافیایی و تجربه واقعی مسافرها.
+          </p>
+        </div>
+
+        <div class="md:col-span-4 space-y-2.5">
+          <h3 class="text-xs font-bold text-brand-ink uppercase tracking-wider">کاوش در دانشنامه</h3>
+          <ul class="grid grid-cols-2 gap-2 text-xs sm:text-sm text-slate-600">
+            <li><a href="/provinces/" class="hover:text-brand-teal transition-colors">استان‌های ایران</a></li>
+            <li><a href="/cities/" class="hover:text-brand-teal transition-colors">فهرست شهرستان‌ها</a></li>
+            <li><a href="/attractions/" class="hover:text-brand-teal transition-colors">دیدنی‌های ایران</a></li>
+            <li><a href="/travel-guide/" class="hover:text-brand-teal transition-colors">آموزش و راهنمای سفر</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 space-y-2.5">
+          <h3 class="text-xs font-bold text-brand-ink uppercase tracking-wider">ارتباط و مشارکت</h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-600">
+            <li><a href="/about/" class="hover:text-brand-teal transition-colors">درباره ما</a></li>
+            <li><a href="/contact/" class="hover:text-brand-teal transition-colors">تماس با تحریریه</a></li>
+            <li><button type="button" onclick="openExperienceModal()" class="hover:text-brand-teal transition-colors">ثبت تجربه در بخش شهر من</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-brand-muted">
+        <p>© ۱۴۰۵ سرزمین آریان — تمامی حقوق محفوظ است.</p>
+        <p>ایران را دوباره کشف کن؛ هر گوشه، داستانی تازه.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== مودال سبک «ثبت تجربه سفر شما در تبریز» ==================== -->
+  <div id="experience-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="bg-white rounded-3xl border border-brand-border max-w-lg w-full p-6 sm:p-8 shadow-xl space-y-5 relative animate-fadeIn">
+      <div class="flex items-center justify-between border-b border-brand-border pb-3">
+        <div>
+          <span class="text-\[11px\] font-bold text-brand-copper">بخش شهر من · CTY-TABRIZ</span>
+          <h3 id="modal-title" class="text-lg font-extrabold text-brand-ink">ثبت تجربه سفر شما در تبریز</h3>
+        </div>
+        <button type="button" onclick="closeExperienceModal()" aria-label="بستن پنجره" class="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors">
+          ✕
+        </button>
+      </div>
+
+      <form id="experience-form" class="space-y-4 text-xs sm:text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="exp-name" class="block font-semibold text-brand-ink mb-1">نام شما</label>
+            <input type="text" id="exp-name" required placeholder="مثلاً: سارا رضایی" class="w-full px-3.5 py-2.5 rounded-xl bg-brand-cream border border-brand-border focus:outline-none focus:border-brand-teal">
+          </div>
+          <div>
+            <label for="exp-topic" class="block font-semibold text-brand-ink mb-1">موضوع تجربه</label>
+            <select id="exp-topic" class="w-full px-3.5 py-2.5 rounded-xl bg-brand-cream border border-brand-border focus:outline-none focus:border-brand-teal">
+              <option value="attraction">بازدید از جاذبه‌ها</option>
+              <option value="food">رستوران و خوراکی‌های محلی</option>
+              <option value="road">وضعیت جاده و حمل‌ونقل</option>
+              <option value="stay">اقامت و هتل</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="exp-text" class="block font-semibold text-brand-ink mb-1">متن تجربه یا نکته کاربردی</label>
+          <textarea id="exp-text" rows="4" required placeholder="تجربه خود را درباره ساعت بازدید، مسیر دسترسی، پارکینگ یا نکات مفید برای دیگر مسافرها بنویسید..." class="w-full px-3.5 py-2.5 rounded-xl bg-brand-cream border border-brand-border focus:outline-none focus:border-brand-teal"></textarea>
+        </div>
+
+        <!-- پیام تایید درون‌صفحه‌ای (بدون استفاده از alert) -->
+        <div id="form-feedback" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium">
+          سپاسگزاریم! تجربه شما با موفقیت ثبت شد و پس از بررسی تحریریه در صفحه شهرستان تبریز منتشر خواهد شد.
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button type="button" onclick="closeExperienceModal()" class="px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold transition-colors">
+            انصراف
+          </button>
+          <button type="submit" class="px-5 py-2.5 rounded-xl bg-brand-teal hover:bg-brand-tealLight text-white font-bold transition-colors">
+            ارسال تجربه
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== اسکریپت‌های تعاملی صفحه (فیلتر جاذبه‌ها، اسکرول فعال و مودال) ==================== -->
+  <script>
+    // داده‌های کامل ۸ جاذبه شاخص شهرستان تبریز
+    const attractionsData = \[
+      {
+        title: "بازار بزرگ تبریز و تیمچه مظفریه",
+        slug: "tabriz-historic-bazaar",
+        category: "historical",
+        categoryLabel: "تاریخی و معماری · یونسکو",
+        distance: "مرکز شهر (ایستگاه مترو میدان ساعت)",
+        description: "بزرگ‌ترین مجموعه مسقف آجری جهان با دالان‌ها، سراها و تیمچه باشکوه مظفریه ویژه فرش دستباف.",
+        featured: true
+      },
+      {
+        title: "روستای صخره‌ای کندوان",
+        slug: "kandovan-village",
+        category: "nature",
+        categoryLabel: "طبیعت و ییلاق · معماری صخره‌ای",
+        distance: "حدود ۵۵ کیلومتری جنوب‌غرب (۵۰ دقیقه)",
+        description: "روستایی شگفت‌انگیز با خانه‌های کله‌قندی کنده‌شده در دل صخره‌های آتشفشانی سهند و آب معدنی.",
+        featured: true
+      },
+      {
+        title: "مجموعه تاریخی و تفریحی ائل‌گلی",
+        slug: "el-goli-park",
+        category: "urban",
+        categoryLabel: "تفریحی و شهری",
+        distance: "۷ کیلومتری جنوب‌شرق مرکز شهر (ایستگاه مترو ائل‌گلی)",
+        description: "استخر بزرگ تاریخی با عمارت کلاه‌فرنگی در مرکز آن و فضای سبز وسیع برای پیاده‌روی عصرگاهی.",
+        featured: true
+      },
+      {
+        title: "دره و روستای لیقوان",
+        slug: "liqvan-valley",
+        category: "nature",
+        categoryLabel: "طبیعت و ییلاق",
+        distance: "حدود ۳۶ کیلومتری جنوب‌شرق (۴۵ دقیقه)",
+        description: "دره‌ای سرسبز و پرآب در دامنه شمالی سهند که به طبیعت بکر و پنیر سنتی لیقوان شهرت دارد.",
+        featured: false
+      },
+      {
+        title: "کوه عینالی و مجموعه تله‌کابین",
+        slug: "eynali-mountain",
+        category: "nature",
+        categoryLabel: "طبیعت و ییلاق · کوهنوردی",
+        distance: "شمال شهر تبریز (بزرگراه پاسداران)",
+        description: "تفرجگاه کوهستانی با مسیرهای کوهنوردی، بقعه عون بن علی، زیپ‌لاین و چشم‌انداز ۳۶۰ درجه شهر.",
+        featured: false
+      },
+      {
+        title: "مسجد کبود (فیروزه اسلام)",
+        slug: "blue-mosque-tabriz",
+        category: "historical",
+        categoryLabel: "تاریخی و معماری",
+        distance: "مرکز شهر (خیابان امام خمینی، جنب پارک خاقانی)",
+        description: "شاهکار کاشی‌کاری معرق و مقرنس‌کاری دوره قراقویونلوها با رنگ فیروزه‌ای منحصربه‌فرد.",
+        featured: true
+      },
+      {
+        title: "خانه مشروطه و محله ششگلان",
+        slug: "constitution-house-tabriz",
+        category: "historical",
+        categoryLabel: "تاریخی و معماری",
+        distance: "مرکز شهر (راسته کوچه، نزدیک بازار)",
+        description: "محل تجمع رهبران انقلاب مشروطه از جمله ستارخان و باقرخان با ارسی‌های رنگی و تالار آیینه.",
+        featured: false
+      },
+      {
+        title: "پارک باغلارباغی تبریز",
+        slug: "baghlarbaghi-park",
+        category: "urban",
+        categoryLabel: "تفریحی و شهری · خانوادگی",
+        distance: "شرق تبریز (بلوار استاد شهریار)",
+        description: "بزرگ‌ترین شهربازی روباز و مجموعه تفریحی خانوادگی تبریز همراه با فضای سبز و امکانات رفاهی.",
+        featured: false
+      }
+    \];
+
+    const attractionsGrid = document.getElementById('attractions-grid');
+    const attrTabs = document.querySelectorAll('.attr-tab');
+
+    // رندر کارت‌های جاذبه‌ها بر اساس دسته‌بندی انتخاب‌شده
+    function renderAttractions(category = 'all') {
+      const filtered = category === 'all'
+        ? attractionsData
+        : attractionsData.filter(item => item.category === category);
+
+      attractionsGrid.innerHTML = filtered.map(item => \`
+        <article class="group bg-white rounded-2xl border ${item.featured ? 'border-brand-teal/35 ring-1 ring-brand-teal/10' : 'border-brand-border'} p-5 flex flex-col justify-between hover:border-brand-teal hover:shadow-md transition-all duration-200">
+          <div class="space-y-3">
+            <!-- برچسب دسته‌بندی -->
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-\[11px\] font-semibold px-2.5 py-1 rounded-lg ${item.category === 'historical' ? 'bg-brand-copperSoft text-brand-copper' : item.category === 'nature' ? 'bg-emerald-50 text-emerald-700' : 'bg-brand-tealSoft text-brand-teal'}">
+                ${item.categoryLabel}
+              </span>
+            </div>
+
+            <!-- عنوان جاذبه -->
+            <h3 class="text-base sm:text-lg font-extrabold text-brand-ink group-hover:text-brand-teal transition-colors leading-snug">
+              <a href="/attraction/${item.slug}/" class="focus:outline-none">
+                ${item.title}
+              </a>
+            </h3>
+
+            <!-- موقعیت و فاصله دقیق -->
+            <div class="flex items-start gap-1.5 text-\[11px\] font-medium text-brand-muted bg-brand-cream px-2.5 py-1.5 rounded-lg">
+              <svg class="w-3.5 h-3.5 text-brand-copper shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <span>${item.distance}</span>
+            </div>
+
+            <!-- توضیح کاربردی -->
+            <p class="text-xs text-slate-600 leading-relaxed">
+              ${item.description}
+            </p>
+          </div>
+
+          <!-- دکمه مشاهده راهنمای بازدید -->
+          <div class="mt-4 pt-3.5 border-t border-brand-border/70">
+            <a href="/attraction/${item.slug}/" class="w-full inline-flex items-center justify-between px-3 py-2 rounded-xl bg-brand-cream group-hover:bg-brand-teal text-brand-teal group-hover:text-white text-xs font-bold transition-colors">
+              <span>مشاهده راهنمای بازدید</span>
+              <svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      \`).join('');
+    }
+
+    // رویداد تغییر تب دسته‌بندی جاذبه‌ها
+    attrTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        attrTabs.forEach(t => {
+          t.classList.remove('active', 'bg-brand-teal', 'text-white', 'font-bold');
+          t.classList.add('bg-white', 'text-slate-700', 'font-semibold', 'border', 'border-brand-border');
+        });
+        tab.classList.add('active', 'bg-brand-teal', 'text-white', 'font-bold');
+        tab.classList.remove('bg-white', 'text-slate-700', 'font-semibold', 'border', 'border-brand-border');
+
+        renderAttractions(tab.dataset.category);
+      });
+    });
+
+    // مدیریت مودال ثبت تجربه سفر
+    const modal = document.getElementById('experience-modal');
+    const expForm = document.getElementById('experience-form');
+    const formFeedback = document.getElementById('form-feedback');
+
+    function openExperienceModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      formFeedback.classList.add('hidden');
+    }
+
+    function closeExperienceModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // بستن مودال با کلیک روی پس‌زمینه تیره
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeExperienceModal();
+      }
+    });
+
+    // ثبت فرم تجربه به صورت درون‌صفحه‌ای
+    expForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formFeedback.classList.remove('hidden');
+      expForm.reset();
+      setTimeout(() => {
+        closeExperienceModal();
+      }, 2200);
+    });
+
+    // اجرای اولیه هنگام بارگذاری صفحه
+    window.addEventListener('DOMContentLoaded', () => {
+      renderAttractions('all');
+    });
+  </script>
+</body>
+</html>
