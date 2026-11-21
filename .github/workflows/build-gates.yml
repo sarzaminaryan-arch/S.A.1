@@ -113,7 +113,10 @@ jobs:
         run: php wp-content/themes/sarzaminaryan-child/tests/test-agent-bridge.php
 
       - name: 'Agent ops guards (index gate, storage, prune, theme rollback)'
-        run: php wp-content/themes/sarzaminaryan-child/tests/test-index-gate.php
+        run: |
+          php wp-content/themes/sarzaminaryan-child/tests/test-index-gate.php
+          php wp-content/themes/sarzaminaryan-child/tests/test-sources-sanitization.php
+          php wp-content/themes/sarzaminaryan-child/tests/test-internal-links.php
 
   build:
     name: Build county pages changed in this push (artifact, no site contact)

@@ -350,11 +350,61 @@ function sa_sanitize_field( $value, $type ) {
 		case 'textarea':
 		case 'list':
 			return sanitize_textarea_field( (string) $value );
+		case 'sources':
+			return sa_sanitize_textarea_preserve_urls( $value );
 		case 'reference':
 			return (string) absint( $value );
 		default:
 			return sanitize_text_field( (string) $value );
 	}
+}
+
+/**
+ * پاک‌سازی متن چندخطی با حفظ کدگذاری درصدی (percent-encoding) نشانی‌های http/https.
+ *
+ * تابع sanitize_textarea_field در هستهٔ وردپرس همهٔ دنباله‌های «%XX» را حذف می‌کند و
+ * نشانی‌های فارسی (مانند ویکی‌پدیا و خبرگزاری‌ها) را از کار می‌اندازد. این تابع هر نشانی
+ * http/https را جداگانه با esc_url_raw پاک‌سازی می‌کند و بقیهٔ متن هر خط را با
+ * sanitize_text_field تمیز نگه می‌دارد.
+ *
+ * @param mixed $value مقدار خام (بدون اسلش اضافه).
+ * @return string
+ */
+function sa_sanitize_textarea_preserve_urls( $value ) {
+	$text = (string) $value;
+	if ( '' === trim( $text ) ) {
+		return '';
+	}
+	if ( function_exists( 'wp_check_invalid_utf8' ) ) {
+		$text = wp_check_invalid_utf8( $text );
+	}
+	$text  = str_replace( array( "\r\n", "\r" ), "\n", $text );
+	$lines = explode( "\n", $text );
+	$out   = array();
+
+	foreach ( $lines as $line ) {
+		$urls   = array();
+		$masked = preg_replace_callback(
+			'~https?://[^\s|<>"\']+~iu',
+			static function ( $m ) use ( &$urls ) {
+				$clean_url = function_exists( 'esc_url_raw' ) ? esc_url_raw( $m[0] ) : trim( $m[0] );
+				if ( '' === $clean_url ) {
+					return '';
+				}
+				$token          = '__SAURLTOKEN' . count( $urls ) . '__';
+				$urls[ $token ] = $clean_url;
+				return $token;
+			},
+			$line
+		);
+		$clean_line = sanitize_text_field( is_string( $masked ) ? $masked : $line );
+		if ( $urls ) {
+			$clean_line = strtr( $clean_line, $urls );
+		}
+		$out[] = $clean_line;
+	}
+
+	return trim( implode( "\n", $out ) );
 }
 
 /**
@@ -430,7 +480,7 @@ function sa_save_meta( $post_id, $post ) {
 			'sa_og_description'  => 'text',
 			'sa_canonical_url'   => 'url',
 			'sa_noindex'         => 'boolean',
-			'sa_sources'         => 'textarea',
+			'sa_sources'         => 'sources',
 			'sa_facts_checked'   => 'text',
 		);
 		foreach ( $seo as $key => $ftype ) {
