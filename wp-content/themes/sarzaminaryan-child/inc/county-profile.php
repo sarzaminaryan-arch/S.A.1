@@ -260,7 +260,7 @@ function sa_county_profile_neighbors( $post_id ) {
 	if ( $out || ! function_exists( 'sa_county_lines' ) ) {
 		return $out;
 	}
-	foreach ( sa_county_lines( get_post_meta( $post_id, 'sa_cty_neighbors', true ) ) as $line ) {
+	foreach ( sa_county_lines( get_post_meta( $post_id, 'sa_cty_neighbors', true ), true ) as $line ) {
 		$parsed = function_exists( 'sa_county_parse_neighbor' ) ? sa_county_parse_neighbor( $line ) : null;
 		if ( ! $parsed || empty( $parsed['dir'] ) ) {
 			continue;
@@ -280,10 +280,11 @@ function sa_county_profile_neighbors( $post_id ) {
 		if ( empty( $free ) ) {
 			continue;
 		}
+		$name = preg_match( '/^(?:استان|شهرستان)\s/u', $parsed['label'] ) ? $parsed['label'] : 'شهرستان ' . $parsed['label'];
 		if ( 1 === $used ) {
 			$out[ $free[0] ] = array(
 				'direction' => $directions[ $free[0] ],
-				'label'     => 'شهرستان ' . $parsed['label'],
+				'label'     => $name,
 				'url'       => isset( $parsed['url'] ) ? (string) $parsed['url'] : '',
 			);
 			continue;
@@ -297,7 +298,7 @@ function sa_county_profile_neighbors( $post_id ) {
 		if ( ! isset( $out[ $key ] ) ) {
 			$out[ $key ] = array(
 				'direction' => $dir_label,
-				'label'     => 'شهرستان ' . $parsed['label'],
+				'label'     => $name,
 				'url'       => isset( $parsed['url'] ) ? (string) $parsed['url'] : '',
 			);
 		}

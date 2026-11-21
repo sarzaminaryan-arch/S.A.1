@@ -533,9 +533,13 @@ add_action( 'save_post_city', 'sa_county_save' );
  * Split a textarea meta into trimmed lines.
  *
  * @param string $raw Raw meta.
+ * @param bool   $legacy_neighbors Decode literal line breaks in imported neighbour lists only.
  * @return string[]
  */
-function sa_county_lines( $raw ) {
+function sa_county_lines( $raw, $legacy_neighbors = false ) {
+	if ( $legacy_neighbors ) {
+		$raw = str_replace( array( '\r\n', '\n', '\r' ), "\n", (string) $raw );
+	}
 	$out = array();
 	foreach ( preg_split( '/\r\n|\r|\n/', (string) $raw ) as $line ) {
 		$line = trim( $line );
@@ -754,7 +758,7 @@ function sa_county_schema_graph( $graph ) {
 	}
 
 	$borders = array();
-	foreach ( sa_county_lines( get_post_meta( $id, 'sa_cty_neighbors', true ) ) as $line ) {
+	foreach ( sa_county_lines( get_post_meta( $id, 'sa_cty_neighbors', true ), true ) as $line ) {
 		$n = sa_county_parse_neighbor( $line );
 		if ( $n['label'] ) {
 			$borders[] = array(
