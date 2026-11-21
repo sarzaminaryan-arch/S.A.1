@@ -239,6 +239,7 @@ META_SKIP_KEYS = {
     "slug", "sa_city_slug", "sa_province_id", "sa_schema_contained_in", "lat", "lng",
     "sa_google_map_url", "sa_county_schema_type", "sa_city_schema_type", "sa_map_provider",
     "sa_neshan_map_key", "sa_city_latitude", "sa_city_longitude", "sa_map_zoom",
+    "sa_latitude", "sa_longitude", "sa_english_name", "county_en", "center_en",
     "sa_cty_population", "sa_city_population", "sa_cty_census_year", "sa_city_elevation",
     "sa_cty_districts", "sa_cty_cities", "sa_cty_rural_districts",
 }
@@ -290,6 +291,16 @@ def scan_meta(meta: dict, where: str = "") -> list[str]:
             for line in value.splitlines():
                 # «نام فارسی؛ توضیح» — بخش لاتین نام تخصصی مجاز است
                 issues += scan(re.sub(r"[A-Za-z][A-Za-z0-9.'’\-]*", " ", line), f"{where}{key}: ")
+            continue
+        if key == "sa_sources":
+            # بخش پس از «---» یادداشت خصوصی ویراستار است و در سایت نمایش داده نمی‌شود؛
+            # در بخش عمومی نیز عنوان انگلیسی منابع بین‌المللی (UNESCO، Iranica و…) مجاز است،
+            # اما خطاهای فارسی (ماه‌های میلادی به خط فارسی، حروف/ارقام عربی، نیم‌فاصله) خطا می‌گیرند.
+            public_part = re.split(r"^\s*-{3,}.*$", value, maxsplit=1, flags=re.M)[0]
+            for line in public_part.splitlines():
+                cleaned_line = re.sub(r"https?://\S+", " ", line)
+                cleaned_line = re.sub(r"[A-Za-z][A-Za-z0-9.'’\-/():,]*", " ", cleaned_line)
+                issues += scan(cleaned_line, f"{where}{key}: ", spacing=False)
             continue
         issues += scan(value, f"{where}{key}: ")
     return issues

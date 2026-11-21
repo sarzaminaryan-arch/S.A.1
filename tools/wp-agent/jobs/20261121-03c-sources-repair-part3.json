@@ -1,0 +1,403 @@
+{
+  "note": "گام ۲-ب (بخش 3 از 3): بازسازی قطعی نشانی‌های درصدکدگذاری‌شدهٔ خراب در sa_sources و همگام‌سازی منابع مخزن (56 نوشته). فقط متادیتا با پشتیبان خودکار.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 1858,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudbar-e-jonubi-1858.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودبار جنوب)"
+    },
+    {
+      "cmd": "update",
+      "id": 1860,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-jazmurian-1860.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان جازموریان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1872,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-aliabad-1872.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان علی‌آباد کتول)"
+    },
+    {
+      "cmd": "update",
+      "id": 1877,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-torkaman-1877.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ترکمن)"
+    },
+    {
+      "cmd": "update",
+      "id": 1881,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-galikash-1881.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گالیکش)"
+    },
+    {
+      "cmd": "update",
+      "id": 1885,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bandar-e-abbas-1885.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بندرعباس)"
+    },
+    {
+      "cmd": "update",
+      "id": 1892,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-hajjiabad-1892.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان حاجی‌آباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1916,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ghorveh-1916.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان قروه)"
+    },
+    {
+      "cmd": "update",
+      "id": 1923,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-hamedan-1923.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان همدان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1924,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-malayer-1924.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ملایر)"
+    },
+    {
+      "cmd": "update",
+      "id": 1925,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-nahavand-1925.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان نهاوند)"
+    },
+    {
+      "cmd": "update",
+      "id": 1926,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kabutarahang-1926.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کبودرآهنگ)"
+    },
+    {
+      "cmd": "update",
+      "id": 1927,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bahar-1927.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بهار)"
+    },
+    {
+      "cmd": "update",
+      "id": 1928,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-razan-1928.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رزن)"
+    },
+    {
+      "cmd": "update",
+      "id": 1929,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-tuyserkan-1929.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان تویسرکان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1930,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-asadabad-1930.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اسدآباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1931,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-famenin-1931.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فامنین)"
+    },
+    {
+      "cmd": "update",
+      "id": 1936,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-yazd-1936.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان یزد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1937,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-meybod-1937.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان میبد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1938,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ardakan-1938.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اردکان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1939,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-mehriz-1939.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مهریز)"
+    },
+    {
+      "cmd": "update",
+      "id": 1940,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-abarkuh-1940.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ابرکوه)"
+    },
+    {
+      "cmd": "update",
+      "id": 1941,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bafq-1941.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بافق)"
+    },
+    {
+      "cmd": "update",
+      "id": 1942,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-taft-1942.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان تفت)"
+    },
+    {
+      "cmd": "update",
+      "id": 1943,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khatam-1943.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خاتم)"
+    },
+    {
+      "cmd": "update",
+      "id": 1944,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ashkezar-1944.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اشکذر)"
+    },
+    {
+      "cmd": "update",
+      "id": 1945,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-behabad-1945.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بهاباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1946,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-zarach-1946.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان زارچ)"
+    },
+    {
+      "cmd": "update",
+      "id": 1947,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-marvast-1947.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مروست)"
+    },
+    {
+      "cmd": "update",
+      "id": 2262,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-gahar-lake-dorud-2262.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «دریاچه گهر» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2269,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-azgan-wetland-dorud-2269.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تالاب ازگن (قارون)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2270,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-aznadar-waterfall-doroud-2270.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «آبشار ازنادر (دره اسپر)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2271,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-tangeh-lili-gorge-doroud-2271.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تنگه لی لی (سورپیلو)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2278,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-falak-ol-aflak-castle-khorramabad-2278.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «قلعه فلک‌الافلاک (دژ شاپورخواست)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2296,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-mount-damavand-guide-2296.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «قله دماوند» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2301,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-kuhrang-fritillaria-plain-guide-2301.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «دشت لاله‌های واژگون کوهرنگ» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2308,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-ali-sadr-cave-hamedan-guide-2308.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «غار علیصدر» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2319,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-golestan-national-park-guide-2319.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «پارک ملی گلستان (جنگل گلستان)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2325,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-qeshm-stars-valley-geopark-2325.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «درهٔ ستارگان قشم» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2331,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-anzali-international-wetland-guide-2331.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تالاب بین‌المللی انزلی» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2347,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-nozhian-waterfall-khorramabad-2347.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (آبشار نوژیان خرم‌آباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 2377,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-shevi-waterfall-tele-zang-2377.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «آبشار شوی (تله زنگ)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2386,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-babahur-forest-park-dorud-2386.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تفرجگاه باباهور (بام دورود)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2396,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-nigah-valley-dorud-2396.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «دره نیگاه (دره نگار)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2569,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-tang-e-sayad-national-park-2569.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «پارک ملی تنگ صیاد» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2571,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-sar-agha-seyed-village-2571.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «روستای سرآقا سید» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2707,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-qasem-anvar-shrine-2707.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «آرامگاه شاه قاسم انوار» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2709,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-rig-e-jenn-desert-2709.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «کویر ریگ جن» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2714,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-bagh-golshan-tabas-2714.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «باغ گلشن طبس» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2716,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-ghaleh-dokhtar-boshruyeh-2716.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «قلعه دختر بشرویه» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3118,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-si-o-se-pol-3118.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «سی‌وسه‌پل» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3125,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-eram-garden-3125.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «باغ ارم» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3134,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-naqsh-e-rostam-3134.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «نقش رستم» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3330,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-shah-cheragh-3330.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «حرم شاهچراغ» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3331,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-khaju-bridge-3331.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «پل خواجو» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3332,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-vank-cathedral-3332.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «کلیسای وانک» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        1858,
+        1860,
+        1872,
+        1877,
+        1881,
+        1885,
+        1892,
+        1916,
+        1923,
+        1924,
+        1925,
+        1926,
+        1927,
+        1928,
+        1929,
+        1930,
+        1931,
+        1936,
+        1937,
+        1938,
+        1939,
+        1940,
+        1941,
+        1942,
+        1943,
+        1944,
+        1945,
+        1946,
+        1947,
+        2262,
+        2269,
+        2270,
+        2271,
+        2278,
+        2296,
+        2301,
+        2308,
+        2319,
+        2325,
+        2331,
+        2347,
+        2377,
+        2386,
+        2396,
+        2569,
+        2571,
+        2707,
+        2709,
+        2714,
+        2716,
+        3118,
+        3125,
+        3134,
+        3330,
+        3331,
+        3332
+      ]
+    }
+  ]
+}

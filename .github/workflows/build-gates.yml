@@ -103,6 +103,7 @@ jobs:
           python3 tools/wp-agent/test_job_exception_recovery.py
           python3 tools/wp-agent/test_job_state_recovery.py
           python3 tools/wp-agent/test_write_reconciliation.py
+          python3 tools/wp-agent/test_audit_remediation.py
 
       - name: Licensed-photo rules (licence, author, host, 4:3 WebP under 100 KB)
         run: |

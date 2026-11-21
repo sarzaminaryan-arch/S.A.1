@@ -1,0 +1,60 @@
+{
+  "note": "گام ۲-الف برنامهٔ بهینه‌سازی ممیزی ۲۱ نوامبر ۲۰۲۶: تکمیل مختصات ۶ شهرستان فاقد lat/lng (فاروج، گچساران، دنا، بهمئی، لنده، باشت) + اصلاح همسایه‌ها و منابع معتبر شهرستان دورود (شناسه ۵۱۶). فقط متادیتا با پشتیبان خودکار؛ متن منتشرشده دست‌نخورده می‌ماند.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 78,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/faruj-78.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان فاروج از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 432,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/gachsaran-432.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان گچساران از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 433,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/dena-433.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان دنا از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 434,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/bahmai-434.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان بهمئی از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 436,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/landeh-436.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان لنده از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 437,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/basht-437.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان باشت از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 516,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/dorud-516.meta.json",
+      "reason": "اصلاح همسایه‌های خراب‌شده، تکمیل فیلدهای شناسنامه و همگام‌سازی منابع معتبر شهرستان دورود از مخزن"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        78,
+        432,
+        433,
+        434,
+        436,
+        437,
+        516
+      ]
+    }
+  ]
+}

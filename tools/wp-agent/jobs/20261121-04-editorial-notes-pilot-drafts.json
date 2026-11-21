@@ -1,0 +1,55 @@
+{
+  "note": "گام ۳ (دستهٔ آزمایشی ۱۰ صفحه‌ای فقط پیش‌نویس کنار اصل — draft-copy): حذف یادداشت‌های تولیدی/«بازبینی انسانی» و جملات تکراری در شهرستان‌های بالای ۱۰۰۰ واژه با افت کمتر از ۵٪ و تأیید کامل fa_lint. متن منتشرشدهٔ سایت به هیچ وجه لمس نمی‌شود.",
+  "steps": [
+    {
+      "cmd": "draft-copy",
+      "id": 101,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/maragheh-101.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 516,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/dorud-516.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 249,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/zirkuh-249.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 522,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/pol-e-dokhtar-522.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 322,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/hamun-322.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 357,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/avaj-357.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 341,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/mehr-341.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 356,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/abyek-356.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 342,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/kharameh-342.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 338,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/zarrin-dasht-338.html"
+    }
+  ]
+}
