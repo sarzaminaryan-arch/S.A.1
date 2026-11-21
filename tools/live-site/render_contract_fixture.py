@@ -71,6 +71,9 @@ def seed(wp, all_pages):
               for i, r in cities.items()]
     pages += [(r['wp_id'], 'attraction', r['slug'], r['title'], {'sa_city_id': r['relations']['city_id'],
                'sa_province_id': r['relations']['province_id']}) for r in attraction_records(records) if r['relations'].get('city_id') in cities]
+    # Deliberately conflict with the registry, without changing the expected graph.
+    # In the pilot the wrong parent is absent; nationally it is a real published province.
+    wrong_parent = next(r['wp_id'] for r in records if r['post_type'] == 'province' and r['slug'] == 'isfahan')
     db = wp / 'wp-content/database/.ht.sqlite'
     assert db.is_file(), 'installer failed to create disposable SQLite database'
     snippet = '<p><a href="/city/shiraz/">شیراز</a> و <a href="/province/fars/">استان فارس</a></p>'
@@ -79,8 +82,14 @@ def seed(wp, all_pages):
             body = snippet
             if slug == 'eram-garden' and kind == 'attraction':
                 body += '<p><a href="/attraction/vakil-complex/">بازار وکیل</a> و <a href="/attraction/shah-cheragh/">شاهچراغ</a></p>'
+            if kind == 'province' and slug == 'fars':
+                # Neither a self relation nor a city ID should become a province chip.
+                meta['sa_neighbors'] = i
+                conn.execute('INSERT INTO wp_postmeta(post_id,meta_key,meta_value) VALUES (?,?,?)', (i, 'sa_neighbors', 323))
+                if all_pages:
+                    body += '<p><a href="/province/isfahan/">اصفهان</a></p>'
             if i == 323:
-                meta.update({'sa_cty_population': '۱٬۸۶۹٬۰۰۱', 'sa_cty_census_year': '۱۳۹۵'})
+                meta.update({'province_id': wrong_parent, 'sa_province_id': wrong_parent, 'sa_cty_population': '۱٬۸۶۹٬۰۰۱', 'sa_cty_census_year': '۱۳۹۵'})
                 body += (ROOT / 'tools/wp-agent/outbox/20261117-replace-shiraz/shiraz-323.html').read_text()
             conn.execute('INSERT INTO wp_posts (ID,post_type,post_name,post_title,post_content,post_date,post_modified,post_date_gmt) '
                          'VALUES (?,?,?,?,?,?,?,?)', (i, kind, slug, title, body, *['2026-11-17 12:00:00'] * 3))
@@ -112,6 +121,13 @@ def main():
             html = subprocess.check_output([args.php, 'render.php', str(i), kind, slug], cwd=wp)
             if b'</html>' not in html or b'Fatal error:' in html or b'WordPress database error' in html:
                 raise RuntimeError(f'incomplete render: {kind}/{slug}')
+            if kind == 'province' and slug == 'fars':
+                src = 'https://sarzaminaryan.ir/province/fars/'
+                neighbor = key('https://sarzaminaryan.ir/province/isfahan/')
+                seen = Links(src, {key(src), neighbor})
+                seen.feed(html.decode('utf-8'))
+                if seen.article[key(src)] or seen.article[neighbor] != int(args.all):
+                    raise RuntimeError('Fars: self/placeholder link or wrong count for published neighbor')
             if kind == 'attraction' and slug == 'eram-garden':
                 targets = [key(f'https://sarzaminaryan.ir/attraction/{s}/') for s in ('vakil-complex', 'shah-cheragh')]
                 seen = Links('https://sarzaminaryan.ir/attraction/eram-garden/', targets)

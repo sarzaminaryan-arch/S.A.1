@@ -127,4 +127,9 @@ sa_pcl_assert( 'https://example.test/city/abhar/' === $by_slug['abhar']['url'], 
 sa_pcl_assert( isset( $by_slug['tarom'] ) && '' === $by_slug['tarom']['url'], 'province links: county with only a draft post stays unlinked' );
 sa_pcl_assert( isset( $by_slug['oldtown'] ) && 'https://example.test/city/newtown/' === $by_slug['oldtown']['url'], 'province links: redirect-source slug links to the 301 target instead' );
 
+// When both slugs exist, a stale relation on the alias must not displace the exact member.
+$GLOBALS['t']['posts'][] = new WP_Post( 15, 'city', 'zanjan-city', 'شهرستان زنجان' );
+$entries = array_column( sa_province_profile_county_entries( 'zanjan', 10, array( $zanjan_post ) ), null, 'slug' );
+sa_pcl_assert( 15 === $entries['zanjan-city']['post_id'], 'exact registered page beats a related alias' );
+
 echo "test-province-county-links: OK\n";

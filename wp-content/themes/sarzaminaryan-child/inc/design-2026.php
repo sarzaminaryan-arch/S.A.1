@@ -495,7 +495,7 @@ function sa_2026_province_neighbours( $province_id, $limit = 8 ) {
 
 	foreach ( $ids as $id ) {
 		$post = get_post( $id );
-		if ( ! $post || 'publish' !== $post->post_status ) {
+		if ( ! $post || (int) $post->ID === (int) $province_id || 'province' !== $post->post_type || 'publish' !== $post->post_status ) {
 			continue;
 		}
 		$out[] = array(

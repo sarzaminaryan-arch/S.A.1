@@ -44,7 +44,7 @@ while ( have_posts() ) :
 	$sa_neighbors = $sa_get( 'neighbors', array() );
 	$sa_attracts  = function_exists( 'sa_county_profile_attractions' ) ? sa_county_profile_attractions( $sa_id, 8 ) : array();
 	$sa_siblings  = function_exists( 'sa_county_profile_sibling_cities' ) ? sa_county_profile_sibling_cities( $sa_id ) : array();
-	$sa_relation_urls = array_merge( array( $sa_prov_url ), array_column( $sa_siblings, 'url' ), array_column( $sa_attracts, 'url' ) );
+	$sa_relation_urls = array_merge( array( $sa_prov_url, get_permalink( $sa_id ) ), array_column( $sa_siblings, 'url' ), array_column( $sa_attracts, 'url' ) );
 	$sa_relation_keys = array_fill_keys( array_filter( array_map( 'sa_2026_relation_key', $sa_relation_urls ) ), true );
 	$sa_updated   = $sa_get( 'field_update_note' );
 
@@ -179,6 +179,10 @@ while ( have_posts() ) :
 										}
 										$sa_nb_seen[ $sa_nb_key ] = true;
 										$sa_link_neighbor = ! empty( $sa_nb['url'] ) && ! isset( $sa_relation_keys[ sa_2026_relation_key( $sa_nb['url'] ) ] );
+										if ( $sa_link_neighbor ) {
+											$sa_relation_urls[] = $sa_nb['url'];
+											$sa_relation_keys[ sa_2026_relation_key( $sa_nb['url'] ) ] = true;
+										}
 										?>
 										<?php if ( $sa_link_neighbor ) : ?>
 										<a href="<?php echo esc_url( $sa_nb['url'] ); ?>"

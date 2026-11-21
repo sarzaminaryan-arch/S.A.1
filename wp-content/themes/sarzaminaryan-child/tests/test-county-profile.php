@@ -264,8 +264,12 @@ sa_t_eq( '', $rows[1]['url'], 'legacy POI without a page stays unlinked' );
 sa_t_eq( 'تاریخی و زیارتی', $rows[1]['type'], 'legacy POI group becomes the type' );
 
 /* 8 — same-province cities: only published county pages, current excluded. */
-$province = get_post( 20 );
-$GLOBALS['t']['meta'][20]['province_id'] = '10';
+sa_t_post( 11, 'province', 'fars', 'فارس' );
+$GLOBALS['t']['meta'][20]['province_id'] = '11';
+sa_t_eq( 10, sa_county_profile_province_post( 20 )->ID, 'registered parent wins over a different published province' );
+get_post( 10 )->post_status = 'draft';
+sa_t_eq( null, sa_county_profile_province_post( 20 ), 'no link to a wrong province when the registered parent is unpublished' );
+get_post( 10 )->post_status = 'publish';
 $sibs = sa_county_profile_sibling_cities( 20 );
 $labels = array_column( $sibs, 'label' );
 sa_t_assert( in_array( 'شهرستان ازنا', $labels, true ) && in_array( 'شهرستان بروجرد', $labels, true ), 'same-province counties listed' );

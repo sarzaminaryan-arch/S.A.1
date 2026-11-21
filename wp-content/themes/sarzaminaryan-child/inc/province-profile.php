@@ -292,38 +292,17 @@ function sa_province_profile_county_entries( $province_slug, $province_id, $coun
 		$posts_by_slug[ sanitize_key( $post->post_name ) ] = $post;
 	}
 
-	/*
-	 * وضوحِ صفحهٔ شهرستان برای یک نامکِ رجیستری (ترمیمِ لینک‌سازی داخلی، 2.22.64).
-	 *
-	 * پیش از این، شهرستان فقط وقتی روی صفحهٔ استان لینک می‌گرفت که نوشته‌اش هم
-	 * «رابطهٔ والد» با استان داشت و هم نامکش عیناً نامکِ رجیستری بود. شهرستان‌هایی
-	 * که صفحهٔ زنده دارند ولی نامکشان با رجیستری فرق دارد (مثلاً نوشتهٔ «زنجان»
-	 * در برابرِ رجیستریِ «zanjan-city») یا رابطه‌شان ثبت نشده، اسمِ بی‌لینک
-	 * می‌ماندند و از قوی‌ترین لینکِ داخلی‌شان (صفحهٔ استان) هیچ سیگنالی
-	 * نمی‌گرفتند؛ در گزارشِ پوششِ سرچ‌کنسول (۲۰۲۶-۱۱-۱۳) هم ۲۲۱ شهرستان در
-	 * وضعیتِ «کشف‌شده، خزش‌نشده» مانده بودند. حالا:
-	 *   ۱) نامزدهای نامک (با و بدونِ پسوندِ ‎-city‎) میانِ نوشته‌های رابطه‌دار؛
-	 *   ۲) وگرنه، هر نوشتهٔ منتشرشدهٔ شهرستانی با نامکِ نامزد، حتی بدونِ رابطه.
-	 * مقصدِ نهاییِ تغییرمسیر هم به‌جای مسیرِ قدیمی لینک می‌شود تا لینکِ داخلی
-	 * به نشانیِ در حالِ ریدایرکت نرود.
-	 */
+	// Try the registered slug before its legacy -city variant, with or without stored relations.
 	$resolve_post = function ( $slug ) use ( $posts_by_slug ) {
 		$candidates = array( $slug, ( '-city' === substr( $slug, -5 ) ) ? substr( $slug, 0, -5 ) : $slug . '-city' );
 		foreach ( array_unique( $candidates ) as $candidate ) {
-			if ( isset( $posts_by_slug[ $candidate ] ) ) {
-				return $posts_by_slug[ $candidate ];
+			// Prefer the canonical slug even when only its alias has the stored relation.
+			$post = $posts_by_slug[ $candidate ] ?? null;
+			if ( ! $post ) {
+				$post = get_page_by_path( $candidate, OBJECT, 'city' );
 			}
-		}
-		if ( function_exists( 'get_page_by_path' ) ) {
-			static $lookup = array();
-			foreach ( array_unique( $candidates ) as $candidate ) {
-				if ( ! array_key_exists( $candidate, $lookup ) ) {
-					$found            = get_page_by_path( $candidate, OBJECT, 'city' );
-					$lookup[ $candidate ] = ( $found && isset( $found->post_status ) && 'publish' === $found->post_status ) ? $found : null;
-				}
-				if ( $lookup[ $candidate ] ) {
-					return $lookup[ $candidate ];
-				}
+			if ( $post && 'city' === $post->post_type && 'publish' === $post->post_status ) {
+				return $post;
 			}
 		}
 		return null;
