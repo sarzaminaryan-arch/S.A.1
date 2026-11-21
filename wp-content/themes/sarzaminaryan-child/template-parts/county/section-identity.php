@@ -268,7 +268,7 @@ foreach ( (array) $sa_pget( 'neighbors' ) as $sa_nb ) {
 $sa_nb_str = implode( ' · ', $sa_nb_html );
 if ( '' === $sa_nb_str && function_exists( 'sa_county_lines' ) && function_exists( 'sa_county_parse_neighbor' ) ) {
 	$sa_nb_labels = array();
-	foreach ( sa_county_lines( get_post_meta( $sa_id, 'sa_cty_neighbors', true ) ) as $sa_nb_line ) {
+	foreach ( sa_county_lines( get_post_meta( $sa_id, 'sa_cty_neighbors', true ), true ) as $sa_nb_line ) {
 		$sa_nb = sa_county_parse_neighbor( $sa_nb_line );
 		if ( ! empty( $sa_nb['label'] ) ) {
 			$sa_nb_lbl = esc_html( (string) $sa_nb['label'] );

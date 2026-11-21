@@ -7,6 +7,7 @@ With --all, render all baseline pages; default is the Fars pilot.
 import argparse
 import csv
 import json
+import re
 import shutil
 import sqlite3
 import subprocess
@@ -88,6 +89,8 @@ def seed(wp, all_pages):
                 conn.execute('INSERT INTO wp_postmeta(post_id,meta_key,meta_value) VALUES (?,?,?)', (i, 'sa_neighbors', 323))
                 if all_pages:
                     body += '<p><a href="/province/isfahan/">اصفهان</a></p>'
+            if kind == 'city' and slug == 'abadeh':
+                meta['sa_cty_neighbors'] = r'eqlid - جنوب غربی\nkhorrambid - جنوب\nاستان اصفهان - شمال\nاستان یزد - شرق'
             if i == 323:
                 meta.update({'province_id': wrong_parent, 'sa_province_id': wrong_parent, 'sa_cty_population': '۱٬۸۶۹٬۰۰۱', 'sa_cty_census_year': '۱۳۹۵'})
                 body += (ROOT / 'tools/wp-agent/outbox/20261117-replace-shiraz/shiraz-323.html').read_text()
@@ -134,6 +137,10 @@ def main():
                 seen.feed(html.decode('utf-8'))
                 if any(seen.article[t] != 1 for t in targets):
                     raise RuntimeError('Eram: card and body must share one link per destination')
+            if kind == 'city' and slug == 'abadeh':
+                chips = re.findall(r'<span class="text-muted">([^<]+):</span>\s*<strong class="font-bold">([^<]+)</strong>', html.decode())
+                if chips != [('جنوب غربی', 'شهرستان اقلید'), ('جنوب', 'شهرستان خرم‌بید'), ('شمال', 'استان اصفهان'), ('شرق', 'استان یزد')]:
+                    raise RuntimeError(f'Abadeh: incorrect legacy border labels {chips!r}')
             if i == 323 and not all(label.encode() in html for label in ('۱٬۸۶۹٬۰۰۰ نفر', 'سرشماری رسمی ۱۳۹۵')):
                 raise RuntimeError('Shiraz: incorrect localized population or census year')
             (directory / 'index.html').write_bytes(html)
