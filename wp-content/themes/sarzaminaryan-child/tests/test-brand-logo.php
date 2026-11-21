@@ -98,6 +98,10 @@ $css    = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
  * and the light footer carries the bundled DARK lockup. Both still come from
  * the official asset helpers and keep an explicit box to avoid CLS.
  */
+sa_brand_logo_assert(
+	1 === preg_match( '~if \( ! is_front_page\(\) \) : \?>\s*<span class="sa-hf-brand__tile[^<]*.*?sa_brand_icon_light_url\( 96 \).*?</span>\s*<\?php endif; \?>\s*<span class="sa-hf-brand__text~s', $header ),
+	'front page omits the entire map tile but keeps the linked brand text'
+);
 sa_brand_logo_assert( false !== strpos( $header, 'sa_brand_icon_light_url( 96 )' ), 'header uses the bundled white map icon' );
 sa_brand_logo_assert( false !== strpos( $header, 'width="24" height="24"' ), 'header icon declares its 24x24 box (no CLS)' );
 sa_brand_logo_assert( false !== strpos( $header, 'class="sa-hf-brand"' ), 'header brand link keeps the sa-hf-brand hook' );
