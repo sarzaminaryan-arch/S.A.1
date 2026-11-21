@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Child theme 2.24.9 & Audit Plugin 1.2.0: preserve percent-encoded Persian URLs in `sa_sources` and `extra_places`; deduplicate repeated internal body links at render time; round county population `>= 1000` on legacy identity cards; match bare-slug capital counties (`*-city`) without touching 301 redirect sources; add `guide` CPT + numeric coordinate comparison to `sa-live-article-audit` 1.2.0; prepare verified `wp-agent` meta/sources/draft-copy remediation jobs.
 - Child theme 2.24.5: keep registered counties in their canonical province despite stale parent metadata; prefer the exact published county over a legacy slug, and avoid duplicate or placeholder geographic links in the 2026 province/county templates.
 
 - LAK-17: restrict WordPress jobs to manual dispatch on main with an explicit job.
