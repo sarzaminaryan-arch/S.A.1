@@ -215,11 +215,13 @@ $report                = SA_LAA_Compare::compare( array( $cap_base ), array( $ca
 sa_laa_t_assert( 1 === $report['summary']['matched'] && 0 === $report['summary']['baseline_only'] && 0 === $report['summary']['live_only'], 'test12 capital county -city slug alias matches bare live slug' );
 
 // ۱۳) مقایسهٔ عددی مختصات جغرافیایی (29.6360 == 29.636؛ اما 29.7000 != 29.636).
-$coord_base         = sa_laa_t_base_record();
-$coord_base['meta'] = array( 'sa_latitude' => '29.6360', 'sa_longitude' => '52.5260' );
-$coord_live         = sa_laa_t_live_record();
-$coord_live['meta'] = array( 'sa_latitude' => '29.636', 'sa_longitude' => '52.526' );
-$report             = SA_LAA_Compare::compare( array( $coord_base ), array( $coord_live ) );
+$coord_base                         = sa_laa_t_base_record();
+$coord_base['meta']['sa_latitude']  = '29.6360';
+$coord_base['meta']['sa_longitude'] = '52.5260';
+$coord_live                         = sa_laa_t_live_record();
+$coord_live['meta']['sa_latitude']  = '29.636';
+$coord_live['meta']['sa_longitude'] = '52.526';
+$report                             = SA_LAA_Compare::compare( array( $coord_base ), array( $coord_live ) );
 sa_laa_t_assert( 'identical' === $report['items'][0]['status'], 'test13 trailing zeros in coordinates do not trigger false diff' );
 
 $coord_live['meta']['sa_latitude'] = '29.7000';

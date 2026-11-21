@@ -118,6 +118,7 @@ jobs:
           php wp-content/themes/sarzaminaryan-child/tests/test-index-gate.php
           php wp-content/themes/sarzaminaryan-child/tests/test-sources-sanitization.php
           php wp-content/themes/sarzaminaryan-child/tests/test-internal-links.php
+          php wp-content/plugins/sa-live-article-audit/tests/test-compare.php
 
   build:
     name: Build county pages changed in this push (artifact, no site contact)
