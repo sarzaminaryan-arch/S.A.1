@@ -138,7 +138,7 @@ function sa_agent_register_backup_type() {
 			'publicly_queryable'  => false,
 			'exclude_from_search' => true,
 			'show_ui'             => true,
-			'show_in_menu'        => 'tools.php',
+			'show_in_menu'        => false, // Keep the admin-only list reachable for recovery, not in the sidebar.
 			'show_in_nav_menus'   => false,
 			'show_in_rest'        => false,
 			'has_archive'         => false,

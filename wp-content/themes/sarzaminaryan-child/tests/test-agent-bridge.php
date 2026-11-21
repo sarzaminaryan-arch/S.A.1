@@ -420,6 +420,8 @@ sa_agent_register_backup_type();
 $reg = $t['registered'][ SA_AGENT_BACKUP_TYPE ];
 sa_t_assert( false === $reg['public'] && false === $reg['show_in_rest'] && false === $reg['rewrite'] && 'manage_options' === $reg['capabilities']['read_post'], '9a: backups are private, admin-only, no URL' );
 
+sa_t_assert( false === $reg['show_in_menu'] && true === $reg['show_ui'], 'backups stay accessible for recovery without a sidebar entry' );
+
 /* 10. The bridge never publishes or deletes; trash exists only inside the guarded duplicate-trash function. */
 $src = file_get_contents( dirname( __DIR__ ) . '/inc/agent-bridge.php' );
 foreach ( array( 'wp_publish_post', 'force_delete', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
