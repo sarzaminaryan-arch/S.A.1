@@ -149,7 +149,7 @@ class SA_LAA_Baseline {
 			}
 			$type  = isset( $article['type'] ) ? (string) $article['type'] : 'attraction';
 			$terms = isset( $article['terms'] ) && is_array( $article['terms'] ) ? $article['terms'] : array();
-			if ( 'post' === $type ) {
+			if ( in_array( $type, array( 'post', 'guide' ), true ) ) {
 				if ( ! empty( $article['category'] ) && is_array( $article['category'] ) ) {
 					$terms['category'] = $article['category'];
 				}

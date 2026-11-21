@@ -27,6 +27,50 @@ class SA_LAA_Extractor {
 	}
 
 	/**
+	 * کلیدهای کانونی شناسنامهٔ شهرستان (v2.22.90+) که بدون پیشوند sa_ ذخیره می‌شوند.
+	 *
+	 * @return string[]
+	 */
+	public static function default_county_meta_keys() {
+		if ( function_exists( 'sa_county_profile_fields' ) ) {
+			return array_keys( (array) sa_county_profile_fields() );
+		}
+		return array(
+			'county_en',
+			'province_id',
+			'center_fa',
+			'center_en',
+			'districts_count',
+			'cities_count',
+			'rural_districts_count',
+			'villages_count',
+			'population',
+			'population_year',
+			'area_km2',
+			'elevation_m',
+			'lat',
+			'lng',
+			'neighbors',
+			'distance_to_capital_km',
+			'plate_code',
+			'phone_code',
+			'climate_short',
+			'language_fa',
+			'economy_fa',
+			'best_season',
+			'road_quality',
+			'rail_access',
+			'air_access',
+			'sea_access',
+			'mobile_internet',
+			'fuel_stations',
+			'seasons_detail',
+			'local_tips',
+			'extra_places',
+		);
+	}
+
+	/**
 	 * نوع‌های محتوای عمومی سایت برای فهرست انتخاب در پیشخوان.
 	 *
 	 * @return array<string,string> slug => label
@@ -316,8 +360,9 @@ class SA_LAA_Extractor {
 	 * @return array<string,mixed>
 	 */
 	private static function meta( $post_id, $all_meta = false ) {
-		$out      = array();
-		$prefixes = self::default_meta_prefixes();
+		$out         = array();
+		$prefixes    = self::default_meta_prefixes();
+		$county_keys = array_flip( self::default_county_meta_keys() );
 		foreach ( (array) get_post_meta( $post_id ) as $key => $values ) {
 			$key = (string) $key;
 			if ( '_thumbnail_id' === $key ) {
@@ -327,11 +372,13 @@ class SA_LAA_Extractor {
 				if ( 0 === strpos( $key, '_' ) ) {
 					continue;
 				}
-				$allowed = false;
-				foreach ( $prefixes as $prefix ) {
-					if ( 0 === strpos( $key, $prefix ) ) {
-						$allowed = true;
-						break;
+				$allowed = isset( $county_keys[ $key ] );
+				if ( ! $allowed ) {
+					foreach ( $prefixes as $prefix ) {
+						if ( 0 === strpos( $key, $prefix ) ) {
+							$allowed = true;
+							break;
+						}
 					}
 				}
 				if ( ! $allowed ) {
@@ -387,14 +434,21 @@ class SA_LAA_Extractor {
 	private static function relations( $record ) {
 		$out  = array();
 		$meta = isset( $record['meta'] ) && is_array( $record['meta'] ) ? $record['meta'] : array();
-		foreach ( array( 'province' => 'sa_province_id', 'city' => 'sa_city_id' ) as $rel => $meta_key ) {
-			if ( ! empty( $meta[ $meta_key ] ) ) {
-				$target = get_post( (int) $meta[ $meta_key ] );
-				if ( $target ) {
-					$out[ $rel ]           = (string) $target->post_name;
-					$out[ $rel . '_id' ]   = (int) $target->ID;
-					$out[ $rel . '_title' ] = (string) $target->post_title;
-				}
+		$prov_meta_id = ! empty( $meta['province_id'] ) ? (int) $meta['province_id'] : ( ! empty( $meta['sa_province_id'] ) ? (int) $meta['sa_province_id'] : 0 );
+		if ( $prov_meta_id ) {
+			$target = get_post( $prov_meta_id );
+			if ( $target ) {
+				$out['province']       = (string) $target->post_name;
+				$out['province_id']    = (int) $target->ID;
+				$out['province_title'] = (string) $target->post_title;
+			}
+		}
+		if ( ! empty( $meta['sa_city_id'] ) ) {
+			$target = get_post( (int) $meta['sa_city_id'] );
+			if ( $target ) {
+				$out['city']       = (string) $target->post_name;
+				$out['city_id']    = (int) $target->ID;
+				$out['city_title'] = (string) $target->post_title;
 			}
 		}
 		if ( empty( $out['province'] ) && ! empty( $record['terms']['province_tax'] ) && is_array( $record['terms']['province_tax'] ) ) {

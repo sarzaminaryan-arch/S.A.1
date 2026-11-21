@@ -184,33 +184,41 @@ class SA_LAA_Compare {
 			$live_index[ $key ] = $record;
 		}
 
-		$items      = array();
-		$field_diff = array();
+		$items             = array();
+		$field_diff        = array();
+		$matched_base_keys = array();
+		$matched_live_keys = array();
 		foreach ( $base_index as $key => $base ) {
-			if ( ! isset( $live_index[ $key ] ) ) {
+			list( $live_key, $alias_note ) = self::resolve_live_match( $base, $base_index, $live_index, $matched_live_keys );
+			if ( '' === $live_key ) {
 				continue;
 			}
-			$item              = self::compare_pair( $base, $live_index[ $key ] );
-			$item['key']       = $key;
-			$items[ $key ]     = $item;
+			$matched_base_keys[ $key ]      = true;
+			$matched_live_keys[ $live_key ] = true;
+			$item                           = self::compare_pair( $base, $live_index[ $live_key ] );
+			if ( is_array( $alias_note ) ) {
+				array_unshift( $item['differences'], $alias_note );
+			}
+			$item['key']   = $live_key;
+			$items[ $key ] = $item;
 			foreach ( $item['differences'] as $diff ) {
 				if ( 'info' === $diff['severity'] ) {
 					continue; // یادداشت‌های اطلاعاتی «اختلاف» شمرده نمی‌شوند.
 				}
-				$field                  = (string) $diff['field'];
+				$field                = (string) $diff['field'];
 				$field_diff[ $field ] = isset( $field_diff[ $field ] ) ? $field_diff[ $field ] + 1 : 1;
 			}
 		}
 
 		$live_only = array();
 		foreach ( $live_index as $key => $record ) {
-			if ( ! isset( $base_index[ $key ] ) ) {
+			if ( ! isset( $matched_live_keys[ $key ] ) ) {
 				$live_only[] = self::summarize_record( $record, 'live_only' );
 			}
 		}
 		$baseline_only = array();
 		foreach ( $base_index as $key => $record ) {
-			if ( ! isset( $live_index[ $key ] ) ) {
+			if ( ! isset( $matched_base_keys[ $key ] ) ) {
 				$baseline_only[] = self::summarize_record( $record, 'baseline_only' );
 			}
 		}
@@ -248,6 +256,86 @@ class SA_LAA_Compare {
 				'live'     => array_values( array_unique( $dup_live ) ),
 			),
 		);
+	}
+
+	/**
+	 * یافتن رکورد متناظر در سایت زنده (تطبیق دقیق + مهاجرت post<->guide + نامک شهرستان مرکز استان).
+	 *
+	 * @param array $base              رکورد مخزن.
+	 * @param array $base_index        نمایهٔ مخزن.
+	 * @param array $live_index        نمایهٔ زنده.
+	 * @param array $matched_live_keys کلیدهای مصرف‌شدهٔ زنده.
+	 * @return array{0:string,1:array|null}
+	 */
+	private static function resolve_live_match( $base, $base_index, $live_index, $matched_live_keys ) {
+		$key = self::record_key( $base );
+		if ( isset( $live_index[ $key ] ) && ! isset( $matched_live_keys[ $key ] ) ) {
+			return array( $key, null );
+		}
+
+		$type = isset( $base['post_type'] ) ? (string) $base['post_type'] : '';
+		$slug = isset( $base['slug'] ) ? (string) $base['slug'] : '';
+		if ( '' === $slug ) {
+			return array( '', null );
+		}
+
+		if ( 'post' === $type || 'guide' === $type ) {
+			$alt_type = ( 'post' === $type ) ? 'guide' : 'post';
+			$alt_key  = $alt_type . ':' . $slug;
+			if ( isset( $live_index[ $alt_key ] ) && ! isset( $matched_live_keys[ $alt_key ] ) && ! isset( $base_index[ $alt_key ] ) ) {
+				return array(
+					$alt_key,
+					array(
+						'field'    => 'post_type',
+						'severity' => 'info',
+						'baseline' => $type,
+						'live'     => $alt_type,
+						'note'     => 'نوشته به نوع محتوای مستقل راهنمای سفر (guide) منتقل شده است.',
+					),
+				);
+			}
+		}
+
+		if ( 'city' === $type ) {
+			$alt_slug = ( '-city' === substr( $slug, -5 ) ) ? substr( $slug, 0, -5 ) : $slug . '-city';
+			if ( '' !== $alt_slug && ( ! function_exists( 'sa_redirect_is_old_slug' ) || ! sa_redirect_is_old_slug( $alt_slug, 'city' ) ) ) {
+				$alt_key = 'city:' . $alt_slug;
+				if ( isset( $live_index[ $alt_key ] ) && ! isset( $matched_live_keys[ $alt_key ] ) && ! isset( $base_index[ $alt_key ] ) ) {
+					return array(
+						$alt_key,
+						array(
+							'field'    => 'slug',
+							'severity' => 'info',
+							'baseline' => $slug,
+							'live'     => $alt_slug,
+							'note'     => 'تطبیق نامک شهرستان مرکز استان (با/بدون پسوند -city).',
+						),
+					);
+				}
+			}
+		}
+
+		return array( '', null );
+	}
+
+	/**
+	 * برابری دو مقدار متا (با مقایسهٔ عددی مختصات جغرافیایی).
+	 *
+	 * @param string $meta_key کلید متا.
+	 * @param mixed  $a        مقدار خط مبنا.
+	 * @param mixed  $b        مقدار زنده.
+	 * @return bool
+	 */
+	private static function meta_values_equal( $meta_key, $a, $b ) {
+		$coord_keys = array( 'sa_latitude', 'sa_longitude', 'sa_city_latitude', 'sa_city_longitude', 'lat', 'lng' );
+		if ( in_array( (string) $meta_key, $coord_keys, true ) && is_scalar( $a ) && is_scalar( $b ) ) {
+			$sa = trim( (string) $a );
+			$sb = trim( (string) $b );
+			if ( is_numeric( $sa ) && is_numeric( $sb ) ) {
+				return abs( (float) $sa - (float) $sb ) < 1e-6;
+			}
+		}
+		return self::canonical( $a ) === self::canonical( $b );
 	}
 
 	/**
@@ -322,7 +410,7 @@ class SA_LAA_Compare {
 			}
 			if ( ! array_key_exists( $meta_key, $live_meta ) ) {
 				$add( 'meta:' . $meta_key, 'medium', $base_value, '—', 'این متا در نوشتهٔ زنده نیست.' );
-			} elseif ( self::canonical( $base_value ) !== self::canonical( $live_meta[ $meta_key ] ) ) {
+			} elseif ( ! self::meta_values_equal( $meta_key, $base_value, $live_meta[ $meta_key ] ) ) {
 				$add( 'meta:' . $meta_key, 'medium', $base_value, $live_meta[ $meta_key ] );
 			}
 		}
