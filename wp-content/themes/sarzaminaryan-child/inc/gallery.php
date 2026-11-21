@@ -884,14 +884,6 @@ function sa_gallery_admin_menu() {
 		'sa-gallery',
 		'sa_gallery_admin_page'
 	);
-	add_submenu_page(
-		'sarzaminaryan',
-		'گالری استان‌ها',
-		'گالری استان‌ها',
-		'upload_files',
-		'sa-gallery',
-		'sa_gallery_admin_page'
-	);
 }
 add_action( 'admin_menu', 'sa_gallery_admin_menu', 30 );
 

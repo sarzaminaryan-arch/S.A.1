@@ -35,17 +35,12 @@ function sa_admin_menu() {
 		'edit_posts',
 		'edit.php?category_name=' . rawurlencode( $edu_slug )
 	);
+}
+add_action( 'admin_menu', 'sa_admin_menu' );
 
-	// Shortcut to Ready Educational Guides inside «سرزمین آریان» as well (main entry is under نوشته‌ها).
-	add_submenu_page(
-		'sarzaminaryan',
-		'مقالات آمادهٔ آموزش (طبیعت‌گردی و بقا)',
-		'مقالات آماده (آموزشی)',
-		'edit_posts',
-		'edit.php?page=sa-ready-guides'
-	);
-
-	// Taxonomy screens under the same menu — only for the active core pillars (استان، شهرستان، دیدنی).
+/** Less frequent taxonomy tasks belong on the dashboard, not in the sidebar. */
+function sa_admin_taxonomy_links() {
+	$links = array();
 	$hidden_cpts = function_exists( 'sa_nav_hidden_entity_types' ) ? sa_nav_hidden_entity_types() : array( 'travel_route', 'local_food', 'souvenir' );
 	foreach ( sa_taxonomies_config() as $tax => $t ) {
 		if ( ! taxonomy_exists( $tax ) ) {
@@ -64,11 +59,12 @@ function sa_admin_menu() {
 		if ( ! $first ) {
 			continue;
 		}
-		$cap = 'province_tax' === $tax ? 'manage_options' : 'manage_categories';
-		add_submenu_page( 'sarzaminaryan', $t['plural'], '— ' . $t['plural'], $cap, 'edit-tags.php?taxonomy=' . $tax . '&post_type=' . $first );
+		if ( current_user_can( get_taxonomy( $tax )->cap->manage_terms ) ) {
+			$links[ $tax ] = array( 'label' => $t['plural'], 'url' => admin_url( 'edit-tags.php?taxonomy=' . $tax . '&post_type=' . $first ) );
+		}
 	}
+	return $links;
 }
-add_action( 'admin_menu', 'sa_admin_menu' );
 
 /**
  * Keep the parent menu highlighted on taxonomy screens.
@@ -158,13 +154,14 @@ function sa_admin_dashboard_page() {
 		echo '</tbody></table>';
 	}
 
-	echo '<h2>ساختار چهارگانهٔ سایت (استان‌ها · شهرستان‌ها · دیدنی‌ها · آموزش طبیعت‌گردی و بقا)</h2>';
-	echo '<ol><li><strong>استان‌ها</strong> (۳۱ استان — صفحه‌های هاب استانی)</li><li><strong>شهرستان‌ها</strong> (راهنمای جامع شهرستان‌های هر استان)</li><li><strong>دیدنی‌ها</strong> (جاذبه‌های طبیعی و تاریخی متصل به شهرستان و استان)</li><li><strong>آموزش (طبیعت‌گردی و بقا)</strong> (مقالات آموزشی کمپینگ و بقا در بخش «نوشته‌ها»ی سایت)</li></ol>';
-	echo '<p><a class="button" href="' . esc_url( admin_url( 'admin.php?page=sa-ready-articles' ) ) . '">مقالات آمادهٔ دیدنی‌ها</a> ';
-	echo '<a class="button" href="' . esc_url( admin_url( 'edit.php?page=sa-ready-guides' ) ) . '">مقالات آمادهٔ آموزشی (نوشته‌ها)</a> ';
-	echo '<a class="button button-primary" href="' . esc_url( admin_url( 'customize.php?autofocus[panel]=sa_panel' ) ) . '">تنظیمات قالب (سفارشی‌ساز)</a> ';
-	echo '<a class="button" href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">فهرست‌ها</a> ';
-	echo '<a class="button" href="' . esc_url( admin_url( 'options-permalink.php' ) ) . '">پیوندهای یکتا (در صورت خطای ۴۰۴ یک‌بار ذخیره کنید)</a></p>';
+	$tax_links = sa_admin_taxonomy_links();
+	if ( $tax_links ) {
+		echo '<details><summary>مدیریت رده‌بندی‌ها</summary><ul>';
+		foreach ( $tax_links as $link ) {
+			echo '<li><a href="' . esc_url( $link['url'] ) . '">' . esc_html( $link['label'] ) . '</a></li>';
+		}
+		echo '</ul></details>';
+	}
 	echo '</div>';
 }
 
