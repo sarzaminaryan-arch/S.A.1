@@ -119,12 +119,13 @@ if ( '' !== $sa_center_en ) {
 		. '<span class="sa-cyber-id__en-inline" dir="ltr">(' . esc_html( $sa_center_en ) . ')</span>';
 }
 
-// 4) Population — shown only together with its census year (قانون خروجی شناسنامه).
+// 4) Population — shown only together with its census year, rounded to nearest 1,000 when >= 1,000 (قانون ۱۱-الف).
 $sa_pop_val  = '';
 $sa_pop_num  = (int) preg_replace( '/[^\d]/', '', function_exists( 'sa_en_digits' ) ? sa_en_digits( (string) $sa_pget( 'population' ) ) : (string) $sa_pget( 'population' ) );
 $sa_pop_year = (int) preg_replace( '/[^\d]/', '', function_exists( 'sa_en_digits' ) ? sa_en_digits( (string) $sa_pget( 'population_year' ) ) : (string) $sa_pget( 'population_year' ) );
 if ( $sa_pop_num > 0 && $sa_pop_year > 0 ) {
-	$sa_pop_val = $sa_num( $sa_pop_num, 0 ) . ' نفر (سرشماری ' . ( function_exists( 'sa_digits' ) ? sa_digits( (string) $sa_pop_year ) : sa_fa_digits( (string) $sa_pop_year ) ) . ')';
+	$sa_pop_display = $sa_pop_num >= 1000 ? (int) ( round( $sa_pop_num / 1000 ) * 1000 ) : $sa_pop_num;
+	$sa_pop_val     = $sa_num( $sa_pop_display, 0 ) . ' نفر (سرشماری ' . ( function_exists( 'sa_digits' ) ? sa_digits( (string) $sa_pop_year ) : sa_fa_digits( (string) $sa_pop_year ) ) . ')';
 } elseif ( ! empty( $sa_fallback['population'] ) && preg_match( '/سرشماری\s*[0-9۰-۹٠-٩]{4}/u', (string) $sa_fallback['population'] ) ) {
 	// Curated registry value that already carries its own census year.
 	$sa_pop_val = (string) $sa_fallback['population'];

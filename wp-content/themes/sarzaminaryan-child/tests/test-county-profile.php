@@ -346,6 +346,7 @@ sa_t_assert( false !== strpos( $sa_tpl, "'11 // MAIN_CITY'" ), 'the card renders
 sa_t_assert( false !== strpos( $sa_tpl, 'sa_county_profile_main_city' ), 'the MAIN_CITY tile reads the canonical keys' );
 sa_t_assert( false !== strpos( $sa_tpl, 'wp_strip_all_tags' ) && false !== strpos( $sa_tpl, '$sa_county_cells = array_values(' ), 'empty tiles are removed instead of printed' );
 sa_t_assert( false !== strpos( $sa_tpl, '$sa_pop_num > 0 && $sa_pop_year > 0' ), 'population is printed only with its census year' );
+sa_t_assert( false !== strpos( $sa_tpl, 'round( $sa_pop_num / 1000 ) * 1000' ), 'population >= 1000 is rounded to nearest 1,000 on the legacy identity card (Rule 11-A)' );
 sa_t_assert( false === strpos( $sa_tpl, 'sa_city_population' ), 'the card never mixes a city number with the county one' );
 sa_t_assert( false !== strpos( $sa_tpl, '$sa_coord_valid' ), 'coordinates are validated before any map link' );
 sa_t_assert( false === strpos( $sa_tpl, '$sa_center = $sa_county_bare' ), 'the centre city is never inferred from the county name' );
