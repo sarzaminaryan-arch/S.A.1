@@ -40,11 +40,13 @@ $sa_cta     = function_exists( 'sa_2026_experience_cta' ) ? sa_2026_experience_c
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
 
 		<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $sa_brand . ' — ' . $sa_tagline ); ?>">
-			<span class="sa-hf-brand__tile w-10 h-10 rounded-2xl bg-petrol text-white flex items-center justify-center shadow-xs transition-colors shrink-0">
-				<?php /* Official mark: the bundled white map icon, never a redrawn logo. */ ?>
-				<img src="<?php echo esc_url( sa_brand_icon_light_url( 96 ) ); ?>" alt="" width="24" height="24"
-					class="w-6 h-6 object-contain" loading="eager" fetchpriority="high" data-no-lazy="1" decoding="async">
-			</span>
+			<?php if ( ! is_front_page() ) : ?>
+				<span class="sa-hf-brand__tile w-10 h-10 rounded-2xl bg-petrol text-white flex items-center justify-center shadow-xs transition-colors shrink-0">
+					<?php /* Official mark: the bundled white map icon, never a redrawn logo. */ ?>
+					<img src="<?php echo esc_url( sa_brand_icon_light_url( 96 ) ); ?>" alt="" width="24" height="24"
+						class="w-6 h-6 object-contain" loading="eager" fetchpriority="high" data-no-lazy="1" decoding="async">
+				</span>
+			<?php endif; ?>
 			<span class="sa-hf-brand__text block">
 				<strong><?php echo esc_html( $sa_brand ); ?></strong>
 				<span><?php echo esc_html( $sa_tagline ); ?></span>
