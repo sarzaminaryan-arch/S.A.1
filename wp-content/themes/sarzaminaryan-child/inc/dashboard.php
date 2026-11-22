@@ -400,3 +400,35 @@ function sa_dashboard_template_include( $template ) {
 	return $dash ? $dash : $template;
 }
 add_filter( 'template_include', 'sa_dashboard_template_include', 99 );
+
+/**
+ * v2.24.13 — the dedicated dashboard page must exist for the home page to link to it.
+ *
+ * `sa_dashboard_repair()` runs on every theme upgrade, but the page can also be deleted
+ * or trashed between upgrades. The home-page block links only to a real published page
+ * (never a guessed URL), so without this the owner would lose the entry point silently.
+ *
+ * Runs in wp-admin for administrators only — a public request never creates content —
+ * and at most once per theme version.
+ *
+ * @return void
+ */
+function sa_dashboard_ensure_page() {
+	if ( ! function_exists( 'is_admin' ) || ! is_admin() ) {
+		return;
+	}
+	if ( ! function_exists( 'current_user_can' ) || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+	if ( get_option( 'sa_dashboard_page_check' ) === SA_CHILD_VERSION ) {
+		return;
+	}
+	update_option( 'sa_dashboard_page_check', SA_CHILD_VERSION, false );
+	if ( '' !== sa_dashboard_page_url() ) {
+		return;
+	}
+	if ( function_exists( 'sa_dashboard_repair' ) ) {
+		sa_dashboard_repair();
+	}
+}
+add_action( 'admin_init', 'sa_dashboard_ensure_page', 30 );
