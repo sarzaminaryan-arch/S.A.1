@@ -45,11 +45,16 @@
    پس دروازهٔ Build gates برای آن SHA سبز نیست و **پیش از هر `workflow_dispatch` تازه باید
    یک کامیت تازه روی `main` از راه ادغام PR ساخته شود**.
 2. ✅ شمارش قطعی در رودمپ و همین سند ثبت شد.
-3. **اجرای شغل ۰۸** (خواندن بچ ۱) و سپس تولید متن ۱۰ صفحه با
+3. ✅ **شغل ۰۸ اجرا شد** (run `45020069937`، سبز): متن زندهٔ ۱۰ صفحهٔ بچ ۱ با
+   `modified_gmt` — ورودی سازندهٔ بچ آماده است. اعداد زنده در
+   `stage3-batch1-rewrite-worklist.md` به‌روز شد (مثلاً `shush` ۲۲۸۰ واژه/۴۳ یادداشت).
+   گزارش مالک از افزونه هم ثبت شد: `plugin-report-20261122-111727.md`
+   (`changed=1`, `skip_drop=39`, `notes_found=1341`).
+4. **گام فوری بعدی:** نوشتن `replace_src/gen_shush.py` (اولین صفحهٔ بچ ۱) و سپس تولید متن ۱۰ صفحه با
    `tools/wp-agent/replace_src/gen_<slug>.py` به الگوی `gen_aghajari.py`؛ ساخت با
    `build_section_batch.py`؛ کار نوشتن `update` با `owner_approved_live_edit: true` +
    `rollback_on_fail: true` + `cache-purge` + `probe` + `content-audit` (سقف ۶۵ گام).
-4. اگر مالک متن JSON گزارش `sa_ef_report_last` را از صفحهٔ ادمین کپی کند، ستون‌های
+5. اگر مالک متن JSON گزارش `sa_ef_report_last` کامل را را از صفحهٔ ادمین کپی کند، ستون‌های
    `changed / no-change / skip-rewrite / skip-banned` هم در سند تست ثبت می‌شود
    (پل ایجنت مسیر خواندن option ندارد؛ برای همین شغل ۰۷ جایش را می‌گیرد).
 
