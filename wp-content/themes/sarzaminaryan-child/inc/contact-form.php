@@ -48,13 +48,14 @@ function sa_contact_form_html() {
 	$sel = isset( $_GET['subject'] ) ? sanitize_text_field( wp_unslash( $_GET['subject'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 	/*
-	 * Owner 2026-11-22: this line printed «&#115;ar&#122;a…» as literal code on /contact/.
-	 * antispambot() already returns character references, so wrapping it in esc_html()
-	 * escaped the ampersands a second time and the address never appeared. The value is
-	 * validated by is_email() before it is printed either way.
+	 * Owner 2026-11-22 (two reports): this line printed «&#115;ar&#122;a…» as literal code.
+	 * antispambot() returns character references; any later escaping in the render pipeline
+	 * (or a cached copy of the escaped markup) turns them back into visible code. A plain,
+	 * once-escaped address can never break that way, and the address is already public on
+	 * this very page — so no obfuscation here.
 	 */
 	$sa_lead_email = (string) sa_contact_recipient();
-	$sa_lead_html  = is_email( $sa_lead_email ) ? antispambot( $sa_lead_email ) : esc_html( $sa_lead_email ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- antispambot() is entity-encoded by design.
+	$sa_lead_html  = esc_html( $sa_lead_email );
 
 	ob_start();
 	?>
@@ -121,6 +122,35 @@ function sa_contact_autoload( $content ) {
 	return $content . sa_contact_form_html();
 }
 add_filter( 'the_content', 'sa_contact_autoload', 30 );
+
+/**
+ * Repair an address that was saved or cached as numeric character references.
+ *
+ * Owner report 2026-11-22 (twice): /contact/ printed «&#115;ar&#122;a…» instead of the
+ * address. The theme no longer obfuscates it, but a page body (or a stale page cache)
+ * can still hold the old escaped markup. Any character-reference run that decodes to a
+ * valid email is normalised to plain, once-escaped text here.
+ *
+ * @param string $content Post content.
+ * @return string
+ */
+function sa_contact_decode_stray_address( $content ) {
+	$content = (string) $content;
+	if ( false === strpos( $content, '&#' ) ) {
+		return $content;
+	}
+
+	return (string) preg_replace_callback(
+		'/(?=[A-Za-z0-9._%+\-@&;]*&(?:amp;)?#\d{2,3};)(?:&(?:amp;)?#\d{2,3};|[A-Za-z0-9._%+\-@]){7,}/',
+		static function ( $match ) {
+			$flags = ENT_QUOTES | ENT_HTML5;
+			$plain = html_entity_decode( html_entity_decode( $match[0], $flags, 'UTF-8' ), $flags, 'UTF-8' );
+			return is_email( $plain ) ? esc_html( $plain ) : $match[0];
+		},
+		$content
+	);
+}
+add_filter( 'the_content', 'sa_contact_decode_stray_address', 32 );
 
 /**
  * Handle contact form submissions (logged-in and guests).

@@ -96,7 +96,8 @@ sa_exp_assert(
 	false === strpos( $contact, 'esc_html( antispambot(' ),
 	'the contact lead never double-escapes the obfuscated address (text, not &#…; code)'
 );
-sa_exp_assert( false !== strpos( $contact, 'is_email( $sa_lead_email )' ), 'the printed address is validated first' );
+sa_exp_assert( false !== strpos( $contact, 'esc_html( $sa_lead_email )' ), 'the printed address is escaped exactly once (never entity-obfuscated)' );
+sa_exp_assert( false !== strpos( $contact, 'sa_contact_decode_stray_address' ), 'an address stored as character references is repaired on render' );
 sa_exp_assert(
 	false === strpos( $footer, 'antispambot(' ),
 	'the footer mailto link prints a real address, not escaped entities'
