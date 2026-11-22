@@ -1,0 +1,17 @@
+[
+ {
+  "id": 278,
+  "slug": "mahshahr",
+  "words_after": 1667,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
