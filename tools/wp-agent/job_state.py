@@ -16,8 +16,12 @@ class StateError(Exception):
     pass
 
 
+# دستورهای فقط‌خواندنی: هیچ نوشتنی روی سایت انجام نمی‌دهند، پس شغلِ ساخته‌شده از آن‌ها
+# نیازی به پشتیبان/بازگردانی ندارد. `content-audit` هم فقط GET /posts و GET /post/{id}
+# می‌زند و خروجی‌اش گزارش است — پس صریحاً همین‌جا فهرست شده تا شغل ممیزی، شغل نوشتنی
+# ثبت نشود و وقفهٔ احتمالی‌اش، کارهای بعدی را با «نتیجهٔ نامعلوم» قفل نکند.
 READ_ONLY = {'ping', 'list', 'get', 'backups', 'probe', 'inventory', 'seo-scan',
-             'featured-audit', 'storage', 'index-gate', 'relations-audit'}
+             'featured-audit', 'storage', 'index-gate', 'relations-audit', 'content-audit'}
 
 
 class Journal:
