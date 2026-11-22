@@ -1,0 +1,17 @@
+[
+ {
+  "id": 283,
+  "slug": "dasht-azadegan",
+  "words_after": 2323,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

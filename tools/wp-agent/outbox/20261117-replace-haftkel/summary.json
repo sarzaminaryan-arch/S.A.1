@@ -1,0 +1,17 @@
+[
+ {
+  "id": 293,
+  "slug": "haftkel",
+  "words_after": 1854,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

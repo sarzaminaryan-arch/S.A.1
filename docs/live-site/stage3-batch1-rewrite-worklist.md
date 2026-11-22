@@ -85,7 +85,18 @@
 | ۱ | `hamidiyeh` ۲۸۰ | ✅ **روی سایت منتشر شد** (شغل ۰۹، backup 5326) | `replace_src/data/hamidiyeh.json` | ۱۰۶۶ ← **۱۱۶۰** واژه | ۳۰ → ۰ |
 | ۹ | `bavi` ۲۷۷ | ✅ **روی سایت منتشر شد** (شغل ۱۱، backup 5330) | `replace_src/data/bavi.json` | ۱۰۵۵ ← **۱۴۸۹** واژه | ۲۸ → ۱ ← ۰ |
 | ۸ | `omidiyeh` ۲۷۲ | ✅ **روی سایت منتشر شد** (شغل ۱۲، backup 5334) | `replace_src/data/omidiyeh.json` | ۱۰۶۳ ← **۱۳۷۱** واژه | ۲۸ → ۰ |
+| ۱۰ | `shush` ۲۸۷ | ✅ متن تازه ساخته شده (هنوز روی سایتی منتشر نشده) | `replace_src/data/shush.json` | ۲۲۵۴ ← **۲۲۷۴** واژه | ۴۳ |
+| ۹ | `dasht-azadegan` ۲۸۳ | ✅ متن تازه ساخته شده (هنوز روی سایتی منتشر نشده) | `replace_src/data/dasht-azadegan.json` | ۲۲۶۲ ← **۲۲۷۹** واژه | ۳۹ |
+| ۷ | `shushtar` ۲۸۸ | ✅ متن تازه ساخته شده (هنوز روی سایتی منتشر نشده) | `replace_src/data/shushtar.json` | ۱۸۱۵ ← **۱۸۶۹** واژه | ۳۶ |
+| ۶ | `lali` ۲۹۱ | ✅ متن تازه ساخته شده (هنوز روی سایتی منتشر نشده) | `replace_src/data/lali.json` | ۱۷۴۷ ← **۱۸۰۰** واژه | ۳۲ |
+| ۵ | `haftkel` ۲۹۳ | ✅ متن تازه ساخته شده (هنوز روی سایتی منتشر نشده) | `replace_src/data/haftkel.json` | ۱۷۴۱ ← **۱۸۰۳** واژه | ۳۲ |
+| ۴ | `masjed-soleyman` ۲۹۲ | ✅ متن تازه ساخته شده (هنوز روی سایتی منتشر نشده) | `replace_src/data/masjed-soleyman.json` | ۱۷۳۳ ← **۱۷۳۹** واژه | ۲۹ |
+| ۳ | `mahshahr` ۲۷۸ | ✅ متن تازه ساخته شده (هنوز روی سایتی منتشر نشده) | `replace_src/data/mahshahr.json` | ۱۱۱۵ ← **۱۶۱۵** واژه | ۲۸ |
 
+- همهٔ صفحات هفت‌گانه از دروازه‌های محلی سبز رفتند: `county_page.py` (fa_lint) → `check_template.py` →
+  `build_section_batch.py build` (ok:true، banned:[]، حجم بالاتر از کف زنده).
+- خروجی ساخت: `tools/wp-agent/outbox/20261122-batch1-write/{slug}-{id}.html` + `.meta.json`.
+- شغل نوشتن: `jobs/20261122-13-write-rewrite-batch1-rest.json` (۷ update + cache-purge + probe + content-audit).
 - `python3 replace_src/county_page.py hamidiyeh` → ۱۱۵۲ واژهٔ بدنه، صفر ایراد `fa_lint`.
 - `python3 build_section_batch.py build …` → `words_original=1066`، `words_after=1110`،
   `ok=true`، `banned=[]`؛ تگ‌ها و کامنت‌های گوتنبرگ متوازن.

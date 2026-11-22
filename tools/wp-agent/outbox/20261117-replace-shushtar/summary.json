@@ -1,0 +1,17 @@
+[
+ {
+  "id": 288,
+  "slug": "shushtar",
+  "words_after": 1917,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

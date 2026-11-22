@@ -1,0 +1,98 @@
+{
+  "note": "بچ ۱ مرحلهٔ ۳ — شغل هفت‌صفحه‌ای برای صفحات باقی‌ماندهٔ بچ ۱: شوش ۲۸۷، دشت آزادگان ۲۸۳، شوشتر ۲۸۸، لالی ۲۹۱، هفتکل ۲۹۳، مسجدسلیمان ۲۹۲، بندر ماهشهر ۲۷۸. متن تازه بر اساس الگوی replace_src/data/omidiyeh.json: هشت بخش، همسایه‌ها با جهت، ≥۴ منبع غیرویکی، FAQ با ۶-۷ ردیف، ۳–۴ پیوند داخلی به شهرستان/دیدنی همسایه. همهٔ صفحات با دروازه‌های محلی (county_page.py → check_template.py → build_section_batch.py build) سبز: دشت آزادگان 2262→2279، شوشتر 1815→1869، لالی 1747→1800، هفتکل 1741→1803، مسجدسلیمان 1733→1739، ماهشهر 1115→1615، شوش 2254→2274، همه ok=true، banned=[].",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 287,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/shush-287.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/shush-287.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "شوش ۲۸۷: بازنویسی کامل بخش‌دار؛ حذف ۴۳ یادداشت؛ اصلاح متن تاریخ چغازنبیل (۱۹۷۹ → ۱۳۵۸)؛ چهار پیوند داخلی؛ سه منبع غیرویکی"
+    },
+    {
+      "cmd": "update",
+      "id": 283,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/dasht-azadegan-283.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/dasht-azadegan-283.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "دشت آزادگان ۲۸۳: بازنویسی کامل بخش‌دار؛ حذف ۳۹ یادداشت؛ سه پیوند داخلی؛ سه منبع غیرویکی"
+    },
+    {
+      "cmd": "update",
+      "id": 288,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/shushtar-288.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/shushtar-288.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "شوشتر ۲۸۸: بازنویسی کامل بخش‌دار؛ حذف ۳۶ یادداشت؛ چهار پیوند داخلی؛ دو منبع غیرویکی؛ اصلاح ماه میلادی (۲۰۰۹ → ۱۳۸۸)"
+    },
+    {
+      "cmd": "update",
+      "id": 291,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/lali-291.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/lali-291.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "لالی ۲۹۱: بازنویسی کامل بخش‌دار؛ حذف ۳۲ یادداشت؛ چهار پیوند داخلی؛ سه منبع غیرویکی"
+    },
+    {
+      "cmd": "update",
+      "id": 293,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/haftkel-293.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/haftkel-293.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "هفتکل ۲۹۳: بازنویسی کامل بخش‌دار؛ حذف ۳۲ یادداشت؛ چهار پیوند داخلی؛ سه منبع غیرویکی"
+    },
+    {
+      "cmd": "update",
+      "id": 292,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/masjed-soleyman-292.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/masjed-soleyman-292.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:56",
+      "owner_approved_live_edit": true,
+      "reason": "مسجدسلیمان ۲۹۲: بازنویسی کامل بخش‌دار؛ حذف ۲۹ یادداشت؛ چهار پیوند داخلی؛ سه منبع غیرویکی"
+    },
+    {
+      "cmd": "update",
+      "id": 278,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/mahshahr-278.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/mahshahr-278.meta.json",
+      "expected_modified_gmt": "2026-11-10 23:26:55",
+      "owner_approved_live_edit": true,
+      "reason": "بندر ماهشهر ۲۷۸: بازنویسی کامل بخش‌دار؛ حذف ۲۸ یادداشت؛ چهار پیوند داخلی؛ دو منبع غیرویکی؛ اصلاح مردادمیلادی (آگوست → مرداد)"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        287,
+        283,
+        288,
+        291,
+        293,
+        292,
+        278
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/shush/?sa_probe=13",
+        "/city/dasht-azadegan/?sa_probe=13",
+        "/city/shushtar/?sa_probe=13",
+        "/city/lali/?sa_probe=13",
+        "/city/haftkel/?sa_probe=13",
+        "/city/masjed-soleyman/?sa_probe=13",
+        "/city/mahshahr/?sa_probe=13"
+      ]
+    },
+    {
+      "cmd": "content-audit",
+      "type": "city",
+      "workers": 4
+    }
+  ]
+}

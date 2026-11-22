@@ -15,5 +15,124 @@
   ],
   "bad_cites": [],
   "ok": true
+ },
+ {
+  "words_after": 2279,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 2262,
+  "volume_ok": true,
+  "id": 283,
+  "slug": "dasht-azadegan",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ },
+ {
+  "words_after": 1803,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 1741,
+  "volume_ok": true,
+  "id": 293,
+  "slug": "haftkel",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ },
+ {
+  "words_after": 1800,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 1747,
+  "volume_ok": true,
+  "id": 291,
+  "slug": "lali",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ },
+ {
+  "words_after": 1615,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 1115,
+  "volume_ok": true,
+  "id": 278,
+  "slug": "mahshahr",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ },
+ {
+  "words_after": 1739,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 1733,
+  "volume_ok": true,
+  "id": 292,
+  "slug": "masjed-soleyman",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ },
+ {
+  "words_after": 2274,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 2254,
+  "volume_ok": true,
+  "id": 287,
+  "slug": "shush",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ },
+ {
+  "words_after": 1869,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 1815,
+  "volume_ok": true,
+  "id": 288,
+  "slug": "shushtar",
+  "modified_gmt": "2026-11-10 23:26:56",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
  }
 ]
