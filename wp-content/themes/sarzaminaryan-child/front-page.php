@@ -2,9 +2,10 @@
 /**
  * Front page — 2026 design refresh (petrol / ochre palette).
  *
- * Approved mockup: hero with instant search + data spotlight card → four
- * exploration pillars → featured provinces → latest updates → about the
- * encyclopedia. The previous landing template is no longer used.
+ * Approved mockup: hero with instant search → one combined petrol card (site
+ * telemetry + the cyber dashboard entry point) → four exploration pillars →
+ * featured provinces → latest updates → about the encyclopedia. The previous
+ * landing template is no longer used.
  *
  * @package Sarzaminaryan_Child
  */
@@ -81,7 +82,7 @@ foreach ( get_posts(
 <main id="primary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-14">
 
 	<section aria-labelledby="hero-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-8 items-stretch">
-		<div class="lg:col-span-7 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-card flex flex-col justify-between space-y-6 relative">
+		<div class="lg:col-span-12 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-card flex flex-col justify-between space-y-6 relative">
 			<div class="space-y-4">
 				<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ochreSoft text-ochreDark text-xs font-bold border border-ochre/20">
 					<span class="w-2 h-2 rounded-full bg-ochre"></span>
@@ -138,93 +139,52 @@ foreach ( get_posts(
 			</div>
 		</div>
 
-		<aside aria-labelledby="spotlight-card-title" class="lg:col-span-5 bg-petrol text-white rounded-3xl p-6 sm:p-8 shadow-floating flex flex-col justify-between relative overflow-hidden grid-pattern">
-			<div class="absolute -left-16 -bottom-16 w-56 h-56 rounded-full bg-ochre/20 blur-2xl pointer-events-none"></div>
-
-			<div class="relative z-10 space-y-5">
-				<div class="flex items-center justify-between gap-2 border-b border-white/15 pb-3.5">
-					<span class="font-mono text-xs text-amber-200 tracking-wide bg-white/10 px-3 py-1 rounded-lg">SYS.ID // IDX-IRAN</span>
-					<span class="text-xs font-semibold text-white/85 bg-ochre px-2.5 py-1 rounded-lg">شاخص جامع</span>
-				</div>
-
-				<div class="space-y-2">
-					<span class="text-xs font-semibold text-amber-200 block">نبض داده‌های ایران‌شناسی در سرزمین آریان</span>
-					<h2 id="spotlight-card-title" class="text-xl sm:text-2xl font-extrabold leading-snug">
-						نقشه جامع مقاصد، رتبه‌بندی و تجربه‌های میدانی در یک نگاه
-					</h2>
-					<p class="text-xs sm:text-sm text-white/80 leading-relaxed">
-						تمامی استان‌ها و شهرستان‌ها با ساختار یکپارچه شناسنامه‌ای، اقلیم چهارفصل و پیوند مستقیم به دیدنی‌های شاخص منتشر شده‌اند.
-					</p>
-				</div>
-
-				<dl class="grid grid-cols-2 gap-3 pt-1">
-					<?php foreach ( $sa_stats as $sa_stat ) : ?>
-						<div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 border border-white/15">
-							<dt class="text-[11px] text-white/75"><?php echo esc_html( $sa_stat['label'] ); ?></dt>
-							<dd class="text-lg sm:text-xl font-extrabold text-white mt-0.5"><?php echo esc_html( $sa_stat['value'] ); ?></dd>
-						</div>
-					<?php endforeach; ?>
-				</dl>
-			</div>
-
-			<div class="relative z-10 pt-5 mt-6 border-t border-white/15 flex items-center justify-between gap-3">
-				<div class="text-xs text-white/85">
-					<strong class="block text-white font-bold">شروع از استان‌ها</strong>
-					<span>شناسنامه، شهرستان‌ها و مسیرهای سفر</span>
-				</div>
-				<a href="#pillars-section" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-ochre hover:bg-ochreDark text-white text-xs font-bold transition-colors shrink-0">
-					<span>مشاهده بخش‌ها</span>
-					<span aria-hidden="true">←</span>
-				</a>
-			</div>
-		</aside>
 	</section>
 
-	<?php if ( '' !== $sa_dash ) : ?>
 	<section id="dashboard-section" aria-labelledby="dashboard-heading" class="scroll-mt-24">
 		<div class="bg-petrol text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-floating relative overflow-hidden grid-pattern">
 			<div class="absolute -left-20 -bottom-24 w-64 h-64 rounded-full bg-ochre/20 blur-2xl pointer-events-none"></div>
 
-			<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-8 items-center">
-				<div class="lg:col-span-8 space-y-4">
+			<div class="relative z-10 space-y-6">
+				<div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/15 pb-4">
 					<div class="flex flex-wrap items-center gap-2">
 						<span class="font-mono text-[11px] sm:text-xs text-amber-200 tracking-wide bg-white/10 px-3 py-1 rounded-lg">SYS.GEO.IRAN // CYBER DASHBOARD</span>
-						<span class="text-[11px] font-semibold text-white/85 bg-ochre px-2.5 py-1 rounded-lg">نقشهٔ تعاملی دومرحله‌ای</span>
+						<span class="text-[11px] font-bold text-white bg-ochre px-2.5 py-1 rounded-lg">شاخص جامع</span>
+						<span class="text-[11px] font-semibold text-white/85 bg-white/10 px-2.5 py-1 rounded-lg">نقشهٔ تعاملی دومرحله‌ای</span>
 					</div>
-
-					<h2 id="dashboard-heading" class="text-2xl sm:text-3xl font-extrabold leading-snug">
-						داشبورد جامع گردشگری ایران
-					</h2>
-					<p class="text-sm text-white/80 leading-relaxed max-w-2xl">
-						در برگهٔ اختصاصی داشبورد، روی نقشهٔ ایران استان را انتخاب کنید تا شناسنامهٔ کامل و نمودارهای آن باز شود؛ سپس با یک دکمه به نقشهٔ همان استان بروید و شناسنامهٔ هر شهرستان را با نام انگلیسی و داده‌های میدانی ببینید.
-					</p>
-
-					<ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1 list-none m-0 p-0">
-						<li class="bg-white/10 border border-white/15 rounded-2xl p-3.5">
-							<span class="block text-[11px] text-white/75">استان روی نقشه</span>
-							<strong class="block text-lg font-extrabold text-white mt-0.5"><?php echo esc_html( sa_2026_num( max( 31, $sa_dash_provinces ) ) ); ?></strong>
-						</li>
-						<li class="bg-white/10 border border-white/15 rounded-2xl p-3.5">
-							<span class="block text-[11px] text-white/75">شهرستان در مرحلهٔ دوم</span>
-							<strong class="block text-lg font-extrabold text-white mt-0.5"><?php echo esc_html( sa_2026_num( $sa_dash_counties ) ); ?></strong>
-						</li>
-						<li class="bg-white/10 border border-white/15 rounded-2xl p-3.5">
-							<span class="block text-[11px] text-white/75">شناسنامه و نمودار</span>
-							<strong class="block text-lg font-extrabold text-white mt-0.5">۲ مرحله</strong>
-						</li>
-					</ul>
+					<span class="text-[11px] text-white/75">تله‌متری داده‌ها: برخط</span>
 				</div>
 
-				<div class="lg:col-span-4">
-					<div class="bg-white/10 border border-white/15 rounded-2xl p-4 sm:p-5 space-y-3">
-						<p class="text-xs text-white/80 leading-relaxed">
-							نقشهٔ تعاملی، تله‌متری داده‌ها و شناسنامهٔ استان‌ها و شهرستان‌ها در یک صفحه:
+				<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
+					<div class="lg:col-span-7 space-y-3">
+						<span class="text-xs font-semibold text-amber-200 block">نبض داده‌های ایران‌شناسی در سرزمین آریان</span>
+						<h2 id="dashboard-heading" class="text-2xl sm:text-3xl font-extrabold leading-snug">داشبورد جامع گردشگری ایران</h2>
+						<p class="text-sm text-white/80 leading-relaxed">
+							نقشهٔ جامع مقاصد، رتبه‌بندی و تجربه‌های میدانی در یک نگاه: همهٔ استان‌ها و شهرستان‌ها با شناسنامهٔ یکپارچه، اقلیم چهارفصل و پیوند مستقیم به دیدنی‌های شاخص. روی نقشه استان را انتخاب کنید تا شناسنامهٔ کامل و نمودارهایش باز شود، سپس با یک دکمه به نقشهٔ شهرستان‌های همان استان بروید.
 						</p>
-						<a href="<?php echo esc_url( $sa_dash ); ?>"
-							class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-ochre hover:bg-ochreDark text-white text-sm font-bold transition-colors">
-							<span>ورود به داشبورد تعاملی</span>
-							<span aria-hidden="true">←</span>
-						</a>
+						<ul class="flex flex-wrap items-center gap-2 text-[11px] text-white/85 list-none m-0 p-0">
+							<li class="bg-white/10 border border-white/15 rounded-lg px-2.5 py-1">مرحلهٔ ۱: نقشهٔ ایران ← شناسنامهٔ استان</li>
+							<li class="bg-white/10 border border-white/15 rounded-lg px-2.5 py-1">مرحلهٔ ۲: نقشهٔ شهرستان‌ها ← شناسنامهٔ شهرستان</li>
+						</ul>
+					</div>
+
+					<div class="lg:col-span-5 space-y-4">
+						<dl class="grid grid-cols-2 gap-3 m-0">
+							<?php foreach ( $sa_stats as $sa_stat ) : ?>
+								<div class="bg-white/10 backdrop-blur-xs rounded-2xl p-3.5 border border-white/15">
+									<dt class="text-[11px] text-white/75"><?php echo esc_html( $sa_stat['label'] ); ?></dt>
+									<dd class="text-lg sm:text-xl font-extrabold text-white mt-0.5"><?php echo esc_html( $sa_stat['value'] ); ?></dd>
+								</div>
+							<?php endforeach; ?>
+						</dl>
+
+						<?php if ( '' !== $sa_dash ) : ?>
+							<a href="<?php echo esc_url( $sa_dash ); ?>"
+								class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-ochre hover:bg-ochreDark text-white text-sm font-bold transition-colors">
+								<span>ورود به داشبورد تعاملی</span>
+								<span aria-hidden="true">←</span>
+							</a>
+						<?php endif; ?>
 						<a href="<?php echo esc_url( $sa_archive_p ); ?>" class="block text-center text-xs font-semibold text-white/85 hover:text-white hover:underline">
 							یا کاوش در فهرست استان‌ها
 						</a>
@@ -233,7 +193,6 @@ foreach ( get_posts(
 			</div>
 		</div>
 	</section>
-	<?php endif; ?>
 
 	<section id="pillars-section" aria-labelledby="pillars-heading" class="space-y-6 scroll-mt-24">
 		<div class="flex flex-col md:flex-row md:items-end justify-between gap-3">

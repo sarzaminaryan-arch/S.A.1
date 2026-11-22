@@ -132,9 +132,13 @@ sa_dh_assert( false !== strpos( $home, 'role="search"' ) && false !== strpos( $h
 
 /* 6) v2.24.13 — the 2026 home page carries the cyber dashboard block again. */
 sa_dh_assert( false !== strpos( $front, 'sa_dashboard_page_url()' ), 'front page reads the real dashboard URL' );
-sa_dh_assert( false !== strpos( $front, 'id="dashboard-section"' ), 'front page renders the dashboard section' );
-sa_dh_assert( false !== strpos( $front, "if ( '' !== \$sa_dash )" ), 'the dashboard section is skipped when no published page exists' );
-sa_dh_assert( false !== strpos( $front, 'ورود به داشبورد تعاملی' ), 'the section links into the dedicated dashboard page' );
+sa_dh_assert( false !== strpos( $front, 'id="dashboard-section"' ), 'front page renders the dashboard card' );
+sa_dh_assert( false !== strpos( $front, "if ( '' !== \$sa_dash )" ), 'the dashboard button is skipped when no published page exists' );
+sa_dh_assert( false !== strpos( $front, 'ورود به داشبورد تعاملی' ), 'the card links into the dedicated dashboard page' );
+/* v2.24.14 — owner: «دو کارت را ترکیب کن و یکی بذار». */
+sa_dh_assert( false === strpos( $front, 'spotlight-card-title' ), 'the old spotlight card no longer ships as a second petrol card' );
+sa_dh_assert( substr_count( $front, 'bg-petrol text-white rounded-3xl' ) === 1, 'exactly one petrol card on the front page' );
+sa_dh_assert( false !== strpos( $front, 'id="dashboard-heading"' ), 'the single card keeps the dashboard heading' );
 $module = (string) file_get_contents( SA_CHILD_DIR . 'inc/dashboard.php' );
 sa_dh_assert( false !== strpos( $module, 'function sa_dashboard_ensure_page()' ), 'a missing dashboard page is restored for administrators' );
 sa_dh_assert( false !== strpos( $module, "add_action( 'admin_init', 'sa_dashboard_ensure_page'" ), 'that repair runs in wp-admin only' );
