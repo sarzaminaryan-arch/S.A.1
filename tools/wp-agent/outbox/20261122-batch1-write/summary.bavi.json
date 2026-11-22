@@ -1,0 +1,19 @@
+[
+ {
+  "words_after": 1489,
+  "tags_ok": true,
+  "gutenberg_ok": true,
+  "banned": [],
+  "fa_lint": [],
+  "words_original": 1055,
+  "volume_ok": true,
+  "id": 277,
+  "slug": "bavi",
+  "modified_gmt": "2026-11-10 23:26:55",
+  "changes": [
+   "rebuild: marked sections"
+  ],
+  "bad_cites": [],
+  "ok": true
+ }
+]
