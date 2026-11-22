@@ -438,6 +438,37 @@ function sa_protect_photo_credit_captions( $content, &$protected ) {
 	return is_string( $result ) ? $result : $content;
 }
 
+/**
+ * Protect compact source-link pill containers (`div.sa-source-boxes`) from
+ * being converted into numbered footnote anchors by `sa_citations_filter()`.
+ *
+ * @param string               $content   Article HTML.
+ * @param array<string,string> $protected Placeholder => original HTML map.
+ * @return string
+ */
+function sa_protect_source_boxes( $content, &$protected ) {
+	$content   = (string) $content;
+	$protected = array();
+	if ( false === strpos( $content, 'sa-source-boxes' ) ) {
+		return $content;
+	}
+	$prefix = 'SA_SOURCE_BOXES_' . hash( 'sha256', $content ) . '_';
+	while ( false !== strpos( $content, $prefix ) ) {
+		$prefix .= 'X';
+	}
+	$result = preg_replace_callback(
+		'#<div\b[^>]*class=([\"\'])[^\"\']*\bsa-source-boxes\b[^\"\']*\1[^>]*>(?:(?!<div\b).)*?</div\s*>#isu',
+		static function ( $match ) use ( &$protected, $prefix ) {
+			$box = $match[0];
+			$key = '<!-- ' . $prefix . count( $protected ) . ' -->';
+			$protected[ $key ] = $box;
+			return $key;
+		},
+		$content
+	);
+	return is_string( $result ) ? $result : $content;
+}
+
 function sa_build_unified_sources( $post_id, $content = '' ) {
 	$meta = sa_get_sources( $post_id );
 	// نگاشتِ نرمال → رکورد متا (برای یافتن عنوان/سازمان هنگام برخورد با لینک درون‌متن).
@@ -459,7 +490,9 @@ function sa_build_unified_sources( $post_id, $content = '' ) {
 	if ( '' !== (string) $content ) {
 		$inline_urls = array();
 		$credit_captions = array();
+		$source_boxes    = array();
 		$content = sa_protect_photo_credit_captions( $content, $credit_captions );
+		$content = sa_protect_source_boxes( $content, $source_boxes );
 		// ترکیبِ sa-cite و <a> — ترتیبِ ظهور حفظ می‌شود.
 		if ( preg_match_all( '#<sup\b[^>]*class=([\"\'])[^\"\']*\bsa-cite\b[^\"\']*\1[^>]*>\s*<a\b[^>]*href=([\"\'])([^\"\']+)\2[^>]*>.*?</a>\s*</sup>|<a\b[^>]*href=([\"\'])([^\"\']+)\4[^>]*>.*?</a>#isu', (string) $content, $mm, PREG_SET_ORDER ) ) {
 			foreach ( $mm as $hit ) {

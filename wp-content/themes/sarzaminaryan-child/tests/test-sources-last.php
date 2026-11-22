@@ -149,4 +149,18 @@ sa_sl_assert( false !== $pos_rating && $pos_gallery < $pos_rating, 'order: the g
 sa_sl_assert( $pos_rating < $pos_sources, 'order: the user rating box sits above the sources (2.22.116)' );
 sa_sl_assert( false === strpos( $single, 'sa_photo_spotlight' ), 'order: «مکان در یک نگاه» is gone from the county page (2.22.116)' );
 
+// v2.24.15: باکس‌های کوچک منابع در بدنهٔ استان‌ها (.sa-source-boxes) توسط sa_citations_filter حذف نمی‌شوند.
+$GLOBALS['t']['meta'][213]['sa_sources'] = "یونسکو | یونسکو | https://whc.unesco.org/en/list/1744/ | ۱۴۰۵/۰۹/۰۱\nایرنا | خبرگزاری ایرنا | https://www.irna.ir/news/85338973/test | ۱۴۰۵/۰۹/۰۱";
+$box_body = '<p>متن با <a href="/city/khorramabad/">لینک داخلی</a>.</p>'
+	. '<div class="sa-source-boxes"><a class="sa-source-box" href="https://whc.unesco.org/en/list/1744/" target="_blank" rel="noopener external">یونسکو</a>'
+	. '<a class="sa-source-box" href="https://www.irna.ir/news/85338973/test" target="_blank" rel="nofollow noopener external">خبرگزاری ایرنا</a></div>';
+$box_out  = sa_citations_filter( $box_body );
+sa_sl_assert( false !== strpos( $box_out, 'href="https://whc.unesco.org/en/list/1744/"' ), 'source boxes: external UNESCO link survives intact' );
+sa_sl_assert( false !== strpos( $box_out, 'href="https://www.irna.ir/news/85338973/test"' ), 'source boxes: external IRNA link survives intact' );
+sa_sl_assert( false === strpos( $box_out, 'class="sa-ref"' ), 'source boxes: links inside .sa-source-boxes are not converted to footnotes' );
+
+$GLOBALS['t']['meta'][213]['sa_sources'] = '';
+$box_empty_meta_out = sa_citations_filter( $box_body );
+sa_sl_assert( false !== strpos( $box_empty_meta_out, 'href="https://whc.unesco.org/en/list/1744/"' ), 'source boxes: link survives even when unified sources are empty' );
+
 echo "PASS: sources last (list stashed during body render, printed as the last article section, prev/next navigation closes the page)\n";
