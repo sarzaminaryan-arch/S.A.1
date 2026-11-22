@@ -1,0 +1,17 @@
+{
+  "note": "اصلاح یک جمله در حمیدیه ۲۸۰: در پاک‌سازی سراسری واژهٔ ممنوع «باید» جملهٔ آغازین به «حمیدیه را از رودخانه‌اش شناخت.» شکسته بود و روی سایت منتشر شد (دیده‌شده در بازبینی fetch_page پس از شغل ۰۹). جمله به «حمیدیه را با رودخانه‌اش می‌شناسند.» برمی‌گردد و فاصله‌های دوتایی ناشی از همان پاک‌سازی هم صفر می‌شود. بقیهٔ متن، بخش‌ها و متا دست‌نخورده است؛ ۱۱۶۰ واژه در برابر کف ۱۰۶۶.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 280,
+      "content_file": "tools/wp-agent/outbox/20261122-batch1-write/hamidiyeh-280.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-batch1-write/hamidiyeh-280.meta.json",
+      "expected_modified_gmt": "2026-11-22 12:39:43",
+      "owner_approved_live_edit": true,
+      "reason": "حمیدیه ۲۸۰: برگرداندن جملهٔ آغازین شکسته و پاک‌سازی فاصله‌های دوتایی (اصلاح شغل ۰۹)"
+    },
+    { "cmd": "cache-purge", "id": [280] },
+    { "cmd": "probe", "url": ["/city/hamidiyeh/?sa_probe=10"] }
+  ]
+}
