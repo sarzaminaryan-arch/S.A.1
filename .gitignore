@@ -34,6 +34,9 @@ tmp/
 # Local generated previews from Arena/image tools
 outputs/
 
+# Downloaded Google Drive snapshots (external artifacts, not source)
+google_drive/
+
 # One-off delivery/source bundles are published as GitHub Release assets, not kept in git.
 docs/articles/
 docs/assets/
