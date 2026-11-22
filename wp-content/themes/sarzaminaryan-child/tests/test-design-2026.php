@@ -176,7 +176,7 @@ $rel_sample = '<p>در <a href="/province/lorestan/">لرستان</a>، '
 $rel_out = sa_2026_unwrap_relation_links( $rel_sample, $rel_keys );
 sa_design_assert( false === strpos( $rel_out, 'href="/province/lorestan/"' ) && false === strpos( $rel_out, '>لرستان</a>' ), 'self relation anchor is completely unwrapped' );
 sa_design_assert( false === strpos( $rel_out, 'sa-autolink--province' ) && false !== strpos( $rel_out, 'استان کرمانشاه' ) && false !== strpos( $rel_out, 'استان همدان' ), 'autolinked and dead relation shells unwrap back to plain text' );
-sa_design_assert( false !== strpos( $rel_out, '<strong>دورود</strong>' ) && false === strpos( $rel_out, 'href="/city/dorud/"' ), 'inline markup inside unwrapped relation anchor stays intact' );
+sa_design_assert( false !== strpos( $rel_out, '<strong>دورود</strong>؛' ) && false === strpos( $rel_out, 'data-href="/attraction/x/"' ) && false === strpos( $rel_out, '<strong>دورود</strong></a>' ), 'inline markup inside unwrapped relation anchor stays intact' );
 sa_design_assert( false !== strpos( $rel_out, '<a href="/city/dorud/?preview=1">پیش‌نمایش</a>' ), 'query-string link stays untouched' );
 sa_design_assert( false !== strpos( $rel_out, '<a href="/city/dorud/"><img src="d.jpg" alt="دورود"></a>' ), 'linked image anchor stays untouched' );
 sa_design_assert( false !== strpos( $rel_out, '<a href="/attraction/bisheh/">آبشار بیشه</a>' ), 'non-relation attraction link stays untouched' );
