@@ -76,3 +76,22 @@
   `notes_found=1341`. ستون `drop_pct` همان گزارش، **حد پایین حجم** هر بازنویسی است.
 - گام بعد: `replace_src/gen_<slug>.py` برای صفحهٔ ۱ (`shush`، ۲۲۸۰ واژهٔ زنده، ۴۳ یادداشت)
   ← `build_section_batch.py` ← کار نوشتن `update` با تأیید مالک.
+
+
+## پیشرفت اجرا
+
+| # | صفحه | وضعیت | سازنده | متن | یادداشت |
+|---:|---|---|---|---:|---:|
+| ۱ | `hamidiyeh` ۲۸۰ | ✅ ساخته و تست شد، کار نوشتن آماده است | `replace_src/data/hamidiyeh.json` | ۱۰۶۶ ← **۱۱۱۰** واژه | ۳۰ → ۰ |
+
+- `python3 replace_src/county_page.py hamidiyeh` → ۱۱۵۲ واژهٔ بدنه، صفر ایراد `fa_lint`.
+- `python3 build_section_batch.py build …` → `words_original=1066`، `words_after=1110`،
+  `ok=true`، `banned=[]`؛ تگ‌ها و کامنت‌های گوتنبرگ متوازن.
+- کار نوشتن: `tools/wp-agent/jobs/20261122-09-write-rewrite-batch1-hamidiyeh.json`
+  (`update` + `cache-purge` + `probe` + `content-audit`، `rollback_on_fail: true`،
+  `expected_modified_gmt: 2026-11-10 23:26:55`). فقط با ادغام در `main` و
+  `workflow_dispatch` اجرا می‌شود.
+- در همین صفحه سه اشکال متای زنده اصلاح شد: جمعیت شهر (۵۳٬۷۶۲ → ۲۲٬۰۵۷)، اقلیم
+  («گرم و خشک» → «گرم و مرطوب»)، معیشت (متن کپی‌شدهٔ «نفت و گاز و پتروشیمی و بنادر» →
+  کشاورزی و دامداری)، فاصله (۲۹ → ۲۵ کیلومتر) و نامک همسایه‌ها (`ahvaz-city` → `ahvaz`).
+- سه منبع غیرویکی در `sa_sources` و پانویس‌های شماره‌دار: ایرنا، تابناک، راسخون.
