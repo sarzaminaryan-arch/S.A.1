@@ -1,0 +1,25 @@
+{
+  "note": "توقف موقت (دستور مالک ۲۰۲۶-۱۱-۲۲): برگرداندن چهار صفحهٔ بچ ۱ به نسخهٔ پیش از job ۱۳. دلیل: بازنویسی ۲۰۲۶-۱۱-۲۲ روی سایت منتشر شده بود (نتایج 20261122-13) و متن آن ۱۵/۱۴/۲/۵ جملهٔ تکراری یک‌به‌یک و ۳۷۷/۲۲۲/۹۲/۲۰۵ جفت نزدیک داشت. بکاپ‌ها از نتیجهٔ job ۱۳: دشت آزادگان ۲۸۳→۵۳۵۶، هفتکل ۲۹۳→۵۳۶۲، مسجدسلیمان ۲۹۲→۵۳۶۴، بندر ماهشهر ۲۷۸→۵۳۶۶. این یک بازگردانی است، نه پاک‌سازی؛ بازنویسی کامل با دروازهٔ تکرار بعداً انجام می‌شود. پیش از هر restore، خود فرمان از وضع فعلی پشتیبان محلی می‌گیرد.",
+  "rollback_on_fail": true,
+  "steps": [
+    { "cmd": "backups", "target": 283 },
+    { "cmd": "backups", "target": 293 },
+    { "cmd": "backups", "target": 292 },
+    { "cmd": "backups", "target": 278 },
+    { "cmd": "restore", "backup_id": 5356 },
+    { "cmd": "restore", "backup_id": 5362 },
+    { "cmd": "restore", "backup_id": 5364 },
+    { "cmd": "restore", "backup_id": 5366 },
+    { "cmd": "cache-purge", "id": [283, 293, 292, 278] },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/dasht-azadegan/?sa_probe=14",
+        "/city/haftkel/?sa_probe=14",
+        "/city/masjed-soleyman/?sa_probe=14",
+        "/city/mahshahr/?sa_probe=14"
+      ]
+    },
+    { "cmd": "content-audit", "type": "city" }
+  ]
+}
