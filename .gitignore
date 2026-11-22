@@ -84,3 +84,7 @@ node_modules/
 # اسنپ‌شات خط مبنای تولیدی افزونهٔ ممیزی (در CI ساخته می‌شود؛ منبع حقیقت داده‌های قالب است)
 wp-content/plugins/sa-live-article-audit/data/baseline.json
 tools/county-insights/out/
+
+# Python build artifacts
+ai_cleaner.egg-info/
+build/
