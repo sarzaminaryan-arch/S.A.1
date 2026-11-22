@@ -57,13 +57,44 @@ function sa_experience_register_post_type() {
 add_action( 'init', 'sa_experience_register_post_type', 6 );
 
 /**
+ * The owner's published submission page, if any.
+ *
+ * Three slugs are accepted so the link never breaks when the owner renames the page
+ * (`sa_experience_is_form_request()` honours the same list).
+ *
+ * @return WP_Post|null
+ */
+function sa_experience_page() {
+	static $resolved = false;
+	static $page     = null;
+
+	if ( $resolved ) {
+		return $page;
+	}
+	$resolved = true;
+
+	foreach ( array( 'city-contrib', 'contribute', 'submit-experience' ) as $slug ) {
+		$found = get_page_by_path( $slug );
+		if ( $found instanceof WP_Post && 'publish' === $found->post_status ) {
+			$page = $found;
+			break;
+		}
+	}
+
+	return $page;
+}
+
+/**
  * Public URL of the submission page.
+ *
+ * A published page always wins; otherwise the virtual route registered below answers
+ * /city-contrib/ with the 200 form page.
  *
  * @return string
  */
 function sa_experience_form_url() {
-	$page = get_page_by_path( 'city-contrib' );
-	if ( $page instanceof WP_Post && 'publish' === $page->post_status ) {
+	$page = sa_experience_page();
+	if ( $page instanceof WP_Post ) {
 		return (string) get_permalink( $page );
 	}
 
@@ -76,9 +107,7 @@ function sa_experience_form_url() {
  * @return bool
  */
 function sa_experience_has_page() {
-	$page = get_page_by_path( 'city-contrib' );
-
-	return $page instanceof WP_Post && 'publish' === $page->post_status;
+	return null !== sa_experience_page();
 }
 
 /**

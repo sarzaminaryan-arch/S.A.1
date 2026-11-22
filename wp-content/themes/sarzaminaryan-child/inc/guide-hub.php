@@ -192,6 +192,17 @@ function sa_guide_redirect_posts_page() {
 	if ( ! is_home() || is_front_page() ) {
 		return;
 	}
+	/*
+	 * v2.24.11 — owner report 2026-11-22: both «ثبت تجربه» buttons opened آموزش سفر.
+	 * A request that matches a theme route but carries no content query vars (the
+	 * virtual `?sa_experience_form=1` route for /city-contrib/ and /contribute/) is
+	 * parsed by WP_Query as «home» with `is_front_page()` false on a static front
+	 * page, so this 301 swallowed the submission page before its template ran.
+	 * Such requests are never the old posts page: let them through untouched.
+	 */
+	if ( get_query_var( 'sa_experience_form' ) || get_query_var( 'sa_llms_txt' ) ) {
+		return;
+	}
 	if ( ! apply_filters( 'sa_guide_redirect_posts_page', true ) ) {
 		return;
 	}

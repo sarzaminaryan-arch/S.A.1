@@ -47,11 +47,20 @@ function sa_contact_form_html() {
 	);
 	$sel = isset( $_GET['subject'] ) ? sanitize_text_field( wp_unslash( $_GET['subject'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
+	/*
+	 * Owner 2026-11-22: this line printed «&#115;ar&#122;a…» as literal code on /contact/.
+	 * antispambot() already returns character references, so wrapping it in esc_html()
+	 * escaped the ampersands a second time and the address never appeared. The value is
+	 * validated by is_email() before it is printed either way.
+	 */
+	$sa_lead_email = (string) sa_contact_recipient();
+	$sa_lead_html  = is_email( $sa_lead_email ) ? antispambot( $sa_lead_email ) : esc_html( $sa_lead_email ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- antispambot() is entity-encoded by design.
+
 	ob_start();
 	?>
 	<section class="sa-contact" id="sa-contact-form">
 		<h2 class="sa-contact__title">ارسال پیام</h2>
-		<p class="sa-contact__lead">پیام شما مستقیم به <b dir="ltr"><?php echo esc_html( antispambot( sa_contact_recipient() ) ); ?></b> می‌رود و خوانده می‌شود.</p>
+		<p class="sa-contact__lead">پیام شما مستقیم به <b dir="ltr"><?php echo $sa_lead_html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above. ?></b> می‌رود و خوانده می‌شود.</p>
 		<?php echo $notice; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="sa-contact__form">
 			<input type="hidden" name="action" value="sa_contact_send">
