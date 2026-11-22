@@ -130,4 +130,13 @@ sa_dh_assert( false !== strpos( $front, 'hero-heading' ) && false !== strpos( $f
 sa_dh_assert( false !== strpos( $home, 'sa_dashboard_page_url()' ) && false !== strpos( $home, 'if ( $sa_home_dashboard )' ), 'landing links to the dashboard only when available' );
 sa_dh_assert( false !== strpos( $home, 'role="search"' ) && false !== strpos( $home, 'name="s"' ), 'landing keeps WordPress search' );
 
+/* 6) v2.24.13 — the 2026 home page carries the cyber dashboard block again. */
+sa_dh_assert( false !== strpos( $front, 'sa_dashboard_page_url()' ), 'front page reads the real dashboard URL' );
+sa_dh_assert( false !== strpos( $front, 'id="dashboard-section"' ), 'front page renders the dashboard section' );
+sa_dh_assert( false !== strpos( $front, "if ( '' !== \$sa_dash )" ), 'the dashboard section is skipped when no published page exists' );
+sa_dh_assert( false !== strpos( $front, 'ورود به داشبورد تعاملی' ), 'the section links into the dedicated dashboard page' );
+$module = (string) file_get_contents( SA_CHILD_DIR . 'inc/dashboard.php' );
+sa_dh_assert( false !== strpos( $module, 'function sa_dashboard_ensure_page()' ), 'a missing dashboard page is restored for administrators' );
+sa_dh_assert( false !== strpos( $module, "add_action( 'admin_init', 'sa_dashboard_ensure_page'" ), 'that repair runs in wp-admin only' );
+
 echo "PASS: dashboard self-heal and landing page navigation\n";
