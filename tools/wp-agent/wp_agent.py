@@ -691,6 +691,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--meta-file")
     p.add_argument("--reason", default="به‌روزرسانی ایجنت")
     p.add_argument("--owner-approved-live-edit", action="store_true")
+    p.add_argument("--sync-ready-article", action="store_true", help="sync post fields, meta, FAQ and bundled cover from theme ready-articles/ready-guides data")
     p.add_argument("--expected-modified-gmt", help="refuse if the post changed since this snapshot (edit was prepared from it)")
     p = sub.add_parser("section-tests", help="add a batch of county sections from a tests/ file (runner-side, idempotent)")
     p.add_argument("--file", required=True, help="tests file inside the repository")
@@ -1004,7 +1005,14 @@ def run(a: argparse.Namespace, c: "Client"):
                 "meta": meta_in, "reason": a.reason}
         if a.owner_approved_live_edit:
             body["owner_approved_live_edit"] = True
-        return c.call("POST", f"/post/{a.id}", body=body)
+        if getattr(a, "sync_ready_article", False):
+            body["sync_ready_article"] = True
+        try:
+            return c.call("POST", f"/post/{a.id}", body=body)
+        except AgentError as err:
+            if getattr(a, "sync_ready_article", False) and '"sa_agent_nothing"' in str(err):
+                return {"id": a.id, "noop": True, "modified_gmt": current.get("modified_gmt", "")}
+            raise
     elif a.cmd == "section-tests":
         data = read_json(Path(a.file) if Path(a.file).is_absolute() else (REPO_ROOT / a.file))
         tests = data.get("tests") or []

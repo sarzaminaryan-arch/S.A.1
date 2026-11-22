@@ -1,0 +1,294 @@
+{
+  "note": "گام ۵ ممیزی ۲۲ نوامبر ۲۰۲۶ (تأیید مالک): همگام‌سازی ۳۵ راهنمای آموزشی (guide: ۲۱ متن، ۲۶ تصویر شاخص WebP، ۷ FAQ، ۵ چکیده و متاها) و ۴ دیدنی دارای اصلاح متنی (آرامگاه شاه قاسم انوار، کویر ریگ جن، باغ گلشن طبس، قلعه دختر بشرویه) با پشتیبان تفاضلی خودکار.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "update",
+      "id": 2723,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (camping-essential-checklist: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2732,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (camping-water-planning: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2734,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-can-stove: excerpt، content، meta:sa_risk_level، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2737,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-compass: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2740,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-emergency-torch: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2742,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-water-filter: excerpt، content، meta:sa_focus_keyword، meta:sa_risk_level، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2745,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (drinking-water-in-nature: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2747,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (drowning-rescue-guide: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2749,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (emergency-water-purification: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2751,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (sleeping-bag-guide: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2754,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (essential-camping-equipment: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2756,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (fire-without-lighter: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2758,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (how-to-start-campfire: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2773,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (outdoor-cooking-equipment: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2776,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (outdoor-clothing-guide: content، faq، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2779,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (gps-navigation-tools: excerpt، content، meta:sa_focus_keyword، meta:sa_risk_level، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2782,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (how-to-choose-camping-tent: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2785,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (multi-tool-knife-review: excerpt، content، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2788,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (first-aid-kit-checklist: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2791,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (how-to-extinguish-campfire: content، faq، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2794,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (maintain-fire-in-rain: content، meta:sa_sources، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2806,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (hypothermia-first-aid: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2809,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (ankle-sprain-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2812,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (bleeding-wound-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2815,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (burn-injury-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2818,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (cpr-complete-guide: meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2821,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (overdose-rescue-guide: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2824,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (self-rescue-drowning: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2827,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (snake-insect-bite-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2830,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (unconscious-drowning-cpr: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2843,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (heatstroke-first-aid: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2846,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (can-cookware-diy: meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2849,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-bottle-lantern: excerpt، content، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2855,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (old-clothes-bandage-wick: content)"
+    },
+    {
+      "cmd": "update",
+      "id": 2857,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (newspaper-insulation-bed: content)"
+    },
+    {
+      "cmd": "update",
+      "id": 2707,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (qasem-anvar-shrine: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2709,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (rig-e-jenn-desert: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2714,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (bagh-golshan-tabas: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2716,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (ghaleh-dokhtar-boshruyeh: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/",
+        "/attraction/rig-e-jenn-desert/",
+        "/attraction/bagh-golshan-tabas/"
+      ]
+    },
+    {
+      "cmd": "cache-purge",
+      "all": true
+    }
+  ]
+}
