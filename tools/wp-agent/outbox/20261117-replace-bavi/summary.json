@@ -1,0 +1,17 @@
+[
+ {
+  "id": 277,
+  "slug": "bavi",
+  "words_after": 1531,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
