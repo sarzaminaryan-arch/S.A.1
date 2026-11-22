@@ -1,0 +1,156 @@
+{
+  "job": "tools/wp-agent/jobs/20261122-19-province-hamadan-rebuild.json",
+  "started_utc": "2026-11-22T23:19:28+00:00",
+  "note": "بازسازی کامل صفحهٔ استان همدان (شناسهٔ ۶۲۸) با الگوی ۱۰ بخشی لرستان: اصلاح عنوان و متن از ۹ شهرستان به ۱۰ شهرستان (همراه با درگزین)، نثر سه‌بندی شهرستان‌ها با sa-autolink-off بدون تکرار باکس، حذف ارجاع‌های بلوک قدیمی، هم‌ترازی ۵ پرسش پرتکرار و ۷ منبع راستی‌آزمایی‌شده.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.16",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-22T23:19:28+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 628,
+        "backup_id": 5383,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 23:19:30",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          628
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/province/hamadan/?sa_probe=19",
+            "status": 200,
+            "ms": 1172,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان همدان؛ راهنمای جامع ۱۰ شهرستان، جاذبه‌ها و پیشینه",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/hamadan/",
+            "desc": "راهنمای کامل استان همدان؛ معرفی ۱۰ شهرستان، ثبت جهانی هگمتانه، غار علیصدر، گنجنامه و آرامگاه بوعلی سینا، صنایع دستی لالجین و ملایر، فرهنگ و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان همدان؛ دیار هگمتانه جهانی، الوند و ده شهرستان زاگرسی",
+              "og:description": "معرفی کامل استان همدان بر دامنهٔ الوند: از ۱۰ شهرستان و غار علیصدر تا ثبت جهانی هگمتانه، سفال لالجین، منبت ملایر، گویش همدانی و راهنمای سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/hamadan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/hamadan-avicenna-mausoleum-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان همدان؛ دیار هگمتانه جهانی، الوند و ده شهرستان زاگرسی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان همدان؛ دیار هگمتانه جهانی، الوند و ده شهرستان زاگرسی"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/hamadan-avicenna-mausoleum-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 248514,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-22T23:19:34+00:00"
+}
