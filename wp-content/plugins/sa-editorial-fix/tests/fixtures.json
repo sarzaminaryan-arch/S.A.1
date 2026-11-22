@@ -1,0 +1,119 @@
+[
+ {
+  "name": "note-sentence",
+  "input": "<p>مراغه شهری کهن در آذربایجان شرقی است و رصدخانهٔ آن زبانزد است. این فهرست اولیه است و پیش از انتشار باید با منابع رسمی تطبیق داده شود.</p>",
+  "expected": "<p>مراغه شهری کهن در آذربایجان شرقی است و رصدخانهٔ آن زبانزد است.</p>",
+  "log_contains": [
+   "note sentence: این فهرست اولیه است و پیش از انتشار باید با منابع رسمی تطبیق داده شود."
+  ],
+  "words_before": 27,
+  "words_after": 12
+ },
+ {
+  "name": "note-clause",
+  "input": "<p>قلعهٔ فلک‌الافلاک نماد خرم‌آباد است؛ نیازمند تطبیق با سازمان میراث فرهنگی است.</p>",
+  "expected": "<p>قلعهٔ فلک‌الافلاک نماد خرم‌آباد است.</p>",
+  "log_contains": [
+   "note clause: ؛نیازمند تطبیق با سازمان میراث فرهنگی است."
+  ],
+  "words_before": 14,
+  "words_after": 7
+ },
+ {
+  "name": "note-tail",
+  "input": "<p>این بنا از آثار دورهٔ ساسانی است و اطلاعات ثبت آن باید کنترل شود.</p>",
+  "expected": "<p>این بنا از آثار دورهٔ ساسانی است.</p>",
+  "log_contains": [
+   "note tail: و اطلاعات ثبت آن باید کنترل شود."
+  ],
+  "words_before": 14,
+  "words_after": 7
+ },
+ {
+  "name": "note-item",
+  "input": "<ul><li>آبشار بیشه در دهستان بیشه قرار دارد.</li><li>این فهرست اولیه است و نیازمند پژوهش است.</li></ul>",
+  "expected": "<ul><li>آبشار بیشه در دهستان بیشه قرار دارد.</li></ul>",
+  "log_contains": [
+   "note item: این فهرست اولیه است و نیازمند پژوهش است."
+  ],
+  "words_before": 15,
+  "words_after": 7
+ },
+ {
+  "name": "dup-sentence",
+  "input": "<p>دریاچه گهر در ارتفاعات اشترانکوه جای دارد و آبی زلال دارد.</p><p>سفر به لرستان تجربه‌ای به‌یادماندنی است. دریاچه گهر در ارتفاعات اشترانکوه جای دارد و آبی زلال دارد.</p>",
+  "expected": "<p>دریاچه گهر در ارتفاعات اشترانکوه جای دارد و آبی زلال دارد.</p><p>سفر به لرستان تجربه‌ای به‌یادماندنی است.</p>",
+  "log_contains": [
+   "duplicate sentence: دریاچه گهر در ارتفاعات اشترانکوه جای دارد و آبی زلال دارد."
+  ],
+  "words_before": 30,
+  "words_after": 19
+ },
+ {
+  "name": "advice-protected",
+  "input": "<p>پیش از سفر وضعیت راه را بررسی کنید و با راهنمای محلی هماهنگ باشید.</p>",
+  "expected": "<p>پیش از سفر وضعیت راه را بررسی کنید و با راهنمای محلی هماهنگ باشید.</p>",
+  "log_contains": [],
+  "words_before": 14,
+  "words_after": 14
+ },
+ {
+  "name": "sup-citation-move",
+  "input": "<p>کتیبهٔ بیستون از آثار هخامنشی است.<sup><a href=\"#ref-1\">۱</a></sup> این فهرست اولیه است.<sup><a href=\"#ref-2\">۲</a></sup></p>",
+  "expected": "<p>کتیبهٔ بیستون از آثار هخامنشی است.<sup><a href=\"#ref-1\">۱</a></sup><sup><a href=\"#ref-2\">۲</a></sup></p>",
+  "log_contains": [
+   "note sentence: این فهرست اولیه است."
+  ],
+  "words_before": 10,
+  "words_after": 6
+ },
+ {
+  "name": "table-cell",
+  "input": "<table><tr><th>شاخص</th><th>مقدار</th><th>توضیح</th></tr><tr><td>جمعیت</td><td>۱۲۰٬۰۰۰</td><td>بر پایهٔ سرشماری؛ باید با مرکز آمار تطبیق داده شود</td></tr><tr><td>نام‌های تاریخی</td><td>—</td><td>نام‌ها باید مستند باشند</td></tr></table>",
+  "expected": "<table><tr><th>شاخص</th><th>مقدار</th><th>توضیح</th></tr><tr><td>جمعیت</td><td>۱۲۰٬۰۰۰</td><td>بر پایهٔ سرشماری؛ باید با مرکز آمار تطبیق داده شود</td></tr></table>",
+  "log_contains": [
+   "table row removed (placeholder): نام های تاریخی"
+  ],
+  "words_before": 24,
+  "words_after": 15
+ },
+ {
+  "name": "empty-para",
+  "input": "<p>نیازمند بررسی است.</p><p>ماسوله روستایی پلکانی در گیلان است.</p>",
+  "expected": "<p>ماسوله روستایی پلکانی در گیلان است.</p>",
+  "log_contains": [
+   "note sentence: نیازمند بررسی است.",
+   "empty paragraph removed"
+  ],
+  "words_before": 9,
+  "words_after": 6
+ },
+ {
+  "name": "trailing-semicolon",
+  "input": "<p>این جاذبه در استان فارس است؛ نیازمند منبع است</p>",
+  "expected": "<p>این جاذبه در استان فارس است.</p>",
+  "log_contains": [
+   "note clause: ؛نیازمند منبع است"
+  ],
+  "words_before": 9,
+  "words_after": 6
+ },
+ {
+  "name": "no-change",
+  "input": "<p>باغ ارم شیراز با درختان سرو کهنسالش آرامشی وصف‌ناپذیر دارد.</p>",
+  "expected": "<p>باغ ارم شیراز با درختان سرو کهنسالش آرامشی وصف‌ناپذیر دارد.</p>",
+  "log_contains": [],
+  "words_before": 11,
+  "words_after": 11
+ },
+ {
+  "name": "li-shorten",
+  "input": "<ul><li><strong>آبشار شوی</strong> بلندترین آبشار ایران است؛ در دزفول قرار دارد.</li><li>جای دیگر</li></ul><ul><li><strong>آبشار شوی</strong> بلندترین آبشار ایران است؛ در دزفول قرار دارد.</li></ul>",
+  "expected": "<ul><li><strong>آبشار شوی</strong></li><li>جای دیگر</li></ul><ul><li><strong>آبشار شوی</strong> بلندترین آبشار ایران است؛ در دزفول قرار دارد.</li></ul>",
+  "log_contains": [
+   "summary item shortened (full text kept below): آبشار شوی بلندترین آبشار ایران است؛ در دزفول قرار دارد."
+  ],
+  "words_before": 22,
+  "words_after": 14
+ }
+]
