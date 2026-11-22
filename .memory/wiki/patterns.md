@@ -46,3 +46,9 @@
   1. نسخه در هر دو فایل `wp-content/themes/sarzaminaryan-child/style.css` (`Version: X.Y.Z`) و `functions.php` (`define( 'SA_CHILD_VERSION', 'X.Y.Z' );`) هم‌زمان به‌روز شود.
   2. تست PHP مرتبط در `tests/test-*.php` افزوده یا به‌روزرسانی و همراه با کل مجموعهٔ `build-gates` اجرا شود.
   3. کلید بازگشت فوری (`sa_2026_render_legacy()` یا `rollback_to` در جاب `wp-agent`) برای تغییرات ظاهر/ساختار محفوظ بماند.
+
+## ۷. جداسازی پیوندهای تکراری و استایل‌دهی بر `sa-2026.css`
+- **الگو (`inc/design-2026.php`, `assets/css/child.css`):**
+  1. در `sa_2026_relation_content()` به‌جای حذف صفت `href`، تگ `<a ...>...</a>` منطبق با `$keys` باید با `sa_2026_unwrap_relation_links()` به‌کلی باز شود و فقط محتوای درونی بماند (با محافظت از بلوک‌های کد/اسکریپت و حفظ `<img>`/`<svg>`).
+  2. چون `sa-2026.css` پس از `child.css` بارگذاری می‌شود، هر override روی نمای ۱۴۰۵ در `child.css` با پیشوند `body.sa-2026` نوشته شود.
+  3. خط زیرین لینک‌های فارسی درون `.sa-2026-prose` فقط برای `a[href]:not([href=""]):not(.sa-source-box)` همراه با `text-decoration-skip-ink: none; text-underline-offset: 6px; text-decoration-thickness: 1px` و تیترهای بخش‌ها با کلاس `.sa-section-heading` به‌صورت تک‌خطی موبایل و پس‌زمینهٔ سبز روشن `#E7F5EC` (به استثنای CTAهای پس‌زمینهٔ تیره) اعمال شود.

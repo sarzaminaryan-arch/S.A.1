@@ -3,16 +3,13 @@
 > **قاعدهٔ شروع نشست:** این فایل همیشه باید اول خوانده شود.
 
 ## وضعیت فعلی (۲۰۲۶-۱۱-۲۲ / ۱۴۰۵/۰۹/۰۱)
-- **شاخهٔ پایهٔ انتشاریافته (`main`):** `1073146` (پس از ادغام PR `#128` و اجرای موفق گردش‌کار `wp-agent.yml` شمارهٔ `45074604844`).
-- **قالب فرزند زنده و منتشرشده (`sarzaminaryan-child`):** نسخهٔ `2.24.15` (ریلیز گیت‌هاب `sarzaminaryan-child-v2.24.15`، آزمایش‌شده و سالم روی سایت زنده). قالب والد `sarzaminaryan` نسخهٔ `1.1.0` کاملاً دست‌نخورده و قفل‌شده با `protect.yml` است.
-- **آخرین عملیات زنده:** صفحهٔ استان لرستان (`wp_id=478`, `/province/lorestan/`) با موفقیت بازسازی و منتشر شد (`backup_id: 5379`, `modified_gmt: "2026-11-22 21:54:25"`): شامل ۱۲ باکس شهرستان (`.sa-county-box` در گرید ۳ ستونه دسکتاپ)، ۵ آکاردئون پرسش‌وپاسخ (`<details class="sa-faq-item">`, اولی باز) و ۷ باکس یکتا و قابل‌کلیک منابع (`.sa-source-boxes`, محافظت‌شده با `sa_protect_source_boxes()`).
-- **زیرساخت حافظهٔ پایدار (`.memory/`):** در ریشهٔ مخزن ایجاد و با `AGENTS.md` همگام‌سازی شد؛ ۵ منبع کلیدی گیت‌هاب در `github-refs.md` ثبت شده‌اند.
-- **عملیات بازِ پیشین مخزن (در `.agent/ROADMAP.md` و `.agent/STATUS.md`):**
-  - ردیف ۱ صف شهرستان‌ها (`tehran`، شناسهٔ ۲۱۳) و ردیف ۲ (`mashhad`، شناسهٔ ۶۳): پیش‌نویس‌ها در `tools/wp-agent/replace_src/data/` بازسازی شده‌اند، اما انتشار دستی/نصب زنده تابع دستورات `.agent/RULES.md` و تأیید مسیر اجرایی ایمن است.
-  - بخش `sa_2026` و قالب‌های فردی (`front-page.php`, `single-province.php`, `single-city.php`, `single-attraction.php`, `archive-guide.php`) فعال‌اند و همهٔ گاردهای آفلاین CI (`build-gates.yml`) و تست‌های PHP قالب پوشش داده شده‌اند.
+- **شاخهٔ فعال و آمادهٔ ادغام:** `arena/6347bf14-s-a-1` با عبور کامل از `build-gates.yml` (`45078857776`) شامل نسخهٔ `2.24.16` قالب فرزند و اصلاح `lorestan-478.html` + جاب `tools/wp-agent/jobs/20261122-18-lorestan-478-fix-theme-22416.json`.
+- **تغییرات نسخهٔ `2.24.16` (`sarzaminaryan-child`):**
+  - بازنویسی `sa_2026_relation_content()` به `sa_2026_unwrap_relation_links()` (`inc/design-2026.php`): جداسازی کامل تگ `<a>` تکراری به‌جای حذف صرف `href` (رفع مشکل متن‌های خط‌زیرین مرده در همهٔ استان‌ها/شهرها/دیدنی‌ها).
+  - حذف برچسب «لینک‌سازی افقی» در `single-province.php`، افزودن کلاس `.sa-section-heading` و کوتاه‌سازی تیترهای بخش‌ها (به‌جز `#cta-heading` پس‌زمینهٔ تیره).
+  - قواعد CSS با اولویت `body.sa-2026` در `assets/css/child.css`: خط زیرین خوانای فارسی (`text-underline-offset: 6px; text-decoration-skip-ink: none`)، حذف خط زیرین از `#counties-grid`/`#neighbors-section`/غیرلینک‌ها، و تیترهای تک‌خطی موبایل با پس‌زمینهٔ سبز روشن `#E7F5EC`.
+  - بازسازی `lorestan-478.html`: حذف ۱۲ باکس تکراری شهرستان از بخش ۴ و جایگزینی با نثر ۳پهنه، `sa-autolink-off` روی استان‌های هم‌مرز (شامل چهارمحال و بختیاری)، و کوتاه‌سازی ۱۰ تیتر `<h2>`.
 
 ## قدم بعدی مشخص
-1. در شروع نشست بعدی، طبق بند ۳ `AGENTS.md` فایل‌های `hot.md` ← `stack.md` ← `bugs.md` ← `patterns.md` / `decisions.md` ← `github-refs.md` خوانده و در `.memory/session/current.md` خلاصه شوند.
-2. بر اساس دستور بعدی مالک (یا طراحی/بهینه‌سازی ظاهر، RTL، CWV، سئوی فنی قالب فرزند، یا ادامهٔ صف مقالات/استان‌ها):
-   - پیش از هر تغییر قالب: بررسی الگوهای `patterns.md` و `bugs.md`، به‌روزرسانی هم‌زمان نسخه در `style.css` و `SA_CHILD_VERSION` (`functions.php`)، و اجرای کامل تست‌های PHP در `wp-content/themes/sarzaminaryan-child/tests/` و `build-gates`.
-   - هر جاب زندهٔ وردپرس فقط پس از ادغام به `main` و با اجرای صریح `wp-agent.yml` (`input: job=...`) همراه پشتیبان خودکار و `cache-purge` + `probe` انجام شود.
+1. در شروع نشست بعدی، بند ۳ `AGENTS.md` را اجرا کن (`hot.md` ← `stack.md` ← `bugs.md` ← `patterns.md` / `decisions.md` ← `github-refs.md`) و وضعیت جاب `20261122-18` و صفحهٔ `/province/lorestan/` را بررسی کن.
+2. پیش از تغییر در دیگر صفحات استان‌ها (مانند کرمانشاه)، الگوی `sa-autolink-off` برای فهرست استان‌های هم‌مرز و `sa_2026_unwrap_relation_links()` را حفظ کن و هر جاب را فقط پس از سبز شدن `build-gates` روی `main` اجرا کن.
