@@ -15,9 +15,10 @@
  *     section archive URLs and the sitemap link.
  *  3. The Organization schema node carries alternateName "Sarzamin Aryan"
  *     and a Persian description (AI-4).
- *  4. The header brand link has an accessible name (aria-label) and the
- *     header logo is eager + data-no-lazy, so lazy-load plugins cannot
- *     defer the LCP brand image (P5 follow-up).
+ *  4. The header brand link has an accessible name (aria-label) and is a
+ *     wordmark only since v2.24.11 (the cropped teal logo tile is gone for
+ *     good), so no lazy-load plugin can defer a brand image that no longer
+ *     exists; the official lockup lives in the footer and the schema.
  *  5. In-text links are underlined (CSS lock) so they are distinguishable
  *     without colour alone (P5 accessibility follow-up), while buttons,
  *     chips, entity bars and TOC links keep their own affordances.
@@ -120,9 +121,8 @@ sa_ai_assert( isset( $org['logo']['url'] ) && false !== strpos( $org['logo']['ur
 
 $header = (string) file_get_contents( $theme_dir . '/header.php' );
 sa_ai_assert( false !== strpos( $header, 'class="sa-hf-brand" href="<?php echo esc_url( home_url( \'/\' ) ); ?>" rel="home" aria-label="' ), 'header: brand link carries an aria-label (discernible name without visible text)' );
-sa_ai_assert( false !== strpos( $header, 'data-no-lazy="1"' ), 'header: logo excluded from lazy-load plugins' );
-sa_ai_assert( false !== strpos( $header, 'loading="eager"' ), 'header: logo loads eagerly (LCP element)' );
-sa_ai_assert( false !== strpos( $header, 'fetchpriority="high"' ), 'header: logo keeps fetchpriority high' );
+sa_ai_assert( false === strpos( $header, '<img' ), 'header: wordmark only — no logo image left to lazy-load (v2.24.11)' );
+sa_ai_assert( false !== strpos( $header, '<span class="sa-hf-brand__text' ), 'header: the brand text itself carries the name' );
 
 /* ---- 5. In-text link underline (P5 accessibility follow-up) ------------- */
 
