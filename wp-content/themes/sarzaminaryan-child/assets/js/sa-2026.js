@@ -3,6 +3,7 @@
  *
  * Vanilla JS, no dependencies. Covers:
  *   • mobile navigation toggle
+ *   • header search button (top-left corner) with its drop-down bar
  *   • "ثبت تجربه" dialog (header CTA, page CTAs, footer)
  *   • instant search of the home hero (provinces / counties / attractions)
  *   • county search + empty state on province pages
@@ -15,6 +16,7 @@
 
 	document.addEventListener('DOMContentLoaded', function () {
 		initNav();
+		initHeaderSearch();
 		initExperienceModal();
 		initHomeSearch();
 		initCountySearch();
@@ -56,6 +58,51 @@
 		toggle.addEventListener('click', function () {
 			var open = panel.classList.toggle('hidden') === false;
 			toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+		});
+	}
+
+	/* ------------------------------------------------------------------ */
+	/* Header search (top-left corner)                                     */
+	/* ------------------------------------------------------------------ */
+	function initHeaderSearch() {
+		var toggle = $('[data-sa-hsearch-toggle]');
+		var panel = $('[data-sa-hsearch-panel]');
+		if (!toggle || !panel) {
+			return;
+		}
+
+		var input = $('[data-sa-hsearch-input]', panel);
+
+		function setOpen(open) {
+			panel.classList.toggle('hidden', !open);
+			toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+			if (open && input) {
+				input.focus();
+				input.select();
+			}
+		}
+
+		toggle.addEventListener('click', function () {
+			setOpen(panel.classList.contains('hidden'));
+		});
+
+		document.addEventListener('keydown', function (event) {
+			if (event.key === 'Escape' && !panel.classList.contains('hidden')) {
+				setOpen(false);
+				toggle.focus();
+				return;
+			}
+			// «/» opens the field, the way every editorial site does it.
+			if (event.key !== '/' || event.ctrlKey || event.metaKey || event.altKey) {
+				return;
+			}
+			var active = document.activeElement;
+			var tag = active && active.tagName ? active.tagName.toLowerCase() : '';
+			if (tag === 'input' || tag === 'textarea' || tag === 'select' || (active && active.isContentEditable)) {
+				return;
+			}
+			event.preventDefault();
+			setOpen(true);
 		});
 	}
 

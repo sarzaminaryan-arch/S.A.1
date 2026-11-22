@@ -124,6 +124,19 @@ sa_ai_assert( false !== strpos( $header, 'class="sa-hf-brand" href="<?php echo e
 sa_ai_assert( false === strpos( $header, '<img' ), 'header: wordmark only — no logo image left to lazy-load (v2.24.11)' );
 sa_ai_assert( false !== strpos( $header, '<span class="sa-hf-brand__text' ), 'header: the brand text itself carries the name' );
 
+/* v2.24.12 — owner request: a search icon in the top-left corner of the header. */
+sa_ai_assert( false !== strpos( $header, 'data-sa-hsearch-toggle' ), 'header: search button sits in the top-left corner' );
+sa_ai_assert( false !== strpos( $header, 'aria-label="جست‌وجو در سرزمین آریان"' ), 'header: the search button has an accessible name' );
+sa_ai_assert( false !== strpos( $header, 'aria-expanded="false"' ), 'header: the search toggle declares its state' );
+sa_ai_assert( false !== strpos( $header, 'role="search"' ), 'header: the search bar is a search landmark' );
+sa_ai_assert( false !== strpos( $header, 'name="s"' ), 'header: the form submits the WordPress search query var' );
+sa_ai_assert( false !== strpos( $header, 'for="sa-hf-search-input"' ), 'header: the input carries a real label' );
+$child_css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
+sa_ai_assert( false !== strpos( $child_css, '.sa-hf-searchbtn' ), 'header: the search button ships its own styles' );
+$interactions = (string) file_get_contents( $theme_dir . '/assets/js/sa-2026.js' );
+sa_ai_assert( false !== strpos( $interactions, 'data-sa-hsearch-toggle' ), 'header: the search toggle is wired in JS' );
+sa_ai_assert( false !== strpos( $interactions, 'initHeaderSearch' ), 'header: the search interaction has its own initialiser' );
+
 /* ---- 5. In-text link underline (P5 accessibility follow-up) ------------- */
 
 $css = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
