@@ -21,6 +21,9 @@ if ( ! defined( 'SA_CHILD_VERSION' ) ) {
 if ( ! defined( 'HOUR_IN_SECONDS' ) ) {
 	define( 'HOUR_IN_SECONDS', 3600 );
 }
+if ( ! defined( 'OBJECT' ) ) {
+	define( 'OBJECT', 'OBJECT' );
+}
 
 $GLOBALS['sa_test_filters'] = array();
 $GLOBALS['sa_test_posts']   = array(
@@ -36,6 +39,20 @@ $GLOBALS['sa_test_posts']   = array(
 		'post_type'   => 'city',
 		'post_name'   => 'dorud',
 		'post_title'  => 'شهرستان شهرستان دورود',
+		'post_status' => 'publish',
+	),
+	103 => (object) array(
+		'ID'          => 103,
+		'post_type'   => 'city',
+		'post_name'   => 'tehran',
+		'post_title'  => 'شهرستان تهران',
+		'post_status' => 'publish',
+	),
+	104 => (object) array(
+		'ID'          => 104,
+		'post_type'   => 'city',
+		'post_name'   => 'isfahan',
+		'post_title'  => 'شهر اصفهان',
 		'post_status' => 'publish',
 	),
 );
@@ -162,8 +179,21 @@ function untrailingslashit( $value ) {
 	return rtrim( (string) $value, '/\\' );
 }
 
-function sa_redirect_is_old_slug( $slug ) {
-	return false;
+function home_url( $path = '/' ) {
+	return 'https://example.test/' . ltrim( (string) $path, '/' );
+}
+
+function get_page_by_path( $slug, $output = OBJECT, $post_type = 'page' ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundInImplementedInterfaceBeforeLastUsed
+	foreach ( $GLOBALS['sa_test_posts'] as $post_obj ) {
+		if ( $post_obj->post_type === $post_type && $post_obj->post_name === $slug ) {
+			return $post_obj;
+		}
+	}
+	return null;
+}
+
+function sa_redirect_is_old_slug( $slug, $post_type = 'city' ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	return 'isfahan' === (string) $slug;
 }
 
 /** Fake prepared-SELECT result used by the real target-builder. */
@@ -324,5 +354,43 @@ foreach ( $ready_articles as $article_key => $article_record ) {
 		);
 	}
 }
+
+/* v2.24.9 — حذف پیوندهای داخلی تکراری در رندر بدنه (قانون ۹ AGENTS.md) */
+$dup_links_html = '<p><a href="/city/dorud/">دورود</a> شهری کوهستانی است و <a href="https://example.test/city/dorud/">شهرستان دورود</a> طبیعت زیبایی دارد.'
+	. '<sup class="sa-cite"><a href="#sa-ref-1">۱</a></sup> '
+	. '<a href="https://fa.wikipedia.org/wiki/Dorud">ویکی‌پدیا</a> و دوباره '
+	. '<sup class="sa-cite"><a href="#sa-ref-1">۱</a></sup> و '
+	. '<a href="https://fa.wikipedia.org/wiki/Dorud">ویکی‌پدیا</a>.</p>'
+	. '<pre><a href="/city/dorud/">کد نمونه</a></pre>';
+$deduped_html = sa_autolink_content( $dup_links_html );
+sa_test_expect(
+	1 === substr_count( $deduped_html, '<a href="/city/dorud/">دورود</a>' ) && false === strpos( $deduped_html, 'href="https://example.test/city/dorud/"' ),
+	'duplicate internal destination link in body must be unwrapped after the first occurrence'
+);
+sa_test_expect(
+	false !== strpos( $deduped_html, 'و شهرستان دورود طبیعت زیبایی دارد' ),
+	'anchor text of unwrapped duplicate internal link must remain intact'
+);
+sa_test_expect(
+	2 === substr_count( $deduped_html, 'href="#sa-ref-1"' ),
+	'repeated footnote fragment links (#sa-ref-1) must remain untouched'
+);
+sa_test_expect(
+	2 === substr_count( $deduped_html, 'href="https://fa.wikipedia.org/wiki/Dorud"' ),
+	'external reference links must remain untouched'
+);
+sa_test_expect(
+	false !== strpos( $deduped_html, '<pre><a href="/city/dorud/">کد نمونه</a></pre>' ),
+	'protected pre/code blocks must remain untouched during internal link deduplication'
+);
+
+/* v2.24.9 — تطبیق نامک شهرستان‌های مرکز استان (tehran <-> tehran-city) بدون تطبیق مبدأ تغییر مسیر ۳۰۱ (isfahan) */
+$tehran_county = sa_county_of_post( 103 );
+sa_test_expect( is_array( $tehran_county ) && 'tehran-city' === $tehran_county['slug'], 'bare-slug capital county post resolves its -city registry entry' );
+sa_test_expect( null === sa_county_of_post( 104 ), 'redirect-source old slug isfahan must not match isfahan-city registry entry' );
+sa_test_expect( 'https://example.test/city/tehran/' === sa_county_permalink( 'tehran-city' ), 'registry -city slug resolves published bare-slug capital county permalink' );
+sa_test_expect( '' === sa_county_permalink( 'isfahan-city' ), 'registry isfahan-city must not fall back to redirect-source slug isfahan' );
+$neighbor_bare = sa_county_parse_neighbor( 'tehran - شمال' );
+sa_test_expect( 'تهران' === $neighbor_bare['label'] && 'https://example.test/city/tehran/' === $neighbor_bare['url'], 'neighbor chip with bare capital slug resolves Persian label and permalink' );
 
 fwrite( STDOUT, "PASS: internal geographic auto-link, rewritten-article link and prepared-record link tests\n" );

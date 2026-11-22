@@ -1,0 +1,466 @@
+{
+  "note": "گام ۲-ب (بخش 2 از 3): بازسازی قطعی نشانی‌های درصدکدگذاری‌شدهٔ خراب در sa_sources و همگام‌سازی منابع مخزن (65 نوشته). فقط متادیتا با پشتیبان خودکار.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "update",
+      "id": 452,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bandar-e-gaz-452.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بندر گز)"
+    },
+    {
+      "cmd": "update",
+      "id": 455,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-lahijan-455.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان لاهیجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 456,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudsar-456.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودسر)"
+    },
+    {
+      "cmd": "update",
+      "id": 457,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-langarud-457.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان لنگرود)"
+    },
+    {
+      "cmd": "update",
+      "id": 458,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bandar-e-anzali-458.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بندر انزلی)"
+    },
+    {
+      "cmd": "update",
+      "id": 460,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-astaneh-ye-ashrafiyeh-460.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آستانه اشرفیه)"
+    },
+    {
+      "cmd": "update",
+      "id": 461,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudbar-461.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودبار)"
+    },
+    {
+      "cmd": "update",
+      "id": 462,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-fuman-462.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فومن)"
+    },
+    {
+      "cmd": "update",
+      "id": 463,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-astara-463.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آستارا)"
+    },
+    {
+      "cmd": "update",
+      "id": 464,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rezvanshahr-464.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رضوانشهر)"
+    },
+    {
+      "cmd": "update",
+      "id": 465,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khomam-465.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خمام)"
+    },
+    {
+      "cmd": "update",
+      "id": 467,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-shaft-467.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان شفت)"
+    },
+    {
+      "cmd": "update",
+      "id": 468,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-siahkal-468.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سیاهکل)"
+    },
+    {
+      "cmd": "update",
+      "id": 469,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-amlash-469.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان املش)"
+    },
+    {
+      "cmd": "update",
+      "id": 483,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-salas-e-babajani-483.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ثلاث باباجانی)"
+    },
+    {
+      "cmd": "update",
+      "id": 484,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-gilan-e-gharb-484.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گیلانغرب)"
+    },
+    {
+      "cmd": "update",
+      "id": 487,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-aqqala-487.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آق‌قلا)"
+    },
+    {
+      "cmd": "update",
+      "id": 489,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kerman-489.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کرمان)"
+    },
+    {
+      "cmd": "update",
+      "id": 490,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sirjan-490.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سیرجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 491,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rafsanjan-491.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رفسنجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 492,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-jiroft-492.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان جیرفت)"
+    },
+    {
+      "cmd": "update",
+      "id": 493,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bam-493.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بم)"
+    },
+    {
+      "cmd": "update",
+      "id": 494,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-zarand-494.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان زرند)"
+    },
+    {
+      "cmd": "update",
+      "id": 495,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-shahr-e-babak-495.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان شهربابک)"
+    },
+    {
+      "cmd": "update",
+      "id": 497,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-baft-497.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بافت)"
+    },
+    {
+      "cmd": "update",
+      "id": 498,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-anbarabad-498.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان عنبرآباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 499,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bardsir-499.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بردسیر)"
+    },
+    {
+      "cmd": "update",
+      "id": 500,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-qaleh-ganj-500.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان قلعه گنج)"
+    },
+    {
+      "cmd": "update",
+      "id": 501,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-fahraj-501.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فهرج)"
+    },
+    {
+      "cmd": "update",
+      "id": 502,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-manujan-502.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان منوجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 503,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rigan-503.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ریگان)"
+    },
+    {
+      "cmd": "update",
+      "id": 505,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-narmashir-505.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان نرماشیر)"
+    },
+    {
+      "cmd": "update",
+      "id": 506,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ravar-506.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان راور)"
+    },
+    {
+      "cmd": "update",
+      "id": 507,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-arzuiyeh-507.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ارزوئیه)"
+    },
+    {
+      "cmd": "update",
+      "id": 508,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-anar-508.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان انار)"
+    },
+    {
+      "cmd": "update",
+      "id": 509,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rabor-509.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رابر)"
+    },
+    {
+      "cmd": "update",
+      "id": 510,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-faryab-510.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فاریاب)"
+    },
+    {
+      "cmd": "update",
+      "id": 511,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kuhbanan-511.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کوهبنان)"
+    },
+    {
+      "cmd": "update",
+      "id": 513,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-gonbaki-513.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گنبکی)"
+    },
+    {
+      "cmd": "update",
+      "id": 565,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-arak-565.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اراک)"
+    },
+    {
+      "cmd": "update",
+      "id": 566,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-saveh-566.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ساوه)"
+    },
+    {
+      "cmd": "update",
+      "id": 567,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-shazand-567.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان شازند)"
+    },
+    {
+      "cmd": "update",
+      "id": 568,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khomeyn-568.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خمین)"
+    },
+    {
+      "cmd": "update",
+      "id": 569,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-zarandieh-569.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان زرندیه)"
+    },
+    {
+      "cmd": "update",
+      "id": 570,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-mahallat-570.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان محلات)"
+    },
+    {
+      "cmd": "update",
+      "id": 571,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khondab-571.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خنداب)"
+    },
+    {
+      "cmd": "update",
+      "id": 572,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-delijan-572.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان دلیجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 573,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-komijan-573.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کمیجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 574,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-farahan-574.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فراهان)"
+    },
+    {
+      "cmd": "update",
+      "id": 575,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-tafresh-575.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان تفرش)"
+    },
+    {
+      "cmd": "update",
+      "id": 576,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ashtian-576.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آشتیان)"
+    },
+    {
+      "cmd": "update",
+      "id": 639,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-minab-639.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان میناب)"
+    },
+    {
+      "cmd": "update",
+      "id": 641,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-abumusa-641.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ابوموسی)"
+    },
+    {
+      "cmd": "update",
+      "id": 642,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-jask-642.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان جاسک)"
+    },
+    {
+      "cmd": "update",
+      "id": 643,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudan-643.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودان)"
+    },
+    {
+      "cmd": "update",
+      "id": 645,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bastak-645.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بستک)"
+    },
+    {
+      "cmd": "update",
+      "id": 646,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-parsian-646.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان پارسیان)"
+    },
+    {
+      "cmd": "update",
+      "id": 647,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khamir-647.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خمیر)"
+    },
+    {
+      "cmd": "update",
+      "id": 648,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sirik-648.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سیریک)"
+    },
+    {
+      "cmd": "update",
+      "id": 649,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bashagard-649.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بشاگرد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1298,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-dargazin-1298.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان درگزین)"
+    },
+    {
+      "cmd": "update",
+      "id": 1299,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-torkamanchay-1299.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ترکمانچای)"
+    },
+    {
+      "cmd": "update",
+      "id": 1300,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ferdows-1300.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فردوس)"
+    },
+    {
+      "cmd": "update",
+      "id": 1832,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sowme-eh-sara-1832.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان صومعه‌سرا)"
+    },
+    {
+      "cmd": "update",
+      "id": 1850,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kahnuj-1850.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کهنوج)"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        452,
+        455,
+        456,
+        457,
+        458,
+        460,
+        461,
+        462,
+        463,
+        464,
+        465,
+        467,
+        468,
+        469,
+        483,
+        484,
+        487,
+        489,
+        490,
+        491,
+        492,
+        493,
+        494,
+        495,
+        497,
+        498,
+        499,
+        500,
+        501,
+        502,
+        503,
+        505,
+        506,
+        507,
+        508,
+        509,
+        510,
+        511,
+        513,
+        565,
+        566,
+        567,
+        568,
+        569,
+        570,
+        571,
+        572,
+        573,
+        574,
+        575,
+        576,
+        639,
+        641,
+        642,
+        643,
+        645,
+        646,
+        647,
+        648,
+        649,
+        1298,
+        1299,
+        1300,
+        1832,
+        1850
+      ]
+    }
+  ]
+}

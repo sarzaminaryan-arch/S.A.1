@@ -81,7 +81,7 @@ class SA_LAA_Admin {
 	 * @return array
 	 */
 	private static function default_settings() {
-		$preferred = array( 'post', 'attraction', 'city', 'province', 'travel_route', 'local_food', 'souvenir' );
+		$preferred = array( 'guide', 'post', 'attraction', 'city', 'province', 'travel_route', 'local_food', 'souvenir' );
 		$types     = array();
 		foreach ( $preferred as $type ) {
 			if ( post_type_exists( $type ) ) {
@@ -305,7 +305,7 @@ class SA_LAA_Admin {
 				</fieldset>
 				<label class="sa-laa-check">
 					<input type="checkbox" name="all_meta" value="1" <?php checked( $settings['all_meta'] ); ?>>
-					همهٔ متاها خوانده شود (پیش‌فرض: فقط <code>sa_*</code> و <code>rank_math_*</code>)
+					همهٔ متاها خوانده شود (پیش‌فرض: <code>sa_*</code>، <code>rank_math_*</code> و کلیدهای کانونی شناسنامهٔ شهرستان)
 				</label>
 
 				<h2>۲) خط مبنای مخزن از کجا بیاید؟</h2>

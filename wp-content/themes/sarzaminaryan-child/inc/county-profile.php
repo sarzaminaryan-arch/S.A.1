@@ -814,7 +814,11 @@ function sa_county_profile_save( $post_id ) {
 		} elseif ( 'number' === $field['type'] ) {
 			$value = '' === trim( (string) $raw ) ? '' : (string) (float) $raw;
 		} elseif ( 'text' === $field['type'] ) {
-			$value = sanitize_textarea_field( $raw );
+			if ( 'extra_places' === $key && function_exists( 'sa_sanitize_textarea_preserve_urls' ) ) {
+				$value = sa_sanitize_textarea_preserve_urls( $raw );
+			} else {
+				$value = sanitize_textarea_field( $raw );
+			}
 		} else {
 			$value = sanitize_text_field( $raw );
 		}

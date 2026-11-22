@@ -89,7 +89,14 @@ function sa_county_of_post( $post_id ) {
 	if ( ! $post || 'city' !== $post->post_type ) {
 		return null;
 	}
-	return sa_county( $post->post_name );
+	$slug = (string) $post->post_name;
+	$row  = sa_county( $slug );
+	if ( null === $row && '' !== $slug && '-city' !== substr( $slug, -5 ) ) {
+		if ( ! function_exists( 'sa_redirect_is_old_slug' ) || ! sa_redirect_is_old_slug( $slug, 'city' ) ) {
+			$row = sa_county( $slug . '-city' );
+		}
+	}
+	return $row;
 }
 
 /**
@@ -557,9 +564,19 @@ function sa_county_lines( $raw, $legacy_neighbors = false ) {
  * @return string Empty string when not published yet.
  */
 function sa_county_permalink( $slug ) {
+	$slug = (string) $slug;
 	$post = get_page_by_path( $slug, OBJECT, 'city' );
 	if ( $post && 'publish' === $post->post_status ) {
 		return (string) get_permalink( $post );
+	}
+	if ( '' !== $slug ) {
+		$alt = '-city' === substr( $slug, -5 ) ? substr( $slug, 0, -5 ) : $slug . '-city';
+		if ( '' !== $alt && ( ! function_exists( 'sa_redirect_is_old_slug' ) || ! sa_redirect_is_old_slug( $alt, 'city' ) ) ) {
+			$alt_post = get_page_by_path( $alt, OBJECT, 'city' );
+			if ( $alt_post && 'publish' === $alt_post->post_status ) {
+				return (string) get_permalink( $alt_post );
+			}
+		}
 	}
 	return '';
 }
@@ -578,6 +595,11 @@ function sa_county_parse_neighbor( $line ) {
 		$dir = trim( $parts[1] );
 	}
 	$row = sa_county( $name );
+	if ( null === $row && '' !== $name && '-city' !== substr( $name, -5 ) ) {
+		if ( ! function_exists( 'sa_redirect_is_old_slug' ) || ! sa_redirect_is_old_slug( $name, 'city' ) ) {
+			$row = sa_county( $name . '-city' );
+		}
+	}
 	if ( $row ) {
 		return array(
 			'label' => $row['name'],

@@ -4,7 +4,7 @@
  * Plugin URI:        https://github.com/sarzaminaryan-arch/S.A.1
  * Update URI:        https://github.com/sarzaminaryan-arch/S.A.1
  * Description:       استخراج دقیق مقاله‌های منتشرشدهٔ سایت زنده (عنوان، متن و هش، متاها، FAQ، طبقه‌بندی‌ها، تصویر شاخص، روابط) و تطبیق فیلدبه‌فیلد با خط مبنای مخزن S.A.1 — کاملاً فقط‌خواندنی: دانلود اسنپ‌شات JSON/CSV و گزارش «یکسان / اختلاف / فقط در سایت / فقط در مخزن». هیچ نوشته‌ای تغییر نمی‌کند و هیچ مسیر REST عمومی ندارد.
- * Version:           1.1.1
+ * Version:           1.2.0
  * Requires at least: 6.4
  * Tested up to:      7.1
  * Requires PHP:      7.4
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_LAA_VERSION', '1.1.1' );
+define( 'SA_LAA_VERSION', '1.2.0' );
 define( 'SA_LAA_FILE', __FILE__ );
 define( 'SA_LAA_DIR', plugin_dir_path( __FILE__ ) );
 define( 'SA_LAA_URL', plugin_dir_url( __FILE__ ) );

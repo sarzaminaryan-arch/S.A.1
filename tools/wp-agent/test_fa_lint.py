@@ -71,6 +71,12 @@ meta = {
 assert fl.scan_meta(meta) == [], fl.scan_meta(meta)
 meta["sa_faq"] = json.dumps([{"q": "کجاست؟", "a": "در ماه اوت به آن‌جا بروید."}], ensure_ascii=False)
 assert any("FOREIGN" in f for f in fl.scan_meta(meta))
+assert fl.scan_meta({
+    "sa_sources": "پروندهٔ کاروانسراها | UNESCO World Heritage Centre | https://whc.unesco.org/en/list/1668 | ۱۴۰۵/۰۷/۰۴\n---\nFACT CHECK English private note",
+}) == []
+assert any("FOREIGN" in f for f in fl.scan_meta({
+    "sa_sources": "گزارش سفر در ماه اوت | خبرگزاری | https://example.org/a | ۱۴۰۵/۰۷/۰۴",
+}))
 
 # 8. Fixer repairs the safe cases and leaves the rest reported.
 fixed, applied = fl.fix_text("ظهرهای ژوئیه و اوت؛ خانهها و بجا‌مانده. در می رود")

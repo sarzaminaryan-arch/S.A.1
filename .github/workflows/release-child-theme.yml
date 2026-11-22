@@ -117,7 +117,9 @@ jobs:
 
       - name: 'Run sources-last tests (منابع همیشه آخرین بخش مقاله)'
         shell: bash
-        run: php "$THEME_DIR/tests/test-sources-last.php"
+        run: |
+          php "$THEME_DIR/tests/test-sources-last.php"
+          php "$THEME_DIR/tests/test-sources-sanitization.php"
 
       - name: 'Run dashboard/home tests (داشبورد سر جایش و آکاردئون صفحه نخست)'
         shell: bash

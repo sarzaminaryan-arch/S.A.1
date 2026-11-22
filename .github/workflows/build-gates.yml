@@ -103,6 +103,7 @@ jobs:
           python3 tools/wp-agent/test_job_exception_recovery.py
           python3 tools/wp-agent/test_job_state_recovery.py
           python3 tools/wp-agent/test_write_reconciliation.py
+          python3 tools/wp-agent/test_audit_remediation.py
 
       - name: Licensed-photo rules (licence, author, host, 4:3 WebP under 100 KB)
         run: |
@@ -113,7 +114,11 @@ jobs:
         run: php wp-content/themes/sarzaminaryan-child/tests/test-agent-bridge.php
 
       - name: 'Agent ops guards (index gate, storage, prune, theme rollback)'
-        run: php wp-content/themes/sarzaminaryan-child/tests/test-index-gate.php
+        run: |
+          php wp-content/themes/sarzaminaryan-child/tests/test-index-gate.php
+          php wp-content/themes/sarzaminaryan-child/tests/test-sources-sanitization.php
+          php wp-content/themes/sarzaminaryan-child/tests/test-internal-links.php
+          php wp-content/plugins/sa-live-article-audit/tests/test-compare.php
 
   build:
     name: Build county pages changed in this push (artifact, no site contact)

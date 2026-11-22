@@ -1193,7 +1193,7 @@ function sa_autolink_content( $content ) {
 	// پردازش فقط روی گره‌های متنی است و به تگ/ویژگی HTML دست نمی‌زند.
 	$content = sa_autolink_normalize_content_prefixes( $content );
 	if ( ! sa_autolink_enabled() ) {
-		return $content;
+		return sa_autolink_dedupe_internal_links( $content );
 	}
 	if ( '' === trim( wp_strip_all_tags( $content ) ) ) {
 		return $content;
@@ -1204,7 +1204,7 @@ function sa_autolink_content( $content ) {
 
 	$state = sa_autolink_state( $content );
 	if ( empty( $state['regex'] ) ) {
-		return $content;
+		return sa_autolink_dedupe_internal_links( $content );
 	}
 
 	// بلوک‌هایی که محتوایشان هرگز نباید لمس شود، موقتاً با نشانه جایگزین می‌شوند
@@ -1265,7 +1265,128 @@ function sa_autolink_content( $content ) {
 		);
 	}
 
-	return sa_autolink_restore_blocks( implode( '', $tokens ), $keep );
+	$assembled = sa_autolink_dedupe_internal_links( implode( '', $tokens ), false );
+	return sa_autolink_restore_blocks( $assembled, $keep );
+}
+
+/**
+ * کلید یکتای صفحهٔ داخلی برای تشخیص پیوندهای تکراری در بدنهٔ مقاله.
+ *
+ * پیوندهای خارجی، لنگرهای درون‌صفحه (#sa-ref-...)، نشانی‌های دارای کوئری،
+ * فایل‌های رسانه‌ای (/wp-content/) و صفحهٔ نخست (/) نادیده گرفته می‌شوند و
+ * رشتهٔ تهی برمی‌گردانند تا دست‌نخورده بمانند.
+ *
+ * @param string $href      مقدار href.
+ * @param string $site_host دامنهٔ سایت جاری.
+ * @return string کلید نرمال‌شده یا رشتهٔ تهی.
+ */
+function sa_autolink_internal_page_key( $href, $site_host = '' ) {
+	$decoded = trim( html_entity_decode( (string) $href, ENT_QUOTES, 'UTF-8' ) );
+	if ( '' === $decoded || '#' === $decoded[0] || 0 === strpos( $decoded, '//' ) ) {
+		return '';
+	}
+	if ( false !== strpos( $decoded, '#' ) || false !== strpos( $decoded, '?' ) ) {
+		return '';
+	}
+	if ( '/' === $decoded[0] ) {
+		$path = $decoded;
+	} elseif ( preg_match( '~^https?://~i', $decoded ) ) {
+		$host = (string) wp_parse_url( $decoded, PHP_URL_HOST );
+		if ( '' === $site_host || 0 !== strcasecmp( $host, $site_host ) ) {
+			return '';
+		}
+		$path = (string) wp_parse_url( $decoded, PHP_URL_PATH );
+	} else {
+		return '';
+	}
+	if ( '' === $path || '/' === $path ) {
+		return '';
+	}
+	if ( preg_match( '~^/(?:wp-content|wp-admin|wp-includes|wp-json|feed)(?:/|$)~i', $path ) ) {
+		return '';
+	}
+	if ( preg_match( '~\.(?:jpe?g|png|webp|gif|svg|avif|pdf|zip|mp3|mp4|webm)$~i', $path ) ) {
+		return '';
+	}
+	$norm = rtrim( rawurldecode( $path ), '/' );
+	if ( '' === $norm ) {
+		return '';
+	}
+	return function_exists( 'mb_strtolower' ) ? mb_strtolower( $norm, 'UTF-8' ) : strtolower( $norm );
+}
+
+/**
+ * حذف پیوندهای داخلی تکراری (و خودارجاعی) در زمان رندر بدنهٔ مقاله (قانون ۹ AGENTS.md).
+ *
+ * نخستین رخداد هر مقصد داخلی حفظ می‌شود و رخدادهای بعدی به متن درون تگ تبدیل می‌شوند.
+ *
+ * @param string $content        محتوای HTML.
+ * @param bool   $protect_blocks آیا بلوک‌های حساس (pre/code/script) محافظت شوند؟
+ * @return string
+ */
+function sa_autolink_dedupe_internal_links( $content, $protect_blocks = true ) {
+	$content = (string) $content;
+	if ( false === stripos( $content, '<a' ) ) {
+		return $content;
+	}
+
+	$keep = array();
+	if ( $protect_blocks ) {
+		$content = sa_autolink_protect_blocks( $content, $keep );
+	}
+
+	$site_host   = '';
+	$current_id  = function_exists( 'get_the_ID' ) ? (int) get_the_ID() : 0;
+	$current_url = ( $current_id && function_exists( 'get_permalink' ) ) ? (string) get_permalink( $current_id ) : '';
+	if ( function_exists( 'home_url' ) ) {
+		$site_host = (string) wp_parse_url( (string) home_url( '/' ), PHP_URL_HOST );
+	}
+	if ( '' === $site_host && '' !== $current_url ) {
+		$site_host = (string) wp_parse_url( $current_url, PHP_URL_HOST );
+	}
+
+	$seen = array();
+	if ( '' !== $current_url ) {
+		$self_key = sa_autolink_internal_page_key( $current_url, $site_host );
+		if ( '' !== $self_key ) {
+			$seen[ $self_key ] = true;
+		}
+	}
+
+	$deduped = preg_replace_callback(
+		'~<a\b([^>]*)>(.*?)</a>~isu',
+		static function ( $m ) use ( &$seen, $site_host ) {
+			$attrs = $m[1];
+			$inner = $m[2];
+			if ( preg_match( '~<(?:img|svg|picture|figure)\b~i', $inner ) ) {
+				return $m[0];
+			}
+			if ( ! preg_match( '~\bhref\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s>]+))~i', $attrs, $hm ) ) {
+				return $m[0];
+			}
+			$href = '';
+			if ( isset( $hm[1] ) && '' !== $hm[1] ) {
+				$href = $hm[1];
+			} elseif ( isset( $hm[2] ) && '' !== $hm[2] ) {
+				$href = $hm[2];
+			} elseif ( isset( $hm[3] ) ) {
+				$href = $hm[3];
+			}
+			$key = sa_autolink_internal_page_key( $href, $site_host );
+			if ( '' === $key ) {
+				return $m[0];
+			}
+			if ( isset( $seen[ $key ] ) ) {
+				return $inner;
+			}
+			$seen[ $key ] = true;
+			return $m[0];
+		},
+		$content
+	);
+
+	$result = is_string( $deduped ) ? $deduped : $content;
+	return $protect_blocks ? sa_autolink_restore_blocks( $result, $keep ) : $result;
 }
 
 /**

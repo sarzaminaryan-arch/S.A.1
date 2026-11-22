@@ -193,4 +193,39 @@ $base['remove_featured_image'] = true;
 $report = SA_LAA_Compare::compare( array( $base ), array( sa_laa_t_live_record() ) );
 sa_laa_t_assert( 'identical' === $report['items'][0]['status'], 'test10 remove featured is info only' );
 
+// ۱۱) مهاجرت راهنماهای سفر: post:slug در مخزن با guide:slug در سایت زنده تطبیق داده می‌شود (بدون baseline_only/live_only کاذب).
+$guide_base              = sa_laa_t_base_record();
+$guide_base['post_type'] = 'post';
+$guide_base['slug']      = 'camping-checklist';
+$guide_live              = sa_laa_t_live_record();
+$guide_live['post_type'] = 'guide';
+$guide_live['slug']      = 'camping-checklist';
+$report                  = SA_LAA_Compare::compare( array( $guide_base ), array( $guide_live ) );
+sa_laa_t_assert( 1 === $report['summary']['matched'] && 1 === $report['summary']['identical'], 'test11 post<->guide migration matches cleanly as identical' );
+sa_laa_t_assert( 0 === $report['summary']['baseline_only'] && 0 === $report['summary']['live_only'], 'test11 migrated guide does not appear in baseline_only or live_only' );
+
+// ۱۲) تطبیق نامک شهرستان مرکز استان (city:tehran-city <-> city:tehran).
+$cap_base              = sa_laa_t_base_record();
+$cap_base['post_type'] = 'city';
+$cap_base['slug']      = 'tehran-city';
+$cap_live              = sa_laa_t_live_record();
+$cap_live['post_type'] = 'city';
+$cap_live['slug']      = 'tehran';
+$report                = SA_LAA_Compare::compare( array( $cap_base ), array( $cap_live ) );
+sa_laa_t_assert( 1 === $report['summary']['matched'] && 0 === $report['summary']['baseline_only'] && 0 === $report['summary']['live_only'], 'test12 capital county -city slug alias matches bare live slug' );
+
+// ۱۳) مقایسهٔ عددی مختصات جغرافیایی (29.6360 == 29.636؛ اما 29.7000 != 29.636).
+$coord_base                         = sa_laa_t_base_record();
+$coord_base['meta']['sa_latitude']  = '29.6360';
+$coord_base['meta']['sa_longitude'] = '52.5260';
+$coord_live                         = sa_laa_t_live_record();
+$coord_live['meta']['sa_latitude']  = '29.636';
+$coord_live['meta']['sa_longitude'] = '52.526';
+$report                             = SA_LAA_Compare::compare( array( $coord_base ), array( $coord_live ) );
+sa_laa_t_assert( 'identical' === $report['items'][0]['status'], 'test13 trailing zeros in coordinates do not trigger false diff' );
+
+$coord_live['meta']['sa_latitude'] = '29.7000';
+$report                            = SA_LAA_Compare::compare( array( $coord_base ), array( $coord_live ) );
+sa_laa_t_assert( 'different' === $report['items'][0]['status'], 'test13 real coordinate change still triggers diff' );
+
 echo "ALL TESTS PASSED\n";
