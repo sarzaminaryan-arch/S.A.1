@@ -1,0 +1,5023 @@
+{
+  "job": "tools/wp-agent/jobs/20261122-06-full-live-remediation.json",
+  "started_utc": "2026-11-22T01:14:32+00:00",
+  "note": "بستهٔ جامع یک‌ضرب بهینه‌سازی ممیزی ۲۲ نوامبر ۲۰۲۶ (تأیید مالک): ۱) نصب قالب فرزند ۲.۲۴.۱۰؛ ۲) تکمیل مختصات ۶ شهرستان و متادیتای دورود (۷ مورد)؛ ۳) بازسازی قطعی نشانی‌های فارسی sa_sources (۱۸۲ مورد)؛ ۴) همگام‌سازی کامل ۳۵ راهنمای آموزشی (guide + تصویر شاخص WebP + FAQ) و ۴ دیدنی دارای اصلاح متنی (۳۹ مورد)؛ ۵) ساخت ۱۰ پیش‌نویس غیرمخرب پاک‌سازی یادداشت‌های ویرایشی؛ ۶) پاک‌سازی کش و پروب سلامت.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.9",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-22T01:14:34+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "result": {
+        "before": {
+          "disk_version": "2.24.9",
+          "loaded": "2.24.9",
+          "log": [
+            {
+              "time_gmt": "2026-11-18T21:07:51+00:00",
+              "from": "2.22.143",
+              "to": "2.22.144",
+              "wanted": "2.22.144",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T21:38:56+00:00",
+              "from": "2.22.144",
+              "to": "2.22.145",
+              "wanted": "2.22.145",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T21:54:16+00:00",
+              "from": "2.22.145",
+              "to": "2.22.146",
+              "wanted": "2.22.146",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T23:24:11+00:00",
+              "from": "2.22.146",
+              "to": "2.22.147",
+              "wanted": "2.22.147",
+              "ok": true,
+              "errors": []
+            },
+            {
+              "time_gmt": "2026-11-18T23:59:36+00:00",
+              "from": "2.22.147",
+              "to": "2.22.148",
+              "wanted": "2.22.148",
+              "ok": true,
+              "errors": []
+            }
+          ],
+          "fs_method": "direct"
+        },
+        "probe_before": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 1424,
+            "location": "",
+            "cache": "hit",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/",
+            "status": 200,
+            "ms": 1639,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/tehran/",
+            "status": 200,
+            "ms": 1650,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تهران؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/tehran/",
+            "desc": "راهنمای شهرستان تهران: مساحت ۱۳۰۱ کیلومتر مربع و جمعیت ۸٬۷۳۷٬۵۱۰ نفر (۱۳۹۵)، سه بخش، آب‌وهوای دوگانهٔ شمال و جنوب، مترو، فرودگاه مهرآباد و نشانه‌های شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "og:description": "از کاخ گلستانِ ثبت‌شده در یونسکو تا پل طبیعت و مسیرهای دربند و درکه؛ تجربهٔ سفر به تهران، محله‌به‌محله.",
+              "og:url": "https://sarzaminaryan.ir/city/tehran/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "BreadcrumbList",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19236,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "install": {
+          "updated": true,
+          "from": "2.24.9",
+          "to": "2.24.10",
+          "release": "https://github.com/sarzaminaryan-arch/S.A.1/releases/tag/sarzaminaryan-child-v2.24.10",
+          "messages": [
+            "Unpacking the update&#8230;",
+            "Installing the latest version&#8230;",
+            "Enabling Maintenance mode&#8230;",
+            "Removing the old version of the theme&#8230;",
+            "Disabling Maintenance mode&#8230;",
+            "Theme updated successfully."
+          ]
+        },
+        "cache_purge": {
+          "purged": "all"
+        },
+        "probe_after": [
+          {
+            "url": "https://sarzaminaryan.ir/?sa_probe=1795310108",
+            "status": 200,
+            "ms": 2764,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mashhad/?sa_probe=1795310112",
+            "status": 200,
+            "ms": 1637,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مشهد؛ راهنمای سفر، جاذبه‌ها و تاریخ خراسان رضوی | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mashhad/",
+            "desc": "راهنمای شهرستان مشهد: جمعیت ۳٬۳۷۲٬۶۶۰ نفر و مساحت ۹٬۱۶۹ کیلومتر مربع، حرم امام رضا، توس و هارونیه، هفت‌حوض، کوهسنگی، اقامت و مترو خط سه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "og:description": "از صحن پیامبر اعظم تا آرامگاه فردوسی و هفت‌حوض؛ تجربهٔ سفر به مشهد، با کمبودها و شلوغی‌هایش.",
+              "og:url": "https://sarzaminaryan.ir/city/mashhad/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مشهد — شهری که یک ضریح ساخت و یک شاعر ماندگارش کرد"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mashhad.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20090,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/tehran/?sa_probe=1795310115",
+            "status": 200,
+            "ms": 1651,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تهران؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/tehran/",
+            "desc": "راهنمای شهرستان تهران: مساحت ۱۳۰۱ کیلومتر مربع و جمعیت ۸٬۷۳۷٬۵۱۰ نفر (۱۳۹۵)، سه بخش، آب‌وهوای دوگانهٔ شمال و جنوب، مترو، فرودگاه مهرآباد و نشانه‌های شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "og:description": "از کاخ گلستانِ ثبت‌شده در یونسکو تا پل طبیعت و مسیرهای دربند و درکه؛ تجربهٔ سفر به تهران، محله‌به‌محله.",
+              "og:url": "https://sarzaminaryan.ir/city/tehran/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "BreadcrumbList",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19236,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ],
+        "healthy": true
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "update",
+      "result": {
+        "id": 78,
+        "backup_id": 4905,
+        "status": "publish",
+        "modified_gmt": "2026-11-10 23:20:58",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "lat",
+            "lng",
+            "sa_city_latitude",
+            "sa_city_longitude"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "update",
+      "result": {
+        "id": 432,
+        "backup_id": 4906,
+        "status": "publish",
+        "modified_gmt": "2026-10-02 03:08:17",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "lat",
+            "lng",
+            "sa_city_latitude",
+            "sa_city_longitude"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "update",
+      "result": {
+        "id": 433,
+        "backup_id": 4907,
+        "status": "publish",
+        "modified_gmt": "2026-10-02 03:08:12",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "lat",
+            "lng",
+            "sa_city_latitude",
+            "sa_city_longitude"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "update",
+      "result": {
+        "id": 434,
+        "backup_id": 4908,
+        "status": "publish",
+        "modified_gmt": "2026-10-02 03:08:07",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "lat",
+            "lng",
+            "sa_city_latitude",
+            "sa_city_longitude"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 7,
+      "cmd": "update",
+      "result": {
+        "id": 436,
+        "backup_id": 4909,
+        "status": "publish",
+        "modified_gmt": "2026-10-02 03:07:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "lat",
+            "lng",
+            "sa_city_latitude",
+            "sa_city_longitude"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 8,
+      "cmd": "update",
+      "result": {
+        "id": 437,
+        "backup_id": 4910,
+        "status": "publish",
+        "modified_gmt": "2026-10-02 03:07:57",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "lat",
+            "lng",
+            "sa_city_latitude",
+            "sa_city_longitude"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 9,
+      "cmd": "update",
+      "result": {
+        "id": 516,
+        "backup_id": 4911,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:02",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_english_name",
+            "sa_cty_center",
+            "sa_cty_districts",
+            "sa_cty_rural_districts",
+            "sa_cty_cities",
+            "sa_cty_villages",
+            "sa_cty_neighbors",
+            "sa_cty_distance_center",
+            "sa_cty_climate",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_cty_best_time",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 10,
+      "cmd": "update",
+      "result": {
+        "id": 37,
+        "backup_id": 4912,
+        "status": "publish",
+        "modified_gmt": "2026-11-10 17:36:29",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 11,
+      "cmd": "update",
+      "result": {
+        "id": 265,
+        "backup_id": 4913,
+        "status": "publish",
+        "modified_gmt": "2026-11-10 23:26:55",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 12,
+      "cmd": "update",
+      "result": {
+        "id": 393,
+        "backup_id": 4914,
+        "status": "publish",
+        "modified_gmt": "0000-00-00 00:00:00",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 13,
+      "cmd": "update",
+      "result": {
+        "id": 412,
+        "backup_id": 4915,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 14,
+      "cmd": "update",
+      "result": {
+        "id": 476,
+        "backup_id": 4916,
+        "status": "publish",
+        "modified_gmt": "2026-10-18 00:51:35",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 15,
+      "cmd": "update",
+      "result": {
+        "id": 478,
+        "backup_id": 4917,
+        "status": "publish",
+        "modified_gmt": "2026-10-20 06:46:09",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 16,
+      "cmd": "update",
+      "result": {
+        "id": 563,
+        "backup_id": 4918,
+        "status": "publish",
+        "modified_gmt": "2026-10-06 07:55:05",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 17,
+      "cmd": "update",
+      "result": {
+        "id": 626,
+        "backup_id": 4919,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 18,
+      "cmd": "update",
+      "result": {
+        "id": 628,
+        "backup_id": 4920,
+        "status": "publish",
+        "modified_gmt": "2026-09-30 02:01:49",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 19,
+      "cmd": "update",
+      "result": {
+        "id": 633,
+        "backup_id": 4921,
+        "status": "publish",
+        "modified_gmt": "2026-09-30 02:01:50",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 20,
+      "cmd": "update",
+      "result": {
+        "id": 74,
+        "backup_id": 4922,
+        "status": "publish",
+        "modified_gmt": "2026-11-10 23:20:58",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 21,
+      "cmd": "update",
+      "result": {
+        "id": 76,
+        "backup_id": 4923,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:23",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 22,
+      "cmd": "update",
+      "result": {
+        "id": 80,
+        "backup_id": 4924,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:28",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 23,
+      "cmd": "update",
+      "result": {
+        "id": 104,
+        "backup_id": 4925,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:12:48",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 24,
+      "cmd": "update",
+      "result": {
+        "id": 113,
+        "backup_id": 4926,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:11:12",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 25,
+      "cmd": "update",
+      "result": {
+        "id": 128,
+        "backup_id": 4927,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:11:51",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 26,
+      "cmd": "update",
+      "result": {
+        "id": 133,
+        "backup_id": 4928,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:12:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 27,
+      "cmd": "update",
+      "result": {
+        "id": 140,
+        "backup_id": 4929,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:09:43",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 28,
+      "cmd": "update",
+      "result": {
+        "id": 149,
+        "backup_id": 4930,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:03",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 29,
+      "cmd": "update",
+      "result": {
+        "id": 152,
+        "backup_id": 4931,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:03",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 30,
+      "cmd": "update",
+      "result": {
+        "id": 157,
+        "backup_id": 4932,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:10:45",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 31,
+      "cmd": "update",
+      "result": {
+        "id": 159,
+        "backup_id": 4933,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:10:50",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 32,
+      "cmd": "update",
+      "result": {
+        "id": 183,
+        "backup_id": 4934,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:09:15",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 33,
+      "cmd": "update",
+      "result": {
+        "id": 214,
+        "backup_id": 4935,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 34,
+      "cmd": "update",
+      "result": {
+        "id": 230,
+        "backup_id": 4936,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:31",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 35,
+      "cmd": "update",
+      "result": {
+        "id": 231,
+        "backup_id": 4937,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:36",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 36,
+      "cmd": "update",
+      "result": {
+        "id": 232,
+        "backup_id": 4938,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:41",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 37,
+      "cmd": "update",
+      "result": {
+        "id": 233,
+        "backup_id": 4939,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:46",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 38,
+      "cmd": "update",
+      "result": {
+        "id": 234,
+        "backup_id": 4940,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:51",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 39,
+      "cmd": "update",
+      "result": {
+        "id": 235,
+        "backup_id": 4941,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:01:56",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 40,
+      "cmd": "update",
+      "result": {
+        "id": 236,
+        "backup_id": 4942,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:02:01",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 41,
+      "cmd": "update",
+      "result": {
+        "id": 237,
+        "backup_id": 4943,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:02:06",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 42,
+      "cmd": "update",
+      "result": {
+        "id": 238,
+        "backup_id": 4944,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:02:08",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 43,
+      "cmd": "update",
+      "result": {
+        "id": 239,
+        "backup_id": 4945,
+        "status": "publish",
+        "modified_gmt": "2026-11-10 23:26:55",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 44,
+      "cmd": "update",
+      "result": {
+        "id": 240,
+        "backup_id": 4946,
+        "status": "publish",
+        "modified_gmt": "2026-10-07 20:02:18",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 45,
+      "cmd": "update",
+      "result": {
+        "id": 395,
+        "backup_id": 4947,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:26:40",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 46,
+      "cmd": "update",
+      "result": {
+        "id": 396,
+        "backup_id": 4948,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:26:45",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 47,
+      "cmd": "update",
+      "result": {
+        "id": 397,
+        "backup_id": 4949,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:26:50",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 48,
+      "cmd": "update",
+      "result": {
+        "id": 398,
+        "backup_id": 4950,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:26:55",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 49,
+      "cmd": "update",
+      "result": {
+        "id": 399,
+        "backup_id": 4951,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:27:00",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 50,
+      "cmd": "update",
+      "result": {
+        "id": 400,
+        "backup_id": 4952,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:27:05",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 51,
+      "cmd": "update",
+      "result": {
+        "id": 401,
+        "backup_id": 4953,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:27:10",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 52,
+      "cmd": "update",
+      "result": {
+        "id": 403,
+        "backup_id": 4954,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:27:15",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 53,
+      "cmd": "update",
+      "result": {
+        "id": 404,
+        "backup_id": 4955,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:27:20",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 54,
+      "cmd": "update",
+      "result": {
+        "id": 416,
+        "backup_id": 4956,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:57",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 55,
+      "cmd": "update",
+      "result": {
+        "id": 417,
+        "backup_id": 4957,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:47",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 56,
+      "cmd": "update",
+      "result": {
+        "id": 418,
+        "backup_id": 4958,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:42",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 57,
+      "cmd": "update",
+      "result": {
+        "id": 419,
+        "backup_id": 4959,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:37",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 58,
+      "cmd": "update",
+      "result": {
+        "id": 420,
+        "backup_id": 4960,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:32",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 59,
+      "cmd": "update",
+      "result": {
+        "id": 421,
+        "backup_id": 4961,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:26",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 60,
+      "cmd": "update",
+      "result": {
+        "id": 422,
+        "backup_id": 4962,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:21",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 61,
+      "cmd": "update",
+      "result": {
+        "id": 423,
+        "backup_id": 4963,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:16",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 62,
+      "cmd": "update",
+      "result": {
+        "id": 424,
+        "backup_id": 4964,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:11",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 63,
+      "cmd": "update",
+      "result": {
+        "id": 425,
+        "backup_id": 4965,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:06",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 64,
+      "cmd": "update",
+      "result": {
+        "id": 427,
+        "backup_id": 4966,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:01",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 65,
+      "cmd": "update",
+      "result": {
+        "id": 429,
+        "backup_id": 4967,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:56",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 66,
+      "cmd": "update",
+      "result": {
+        "id": 439,
+        "backup_id": 4968,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:10",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 67,
+      "cmd": "update",
+      "result": {
+        "id": 440,
+        "backup_id": 4969,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:15",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 68,
+      "cmd": "update",
+      "result": {
+        "id": 443,
+        "backup_id": 4970,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:35",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 69,
+      "cmd": "update",
+      "result": {
+        "id": 444,
+        "backup_id": 4971,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:40",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 70,
+      "cmd": "update",
+      "result": {
+        "id": 445,
+        "backup_id": 4972,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:45",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 71,
+      "cmd": "update",
+      "result": {
+        "id": 446,
+        "backup_id": 4973,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:50",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 72,
+      "cmd": "update",
+      "result": {
+        "id": 447,
+        "backup_id": 4974,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:55",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 73,
+      "cmd": "update",
+      "result": {
+        "id": 449,
+        "backup_id": 4975,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:19:00",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 74,
+      "cmd": "update",
+      "result": {
+        "id": 451,
+        "backup_id": 4976,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:19:05",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 75,
+      "cmd": "update",
+      "result": {
+        "id": 452,
+        "backup_id": 4977,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:00",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 76,
+      "cmd": "update",
+      "result": {
+        "id": 455,
+        "backup_id": 4978,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:24:12",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 77,
+      "cmd": "update",
+      "result": {
+        "id": 456,
+        "backup_id": 4979,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:24:27",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 78,
+      "cmd": "update",
+      "result": {
+        "id": 457,
+        "backup_id": 4980,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:20:58",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 79,
+      "cmd": "update",
+      "result": {
+        "id": 458,
+        "backup_id": 4981,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:58",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 80,
+      "cmd": "update",
+      "result": {
+        "id": 460,
+        "backup_id": 4982,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:53",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 81,
+      "cmd": "update",
+      "result": {
+        "id": 461,
+        "backup_id": 4983,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:48",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 82,
+      "cmd": "update",
+      "result": {
+        "id": 462,
+        "backup_id": 4984,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:43",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 83,
+      "cmd": "update",
+      "result": {
+        "id": 463,
+        "backup_id": 4985,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:38",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 84,
+      "cmd": "update",
+      "result": {
+        "id": 464,
+        "backup_id": 4986,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:33",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 85,
+      "cmd": "update",
+      "result": {
+        "id": 465,
+        "backup_id": 4987,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:28",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 86,
+      "cmd": "update",
+      "result": {
+        "id": 467,
+        "backup_id": 4988,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:24:02",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 87,
+      "cmd": "update",
+      "result": {
+        "id": 468,
+        "backup_id": 4989,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:23:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 88,
+      "cmd": "update",
+      "result": {
+        "id": 469,
+        "backup_id": 4990,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:24:07",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 89,
+      "cmd": "update",
+      "result": {
+        "id": 483,
+        "backup_id": 4991,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:02",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 90,
+      "cmd": "update",
+      "result": {
+        "id": 484,
+        "backup_id": 4992,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:36:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 91,
+      "cmd": "update",
+      "result": {
+        "id": 487,
+        "backup_id": 4993,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:05",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 92,
+      "cmd": "update",
+      "result": {
+        "id": 489,
+        "backup_id": 4994,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:13",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 93,
+      "cmd": "update",
+      "result": {
+        "id": 490,
+        "backup_id": 4995,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:08",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 94,
+      "cmd": "update",
+      "result": {
+        "id": 491,
+        "backup_id": 4996,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:37",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 95,
+      "cmd": "update",
+      "result": {
+        "id": 492,
+        "backup_id": 4997,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:32",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 96,
+      "cmd": "update",
+      "result": {
+        "id": 493,
+        "backup_id": 4998,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:27",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 97,
+      "cmd": "update",
+      "result": {
+        "id": 494,
+        "backup_id": 4999,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:22",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 98,
+      "cmd": "update",
+      "result": {
+        "id": 495,
+        "backup_id": 5000,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:17",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 99,
+      "cmd": "update",
+      "result": {
+        "id": 497,
+        "backup_id": 5001,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:12",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 100,
+      "cmd": "update",
+      "result": {
+        "id": 498,
+        "backup_id": 5002,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:12",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 101,
+      "cmd": "update",
+      "result": {
+        "id": 499,
+        "backup_id": 5003,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:07",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 102,
+      "cmd": "update",
+      "result": {
+        "id": 500,
+        "backup_id": 5004,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:57",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 103,
+      "cmd": "update",
+      "result": {
+        "id": 501,
+        "backup_id": 5005,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:47",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 104,
+      "cmd": "update",
+      "result": {
+        "id": 502,
+        "backup_id": 5006,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:42",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 105,
+      "cmd": "update",
+      "result": {
+        "id": 503,
+        "backup_id": 5007,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:57",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 106,
+      "cmd": "update",
+      "result": {
+        "id": 505,
+        "backup_id": 5008,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 107,
+      "cmd": "update",
+      "result": {
+        "id": 506,
+        "backup_id": 5009,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:47",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 108,
+      "cmd": "update",
+      "result": {
+        "id": 507,
+        "backup_id": 5010,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:42",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 109,
+      "cmd": "update",
+      "result": {
+        "id": 508,
+        "backup_id": 5011,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:37",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 110,
+      "cmd": "update",
+      "result": {
+        "id": 509,
+        "backup_id": 5012,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:32",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 111,
+      "cmd": "update",
+      "result": {
+        "id": 510,
+        "backup_id": 5013,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:27",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 112,
+      "cmd": "update",
+      "result": {
+        "id": 511,
+        "backup_id": 5014,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:22",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 113,
+      "cmd": "update",
+      "result": {
+        "id": 513,
+        "backup_id": 5015,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:17",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 114,
+      "cmd": "update",
+      "result": {
+        "id": 565,
+        "backup_id": 5016,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:16",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 115,
+      "cmd": "update",
+      "result": {
+        "id": 566,
+        "backup_id": 5017,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:11",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 116,
+      "cmd": "update",
+      "result": {
+        "id": 567,
+        "backup_id": 5018,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:06",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 117,
+      "cmd": "update",
+      "result": {
+        "id": 568,
+        "backup_id": 5019,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 20:38:11",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 118,
+      "cmd": "update",
+      "result": {
+        "id": 569,
+        "backup_id": 5020,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 09:34:14",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 119,
+      "cmd": "update",
+      "result": {
+        "id": 570,
+        "backup_id": 5021,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:51",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 120,
+      "cmd": "update",
+      "result": {
+        "id": 571,
+        "backup_id": 5022,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:46",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 121,
+      "cmd": "update",
+      "result": {
+        "id": 572,
+        "backup_id": 5023,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:41",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 122,
+      "cmd": "update",
+      "result": {
+        "id": 573,
+        "backup_id": 5024,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:36",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 123,
+      "cmd": "update",
+      "result": {
+        "id": 574,
+        "backup_id": 5025,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:31",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 124,
+      "cmd": "update",
+      "result": {
+        "id": 575,
+        "backup_id": 5026,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:26",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 125,
+      "cmd": "update",
+      "result": {
+        "id": 576,
+        "backup_id": 5027,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:35:21",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 126,
+      "cmd": "update",
+      "result": {
+        "id": 639,
+        "backup_id": 5028,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:11",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 127,
+      "cmd": "update",
+      "result": {
+        "id": 641,
+        "backup_id": 5029,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:21",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 128,
+      "cmd": "update",
+      "result": {
+        "id": 642,
+        "backup_id": 5030,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:26",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 129,
+      "cmd": "update",
+      "result": {
+        "id": 643,
+        "backup_id": 5031,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:31",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 130,
+      "cmd": "update",
+      "result": {
+        "id": 645,
+        "backup_id": 5032,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:36",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 131,
+      "cmd": "update",
+      "result": {
+        "id": 646,
+        "backup_id": 5033,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:41",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 132,
+      "cmd": "update",
+      "result": {
+        "id": 647,
+        "backup_id": 5034,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:47",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 133,
+      "cmd": "update",
+      "result": {
+        "id": 648,
+        "backup_id": 5035,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 134,
+      "cmd": "update",
+      "result": {
+        "id": 649,
+        "backup_id": 5036,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:57",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 135,
+      "cmd": "update",
+      "result": {
+        "id": 1298,
+        "backup_id": 5037,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:12",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 136,
+      "cmd": "update",
+      "result": {
+        "id": 1299,
+        "backup_id": 5038,
+        "status": "publish",
+        "modified_gmt": "2026-10-05 12:09:51",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 137,
+      "cmd": "update",
+      "result": {
+        "id": 1300,
+        "backup_id": 5039,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:55:23",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 138,
+      "cmd": "update",
+      "result": {
+        "id": 1832,
+        "backup_id": 5040,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:23:57",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 139,
+      "cmd": "update",
+      "result": {
+        "id": 1850,
+        "backup_id": 5041,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:07",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 140,
+      "cmd": "update",
+      "result": {
+        "id": 1858,
+        "backup_id": 5042,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:38:02",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 141,
+      "cmd": "update",
+      "result": {
+        "id": 1860,
+        "backup_id": 5043,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:37:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 142,
+      "cmd": "update",
+      "result": {
+        "id": 1872,
+        "backup_id": 5044,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:20",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 143,
+      "cmd": "update",
+      "result": {
+        "id": 1877,
+        "backup_id": 5045,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:25",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 144,
+      "cmd": "update",
+      "result": {
+        "id": 1881,
+        "backup_id": 5046,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:18:30",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 145,
+      "cmd": "update",
+      "result": {
+        "id": 1885,
+        "backup_id": 5047,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:50:01",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 146,
+      "cmd": "update",
+      "result": {
+        "id": 1892,
+        "backup_id": 5048,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:49:56",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 147,
+      "cmd": "update",
+      "result": {
+        "id": 1916,
+        "backup_id": 5049,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 11:27:26",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 148,
+      "cmd": "update",
+      "result": {
+        "id": 1923,
+        "backup_id": 5050,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:32",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 149,
+      "cmd": "update",
+      "result": {
+        "id": 1924,
+        "backup_id": 5051,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:27",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 150,
+      "cmd": "update",
+      "result": {
+        "id": 1925,
+        "backup_id": 5052,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:22",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 151,
+      "cmd": "update",
+      "result": {
+        "id": 1926,
+        "backup_id": 5053,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:17",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 152,
+      "cmd": "update",
+      "result": {
+        "id": 1927,
+        "backup_id": 5054,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 153,
+      "cmd": "update",
+      "result": {
+        "id": 1928,
+        "backup_id": 5055,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:47",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 154,
+      "cmd": "update",
+      "result": {
+        "id": 1929,
+        "backup_id": 5056,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:42",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 155,
+      "cmd": "update",
+      "result": {
+        "id": 1930,
+        "backup_id": 5057,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:36:37",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 156,
+      "cmd": "update",
+      "result": {
+        "id": 1931,
+        "backup_id": 5058,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 17:39:03",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 157,
+      "cmd": "update",
+      "result": {
+        "id": 1936,
+        "backup_id": 5059,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:49",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 158,
+      "cmd": "update",
+      "result": {
+        "id": 1937,
+        "backup_id": 5060,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:54",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 159,
+      "cmd": "update",
+      "result": {
+        "id": 1938,
+        "backup_id": 5061,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:00:59",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 160,
+      "cmd": "update",
+      "result": {
+        "id": 1939,
+        "backup_id": 5062,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 161,
+      "cmd": "update",
+      "result": {
+        "id": 1940,
+        "backup_id": 5063,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:09",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 162,
+      "cmd": "update",
+      "result": {
+        "id": 1941,
+        "backup_id": 5064,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:14",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 163,
+      "cmd": "update",
+      "result": {
+        "id": 1942,
+        "backup_id": 5065,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:19",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 164,
+      "cmd": "update",
+      "result": {
+        "id": 1943,
+        "backup_id": 5066,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 13:10:53",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 165,
+      "cmd": "update",
+      "result": {
+        "id": 1944,
+        "backup_id": 5067,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:29",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 166,
+      "cmd": "update",
+      "result": {
+        "id": 1945,
+        "backup_id": 5068,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:34",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 167,
+      "cmd": "update",
+      "result": {
+        "id": 1946,
+        "backup_id": 5069,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:39",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 168,
+      "cmd": "update",
+      "result": {
+        "id": 1947,
+        "backup_id": 5070,
+        "status": "publish",
+        "modified_gmt": "2026-10-04 12:01:44",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 169,
+      "cmd": "update",
+      "result": {
+        "id": 2262,
+        "backup_id": 5071,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:28:48",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 170,
+      "cmd": "update",
+      "result": {
+        "id": 2269,
+        "backup_id": 5072,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:29:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 171,
+      "cmd": "update",
+      "result": {
+        "id": 2270,
+        "backup_id": 5073,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:29:10",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 172,
+      "cmd": "update",
+      "result": {
+        "id": 2271,
+        "backup_id": 5074,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:29:15",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 173,
+      "cmd": "update",
+      "result": {
+        "id": 2278,
+        "backup_id": 5075,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 21:55:11",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 174,
+      "cmd": "update",
+      "result": {
+        "id": 2296,
+        "backup_id": 5076,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 175,
+      "cmd": "update",
+      "result": {
+        "id": 2301,
+        "backup_id": 5077,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 01:15:11",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 176,
+      "cmd": "update",
+      "result": {
+        "id": 2308,
+        "backup_id": 5078,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:29:37",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 177,
+      "cmd": "update",
+      "result": {
+        "id": 2319,
+        "backup_id": 5079,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:29:43",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 178,
+      "cmd": "update",
+      "result": {
+        "id": 2325,
+        "backup_id": 5080,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:29:48",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 179,
+      "cmd": "update",
+      "result": {
+        "id": 2331,
+        "backup_id": 5081,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:29:54",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 180,
+      "cmd": "update",
+      "result": {
+        "id": 2347,
+        "backup_id": 5082,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 21:50:34",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 181,
+      "cmd": "update",
+      "result": {
+        "id": 2377,
+        "backup_id": 5083,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:30:00",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 182,
+      "cmd": "update",
+      "result": {
+        "id": 2386,
+        "backup_id": 5084,
+        "status": "publish",
+        "modified_gmt": "2026-10-16 11:30:05",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 183,
+      "cmd": "update",
+      "result": {
+        "id": 2396,
+        "backup_id": 5085,
+        "status": "publish",
+        "modified_gmt": "2026-10-24 00:59:04",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 184,
+      "cmd": "update",
+      "result": {
+        "id": 2569,
+        "backup_id": 5086,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 21:48:19",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 185,
+      "cmd": "update",
+      "result": {
+        "id": 2571,
+        "backup_id": 5087,
+        "status": "publish",
+        "modified_gmt": "0000-00-00 00:00:00",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 186,
+      "cmd": "update",
+      "result": {
+        "id": 3118,
+        "backup_id": 5088,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 18:23:52",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 187,
+      "cmd": "update",
+      "result": {
+        "id": 3125,
+        "backup_id": 5089,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 18:24:37",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 188,
+      "cmd": "update",
+      "result": {
+        "id": 3134,
+        "backup_id": 5090,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 18:26:06",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 189,
+      "cmd": "update",
+      "result": {
+        "id": 3330,
+        "backup_id": 5091,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 18:19:35",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 190,
+      "cmd": "update",
+      "result": {
+        "id": 3331,
+        "backup_id": 5092,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 18:23:07",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 191,
+      "cmd": "update",
+      "result": {
+        "id": 3332,
+        "backup_id": 5093,
+        "status": "publish",
+        "modified_gmt": "2026-11-20 18:38:35",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 192,
+      "cmd": "update",
+      "result": {
+        "id": 2723,
+        "backup_id": 5095,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:11:35",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 193,
+      "cmd": "update",
+      "result": {
+        "id": 2732,
+        "backup_id": 5097,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:15:08",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 194,
+      "cmd": "update",
+      "result": {
+        "id": 2734,
+        "backup_id": 5098,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:21:28",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_risk_level",
+            "sa_sources",
+            "sa_faq"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 195,
+      "cmd": "update",
+      "result": {
+        "id": 2737,
+        "backup_id": 5101,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:14:40",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 196,
+      "cmd": "update",
+      "result": {
+        "id": 2740,
+        "backup_id": 5103,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:21:36",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 197,
+      "cmd": "update",
+      "result": {
+        "id": 2742,
+        "backup_id": 5105,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:21:38",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_focus_keyword",
+            "sa_risk_level",
+            "sa_sources",
+            "sa_faq"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 198,
+      "cmd": "update",
+      "result": {
+        "id": 2745,
+        "backup_id": 5108,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:21:42",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 199,
+      "cmd": "update",
+      "result": {
+        "id": 2747,
+        "backup_id": 5111,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:21:47",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 200,
+      "cmd": "update",
+      "result": {
+        "id": 2749,
+        "backup_id": 5114,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:21:51",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 201,
+      "cmd": "update",
+      "result": {
+        "id": 2751,
+        "backup_id": 5117,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:06:20",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 202,
+      "cmd": "update",
+      "result": {
+        "id": 2754,
+        "backup_id": 5119,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:21:58",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 203,
+      "cmd": "update",
+      "result": {
+        "id": 2756,
+        "backup_id": 5122,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:03",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 204,
+      "cmd": "update",
+      "result": {
+        "id": 2758,
+        "backup_id": 5125,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:07",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 205,
+      "cmd": "update",
+      "result": {
+        "id": 2773,
+        "backup_id": 5128,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:14:22",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 206,
+      "cmd": "update",
+      "result": {
+        "id": 2776,
+        "backup_id": 5130,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:15",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_faq",
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 207,
+      "cmd": "update",
+      "result": {
+        "id": 2779,
+        "backup_id": 5132,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:17",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_focus_keyword",
+            "sa_risk_level",
+            "sa_sources",
+            "sa_faq"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 208,
+      "cmd": "update",
+      "result": {
+        "id": 2782,
+        "backup_id": 5135,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:20",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 209,
+      "cmd": "update",
+      "result": {
+        "id": 2785,
+        "backup_id": 5137,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:22",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_faq"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 210,
+      "cmd": "update",
+      "result": {
+        "id": 2788,
+        "backup_id": 5140,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:26",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 211,
+      "cmd": "update",
+      "result": {
+        "id": 2791,
+        "backup_id": 5143,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:30",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_faq",
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 212,
+      "cmd": "update",
+      "result": {
+        "id": 2794,
+        "backup_id": 5146,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:34",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 213,
+      "cmd": "update",
+      "result": {
+        "id": 2806,
+        "backup_id": 5149,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:22:38",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 214,
+      "cmd": "update",
+      "result": {
+        "id": 2809,
+        "backup_id": 5152,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:10:16",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 215,
+      "cmd": "update",
+      "result": {
+        "id": 2812,
+        "backup_id": 5154,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:10:44",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 216,
+      "cmd": "update",
+      "result": {
+        "id": 2815,
+        "backup_id": 5156,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:11:57",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 217,
+      "cmd": "update",
+      "result": {
+        "id": 2818,
+        "backup_id": 5157,
+        "status": "publish",
+        "modified_gmt": "2026-11-11 00:15:31",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 218,
+      "cmd": "update",
+      "result": {
+        "id": 2821,
+        "backup_id": 5159,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:09:58",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 219,
+      "cmd": "update",
+      "result": {
+        "id": 2824,
+        "backup_id": 5161,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:06:50",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 220,
+      "cmd": "update",
+      "result": {
+        "id": 2827,
+        "backup_id": 5163,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:05:43",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 221,
+      "cmd": "update",
+      "result": {
+        "id": 2830,
+        "backup_id": 5165,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:04:45",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 222,
+      "cmd": "update",
+      "result": {
+        "id": 2843,
+        "backup_id": 5167,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:14",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 223,
+      "cmd": "update",
+      "result": {
+        "id": 2846,
+        "backup_id": 5169,
+        "status": "publish",
+        "modified_gmt": "2026-10-15 21:17:41",
+        "changed": {
+          "fields": [],
+          "meta": [
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 224,
+      "cmd": "update",
+      "result": {
+        "id": 2849,
+        "backup_id": 5170,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:18",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_faq"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 225,
+      "cmd": "update",
+      "result": {
+        "id": 2855,
+        "backup_id": 5172,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:20",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 226,
+      "cmd": "update",
+      "result": {
+        "id": 2857,
+        "backup_id": 5174,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:22",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 227,
+      "cmd": "update",
+      "result": {
+        "id": 2707,
+        "backup_id": 5176,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:25",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 228,
+      "cmd": "update",
+      "result": {
+        "id": 2709,
+        "backup_id": 5178,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:27",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_latitude",
+            "sa_longitude",
+            "sa_sources",
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 229,
+      "cmd": "update",
+      "result": {
+        "id": 2714,
+        "backup_id": 5180,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:29",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 230,
+      "cmd": "update",
+      "result": {
+        "id": 2716,
+        "backup_id": 5182,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 01:23:31",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "_thumbnail_id"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 231,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5184,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5184&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5184&preview=true"
+      }
+    },
+    {
+      "n": 232,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5185,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5185&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5185&preview=true"
+      }
+    },
+    {
+      "n": 233,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5186,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5186&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5186&preview=true"
+      }
+    },
+    {
+      "n": 234,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5187,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5187&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5187&preview=true"
+      }
+    },
+    {
+      "n": 235,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5188,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5188&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5188&preview=true"
+      }
+    },
+    {
+      "n": 236,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5189,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5189&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5189&preview=true"
+      }
+    },
+    {
+      "n": 237,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5190,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5190&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5190&preview=true"
+      }
+    },
+    {
+      "n": 238,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5191,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5191&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5191&preview=true"
+      }
+    },
+    {
+      "n": 239,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5192,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5192&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5192&preview=true"
+      }
+    },
+    {
+      "n": 240,
+      "cmd": "draft-copy",
+      "result": {
+        "id": 5193,
+        "status": "draft",
+        "edit_link": "https://sarzaminaryan.ir/wp-admin/post.php?post=5193&action=edit",
+        "preview": "https://sarzaminaryan.ir/?p=5193&preview=true"
+      }
+    },
+    {
+      "n": 241,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "all"
+      }
+    },
+    {
+      "n": 242,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/",
+            "status": 200,
+            "ms": 2528,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/",
+            "desc": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "website",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "og:description": "راهنمای سفر به ایران؛ معرفی ۳۱ استان و صدها شهرستان با جاذبه‌های گردشگری، مسیر پیشنهادی سفر، غذاهای محلی و سوغات هر منطقه.",
+              "og:url": "https://sarzaminaryan.ir/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/page-5-65caa32b67.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "سرزمین آریان | دانشنامه ایران عزیز از نمای نزدیک"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 0,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 0,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "EntryPoint",
+              "ImageObject",
+              "Organization",
+              "SearchAction",
+              "WebPage",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 31346,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/dorud/",
+            "status": 200,
+            "ms": 1657,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان دورود؛ راهنمای سفر، جاذبه‌ها و تاریخ لرستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/dorud/",
+            "desc": "راهنمای کامل شهرستان دورود لرستان؛ معرفی دریاچه گهر، آبشار بیشه، شوی، آب‌گرمه، دره نی‌گاه، غارها، پارک‌ها، مسیر دسترسی، فصل سفر و نکات ایمنی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "دورود لرستان؛ راهنمای جاهای دیدنی و طبیعت‌گردی",
+              "og:description": "از دریاچه گهر و اشترانکوه تا آبشارهای بیشه، تله‌زنگ، آب‌گرمه و دره نی‌گاه؛ راهنمای بازنویسی‌شده سفر به دورود در سرزمین آریان.",
+              "og:url": "https://sarzaminaryan.ir/city/dorud/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-dorud.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "دورود لرستان؛ راهنمای جاهای دیدنی و طبیعت‌گردی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "دورود لرستان؛ راهنمای جاهای دیدنی و طبیعت‌گردی"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-dorud.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19226,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/tehran/",
+            "status": 200,
+            "ms": 1417,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان تهران؛ راهنمای سفر، جاذبه‌ها و تاریخ تهران | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/tehran/",
+            "desc": "راهنمای شهرستان تهران: مساحت ۱۳۰۱ کیلومتر مربع و جمعیت ۸٬۷۳۷٬۵۱۰ نفر (۱۳۹۵)، سه بخش، آب‌وهوای دوگانهٔ شمال و جنوب، مترو، فرودگاه مهرآباد و نشانه‌های شهر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "og:description": "از کاخ گلستانِ ثبت‌شده در یونسکو تا پل طبیعت و مسیرهای دربند و درکه؛ تجربهٔ سفر به تهران، محله‌به‌محله.",
+              "og:url": "https://sarzaminaryan.ir/city/tehran/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان تهران — پایتختی که هنوز شهری است در دامنهٔ البرز"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "BreadcrumbList",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-tehran.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 19236,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/rig-e-jenn-desert/",
+            "status": 200,
+            "ms": 1173,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "کویر ریگ جن | موقعیت، مسیر دسترسی و هشدارهای ایمنی سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/rig-e-jenn-desert/",
+            "desc": "ریگ جن، پهنهٔ ماسه‌ای مرز سمنان و اصفهان؛ تفاوت آن با افسانه‌ها، مسیرهای دسترسی از گرمسار و جندق، بهترین فصل سفر و نکات ایمنیِ ضروری برای کویرنوردی.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "کویر ریگ جن؛ راهنمای سفر به پهنهٔ ماسه‌ای مرکزی ایران",
+              "og:description": "از مسیر جادهٔ ملک‌آباد تا تپه‌های ماسه‌ای بلند؛ هر آنچه برای سفرِ ایمن به ریگ جن باید بدانید — بدونِ افسانه‌ها.",
+              "og:url": "https://sarzaminaryan.ir/attraction/rig-e-jenn-desert/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2709-45b13caa58.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "کویر ریگ جن؛ راهنمای سفر به پهنهٔ ماسه‌ای مرکزی ایران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "کویر ریگ جن؛ راهنمای سفر به پهنهٔ ماسه‌ای مرکزی ایران"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "PostalAddress",
+              "Question",
+              "TouristAttraction",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 41994,
+              "width": 1200,
+              "height": 630
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/attraction/bagh-golshan-tabas/",
+            "status": 200,
+            "ms": 1200,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "باغ گلشن طبس | تاریخ، معماری، آدرس و ساعت بازدید",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/attraction/bagh-golshan-tabas/",
+            "desc": "باغ گلشن طبس؛ باغی نزدیک هفت هکتار با پلان مربع، عمارت سردر دوطبقه و حوض سه‌فواره، ثبت ملی ۱۳۵۵. تاریخچه، معماری، آدرس و نکات بازدید.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "باغ گلشن طبس؛ نگین سبز کویر",
+              "og:description": "چهارباغِ ایرانی در دل اقلیم بیابانی؛ روایتِ ساخت، معماری مربع و درختان کهن باغ گلشن طبس.",
+              "og:url": "https://sarzaminaryan.ir/attraction/bagh-golshan-tabas/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/sa-og/attraction-2714-3aa284b825.jpg",
+              "og:image:width": "1200",
+              "og:image:height": "630",
+              "og:image:type": "image/jpeg",
+              "og:image:alt": "باغ گلشن طبس؛ نگین سبز کویر",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "باغ گلشن طبس؛ نگین سبز کویر"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "PostalAddress",
+              "Question",
+              "TouristAttraction",
+              "WebSite"
+            ],
+            "jsonld_images": [],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/jpeg",
+              "bytes": 44611,
+              "width": 1200,
+              "height": 630
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-22T01:23:58+00:00"
+}
