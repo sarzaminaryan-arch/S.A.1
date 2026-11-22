@@ -156,7 +156,7 @@ $sa_about_text    = get_theme_mod( 'sa_footer_about', 'دانشنامه‌ی س�
 					</ul>
 				<?php endif; ?>
 				<?php if ( $sa_contact_email ) : ?>
-					<p class="sa-footer__contact"><a href="mailto:<?php echo esc_attr( antispambot( $sa_contact_email ) ); ?>"><?php echo esc_html( antispambot( $sa_contact_email ) ); ?></a></p>
+					<p class="sa-footer__contact"><a href="mailto:<?php echo esc_attr( $sa_contact_email ); ?>"><?php echo esc_html( $sa_contact_email ); ?></a></p>
 				<?php endif; ?>
 				<?php endif; ?>
 			</div>
