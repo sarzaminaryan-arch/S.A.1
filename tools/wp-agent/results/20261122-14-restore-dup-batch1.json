@@ -1,0 +1,581 @@
+{
+  "job": "tools/wp-agent/jobs/20261122-14-restore-dup-batch1.json",
+  "started_utc": "2026-11-22T20:22:21+00:00",
+  "note": "توقف موقت (دستور مالک ۲۰۲۶-۱۱-۲۲): برگرداندن چهار صفحهٔ بچ ۱ به نسخهٔ پیش از job ۱۳. دلیل: بازنویسی ۲۰۲۶-۱۱-۲۲ روی سایت منتشر شده بود (نتایج 20261122-13) و متن آن ۱۵/۱۴/۲/۵ جملهٔ تکراری یک‌به‌یک و ۳۷۷/۲۲۲/۹۲/۲۰۵ جفت نزدیک داشت. بکاپ‌ها از نتیجهٔ job ۱۳: دشت آزادگان ۲۸۳→۵۳۵۶، هفتکل ۲۹۳→۵۳۶۲، مسجدسلیمان ۲۹۲→۵۳۶۴، بندر ماهشهر ۲۷۸→۵۳۶۶. این یک بازگردانی است، نه پاک‌سازی؛ بازنویسی کامل با دروازهٔ تکرار بعداً انجام می‌شود. پیش از هر restore، خود فرمان از وضع فعلی پشتیبان محلی می‌گیرد.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "backups",
+      "result": [
+        {
+          "id": 5356,
+          "title": "پشتیبان پیش از «دشت آزادگان ۲۸۳: بازنویسی کامل بخش‌دار؛ حذف ۳۹ یادداشت؛ سه پیوند داخلی؛ سه منبع غیرویکی»: meta — 2026-11-22 17:51:46",
+          "date": "2026-11-22 17:51:46",
+          "kind": "meta",
+          "target": 283,
+          "reason": "دشت آزادگان ۲۸۳: بازنویسی کامل بخش‌دار؛ حذف ۳۹ یادداشت؛ سه پیوند داخلی؛ سه منبع غیرویکی"
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "cmd": "backups",
+      "result": [
+        {
+          "id": 5362,
+          "title": "پشتیبان پیش از «هفتکل ۲۹۳: بازنویسی کامل بخش‌دار؛ حذف ۳۲ یادداشت؛ چهار پیوند داخلی؛ سه منبع غیرویکی»: meta — 2026-11-22 17:51:53",
+          "date": "2026-11-22 17:51:53",
+          "kind": "meta",
+          "target": 293,
+          "reason": "هفتکل ۲۹۳: بازنویسی کامل بخش‌دار؛ حذف ۳۲ یادداشت؛ چهار پیوند داخلی؛ سه منبع غیرویکی"
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "cmd": "backups",
+      "result": [
+        {
+          "id": 5364,
+          "title": "پشتیبان پیش از «مسجدسلیمان ۲۹۲: بازنویسی کامل بخش‌دار؛ حذف ۲۹ یادداشت؛ چهار پیوند داخلی؛ سه منبع غیرویکی»: meta — 2026-11-22 17:51:56",
+          "date": "2026-11-22 17:51:56",
+          "kind": "meta",
+          "target": 292,
+          "reason": "مسجدسلیمان ۲۹۲: بازنویسی کامل بخش‌دار؛ حذف ۲۹ یادداشت؛ چهار پیوند داخلی؛ سه منبع غیرویکی"
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "cmd": "backups",
+      "result": [
+        {
+          "id": 5366,
+          "title": "پشتیبان پیش از «بندر ماهشهر ۲۷۸: بازنویسی کامل بخش‌دار؛ حذف ۲۸ یادداشت؛ چهار پیوند داخلی؛ دو منبع غیرویکی؛ اصلاح مردادمیلادی (آگوست → مرداد)»: meta — 2026-11-22 17:51:58",
+          "date": "2026-11-22 17:51:58",
+          "kind": "meta",
+          "target": 278,
+          "reason": "بندر ماهشهر ۲۷۸: بازنویسی کامل بخش‌دار؛ حذف ۲۸ یادداشت؛ چهار پیوند داخلی؛ دو منبع غیرویکی؛ اصلاح مردادمیلادی (آگوست → مرداد)"
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "cmd": "restore",
+      "result": {
+        "id": 283,
+        "backup_id": 5369,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 20:22:26",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_longitude",
+            "sa_city_population",
+            "sa_cty_districts",
+            "sa_cty_cities",
+            "sa_cty_climate",
+            "sa_cty_best_time",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_google_map_url",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "lat",
+            "lng",
+            "sa_map_zoom",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_offbeat",
+            "sa_access_road",
+            "sa_access_rail",
+            "sa_access_air"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "restore",
+      "result": {
+        "id": 293,
+        "backup_id": 5371,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 20:22:29",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_city_population",
+            "sa_city_elevation",
+            "sa_cty_area",
+            "sa_cty_rural_districts",
+            "sa_cty_distance_center",
+            "sa_cty_climate",
+            "sa_cty_best_time",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_google_map_url",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "sa_cty_neighbors",
+            "lat",
+            "lng",
+            "sa_map_zoom",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_offbeat",
+            "sa_access_road",
+            "sa_access_rail",
+            "sa_access_air"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 7,
+      "cmd": "restore",
+      "result": {
+        "id": 292,
+        "backup_id": 5373,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 20:22:32",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_cty_population",
+            "sa_city_population",
+            "sa_city_elevation",
+            "sa_cty_area",
+            "sa_cty_districts",
+            "sa_cty_rural_districts",
+            "sa_cty_distance_center",
+            "sa_cty_climate",
+            "sa_cty_best_time",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_schema_sameas",
+            "sa_google_map_url",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "sa_cty_neighbors",
+            "lat",
+            "lng",
+            "sa_map_zoom",
+            "sa_cty_poi_offbeat",
+            "sa_access_road",
+            "sa_access_rail",
+            "sa_access_air"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 8,
+      "cmd": "restore",
+      "result": {
+        "id": 278,
+        "backup_id": 5375,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 20:22:35",
+        "changed": {
+          "fields": [
+            "post_content"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_cty_population",
+            "sa_city_population",
+            "sa_city_elevation",
+            "sa_cty_area",
+            "sa_cty_cities",
+            "sa_cty_distance_center",
+            "sa_cty_climate",
+            "sa_cty_best_time",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_google_map_url",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "sa_cty_neighbors",
+            "lat",
+            "lng",
+            "sa_map_zoom",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_offbeat",
+            "sa_access_road",
+            "sa_access_rail",
+            "sa_access_air"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 9,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          283,
+          293,
+          292,
+          278
+        ]
+      }
+    },
+    {
+      "n": 10,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/dasht-azadegan/?sa_probe=14",
+            "status": 200,
+            "ms": 1416,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان دشت آزادگان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/dasht-azadegan/",
+            "desc": "راهنمای شهرستان دشت آزادگان؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان دشت آزادگان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان دشت آزادگان در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/dasht-azadegan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-dasht-azadegan.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان دشت آزادگان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان دشت آزادگان — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-dasht-azadegan.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 25876,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/haftkel/?sa_probe=14",
+            "status": 200,
+            "ms": 1472,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان هفتکل؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/haftkel/",
+            "desc": "راهنمای شهرستان هفتکل؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان هفتکل — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان هفتکل در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/haftkel/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-haftkel.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان هفتکل — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان هفتکل — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-haftkel.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 20284,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/masjed-soleyman/?sa_probe=14",
+            "status": 200,
+            "ms": 1364,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان مسجدسلیمان؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/masjed-soleyman/",
+            "desc": "راهنمای شهرستان مسجدسلیمان؛ مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان مسجدسلیمان — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان مسجدسلیمان در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/masjed-soleyman/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masjed-soleyman.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان مسجدسلیمان — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان مسجدسلیمان — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-masjed-soleyman.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 25306,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/city/mahshahr/?sa_probe=14",
+            "status": 200,
+            "ms": 1368,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بندر ماهشهر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "noindex, follow",
+            "canonical": "https://sarzaminaryan.ir/city/mahshahr/",
+            "desc": "راهنمای شهرستان بندر ماهشهر; مشخصات، تاریخچه، فرهنگ، جاذبه‌ها و مسیرهای شناخت این شهرستان در استان خوزستان.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بندر ماهشهر — راهنمای سرزمین آریان",
+              "og:description": "راهنمای شهرستان بندر ماهشهر در استان خوزستان.",
+              "og:url": "https://sarzaminaryan.ir/city/mahshahr/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahshahr.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بندر ماهشهر — راهنمای سرزمین آریان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بندر ماهشهر — راهنمای سرزمین آریان"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahshahr.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 24544,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      },
+      "error": "post-change probe failed: https://sarzaminaryan.ir/city/dasht-azadegan/?sa_probe=14 robots noindex, follow; https://sarzaminaryan.ir/city/haftkel/?sa_probe=14 robots noindex, follow; https://sarzaminaryan.ir/city/mahshahr/?sa_probe=14 robots noindex, follow"
+    }
+  ],
+  "recovery": "manual reconciliation required: non-reversible step",
+  "finished_utc": "2026-11-22T20:22:46+00:00"
+}
