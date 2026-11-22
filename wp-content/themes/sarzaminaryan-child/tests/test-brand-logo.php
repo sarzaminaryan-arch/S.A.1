@@ -93,17 +93,15 @@ $schema = (string) file_get_contents( $theme_dir . '/inc/schema.php' );
 $css    = (string) file_get_contents( $theme_dir . '/assets/css/child.css' );
 
 /*
- * 2026 refresh: the sticky header is a light surface with the mockup's teal
- * brand tile, so it carries the bundled white MAP ICON (never a redrawn logo),
- * and the light footer carries the bundled DARK lockup. Both still come from
- * the official asset helpers and keep an explicit box to avoid CLS.
+ * Owner 2026-11-22 («لوگوی ناقص سبز را از تمام صفحات بردار، لوگوی فوتر کافی است»):
+ * the cropped teal tile is gone from the header on EVERY page — the linked wordmark is
+ * the whole header brand — while the official lockup keeps shipping in the footer and in
+ * the Organization schema (asserted just below), so no page is left without the mark.
  */
-sa_brand_logo_assert(
-	1 === preg_match( '~if \( ! is_front_page\(\) \) : \?>\s*<span class="sa-hf-brand__tile[^<]*.*?sa_brand_icon_light_url\( 96 \).*?</span>\s*<\?php endif; \?>\s*<span class="sa-hf-brand__text~s', $header ),
-	'front page omits the entire map tile but keeps the linked brand text'
-);
-sa_brand_logo_assert( false !== strpos( $header, 'sa_brand_icon_light_url( 96 )' ), 'header uses the bundled white map icon' );
-sa_brand_logo_assert( false !== strpos( $header, 'width="24" height="24"' ), 'header icon declares its 24x24 box (no CLS)' );
+sa_brand_logo_assert( false === strpos( $header, 'sa-hf-brand__tile' ), 'no logo tile in the header on any page' );
+sa_brand_logo_assert( false === strpos( $header, 'sa_brand_icon_light_url' ), 'the header prints no icon at all' );
+sa_brand_logo_assert( false !== strpos( $header, '<span class="sa-hf-brand__text' ), 'header brand is the linked wordmark itself' );
+sa_brand_logo_assert( 1 === preg_match( '~<a class="sa-hf-brand".*?<span class="sa-hf-brand__text~s', $header ), 'the wordmark sits inside the home link' );
 sa_brand_logo_assert( false !== strpos( $header, 'class="sa-hf-brand"' ), 'header brand link keeps the sa-hf-brand hook' );
 sa_brand_logo_assert( false !== strpos( $footer, "sa_brand_logo_url( 'dark', 480 )" ), 'footer uses the bundled dark lockup on its light surface' );
 sa_brand_logo_assert( false !== strpos( $footer, 'width="72" height="30"' ), 'footer logo declares the wide 72x30 box (no CLS)' );

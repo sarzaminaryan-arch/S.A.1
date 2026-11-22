@@ -40,13 +40,15 @@ $sa_cta     = function_exists( 'sa_2026_experience_cta' ) ? sa_2026_experience_c
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
 
 		<a class="sa-hf-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $sa_brand . ' — ' . $sa_tagline ); ?>">
-			<?php if ( ! is_front_page() ) : ?>
-				<span class="sa-hf-brand__tile w-10 h-10 rounded-2xl bg-petrol text-white flex items-center justify-center shadow-xs transition-colors shrink-0">
-					<?php /* Official mark: the bundled white map icon, never a redrawn logo. */ ?>
-					<img src="<?php echo esc_url( sa_brand_icon_light_url( 96 ) ); ?>" alt="" width="24" height="24"
-						class="w-6 h-6 object-contain" loading="eager" fetchpriority="high" data-no-lazy="1" decoding="async">
-				</span>
-			<?php endif; ?>
+			<?php
+			/*
+			 * Owner 2026-11-22: «لوگوی ناقص سبز را از تمام صفحات بردار، لوگوی فوتر کافی است.»
+			 * The teal 40×40 tile was already gone from the front page; the cropped map mark
+			 * inside it read as a broken logo on every other page, so the header now carries
+			 * the wordmark only. The official lockup still ships in the footer and in the
+			 * Organization schema — never a redrawn logo.
+			 */
+			?>
 			<span class="sa-hf-brand__text block">
 				<strong><?php echo esc_html( $sa_brand ); ?></strong>
 				<span><?php echo esc_html( $sa_tagline ); ?></span>
