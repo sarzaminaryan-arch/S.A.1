@@ -1,0 +1,155 @@
+{
+  "job": "tools/wp-agent/jobs/20261122-20-province-zanjan-rebuild.json",
+  "started_utc": "2026-11-22T23:53:38+00:00",
+  "note": "بازسازی کامل صفحهٔ استان زنجان (شناسهٔ ۵۴) با الگوی ۱۰ بخشی لرستان و همدان: جایگزینی ۴۱ تیتر پراکنده، ۴٬۲۲۷ کلمه و ۱۵۲ پاورقی تکراری با ۱۰ بخش استاندارد، نثر سه‌بندی ۸ شهرستان با sa-autolink-off، محافظت از نام استان‌های همسایه، ۵ آکاردئون پرسش پرتکرار و ۷ منبع مستقیم راستی‌آزمایی‌شده.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.16",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-22T23:53:39+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 54,
+        "backup_id": 5385,
+        "status": "publish",
+        "modified_gmt": "2026-11-22 23:53:42",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          54
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/province/zanjan/?sa_probe=20",
+            "status": 200,
+            "ms": 1477,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان زنجان؛ راهنمای جامع ۸ شهرستان، جاذبه‌ها و پیشینه",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/zanjan/",
+            "desc": "راهنمای کامل استان زنجان؛ معرفی ۸ شهرستان، گنبد جهانی سلطانیه، مردان نمکی چهرآباد، غار کتله‌خور، شهر جهانی ملیله، زیتون طارم و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان زنجان؛ دیار گنبد جهانی سلطانیه و هشت شهرستان شمال‌غرب",
+              "og:description": "معرفی کامل استان زنجان در کریدور شمال‌غرب: از ۸ شهرستان و غار کتله‌خور تا گنبد سلطانیه، بازار تاریخی زنجان، ملیله و چاقوسازی و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/zanjan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/zanjan-soltaniyeh-dome-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان زنجان؛ دیار گنبد جهانی سلطانیه و هشت شهرستان شمال‌غرب",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان زنجان؛ دیار گنبد جهانی سلطانیه و هشت شهرستان شمال‌غرب"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/zanjan-soltaniyeh-dome-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 267752,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-22T23:53:46+00:00"
+}
