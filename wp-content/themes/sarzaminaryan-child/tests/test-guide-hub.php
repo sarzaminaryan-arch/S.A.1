@@ -160,6 +160,10 @@ sa_guide_assert( false !== strpos( $module, "add_filter( 'pre_get_document_title
 /* 4 — one canonical index ----------------------------------------------------- */
 sa_guide_assert( false !== strpos( $module, 'function sa_guide_redirect_posts_page()' ), 'the old posts page is consolidated' );
 sa_guide_assert( false !== strpos( $module, "apply_filters( 'sa_guide_redirect_posts_page', true )" ), 'that redirect has a documented off-switch' );
+sa_guide_assert(
+	false !== strpos( $module, "get_query_var( 'sa_experience_form' )" ),
+	'the posts-page 301 never swallows the virtual «ثبت تجربه» route (v2.24.11)'
+);
 sa_guide_assert( false !== strpos( $module, 'function sa_guide_redirect_empty_category()' ), 'the empty «راهنمای سفر» category is handled' );
 sa_guide_assert( false !== strpos( $module, '\'travel-guide\' !== $term->slug || (int) $term->count > 0' ), 'the category still wins once it holds posts' );
 

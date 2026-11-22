@@ -78,6 +78,30 @@ sa_exp_assert( false !== strpos( $wrap, 'template-parts/2026/experience-page' ),
 sa_exp_assert( false !== strpos( $page, 'sa_experience_is_form_request' ), 'page.php renders the form for a real city-contrib page' );
 sa_exp_assert( false !== strpos( $modal, 'sa_experience_form_url' ), 'the «ثبت تجربه» dialog links to the working page' );
 
+/* 1b — owner report 2026-11-22: both «ثبت تجربه» buttons landed on آموزش سفر ------ */
+$hub     = sa_exp_file( 'inc/guide-hub.php' );
+$contact = sa_exp_file( 'inc/contact-form.php' );
+$footer  = sa_exp_file( 'legacy/footer.php' );
+sa_exp_assert( '' !== $hub && '' !== $contact && '' !== $footer, 'guide hub, contact form and footer ship' );
+sa_exp_assert(
+	false !== strpos( $hub, "get_query_var( 'sa_experience_form' )" ),
+	'the posts-page 301 lets the virtual submission route through (no detour to /travel-guide/)'
+);
+sa_exp_assert( false !== strpos( $form, 'function sa_experience_page()' ), 'one resolver owns the submission page' );
+sa_exp_assert( false !== strpos( $form, "'submit-experience'" ), 'the resolver honours every accepted slug' );
+sa_exp_assert( false !== strpos( $hub, 'apply_filters( \'sa_guide_redirect_posts_page\', true )' ), 'that redirect keeps its off-switch' );
+
+/* 1c — owner report 2026-11-22: «یک خط کد نامرتب» instead of the address --------- */
+sa_exp_assert(
+	false === strpos( $contact, 'esc_html( antispambot(' ),
+	'the contact lead never double-escapes the obfuscated address (text, not &#…; code)'
+);
+sa_exp_assert( false !== strpos( $contact, 'is_email( $sa_lead_email )' ), 'the printed address is validated first' );
+sa_exp_assert(
+	false === strpos( $footer, 'antispambot(' ),
+	'the footer mailto link prints a real address, not escaped entities'
+);
+
 /* 2 — a form the owner can trust --------------------------------------------- */
 sa_exp_assert( false !== strpos( $view, 'admin-post.php' ), 'form posts to admin-post.php' );
 sa_exp_assert( false !== strpos( $view, "wp_nonce_field( 'sa_experience_submit', 'sa_experience_nonce' )" ), 'form carries a nonce' );
