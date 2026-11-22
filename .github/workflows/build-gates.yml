@@ -120,6 +120,10 @@ jobs:
           php wp-content/themes/sarzaminaryan-child/tests/test-internal-links.php
           php wp-content/plugins/sa-live-article-audit/tests/test-compare.php
 
+      - name: One-time editorial-fix plugin engine parity (sa-editorial-fix)
+        run: |
+          php wp-content/plugins/sa-editorial-fix/tests/test-engine.php
+
   build:
     name: Build county pages changed in this push (artifact, no site contact)
     needs: guards
