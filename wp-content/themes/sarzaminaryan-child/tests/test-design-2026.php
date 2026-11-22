@@ -135,6 +135,11 @@ sa_design_assert( false !== strpos( $functions, "'inc/design-2026.php'" ), 'func
 function add_action() {}
 function add_filter() {}
 function get_theme_mod( $key, $default ) { return $default; }
+if ( ! function_exists( 'home_url' ) ) {
+	function home_url( $path = '' ) {
+		return 'https://sarzaminaryan.ir' . $path;
+	}
+}
 require SA_DESIGN_DIR . 'inc/helpers.php';
 require SA_DESIGN_DIR . 'inc/design-2026.php';
 foreach ( array( '۱٬۸۶۹٬۰۰۱', '١٨٦٩٠٠١', '1,869,001', 1869001 ) as $input ) {
@@ -145,6 +150,46 @@ foreach ( array( array( '', '۱۳۹۵' ), array( '۰', '۱۳۹۵' ), array( '۱�
 	sa_design_assert( null === sa_2026_census_label( $invalid[0], $invalid[1] ), 'invalid or undated population is omitted' );
 }
 sa_design_assert( '۳۵۰' === sa_2026_census_label( '350', '1395' )['number'], 'small counts do not round to zero' );
+
+/* 5 — relation link unwrapping and province heading/underline guards (v2.24.16) */
+$rel_keys = array_fill_keys(
+	array_filter(
+		array_map(
+			'sa_2026_relation_key',
+			array(
+				'https://sarzaminaryan.ir/province/lorestan/',
+				'https://sarzaminaryan.ir/city/dorud/',
+				'https://sarzaminaryan.ir/province/kermanshah/',
+			)
+		)
+	),
+	true
+);
+$rel_sample = '<p>در <a href="/province/lorestan/">لرستان</a>، '
+	. '<a class="sa-autolink sa-autolink--province" href="https://sarzaminaryan.ir/province/kermanshah">استان کرمانشاه</a> و '
+	. '<a data-href="/attraction/x/" href="/city/dorud/"><strong>دورود</strong></a>؛ اما '
+	. '<a class="sa-autolink sa-autolink--province">استان همدان</a>، '
+	. '<a href="/city/dorud/?preview=1">پیش‌نمایش</a>، '
+	. '<a href="/city/dorud/"><img src="d.jpg" alt="دورود"></a> و '
+	. '<a href="/attraction/bisheh/">آبشار بیشه</a>.</p>'
+	. '<pre><code><a href="/city/dorud/">code</a></code></pre>';
+$rel_out = sa_2026_unwrap_relation_links( $rel_sample, $rel_keys );
+sa_design_assert( false === strpos( $rel_out, 'href="/province/lorestan/"' ) && false === strpos( $rel_out, '>لرستان</a>' ), 'self relation anchor is completely unwrapped' );
+sa_design_assert( false === strpos( $rel_out, 'sa-autolink--province' ) && false !== strpos( $rel_out, 'استان کرمانشاه' ) && false !== strpos( $rel_out, 'استان همدان' ), 'autolinked and dead relation shells unwrap back to plain text' );
+sa_design_assert( false !== strpos( $rel_out, '<strong>دورود</strong>' ) && false === strpos( $rel_out, 'href="/city/dorud/"' ), 'inline markup inside unwrapped relation anchor stays intact' );
+sa_design_assert( false !== strpos( $rel_out, '<a href="/city/dorud/?preview=1">پیش‌نمایش</a>' ), 'query-string link stays untouched' );
+sa_design_assert( false !== strpos( $rel_out, '<a href="/city/dorud/"><img src="d.jpg" alt="دورود"></a>' ), 'linked image anchor stays untouched' );
+sa_design_assert( false !== strpos( $rel_out, '<a href="/attraction/bisheh/">آبشار بیشه</a>' ), 'non-relation attraction link stays untouched' );
+sa_design_assert( false !== strpos( $rel_out, '<pre><code><a href="/city/dorud/">code</a></code></pre>' ), 'protected code block stays untouched' );
+
+$province_tpl = sa_design_file( 'single-province.php' );
+sa_design_assert( false === strpos( $province_tpl, 'لینک‌سازی افقی' ), 'single-province drops the «لینک‌سازی افقی» label above neighbor chips' );
+sa_design_assert( false !== strpos( $province_tpl, 'sa-section-heading' ), 'single-province marks section headings with sa-section-heading' );
+sa_design_assert( false === strpos( $province_tpl, 'id="cta-heading" class="sa-section-heading' ), 'dark CTA heading does not receive the light-green pill class' );
+
+$child_css = sa_design_file( 'assets/css/child.css' );
+sa_design_assert( false !== strpos( $child_css, 'a[href]:not([href=""]):not(.sa-source-box)' ), 'child.css scopes prose underlines strictly to real links with href' );
+sa_design_assert( false !== strpos( $child_css, 'white-space: nowrap' ) && false !== strpos( $child_css, '#E7F5EC' ), 'child.css styles single-line mobile headings with light-green highlight' );
 
 if ( $failures > 0 ) {
 	fwrite( STDERR, "FAILED: {$failures} design guard(s)\n" );

@@ -1,0 +1,28 @@
+{
+  "note": "انتشار نسخه ۲.۲۴.۱۶ قالب فرزند (جداسازی کامل لینک‌های ساختاری از متن، حذف برچسب «لینک‌سازی افقی» و تیترهای تک‌خطی با پس‌زمینه سبز روشن) و به‌روزرسانی صفحه استان لرستان (شناسهٔ ۴۷۸) بدون تکرار باکس شهرستان‌ها و بدون خط زیرین روی نام استان‌ها.",
+  "rollback_on_fail": true,
+  "steps": [
+    {"cmd": "ping"},
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.24.16",
+      "version": "2.24.16",
+      "owner_approved_theme_update": true,
+      "allow_without_backup": true,
+      "wait_for_release": 300,
+      "probe": ["/", "/province/lorestan/", "/city/khorramabad/"],
+      "rollback_to": "2.24.15"
+    },
+    {
+      "cmd": "update",
+      "id": 478,
+      "content_file": "tools/wp-agent/outbox/20261122-province-lorestan-478/lorestan-478.html",
+      "meta_file": "tools/wp-agent/outbox/20261122-province-lorestan-478/lorestan-478.meta.json",
+      "excerpt": "راهنمای جامع استان لرستان در زاگرس میانی؛ معرفی دوازده شهرستان، آبشارهای بیشه و نوژیان، دریاچه گهر، قلعه فلک‌الافلاک، ثبت جهانی محوطه‌های پیش‌ازتاریخی دره خرم‌آباد، فرهنگ بومی و زمان مناسب سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "حذف ۱۲ باکس تکراری شهرستان از بدنه و جایگزینی با نثر جمعیت‌شناختی، حذف لینک از استان‌های هم‌مرز داخل متن، و کوتاه‌سازی تیترهای ده بخش برای نمایش تک‌خطی موبایل"
+    },
+    {"cmd": "cache-purge", "id": [478]},
+    {"cmd": "probe", "url": ["/province/lorestan/?sa_probe=18"]}
+  ]
+}
