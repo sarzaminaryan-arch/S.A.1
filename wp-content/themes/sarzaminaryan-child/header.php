@@ -85,7 +85,42 @@ $sa_cta     = function_exists( 'sa_2026_experience_cta' ) ? sa_2026_experience_c
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/>
 				</svg>
 			</button>
+
+			<?php
+			/*
+			 * Owner 2026-11-22: «گوشهٔ بالای سمت چپ یک علامت سرچ و جست‌وجو بذار.»
+			 * In an RTL row this button is the last child, so it sits at the far left of
+			 * the header — on every page, next to the «ثبت تجربه» CTA. It opens the
+			 * search bar below the header (Esc closes it, «/» opens it).
+			 */
+			?>
+			<button type="button"
+				class="sa-hf-searchbtn"
+				data-sa-hsearch-toggle
+				aria-controls="sa-hf-search"
+				aria-expanded="false"
+				aria-label="جست‌وجو در سرزمین آریان">
+				<span class="screen-reader-text">جست‌وجو در سایت</span>
+				<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"/>
+				</svg>
+			</button>
 		</div>
+	</div>
+
+	<div id="sa-hf-search" class="sa-hf-search hidden" data-sa-hsearch-panel>
+		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="sa-hf-search__form">
+			<label class="screen-reader-text" for="sa-hf-search-input">جست‌وجو در سرزمین آریان</label>
+			<input id="sa-hf-search-input" class="sa-hf-search__input" type="search" name="s"
+				value="<?php echo esc_attr( get_search_query() ); ?>" placeholder="استان، شهرستان یا دیدنی…"
+				autocomplete="off" enterkeyhint="search" data-sa-hsearch-input>
+			<button type="submit" class="sa-hf-search__submit">
+				<svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 10.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"/>
+				</svg>
+				<span>جست‌وجو</span>
+			</button>
+		</form>
 	</div>
 
 	<div id="sa-mobile-nav" class="lg:hidden hidden border-t border-line bg-surface">

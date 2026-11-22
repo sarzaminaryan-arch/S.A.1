@@ -8316,3 +8316,109 @@ body.bg-lines::before {
 .sa-county-summary .sa-facts__row {
 	font-size: inherit;
 }
+
+/* v2.24.12 — جست‌وجوی سربرگ: دکمهٔ گوشهٔ بالا-چپ + نوار جست‌وجو زیر سربرگ */
+.sa-hf-searchbtn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	flex-shrink: 0;
+	border: 1px solid rgb(var(--sa-line, 226 232 240));
+	border-radius: 0.75rem;
+	background-color: rgb(var(--sa-surface, 255 255 255));
+	color: rgb(var(--sa-brand, 13 59 79));
+	transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.sa-hf-searchbtn:hover {
+	background-color: rgb(var(--sa-brand-soft, 234 244 243));
+}
+
+.sa-hf-searchbtn[aria-expanded="true"] {
+	background-color: rgb(var(--sa-brand, 13 59 79));
+	border-color: rgb(var(--sa-brand, 13 59 79));
+	color: #fff;
+}
+
+.sa-hf-searchbtn svg {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+.sa-hf-search {
+	border-top: 1px solid rgb(var(--sa-line, 226 232 240));
+	background-color: rgb(var(--sa-surface, 255 255 255));
+}
+
+.sa-hf-search__form {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	max-width: 80rem;
+	margin-inline: auto;
+	padding: 0.75rem 1rem;
+}
+
+.sa-hf-search__input {
+	flex: 1 1 auto;
+	min-width: 0;
+	border: 1px solid rgb(var(--sa-line, 226 232 240));
+	border-radius: 0.75rem;
+	background-color: rgb(var(--sa-canvas, 247 247 245));
+	padding: 0.6rem 0.85rem;
+	font-size: 0.9rem;
+	color: rgb(var(--sa-ink, 17 24 39));
+}
+
+.sa-hf-search__input::placeholder {
+	color: #94a3b8;
+}
+
+.sa-hf-search__input:focus {
+	outline: 2px solid rgb(var(--sa-brand, 13 59 79));
+	outline-offset: 1px;
+}
+
+.sa-hf-search__submit {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	flex-shrink: 0;
+	border: 0;
+	border-radius: 0.75rem;
+	background-color: rgb(var(--sa-brand, 13 59 79));
+	color: #fff;
+	padding: 0.6rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.sa-hf-search__submit:hover {
+	background-color: rgb(var(--sa-brand-dark, 9 42 56));
+}
+
+.sa-hf-search__submit svg {
+	width: 1rem;
+	height: 1rem;
+}
+
+@media (min-width: 640px) {
+	.sa-hf-search__form {
+		padding: 0.75rem 1.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.sa-hf-search__form {
+		padding: 0.75rem 2rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.sa-hf-searchbtn {
+		transition: none;
+	}
+}
