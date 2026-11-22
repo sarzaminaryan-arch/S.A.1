@@ -29,6 +29,17 @@ $sa_archive_a = function_exists( 'sa_archive_url' ) ? sa_archive_url( 'attractio
 $sa_guide     = function_exists( 'sa_2026_guide_url' ) ? sa_2026_guide_url() : home_url( '/travel-guide/' );
 $sa_contrib   = sa_2026_contrib_url();
 
+/*
+ * Owner 2026-11-22: «داشبورد جامع گردشگری ایران» (the cyber dashboard) used to be
+ * reachable from the previous landing page; the 2026 front page dropped it. The
+ * dedicated page still ships (template-dashboard.php, self-healed on upgrade), so
+ * the home page links to it again — only when the page really exists and is
+ * published, never to a guessed URL.
+ */
+$sa_dash = function_exists( 'sa_dashboard_page_url' ) ? sa_dashboard_page_url() : '';
+$sa_dash_provinces = function_exists( 'sa_2026_count' ) ? (int) sa_2026_count( 'province' ) : 0;
+$sa_dash_counties  = function_exists( 'sa_counties' ) ? count( (array) sa_counties() ) : 0;
+
 /* Instant-search index: provinces, counties and the newest attractions. */
 $sa_index = array();
 foreach ( $sa_provinces as $sa_row ) {
@@ -168,6 +179,61 @@ foreach ( get_posts(
 			</div>
 		</aside>
 	</section>
+
+	<?php if ( '' !== $sa_dash ) : ?>
+	<section id="dashboard-section" aria-labelledby="dashboard-heading" class="scroll-mt-24">
+		<div class="bg-petrol text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-floating relative overflow-hidden grid-pattern">
+			<div class="absolute -left-20 -bottom-24 w-64 h-64 rounded-full bg-ochre/20 blur-2xl pointer-events-none"></div>
+
+			<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-8 items-center">
+				<div class="lg:col-span-8 space-y-4">
+					<div class="flex flex-wrap items-center gap-2">
+						<span class="font-mono text-[11px] sm:text-xs text-amber-200 tracking-wide bg-white/10 px-3 py-1 rounded-lg">SYS.GEO.IRAN // CYBER DASHBOARD</span>
+						<span class="text-[11px] font-semibold text-white/85 bg-ochre px-2.5 py-1 rounded-lg">نقشهٔ تعاملی دومرحله‌ای</span>
+					</div>
+
+					<h2 id="dashboard-heading" class="text-2xl sm:text-3xl font-extrabold leading-snug">
+						داشبورد جامع گردشگری ایران
+					</h2>
+					<p class="text-sm text-white/80 leading-relaxed max-w-2xl">
+						در برگهٔ اختصاصی داشبورد، روی نقشهٔ ایران استان را انتخاب کنید تا شناسنامهٔ کامل و نمودارهای آن باز شود؛ سپس با یک دکمه به نقشهٔ همان استان بروید و شناسنامهٔ هر شهرستان را با نام انگلیسی و داده‌های میدانی ببینید.
+					</p>
+
+					<ul class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1 list-none m-0 p-0">
+						<li class="bg-white/10 border border-white/15 rounded-2xl p-3.5">
+							<span class="block text-[11px] text-white/75">استان روی نقشه</span>
+							<strong class="block text-lg font-extrabold text-white mt-0.5"><?php echo esc_html( sa_2026_num( max( 31, $sa_dash_provinces ) ) ); ?></strong>
+						</li>
+						<li class="bg-white/10 border border-white/15 rounded-2xl p-3.5">
+							<span class="block text-[11px] text-white/75">شهرستان در مرحلهٔ دوم</span>
+							<strong class="block text-lg font-extrabold text-white mt-0.5"><?php echo esc_html( sa_2026_num( $sa_dash_counties ) ); ?></strong>
+						</li>
+						<li class="bg-white/10 border border-white/15 rounded-2xl p-3.5">
+							<span class="block text-[11px] text-white/75">شناسنامه و نمودار</span>
+							<strong class="block text-lg font-extrabold text-white mt-0.5">۲ مرحله</strong>
+						</li>
+					</ul>
+				</div>
+
+				<div class="lg:col-span-4">
+					<div class="bg-white/10 border border-white/15 rounded-2xl p-4 sm:p-5 space-y-3">
+						<p class="text-xs text-white/80 leading-relaxed">
+							نقشهٔ تعاملی، تله‌متری داده‌ها و شناسنامهٔ استان‌ها و شهرستان‌ها در یک صفحه:
+						</p>
+						<a href="<?php echo esc_url( $sa_dash ); ?>"
+							class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-ochre hover:bg-ochreDark text-white text-sm font-bold transition-colors">
+							<span>ورود به داشبورد تعاملی</span>
+							<span aria-hidden="true">←</span>
+						</a>
+						<a href="<?php echo esc_url( $sa_archive_p ); ?>" class="block text-center text-xs font-semibold text-white/85 hover:text-white hover:underline">
+							یا کاوش در فهرست استان‌ها
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<?php endif; ?>
 
 	<section id="pillars-section" aria-labelledby="pillars-heading" class="space-y-6 scroll-mt-24">
 		<div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
