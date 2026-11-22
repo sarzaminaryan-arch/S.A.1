@@ -1,0 +1,17 @@
+[
+ {
+  "id": 280,
+  "slug": "hamidiyeh",
+  "words_after": 1202,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
