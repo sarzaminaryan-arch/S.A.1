@@ -1,0 +1,1492 @@
+{
+  "note": "بستهٔ جامع یک‌ضرب بهینه‌سازی ممیزی ۲۲ نوامبر ۲۰۲۶ (تأیید مالک): ۱) نصب قالب فرزند ۲.۲۴.۱۰؛ ۲) تکمیل مختصات ۶ شهرستان و متادیتای دورود (۷ مورد)؛ ۳) بازسازی قطعی نشانی‌های فارسی sa_sources (۱۸۲ مورد)؛ ۴) همگام‌سازی کامل ۳۵ راهنمای آموزشی (guide + تصویر شاخص WebP + FAQ) و ۴ دیدنی دارای اصلاح متنی (۳۹ مورد)؛ ۵) ساخت ۱۰ پیش‌نویس غیرمخرب پاک‌سازی یادداشت‌های ویرایشی؛ ۶) پاک‌سازی کش و پروب سلامت.",
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.24.10",
+      "wait_for_release": 420,
+      "owner_approved_theme_update": true,
+      "allow_without_backup": true,
+      "probe": [
+        "/",
+        "/city/mashhad/",
+        "/city/tehran/"
+      ],
+      "rollback_to": "2.24.9"
+    },
+    {
+      "cmd": "update",
+      "id": 78,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/faruj-78.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان فاروج از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 432,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/gachsaran-432.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان گچساران از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 433,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/dena-433.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان دنا از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 434,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/bahmai-434.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان بهمئی از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 436,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/landeh-436.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان لنده از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 437,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/basht-437.meta.json",
+      "reason": "تکمیل مختصات جغرافیایی تأییدشدهٔ شهرستان شهرستان باشت از نقشهٔ مرجع قالب"
+    },
+    {
+      "cmd": "update",
+      "id": 516,
+      "meta_file": "tools/wp-agent/outbox/20261121-coords-dorud/dorud-516.meta.json",
+      "reason": "اصلاح همسایه‌های خراب‌شده، تکمیل فیلدهای شناسنامه و همگام‌سازی منابع معتبر شهرستان دورود از مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 37,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-alborz-37.meta.json",
+      "reason": "بازسازی قطعی 29 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان البرز)"
+    },
+    {
+      "cmd": "update",
+      "id": 265,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-qazvin-265.meta.json",
+      "reason": "بازسازی قطعی 6 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان قزوین)"
+    },
+    {
+      "cmd": "update",
+      "id": 393,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-kurdistan-393.meta.json",
+      "reason": "بازسازی قطعی 21 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان کردستان)"
+    },
+    {
+      "cmd": "update",
+      "id": 412,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-golestan-412.meta.json",
+      "reason": "بازسازی قطعی 26 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان گلستان)"
+    },
+    {
+      "cmd": "update",
+      "id": 476,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-kerman-476.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان کرمان)"
+    },
+    {
+      "cmd": "update",
+      "id": 478,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-lorestan-478.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان لرستان)"
+    },
+    {
+      "cmd": "update",
+      "id": 563,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-markazi-563.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان مرکزی)"
+    },
+    {
+      "cmd": "update",
+      "id": 626,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-hormozgan-626.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان هرمزگان)"
+    },
+    {
+      "cmd": "update",
+      "id": 628,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-hamadan-628.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان همدان)"
+    },
+    {
+      "cmd": "update",
+      "id": 633,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/province-yazd-633.meta.json",
+      "reason": "بازسازی قطعی 8 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (استان یزد)"
+    },
+    {
+      "cmd": "update",
+      "id": 74,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-maneh-74.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مانه)"
+    },
+    {
+      "cmd": "update",
+      "id": 76,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-samalqan-76.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سملقان)"
+    },
+    {
+      "cmd": "update",
+      "id": 80,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bam-and-safiabad-80.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بام و صفی‌آباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 104,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kaleybar-104.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کلیبر)"
+    },
+    {
+      "cmd": "update",
+      "id": 113,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-shabestar-113.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان شبستر)"
+    },
+    {
+      "cmd": "update",
+      "id": 128,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-baruq-128.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان باروق)"
+    },
+    {
+      "cmd": "update",
+      "id": 133,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-chaharborj-133.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان چهاربرج)"
+    },
+    {
+      "cmd": "update",
+      "id": 140,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-mirabad-140.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان میرآباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 149,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-aslanduz-149.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اصلاندوز)"
+    },
+    {
+      "cmd": "update",
+      "id": 152,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-angut-152.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان انگوت)"
+    },
+    {
+      "cmd": "update",
+      "id": 157,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-nain-157.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان نائین)"
+    },
+    {
+      "cmd": "update",
+      "id": 159,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khomeyni-shahr-159.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خمینی‌شهر)"
+    },
+    {
+      "cmd": "update",
+      "id": 183,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-fardis-183.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فردیس)"
+    },
+    {
+      "cmd": "update",
+      "id": 214,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rey-214.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ری)"
+    },
+    {
+      "cmd": "update",
+      "id": 230,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kuhrang-230.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کوهرنگ)"
+    },
+    {
+      "cmd": "update",
+      "id": 231,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-saman-231.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سامان)"
+    },
+    {
+      "cmd": "update",
+      "id": 232,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-borujen-232.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بروجن)"
+    },
+    {
+      "cmd": "update",
+      "id": 233,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-lordegan-233.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان لردگان)"
+    },
+    {
+      "cmd": "update",
+      "id": 234,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-farsan-234.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فارسان)"
+    },
+    {
+      "cmd": "update",
+      "id": 235,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ardal-235.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اردل)"
+    },
+    {
+      "cmd": "update",
+      "id": 236,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kiar-236.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کیار)"
+    },
+    {
+      "cmd": "update",
+      "id": 237,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khanmirza-237.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خانمیرزا)"
+    },
+    {
+      "cmd": "update",
+      "id": 238,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ben-238.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بن)"
+    },
+    {
+      "cmd": "update",
+      "id": 239,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-farrokhshahr-239.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فرخ‌شهر)"
+    },
+    {
+      "cmd": "update",
+      "id": 240,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-falard-240.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فلارد)"
+    },
+    {
+      "cmd": "update",
+      "id": 395,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sanandaj-395.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سنندج)"
+    },
+    {
+      "cmd": "update",
+      "id": 396,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-baneh-396.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بانه)"
+    },
+    {
+      "cmd": "update",
+      "id": 397,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bijar-397.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بیجار)"
+    },
+    {
+      "cmd": "update",
+      "id": 398,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-dehgolan-398.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان دهگلان)"
+    },
+    {
+      "cmd": "update",
+      "id": 399,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-divandarreh-399.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان دیواندره)"
+    },
+    {
+      "cmd": "update",
+      "id": 400,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sarvabad-400.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سروآباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 401,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-saqqez-401.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سقز)"
+    },
+    {
+      "cmd": "update",
+      "id": 403,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kamyaran-403.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کامیاران)"
+    },
+    {
+      "cmd": "update",
+      "id": 404,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-marivan-404.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مریوان)"
+    },
+    {
+      "cmd": "update",
+      "id": 416,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kermanshah-416.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کرمانشاه)"
+    },
+    {
+      "cmd": "update",
+      "id": 417,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-eslamabad-e-gharb-417.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اسلام‌آباد غرب)"
+    },
+    {
+      "cmd": "update",
+      "id": 418,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-paveh-418.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان پاوه)"
+    },
+    {
+      "cmd": "update",
+      "id": 419,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-javanrud-419.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان جوانرود)"
+    },
+    {
+      "cmd": "update",
+      "id": 420,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ravansar-420.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان روانسر)"
+    },
+    {
+      "cmd": "update",
+      "id": 421,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sarpol-e-zahab-421.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سرپل ذهاب)"
+    },
+    {
+      "cmd": "update",
+      "id": 422,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sonqor-422.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سنقر)"
+    },
+    {
+      "cmd": "update",
+      "id": 423,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sahneh-423.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان صحنه)"
+    },
+    {
+      "cmd": "update",
+      "id": 424,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-qasr-e-shirin-424.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان قصر شیرین)"
+    },
+    {
+      "cmd": "update",
+      "id": 425,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kangavar-425.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کنگاور)"
+    },
+    {
+      "cmd": "update",
+      "id": 427,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-harsin-427.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان هرسین)"
+    },
+    {
+      "cmd": "update",
+      "id": 429,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-dalahu-429.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان دالاهو)"
+    },
+    {
+      "cmd": "update",
+      "id": 439,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-gorgan-439.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گرگان)"
+    },
+    {
+      "cmd": "update",
+      "id": 440,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-gonbad-e-kavus-440.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گنبد کاووس)"
+    },
+    {
+      "cmd": "update",
+      "id": 443,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kordkuy-443.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کردکوی)"
+    },
+    {
+      "cmd": "update",
+      "id": 444,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-azadshahr-444.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آزادشهر)"
+    },
+    {
+      "cmd": "update",
+      "id": 445,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ramian-445.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رامیان)"
+    },
+    {
+      "cmd": "update",
+      "id": 446,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kalaleh-446.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کلاله)"
+    },
+    {
+      "cmd": "update",
+      "id": 447,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-minudasht-447.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مینودشت)"
+    },
+    {
+      "cmd": "update",
+      "id": 449,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-maraveh-tappeh-449.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مراوه‌تپه)"
+    },
+    {
+      "cmd": "update",
+      "id": 451,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-gomishan-451.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گمیشان)"
+    },
+    {
+      "cmd": "update",
+      "id": 452,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bandar-e-gaz-452.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بندر گز)"
+    },
+    {
+      "cmd": "update",
+      "id": 455,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-lahijan-455.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان لاهیجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 456,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudsar-456.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودسر)"
+    },
+    {
+      "cmd": "update",
+      "id": 457,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-langarud-457.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان لنگرود)"
+    },
+    {
+      "cmd": "update",
+      "id": 458,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bandar-e-anzali-458.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بندر انزلی)"
+    },
+    {
+      "cmd": "update",
+      "id": 460,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-astaneh-ye-ashrafiyeh-460.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آستانه اشرفیه)"
+    },
+    {
+      "cmd": "update",
+      "id": 461,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudbar-461.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودبار)"
+    },
+    {
+      "cmd": "update",
+      "id": 462,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-fuman-462.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فومن)"
+    },
+    {
+      "cmd": "update",
+      "id": 463,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-astara-463.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آستارا)"
+    },
+    {
+      "cmd": "update",
+      "id": 464,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rezvanshahr-464.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رضوانشهر)"
+    },
+    {
+      "cmd": "update",
+      "id": 465,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khomam-465.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خمام)"
+    },
+    {
+      "cmd": "update",
+      "id": 467,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-shaft-467.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان شفت)"
+    },
+    {
+      "cmd": "update",
+      "id": 468,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-siahkal-468.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سیاهکل)"
+    },
+    {
+      "cmd": "update",
+      "id": 469,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-amlash-469.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان املش)"
+    },
+    {
+      "cmd": "update",
+      "id": 483,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-salas-e-babajani-483.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ثلاث باباجانی)"
+    },
+    {
+      "cmd": "update",
+      "id": 484,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-gilan-e-gharb-484.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گیلانغرب)"
+    },
+    {
+      "cmd": "update",
+      "id": 487,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-aqqala-487.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آق‌قلا)"
+    },
+    {
+      "cmd": "update",
+      "id": 489,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kerman-489.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کرمان)"
+    },
+    {
+      "cmd": "update",
+      "id": 490,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sirjan-490.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سیرجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 491,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rafsanjan-491.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رفسنجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 492,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-jiroft-492.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان جیرفت)"
+    },
+    {
+      "cmd": "update",
+      "id": 493,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bam-493.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بم)"
+    },
+    {
+      "cmd": "update",
+      "id": 494,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-zarand-494.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان زرند)"
+    },
+    {
+      "cmd": "update",
+      "id": 495,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-shahr-e-babak-495.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان شهربابک)"
+    },
+    {
+      "cmd": "update",
+      "id": 497,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-baft-497.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بافت)"
+    },
+    {
+      "cmd": "update",
+      "id": 498,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-anbarabad-498.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان عنبرآباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 499,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bardsir-499.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بردسیر)"
+    },
+    {
+      "cmd": "update",
+      "id": 500,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-qaleh-ganj-500.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان قلعه گنج)"
+    },
+    {
+      "cmd": "update",
+      "id": 501,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-fahraj-501.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فهرج)"
+    },
+    {
+      "cmd": "update",
+      "id": 502,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-manujan-502.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان منوجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 503,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rigan-503.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ریگان)"
+    },
+    {
+      "cmd": "update",
+      "id": 505,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-narmashir-505.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان نرماشیر)"
+    },
+    {
+      "cmd": "update",
+      "id": 506,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ravar-506.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان راور)"
+    },
+    {
+      "cmd": "update",
+      "id": 507,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-arzuiyeh-507.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ارزوئیه)"
+    },
+    {
+      "cmd": "update",
+      "id": 508,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-anar-508.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان انار)"
+    },
+    {
+      "cmd": "update",
+      "id": 509,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rabor-509.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رابر)"
+    },
+    {
+      "cmd": "update",
+      "id": 510,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-faryab-510.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فاریاب)"
+    },
+    {
+      "cmd": "update",
+      "id": 511,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kuhbanan-511.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کوهبنان)"
+    },
+    {
+      "cmd": "update",
+      "id": 513,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-gonbaki-513.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گنبکی)"
+    },
+    {
+      "cmd": "update",
+      "id": 565,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-arak-565.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اراک)"
+    },
+    {
+      "cmd": "update",
+      "id": 566,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-saveh-566.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ساوه)"
+    },
+    {
+      "cmd": "update",
+      "id": 567,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-shazand-567.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان شازند)"
+    },
+    {
+      "cmd": "update",
+      "id": 568,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khomeyn-568.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خمین)"
+    },
+    {
+      "cmd": "update",
+      "id": 569,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-zarandieh-569.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان زرندیه)"
+    },
+    {
+      "cmd": "update",
+      "id": 570,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-mahallat-570.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان محلات)"
+    },
+    {
+      "cmd": "update",
+      "id": 571,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khondab-571.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خنداب)"
+    },
+    {
+      "cmd": "update",
+      "id": 572,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-delijan-572.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان دلیجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 573,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-komijan-573.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کمیجان)"
+    },
+    {
+      "cmd": "update",
+      "id": 574,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-farahan-574.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فراهان)"
+    },
+    {
+      "cmd": "update",
+      "id": 575,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-tafresh-575.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان تفرش)"
+    },
+    {
+      "cmd": "update",
+      "id": 576,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ashtian-576.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان آشتیان)"
+    },
+    {
+      "cmd": "update",
+      "id": 639,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-minab-639.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان میناب)"
+    },
+    {
+      "cmd": "update",
+      "id": 641,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-abumusa-641.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ابوموسی)"
+    },
+    {
+      "cmd": "update",
+      "id": 642,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-jask-642.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان جاسک)"
+    },
+    {
+      "cmd": "update",
+      "id": 643,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudan-643.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودان)"
+    },
+    {
+      "cmd": "update",
+      "id": 645,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bastak-645.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بستک)"
+    },
+    {
+      "cmd": "update",
+      "id": 646,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-parsian-646.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان پارسیان)"
+    },
+    {
+      "cmd": "update",
+      "id": 647,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khamir-647.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خمیر)"
+    },
+    {
+      "cmd": "update",
+      "id": 648,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sirik-648.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان سیریک)"
+    },
+    {
+      "cmd": "update",
+      "id": 649,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bashagard-649.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بشاگرد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1298,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-dargazin-1298.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان درگزین)"
+    },
+    {
+      "cmd": "update",
+      "id": 1299,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-torkamanchay-1299.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ترکمانچای)"
+    },
+    {
+      "cmd": "update",
+      "id": 1300,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ferdows-1300.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فردوس)"
+    },
+    {
+      "cmd": "update",
+      "id": 1832,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-sowme-eh-sara-1832.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان صومعه‌سرا)"
+    },
+    {
+      "cmd": "update",
+      "id": 1850,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kahnuj-1850.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کهنوج)"
+    },
+    {
+      "cmd": "update",
+      "id": 1858,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-rudbar-e-jonubi-1858.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رودبار جنوب)"
+    },
+    {
+      "cmd": "update",
+      "id": 1860,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-jazmurian-1860.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان جازموریان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1872,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-aliabad-1872.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان علی‌آباد کتول)"
+    },
+    {
+      "cmd": "update",
+      "id": 1877,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-torkaman-1877.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ترکمن)"
+    },
+    {
+      "cmd": "update",
+      "id": 1881,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-galikash-1881.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان گالیکش)"
+    },
+    {
+      "cmd": "update",
+      "id": 1885,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bandar-e-abbas-1885.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بندرعباس)"
+    },
+    {
+      "cmd": "update",
+      "id": 1892,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-hajjiabad-1892.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان حاجی‌آباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1916,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ghorveh-1916.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان قروه)"
+    },
+    {
+      "cmd": "update",
+      "id": 1923,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-hamedan-1923.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان همدان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1924,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-malayer-1924.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ملایر)"
+    },
+    {
+      "cmd": "update",
+      "id": 1925,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-nahavand-1925.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان نهاوند)"
+    },
+    {
+      "cmd": "update",
+      "id": 1926,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-kabutarahang-1926.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان کبودرآهنگ)"
+    },
+    {
+      "cmd": "update",
+      "id": 1927,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bahar-1927.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بهار)"
+    },
+    {
+      "cmd": "update",
+      "id": 1928,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-razan-1928.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان رزن)"
+    },
+    {
+      "cmd": "update",
+      "id": 1929,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-tuyserkan-1929.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان تویسرکان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1930,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-asadabad-1930.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اسدآباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1931,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-famenin-1931.meta.json",
+      "reason": "بازسازی قطعی 1 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان فامنین)"
+    },
+    {
+      "cmd": "update",
+      "id": 1936,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-yazd-1936.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان یزد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1937,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-meybod-1937.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان میبد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1938,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ardakan-1938.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اردکان)"
+    },
+    {
+      "cmd": "update",
+      "id": 1939,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-mehriz-1939.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مهریز)"
+    },
+    {
+      "cmd": "update",
+      "id": 1940,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-abarkuh-1940.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان ابرکوه)"
+    },
+    {
+      "cmd": "update",
+      "id": 1941,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-bafq-1941.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بافق)"
+    },
+    {
+      "cmd": "update",
+      "id": 1942,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-taft-1942.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان تفت)"
+    },
+    {
+      "cmd": "update",
+      "id": 1943,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-khatam-1943.meta.json",
+      "reason": "بازسازی قطعی 3 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان خاتم)"
+    },
+    {
+      "cmd": "update",
+      "id": 1944,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-ashkezar-1944.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان اشکذر)"
+    },
+    {
+      "cmd": "update",
+      "id": 1945,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-behabad-1945.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان بهاباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 1946,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-zarach-1946.meta.json",
+      "reason": "بازسازی قطعی 4 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان زارچ)"
+    },
+    {
+      "cmd": "update",
+      "id": 1947,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/city-marvast-1947.meta.json",
+      "reason": "بازسازی قطعی 5 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (شهرستان مروست)"
+    },
+    {
+      "cmd": "update",
+      "id": 2262,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-gahar-lake-dorud-2262.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «دریاچه گهر» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2269,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-azgan-wetland-dorud-2269.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تالاب ازگن (قارون)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2270,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-aznadar-waterfall-doroud-2270.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «آبشار ازنادر (دره اسپر)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2271,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-tangeh-lili-gorge-doroud-2271.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تنگه لی لی (سورپیلو)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2278,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-falak-ol-aflak-castle-khorramabad-2278.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «قلعه فلک‌الافلاک (دژ شاپورخواست)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2296,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-mount-damavand-guide-2296.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «قله دماوند» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2301,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-kuhrang-fritillaria-plain-guide-2301.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «دشت لاله‌های واژگون کوهرنگ» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2308,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-ali-sadr-cave-hamedan-guide-2308.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «غار علیصدر» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2319,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-golestan-national-park-guide-2319.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «پارک ملی گلستان (جنگل گلستان)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2325,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-qeshm-stars-valley-geopark-2325.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «درهٔ ستارگان قشم» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2331,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-anzali-international-wetland-guide-2331.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تالاب بین‌المللی انزلی» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2347,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-nozhian-waterfall-khorramabad-2347.meta.json",
+      "reason": "بازسازی قطعی 2 نشانی درصدکدگذاری‌شدهٔ فارسی در sa_sources (آبشار نوژیان خرم‌آباد)"
+    },
+    {
+      "cmd": "update",
+      "id": 2377,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-shevi-waterfall-tele-zang-2377.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «آبشار شوی (تله زنگ)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2386,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-babahur-forest-park-dorud-2386.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «تفرجگاه باباهور (بام دورود)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2396,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-nigah-valley-dorud-2396.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «دره نیگاه (دره نگار)» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2569,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-tang-e-sayad-national-park-2569.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «پارک ملی تنگ صیاد» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2571,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-sar-agha-seyed-village-2571.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «روستای سرآقا سید» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3118,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-si-o-se-pol-3118.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «سی‌وسه‌پل» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3125,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-eram-garden-3125.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «باغ ارم» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3134,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-naqsh-e-rostam-3134.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «نقش رستم» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3330,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-shah-cheragh-3330.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «حرم شاهچراغ» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3331,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-khaju-bridge-3331.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «پل خواجو» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 3332,
+      "meta_file": "tools/wp-agent/outbox/20261121-sources-repair/attraction-vank-cathedral-3332.meta.json",
+      "reason": "همگام‌سازی منابع معتبر دیدنی «کلیسای وانک» با دادهٔ مرجع مخزن"
+    },
+    {
+      "cmd": "update",
+      "id": 2723,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (camping-essential-checklist: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2732,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (camping-water-planning: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2734,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-can-stove: excerpt، content، meta:sa_risk_level، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2737,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-compass: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2740,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-emergency-torch: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2742,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-water-filter: excerpt، content، meta:sa_focus_keyword، meta:sa_risk_level، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2745,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (drinking-water-in-nature: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2747,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (drowning-rescue-guide: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2749,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (emergency-water-purification: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2751,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (sleeping-bag-guide: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2754,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (essential-camping-equipment: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2756,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (fire-without-lighter: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2758,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (how-to-start-campfire: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2773,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (outdoor-cooking-equipment: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2776,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (outdoor-clothing-guide: content، faq، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2779,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (gps-navigation-tools: excerpt، content، meta:sa_focus_keyword، meta:sa_risk_level، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2782,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (how-to-choose-camping-tent: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2785,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (multi-tool-knife-review: excerpt، content، meta:sa_sources، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2788,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (first-aid-kit-checklist: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2791,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (how-to-extinguish-campfire: content، faq، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2794,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (maintain-fire-in-rain: content، meta:sa_sources، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2806,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (hypothermia-first-aid: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2809,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (ankle-sprain-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2812,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (bleeding-wound-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2815,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (burn-injury-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2818,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (cpr-complete-guide: meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2821,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (overdose-rescue-guide: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2824,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (self-rescue-drowning: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2827,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (snake-insect-bite-first-aid: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2830,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (unconscious-drowning-cpr: featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2843,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (heatstroke-first-aid: content، featured_image)"
+    },
+    {
+      "cmd": "update",
+      "id": 2846,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (can-cookware-diy: meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2849,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (diy-bottle-lantern: excerpt، content، faq)"
+    },
+    {
+      "cmd": "update",
+      "id": 2855,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (old-clothes-bandage-wick: content)"
+    },
+    {
+      "cmd": "update",
+      "id": 2857,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی راهنمای آمادهٔ مخزن (newspaper-insulation-bed: content)"
+    },
+    {
+      "cmd": "update",
+      "id": 2707,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (qasem-anvar-shrine: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2709,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (rig-e-jenn-desert: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2714,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (bagh-golshan-tabas: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "update",
+      "id": 2716,
+      "sync_ready_article": true,
+      "owner_approved_live_edit": true,
+      "reason": "همگام‌سازی جاذبهٔ آمادهٔ مخزن (ghaleh-dokhtar-boshruyeh: content، meta:sa_sources)"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 101,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/maragheh-101.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 516,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/dorud-516.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 249,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/zirkuh-249.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 522,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/pol-e-dokhtar-522.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 322,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/hamun-322.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 357,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/avaj-357.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 341,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/mehr-341.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 356,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/abyek-356.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 342,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/kharameh-342.html"
+    },
+    {
+      "cmd": "draft-copy",
+      "id": 338,
+      "content_file": "tools/wp-agent/outbox/20261121-editorial-pilot/zarrin-dasht-338.html"
+    },
+    {
+      "cmd": "cache-purge",
+      "all": true
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/",
+        "/city/dorud/",
+        "/city/tehran/",
+        "/attraction/rig-e-jenn-desert/",
+        "/attraction/bagh-golshan-tabas/"
+      ]
+    }
+  ]
+}

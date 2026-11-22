@@ -144,10 +144,13 @@ class Journal:
     def after_step(self, command, result):
         active = self.data['active']
         if command not in READ_ONLY:
-            bid = result.get('backup_id') if command == 'update' and isinstance(result, dict) else None
-            if isinstance(bid, int) and bid > 0:
-                active['backups'].append(bid)
+            if command == 'update' and isinstance(result, dict) and result.get('noop') is True:
+                pass
             else:
-                active['untracked'] = True
+                bid = result.get('backup_id') if command == 'update' and isinstance(result, dict) else None
+                if isinstance(bid, int) and bid > 0:
+                    active['backups'].append(bid)
+                else:
+                    active['untracked'] = True
         active['phase'] = 'between'
         self.save()

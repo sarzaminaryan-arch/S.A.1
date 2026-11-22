@@ -172,7 +172,7 @@ add_action( 'init', 'sa_agent_register_backup_type' );
  * @return string[]
  */
 function sa_agent_post_types() {
-	$types = array( 'post', 'page' );
+	$types = array( 'post', 'page', function_exists( 'sa_guide_type' ) ? sa_guide_type() : 'guide' );
 	if ( function_exists( 'sa_entity_types' ) ) {
 		$types = array_merge( $types, sa_entity_types() );
 	}
@@ -660,6 +660,94 @@ function sa_agent_create_draft( array $args ) {
  *                       owner_approved_live_edit, reason.
  * @return array|WP_Error
  */
+/**
+ * v2.24.10: مقادیر هدفِ یک مقالهٔ آمادهٔ قالب (`ready-articles` / `ready-guides`) را با وضعیت فعلی نوشته
+ * مقایسه می‌کند و فقط فیلدها، متاها، FAQ و تصویر شاخص همراه قالب را که واقعاً تفاوت دارند در `$args` می‌گذارد
+ * تا از مسیر عادیِ پشتیبانِ تفاضلی (`sa_agent_create_diff_backup`) و قفل `owner_approved_live_edit` عبور کنند.
+ *
+ * @param array $before اسنپ‌شات فعلی نوشته.
+ * @param array $args   ورودی به‌روزرسانی.
+ * @return array|WP_Error
+ */
+function sa_agent_resolve_ready_sync_args( array $before, array $args ) {
+	if ( ! function_exists( 'sa_ready_articles_data' ) ) {
+		return sa_agent_error( 'sa_agent_no_ready_data', 'داده‌های مقالات آماده در قالب در دسترس نیست.', 500 );
+	}
+	$matched = null;
+	foreach ( sa_ready_articles_data( 'all' ) as $article ) {
+		if ( ! is_array( $article ) || empty( $article['slug'] ) ) {
+			continue;
+		}
+		$target_type = function_exists( 'sa_ready_article_target_type' ) ? sa_ready_article_target_type( $article ) : ( isset( $article['type'] ) ? (string) $article['type'] : 'post' );
+		if ( (string) $article['slug'] === (string) $before['slug'] && $target_type === (string) $before['type'] ) {
+			$matched = $article;
+			break;
+		}
+	}
+	if ( null === $matched ) {
+		return sa_agent_error( 'sa_agent_no_ready_article', 'مقالهٔ آمادهٔ متناظر برای این نامک و نوع محتوا در قالب پیدا نشد.', 404 );
+	}
+
+	$fields = isset( $args['fields'] ) && is_array( $args['fields'] ) ? $args['fields'] : array();
+	$meta   = isset( $args['meta'] ) && is_array( $args['meta'] ) ? $args['meta'] : array();
+
+	$target_title   = isset( $matched['title'] ) ? (string) $matched['title'] : '';
+	$target_content = function_exists( 'sa_ready_articles_content' ) ? sa_ready_articles_content( $matched, $before['id'] ) : ( isset( $matched['content'] ) ? (string) $matched['content'] : '' );
+	$target_excerpt = isset( $matched['excerpt'] ) ? (string) $matched['excerpt'] : '';
+
+	if ( ! isset( $fields['title'] ) && (string) $before['title'] !== $target_title ) {
+		$fields['title'] = $target_title;
+	}
+	if ( ! isset( $fields['content'] ) && (string) $before['content'] !== $target_content ) {
+		$fields['content'] = $target_content;
+	}
+	if ( ! isset( $fields['excerpt'] ) && (string) $before['excerpt'] !== $target_excerpt ) {
+		$fields['excerpt'] = $target_excerpt;
+	}
+
+	if ( ! empty( $matched['meta'] ) && is_array( $matched['meta'] ) ) {
+		foreach ( $matched['meta'] as $mk => $mv ) {
+			if ( ! sa_agent_meta_key_writable( $mk ) || array_key_exists( $mk, $meta ) ) {
+				continue;
+			}
+			$val = ( '' === $mv || null === $mv ) ? null : str_replace( array( "\r\n", "\r" ), "\n", (string) $mv );
+			$cur = isset( $before['meta'][ $mk ] ) ? (string) $before['meta'][ $mk ] : null;
+			if ( $val !== $cur ) {
+				$meta[ $mk ] = $val;
+			}
+		}
+	}
+
+	if ( ! empty( $matched['faq'] ) && is_array( $matched['faq'] ) && ! array_key_exists( 'sa_faq', $meta ) ) {
+		$target_faq   = array_values( $matched['faq'] );
+		$live_faq_raw = isset( $before['meta']['sa_faq'] ) ? (string) $before['meta']['sa_faq'] : '';
+		$live_faq_dec = '' !== $live_faq_raw ? json_decode( $live_faq_raw, true ) : null;
+		if ( $live_faq_dec !== $target_faq ) {
+			$meta['sa_faq'] = wp_json_encode( $target_faq, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+		}
+	}
+
+	if ( ! array_key_exists( '_thumbnail_id', $meta ) ) {
+		if ( ! empty( $matched['remove_featured_image'] ) ) {
+			if ( ! empty( $before['meta']['_thumbnail_id'] ) ) {
+				$meta['_thumbnail_id'] = null;
+			}
+		} elseif ( function_exists( 'sa_ready_articles_attach_cover' ) && ! empty( $matched['cover']['file'] ) ) {
+			$att_id = sa_ready_articles_attach_cover( $before['id'], $matched, false );
+			if ( is_wp_error( $att_id ) ) {
+				return sa_agent_error( 'sa_agent_cover_failed', $att_id->get_error_message(), 500 );
+			}
+			if ( (int) $att_id > 0 ) {
+				$meta['_thumbnail_id'] = (string) (int) $att_id;
+			}
+		}
+	}
+
+	$args['fields'] = $fields;
+	$args['meta']   = $meta;
+	return $args;
+}
+
 function sa_agent_update_post( $post_id, array $args ) {
 	$before = sa_agent_snapshot_post( $post_id );
 	if ( null === $before ) {
@@ -671,6 +759,12 @@ function sa_agent_update_post( $post_id, array $args ) {
 	}
 	if ( $expected !== $before['modified_gmt'] ) {
 		return sa_agent_error( 'sa_agent_stale', 'نوشته از زمان خواندن عوض شده؛ دوباره بخوان و بعد بنویس.', 409 );
+	}
+	if ( ! empty( $args['sync_ready_article'] ) ) {
+		$args = sa_agent_resolve_ready_sync_args( $before, $args );
+		if ( is_wp_error( $args ) ) {
+			return $args;
+		}
 	}
 	$fields = array();
 	foreach ( array( 'title' => 'post_title', 'content' => 'post_content', 'excerpt' => 'post_excerpt' ) as $in => $col ) {

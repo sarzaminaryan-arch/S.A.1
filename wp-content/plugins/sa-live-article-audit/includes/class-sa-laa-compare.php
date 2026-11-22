@@ -84,7 +84,7 @@ class SA_LAA_Compare {
 		if ( is_object( $value ) ) {
 			return self::canonical( get_object_vars( $value ) );
 		}
-		return (string) $value;
+		return trim( str_replace( array( "\r\n", "\r" ), "\n", (string) $value ) );
 	}
 
 	/**

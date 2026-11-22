@@ -205,6 +205,17 @@ function sa_ready_articles_menu() {
 		'sa-ready-guides',
 		'sa_ready_guides_page'
 	);
+	$guide_type = function_exists( 'sa_guide_type' ) ? sa_guide_type() : 'guide';
+	if ( 'post' !== $guide_type ) {
+		add_submenu_page(
+			'edit.php?post_type=' . $guide_type,
+			'مقالات آمادهٔ آموزش (طبیعت‌گردی و بقا)',
+			'مقالات آمادهٔ آموزشی',
+			'edit_posts',
+			'sa-ready-guides',
+			'sa_ready_guides_page'
+		);
+	}
 }
 add_action( 'admin_menu', 'sa_ready_articles_menu', 20 );
 
@@ -512,9 +523,12 @@ function sa_ready_articles_apply_featured_image_policy( $post_id, $article ) {
  *
  * @param int                 $post_id Post ID.
  * @param array<string,mixed> $article Article record.
+ * @param int                 $post_id       Post ID.
+ * @param array<string,mixed> $article       Article definition.
+ * @param bool                $set_thumbnail Write _thumbnail_id immediately (false when caller backs up first).
  * @return int|WP_Error Attachment ID when (re)attached, 0 when nothing changed.
  */
-function sa_ready_articles_attach_cover( $post_id, $article ) {
+function sa_ready_articles_attach_cover( $post_id, $article, $set_thumbnail = true ) {
 	$post_id = absint( $post_id );
 	$cover   = isset( $article['cover'] ) && is_array( $article['cover'] ) ? $article['cover'] : array();
 	$file    = isset( $cover['file'] ) ? ltrim( (string) $cover['file'], '/' ) : '';
@@ -607,7 +621,9 @@ function sa_ready_articles_attach_cover( $post_id, $article ) {
 	}
 
 	update_post_meta( $attachment_id, '_wp_attachment_image_alt', $alt );
-	set_post_thumbnail( $post_id, $attachment_id );
+	if ( $set_thumbnail ) {
+		set_post_thumbnail( $post_id, $attachment_id );
+	}
 	sa_ready_articles_cover_log( (string) $article['slug'], $attachment_id );
 	return $attachment_id;
 }
@@ -980,7 +996,7 @@ function sa_ready_articles_write_meta( $post_id, $article, $province_id, $city_i
 		update_post_meta(
 			$post_id,
 			'sa_faq',
-			wp_json_encode( array_values( $article['faq'] ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES )
+			wp_slash( wp_json_encode( array_values( $article['faq'] ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) )
 		);
 	}
 

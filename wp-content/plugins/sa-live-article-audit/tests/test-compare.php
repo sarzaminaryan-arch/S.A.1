@@ -228,4 +228,12 @@ $coord_live['meta']['sa_latitude'] = '29.7000';
 $report                            = SA_LAA_Compare::compare( array( $coord_base ), array( $coord_live ) );
 sa_laa_t_assert( 'different' === $report['items'][0]['status'], 'test13 real coordinate change still triggers diff' );
 
+// ۱۴) یکسان‌سازی CRLF و LF در متاهای چندخطی (مانند sa_sources در ویرایشگر ویندوز/مرورگر).
+$crlf_base                       = sa_laa_t_base_record();
+$crlf_base['meta']['sa_sources'] = "منبع یک | https://example.org/1\nمنبع دو | https://example.org/2";
+$crlf_live                       = sa_laa_t_live_record();
+$crlf_live['meta']['sa_sources'] = "منبع یک | https://example.org/1\r\nمنبع دو | https://example.org/2\r\n";
+$report                          = SA_LAA_Compare::compare( array( $crlf_base ), array( $crlf_live ) );
+sa_laa_t_assert( 'identical' === $report['items'][0]['status'], 'test14 CRLF vs LF in sa_sources does not trigger false diff' );
+
 echo "ALL TESTS PASSED\n";

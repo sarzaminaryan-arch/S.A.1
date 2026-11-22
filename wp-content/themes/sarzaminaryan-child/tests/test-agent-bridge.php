@@ -556,4 +556,81 @@ sa_t_assert( $total <= 4 && isset( $summary['total_deleted'] ), '13d-2: the glob
 $t['retention'] = array();
 sa_t_assert( false === sa_agent_delete_backup_record( $dp ), '13d-3: the retention deleter refuses a normal post' );
 
+/* 14. v2.24.10 — نوع محتوای «guide» و همگام‌سازی مقالات آماده با پشتیبان تفاضلی. */
+function sa_ready_articles_data( $scope = 'all' ) {
+	unset( $scope );
+	return array(
+		'diy-water-filter' => array(
+			'type'    => 'post',
+			'slug'    => 'diy-water-filter',
+			'title'   => 'ساخت فیلتر آب اضطراری',
+			'excerpt' => 'چکیدهٔ جدید مخزن.',
+			'content' => '<p>متن به‌روزشدهٔ مخزن.</p>',
+			'meta'    => array(
+				'sa_focus_keyword' => 'فیلتر آب اضطراری',
+				'sa_sources'       => "منبع یک | https://example.org/a\r\nمنبع دو | https://example.org/b",
+			),
+			'faq'     => array(
+				array( 'q' => 'آیا ویروس را می‌گیرد؟', 'a' => 'خیر؛ جوشاندن لازم است.' ),
+			),
+			'cover'   => array(
+				'file' => 'guides/diy-water-filter.webp',
+				'alt'  => 'اینفوگرافیک فیلتر آب اضطراری',
+			),
+		),
+	);
+}
+function sa_ready_article_target_type( $article ) {
+	return isset( $article['type'] ) && 'post' === $article['type'] ? 'guide' : (string) $article['type'];
+}
+function sa_ready_articles_content( $article, $post_id = 0 ) {
+	unset( $post_id );
+	return (string) $article['content'];
+}
+function sa_ready_articles_attach_cover( $post_id, $article, $set_thumbnail = true ) {
+	unset( $article );
+	if ( $set_thumbnail ) {
+		update_post_meta( $post_id, '_thumbnail_id', '777' );
+	}
+	return 777;
+}
+
+sa_t_assert( in_array( 'guide', sa_agent_post_types(), true ), '14a-1: guide CPT is exposed to agent bridge' );
+$gp = wp_insert_post(
+	array(
+		'post_type'    => 'guide',
+		'post_status'  => 'publish',
+		'post_name'    => 'diy-water-filter',
+		'post_title'   => 'ساخت فیلتر آب اضطراری',
+		'post_excerpt' => 'چکیدهٔ قدیم.',
+		'post_content' => '<p>متن قدیم.</p>',
+	)
+);
+$gsnap = sa_agent_snapshot_post( $gp );
+sa_t_assert( is_array( $gsnap ) && 'guide' === $gsnap['type'], '14a-2: snapshot reads guide CPT' );
+$ge = sa_agent_update_post(
+	$gp,
+	array(
+		'expected_modified_gmt' => $gsnap['modified_gmt'],
+		'sync_ready_article'    => true,
+	)
+);
+sa_t_assert( is_wp_error( $ge ) && 'sa_agent_live_content' === $ge->code, '14b-1: sync_ready_article still requires owner_approved_live_edit when body differs' );
+$gres = sa_agent_update_post(
+	$gp,
+	array(
+		'expected_modified_gmt'    => $gsnap['modified_gmt'],
+		'sync_ready_article'       => true,
+		'owner_approved_live_edit' => true,
+		'reason'                   => 'همگام‌سازی راهنمای آماده',
+	)
+);
+sa_t_assert( is_array( $gres ) && $gres['backup_id'] > 0, '14b-2: sync_ready_article creates a diff backup' );
+sa_t_assert( '<p>متن به‌روزشدهٔ مخزن.</p>' === $t['posts'][ $gp ]->post_content, '14b-3: guide content synced' );
+sa_t_assert( '777' === (string) $t['meta'][ $gp ]['_thumbnail_id'], '14b-4: bundled cover attached through diff-backed _thumbnail_id' );
+sa_t_assert( "منبع یک | https://example.org/a\nمنبع دو | https://example.org/b" === $t['meta'][ $gp ]['sa_sources'], '14b-5: CRLF normalized to LF in synced meta' );
+sa_t_assert( is_array( json_decode( $t['meta'][ $gp ]['sa_faq'], true ) ), '14b-6: synced sa_faq is valid JSON' );
+sa_agent_restore( $gres['backup_id'] );
+sa_t_assert( '<p>متن قدیم.</p>' === $t['posts'][ $gp ]->post_content && ! isset( $t['meta'][ $gp ]['_thumbnail_id'] ), '14b-7: restore reverts guide body and removes attached cover' );
+
 echo "PASS: agent bridge (drafts only, backup before every change, live text protected, restore, theme-mod backups, editors-only Application Passwords, no DELETE, owner-approved trash only for 301 duplicates, LiteSpeed crawler keys only)\n";

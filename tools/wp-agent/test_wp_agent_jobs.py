@@ -207,4 +207,23 @@ with tempfile.TemporaryDirectory() as d:
     assert wa.run_job(str(later), fc) == {"deferred": True, "not_before": "2999-01-01T00:00:00Z"}
     assert not (wa.RESULTS_DIR / "later.json").exists()
 
+    # 4. sync_ready_article tolerates sa_agent_nothing (noop) without marking untracked,
+    #    and still rolls back real writes when a later probe fails.
+    class SyncFakeClient(FakeClient):
+        def call(self, method, route, params=None, body=None):
+            if method == "POST" and route == "/post/10" and body and body.get("sync_ready_article"):
+                raise wa.AgentError('HTTP 409 on POST /post/10: {"code":"sa_agent_nothing"}')
+            return super().call(method, route, params=params, body=body)
+
+    sfc = SyncFakeClient()
+    sync_job = Path(d) / "sync.json"
+    sync_job.write_text(json.dumps({"rollback_on_fail": True, "steps": [
+        {"cmd": "update", "id": 10, "sync_ready_article": True, "owner_approved_live_edit": True, "reason": "t"},
+        {"cmd": "update", "id": 11, "sync_ready_article": True, "owner_approved_live_edit": True, "reason": "t"},
+        {"cmd": "probe", "url": ["/guide/x/"]},
+    ]}), encoding="utf-8")
+    srep = wa.run_job(str(sync_job), sfc)
+    assert srep["ok"] is False and srep["steps"][0]["result"].get("noop") is True, srep
+    assert [r["backup_id"] for r in srep["rollback"]] == [101], srep
+
 print("OK: wp_agent job safety (not_before, health rule, auto-rollback)")
