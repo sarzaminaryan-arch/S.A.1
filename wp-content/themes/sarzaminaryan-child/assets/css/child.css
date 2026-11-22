@@ -8422,3 +8422,204 @@ body.bg-lines::before {
 		transition: none;
 	}
 }
+
+/* v2.24.15: کارت‌های شهرستان، آکاردئون پرسش‌های پرتکرار و باکس کوچک منابع در بدنهٔ راهنمای استان */
+.sa-2026-prose .sa-county-boxes,
+.sa-county-boxes {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 0.9rem;
+	margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+	.sa-2026-prose .sa-county-boxes,
+	.sa-county-boxes {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 1024px) {
+	.sa-2026-prose .sa-county-boxes,
+	.sa-county-boxes {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}
+
+.sa-2026-prose .sa-county-box,
+.sa-county-box {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	background-color: rgb(var(--sa-canvas, 247 247 245));
+	border: 1px solid rgb(var(--sa-line, 226 232 240));
+	border-radius: 1rem;
+	padding: 1rem 1.1rem;
+	transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.sa-2026-prose .sa-county-box:hover,
+.sa-county-box:hover {
+	border-color: rgb(var(--sa-brand, 13 59 79) / 0.45);
+	box-shadow: 0 6px 18px -10px rgb(var(--sa-ink, 17 24 39) / 0.14);
+}
+
+.sa-2026-prose .sa-county-box__title,
+.sa-county-box__title {
+	margin: 0;
+	font-size: 0.975rem;
+	font-weight: 800;
+	line-height: 1.45;
+	color: rgb(var(--sa-ink, 17 24 39));
+}
+
+.sa-2026-prose .sa-county-box__title a,
+.sa-county-box__title a {
+	color: rgb(var(--sa-brand, 13 59 79));
+	text-decoration: none;
+	font-weight: 800;
+}
+
+.sa-2026-prose .sa-county-box__title a:hover,
+.sa-county-box__title a:hover {
+	color: rgb(var(--sa-accent, 180 83 9));
+	text-decoration: none;
+}
+
+.sa-2026-prose .sa-county-box__meta,
+.sa-county-box__meta {
+	margin: 0;
+	font-size: 0.775rem;
+	font-weight: 600;
+	line-height: 1.55;
+	color: rgb(var(--sa-muted, 100 116 139));
+}
+
+.sa-2026-prose .sa-county-box__desc,
+.sa-county-box__desc {
+	margin: 0;
+	font-size: 0.855rem;
+	line-height: 1.8;
+	color: rgb(var(--sa-ink, 17 24 39) / 0.85);
+}
+
+.sa-2026-prose .sa-faq-accordions,
+.sa-faq-accordions {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin-top: 1.1rem;
+}
+
+.sa-2026-prose .sa-faq-item,
+.sa-faq-item {
+	margin: 0;
+	background-color: rgb(var(--sa-canvas, 247 247 245));
+	border: 1px solid rgb(var(--sa-line, 226 232 240));
+	border-radius: 1rem;
+	padding: 0.95rem 1.1rem;
+	transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.sa-2026-prose .sa-faq-item[open],
+.sa-faq-item[open] {
+	border-color: rgb(var(--sa-brand, 13 59 79) / 0.35);
+}
+
+.sa-2026-prose .sa-faq-item__summary,
+.sa-faq-item__summary {
+	list-style: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+	font-size: 0.94rem;
+	font-weight: 800;
+	line-height: 1.65;
+	color: rgb(var(--sa-ink, 17 24 39));
+}
+
+.sa-2026-prose .sa-faq-item__summary::-webkit-details-marker,
+.sa-faq-item__summary::-webkit-details-marker {
+	display: none;
+}
+
+.sa-2026-prose .sa-faq-item__summary::marker,
+.sa-faq-item__summary::marker {
+	display: none;
+	content: "";
+}
+
+.sa-2026-prose .sa-faq-item__icon,
+.sa-faq-item__icon {
+	flex-shrink: 0;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.55rem;
+	height: 1.55rem;
+	border-radius: 9999px;
+	background-color: rgb(var(--sa-surface, 255 255 255));
+	border: 1px solid rgb(var(--sa-line, 226 232 240));
+	color: rgb(var(--sa-accent, 180 83 9));
+	font-size: 0.85rem;
+	font-weight: 800;
+	line-height: 1;
+	transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.sa-2026-prose .sa-faq-item[open] > .sa-faq-item__summary .sa-faq-item__icon,
+.sa-faq-item[open] > .sa-faq-item__summary .sa-faq-item__icon {
+	transform: rotate(180deg);
+	background-color: rgb(var(--sa-brand, 13 59 79));
+	border-color: rgb(var(--sa-brand, 13 59 79));
+	color: #fff;
+}
+
+.sa-2026-prose .sa-faq-item__body,
+.sa-faq-item__body {
+	margin: 0.75rem 0 0;
+	padding-top: 0.75rem;
+	border-top: 1px solid rgb(var(--sa-line, 226 232 240) / 0.8);
+	font-size: 0.88rem;
+	line-height: 1.9;
+	color: rgb(var(--sa-ink, 17 24 39) / 0.84);
+}
+
+.sa-2026-prose .sa-source-boxes,
+.sa-source-boxes {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.9rem;
+}
+
+.sa-2026-prose .sa-source-boxes a.sa-source-box,
+.sa-source-boxes a.sa-source-box {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0.42rem 0.85rem;
+	border-radius: 0.75rem;
+	background-color: rgb(var(--sa-canvas, 247 247 245));
+	border: 1px solid rgb(var(--sa-line, 226 232 240));
+	color: rgb(var(--sa-ink, 17 24 39));
+	font-size: 0.8rem;
+	font-weight: 700;
+	line-height: 1.45;
+	text-decoration: none;
+	transition: background-color 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+}
+
+.sa-2026-prose .sa-source-boxes a.sa-source-box:hover,
+.sa-2026-prose .sa-source-boxes a.sa-source-box:focus-visible,
+.sa-source-boxes a.sa-source-box:hover,
+.sa-source-boxes a.sa-source-box:focus-visible {
+	background-color: rgb(var(--sa-brand-soft, 232 241 244));
+	border-color: rgb(var(--sa-brand, 13 59 79));
+	color: rgb(var(--sa-brand, 13 59 79));
+	text-decoration: none;
+}
