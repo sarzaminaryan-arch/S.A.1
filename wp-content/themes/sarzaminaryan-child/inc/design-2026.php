@@ -385,27 +385,84 @@ function sa_2026_provinces( $limit = 8 ) {
 
 /** Exact internal page keys; leave fragments, queries and external sources alone. */
 function sa_2026_relation_key( $url ) {
-	$parts = wp_parse_url( (string) $url );
+	$parts = function_exists( 'wp_parse_url' ) ? wp_parse_url( (string) $url ) : parse_url( (string) $url );
 	if ( ! is_array( $parts ) || empty( $parts['path'] ) || '/' !== substr( $parts['path'], 0, 1 ) || isset( $parts['query'] ) || isset( $parts['fragment'] ) ) {
 		return '';
 	}
-	if ( isset( $parts['host'] ) && 0 !== strcasecmp( $parts['host'], (string) wp_parse_url( home_url(), PHP_URL_HOST ) ) ) {
-		return '';
+	if ( isset( $parts['host'] ) ) {
+		$home      = function_exists( 'home_url' ) ? home_url() : '';
+		$home_host = '' !== $home ? (string) ( function_exists( 'wp_parse_url' ) ? wp_parse_url( $home, PHP_URL_HOST ) : parse_url( $home, PHP_URL_HOST ) ) : '';
+		if ( 0 !== strcasecmp( $parts['host'], $home_host ) ) {
+			return '';
+		}
 	}
-	return rtrim( $parts['path'], '/' );
+	return rtrim( rawurldecode( $parts['path'] ), '/' );
+}
+
+/**
+ * Unwrap structural destination links from editorial HTML back to clean inner markup.
+ *
+ * Unlike stripping `href` (which leaves dead `<a>` shells styled like broken links),
+ * unwrapping restores plain text/inline markup while preserving linked media and
+ * sensitive blocks (`script`, `style`, `pre`, `code`, `svg`, ...).
+ *
+ * @param string              $html Rendered article HTML.
+ * @param array<string, bool> $keys Lookup map of normalized relation keys.
+ * @return string
+ */
+function sa_2026_unwrap_relation_links( $html, $keys ) {
+	$html = (string) $html;
+	if ( '' === $html || empty( $keys ) || false === stripos( $html, '<a' ) ) {
+		return $html;
+	}
+
+	$placeholders = array();
+	$protected    = preg_replace_callback(
+		'~<(script|style|iframe|noscript|template|svg|math|pre|code|kbd|samp|var|textarea)\b[^>]*>.*?</\1>~isu',
+		static function ( $match ) use ( &$placeholders ) {
+			$token                  = '<!--SA_REL_PROTECT_' . count( $placeholders ) . '-->';
+			$placeholders[ $token ] = $match[0];
+			return $token;
+		},
+		$html
+	);
+	$working      = is_string( $protected ) ? $protected : $html;
+
+	$unwrapped = preg_replace_callback(
+		'~<a\b((?:[^>"\']|"[^"]*"|\'[^\']*\')*)>(.*?)</a>~isu',
+		static function ( $match ) use ( $keys ) {
+			$attrs = $match[1];
+			$inner = $match[2];
+
+			if ( preg_match( '/<(?:img|svg|picture|figure)\b/i', $inner ) ) {
+				return $match[0];
+			}
+
+			$href = '';
+			if ( preg_match( '/(?<![\w-])href\s*=\s*(?:"([^"]*)"|\'([^\']*)\'|([^\s>]+))/i', $attrs, $href_match ) ) {
+				$raw_href = '' !== $href_match[1] ? $href_match[1] : ( isset( $href_match[2] ) && '' !== $href_match[2] ? $href_match[2] : ( $href_match[3] ?? '' ) );
+				$href     = html_entity_decode( $raw_href, ENT_QUOTES, 'UTF-8' );
+			}
+
+			if ( '' !== $href ) {
+				$key = sa_2026_relation_key( $href );
+				return isset( $keys[ $key ] ) ? $inner : $match[0];
+			}
+
+			return preg_match( '/\bsa-autolink\b/i', $attrs ) ? $inner : $match[0];
+		},
+		$working
+	);
+
+	$result = is_string( $unwrapped ) ? $unwrapped : $working;
+	return ! empty( $placeholders ) ? strtr( $result, $placeholders ) : $result;
 }
 
 /** Preserve wording, inline markup and anchors, without linking a structural destination twice. */
 function sa_2026_relation_content( $urls ) {
-	$keys = array_fill_keys( array_filter( array_map( 'sa_2026_relation_key', $urls ) ), true );
+	$keys   = array_fill_keys( array_filter( array_map( 'sa_2026_relation_key', $urls ) ), true );
 	$filter = static function ( $html ) use ( $keys ) {
-		$tags = new WP_HTML_Tag_Processor( $html );
-		while ( $tags->next_tag( 'A' ) ) {
-			if ( isset( $keys[ sa_2026_relation_key( $tags->get_attribute( 'href' ) ) ] ) ) {
-				$tags->remove_attribute( 'href' );
-			}
-		}
-		return $tags->get_updated_html();
+		return sa_2026_unwrap_relation_links( $html, $keys );
 	};
 	add_filter( 'the_content', $filter, PHP_INT_MAX );
 	try {

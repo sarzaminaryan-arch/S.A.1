@@ -183,7 +183,7 @@ while ( have_posts() ) :
 			<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
 				<div>
 					<span class="text-xs font-bold text-ochre uppercase tracking-wider">کاوش جغرافیایی</span>
-					<h2 id="counties-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">
+					<h2 id="counties-heading" class="sa-section-heading text-xl sm:text-2xl font-extrabold text-ink mt-1">
 						<?php echo esc_html( 'شهرستان‌های ' . get_the_title() ); ?>
 					</h2>
 					<p class="text-sm text-muted mt-1">برای مشاهده راهنمای کامل سفر، جاذبه‌ها و تجربه‌های مسافرها، شهرستان مورد نظرتان را انتخاب یا فیلتر کنید.</p>
@@ -243,8 +243,8 @@ while ( have_posts() ) :
 		<section id="story-section" aria-labelledby="story-heading" class="scroll-mt-32 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-sm space-y-5">
 			<div class="border-b border-line pb-4">
 				<span class="text-xs font-bold text-ochre">روایت تحریریه</span>
-				<h2 id="story-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-0.5">
-					<?php echo esc_html( 'راهنمای کامل سفر به ' . get_the_title() ); ?>
+				<h2 id="story-heading" class="sa-section-heading text-xl sm:text-2xl font-extrabold text-ink mt-0.5">
+					<?php echo esc_html( 'راهنمای سفر به ' . get_the_title() ); ?>
 				</h2>
 			</div>
 			<div class="sa-2026-prose">
@@ -265,7 +265,7 @@ while ( have_posts() ) :
 				<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line pb-4">
 					<div>
 						<span class="text-xs font-bold text-ochre">برنامه‌ریزی هوشمند</span>
-						<h2 id="routes-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-0.5">کجا را اول ببینیم؟ مسیرهای پیشنهادی سفر در استان</h2>
+						<h2 id="routes-heading" class="sa-section-heading text-xl sm:text-2xl font-extrabold text-ink mt-0.5">مسیرهای پیشنهادی سفر</h2>
 					</div>
 					<span class="text-xs text-muted">پیشنهاد تحریریه</span>
 				</div>
@@ -296,9 +296,7 @@ while ( have_posts() ) :
 			<div class="lg:col-span-7 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-sm space-y-5">
 				<div>
 					<span class="text-xs font-bold text-ochre">تقویم سفر</span>
-					<h2 id="climate-heading" class="text-xl font-extrabold text-ink mt-0.5">
-						<?php echo esc_html( 'اقلیم و بهترین زمان سفر به ' . get_the_title() ); ?>
-					</h2>
+					<h2 id="climate-heading" class="sa-section-heading text-xl font-extrabold text-ink mt-0.5">اقلیم و بهترین زمان سفر</h2>
 				</div>
 				<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 					<?php if ( $sa_climate ) : ?>
@@ -315,7 +313,7 @@ while ( have_posts() ) :
 			</div>
 
 			<div class="lg:col-span-5 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-sm space-y-4">
-				<h2 class="text-base font-extrabold text-ink">۳ نکته کاربردی برای سفر در این استان</h2>
+				<h2 class="sa-section-heading text-base font-extrabold text-ink">نکات کاربردی سفر</h2>
 				<ul class="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed list-disc pr-4">
 					<li>برای سفر جاده‌ای، مسیرها را پیش از حرکت با وضعیت آب‌وهوا بررسی کنید؛ گردنه‌های کوهستانی در فصل سرد لغزنده می‌شوند.</li>
 					<li>بازدید از جاذبه‌های تاریخی را در ساعات میانی روز و جاذبه‌های طبیعی را صبح‌ها برنامه‌ریزی کنید.</li>
@@ -348,8 +346,7 @@ while ( have_posts() ) :
 		<?php if ( $sa_neigh ) : ?>
 			<section id="neighbors-section" aria-labelledby="neighbors-heading" class="scroll-mt-32 space-y-5">
 				<div>
-					<span class="text-xs font-bold text-ochre">لینک‌سازی افقی</span>
-					<h2 id="neighbors-heading" class="text-xl font-extrabold text-ink mt-0.5">استان‌های همسایه</h2>
+					<h2 id="neighbors-heading" class="sa-section-heading text-xl font-extrabold text-ink mt-0.5">استان‌های همسایه</h2>
 				</div>
 				<div class="flex flex-wrap items-center gap-2 text-xs">
 					<?php foreach ( $sa_neigh as $sa_neighbor ) : ?>

@@ -8623,3 +8623,64 @@ body.bg-lines::before {
 	color: rgb(var(--sa-brand, 13 59 79));
 	text-decoration: none;
 }
+
+/* v2.24.16: پاک‌سازی خط زیرین از غیرلینک‌ها، خوانایی خط پیوندهای فارسی و تیترهای تک‌خطی با پس‌زمینهٔ سبز روشن */
+body.sa-2026 .sa-2026-prose a:not([href]),
+body.sa-2026 .sa-2026-prose a[href=""] {
+	color: inherit;
+	text-decoration: none;
+	cursor: text;
+	pointer-events: none;
+}
+
+body.sa-2026 .sa-2026-prose a[href]:not([href=""]):not(.sa-source-box) {
+	color: rgb(var(--sa-brand, 15 76 92));
+	text-decoration-line: underline;
+	text-decoration-color: rgb(var(--sa-brand, 15 76 92) / 0.45);
+	text-decoration-thickness: 1px;
+	text-underline-offset: 6px;
+	text-decoration-skip-ink: none;
+}
+
+body.sa-2026 .sa-2026-prose a[href]:not([href=""]):not(.sa-source-box):hover,
+body.sa-2026 .sa-2026-prose a[href]:not([href=""]):not(.sa-source-box):focus-visible {
+	color: rgb(var(--sa-accent, 200 125 50));
+	text-decoration-color: rgb(var(--sa-accent, 200 125 50));
+}
+
+body.sa-2026 #counties-grid a,
+body.sa-2026 #counties-grid a:hover,
+body.sa-2026 #counties-grid a:focus-visible,
+body.sa-2026 #neighbors-section a,
+body.sa-2026 #neighbors-section a:hover,
+body.sa-2026 #neighbors-section a:focus-visible {
+	text-decoration: none;
+}
+
+body.sa-2026 .sa-section-heading,
+body.sa-2026 .sa-2026-prose h2 {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	padding: 0.35rem 0.85rem;
+	border-radius: 0.75rem;
+	background-color: #E7F5EC;
+	border: 1px solid #C2E5CF;
+	border-bottom-color: #C2E5CF;
+	color: #0F3D2E;
+	font-size: clamp(0.9rem, 3.5vw, 1.22rem);
+	font-weight: 800;
+	line-height: 1.5;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+body.sa-2026 .sa-2026-prose h2 {
+	margin-top: 2rem;
+	margin-bottom: 0.35rem;
+}
+
+body.sa-2026 .sa-2026-prose > h2:first-child {
+	margin-top: 0;
+}
