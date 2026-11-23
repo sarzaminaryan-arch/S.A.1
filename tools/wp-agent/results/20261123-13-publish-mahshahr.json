@@ -1,0 +1,178 @@
+{
+  "job": "tools/wp-agent/jobs/20261123-13-publish-mahshahr.json",
+  "started_utc": "2026-11-23T15:17:46+00:00",
+  "note": "انتشار بازسازی v3 شهرستان بندر ماهشهر (۲۷۸) از خروجی تأییدشدهٔ replace — طبق فرایند مصوب مالک (۳ آذر ۱۴۰۵): «خودت مرج کن، من مقاله رو دادم، تو هم بازبینی و مستند چک کردی، بعدش دیگه منتشرش کن».",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.19",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-23T15:17:46+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 278,
+        "backup_id": 5463,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 15:17:49",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_sources",
+            "sa_city_slug",
+            "lat",
+            "lng",
+            "sa_city_latitude",
+            "sa_city_longitude",
+            "sa_map_zoom",
+            "sa_cty_center",
+            "sa_cty_population",
+            "sa_city_population",
+            "sa_cty_census_year",
+            "sa_city_elevation",
+            "sa_cty_area",
+            "sa_cty_districts",
+            "sa_cty_cities",
+            "sa_cty_rural_districts",
+            "sa_cty_distance_center",
+            "sa_cty_climate",
+            "sa_cty_best_time",
+            "sa_cty_language",
+            "sa_cty_livelihood",
+            "sa_cty_faith",
+            "sa_cty_poi_heritage",
+            "sa_cty_poi_nature",
+            "sa_cty_poi_offbeat",
+            "sa_province_id",
+            "sa_city_schema_type",
+            "sa_schema_contained_in",
+            "sa_schema_sameas",
+            "sa_google_map_url",
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_focus_keyword",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_faq",
+            "sa_access_road",
+            "sa_access_rail",
+            "sa_access_air",
+            "sa_cty_neighbors"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/city/mahshahr/",
+            "status": 200,
+            "ms": 1830,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "شهرستان بندر ماهشهر؛ راهنمای سفر، جاذبه‌ها و تاریخ خوزستان | سرزمین آریان",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/city/mahshahr/",
+            "desc": "راهنمای کامل سفر به شهرستان بندر ماهشهر و بندر امام خمینی در خوزستان: دیدنی‌های ساحلی، وضعیت جاده و اقامت خانوادگی، بهترین فصل سفر، بازار و سوغات.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "شهرستان بندر ماهشهر — بندر امام خمینی؛ قلب صنعتی و دریایی خوزستان",
+              "og:description": "تجربه گشت‌وگذار در بندر امام خمینی، خور موسی، پارک ساحلی خور و بازار ماهی‌فروشان؛ مسیر دسترسی، اقامت و نکته‌های سفر به شهرستان بندر ماهشهر.",
+              "og:url": "https://sarzaminaryan.ir/city/mahshahr/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahshahr.webp",
+              "og:image:width": "1200",
+              "og:image:height": "800",
+              "og:image:alt": "شهرستان بندر ماهشهر — بندر امام خمینی؛ قلب صنعتی و دریایی خوزستان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "شهرستان بندر ماهشهر — بندر امام خمینی؛ قلب صنعتی و دریایی خوزستان"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-mahshahr.webp"
+            ],
+            "map_iframes": 2,
+            "map_frame_buttons": 0,
+            "map_coords": true,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 24544,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-23T15:17:54+00:00"
+}
