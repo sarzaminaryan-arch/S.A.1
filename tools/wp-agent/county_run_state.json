@@ -1,151 +1,151 @@
 {
- "province": "khuzestan",
- "note": "پروتکل ۲ آذر ۱۴۰۵: یک استان در هر نوبت، شهرستان‌ها تک‌تک، ترتیب از template_worklist.json",
- "counties": {
-  "ahvaz": {
-   "status": "done",
-   "date": "۱۴۰۵/۰۹/۰۲",
-   "note": "نخستین شهرستان v3؛ ۲٬۱۰۱ واژه، ۸ بخش، ۰ جدول، ۵ گیت PASS"
-  },
-  "dezful": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "mahshahr": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "abadan": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "khorramshahr": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "shushtar": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "behbahan": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "izeh": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "andimeshk": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "masjed-soleyman": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "aghajari": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "omidiyeh": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "andika": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "bagh-e-malek": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "bavi": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "hamidiyeh": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "dezpart": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "dasht-azadegan": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "ramshir": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "ramhormoz": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "shadegan": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "shush": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "lali": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "haftkel": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "hendijan": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "hoveyzeh": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "karun": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "karkheh": {
-   "status": "todo",
-   "date": "",
-   "note": ""
-  },
-  "gotvand": {
-   "status": "todo",
-   "date": "",
-   "note": ""
+  "province": "khuzestan",
+  "note": "پروتکل ۲ آذر ۱۴۰۵: یک استان در هر نوبت، شهرستان‌ها تک‌تک، ترتیب از template_worklist.json",
+  "counties": {
+    "ahvaz": {
+      "status": "done",
+      "date": "۱۴۰۵/۰۹/۰۲",
+      "note": "نخستین شهرستان v3؛ ۲٬۱۰۱ واژه، ۸ بخش، ۰ جدول، ۵ گیت PASS"
+    },
+    "dezful": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "mahshahr": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "abadan": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "khorramshahr": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "shushtar": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "behbahan": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "izeh": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "andimeshk": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "masjed-soleyman": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "aghajari": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "omidiyeh": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "andika": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "bagh-e-malek": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "bavi": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "hamidiyeh": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "dezpart": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "dasht-azadegan": {
+      "status": "done",
+      "date": "۱۴۰۵/۰۹/۰۲",
+      "note": "بازسازی v3 از دوسیهٔ مالک با اصلاح ۵ خطای واقعی؛ ۱٬۶۳۸ واژه، ۸ بخش، fa_lint صفر، ۱/۱ سازگار — فقط محلی، انتشار نشده"
+    },
+    "ramshir": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "ramhormoz": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "shadegan": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "shush": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "lali": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "haftkel": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "hendijan": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "hoveyzeh": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "karun": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "karkheh": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    },
+    "gotvand": {
+      "status": "todo",
+      "date": "",
+      "note": ""
+    }
   }
- }
 }
