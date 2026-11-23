@@ -1,0 +1,19 @@
+[
+ {
+  "id": 593,
+  "slug": "karkheh",
+  "words_after": 1636,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
