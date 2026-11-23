@@ -171,4 +171,65 @@ except ValueError as err:
 else:
     raise AssertionError("out-of-order sections were accepted")
 
+# --- 4. the v3 model (۲ آذر ۱۴۰۵): modern + food, and never a table --------
+from template import OPTIONAL_IDS, WORD_BUDGET  # noqa: E402
+
+t = Template("تست‌آباد", tagline="آزمون")
+t.intro(["آغاز"]); t.map(["جغرافیا"]); t.history(["تاریخ"])
+t.people(["مردم"]); t.economy(["اقتصاد"]); t.stay(["راه"])
+t.modern([("زیرساخت", ["بند زیرساخت."]), ("نقد", ["بند نقد."])])
+t.food(["خوراک محلی."])
+t.finish()
+v3 = t.marked_body()
+assert MARK_OPEN.format("modern") in v3 and MARK_OPEN.format("food") in v3
+assert v3.index(MARK_OPEN.format("stay")) < v3.index(MARK_OPEN.format("modern"))
+assert v3.index(MARK_OPEN.format("modern")) < v3.index(MARK_OPEN.format("food"))
+print("ok  v3 sections build in registry order (stay → modern → food)")
+
+# a block with no paragraphs is skipped, never rendered as an empty heading
+t2 = Template("تست‌آباد", tagline="آزمون")
+t2.intro(["آغاز"]); t2.map(["جغرافیا"]); t2.history(["تاریخ"])
+t2.people(["مردم"]); t2.economy(["اقتصاد"]); t2.stay(["راه"])
+t2.modern([("زیرساخت", ["بند زیرساخت."]), ("خالی", [])])
+t2.finish()
+assert "خالی" not in t2.marked_body()
+print("ok  an empty modern block writes no heading")
+
+# the no-tables rule: any of these in the body is a failure
+for bad, label in (("<table><tr><td>x</td></tr></table>", "<table>"),
+                   ("<p>الف | ب</p>", "pipe"),
+                   ('<!-- wp:table --><figure></figure><!-- /wp:table -->', "table block")):
+    assert ct.check_tables(bad), label
+assert ct.check_tables("<p>فهرست گلوله‌ای، بدون جدول.</p>") == []
+print("ok  the no-tables rule refuses tables, pipes and table blocks")
+
+# the write path refuses a table too, not only the offline guard
+try:
+    wa.check_county_shape(v3 + "<table><tr><td>x</td></tr></table>", "post 999: ")
+except wa.AgentError as err:
+    assert "table" in str(err).lower(), err
+    print("ok  write path refuses a table in a county body")
+else:
+    raise AssertionError("write path accepted a table")
+
+# the budget check is v3-only: a v2 page (no modern) is never judged by it
+def sec(k, w):
+    return (MARK_OPEN.format(k) + "<h2>t</h2><p>" + ("کلمه " * w) + "</p>"
+            + MARK_CLOSE.format(k))
+thin_v3 = "".join(sec(k, w) for k, w in
+                  [("intro", 180), ("map", 250), ("history", 300), ("people", 250),
+                   ("economy", 40), ("stay", 300), ("modern", 350)])
+assert any("economy" in p for p in ct.check_budget(thin_v3))
+v2_page = "".join(sec(k, w) for k, w in
+                  [("intro", 180), ("map", 250), ("history", 300), ("people", 250),
+                   ("economy", 40), ("stay", 300)])
+assert ct.check_budget(v2_page) == []
+print("ok  the v3 word budget judges v3 pages only")
+
+# the legacy `-city` alias is a real slug for the neighbour chips
+known = ct.county_slugs()
+assert "tehran" in known and "tehran-city" in known
+assert "nosuchplace" not in known
+print("ok  neighbour slugs accept the -city alias the renderer resolves")
+
 print("\nOK: county template (generality pass)")

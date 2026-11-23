@@ -47,10 +47,14 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from replace_src import fa_lint, wiki_overlap  # noqa: E402
+from replace_src import check_template as ct  # noqa: E402
 from replace_src.template import BY_ID, MARK_CLOSE, MARK_OPEN, SECTIONS  # noqa: E402
 
 # سکشن‌هایی که این ابزار اجازهٔ نوشتن رویشان را دارد (همان‌هایی که محتوایی‌اند).
-CONTENT_SECTIONS = ("intro", "map", "history", "people", "economy", "sights", "stay", "notables", "climate")
+# v3 (۲ آذر ۱۴۰۵): `modern` و `food` هم محتوایی‌اند و باید مثل بقیه از این
+# مسیر بازنویسی شوند؛ وگرنه بخش تازهٔ صفحه‌های v3 هیچ راه ویرایش دسته‌جمعی ندارد.
+CONTENT_SECTIONS = ("intro", "map", "history", "people", "economy", "sights", "stay",
+                    "modern", "food", "notables", "climate")
 
 CHUNK_DEFAULT = 25
 CHUNK_MAX = 30
@@ -107,6 +111,9 @@ def guard(section: str, html: str, where: str) -> list[str]:
     problems += [f"fa_lint: {p}" for p in fa_lint.scan(html, where=where)][:6]
     # چیدمان سکشن‌ها وقتی کل بدنه را داریم؛ برای تکهٔ تنها، فقط نشانه‌ها بررسی می‌شود.
     problems += [f"template: {p}" for p in ordering_problems(html)][:4]
+    # قاعدهٔ «هیچ جدولی» (۲ آذر ۱۴۰۵): همین ابزار هم تکه‌ای با جدول/پایپ را رد می‌کند،
+    # وگرنه می‌شد از مسیر بازنویسی بخش، جدول را به صفحهٔ v3 برگرداند.
+    problems += [f"template: {p}" for p in ct.check_tables(html)][:4]
     return problems
 
 

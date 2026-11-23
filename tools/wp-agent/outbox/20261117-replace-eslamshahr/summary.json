@@ -1,0 +1,19 @@
+[
+ {
+  "id": 219,
+  "slug": "eslamshahr",
+  "words_after": 2075,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

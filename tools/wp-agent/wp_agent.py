@@ -204,8 +204,56 @@ def check_county_shape(content: str, where: str = "") -> None:
         problems.append(f"required sections missing: {missing}")
     if 'id="sa-map"' in content or "sa-map__facade" in content:
         problems.append("map block baked into post_content")
+    # no-tables rule (owner order 2026-11-23): a table, a pipe row or a
+    # simulated column layout breaks the template on mobile and in RTL, so it is
+    # refused here as well — not only by the offline guard.
+    for pat, label in ((r"<table\b", "<table>"), (r"<tr\b", "<tr>"), (r"<td\b", "<td>"),
+                       (r"<!--\s*wp:table", "table block")):
+        if re.search(pat, content, re.I):
+            problems.append(f"table in the body ({label}); lists only")
+            break
+    if re.search(r"\|", re.sub(r"<sup class=\"sa-cite\">.*?</sup>", "", content, flags=re.S)):
+        problems.append("pipe character in the body (no tables, no column rows)")
     if problems:
         raise AgentError(f"{where}county template: " + "; ".join(problems[:4]))
+
+
+# -- province pages: the same no-tables rule + the ten-section shape ----------
+PROVINCE_SECTIONS = ("overview", "geography", "history", "counties", "attractions",
+                     "culture", "economy", "travel", "faq", "sources")
+
+
+def check_province_shape(content: str, where: str = "") -> None:
+    """Shape guard for a province body on the write path (order 2026-11-23).
+
+    Province pages are rebuilt from one fixed ten-section model
+    (`docs/live-site/province-master-template.md`). A body that carries the
+    markers must carry them exactly once, in model order, and must not contain
+    a table — the same RTL/mobile rule the county pages obey.
+    """
+    import re as _re
+    if not any(f"<!-- sa:prov:{k} -->" in content for k in PROVINCE_SECTIONS):
+        return
+    problems = []
+    opens = _re.findall(r"<!-- sa:prov:([a-z-]+) -->", content)
+    for key in opens:
+        if content.count(f"<!-- sa:prov:{key} -->") != 1 or content.count(f"<!-- /sa:prov:{key} -->") != 1:
+            problems.append(f"half marker pair for «{key}»")
+    unknown = [k for k in opens if k not in PROVINCE_SECTIONS]
+    if unknown:
+        problems.append(f"unknown province sections: {unknown[:3]}")
+    expected = [k for k in PROVINCE_SECTIONS if k in opens]
+    if opens != expected:
+        problems.append(f"province sections out of model order: {opens}")
+    for pat, label in ((r"<table\b", "<table>"), (r"<tr\b", "<tr>"), (r"<td\b", "<td>"),
+                       (r"<!--\s*wp:table", "table block")):
+        if _re.search(pat, content, _re.I):
+            problems.append(f"table in the body ({label}); lists only")
+            break
+    if _re.search(r"\|", _re.sub(r"<sup class=\"sa-cite\">.*?</sup>", "", content, flags=_re.S)):
+        problems.append("pipe character in the body (no tables, no column rows)")
+    if problems:
+        raise AgentError(f"{where}province template: " + "; ".join(problems[:4]))
 
 
 def out(data) -> None:
@@ -996,6 +1044,7 @@ def run(a: argparse.Namespace, c: "Client"):
         fields = {k: v for k, v in {"title": a.title, "content": read_text(a.content_file), "excerpt": a.excerpt}.items() if v is not None}
         check_banned(*fields.values())
         check_county_shape(fields.get("content") or "", f"post {a.id}: ")
+        check_province_shape(fields.get("content") or "", f"post {a.id}: ")
         meta_in = read_json(a.meta_file)
         from replace_src.fa_lint import scan_meta as fa_scan_meta
         meta_problems = fa_scan_meta(meta_in)
