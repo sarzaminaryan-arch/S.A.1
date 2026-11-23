@@ -1,0 +1,18 @@
+{
+  "note": "انتشار و نصب نسخه ۲.۲۴.۱۸ قالب فرزند (اصلاح مرز نیم‌فاصلهٔ پیوند خودکار برای پیشگیری از پیوند نادرست شهرستان کوهپایه‌ای جم در بوشهر و به‌روزرسانی شمار ۲۹ شهرستان استان اصفهان در شناسنامه و داده‌های نقشه).",
+  "rollback_on_fail": true,
+  "steps": [
+    {"cmd": "ping"},
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.24.18",
+      "version": "2.24.18",
+      "owner_approved_theme_update": true,
+      "allow_without_backup": true,
+      "wait_for_release": 300,
+      "probe": ["/", "/province/bushehr/", "/province/isfahan/", "/city/meymeh-vazvan/"],
+      "rollback_to": "2.24.17"
+    },
+    {"cmd": "probe", "url": ["/province/bushehr/?sa_probe=22", "/province/isfahan/?sa_probe=22"]}
+  ]
+}

@@ -1,11 +1,11 @@
 # پشتهٔ فنی فعلی سایت (Stack)
 
-> **آخرین راستی‌آزمایی:** ۲۰۲۶-۱۱-۲۲ (`1073146` روی `main`). پیش از انتخاب هر کتابخانه، ابزار یا الگوی جدید این فایل را بررسی کن.
+> **آخرین راستی‌آزمایی:** ۲۰۲۶-۱۱-۲۳ (`arena/a2d1e561-s-a-1`، آماده برای انتشار `2.24.18`). پیش از انتخاب هر کتابخانه، ابزار یا الگوی جدید این فایل را بررسی کن.
 
 ## ۱. هستهٔ وردپرس و قالب‌ها
 - **وردپرس هدف:** Requires at least `6.4`, Tested up to `7.1`, Requires PHP `7.4+`.
 - **قالب والد:** `sarzaminaryan` نسخهٔ `1.1.0` (`wp-content/themes/sarzaminaryan/`) — **ممنوعیت تغییر قطعی** (محافظت‌شده در `.github/workflows/protect.yml`). تمام توسعه فقط در قالب فرزند انجام می‌شود.
-- **قالب فرزند فعال:** `sarzaminaryan-child` نسخهٔ `2.24.16` (`SA_CHILD_VERSION = '2.24.16'` در `functions.php` و `Version: 2.24.16` در `style.css`).
+- **قالب فرزند فعال:** `sarzaminaryan-child` نسخهٔ `2.24.17` روی تولید (`2.24.18` در `arena/a2d1e561-s-a-1`، با `SA_CHILD_VERSION` در `functions.php` و `Version` در `style.css`).
 - **مدل داده:** `SA_MODEL_VERSION = '1.3'`.
 - **نوع‌های محتوای اختصاصی (CPT) و طبقه‌بندی‌ها (`inc/post-types.php`, `inc/taxonomies.php`, `inc/guide-cpt.php`):**
   - فعال: `province`, `city`, `attraction`, `guide` (`/travel-guide/`), `travel_route`, `local_food`, `souvenir`.
