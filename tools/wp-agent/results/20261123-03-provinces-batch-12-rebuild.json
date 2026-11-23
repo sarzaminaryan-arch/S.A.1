@@ -1,0 +1,1315 @@
+{
+  "job": "tools/wp-agent/jobs/20261123-03-provinces-batch-12-rebuild.json",
+  "started_utc": "2026-11-23T02:49:04+00:00",
+  "note": "انتشار تجمیعی بازسازی کامل دوازده استان کشور (خراسان جنوبی، بوشهر، خوزستان، سمنان، اصفهان، چهارمحال و بختیاری، قزوین، خراسان شمالی، اردبیل، سیستان و بلوچستان، آذربایجان غربی و گلستان) با الگوی ده بخشی همسان، تراز جمعیتی شهرستان‌ها و هفت منبع علمی یکتا.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.17",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-23T02:49:05+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 47,
+        "backup_id": 5393,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:07",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "update",
+      "result": {
+        "id": 41,
+        "backup_id": 5395,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:10",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "update",
+      "result": {
+        "id": 257,
+        "backup_id": 5397,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:13",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "update",
+      "result": {
+        "id": 259,
+        "backup_id": 5399,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:16",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 6,
+      "cmd": "update",
+      "result": {
+        "id": 35,
+        "backup_id": 5401,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:18",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 7,
+      "cmd": "update",
+      "result": {
+        "id": 45,
+        "backup_id": 5403,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:21",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 8,
+      "cmd": "update",
+      "result": {
+        "id": 265,
+        "backup_id": 5405,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:24",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 9,
+      "cmd": "update",
+      "result": {
+        "id": 52,
+        "backup_id": 5407,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:26",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 10,
+      "cmd": "update",
+      "result": {
+        "id": 33,
+        "backup_id": 5409,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:29",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 11,
+      "cmd": "update",
+      "result": {
+        "id": 261,
+        "backup_id": 5411,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:32",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 12,
+      "cmd": "update",
+      "result": {
+        "id": 31,
+        "backup_id": 5413,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:35",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 13,
+      "cmd": "update",
+      "result": {
+        "id": 412,
+        "backup_id": 5415,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 02:49:37",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 14,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          47,
+          41,
+          257,
+          259,
+          35,
+          45,
+          265,
+          52,
+          33,
+          261,
+          31,
+          412
+        ]
+      }
+    },
+    {
+      "n": 15,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/province/south-khorasan/?sa_probe=23",
+            "status": 200,
+            "ms": 1465,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان خراسان جنوبی؛ راهنمای جامع ۱۲ شهرستان، جاذبه‌ها و سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/south-khorasan/",
+            "desc": "راهنمای کامل استان خراسان جنوبی؛ معرفی ۱۲ شهرستان، باغ اکبریه، قنات بلده فردوس، کویر لوت، کال جنی طبس، ماخونیک، زرشک و زعفران و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان خراسان جنوبی؛ راهنمای سفر، ۱۲ شهرستان و دیدنی‌های شرق ایران",
+              "og:description": "معرفی جامع استان خراسان جنوبی در شرق ایران: از ۱۲ شهرستان و بیرجند تا باغ اکبریه، قنات بلده، ژئوپارک طبس، لوت، ماخونیک و فرهنگ خوراک.",
+              "og:url": "https://sarzaminaryan.ir/province/south-khorasan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/south-khorasan-akbariyeh-garden-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان خراسان جنوبی؛ راهنمای سفر، ۱۲ شهرستان و دیدنی‌های شرق ایران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان خراسان جنوبی؛ راهنمای سفر، ۱۲ شهرستان و دیدنی‌های شرق ایران"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/south-khorasan-akbariyeh-garden-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 313170,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/bushehr/?sa_probe=23",
+            "status": 200,
+            "ms": 1444,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان بوشهر؛ راهنمای جامع ۱۰ شهرستان، جاذبه‌ها و سفر ساحلی",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/bushehr/",
+            "desc": "راهنمای کامل استان بوشهر؛ معرفی ۱۰ شهرستان، کاروانسرای جهانی مشیرالملک، بندر سیراف، گنبد نمکی جاشک، بافت تاریخی، غذاهای دریایی و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان بوشهر؛ راهنمای سفر، ۱۰ شهرستان و کرانه‌های خلیج فارس",
+              "og:description": "معرفی جامع استان بوشهر در کرانهٔ خلیج فارس: از ۱۰ شهرستان و بندر بوشهر تا سیراف، مشیرالملک برازجان، پارک نایبند، فرهنگ دریایی و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/bushehr/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/bushehr-traditional-lenj-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان بوشهر؛ راهنمای سفر، ۱۰ شهرستان و کرانه‌های خلیج فارس",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان بوشهر؛ راهنمای سفر، ۱۰ شهرستان و کرانه‌های خلیج فارس"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/bushehr-traditional-lenj-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 211850,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/khuzestan/?sa_probe=23",
+            "status": 200,
+            "ms": 1367,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان خوزستان؛ راهنمای جامع ۳۰ شهرستان، سه اثر جهانی و سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/khuzestan/",
+            "desc": "راهنمای کامل استان خوزستان؛ معرفی ۳۰ شهرستان، چغازنبیل، شوش، سازه‌های آبی شوشتر، کارون، آبشار شوی، تالاب شادگان و بهترین زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان خوزستان؛ راهنمای سفر، ۳۰ شهرستان و سرزمین کارون و شوش",
+              "og:description": "معرفی جامع استان خوزستان در جنوب‌غرب ایران: از ۳۰ شهرستان و اهواز تا چغازنبیل، شوش، سازه‌های آبی شوشتر، فرهنگ و خوراک‌های بومی و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/khuzestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/khuzestan-ahvaz-white-bridge-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان خوزستان؛ راهنمای سفر، ۳۰ شهرستان و سرزمین کارون و شوش",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان خوزستان؛ راهنمای سفر، ۳۰ شهرستان و سرزمین کارون و شوش"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/khuzestan-ahvaz-white-bridge-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 222826,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/semnan/?sa_probe=23",
+            "status": 200,
+            "ms": 1415,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان سمنان؛ راهنمای جامع ۸ شهرستان، جنگل ابر و کویر ریگ جن",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/semnan/",
+            "desc": "راهنمای کامل استان سمنان؛ معرفی ۸ شهرستان، تاریخ قومس، جنگل ابر، شش کاروانسرای جهانی، کویر ریگ جن، پسته دامغان و بهترین زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان سمنان؛ راهنمای سفر، ۸ شهرستان، جنگل ابر و کویر ریگ جن",
+              "og:description": "معرفی جامع استان سمنان در مسیر تهران تا خراسان: از شاهرود، دامغان و گرمسار تا میراث جهانی هیرکانی، کاروانسراها، فرهنگ و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/semnan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/semnan-jame-mosque-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان سمنان؛ راهنمای سفر، ۸ شهرستان، جنگل ابر و کویر ریگ جن",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان سمنان؛ راهنمای سفر، ۸ شهرستان، جنگل ابر و کویر ریگ جن"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/semnan-jame-mosque-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 287550,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/isfahan/?sa_probe=23",
+            "status": 200,
+            "ms": 1639,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان اصفهان؛ راهنمای جامع ۲۹ شهرستان، میدان نقش جهان و سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/isfahan/",
+            "desc": "راهنمای کامل استان اصفهان؛ معرفی ۲۹ شهرستان، میدان نقش جهان، باغ فین کاشان، سی‌وسه‌پل، پل خواجو، کلیسای وانک، صنایع دستی و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان اصفهان؛ راهنمای سفر، ۲۹ شهرستان و جاذبه‌های نصف جهان",
+              "og:description": "معرفی جامع استان اصفهان در قلب فلات ایران: از زاینده‌رود و ۲۹ شهرستان تا میراث جهانی یونسکو، کاشان، ابیانه، کویرها و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/isfahan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/isfahan-si-o-se-pol-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان اصفهان؛ راهنمای سفر، ۲۹ شهرستان و جاذبه‌های نصف جهان",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان اصفهان؛ راهنمای سفر، ۲۹ شهرستان و جاذبه‌های نصف جهان"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/isfahan-si-o-se-pol-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 273338,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/chaharmahal-bakhtiari/?sa_probe=23",
+            "status": 200,
+            "ms": 1388,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان چهارمحال و بختیاری؛ راهنمای جامع ۱۲ شهرستان، کوهرنگ و سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/chaharmahal-bakhtiari/",
+            "desc": "راهنمای کامل استان چهارمحال و بختیاری؛ معرفی ۱۲ شهرستان، دشت لاله‌های واژگون کوهرنگ، روستای سرآقا سید، پارک ملی تنگ صیاد، پل زمان‌خان و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان چهارمحال و بختیاری؛ راهنمای سفر، ۱۲ شهرستان و بام ایران",
+              "og:description": "معرفی جامع استان چهارمحال و بختیاری در زاگرس مرکزی: از شهرکرد و ۱۲ شهرستان تا سرچشمهٔ کارون و زاینده‌رود، فرهنگ بختیاری و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/chaharmahal-bakhtiari/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/chaharmahal-bakhtiari-nomadic-black-tent-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان چهارمحال و بختیاری؛ راهنمای سفر، ۱۲ شهرستان و بام ایران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان چهارمحال و بختیاری؛ راهنمای سفر، ۱۲ شهرستان و بام ایران"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/chaharmahal-bakhtiari-nomadic-black-tent-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 322228,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/qazvin/?sa_probe=23",
+            "status": 200,
+            "ms": 1562,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان قزوین؛ راهنمای جامع سفر، ۶ شهرستان، الموت و سعدالسلطنه",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/qazvin/",
+            "desc": "راهنمای کامل استان قزوین؛ معرفی ۶ شهرستان، مجموعه جهانی قلعه الموت و کاروانسرای سعدالسلطنه، دریاچه اوان، چهلستون، قیمه نثار، باقلوا و بهترین زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان قزوین؛ راهنمای سفر، پایتخت خوشنویسی و آثار جهانی",
+              "og:description": "معرفی جامع استان قزوین از بافت تاریخی و کاروانسرای سعدالسلطنه تا دره و قلعهٔ الموت، دریاچهٔ اوان، باغستان هزارساله و راهنمای ۶ شهرستان.",
+              "og:url": "https://sarzaminaryan.ir/province/qazvin/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/qazvin-chehel-sotoun-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان قزوین؛ راهنمای سفر، پایتخت خوشنویسی و آثار جهانی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان قزوین؛ راهنمای سفر، پایتخت خوشنویسی و آثار جهانی"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/qazvin-chehel-sotoun-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 329644,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/north-khorasan/?sa_probe=23",
+            "status": 200,
+            "ms": 1431,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان خراسان شمالی؛ راهنمای جامع ۱۰ شهرستان، بجنورد و جاذبه‌ها",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/north-khorasan/",
+            "desc": "راهنمای کامل استان خراسان شمالی؛ معرفی ۱۰ شهرستان (از جمله بام و صفی‌آباد و مانه)، عمارت مفخم، شهر تاریخی بلقیس، بش‌قارداش، روئین، میاندشت و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان خراسان شمالی؛ راهنمای سفر، ۱۰ شهرستان و گنجینهٔ فرهنگ‌ها",
+              "og:description": "معرفی جامع استان خراسان شمالی در شمال‌شرق ایران: بجنورد، ۱۰ شهرستان، موسیقی بخشی‌ها، ارگ بلقیس اسفراین، معبد اسپاخو، جنگل درکش و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/north-khorasan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/north-khorasan-mofakham-mansion-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان خراسان شمالی؛ راهنمای سفر، ۱۰ شهرستان و گنجینهٔ فرهنگ‌ها",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان خراسان شمالی؛ راهنمای سفر، ۱۰ شهرستان و گنجینهٔ فرهنگ‌ها"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/north-khorasan-mofakham-mansion-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 329578,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/ardabil/?sa_probe=23",
+            "status": 200,
+            "ms": 1370,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان اردبیل؛ راهنمای جامع سفر، ۱۲ شهرستان، سرعین و شیخ صفی",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/ardabil/",
+            "desc": "راهنمای کامل استان اردبیل؛ معرفی ۱۲ شهرستان (شامل اصلاندوز و انگوت)، بقعه جهانی شیخ صفی‌الدین، آبگرم‌های سرعین، سبلان، حیران، نئور، حلوای سیاه و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان اردبیل؛ راهنمای سفر، ۱۲ شهرستان، سبلان و آبگرم‌های سرعین",
+              "og:description": "معرفی جامع استان اردبیل در شمال‌غرب ایران: ۱۲ شهرستان، خانقاه جهانی شیخ صفی‌الدین، آبگرم‌های سرعین و مشگین‌شهر، دریاچهٔ نئور، گردنهٔ حیران و سوغات.",
+              "og:url": "https://sarzaminaryan.ir/province/ardabil/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/ardabil-sheikh-safi-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان اردبیل؛ راهنمای سفر، ۱۲ شهرستان، سبلان و آبگرم‌های سرعین",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان اردبیل؛ راهنمای سفر، ۱۲ شهرستان، سبلان و آبگرم‌های سرعین"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/ardabil-sheikh-safi-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 287634,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/sistan-baluchestan/?sa_probe=23",
+            "status": 200,
+            "ms": 2514,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان سیستان و بلوچستان؛ راهنمای جامع ۲۶ شهرستان، چابهار و سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/sistan-baluchestan/",
+            "desc": "راهنمای کامل استان سیستان و بلوچستان؛ معرفی ۲۶ شهرستان، چابهار، شهر سوخته جهانی، تالاب لیپار، کوه‌های مریخی، درک، تفتان، سوزن‌دوزی و بهترین زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان سیستان و بلوچستان؛ راهنمای سفر، ۲۶ شهرستان و کرانهٔ مکران",
+              "og:description": "معرفی جامع استان سیستان و بلوچستان در جنوب‌شرق ایران: از زاهدان و شهر سوخته تا بندر اقیانوسی چابهار، ۲۶ شهرستان، جاذبه‌ها، فرهنگ و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/sistan-baluchestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/sistan-baluchestan-kuh-e-khajeh-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان سیستان و بلوچستان؛ راهنمای سفر، ۲۶ شهرستان و کرانهٔ مکران",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان سیستان و بلوچستان؛ راهنمای سفر، ۲۶ شهرستان و کرانهٔ مکران"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/sistan-baluchestan-kuh-e-khajeh-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 258946,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/west-azerbaijan/?sa_probe=23",
+            "status": 200,
+            "ms": 1457,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان آذربایجان غربی؛ راهنمای جامع ۲۰ شهرستان، ارومیه و سفر",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/west-azerbaijan/",
+            "desc": "راهنمای کامل استان آذربایجان غربی؛ معرفی ۲۰ شهرستان، ارومیه، تخت سلیمان و قره‌کلیسا جهانی، دریاچهٔ ارومیه، غار سهولان، آبشار شلماش، سوغات و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان آذربایجان غربی؛ راهنمای سفر، ۲۰ شهرستان و میراث جهانی",
+              "og:description": "معرفی جامع استان آذربایجان غربی در شمال‌غرب ایران: ۲۰ شهرستان، تخت سلیمان و قره‌کلیسا جهانی، دریاچهٔ ارومیه، بازارهای مرزی، خوراک‌های بومی و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/west-azerbaijan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/west-azerbaijan-lake-urmia-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان آذربایجان غربی؛ راهنمای سفر، ۲۰ شهرستان و میراث جهانی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان آذربایجان غربی؛ راهنمای سفر، ۲۰ شهرستان و میراث جهانی"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/west-azerbaijan-lake-urmia-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 209500,
+              "width": 0,
+              "height": 0
+            }
+          },
+          {
+            "url": "https://sarzaminaryan.ir/province/golestan/?sa_probe=23",
+            "status": 200,
+            "ms": 1393,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان گلستان؛ راهنمای جامع ۱۴ شهرستان، گرگان و جاذبه‌ها",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/golestan/",
+            "desc": "راهنمای کامل استان گلستان؛ معرفی ۱۴ شهرستان، گرگان، برج جهانی گنبد قابوس، پارک ملی گلستان، آبشار کبودوال، جزیرهٔ آشوراده، خالدنبی و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان گلستان؛ راهنمای سفر، ۱۴ شهرستان و جنگل‌های هیرکانی",
+              "og:description": "معرفی جامع استان گلستان در شمال‌شرق ایران: از گرگان و پارک ملی گلستان تا برج جهانی گنبد قابوس، ۱۴ شهرستان، ترکمن‌صحرا، خوراک‌ها و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/golestan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/golestan-gonbad-e-qabus-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان گلستان؛ راهنمای سفر، ۱۴ شهرستان و جنگل‌های هیرکانی",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان گلستان؛ راهنمای سفر، ۱۴ شهرستان و جنگل‌های هیرکانی"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristAttraction",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/golestan-gonbad-e-qabus-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 284302,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-23T02:50:16+00:00"
+}
