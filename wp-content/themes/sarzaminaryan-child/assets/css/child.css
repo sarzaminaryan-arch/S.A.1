@@ -8684,3 +8684,33 @@ body.sa-2026 .sa-2026-prose h2 {
 body.sa-2026 .sa-2026-prose > h2:first-child {
 	margin-top: 0;
 }
+
+/* v2.24.17: انکر تکست متمرکز روی عنوان کارت‌ها با حفظ کلیک‌پذیری کل کارت */
+body.sa-2026 .sa-card-linked {
+	position: relative;
+	isolation: isolate;
+}
+
+body.sa-2026 .sa-card-linked a.sa-stretched-link {
+	color: inherit;
+	text-decoration: none;
+}
+
+body.sa-2026 .sa-card-linked a.sa-stretched-link:hover,
+body.sa-2026 .sa-card-linked a.sa-stretched-link:focus-visible {
+	color: inherit;
+	text-decoration: none;
+}
+
+body.sa-2026 .sa-card-linked a.sa-stretched-link:focus-visible {
+	outline: 2px solid rgb(var(--sa-brand, 15 76 92));
+	outline-offset: 3px;
+	border-radius: 0.375rem;
+}
+
+body.sa-2026 .sa-card-linked a.sa-stretched-link::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+}

@@ -191,6 +191,31 @@ $child_css = sa_design_file( 'assets/css/child.css' );
 sa_design_assert( false !== strpos( $child_css, 'a[href]:not([href=""]):not(.sa-source-box)' ), 'child.css scopes prose underlines strictly to real links with href' );
 sa_design_assert( false !== strpos( $child_css, 'white-space: nowrap' ) && false !== strpos( $child_css, '#E7F5EC' ), 'child.css styles single-line mobile headings with light-green highlight' );
 
+/* 6 — focused card anchor text with stretched-link hit targets (v2.24.17) */
+sa_design_assert(
+	false !== strpos( $province_tpl, 'class="sa-card-linked' )
+		&& false !== strpos( $province_tpl, 'data-sa-relation class="sa-stretched-link"' )
+		&& false === strpos( $province_tpl, '<a href="<?php echo esc_url( $sa_county[\'url\'] ); ?>" data-sa-relation' . "\n\t\t\t\t\t\t\tdata-sa-county-card" ),
+	'single-province county cards place the anchor strictly on the heading title via sa-stretched-link'
+);
+sa_design_assert(
+	false !== strpos( $city, 'class="sa-card-linked' )
+		&& false !== strpos( $city, '<?php echo esc_url( $sa_sibling[\'url\'] ); ?>" data-sa-relation class="sa-stretched-link"' ),
+	'single-city sibling county cards place the anchor strictly on the heading title via sa-stretched-link'
+);
+$front_tpl = sa_design_file( 'front-page.php' );
+sa_design_assert(
+	false !== strpos( $front_tpl, 'class="sa-card-linked' )
+		&& 2 === substr_count( $front_tpl, 'class="sa-stretched-link"' ),
+	'front-page province and latest cards place the anchor strictly on card titles via sa-stretched-link'
+);
+sa_design_assert(
+	false !== strpos( $child_css, '.sa-card-linked' )
+		&& false !== strpos( $child_css, 'a.sa-stretched-link::after' )
+		&& false !== strpos( $child_css, 'inset: 0;' ),
+	'child.css defines full-card click target for sa-stretched-link cards'
+);
+
 if ( $failures > 0 ) {
 	fwrite( STDERR, "FAILED: {$failures} design guard(s)\n" );
 	exit( 1 );

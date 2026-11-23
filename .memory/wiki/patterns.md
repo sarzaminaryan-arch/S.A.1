@@ -52,3 +52,9 @@
   1. در `sa_2026_relation_content()` به‌جای حذف صفت `href`، تگ `<a ...>...</a>` منطبق با `$keys` باید با `sa_2026_unwrap_relation_links()` به‌کلی باز شود و فقط محتوای درونی بماند (با محافظت از بلوک‌های کد/اسکریپت و حفظ `<img>`/`<svg>`).
   2. چون `sa-2026.css` پس از `child.css` بارگذاری می‌شود، هر override روی نمای ۱۴۰۵ در `child.css` با پیشوند `body.sa-2026` نوشته شود.
   3. خط زیرین لینک‌های فارسی درون `.sa-2026-prose` فقط برای `a[href]:not([href=""]):not(.sa-source-box)` همراه با `text-decoration-skip-ink: none; text-underline-offset: 6px; text-decoration-thickness: 1px` و تیترهای بخش‌ها با کلاس `.sa-section-heading` به‌صورت تک‌خطی موبایل و پس‌زمینهٔ سبز روشن `#E7F5EC` (به استثنای CTAهای پس‌زمینهٔ تیره) اعمال شود.
+
+## ۸. انکر تکست متمرکز روی عنوان کارت‌ها (Stretched Link)
+- **الگو (`single-province.php`, `single-city.php`, `front-page.php`, `assets/css/child.css`):**
+  1. هر کارت لینک‌دار با کانتینر `<article class="sa-card-linked ...">` رندر شود (و در صورت نیاز صفحه‌ای مثل `data-sa-county-card` روی `<article>` بماند).
+  2. تگ `<a href="..." class="sa-stretched-link">` فقط عنوان کوتاه (`<h3>` یا `<strong>`) را در بر بگیرد تا انکر تکست برای گوگل و صفحه‌خوان‌ها دقیق و کوتاه بماند و متن توضیحی یا دکمهٔ تزیینیِ کارت با `aria-hidden="true"` بیرون `<a>` بماند.
+  3. با `body.sa-2026 .sa-card-linked { position: relative; isolation: isolate; }` و `body.sa-2026 .sa-card-linked a.sa-stretched-link::after { content: ''; position: absolute; inset: 0; z-index: 2; }` کل کارت بدون تغییر ظاهر کلیک‌پذیر نگه داشته شود.

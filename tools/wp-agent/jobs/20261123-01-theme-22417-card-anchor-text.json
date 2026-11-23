@@ -1,0 +1,18 @@
+{
+  "note": "انتشار و نصب نسخه ۲.۲۴.۱۷ قالب فرزند (متمرکزکردن انکر تکست لینک‌های کارت در صفحه استان، شهرستان‌های هم‌استانی و صفحه نخست با حفظ کلیک‌پذیری کل کارت از طریق sa-stretched-link).",
+  "rollback_on_fail": true,
+  "steps": [
+    {"cmd": "ping"},
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.24.17",
+      "version": "2.24.17",
+      "owner_approved_theme_update": true,
+      "allow_without_backup": true,
+      "wait_for_release": 300,
+      "probe": ["/", "/province/zanjan/", "/province/kurdistan/", "/city/sanandaj/"],
+      "rollback_to": "2.24.16"
+    },
+    {"cmd": "probe", "url": ["/?sa_probe=21", "/province/zanjan/?sa_probe=21", "/city/sanandaj/?sa_probe=21"]}
+  ]
+}

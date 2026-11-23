@@ -208,23 +208,25 @@ while ( have_posts() ) :
 
 				<div id="counties-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 					<?php foreach ( $sa_counties as $sa_county ) : ?>
-						<a href="<?php echo esc_url( $sa_county['url'] ); ?>" data-sa-relation
+						<article
 							data-sa-county-card
 							data-sa-county-name="<?php echo esc_attr( $sa_county['title'] ); ?>"
-							class="group bg-surface rounded-2xl border border-line p-4 hover:border-petrol hover:shadow-sm transition-all flex flex-col justify-between">
+							class="sa-card-linked group bg-surface rounded-2xl border border-line p-4 hover:border-petrol hover:shadow-sm transition-all flex flex-col justify-between">
 							<div class="space-y-2">
-								<h3 class="text-base font-extrabold text-ink group-hover:text-petrol transition-colors"><?php echo esc_html( $sa_county['title'] ); ?></h3>
+								<h3 class="text-base font-extrabold text-ink group-hover:text-petrol transition-colors">
+									<a href="<?php echo esc_url( $sa_county['url'] ); ?>" data-sa-relation class="sa-stretched-link"><?php echo esc_html( $sa_county['title'] ); ?></a>
+								</h3>
 								<?php if ( $sa_county['summary'] ) : ?>
 									<p class="text-xs text-slate-600 leading-relaxed line-clamp-2"><?php echo esc_html( $sa_county['summary'] ); ?></p>
 								<?php endif; ?>
 							</div>
-							<span class="mt-4 pt-3 border-t border-line/70 text-xs font-bold text-petrol inline-flex items-center justify-between">
+							<span aria-hidden="true" class="mt-4 pt-3 border-t border-line/70 text-xs font-bold text-petrol inline-flex items-center justify-between">
 								<span>راهنمای سفر</span>
 								<svg class="w-3.5 h-3.5 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
 								</svg>
 							</span>
-						</a>
+						</article>
 					<?php endforeach; ?>
 				</div>
 
