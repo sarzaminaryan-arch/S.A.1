@@ -1,0 +1,18 @@
+{
+  "note": "بازسازی کامل صفحهٔ استان سیستان و بلوچستان (شناسهٔ ۲۶۱) با الگوی ده بخشی همسان: پوشش ۲۶ شهرستان در دو بند با محافظت پیوند، محافظت از ۳ استان هم‌مرز، ۵ پرسش پرتکرار و ۷ منبع علمی یکتا.",
+  "rollback_on_fail": true,
+  "steps": [
+    {"cmd": "ping"},
+    {
+      "cmd": "update",
+      "id": 261,
+      "content_file": "tools/wp-agent/outbox/20261123-province-sistan-baluchestan-261/sistan-baluchestan-261.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-sistan-baluchestan-261/sistan-baluchestan-261.meta.json",
+      "excerpt": "استان سیستان و بلوچستان با مرکزیت زاهدان در جنوب‌شرق ایران؛ راهنمای ۲۶ شهرستان، چابهار، شهر سوختهٔ جهانی، تالاب لیپار، تفتان، سوزن‌دوزی و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان سیستان و بلوچستان بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۲۶ شهرستان با محافظت پیوند"
+    },
+    {"cmd": "cache-purge", "id": [261]},
+    {"cmd": "probe", "url": ["/province/sistan-baluchestan/?sa_probe=22"]}
+  ]
+}

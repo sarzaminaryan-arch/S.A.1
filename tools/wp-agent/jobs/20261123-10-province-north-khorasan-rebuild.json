@@ -1,0 +1,18 @@
+{
+  "note": "بازسازی کامل صفحهٔ استان خراسان شمالی (شناسهٔ ۵۲) با الگوی ده بخشی همسان: پوشش ۱۰ شهرستان (شامل بام و صفی‌آباد و مانه) در دو بند با محافظت پیوند، محافظت از ۳ استان هم‌مرز، ۵ پرسش پرتکرار و ۷ منبع علمی یکتا.",
+  "rollback_on_fail": true,
+  "steps": [
+    {"cmd": "ping"},
+    {
+      "cmd": "update",
+      "id": 52,
+      "content_file": "tools/wp-agent/outbox/20261123-province-north-khorasan-52/north-khorasan-52.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-north-khorasan-52/north-khorasan-52.meta.json",
+      "excerpt": "استان خراسان شمالی با مرکزیت بجنورد در شمال‌شرق ایران؛ راهنمای ۱۰ شهرستان، عمارت مفخم، شهر تاریخی بلقیس، موسیقی بخشی‌ها، جنگل درکش و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان خراسان شمالی بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۱۰ شهرستان با محافظت پیوند"
+    },
+    {"cmd": "cache-purge", "id": [52]},
+    {"cmd": "probe", "url": ["/province/north-khorasan/?sa_probe=22"]}
+  ]
+}

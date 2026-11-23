@@ -1,0 +1,18 @@
+{
+  "note": "بازسازی کامل صفحهٔ استان گلستان (شناسهٔ ۴۱۲) با الگوی ده بخشی همسان: پوشش ۱۴ شهرستان در دو بند با محافظت پیوند، پیوند مستقیم پارک ملی گلستان، محافظت از ۳ استان هم‌مرز، ۵ پرسش پرتکرار و ۷ منبع علمی یکتا.",
+  "rollback_on_fail": true,
+  "steps": [
+    {"cmd": "ping"},
+    {
+      "cmd": "update",
+      "id": 412,
+      "content_file": "tools/wp-agent/outbox/20261123-province-golestan-412/golestan-412.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-golestan-412/golestan-412.meta.json",
+      "excerpt": "استان گلستان با مرکزیت گرگان در شمال‌شرق ایران؛ راهنمای ۱۴ شهرستان، برج جهانی گنبد قابوس، پارک ملی گلستان، آبشار کبودوال، آشوراده و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان گلستان بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۱۴ شهرستان با محافظت پیوند"
+    },
+    {"cmd": "cache-purge", "id": [412]},
+    {"cmd": "probe", "url": ["/province/golestan/?sa_probe=22"]}
+  ]
+}
