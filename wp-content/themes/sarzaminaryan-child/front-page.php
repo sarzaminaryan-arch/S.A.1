@@ -294,23 +294,24 @@ foreach ( get_posts(
 		<?php if ( $sa_provinces ) : ?>
 			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
 				<?php foreach ( $sa_provinces as $sa_province ) : ?>
-					<a href="<?php echo esc_url( $sa_province['url'] ); ?>"
-						class="group bg-surface rounded-2xl border border-line overflow-hidden hover:border-petrol hover:shadow-card transition-all flex flex-col">
-						<span class="block aspect-[16/10] overflow-hidden bg-sand">
+					<article class="sa-card-linked group bg-surface rounded-2xl border border-line overflow-hidden hover:border-petrol hover:shadow-card transition-all flex flex-col">
+						<div class="aspect-[16/10] overflow-hidden bg-sand">
 							<?php
 							echo function_exists( 'sa_2026_cover_markup' )
 								? sa_2026_cover_markup( $sa_province['id'], 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-300', $sa_province['title'] ) // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								: '';
 							?>
-						</span>
-						<span class="block p-4 space-y-1.5">
-							<strong class="block text-base font-extrabold text-ink group-hover:text-petrol transition-colors"><?php echo esc_html( $sa_province['title'] ); ?></strong>
+						</div>
+						<div class="p-4 space-y-1.5">
+							<strong class="block text-base font-extrabold text-ink group-hover:text-petrol transition-colors">
+								<a href="<?php echo esc_url( $sa_province['url'] ); ?>" class="sa-stretched-link"><?php echo esc_html( $sa_province['title'] ); ?></a>
+							</strong>
 							<?php if ( $sa_province['counties'] ) : ?>
 								<span class="block text-[11px] text-muted"><?php echo esc_html( sa_2026_num( $sa_province['counties'] ) . ' شهرستان' ); ?></span>
 							<?php endif; ?>
-							<span class="inline-flex items-center gap-1 text-[11px] font-bold text-ochreDark pt-1">راهنمای استان <span aria-hidden="true">←</span></span>
-						</span>
-					</a>
+							<span aria-hidden="true" class="inline-flex items-center gap-1 text-[11px] font-bold text-ochreDark pt-1">راهنمای استان <span aria-hidden="true">←</span></span>
+						</div>
+					</article>
 				<?php endforeach; ?>
 			</div>
 		<?php else : ?>
@@ -329,8 +330,7 @@ foreach ( get_posts(
 		<?php if ( $sa_latest ) : ?>
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 				<?php foreach ( $sa_latest as $sa_post ) : ?>
-					<a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>"
-						class="group bg-surface rounded-2xl border border-line p-5 hover:border-petrol hover:shadow-card transition-all flex flex-col justify-between space-y-4">
+					<article class="sa-card-linked group bg-surface rounded-2xl border border-line p-5 hover:border-petrol hover:shadow-card transition-all flex flex-col justify-between space-y-4">
 						<div class="space-y-2">
 							<?php
 							$sa_badge = function_exists( 'sa_type_badge' ) ? wp_strip_all_tags( (string) sa_type_badge( get_post_type( $sa_post ) ) ) : '';
@@ -342,14 +342,16 @@ foreach ( get_posts(
 							<span class="inline-block text-[11px] font-bold px-2.5 py-1 rounded-lg bg-petrolSoft text-petrol">
 								<?php echo esc_html( $sa_badge ); ?>
 							</span>
-							<h3 class="text-base font-extrabold text-ink group-hover:text-petrol transition-colors;"><?php echo esc_html( get_the_title( $sa_post ) ); ?></h3>
+							<h3 class="text-base font-extrabold text-ink group-hover:text-petrol transition-colors">
+								<a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>" class="sa-stretched-link"><?php echo esc_html( get_the_title( $sa_post ) ); ?></a>
+							</h3>
 							<p class="text-xs text-muted leading-relaxed line-clamp-3"><?php echo esc_html( wp_trim_words( wp_strip_all_tags( $sa_post->post_content ), 24, '…' ) ); ?></p>
 						</div>
 						<div class="pt-3 border-t border-line/80 flex items-center justify-between text-[11px] text-muted">
 							<span><?php echo esc_html( get_the_date( '', $sa_post ) ); ?></span>
-							<span class="font-bold text-petrol">مشاهده ←</span>
+							<span aria-hidden="true" class="font-bold text-petrol">مشاهده ←</span>
 						</div>
-					</a>
+					</article>
 				<?php endforeach; ?>
 			</div>
 		<?php else : ?>

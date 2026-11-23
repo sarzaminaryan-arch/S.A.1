@@ -624,10 +624,12 @@ while ( have_posts() ) :
 
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 					<?php foreach ( $sa_siblings as $sa_sibling ) : ?>
-						<a href="<?php echo esc_url( $sa_sibling['url'] ); ?>" data-sa-relation class="group bg-surface rounded-2xl border border-line p-4 hover:border-petrol hover:shadow-sm transition-all">
-							<h3 class="text-base font-extrabold text-ink group-hover:text-petrol transition-colors"><?php echo esc_html( $sa_sibling['label'] ); ?></h3>
+						<article class="sa-card-linked group bg-surface rounded-2xl border border-line p-4 hover:border-petrol hover:shadow-sm transition-all">
+							<h3 class="text-base font-extrabold text-ink group-hover:text-petrol transition-colors">
+								<a href="<?php echo esc_url( $sa_sibling['url'] ); ?>" data-sa-relation class="sa-stretched-link"><?php echo esc_html( $sa_sibling['label'] ); ?></a>
+							</h3>
 							<p class="text-xs text-slate-600 mt-1">شهرستان‌های هم‌استانی و مقصدهای نزدیک را ببینید.</p>
-						</a>
+						</article>
 					<?php endforeach; ?>
 				</div>
 			</section>
