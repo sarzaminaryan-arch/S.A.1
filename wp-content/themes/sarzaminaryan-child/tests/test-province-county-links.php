@@ -138,4 +138,67 @@ sa_pcl_assert(
 	'province profiles: Isfahan records all 29 current counties (2.24.18)'
 );
 
+/* ---- v2.24.19: 31-province neighbor symmetry & boundary hygiene ---------- */
+$sa_region_facts = require $theme_dir . '/data/region-facts.php';
+$sa_rf_provinces = isset( $sa_region_facts['provinces'] ) && is_array( $sa_region_facts['provinces'] ) ? $sa_region_facts['provinces'] : array();
+$sa_pp_provinces = isset( $sa_profiles['provinces'] ) && is_array( $sa_profiles['provinces'] ) ? $sa_profiles['provinces'] : array();
+sa_pcl_assert( 31 === count( $sa_rf_provinces ) && 31 === count( $sa_pp_provinces ), 'neighbor matrix covers all 31 provinces' );
+
+$sa_name_to_slug = array();
+foreach ( $sa_pp_provinces as $slug => $row ) {
+	$sa_name_to_slug[ sa_province_profile_normalize_name( $row['name'] ) ] = $slug;
+}
+
+$sa_rf_adj = array();
+$sa_pp_adj = array();
+foreach ( $sa_pp_provinces as $slug => $row ) {
+	$rf_raw   = isset( $sa_rf_provinces[ $slug ]['neighbors'] ) ? (string) $sa_rf_provinces[ $slug ]['neighbors'] : '';
+	$rf_names = array_filter( array_map( 'trim', explode( '،', $rf_raw ) ), 'strlen' );
+	$rf_set   = array();
+	foreach ( $rf_names as $n ) {
+		$norm = sa_province_profile_normalize_name( $n );
+		sa_pcl_assert( isset( $sa_name_to_slug[ $norm ] ), "region-facts neighbor '{$n}' resolves for {$slug}" );
+		$rf_set[] = $sa_name_to_slug[ $norm ];
+	}
+	sort( $rf_set );
+	$sa_rf_adj[ $slug ] = array_values( array_unique( $rf_set ) );
+
+	$pp_seen = array();
+	$pp_set  = array();
+	$groups  = isset( $row['neighbor_groups'] ) && is_array( $row['neighbor_groups'] ) ? $row['neighbor_groups'] : array();
+	foreach ( $groups as $grp ) {
+		$places = isset( $grp['places'] ) && is_array( $grp['places'] ) ? $grp['places'] : array();
+		foreach ( $places as $pl ) {
+			$clean = sa_province_profile_clean_place( $pl );
+			sa_pcl_assert( ! isset( $pp_seen[ $clean ] ), "duplicate neighbor '{$clean}' in province-profiles.json for {$slug}" );
+			$pp_seen[ $clean ] = true;
+			if ( isset( $sa_name_to_slug[ $clean ] ) ) {
+				$pp_set[] = $sa_name_to_slug[ $clean ];
+			}
+		}
+	}
+	sort( $pp_set );
+	$sa_pp_adj[ $slug ] = $pp_set;
+
+	sa_pcl_assert( $sa_rf_adj[ $slug ] === $sa_pp_adj[ $slug ], "region-facts and province-profiles agree on province neighbors for {$slug}" );
+}
+
+foreach ( $sa_rf_adj as $a => $nbrs ) {
+	foreach ( $nbrs as $b ) {
+		sa_pcl_assert( $a !== $b, "province {$a} does not neighbor itself" );
+		sa_pcl_assert( in_array( $a, $sa_rf_adj[ $b ], true ), "neighbor graph is symmetric: {$a} <-> {$b}" );
+	}
+}
+
+foreach ( array( 'fars', 'semnan', 'kerman' ) as $landlocked ) {
+	$serialized = json_encode( $sa_pp_provinces[ $landlocked ]['neighbor_groups'], JSON_UNESCAPED_UNICODE );
+	sa_pcl_assert( false === strpos( (string) $serialized, 'مرز آبی' ), "landlocked {$landlocked} has no sea border in neighbor_groups" );
+}
+sa_pcl_assert( ! in_array( 'qazvin', $sa_rf_adj['tehran'], true ), 'Tehran does not neighbor Qazvin (2.24.19)' );
+sa_pcl_assert( ! in_array( 'khuzestan', $sa_rf_adj['kermanshah'], true ), 'Kermanshah does not neighbor Khuzestan (2.24.19)' );
+sa_pcl_assert( ! in_array( 'golestan', $sa_rf_adj['razavi-khorasan'], true ), 'Razavi Khorasan does not neighbor Golestan (2.24.19)' );
+sa_pcl_assert( ! in_array( 'semnan', $sa_rf_adj['yazd'], true ), 'Yazd does not neighbor Semnan (2.24.19)' );
+sa_pcl_assert( in_array( 'alborz', $sa_rf_adj['markazi'], true ) && in_array( 'qom', $sa_rf_adj['markazi'], true ), 'Markazi neighbors both Alborz and Qom (2.24.19)' );
+sa_pcl_assert( in_array( 'golestan', $sa_pp_adj['mazandaran'], true ), 'Mazandaran includes Golestan in province-profiles.json (2.24.19)' );
+
 echo "test-province-county-links: OK\n";

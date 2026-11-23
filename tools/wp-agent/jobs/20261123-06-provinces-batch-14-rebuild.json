@@ -1,0 +1,173 @@
+{
+  "note": "انتشار تجمیعی بازسازی کامل چهارده استان باقیماندهٔ کشور (آذربایجان شرقی، ایلام، تهران، خراسان رضوی، فارس، قم، کرمانشاه، کهگیلویه و بویراحمد، گیلان، کرمان، مازندران، مرکزی، هرمزگان و یزد) با الگوی ده بخشی همسان، تراز جمعیتی شهرستان‌ها و هفت منبع علمی یکتا.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "update",
+      "id": 29,
+      "content_file": "tools/wp-agent/outbox/20261123-province-east-azerbaijan-29/east-azerbaijan-29.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-east-azerbaijan-29/east-azerbaijan-29.meta.json",
+      "excerpt": "استان آذربایجان شرقی در شمال‌غرب ایران با مرکزیت تبریز قرار دارد؛ راهنمای ۲۳ شهرستان، بازار جهانی تبریز، کلیسای سنت استپانوس، روستای کندوان، ارسباران و برنامهٔ سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان آذربایجان شرقی بر پایهٔ الگوی ده بخشی استاندارد، اصلاح شمار ۲۳ شهرستان در سئو و متن، حذف لینک‌های پراکنده و درج هفت منبع علمی یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 39,
+      "content_file": "tools/wp-agent/outbox/20261123-province-ilam-39/ilam-39.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-ilam-39/ilam-39.meta.json",
+      "excerpt": "استان ایلام در غرب زاگرس با مرکزیت ایلام و مرز مهران قرار دارد؛ راهنمای ۱۲ شهرستان، تنگهٔ رازیانه، تنگهٔ کافرین، دریاچهٔ سیاه‌گاو، قلعهٔ والی، شهر باستانی سیمره و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان ایلام بر پایهٔ الگوی ده بخشی استاندارد، رفع خطاهای نگارشی و عددی مساحت، پوشش دوازده شهرستان با محافظت پیوند و هفت منبع علمی یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 43,
+      "content_file": "tools/wp-agent/outbox/20261123-province-tehran-43/tehran-43.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-tehran-43/tehran-43.meta.json",
+      "excerpt": "استان تهران در دامنهٔ جنوبی البرز با مرکزیت کلان‌شهر تهران قرار دارد؛ راهنمای ۱۶ شهرستان، کاخ جهانی گلستان، شهر باستانی ری، توچال، تنگهٔ واشی، موزه‌ها و برنامهٔ سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان تهران بر پایهٔ الگوی ده بخشی استاندارد، حذف برچسب‌های نقشه و افزودن هفت منبع علمی یکتا و پنج پرسش پرتکرار"
+    },
+    {
+      "cmd": "update",
+      "id": 50,
+      "content_file": "tools/wp-agent/outbox/20261123-province-razavi-khorasan-50/razavi-khorasan-50.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-razavi-khorasan-50/razavi-khorasan-50.meta.json",
+      "excerpt": "استان خراسان رضوی در شمال‌شرق ایران با مرکزیت مشهد قرار دارد؛ راهنمای ۳۴ شهرستان، حرم امام رضا (ع)، آرامگاه فردوسی و خیام، قنات جهانی قصبهٔ گناباد، آرامگاه شاه قاسم انوار و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان خراسان رضوی بر پایهٔ الگوی ده بخشی استاندارد، پیوند به آرامگاه شاه قاسم انوار و پوشش تراز ۳۴ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 263,
+      "content_file": "tools/wp-agent/outbox/20261123-province-fars-263/fars-263.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-fars-263/fars-263.meta.json",
+      "excerpt": "استان فارس در جنوب ایران با مرکزیت شیراز قرار دارد؛ راهنمای ۳۷ شهرستان، تخت جمشید، پاسارگاد، نقش رستم، بیشاپور، باغ ارم، حرم شاهچراغ، مجموعه وکیل، آبشار مارگون و برنامهٔ سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان فارس بر پایهٔ الگوی ده بخشی استاندارد، اصلاح شمار کهنه ۲۹ به ۳۷ شهرستان، پیوند به ۸ جاذبهٔ زنده و هفت منبع علمی یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 267,
+      "content_file": "tools/wp-agent/outbox/20261123-province-qom-267/qom-267.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-qom-267/qom-267.meta.json",
+      "excerpt": "استان قم در مرکز ایران با مرکزیت قم قرار دارد؛ راهنمای ۳ شهرستان، حرم حضرت فاطمه معصومه (س)، مسجد جمکران، کاروانسرای جهانی دیرگچین، دریاچه حوض سلطان و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان قم بر پایهٔ الگوی ده بخشی استاندارد، اصلاح داده‌های ۳ شهرستان، هم‌مرزی‌ها و سوهان و میراث دیرگچین"
+    },
+    {
+      "cmd": "update",
+      "id": 408,
+      "content_file": "tools/wp-agent/outbox/20261123-province-kermanshah-408/kermanshah-408.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-kermanshah-408/kermanshah-408.meta.json",
+      "excerpt": "استان کرمانشاه در غرب ایران دروازهٔ زاگرس به میان‌رودان است؛ راهنمای ۱۴ شهرستان، محوطه جهانی بیستون، طاق بستان، معبد آناهیتا، اورامانات، شهر خلاق خوراک و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان کرمانشاه بر پایهٔ الگوی ده بخشی استاندارد، حذف نشانی‌های خام گوگل و برچسب‌های خالی، اصلاح هم‌مرزی‌ها و هفت منبع یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 410,
+      "content_file": "tools/wp-agent/outbox/20261123-province-kohgiluyeh-boyer-ahmad-410/kohgiluyeh-boyer-ahmad-410.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-kohgiluyeh-boyer-ahmad-410/kohgiluyeh-boyer-ahmad-410.meta.json",
+      "excerpt": "استان کهگیلویه و بویراحمد در قلب زاگرس جنوبی با مرکزیت یاسوج قرار دارد؛ راهنمای ۹ شهرستان، قله‌های دنا، کاروانسرای جهانی دهدشت در بلاد شاپور، آبشار یاسوج، تنگ سولک و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان کهگیلویه و بویراحمد بر پایهٔ الگوی ده بخشی استاندارد، حذف برچسب‌های نقشه و پیوندهای خالی، پوشش ۹ شهرستان و هفت منبع علمی یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 414,
+      "content_file": "tools/wp-agent/outbox/20261123-province-gilan-414/gilan-414.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-gilan-414/gilan-414.meta.json",
+      "excerpt": "استان گیلان در کرانهٔ جنوب‌غربی دریای خزر با مرکزیت رشت قرار دارد؛ راهنمای ۱۷ شهرستان، ماسوله، تالاب بین‌المللی انزلی، قلعه رودخان، جنگل‌های هیرکانی و برنامهٔ سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان گیلان بر پایهٔ الگوی ده بخشی استاندارد، حذف لینک‌های خام نقشه، پیوند به ماسوله و تالاب انزلی و پوشش ۱۷ شهرستان"
+    },
+    {
+      "cmd": "update",
+      "id": 476,
+      "content_file": "tools/wp-agent/outbox/20261123-province-kerman-476/kerman-476.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-kerman-476/kerman-476.meta.json",
+      "excerpt": "استان کرمان پهناورترین استان ایران با مرکزیت کرمان است؛ راهنمای ۲۵ شهرستان، ۷ میراث جهانی یونسکو، ارگ بم، کلوت‌های شهداد، باغ شازده ماهان، میمند و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان کرمان بر پایهٔ الگوی ده بخشی استاندارد، پیوند به کلوت‌های شهداد، پوشش تراز ۲۵ شهرستان با محافظت پیوند و هفت منبع یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 480,
+      "content_file": "tools/wp-agent/outbox/20261123-province-mazandaran-480/mazandaran-480.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-mazandaran-480/mazandaran-480.meta.json",
+      "excerpt": "استان مازندران میان البرز و دریای خزر با مرکزیت ساری قرار دارد؛ راهنمای ۲۲ شهرستان، قله دماوند، جنگل‌های هیرکانی، باغ عباس‌آباد بهشهر، پل ورسک، باداب سورت و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان مازندران بر پایهٔ الگوی ده بخشی استاندارد، پیوند به قله دماوند، پوشش کامل ۲۲ شهرستان با محافظت پیوند و هفت منبع علمی یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 563,
+      "content_file": "tools/wp-agent/outbox/20261123-province-markazi-563/markazi-563.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-markazi-563/markazi-563.meta.json",
+      "excerpt": "استان مرکزی در قلب راه‌های غرب به مرکز با مرکزیت اراک قرار دارد؛ راهنمای ۱۲ شهرستان، تالاب میقان، غار چال‌نخجیر، قنات ابراهیم‌آباد، فرش ساروق، انار ساوه و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان مرکزی بر پایهٔ الگوی ده بخشی استاندارد، اصلاح هم‌مرزی‌های هفت استان، پوشش ۱۲ شهرستان با محافظت پیوند و هفت منبع یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 626,
+      "content_file": "tools/wp-agent/outbox/20261123-province-hormozgan-626/hormozgan-626.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-hormozgan-626/hormozgan-626.meta.json",
+      "excerpt": "استان هرمزگان در کرانهٔ تنگه هرمز با مرکزیت بندرعباس قرار دارد؛ راهنمای ۱۳ شهرستان، درهٔ ستارگان قشم، جنگل حرا، جزیره هرمز و کیش، قلعه پرتغالی‌ها و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان هرمزگان بر پایهٔ الگوی ده بخشی استاندارد، پیوند به درهٔ ستارگان قشم، پوشش ۱۳ شهرستان با محافظت پیوند و هفت منبع یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 633,
+      "content_file": "tools/wp-agent/outbox/20261123-province-yazd-633/yazd-633.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-yazd-633/yazd-633.meta.json",
+      "excerpt": "استان یزد در مرکز کویری ایران با مرکزیت شهر جهانی یزد قرار دارد؛ راهنمای ۱۲ شهرستان، باغ دولت‌آباد، قنات زارچ، آتشکده بهرام، میبد و اردکان، ترمه و قطاب و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان یزد بر پایهٔ الگوی ده بخشی استاندارد، حذف استناد ویکی‌پدیا، پوشش ۱۲ شهرستان با محافظت پیوند و هفت منبع علمی یکتا"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        29,
+        39,
+        43,
+        50,
+        263,
+        267,
+        408,
+        410,
+        414,
+        476,
+        480,
+        563,
+        626,
+        633
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/province/east-azerbaijan/?sa_probe=24",
+        "/province/ilam/?sa_probe=24",
+        "/province/tehran/?sa_probe=24",
+        "/province/razavi-khorasan/?sa_probe=24",
+        "/province/fars/?sa_probe=24",
+        "/province/qom/?sa_probe=24",
+        "/province/kermanshah/?sa_probe=24",
+        "/province/kohgiluyeh-boyer-ahmad/?sa_probe=24",
+        "/province/gilan/?sa_probe=24",
+        "/province/kerman/?sa_probe=24",
+        "/province/mazandaran/?sa_probe=24",
+        "/province/markazi/?sa_probe=24",
+        "/province/hormozgan/?sa_probe=24",
+        "/province/yazd/?sa_probe=24"
+      ]
+    }
+  ]
+}
