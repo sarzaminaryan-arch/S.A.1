@@ -2,14 +2,16 @@
  {
   "id": 283,
   "slug": "dasht-azadegan",
-  "words_after": 2323,
+  "words_after": 1638,
   "sections": [
    "intro",
    "map",
    "history",
    "people",
    "economy",
-   "stay"
+   "stay",
+   "modern",
+   "food"
   ],
   "ok": true,
   "fa_lint": []
