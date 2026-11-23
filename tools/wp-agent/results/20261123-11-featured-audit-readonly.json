@@ -1,0 +1,117 @@
+{
+  "job": "tools/wp-agent/jobs/20261123-11-featured-audit-readonly.json",
+  "started_utc": "2026-11-23T12:42:05+00:00",
+  "note": "ممیزی فقط‌خواندنیِ وضعیت نمایش تصاویر شاخص پس از روشن‌شدن کلیدها (کار 20261123-09) — برای اثبات اینکه هیروهای شهرستان/استان و تصویر دیدنی‌ها واقعاً رندر می‌شوند (ابزار دریافت من <figure> را در Markdown نشان نمی‌دهد). هیچ نوشتنی.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.19",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-23T12:42:05+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "featured-audit",
+      "result": {
+        "total_city_published": 484,
+        "marker": "featured-audit-v143",
+        "has_featured": 483,
+        "suppressed": 1,
+        "no_featured": 0,
+        "group_a_no_image": [],
+        "group_b_has_image": [],
+        "group_c_unexpected": [],
+        "gallery_images_total": 0,
+        "thumb_from_filter": 0,
+        "group_counts": {
+          "a": 0,
+          "b": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "featured-audit",
+      "result": {
+        "total_city_published": 31,
+        "marker": "featured-audit-v143",
+        "has_featured": 31,
+        "suppressed": 0,
+        "no_featured": 0,
+        "group_a_no_image": [],
+        "group_b_has_image": [],
+        "group_c_unexpected": [],
+        "gallery_images_total": 0,
+        "thumb_from_filter": 0,
+        "group_counts": {
+          "a": 0,
+          "b": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "featured-audit",
+      "result": {
+        "total_city_published": 38,
+        "marker": "featured-audit-v143",
+        "has_featured": 14,
+        "suppressed": 24,
+        "no_featured": 0,
+        "group_a_no_image": [],
+        "group_b_has_image": [],
+        "group_c_unexpected": [],
+        "gallery_images_total": 0,
+        "thumb_from_filter": 0,
+        "group_counts": {
+          "a": 0,
+          "b": 0,
+          "c": 0
+        }
+      }
+    },
+    {
+      "n": 5,
+      "cmd": "featured-audit",
+      "result": {
+        "total_city_published": 0,
+        "marker": "featured-audit-v143",
+        "has_featured": 0,
+        "suppressed": 0,
+        "no_featured": 0,
+        "group_a_no_image": [],
+        "group_b_has_image": [],
+        "group_c_unexpected": [],
+        "gallery_images_total": 0,
+        "thumb_from_filter": 0,
+        "group_counts": {
+          "a": 0,
+          "b": 0,
+          "c": 0
+        }
+      }
+    }
+  ],
+  "finished_utc": "2026-11-23T12:42:10+00:00"
+}
