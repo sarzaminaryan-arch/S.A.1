@@ -55,6 +55,20 @@ $GLOBALS['sa_test_posts']   = array(
 		'post_title'  => 'شهر اصفهان',
 		'post_status' => 'publish',
 	),
+	105 => (object) array(
+		'ID'          => 105,
+		'post_type'   => 'city',
+		'post_name'   => 'kuhpayeh',
+		'post_title'  => 'شهرستان کوهپایه',
+		'post_status' => 'publish',
+	),
+	106 => (object) array(
+		'ID'          => 106,
+		'post_type'   => 'city',
+		'post_name'   => 'bostanabad',
+		'post_title'  => 'شهرستان بستان‌آباد',
+		'post_status' => 'publish',
+	),
 );
 
 /** Minimal WP hook shim. */
@@ -208,6 +222,8 @@ class SA_Test_WPDB {
 		return array(
 			(object) array( 'ID' => 101, 'post_type' => 'province', 'post_name' => 'tehran', 'post_title' => 'استان استان تهران' ),
 			(object) array( 'ID' => 102, 'post_type' => 'city', 'post_name' => 'dorud', 'post_title' => 'شهرستان شهرستان دورود' ),
+			(object) array( 'ID' => 105, 'post_type' => 'city', 'post_name' => 'kuhpayeh', 'post_title' => 'شهرستان کوهپایه' ),
+			(object) array( 'ID' => 106, 'post_type' => 'city', 'post_name' => 'bostanabad', 'post_title' => 'شهرستان بستان‌آباد' ),
 		);
 	}
 }
@@ -392,5 +408,28 @@ sa_test_expect( 'https://example.test/city/tehran/' === sa_county_permalink( 'te
 sa_test_expect( '' === sa_county_permalink( 'isfahan-city' ), 'registry isfahan-city must not fall back to redirect-source slug isfahan' );
 $neighbor_bare = sa_county_parse_neighbor( 'tehran - شمال' );
 sa_test_expect( 'تهران' === $neighbor_bare['label'] && 'https://example.test/city/tehran/' === $neighbor_bare['url'], 'neighbor chip with bare capital slug resolves Persian label and permalink' );
+
+/* v2.24.18 — نامِ دارای پسوند/پیشوندِ چسبیده با نیم‌فاصله («شهرستان کوهپایه‌ای جم») نباید لینک شود. */
+$zwnj_adj_state = sa_test_state( $targets );
+$zwnj_adj_text  = 'در حالی که شهرستان کوهپایه' . "\xE2\x80\x8C" . 'ای جم هوایی خنک‌تر از نوار ساحلی دارد.';
+$zwnj_adj_out   = sa_autolink_fragment( $zwnj_adj_text, $zwnj_adj_state );
+sa_test_expect( $zwnj_adj_text === $zwnj_adj_out, 'ZWNJ-attached adjective suffix must stay plain text' );
+sa_test_expect( 0 === sa_autolink_count( $zwnj_adj_out )['total'], 'ZWNJ-attached suffix must produce zero auto-links' );
+
+$zwnj_prefix_state = sa_test_state( $targets );
+$zwnj_prefix_text  = 'هم' . "\xE2\x80\x8C" . 'شهرستان کوهپایه به معنی نام مستقیم شهرستان نیست.';
+sa_test_expect( $zwnj_prefix_text === sa_autolink_fragment( $zwnj_prefix_text, $zwnj_prefix_state ), 'ZWNJ-attached prefix must stay plain text' );
+
+$zwnj_mixed_out = sa_autolink_content( '<p>' . $zwnj_adj_text . ' در شرق اصفهان، شهرستان کوهپایه قرار دارد.</p>' );
+sa_test_expect(
+	array( 'شهرستان کوهپایه' ) === sa_test_link_texts( $zwnj_mixed_out ),
+	'standalone county phrase still links after skipping a ZWNJ-attached suffix variant'
+);
+
+$zwnj_inner_out = sa_autolink_content( '<p>شهرستان بستان' . "\xE2\x80\x8C" . 'آباد در استان قرار دارد.</p>' );
+sa_test_expect(
+	array( 'شهرستان بستان' . "\xE2\x80\x8C" . 'آباد' ) === sa_test_link_texts( $zwnj_inner_out ),
+	'compound county names with an internal ZWNJ still link normally'
+);
 
 fwrite( STDOUT, "PASS: internal geographic auto-link, rewritten-article link and prepared-record link tests\n" );

@@ -1011,6 +1011,12 @@ function sa_autolink_fragment( $text, &$state ) {
 		if ( $finish <= $start ) {
 			continue;
 		}
+		// در متن اصلی اگر نیم‌فاصله‌ی چسبیده به پیشوند یا پسوند وجود داشته باشد، کل عبارت یک واژه‌ی پیوسته است:
+		// مثلاً «شهرستان کوهپایه‌ای جم» یک صفت نسبی است و نباید «شهرستان کوهپایه» از درون آن لینک شود.
+		if ( ( $start > 0 && preg_match( '~[\p{L}\p{N}\p{M}]\x{200C}$~u', substr( $text, 0, $start ) ) )
+			|| ( $finish < $tlen && preg_match( '~^\x{200C}[\p{L}\p{N}\p{M}]~u', substr( $text, $finish ) ) ) ) {
+			continue;
+		}
 
 		$needle_kind = sa_autolink_needle_kind( $needle );
 		$kind        = $needle_kind ? $needle_kind : sa_autolink_context_kind( $subject, $begin );

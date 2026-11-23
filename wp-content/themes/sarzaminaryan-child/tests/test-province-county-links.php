@@ -132,4 +132,10 @@ $GLOBALS['t']['posts'][] = new WP_Post( 15, 'city', 'zanjan-city', 'شهرستا
 $entries = array_column( sa_province_profile_county_entries( 'zanjan', 10, array( $zanjan_post ) ), null, 'slug' );
 sa_pcl_assert( 15 === $entries['zanjan-city']['post_id'], 'exact registered page beats a related alias' );
 
+$sa_profiles = json_decode( (string) file_get_contents( $theme_dir . '/data/province-profiles.json' ), true );
+sa_pcl_assert(
+	isset( $sa_profiles['provinces']['isfahan']['stats']['county_count'] ) && 29 === (int) $sa_profiles['provinces']['isfahan']['stats']['county_count'],
+	'province profiles: Isfahan records all 29 current counties (2.24.18)'
+);
+
 echo "test-province-county-links: OK\n";

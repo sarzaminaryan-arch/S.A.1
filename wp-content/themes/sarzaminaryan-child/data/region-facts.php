@@ -256,6 +256,7 @@ return array(
 			'khur-and-biabanak'      => array( 'name' => 'خور و بیابانک', 'lat' => 33.7577, 'lng' => 55.0119 ),
 			'kuhpayeh'               => array( 'name' => 'کوهپایه', 'lat' => 32.8268, 'lng' => 52.2385 ),
 			'lenjan'                 => array( 'name' => 'لنجان', 'lat' => 32.3691, 'lng' => 51.2486 ),
+			'meymeh-vazvan'          => array( 'name' => 'میمه و وزوان', 'lat' => 33.4200, 'lng' => 51.1800 ),
 			'mobarakeh'              => array( 'name' => 'مبارکه', 'lat' => 32.2423, 'lng' => 51.4690 ),
 			'nain'                   => array( 'name' => 'نائین', 'lat' => 33.4411, 'lng' => 53.6914 ),
 			'najafabad'              => array( 'name' => 'نجف آباد', 'lat' => 33.1488, 'lng' => 50.8118 ),
