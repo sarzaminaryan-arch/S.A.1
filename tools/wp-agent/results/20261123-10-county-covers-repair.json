@@ -1,0 +1,72 @@
+{
+  "job": "tools/wp-agent/jobs/20261123-10-county-covers-repair.json",
+  "started_utc": "2026-11-23T12:34:23+00:00",
+  "note": "تعمیر تصویر شاخص شهرستان‌ها — دستور مالک (۲ آذر ۱۴۰۵): «الان نمایش داده شوند، استان‌ها و شهرستان‌ها». کار 20261123-09 کلیدها را روشن کرد و بررسی نشان داد شهرستان‌ها پیوست تصویر دارند اما نمایش داده نمی‌شوند (گمان قوی: فایل روی سرور نیست — حادثهٔ پاک‌شدن فایل‌های رسانه). ابزار county-covers دقیقاً همین را تعمیر می‌کند: جایی که featured_media_missing است، کارت سایبری را دوباره رندر/آپلود/پیوست می‌کند (force_replace=false = دست‌نخورده‌ها جایگزین نمی‌شوند). گام نخست، وضع HTTP فایل‌های تصویر را مستقیم گزارش می‌کند.",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.19",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-23T12:34:23+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-khorramabad.webp",
+            "status": 200,
+            "ms": 804,
+            "location": "",
+            "cache": "",
+            "content_type": "image/webp",
+            "bytes": 21684,
+            "head": "RIFF�T\u0000\u0000WEBPVP8 �T\u0000\u00000�\u0001�\u0001*�\u0004 \u0003>a0�H$\"������\f\tgn�����\r�e�yL\u0014k�Ղ�F�5/Q���\u0017�s�w�!�T������yc����������w�O�_��O�n�\u0003���c�������\u0007����ڿ�z������7�?wO�\u001f�����������\u0003����\\��?���?�����\u0017���g��i?����|)�t�����\u0011���\u0003�'�\u0007������������_��i���9��?�~��\u0015��&_&�+���_��}����\u001fƿ�?��q���\b�{�?�������W��m�a\u001e�}S���"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp",
+            "status": 200,
+            "ms": 858,
+            "location": "",
+            "cache": "",
+            "content_type": "image/webp",
+            "bytes": 19180,
+            "head": "RIFF�J\u0000\u0000WEBPVP8 �J\u0000\u0000��\u0001�\u0001*�\u0004 \u0003>a0�H�\"�� ��А\f\tgn��\u000f휳?5��d\u0015\u0013��\"�F��S�\u0014�Tق����o����h?�� �n������?�y��?�?���;���������\u0003���'�_�o�/ۯy?ڿ�z������_��v��_�?��������\u000f�\u0007���?�?�\u0016����\u0003���3�Ǵ����_�>\u0012������ �������\u0001���\u0003��]�V?�]���5�\u0007��0�L}#��ʿ^�����;�����K�K�?�w���!�#�_���=@�\u001f�O�G�\u001f�/���`\u0003�������"
+          },
+          {
+            "url": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/lorestan-falak-ol-aflak-1600x700.webp",
+            "status": 200,
+            "ms": 1412,
+            "location": "",
+            "cache": "",
+            "content_type": "image/webp",
+            "bytes": 365060,
+            "head": "RIFF��\u0005\u0000WEBPVP8 �\u0005\u0000��\u000b�\u0001*@\u0006�\u0002>E\u001c�C���\u0019]��(\u0004D����\\��?������_f���^��P���]�7�y�����P6���j��uCDl���\u0001�%���G\\4�\u0001�\u001b�#��h�W���\u001e �k�_���\u0007��/�>�����x\rt��\u001f��\u0000\u001fϿ�����?�Ϩ\u001fտ����C�;�O��`/�OM����y����g�Ζm��e�{���\u001d��z����_����=�������������������?\r�p?i=ؿ9�\u0004b�(�����_�+�������oݟ���\u001f�n���i�|��\u000fѿ����o"
+          }
+        ]
+      },
+      "error": "post-change probe failed: https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-khorramabad.webp status 200; https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp status 200; https://sarzaminaryan.ir/wp-content/uploads/2026/09/lorestan-falak-ol-aflak-1600x700.webp status 200"
+    }
+  ],
+  "finished_utc": "2026-11-23T12:34:28+00:00"
+}
