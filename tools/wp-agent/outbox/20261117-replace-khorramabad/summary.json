@@ -1,0 +1,19 @@
+[
+ {
+  "id": 514,
+  "slug": "khorramabad",
+  "words_after": 1566,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
