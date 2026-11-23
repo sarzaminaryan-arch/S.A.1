@@ -1,0 +1,151 @@
+{
+  "note": "انتشار تجمیعی بازسازی کامل دوازده استان کشور (خراسان جنوبی، بوشهر، خوزستان، سمنان، اصفهان، چهارمحال و بختیاری، قزوین، خراسان شمالی، اردبیل، سیستان و بلوچستان، آذربایجان غربی و گلستان) با الگوی ده بخشی همسان، تراز جمعیتی شهرستان‌ها و هفت منبع علمی یکتا.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "update",
+      "id": 47,
+      "content_file": "tools/wp-agent/outbox/20261123-province-south-khorasan-47/south-khorasan-47.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-south-khorasan-47/south-khorasan-47.meta.json",
+      "excerpt": "استان خراسان جنوبی سومین استان پهناور ایران در شرق کشور با مرکزیت بیرجند است؛ راهنمای ۱۲ شهرستان، باغ اکبریه، قنات بلده فردوس، ژئوپارک طبس، لوت، ماخونیک و برنامهٔ سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان خراسان جنوبی بر پایهٔ الگوی ده بخشی استاندارد، رفع خطاهای متنی و عددی، پیوند به جاذبه‌های زنده و پوشش دوازده شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 41,
+      "content_file": "tools/wp-agent/outbox/20261123-province-bushehr-41/bushehr-41.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-bushehr-41/bushehr-41.meta.json",
+      "excerpt": "استان بوشهر در کرانهٔ شمالی خلیج فارس با مرکزیت بندر بوشهر قرار دارد؛ راهنمای ۱۰ شهرستان، کاروانسرای جهانی مشیرالملک، بندر باستانی سیراف، گنبد نمکی جاشک، غذاهای دریایی و برنامهٔ سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان بوشهر بر پایهٔ الگوی ده بخشی استاندارد، پوشش ده شهرستان با محافظت پیوند، پنج پرسش پرتکرار و هفت منبع علمی یکتا"
+    },
+    {
+      "cmd": "update",
+      "id": 257,
+      "content_file": "tools/wp-agent/outbox/20261123-province-khuzestan-257/khuzestan-257.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-khuzestan-257/khuzestan-257.meta.json",
+      "excerpt": "استان خوزستان در جنوب‌غرب ایران با مرکزیت اهواز قرار دارد؛ راهنمای ۳۰ شهرستان، سه اثر جهانی چغازنبیل، شوش و سازه‌های آبی شوشتر، آبشار شوی، کارون، تالاب شادگان و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان خوزستان بر پایهٔ الگوی ده بخشی استاندارد، پیوند به جاذبه‌های زنده و پوشش کامل سی شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 259,
+      "content_file": "tools/wp-agent/outbox/20261123-province-semnan-259/semnan-259.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-semnan-259/semnan-259.meta.json",
+      "excerpt": "استان سمنان در میانهٔ مسیر تهران تا خراسان میان البرز و دشت کویر جای دارد؛ راهنمای ۸ شهرستان، جنگل ابر، شش کاروانسرای جهانی، ریگ جن، پستهٔ دامغان و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان سمنان بر پایهٔ الگوی ده بخشی همسان، پیوند به کویر ریگ جن و پوشش ۸ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 35,
+      "content_file": "tools/wp-agent/outbox/20261123-province-isfahan-35/isfahan-35.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-isfahan-35/isfahan-35.meta.json",
+      "excerpt": "استان اصفهان در مرکز فلات ایران جای دارد؛ راهنمای ۲۹ شهرستان، میدان نقش جهان، باغ فین کاشان، سی‌وسه‌پل، پل خواجو، کلیسای وانک، صنایع دستی و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان اصفهان بر پایهٔ الگوی ده بخشی همسان، پیوند به ۵ جاذبهٔ زنده و پوشش کامل ۲۹ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 45,
+      "content_file": "tools/wp-agent/outbox/20261123-province-chaharmahal-bakhtiari-45/chaharmahal-bakhtiari-45.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-chaharmahal-bakhtiari-45/chaharmahal-bakhtiari-45.meta.json",
+      "excerpt": "استان چهارمحال و بختیاری با مرکزیت شهرکرد در زاگرس مرکزی جای دارد؛ راهنمای ۱۲ شهرستان، دشت لاله‌های واژگون کوهرنگ، روستای سرآقا سید، تنگ صیاد، پل زمان‌خان و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان چهارمحال و بختیاری بر پایهٔ الگوی ده بخشی همسان، پیوند به ۳ جاذبهٔ زنده و پوشش کامل ۱۲ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 265,
+      "content_file": "tools/wp-agent/outbox/20261123-province-qazvin-265/qazvin-265.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-qazvin-265/qazvin-265.meta.json",
+      "excerpt": "استان قزوین، پایتخت خوشنویسی ایران و دومین پایتخت صفوی؛ راهنمای ۶ شهرستان، قلعهٔ جهانی الموت، کاروانسرای سعدالسلطنه، دریاچهٔ اوان و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان قزوین بر پایهٔ الگوی ده بخشی همسان، پوشش ۶ شهرستان و اصلاح شمار استان‌های هم‌مرز"
+    },
+    {
+      "cmd": "update",
+      "id": 52,
+      "content_file": "tools/wp-agent/outbox/20261123-province-north-khorasan-52/north-khorasan-52.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-north-khorasan-52/north-khorasan-52.meta.json",
+      "excerpt": "استان خراسان شمالی با مرکزیت بجنورد در شمال‌شرق ایران؛ راهنمای ۱۰ شهرستان، عمارت مفخم، شهر تاریخی بلقیس، موسیقی بخشی‌ها، جنگل درکش و بهترین زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان خراسان شمالی بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۱۰ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 33,
+      "content_file": "tools/wp-agent/outbox/20261123-province-ardabil-33/ardabil-33.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-ardabil-33/ardabil-33.meta.json",
+      "excerpt": "استان اردبیل با مرکزیت اردبیل در دامنه‌های سبلان؛ راهنمای ۱۲ شهرستان، بقعهٔ جهانی شیخ صفی‌الدین، آبگرم‌های سرعین، دریاچهٔ نئور، حیران و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان اردبیل بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۱۲ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 261,
+      "content_file": "tools/wp-agent/outbox/20261123-province-sistan-baluchestan-261/sistan-baluchestan-261.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-sistan-baluchestan-261/sistan-baluchestan-261.meta.json",
+      "excerpt": "استان سیستان و بلوچستان با مرکزیت زاهدان در جنوب‌شرق ایران؛ راهنمای ۲۶ شهرستان، چابهار، شهر سوختهٔ جهانی، تالاب لیپار، تفتان، سوزن‌دوزی و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان سیستان و بلوچستان بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۲۶ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 31,
+      "content_file": "tools/wp-agent/outbox/20261123-province-west-azerbaijan-31/west-azerbaijan-31.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-west-azerbaijan-31/west-azerbaijan-31.meta.json",
+      "excerpt": "استان آذربایجان غربی با مرکزیت ارومیه در شمال‌غرب ایران؛ راهنمای ۲۰ شهرستان، تخت سلیمان و قره‌کلیسا جهانی، دریاچهٔ ارومیه، غار سهولان، شلماش و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان آذربایجان غربی بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۲۰ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "update",
+      "id": 412,
+      "content_file": "tools/wp-agent/outbox/20261123-province-golestan-412/golestan-412.html",
+      "meta_file": "tools/wp-agent/outbox/20261123-province-golestan-412/golestan-412.meta.json",
+      "excerpt": "استان گلستان با مرکزیت گرگان در شمال‌شرق ایران؛ راهنمای ۱۴ شهرستان، برج جهانی گنبد قابوس، پارک ملی گلستان، آبشار کبودوال، آشوراده و زمان سفر.",
+      "owner_approved_live_edit": true,
+      "reason": "بازسازی کامل استان گلستان بر پایهٔ الگوی ده بخشی همسان و پوشش کامل ۱۴ شهرستان با محافظت پیوند"
+    },
+    {
+      "cmd": "cache-purge",
+      "id": [
+        47,
+        41,
+        257,
+        259,
+        35,
+        45,
+        265,
+        52,
+        33,
+        261,
+        31,
+        412
+      ]
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/province/south-khorasan/?sa_probe=23",
+        "/province/bushehr/?sa_probe=23",
+        "/province/khuzestan/?sa_probe=23",
+        "/province/semnan/?sa_probe=23",
+        "/province/isfahan/?sa_probe=23",
+        "/province/chaharmahal-bakhtiari/?sa_probe=23",
+        "/province/qazvin/?sa_probe=23",
+        "/province/north-khorasan/?sa_probe=23",
+        "/province/ardabil/?sa_probe=23",
+        "/province/sistan-baluchestan/?sa_probe=23",
+        "/province/west-azerbaijan/?sa_probe=23",
+        "/province/golestan/?sa_probe=23"
+      ]
+    }
+  ]
+}
