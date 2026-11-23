@@ -1,0 +1,34 @@
+{
+  "note": "انتشار بازنویسی کامل دو صفحهٔ شهرستان اهواز (۲۷۱) و خرم‌آباد (۵۱۴) از خروجی‌های تأییدشدهٔ replace — دستور صریح مالک (۲ آذر ۱۴۰۵): «الان کاری نکن تا اهواز و خرم آباد رو منتشر کنی».",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "update",
+      "id": 271,
+      "excerpt": "راهنمای شهرستان اهواز: جغرافیا و همسایه‌ها، تاریخ ساسانی تا امروز، اقتصاد نفت و فولاد، وضعیت واقعی مترو، فرودگاه و راه‌آهن، آب‌گرفتگی پاییز، اقامت و غذا.",
+      "owner_approved_live_edit": true,
+      "reason": "دستور صریح و مکتوب مالک در همین نشست (۲ آذر ۱۴۰۵): «الان کاری نکن تا اهواز و خرم آباد رو منتشر کنی» — انتشار بازنویسی کامل شهرستان اهواز از outbox/20261117-replace-ahvaz با گیت‌های سبز fa_lint و check_template (۲۱۱۵ واژه)",
+      "content_file": "tools/wp-agent/outbox/20261117-replace-ahvaz/ahvaz-271.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-ahvaz/ahvaz-271.meta.json"
+    },
+    {
+      "cmd": "update",
+      "id": 514,
+      "excerpt": "راهنمای شهرستان خرم‌آباد در مرکز لرستان: موقعیت، تاریخ شاپورخواست و قلعهٔ فلک‌الافلاک، دریاچهٔ کیو، غارهای پیش از تاریخ ثبت‌جهانی، اقتصاد، اقامت و خوراک محلی.",
+      "owner_approved_live_edit": true,
+      "reason": "دستور صریح و مکتوب مالک در همین نشست (۲ آذر ۱۴۰۵): «الان کاری نکن تا اهواز و خرم آباد رو منتشر کنی» — انتشار بازنویسی کامل شهرستان خرم‌آباد از outbox/20261117-replace-khorramabad با گیت‌های سبز fa_lint و check_template (۱۵۶۶ واژه)",
+      "content_file": "tools/wp-agent/outbox/20261117-replace-khorramabad/khorramabad-514.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-khorramabad/khorramabad-514.meta.json"
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/ahvaz/",
+        "/city/khorramabad/"
+      ]
+    }
+  ]
+}
