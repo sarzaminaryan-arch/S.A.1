@@ -1,0 +1,14 @@
+{
+  "job": "tools/wp-agent/jobs/20261123-07-publish-ahvaz-khorramabad.json",
+  "started_utc": "2026-11-23T11:50:35+00:00",
+  "note": "انتشار بازنویسی کامل دو صفحهٔ شهرستان اهواز (۲۷۱) و خرم‌آباد (۵۱۴) از خروجی‌های تأییدشدهٔ replace — دستور صریح مالک (۲ آذر ۱۴۰۵): «الان کاری نکن تا اهواز و خرم آباد رو منتشر کنی».",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "error": "network error on GET /ping: timed out"
+    }
+  ],
+  "finished_utc": "2026-11-23T11:52:06+00:00"
+}
