@@ -1,0 +1,24 @@
+{
+  "note": "انتشار بازنویسی v3 شهرستان دشت آزادگان (۲۸۳) از خروجی تأییدشدهٔ replace — دستور صریح مالک (۳ آذر ۱۴۰۵): «خودت مرج کن، من مقاله رو دادم، تو هم بازبینی و مستند چک کردی، بعدش دیگه منتشرش کن».",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "update",
+      "id": 283,
+      "excerpt": "راهنمای سفر به شهرستان دشت آزادگان در خوزستان: تپه‌های الله‌اکبر و هورالعظیم، مسیر جاده‌ای از اهواز، اقامت، بهترین فصل سفر و سوغات محلی.",
+      "owner_approved_live_edit": true,
+      "reason": "دستور صریح و مکتوب مالک (۳ آذر ۱۴۰۵): «خودت مرج کن، من مقاله رو دادم، تو هم بازبینی و مستند چک کردی، بعدش دیگه منتشرش کن» — انتشار بازنویسی v3 شهرستان دشت آزادگان از outbox/20261117-replace-dasht-azadegan با گیت‌های سبز fa_lint و check_template (۱٬۶۳۸ واژه، ۸ بخش) و اصلاح ۵ خطای واقعیِ دوسیهٔ ورودی (سند: briefs/dasht-azadegan-evidence.md)",
+      "content_file": "tools/wp-agent/outbox/20261117-replace-dasht-azadegan/dasht-azadegan-283.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-dasht-azadegan/dasht-azadegan-283.meta.json"
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/dasht-azadegan/"
+      ]
+    }
+  ]
+}
