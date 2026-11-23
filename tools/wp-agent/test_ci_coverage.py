@@ -10,7 +10,10 @@ class CICoverageTests(unittest.TestCase):
     def test_build_gates_run_safety_regressions(self):
         workflow = (ROOT / '.github/workflows/build-gates.yml').read_text()
         for test in ('test_job_state_recovery.py', 'test_job_exception_recovery.py',
-                     'test_workflow_safety.py', 'test_build_gate.py'):
+                     'test_workflow_safety.py', 'test_build_gate.py',
+                     # ۲ آذر ۱۴۰۵: پروتکل اجرای شهرستان («یکسان برای همه») باید در CI باشد،
+                     # وگرنه قاعده‌ای است که فقط در سند مانده است.
+                     'test_county_run.py'):
             self.assertIn(f'python3 tools/wp-agent/{test}', workflow)
 
 

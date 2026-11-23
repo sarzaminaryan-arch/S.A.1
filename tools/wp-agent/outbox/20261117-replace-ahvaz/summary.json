@@ -1,0 +1,19 @@
+[
+ {
+  "id": 271,
+  "slug": "ahvaz",
+  "words_after": 2115,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
