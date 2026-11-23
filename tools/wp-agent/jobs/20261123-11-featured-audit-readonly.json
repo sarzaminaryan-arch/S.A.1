@@ -1,0 +1,25 @@
+{
+  "note": "ممیزی فقط‌خواندنیِ وضعیت نمایش تصاویر شاخص پس از روشن‌شدن کلیدها (کار 20261123-09) — برای اثبات اینکه هیروهای شهرستان/استان و تصویر دیدنی‌ها واقعاً رندر می‌شوند (ابزار دریافت من <figure> را در Markdown نشان نمی‌دهد). هیچ نوشتنی.",
+  "rollback_on_fail": false,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "featured-audit",
+      "type": "city"
+    },
+    {
+      "cmd": "featured-audit",
+      "type": "province"
+    },
+    {
+      "cmd": "featured-audit",
+      "type": "attraction"
+    },
+    {
+      "cmd": "featured-audit",
+      "type": "post"
+    }
+  ]
+}
