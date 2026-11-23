@@ -1,0 +1,19 @@
+[
+ {
+  "id": 269,
+  "slug": "abadan",
+  "words_after": 1562,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

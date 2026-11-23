@@ -1,0 +1,19 @@
+[
+ {
+  "id": 270,
+  "slug": "aghajari",
+  "words_after": 1514,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

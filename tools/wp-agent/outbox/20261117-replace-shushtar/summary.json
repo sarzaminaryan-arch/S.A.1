@@ -2,14 +2,16 @@
  {
   "id": 288,
   "slug": "shushtar",
-  "words_after": 1917,
+  "words_after": 1558,
   "sections": [
    "intro",
    "map",
    "history",
    "people",
    "economy",
-   "stay"
+   "stay",
+   "modern",
+   "food"
   ],
   "ok": true,
   "fa_lint": []

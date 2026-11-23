@@ -1,0 +1,19 @@
+[
+ {
+  "id": 285,
+  "slug": "ramhormoz",
+  "words_after": 1539,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

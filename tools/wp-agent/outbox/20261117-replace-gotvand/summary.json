@@ -1,0 +1,19 @@
+[
+ {
+  "id": 290,
+  "slug": "gotvand",
+  "words_after": 1500,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

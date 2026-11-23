@@ -1,0 +1,23 @@
+{
+  "note": "متوقف تا بازبینی کامل منابع و کیفیت؛ کار را در وضعیت فعلی اجرا نکنید. مجوز مالک مشروط به بازبینی تک‌به‌تک و پشتیبان است.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "update",
+      "id": 288,
+      "excerpt": "راهنمای کامل سفر به شهرستان شوشتر در خوزستان: سازه‌های آبی یونسکو، بند میزان، تنگ عقیلی، وضعیت جاده و اقامت، بهترین فصل سفر و سوغات.",
+      "reason": "پیش‌نویس متوقف؛ پس از بازبینی مستند هر شهرستان باید این کار از نو ارزیابی و مستند شود.",
+      "content_file": "tools/wp-agent/outbox/20261117-replace-shushtar/shushtar-288.html",
+      "meta_file": "tools/wp-agent/outbox/20261117-replace-shushtar/shushtar-288.meta.json"
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/shushtar/"
+      ]
+    }
+  ]
+}

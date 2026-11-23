@@ -1,0 +1,19 @@
+[
+ {
+  "id": 284,
+  "slug": "ramshir",
+  "words_after": 1506,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
