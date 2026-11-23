@@ -1,0 +1,155 @@
+{
+  "job": "tools/wp-agent/jobs/20261122-21-province-kurdistan-rebuild.json",
+  "started_utc": "2026-11-23T01:07:52+00:00",
+  "note": "بازسازی کامل صفحهٔ استان کردستان (شناسهٔ ۳۹۳) با الگوی ۱۰ بخشی لرستان، همدان و زنجان: جایگزینی تیترها و جدول‌های پراکنده و پاورقی‌های شکسته با ۱۰ بخش استاندارد، نثر سه‌بندی ۱۰ شهرستان با sa-autolink-off، محافظت از نام استان‌های هم‌مرز، ۵ آکاردئون پرسش پرتکرار و ۷ منبع مستقیم راستی‌آزمایی‌شده.",
+  "ok": true,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.16",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-23T01:07:53+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "update",
+      "result": {
+        "id": 393,
+        "backup_id": 5387,
+        "status": "publish",
+        "modified_gmt": "2026-11-23 01:07:56",
+        "changed": {
+          "fields": [
+            "post_content",
+            "post_excerpt"
+          ],
+          "meta": [
+            "sa_seo_title",
+            "sa_seo_description",
+            "sa_og_title",
+            "sa_og_description",
+            "sa_focus_keyword",
+            "sa_faq",
+            "sa_sources"
+          ],
+          "terms": []
+        }
+      }
+    },
+    {
+      "n": 3,
+      "cmd": "cache-purge",
+      "result": {
+        "purged": "posts",
+        "ids": [
+          393
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "cmd": "probe",
+      "result": {
+        "probes": [
+          {
+            "url": "https://sarzaminaryan.ir/province/kurdistan/?sa_probe=20",
+            "status": 200,
+            "ms": 1531,
+            "location": "",
+            "cache": "miss",
+            "content_type": "text/html; charset=UTF-8",
+            "title": "استان کردستان؛ راهنمای جامع ۱۰ شهرستان، جاذبه‌ها و پیشینه",
+            "robots": "max-image-preview:large, index, follow, max-snippet:-1, max-video-preview:-1",
+            "canonical": "https://sarzaminaryan.ir/province/kurdistan/",
+            "desc": "راهنمای کامل استان کردستان؛ معرفی ۱۰ شهرستان، منظر جهانی هورامان، دریاچهٔ زریوار، غار کرفتو، شهر خلاق موسیقی سنندج، کلاش مریوان و زمان سفر.",
+            "h1": 1,
+            "og": {
+              "og:locale": "fa_IR",
+              "og:type": "place",
+              "og:site_name": "سرزمین آریان",
+              "og:title": "استان کردستان؛ دیار منظر جهانی هورامان و ده شهرستان زاگرس",
+              "og:description": "معرفی کامل استان کردستان در غرب ایران: از ۱۰ شهرستان و دریاچهٔ زریوار تا هورامان، غار کرفتو، بازار سنندج، شهر جهانی کلاش و برنامهٔ سفر.",
+              "og:url": "https://sarzaminaryan.ir/province/kurdistan/",
+              "og:image": "https://sarzaminaryan.ir/wp-content/uploads/2026/09/kurdistan-khosro-abad-1600x700.webp",
+              "og:image:width": "1600",
+              "og:image:height": "700",
+              "og:image:alt": "استان کردستان؛ دیار منظر جهانی هورامان و ده شهرستان زاگرس",
+              "twitter:card": "summary_large_image",
+              "twitter:title": "استان کردستان؛ دیار منظر جهانی هورامان و ده شهرستان زاگرس"
+            },
+            "county_cover_figures": 0,
+            "county_cover_images": 0,
+            "county_cover_image_srcs": [],
+            "photo_spotlight": 0,
+            "photo_spotlight_credits": 0,
+            "photo_strip_tiles": 0,
+            "photo_strip_credits": 0,
+            "county_gallery": 0,
+            "county_gallery_slides": 0,
+            "county_zoom_frames": 0,
+            "county_accordions": 1,
+            "county_accordions_open": 0,
+            "county_accordion_summaries": 1,
+            "photo_credit_texts": [],
+            "experience_block": 0,
+            "experience_facts": 0,
+            "experience_seasons": 0,
+            "experience_places": 0,
+            "experience_tips": 0,
+            "identity_cells": 0,
+            "identity_fold_buttons": 0,
+            "traveller_h3": 0,
+            "traveller_h4": 0,
+            "traveller_numbered": 0,
+            "jsonld": [
+              "AdministrativeArea",
+              "Answer",
+              "BreadcrumbList",
+              "Country",
+              "FAQPage",
+              "GeoCoordinates",
+              "ImageObject",
+              "ListItem",
+              "Organization",
+              "Question",
+              "TouristDestination",
+              "WebSite"
+            ],
+            "jsonld_images": [
+              "https://sarzaminaryan.ir/wp-content/uploads/2026/09/kurdistan-khosro-abad-1600x700.webp"
+            ],
+            "map_iframes": 0,
+            "map_frame_buttons": 0,
+            "map_coords": false,
+            "og_image_fetch": {
+              "status": 200,
+              "type": "image/webp",
+              "bytes": 330276,
+              "width": 0,
+              "height": 0
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "finished_utc": "2026-11-23T01:08:01+00:00"
+}
