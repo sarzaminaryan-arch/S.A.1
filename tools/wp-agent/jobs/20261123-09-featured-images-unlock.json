@@ -1,0 +1,45 @@
+{
+  "note": "آزادسازی نمایش تصاویر شاخص — دستور مالک (۲ آذر ۱۴۰۵): «عکس‌های شاخص را در سایت آزاد کن، بغیر از صفحهٔ استان‌ها و صفحهٔ اصلی شهرستان‌ها» + تأیید همان نشست: نمایش همه‌جا به‌جز دو فهرست /province/ و /city/ (که با کارتنقش فعلی قالب خودکار است: کارت‌های فهرست استان/شهرستان/دیدنی هرگز تصویر نمی‌گیرند)؛ تصویر شاخص دیدنی‌ها داخل مقالهٔ خودشان هم آزاد شود. گذار کلیدها پیش از اجرا به اطلاع مالک رسید: sa_show_featured_images ← روشن، sa_show_attraction_image ← روشن، sa_show_province_image و sa_show_county_image ← روشن (تأیید مقدار فعلی با گام theme-mods خواندنی در همین کار).",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "theme-mods"
+    },
+    {
+      "cmd": "get",
+      "id": 514
+    },
+    {
+      "cmd": "get",
+      "id": 271
+    },
+    {
+      "cmd": "theme-mods",
+      "set": [
+        "sa_show_featured_images=true",
+        "sa_show_attraction_image=true",
+        "sa_show_province_image=true",
+        "sa_show_county_image=true"
+      ],
+      "reason": "دستور صریح مالک (۲ آذر ۱۴۰۵): «عکس‌های شاخص را در سایت آزاد کن، بغیر از صفحهٔ استان‌ها و صفحهٔ اصلی شهرستان‌ها» + تأیید مالک در همان نشست: نمایش همه‌جا به‌جز دو فهرست /province/ و /city/؛ تصویر شاخص دیدنی‌ها داخل مقالهٔ خودشان نیز آزاد شود. گذار کلیدها (sa_show_featured_images، sa_show_attraction_image، sa_show_province_image، sa_show_county_image ← روشن) پیش از اعمال به اطلاع مالک رسیده است."
+    },
+    {
+      "cmd": "cache-purge",
+      "all": true
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/",
+        "/province/",
+        "/city/",
+        "/city/khorramabad/",
+        "/province/lorestan/",
+        "/attraction/nozhian-waterfall-khorramabad/"
+      ]
+    }
+  ]
+}
