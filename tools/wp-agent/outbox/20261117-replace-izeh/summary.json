@@ -1,0 +1,19 @@
+[
+ {
+  "id": 275,
+  "slug": "izeh",
+  "words_after": 1531,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

@@ -1,0 +1,19 @@
+[
+ {
+  "id": 276,
+  "slug": "bagh-e-malek",
+  "words_after": 1585,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

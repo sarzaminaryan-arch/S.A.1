@@ -1,0 +1,19 @@
+[
+ {
+  "id": 289,
+  "slug": "karun",
+  "words_after": 1509,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

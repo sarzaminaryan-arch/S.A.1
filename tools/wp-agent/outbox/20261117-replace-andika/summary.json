@@ -1,0 +1,19 @@
+[
+ {
+  "id": 273,
+  "slug": "andika",
+  "words_after": 1506,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

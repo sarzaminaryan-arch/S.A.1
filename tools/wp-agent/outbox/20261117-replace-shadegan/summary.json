@@ -1,0 +1,19 @@
+[
+ {
+  "id": 286,
+  "slug": "shadegan",
+  "words_after": 1563,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

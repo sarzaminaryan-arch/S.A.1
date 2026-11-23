@@ -1,0 +1,19 @@
+[
+ {
+  "id": 279,
+  "slug": "behbahan",
+  "words_after": 1507,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

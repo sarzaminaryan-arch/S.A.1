@@ -1,0 +1,19 @@
+[
+ {
+  "id": 274,
+  "slug": "andimeshk",
+  "words_after": 1537,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

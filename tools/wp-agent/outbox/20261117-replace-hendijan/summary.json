@@ -1,0 +1,19 @@
+[
+ {
+  "id": 294,
+  "slug": "hendijan",
+  "words_after": 1504,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
