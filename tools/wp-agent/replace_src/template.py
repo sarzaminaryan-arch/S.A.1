@@ -174,6 +174,38 @@ def render_notables(page: Page, title: str, paragraphs) -> None:
         page.p(text, *urls)
 
 
+def render_modern(page: Page, title: str, blocks) -> None:
+    """امروزِ شهرستان — the Information-Gain section of the v3 body.
+
+    `blocks` is a list of ("heading", [paragraphs]) pairs: A. زیرساخت،
+    B. توسعهٔ شهری، C. اقتصاد و زندگی عمومی، D. نقد و کمبودها. A block with no
+    verified paragraph is not passed in — no empty heading is ever written.
+    """
+    page.h2(title)
+    for head, paragraphs in blocks:
+        if not paragraphs:
+            continue                      # never an empty heading over nothing
+        if head:
+            page.h3(head)
+        for item in paragraphs:
+            text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
+            page.p(text, *urls)
+
+
+def render_food(page: Page, title: str, paragraphs, list_items=None) -> None:
+    """خوراک و سوغات: prose paragraphs plus an optional bulleted list.
+
+    Restaurant names, prices, hours and ratings are written only when verified;
+    a county with nothing verified carries no food section at all (optional).
+    """
+    page.h2(title)
+    for item in paragraphs:
+        text, urls = (item, ()) if isinstance(item, str) else (item[0], item[1:])
+        page.p(text, *urls)
+    if list_items:
+        page.ul(list_items)
+
+
 def render_tips(page: Page, title: str, items) -> None:
     """items: list of short practical lines (no «باید»)."""
     page.h2(title)
@@ -192,21 +224,42 @@ SECTIONS = (
      "render": render_card, "removed": True},
     # v2.22.87 (تحلیل مالک): تیتر «کجاست» پرجستجوی سئو؛ نگارش «کیست‌اند» غلط بود.
     # مرزبندی: بدنه فقط جغرافیای روایی است — اسم همسایه‌ها در چیپ‌های شناسنامه می‌آید.
-    {"id": "map", "title": "شهرستان {name} کجاست؟ موقعیت روی نقشه و همسایه‌ها",
-     "pattern": r"کجاست|نقشه|موقعیت جغرافیایی|همسایه|لوکیشن", "render": render_map},
+    {"id": "map", "title": "شهرستان {name} کجاست؟ موقعیت، جغرافیا و همسایه‌ها",
+     "pattern": r"کجاست|نقشه|موقعیت جغرافیایی|همسایه|لوکیشن|جغرافیا", "render": render_map},
     {"id": "climate", "title": "آب‌وهوا و بهترین زمان سفر",
      "pattern": r"آب‌وهوا|آب و هوا|بهترین زمان سفر", "render": render_climate,
      "legacy": True},
-    {"id": "history", "title": "تاریخ و پیشینه", "pattern": r"تاریخ|پیشینه|تاریخچه|وجه تسمیه|نام‌شناسی",
+    {"id": "history", "title": "تاریخچه، پیشینه و میراث تاریخی {name}",
+     "pattern": r"تاریخ|پیشینه|تاریخچه|وجه تسمیه|نام‌شناسی|میراث",
      "render": render_history},
-    {"id": "people", "title": "مردم، زبان و هنرها", "pattern": r"مردم|زبان|فرهنگ|گویش",
+    {"id": "people", "title": "مردم، زبان، فرهنگ و هنرهای بومی",
+     "pattern": r"مردم|زبان|فرهنگ|گویش",
      "render": render_people},
-    {"id": "economy", "title": "اقتصاد و معیشت",
-     "pattern": r"اقتصاد|معیشت|کشاورزی|صنایع|صنعت|کارِ مردم|داده‌های اقتصادی", "render": render_economy},
+    {"id": "economy", "title": "اقتصاد، مشاغل و محصولات شاخص {name}",
+     "pattern": r"اقتصاد|معیشت|کشاورزی|صنایع|صنعت|کارِ مردم|داده‌های اقتصادی|مشاغل|محصولات",
+     "render": render_economy},
     {"id": "sights", "title": "جاهای دیدنی {name}", "pattern": r"جاهای دیدنی|جاذبه",
      "render": render_sights, "legacy": True},
-    {"id": "stay", "title": "راه رسیدن و جای ماندن",
-     "pattern": r"راه رسیدن|جای ماندن|چطور برسیم|راه و ارتباط", "render": render_stay},
+    # v3: «راهنمای سفر … مسیرها، اقامت و نکات ایمنی» — the searcher's words
+    # («چطور بروم»، «کجا بمانم»، «امن است؟») in one heading. The old pattern is
+    # kept so pre-v3 pages (راه رسیدن و جای ماندن) still classify correctly.
+    {"id": "stay", "title": "راهنمای سفر به {name}؛ مسیرها، اقامت و نکات ایمنی",
+     "pattern": r"راه رسیدن|جای ماندن|چطور برسیم|راه و ارتباط|راهنمای سفر|مسیرها|نکات ایمنی",
+     "render": render_stay},
+    # v3 (۲ آذر ۱۴۰۵): دو بخش تازه، و یکی بازنشسته.
+    #  • `modern` — «امروز؛ زیرساخت، تحولات و چهرهٔ معاصر»: تنها بخشی از پرامپت
+    #    مستر مالک که در قالب قبلی جایی نداشت (Information Gain: جاده و بای‌پس،
+    #    راه‌آهن و فرودگاه، پروژه‌های شهری و صنعتی، و نقد مستند کمبودها).
+    #  • `food` — «غذاها و سوغات»: خوراک و ره‌آورد، که نه در بدنه بود و نه بلوک
+    #    قالب؛ جایش در «نکته‌های عملی» بلوک تجربه هم نبود.
+    # دیدنی‌ها (attractions) عمداً بخش بدنه نمی‌گیرند: قالب خودش «جاهای دیدنی
+    # [شهرستان]» را از seed می‌کشد و افزودن بخش دوم، همان تکرار ممنوع است.
+    {"id": "modern", "title": "{name} امروز؛ زیرساخت، تحولات و چهرهٔ معاصر",
+     "pattern": r"امروز|تحولات|چهرهٔ معاصر|زیرساخت|سال‌های اخیر|توسعه",
+     "render": render_modern, "optional": True},
+    {"id": "food", "title": "غذاها و سوغات {name}",
+     "pattern": r"غذا|سوغات|خوراک|آشپزی|ره‌آورد",
+     "render": render_food, "optional": True},
     {"id": "notables", "title": "آنچه در {name} می‌بینید و تجربه می‌کنید",
      "pattern": r"چهره‌ها|نام‌آور|مشاهیر|می‌بینید و تجربه",
      "render": render_notables, "optional": True},
@@ -217,6 +270,31 @@ SECTIONS = (
 )
 
 REQUIRED_IDS = ("intro", "map", "history", "people", "economy", "stay")
+
+# Optional sections (۲ آذر ۱۴۰۵): a section the page may honestly lack. The
+# registry keeps them so `remove`/`replace` reaches them, the guard tolerates
+# their absence, and the builder never writes an empty heading. `notables` is
+# the pre-v3 catch-all (features + food + stay in one block); a page rebuilt
+# for v3 uses `modern` + `food` instead and keeps `notables` only when the
+# county has verified sights worth naming beyond the theme's own block.
+OPTIONAL_IDS = ("modern", "food", "notables")
+
+# v3 body budget (words, per section) — the owner prompt's own numbers, kept
+# here so the guard and the writers share one scale. A section below `min` is
+# reported; a section above `max` is a note, not a failure (verified content
+# always wins over a budget).
+WORD_BUDGET = {
+    "intro": (150, 220),
+    "map": (200, 320),
+    "history": (240, 380),
+    "people": (200, 320),
+    "economy": (200, 320),
+    "modern": (300, 450),
+    "food": (120, 260),
+    "stay": (260, 420),
+}
+TOTAL_MIN = 1500
+TOTAL_MAX = 2400
 
 # What a county file must carry before its page can be complete (owner
 # 2026-11-17): a map section without coordinates is an empty promise — the
@@ -290,6 +368,16 @@ class Template:
 
     def notables(self, paragraphs):
         self.section("notables", paragraphs)
+
+    # -- v3 sections (۲ آذر ۱۴۰۵) ------------------------------------------
+    # `modern` sits right after `stay` (the travelling half of the page: how you
+    # get there, what it is today, what you eat); `food` closes it before the
+    # optional pre-v3 `notables` block of pages not yet rebuilt.
+    def modern(self, blocks):
+        self.section("modern", blocks)
+
+    def food(self, paragraphs, list_items=None):
+        self.section("food", paragraphs, list_items)
 
     def tips(self, items):
         self.section("tips", items)

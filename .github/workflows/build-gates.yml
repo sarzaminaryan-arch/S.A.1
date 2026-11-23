@@ -58,6 +58,8 @@ jobs:
 
       - name: County template guard (order, retired sections, word floor)
         run: python3 tools/wp-agent/test_county_template.py
+      - name: County run protocol (one province, one county, three witnesses)
+        run: python3 tools/wp-agent/test_county_run.py
       - name: Reciprocal county link counts and rendered destination checks
         run: |
           php wp-content/themes/sarzaminaryan-child/tests/test-county-profile.php

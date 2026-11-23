@@ -59,7 +59,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 # The locked order comes from the single registry in template.py: adding,
 # dropping or renaming a section is one edit there and nowhere else.
-from template import order_patterns  # noqa: E402
+from template import (order_patterns, OPTIONAL_IDS, TOTAL_MAX,  # noqa: E402
+                      TOTAL_MIN, WORD_BUDGET, REQUIRED_IDS)
 from fa_lint import scan as fa_scan, scan_meta as fa_scan_meta  # noqa: E402
 from theme_sources import is_forbidden, is_wiki  # noqa: E402
 
@@ -69,7 +70,8 @@ REMOVED = ("card", "request")          # still in the registry, never on a new p
 LEGACY = ("climate", "sights")         # pre-2.22.86 body sections; order-checked when present
 RETIRED = ("tips",)                    # owner-retired body section (2026-11-16): new pages must not carry it
 REQUIRED = ("intro", "map", "history", "people", "economy", "stay")
-OPTIONAL = ("notables",)                 # supported, never demanded (empty notables must be reported, not faked)
+OPTIONAL = ("modern", "food", "notables")  # supported, never demanded (never an empty heading)
+V3 = ("modern", "food")                    # sections of the 2026-11-23 rewrite model
 ORDER = tuple((label, rx) for label, rx in ORDER if label not in REMOVED)
 REMOVED_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in REMOVED)
 LEGACY_PATTERNS = tuple((label, rx) for label, rx in order_patterns() if label in LEGACY)
@@ -162,6 +164,7 @@ def check_html(path: Path) -> list[str]:
     joined = "\n".join(h2)
     if words(html) < MIN_WORDS:
         problems.append(f"only {words(html)} words (< {MIN_WORDS})")
+    problems += check_budget(html)
     problems += check_markers(html)
     pos = -1
     for label, rx in ORDER:
@@ -216,6 +219,9 @@ def check_html(path: Path) -> list[str]:
                 "بررسی بیشتر", "بازبینی", "منبعی یافت"):
         if bad in html:
             problems.append(f"banned wording: {bad}")
+    # no-tables rule (owner order 2026-11-23): tables break the template on
+    # mobile and in RTL. Not one table, pipe row or simulated column layout.
+    problems += check_tables(html)
     if re.search(r"<td>https", html):
         problems.append("raw URL inside a table cell")
     # v2.22.87: the in-page map is INJECTED BY THE THEME (the_content, prio 20);
@@ -243,6 +249,73 @@ def check_html(path: Path) -> list[str]:
     return problems
 
 
+NO_TABLES = (
+    (re.compile(r"<table\b", re.I), "HTML <table>"),
+    (re.compile(r"<tr\b", re.I), "HTML <tr>"),
+    (re.compile(r"<td\b", re.I), "HTML <td>"),
+    (re.compile(r"<!--\s*wp:table", re.I), "Gutenberg table block"),
+)
+
+
+def check_tables(html: str) -> list[str]:
+    """The no-tables rule (owner order 2026-11-23, overrides every earlier rule).
+
+    A pipe character, a `<table>` (or `<tr>`/`<td>`), a Gutenberg table block or
+    a simulated column layout (`a | b | c` with aligned spacing) breaks the
+    WordPress template on mobile and in RTL. The province fact sheet, the
+    attraction list and every comparison are bullets, never tables.
+
+    Note on scope: the internal report (not published) keeps its tables; this
+    guard only reads the article body that is written to the site.
+    """
+    problems = []
+    for rx, label in NO_TABLES:
+        if rx.search(html):
+            problems.append(f"table in the article body ({label}); lists only")
+    body = strip(html)
+    if "|" in body:
+        line = next(l for l in body.splitlines() if "|" in l)
+        problems.append(f"pipe character in the article body — «{line.strip()[:40]}»")
+    # a "column layout" simulated with runs of two-plus spaces on a short line
+    for line in body.splitlines():
+        t = line.strip()
+        if t and len(t) < 120 and re.search(r"\S {3,}\S", t) and t.count("  ") >= 2:
+            problems.append(f"simulated column layout — «{t[:40]}»")
+            break
+    return problems
+
+
+def section_words(html: str, key: str) -> int:
+    return len(strip(section_slice(html, key)).split())
+
+
+def check_budget(html: str) -> list[str]:
+    """Per-section word budget — **v3 pages only** (owner prompt, 2026-11-23).
+
+    Scoped deliberately: the 52 pages rebuilt on the v2 template (six sections,
+    no `modern`) are published and conforming under their own model, and a
+    budget written for v3 must not retroactively fail them. A page counts as
+    v3 when it carries the `modern` section — the one section that only the v3
+    builder writes.
+
+    A section far under its floor means the page is a skeleton with a heading;
+    that is reported so the rewrite is finished, never padded with filler. Over
+    the ceiling is not an error — verified content always wins over a budget.
+    """
+    problems = []
+    if MARK_OPEN.format("modern") not in html:
+        return problems
+    for key, (low, _high) in WORD_BUDGET.items():
+        n = section_words(html, key)
+        if n and n < low * 0.5:
+            problems.append(f"section «{key}» is only {n} words (budget {low}–{_high})")
+    total = sum(section_words(html, k) for k in WORD_BUDGET)
+    if total and total < TOTAL_MIN * 0.6:
+        problems.append(f"body is {total} words; the v3 model expects about "
+                        f"{TOTAL_MIN}–{TOTAL_MAX} verified words")
+    return problems
+
+
 def check_markers(html: str) -> list[str]:
     """Section markers must be balanced and in registry order (unmarked pages
     are the older shape and are covered by the H2 order check alone)."""
@@ -263,11 +336,22 @@ COUNTIES_FILE = ROOT.parent.parent / "wp-content/themes/sarzaminaryan-child/data
 
 
 def county_slugs() -> set:
-    """Slugs the theme knows (data/counties.php). Empty when the file is missing."""
+    """Slugs the theme can resolve, including the legacy `-city` alias.
+
+    `sa_county_parse_neighbor()` looks a neighbour up by slug and, when that
+    fails, tries the `-city` (or de-suffixed) variant before giving up — nine
+    counties carry the suffixed form in `counties.php` while their live post
+    slug has no suffix (تهران، اهواز، اصفهان، …). A guard stricter than the
+    renderer would refuse correct data, so both forms are accepted here.
+    """
     if not COUNTIES_FILE.is_file():
         return set()
-    return set(re.findall(r"'slug'\s*=>\s*'([a-z0-9\-]+)'",
-                          COUNTIES_FILE.read_text(encoding="utf-8")))
+    slugs = set(re.findall(r"'slug'\s*=>\s*'([a-z0-9\-]+)'",
+                           COUNTIES_FILE.read_text(encoding="utf-8")))
+    aliases = set()
+    for slug in slugs:
+        aliases.add(slug[:-5] if slug.endswith("-city") else slug + "-city")
+    return slugs | aliases
 
 
 FAQ_BANNED = ("منبع معتبر", "فاقد منبع", "بدون منبع", "تأیید نمی‌شود", "تایید نمی‌شود",

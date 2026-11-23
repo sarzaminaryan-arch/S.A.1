@@ -65,6 +65,8 @@ SECTION_ARGS = {
     "people": ("people", "people_list"),
     "economy": ("economy", "economy_list"),
     "stay": ("stay", "stay_list"),
+    "modern": ("modern",),            # list of [heading, [paragraphs]] blocks
+    "food": ("food", "food_list"),
     "notables": ("notables",),
 }
 
@@ -130,8 +132,18 @@ def build(data: dict) -> tuple[str, dict, list[str]]:
     sources = data.get("sources") or {}
     t = Template(name, tagline=data["tagline"], page=Page(start=1))
 
-    for key in ("intro", "map", "history", "people", "economy", "stay", "notables"):
+    for key in ("intro", "map", "history", "people", "economy", "stay",
+                "modern", "food", "notables"):
         if key not in data:
+            continue
+        if key == "modern":
+            # blocks: [{"h": "زیرساخت", "p": ["…", {"p": "…", "sources": [...]}]}]
+            blocks = [(b.get("h", ""), [resolve(r, sources, f"{data['slug']}.modern")
+                                        for r in b.get("p") or []])
+                      for b in data["modern"] if b.get("p")]
+            if not blocks:
+                continue
+            t.section("modern", blocks)
             continue
         rows = [resolve(r, sources, f"{data['slug']}.{key}") for r in data[key]]
         args = [rows]
@@ -143,6 +155,8 @@ def build(data: dict) -> tuple[str, dict, list[str]]:
             args.append(data["economy_list"])
         elif key == "stay" and data.get("stay_list"):
             args.append(data["stay_list"])
+        elif key == "food" and data.get("food_list"):
+            args.append(data["food_list"])
         t.section(key, *args)
 
     t.finish()                       # registry: order, no legacy/retired, nothing missing
