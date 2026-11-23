@@ -1,0 +1,30 @@
+{
+  "note": "تعمیر تصویر شاخص شهرستان‌ها — دستور مالک (۲ آذر ۱۴۰۵): «الان نمایش داده شوند، استان‌ها و شهرستان‌ها». کار 20261123-09 کلیدها را روشن کرد و بررسی نشان داد شهرستان‌ها پیوست تصویر دارند اما نمایش داده نمی‌شوند (گمان قوی: فایل روی سرور نیست — حادثهٔ پاک‌شدن فایل‌های رسانه). ابزار county-covers دقیقاً همین را تعمیر می‌کند: جایی که featured_media_missing است، کارت سایبری را دوباره رندر/آپلود/پیوست می‌کند (force_replace=false = دست‌نخورده‌ها جایگزین نمی‌شوند). گام نخست، وضع HTTP فایل‌های تصویر را مستقیم گزارش می‌کند.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-khorramabad.webp",
+        "https://sarzaminaryan.ir/wp-content/uploads/2026/11/county-ahvaz.webp",
+        "https://sarzaminaryan.ir/wp-content/uploads/2026/09/lorestan-falak-ol-aflak-1600x700.webp"
+      ]
+    },
+    {
+      "cmd": "county-covers",
+      "owner_approved": true,
+      "force_replace": false
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/city/khorramabad/",
+        "/city/ahvaz/",
+        "/province/lorestan/"
+      ]
+    }
+  ]
+}

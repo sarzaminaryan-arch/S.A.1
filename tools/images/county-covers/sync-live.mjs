@@ -37,7 +37,14 @@ async function api(method, endpoint, body) {
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const ping = await api('GET', '/ping');
-if (ping.theme !== '2.22.90') throw new Error(`Live child-theme version is ${ping.theme}; expected 2.22.90 before county media rollout.`);
+// v2.22.90 was the original county-media rollout baseline. The gate is a minimum, not a pin:
+// later themes (verified 2.24.19 on 2026-11-23) still expose /media, /cache-purge and
+// featured_media_missing, so any child theme >= 2.22.90 may run this rollout.
+const themeParts = String(ping.theme || '').split('.').map((n) => Number(n) || 0);
+const baseline = [2, 22, 90];
+const themeRank = (themeParts[0] || 0) * 1e6 + (themeParts[1] || 0) * 1e3 + (themeParts[2] || 0);
+const baselineRank = baseline[0] * 1e6 + baseline[1] * 1e3 + baseline[2];
+if (themeRank < baselineRank) throw new Error(`Live child-theme version is ${ping.theme}; county media rollout needs >= 2.22.90.`);
 if (!ping.can_write || !ping.can_admin) throw new Error('The configured WordPress account must have edit_others_posts and manage_options capabilities for the guarded media/cache workflow.');
 
 const first = await api('GET', '/posts?type=city&status=publish&per_page=100&page=1');
