@@ -1,0 +1,36 @@
+{
+  "note": "انتشار و نصب نسخه ۲.۲۴.۱۹ قالب فرزند (تراز هم‌مرزی دوجانبهٔ ۳۱ استان در شناسنامه و داده‌های نقشه و افزودن آزمون رگرسیون تقارن همسایگی استان‌ها).",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "theme-update",
+      "expected_version": "2.24.19",
+      "version": "2.24.19",
+      "owner_approved_theme_update": true,
+      "allow_without_backup": true,
+      "wait_for_release": 300,
+      "probe": [
+        "/",
+        "/province/east-azerbaijan/",
+        "/province/tehran/",
+        "/province/fars/",
+        "/province/markazi/",
+        "/province/yazd/"
+      ],
+      "rollback_to": "2.24.18"
+    },
+    {
+      "cmd": "probe",
+      "url": [
+        "/province/tehran/?sa_probe=24",
+        "/province/fars/?sa_probe=24",
+        "/province/markazi/?sa_probe=24",
+        "/province/hormozgan/?sa_probe=24",
+        "/province/yazd/?sa_probe=24"
+      ]
+    }
+  ]
+}
