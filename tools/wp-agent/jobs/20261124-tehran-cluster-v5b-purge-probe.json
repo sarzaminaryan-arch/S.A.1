@@ -1,0 +1,49 @@
+{
+  "name": "20261124-tehran-cluster-v5b-purge-probe",
+  "description": "Retry of v5 (ping failed transiently before any step ran): purge LiteSpeed cache after hubs updates and probe changed pages.",
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "cache-purge",
+      "all": true
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/province/tehran/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/tehran/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/shemiranat/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/damavand/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/firuzkuh/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/varamin/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/shahriar/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/attraction/milad-tower/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/attraction/golestan-palace/"
+    }
+  ]
+}
