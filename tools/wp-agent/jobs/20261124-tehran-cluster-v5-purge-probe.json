@@ -1,0 +1,17 @@
+{
+  "name": "20261124-tehran-cluster-v5-purge-probe",
+  "description": "Province #1 Tehran cluster completion: purge LiteSpeed cache after the successful hubs updates (v4/hubs left it un-purged) and probe the changed pages. Read-only except the purge.",
+  "steps": [
+    { "cmd": "ping" },
+    { "cmd": "cache-purge", "all": true },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/province/tehran/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/city/tehran/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/city/shemiranat/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/city/damavand/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/city/firuzkuh/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/city/varamin/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/city/shahriar/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/attraction/milad-tower/" },
+    { "cmd": "probe", "url": "https://sarzaminaryan.ir/attraction/golestan-palace/" }
+  ]
+}
