@@ -8,8 +8,7 @@
 
 ## 🟢 قبل از شروع هر کاری
 
-- [ ] فایل‌های `CLAUDE.md`، `PROJECT_STATUS.md` و `ARCHITECTURE.md` به دقت خوانده شود.
-      *(هر سه در ریشهٔ مخزن‌اند؛ `docs/project/` هم ۱۳ سند اولیه دارد)*
+- [ ] فایل‌های **`.memory/wiki/hot.md`** و **`.memory/wiki/roadmap.md`** (آخرین وضعیت و نقشهٔ راه خوشه‌ای فعال) در اولویت اول و سپس `AGENTS.md` و `CLAUDE.md` خوانده شوند.
 - [ ] `git log --oneline -20` و `git branch -a` اجرا شود.
       *(آخرین کامیت‌ها: `551c0f8` افزودن PROJECT_STATUS.md، `8e188fa` بازنویسی CLAUDE.md، `2405272` پوشهٔ docs/project)*
 - [ ] وضعیت PRهای باز چک شود تا تداخل کاری پیش نیاید:
@@ -50,11 +49,10 @@
 
 ---
 
-## 🔴 پایان کار
+## 🔴 پایان کار (ثبت اجباری پیشرفت در حافظه)
 
-- [ ] فایل‌های `PROJECT_STATUS.md` و `CHANGELOG.md` با جزئیات آپدیت شوند.
-      *(CHANGELOG قالب فرزند: `wp-content/themes/sarzaminaryan-child/CHANGELOG.md` — ۲۵۹KB؛
-      در صورت تغییر نسخه، سه‌گانهٔ `style.css` / `SA_CHILD_VERSION` / `Stable tag` باید هم‌زمان به‌روزرسانی شوند)*
+- [ ] **ثبت اجباری حافظهٔ پایان نشست (دستور مالک، ۳ آذر ۱۴۰۵):** در پایان هر نشست کاری، حتماً فایل‌های `.memory/wiki/hot.md` (وضعیت جاری و قدم بعد)، `.memory/wiki/roadmap.md` (شمارندهٔ پیشرفت خوشه‌ها) و `.memory/wiki/log.md` (یک سطر گزارش مورخ پیشرفت انجام‌شده) به‌روز شوند. بستن نشست بدون ثبت پیشرفت ممنوع است.
+- [ ] در صورت تغییر قالب فرزند، `wp-content/themes/sarzaminaryan-child/CHANGELOG.md` و نسخهٔ هم‌زمان در `style.css` و `SA_CHILD_VERSION` به‌روزرسانی شوند.
 - [ ] فقط `git push` روی branch کاری انجام شود. **Merge کردن اکیداً ممنوع است.**
       *(شاخهٔ کاری این session: `arena/6b44d15d-s-a-1`؛ ادغام فقط توسط مالک و از راه Pull Request)*
 - [ ] خلاصه کار و کارهای باقی‌مانده در قالب گزارش به کاربر ارائه شود.

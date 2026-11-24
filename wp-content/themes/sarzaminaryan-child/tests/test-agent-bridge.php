@@ -140,6 +140,12 @@ function wp_untrash_post( $id ) {
 	$GLOBALS['t']['posts'][ $id ]->post_status = 'draft';
 	return $GLOBALS['t']['posts'][ $id ];
 }
+function wp_publish_post( $id ) {
+	if ( isset( $GLOBALS['t']['posts'][ $id ] ) ) {
+		$GLOBALS['t']['posts'][ $id ]->post_status       = 'publish';
+		$GLOBALS['t']['posts'][ $id ]->post_modified_gmt = sa_t_tick();
+	}
+}
 function wp_parse_url( $u, $c = -1 ) {
 	return parse_url( $u, $c ); // phpcs:ignore
 }
@@ -422,11 +428,17 @@ sa_t_assert( false === $reg['public'] && false === $reg['show_in_rest'] && false
 
 sa_t_assert( false === $reg['show_in_menu'] && true === $reg['show_ui'], 'backups stay accessible for recovery without a sidebar entry' );
 
-/* 10. The bridge never publishes or deletes; trash exists only inside the guarded duplicate-trash function. */
+/* 10. Direct post_status => publish or force_delete never appears; trash and draft-publish exist only inside their guarded functions. */
 $src = file_get_contents( dirname( __DIR__ ) . '/inc/agent-bridge.php' );
-foreach ( array( 'wp_publish_post', 'force_delete', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
+foreach ( array( 'force_delete', "'post_status'  => 'publish'", "'post_status' => 'publish'" ) as $needle ) {
 	sa_t_assert( false === strpos( $src, $needle ), "10: bridge source never contains $needle" );
 }
+// v2.24.20: انتشار پیش‌نویس فقط در sa_agent_publish_draft و با پرچم صریح مالک و پشتیبان پیشین مجاز است.
+sa_t_assert( 1 === substr_count( $src, 'wp_publish_post(' ), '10-p1: wp_publish_post is called exactly once' );
+$pub_start = strpos( $src, 'function sa_agent_publish_draft(' );
+$pub_end   = strpos( $src, "\n}\n", $pub_start );
+$pub_at    = strpos( $src, 'wp_publish_post(' );
+sa_t_assert( false !== $pub_start && $pub_at > $pub_start && $pub_at < $pub_end, '10-p2: …and only inside sa_agent_publish_draft' );
 // v2.22.120: حذف فقط برای رکورد پشتیبان کهنه، در یک تابع نگهبان با بررسی نوع.
 sa_t_assert( 1 === substr_count( $src, 'wp_delete_post(' ), '10-a: wp_delete_post is called exactly once (backup retention)' );
 $ret_start = strpos( $src, 'function sa_agent_delete_backup_record(' );
@@ -469,7 +481,33 @@ sa_t_assert( 'publish' === $tb2['data']['status'] && 'متن قدیمی' === $tb
 $e = sa_agent_trash_redirect_source( $dup, array( 'owner_approved_trash' => true, 'expected_modified_gmt' => $gmt( $dup ) ) );
 sa_t_assert( is_wp_error( $e ) && 'sa_agent_already_trashed' === $e->code, '11j: already trashed' );
 sa_agent_restore( $tr['backup_id'] );
-sa_t_assert( 'draft' === $t['posts'][ $dup ]->post_status && 'متن قدیمی' === $t['posts'][ $dup ]->post_content, '11k: restore brings it out of trash as a draft (the bridge never publishes)' );
+sa_t_assert( 'draft' === $t['posts'][ $dup ]->post_status && 'متن قدیمی' === $t['posts'][ $dup ]->post_content, '11k: restore brings it out of trash as a draft' );
+
+/* 11-p. Guarded cluster draft publish (v2.24.20): owner flag + fresh read + parent relation + clean text + backup first + reversible restore. */
+$draft_att = wp_insert_post( array( 'post_type' => 'attraction', 'post_status' => 'draft', 'post_name' => 'milad-tower', 'post_title' => 'برج میلاد تهران', 'post_content' => '<p>راهنمای کامل بازدید از برج میلاد تهران.</p>' ) );
+$e = sa_agent_publish_draft( $draft_att, array( 'expected_modified_gmt' => $gmt( $draft_att ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_need_owner' === $e->code, '11p-1: owner_approved_publish required' );
+$e = sa_agent_publish_draft( $draft_att, array( 'owner_approved_publish' => 'yes', 'expected_modified_gmt' => $gmt( $draft_att ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_need_owner' === $e->code, '11p-2: owner_approved_publish must be boolean true' );
+$e = sa_agent_publish_draft( $draft_att, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => '1999-01-01 00:00:00' ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_stale' === $e->code, '11p-3: stale read rejected' );
+$e = sa_agent_publish_draft( $norm, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => $gmt( $norm ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_not_draft' === $e->code, '11p-4: already-published post rejected' );
+$e = sa_agent_publish_draft( $draft_att, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => $gmt( $draft_att ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_missing_parent' === $e->code, '11p-5: orphan attraction without sa_city_id rejected' );
+update_post_meta( $draft_att, 'sa_city_id', 100 );
+$t['fail_insert_type'] = SA_AGENT_BACKUP_TYPE;
+$e = sa_agent_publish_draft( $draft_att, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => $gmt( $draft_att ) ) );
+sa_t_assert( is_wp_error( $e ) && 'draft' === $t['posts'][ $draft_att ]->post_status, '11p-6: no backup → no publish' );
+$t['fail_insert_type'] = '';
+$pub = sa_agent_publish_draft( $draft_att, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => $gmt( $draft_att ), 'reason' => 'انتشار خوشه تهران' ) );
+sa_t_assert( is_array( $pub ) && 'publish' === $pub['status'] && 'publish' === $t['posts'][ $draft_att ]->post_status, '11p-7: valid cluster draft promoted to publish' );
+$pub_restore = sa_agent_restore( $pub['backup_id'] );
+sa_t_assert( is_array( $pub_restore ) && 'draft' === $t['posts'][ $draft_att ]->post_status, '11p-8: restore reverts cluster-published post back to draft' );
+$banned_draft = wp_insert_post( array( 'post_type' => 'attraction', 'post_status' => 'draft', 'post_name' => 'bad-draft', 'post_title' => 'تست', 'post_content' => '<p>متن با عبارت هوش مصنوعی.</p>' ) );
+update_post_meta( $banned_draft, 'sa_city_id', 100 );
+$e = sa_agent_publish_draft( $banned_draft, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => $gmt( $banned_draft ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_banned_phrase' === $e->code && 'draft' === $t['posts'][ $banned_draft ]->post_status, '11p-9: draft with banned phrase is refused' );
 
 /* 12. LiteSpeed: read-only unless active; only crawler keys writable; backup first; restore. */
 $ls = sa_agent_litespeed_snapshot();

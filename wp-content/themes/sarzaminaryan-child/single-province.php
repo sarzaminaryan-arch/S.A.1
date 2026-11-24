@@ -158,6 +158,15 @@ while ( have_posts() ) :
 									<?php echo esc_html( sa_2026_num( round( $sa_population / 1000 ) * 1000 ) . ' نفر' ); ?>
 									<span class="text-xs font-normal text-muted"><?php echo esc_html( '(' . sa_2026_num( $sa_pop_year ) . ')' ); ?></span>
 								</dd>
+								<p class="sa-census-note text-[11px] text-muted mt-1 leading-relaxed">
+									<?php
+									echo esc_html(
+										function_exists( 'sa_2026_census_note' )
+											? sa_2026_census_note( (string) $sa_pop_year, true )
+											: 'مبنای جمعیت: سرشماری رسمی ۱۳۹۵ کشور (آخرین آمار رسمی منتشرشده).'
+									);
+									?>
+								</p>
 							</div>
 						<?php endif; ?>
 

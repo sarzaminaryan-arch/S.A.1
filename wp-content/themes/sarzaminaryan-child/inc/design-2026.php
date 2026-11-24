@@ -281,6 +281,136 @@ function sa_2026_census_label( $population, $year ) {
 }
 
 /**
+ * Subtle official-census clarification shown beneath 1395 population figures.
+ *
+ * Owner order (2026-11-24): always note quietly under/beside 1395 population
+ * statistics that 1395 is Iran's latest official census and no newer official
+ * census has been published.
+ *
+ * @param string $year    Census year (Persian or ASCII digits).
+ * @param bool   $rounded Whether the displayed figure is rounded to thousands.
+ * @return string
+ */
+function sa_2026_census_note( $year = '۱۳۹۵', $rounded = false ) {
+	$en_year = function_exists( 'sa_en_digits' ) ? trim( (string) sa_en_digits( (string) $year ) ) : trim( (string) $year );
+	$fa_year = function_exists( 'sa_digits' ) ? sa_digits( '' !== $en_year ? $en_year : '1395' ) : '۱۳۹۵';
+	$suffix  = $rounded ? ' · گردشده برای خوانایی' : '';
+
+	if ( '' === $en_year || '1395' === $en_year ) {
+		return 'مبنای جمعیت: سرشماری رسمی ۱۳۹۵ کشور — آخرین آمار رسمی منتشرشده (سرشماری رسمی جدیدتری منتشر نشده است)' . $suffix . '.';
+	}
+
+	return 'مبنای جمعیت: سرشماری رسمی ' . $fa_year . $suffix . '.';
+}
+
+/**
+ * Build a quiet, subtle grey photographer/license credit line for an attachment.
+ *
+ * @param int $attachment_id Attachment post ID.
+ * @return string HTML (<figcaption class="sa-license-credit">…</figcaption>) or empty string.
+ */
+function sa_2026_attachment_credit_caption( $attachment_id ) {
+	$attachment_id = absint( $attachment_id );
+	if ( ! $attachment_id ) {
+		return '';
+	}
+
+	if ( function_exists( 'sa_photo_credit' ) ) {
+		$credit = sa_photo_credit( $attachment_id );
+		if ( ! empty( $credit['author'] ) ) {
+			$author = (string) $credit['author'];
+			$label  = ! empty( $credit['license_label'] ) ? (string) $credit['license_label'] : '';
+			$href   = ! empty( $credit['license_url'] ) ? (string) $credit['license_url'] : ( ! empty( $credit['source'] ) ? (string) $credit['source'] : '' );
+			$rel    = ! empty( $credit['license_url'] ) ? 'license nofollow noopener' : 'nofollow noopener';
+			$text   = 'تصویر: ' . $author . ( '' !== $label ? ' · ' . $label : '' );
+			$inner  = '' !== $href
+				? '<a href="' . esc_url( $href ) . '" rel="' . esc_attr( $rel ) . '" target="_blank">' . esc_html( $text ) . '</a>'
+				: esc_html( $text );
+			return '<figcaption class="sa-license-credit">' . $inner . '</figcaption>';
+		}
+	}
+
+	if ( function_exists( 'wp_get_attachment_caption' ) ) {
+		$raw_caption = trim( wp_strip_all_tags( (string) wp_get_attachment_caption( $attachment_id ) ) );
+		if ( '' !== $raw_caption ) {
+			return '<figcaption class="sa-license-credit">' . esc_html( $raw_caption ) . '</figcaption>';
+		}
+	}
+
+	return '';
+}
+
+/**
+ * Resolve hero image data with explicit dimensions, descriptive alt, and subtle license credit.
+ *
+ * On county pages (`$allow_fallback = false`), never emits a stock or SVG placeholder:
+ * only a real raster/WebP photo is returned.
+ *
+ * @param int    $post_id        Entity post ID.
+ * @param bool   $allow_fallback Fall back to site landscape when no entity photo exists.
+ * @param string $default_alt    Fallback descriptive alt text.
+ * @return array{url:string,width:int,height:int,alt:string,credit_html:string}|null
+ */
+function sa_2026_hero_media( $post_id, $allow_fallback = false, $default_alt = '' ) {
+	$post_id = (int) $post_id;
+	$att_id  = function_exists( 'get_post_thumbnail_id' ) ? (int) get_post_thumbnail_id( $post_id ) : 0;
+
+	if ( ! $att_id && 'city' === get_post_type( $post_id ) && function_exists( 'sa_photo_county_ids' ) ) {
+		$lead_ids = sa_photo_county_ids( $post_id, 1 );
+		if ( ! empty( $lead_ids[0] ) ) {
+			$att_id = (int) $lead_ids[0];
+		}
+	}
+
+	if ( $att_id > 0 && function_exists( 'wp_get_attachment_image_src' ) ) {
+		$src = wp_get_attachment_image_src( $att_id, 'large' );
+		if ( ! is_array( $src ) || empty( $src[0] ) ) {
+			$src = wp_get_attachment_image_src( $att_id, 'full' );
+		}
+		if ( is_array( $src ) && ! empty( $src[0] ) && ! preg_match( '/^(?:data:|\.svg$)/i', (string) $src[0] ) && false === stripos( (string) $src[0], '.svg' ) ) {
+			$alt = trim( (string) get_post_meta( $att_id, '_wp_attachment_image_alt', true ) );
+			if ( '' === $alt ) {
+				$alt = '' !== $default_alt ? $default_alt : trim( wp_strip_all_tags( (string) get_the_title( $post_id ) ) );
+			}
+			return array(
+				'url'         => (string) $src[0],
+				'width'       => ! empty( $src[1] ) ? (int) $src[1] : 1200,
+				'height'      => ! empty( $src[2] ) ? (int) $src[2] : 750,
+				'alt'         => $alt,
+				'credit_html' => sa_2026_attachment_credit_caption( $att_id ),
+			);
+		}
+	}
+
+	if ( function_exists( 'sa_2026_content_image' ) ) {
+		$found = sa_2026_content_image( $post_id );
+		$f_url = isset( $found['url'] ) ? trim( (string) $found['url'] ) : '';
+		if ( '' !== $f_url && 0 !== stripos( $f_url, 'data:' ) && false === stripos( $f_url, '.svg' ) ) {
+			$f_alt = ! empty( $found['alt'] ) ? trim( (string) $found['alt'] ) : ( '' !== $default_alt ? $default_alt : trim( wp_strip_all_tags( (string) get_the_title( $post_id ) ) ) );
+			return array(
+				'url'         => $f_url,
+				'width'       => 1200,
+				'height'      => 750,
+				'alt'         => $f_alt,
+				'credit_html' => '',
+			);
+		}
+	}
+
+	if ( $allow_fallback ) {
+		return array(
+			'url'         => SA_CHILD_URI . 'assets/img/home-iran-landscape.jpg',
+			'width'       => 1200,
+			'height'      => 750,
+			'alt'         => '' !== $default_alt ? $default_alt : trim( wp_strip_all_tags( (string) get_the_title( $post_id ) ) ),
+			'credit_html' => '',
+		);
+	}
+
+	return null;
+}
+
+/**
  * Cover image URL for a post (falls back to the site landscape).
  *
  * @param int    $post_id Post ID.

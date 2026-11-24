@@ -1,11 +1,11 @@
 # پشتهٔ فنی فعلی سایت (Stack)
 
-> **آخرین راستی‌آزمایی:** ۲۰۲۶-۱۱-۲۳ (`arena/a2d1e561-s-a-1`، آماده برای انتشار `2.24.18`). پیش از انتخاب هر کتابخانه، ابزار یا الگوی جدید این فایل را بررسی کن.
+> **آخرین راستی‌آزمایی:** ۲۰۲۶-۱۱-۲۴ (`arena/948ec92c-s-a-1`، نسخهٔ آماده در شاخه: `2.24.20` · مستقر روی تولید: `2.24.19`). پیش از انتخاب هر کتابخانه، ابزار یا الگوی جدید این فایل را بررسی کن.
 
 ## ۱. هستهٔ وردپرس و قالب‌ها
 - **وردپرس هدف:** Requires at least `6.4`, Tested up to `7.1`, Requires PHP `7.4+`.
 - **قالب والد:** `sarzaminaryan` نسخهٔ `1.1.0` (`wp-content/themes/sarzaminaryan/`) — **ممنوعیت تغییر قطعی** (محافظت‌شده در `.github/workflows/protect.yml`). تمام توسعه فقط در قالب فرزند انجام می‌شود.
-- **قالب فرزند فعال:** `sarzaminaryan-child` نسخهٔ `2.24.17` روی تولید (`2.24.18` در `arena/a2d1e561-s-a-1`، با `SA_CHILD_VERSION` در `functions.php` و `Version` در `style.css`).
+- **قالب فرزند فعال:** `sarzaminaryan-child` نسخهٔ `2.24.20` در شاخهٔ فعلی (`2.24.19` روی تولید) — شامل صفحه‌آرایی یکپارچهٔ خوشه‌ای شهرستان و جاذبه، تبصرهٔ ظریف سرشماری رسمی ۱۳۹۵ (`sa_2026_census_note`)، کریدیت ظریف طوسی تصاویر مجوزدار (`.sa-license-credit`)، نقشهٔ تعاملی بدون قفل اسکرول موبایل روی `city` و `attraction`، و اندپوینت نگهبان‌دار `POST /sa-agent/v1/post/<id>/publish` (`sa_agent_publish_draft`).
 - **مدل داده:** `SA_MODEL_VERSION = '1.3'`.
 - **نوع‌های محتوای اختصاصی (CPT) و طبقه‌بندی‌ها (`inc/post-types.php`, `inc/taxonomies.php`, `inc/guide-cpt.php`):**
   - فعال: `province`, `city`, `attraction`, `guide` (`/travel-guide/`), `travel_route`, `local_food`, `souvenir`.

@@ -89,24 +89,29 @@ while ( have_posts() ) :
 				<?php endif; ?>
 				<span class="text-ink font-bold" aria-current="page"><?php echo esc_html( get_the_title() ); ?></span>
 			</nav>
-			<span class="hidden sm:inline-block font-mono text-[11px] text-petrol bg-petrolSoft px-2.5 py-0.5 rounded-md font-semibold">
-				SYS.ID // CTY-<?php echo esc_html( $sa_county_en ); ?>
-			</span>
+			<div class="hidden sm:flex items-center gap-2 shrink-0">
+				<span class="text-[11px] text-muted">
+					<?php echo esc_html( 'به‌روزرسانی: ' . get_the_modified_date() ); ?>
+				</span>
+				<span class="font-mono text-[11px] text-petrol bg-petrolSoft px-2.5 py-0.5 rounded-md font-semibold">
+					SYS.ID // CTY-<?php echo esc_html( $sa_county_en ); ?>
+				</span>
+			</div>
 		</div>
 	</div>
 
 	<div class="sticky top-16 z-40 bg-canvas/95 backdrop-blur-md border-b border-line shadow-xs">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<nav aria-label="بخش‌های صفحه شهرستان" class="flex items-center gap-1.5 sm:gap-2 py-2.5 overflow-x-auto no-scrollbar text-xs font-semibold">
-				<span class="text-muted ml-1 shrink-0 hidden sm:inline">پرش سریع:</span>
-				<a href="#identity-section" class="jump-link is-active shrink-0 px-3 py-1.5 rounded-lg bg-petrol text-white transition-colors">شناسنامه</a>
-				<a href="#attractions-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">جاذبه‌های دیدنی</a>
-				<a href="#story-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">راهنمای سفر</a>
+				<span class="text-muted ml-1 shrink-0 hidden sm:inline">فهرست سریع:</span>
+				<a href="#identity-section" class="jump-link is-active shrink-0 px-3 py-1.5 rounded-lg bg-petrol text-white transition-colors">شناسنامه و موقعیت</a>
+				<a href="#story-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">راهنمای جامع و نقشه</a>
+				<?php if ( $sa_seasons ) : ?>
+					<a href="#weather-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">آب‌وهوا و فصل سفر</a>
+				<?php endif; ?>
+				<a href="#attractions-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">جاذبه‌های شاخص</a>
 				<?php if ( $sa_access ) : ?>
 					<a href="#field-experience-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">تجربه مسافرها</a>
-				<?php endif; ?>
-				<?php if ( $sa_seasons ) : ?>
-					<a href="#weather-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">آب‌وهوا</a>
 				<?php endif; ?>
 				<?php if ( $sa_tips ) : ?>
 					<a href="#golden-tips-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-petrolSoft hover:text-petrol border border-line transition-colors">نکات سفر</a>
@@ -129,7 +134,7 @@ while ( have_posts() ) :
 
 			<div class="relative z-10 space-y-8">
 				<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-					<div class="lg:col-span-7 space-y-4">
+					<div class="lg:col-span-7 space-y-5">
 						<div class="flex flex-wrap items-center gap-2">
 							<?php if ( $sa_prov_name ) : ?>
 								<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-ochreSoft text-ochre text-xs font-bold">
@@ -137,24 +142,67 @@ while ( have_posts() ) :
 									<?php echo esc_html( 'شهرستان در ' . $sa_prov_name ); ?>
 								</span>
 							<?php endif; ?>
+							<span class="text-[11px] text-muted bg-slate-100 px-2.5 py-1 rounded-full sm:hidden">
+								<?php echo esc_html( 'به‌روزرسانی: ' . get_the_modified_date() ); ?>
+							</span>
 							<span class="font-mono text-xs text-muted bg-slate-100 px-2.5 py-1 rounded-full">
 								SYS.ID // CTY-<?php echo esc_html( $sa_county_en ); ?>
 							</span>
 						</div>
 
-						<h1 id="county-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight">
-							<?php the_title(); ?>
-						</h1>
-
-						<div class="sa-2026-prose text-slate-600 text-sm sm:text-base leading-relaxed">
-							<?php
-							$sa_lead = $sa_get( 'history_now' );
-							if ( ! $sa_lead && function_exists( 'sa_summary' ) ) {
-								$sa_lead = sa_summary( get_post(), 60 );
-							}
-							echo wp_kses_post( $sa_lead );
-							?>
+						<div class="space-y-1.5">
+							<h1 id="county-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-ink leading-tight">
+								<?php the_title(); ?>
+							</h1>
+							<?php if ( false === strpos( (string) get_the_title(), '؛' ) ) : ?>
+								<p class="text-xs sm:text-sm font-semibold text-petrol">راهنمای جامع جغرافیا، مسیرهای دسترسی و جاذبه‌های شاخص</p>
+							<?php endif; ?>
 						</div>
+
+						<?php
+						$sa_lead = $sa_get( 'history_now' );
+						if ( ! $sa_lead && function_exists( 'sa_summary' ) ) {
+							$sa_lead = sa_summary( get_post(), 58 );
+						}
+						if ( $sa_lead ) :
+							?>
+							<div class="sa-tldr-box rounded-2xl border border-petrol/20 bg-canvas/90 p-4 sm:p-5 space-y-1.5">
+								<span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-petrol">
+									<span class="w-1.5 h-1.5 rounded-full bg-petrol"></span>
+									<span>در یک نگاه (پاسخ سریع)</span>
+								</span>
+								<div class="sa-2026-prose text-slate-700 text-sm sm:text-base leading-relaxed">
+									<?php echo wp_kses_post( $sa_lead ); ?>
+								</div>
+							</div>
+						<?php endif; ?>
+
+						<?php
+						$sa_show_hero = ! function_exists( 'sa_show_county_image' ) || sa_show_county_image();
+						$sa_hero      = ( $sa_show_hero && function_exists( 'sa_2026_hero_media' ) )
+							? sa_2026_hero_media( $sa_id, false, 'نمایی واقعی از ' . get_the_title() . ( $sa_prov_name ? ' در ' . $sa_prov_name : '' ) )
+							: null;
+						if ( is_array( $sa_hero ) && ! empty( $sa_hero['url'] ) ) :
+							?>
+							<figure class="sa-hero-media space-y-1.5">
+								<div class="relative rounded-2xl overflow-hidden border border-line aspect-[16/10] bg-slate-100 shadow-xs">
+									<img
+										src="<?php echo esc_url( $sa_hero['url'] ); ?>"
+										alt="<?php echo esc_attr( $sa_hero['alt'] ); ?>"
+										width="<?php echo (int) $sa_hero['width']; ?>"
+										height="<?php echo (int) $sa_hero['height']; ?>"
+										class="w-full h-full object-cover"
+										loading="eager"
+										fetchpriority="high"
+										decoding="async">
+								</div>
+								<?php
+								if ( ! empty( $sa_hero['credit_html'] ) ) {
+									echo wp_kses_post( $sa_hero['credit_html'] );
+								}
+								?>
+							</figure>
+						<?php endif; ?>
 
 						<?php if ( $sa_neighbors ) : ?>
 							<div class="pt-3 border-t border-line/80 space-y-2.5">
@@ -205,7 +253,7 @@ while ( have_posts() ) :
 								<svg class="w-4 h-4 text-ochre" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
 								</svg>
-								<span>شناسنامه داده‌محور شهرستان</span>
+								<span>شناسنامه و داده‌های کلیدی شهرستان</span>
 							</h2>
 							<span class="text-[11px] text-muted shrink-0 hidden sm:block">
 								<?php
@@ -249,8 +297,14 @@ while ( have_posts() ) :
 										</dd>
 									</div>
 									<?php if ( $sa_census ) : ?>
-										<p class="text-[11px] text-muted mt-1">
-											<?php echo esc_html( 'مبنای جمعیت: سرشماری رسمی ' . $sa_census['year'] . ( $sa_census['rounded'] ? '؛ عدد به نزدیک‌ترین هزار نفر گرد شده است.' : '.' ) ); ?>
+										<p class="sa-census-note text-[11px] text-muted mt-1 leading-relaxed">
+											<?php
+											echo esc_html(
+												function_exists( 'sa_2026_census_note' )
+													? sa_2026_census_note( $sa_census['year'], (bool) $sa_census['rounded'] )
+													: ( 'مبنای جمعیت: سرشماری رسمی ' . $sa_census['year'] . ' (آخرین آمار رسمی منتشرشدهٔ کشور).' )
+											);
+											?>
 										</p>
 									<?php endif; ?>
 								</div>
@@ -268,9 +322,22 @@ while ( have_posts() ) :
 								</div>
 							<?php endif; ?>
 
+							<?php
+							$sa_divisions = $sa_get( 'divisions' );
+							if ( ! $sa_divisions ) {
+								$sa_divisions = trim( (string) get_post_meta( $sa_id, 'sa_cty_divisions', true ) );
+							}
+							if ( $sa_divisions ) :
+								?>
+								<div class="bg-surface p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
+									<dt class="text-muted text-xs font-mono">05 // تقسیمات کشوری</dt>
+									<dd class="font-bold text-ink text-left"><?php echo esc_html( $sa_divisions ); ?></dd>
+								</div>
+							<?php endif; ?>
+
 							<?php if ( $sa_get( 'language' ) || $sa_get( 'economy' ) ) : ?>
 								<div class="bg-surface p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
-									<dt class="text-muted text-xs font-mono">05 // زبان و معیشت غالب</dt>
+									<dt class="text-muted text-xs font-mono">06 // زبان و معیشت غالب</dt>
 									<dd class="font-bold text-ink text-left">
 										<?php echo esc_html( trim( $sa_get( 'language' ) . ( $sa_get( 'language' ) && $sa_get( 'economy' ) ? ' · ' : '' ) . $sa_get( 'economy' ) ) ); ?>
 									</dd>
@@ -279,7 +346,7 @@ while ( have_posts() ) :
 
 							<?php if ( $sa_get( 'plate_code' ) || $sa_get( 'phone_code' ) ) : ?>
 								<div class="bg-surface p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
-									<dt class="text-muted text-xs font-mono">06 // پلاک و پیش‌شماره</dt>
+									<dt class="text-muted text-xs font-mono">07 // پلاک و پیش‌شماره</dt>
 									<dd class="font-bold text-ink font-mono text-left">
 										<?php
 										$sa_plate = array();
@@ -297,7 +364,7 @@ while ( have_posts() ) :
 
 							<?php if ( $sa_get( 'climate' ) || $sa_get( 'best_season' ) ) : ?>
 								<div class="bg-surface p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
-									<dt class="text-muted text-xs font-mono">07 // اقلیم و بهترین فصل</dt>
+									<dt class="text-muted text-xs font-mono">08 // اقلیم و بهترین فصل</dt>
 									<dd class="font-bold text-ink text-left">
 										<?php echo esc_html( trim( $sa_get( 'climate' ) . ( $sa_get( 'climate' ) && $sa_get( 'best_season' ) ? ' · ' : '' ) . $sa_get( 'best_season' ) ) ); ?>
 									</dd>
@@ -306,7 +373,7 @@ while ( have_posts() ) :
 
 							<?php if ( $sa_get( 'distance_km' ) ) : ?>
 								<div class="bg-surface p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
-									<dt class="text-muted text-xs font-mono">08 // فاصله تا مرکز استان</dt>
+									<dt class="text-muted text-xs font-mono">09 // فاصله تا مرکز استان</dt>
 									<dd class="font-bold text-ink"><?php echo esc_html( sa_2026_num( $sa_get( 'distance_km' ) ) . ' کیلومتر' ); ?></dd>
 								</div>
 							<?php endif; ?>
@@ -316,10 +383,63 @@ while ( have_posts() ) :
 			</div>
 		</section>
 
+		<section id="story-section" aria-labelledby="story-heading" class="scroll-mt-32 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-sm space-y-5">
+			<div class="border-b border-line pb-4">
+				<span class="text-xs font-bold text-ochre">راهنمای جامع شهرستان</span>
+				<h2 id="story-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-0.5">
+					<?php echo esc_html( 'شناخت، مسیرهای دسترسی و راهنمای کامل سفر به ' . get_the_title() ); ?>
+				</h2>
+			</div>
+			<div class="sa-2026-prose">
+				<?php sa_2026_relation_content( $sa_relation_urls ); ?>
+			</div>
+		</section>
+
+		<?php if ( $sa_seasons ) : ?>
+			<section id="weather-section" aria-labelledby="weather-heading" class="scroll-mt-32 space-y-6">
+				<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+					<div>
+						<span class="text-xs font-bold text-ochre">تقویم سفر</span>
+						<h2 id="weather-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">آب‌وهوا و بهترین زمان سفر، فصل‌به‌فصل</h2>
+					</div>
+					<p class="text-xs text-muted"><?php echo esc_html( $sa_get( 'climate' ) ); ?></p>
+				</div>
+
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+					<?php
+					$sa_season_style = array(
+						'بهار'    => array( 'border-emerald-500/40', 'text-emerald-800', 'bg-emerald-600' ),
+						'تابستان' => array( 'border-amber-500/40', 'text-amber-800', 'bg-amber-500' ),
+						'پاییز'   => array( 'border-ochre/40', 'text-ochreDark', 'bg-ochre' ),
+						'زمستان'  => array( 'border-sky-500/40', 'text-sky-800', 'bg-sky-600' ),
+					);
+					foreach ( $sa_seasons as $sa_season => $sa_text ) :
+						$sa_style = isset( $sa_season_style[ $sa_season ] ) ? $sa_season_style[ $sa_season ] : $sa_season_style['بهار'];
+						?>
+						<article class="bg-surface rounded-2xl border-2 <?php echo esc_attr( $sa_style[0] ); ?> p-5 shadow-sm flex flex-col justify-between space-y-4">
+							<div class="space-y-2.5">
+								<div class="flex items-center justify-between">
+									<h3 class="text-base font-extrabold <?php echo esc_attr( $sa_style[1] ); ?>"><?php echo esc_html( $sa_season ); ?></h3>
+									<span class="text-[11px] font-bold text-white px-2.5 py-0.5 rounded-full <?php echo esc_attr( $sa_style[2] ); ?>">فصل سفر</span>
+								</div>
+								<p class="text-xs text-slate-600 leading-relaxed"><?php echo esc_html( $sa_text ); ?></p>
+							</div>
+							<div class="pt-3 border-t border-line space-y-1.5 text-xs">
+								<div class="flex justify-between gap-2">
+									<span class="text-muted">بهترین فصل سفر:</span>
+									<span class="font-bold text-ink"><?php echo esc_html( $sa_get( 'best_season' ) ); ?></span>
+								</div>
+							</div>
+						</article>
+					<?php endforeach; ?>
+				</div>
+			</section>
+		<?php endif; ?>
+
 		<section id="attractions-section" aria-labelledby="attractions-heading" class="scroll-mt-32 space-y-6">
 			<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
 				<div>
-					<span class="text-xs font-bold text-ochre">دیدنی‌های منتخب و پیرامون</span>
+					<span class="text-xs font-bold text-ochre">دیدنی‌های منتخب و شاخه‌های خوشه</span>
 					<h2 id="attractions-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">
 						<?php echo esc_html( 'جاذبه‌های شاخص ' . get_the_title() ); ?>
 					</h2>
@@ -404,18 +524,14 @@ while ( have_posts() ) :
 					فهرست جاذبه‌های این شهرستان در حال تکمیل است.
 				</p>
 			<?php endif; ?>
-		</section>
 
-		<section id="story-section" aria-labelledby="story-heading" class="scroll-mt-32 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-sm space-y-5">
-			<div class="border-b border-line pb-4">
-				<span class="text-xs font-bold text-ochre">روایت تحریریه</span>
-				<h2 id="story-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-0.5">
-					<?php echo esc_html( 'راهنمای کامل سفر به ' . get_the_title() ); ?>
-				</h2>
-			</div>
-			<div class="sa-2026-prose">
-				<?php sa_2026_relation_content( $sa_relation_urls ); ?>
-			</div>
+			<?php
+			if ( function_exists( 'sa_photo_county_ids' ) && function_exists( 'sa_photo_strip' ) && count( sa_photo_county_ids( $sa_id, 4 ) ) > 1 ) :
+				?>
+				<div class="pt-2">
+					<?php sa_photo_strip( $sa_id ); ?>
+				</div>
+			<?php endif; ?>
 		</section>
 
 		<?php if ( $sa_access ) : ?>
@@ -447,47 +563,6 @@ while ( have_posts() ) :
 								</h3>
 							</div>
 							<p class="text-xs sm:text-sm text-slate-600 leading-relaxed"><?php echo esc_html( $sa_text ); ?></p>
-						</article>
-					<?php endforeach; ?>
-				</div>
-			</section>
-		<?php endif; ?>
-
-		<?php if ( $sa_seasons ) : ?>
-			<section id="weather-section" aria-labelledby="weather-heading" class="scroll-mt-32 space-y-6">
-				<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
-					<div>
-						<span class="text-xs font-bold text-ochre">تقویم سفر</span>
-						<h2 id="weather-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">اقلیم و آب‌وهوا، فصل‌به‌فصل</h2>
-					</div>
-					<p class="text-xs text-muted"><?php echo esc_html( $sa_get( 'climate' ) ); ?></p>
-				</div>
-
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-					<?php
-					$sa_season_style = array(
-						'بهار'    => array( 'border-emerald-500/40', 'text-emerald-800', 'bg-emerald-600' ),
-						'تابستان' => array( 'border-amber-500/40', 'text-amber-800', 'bg-amber-500' ),
-						'پاییز'   => array( 'border-ochre/40', 'text-ochreDark', 'bg-ochre' ),
-						'زمستان'  => array( 'border-sky-500/40', 'text-sky-800', 'bg-sky-600' ),
-					);
-					foreach ( $sa_seasons as $sa_season => $sa_text ) :
-						$sa_style = isset( $sa_season_style[ $sa_season ] ) ? $sa_season_style[ $sa_season ] : $sa_season_style['بهار'];
-						?>
-						<article class="bg-surface rounded-2xl border-2 <?php echo esc_attr( $sa_style[0] ); ?> p-5 shadow-sm flex flex-col justify-between space-y-4">
-							<div class="space-y-2.5">
-								<div class="flex items-center justify-between">
-									<span class="text-base font-extrabold <?php echo esc_attr( $sa_style[1] ); ?>"><?php echo esc_html( $sa_season ); ?></span>
-									<span class="text-[11px] font-bold text-white px-2.5 py-0.5 rounded-full <?php echo esc_attr( $sa_style[2] ); ?>">فصل سفر</span>
-								</div>
-								<p class="text-xs text-slate-600 leading-relaxed"><?php echo esc_html( $sa_text ); ?></p>
-							</div>
-							<div class="pt-3 border-t border-line space-y-1.5 text-xs">
-								<div class="flex justify-between gap-2">
-									<span class="text-muted">بهترین فصل سفر:</span>
-									<span class="font-bold text-ink"><?php echo esc_html( $sa_get( 'best_season' ) ); ?></span>
-								</div>
-							</div>
 						</article>
 					<?php endforeach; ?>
 				</div>
