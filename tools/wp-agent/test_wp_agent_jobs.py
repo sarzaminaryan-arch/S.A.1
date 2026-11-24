@@ -6,6 +6,7 @@ import sys
 import tempfile
 from datetime import datetime, timezone
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import wp_agent as wa  # noqa: E402
@@ -32,6 +33,67 @@ try:
     raise AssertionError("photos-prune should refuse to run without --owner-approved")
 except wa.AgentError as err:
     assert "owner-approved" in str(err), err
+
+# Featured-photo preflight reads each exact published target and refuses to import if any
+# already has a cover; the setter maps the successful Commons import receipt and uses the
+# ordinary optimistic-lock + server-backup update path without overwriting an existing cover.
+_plan_rel = "tools/wp-agent/outbox/20261124-tehran-attraction-featured-photo-plan.json"
+_plan = json.loads((wa.REPO_ROOT / _plan_rel).read_text(encoding="utf-8"))
+class _FeaturedCheckClient:
+    def __init__(self, occupied_id=0):
+        self.occupied_id = occupied_id
+        self.calls = []
+    def call(self, method, route, params=None, body=None):
+        self.calls.append((method, route))
+        post_id = int(route.rsplit("/", 1)[-1])
+        target = next(p for p in _plan["photos"] if p["post_id"] == post_id)
+        return {"id": post_id, "type": "attraction", "slug": target["slug"], "status": "publish",
+                "featured_media": self.occupied_id if post_id == self.occupied_id else 0,
+                "meta": {}, "modified_gmt": "2026-11-24 22:00:00"}
+
+_check = wa.run_featured_photo_check(_ap.Namespace(plan=_plan_rel), _FeaturedCheckClient())
+assert _check["checked"] == 18
+try:
+    wa.run_featured_photo_check(_ap.Namespace(plan=_plan_rel), _FeaturedCheckClient(_plan["photos"][0]["post_id"]))
+    raise AssertionError("featured-photo-check must refuse when any target is already covered")
+except wa.AgentError as err:
+    assert "already has featured image" in str(err), err
+
+class _FeaturedSetClient:
+    def __init__(self, thumbnail=0):
+        self.thumbnail = thumbnail
+    def call(self, method, route, params=None, body=None):
+        assert method == "GET" and route == "/post/5468"
+        return {"id": 5468, "type": "attraction", "slug": "milad-tower", "status": "publish",
+                "featured_media": self.thumbnail, "meta": {}, "modified_gmt": "2026-11-24 22:00:00"}
+
+_fixture_batch = f"test-featured-photo-{os.getpid()}.json"
+_fixture_receipt = wa.REPO_ROOT / "tools/photos/results" / f"{Path(_fixture_batch).stem}.json"
+_fixture_receipt.parent.mkdir(parents=True, exist_ok=True)
+_fixture_receipt.write_text(json.dumps({"batch": Path(_fixture_batch).stem,
+    "imported": [{"place": "برج میلاد تهران", "id": 9876, "url": "https://example.test/photo.webp"}],
+    "reused": [], "failed": [], "refused": []}), encoding="utf-8")
+try:
+    _setter_client = _FeaturedSetClient()
+    def _pretend_update(args, client):
+        assert args.expected_modified_gmt == "2026-11-24 22:00:00"
+        assert wa.read_json(args.meta_file) == {"_thumbnail_id": "9876"}
+        client.thumbnail = 9876
+        return {"id": 5468, "backup_id": 4321}
+    with patch.object(wa, "run", side_effect=_pretend_update):
+        _set = wa.run_featured_photo_set(_ap.Namespace(id=5468, slug="milad-tower",
+            place="برج میلاد تهران", batch=_fixture_batch), _setter_client)
+    assert _set["attachment_id"] == 9876 and _set["backup_id"] == 4321
+    with patch.object(wa, "run") as _unexpected_update:
+        try:
+            wa.run_featured_photo_set(_ap.Namespace(id=5468, slug="milad-tower",
+                place="برج میلاد تهران", batch=_fixture_batch), _FeaturedSetClient(123))
+            raise AssertionError("featured-photo-set must never replace an existing image")
+        except wa.AgentError as err:
+            assert "refusing to replace existing featured image" in str(err), err
+        _unexpected_update.assert_not_called()
+finally:
+    _fixture_receipt.unlink(missing_ok=True)
 
 # publish-draft is owner-gated and refuses non-draft posts before making any POST call.
 try:

@@ -261,9 +261,14 @@ def commons_original_url(url: str) -> str:
     return urllib.parse.urlunparse(parsed._replace(netloc=host, path=f"{head}/{original}", query=""))
 
 
-def commons_source_url(url: str) -> str:
-    """نشانی امن برای ارسال به سایت (همیشه فایل اصلی)."""
-    return commons_original_url(str(url or "").strip())
+def commons_source_url(url: str, preserve_thumbnail: bool = False) -> str:
+    """نشانی امن برای ارسال به سایت.
+
+    پیش‌فرض فایل اصلی است؛ یک استثنای صریح برای بندانگشتی معتبرِ صفحهٔ Commons
+    وجود دارد تا عکس اصلیِ بزرگ‌تر از سقف دریافت سرور باعث شکست واردات نشود.
+    """
+    cleaned = str(url or "").strip()
+    return cleaned if preserve_thumbnail else commons_original_url(cleaned)
 
 
 def owner_file(photo: dict) -> tuple[Path, str]:
@@ -480,7 +485,11 @@ def _send_all(photos: list, client: "Client", report: dict) -> None:
             endpoint = "/photos/upload"
         else:
             body = {k: photo.get(k) for k in shared + ("url",)}
-            body["url"] = commons_source_url(str(photo.get("url") or ""))
+            source_url = str(photo.get("url") or "").strip()
+            # The default remains the original file (best source quality). A batch may
+            # explicitly retain a Commons thumbnail when the original exceeds the site
+            # endpoint's 10 MB remote-fetch ceiling; only use a size listed on its file page.
+            body["url"] = commons_source_url(source_url, preserve_thumbnail=photo.get("preserve_thumbnail") is True)
             endpoint = "/photos/import"
         body = {k: v for k, v in body.items() if v is not None}
         try:
