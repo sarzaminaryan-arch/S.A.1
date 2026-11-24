@@ -1,0 +1,39 @@
+{
+  "job": "tools/wp-agent/jobs/20261124-theme-2.24.21-update.json",
+  "started_utc": "2026-11-24T16:12:06+00:00",
+  "note": "",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.20",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-24T16:12:07+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "error": "HTTP 400 on POST /theme-update: {\"code\":\"sa_agent_bad_version\",\"message\":\"version \\u0648 expected_version \\u0628\\u0627\\u06cc\\u062f \\u06cc\\u06a9\\u06cc \\u0628\\u0627\\u0634\\u0646\\u062f.\",\"data\":{\"status\":400}}"
+    }
+  ],
+  "recovery": "manual reconciliation required: write outcome unknown",
+  "finished_utc": "2026-11-24T16:12:13+00:00"
+}
