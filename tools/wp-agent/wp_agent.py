@@ -1041,9 +1041,14 @@ def run(a: argparse.Namespace, c: "Client"):
                 current = c.call("GET", f"/post/{pid}")
                 save_local_backup(f"post-{pid}", current)
                 fields = {"title": a.title, "content": content, "excerpt": a.excerpt}
-                return c.call("POST", f"/post/{pid}", body={"expected_modified_gmt": current["modified_gmt"],
-                                                            "fields": fields, "meta": draft_meta,
-                                                            "reason": "به‌روزرسانی پیش‌نویس خوشه با نامک یکتا"})
+                try:
+                    return c.call("POST", f"/post/{pid}", body={"expected_modified_gmt": current["modified_gmt"],
+                                                                "fields": fields, "meta": draft_meta,
+                                                                "reason": "به‌روزرسانی پیش‌نویس خوشه با نامک یکتا"})
+                except AgentError as exc:
+                    if "sa_agent_nothing" in str(exc):
+                        return {"id": pid, "slug": a.slug, "status": "draft", "unchanged": True}
+                    raise
             if match and match.get("status") == "publish":
                 return {"id": int(match["id"]), "slug": a.slug, "status": "publish", "skipped_existing_publish": True}
         body = {"type": a.type, "title": a.title, "content": content, "excerpt": a.excerpt,
