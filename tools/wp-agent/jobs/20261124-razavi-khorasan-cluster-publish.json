@@ -9,9 +9,8 @@
       "slug": "imam-reza-shrine",
       "upsert-slug": true,
       "title": "حرم مطهر امام رضا (ع)",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/imam-reza-shrine.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/imam-reza-shrine.meta.json",
-      "city-id": 63
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/imam-reza-shrine.html"
     },
     {
       "cmd": "publish-draft",
@@ -25,9 +24,8 @@
       "slug": "ferdowsi-tomb",
       "upsert-slug": true,
       "title": "آرامگاه فردوسی (توس)",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/ferdowsi-tomb.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/ferdowsi-tomb.meta.json",
-      "city-id": 63
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/ferdowsi-tomb.html"
     },
     {
       "cmd": "publish-draft",
@@ -41,9 +39,8 @@
       "slug": "koohsangi-park",
       "upsert-slug": true,
       "title": "پارک کوهسنگی مشهد",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/koohsangi-park.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/koohsangi-park.meta.json",
-      "city-id": 63
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/koohsangi-park.html"
     },
     {
       "cmd": "publish-draft",
@@ -57,9 +54,8 @@
       "slug": "torqabeh",
       "upsert-slug": true,
       "title": "ییلاق طرقبه",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/torqabeh.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/torqabeh.meta.json",
-      "city-id": 63
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/torqabeh.html"
     },
     {
       "cmd": "publish-draft",
@@ -73,9 +69,8 @@
       "slug": "shandiz",
       "upsert-slug": true,
       "title": "ییلاق شاندیز",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/shandiz.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/shandiz.meta.json",
-      "city-id": 63
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/shandiz.html"
     },
     {
       "cmd": "publish-draft",
@@ -89,9 +84,8 @@
       "slug": "water-waves-land",
       "upsert-slug": true,
       "title": "سرزمین موج‌های آبی",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/water-waves-land.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/water-waves-land.meta.json",
-      "city-id": 63
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/water-waves-land.html"
     },
     {
       "cmd": "publish-draft",
@@ -105,9 +99,8 @@
       "slug": "haft-hooz-park",
       "upsert-slug": true,
       "title": "پارک طبیعی هفت‌حوض",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/haft-hooz-park.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/haft-hooz-park.meta.json",
-      "city-id": 63
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/haft-hooz-park.html"
     },
     {
       "cmd": "publish-draft",
@@ -121,9 +114,8 @@
       "slug": "khayyam-tomb",
       "upsert-slug": true,
       "title": "آرامگاه خیام نیشابوری",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/khayyam-tomb.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/khayyam-tomb.meta.json",
-      "city-id": 64
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/khayyam-tomb.html"
     },
     {
       "cmd": "publish-draft",
@@ -137,9 +129,8 @@
       "slug": "attar-tomb",
       "upsert-slug": true,
       "title": "آرامگاه عطار نیشابوری",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/attar-tomb.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/attar-tomb.meta.json",
-      "city-id": 64
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/attar-tomb.html"
     },
     {
       "cmd": "publish-draft",
@@ -153,9 +144,8 @@
       "slug": "wooden-village-neyshabur",
       "upsert-slug": true,
       "title": "دهکده چوبین نیشابور",
-      "file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/wooden-village-neyshabur.html",
       "meta-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/wooden-village-neyshabur.meta.json",
-      "city-id": 64
+      "content-file": "tools/wp-agent/outbox/20261124-razavi-khorasan-attractions/wooden-village-neyshabur.html"
     },
     {
       "cmd": "publish-draft",
@@ -165,19 +155,17 @@
     },
     {
       "cmd": "update",
-      "type": "city",
       "id": 63,
-      "file": "tools/wp-agent/outbox/20261117-replace-mashhad/mashhad-63.html",
       "meta-file": "tools/wp-agent/outbox/20261117-replace-mashhad/mashhad-63.meta.json",
-      "owner-approved-live-edit": true
+      "owner-approved-live-edit": true,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-mashhad/mashhad-63.html"
     },
     {
       "cmd": "update",
-      "type": "city",
       "id": 64,
-      "file": "tools/wp-agent/outbox/20261117-replace-neyshabur/neyshabur-64.html",
       "meta-file": "tools/wp-agent/outbox/20261117-replace-neyshabur/neyshabur-64.meta.json",
-      "owner-approved-live-edit": true
+      "owner-approved-live-edit": true,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-neyshabur/neyshabur-64.html"
     },
     {
       "cmd": "cache-purge",
@@ -185,12 +173,19 @@
     },
     {
       "cmd": "probe",
-      "urls": [
-        "https://sarzaminaryan.ir/city/mashhad/",
-        "https://sarzaminaryan.ir/city/neyshabur/",
-        "https://sarzaminaryan.ir/attraction/imam-reza-shrine/",
-        "https://sarzaminaryan.ir/attraction/khayyam-tomb/"
-      ]
+      "url": "https://sarzaminaryan.ir/city/mashhad/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/neyshabur/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/attraction/imam-reza-shrine/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/attraction/khayyam-tomb/"
     }
   ]
 }
