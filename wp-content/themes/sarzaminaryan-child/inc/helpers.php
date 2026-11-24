@@ -442,12 +442,25 @@ function sa_city_verified_place_count( $post_id ) {
 }
 
 /**
- * v2.22.75 — دروازهٔ ایندکس صفحهٔ شهرستان، با دلیل.
+ * کفِ عمق محتوای صفحهٔ شهرستان برای ایندکس (تصمیم نهایی مالک، ۲۰۲۶-۱۱-۲۴):
+ * متن اصلی باید دست‌کم ۷۰۰ واژه باشد. کفِ واقعیِ تولیدِ قالب ~۶۱۱ واژه است؛
+ * صفحهٔ زیر ۷۰۰ یعنی هیچ چیز فراتر از قالب ندارد و موقتاً noindex می‌شود
+ * (استراتژی نگه‌داشتِ موقت — `docs/live-site/thin-counties-plan-2026-11-24.md`).
+ */
+if ( ! defined( 'SA_COUNTY_MIN_INDEX_WORDS' ) ) {
+	define( 'SA_COUNTY_MIN_INDEX_WORDS', 700 );
+}
+
+/**
+ * v2.22.75 / v2.24.22 — دروازهٔ ایندکس صفحهٔ شهرستان، با دلیل.
  *
  * استاندارد (Google Search Central: محتوای مفید، و پرهیز از صفحه‌های انبوهِ کم‌ارزش):
- * صفحهٔ راهنمای سفر وقتی ایندکس می‌شود که هم متن خودش کافی باشد (≥ ۳۰۰ واژه) و
- * هم دست‌کم یک جای دیدنیِ راستی‌آزمایی‌شده نشان دهد. noindex دستی مالک (sa_noindex)
- * جدا و همیشه مقدم است (inc/seo.php).
+ * صفحهٔ راهنمای سفر وقتی ایندکس می‌شود که (۱) متن اصلی‌اش ≥ ۳۰۰ واژه باشد،
+ * (۲) دست‌کم یک جای دیدنیِ راستی‌آزمایی‌شده نشان دهد و (۳) متن اصلی ≥ ۷۰۰ واژه
+ * (`SA_COUNTY_MIN_INDEX_WORDS`) باشد. نتیجه فقط با تغییر محتوا برمی‌گردد:
+ * بازنویسی تا عبور از ۷۰۰ واژه (و ثبت جای دیدنی) → `index` + بازگشت خودکار به
+ * نقشهٔ سایت. noindex دستی مالک (sa_noindex) جدا و همیشه مقدم است (inc/seo.php).
+ * خروجی همیشه `noindex, follow` است؛ خزش باز می‌ماند و robots.txt دخالتی ندارد.
  *
  * @param int $post_id Post ID.
  * @return array{index:bool,reason:string,words:int,places:int}
@@ -472,17 +485,22 @@ function sa_city_index_decision( $post_id ) {
 	} elseif ( $out['places'] < 1 ) {
 		$out['index']  = false;
 		$out['reason'] = 'no_places';
+	} elseif ( $out['words'] < SA_COUNTY_MIN_INDEX_WORDS ) {
+		// v2.24.22 — قانون جدید مالک: متن اصلی زیر ۷۰۰ واژه noindex (با follow).
+		$out['index']  = false;
+		$out['reason'] = 'low_depth';
 	}
 	$filtered = apply_filters( 'sa_city_index_decision', $out, $post_id );
 	return is_array( $filtered ) && isset( $filtered['index'] ) ? $filtered : $out;
 }
 
 /**
- * v2.22.75 — دلیل noindex یک صفحهٔ شهرستان؛ رشتهٔ خالی یعنی ایندکس می‌شود.
- * ترتیب: noindex دستی مالک (manual) همیشه مقدم است، بعد دروازهٔ خودکار.
+ * v2.22.75 / v2.24.22 — دلیل noindex یک صفحهٔ شهرستان؛ رشتهٔ خالی یعنی ایندکس می‌شود.
+ * ترتیب: noindex دستی مالک (manual) همیشه مقدم است، بعد دروازه‌های خودکار
+ * (thin_text ← no_places ← low_depth).
  *
  * @param int $post_id Post ID.
- * @return string '' | manual | thin_text | no_places
+ * @return string '' | manual | thin_text | no_places | low_depth
  */
 function sa_city_noindex_reason( $post_id ) {
 	$post_id = (int) $post_id;
@@ -508,6 +526,7 @@ function sa_city_noindex_reason_label( $reason ) {
 		'manual'    => 'noindex دستی (تیک مالک در جعبهٔ سئو)',
 		'thin_text' => 'noindex خودکار: متن اصلی کمتر از ۳۰۰ واژه',
 		'no_places' => 'noindex خودکار: هیچ جای دیدنیِ مشخصی (نوشتهٔ دیدنی، فهرست sa_cty_poi_* یا «جاهای دیگر» با نوع دیدنی) ندارد',
+		'low_depth' => 'noindex خودکار: متن اصلی کمتر از ۷۰۰ واژه (بازگشت خودکار به ایندکس و نقشهٔ سایت پس از بازنویسی)',
 	);
 	return isset( $labels[ $reason ] ) ? $labels[ $reason ] : (string) $reason;
 }
@@ -524,7 +543,8 @@ function sa_city_has_attractions( $post_id ) {
 
 /**
  * آیا صفحه‌ی شهرستان نازک است و باید noindex بگیرد؟
- * شرط ۵: کمتر از ۳۰۰ واژه محتوای اصلی یا بدون هیچ جای دیدنیِ راستی‌آزمایی‌شده.
+ * دروازهٔ سه‌لایه: متن اصلی < ۳۰۰ واژه (thin_text) یا بدون جای دیدنیِ راستی‌آزمایی‌شده
+ * (no_places) یا متن اصلی < ۷۰۰ واژه (low_depth، v2.24.22).
  *
  * @param int $post_id Post ID.
  * @return bool
