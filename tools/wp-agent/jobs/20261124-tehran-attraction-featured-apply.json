@@ -1,0 +1,151 @@
+{
+  "note": "به دستور صریح مالک: واردکردن تصاویر Commons با نام عکاس و مجوز، تبدیل خودکار به WebP سبک چهاربه‌سه، سپس تنظیم _thumbnail_id فقط برای ۱۸ جاذبه‌ای که در preflight همچنان منتشرشده و بدون تصویر شاخص هستند. پیش از هر نوشته snapshot محلی، پشتیبان تفاضلی سرور و expected_modified_gmt؛ تصویر شاخص موجود جایگزین نمی‌شود.",
+  "rollback_on_fail": true,
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "featured-audit",
+      "type": "attraction"
+    },
+    {
+      "cmd": "featured-photo-check",
+      "plan": "tools/wp-agent/outbox/20261124-tehran-attraction-featured-photo-plan.json"
+    },
+    {
+      "cmd": "photos-import",
+      "batch": "tools/photos/20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5468,
+      "slug": "milad-tower",
+      "place": "برج میلاد تهران",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5471,
+      "slug": "golestan-palace",
+      "place": "کاخ گلستان",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5474,
+      "slug": "saadabad-complex",
+      "place": "مجموعه سعدآباد",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5477,
+      "slug": "tabiat-bridge",
+      "place": "پل طبیعت تهران",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5480,
+      "slug": "darband-darakeh",
+      "place": "دربند تهران",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5483,
+      "slug": "tehran-grand-bazaar",
+      "place": "بازار بزرگ تهران",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5486,
+      "slug": "azadi-tower",
+      "place": "برج آزادی تهران",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5489,
+      "slug": "chitgar-lake",
+      "place": "دریاچه چیتگر",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5492,
+      "slug": "tochal-ski-resort",
+      "place": "تله‌کابین توچال",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5495,
+      "slug": "dizin-ski-resort",
+      "place": "پیست اسکی دیزین",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5498,
+      "slug": "shemshak-ski-resort",
+      "place": "شمشک و پیست اسکی",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5501,
+      "slug": "afjeh-carrot-plain",
+      "place": "روستای افجه",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5504,
+      "slug": "tar-havir-lakes",
+      "place": "دریاچه تار",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5507,
+      "slug": "abali-ski-resort",
+      "place": "پیست اسکی آبعلی",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5510,
+      "slug": "tangeh-vashi",
+      "place": "تنگه واشی فیروزکوه",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5513,
+      "slug": "veresk-bridge",
+      "place": "پل ورسک",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5516,
+      "slug": "varamin-jameh-mosque",
+      "place": "مسجد جامع ورامین",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-photo-set",
+      "id": 5519,
+      "slug": "joughin-mound-shahriar",
+      "place": "تپه جوقین شهریار",
+      "batch": "20261124-tehran-attraction-featured.json"
+    },
+    {
+      "cmd": "featured-audit",
+      "type": "attraction"
+    }
+  ]
+}

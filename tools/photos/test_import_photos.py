@@ -131,6 +131,9 @@ assert ip.commons_source_url(
 assert ip.commons_source_url("https://upload.wikimedia.org/wikipedia/commons/e/ee/x.jpg").endswith("/e/ee/x.jpg"), "an original file URL is left alone"
 assert "/thumb/" not in ip.commons_source_url(
     "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/x.jpg/1280px-x.jpg")
+known_thumb = "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/98/x.jpg/1280px-x.jpg"
+assert ip.commons_source_url(known_thumb, preserve_thumbnail=True) == known_thumb, "an explicitly size-verified thumb is retained"
+assert ip.commons_source_url(known_thumb, preserve_thumbnail=False) == "https://upload.wikimedia.org/wikipedia/commons/9/98/x.jpg", "default remains original-file behavior"
 
 try:
     from io import BytesIO

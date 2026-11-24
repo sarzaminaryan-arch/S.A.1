@@ -59,6 +59,7 @@ import hashlib
 import os
 import subprocess
 import sys
+import tempfile
 import time
 import urllib.error
 import urllib.parse
@@ -766,6 +767,8 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--target", type=int, default=0)
     p = sub.add_parser("featured-audit", help="read-only: featured-image audit (a/b/c groups, theme 2.22.141+)")
     p.add_argument("--type", default="city", choices=["city", "attraction", "post", "province"])
+    p = sub.add_parser("featured-photo-check", help="read-only preflight: confirm exact published attractions still have no thumbnail")
+    p.add_argument("--plan", required=True)
     p = sub.add_parser("storage", help="read-only: real size of agent backups, UpdraftPlus sets and uploads")
     p = sub.add_parser("updraft-drive-test", help="read-only: real Google Drive connection test (token + listing, theme 2.22.133+)")
     p = sub.add_parser("updraft-settings", help="change only interval/retain/retain_db/delete_local (dry run unless --owner-approved-settings)")
@@ -829,6 +832,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--dry-run", action="store_true", help="report what would be trashed and change nothing")
     p = sub.add_parser("photos", help="read-only: licensed place photos with author, licence and source")
     p.add_argument("--city-id", type=int, default=0)
+    p = sub.add_parser("featured-photo-set", help="set an empty attraction thumbnail from a completed licensed photo import")
+    p.add_argument("id", type=int)
+    p.add_argument("--slug", required=True)
+    p.add_argument("--place", required=True)
+    p.add_argument("--batch", required=True, help="import batch filename, e.g. 20261124-tehran-attraction-photos.json")
     p = sub.add_parser("photos-optimize", help="owner-approved: re-encode a county's photos to 4:3 WebP under 100 KB")
     p.add_argument("--city-id", type=int, default=0, help="0 = every county with photos")
     p.add_argument("--photo-id", action="append", type=int, default=[], help="limit to these attachment ids")
@@ -956,6 +964,89 @@ def theme_install(c: "Client", version: str, expected: str, allow_without_backup
             sleep(THEME_RELEASE_POLL_SECONDS)
 
 
+def run_featured_photo_check(a: argparse.Namespace, c: "Client") -> dict:
+    """Read-only preflight for every exact target before importing any image."""
+    plan_path = (REPO_ROOT / a.plan).resolve()
+    if REPO_ROOT not in plan_path.parents or not plan_path.is_file():
+        raise AgentError("featured-photo-check plan must be an existing file inside the repository")
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    photos = plan.get("photos") if isinstance(plan, dict) else None
+    if not isinstance(photos, list) or not photos:
+        raise AgentError("featured-photo-check plan has no photos")
+    seen = set()
+    checked = []
+    for photo in photos:
+        post_id, slug = int(photo.get("post_id") or 0), str(photo.get("slug") or "")
+        if not post_id or not slug or post_id in seen:
+            raise AgentError("featured-photo-check found an invalid or duplicate post id")
+        seen.add(post_id)
+        current = c.call("GET", f"/post/{post_id}")
+        if current.get("type") != "attraction" or current.get("slug") != slug or current.get("status") != "publish":
+            raise AgentError(f"target {post_id} is no longer the published attraction {slug!r}")
+        thumb = int(current.get("featured_media") or current.get("meta", {}).get("_thumbnail_id") or 0)
+        if thumb:
+            raise AgentError(f"target {slug} already has featured image {thumb}; nothing imported")
+        checked.append({"id": post_id, "slug": slug, "featured_media": 0})
+    return {"checked": len(checked), "items": checked}
+
+
+def run_featured_photo_set(a: argparse.Namespace, c: "Client") -> dict:
+    """Set an attraction's previously-empty thumbnail to its credited import.
+
+    The source import has already gone through /photos/import, which stores author,
+    licence, source and optimized 4:3 WebP. This step re-reads the attachment receipt
+    and the live post, refuses to overwrite an existing thumbnail, then delegates to
+    the normal backed-up, modified_gmt-guarded `update` path.
+    """
+    batch_name = Path(a.batch).name
+    if batch_name != a.batch or not batch_name.endswith(".json"):
+        raise AgentError("featured-photo-set batch must be a JSON filename, not a path")
+    receipt_path = REPO_ROOT / "tools" / "photos" / "results" / f"{Path(batch_name).stem}.json"
+    if not receipt_path.is_file():
+        raise AgentError(f"photo import receipt is missing: {receipt_path.relative_to(REPO_ROOT)}")
+    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+    if receipt.get("batch") != Path(batch_name).stem or receipt.get("failed") or receipt.get("refused"):
+        raise AgentError("photo import receipt is incomplete or contains failed/refused items")
+    matches = [row for row in (receipt.get("imported", []) + receipt.get("reused", []))
+               if row.get("place") == a.place and int(row.get("id") or 0) > 0]
+    if len(matches) != 1:
+        raise AgentError(f"expected exactly one imported attachment for place {a.place!r}; found {len(matches)}")
+    attachment_id = int(matches[0]["id"])
+
+    current = c.call("GET", f"/post/{a.id}")
+    if current.get("type") != "attraction" or current.get("slug") != a.slug or current.get("status") != "publish":
+        raise AgentError(f"post {a.id} no longer matches published attraction {a.slug!r}")
+    existing = int(current.get("featured_media") or current.get("meta", {}).get("_thumbnail_id") or 0)
+    if existing == attachment_id:
+        return {"id": a.id, "slug": a.slug, "attachment_id": attachment_id, "noop": True}
+    if existing:
+        raise AgentError(f"refusing to replace existing featured image {existing} on {a.slug}")
+
+    # Same edit pipeline as `wp_agent.py update`: local snapshot first, server-side
+    # diff backup before write, exact modified_gmt optimistic lock, then verify the result.
+    with tempfile.NamedTemporaryFile(mode="w", encoding="utf-8", suffix=".json", delete=False) as fh:
+        json.dump({"_thumbnail_id": str(attachment_id)}, fh, ensure_ascii=False)
+        meta_path = fh.name
+    try:
+        args = build_parser().parse_args([
+            "update", str(a.id), "--meta-file", meta_path,
+            "--expected-modified-gmt", str(current.get("modified_gmt") or ""),
+            "--reason", f"تنظیم تصویر شاخص مجاز برای جاذبهٔ {a.slug}",
+        ])
+        result = run(args, c)
+    finally:
+        Path(meta_path).unlink(missing_ok=True)
+    if not isinstance(result, dict) or not int(result.get("backup_id") or 0):
+        raise AgentError(f"no server backup receipt was returned for {a.slug}; stop for manual review")
+    after = c.call("GET", f"/post/{a.id}")
+    after_thumb = int(after.get("featured_media") or after.get("meta", {}).get("_thumbnail_id") or 0)
+    if after_thumb != attachment_id:
+        raise AgentError(f"featured image verification failed for {a.slug}: expected {attachment_id}, saw {after_thumb}")
+    return {"id": a.id, "slug": a.slug, "attachment_id": attachment_id,
+            "backup_id": int(result["backup_id"]), "modified_gmt": after.get("modified_gmt"),
+            "url": matches[0].get("url", "")}
+
+
 def run(a: argparse.Namespace, c: "Client"):
     """Run one command and return its JSON result (raises AgentError on refusal)."""
     if a.cmd == "ping":
@@ -1011,6 +1102,8 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("POST", "/photos/prune", body=body)
     elif a.cmd == "photos":
         return c.call("GET", "/photos", {"city_id": a.city_id or None})
+    elif a.cmd == "featured-photo-set":
+        return run_featured_photo_set(a, c)
     elif a.cmd == "photos-optimize":
         if not a.owner_approved:
             raise AgentError("photos-optimize needs --owner-approved (owner's explicit order)")
@@ -1136,6 +1229,8 @@ def run(a: argparse.Namespace, c: "Client"):
         return c.call("GET", "/backups", {"target": a.target or None})
     elif a.cmd == "featured-audit":
         return c.call("GET", "/featured-audit", {"type": a.type})
+    elif a.cmd == "featured-photo-check":
+        return run_featured_photo_check(a, c)
     elif a.cmd == "storage":
         return c.call("GET", "/storage")
     elif a.cmd == "updraft-drive-test":
@@ -1527,7 +1622,8 @@ class JournalledClient:
     def call(self, method, path, params=None, body=None):
         active = self._journal.data['active']
         match = re.fullmatch(r"/post/(\d+)", path)
-        if (active and active.get('phase') == 'executing' and active.get('command') == 'update'
+        if (active and active.get('phase') == 'executing'
+                and active.get('command') in ('update', 'featured-photo-set')
                 and method == 'POST' and match):
             active['intent'] = make_intent(int(match.group(1)), body)
             self._journal.save()  # failure means the live write is never sent
@@ -1573,7 +1669,7 @@ def _run_job(job_path: str, c: "Client", journal: Journal) -> dict:
                 entry["result"] = run_photos_import(step)
             else:
                 entry["result"] = run(parser.parse_args(step_to_argv(step)), c)
-            if step.get("cmd") == "update" and isinstance(entry["result"], dict) and entry["result"].get("backup_id"):
+            if step.get("cmd") in ("update", "featured-photo-set") and isinstance(entry["result"], dict) and entry["result"].get("backup_id"):
                 backups.append(int(entry["result"]["backup_id"]))
             journal.after_step(step.get("cmd"), entry["result"])
             if step.get("cmd") == "probe" and opts.get("rollback_on_fail"):

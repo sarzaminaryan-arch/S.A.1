@@ -21,7 +21,7 @@ class StateError(Exception):
 # می‌زند و خروجی‌اش گزارش است — پس صریحاً همین‌جا فهرست شده تا شغل ممیزی، شغل نوشتنی
 # ثبت نشود و وقفهٔ احتمالی‌اش، کارهای بعدی را با «نتیجهٔ نامعلوم» قفل نکند.
 READ_ONLY = {'ping', 'list', 'get', 'backups', 'probe', 'inventory', 'seo-scan',
-             'featured-audit', 'storage', 'index-gate', 'relations-audit', 'content-audit'}
+             'featured-audit', 'featured-photo-check', 'storage', 'index-gate', 'relations-audit', 'content-audit'}
 
 
 class Journal:
@@ -95,7 +95,7 @@ class Journal:
                 self.save()
                 return
             intent = active.get('intent')
-            if (active.get('phase') == 'executing' and active.get('command') == 'update'
+            if (active.get('phase') == 'executing' and active.get('command') in ('update', 'featured-photo-set')
                     and isinstance(intent, dict) and type(intent.get('target')) is int
                     and intent['target'] > 0):
                 try:
@@ -148,10 +148,10 @@ class Journal:
     def after_step(self, command, result):
         active = self.data['active']
         if command not in READ_ONLY:
-            if command == 'update' and isinstance(result, dict) and result.get('noop') is True:
+            if command in ('update', 'featured-photo-set') and isinstance(result, dict) and result.get('noop') is True:
                 pass
             else:
-                bid = result.get('backup_id') if command == 'update' and isinstance(result, dict) else None
+                bid = result.get('backup_id') if command in ('update', 'featured-photo-set') and isinstance(result, dict) else None
                 if isinstance(bid, int) and bid > 0:
                     active['backups'].append(bid)
                 else:
