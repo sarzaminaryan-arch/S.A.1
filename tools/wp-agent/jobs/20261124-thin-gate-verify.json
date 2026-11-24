@@ -1,0 +1,16 @@
+{
+  "name": "20261124-thin-gate-verify",
+  "description": "Read-only verification of the 700-word thin-county gate after theme 2.24.22: per-city index-gate decision (words/places/reason) + public seo-scan of robots meta and the city sitemap",
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "index-gate"
+    },
+    {
+      "cmd": "seo-scan",
+      "extra": ["/wp-sitemap-posts-city-1.xml"]
+    }
+  ]
+}
