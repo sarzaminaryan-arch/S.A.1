@@ -725,6 +725,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--parent", type=int, default=0)
     p.add_argument("--category", action="append", default=[])
     p.add_argument("--meta-file")
+    p.add_argument("--upsert-slug", action="store_true", help="update existing draft when (type, slug) already exists")
     p = sub.add_parser("draft-copy")
     p.add_argument("id", type=int)
     p.add_argument("--title")
@@ -796,7 +797,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--owner-approved-trash", action="store_true")
     p.add_argument("--reason", default="زباله‌دان نسخهٔ تکراری (دستور مالک)")
     p = sub.add_parser("publish-draft", help="owner-approved: promote a completed cluster draft to publish (theme 2.24.20+, backup first)")
-    p.add_argument("id", type=int)
+    p.add_argument("id", nargs="?", type=int, default=0)
+    p.add_argument("--slug", default="", help="resolve draft id by exact slug when id is omitted")
+    p.add_argument("--type", default="attraction", help="post type when resolving --slug (city or attraction)")
     p.add_argument("--owner-approved-publish", action="store_true")
     p.add_argument("--reason", default="انتشار پیش‌نویس تکمیل‌شدهٔ خوشه (دستور مالک)")
     p = sub.add_parser("litespeed", help="read LiteSpeed Cache settings; --set only crawler keys")
@@ -1030,6 +1033,19 @@ def run(a: argparse.Namespace, c: "Client"):
         meta_problems = fa_scan_meta(draft_meta)
         if meta_problems:
             raise AgentError("فیلتر املا/نگارش (متا): " + " | ".join(meta_problems[:4]))
+        if getattr(a, "upsert_slug", False) and a.slug:
+            found = c.call("GET", "/posts", {"type": a.type, "slug": a.slug, "status": "any", "per_page": 20})
+            match = next((it for it in found.get("items", []) if it.get("slug") == a.slug), None)
+            if match and match.get("status") == "draft":
+                pid = int(match["id"])
+                current = c.call("GET", f"/post/{pid}")
+                save_local_backup(f"post-{pid}", current)
+                fields = {"title": a.title, "content": content, "excerpt": a.excerpt}
+                return c.call("POST", f"/post/{pid}", body={"expected_modified_gmt": current["modified_gmt"],
+                                                            "fields": fields, "meta": draft_meta,
+                                                            "reason": "به‌روزرسانی پیش‌نویس خوشه با نامک یکتا"})
+            if match and match.get("status") == "publish":
+                return {"id": int(match["id"]), "slug": a.slug, "status": "publish", "skipped_existing_publish": True}
         body = {"type": a.type, "title": a.title, "content": content, "excerpt": a.excerpt,
                 "slug": a.slug, "parent": a.parent, "meta": draft_meta}
         if a.category:
@@ -1187,13 +1203,24 @@ def run(a: argparse.Namespace, c: "Client"):
     elif a.cmd == "publish-draft":
         if not a.owner_approved_publish:
             raise AgentError("publish-draft needs --owner-approved-publish (owner's explicit order)")
-        current = c.call("GET", f"/post/{a.id}")
+        target_id = int(a.id or 0)
+        if target_id <= 0 and a.slug:
+            found = c.call("GET", "/posts", {"type": a.type, "slug": a.slug, "status": "any", "per_page": 20})
+            match = next((it for it in found.get("items", []) if it.get("slug") == a.slug), None)
+            if not match:
+                raise AgentError(f"publish-draft could not find {a.type} with slug={a.slug!r}")
+            if match.get("status") == "publish":
+                return {"id": int(match["id"]), "slug": a.slug, "status": "publish", "already_published": True}
+            target_id = int(match["id"])
+        if target_id <= 0:
+            raise AgentError("publish-draft needs a post id or --slug")
+        current = c.call("GET", f"/post/{target_id}")
         if current.get("status") != "draft":
-            raise AgentError(f"publish-draft only accepts draft posts; post #{a.id} has status={current.get('status')!r}")
-        local = save_local_backup(f"post-{a.id}-pre-publish", current)
+            raise AgentError(f"publish-draft only accepts draft posts; post #{target_id} has status={current.get('status')!r}")
+        local = save_local_backup(f"post-{target_id}-pre-publish", current)
         print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
-        return c.call("POST", f"/post/{a.id}/publish", body={"owner_approved_publish": True,
-                                                             "expected_modified_gmt": current["modified_gmt"], "reason": a.reason})
+        return c.call("POST", f"/post/{target_id}/publish", body={"owner_approved_publish": True,
+                                                                  "expected_modified_gmt": current["modified_gmt"], "reason": a.reason})
     elif a.cmd == "litespeed":
         current = c.call("GET", "/litespeed")
         if not a.set:

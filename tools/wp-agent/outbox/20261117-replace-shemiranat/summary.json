@@ -1,0 +1,20 @@
+[
+ {
+  "id": 215,
+  "slug": "shemiranat",
+  "words_after": 1250,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

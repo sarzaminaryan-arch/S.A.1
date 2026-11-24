@@ -1,0 +1,20 @@
+[
+ {
+  "id": 218,
+  "slug": "varamin",
+  "words_after": 1114,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

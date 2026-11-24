@@ -1,0 +1,20 @@
+[
+ {
+  "id": 217,
+  "slug": "firuzkuh",
+  "words_after": 1153,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
