@@ -13,7 +13,9 @@ class CICoverageTests(unittest.TestCase):
                      'test_workflow_safety.py', 'test_build_gate.py',
                      # ۲ آذر ۱۴۰۵: پروتکل اجرای شهرستان («یکسان برای همه») باید در CI باشد،
                      # وگرنه قاعده‌ای است که فقط در سند مانده است.
-                     'test_county_run.py'):
+                     'test_county_run.py',
+                     # ۳ آذر ۱۴۰۵: قانون ثبت حافظهٔ پایان نشست و نقشهٔ راه ۱۰۰ خوشه.
+                     'test_memory_protocol.py'):
             self.assertIn(f'python3 tools/wp-agent/{test}', workflow)
 
 

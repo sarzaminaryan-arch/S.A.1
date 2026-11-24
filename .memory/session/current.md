@@ -1,6 +1,9 @@
 # وضعیت نشست جاری (Session State)
 
-- **شاخهٔ فعال:** `arena/f57a8566-s-a-1` (همگام‌سازی‌شده با `main` پس از ادغام `PR #137` و ثبت نتیجهٔ `20261123-05-theme-22419-province-neighbors.json`).
-- **قالب فرزند `v2.24.19` (مستقر روی سایت زنده):** تراز کامل تقارن هم‌مرزی ۳۱ استان در `data/region-facts.php` و `data/province-profiles.json` با گارد `tests/test-province-county-links.php` منتشر و در `sarzaminaryan.ir` فعال شد (`style.css` نسخهٔ `2.24.19`).
-- **فاز ۲ (۱۴ استان باقی‌مانده):** بازسازی کامل هر ۱۴ صفحه با الگوی ده‌بخشی همسان، تراز جمعیتی ۱۳۹۵ (`diff = 0`)، پیوند به تمام جاذبه‌های زنده، ۵ پرسش پرتکرار و ۷ منبع یکتا آماده و در `tools/wp-agent/jobs/20261123-06-provinces-batch-14-rebuild.json` ثبت شده است.
-- **گام جاری:** ادغام همگام‌سازی پس از اجرای جاب ۰۵، اجرای `wp-agent.yml` روی `tools/wp-agent/jobs/20261123-06-provinces-batch-14-rebuild.json` و تأیید زندهٔ تمامی ۱۴ استان روی سایت.
+- **شاخهٔ فعال:** `arena/948ec92c-s-a-1` (انشعاب از `04f6fbd` روی `main`).
+- **هدف نشست (۲۰۲۶-۱۱-۲۴ / ۱۴۰۵/۰۹/۰۳):**
+  1. همگام‌سازی کامل حافظهٔ `.memory/` با آخرین وضعیت واقعی پروژه تا `PR #151` و افزودن فایل مرجع `.memory/wiki/roadmap.md`.
+  2. الزامی‌کردن قانون «ثبت پیشرفت کار در `.memory/` در پایان هر نشست» در تمامی اسناد ورودی ایجنت (`AGENTS.md`, `.agent/RULES.md`, `CLAUDE.md`, `AGENT_RULES.md`) همراه با گارد CI (`tools/wp-agent/test_memory_protocol.py`).
+  3. ثبت کامل **استراتژی انتشار خوشه‌ای (Topic Cluster Strategy — ۱۰۰ شهرستان پرجستجو + ۲۳۹ شاخهٔ جاذبه)** در `docs/live-site/topic-cluster-roadmap.md` و `tools/wp-agent/topic_clusters_100.json`.
+  4. رفع باگ ایزوله‌نبودن `test_county_run.py` که باعث قرمزی `Build gates` روی `main` پس از `PR #151` شده بود.
+- **گام بعدی پس از این نشست:** آغاز اجرای **خوشهٔ ۱ — تهران (`/city/tehran/` + ۸ شاخهٔ جاذبه)** پس از تعیین روش انتشار مقالات جدید `/attraction/`.
