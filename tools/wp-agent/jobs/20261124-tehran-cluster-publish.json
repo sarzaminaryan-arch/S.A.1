@@ -1,0 +1,323 @@
+{
+  "name": "20261124-tehran-cluster-publish",
+  "description": "Province #1 Tehran (43) bottom-up Topic Cluster publish: theme 2.24.20 + 18 attractions + 6 counties + province:tehran",
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "theme-update",
+      "version": "2.24.20",
+      "owner-approved-theme-update": true
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "milad-tower",
+      "upsert-slug": true,
+      "title": "برج میلاد تهران",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/milad-tower.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/milad-tower.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "milad-tower",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "golestan-palace",
+      "upsert-slug": true,
+      "title": "کاخ گلستان",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/golestan-palace.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/golestan-palace.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "golestan-palace",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "saadabad-complex",
+      "upsert-slug": true,
+      "title": "مجموعه فرهنگی‌تاریخی سعدآباد",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/saadabad-complex.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/saadabad-complex.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "saadabad-complex",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "tabiat-bridge",
+      "upsert-slug": true,
+      "title": "پل طبیعت و پارک آب و آتش",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tabiat-bridge.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tabiat-bridge.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "tabiat-bridge",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "darband-darakeh",
+      "upsert-slug": true,
+      "title": "دربند و درکه تهران",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/darband-darakeh.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/darband-darakeh.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "darband-darakeh",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "tehran-grand-bazaar",
+      "upsert-slug": true,
+      "title": "بازار بزرگ تهران",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tehran-grand-bazaar.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tehran-grand-bazaar.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "tehran-grand-bazaar",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "azadi-tower",
+      "upsert-slug": true,
+      "title": "برج آزادی",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/azadi-tower.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/azadi-tower.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "azadi-tower",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "chitgar-lake",
+      "upsert-slug": true,
+      "title": "دریاچه چیتگر (شهدای خلیج فارس)",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/chitgar-lake.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/chitgar-lake.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "chitgar-lake",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "tochal-ski-resort",
+      "upsert-slug": true,
+      "title": "پیست اسکی و تله‌کابین توچال",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tochal-ski-resort.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tochal-ski-resort.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "tochal-ski-resort",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "dizin-ski-resort",
+      "upsert-slug": true,
+      "title": "پیست اسکی دیزین",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/dizin-ski-resort.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/dizin-ski-resort.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "dizin-ski-resort",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "shemshak-ski-resort",
+      "upsert-slug": true,
+      "title": "پیست اسکی شمشک",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/shemshak-ski-resort.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/shemshak-ski-resort.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "shemshak-ski-resort",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "afjeh-carrot-plain",
+      "upsert-slug": true,
+      "title": "روستای افجه و دشت هویج لواسان",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/afjeh-carrot-plain.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/afjeh-carrot-plain.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "afjeh-carrot-plain",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "tar-havir-lakes",
+      "upsert-slug": true,
+      "title": "دریاچه‌های تار و هویر دماوند",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tar-havir-lakes.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tar-havir-lakes.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "tar-havir-lakes",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "abali-ski-resort",
+      "upsert-slug": true,
+      "title": "پیست اسکی آبعلی",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/abali-ski-resort.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/abali-ski-resort.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "abali-ski-resort",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "tangeh-vashi",
+      "upsert-slug": true,
+      "title": "تنگه واشی فیروزکوه",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tangeh-vashi.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/tangeh-vashi.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "tangeh-vashi",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "veresk-bridge",
+      "upsert-slug": true,
+      "title": "پل ورسک (مسیر ریلی و جاده فیروزکوه–سوادکوه)",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/veresk-bridge.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/veresk-bridge.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "veresk-bridge",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "varamin-jameh-mosque",
+      "upsert-slug": true,
+      "title": "مسجد جامع ورامین",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/varamin-jameh-mosque.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/varamin-jameh-mosque.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "varamin-jameh-mosque",
+      "type": "attraction"
+    },
+    {
+      "cmd": "draft",
+      "type": "attraction",
+      "slug": "joughin-mound-shahriar",
+      "upsert-slug": true,
+      "title": "تپه جوقین و باغ‌های شهریار",
+      "content-file": "tools/wp-agent/outbox/20261124-tehran-attractions/joughin-mound-shahriar.html",
+      "meta-file": "tools/wp-agent/outbox/20261124-tehran-attractions/joughin-mound-shahriar.meta.json"
+    },
+    {
+      "cmd": "publish-draft",
+      "slug": "joughin-mound-shahriar",
+      "type": "attraction"
+    },
+    {
+      "cmd": "update",
+      "id": 213,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.meta.json"
+    },
+    {
+      "cmd": "update",
+      "id": 215,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-shemiranat/shemiranat-215.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-shemiranat/shemiranat-215.meta.json"
+    },
+    {
+      "cmd": "update",
+      "id": 216,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-damavand/damavand-216.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-damavand/damavand-216.meta.json"
+    },
+    {
+      "cmd": "update",
+      "id": 217,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-firuzkuh/firuzkuh-217.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-firuzkuh/firuzkuh-217.meta.json"
+    },
+    {
+      "cmd": "update",
+      "id": 218,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-varamin/varamin-218.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-varamin/varamin-218.meta.json"
+    },
+    {
+      "cmd": "update",
+      "id": 225,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-shahriar/shahriar-225.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-shahriar/shahriar-225.meta.json"
+    },
+    {
+      "cmd": "update",
+      "id": 43,
+      "content-file": "tools/wp-agent/outbox/20261123-province-tehran-43/tehran-43.html",
+      "meta-file": "tools/wp-agent/outbox/20261123-province-tehran-43/tehran-43.meta.json"
+    },
+    {
+      "cmd": "cache-purge"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.com/province/tehran/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.com/city/tehran/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.com/attraction/milad-tower/"
+    }
+  ]
+}

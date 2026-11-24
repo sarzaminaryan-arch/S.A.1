@@ -1,0 +1,20 @@
+[
+ {
+  "id": 225,
+  "slug": "shahriar",
+  "words_after": 1019,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]

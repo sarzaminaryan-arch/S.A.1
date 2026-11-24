@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "milad-tower",
+    "title": "برج میلاد تهران",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل بازدید از برج میلاد تهران؛ سازه ۴۳۵ متری در کوی نصر، سکوی دید باز در ارتفاع ۲۸۰ متری، گنبد آسمان، موزه‌ها، مسیر دسترسی با مترو و خودرو و بهترین ساعت تماشای پایتخت.",
+    "words": 1349,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/milad-tower.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/milad-tower.meta.json"
+  },
+  {
+    "slug": "golestan-palace",
+    "title": "کاخ گلستان",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل بازدید از مجموعه میراث جهانی کاخ گلستان در میدان ارگ تهران؛ معرفی ایوان تخت مرمر، شمس‌العماره، تالار آینه، کاخ ابیض، ساعت کاری و دسترسی با مترو پانزده خرداد.",
+    "words": 1227,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/golestan-palace.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/golestan-palace.meta.json"
+  },
+  {
+    "slug": "saadabad-complex",
+    "title": "مجموعه فرهنگی‌تاریخی سعدآباد",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل مجموعه فرهنگی‌تاریخی سعدآباد در کوهپایه شمال تهران؛ باغ‌موزه ۱۱۰ هکتاری کنار رودخانه دربند، کاخ ملت، کاخ سبز، موزه‌های فرشچیان و خودروهای تاریخی و مسیر دسترسی از تجریش.",
+    "words": 1136,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/saadabad-complex.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/saadabad-complex.meta.json"
+  },
+  {
+    "slug": "tabiat-bridge",
+    "title": "پل طبیعت و پارک آب و آتش",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل بازدید از پل طبیعت و بوستان آب و آتش در اراضی عباس‌آباد تهران؛ پل سه‌طبقه ۲۷۰ متری بر فراز بزرگراه مدرس، گنبد مینا، مسیر دسترسی از مترو شهید حقانی و بهترین ساعت پیاده‌روی.",
+    "words": 1136,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tabiat-bridge.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tabiat-bridge.meta.json"
+  },
+  {
+    "slug": "darband-darakeh",
+    "title": "دربند و درکه تهران",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل گردش و کوهپیمایی در دربند و درکه شمال تهران؛ مسیر میدان سربند تا پس‌قلعه و شیرپلا، جنگل کارا و پلنگ‌چال در درکه، کافه‌های کنار رودخانه، دسترسی از تجریش و نکات ایمنی کوهستان.",
+    "words": 1079,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/darband-darakeh.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/darband-darakeh.meta.json"
+  },
+  {
+    "slug": "tehran-grand-bazaar",
+    "title": "بازار بزرگ تهران",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل گردش و خرید در بازار بزرگ تهران؛ معرفی سبزه‌میدان، تیمچه حاجب‌الدوله، سرای امیر، بازار فرش و زرگرها، غذاخوری‌های قدیمی، ساعت کاری واقعی و دسترسی با مترو پانزده خرداد.",
+    "words": 1149,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tehran-grand-bazaar.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tehran-grand-bazaar.meta.json"
+  },
+  {
+    "slug": "azadi-tower",
+    "title": "برج آزادی",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل بازدید از برج آزادی و موزه زیرزمینی آن در میدان آزادی تهران؛ شاهکار معماری معاصر با ۲۵ هزار قطعه سنگ مرمر جوشقان، بام برج، ساعت کاری و دسترسی با مترو میدان آزادی.",
+    "words": 1099,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/azadi-tower.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/azadi-tower.meta.json"
+  },
+  {
+    "slug": "chitgar-lake",
+    "title": "دریاچه چیتگر (شهدای خلیج فارس)",
+    "city_id": 213,
+    "city_slug": "tehran",
+    "excerpt": "راهنمای کامل گردش در دریاچه چیتگر (شهدای خلیج فارس) در غرب تهران؛ پیست دوچرخه‌سواری و پیاده‌روی ۶ کیلومتری، قایق‌سواری، مجموعه بام‌لند، ساعت بازدید و دسترسی با مترو چیتگر و بزرگراه خرازی.",
+    "words": 1068,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/chitgar-lake.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/chitgar-lake.meta.json"
+  },
+  {
+    "slug": "tochal-ski-resort",
+    "title": "پیست اسکی و تله‌کابین توچال",
+    "city_id": 215,
+    "city_slug": "shemiranat",
+    "excerpt": "راهنمای کامل بازدید از تله‌کابین و پیست اسکی توچال در شمال تهران و شمیرانات؛ معرفی بام تهران، ایستگاه‌های یک تا هفت تله‌کابین ۷٫۵ کیلومتری، پیست برفی ۳٬۷۴۰ متری، هتل توچال و نکات ایمنی ارتفاع.",
+    "words": 1023,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tochal-ski-resort.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tochal-ski-resort.meta.json"
+  },
+  {
+    "slug": "dizin-ski-resort",
+    "title": "پیست اسکی دیزین",
+    "city_id": 215,
+    "city_slug": "shemiranat",
+    "excerpt": "راهنمای کامل بازدید و اسکی در پیست بین‌المللی دیزین در ارتفاعات البرز مرکزی؛ مشخصات ۲۳ پیست و بالابرها، تفاوت مسیر دسترسی جاده چالوس و جاده شمشک، اسکی روی چمن تابستانی و اقامت در دیزین.",
+    "words": 1030,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/dizin-ski-resort.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/dizin-ski-resort.meta.json"
+  },
+  {
+    "slug": "shemshak-ski-resort",
+    "title": "پیست اسکی شمشک",
+    "city_id": 215,
+    "city_slug": "shemiranat",
+    "excerpt": "راهنمای کامل پیست اسکی و شهر کوهستانی شمشک در رودبار قصران شمیرانات؛ معرفی پیست آفتاب و مهتاب، اسکی شبانه، مسیر دسترسی از لشگرک و فشم، کافه‌ها و نکات بازدید چهارفصل.",
+    "words": 925,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/shemshak-ski-resort.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/shemshak-ski-resort.meta.json"
+  },
+  {
+    "slug": "afjeh-carrot-plain",
+    "title": "روستای افجه و دشت هویج لواسان",
+    "city_id": 215,
+    "city_slug": "shemiranat",
+    "excerpt": "راهنمای کامل طبیعت‌گردی در روستای افجه و دشت هویج (گرچال) لواسان در شهرستان شمیرانات؛ مسیر مال‌رو چناران، آبشار پسچویک، حمام صفوی افجه، بهترین فصل گلگشت و دسترسی از گردنه قوچک.",
+    "words": 1017,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/afjeh-carrot-plain.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/afjeh-carrot-plain.meta.json"
+  },
+  {
+    "slug": "tar-havir-lakes",
+    "title": "دریاچه‌های تار و هویر دماوند",
+    "city_id": 216,
+    "city_slug": "damavand",
+    "excerpt": "راهنمای کامل سفر به دریاچه‌های کوهستانی تار و هویر در شهرستان دماوند؛ دو نگین آب شیرین در ارتفاع ۲٬۹۰۰ متری البرز، وضعیت جاده خاکی چنارشرق، بهترین فصل کمپینگ و نکات ایمنی طبیعت‌گردی.",
+    "words": 1014,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tar-havir-lakes.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tar-havir-lakes.meta.json"
+  },
+  {
+    "slug": "abali-ski-resort",
+    "title": "پیست اسکی آبعلی",
+    "city_id": 216,
+    "city_slug": "damavand",
+    "excerpt": "راهنمای کامل بازدید از پیست اسکی آبعلی در کیلومتر ۵۷ جاده هراز (شهرستان دماوند)؛ کهن‌ترین پیست مکانیکی ایران، معرفی ۵ پیست مجزا، برف‌بازی خانوادگی، دوغ و کباب آبعلی و مسیر دسترسی آسان.",
+    "words": 886,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/abali-ski-resort.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/abali-ski-resort.meta.json"
+  },
+  {
+    "slug": "tangeh-vashi",
+    "title": "تنگه واشی فیروزکوه",
+    "city_id": 217,
+    "city_slug": "firuzkuh",
+    "excerpt": "راهنمای کامل سفر به تنگه واشی (ساواشی) در شهرستان فیروزکوه؛ پیاده‌روی تابستانی در آب خنک دو تنگه سنگی، نقش‌برجسته قاجاری فتحعلی‌شاه، دشت ساواشی، آبشار ۱۵ متری و وسایل لازم بازدید.",
+    "words": 1106,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tangeh-vashi.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/tangeh-vashi.meta.json"
+  },
+  {
+    "slug": "veresk-bridge",
+    "title": "پل ورسک (مسیر ریلی و جاده فیروزکوه–سوادکوه)",
+    "city_id": 217,
+    "city_slug": "firuzkuh",
+    "excerpt": "راهنمای کامل بازدید از پل تاریخی ورسک در ادامه محور فیروزکوه و گردنه گدوک؛ شاهکار مهندسی راه‌آهن سراسری ایران در ارتفاع ۱۱۰ متری دره، میراث جهانی یونسکو، سکوی تماشا و قطار گردشگری.",
+    "words": 1136,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/veresk-bridge.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/veresk-bridge.meta.json"
+  },
+  {
+    "slug": "varamin-jameh-mosque",
+    "title": "مسجد جامع ورامین",
+    "city_id": 218,
+    "city_slug": "varamin",
+    "excerpt": "راهنمای کامل بازدید از مسجد جامع تاریخی ورامین؛ شاهکار معماری چهارایوانی دوره ایلخانی (قرن هشتم هجری)، گچ‌بری‌های برجسته، کاشی‌کاری معرق، برج علاءالدوله در همسایگی و مسیر قطار حومه‌ای از تهران.",
+    "words": 1002,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/varamin-jameh-mosque.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/varamin-jameh-mosque.meta.json"
+  },
+  {
+    "slug": "joughin-mound-shahriar",
+    "title": "تپه جوقین و باغ‌های شهریار",
+    "city_id": 225,
+    "city_slug": "shahriar",
+    "excerpt": "راهنمای کامل بازدید از قلعه و تپه باستانی جوقین (دوره ساسانی) و کوچه‌باغ‌های سرسبز شهریار در غرب استان تهران؛ معماری خشتی، کوه تخت رستم در نزدیکی، فصل شکوفه و میوه و مسیر دسترسی از میدان آزادی.",
+    "words": 1040,
+    "content_file": "tools/wp-agent/outbox/20261124-tehran-attractions/joughin-mound-shahriar.html",
+    "meta_file": "tools/wp-agent/outbox/20261124-tehran-attractions/joughin-mound-shahriar.meta.json"
+  }
+]

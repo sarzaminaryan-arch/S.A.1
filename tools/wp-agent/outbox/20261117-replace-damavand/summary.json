@@ -1,0 +1,20 @@
+[
+ {
+  "id": 216,
+  "slug": "damavand",
+  "words_after": 1219,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
