@@ -1,0 +1,23 @@
+{
+  "name": "20261124-theme-2.24.21-update",
+  "description": "Update live child theme to 2.24.21 (desktop hero fix, sticky header, footer logo home link) and purge cache",
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "theme-update",
+      "version": "2.24.21",
+      "expected-version": "2.24.20",
+      "owner-approved-theme-update": true
+    },
+    {
+      "cmd": "cache-purge",
+      "all": true
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/"
+    }
+  ]
+}
