@@ -62,9 +62,17 @@ def main() -> int:
         with patch.object(cr, "missing_witnesses", lambda slug: ["x"]):
             assert cr.main(["county_run.py", "done", "ahvaz"]) == 1
             assert cr.load_state()["counties"]["ahvaz"]["status"] == "in_progress"
-        # the witness list itself names what is missing for a real slug
-        missing = cr.missing_witnesses("dezful")
-        for want in ("briefs/dezful.md", "briefs/dezful-evidence.md", "briefs/dezful-gates.md"):
+        # the witness list itself names what is missing when a slug has no files yet
+        empty_root = Path(tempfile.mkdtemp())
+        empty_briefs = empty_root / "docs/live-site/briefs"
+        empty_outbox = empty_root / "tools/wp-agent/outbox"
+        empty_briefs.mkdir(parents=True)
+        empty_outbox.mkdir(parents=True)
+        with patch.object(cr, "ROOT", empty_root), \
+             patch.object(cr, "BRIEFS", empty_briefs), \
+             patch.object(cr, "OUTBOX", empty_outbox):
+            missing = cr.missing_witnesses("dezful")
+        for want in ("outbox/*-replace-dezful/*.html", "briefs/dezful.md", "briefs/dezful-evidence.md", "briefs/dezful-gates.md"):
             assert any(want in m for m in missing), (want, missing)
         # with the witnesses present the same call succeeds
         assert any(cr.OUTBOX.glob("*-replace-*/eslamshahr-*.html")), \
