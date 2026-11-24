@@ -1,5 +1,5 @@
 {
-  "name": "20261124-tehran-cluster-publish",
+  "name": "20261124-tehran-cluster-publish-v3",
   "description": "Province #1 Tehran (43) bottom-up Topic Cluster publish: theme 2.24.20 + 18 attractions + 6 counties + province:tehran",
   "steps": [
     {
@@ -17,7 +17,8 @@
     {
       "cmd": "publish-draft",
       "slug": "milad-tower",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -31,7 +32,8 @@
     {
       "cmd": "publish-draft",
       "slug": "golestan-palace",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -45,7 +47,8 @@
     {
       "cmd": "publish-draft",
       "slug": "saadabad-complex",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -59,7 +62,8 @@
     {
       "cmd": "publish-draft",
       "slug": "tabiat-bridge",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -73,7 +77,8 @@
     {
       "cmd": "publish-draft",
       "slug": "darband-darakeh",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -87,7 +92,8 @@
     {
       "cmd": "publish-draft",
       "slug": "tehran-grand-bazaar",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -101,7 +107,8 @@
     {
       "cmd": "publish-draft",
       "slug": "azadi-tower",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -115,7 +122,8 @@
     {
       "cmd": "publish-draft",
       "slug": "chitgar-lake",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -129,7 +137,8 @@
     {
       "cmd": "publish-draft",
       "slug": "tochal-ski-resort",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -143,7 +152,8 @@
     {
       "cmd": "publish-draft",
       "slug": "dizin-ski-resort",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -157,7 +167,8 @@
     {
       "cmd": "publish-draft",
       "slug": "shemshak-ski-resort",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -171,7 +182,8 @@
     {
       "cmd": "publish-draft",
       "slug": "afjeh-carrot-plain",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -185,7 +197,8 @@
     {
       "cmd": "publish-draft",
       "slug": "tar-havir-lakes",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -199,7 +212,8 @@
     {
       "cmd": "publish-draft",
       "slug": "abali-ski-resort",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -213,7 +227,8 @@
     {
       "cmd": "publish-draft",
       "slug": "tangeh-vashi",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -227,7 +242,8 @@
     {
       "cmd": "publish-draft",
       "slug": "veresk-bridge",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -241,7 +257,8 @@
     {
       "cmd": "publish-draft",
       "slug": "varamin-jameh-mosque",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "draft",
@@ -255,7 +272,8 @@
     {
       "cmd": "publish-draft",
       "slug": "joughin-mound-shahriar",
-      "type": "attraction"
+      "type": "attraction",
+      "owner-approved-publish": true
     },
     {
       "cmd": "update",
@@ -304,15 +322,15 @@
     },
     {
       "cmd": "probe",
-      "url": "https://sarzaminaryan.com/province/tehran/"
+      "url": "https://sarzaminaryan.ir/province/tehran/"
     },
     {
       "cmd": "probe",
-      "url": "https://sarzaminaryan.com/city/tehran/"
+      "url": "https://sarzaminaryan.ir/city/tehran/"
     },
     {
       "cmd": "probe",
-      "url": "https://sarzaminaryan.com/attraction/milad-tower/"
+      "url": "https://sarzaminaryan.ir/attraction/milad-tower/"
     }
   ]
 }
