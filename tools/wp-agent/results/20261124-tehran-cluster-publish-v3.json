@@ -1,0 +1,39 @@
+{
+  "job": "tools/wp-agent/jobs/20261124-tehran-cluster-publish-v3.json",
+  "started_utc": "2026-11-24T15:13:35+00:00",
+  "note": "",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.20",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-24T15:13:35+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "draft",
+      "error": "HTTP 409 on POST /post/5468: {\"code\":\"sa_agent_nothing\",\"message\":\"\\u062a\\u063a\\u06cc\\u06cc\\u0631\\u06cc \\u0646\\u0633\\u0628\\u062a \\u0628\\u0647 \\u0648\\u0636\\u0639 \\u0645\\u0648\\u062c\\u0648\\u062f \\u0646\\u06cc\\u0633\\u062a\\u061b \\u067e\\u0634\\u062a\\u06cc\\u0628\\u0627\\u0646 \\u0648 \\u0646\\u0648\\u0634\\u062a\\u0646 \\u0627\\u0646\\u062c\\u0627\\u0645 \\u0646\\u0634\\u062f.\",\"data\":{\"status\":409}}"
+    }
+  ],
+  "recovery": "manual reconciliation required: write outcome unknown",
+  "finished_utc": "2026-11-24T15:13:39+00:00"
+}
