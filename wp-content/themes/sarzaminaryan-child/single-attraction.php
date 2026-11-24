@@ -64,7 +64,8 @@ while ( have_posts() ) :
 	$sa_add_quick  = static function ( $label, $value, $is_html = false, $ltr = false ) use ( &$sa_quick_rows, &$sa_seen_lbl ) {
 		$label = trim( (string) $label );
 		$value = trim( (string) $value );
-		if ( '' === $label || '' === $value || isset( $sa_seen_lbl[ $label ] ) ) {
+		$sa_empty_sentinels = array( '', '0', '۰', '0 متر', '۰ متر', 'نامشخص', '—', '-', 'ندارد', '0 دقیقه', '۰ دقیقه' );
+		if ( '' === $label || in_array( $value, $sa_empty_sentinels, true ) || isset( $sa_seen_lbl[ $label ] ) ) {
 			return;
 		}
 		$sa_seen_lbl[ $label ] = true;
