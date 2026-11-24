@@ -1,0 +1,8 @@
+{
+  "name": "20261125-01-attraction-featured-audit",
+  "description": "Read-only: featured-image audit for every published attraction, to list which of the 18 Tehran-cluster attractions still lack a featured image before sourcing licensed photos.",
+  "steps": [
+    { "cmd": "ping" },
+    { "cmd": "featured-audit", "type": "attraction" }
+  ]
+}
