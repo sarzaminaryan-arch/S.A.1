@@ -1,0 +1,2889 @@
+{
+  "strategy": "Topic Cluster Strategy (۱۰۰ شهرستان پرجستجو + شاخه‌های جاذبه)",
+  "updated": "2026-11-24",
+  "active_cluster_rank": 1,
+  "summary": {
+    "total_clusters": 100,
+    "completed_clusters": 0,
+    "total_branches": 239,
+    "zero_branch_clusters": 5,
+    "hubs_already_v3_live": 3,
+    "branches_with_existing_live_url": 22
+  },
+  "clusters": [
+    {
+      "rank": 1,
+      "name": "تهران",
+      "city_slug": "tehran",
+      "city_wp_id": 213,
+      "province": "tehran",
+      "hub_status": "draft_local",
+      "hub_note": "",
+      "branch_count": 8,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "برج میلاد تهران",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "کاخ گلستان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کاخ سعدآباد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "پل طبیعت و پارک آب و آتش",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "دربند و درکه تهران",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 6,
+          "title": "بازار بزرگ تهران",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 7,
+          "title": "برج آزادی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 8,
+          "title": "دریاچه چیتگر (شهدای خلیج فارس)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "مشهد",
+      "city_slug": "mashhad",
+      "city_wp_id": 63,
+      "province": "razavi-khorasan",
+      "hub_status": "draft_local",
+      "hub_note": "",
+      "branch_count": 7,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "حرم مطهر امام رضا (ع)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "آرامگاه فردوسی (توس)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "پارک کوهسنگی مشهد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "ییلاق طرقبه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "ییلاق شاندیز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 6,
+          "title": "سرزمین موج‌های آبی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 7,
+          "title": "پارک طبیعی هفت‌حوض",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "اصفهان",
+      "city_slug": "isfahan",
+      "city_wp_id": 153,
+      "province": "isfahan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 7,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "میدان نقش جهان اصفهان",
+          "existing_live_slugs": [
+            "naqsh-e-jahan-square-isfahan"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "سی‌وسه‌پل و پل خواجو",
+          "existing_live_slugs": [
+            "si-o-se-pol",
+            "khaju-bridge"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 3,
+          "title": "کاخ عالی‌قاپو",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "کاخ چهلستون",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "کلیسای وانک و محله جلفا",
+          "existing_live_slugs": [
+            "vank-cathedral"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 6,
+          "title": "منارجنبان اصفهان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 7,
+          "title": "باغ پرندگان و آکواریوم ناژوان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "کرج",
+      "city_slug": "karaj",
+      "city_wp_id": 182,
+      "province": "alborz",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "جاده چالوس و سد کرج",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "باغ فاتح و جهان‌شهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کاخ مروارید مهرشهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "روستای برغان کرج",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "شیراز",
+      "city_slug": "shiraz",
+      "city_wp_id": 323,
+      "province": "fars",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 7,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "حافظیه شیراز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "سعدیه شیراز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "باغ ارم شیراز",
+          "existing_live_slugs": [
+            "eram-garden"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 4,
+          "title": "مسجد نصیرالملک (مسجد صورتی)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "ارگ کریم‌خان و بازار وکیل",
+          "existing_live_slugs": [
+            "vakil-complex"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 6,
+          "title": "دروازه قرآن شیراز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 7,
+          "title": "باغ عفیف‌آباد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "تبریز",
+      "city_slug": "tabriz",
+      "city_wp_id": 100,
+      "province": "east-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 5,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پارک ائل‌گلی تبریز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "بازار بزرگ تبریز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کندوان (روستای صخره‌ای نزدیک تبریز)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "مسجد کبود تبریز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "ارگ علیشاه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 7,
+      "name": "قم",
+      "city_slug": "qom",
+      "city_wp_id": 358,
+      "province": "qom",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "حرم حضرت معصومه (س)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "مسجد مقدس جمکران",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کاروانسرای دیر گچین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 8,
+      "name": "اهواز",
+      "city_slug": "ahvaz",
+      "city_wp_id": 271,
+      "province": "khuzestan",
+      "hub_status": "v3_live",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پل سفید و پل سیاه اهواز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "رودخانه کارون و ساحلی اهواز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "بازار عبدالحمید و لشکرآباد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "name": "رشت",
+      "city_slug": "rasht",
+      "city_wp_id": 453,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "میدان شهرداری رشت",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پارک جنگلی سراوان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "دریاچه سقالکسار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "بازار بزرگ رشت",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 10,
+      "name": "کیش",
+      "city_slug": "kish",
+      "city_wp_id": null,
+      "province": "hormozgan",
+      "hub_status": "needs_hub_creation",
+      "hub_note": "نیازمند ایجاد صفحهٔ مادر /city/kish/ (در تقسیمات رسمی زیرمجموعهٔ بندر لنگه ۶۳۸ است)",
+      "branch_count": 6,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "کشتی یونانی کیش",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "شهر زیرزمینی کاریز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "جزیره هندورابی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "پارک دلفین‌ها و باغ پرندگان کیش",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "اسکله تفریحی کیش",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 6,
+          "title": "شهر باستانی حریره",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "name": "کرمانشاه",
+      "city_slug": "kermanshah",
+      "city_wp_id": 416,
+      "province": "kermanshah",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "طاق‌بستان کرمانشاه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "کتیبه و مجموعه بیستون",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "غار قوری‌قلعه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "تکیه معاون‌الملک",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "name": "ارومیه",
+      "city_slug": "urmia",
+      "city_wp_id": 121,
+      "province": "west-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دریاچه ارومیه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "کلیسای ننه مریم",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "دریاچه مارمیشو",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "name": "بندرعباس",
+      "city_slug": "bandar-e-abbas",
+      "city_wp_id": 1885,
+      "province": "hormozgan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "معبد هندوها",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "حمام گله‌داری",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "اسکله شهید حقانی و ساحل سورو",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "name": "قشم",
+      "city_slug": "qeshm",
+      "city_wp_id": 640,
+      "province": "hormozgan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 6,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دره ستارگان قشم",
+          "existing_live_slugs": [
+            "qeshm-stars-valley-geopark"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "جنگل حرا قشم",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "جزیره هنگام (تماشای دلفین‌ها)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "تنگه چاهکوه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "جزایر ناز قشم",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 6,
+          "title": "قلعه پرتغالی‌ها",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "name": "یزد",
+      "city_slug": "yazd",
+      "city_wp_id": 1936,
+      "province": "yazd",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 5,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "میدان و مجموعه امیرچخماق",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "باغ دولت‌آباد یزد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "آتشکده زرتشتیان یزد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "محله فهادان و بافت تاریخی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "دخمه زرتشتیان یزد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 16,
+      "name": "همدان",
+      "city_slug": "hamedan",
+      "city_wp_id": 1923,
+      "province": "hamadan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "غار علیصدر همدان",
+          "existing_live_slugs": [
+            "ali-sadr-cave-hamedan-guide"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "آرامگاه بوعلی‌سینا",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کتیبه‌ها و آبشار گنج‌نامه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "آرامگاه باباطاهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 17,
+      "name": "کرمان",
+      "city_slug": "kerman",
+      "city_wp_id": 489,
+      "province": "kerman",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "کلوت‌های شهداد (کویر لوت)",
+          "existing_live_slugs": [
+            "shahdad-kaluts-lut-desert"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "باغ شازده ماهان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "مجموعه گنجعلی‌خان کرمان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "ارگ راین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 18,
+      "name": "اردبیل",
+      "city_slug": "ardabil",
+      "city_wp_id": 141,
+      "province": "ardabil",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "بقعه شیخ صفی‌الدین اردبیلی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "دریاچه شورابیل",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "جنگل فندقلو (گردنه حیران)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 19,
+      "name": "زاهدان",
+      "city_slug": "zahedan",
+      "city_wp_id": 304,
+      "province": "sistan-baluchestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "بازار مشترک و چهارراه رسولی زاهدان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 20,
+      "name": "اراک",
+      "city_slug": "arak",
+      "city_wp_id": 565,
+      "province": "markazi",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "بازار تاریخی اراک",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "تالاب میقان اراک",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 21,
+      "name": "ساری",
+      "city_slug": "sari",
+      "city_wp_id": 526,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دریاچه چورت (میانشه)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "سد سلیمان‌تنگه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "پناهگاه حیات‌وحش میانکاله و ساحل فرح‌آباد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 22,
+      "name": "گرگان",
+      "city_slug": "gorgan",
+      "city_wp_id": 439,
+      "province": "golestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پارک جنگلی ناهارخوران",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پارک جنگلی النگدره",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "روستای زیارت گرگان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 23,
+      "name": "قزوین",
+      "city_slug": "qazvin",
+      "city_wp_id": 352,
+      "province": "qazvin",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "قلعه الموت قزوین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "کاروانسرای سعدالسلطنه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "دریاچه اوان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "کلیسای کانتور",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 24,
+      "name": "زنجان",
+      "city_slug": "zanjan",
+      "city_wp_id": 81,
+      "province": "zanjan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "گنبد سلطانیه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "غار کتله‌خور",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "رختشوی‌خانه زنجان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 25,
+      "name": "سنندج",
+      "city_slug": "sanandaj",
+      "city_wp_id": 395,
+      "province": "kurdistan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "عمارت خسروآباد سنندج",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پارک آبیدر سنندج",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 26,
+      "name": "خرم‌آباد",
+      "city_slug": "khorramabad",
+      "city_wp_id": 514,
+      "province": "lorestan",
+      "hub_status": "v3_live",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "قلعه فلک‌الافلاک",
+          "existing_live_slugs": [
+            "falak-ol-aflak-castle-khorramabad"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "آبشار بیشه",
+          "existing_live_slugs": [
+            "bisheh-waterfall-dorud"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 3,
+          "title": "دریاچه کیو خرم‌آباد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 27,
+      "name": "کاشان",
+      "city_slug": "kashan",
+      "city_wp_id": 154,
+      "province": "isfahan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 5,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "باغ فین کاشان",
+          "existing_live_slugs": [
+            "fin-garden"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "کویر مرنجاب",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "خانه بروجردی‌ها",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "خانه طباطبایی‌ها",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 5,
+          "title": "تپه‌های سیلک کاشان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 28,
+      "name": "چالوس",
+      "city_slug": "chalus",
+      "city_wp_id": 536,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "شهرک توریستی نمک‌آبرود",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "دریاچه ولشت",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کاخ چایخوران چالوس",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 29,
+      "name": "رامسر",
+      "city_slug": "ramsar",
+      "city_wp_id": 539,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تله‌کابین رامسر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "روستای جواهرده",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کاخ مرمر رامسر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "جنگل دالخانی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 30,
+      "name": "بوشهر",
+      "city_slug": "bushehr-county",
+      "city_wp_id": 211,
+      "province": "bushehr",
+      "hub_status": "todo",
+      "hub_note": "دارای صفحهٔ موازی شهر بوشهر (/city/bushehr/، شناسهٔ ۲۰۱)",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "بافت تاریخی بوشهر و عمارت امیریه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "ساحل ریشهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 31,
+      "name": "بابل",
+      "city_slug": "babol",
+      "city_wp_id": 527,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "جنگل لفور (سوادکوه و بابل)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "آبشار درازکش",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 32,
+      "name": "آمل",
+      "city_slug": "amol",
+      "city_wp_id": 528,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "قله دماوند",
+          "existing_live_slugs": [
+            "mount-damavand-guide"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "جنگل الیمستان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "پارک جنگلی میرزا کوچک‌خان (هراز)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 33,
+      "name": "نوشهر",
+      "city_slug": "nowshahr",
+      "city_wp_id": 532,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پارک جنگلی سی‌سنگان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "دریاچه ارواح نوشهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "تنگ دار نوشهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 34,
+      "name": "نیشابور",
+      "city_slug": "neyshabur",
+      "city_wp_id": 64,
+      "province": "razavi-khorasan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "آرامگاه خیام نیشابوری",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "آرامگاه عطار نیشابوری",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "دهکده چوبین نیشابور",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 35,
+      "name": "مهران",
+      "city_slug": "mehran",
+      "city_wp_id": 190,
+      "province": "ilam",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 0,
+      "zero_branch_focus": "تمرکز مقاله اصلی بر پایانه مرزی مهران و راهنمای اربعین",
+      "cluster_status": "todo",
+      "branches": []
+    },
+    {
+      "rank": 36,
+      "name": "آبادان",
+      "city_slug": "abadan",
+      "city_wp_id": 269,
+      "province": "khuzestan",
+      "hub_status": "draft_local",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "بازار ته لنجی آبادان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "کلیسای سورت گاراپت و اروندرود",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 37,
+      "name": "دزفول",
+      "city_slug": "dezful",
+      "city_wp_id": 282,
+      "province": "khuzestan",
+      "hub_status": "draft_local",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دره توبیرون دزفول",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پل قدیم دزفول",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "چال کندی دزفول",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 38,
+      "name": "بجنورد",
+      "city_slug": "bojnord",
+      "city_wp_id": 71,
+      "province": "north-khorasan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "آبشار باباامان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "عمارت مفخم بجنورد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 39,
+      "name": "بیرجند",
+      "city_slug": "birjand",
+      "city_wp_id": 241,
+      "province": "south-khorasan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "باغ اکبریه بیرجند",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "ارگ کلاه فرنگی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 40,
+      "name": "شهرکرد",
+      "city_slug": "sharekurd",
+      "city_wp_id": 1899,
+      "province": "chaharmahal-bakhtiari",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تالاب چغاخور",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "چشمه دیمه و کوهرنگ",
+          "existing_live_slugs": [
+            "kuhrang-fritillaria-plain-guide"
+          ],
+          "status": "live_needs_cluster_audit"
+        }
+      ]
+    },
+    {
+      "rank": 41,
+      "name": "یاسوج",
+      "city_slug": "boyer-ahmad",
+      "city_wp_id": 430,
+      "province": "kohgiluyeh-boyer-ahmad",
+      "hub_status": "todo",
+      "hub_note": "شهرستان بویراحمد به مرکزیت یاسوج",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "آبشار یاسوج",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "تنگه مهریان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 42,
+      "name": "ایلام",
+      "city_slug": "ilam",
+      "city_wp_id": 189,
+      "province": "ilam",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تنگه کافرین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "تنگه بهرام چوبین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 43,
+      "name": "سمنان",
+      "city_slug": "semnan",
+      "city_wp_id": 296,
+      "province": "semnan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دروازه ارگ سمنان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 44,
+      "name": "شاهرود",
+      "city_slug": "shahrud",
+      "city_wp_id": 297,
+      "province": "semnan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "جنگل ابر شاهرود",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "مجموعه تاریخی بسطام",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "آرامگاه شیخ ابوالحسن خرقانی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 45,
+      "name": "بندر انزلی",
+      "city_slug": "bandar-e-anzali",
+      "city_wp_id": 458,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تالاب انزلی",
+          "existing_live_slugs": [
+            "anzali-international-wetland-guide"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "آکواریوم انزلی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "کاخ موزه میان‌پشته و موج‌شکن انزلی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 46,
+      "name": "لاهیجان",
+      "city_slug": "lahijan",
+      "city_wp_id": 455,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "شیطان‌کوه و آبشار لاهیجان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "استخر لاهیجان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "تله‌کابین احرار لاهیجان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 47,
+      "name": "ماسال",
+      "city_slug": "masal",
+      "city_wp_id": 466,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "ییلاق اولسبلنگاه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "غار آویشو ماسال",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 48,
+      "name": "آستارا",
+      "city_slug": "astara",
+      "city_wp_id": 463,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "گردنه حیران آستارا",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "آبشار لاتون",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 49,
+      "name": "فومن",
+      "city_slug": "fuman",
+      "city_wp_id": 462,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "روستای تاریخی ماسوله",
+          "existing_live_slugs": [
+            "masouleh"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "قلعه رودخان فومن",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 50,
+      "name": "سیرجان",
+      "city_slug": "sirjan",
+      "city_wp_id": 490,
+      "province": "kerman",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "باغ سنگی سیرجان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 51,
+      "name": "رفسنجان",
+      "city_slug": "rafsanjan",
+      "city_wp_id": 491,
+      "province": "kerman",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "خانه حاج‌آقا علی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "دره راگه رفسنجان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 52,
+      "name": "بم",
+      "city_slug": "bam",
+      "city_wp_id": 493,
+      "province": "kerman",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "ارگ تاریخی بم",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 53,
+      "name": "چابهار",
+      "city_slug": "chabahar",
+      "city_wp_id": 305,
+      "province": "sistan-baluchestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "کوه‌های مریخی چابهار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "تالاب صورتی لیپار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "ساحل درک (تلاقی کویر و دریا)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "اسکله بریس",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 54,
+      "name": "خرمشهر",
+      "city_slug": "khorramshahr",
+      "city_wp_id": 281,
+      "province": "khuzestan",
+      "hub_status": "draft_local",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "مرز شلمچه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "موزه جنگ خرمشهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 55,
+      "name": "ماهشهر",
+      "city_slug": "mahshahr",
+      "city_wp_id": 278,
+      "province": "khuzestan",
+      "hub_status": "v3_live",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "خور موسی و دریاچه نمک ماهشهر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 56,
+      "name": "عسلویه",
+      "city_slug": "asaluyeh",
+      "city_wp_id": 206,
+      "province": "bushehr",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "ساحل بنود عسلویه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 57,
+      "name": "ساوه",
+      "city_slug": "saveh",
+      "city_wp_id": 566,
+      "province": "markazi",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "مسجد جامع ساوه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 58,
+      "name": "اسلامشهر",
+      "city_slug": "eslamshahr",
+      "city_wp_id": 219,
+      "province": "tehran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 0,
+      "zero_branch_focus": "تمرکز مقاله اصلی بر دسترسی، مترو و معرفی محله‌ها",
+      "cluster_status": "todo",
+      "branches": []
+    },
+    {
+      "rank": 59,
+      "name": "شهریار",
+      "city_slug": "shahriar",
+      "city_wp_id": 225,
+      "province": "tehran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تپه جوقین و باغ‌های شهریار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 60,
+      "name": "پاکدشت",
+      "city_slug": "pakdasht",
+      "city_wp_id": 221,
+      "province": "tehran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 0,
+      "zero_branch_focus": "تمرکز بر بازار گل و گیاه",
+      "cluster_status": "todo",
+      "branches": []
+    },
+    {
+      "rank": 61,
+      "name": "ورامین",
+      "city_slug": "varamin",
+      "city_wp_id": 218,
+      "province": "tehran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "مسجد جامع ورامین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 62,
+      "name": "دماوند",
+      "city_slug": "damavand",
+      "city_wp_id": 216,
+      "province": "tehran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دریاچه تار و هویر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پیست اسکی آبعلی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 63,
+      "name": "فیروزکوه",
+      "city_slug": "firuzkuh",
+      "city_wp_id": 217,
+      "province": "tehran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تنگه واشی فیروزکوه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پل ورسک (در مسیر سوادکوه/فیروزکوه)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 64,
+      "name": "شمیرانات",
+      "city_slug": "shemiranat",
+      "city_wp_id": 215,
+      "province": "tehran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 4,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پیست اسکی توچال",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پیست اسکی دیزین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "پیست اسکی شمشک",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 4,
+          "title": "روستای افجه و دشت هویج (لواسان)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 65,
+      "name": "سرعین",
+      "city_slug": "sarein",
+      "city_wp_id": 142,
+      "province": "ardabil",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "چشمه‌های آب‌گرم سرعین",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "پیست اسکی آلوارس",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 66,
+      "name": "مراغه",
+      "city_slug": "maragheh",
+      "city_wp_id": 101,
+      "province": "east-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "رصدخانه مراغه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 67,
+      "name": "مرند",
+      "city_slug": "marand",
+      "city_wp_id": 102,
+      "province": "east-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "کاروانسرای پیام مرند",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 68,
+      "name": "جلفا",
+      "city_slug": "jolfa",
+      "city_wp_id": 105,
+      "province": "east-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "کلیسای سنت استپانوس",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "آبشار آسیاب خرابه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 69,
+      "name": "خوی",
+      "city_slug": "khoy",
+      "city_wp_id": 122,
+      "province": "west-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "آرامگاه شمس تبریزی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 70,
+      "name": "ماکو",
+      "city_slug": "maku",
+      "city_wp_id": 126,
+      "province": "west-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "کاخ باغچه‌جوق",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 71,
+      "name": "مهاباد",
+      "city_slug": "mahabad",
+      "city_wp_id": 123,
+      "province": "west-azerbaijan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "غار سهولان مهاباد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 72,
+      "name": "بانه",
+      "city_slug": "baneh",
+      "city_wp_id": 396,
+      "province": "kurdistan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "بازارهای تجاری بانه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 73,
+      "name": "مریوان",
+      "city_slug": "marivan",
+      "city_wp_id": 404,
+      "province": "kurdistan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دریاچه زریوار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "اورامان تخت (هورامان)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 74,
+      "name": "پاوه",
+      "city_slug": "paveh",
+      "city_wp_id": 418,
+      "province": "kermanshah",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "روستای هجیج پاوه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 75,
+      "name": "قصر شیرین",
+      "city_slug": "qasr-e-shirin",
+      "city_wp_id": 424,
+      "province": "kermanshah",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 0,
+      "zero_branch_focus": "تمرکز بر مرز خسروی و پرویزخان",
+      "cluster_status": "todo",
+      "branches": []
+    },
+    {
+      "rank": 76,
+      "name": "بروجرد",
+      "city_slug": "borujerd",
+      "city_wp_id": 515,
+      "province": "lorestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تپه چغا بروجرد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "روستای ونایی بروجرد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 77,
+      "name": "دورود",
+      "city_slug": "dorud",
+      "city_wp_id": 516,
+      "province": "lorestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دریاچه گهر دورود",
+          "existing_live_slugs": [
+            "gahar-lake-dorud"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "آبشار بیشه (مشترک با خرم‌آباد)",
+          "existing_live_slugs": [
+            "bisheh-waterfall-dorud"
+          ],
+          "status": "live_needs_cluster_audit"
+        }
+      ]
+    },
+    {
+      "rank": 78,
+      "name": "الیگودرز",
+      "city_slug": "aligudarz",
+      "city_wp_id": 519,
+      "province": "lorestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دشت لاله‌های واژگون الیگودرز",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "آبشار آب سفید",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 79,
+      "name": "نجف‌آباد",
+      "city_slug": "najafabad",
+      "city_wp_id": 160,
+      "province": "isfahan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "ارگ شیخ بهایی",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 80,
+      "name": "خمینی‌شهر",
+      "city_slug": "khomeyni-shahr",
+      "city_wp_id": 159,
+      "province": "isfahan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 0,
+      "zero_branch_focus": "تمرکز بر تاریخچه و صنایع دستی",
+      "cluster_status": "todo",
+      "branches": []
+    },
+    {
+      "rank": 81,
+      "name": "نطنز",
+      "city_slug": "natanz",
+      "city_wp_id": 155,
+      "province": "isfahan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "روستای سرخ ابیانه",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 82,
+      "name": "خوانسار",
+      "city_slug": "khansar",
+      "city_wp_id": 175,
+      "province": "isfahan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "چشمه مرزنگو و دشت لاله‌های واژگون خوانسار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 83,
+      "name": "مرودشت",
+      "city_slug": "marvdasht",
+      "city_wp_id": 324,
+      "province": "fars",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "تخت جمشید (پرسپولیس)",
+          "existing_live_slugs": [
+            "persepolis-takht-jamshid"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "نقش رستم",
+          "existing_live_slugs": [
+            "naqsh-e-rostam"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 3,
+          "title": "تنگ بستانک (بهشت گمشده)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 84,
+      "name": "کازرون",
+      "city_slug": "kazerun",
+      "city_wp_id": 325,
+      "province": "fars",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "شهر باستانی بیشاپور",
+          "existing_live_slugs": [
+            "bishapur"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "تنگ چوگان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 85,
+      "name": "جهرم",
+      "city_slug": "jahrom",
+      "city_wp_id": 326,
+      "province": "fars",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "غار سنگ‌شکنان جهرم",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 86,
+      "name": "لارستان",
+      "city_slug": "larestan",
+      "city_wp_id": 327,
+      "province": "fars",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "بازار قیصریه لار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 87,
+      "name": "سپیدان",
+      "city_slug": "sepidan",
+      "city_wp_id": 336,
+      "province": "fars",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "آبشار مارگون",
+          "existing_live_slugs": [
+            "margoon-falls"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 2,
+          "title": "پیست اسکی پولادکف",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 88,
+      "name": "گنبد کاووس",
+      "city_slug": "gonbad-e-kavus",
+      "city_wp_id": 440,
+      "province": "golestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "برج قابوس (بلندترین برج آجری جهان)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 89,
+      "name": "بندر ترکمن",
+      "city_slug": "torkaman",
+      "city_wp_id": 1877,
+      "province": "golestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "جزیره آشوراده",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 90,
+      "name": "علی‌آباد کتول",
+      "city_slug": "aliabad",
+      "city_wp_id": 1872,
+      "province": "golestan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "آبشار کبودوال",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 91,
+      "name": "قائم‌شهر",
+      "city_slug": "qaemshahr",
+      "city_wp_id": 529,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "دریاچه سد زمزم",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 92,
+      "name": "بابلسر",
+      "city_slug": "babolsar",
+      "city_wp_id": 533,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پل معلق بابلسر و منطقه توریستی میرود",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 93,
+      "name": "محمودآباد",
+      "city_slug": "mahmudabad",
+      "city_wp_id": 537,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 1,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پارک جنگلی تشبندان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 94,
+      "name": "نور",
+      "city_slug": "nur",
+      "city_wp_id": 534,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "پارک جنگلی نور",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "آبشار آب‌پری",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 95,
+      "name": "کلاردشت",
+      "city_slug": "kelardasht",
+      "city_wp_id": 546,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "جنگل عباس‌آباد کلاردشت",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "علم‌کوه کلاردشت",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 96,
+      "name": "تنکابن",
+      "city_slug": "tonekabon",
+      "city_wp_id": 531,
+      "province": "mazandaran",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "جنگل دوهزار و سه‌هزار",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "غار دانیال",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 97,
+      "name": "تالش",
+      "city_slug": "talesh",
+      "city_wp_id": 454,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "ییلاق سوباتان",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "ساحل و جنگل گیسوم",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 3,
+          "title": "سورتمه ریلی تالش",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 98,
+      "name": "رودبار",
+      "city_slug": "rudbar",
+      "city_wp_id": 461,
+      "province": "gilan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "روستای داماش (سوسن چلچراغ)",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "دریاچه ویستان بره‌سر",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 99,
+      "name": "میبد",
+      "city_slug": "meybod",
+      "city_wp_id": 1937,
+      "province": "yazd",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 2,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "نارین‌قلعه میبد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "کاروانسرای شاه‌عباسی میبد",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    },
+    {
+      "rank": 100,
+      "name": "طبس",
+      "city_slug": "tabas",
+      "city_wp_id": 242,
+      "province": "south-khorasan",
+      "hub_status": "todo",
+      "hub_note": "",
+      "branch_count": 3,
+      "zero_branch_focus": "",
+      "cluster_status": "todo",
+      "branches": [
+        {
+          "index": 1,
+          "title": "کال جنی طبس",
+          "existing_live_slugs": [],
+          "status": "todo"
+        },
+        {
+          "index": 2,
+          "title": "باغ گلشن طبس",
+          "existing_live_slugs": [
+            "bagh-golshan-tabas"
+          ],
+          "status": "live_needs_cluster_audit"
+        },
+        {
+          "index": 3,
+          "title": "روستای نایبند طبس",
+          "existing_live_slugs": [],
+          "status": "todo"
+        }
+      ]
+    }
+  ]
+}
