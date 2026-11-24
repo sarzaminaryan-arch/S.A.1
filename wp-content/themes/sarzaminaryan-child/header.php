@@ -31,7 +31,7 @@ $sa_cta     = function_exists( 'sa_2026_experience_cta' ) ? sa_2026_experience_c
 	<?php wp_head(); ?>
 </head>
 
-<body <?php body_class( 'bg-canvas text-ink font-sans antialiased selection:bg-petrol selection:text-white overflow-x-hidden' ); ?>>
+<body <?php body_class( 'bg-canvas text-ink font-sans antialiased selection:bg-petrol selection:text-white overflow-x-clip' ); ?>>
 <?php wp_body_open(); ?>
 
 <a class="skip-link screen-reader-text" href="#primary">پرش به محتوا</a>

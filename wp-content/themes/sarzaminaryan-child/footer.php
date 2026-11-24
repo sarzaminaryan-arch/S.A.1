@@ -57,8 +57,10 @@ $sa_year       = function_exists( 'sa_jalali_year' ) ? sa_jalali_year() : '۱۴�
 			<div class="md:col-span-5 space-y-3">
 				<div class="flex items-center gap-2.5">
 					<?php /* Official dark lockup for the light footer surface (brand rule: no redrawn logo). */ ?>
-					<img src="<?php echo esc_url( sa_brand_logo_url( 'dark', 480 ) ); ?>" alt="<?php echo esc_attr( $sa_brand ); ?>"
-						width="72" height="30" class="h-[30px] w-auto object-contain" loading="lazy" decoding="async">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $sa_brand . ' — صفحه نخست' ); ?>" class="inline-flex items-center">
+						<img src="<?php echo esc_url( sa_brand_logo_url( 'dark', 480 ) ); ?>" alt="<?php echo esc_attr( $sa_brand ); ?>"
+							width="72" height="30" class="h-[30px] w-auto object-contain" loading="lazy" decoding="async">
+					</a>
 					<span class="w-2.5 h-2.5 rounded-full bg-ochre" aria-hidden="true"></span>
 					<span class="text-[11px] font-bold text-ochreDark">دانشنامه سفر و شناخت ایران</span>
 				</div>
