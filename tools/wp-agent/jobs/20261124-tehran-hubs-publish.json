@@ -1,0 +1,73 @@
+{
+  "name": "20261124-tehran-hubs-publish",
+  "description": "Publish remaining Tehran Province hubs (6 counties + province:tehran 43) after 18 attractions published",
+  "steps": [
+    {
+      "cmd": "ping"
+    },
+    {
+      "cmd": "update",
+      "id": 213,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-tehran/tehran-213.meta.json",
+      "owner-approved-live-edit": true
+    },
+    {
+      "cmd": "update",
+      "id": 215,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-shemiranat/shemiranat-215.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-shemiranat/shemiranat-215.meta.json",
+      "owner-approved-live-edit": true
+    },
+    {
+      "cmd": "update",
+      "id": 216,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-damavand/damavand-216.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-damavand/damavand-216.meta.json",
+      "owner-approved-live-edit": true
+    },
+    {
+      "cmd": "update",
+      "id": 217,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-firuzkuh/firuzkuh-217.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-firuzkuh/firuzkuh-217.meta.json",
+      "owner-approved-live-edit": true
+    },
+    {
+      "cmd": "update",
+      "id": 218,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-varamin/varamin-218.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-varamin/varamin-218.meta.json",
+      "owner-approved-live-edit": true
+    },
+    {
+      "cmd": "update",
+      "id": 225,
+      "content-file": "tools/wp-agent/outbox/20261117-replace-shahriar/shahriar-225.html",
+      "meta-file": "tools/wp-agent/outbox/20261117-replace-shahriar/shahriar-225.meta.json",
+      "owner-approved-live-edit": true
+    },
+    {
+      "cmd": "update",
+      "id": 43,
+      "content-file": "tools/wp-agent/outbox/20261123-province-tehran-43/tehran-43.html",
+      "meta-file": "tools/wp-agent/outbox/20261123-province-tehran-43/tehran-43.meta.json",
+      "owner-approved-live-edit": true
+    },
+    {
+      "cmd": "cache-purge"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/province/tehran/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/city/tehran/"
+    },
+    {
+      "cmd": "probe",
+      "url": "https://sarzaminaryan.ir/attraction/milad-tower/"
+    }
+  ]
+}
