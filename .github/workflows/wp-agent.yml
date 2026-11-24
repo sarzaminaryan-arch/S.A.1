@@ -81,6 +81,7 @@ jobs:
           python3 tools/wp-agent/test_workflow_safety.py
           python3 tools/wp-agent/test_build_gate.py
           python3 tools/wp-agent/test_fa_lint.py
+          python3 tools/wp-agent/test_prose_guard.py
           python3 tools/wp-agent/test_wp_agent_probe.py
           python3 tools/wp-agent/test_build_replace_batch.py
           python3 tools/wp-agent/test_build_section_batch.py

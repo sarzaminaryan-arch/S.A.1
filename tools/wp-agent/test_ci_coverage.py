@@ -15,7 +15,10 @@ class CICoverageTests(unittest.TestCase):
                      # وگرنه قاعده‌ای است که فقط در سند مانده است.
                      'test_county_run.py',
                      # ۳ آذر ۱۴۰۵: قانون ثبت حافظهٔ پایان نشست و نقشهٔ راه ۱۰۰ خوشه.
-                     'test_memory_protocol.py'):
+                     'test_memory_protocol.py',
+                     # ۲۰۲۶-۱۱-۲۳: بازنویسیِ فارسیِ بی‌غلط ولی ماشینی روی سایت رفت؛
+                     # نگهبان نثر باید در هر دروازه اجرا شود.
+                     'test_prose_guard.py'):
             self.assertIn(f'python3 tools/wp-agent/{test}', workflow)
 
 

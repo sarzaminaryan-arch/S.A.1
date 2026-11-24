@@ -14,6 +14,8 @@ on:
       - "tools/content-lint/**"
       - "tools/wp-agent/replace_src/fa_lint.py"
       - "tools/wp-agent/test_fa_lint.py"
+      - "tools/wp-agent/prose_guard.py"
+      - "tools/wp-agent/test_prose_guard.py"
       - ".github/workflows/content-lint.yml"
   pull_request:
     paths:
@@ -21,6 +23,8 @@ on:
       - "tools/content-lint/**"
       - "tools/wp-agent/replace_src/fa_lint.py"
       - "tools/wp-agent/test_fa_lint.py"
+      - "tools/wp-agent/prose_guard.py"
+      - "tools/wp-agent/test_prose_guard.py"
   workflow_dispatch:
 
 permissions:
@@ -44,7 +48,9 @@ jobs:
           python3 -m py_compile tools/county-insights/county_insights.py
 
       - name: Persian spelling filter (ماه میلادی، نیم‌فاصله، حروف عربی)
-        run: python3 tools/wp-agent/test_fa_lint.py
+        run: |
+          python3 tools/wp-agent/test_fa_lint.py
+          python3 tools/wp-agent/test_prose_guard.py
       - name: County template guard (offline)
         run: python3 tools/wp-agent/test_county_template.py
       - name: County workshop + source ledger (offline)

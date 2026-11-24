@@ -47,6 +47,7 @@ from build_fix_batch import balanced  # noqa: E402
 from build_replace_batch import banned_hits, gutenberg_ok  # noqa: E402
 from template import BY_ID, IDS  # noqa: E402
 from fa_lint import scan as fa_scan, scan_meta as fa_scan_meta  # noqa: E402  (فیلتر املا و نگارش فارسی)
+from prose_guard import check as prose_check  # noqa: E402  (نگهبان نثر: تکرار/الگو/پیش‌نویس)
 
 SECTIONS = IDS
 
@@ -192,6 +193,8 @@ def checks(out: str, words_floor: int | None, fa_meta: dict | None = None) -> di
         # فیلتر املا/نگارش فارسی (دستور مالک، ۱۶ نوامبر ۱۴۰۵): ماه میلادی،
         # نیم‌فاصله، حروف عربی و … — هر یافته بیلد را رد می‌کند.
         "fa_lint": fa_scan(out) + [f"meta: {x}" for x in fa_scan_meta(fa_meta or {})],
+        # نگهبان نثر (۲۰۲۶-۱۱-۲۳): «فارسیِ بی‌غلط» با جملهٔ تکراری و الگوی ماشینی هم رد می‌شود.
+        "prose": prose_check(out),
     }
     if words_floor is not None:
         row["words_original"] = words_floor
@@ -230,7 +233,7 @@ def cmd_build(read_path: str, live_dir: str, sections_dir: str, out_dir: str) ->
                     "modified_gmt": page["modified_gmt"], "changes": ["rebuild: marked sections"],
                     "bad_cites": []})
         row["ok"] = (row["volume_ok"] and row["tags_ok"] and row["gutenberg_ok"]
-                     and not row["banned"] and not row["fa_lint"])
+                     and not row["banned"] and not row["fa_lint"] and row["prose"]["ok"])
         open(os.path.join(out_dir, page_key + ".html"), "w", encoding="utf-8", newline="").write(out)
         summary.append(row)
     json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w", encoding="utf-8"),
@@ -240,6 +243,8 @@ def cmd_build(read_path: str, live_dir: str, sections_dir: str, out_dir: str) ->
                          ensure_ascii=False))
         for line in r["fa_lint"][:10]:
             print(f"      املا/نگارش: {line}", file=sys.stderr)
+        for line in r["prose"]["problems"][:10]:
+            print(f"      نثر: {line}", file=sys.stderr)
     return 0 if summary and all(r["ok"] for r in summary) else 1
 
 

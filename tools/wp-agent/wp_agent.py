@@ -169,6 +169,14 @@ def check_banned(*texts: str | None, fa: bool = True) -> None:
         problems = fa_scan(t or "")
         if problems:
             raise AgentError("فیلتر املا/نگارش: " + " | ".join(problems[:4]))
+    # نگهبان نثر (۲۰۲۶-۱۱-۲۳): املا درست کافی نیست. بازنویسی ۲۲ نوامبر فارسیِ بی‌غلط
+    # بود ولی نثر نبود (جملهٔ تکراری، الگوی ماشینی، متن پیش‌نویس، نویسهٔ غیرفارسی) و
+    # روی سایت منتشر شد. این گیت همان کلاس خطا را پیش از نوشتن می‌گیرد.
+    from prose_guard import check as prose_check
+    for t in texts:
+        result = prose_check(t or "")
+        if not result["ok"]:
+            raise AgentError("نگهبان نثر: " + " | ".join(result["problems"][:4]))
 
 
 def check_county_shape(content: str, where: str = "") -> None:

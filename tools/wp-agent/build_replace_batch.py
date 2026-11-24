@@ -39,6 +39,8 @@ H2_RE = re.compile(r"(?:<!-- wp:heading[^>]*-->\s*)?<h2[^>]*>(.*?)</h2>", re.S)
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "replace_src"))
 from fa_lint import scan as fa_scan  # noqa: E402  (فیلتر املا و نگارش فارسی)
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from prose_guard import check as prose_check  # noqa: E402  (نگهبان نثر)
 
 
 def banned_hits(html: str) -> list[str]:
@@ -120,10 +122,11 @@ def main(read_paths: str, base_dir: str, additions_path: str, out_dir: str) -> l
             "tags_ok": balanced(out), "gutenberg_ok": gutenberg_ok(out),
             "bad_cites": check_cites(out), "banned": banned_hits(out), "changes": log,
             "fa_lint": fa_scan(out),
+            "prose": prose_check(out),
         }
         row["ok"] = (row["volume_ok"] and not row["dup_after"] and not row["notes_after"]
                      and row["tags_ok"] and row["gutenberg_ok"] and not row["bad_cites"]
-                     and not row["banned"] and not row["fa_lint"])
+                     and not row["banned"] and not row["fa_lint"] and row["prose"]["ok"])
         open(os.path.join(out_dir, key + ".html"), "w", encoding="utf-8", newline="").write(out)
         summary.append(row)
     json.dump(summary, open(os.path.join(out_dir, "summary.json"), "w", encoding="utf-8"),

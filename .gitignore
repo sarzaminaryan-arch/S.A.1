@@ -91,3 +91,6 @@ tools/county-insights/out/
 # Python build artifacts
 ai_cleaner.egg-info/
 build/
+
+# Python venv used for local test runs (never committed)
+.venv/
