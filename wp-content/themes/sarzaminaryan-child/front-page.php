@@ -81,8 +81,8 @@ foreach ( get_posts(
 
 <main id="primary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-14">
 
-	<section aria-labelledby="hero-heading" class="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-8 items-stretch">
-		<div class="lg:col-span-12 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-card flex flex-col justify-between space-y-6 relative">
+	<section aria-labelledby="hero-heading" class="w-full">
+		<div class="w-full bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-card flex flex-col justify-between space-y-6 relative">
 			<div class="space-y-4">
 				<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ochreSoft text-ochreDark text-xs font-bold border border-ochre/20">
 					<span class="w-2 h-2 rounded-full bg-ochre"></span>
