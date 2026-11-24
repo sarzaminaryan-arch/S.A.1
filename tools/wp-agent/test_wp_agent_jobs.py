@@ -33,6 +33,37 @@ try:
 except wa.AgentError as err:
     assert "owner-approved" in str(err), err
 
+# publish-draft is owner-gated and refuses non-draft posts before making any POST call.
+try:
+    wa.run(_ap.Namespace(cmd="publish-draft", id=501, owner_approved_publish=False, reason="test"), _NoCall())
+    raise AssertionError("publish-draft should refuse to run without --owner-approved-publish")
+except wa.AgentError as err:
+    assert "owner-approved-publish" in str(err), err
+
+
+class _PublishDraftClient:
+    def __init__(self, status: str):
+        self.status = status
+        self.posts = []
+
+    def call(self, method, route, params=None, body=None):
+        if method == "GET":
+            return {"id": 501, "status": self.status, "modified_gmt": "2026-11-24 12:00:00"}
+        self.posts.append((route, body))
+        return {"id": 501, "status": "publish", "backup_id": 900}
+
+
+try:
+    wa.run(_ap.Namespace(cmd="publish-draft", id=501, owner_approved_publish=True, reason="test"),
+           _PublishDraftClient("publish"))
+    raise AssertionError("publish-draft should refuse already-published posts")
+except wa.AgentError as err:
+    assert "only accepts draft" in str(err), err
+
+assert wa.step_to_argv({"cmd": "publish-draft", "id": 501, "owner_approved_publish": True, "reason": "خوشه تهران"}) == [
+    "publish-draft", "501", "--owner-approved-publish", "--reason", "خوشه تهران"
+]
+
 # The live cover pipeline requires an explicit owner flag before launching npm or making requests.
 try:
     wa.run_county_covers({"owner_approved": False})

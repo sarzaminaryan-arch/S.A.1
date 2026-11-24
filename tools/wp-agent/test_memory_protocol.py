@@ -76,6 +76,25 @@ class MemoryAndClusterRoadmapTests(unittest.TestCase):
         zero_ranks = [c["rank"] for c in clusters if c["branch_count"] == 0]
         self.assertEqual(zero_ranks, [35, 58, 60, 75, 80])
 
+        # Verify province-grouped execution queue covers all 31 provinces and 100 clusters
+        prov_queue = data["province_execution_order"]
+        self.assertEqual(len(prov_queue), 31)
+        self.assertEqual(prov_queue[0]["province_slug"], "tehran")
+        self.assertEqual(sum(p["hub_count"] for p in prov_queue), 100)
+        self.assertEqual(sum(p["branch_count"] for p in prov_queue), 239)
+
+        # Verify owner-confirmed special hub resolutions (#10 Kish, #30 Bushehr, #41 Yasuj)
+        by_rank = {c["rank"]: c for c in clusters}
+        self.assertEqual(by_rank[10]["city_slug"], "kish")
+        self.assertEqual((by_rank[30]["city_slug"], by_rank[30]["city_wp_id"]), ("bushehr", 201))
+        self.assertEqual((by_rank[41]["city_slug"], by_rank[41]["city_wp_id"]), ("boyer-ahmad", 430))
+
+        master_spec = ROOT / "docs/live-site/CLUSTER-SYSTEM-MASTER.md"
+        self.assertTrue(master_spec.is_file())
+        spec_text = master_spec.read_text(encoding="utf-8")
+        self.assertIn("سرشماری رسمی سال ۱۳۹۵", spec_text)
+        self.assertIn("#6B7280", spec_text)
+
         doc_text = doc_path.read_text(encoding="utf-8")
         for c in clusters:
             self.assertIn(f"`/city/{c['city_slug']}/`", doc_text)

@@ -795,6 +795,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("id", type=int)
     p.add_argument("--owner-approved-trash", action="store_true")
     p.add_argument("--reason", default="زباله‌دان نسخهٔ تکراری (دستور مالک)")
+    p = sub.add_parser("publish-draft", help="owner-approved: promote a completed cluster draft to publish (theme 2.24.20+, backup first)")
+    p.add_argument("id", type=int)
+    p.add_argument("--owner-approved-publish", action="store_true")
+    p.add_argument("--reason", default="انتشار پیش‌نویس تکمیل‌شدهٔ خوشه (دستور مالک)")
     p = sub.add_parser("litespeed", help="read LiteSpeed Cache settings; --set only crawler keys")
     p.add_argument("--set", action="append", default=[], help="crawler=true | crawler-sitemap=URL | crawler-crawl_interval=SEC | crawler-load_limit=N")
     p.add_argument("--reason", default="تنظیم خزندهٔ LiteSpeed")
@@ -1180,6 +1184,16 @@ def run(a: argparse.Namespace, c: "Client"):
         print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
         return c.call("POST", f"/post/{a.id}/trash", body={"owner_approved_trash": True,
                                                          "expected_modified_gmt": current["modified_gmt"], "reason": a.reason})
+    elif a.cmd == "publish-draft":
+        if not a.owner_approved_publish:
+            raise AgentError("publish-draft needs --owner-approved-publish (owner's explicit order)")
+        current = c.call("GET", f"/post/{a.id}")
+        if current.get("status") != "draft":
+            raise AgentError(f"publish-draft only accepts draft posts; post #{a.id} has status={current.get('status')!r}")
+        local = save_local_backup(f"post-{a.id}-pre-publish", current)
+        print(f"local backup: {local.relative_to(REPO_ROOT)}", file=sys.stderr)
+        return c.call("POST", f"/post/{a.id}/publish", body={"owner_approved_publish": True,
+                                                             "expected_modified_gmt": current["modified_gmt"], "reason": a.reason})
     elif a.cmd == "litespeed":
         current = c.call("GET", "/litespeed")
         if not a.set:

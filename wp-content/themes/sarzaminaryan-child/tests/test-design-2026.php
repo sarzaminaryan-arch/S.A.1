@@ -216,6 +216,32 @@ sa_design_assert(
 	'child.css defines full-card click target for sa-stretched-link cards'
 );
 
+/* 7 — unified topic-cluster UI/UX, 1395 census note & subtle grey license credit (v2.24.20) */
+sa_design_assert(
+	false !== strpos( sa_2026_census_note( '۱۳۹۵', true ), 'سرشماری رسمی ۱۳۹۵' )
+		&& false !== strpos( sa_2026_census_note( '۱۳۹۵', true ), 'سرشماری رسمی جدیدتری منتشر نشده است' ),
+	'sa_2026_census_note states that 1395 is Iran’s latest published official census'
+);
+sa_design_assert(
+	false !== strpos( $city, 'sa_2026_census_note' ) && false !== strpos( $province_tpl, 'sa_2026_census_note' ),
+	'both single-city and single-province render the subtle 1395 census clarification'
+);
+sa_design_assert(
+	strpos( $city, 'id="identity-section"' ) < strpos( $city, 'id="story-section"' )
+		&& strpos( $city, 'id="story-section"' ) < strpos( $city, 'id="weather-section"' )
+		&& strpos( $city, 'id="weather-section"' ) < strpos( $city, 'id="attractions-section"' ),
+	'single-city prioritizes the unified layout flow: identity → story/map → weather → attractions'
+);
+sa_design_assert(
+	strpos( $attraction, 'aria-labelledby="poi-title"' ) < strpos( $attraction, 'id="factsheet-section"' )
+		&& strpos( $attraction, 'id="factsheet-section"' ) < strpos( $attraction, 'id="story-section"' ),
+	'single-attraction places Quick Visit Info Grid immediately below Hero and before Story'
+);
+sa_design_assert(
+	false !== strpos( $child_css, '.sa-license-credit' ) && false !== strpos( $child_css, '#6B7280' ),
+	'child.css styles photo license credits in subtle muted grey'
+);
+
 if ( $failures > 0 ) {
 	fwrite( STDERR, "FAILED: {$failures} design guard(s)\n" );
 	exit( 1 );

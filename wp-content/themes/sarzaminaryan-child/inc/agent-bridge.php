@@ -935,6 +935,18 @@ function sa_agent_restore( $backup_id ) {
 		if ( null === $now ) {
 			return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
 		}
+	} elseif ( 'publish' === $now['status'] && 'draft' === ( isset( $b['data']['status'] ) ? $b['data']['status'] : '' ) ) {
+		// v2.24.20: اگر پشتیبان مربوط به پیش‌نویس پیش از انتشار خوشه‌ای باشد، وضعیت هم به draft برمی‌گردد.
+		wp_update_post(
+			array(
+				'ID'          => $now['id'],
+				'post_status' => 'draft',
+			)
+		);
+		$now = sa_agent_snapshot_post( $now['id'] );
+		if ( null === $now ) {
+			return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
+		}
 	}
 	// v2.22.120: پشتیبان‌های تازه افتراقی‌اند — فقط فیلدها/متاهایی که آن نوشتن عوض کرده
 	// بود برمی‌گردند و بقیهٔ صفحه دست نمی‌خورد. پشتیبان‌های کاملِ قدیمی همان مسیر قبلی را
@@ -1150,6 +1162,75 @@ function sa_agent_trash_redirect_source( $post_id, array $args ) {
 		'backup_id' => (int) $backup_id,
 		'status'    => (string) get_post_status( $before['id'] ),
 		'redirect'  => array( 'from' => $from, 'to' => $target ),
+	);
+}
+
+/* -------------------------------------------------------------------------
+ * ۷-ب-۲) انتشار پیش‌نویس تکمیل‌شدهٔ خوشه (v2.24.20 — دستور مالک).
+ *
+ * چرخهٔ خوشه‌ای مالک: اول شهرستان و شاخه‌های جاذبه‌اش در حالت پیش‌نویس ساخته
+ * و بازبینی می‌شوند؛ فقط وقتی کل خوشه کامل شد، با پرچم صریح owner_approved_publish،
+ * بررسی تازگی خواندن، نبود عبارت ممنوع، اتصال به والد جغرافیایی و ثبت پشتیبان کامل،
+ * از draft به publish ارتقا می‌یابند (و با sa_agent_restore کاملاً برگشت‌پذیرند).
+ * ---------------------------------------------------------------------- */
+
+/**
+ * ارتقای امن یک پیش‌نویس تکمیل‌شده به منتشرشده (با پشتیبان پیشین).
+ *
+ * @param int   $post_id شناسهٔ پیش‌نویس.
+ * @param array $args    owner_approved_publish, expected_modified_gmt, reason.
+ * @return array|WP_Error
+ */
+function sa_agent_publish_draft( $post_id, array $args ) {
+	$before = sa_agent_snapshot_post( $post_id );
+	if ( null === $before ) {
+		return sa_agent_error( 'sa_agent_not_found', 'نوشته پیدا نشد یا نوعش مجاز نیست.', 404 );
+	}
+	if ( empty( $args['owner_approved_publish'] ) || true !== $args['owner_approved_publish'] ) {
+		return sa_agent_error( 'sa_agent_need_owner', 'انتشار پیش‌نویس فقط با دستور صریح مالک (owner_approved_publish: true) انجام می‌شود.', 403 );
+	}
+	$expected = isset( $args['expected_modified_gmt'] ) ? (string) $args['expected_modified_gmt'] : '';
+	if ( '' === $expected || $expected !== $before['modified_gmt'] ) {
+		return sa_agent_error( 'sa_agent_stale', 'expected_modified_gmt نیامده یا نوشته از زمان خواندن عوض شده؛ دوباره بخوان.', 409 );
+	}
+	if ( 'draft' !== $before['status'] ) {
+		return sa_agent_error( 'sa_agent_not_draft', 'فقط نوشتهٔ در وضعیت draft قابل انتشار از این مسیر است (وضعیت فعلی: ' . $before['status'] . ').', 409 );
+	}
+	if ( '' === trim( (string) $before['title'] ) || '' === trim( strip_tags( (string) $before['content'] ) ) ) {
+		return sa_agent_error( 'sa_agent_empty_draft', 'پیش‌نویس بدون عنوان یا بدنهٔ کامل منتشر نمی‌شود.', 422 );
+	}
+	foreach ( array( 'title', 'content', 'excerpt' ) as $f ) {
+		$hit = sa_agent_find_banned( isset( $before[ $f ] ) ? (string) $before[ $f ] : '' );
+		if ( null !== $hit ) {
+			return sa_agent_error( 'sa_agent_banned_phrase', 'عبارت ممنوع «' . $hit . '» در ' . $f . ' دیده شد؛ انتشار متوقف شد.', 422 );
+		}
+	}
+	if ( 'attraction' === $before['type'] && empty( $before['meta']['sa_city_id'] ) ) {
+		return sa_agent_error( 'sa_agent_missing_parent', 'جاذبه بدون اتصال به شهرستان مادر (sa_city_id) منتشر نمی‌شود.', 422 );
+	}
+	if ( 'city' === $before['type'] && empty( $before['meta']['sa_province_id'] ) ) {
+		return sa_agent_error( 'sa_agent_missing_parent', 'شهرستان بدون اتصال به استان مادر (sa_province_id) منتشر نمی‌شود.', 422 );
+	}
+	$reason    = isset( $args['reason'] ) ? sanitize_text_field( (string) $args['reason'] ) : 'انتشار پیش‌نویس خوشه (دستور مالک)';
+	$backup_id = sa_agent_create_backup( 'post', $before['id'], $before, $reason );
+	if ( is_wp_error( $backup_id ) ) {
+		return $backup_id;
+	}
+	wp_publish_post( $before['id'] );
+	if ( 'publish' !== (string) get_post_status( $before['id'] ) ) {
+		return sa_agent_error( 'sa_agent_publish_failed', 'انتشار پیش‌نویس انجام نشد؛ پشتیبان #' . $backup_id . ' سالم است.', 500 );
+	}
+	if ( function_exists( 'sa_flush_relation_cache' ) ) {
+		sa_flush_relation_cache();
+	}
+	if ( function_exists( 'delete_transient' ) ) {
+		delete_transient( 'sa_sitemap_thin_city' );
+	}
+	return array(
+		'id'        => $before['id'],
+		'backup_id' => (int) $backup_id,
+		'status'    => (string) get_post_status( $before['id'] ),
+		'post'      => sa_agent_snapshot_post( $before['id'] ),
 	);
 }
 
@@ -1568,6 +1649,18 @@ function sa_agent_register_routes() {
 			'methods'             => 'POST',
 			'callback'            => function ( $r ) {
 				return sa_agent_respond( sa_agent_trash_redirect_source( (int) $r['id'], (array) $r->get_json_params() ) );
+			},
+			'permission_callback' => 'sa_agent_can_write',
+			'args'                => $id_arg,
+		)
+	);
+	register_rest_route(
+		SA_AGENT_NS,
+		'/post/(?P<id>\d+)/publish',
+		array(
+			'methods'             => 'POST',
+			'callback'            => function ( $r ) {
+				return sa_agent_respond( sa_agent_publish_draft( (int) $r['id'], (array) $r->get_json_params() ) );
 			},
 			'permission_callback' => 'sa_agent_can_write',
 			'args'                => $id_arg,

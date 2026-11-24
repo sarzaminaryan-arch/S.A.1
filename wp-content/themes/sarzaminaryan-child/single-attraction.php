@@ -52,8 +52,65 @@ while ( have_posts() ) :
 	$sa_terms   = get_the_terms( $sa_id, 'attraction_type' );
 	$sa_type    = ( $sa_terms && ! is_wp_error( $sa_terms ) ) ? $sa_terms[0]->name : 'جاذبه دیدنی';
 	// Owner brief: a stable public code in the POI-<COUNTY>-<NNN> shape.
-	$sa_short   = function_exists( 'sa_2026_poi_code' ) ? sa_2026_poi_code( $sa_id ) : 'POI-' . $sa_id;
-	$sa_cover   = sa_2026_cover( $sa_id, 'large' );
+	$sa_short     = function_exists( 'sa_2026_poi_code' ) ? sa_2026_poi_code( $sa_id ) : 'POI-' . $sa_id;
+	$sa_cover     = sa_2026_cover( $sa_id, 'large' );
+	$sa_hero      = function_exists( 'sa_2026_hero_media' )
+		? sa_2026_hero_media( $sa_id, true, get_the_title() . ( $sa_city ? ' در ' . get_the_title( $sa_city ) : '' ) )
+		: array( 'url' => $sa_cover, 'width' => 1200, 'height' => 750, 'alt' => get_the_title(), 'credit_html' => '' );
+
+	// Build unified Quick Visit Info Grid rows (immediately below the Hero section).
+	$sa_quick_rows = array();
+	$sa_seen_lbl   = array();
+	$sa_add_quick  = static function ( $label, $value, $is_html = false, $ltr = false ) use ( &$sa_quick_rows, &$sa_seen_lbl ) {
+		$label = trim( (string) $label );
+		$value = trim( (string) $value );
+		if ( '' === $label || '' === $value || isset( $sa_seen_lbl[ $label ] ) ) {
+			return;
+		}
+		$sa_seen_lbl[ $label ] = true;
+		$sa_quick_rows[]       = array(
+			'label' => $label,
+			'value' => $value,
+			'html'  => (bool) $is_html,
+			'ltr'   => (bool) $ltr,
+		);
+	};
+
+	$sa_loc_parts = array_filter(
+		array(
+			$sa_city ? get_the_title( $sa_city ) : '',
+			$sa_prov ? get_the_title( $sa_prov ) : '',
+		)
+	);
+	if ( $sa_loc_parts ) {
+		$sa_add_quick( 'شهرستان و استان', implode( ' · ', $sa_loc_parts ) );
+	}
+	$sa_add_quick( 'دسته‌بندی جاذبه', $sa_type );
+	$sa_area_meta = trim( (string) get_post_meta( $sa_id, 'sa_attr_area', true ) );
+	if ( '' === $sa_area_meta ) {
+		$sa_area_meta = trim( (string) get_post_meta( $sa_id, 'sa_address', true ) );
+	}
+	$sa_add_quick( 'محدوده مکانی', $sa_area_meta );
+	$sa_best_visit = trim( (string) get_post_meta( $sa_id, 'sa_best_time', true ) );
+	if ( '' === $sa_best_visit ) {
+		$sa_best_visit = trim( (string) get_post_meta( $sa_id, 'sa_best_season', true ) );
+	}
+	$sa_add_quick( 'بهترین زمان بازدید', $sa_best_visit );
+	$sa_add_quick( 'مدت‌زمان پیشنهادی بازدید', (string) get_post_meta( $sa_id, 'sa_visit_duration', true ) );
+	$sa_add_quick( 'مناسب برای', (string) get_post_meta( $sa_id, 'sa_suitable_for', true ) );
+	foreach ( (array) $sa_facts as $sa_fact ) {
+		if ( ! empty( $sa_fact['label'] ) && isset( $sa_fact['value'] ) ) {
+			$sa_add_quick( $sa_fact['label'], $sa_fact['value'], ! empty( $sa_fact['html'] ) );
+		}
+	}
+	if ( $sa_coords ) {
+		$sa_add_quick(
+			'مختصات جغرافیایی',
+			number_format_i18n( $sa_coords[0], 4 ) . '° N, ' . number_format_i18n( $sa_coords[1], 4 ) . '° E',
+			false,
+			true
+		);
+	}
 	?>
 
 	<div class="bg-surface border-b border-line/70">
@@ -73,29 +130,29 @@ while ( have_posts() ) :
 				<span aria-hidden="true">›</span>
 				<span class="text-ink font-bold" aria-current="page"><?php the_title(); ?></span>
 			</nav>
-			<span class="hidden sm:inline-block font-mono text-[11px] text-brand-forest bg-brand-forestSoft px-2.5 py-0.5 rounded-md font-semibold">
-				SYS.ID // <?php echo esc_html( $sa_short ); ?>
-			</span>
+			<div class="hidden sm:flex items-center gap-2 shrink-0">
+				<span class="text-[11px] text-muted"><?php echo esc_html( 'به‌روزرسانی: ' . get_the_modified_date() ); ?></span>
+				<span class="font-mono text-[11px] text-brand-forest bg-brand-forestSoft px-2.5 py-0.5 rounded-md font-semibold">
+					SYS.ID // <?php echo esc_html( $sa_short ); ?>
+				</span>
+			</div>
 		</div>
 	</div>
 
 	<div class="sticky top-16 z-40 bg-canvas/95 backdrop-blur-md border-b border-line shadow-2xs">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 			<nav aria-label="بخش‌های صفحه دیدنی" class="flex items-center gap-1.5 sm:gap-2 py-2.5 overflow-x-auto no-scrollbar text-xs font-semibold">
-				<span class="text-muted ml-1 shrink-0 hidden sm:inline">بخش‌ها:</span>
-				<a href="#factsheet-section" class="jump-link is-active shrink-0 px-3 py-1.5 rounded-lg bg-brand-forest text-white transition-colors">شناسنامه مکان</a>
-				<a href="#story-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-brand-forestSoft hover:text-brand-forest border border-line transition-colors">روایت دیدنی</a>
-				<?php if ( $sa_facts ) : ?>
-					<a href="#visitor-guide-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-brand-forestSoft hover:text-brand-forest border border-line transition-colors">راهنمای بازدید و دسترسی</a>
-				<?php endif; ?>
+				<span class="text-muted ml-1 shrink-0 hidden sm:inline">پرش سریع:</span>
+				<a href="#factsheet-section" class="jump-link is-active shrink-0 px-3 py-1.5 rounded-lg bg-brand-forest text-white transition-colors">اطلاعات سریع بازدید</a>
+				<a href="#story-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-brand-forestSoft hover:text-brand-forest border border-line transition-colors">معرفی، دسترسی و تجربه بازدید</a>
 				<?php if ( $sa_nearby ) : ?>
-					<a href="#nearby-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-brand-forestSoft hover:text-brand-forest border border-line transition-colors">دیدنی‌های نزدیک</a>
+					<a href="#nearby-section" class="jump-link shrink-0 px-3 py-1.5 rounded-lg bg-surface text-slate-700 hover:bg-brand-forestSoft hover:text-brand-forest border border-line transition-colors">دیدنی‌های نزدیک و هم‌مسیر</a>
 				<?php endif; ?>
 			</nav>
 		</div>
 	</div>
 
-	<main id="primary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-12">
+	<main id="primary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 space-y-10">
 
 		<section aria-labelledby="poi-title" class="bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-2xs space-y-8 relative overflow-hidden">
 			<div class="absolute -left-24 -top-24 w-80 h-80 rounded-full bg-brand-forestSoft/60 pointer-events-none"></div>
@@ -118,7 +175,13 @@ while ( have_posts() ) :
 					</h1>
 
 					<?php if ( $sa_summary ) : ?>
-						<p class="text-slate-600 text-sm sm:text-base leading-relaxed"><?php echo esc_html( $sa_summary ); ?></p>
+						<div class="sa-tldr-box rounded-2xl border border-brand-forest/20 bg-canvas/90 p-4 sm:p-5 space-y-1.5">
+							<span class="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-brand-forest">
+								<span class="w-1.5 h-1.5 rounded-full bg-brand-forest"></span>
+								<span>چکیده پاسخ سریع</span>
+							</span>
+							<p class="text-slate-700 text-sm sm:text-base leading-relaxed"><?php echo esc_html( $sa_summary ); ?></p>
+						</div>
 					<?php endif; ?>
 
 					<div class="pt-1 flex flex-wrap items-center gap-3">
@@ -152,151 +215,112 @@ while ( have_posts() ) :
 					</div>
 				</div>
 
-				<div class="lg:col-span-5 space-y-3">
-					<div class="relative rounded-2xl overflow-hidden border border-line aspect-[16/10] shadow-sm">
-						<img src="<?php echo esc_url( $sa_cover ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>"
-							class="absolute inset-0 w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async">
-						<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
-						<div class="absolute inset-x-0 bottom-0 p-4 text-white space-y-1">
+				<figure class="lg:col-span-5 sa-hero-media space-y-1.5">
+					<div class="relative rounded-2xl overflow-hidden border border-line aspect-[16/10] shadow-sm bg-slate-100">
+						<img
+							src="<?php echo esc_url( $sa_hero['url'] ); ?>"
+							alt="<?php echo esc_attr( $sa_hero['alt'] ); ?>"
+							width="<?php echo (int) $sa_hero['width']; ?>"
+							height="<?php echo (int) $sa_hero['height']; ?>"
+							class="absolute inset-0 w-full h-full object-cover"
+							loading="eager"
+							fetchpriority="high"
+							decoding="async">
+						<div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent pointer-events-none"></div>
+						<div class="absolute inset-x-0 bottom-0 p-4 text-white space-y-0.5 pointer-events-none">
 							<div class="text-xs text-amber-200 font-semibold"><?php echo esc_html( $sa_type ); ?></div>
 							<?php if ( $sa_city ) : ?>
 								<p class="text-[11px] text-slate-100 leading-relaxed"><?php echo esc_html( get_the_title( $sa_city ) ); ?><?php echo esc_html( $sa_prov ? ' · ' . get_the_title( $sa_prov ) : '' ); ?></p>
 							<?php endif; ?>
 						</div>
 					</div>
-
-					<div class="grid grid-cols-3 gap-2.5 text-center">
-						<div class="bg-canvas rounded-xl border border-line p-2.5">
-							<span class="block text-[11px] text-muted">دسته‌بندی</span>
-							<strong class="text-xs sm:text-sm font-extrabold text-ink"><?php echo esc_html( $sa_type ); ?></strong>
-						</div>
-						<div class="bg-canvas rounded-xl border border-line p-2.5">
-							<span class="block text-[11px] text-muted">شهرستان</span>
-							<strong class="text-xs sm:text-sm font-extrabold text-brand-terracotta"><?php echo esc_html( $sa_city ? get_the_title( $sa_city ) : '—' ); ?></strong>
-						</div>
-						<div class="bg-canvas rounded-xl border border-line p-2.5">
-							<span class="block text-[11px] text-muted">استان</span>
-							<strong class="text-xs sm:text-sm font-extrabold text-brand-forest"><?php echo esc_html( $sa_prov ? get_the_title( $sa_prov ) : '—' ); ?></strong>
-						</div>
-					</div>
-				</div>
+					<?php
+					if ( ! empty( $sa_hero['credit_html'] ) ) {
+						echo wp_kses_post( $sa_hero['credit_html'] );
+					}
+					?>
+				</figure>
 			</div>
 		</section>
 
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-			<section id="story-section" aria-labelledby="story-heading" class="lg:col-span-7 scroll-mt-32 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-2xs space-y-5">
-				<div class="border-b border-line pb-4">
-					<span class="text-xs font-bold text-brand-terracotta">روایت دیدنی</span>
-					<h2 id="story-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">
-						<?php echo esc_html( 'درباره ' . get_the_title() ); ?>
-					</h2>
-				</div>
-				<div class="sa-2026-prose">
-					<?php sa_2026_relation_content( $sa_card_urls ); ?>
-				</div>
-			</section>
-
-			<aside id="factsheet-section" aria-labelledby="factsheet-heading" class="lg:col-span-5 scroll-mt-32 bg-surface rounded-3xl border border-line p-6 shadow-2xs space-y-4">
-				<div class="flex items-center justify-between border-b border-line pb-3.5 gap-2">
-					<h2 id="factsheet-heading" class="text-base font-extrabold text-brand-forest flex items-center gap-2">
+		<section id="factsheet-section" aria-labelledby="factsheet-heading" class="scroll-mt-32 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-2xs space-y-5">
+			<div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-line pb-4 gap-2">
+				<div>
+					<span class="text-xs font-bold text-brand-terracotta">تصمیم‌گیری سریع پیش از حرکت</span>
+					<h2 id="factsheet-heading" class="text-lg sm:text-xl font-extrabold text-brand-forest flex items-center gap-2 mt-0.5">
 						<svg class="w-4 h-4 text-brand-terracotta" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
 						</svg>
-						<span>شناسنامه دیدنی</span>
+						<span>کارت اطلاعات سریع بازدید</span>
 					</h2>
-					<span class="font-mono text-[11px] font-bold text-muted bg-canvas px-2.5 py-1 rounded-lg border border-line">
-						<?php echo esc_html( $sa_short ); ?>
-					</span>
 				</div>
-
-				<dl class="space-y-2.5 text-xs sm:text-sm">
-					<?php if ( $sa_facts ) : ?>
-						<?php foreach ( $sa_facts as $sa_fact ) : ?>
-							<div class="bg-canvas p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
-								<dt class="text-muted text-xs shrink-0"><?php echo esc_html( $sa_fact['label'] ); ?></dt>
-								<dd class="font-bold text-ink text-left">
-									<?php echo ! empty( $sa_fact['html'] ) ? wp_kses_post( $sa_fact['value'] ) : esc_html( $sa_fact['value'] ); ?>
-								</dd>
-							</div>
-						<?php endforeach; ?>
-					<?php else : ?>
-						<div class="bg-canvas p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
-							<dt class="text-muted text-xs">موقعیت</dt>
-							<dd class="font-bold text-ink text-left">
-								<?php echo esc_html( trim( ( $sa_prov ? get_the_title( $sa_prov ) : '' ) . ' · ' . ( $sa_city ? get_the_title( $sa_city ) : '' ), ' ·' ) ); ?>
-							</dd>
-						</div>
-					<?php endif; ?>
-
-					<?php if ( $sa_coords ) : ?>
-						<div class="bg-canvas p-3 rounded-xl border border-line/80 flex items-center justify-between gap-2">
-							<dt class="text-muted text-xs">مختصات جغرافیایی</dt>
-							<dd class="font-mono text-xs font-bold text-ink text-left" dir="ltr">
-								<?php echo esc_html( number_format_i18n( $sa_coords[0], 4 ) . '° N, ' . number_format_i18n( $sa_coords[1], 4 ) . '° E' ); ?>
-							</dd>
-						</div>
-					<?php endif; ?>
-				</dl>
-
-				<div class="text-[11px] text-muted leading-relaxed">
+				<div class="flex items-center gap-2 text-[11px] text-muted">
 					<?php
 					if ( function_exists( 'sa_facts_checked_note' ) ) {
 						sa_facts_checked_note( $sa_id );
 					}
 					?>
+					<span class="font-mono font-bold bg-canvas px-2.5 py-1 rounded-lg border border-line">
+						<?php echo esc_html( $sa_short ); ?>
+					</span>
 				</div>
-			</aside>
-		</div>
+			</div>
 
-		<?php if ( $sa_facts ) : ?>
-			<section id="visitor-guide-section" aria-labelledby="guide-heading" class="scroll-mt-32 bg-surface rounded-3xl border border-line p-6 sm:p-8 shadow-2xs space-y-5">
-				<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-line pb-4">
-					<div>
-						<span class="text-xs font-bold text-brand-terracotta">برنامه‌ریزی بازدید</span>
-						<h2 id="guide-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-0.5">راهنمای عملی بازدید و دسترسی</h2>
+			<dl class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 text-xs sm:text-sm">
+				<?php foreach ( $sa_quick_rows as $sa_qrow ) : ?>
+					<div class="bg-canvas rounded-2xl border border-line/80 p-4 space-y-1">
+						<dt class="text-[11px] font-bold text-muted"><?php echo esc_html( $sa_qrow['label'] ); ?></dt>
+						<dd class="font-bold text-ink leading-relaxed<?php echo $sa_qrow['ltr'] ? ' font-mono text-xs text-left' : ''; ?>"<?php echo $sa_qrow['ltr'] ? ' dir="ltr"' : ''; ?>>
+							<?php echo $sa_qrow['html'] ? wp_kses_post( $sa_qrow['value'] ) : esc_html( $sa_qrow['value'] ); ?>
+						</dd>
 					</div>
-					<?php if ( $sa_map_url ) : ?>
-						<a href="<?php echo esc_url( $sa_map_url ); ?>" target="_blank" rel="noopener" class="text-xs font-bold text-brand-forest hover:underline">مسیر روی نقشه ←</a>
-					<?php endif; ?>
-				</div>
+				<?php endforeach; ?>
+			</dl>
+		</section>
 
-				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-					<?php foreach ( $sa_facts as $sa_fact ) : ?>
-						<div class="bg-canvas rounded-2xl border border-line p-4 space-y-1.5">
-							<span class="text-[11px] font-bold text-brand-terracotta"><?php echo esc_html( $sa_fact['label'] ); ?></span>
-							<div class="text-sm font-bold text-ink leading-relaxed">
-								<?php echo ! empty( $sa_fact['html'] ) ? wp_kses_post( $sa_fact['value'] ) : esc_html( $sa_fact['value'] ); ?>
-							</div>
-						</div>
-					<?php endforeach; ?>
-				</div>
-			</section>
-		<?php endif; ?>
+		<section id="story-section" aria-labelledby="story-heading" class="scroll-mt-32 bg-surface rounded-3xl border border-line p-6 sm:p-8 lg:p-10 shadow-2xs space-y-5">
+			<div class="border-b border-line pb-4">
+				<span class="text-xs font-bold text-brand-terracotta">راهنمای میدانی و بازدید</span>
+				<h2 id="story-heading" class="text-xl sm:text-2xl font-extrabold text-ink mt-1">
+					<?php echo esc_html( 'معرفی، مسیر دسترسی و راهنمای بازدید از ' . get_the_title() ); ?>
+				</h2>
+			</div>
+			<div class="sa-2026-prose">
+				<?php sa_2026_relation_content( $sa_card_urls ); ?>
+			</div>
+		</section>
 
 		<?php if ( $sa_nearby ) : ?>
 			<section id="nearby-section" aria-labelledby="nearby-heading" class="scroll-mt-32 space-y-5">
 				<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
 					<div>
-						<span class="text-xs font-bold text-brand-terracotta">ادامه مسیر</span>
+						<span class="text-xs font-bold text-brand-terracotta">ادامه مسیر و تکمیل برنامه گشت</span>
 						<h2 id="nearby-heading" class="text-xl font-extrabold text-ink mt-0.5">
-							<?php echo esc_html( 'دیدنی‌های نزدیک' . ( $sa_city ? ' در ' . get_the_title( $sa_city ) : '' ) ); ?>
+							<?php echo esc_html( 'جاذبه‌های نزدیک و هم‌مسیر' . ( $sa_city ? ' در ' . get_the_title( $sa_city ) : '' ) ); ?>
 						</h2>
 					</div>
 				</div>
 
 				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
 					<?php foreach ( $sa_nearby as $sa_post ) : ?>
-						<a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>"
-							class="group bg-surface rounded-2xl border border-line overflow-hidden hover:border-brand-forest hover:shadow-sm transition-all">
-							<span class="block aspect-[16/10] overflow-hidden bg-canvas">
-								<img src="<?php echo esc_url( sa_2026_cover( $sa_post->ID, 'medium' ) ); ?>" alt=""
-									class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" decoding="async">
-							</span>
-							<span class="block p-4 space-y-1">
-								<strong class="block text-sm font-extrabold text-ink group-hover:text-brand-forest transition-colors"><?php echo esc_html( get_the_title( $sa_post ) ); ?></strong>
-								<span class="block text-[11px] text-slate-600 line-clamp-2"><?php echo esc_html( wp_trim_words( wp_strip_all_tags( $sa_post->post_content ), 16, '…' ) ); ?></span>
-							</span>
-						</a>
+						<article class="sa-card-linked group bg-surface rounded-2xl border border-line overflow-hidden hover:border-brand-forest hover:shadow-sm transition-all flex flex-col">
+							<div class="aspect-[16/10] overflow-hidden bg-canvas">
+								<img
+									src="<?php echo esc_url( sa_2026_cover( $sa_post->ID, 'medium' ) ); ?>"
+									alt="<?php echo esc_attr( get_the_title( $sa_post ) ); ?>"
+									width="640"
+									height="400"
+									class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+									loading="lazy"
+									decoding="async">
+							</div>
+							<div class="p-4 space-y-1 flex-1">
+								<h3 class="text-sm font-extrabold text-ink group-hover:text-brand-forest transition-colors">
+									<a href="<?php echo esc_url( get_permalink( $sa_post ) ); ?>" class="sa-stretched-link"><?php echo esc_html( get_the_title( $sa_post ) ); ?></a>
+								</h3>
+								<p class="text-[11px] text-slate-600 line-clamp-2"><?php echo esc_html( wp_trim_words( wp_strip_all_tags( $sa_post->post_content ), 16, '…' ) ); ?></p>
+							</div>
+						</article>
 					<?php endforeach; ?>
 				</div>
 			</section>

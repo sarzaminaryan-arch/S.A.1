@@ -8714,3 +8714,72 @@ body.sa-2026 .sa-card-linked a.sa-stretched-link::after {
 	inset: 0;
 	z-index: 2;
 }
+
+/* v2.24.20: خوانایی ستون متن خوشه‌ای، کریدیت ظریف طوسی تصاویر مجوزدار، تبصرهٔ سرشماری ۱۳۹۵ و نقشهٔ ایمن در موبایل */
+body.sa-2026 .sa-2026-prose {
+	color: #1F2937;
+	font-size: 1rem;
+	line-height: 1.85;
+}
+
+@media (min-width: 768px) {
+	body.sa-2026 .sa-2026-prose {
+		font-size: 1.03125rem;
+		line-height: 1.88;
+	}
+}
+
+body.sa-2026 .sa-2026-prose > p,
+body.sa-2026 .sa-2026-prose > ul,
+body.sa-2026 .sa-2026-prose > ol,
+body.sa-2026 .sa-2026-prose > blockquote {
+	max-width: 76ch;
+}
+
+body.sa-2026 .sa-license-credit,
+body.sa-2026 .sa-photo__credit,
+body.sa-2026 .sa-2026-prose figure:not(.sa-map) > figcaption {
+	margin-top: 0.3rem;
+	font-size: 0.6875rem;
+	line-height: 1.45;
+	color: #6B7280;
+	font-weight: 400;
+}
+
+body.sa-2026 .sa-license-credit a,
+body.sa-2026 .sa-photo__credit a,
+body.sa-2026 .sa-2026-prose figure:not(.sa-map) > figcaption a[href]:not([href=""]):not(.sa-source-box) {
+	color: #6B7280;
+	text-decoration: none;
+}
+
+body.sa-2026 .sa-license-credit a:hover,
+body.sa-2026 .sa-photo__credit a:hover,
+body.sa-2026 .sa-2026-prose figure:not(.sa-map) > figcaption a[href]:not([href=""]):not(.sa-source-box):hover {
+	color: #4B5563;
+	text-decoration: underline;
+	text-underline-offset: 3px;
+}
+
+body.sa-2026 .sa-census-note {
+	font-size: 0.6875rem;
+	line-height: 1.5;
+	color: #6B7280;
+}
+
+body.sa-2026 .sa-map__embed {
+	position: relative;
+	aspect-ratio: 16 / 9;
+	min-height: 300px;
+	max-height: 400px;
+	overflow: hidden;
+	border-radius: 1rem;
+	touch-action: pan-y;
+}
+
+body.sa-2026 .sa-map__frame {
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+

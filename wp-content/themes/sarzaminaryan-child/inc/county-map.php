@@ -72,13 +72,14 @@ function sa_geo_parse_coord( $raw ) {
 function sa_county_map_data( $post_id ) {
 	$post_id = (int) $post_id;
 	$post    = get_post( $post_id );
-	if ( ! $post || 'city' !== $post->post_type ) {
+	if ( ! $post || ! in_array( $post->post_type, array( 'city', 'attraction' ), true ) ) {
 		return null;
 	}
 
-	$lat     = null;
-	$lng     = null;
-	$profile = function_exists( 'sa_county_profile_data' ) ? sa_county_profile_data( $post_id ) : array();
+	$is_attraction = ( 'attraction' === $post->post_type );
+	$lat           = null;
+	$lng           = null;
+	$profile       = ( ! $is_attraction && function_exists( 'sa_county_profile_data' ) ) ? sa_county_profile_data( $post_id ) : array();
 
 	// 1) Canonical profile keys (already float-validated by the data layer).
 	if ( ! empty( $profile['lat'] ) && ! empty( $profile['lng'] ) ) {
@@ -95,8 +96,8 @@ function sa_county_map_data( $post_id ) {
 	}
 	// 3) Display-format legacy («۳۱٫۳۲۷۵ شمالی») — parse, never display raw.
 	if ( null === $lat ) {
-		$lat = sa_geo_parse_coord( (string) get_post_meta( $post_id, 'sa_city_latitude', true ) );
-		$lng = sa_geo_parse_coord( (string) get_post_meta( $post_id, 'sa_city_longitude', true ) );
+		$lat = sa_geo_parse_coord( (string) get_post_meta( $post_id, $is_attraction ? 'sa_latitude' : 'sa_city_latitude', true ) );
+		$lng = sa_geo_parse_coord( (string) get_post_meta( $post_id, $is_attraction ? 'sa_longitude' : 'sa_city_longitude', true ) );
 	}
 
 	// Iran bounding box — anything outside is a data error, not a map.
@@ -105,17 +106,23 @@ function sa_county_map_data( $post_id ) {
 	}
 
 	$zoom = (int) get_post_meta( $post_id, 'sa_map_zoom', true );
-	if ( $zoom < 8 || $zoom > 13 ) {
-		$zoom = 10;
-	}
-
-	// Pin label = the center city (what the pin actually marks), county name as fallback.
-	$label = isset( $profile['center_fa'] ) ? trim( (string) $profile['center_fa'] ) : '';
-	if ( '' === $label && function_exists( 'sa_county_name' ) ) {
-		$label = trim( (string) sa_county_name( $post_id, false ) );
-	}
-	if ( '' === $label ) {
+	if ( $is_attraction ) {
+		if ( $zoom < 8 || $zoom > 16 ) {
+			$zoom = 13;
+		}
 		$label = trim( (string) get_the_title( $post_id ) );
+	} else {
+		if ( $zoom < 8 || $zoom > 13 ) {
+			$zoom = 10;
+		}
+		// Pin label = the center city (what the pin actually marks), county name as fallback.
+		$label = isset( $profile['center_fa'] ) ? trim( (string) $profile['center_fa'] ) : '';
+		if ( '' === $label && function_exists( 'sa_county_name' ) ) {
+			$label = trim( (string) sa_county_name( $post_id, false ) );
+		}
+		if ( '' === $label ) {
+			$label = trim( (string) get_the_title( $post_id ) );
+		}
 	}
 
 	return array(
@@ -123,6 +130,7 @@ function sa_county_map_data( $post_id ) {
 		'lng'   => $lng,
 		'zoom'  => $zoom,
 		'label' => $label,
+		'type'  => $post->post_type,
 	);
 }
 
@@ -191,7 +199,11 @@ function sa_county_map_block( $post_id ) {
 	$actions .= '</ul>';
 	$nos     .= '</ul>';
 
-	$county_full = function_exists( 'sa_county_name' ) ? sa_county_name( $post_id, true ) : get_the_title( $post_id );
+	$is_attraction = isset( $map['type'] ) && 'attraction' === $map['type'];
+	$county_full   = function_exists( 'sa_county_name' ) ? sa_county_name( $post_id, true ) : get_the_title( $post_id );
+	$caption_html  = $is_attraction
+		? sprintf( 'موقعیت مکانی %1$s <bdi dir="ltr">%2$s</bdi>', esc_html( $map['label'] ), esc_html( $coord ) )
+		: sprintf( 'موقعیت شهر %1$s، مرکز %2$s <bdi dir="ltr">%3$s</bdi>', esc_html( $map['label'] ), esc_html( $county_full ), esc_html( $coord ) );
 
 	return sprintf(
 		'<figure class="sa-map" id="sa-map" dir="ltr">' .
@@ -199,7 +211,7 @@ function sa_county_map_block( $post_id ) {
 		'<iframe class="sa-map__frame" src="%1$s" title="نقشهٔ موقعیت %2$s" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen data-provider="%3$s" data-lat="%4$s" data-lng="%5$s" data-zoom="%6$s"></iframe>' .
 		'</div>' .
 		'<noscript><p class="sa-map__noscript">موقعیت %2$s: <bdi dir="ltr">%7$s</bdi></p>%8$s</noscript>' .
-		'<figcaption class="sa-map__caption" dir="rtl">موقعیت شهر %2$s، مرکز %9$s <bdi dir="ltr">%7$s</bdi></figcaption>' .
+		'<figcaption class="sa-map__caption" dir="rtl">%9$s</figcaption>' .
 		'<div class="sa-map__actions" dir="rtl">%10$s</div>' .
 		'</figure>',
 		esc_url( $src ),
@@ -210,7 +222,7 @@ function sa_county_map_block( $post_id ) {
 		esc_attr( (string) $map['zoom'] ),
 		esc_html( $coord ),
 		$nos,
-		esc_html( $county_full ),
+		$caption_html,
 		$actions
 	);
 }
@@ -260,7 +272,7 @@ function sa_county_map_embed_url( $map, $provider = 'osm' ) {
  * @return string
  */
 function sa_county_map_content_filter( $content ) {
-	if ( ! is_singular( 'city' ) || ! in_the_loop() || ! is_main_query() ) {
+	if ( ( ! is_singular( 'city' ) && ! is_singular( 'attraction' ) ) || ! in_the_loop() || ! is_main_query() ) {
 		return $content;
 	}
 	if ( ! empty( $GLOBALS['sa_county_map_injected'] ) ) {
