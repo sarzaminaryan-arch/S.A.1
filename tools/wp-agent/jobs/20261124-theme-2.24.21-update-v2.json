@@ -1,5 +1,5 @@
 {
-  "name": "20261124-theme-2.24.21-update",
+  "name": "20261124-theme-2.24.21-update-v2",
   "description": "Update live child theme to 2.24.21 (desktop hero fix, sticky header, footer logo home link) and purge cache",
   "steps": [
     {
@@ -8,7 +8,7 @@
     {
       "cmd": "theme-update",
       "version": "2.24.21",
-      "expected-version": "2.24.20",
+      "expected-version": "2.24.21",
       "owner-approved-theme-update": true
     },
     {
