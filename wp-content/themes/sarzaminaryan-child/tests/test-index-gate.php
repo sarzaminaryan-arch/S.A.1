@@ -7,12 +7,16 @@
  * «جاهای دیگری که مردم می‌روند» block still answering noindex, because the gate
  * did not count extra_places. Locked rules guarded here:
  *
- *  1. The new gate is a superset of the old one: any page that had children,
- *     sa_county_profile_attractions() rows or non-empty sa_cty_poi_* stays index.
+ *  1. The places gate is a superset of the old one: any page that had children,
+ *     sa_county_profile_attractions() rows or non-empty sa_cty_poi_* passes the
+ *     places check (word-count rule below is evaluated separately).
  *  2. extra_places count only for visitable kinds (تاریخی/طبیعت/تفریحی/زیارتی/
  *     مذهبی/روستا/شهری) and specific names; اقامت/خوراک/حمل‌ونقل and a bare
  *     «بوستان» do not open the gate.
- *  3. < 300 words → noindex (thin_text) even with places; 0 places → no_places.
+ *  3. < 300 words → noindex (thin_text) even with places; 0 places → no_places;
+ *     < 700 words (SA_COUNTY_MIN_INDEX_WORDS, v2.24.22) → noindex (low_depth).
+ *     At ≥ 700 words the low_depth hold lifts automatically (owner rule #2:
+ *     rewritten pages re-enter the index and the sitemap on their own).
  *  4. Manual sa_noindex always wins (reason "manual").
  *  5. All 7 group-A slugs in data/county-experiences.php open the gate.
  *  6. City meta description: first ≥ 70-char candidate (custom → lead → summary).
@@ -126,8 +130,12 @@ function sa_county_profile_bundled( $id ) { // phpcs:ignore
 
 require $theme_dir . '/inc/helpers.php';
 
-$long  = str_repeat( 'واژه‌ای برای متن اصلی صفحه ', 120 ); // ~600 words.
-$short = str_repeat( 'متن ', 50 );
+// Note: sa_city_word_count() splits «واژه‌ای» at the ZWNJ, so the ZWNJ string below
+// yields 6 letter-runs per repeat (120 × 6 = 720 ≥ 700). The plain string yields 5.
+$long         = str_repeat( 'واژه‌ای برای متن اصلی صفحه ', 120 ); // 720 words (≥ 700).
+$short        = str_repeat( 'متن ', 50 );                          // 50 words (< 300).
+$mid          = str_repeat( 'واژه برای متن اصلی صفحه ', 139 );     // 695 words (< 700 → low_depth).
+$at_threshold = str_repeat( 'واژه برای متن اصلی صفحه ', 140 );     // exactly 700 words (qualifies).
 $add   = static function ( $id, $slug, $content, $meta = array() ) {
 	$GLOBALS['ig']['posts'][ $id ] = new SA_IG_Post( $id, 'city', $slug, $content );
 	$GLOBALS['ig']['meta'][ $id ]  = $meta;
@@ -158,6 +166,19 @@ $add( 12, 'no-bundle-c', $short, array( 'extra_places' => 'باغ ارم | تا�
 sa_ig_assert( 'thin_text' === sa_city_noindex_reason( 12 ), 'under 300 words → thin_text' );
 $add( 13, 'no-bundle-d', $long );
 sa_ig_assert( 'no_places' === sa_city_noindex_reason( 13 ), 'no places → no_places' );
+
+// 3b. v2.24.22 — low_depth hold (owner final rules, threshold 700) + auto re-entry.
+$add( 15, 'low-depth-with-places', $mid, array( 'extra_places' => 'باغ ارم | تاریخی | خیابان ارم' ) );
+$d = sa_city_index_decision( 15 );
+sa_ig_assert( false === $d['index'] && 'low_depth' === $d['reason'] && 695 === $d['words'] && 1 === $d['places'], 'places but 695 words (< 700) → low_depth noindex' );
+sa_ig_assert( false !== strpos( sa_city_noindex_reason_label( 'low_depth' ), '۷۰۰' ), 'low_depth label mentions the 700-word threshold' );
+$add( 16, 'at-threshold', $at_threshold, array( 'extra_places' => 'باغ ارم | تاریخی | خیابان ارم' ) );
+$d = sa_city_index_decision( 16 );
+sa_ig_assert( true === $d['index'] && 'ok' === $d['reason'] && 700 === $d['words'], 'exactly 700 words qualifies (rule #2: index + sitemap re-entry)' );
+sa_ig_assert( '' === sa_city_noindex_reason( 16 ), 'no reason at the threshold → sitemap includes it' );
+// The low_depth hold only speaks after the places gate: < 700 without places keeps no_places.
+$add( 17, 'low-and-no-places', $mid );
+sa_ig_assert( 'no_places' === sa_city_noindex_reason( 17 ), 'no_places is reported before low_depth' );
 
 // 4. Manual noindex wins.
 $add( 14, 'no-bundle-e', $long, array( 'sa_noindex' => '1', 'extra_places' => 'باغ ارم | تاریخی | خیابان ارم' ) );
@@ -211,6 +232,11 @@ if ( ! function_exists( 'mb_strlen' ) ) {
 $seo = file_get_contents( $theme_dir . '/inc/seo.php' );
 sa_ig_assert( false !== strpos( $seo, "stripos( (string) \$output, 'Sitemap:' )" ), 'robots.txt adds Sitemap only when absent' );
 sa_ig_assert( false !== strpos( $seo, 'sa_seo_city_pick_description(' ), 'city description uses the picker' );
+// v2.24.22 — قواعد نهایی مالک: خروجی `noindex, follow` فقط با متای HTML؛ بدون Disallow روی /city/.
+sa_ig_assert( false !== strpos( $seo, '$robots' . "['noindex'] = true;" ) && false !== strpos( $seo, '$robots' . "['follow']  = true;" ), 'noindex pages emit noindex, follow (crawlable HTML meta)' );
+sa_ig_assert( false === strpos( $seo, 'Disallow: /city' ), 'robots.txt never blocks /city/ (noindex needs the crawl)' );
+$helpers = file_get_contents( $theme_dir . '/inc/helpers.php' );
+sa_ig_assert( false !== strpos( $helpers, 'SA_COUNTY_MIN_INDEX_WORDS' ) && false !== strpos( $helpers, "'low_depth'" ), 'helpers define the 700-word low_depth gate' );
 sa_ig_assert( false !== strpos( $seo, "'' !== sa_city_noindex_reason( \$pid )" ), 'sitemap excludes every noindex city (manual too)' );
 
 // 8. R4 guard and bridge.

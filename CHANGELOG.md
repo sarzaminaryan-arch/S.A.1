@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- رودمپ صفحات نازک شهرستان (۲۰۲۶-۱۱-۲۴): سند تصمیم `docs/live-site/thin-counties-plan-2026-11-24.md` (آستانهٔ مصوب مالک: ۷۰۰ واژه؛ noindex,follow + خروج خودکار از سایت‌مپ؛ بدون 410/301؛ خزش باز) و پیاده‌سازی در قالب فرزند **2.24.22** (`SA_COUNTY_MIN_INDEX_WORDS`، دلیل جدید `low_depth`، برچسب فارسی، تست‌های مرزی ۶۹۵/۷۰۰).
 - One-time plugin `sa-editorial-fix` 1.0.0 (stage 2 of `docs/live-site/content-remediation-roadmap.md`): faithful PHP port of `tools/wp-agent/content_fix.py` (note sentences/clauses, note list items, in-page duplicate sentences, summary-item shortening, key-facts table cells, empty blocks/headings) with owner guards — 8% max word-drop (above ⇒ report-only «needs rewrite»), banned-output-words check, full backup before every write, one-click rollback, idempotent dry-run preview on activation; 12 reference-engine fixtures (`tests/fixtures.json`) + `tests/test-engine.php` wired into `build-gates.yml`.
 - docs: `content-remediation-roadmap.md` — staged content-remediation roadmap with live counts (13 critical classes / ≈618 units: 249 solved, 21 in stage 2, ≈248 remaining), per-stage test methods and owner actions, exit criteria for moving to new articles.
 

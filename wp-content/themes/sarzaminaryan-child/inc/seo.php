@@ -652,7 +652,9 @@ function sa_seo_robots( $robots ) {
 	if ( is_singular() && '1' === get_post_meta( get_queried_object_id(), 'sa_noindex', true ) ) {
 		$noindex = true;
 	}
-	// Phase 7 §5: auto noindex for thin county pages
+	// Phase 7 §5 + v2.24.22: auto noindex for thin county pages (thin_text / no_places / low_depth).
+	// خروجی همیشه `noindex, follow` است؛ صفحه خزش‌پذیر می‌ماند و robots.txt هیچ
+	// Disallow روی /city/ نمی‌گذارد (تصمیم نهایی مالک ۲۰۲۶-۱۱-۲۴).
 	if ( is_singular( 'city' ) ) {
 		$pid = get_queried_object_id();
 		if ( $pid && function_exists( 'sa_city_is_thin' ) && sa_city_is_thin( $pid ) ) {
