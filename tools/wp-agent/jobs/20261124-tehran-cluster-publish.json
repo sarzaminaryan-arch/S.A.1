@@ -6,11 +6,6 @@
       "cmd": "ping"
     },
     {
-      "cmd": "theme-update",
-      "version": "2.24.20",
-      "owner-approved-theme-update": true
-    },
-    {
       "cmd": "draft",
       "type": "attraction",
       "slug": "milad-tower",
