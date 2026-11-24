@@ -1,0 +1,20 @@
+[
+ {
+  "id": 64,
+  "slug": "neyshabur",
+  "words_after": 1038,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "modern",
+   "food",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
