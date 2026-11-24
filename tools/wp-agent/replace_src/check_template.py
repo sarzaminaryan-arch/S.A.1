@@ -56,12 +56,14 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(ROOT))          # prose_guard sits in tools/wp-agent/
 
 # The locked order comes from the single registry in template.py: adding,
 # dropping or renaming a section is one edit there and nowhere else.
 from template import (order_patterns, OPTIONAL_IDS, TOTAL_MAX,  # noqa: E402
                       TOTAL_MIN, WORD_BUDGET, REQUIRED_IDS)
 from fa_lint import scan as fa_scan, scan_meta as fa_scan_meta  # noqa: E402
+from prose_guard import check as prose_check  # noqa: E402  (نگهبان نثر — ریشه در بازنویسی ۲۲ نوامبر)
 from theme_sources import is_forbidden, is_wiki  # noqa: E402
 
 ORDER = order_patterns()
@@ -231,6 +233,10 @@ def check_html(path: Path) -> list[str]:
     # فیلتر املا و نگارش فارسی (دستور مالک، ۱۶ نوامبر ۱۴۰۵): نام ماه میلادی،
     # نیم‌فاصلهٔ جاافتاده، حرف عربی، واژهٔ ممنوع — هر یافته صفحه را رد می‌کند.
     problems += [f"fa: {line}" for line in fa_scan(html)]
+    # نگهبان نثر: جملهٔ تکراری/نیمه‌تکرار، الگوی ماشینی، متن پیش‌نویس، نویسهٔ غیرفارسی.
+    # این گیت با ۲ آذر ۱۴۰۵ (۲۰۲۶-۱۱-۲۳) اضافه شد، چون متنِ فارسیِ بی‌غلطِ شغل ۱۳ از
+    # همهٔ دروازه‌های موجود رد شد و روی سایت رفت.
+    problems += [f"prose: {line}" for line in prose_check(html)["problems"]]
     # v2.22.87 boundary rule: the map section tells the geography; the neighbour
     # NAMES belong to the identity-card chips. 3+ names repeated = the old drift.
     map_html = section_slice(html, "map")

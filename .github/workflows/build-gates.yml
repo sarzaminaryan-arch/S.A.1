@@ -56,6 +56,9 @@ jobs:
       - name: 'Persian spelling filter (ماه میلادی، نیم‌فاصله، حروف عربی، ارقام عربی)'
         run: python3 tools/wp-agent/test_fa_lint.py
 
+      - name: 'Prose guard (نثر): repeated sentences, machine patterns, stub text, foreign script'
+        run: python3 tools/wp-agent/test_prose_guard.py
+
       - name: County template guard (order, retired sections, word floor)
         run: python3 tools/wp-agent/test_county_template.py
       - name: County run protocol (one province, one county, three witnesses)
