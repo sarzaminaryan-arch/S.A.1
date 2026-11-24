@@ -502,8 +502,12 @@ sa_t_assert( is_wp_error( $e ) && 'draft' === $t['posts'][ $draft_att ]->post_st
 $t['fail_insert_type'] = '';
 $pub = sa_agent_publish_draft( $draft_att, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => $gmt( $draft_att ), 'reason' => 'انتشار خوشه تهران' ) );
 sa_t_assert( is_array( $pub ) && 'publish' === $pub['status'] && 'publish' === $t['posts'][ $draft_att ]->post_status, '11p-7: valid cluster draft promoted to publish' );
-sa_agent_restore( $pub['backup_id'] );
-sa_t_assert( 'draft' === $t['posts'][ $draft_att ]->post_status, '11p-8: restore reverts cluster-published post back to draft' );
+$pub_restore = sa_agent_restore( $pub['backup_id'] );
+sa_t_assert( is_array( $pub_restore ) && 'draft' === $t['posts'][ $draft_att ]->post_status, '11p-8: restore reverts cluster-published post back to draft' );
+$banned_draft = wp_insert_post( array( 'post_type' => 'attraction', 'post_status' => 'draft', 'post_name' => 'bad-draft', 'post_title' => 'تست', 'post_content' => '<p>متن با عبارت هوش مصنوعی.</p>' ) );
+update_post_meta( $banned_draft, 'sa_city_id', 100 );
+$e = sa_agent_publish_draft( $banned_draft, array( 'owner_approved_publish' => true, 'expected_modified_gmt' => $gmt( $banned_draft ) ) );
+sa_t_assert( is_wp_error( $e ) && 'sa_agent_banned_phrase' === $e->code && 'draft' === $t['posts'][ $banned_draft ]->post_status, '11p-9: draft with banned phrase is refused' );
 
 /* 12. LiteSpeed: read-only unless active; only crawler keys writable; backup first; restore. */
 $ls = sa_agent_litespeed_snapshot();

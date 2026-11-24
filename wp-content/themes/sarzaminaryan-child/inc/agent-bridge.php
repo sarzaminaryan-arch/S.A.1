@@ -928,10 +928,12 @@ function sa_agent_restore( $backup_id ) {
 	if ( null === $now ) {
 		return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
 	}
+	$status_reverted = false;
 	if ( 'trash' === $now['status'] && 'trash' !== ( isset( $b['data']['status'] ) ? $b['data']['status'] : '' ) ) {
 		// v2.22.74: نوشتهٔ زباله‌دان‌رفته بیرون می‌آید (وردپرس آن را پیش‌نویس می‌کند؛ پل هرگز منتشر نمی‌کند).
 		wp_untrash_post( $now['id'] );
-		$now = sa_agent_snapshot_post( $now['id'] );
+		$status_reverted = true;
+		$now             = sa_agent_snapshot_post( $now['id'] );
 		if ( null === $now ) {
 			return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
 		}
@@ -943,7 +945,8 @@ function sa_agent_restore( $backup_id ) {
 				'post_status' => 'draft',
 			)
 		);
-		$now = sa_agent_snapshot_post( $now['id'] );
+		$status_reverted = true;
+		$now             = sa_agent_snapshot_post( $now['id'] );
 		if ( null === $now ) {
 			return sa_agent_error( 'sa_agent_not_found', 'نوشتهٔ هدف دیگر وجود ندارد.', 404 );
 		}
@@ -1005,7 +1008,7 @@ function sa_agent_restore( $backup_id ) {
 			$meta[ $key ] = null; // کلیدی که بعد از پشتیبان اضافه شده بود برداشته می‌شود.
 		}
 	}
-	return sa_agent_update_post(
+	$updated = sa_agent_update_post(
 		$now['id'],
 		array(
 			'expected_modified_gmt'    => $now['modified_gmt'],
@@ -1020,6 +1023,15 @@ function sa_agent_restore( $backup_id ) {
 			'__restore'                => true, // فقط داخلی؛ از REST حذف می‌شود.
 		)
 	);
+	if ( $status_reverted && is_wp_error( $updated ) && 'sa_agent_nothing' === $updated->get_error_code() ) {
+		return array(
+			'restored' => $b['id'],
+			'kind'     => 'post',
+			'id'       => $now['id'],
+			'status'   => (string) get_post_status( $now['id'] ),
+		);
+	}
+	return $updated;
 }
 
 /* -------------------------------------------------------------------------
@@ -1199,11 +1211,15 @@ function sa_agent_publish_draft( $post_id, array $args ) {
 	if ( '' === trim( (string) $before['title'] ) || '' === trim( strip_tags( (string) $before['content'] ) ) ) {
 		return sa_agent_error( 'sa_agent_empty_draft', 'پیش‌نویس بدون عنوان یا بدنهٔ کامل منتشر نمی‌شود.', 422 );
 	}
-	foreach ( array( 'title', 'content', 'excerpt' ) as $f ) {
-		$hit = sa_agent_find_banned( isset( $before[ $f ] ) ? (string) $before[ $f ] : '' );
-		if ( null !== $hit ) {
-			return sa_agent_error( 'sa_agent_banned_phrase', 'عبارت ممنوع «' . $hit . '» در ' . $f . ' دیده شد؛ انتشار متوقف شد.', 422 );
-		}
+	$hit = sa_agent_find_banned(
+		array(
+			isset( $before['title'] ) ? (string) $before['title'] : '',
+			isset( $before['content'] ) ? (string) $before['content'] : '',
+			isset( $before['excerpt'] ) ? (string) $before['excerpt'] : '',
+		)
+	);
+	if ( '' !== $hit ) {
+		return sa_agent_error( 'sa_agent_banned_phrase', 'عبارت ممنوع «' . $hit . '» در پیش‌نویس دیده شد؛ انتشار متوقف شد.', 422 );
 	}
 	if ( 'attraction' === $before['type'] && empty( $before['meta']['sa_city_id'] ) ) {
 		return sa_agent_error( 'sa_agent_missing_parent', 'جاذبه بدون اتصال به شهرستان مادر (sa_city_id) منتشر نمی‌شود.', 422 );
