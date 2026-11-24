@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "imam-reza-shrine",
+    "title": "حرم مطهر امام رضا (ع)",
+    "county_id": 63,
+    "words": 301
+  },
+  {
+    "slug": "ferdowsi-tomb",
+    "title": "آرامگاه فردوسی (توس)",
+    "county_id": 63,
+    "words": 239
+  },
+  {
+    "slug": "koohsangi-park",
+    "title": "پارک کوهسنگی مشهد",
+    "county_id": 63,
+    "words": 186
+  },
+  {
+    "slug": "torqabeh",
+    "title": "ییلاق طرقبه",
+    "county_id": 63,
+    "words": 204
+  },
+  {
+    "slug": "shandiz",
+    "title": "ییلاق شاندیز",
+    "county_id": 63,
+    "words": 172
+  },
+  {
+    "slug": "water-waves-land",
+    "title": "سرزمین موج‌های آبی",
+    "county_id": 63,
+    "words": 177
+  },
+  {
+    "slug": "haft-hooz-park",
+    "title": "پارک طبیعی هفت‌حوض",
+    "county_id": 63,
+    "words": 182
+  },
+  {
+    "slug": "khayyam-tomb",
+    "title": "آرامگاه خیام نیشابوری",
+    "county_id": 64,
+    "words": 211
+  },
+  {
+    "slug": "attar-tomb",
+    "title": "آرامگاه عطار نیشابوری",
+    "county_id": 64,
+    "words": 177
+  },
+  {
+    "slug": "wooden-village-neyshabur",
+    "title": "دهکده چوبین نیشابور",
+    "county_id": 64,
+    "words": 175
+  }
+]
