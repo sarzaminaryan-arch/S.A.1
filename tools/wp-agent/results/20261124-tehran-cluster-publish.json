@@ -1,0 +1,39 @@
+{
+  "job": "tools/wp-agent/jobs/20261124-tehran-cluster-publish.json",
+  "started_utc": "2026-11-24T14:56:05+00:00",
+  "note": "",
+  "ok": false,
+  "steps": [
+    {
+      "n": 1,
+      "cmd": "ping",
+      "result": {
+        "ok": true,
+        "theme": "2.24.20",
+        "user": "sa-agent",
+        "can_write": true,
+        "can_theme": true,
+        "can_admin": true,
+        "post_types": [
+          "post",
+          "page",
+          "guide",
+          "province",
+          "city",
+          "attraction",
+          "travel_route",
+          "local_food",
+          "souvenir"
+        ],
+        "time_gmt": "2026-11-24T14:56:06+00:00"
+      }
+    },
+    {
+      "n": 2,
+      "cmd": "theme-update",
+      "error": "theme-update needs --expected-version"
+    }
+  ],
+  "recovery": "manual reconciliation required: write outcome unknown",
+  "finished_utc": "2026-11-24T14:56:07+00:00"
+}
