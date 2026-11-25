@@ -65,6 +65,8 @@ jobs:
         run: python3 tools/wp-agent/test_county_run.py
       - name: Memory protocol and 100-cluster roadmap guard
         run: python3 tools/wp-agent/test_memory_protocol.py
+      - name: Cluster master-template audit and 4-layer link guard
+        run: python3 tools/wp-agent/test_cluster_ops.py
       - name: Reciprocal county link counts and rendered destination checks
         run: |
           php wp-content/themes/sarzaminaryan-child/tests/test-county-profile.php

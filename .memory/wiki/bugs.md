@@ -157,3 +157,16 @@
 · فایل/خط درگیر: `wp-content/themes/sarzaminaryan-child/functions.php`, `assets/css/child.css`, `tests/test-font-loading.php`
 · منبع (گیت‌هاب/داک): `wp-content/themes/sarzaminaryan-child/tests/test-font-loading.php`
 · تاریخ: ۲۰۲۶-۱۱-۱۱
+
+---
+
+[BUG-20261125-01] دوشاخهشدن وضعیت خوشهها بین `.memory/` و `topic_clusters_100.json`
+
+· وضعیت: حلشده (همگامسازی داده، بدون تغییر کد محصول)
+· علائم: `.memory/wiki/roadmap.md` و `hot.md` شش خوشه و ۱۸ شاخهٔ تهران را منتشرشده نشان میدادند، در حالی که `tools/wp-agent/topic_clusters_100.json` همهٔ ۱۰۰ خوشه را `cluster_status: "todo"`، همهٔ ۲۳۹ شاخه را `status: "todo"` و `summary.completed_clusters: 0` نگه داشته بود. نتیجه: هر نشست تازهای از روی دادهٔ ماشینی، خوشهٔ #1 تهران را دوباره «انجامنشده» تشخیص میداد.
+· علت ریشهای (Root Cause): قانون ثبت پیشرفت پایان نشست فقط سه فایل `.memory/wiki/{hot,roadmap,log}.md` و `.agent/*` را الزامی کرده بود؛ بهروزرسانی `topic_clusters_100.json` در عمل فراموش شد و گارد `test_memory_protocol.py` فقط ساختار (۱۰۰ خوشه / ۲۳۹ شاخه / ترتیب استانها) را میسنجد، نه محتوای وضعیتها.
+· مسیرهایی که امتحان شد و شکست خورد: تکیه بر شمارندهٔ متنی حافظه بهعنوان منبع واحد (دادهٔ ماشینی همچنان کهنه ماند).
+· راهحل نهایی: همگامسازی وضعیتهای شش خوشه و ۱۸ شاخهٔ منتشرشده به `done`، اسلامشهر/پاکدشت به `draft_local`، بهروزرسانی `summary` و `updated`، و درج یادداشت صریح «منتشرشده ≠ پیشنویس محلی» در `hot.md`/`roadmap.md`. پیشنهاد برای نشست بعد: افزودن یک assertion سبک به `test_memory_protocol.py` که اختلاف شمارندهٔ `roadmap.md` و `summary.completed_clusters` را گزارش کند.
+· فایل/خط درگیر: `tools/wp-agent/topic_clusters_100.json`, `.memory/wiki/roadmap.md`, `tools/wp-agent/test_memory_protocol.py`
+· منبع: ممیزی نشست ۲۰۲۶-۱۱-۲۵ و فایلهای نتایج `20261124-tehran-cluster-publish-v4` / `20261124-tehran-hubs-publish` / `20261124-tehran-cluster-v5b-purge-probe`
+· تاریخ: ۲۰۲۶-۱۱-۲۵

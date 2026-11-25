@@ -1,0 +1,498 @@
+{
+ "tehran-213": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [
+   "/city/pardis/"
+  ],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 0,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/",
+   "/attraction/tabiat-bridge/",
+   "/attraction/darband-darakeh/",
+   "/attraction/tehran-grand-bazaar/",
+   "/attraction/azadi-tower/",
+   "/attraction/chitgar-lake/",
+   "/city/shemiranat/",
+   "/city/rey/",
+   "/city/pardis/"
+  ],
+  "words": 2220
+ },
+ "eslamshahr-219": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [
+   "/province/tehran/",
+   "/attraction/azadi-tower/",
+   "/attraction/chitgar-lake/",
+   "/attraction/joughin-mound-shahriar/",
+   "/city/tehran/",
+   "/city/rey/",
+   "/city/baharestan/",
+   "/city/shahriar/"
+  ],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 0,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/azadi-tower/",
+   "/attraction/chitgar-lake/",
+   "/attraction/joughin-mound-shahriar/",
+   "/city/tehran/",
+   "/city/rey/",
+   "/city/baharestan/",
+   "/city/shahriar/"
+  ],
+  "words": 2138
+ },
+ "shahriar-225": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 2,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/joughin-mound-shahriar/",
+   "/city/qods/",
+   "/city/robat-karim/",
+   "/city/eslamshahr/",
+   "/city/malard/"
+  ],
+  "words": 1209
+ },
+ "pakdasht-221": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [
+   "/city/tehran/"
+  ],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 0,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/varamin-jameh-mosque/",
+   "/attraction/golestan-palace/",
+   "/attraction/tehran-grand-bazaar/",
+   "/city/tehran/",
+   "/city/rey/",
+   "/city/varamin/",
+   "/city/pishva/"
+  ],
+  "words": 1609
+ },
+ "varamin-218": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 1,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/varamin-jameh-mosque/",
+   "/city/pakdasht/",
+   "/city/pishva/",
+   "/city/rey/"
+  ],
+  "words": 1212
+ },
+ "damavand-216": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [
+   "/city/varamin/"
+  ],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 0,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/tar-havir-lakes/",
+   "/attraction/abali-ski-resort/",
+   "/city/varamin/",
+   "/city/firuzkuh/",
+   "/city/shemiranat/"
+  ],
+  "words": 1239
+ },
+ "firuzkuh-217": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 1,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/tangeh-vashi/",
+   "/attraction/veresk-bridge/",
+   "/city/damavand/"
+  ],
+  "words": 1221
+ },
+ "shemiranat-215": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [],
+  "seo_meta_fixed": true,
+  "body_paragraphs_added": 0,
+  "targets": [
+   "/province/tehran/",
+   "/attraction/tochal-ski-resort/",
+   "/attraction/dizin-ski-resort/",
+   "/attraction/shemshak-ski-resort/",
+   "/attraction/afjeh-carrot-plain/",
+   "/city/damavand/"
+  ],
+  "words": 1250
+ },
+ "milad-tower": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [
+   "/attraction/saadabad-complex/"
+  ],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/",
+   "/attraction/tabiat-bridge/"
+  ],
+  "words": 1372
+ },
+ "golestan-palace": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [
+   "/attraction/milad-tower/",
+   "/attraction/tabiat-bridge/"
+  ],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/saadabad-complex/",
+   "/attraction/tabiat-bridge/"
+  ],
+  "words": 1253
+ },
+ "saadabad-complex": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/tabiat-bridge/"
+  ],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/tabiat-bridge/"
+  ],
+  "words": 1165
+ },
+ "tabiat-bridge": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/"
+  ],
+  "words": 1136
+ },
+ "darband-darakeh": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/"
+  ],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/"
+  ],
+  "words": 1105
+ },
+ "tehran-grand-bazaar": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [
+   "/attraction/milad-tower/",
+   "/attraction/saadabad-complex/"
+  ],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/"
+  ],
+  "words": 1175
+ },
+ "azadi-tower": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [
+   "/attraction/saadabad-complex/"
+  ],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/"
+  ],
+  "words": 1122
+ },
+ "chitgar-lake": {
+  "kind": "attraction",
+  "city": "tehran",
+  "normalised": [],
+  "links_added": [
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/"
+  ],
+  "targets": [
+   "/city/tehran/",
+   "/province/tehran/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/"
+  ],
+  "words": 1094
+ },
+ "tochal-ski-resort": {
+  "kind": "attraction",
+  "city": "shemiranat",
+  "normalised": [],
+  "links_added": [
+   "/attraction/afjeh-carrot-plain/"
+  ],
+  "targets": [
+   "/city/shemiranat/",
+   "/province/tehran/",
+   "/attraction/dizin-ski-resort/",
+   "/attraction/shemshak-ski-resort/",
+   "/attraction/afjeh-carrot-plain/"
+  ],
+  "words": 1047
+ },
+ "dizin-ski-resort": {
+  "kind": "attraction",
+  "city": "shemiranat",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/shemiranat/",
+   "/province/tehran/",
+   "/attraction/tochal-ski-resort/",
+   "/attraction/shemshak-ski-resort/",
+   "/attraction/afjeh-carrot-plain/"
+  ],
+  "words": 1030
+ },
+ "shemshak-ski-resort": {
+  "kind": "attraction",
+  "city": "shemiranat",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/shemiranat/",
+   "/province/tehran/",
+   "/attraction/tochal-ski-resort/",
+   "/attraction/dizin-ski-resort/",
+   "/attraction/afjeh-carrot-plain/"
+  ],
+  "words": 925
+ },
+ "afjeh-carrot-plain": {
+  "kind": "attraction",
+  "city": "shemiranat",
+  "normalised": [],
+  "links_added": [
+   "/attraction/tochal-ski-resort/",
+   "/attraction/dizin-ski-resort/"
+  ],
+  "targets": [
+   "/city/shemiranat/",
+   "/province/tehran/",
+   "/attraction/tochal-ski-resort/",
+   "/attraction/dizin-ski-resort/",
+   "/attraction/shemshak-ski-resort/"
+  ],
+  "words": 1043
+ },
+ "tar-havir-lakes": {
+  "kind": "attraction",
+  "city": "damavand",
+  "normalised": [],
+  "links_added": [
+   "/attraction/veresk-bridge/"
+  ],
+  "targets": [
+   "/city/damavand/",
+   "/province/tehran/",
+   "/attraction/abali-ski-resort/",
+   "/attraction/tangeh-vashi/",
+   "/attraction/veresk-bridge/"
+  ],
+  "words": 1037
+ },
+ "abali-ski-resort": {
+  "kind": "attraction",
+  "city": "damavand",
+  "normalised": [],
+  "links_added": [
+   "/attraction/veresk-bridge/"
+  ],
+  "targets": [
+   "/city/damavand/",
+   "/province/tehran/",
+   "/attraction/tar-havir-lakes/",
+   "/attraction/tangeh-vashi/",
+   "/attraction/veresk-bridge/"
+  ],
+  "words": 909
+ },
+ "tangeh-vashi": {
+  "kind": "attraction",
+  "city": "firuzkuh",
+  "normalised": [],
+  "links_added": [
+   "/attraction/abali-ski-resort/"
+  ],
+  "targets": [
+   "/city/firuzkuh/",
+   "/province/tehran/",
+   "/attraction/veresk-bridge/",
+   "/attraction/tar-havir-lakes/",
+   "/attraction/abali-ski-resort/"
+  ],
+  "words": 1129
+ },
+ "veresk-bridge": {
+  "kind": "attraction",
+  "city": "firuzkuh",
+  "normalised": [],
+  "links_added": [
+   "/attraction/tar-havir-lakes/"
+  ],
+  "targets": [
+   "/city/firuzkuh/",
+   "/province/tehran/",
+   "/attraction/tangeh-vashi/",
+   "/attraction/tar-havir-lakes/",
+   "/attraction/abali-ski-resort/"
+  ],
+  "words": 1161
+ },
+ "varamin-jameh-mosque": {
+  "kind": "attraction",
+  "city": "varamin",
+  "normalised": [],
+  "links_added": [
+   "/attraction/joughin-mound-shahriar/"
+  ],
+  "targets": [
+   "/city/varamin/",
+   "/province/tehran/",
+   "/attraction/joughin-mound-shahriar/",
+   "/attraction/golestan-palace/",
+   "/attraction/tehran-grand-bazaar/"
+  ],
+  "words": 1026
+ },
+ "joughin-mound-shahriar": {
+  "kind": "attraction",
+  "city": "shahriar",
+  "normalised": [],
+  "links_added": [
+   "/attraction/varamin-jameh-mosque/",
+   "/attraction/golestan-palace/",
+   "/attraction/tehran-grand-bazaar/"
+  ],
+  "targets": [
+   "/city/shahriar/",
+   "/province/tehran/",
+   "/attraction/varamin-jameh-mosque/",
+   "/attraction/golestan-palace/",
+   "/attraction/tehran-grand-bazaar/"
+  ],
+  "words": 1071
+ },
+ "tehran-43": {
+  "kind": "province_hub",
+  "normalised": [],
+  "links_added": [
+   "/attraction/saadabad-complex/",
+   "/attraction/tabiat-bridge/",
+   "/attraction/darband-darakeh/",
+   "/attraction/tehran-grand-bazaar/",
+   "/attraction/chitgar-lake/",
+   "/attraction/dizin-ski-resort/",
+   "/attraction/shemshak-ski-resort/",
+   "/attraction/afjeh-carrot-plain/",
+   "/attraction/tar-havir-lakes/",
+   "/attraction/abali-ski-resort/",
+   "/attraction/veresk-bridge/",
+   "/attraction/joughin-mound-shahriar/"
+  ],
+  "targets": [
+   "/city/baharestan/",
+   "/city/damavand/",
+   "/city/eslamshahr/",
+   "/city/firuzkuh/",
+   "/city/malard/",
+   "/city/pakdasht/",
+   "/city/pardis/",
+   "/city/pishva/",
+   "/city/qarchak/",
+   "/city/qods/",
+   "/city/rey/",
+   "/city/robat-karim/",
+   "/city/shahriar/",
+   "/city/shemiranat/",
+   "/city/tehran/",
+   "/city/varamin/",
+   "/attraction/milad-tower/",
+   "/attraction/golestan-palace/",
+   "/attraction/saadabad-complex/",
+   "/attraction/tabiat-bridge/",
+   "/attraction/darband-darakeh/",
+   "/attraction/tehran-grand-bazaar/",
+   "/attraction/azadi-tower/",
+   "/attraction/chitgar-lake/",
+   "/attraction/tochal-ski-resort/",
+   "/attraction/dizin-ski-resort/",
+   "/attraction/shemshak-ski-resort/",
+   "/attraction/afjeh-carrot-plain/",
+   "/attraction/tar-havir-lakes/",
+   "/attraction/abali-ski-resort/",
+   "/attraction/tangeh-vashi/",
+   "/attraction/veresk-bridge/",
+   "/attraction/varamin-jameh-mosque/",
+   "/attraction/joughin-mound-shahriar/"
+  ],
+  "words": 1901
+ }
+}

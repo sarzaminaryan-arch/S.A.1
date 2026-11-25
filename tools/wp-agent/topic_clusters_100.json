@@ -1,15 +1,18 @@
 {
   "strategy": "Province-Grouped Topic Cluster Strategy (۳۱ استان ← ۱۰۰ شهرستان ← ۲۳۹ شاخهٔ جاذبه)",
-  "updated": "2026-11-24",
-  "active_cluster_rank": 1,
+  "updated": "2026-11-25",
+  "active_cluster_rank": 58,
   "summary": {
     "total_clusters": 100,
-    "completed_clusters": 0,
+    "completed_clusters": 6,
     "total_branches": 239,
     "zero_branch_clusters": 5,
     "hubs_already_v3_live": 3,
     "branches_with_existing_live_url": 22,
-    "total_provinces_in_queue": 31
+    "total_provinces_in_queue": 31,
+    "local_draft_clusters": 2,
+    "published_branches": 18,
+    "finalized_provinces": 0
   },
   "clusters": [
     {
@@ -18,59 +21,59 @@
       "city_slug": "tehran",
       "city_wp_id": 213,
       "province": "tehran",
-      "hub_status": "draft_local",
-      "hub_note": "",
+      "hub_status": "v3_live",
+      "hub_note": "منتشرشده ۲۰۲۶-۱۱-۲۴ (v4 + hubs + v5b)؛ پیشنویس محلی v6 در ۲۰۲۶-۱۱-۲۵ با تمپلیت مستر و لینکسازی ۴ لایه همتراز شد",
       "branch_count": 8,
       "zero_branch_focus": "",
-      "cluster_status": "todo",
+      "cluster_status": "done",
       "branches": [
         {
           "index": 1,
           "title": "برج میلاد تهران",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 2,
           "title": "کاخ گلستان",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 3,
           "title": "کاخ سعدآباد",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 4,
           "title": "پل طبیعت و پارک آب و آتش",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 5,
           "title": "دربند و درکه تهران",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 6,
           "title": "بازار بزرگ تهران",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 7,
           "title": "برج آزادی",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 8,
           "title": "دریاچه چیتگر (شهدای خلیج فارس)",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         }
       ],
       "province_order": 1
@@ -1962,11 +1965,11 @@
       "city_slug": "eslamshahr",
       "city_wp_id": 219,
       "province": "tehran",
-      "hub_status": "todo",
-      "hub_note": "",
+      "hub_status": "draft_local",
+      "hub_note": "پیشنویس محلی کامل ۲۰۲۶-۱۱-۲۵ (outbox/20261125-tehran-cluster-v6)؛ گاردها سبز، ولی منتشر نشده است",
       "branch_count": 0,
       "zero_branch_focus": "تمرکز مقاله اصلی بر دسترسی، مترو و معرفی محله‌ها",
-      "cluster_status": "todo",
+      "cluster_status": "in_progress",
       "branches": [],
       "province_order": 1
     },
@@ -1976,17 +1979,17 @@
       "city_slug": "shahriar",
       "city_wp_id": 225,
       "province": "tehran",
-      "hub_status": "todo",
-      "hub_note": "",
+      "hub_status": "v3_live",
+      "hub_note": "منتشرشده ۲۰۲۶-۱۱-۲۴ (v4 + hubs + v5b)؛ پیشنویس محلی v6 در ۲۰۲۶-۱۱-۲۵ با تمپلیت مستر و لینکسازی ۴ لایه همتراز شد",
       "branch_count": 1,
       "zero_branch_focus": "",
-      "cluster_status": "todo",
+      "cluster_status": "done",
       "branches": [
         {
           "index": 1,
           "title": "تپه جوقین و باغ‌های شهریار",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         }
       ],
       "province_order": 1
@@ -1997,11 +2000,11 @@
       "city_slug": "pakdasht",
       "city_wp_id": 221,
       "province": "tehran",
-      "hub_status": "todo",
-      "hub_note": "",
+      "hub_status": "draft_local",
+      "hub_note": "پیشنویس محلی کامل ۲۰۲۶-۱۱-۲۵ (outbox/20261125-tehran-cluster-v6)؛ گاردها سبز، ولی منتشر نشده است",
       "branch_count": 0,
       "zero_branch_focus": "تمرکز بر بازار گل و گیاه",
-      "cluster_status": "todo",
+      "cluster_status": "in_progress",
       "branches": [],
       "province_order": 1
     },
@@ -2011,17 +2014,17 @@
       "city_slug": "varamin",
       "city_wp_id": 218,
       "province": "tehran",
-      "hub_status": "todo",
-      "hub_note": "",
+      "hub_status": "v3_live",
+      "hub_note": "منتشرشده ۲۰۲۶-۱۱-۲۴ (v4 + hubs + v5b)؛ پیشنویس محلی v6 در ۲۰۲۶-۱۱-۲۵ با تمپلیت مستر و لینکسازی ۴ لایه همتراز شد",
       "branch_count": 1,
       "zero_branch_focus": "",
-      "cluster_status": "todo",
+      "cluster_status": "done",
       "branches": [
         {
           "index": 1,
           "title": "مسجد جامع ورامین",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         }
       ],
       "province_order": 1
@@ -2032,23 +2035,23 @@
       "city_slug": "damavand",
       "city_wp_id": 216,
       "province": "tehran",
-      "hub_status": "todo",
-      "hub_note": "",
+      "hub_status": "v3_live",
+      "hub_note": "منتشرشده ۲۰۲۶-۱۱-۲۴ (v4 + hubs + v5b)؛ پیشنویس محلی v6 در ۲۰۲۶-۱۱-۲۵ با تمپلیت مستر و لینکسازی ۴ لایه همتراز شد",
       "branch_count": 2,
       "zero_branch_focus": "",
-      "cluster_status": "todo",
+      "cluster_status": "done",
       "branches": [
         {
           "index": 1,
           "title": "دریاچه تار و هویر",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 2,
           "title": "پیست اسکی آبعلی",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         }
       ],
       "province_order": 1
@@ -2059,23 +2062,23 @@
       "city_slug": "firuzkuh",
       "city_wp_id": 217,
       "province": "tehran",
-      "hub_status": "todo",
-      "hub_note": "",
+      "hub_status": "v3_live",
+      "hub_note": "منتشرشده ۲۰۲۶-۱۱-۲۴ (v4 + hubs + v5b)؛ پیشنویس محلی v6 در ۲۰۲۶-۱۱-۲۵ با تمپلیت مستر و لینکسازی ۴ لایه همتراز شد",
       "branch_count": 2,
       "zero_branch_focus": "",
-      "cluster_status": "todo",
+      "cluster_status": "done",
       "branches": [
         {
           "index": 1,
           "title": "تنگه واشی فیروزکوه",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 2,
           "title": "پل ورسک (در مسیر سوادکوه/فیروزکوه)",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         }
       ],
       "province_order": 1
@@ -2086,35 +2089,35 @@
       "city_slug": "shemiranat",
       "city_wp_id": 215,
       "province": "tehran",
-      "hub_status": "todo",
-      "hub_note": "",
+      "hub_status": "v3_live",
+      "hub_note": "منتشرشده ۲۰۲۶-۱۱-۲۴ (v4 + hubs + v5b)؛ پیشنویس محلی v6 در ۲۰۲۶-۱۱-۲۵ با تمپلیت مستر و لینکسازی ۴ لایه همتراز شد",
       "branch_count": 4,
       "zero_branch_focus": "",
-      "cluster_status": "todo",
+      "cluster_status": "done",
       "branches": [
         {
           "index": 1,
           "title": "پیست اسکی توچال",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 2,
           "title": "پیست اسکی دیزین",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 3,
           "title": "پیست اسکی شمشک",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         },
         {
           "index": 4,
           "title": "روستای افجه و دشت هویج (لواسان)",
           "existing_live_slugs": [],
-          "status": "todo"
+          "status": "done"
         }
       ],
       "province_order": 1
