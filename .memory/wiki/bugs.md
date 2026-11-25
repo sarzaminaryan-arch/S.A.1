@@ -170,3 +170,16 @@
 · فایل/خط درگیر: `tools/wp-agent/topic_clusters_100.json`, `.memory/wiki/roadmap.md`, `tools/wp-agent/test_memory_protocol.py`
 · منبع: ممیزی نشست ۲۰۲۶-۱۱-۲۵ و فایلهای نتایج `20261124-tehran-cluster-publish-v4` / `20261124-tehran-hubs-publish` / `20261124-tehran-cluster-v5b-purge-probe`
 · تاریخ: ۲۰۲۶-۱۱-۲۵
+
+---
+
+[BUG-20261125-02] خوانش اشتباه «شهر سوم» بهجای «شوش» و حذف اصفهان #3 از سند تحویل
+
+· وضعیت: حلشده (همگامسازی اسناد؛ بدون تغییر محصول)
+· علائم: در `HANDOFF-2026-11-25.md` و سه فایل حافظه، عبارت پایانی مالک «شهر شوم» به «شهر شوش / استان خوزستان» تفسیر و بهصورت «مورد نیازمند تأیید» ثبت شد؛ همچنین سند تحویل فقط «استان ۲ خراسان رضوی» را بهعنوان عملیات بعدی نشان میداد و جایگاه **#3 اصفهان (۷ شاخه، استان ۳)** را قفل نکرده بود.
+· علت ریشهای (Root Cause): تکیه بر حدس املایی بهجای خواندن مستقیم `tools/wp-agent/topic_clusters_100.json` (`clusters[0:3]` و `province_execution_order[0:3]`)؛ هیچ گارد CI ای هم ترتیب سه خوشهٔ نخست را نمیسنجید.
+· مسیرهایی که امتحان شد و شکست خورد: پرسیدن «منظورتان شوش است؟» از مالک در `ask_user`؛ پاسخ بهصورت تصحیح صریح ترتیب رودمپ آمد، نه تأیید شوش.
+· راهحل نهایی: حذف کامل تفسیر شوش، درج جدول سه خوشهٔ نخست در `hot.md`, `roadmap.md`, `HANDOFF-2026-11-25.md` و `topic-cluster-roadmap.md`، همگامسازی `.agent/{STATUS,ROADMAP}.md` و `session/current.md`، و افزودن `test_memory_protocol.py::test_first_three_clusters_and_province_order` به CI.
+· فایل/خط درگیر: `docs/live-site/HANDOFF-2026-11-25.md` §۲/§۵, `.memory/wiki/hot.md`, `.memory/wiki/roadmap.md`, `tools/wp-agent/test_memory_protocol.py`
+· منبع: تصحیح مالک (۲۰۲۶-۱۱-۲۵) + `tools/wp-agent/topic_clusters_100.json`
+· تاریخ: ۲۰۲۶-۱۱-۲۵

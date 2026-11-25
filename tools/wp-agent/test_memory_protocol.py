@@ -102,5 +102,36 @@ class MemoryAndClusterRoadmapTests(unittest.TestCase):
                 self.assertIn(b["title"], doc_text)
 
 
+    def test_first_three_clusters_and_province_order(self):
+        """Owner correction (2026-11-25): «شهر سوم» = Isfahan #3, not Shush.
+
+        The first three cluster ranks and the first three province turns must
+        stay locked; guessing from an ambiguous Persian phrase must never
+        reorder the 31-province queue again.
+        """
+        data = json.loads((ROOT / "tools/wp-agent/topic_clusters_100.json").read_text(encoding="utf-8"))
+        first = {c["rank"]: c for c in data["clusters"] if c["rank"] in (1, 2, 3)}
+        self.assertEqual(set(first), {1, 2, 3})
+        self.assertEqual((first[1]["name"], first[1]["city_slug"], first[1]["city_wp_id"],
+                          first[1]["branch_count"], first[1]["province_order"]),
+                         ("تهران", "tehran", 213, 8, 1))
+        self.assertEqual((first[2]["name"], first[2]["city_slug"], first[2]["city_wp_id"],
+                          first[2]["branch_count"], first[2]["province_order"]),
+                         ("مشهد", "mashhad", 63, 7, 2))
+        self.assertEqual((first[3]["name"], first[3]["city_slug"], first[3]["city_wp_id"],
+                          first[3]["branch_count"], first[3]["province_order"]),
+                         ("اصفهان", "isfahan", 153, 7, 3))
+        queue = data["province_execution_order"]
+        self.assertEqual([(p["province_order"], p["province_slug"], p["province_wp_id"],
+                           p["hub_count"], p["branch_count"]) for p in queue[:3]],
+                         [(1, "tehran", 43, 8, 18),
+                          (2, "razavi-khorasan", 50, 2, 10),
+                          (3, "isfahan", 35, 6, 15)])
+        self.assertEqual(queue[2]["cluster_ranks"], [3, 27, 79, 80, 81, 82])
+        doc = (ROOT / "docs/live-site/topic-cluster-roadmap.md").read_text(encoding="utf-8")
+        for needle in ("#1 تهران (8)", "#2 مشهد (7)", "#3 اصفهان (7)", "شهر سوم"):
+            self.assertIn(needle, doc)
+
+
 if __name__ == "__main__":
     unittest.main()
