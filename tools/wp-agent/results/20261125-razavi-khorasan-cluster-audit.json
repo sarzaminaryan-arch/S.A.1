@@ -1,0 +1,318 @@
+{
+ "baseline": {
+  "source": "baseline",
+  "rows": [
+   {
+    "kind": "city",
+    "stem": "mashhad-63",
+    "words": 2167,
+    "internal_links": 9,
+    "problems": [
+     "missing cluster links (8): ['/city/chenaran/', '/city/golbahar/', '/city/zebarkhan/', '/city/kalat/', '/city/dargaz/', '/city/sarakhs/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "neyshabur-64",
+    "words": 1038,
+    "internal_links": 5,
+    "problems": [
+     "words 1038 outside master/code budget (1200–2400)",
+     "sa_seo_title 66 chars (> 60)",
+     "sa_seo_description 118 chars (want 140–155)",
+     "missing cluster links (2): ['/city/quchan/', '/city/kashmar/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "imam-reza-shrine",
+    "words": 301,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 301 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']",
+     "missing cluster links (1): ['/attraction/torqabeh/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "ferdowsi-tomb",
+    "words": 240,
+    "internal_links": 5,
+    "problems": [
+     "duplicate internal links: ['/city/mashhad/']",
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 240 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']",
+     "missing cluster links (1): ['/attraction/torqabeh/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "koohsangi-park",
+    "words": 186,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 186 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']",
+     "missing cluster links (1): ['/attraction/ferdowsi-tomb/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "torqabeh",
+    "words": 204,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 204 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']",
+     "missing cluster links (3): ['/attraction/imam-reza-shrine/', '/attraction/ferdowsi-tomb/', '/attraction/koohsangi-park/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "shandiz",
+    "words": 174,
+    "internal_links": 5,
+    "problems": [
+     "duplicate internal links: ['/attraction/torqabeh/']",
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 174 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']",
+     "missing cluster links (2): ['/attraction/imam-reza-shrine/', '/attraction/koohsangi-park/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "water-waves-land",
+    "words": 178,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 178 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']",
+     "missing cluster links (2): ['/attraction/imam-reza-shrine/', '/attraction/koohsangi-park/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "haft-hooz-park",
+    "words": 182,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 182 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']",
+     "missing cluster links (1): ['/attraction/ferdowsi-tomb/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "khayyam-tomb",
+    "words": 212,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 212 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "attar-tomb",
+    "words": 178,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 178 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "wooden-village-neyshabur",
+    "words": 176,
+    "internal_links": 4,
+    "problems": [
+     "missing attraction body markers: ['lead', 'history', 'sections', 'season', 'access', 'tips', 'nearby', 'sources']",
+     "words 176 outside attraction budget (800–1500)",
+     "missing factsheet/seo meta: ['sa_city_id']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "province_hub",
+    "stem": "razavi-khorasan-50",
+    "words": 1926,
+    "internal_links": 4,
+    "problems": [
+     "L1/L2: hub misses 23 links: ['/city/binalud/', '/city/chenaran/', '/city/dargaz/', '/city/fariman/', '/city/golbahar/', '/city/kalat/', '/city/kashmar/', '/city/mashhad/']"
+    ],
+    "warnings": [],
+    "ok": false
+   }
+  ],
+  "summary": {
+   "files": 13,
+   "clean": 0,
+   "with_issues": 13,
+   "issues": 45,
+   "warnings": 0
+  }
+ },
+ "v6": {
+  "source": "v6",
+  "rows": [
+   {
+    "kind": "city",
+    "stem": "mashhad-63",
+    "words": 2268,
+    "internal_links": 17,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "neyshabur-64",
+    "words": 1503,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "imam-reza-shrine",
+    "words": 1246,
+    "internal_links": 5,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "ferdowsi-tomb",
+    "words": 1019,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "koohsangi-park",
+    "words": 954,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "torqabeh",
+    "words": 948,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "shandiz",
+    "words": 986,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "water-waves-land",
+    "words": 974,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "haft-hooz-park",
+    "words": 1010,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "khayyam-tomb",
+    "words": 965,
+    "internal_links": 4,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "attar-tomb",
+    "words": 957,
+    "internal_links": 4,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "wooden-village-neyshabur",
+    "words": 917,
+    "internal_links": 4,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "province_hub",
+    "stem": "razavi-khorasan-50",
+    "words": 2108,
+    "internal_links": 48,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   }
+  ],
+  "summary": {
+   "files": 13,
+   "clean": 13,
+   "with_issues": 0,
+   "issues": 0,
+   "warnings": 0
+  }
+ }
+}

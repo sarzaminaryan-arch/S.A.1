@@ -1,0 +1,88 @@
+{
+ "batch": "پیش‌نویس خوشهٔ خراسان رضوی ۱۴۰۵/۰۹/۰۴",
+ "province": "استان خراسان رضوی",
+ "source": "سند جامع سیستم خوشه‌ای، بخش‌های ۳ و ۴ و ۵، همراه قرارداد گارد قالب شهرستان",
+ "note": "فقط پیش‌نویس محلی؛ هیچ نوشتن زنده‌ای انجام نشد. شمارنده‌های رسمی دست‌نخورده‌اند.",
+ "county_hubs": [
+  {
+   "slug": "mashhad",
+   "wp_id": 63,
+   "html": "county-hubs/mashhad-63.html",
+   "meta": "county-hubs/mashhad-63.meta.json"
+  },
+  {
+   "slug": "neyshabur",
+   "wp_id": 64,
+   "html": "county-hubs/neyshabur-64.html",
+   "meta": "county-hubs/neyshabur-64.meta.json"
+  }
+ ],
+ "attractions": [
+  {
+   "slug": "imam-reza-shrine",
+   "city_slug": "mashhad",
+   "html": "attractions/imam-reza-shrine.html",
+   "meta": "attractions/imam-reza-shrine.meta.json"
+  },
+  {
+   "slug": "ferdowsi-tomb",
+   "city_slug": "mashhad",
+   "html": "attractions/ferdowsi-tomb.html",
+   "meta": "attractions/ferdowsi-tomb.meta.json"
+  },
+  {
+   "slug": "koohsangi-park",
+   "city_slug": "mashhad",
+   "html": "attractions/koohsangi-park.html",
+   "meta": "attractions/koohsangi-park.meta.json"
+  },
+  {
+   "slug": "torqabeh",
+   "city_slug": "mashhad",
+   "html": "attractions/torqabeh.html",
+   "meta": "attractions/torqabeh.meta.json"
+  },
+  {
+   "slug": "shandiz",
+   "city_slug": "mashhad",
+   "html": "attractions/shandiz.html",
+   "meta": "attractions/shandiz.meta.json"
+  },
+  {
+   "slug": "water-waves-land",
+   "city_slug": "mashhad",
+   "html": "attractions/water-waves-land.html",
+   "meta": "attractions/water-waves-land.meta.json"
+  },
+  {
+   "slug": "haft-hooz-park",
+   "city_slug": "mashhad",
+   "html": "attractions/haft-hooz-park.html",
+   "meta": "attractions/haft-hooz-park.meta.json"
+  },
+  {
+   "slug": "khayyam-tomb",
+   "city_slug": "neyshabur",
+   "html": "attractions/khayyam-tomb.html",
+   "meta": "attractions/khayyam-tomb.meta.json"
+  },
+  {
+   "slug": "attar-tomb",
+   "city_slug": "neyshabur",
+   "html": "attractions/attar-tomb.html",
+   "meta": "attractions/attar-tomb.meta.json"
+  },
+  {
+   "slug": "wooden-village-neyshabur",
+   "city_slug": "neyshabur",
+   "html": "attractions/wooden-village-neyshabur.html",
+   "meta": "attractions/wooden-village-neyshabur.meta.json"
+  }
+ ],
+ "province_hub": {
+  "slug": "razavi-khorasan",
+  "wp_id": 50,
+  "html": "province-hub/razavi-khorasan-50.html",
+  "meta": "province-hub/razavi-khorasan-50.meta.json"
+ }
+}
