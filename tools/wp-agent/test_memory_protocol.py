@@ -29,6 +29,7 @@ class MemoryAndClusterRoadmapTests(unittest.TestCase):
             ".memory/wiki/learnings.md",
             ".memory/wiki/github-refs.md",
             ".memory/wiki/log.md",
+            ".memory/wiki/cluster-tree.md",
             ".memory/session/current.md",
         )
         for rel in required:
@@ -131,6 +132,29 @@ class MemoryAndClusterRoadmapTests(unittest.TestCase):
         doc = (ROOT / "docs/live-site/topic-cluster-roadmap.md").read_text(encoding="utf-8")
         for needle in ("#1 تهران (8)", "#2 مشهد (7)", "#3 اصفهان (7)", "شهر سوم"):
             self.assertIn(needle, doc)
+
+
+    def test_cluster_tree_memory_matches_machine_json(self):
+        """Owner (2026-11-25): the full 100-cluster tree must live in .memory too.
+
+        It is generated from topic_clusters_100.json; a manual edit that drops
+        a rank, a branch title or a zero-branch focus must fail CI.
+        """
+        data = json.loads((ROOT / "tools/wp-agent/topic_clusters_100.json").read_text(encoding="utf-8"))
+        tree = (ROOT / ".memory/wiki/cluster-tree.md").read_text(encoding="utf-8")
+        self.assertIn("Topical Authority", tree)
+        self.assertIn("قانون خوشه", tree)
+        self.assertIn("شهرهای بدون شاخه", tree)
+        for c in data["clusters"]:
+            header = f'{c["rank"]}. **{c["name"]} ('
+            self.assertIn(header, tree, f"missing cluster header rank {c['rank']}")
+            for b in c["branches"]:
+                self.assertIn(b["title"], tree, f"missing branch {b['title']}")
+            if c["branch_count"] == 0:
+                self.assertIn(c["zero_branch_focus"].strip(), tree,
+                              f"missing zero-branch focus for {c['name']}")
+        self.assertEqual(sum(c["branch_count"] for c in data["clusters"]), 239)
+        self.assertEqual(len(data["clusters"]), 100)
 
 
 if __name__ == "__main__":

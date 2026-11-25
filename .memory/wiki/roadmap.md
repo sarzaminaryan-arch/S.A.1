@@ -60,7 +60,7 @@
 - **#30 بوشهر:** انتخاب `/city/bushehr/` (`wp_id=201`) بهعنوان مادر خوشه و حفظ `/city/bushehr-county/` (`wp_id=211`) با لینک متقابل.
 - **#41 یاسوج:** انتخاب `/city/boyer-ahmad/` (`wp_id=430`) بهعنوان مادر خوشه با بهینهسازی `H1` و عنوان سئو بر محوریت «یاسوج و شهرستان بویراحمد».
 
-*(جدول کامل ۳۱ استان و ۱۰۰ خوشه در `docs/live-site/topic-cluster-roadmap.md` و `tools/wp-agent/topic_clusters_100.json` قرار دارد.)*
+**نسخهٔ درختی کامل ۱۰۰ خوشه / ۲۳۹ شاخه اکنون در `.memory/wiki/cluster-tree.md` نیز نگهداری میشود** (تولیدشده از `tools/wp-agent/topic_clusters_100.json`، قفلشده با `test_memory_protocol.py`). جدول ۳۱ استان همچنان در `docs/live-site/topic-cluster-roadmap.md` و همان JSON است.
 
 ---
 
@@ -68,6 +68,6 @@
 
 - ابزار `tools/wp-agent/cluster_ops.py` (`--build` / `--audit`) و `tools/wp-agent/build_pakdasht.py` افزوده شد؛ خروجی `outbox/20261125-tehran-cluster-v6/` شامل ۸ شهرستان، ۱۸ جاذبه و ۱ هاب استان (۵۶ فایل) است.
 - گیتهای سبز: `fa_lint` = ۰ مسئله روی ۵۶ فایل؛ `check_template.py guard` = `8/8` شهرستان؛ ممیزی `27/27` سالم در برابر `3/27` سالم پیش از نشست.
-- `topic_clusters_100.json` (که همهٔ وضعیتها را `todo` نگه داشته بود) همگام شد: ۶ خوشه و ۱۸ شاخه `done`، اسلامشهر/پاکدشت `draft_local`؛ سند `topic-cluster-roadmap.md` و `.agent/{STATUS,ROADMAP}.md` بهروز شدند.
+- `topic_clusters_100.json` (که همهٔ وضعیتها را `todo` نگه داشته بود) همگام شد: ۶ خوشه و ۱۸ شاخه `done`، اسلامشهر/پاکدشت `draft_local`؛ سند `topic-cluster-roadmap.md` و `.agent/{STATUS,ROADMAP}.md` بهروز شدند. نسخهٔ درختی کامل نیز به `.memory/wiki/cluster-tree.md` افزوده شد.
 - تصاویر ۱۸ جاذبهٔ تهران (شغل `20261124-tehran-attraction-featured-apply`، `ok: true`) در حافظه ثبت و یادداشت کهنهٔ «تصاویر با مالک است / batch اجرا نشد» اصلاح شد.
 - **قفل انتشار پابرجاست:** طبق `.agent/RULES.md` runner فعلی fail-closed است؛ هیچ نوشتن زندهای، job اجراشده یا PR در این نشست انجام نشد. جزئیات تحویل: `docs/live-site/HANDOFF-2026-11-25.md`.

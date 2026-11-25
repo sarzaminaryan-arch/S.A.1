@@ -7,7 +7,8 @@
 1. **ثبت و همگامسازی حافظه:** اصلاح رکورد کهنهٔ تصاویر (شغل `20261124-tehran-attraction-featured-apply` با `ok: true` و `no_featured=0` → ۱۸ تصویر نصب شد)، ثبت ۱۰ پیشنویس محلی جاذبهٔ خراسان رضوی و شغل بدون نتیجهٔ آن، بهروزرسانی `hot.md`, `roadmap.md`, `log.md`, `stack.md`, `decisions.md`, `learnings.md`, `bugs.md`, `.agent/{STATUS,ROADMAP}.md`, `docs/live-site/topic-cluster-roadmap.md` و `tools/wp-agent/topic_clusters_100.json` (`6 done` خوشه، `18 done` شاخه، `2 draft_local`).
 2. **ممیزی تمپلیت مستر شهرستان:** ابزار `tools/wp-agent/cluster_ops.py`؛ پیش از نشست ۲۴ فایل از ۲۷ فایل دارای ۳۸ ایراد → خروجی v6 **۲۷ از ۲۷ سالم**. گیتها: `fa_lint` ۰ مسئله روی ۵۶ فایل، `check_template.py guard` `8/8`.
 3. **بازنویسی و لینکسازی:** نگارش مقالهٔ مادر #60 پاکدشت (`build_pakdasht.py`، ۱۵۸۹ واژه، بدون پژوهش وب تازه)، اصلاح SEO هشت شهرستان، گسترش سه صفحهٔ کوتاه، نرمالسازی لینکهای ۴ لایه طبق §۵ سند مستر در ۲۷ صفحه. خروجی: `tools/wp-agent/outbox/20261125-tehran-cluster-v6/`.
-4. **اعلام پایان/شروع عملیات:** `docs/live-site/HANDOFF-2026-11-25.md` (پایان فاز مخزنی تهران، شهر دوم مشهد در استان ۲، شهر سوم اصفهان در استان ۳) و گزارش `docs/live-site/cluster-template-audit-2026-11-25.md`.
+4. **لیست درختی کامل در حافظه:** `.memory/wiki/cluster-tree.md` از `topic_clusters_100.json` تولید و با `test_memory_protocol.py` قفل شد (۱۰۰ خوشه / ۲۳۹ شاخه؛ #1 تهران ۸، #2 مشهد ۷، #3 اصفهان ۷).
+5. **اعلام پایان/شروع عملیات:** `docs/live-site/HANDOFF-2026-11-25.md` (پایان فاز مخزنی تهران، شهر دوم مشهد در استان ۲، شهر سوم اصفهان در استان ۳) و گزارش `docs/live-site/cluster-template-audit-2026-11-25.md`.
 
 ## تحویل به نشست بعد
 - **انجام نشده (عمداً):** هیچ نوشتن زندهای، job اجراشده، merge یا PR؛ runner مطابق `.agent/RULES.md` fail-closed است. شمارنده همچنان `0 / 31` استان و `6 / 100` خوشهٔ منتشرشده است.
