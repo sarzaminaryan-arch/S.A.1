@@ -12,6 +12,13 @@ the live site:
   --audit   audits a set of files against the same master spec and the code
             guard contract, and writes a JSON + Markdown report (baseline vs v6).
 
+  --build-razavi / --audit-razavi
+            the same two jobs for province 2 (خراسان رضوی): two county hubs
+            (`mashhad-63`, `neyshabur-64`), the 10 attraction branches of the
+            two clusters and the province hub `50`, written to
+            outbox/20261125-razavi-khorasan-cluster-v6/. The county hubs are
+            read from the content stage built by `build_razavi_cluster_v6.py`.
+
 Reference decisions (documented in .memory/wiki/decisions.md):
   * The master document (§3) lists weather/attractions/FAQ as body sections,
     but single-city.php renders them from meta (#weather-section,
@@ -80,6 +87,54 @@ HUB_SENTENCES = [
 ]
 CITY_DIRS = {slug: OUTBOX / f"20261117-replace-{slug}" for slug in CITY_IDS}
 PROVINCE = "/province/tehran/"
+
+# --- province 2: Razavi Khorasan -------------------------------------------
+RX_V6 = OUTBOX / "20261125-razavi-khorasan-cluster-v6"
+RX_CONTENT = OUTBOX / "20261125-razavi-khorasan-content"
+RX_ATT_BASE = OUTBOX / "20261124-razavi-khorasan-attractions"
+RX_ATT = RX_CONTENT / "attractions"
+RX_CITY_BASE = {"mashhad": OUTBOX / "20261117-replace-mashhad",
+                "neyshabur": OUTBOX / "20261117-replace-neyshabur"}
+RX_PROVINCE = "/province/razavi-khorasan/"
+RX_CITY_IDS = {"mashhad": 63, "neyshabur": 64}
+RX_COUNTY_NAMES = {
+    "mashhad": "مشهد", "neyshabur": "نیشابور", "chenaran": "چناران",
+    "golbahar": "گلبهار", "zebarkhan": "زبرخان", "kalat": "کلات", "dargaz": "درگز",
+    "sarakhs": "سرخس", "fariman": "فریمان", "torbat-heydarieh": "تربت حیدریه",
+    "quchan": "قوچان", "kashmar": "کاشمر", "binalud": "بینالود",
+}
+RX_ANCHOR = {
+    "imam-reza-shrine": "حرم مطهر امام رضا (ع)", "ferdowsi-tomb": "آرامگاه فردوسی",
+    "koohsangi-park": "پارک کوهسنگی", "torqabeh": "ییلاق طرقبه",
+    "shandiz": "ییلاق شاندیز", "water-waves-land": "سرزمین موج‌های آبی",
+    "haft-hooz-park": "پارک طبیعی هفت‌حوض", "khayyam-tomb": "آرامگاه خیام",
+    "attar-tomb": "آرامگاه عطار", "wooden-village-neyshabur": "دهکده چوبین نیشابور",
+}
+# Same-day-visit groups (CLUSTER-SYSTEM-MASTER.md §5, Mashhad reference pair).
+RX_GROUPS = {
+    "mashhad-center": ["imam-reza-shrine", "koohsangi-park"],
+    "mashhad-yeylaq": ["torqabeh", "shandiz", "water-waves-land"],
+    "mashhad-nature": ["haft-hooz-park", "koohsangi-park", "ferdowsi-tomb"],
+    "neyshabur-literature": ["khayyam-tomb", "attar-tomb", "wooden-village-neyshabur"],
+}
+RX_CITY_SENTENCES = [
+    "برای چیدن برنامهٔ همین خوشه، {links} را کنار هم بگذارید؛ ترتیبشان را با فصل سفر و ساعت حرکت هماهنگ کنید.",
+    "اگر وقت بیشتری دارید، سراغ {links} بروید؛ فاصله‌ها را پیش از حرکت روی نقشه بسنجید.",
+    "مسیرهای همسایه و دیدنی‌های نزدیک، یعنی {links}، یک نیم‌روزه را کامل‌تر می‌کنند.",
+    "در پایان گشت، {links} را هم به فهرست توقف‌ها بیفزایید و ساعت برگشت را با ترافیک عصر بسنجید.",
+]
+RX_ATT_SENTENCES = [
+    "اگر یک روز کامل برای گشت دارید، {links} را به همان برنامه اضافه کنید؛ فاصله‌ها را پیش از حرکت روی نقشه ببینید.",
+    "هم‌مسیرهای نزدیک، {links}، در یک نوبت گشت جا می‌گیرند؛ ترتیبشان را با نور و ساعت روز هماهنگ کنید.",
+    "برای تکمیل برنامه، {links} را هم در نظر بگیرید؛ وضعیت مسیرها را همان صبح استعلام کنید.",
+    "پس از بازدید، {links} گزینه‌های طبیعی ادامهٔ روزاند؛ زمان رفت و برگشت را دستکم نگیرید.",
+]
+RX_HUB_SENTENCES = [
+    "از میان دیدنی‌ها و شهرستان‌های خوشهٔ خراسان رضوی، {links} هم در همان برنامه می‌گنجند؛ ترتیبشان را با فصل سفر هماهنگ کنید.",
+    "مسیرهای پیشنهادی استان، {links} را هم پوشش می‌دهند؛ فاصله‌ها را روی نقشه بسنجید.",
+    "برای سفر طولانی‌تر، {links} توقف‌های بعدی‌اند؛ ساعت حرکت را با ترافیک محورها تنظیم کنید.",
+    "این صفحه‌ها، یعنی {links}، راهنمای تفکیکی همان خوشه‌اند و برنامهٔ روزانه را آسان‌تر می‌چینند.",
+]
 
 ANCHOR = {
     "milad-tower": "برج میلاد", "golestan-palace": "کاخ گلستان",
@@ -172,6 +227,28 @@ HREF_RE = re.compile(r'<a\b[^>]*\bhref="(/[^"]*)"', re.S)
 
 def load_manifest() -> list[dict]:
     return json.loads((ATT_BASE / "manifest.json").read_text(encoding="utf-8"))
+
+
+RX_ID_CITY = {63: "mashhad", 64: "neyshabur"}
+
+
+def load_rx_manifest() -> list[dict]:
+    """The 10 Razavi Khorasan branches, tagged with the cluster they belong to.
+
+    The original manifest carries `county_id`; the cluster builder works on
+    `city_slug`, so the mapping is normalised here (63 → مشهد, 64 → نیشابور).
+    """
+    rows = json.loads((RX_ATT_BASE / "manifest.json").read_text(encoding="utf-8"))
+    for row in rows:
+        row.setdefault("city_slug", RX_ID_CITY[int(row["county_id"])])
+    return rows
+
+
+def rx_branches(manifest: list[dict]) -> dict[str, list[str]]:
+    out: dict[str, list[str]] = {slug: [] for slug in RX_CITY_IDS}
+    for row in manifest:
+        out.setdefault(row["city_slug"], []).append(row["slug"])
+    return out
 
 
 def branches_by_city(manifest: list[dict]) -> dict[str, list[str]]:
@@ -319,6 +396,44 @@ def hub_targets(manifest: list[dict], county_slugs: list[str]) -> list[tuple[str
     return dedupe_pairs(out)
 
 
+def rx_city_targets(slug: str, branches: dict[str, list[str]], county_slugs: list[str],
+                    meta: dict) -> list[tuple[str, str]]:
+    out: list[tuple[str, str]] = [(RX_PROVINCE, "استان خراسان رضوی")]
+    for br in branches.get(slug, []):
+        out.append((att_link(br), RX_ANCHOR.get(br, br)))
+    for line in str(meta.get("sa_cty_neighbors", "")).splitlines():
+        m = re.match(r"\s*([a-z0-9-]+)\s*-", line)
+        if not m:
+            continue
+        other = m.group(1)
+        if other != slug and other in county_slugs and other in RX_COUNTY_NAMES:
+            out.append((city_link(other), RX_COUNTY_NAMES[other]))
+    return dedupe_pairs(out)
+
+
+def rx_att_siblings(slug: str, city: str, branches: dict[str, list[str]]) -> list[str]:
+    own = [x for x in branches.get(city, []) if x != slug]
+    group = next((g for g in RX_GROUPS.values() if slug in g), [])
+    out: list[str] = []
+    for x in own + [y for y in group if y != slug]:
+        if x not in out:
+            out.append(x)
+    return out[:3]
+
+
+def rx_att_targets(slug: str, city: str, branches: dict[str, list[str]]) -> list[tuple[str, str]]:
+    out = [(city_link(city), RX_COUNTY_NAMES[city]), (RX_PROVINCE, "استان خراسان رضوی")]
+    for sib in rx_att_siblings(slug, city, branches):
+        out.append((att_link(sib), RX_ANCHOR.get(sib, sib)))
+    return dedupe_pairs(out)
+
+
+def rx_hub_targets(manifest: list[dict], county_slugs: list[str]) -> list[tuple[str, str]]:
+    out = [(city_link(s), RX_COUNTY_NAMES[s]) for s in county_slugs if s in RX_COUNTY_NAMES]
+    out += [(att_link(x["slug"]), RX_ANCHOR.get(x["slug"], x["title"])) for x in manifest]
+    return dedupe_pairs(out)
+
+
 def read_pair(base: Path, stem: str) -> tuple[str, dict]:
     html = (base / f"{stem}.html").read_text(encoding="utf-8")
     meta = json.loads((base / f"{stem}.meta.json").read_text(encoding="utf-8"))
@@ -409,6 +524,105 @@ def build() -> None:
     print(f"built {V6.relative_to(REPO)}: 8 county hubs, 18 attractions, 1 province hub")
 
 
+def build_rx() -> None:
+    """Content stage → cluster v6: normalise links, add the missing 4 layers."""
+    manifest = load_rx_manifest()
+    branches = rx_branches(manifest)
+    hub_html, _ = read_pair(RX_CONTENT / "province-hub", "razavi-khorasan-50")
+    county_slugs = province_county_slugs(hub_html)
+    changes: dict[str, dict] = {}
+
+    for slug, wp_id in RX_CITY_IDS.items():
+        stem = f"{slug}-{wp_id}"
+        html, meta = read_pair(RX_CONTENT / "county-hubs", stem)
+        html, touched = normalise_tags(html)
+        targets = rx_city_targets(slug, branches, county_slugs, meta)
+        html, added = add_missing_links(
+            html, targets, ["stay", "map", "notables", "modern", "economy", "history"], "sec",
+            RX_CITY_SENTENCES)
+        write_pair(RX_V6 / "county-hubs", stem, html, meta)
+        changes[stem] = {"kind": "city", "normalised": touched, "links_added": added,
+                         "targets": [h for h, _ in targets], "words": word_count(html)}
+
+    for row in manifest:
+        slug, city = row["slug"], row["city_slug"]
+        html, meta = read_pair(RX_CONTENT / "attractions", slug)
+        html, touched = normalise_tags(html)
+        targets = rx_att_targets(slug, city, branches)
+        # Fallback sentences go into the sections that carry the fewest links,
+        # so the §5 density guideline (2–3 per section) holds for the nearby
+        # narrative the writer already curated.
+        html, added = add_missing_links(
+            html, targets, ["access", "season", "tips", "nearby", "sections"], "att",
+            RX_ATT_SENTENCES)
+        write_pair(RX_V6 / "attractions", slug, html, meta)
+        changes[slug] = {"kind": "attraction", "city": city, "normalised": touched,
+                         "links_added": added, "targets": [h for h, _ in targets],
+                         "words": word_count(html)}
+
+    html, meta = read_pair(RX_CONTENT / "province-hub", "razavi-khorasan-50")
+    html, touched = normalise_tags(html)
+    targets = rx_hub_targets(manifest, county_slugs)
+    html, added = append_missing_links(html, targets, RX_HUB_SENTENCES)
+    write_pair(RX_V6 / "province-hub", "razavi-khorasan-50", html, meta)
+    changes["razavi-khorasan-50"] = {"kind": "province_hub", "normalised": touched,
+                                     "links_added": added,
+                                     "targets": [h for h, _ in targets],
+                                     "words": word_count(html)}
+
+    (RX_V6 / "changes.json").write_text(
+        json.dumps(changes, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    (RX_V6 / "manifest.json").write_text(json.dumps({
+        "batch": "پیش‌نویس خوشهٔ خراسان رضوی ۱۴۰۵/۰۹/۰۴",
+        "province": "استان خراسان رضوی",
+        "source": "سند جامع سیستم خوشه‌ای، بخش‌های ۳ و ۴ و ۵، همراه قرارداد گارد قالب شهرستان",
+        "note": "فقط پیش‌نویس محلی؛ هیچ نوشتن زنده‌ای انجام نشد. شمارنده‌های رسمی دست‌نخورده‌اند.",
+        "county_hubs": [{"slug": s, "wp_id": i,
+                         "html": f"county-hubs/{s}-{i}.html",
+                         "meta": f"county-hubs/{s}-{i}.meta.json"}
+                        for s, i in RX_CITY_IDS.items()],
+        "attractions": [{"slug": r["slug"], "city_slug": r["city_slug"],
+                         "html": f'attractions/{r["slug"]}.html',
+                         "meta": f'attractions/{r["slug"]}.meta.json'} for r in manifest],
+        "province_hub": {"slug": "razavi-khorasan", "wp_id": 50,
+                         "html": "province-hub/razavi-khorasan-50.html",
+                         "meta": "province-hub/razavi-khorasan-50.meta.json"},
+    }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"built {RX_V6.relative_to(REPO)}: 2 county hubs, 10 attractions, 1 province hub")
+
+
+def rx_config(source: str) -> dict:
+    manifest = load_rx_manifest()
+    branches = rx_branches(manifest)
+    hub_base = RX_CITY_BASE  # unused but keeps the signature explicit
+    del hub_base
+    cfg: dict = {"source": source, "province": "razavi-khorasan",
+                 "province_link": RX_PROVINCE, "files": [],
+                 "city_targets": {}, "att_targets": {}, "hub_targets": []}
+    for slug, wp_id in RX_CITY_IDS.items():
+        base = RX_CITY_BASE[slug] if source == "baseline" else RX_V6 / "county-hubs"
+        stem = f"{slug}-{wp_id}"
+        cfg["files"].append(("city", stem, base))
+    hub_html, _ = read_pair(RX_V6 / "province-hub" if source == "v6"
+                            else RX_CONTENT / "province-hub", "razavi-khorasan-50")
+    county_slugs = province_county_slugs(hub_html)
+    for slug, wp_id in RX_CITY_IDS.items():
+        stem = f"{slug}-{wp_id}"
+        base = RX_CITY_BASE[slug] if source == "baseline" else RX_V6 / "county-hubs"
+        cfg["city_targets"][stem] = [h for h, _ in rx_city_targets(
+            slug, branches, county_slugs, read_pair(base, stem)[1])]
+    for row in manifest:
+        base = RX_ATT_BASE if source == "baseline" else RX_V6 / "attractions"
+        cfg["files"].append(("attraction", row["slug"], base))
+        cfg["att_targets"][row["slug"]] = [h for h, _ in rx_att_targets(
+            row["slug"], row["city_slug"], branches)]
+    cfg["files"].append(("province_hub", "razavi-khorasan-50",
+                         OUTBOX / "20261123-province-razavi-khorasan-50"
+                         if source == "baseline" else RX_V6 / "province-hub"))
+    cfg["hub_targets"] = [h for h, _ in rx_hub_targets(manifest, county_slugs)]
+    return cfg
+
+
 def source_domains(meta: dict) -> set[str]:
     return set(re.findall(r"https?://([^/\s|]+)", str(meta.get("sa_sources", ""))))
 
@@ -469,8 +683,9 @@ def audit_pair(kind: str, stem: str, html: str, meta: dict,
         absent = [h for h in cfg["city_targets"][stem] if h not in hrefs]
         if absent:
             problems.append(f"missing cluster links ({len(absent)}): {absent[:6]}")
-        if PROVINCE not in hrefs:
-            problems.append("L1: no link back to /province/tehran/")
+        province_link = cfg.get("province_link", PROVINCE)
+        if province_link not in hrefs:
+            problems.append(f"L1: no link back to {province_link}")
 
     elif kind == "attraction":
         missing_sections = [s for s in ATT_REQUIRED_SECTIONS
@@ -479,6 +694,8 @@ def audit_pair(kind: str, stem: str, html: str, meta: dict,
             problems.append(f"missing attraction body markers: {missing_sections}")
         if not 800 <= words <= 1500:
             problems.append(f"words {words} outside attraction budget (800–1500)")
+        elif not 900 <= words <= 1400:
+            warnings.append(f"words {words} outside the master target (900–1400)")
         missing_meta = [k for k in ATT_META_KEYS if not str(meta.get(k, "")).strip()]
         if missing_meta:
             problems.append(f"missing factsheet/seo meta: {missing_meta}")
@@ -502,7 +719,8 @@ def config_for(source: str, manifest: list[dict]) -> dict:
     branches = branches_by_city(manifest)
     hub_html, _ = read_pair(HUB_BASE, "tehran-43")
     county_slugs = province_county_slugs(hub_html)
-    cfg: dict = {"source": source, "files": [], "city_targets": {},
+    cfg: dict = {"source": source, "province_link": PROVINCE, "files": [],
+                 "city_targets": {},
                  "att_targets": {}, "hub_targets": []}
     for slug, wp_id in CITY_IDS.items():
         base = CITY_DIRS[slug] if source == "baseline" else V6_CITY
@@ -588,10 +806,70 @@ def report(baseline: dict, candidate: dict, path: Path) -> None:
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
+def rx_report(baseline: dict, candidate: dict, path: Path) -> None:
+    lines = [
+        "# ممیزی تمپلت مستر و لینک‌سازی خوشه‌ای — استان خراسان رضوی (استان ۲)",
+        "",
+        "تاریخ: ۲۰۲۶-۱۱-۲۵ / ۱۴۰۵/۰۹/۰۴ · منبع قواعد: `docs/live-site/CLUSTER-SYSTEM-MASTER.md` "
+        "§۳/§۴/§۵ و گارد کد `tools/wp-agent/replace_src/check_template.py`.",
+        "",
+        "خوشهٔ `#2 مشهد` (هفت شاخه) + خوشهٔ `#34 نیشابور` (سه شاخه) + هاب استان `50`.",
+        "",
+        "| مجموعه | فایل‌ها | سالم | دارای ایراد | ایرادها | هشدارها |",
+        "|---|---:|---:|---:|---:|---:|",
+    ]
+    for d in (baseline, candidate):
+        s = d["summary"]
+        label = ("وضعیت پیش از این نشست (baseline)" if d["source"] == "baseline"
+                 else "خروجی `outbox/20261125-razavi-khorasan-cluster-v6/`")
+        lines.append(f"| {label} | {s['files']} | {s['clean']} | {s['with_issues']} | "
+                     f"{s['issues']} | {s['warnings']} |")
+    lines += ["", "## ایرادهای وضعیت پیش از نشست", ""]
+    if not any(r["problems"] for r in baseline["rows"]):
+        lines.append("هیچ ایراد مسدودکننده‌ای ثبت نشد.")
+    for r in baseline["rows"]:
+        if r["problems"]:
+            lines.append(f"- **{r['stem']}** ({r['kind']}، {r['words']} واژه، "
+                         f"{r['internal_links']} لینک داخلی)")
+            for prob in r["problems"]:
+                lines.append(f"  - {prob}")
+    lines += ["", "## وضعیت خروجی v6", ""]
+    bad = [r for r in candidate["rows"] if r["problems"]]
+    if bad:
+        for r in bad:
+            lines.append(f"- **{r['stem']}**: {'; '.join(r['problems'])}")
+    else:
+        lines.append(f"همهٔ {candidate['summary']['files']} فایل بدون ایراد مسدودکننده ممیزی شدند.")
+    lines += [
+        "",
+        "## آنچه بررسی شد",
+        "",
+        "- **شهرستان‌ها (۲):** نشانگرهای شش‌گانهٔ گارد کد، بودجهٔ واژهٔ `1500–2400`، متای کامل "
+        "تمپلیت مستر، تبصرهٔ سرشماری ۱۳۹۵، SEO (عنوان ≤ ۶۰ و توضیح ۱۴۰–۱۵۵ نویسه)، FAQ، "
+        "منابع دولایه، لینک به هاب استان، همهٔ شاخه‌های همان خوشه و شهرستان‌های همسایه.",
+        "- **جاذبه‌ها (۱۰):** نشانگرهای نه‌گانهٔ بدنه، کارت اطلاعات سریع (`sa_city_id` و "
+        "`sa_province_id`)، بودجهٔ واژه (گارد ۸۰۰–۱۵۰۰ / مستر ۹۰۰–۱۴۰۰)، لینک به شهرستان مادر و "
+        "استان، ۲ تا ۴ هم‌مسیر، حداکثر یک لینک به هر مقصد و `target=\"_self\"`.",
+        "- **هاب استان (۱):** لینک به هر دو شهرستان خوشه و همهٔ ۱۰ جاذبه، بدون تکرار.",
+        "",
+        "## محدودهٔ کار",
+        "",
+        "این خروجی **پیش‌نویس محلی** است؛ هیچ نوشتن زنده‌ای انجام نشد و شمارنده‌های رسمی "
+        "(`0/31` استان، `6/100` خوشه، `2/100` پیش‌نویس، `18/239` شاخه) دست‌نخورده‌اند. متن‌های "
+        "گسترش‌یافته از شواهد ازپیش‌تأییدشدهٔ مخزن (پروندهٔ جاذبه‌ها، متای شهرستان، "
+        "`docs/live-site/briefs/mashhad-evidence.md` و مقالهٔ هاب استان) نوشته شدند؛ پژوهش وب "
+        "تازه‌ای انجام نشد.",
+        "",
+    ]
+    path.write_text("\n".join(lines), encoding="utf-8")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--build", action="store_true")
     ap.add_argument("--audit", action="store_true")
+    ap.add_argument("--build-razavi", action="store_true")
+    ap.add_argument("--audit-razavi", action="store_true")
     args = ap.parse_args()
     if args.build:
         build()
@@ -608,7 +886,22 @@ def main() -> int:
         print("baseline:", baseline["summary"])
         print("v6      :", candidate["summary"])
         print(f"report  : {(REPORTS / 'cluster-template-audit-2026-11-25.md').relative_to(REPO)}")
-    if not (args.build or args.audit):
+    if args.build_razavi:
+        build_rx()
+    if args.audit_razavi:
+        baseline = audit(rx_config("baseline"))
+        candidate = audit(rx_config("v6"))
+        RESULTS.mkdir(parents=True, exist_ok=True)
+        (RESULTS / "20261125-razavi-khorasan-cluster-audit.json").write_text(
+            json.dumps({"baseline": baseline, "v6": candidate}, ensure_ascii=False,
+                       indent=1) + "\n", encoding="utf-8")
+        rx_report(baseline, candidate,
+                  REPORTS / "razavi-khorasan-cluster-audit-2026-11-25.md")
+        print("baseline:", baseline["summary"])
+        print("v6      :", candidate["summary"])
+        print("report  :",
+              (REPORTS / "razavi-khorasan-cluster-audit-2026-11-25.md").relative_to(REPO))
+    if not (args.build or args.audit or args.build_razavi or args.audit_razavi):
         ap.print_help()
     return 0
 

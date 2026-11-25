@@ -1,0 +1,236 @@
+{
+ "mashhad-63": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [
+   "/city/chenaran/",
+   "/city/golbahar/",
+   "/city/zebarkhan/",
+   "/city/kalat/",
+   "/city/dargaz/",
+   "/city/sarakhs/",
+   "/city/fariman/",
+   "/city/torbat-heydarieh/"
+  ],
+  "targets": [
+   "/province/razavi-khorasan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/koohsangi-park/",
+   "/attraction/torqabeh/",
+   "/attraction/shandiz/",
+   "/attraction/water-waves-land/",
+   "/attraction/haft-hooz-park/",
+   "/city/chenaran/",
+   "/city/golbahar/",
+   "/city/zebarkhan/",
+   "/city/neyshabur/",
+   "/city/kalat/",
+   "/city/dargaz/",
+   "/city/sarakhs/",
+   "/city/fariman/",
+   "/city/torbat-heydarieh/"
+  ],
+  "words": 2268
+ },
+ "neyshabur-64": {
+  "kind": "city",
+  "normalised": [],
+  "links_added": [
+   "/city/quchan/",
+   "/city/kashmar/"
+  ],
+  "targets": [
+   "/province/razavi-khorasan/",
+   "/attraction/khayyam-tomb/",
+   "/attraction/attar-tomb/",
+   "/attraction/wooden-village-neyshabur/",
+   "/city/quchan/",
+   "/city/kashmar/",
+   "/city/mashhad/"
+  ],
+  "words": 1503
+ },
+ "imam-reza-shrine": {
+  "kind": "attraction",
+  "city": "mashhad",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/mashhad/",
+   "/province/razavi-khorasan/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/koohsangi-park/",
+   "/attraction/torqabeh/"
+  ],
+  "words": 1246
+ },
+ "ferdowsi-tomb": {
+  "kind": "attraction",
+  "city": "mashhad",
+  "normalised": [],
+  "links_added": [
+   "/attraction/koohsangi-park/",
+   "/attraction/torqabeh/"
+  ],
+  "targets": [
+   "/city/mashhad/",
+   "/province/razavi-khorasan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/koohsangi-park/",
+   "/attraction/torqabeh/"
+  ],
+  "words": 1019
+ },
+ "koohsangi-park": {
+  "kind": "attraction",
+  "city": "mashhad",
+  "normalised": [],
+  "links_added": [
+   "/attraction/ferdowsi-tomb/"
+  ],
+  "targets": [
+   "/city/mashhad/",
+   "/province/razavi-khorasan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/torqabeh/"
+  ],
+  "words": 954
+ },
+ "torqabeh": {
+  "kind": "attraction",
+  "city": "mashhad",
+  "normalised": [],
+  "links_added": [
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/"
+  ],
+  "targets": [
+   "/city/mashhad/",
+   "/province/razavi-khorasan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/koohsangi-park/"
+  ],
+  "words": 948
+ },
+ "shandiz": {
+  "kind": "attraction",
+  "city": "mashhad",
+  "normalised": [],
+  "links_added": [
+   "/attraction/imam-reza-shrine/"
+  ],
+  "targets": [
+   "/city/mashhad/",
+   "/province/razavi-khorasan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/koohsangi-park/"
+  ],
+  "words": 986
+ },
+ "water-waves-land": {
+  "kind": "attraction",
+  "city": "mashhad",
+  "normalised": [],
+  "links_added": [
+   "/attraction/koohsangi-park/"
+  ],
+  "targets": [
+   "/city/mashhad/",
+   "/province/razavi-khorasan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/koohsangi-park/"
+  ],
+  "words": 974
+ },
+ "haft-hooz-park": {
+  "kind": "attraction",
+  "city": "mashhad",
+  "normalised": [],
+  "links_added": [
+   "/attraction/ferdowsi-tomb/"
+  ],
+  "targets": [
+   "/city/mashhad/",
+   "/province/razavi-khorasan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/koohsangi-park/"
+  ],
+  "words": 1010
+ },
+ "khayyam-tomb": {
+  "kind": "attraction",
+  "city": "neyshabur",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/neyshabur/",
+   "/province/razavi-khorasan/",
+   "/attraction/attar-tomb/",
+   "/attraction/wooden-village-neyshabur/"
+  ],
+  "words": 965
+ },
+ "attar-tomb": {
+  "kind": "attraction",
+  "city": "neyshabur",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/neyshabur/",
+   "/province/razavi-khorasan/",
+   "/attraction/khayyam-tomb/",
+   "/attraction/wooden-village-neyshabur/"
+  ],
+  "words": 957
+ },
+ "wooden-village-neyshabur": {
+  "kind": "attraction",
+  "city": "neyshabur",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/neyshabur/",
+   "/province/razavi-khorasan/",
+   "/attraction/khayyam-tomb/",
+   "/attraction/attar-tomb/"
+  ],
+  "words": 917
+ },
+ "razavi-khorasan-50": {
+  "kind": "province_hub",
+  "normalised": [],
+  "links_added": [],
+  "targets": [
+   "/city/binalud/",
+   "/city/chenaran/",
+   "/city/dargaz/",
+   "/city/fariman/",
+   "/city/golbahar/",
+   "/city/kalat/",
+   "/city/kashmar/",
+   "/city/mashhad/",
+   "/city/neyshabur/",
+   "/city/quchan/",
+   "/city/sarakhs/",
+   "/city/torbat-heydarieh/",
+   "/city/zebarkhan/",
+   "/attraction/imam-reza-shrine/",
+   "/attraction/ferdowsi-tomb/",
+   "/attraction/koohsangi-park/",
+   "/attraction/torqabeh/",
+   "/attraction/shandiz/",
+   "/attraction/water-waves-land/",
+   "/attraction/haft-hooz-park/",
+   "/attraction/khayyam-tomb/",
+   "/attraction/attar-tomb/",
+   "/attraction/wooden-village-neyshabur/"
+  ],
+  "words": 2108
+ }
+}

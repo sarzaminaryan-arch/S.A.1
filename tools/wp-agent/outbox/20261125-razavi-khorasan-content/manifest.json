@@ -1,0 +1,86 @@
+{
+ "batch": "محتوای خوشهٔ خراسان رضوی ۱۴۰۵/۰۹/۰۴",
+ "note": "فقط پیش‌نویس محلی؛ هیچ نوشتن زنده‌ای انجام نشد.",
+ "county_hubs": [
+  {
+   "slug": "mashhad",
+   "wp_id": 63,
+   "kind": "city",
+   "words": 2209
+  },
+  {
+   "slug": "neyshabur",
+   "wp_id": 64,
+   "kind": "city",
+   "words": 1481
+  }
+ ],
+ "attractions": [
+  {
+   "slug": "imam-reza-shrine",
+   "title": "حرم مطهر امام رضا (ع)",
+   "county_id": 63,
+   "words": 1246
+  },
+  {
+   "slug": "ferdowsi-tomb",
+   "title": "آرامگاه فردوسی (توس)",
+   "county_id": 63,
+   "words": 993
+  },
+  {
+   "slug": "koohsangi-park",
+   "title": "پارک کوهسنگی مشهد",
+   "county_id": 63,
+   "words": 931
+  },
+  {
+   "slug": "torqabeh",
+   "title": "ییلاق طرقبه",
+   "county_id": 63,
+   "words": 919
+  },
+  {
+   "slug": "shandiz",
+   "title": "ییلاق شاندیز",
+   "county_id": 63,
+   "words": 960
+  },
+  {
+   "slug": "water-waves-land",
+   "title": "سرزمین موج‌های آبی",
+   "county_id": 63,
+   "words": 951
+  },
+  {
+   "slug": "haft-hooz-park",
+   "title": "پارک طبیعی هفت‌حوض",
+   "county_id": 63,
+   "words": 987
+  },
+  {
+   "slug": "khayyam-tomb",
+   "title": "آرامگاه خیام نیشابوری",
+   "county_id": 64,
+   "words": 965
+  },
+  {
+   "slug": "attar-tomb",
+   "title": "آرامگاه عطار نیشابوری",
+   "county_id": 64,
+   "words": 957
+  },
+  {
+   "slug": "wooden-village-neyshabur",
+   "title": "دهکده چوبین نیشابور",
+   "county_id": 64,
+   "words": 917
+  }
+ ],
+ "province_hub": {
+  "slug": "razavi-khorasan",
+  "wp_id": 50,
+  "kind": "province_hub",
+  "words": 2108
+ }
+}
