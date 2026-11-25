@@ -29,6 +29,7 @@ class MemoryAndClusterRoadmapTests(unittest.TestCase):
             ".memory/wiki/learnings.md",
             ".memory/wiki/github-refs.md",
             ".memory/wiki/log.md",
+            ".memory/wiki/cluster-tree.md",
             ".memory/session/current.md",
         )
         for rel in required:
@@ -100,6 +101,60 @@ class MemoryAndClusterRoadmapTests(unittest.TestCase):
             self.assertIn(f"`/city/{c['city_slug']}/`", doc_text)
             for b in c["branches"]:
                 self.assertIn(b["title"], doc_text)
+
+
+    def test_first_three_clusters_and_province_order(self):
+        """Owner correction (2026-11-25): «شهر سوم» = Isfahan #3, not Shush.
+
+        The first three cluster ranks and the first three province turns must
+        stay locked; guessing from an ambiguous Persian phrase must never
+        reorder the 31-province queue again.
+        """
+        data = json.loads((ROOT / "tools/wp-agent/topic_clusters_100.json").read_text(encoding="utf-8"))
+        first = {c["rank"]: c for c in data["clusters"] if c["rank"] in (1, 2, 3)}
+        self.assertEqual(set(first), {1, 2, 3})
+        self.assertEqual((first[1]["name"], first[1]["city_slug"], first[1]["city_wp_id"],
+                          first[1]["branch_count"], first[1]["province_order"]),
+                         ("تهران", "tehran", 213, 8, 1))
+        self.assertEqual((first[2]["name"], first[2]["city_slug"], first[2]["city_wp_id"],
+                          first[2]["branch_count"], first[2]["province_order"]),
+                         ("مشهد", "mashhad", 63, 7, 2))
+        self.assertEqual((first[3]["name"], first[3]["city_slug"], first[3]["city_wp_id"],
+                          first[3]["branch_count"], first[3]["province_order"]),
+                         ("اصفهان", "isfahan", 153, 7, 3))
+        queue = data["province_execution_order"]
+        self.assertEqual([(p["province_order"], p["province_slug"], p["province_wp_id"],
+                           p["hub_count"], p["branch_count"]) for p in queue[:3]],
+                         [(1, "tehran", 43, 8, 18),
+                          (2, "razavi-khorasan", 50, 2, 10),
+                          (3, "isfahan", 35, 6, 15)])
+        self.assertEqual(queue[2]["cluster_ranks"], [3, 27, 79, 80, 81, 82])
+        doc = (ROOT / "docs/live-site/topic-cluster-roadmap.md").read_text(encoding="utf-8")
+        for needle in ("#1 تهران (8)", "#2 مشهد (7)", "#3 اصفهان (7)", "شهر سوم"):
+            self.assertIn(needle, doc)
+
+
+    def test_cluster_tree_memory_matches_machine_json(self):
+        """Owner (2026-11-25): the full 100-cluster tree must live in .memory too.
+
+        It is generated from topic_clusters_100.json; a manual edit that drops
+        a rank, a branch title or a zero-branch focus must fail CI.
+        """
+        data = json.loads((ROOT / "tools/wp-agent/topic_clusters_100.json").read_text(encoding="utf-8"))
+        tree = (ROOT / ".memory/wiki/cluster-tree.md").read_text(encoding="utf-8")
+        self.assertIn("Topical Authority", tree)
+        self.assertIn("قانون خوشه", tree)
+        self.assertIn("شهرهای بدون شاخه", tree)
+        for c in data["clusters"]:
+            header = f'{c["rank"]}. **{c["name"]} ('
+            self.assertIn(header, tree, f"missing cluster header rank {c['rank']}")
+            for b in c["branches"]:
+                self.assertIn(b["title"], tree, f"missing branch {b['title']}")
+            if c["branch_count"] == 0:
+                self.assertIn(c["zero_branch_focus"].strip(), tree,
+                              f"missing zero-branch focus for {c['name']}")
+        self.assertEqual(sum(c["branch_count"] for c in data["clusters"]), 239)
+        self.assertEqual(len(data["clusters"]), 100)
 
 
 if __name__ == "__main__":

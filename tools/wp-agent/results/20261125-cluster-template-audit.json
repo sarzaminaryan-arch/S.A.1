@@ -1,0 +1,640 @@
+{
+ "baseline": {
+  "source": "baseline",
+  "rows": [
+   {
+    "kind": "city",
+    "stem": "tehran-213",
+    "words": 2200,
+    "internal_links": 13,
+    "problems": [
+     "sa_seo_description 173 chars (want 140–155)",
+     "missing cluster links (1): ['/city/pardis/']"
+    ],
+    "warnings": [
+     "section map has 5 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "eslamshahr-219",
+    "words": 2075,
+    "internal_links": 0,
+    "problems": [
+     "missing master meta: ['sa_province_id']",
+     "sa_seo_description 137 chars (want 140–155)",
+     "missing cluster links (8): ['/province/tehran/', '/attraction/azadi-tower/', '/attraction/chitgar-lake/', '/attraction/joughin-mound-shahriar/', '/city/tehran/', '/city/rey/']",
+     "L1: no link back to /province/tehran/"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "shahriar-225",
+    "words": 1019,
+    "internal_links": 7,
+    "problems": [
+     "words 1019 outside master/code budget (1200–2400)",
+     "sa_seo_title 62 chars (> 60)",
+     "sa_seo_description 108 chars (want 140–155)"
+    ],
+    "warnings": [
+     "section map has 5 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "pakdasht-221",
+    "words": 1589,
+    "internal_links": 7,
+    "problems": [
+     "sa_seo_description 135 chars (want 140–155)",
+     "missing cluster links (1): ['/city/tehran/']"
+    ],
+    "warnings": [
+     "section stay has 5 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "varamin-218",
+    "words": 1114,
+    "internal_links": 6,
+    "problems": [
+     "words 1114 outside master/code budget (1200–2400)",
+     "sa_seo_title 70 chars (> 60)",
+     "sa_seo_description 115 chars (want 140–155)"
+    ],
+    "warnings": [
+     "section map has 4 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "damavand-216",
+    "words": 1219,
+    "internal_links": 7,
+    "problems": [
+     "sa_seo_title 65 chars (> 60)",
+     "sa_seo_description 119 chars (want 140–155)",
+     "missing cluster links (1): ['/city/varamin/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "firuzkuh-217",
+    "words": 1153,
+    "internal_links": 4,
+    "problems": [
+     "words 1153 outside master/code budget (1200–2400)",
+     "sa_seo_title 66 chars (> 60)",
+     "sa_seo_description 110 chars (want 140–155)"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "city",
+    "stem": "shemiranat-215",
+    "words": 1250,
+    "internal_links": 8,
+    "problems": [
+     "sa_seo_title 73 chars (> 60)",
+     "sa_seo_description 122 chars (want 140–155)"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "milad-tower",
+    "words": 1349,
+    "internal_links": 6,
+    "problems": [
+     "missing cluster links (1): ['/attraction/saadabad-complex/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "golestan-palace",
+    "words": 1227,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (2): ['/attraction/milad-tower/', '/attraction/tabiat-bridge/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "saadabad-complex",
+    "words": 1136,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (3): ['/attraction/milad-tower/', '/attraction/golestan-palace/', '/attraction/tabiat-bridge/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "tabiat-bridge",
+    "words": 1136,
+    "internal_links": 5,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "darband-darakeh",
+    "words": 1079,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (2): ['/attraction/milad-tower/', '/attraction/golestan-palace/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "tehran-grand-bazaar",
+    "words": 1149,
+    "internal_links": 6,
+    "problems": [
+     "missing cluster links (2): ['/attraction/milad-tower/', '/attraction/saadabad-complex/']"
+    ],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "azadi-tower",
+    "words": 1099,
+    "internal_links": 8,
+    "problems": [
+     "missing cluster links (1): ['/attraction/saadabad-complex/']"
+    ],
+    "warnings": [
+     "section nearby has 6 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "chitgar-lake",
+    "words": 1068,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (2): ['/attraction/golestan-palace/', '/attraction/saadabad-complex/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "tochal-ski-resort",
+    "words": 1023,
+    "internal_links": 7,
+    "problems": [
+     "missing cluster links (1): ['/attraction/afjeh-carrot-plain/']"
+    ],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "dizin-ski-resort",
+    "words": 1030,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "shemshak-ski-resort",
+    "words": 925,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "afjeh-carrot-plain",
+    "words": 1017,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (2): ['/attraction/tochal-ski-resort/', '/attraction/dizin-ski-resort/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "tar-havir-lakes",
+    "words": 1014,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (1): ['/attraction/veresk-bridge/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "abali-ski-resort",
+    "words": 886,
+    "internal_links": 8,
+    "problems": [
+     "missing cluster links (1): ['/attraction/veresk-bridge/']"
+    ],
+    "warnings": [
+     "section nearby has 6 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "tangeh-vashi",
+    "words": 1106,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (1): ['/attraction/abali-ski-resort/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "veresk-bridge",
+    "words": 1136,
+    "internal_links": 5,
+    "problems": [
+     "missing cluster links (1): ['/attraction/tar-havir-lakes/']"
+    ],
+    "warnings": [],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "varamin-jameh-mosque",
+    "words": 1002,
+    "internal_links": 7,
+    "problems": [
+     "missing cluster links (1): ['/attraction/joughin-mound-shahriar/']"
+    ],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "attraction",
+    "stem": "joughin-mound-shahriar",
+    "words": 1040,
+    "internal_links": 6,
+    "problems": [
+     "missing cluster links (3): ['/attraction/varamin-jameh-mosque/', '/attraction/golestan-palace/', '/attraction/tehran-grand-bazaar/']"
+    ],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": false
+   },
+   {
+    "kind": "province_hub",
+    "stem": "tehran-43",
+    "words": 1805,
+    "internal_links": 25,
+    "problems": [
+     "L1/L2: hub misses 12 links: ['/attraction/saadabad-complex/', '/attraction/tabiat-bridge/', '/attraction/darband-darakeh/', '/attraction/tehran-grand-bazaar/', '/attraction/chitgar-lake/', '/attraction/dizin-ski-resort/', '/attraction/shemshak-ski-resort/', '/attraction/afjeh-carrot-plain/']"
+    ],
+    "warnings": [],
+    "ok": false
+   }
+  ],
+  "summary": {
+   "files": 27,
+   "clean": 3,
+   "with_issues": 24,
+   "issues": 38,
+   "warnings": 12
+  }
+ },
+ "v6": {
+  "source": "v6",
+  "rows": [
+   {
+    "kind": "city",
+    "stem": "tehran-213",
+    "words": 2220,
+    "internal_links": 14,
+    "problems": [],
+    "warnings": [
+     "section map has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "eslamshahr-219",
+    "words": 2138,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "shahriar-225",
+    "words": 1209,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section map has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "pakdasht-221",
+    "words": 1609,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [
+     "section stay has 6 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "varamin-218",
+    "words": 1212,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [
+     "section map has 4 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "damavand-216",
+    "words": 1239,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "firuzkuh-217",
+    "words": 1221,
+    "internal_links": 4,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "city",
+    "stem": "shemiranat-215",
+    "words": 1250,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "milad-tower",
+    "words": 1372,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "golestan-palace",
+    "words": 1253,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "saadabad-complex",
+    "words": 1165,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [
+     "section nearby has 6 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "tabiat-bridge",
+    "words": 1136,
+    "internal_links": 5,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "darband-darakeh",
+    "words": 1105,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "tehran-grand-bazaar",
+    "words": 1175,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [
+     "section nearby has 6 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "azadi-tower",
+    "words": 1122,
+    "internal_links": 9,
+    "problems": [],
+    "warnings": [
+     "section nearby has 7 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "chitgar-lake",
+    "words": 1094,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "tochal-ski-resort",
+    "words": 1047,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [
+     "section nearby has 6 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "dizin-ski-resort",
+    "words": 1030,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "shemshak-ski-resort",
+    "words": 925,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "afjeh-carrot-plain",
+    "words": 1043,
+    "internal_links": 7,
+    "problems": [],
+    "warnings": [
+     "section nearby has 5 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "tar-havir-lakes",
+    "words": 1037,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "abali-ski-resort",
+    "words": 909,
+    "internal_links": 9,
+    "problems": [],
+    "warnings": [
+     "section nearby has 7 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "tangeh-vashi",
+    "words": 1129,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "veresk-bridge",
+    "words": 1161,
+    "internal_links": 6,
+    "problems": [],
+    "warnings": [
+     "section nearby has 4 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "varamin-jameh-mosque",
+    "words": 1026,
+    "internal_links": 8,
+    "problems": [],
+    "warnings": [
+     "section nearby has 6 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "attraction",
+    "stem": "joughin-mound-shahriar",
+    "words": 1071,
+    "internal_links": 9,
+    "problems": [],
+    "warnings": [
+     "section nearby has 7 internal links (guideline 2–3)"
+    ],
+    "ok": true
+   },
+   {
+    "kind": "province_hub",
+    "stem": "tehran-43",
+    "words": 1901,
+    "internal_links": 37,
+    "problems": [],
+    "warnings": [],
+    "ok": true
+   }
+  ],
+  "summary": {
+   "files": 27,
+   "clean": 27,
+   "with_issues": 0,
+   "issues": 0,
+   "warnings": 21
+  }
+ }
+}

@@ -1,0 +1,172 @@
+{
+ "batch": "پیشنویس خوشهای ۱۴۰۵/۰۹/۰۴",
+ "province": "استان تهران",
+ "source": "سند جامع سیستم خوشهای، بخشهای ۳ و ۴ و ۵، همراه قرارداد گارد قالب شهرستان",
+ "note": "فقط پیشنویس محلی؛ هیچ نوشتن زندهای انجام نشد. جزئیات در سند تحویل نشست آمده است.",
+ "county_hubs": [
+  {
+   "slug": "tehran",
+   "wp_id": 213,
+   "html": "county-hubs/tehran-213.html",
+   "meta": "county-hubs/tehran-213.meta.json"
+  },
+  {
+   "slug": "eslamshahr",
+   "wp_id": 219,
+   "html": "county-hubs/eslamshahr-219.html",
+   "meta": "county-hubs/eslamshahr-219.meta.json"
+  },
+  {
+   "slug": "shahriar",
+   "wp_id": 225,
+   "html": "county-hubs/shahriar-225.html",
+   "meta": "county-hubs/shahriar-225.meta.json"
+  },
+  {
+   "slug": "pakdasht",
+   "wp_id": 221,
+   "html": "county-hubs/pakdasht-221.html",
+   "meta": "county-hubs/pakdasht-221.meta.json"
+  },
+  {
+   "slug": "varamin",
+   "wp_id": 218,
+   "html": "county-hubs/varamin-218.html",
+   "meta": "county-hubs/varamin-218.meta.json"
+  },
+  {
+   "slug": "damavand",
+   "wp_id": 216,
+   "html": "county-hubs/damavand-216.html",
+   "meta": "county-hubs/damavand-216.meta.json"
+  },
+  {
+   "slug": "firuzkuh",
+   "wp_id": 217,
+   "html": "county-hubs/firuzkuh-217.html",
+   "meta": "county-hubs/firuzkuh-217.meta.json"
+  },
+  {
+   "slug": "shemiranat",
+   "wp_id": 215,
+   "html": "county-hubs/shemiranat-215.html",
+   "meta": "county-hubs/shemiranat-215.meta.json"
+  }
+ ],
+ "attractions": [
+  {
+   "slug": "milad-tower",
+   "city_slug": "tehran",
+   "html": "attractions/milad-tower.html",
+   "meta": "attractions/milad-tower.meta.json"
+  },
+  {
+   "slug": "golestan-palace",
+   "city_slug": "tehran",
+   "html": "attractions/golestan-palace.html",
+   "meta": "attractions/golestan-palace.meta.json"
+  },
+  {
+   "slug": "saadabad-complex",
+   "city_slug": "tehran",
+   "html": "attractions/saadabad-complex.html",
+   "meta": "attractions/saadabad-complex.meta.json"
+  },
+  {
+   "slug": "tabiat-bridge",
+   "city_slug": "tehran",
+   "html": "attractions/tabiat-bridge.html",
+   "meta": "attractions/tabiat-bridge.meta.json"
+  },
+  {
+   "slug": "darband-darakeh",
+   "city_slug": "tehran",
+   "html": "attractions/darband-darakeh.html",
+   "meta": "attractions/darband-darakeh.meta.json"
+  },
+  {
+   "slug": "tehran-grand-bazaar",
+   "city_slug": "tehran",
+   "html": "attractions/tehran-grand-bazaar.html",
+   "meta": "attractions/tehran-grand-bazaar.meta.json"
+  },
+  {
+   "slug": "azadi-tower",
+   "city_slug": "tehran",
+   "html": "attractions/azadi-tower.html",
+   "meta": "attractions/azadi-tower.meta.json"
+  },
+  {
+   "slug": "chitgar-lake",
+   "city_slug": "tehran",
+   "html": "attractions/chitgar-lake.html",
+   "meta": "attractions/chitgar-lake.meta.json"
+  },
+  {
+   "slug": "tochal-ski-resort",
+   "city_slug": "shemiranat",
+   "html": "attractions/tochal-ski-resort.html",
+   "meta": "attractions/tochal-ski-resort.meta.json"
+  },
+  {
+   "slug": "dizin-ski-resort",
+   "city_slug": "shemiranat",
+   "html": "attractions/dizin-ski-resort.html",
+   "meta": "attractions/dizin-ski-resort.meta.json"
+  },
+  {
+   "slug": "shemshak-ski-resort",
+   "city_slug": "shemiranat",
+   "html": "attractions/shemshak-ski-resort.html",
+   "meta": "attractions/shemshak-ski-resort.meta.json"
+  },
+  {
+   "slug": "afjeh-carrot-plain",
+   "city_slug": "shemiranat",
+   "html": "attractions/afjeh-carrot-plain.html",
+   "meta": "attractions/afjeh-carrot-plain.meta.json"
+  },
+  {
+   "slug": "tar-havir-lakes",
+   "city_slug": "damavand",
+   "html": "attractions/tar-havir-lakes.html",
+   "meta": "attractions/tar-havir-lakes.meta.json"
+  },
+  {
+   "slug": "abali-ski-resort",
+   "city_slug": "damavand",
+   "html": "attractions/abali-ski-resort.html",
+   "meta": "attractions/abali-ski-resort.meta.json"
+  },
+  {
+   "slug": "tangeh-vashi",
+   "city_slug": "firuzkuh",
+   "html": "attractions/tangeh-vashi.html",
+   "meta": "attractions/tangeh-vashi.meta.json"
+  },
+  {
+   "slug": "veresk-bridge",
+   "city_slug": "firuzkuh",
+   "html": "attractions/veresk-bridge.html",
+   "meta": "attractions/veresk-bridge.meta.json"
+  },
+  {
+   "slug": "varamin-jameh-mosque",
+   "city_slug": "varamin",
+   "html": "attractions/varamin-jameh-mosque.html",
+   "meta": "attractions/varamin-jameh-mosque.meta.json"
+  },
+  {
+   "slug": "joughin-mound-shahriar",
+   "city_slug": "shahriar",
+   "html": "attractions/joughin-mound-shahriar.html",
+   "meta": "attractions/joughin-mound-shahriar.meta.json"
+  }
+ ],
+ "province_hub": {
+  "slug": "tehran",
+  "wp_id": 43,
+  "html": "province-hub/tehran-43.html",
+  "meta": "province-hub/tehran-43.meta.json"
+ }
+}

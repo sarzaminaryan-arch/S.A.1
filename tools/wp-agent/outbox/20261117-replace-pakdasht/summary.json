@@ -1,0 +1,19 @@
+[
+ {
+  "id": 221,
+  "slug": "pakdasht",
+  "words_after": 1589,
+  "sections": [
+   "intro",
+   "map",
+   "history",
+   "people",
+   "economy",
+   "stay",
+   "food",
+   "notables"
+  ],
+  "ok": true,
+  "fa_lint": []
+ }
+]
