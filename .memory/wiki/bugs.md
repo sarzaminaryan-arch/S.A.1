@@ -196,3 +196,13 @@
 · فایل/خط درگیر: `docs/live-site/HANDOFF-2026-11-25.md` §۲/§۵, `.memory/wiki/hot.md`, `.memory/wiki/roadmap.md`, `tools/wp-agent/test_memory_protocol.py`
 · منبع: تصحیح مالک (۲۰۲۶-۱۱-۲۵) + `tools/wp-agent/topic_clusters_100.json`
 · تاریخ: ۲۰۲۶-۱۱-۲۵
+
+[BUG-20261127-02] تایپوی دامنه در `home`/`siteurl` — ریشهٔ واقعی قطعی سایت
+· وضعیت: **بسته شد (تشخیص) — اصلاح آماده، منتظر اجرای مالک**
+· نشانه: بازدید `sarzaminyaran.ir` (NXDOMAIN)؛ vhost درست پاسخ نمی‌دهد.
+· ریشه: در `IR_options` دو گزینهٔ `siteurl` و `home` = `https://sarzaminyaran.ir` (یک y اضافه). وردپرس از این مقدار آدرس کانونیک و ریدایرکت می‌سازد.
+· دامنهٔ تایپی وجود ندارد (NXDOMAIN)؛ `sarzaminaryan.ir` سالم است.
+· دامنهٔ مشکل: ۲ گزینهٔ `options` (بحرانی)، ۲۰۱ `post_content` (آدرس تصویر: جاذبه ۳۱، راهنما ۶۷، صفحه ۵، ناوبری ۱، پیوست ۳، بازبینی ۹۴)، ۱۰۵ `postmeta`، ۱ `users.user_url`، ۱۰۷ `iaa_reports.post_url`، ۴۶٬۷۵۴ ردیف Clarity. `guid` **پاک** است (۰ مورد) → هیچ لینک دائمی نیاز به مهاجرت ندارد.
+· اصلاح: `docs/ops/sql/domain-typo-fix.sql` (پشتیبان → پیش‌شمارش → REPLACE محدود → راستی‌آزمایی). جایگزینی هم‌طول است (۱۳→۱۳) پس سریالایزها سالم می‌مانند. اعتبارسنجی روی کپی واقعی داده: هر ۵ شمارنده صفر، `siteurl`/`home` درست، `s:25` هنوز ۲۵ نویسه.
+· ابزار: `tools/ops/domain_typo_fix.py` + ۷ تست `tools/ops/test_domain_typo_fix.py`.
+· آموزش: پیش از هر تشخیص زیرساختی (DNS/SSL/vhost)، `SELECT option_value FROM wp_options WHERE option_name IN ('siteurl','home')` را بخوانید.
