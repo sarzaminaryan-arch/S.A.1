@@ -98,6 +98,12 @@ jobs:
       - name: 'Guide hub (بخش «آموزش سفر»: مسیر /travel-guide/ به‌جای ۴۰۴ + ظاهر ۱۴۰۵)'
         run: php wp-content/themes/sarzaminaryan-child/tests/test-guide-hub.php
 
+      - name: 'Site health tool (verdict logic: default vhost vs down vs ok)'
+        run: python3 tools/ops/test_site_health.py
+
+      - name: 'Site structure analyzer (تجزیهٔ دامپ: شمارش نوع‌محتوا، بودجهٔ واژه، پوشش متا)'
+        run: python3 -m pytest -q tools/ops/test_site_structure.py
+
       - name: 'Guide content type (نوع مستقل «راهنمای سفر»: منو، ابزارها، ۳۰۱، مهاجرت پشتیبان‌دار)'
         run: php wp-content/themes/sarzaminaryan-child/tests/test-guide-cpt.php
 
