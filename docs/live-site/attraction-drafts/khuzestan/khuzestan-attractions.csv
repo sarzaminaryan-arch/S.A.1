@@ -1,0 +1,12 @@
+province_order,cluster_rank,cluster_name,branch_index,title,status_before,action,slug,live_slugs,live_wp_id,file,word_count,ready_to_publish
+8,8,اهواز,1,پل سفید و پل سیاه اهواز,todo,نوشتن جدید,ahvaz-sefid-siah-bridges,,,ahvaz-sefid-siah-bridges.md,1225,NO (draft_local)
+8,8,اهواز,2,رودخانه کارون و ساحلی اهواز,todo,نوشتن جدید,ahvaz-karun-riverfront,,,ahvaz-karun-riverfront.md,1249,NO (draft_local)
+8,8,اهواز,3,بازار عبدالحمید و لشکرآباد,todo,نوشتن جدید,ahvaz-abdulhamid-market,,,ahvaz-abdulhamid-market.md,1208,NO (draft_local)
+8,36,آبادان,1,بازار ته لنجی آبادان,todo,نوشتن جدید,abadan-tah-lenji-market,,,abadan-tah-lenji-market.md,1217,NO (draft_local)
+8,36,آبادان,2,کلیسای سورت گاراپت و اروندرود,todo,نوشتن جدید,abadan-surt-garapt-church,,,abadan-surt-garapt-church.md,1235,NO (draft_local)
+8,37,دزفول,1,دره توبیرون دزفول,todo,نوشتن جدید,dezful-towbiroun-valley,,,dezful-towbiroun-valley.md,1209,NO (draft_local)
+8,37,دزفول,2,پل قدیم دزفول,todo,نوشتن جدید,dezful-old-bridge,,,dezful-old-bridge.md,1209,NO (draft_local)
+8,37,دزفول,3,چال کندی دزفول,todo,نوشتن جدید,dezful-chall-kandi,,,dezful-chall-kandi.md,1203,NO (draft_local)
+8,54,خرمشهر,1,مرز شلمچه,todo,نوشتن جدید,khorramshahr-shalamcheh-border,,,khorramshahr-shalamcheh-border.md,1211,NO (draft_local)
+8,54,خرمشهر,2,موزه جنگ خرمشهر,todo,نوشتن جدید,khorramshahr-war-museum,,,khorramshahr-war-museum.md,1200,NO (draft_local)
+8,55,ماهشهر,1,خور موسی و دریاچه نمک ماهشهر,todo,نوشتن جدید,mahshahr-khor-musa-salt-lake,,,mahshahr-khor-musa-salt-lake.md,1207,NO (draft_local)

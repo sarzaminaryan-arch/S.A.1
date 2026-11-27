@@ -1,0 +1,17 @@
+province_order,cluster_rank,cluster_name,branch_index,title,status_before,action,slug,live_slugs,live_wp_id,file,word_count,ready_to_publish
+5,5,شیراز,1,حافظیه شیراز،todo,نوشتن جدید,hafezieh-shiraz,,,hafezieh-shiraz.md,1205,NO (draft_local)
+5,5,شیراز,2,سعدیه شیراز،todo,نوشتن جدید,saadiyeh-shiraz,,,saadiyeh-shiraz.md,1203,NO (draft_local)
+5,5,شیراز,3,باغ ارم شیراز،live_needs_cluster_audit,بدون تغییر (URL زنده دارد),eram-garden,eram-garden,,eram-garden (زنده),n/a,n/a
+5,5,شیراز,4,مسجد نصیرالملک (مسجد صورتی)،todo,نوشتن جدید,nasir-ol-molk-mosque-shiraz,,,nasir-ol-molk-mosque-shiraz.md,1203,NO (draft_local)
+5,5,شیراز,5,ارگ کریم‌خان و بازار وکیل،live_needs_cluster_audit,بدون تغییر (URL زنده دارد),vakil-complex,vakil-complex,,vakil-complex (زنده),n/a,n/a
+5,5,شیراز,6,دروازه قرآن شیراز،todo,نوشتن جدید,darvaze-quran-shiraz,,,darvaze-quran-shiraz.md,1210,NO (draft_local)
+5,5,شیراز,7,باغ عفیف‌آباد،todo,نوشتن جدید,afif-abad-garden-shiraz,,,afif-abad-garden-shiraz.md,1200,NO (draft_local)
+5,83,مرودشت,1,تخت جمشید (پرسپولیس)،live_needs_cluster_audit,بدون تغییر (URL زنده دارد),persepolis-takht-jamshid,persepolis-takht-jamshid,,persepolis-takht-jamshid (زنده),n/a,n/a
+5,83,مرودشت,2,نقش رستم،live_needs_cluster_audit,بدون تغییر (URL زنده دارد),naqsh-e-rostam,naqsh-e-rostam,,naqsh-e-rostam (زنده),n/a,n/a
+5,83,مرودشت,3,تنگ بستانک (بهشت گمشده)،todo,نوشتن جدید,tang-e-bostanak-marvdasht,,,tang-e-bostanak-marvdasht.md,1212,NO (draft_local)
+5,84,کازرون,1,شهر باستانی بیشاپور،live_needs_cluster_audit,بدون تغییر (URL زنده دارد),bishapur,bishapur,,bishapur (زنده),n/a,n/a
+5,84,کازرون,2,تنگ چوگان،todo,نوشتن جدید,tang-e-chogan-kazerun,,,tang-e-chogan-kazerun.md,1214,NO (draft_local)
+5,85,جهرم,1,غار سنگ‌شکنان جهرم،todo,نوشتن جدید,sang-shekanan-cave-jahrom,,,sang-shekanan-cave-jahrom.md,1213,NO (draft_local)
+5,86,لارستان,1,بازار قیصریه لار،todo,نوشتن جدید,qeysarieh-bazaar-lar,,,qeysarieh-bazaar-lar.md,1201,NO (draft_local)
+5,87,سپیدان,1,آبشار مارگون،live_needs_cluster_audit,بدون تغییر (URL زنده دارد),margoon-falls,margoon-falls,,margoon-falls (زنده),n/a,n/a
+5,87,سپیدان,2,پیست اسکی پولادکف،todo,نوشتن جدید,poladkaf-ski-slope-sepidan,,,poladkaf-ski-slope-sepidan.md,1209,NO (draft_local)
