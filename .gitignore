@@ -70,6 +70,8 @@ wp-config-sample.php
 *.sql.gz
 *.bak
 error_log
+# استثنا: بستهٔ اصلاح SQL که فقط دستور UPDATE محدود دارد و باید در مخزن بازبینی شود
+!docs/ops/sql/domain-typo-fix.sql
 
 # ===== سیستم‌عامل و ویرایشگر =====
 .DS_Store
