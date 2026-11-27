@@ -110,7 +110,48 @@ BANNED = (
     "راستش", "هوش مصنوعی", "بازبینی انسانی", "بازبینی", "ChatGPT", "Claude", "Gemini",
     "منبع معتبر", "فاقد منبع", "بدون منبع", "تأیید نمی‌شود", "بررسی بیشتر", "منبعی یافت",
     "در حال ساخت", "کلنگ", "به‌زودی",
+    # فرمول‌های دیوانیِ «وظیفهٔ خواننده/ویراستار» که بوی هوش مصنوعی می‌دهند؛
+    # به‌جای «استعلام شود» و دوستانش، مستقیم بنویسید «از ... بپرسید».
+    "استعلام شود", "استعلام گردد", "بررسی شود", "بررسی گردد", "تأیید شود",
+    "قطعی شود", "تطبیق داده شود", "راستی‌آزمایی شود",
+    # متاهای تحریریه که خواننده را از بیرون مقاله نگاه می‌کند
+    "نکتهٔ صداقت", "نکته صداقت", "صداقت داده‌ای",
+    "در این مقاله", "در این نوشتار", "لازم به ذکر است", "شایان ذکر است",
+    "امیدوارم", "به طور کلی", "به‌طور کلی", "as an AI", "AI language model",
 )
+
+
+# --- ۷. جملهٔ تکراری داخل یک فایل ---------------------------------------------
+DUP_MIN_LEN = 34
+
+
+def scan_duplicates(text: str, where: str = "") -> list[str]:
+    """یک جمله که داخل همان فایل دو بار یا بیشتر تکرار شده پیدا می‌کند.
+
+    الگوی خطی مالک: «داخل باکس‌های فصل یک جمله تکراری مانده بود». تقسیم روی
+    پایان جمله‌ها («.؟!؟» و خط جدید) انجام می‌شود؛ نشانه‌های مارک‌داون و
+    برچسب‌های بولت نادیده گرفته می‌شوند. گزارش فقط هشدار می‌دهد و خودکار حذف نمی‌کند.
+    """
+    body = visible_text(text)
+    body = re.sub(r"(?:^|\n)\s{0,3}#{1,6}\s+", "\n", body)
+    body = re.sub(r"(\*\*|__|`)", "", body)
+    body = re.sub(r"(?m)^\s*(?:-|\*|•)\s+", "", body)
+    body = re.sub(r"\[([^\]]+)\]\([^)]*\)", r"\1", body)
+    seen: dict[str, int] = {}
+    order: list[str] = []
+    for raw_sent in re.split(r"[\n.!؟;]+", body):
+        sent = re.sub(r"\s+", " ", raw_sent).strip(" -–—:،")
+        if len(sent) < DUP_MIN_LEN:
+            continue
+        if sent not in seen:
+            seen[sent] = 0
+            order.append(sent)
+        seen[sent] += 1
+    issues: list[str] = []
+    for sent in order:
+        if seen[sent] >= 2:
+            issues.append(f"{where}DUP: جملهٔ تکراری ×{seen[sent]} — «…{_show(sent[:110])}…»")
+    return issues
 
 # --- ۶. بخش‌های غیرمتنی ------------------------------------------------------
 TAG_RE = re.compile(r"<[^>]+>")
@@ -341,7 +382,7 @@ def main(argv: list[str]) -> int:
     if "--text" in argv:
         i = argv.index("--text")
         text = argv[i + 1] if i + 1 < len(argv) else ""
-        issues = scan(text, "text: ")
+        issues = scan(text, "text: ") + scan_duplicates(text, "text: ")
         for line in issues:
             print(line)
         print(f"\n{len(issues)} issue(s)")
@@ -375,6 +416,7 @@ def main(argv: list[str]) -> int:
                     issues += scan(chunk, f"{_label(path)}: ")
         else:
             issues += scan(raw, f"{_label(path)}: ")
+            issues += scan_duplicates(raw, f"{_label(path)}: ")
         total += len(issues)
         if issues:
             print(f"FAIL {path}")

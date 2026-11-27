@@ -8,7 +8,7 @@ roadmap:
   cluster_name: مرودشت
   branch_index: 3
   branch_status_before: todo
-  note: "مختصات، طول مسیر پیاده و وضعیت مسیر خاکی با استعلام فرمانداری/میراث مرودشت قطعی شود؛ مسیرهای فرعی کوهستانی در زمستان بسته است."
+  note: "مختصات، طول مسیر پیاده و وضعیت مسیر خاکی از فرمانداری یا میراث مرودشت بپرسید؛ مسیرهای فرعی کوهستانی در زمستان بسته است."
 slug: tang-e-bostanak-marvdasht
 city_slug: marvdasht
 sa_city_id: "324"

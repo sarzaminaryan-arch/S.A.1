@@ -120,3 +120,14 @@ with tempfile.TemporaryDirectory() as d:
     assert fl.main(["fa_lint", str(page), "--quiet"]) == 0
 
 print("OK: Persian spelling filter (months, ZWNJ, Arabic letters, sanctioned box, meta keys, every publish path)")
+
+
+# 8. فرمول‌های دیوانی هوش مصنوعی و جملهٔ تکراری داخل یک فایل (دستور مالک ۱۴۰۵/۰۹/۰۷).
+for banned in ("استعلام شود", "بازبینی گردد", "نکتهٔ صداقت", "در این مقاله", "امیدوارم"):
+    hits = fl.scan(f"اطلاعات این بخش {banned} پیش از هر اقدامی.")
+    assert any("BANNED" in h for h in hits), banned
+dup = "باغ فین در سال ۱۳۹۰ خورشیدی در فهرست میراث جهانی یونسکو ثبت شد.\n" * 2
+hits = fl.scan_duplicates(dup, "t: ")
+assert any("DUP" in h for h in hits)
+assert fl.scan_duplicates("باغ فین در سال ۱۳۹۰ خورشیدی در فهرست میراث جهانی یونسکو ثبت شد.", "t: ") == []
+print("fa_lint new owner gates OK")
