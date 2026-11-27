@@ -1,0 +1,505 @@
+{
+  "posts_by_type_status": {
+    "revision|inherit": 814,
+    "attachment|inherit": 612,
+    "city|publish": 487,
+    "region|publish": 59,
+    "province|publish": 31,
+    "customize_changeset|trash": 28,
+    "attraction|publish": 22,
+    "nav_menu_item|publish": 10,
+    "page|publish": 5,
+    "city|auto-draft": 4,
+    "city|draft": 4,
+    "cc_submission|publish": 3,
+    "cc_submission|rejected": 3,
+    "region|auto-draft": 3,
+    "wp_global_styles|publish": 3,
+    "cc_submission|auto-draft": 2,
+    "city|trash": 2,
+    "customize_changeset|auto-draft": 2,
+    "page|auto-draft": 2,
+    "page|trash": 2,
+    "post|auto-draft": 2,
+    "attraction|auto-draft": 1,
+    "attraction|draft": 1,
+    "province|auto-draft": 1,
+    "wp_navigation|publish": 1
+  },
+  "budgets": {
+    "province": {
+      "count": 31,
+      "avg_words": 5568,
+      "median_words": 5475,
+      "min_words": 3841,
+      "max_words": 7356,
+      "under_700": 0,
+      "meta_coverage": {
+        "sa_seo_title": 31,
+        "sa_seo_description": 31,
+        "sa_sources": 31,
+        "sa_faq": 31,
+        "_thumbnail_id": 18
+      }
+    },
+    "city": {
+      "count": 487,
+      "avg_words": 935,
+      "median_words": 994,
+      "min_words": 589,
+      "max_words": 2618,
+      "under_700": 164,
+      "meta_coverage": {
+        "sa_seo_title": 487,
+        "sa_seo_description": 487,
+        "sa_sources": 487,
+        "sa_faq": 487,
+        "_thumbnail_id": 487
+      }
+    },
+    "attraction": {
+      "count": 22,
+      "avg_words": 1436,
+      "median_words": 1396,
+      "min_words": 1088,
+      "max_words": 1932,
+      "under_700": 0,
+      "meta_coverage": {
+        "sa_seo_title": 22,
+        "sa_seo_description": 22,
+        "sa_sources": 22,
+        "sa_faq": 22,
+        "_thumbnail_id": 2
+      }
+    },
+    "guide": {
+      "count": 0,
+      "avg_words": 0,
+      "median_words": 0,
+      "min_words": 0,
+      "max_words": 0,
+      "under_700": 0,
+      "meta_coverage": {}
+    },
+    "region": {
+      "count": 59,
+      "avg_words": 23,
+      "median_words": 23,
+      "min_words": 23,
+      "max_words": 24,
+      "under_700": 59,
+      "meta_coverage": {
+        "sa_seo_title": 0,
+        "sa_seo_description": 0,
+        "sa_sources": 0,
+        "sa_faq": 0,
+        "_thumbnail_id": 0
+      }
+    },
+    "page": {
+      "count": 5,
+      "avg_words": 565,
+      "median_words": 568,
+      "min_words": 405,
+      "max_words": 683,
+      "under_700": 5,
+      "meta_coverage": {
+        "sa_seo_title": 0,
+        "sa_seo_description": 0,
+        "sa_sources": 0,
+        "sa_faq": 0,
+        "_thumbnail_id": 0
+      }
+    }
+  },
+  "taxonomies": {
+    "sa_gallery_album": {
+      "terms": 518,
+      "tagged": 6
+    },
+    "province_tax": {
+      "terms": 31,
+      "tagged": 540
+    },
+    "attraction_type": {
+      "terms": 19,
+      "tagged": 73
+    },
+    "accommodation_type": {
+      "terms": 9,
+      "tagged": 0
+    },
+    "travel_duration": {
+      "terms": 8,
+      "tagged": 0
+    },
+    "travel_budget": {
+      "terms": 5,
+      "tagged": 0
+    },
+    "category": {
+      "terms": 5,
+      "tagged": 0
+    },
+    "travel_season": {
+      "terms": 4,
+      "tagged": 1151
+    },
+    "wp_theme": {
+      "terms": 3,
+      "tagged": 3
+    },
+    "nav_menu": {
+      "terms": 2,
+      "tagged": 10
+    }
+  },
+  "province_terms": [
+    {
+      "name": "فارس",
+      "slug": "fars",
+      "cities": 39
+    },
+    {
+      "name": "خراسان رضوی",
+      "slug": "razavi-khorasan",
+      "cities": 35
+    },
+    {
+      "name": "اصفهان",
+      "slug": "isfahan",
+      "cities": 32
+    },
+    {
+      "name": "خوزستان",
+      "slug": "khuzestan",
+      "cities": 31
+    },
+    {
+      "name": "سیستان و بلوچستان",
+      "slug": "sistan-baluchestan",
+      "cities": 27
+    },
+    {
+      "name": "کرمان",
+      "slug": "kerman",
+      "cities": 27
+    },
+    {
+      "name": "مازندران",
+      "slug": "mazandaran",
+      "cities": 24
+    },
+    {
+      "name": "آذربایجان شرقی",
+      "slug": "east-azerbaijan",
+      "cities": 23
+    },
+    {
+      "name": "لرستان",
+      "slug": "lorestan",
+      "cities": 23
+    },
+    {
+      "name": "آذربایجان غربی",
+      "slug": "west-azerbaijan",
+      "cities": 21
+    },
+    {
+      "name": "گیلان",
+      "slug": "gilan",
+      "cities": 20
+    },
+    {
+      "name": "تهران",
+      "slug": "tehran",
+      "cities": 17
+    },
+    {
+      "name": "گلستان",
+      "slug": "golestan",
+      "cities": 16
+    },
+    {
+      "name": "کرمانشاه",
+      "slug": "kermanshah",
+      "cities": 15
+    },
+    {
+      "name": "هرمزگان",
+      "slug": "hormozgan",
+      "cities": 15
+    },
+    {
+      "name": "چهارمحال و بختیاری",
+      "slug": "chaharmahal-bakhtiari",
+      "cities": 14
+    },
+    {
+      "name": "اردبیل",
+      "slug": "ardabil",
+      "cities": 13
+    },
+    {
+      "name": "ایلام",
+      "slug": "ilam",
+      "cities": 13
+    },
+    {
+      "name": "بوشهر",
+      "slug": "bushehr",
+      "cities": 13
+    },
+    {
+      "name": "خراسان جنوبی",
+      "slug": "south-khorasan",
+      "cities": 13
+    },
+    {
+      "name": "مرکزی",
+      "slug": "markazi",
+      "cities": 13
+    },
+    {
+      "name": "یزد",
+      "slug": "yazd",
+      "cities": 13
+    },
+    {
+      "name": "همدان",
+      "slug": "hamadan",
+      "cities": 12
+    },
+    {
+      "name": "خراسان شمالی",
+      "slug": "north-khorasan",
+      "cities": 11
+    },
+    {
+      "name": "زنجان",
+      "slug": "zanjan",
+      "cities": 11
+    },
+    {
+      "name": "کردستان",
+      "slug": "kurdistan",
+      "cities": 11
+    },
+    {
+      "name": "کهگیلویه و بویراحمد",
+      "slug": "kohgiluyeh-boyer-ahmad",
+      "cities": 10
+    },
+    {
+      "name": "سمنان",
+      "slug": "semnan",
+      "cities": 9
+    },
+    {
+      "name": "البرز",
+      "slug": "alborz",
+      "cities": 8
+    },
+    {
+      "name": "قزوین",
+      "slug": "qazvin",
+      "cities": 7
+    },
+    {
+      "name": "قم",
+      "slug": "qom",
+      "cities": 4
+    }
+  ],
+  "cities_per_province": [
+    {
+      "province": "فارس",
+      "slug": "fars",
+      "cities": 37
+    },
+    {
+      "province": "خراسان رضوی",
+      "slug": "razavi-khorasan",
+      "cities": 34
+    },
+    {
+      "province": "اصفهان",
+      "slug": "isfahan",
+      "cities": 29
+    },
+    {
+      "province": "خوزستان",
+      "slug": "khuzestan",
+      "cities": 29
+    },
+    {
+      "province": "سیستان و بلوچستان",
+      "slug": "sistan-baluchestan",
+      "cities": 26
+    },
+    {
+      "province": "کرمان",
+      "slug": "kerman",
+      "cities": 25
+    },
+    {
+      "province": "آذربایجان شرقی",
+      "slug": "east-azerbaijan",
+      "cities": 22
+    },
+    {
+      "province": "مازندران",
+      "slug": "mazandaran",
+      "cities": 22
+    },
+    {
+      "province": "آذربایجان غربی",
+      "slug": "west-azerbaijan",
+      "cities": 20
+    },
+    {
+      "province": "گیلان",
+      "slug": "gilan",
+      "cities": 17
+    },
+    {
+      "province": "تهران",
+      "slug": "tehran",
+      "cities": 16
+    },
+    {
+      "province": "کرمانشاه",
+      "slug": "kermanshah",
+      "cities": 14
+    },
+    {
+      "province": "گلستان",
+      "slug": "golestan",
+      "cities": 14
+    },
+    {
+      "province": "هرمزگان",
+      "slug": "hormozgan",
+      "cities": 13
+    },
+    {
+      "province": "اردبیل",
+      "slug": "ardabil",
+      "cities": 12
+    },
+    {
+      "province": "ایلام",
+      "slug": "ilam",
+      "cities": 12
+    },
+    {
+      "province": "بوشهر",
+      "slug": "bushehr",
+      "cities": 12
+    },
+    {
+      "province": "خراسان جنوبی",
+      "slug": "south-khorasan",
+      "cities": 12
+    },
+    {
+      "province": "لرستان",
+      "slug": "lorestan",
+      "cities": 12
+    },
+    {
+      "province": "مرکزی",
+      "slug": "markazi",
+      "cities": 12
+    },
+    {
+      "province": "چهارمحال و بختیاری",
+      "slug": "chaharmahal-bakhtiari",
+      "cities": 12
+    },
+    {
+      "province": "یزد",
+      "slug": "yazd",
+      "cities": 12
+    },
+    {
+      "province": "خراسان شمالی",
+      "slug": "north-khorasan",
+      "cities": 10
+    },
+    {
+      "province": "زنجان",
+      "slug": "zanjan",
+      "cities": 10
+    },
+    {
+      "province": "همدان",
+      "slug": "hamadan",
+      "cities": 10
+    },
+    {
+      "province": "کردستان",
+      "slug": "kurdistan",
+      "cities": 10
+    },
+    {
+      "province": "کهگیلویه و بویراحمد",
+      "slug": "kohgiluyeh-boyer-ahmad",
+      "cities": 9
+    },
+    {
+      "province": "سمنان",
+      "slug": "semnan",
+      "cities": 8
+    },
+    {
+      "province": "البرز",
+      "slug": "alborz",
+      "cities": 7
+    },
+    {
+      "province": "قزوین",
+      "slug": "qazvin",
+      "cities": 6
+    },
+    {
+      "province": "قم",
+      "slug": "qom",
+      "cities": 3
+    }
+  ],
+  "community": {
+    "ratings": 185,
+    "comments": 0,
+    "submissions": {
+      "auto-draft": 2,
+      "publish": 3,
+      "rejected": 3
+    }
+  },
+  "audit_engine": {},
+  "key_options": {
+    "siteurl": "https://sarzaminaryan.ir",
+    "home": "https://sarzaminaryan.ir",
+    "blogname": "سرزمین آریایی ها",
+    "template": "sarzaminaryan",
+    "stylesheet": "sarzaminaryan-child",
+    "current_theme": "Sarzamin Aryan Child",
+    "permalink_structure": "/%postname%/",
+    "sa_child_version": "2.11.34",
+    "show_on_front": "page"
+  },
+  "attractions_with_city": 23,
+  "agent_backups": 0,
+  "dump_tables_loaded": {
+    "postmeta": 31053,
+    "cc_ratings": 185,
+    "options": 1987,
+    "posts": 2104,
+    "term_relationships": 1798,
+    "term_taxonomy": 604,
+    "terms": 604,
+    "users": 1
+  },
+  "source_file": "haftpair_SA.sql.gz"
+}
