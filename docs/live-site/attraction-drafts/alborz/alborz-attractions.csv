@@ -1,0 +1,5 @@
+province_order,cluster_rank,cluster_name,branch_index,title,status_before,action,slug,live_slugs,live_wp_id,file,word_count,ready_to_publish
+4,4,کرج,1,جاده چالوس و سد کرج،todo,نوشتن جدید,chaloos-road-karaj-dam,,,chaloos-road-karaj-dam.md,1357,NO (draft_local)
+4,4,کرج,2,باغ فاتح و جهان‌شهر،todo,نوشتن جدید,jahanshahr-fath-garden-karaj,,,jahanshahr-fath-garden-karaj.md,1201,NO (draft_local)
+4,4,کرج,3,کاخ مروارید مهرشهر،todo,نوشتن جدید,mehrshahr-morvarid-palace-karaj,,,mehrshahr-morvarid-palace-karaj.md,1219,NO (draft_local)
+4,4,کرج,4,روستای برغان کرج،todo,نوشتن جدید,baraghan-village-karaj,,,baraghan-village-karaj.md,1217,NO (draft_local)
