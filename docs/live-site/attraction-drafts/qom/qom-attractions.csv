@@ -1,0 +1,4 @@
+province_order,cluster_rank,cluster_name,branch_index,title,status_before,action,slug,live_slugs,live_wp_id,file,word_count,ready_to_publish
+7,7,قم,1,حرم حضرت معصومه (س),todo,نوشتن جدید,haram-e-masoumeh-qom,,,haram-e-masoumeh-qom.md,1225,NO (draft_local)
+7,7,قم,2,مسجد مقدس جمکران,todo,نوشتن جدید,jamkaran-mosque-qom,,,jamkaran-mosque-qom.md,1260,NO (draft_local)
+7,7,قم,3,کاروانسرای دیر گچین,todo,نوشتن جدید,deyr-gachin-caravansary-qom,,,deyr-gachin-caravansary-qom.md,1200,NO (draft_local)
