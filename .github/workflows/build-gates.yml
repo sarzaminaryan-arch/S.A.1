@@ -104,6 +104,9 @@ jobs:
       - name: 'Site structure analyzer (تجزیهٔ دامپ: شمارش نوع‌محتوا، بودجهٔ واژه، پوشش متا)'
         run: python3 -m pytest -q tools/ops/test_site_structure.py
 
+      - name: 'Domain typo SQL (جایگزینی هم‌طول، UPDATE محدود، پشتیبان قبل از تغییر)'
+        run: python3 -m pytest -q tools/ops/test_domain_typo_fix.py
+
       - name: 'Guide content type (نوع مستقل «راهنمای سفر»: منو، ابزارها، ۳۰۱، مهاجرت پشتیبان‌دار)'
         run: php wp-content/themes/sarzaminaryan-child/tests/test-guide-cpt.php
 
