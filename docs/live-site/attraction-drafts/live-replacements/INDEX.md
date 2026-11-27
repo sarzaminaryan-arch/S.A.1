@@ -50,11 +50,11 @@
 
 | نامک زنده (WP ID) | فایل پیش‌نویس موجود | یادداشت |
 |---|---|---|
-| fin-garden (2356) | `isfahan/fin-garden.md` | پیش‌نویس موج قبل؛ بازبینی نشده |
+| fin-garden (2356) | `isfahan/fin-garden.md` | بازنویسی‌شده در همین موج (اول‌شخص، lint ۰ ایراد) |
 | khaju-bridge (3331) | `isfahan/khaju-bridge.md` | بازنویسی‌شده در همین موج |
 | naqsh-e-jahan-square-isfahan (2354) | `isfahan/naqsh-e-jahan-square-isfahan.md` | بازنویسی‌شده در همین موج |
 | si-o-se-pol (3118) | `isfahan/si-o-se-pol.md` | بازنویسی‌شده در همین موج |
-| vank-cathedral (3332) | `isfahan/vank-cathedral.md` | پیش‌نویس موجود؛ بازبینی نشده |
+| vank-cathedral (3332) | `isfahan/vank-cathedral.md` | بازنویسی‌شده در همین موج (اول‌شخص، lint ۰ ایراد) |
 
 > ۵ نامک زندهٔ فوق با WP IDهای بالا از رجیستری `registry/live-articles.json` تطبیق داده شدند؛ هنگام آماده‌سازی انتشار با ابزار wp-agent از همان IDها استفاده شود تا اشتباه تخصیص رخ ندهد.
 
