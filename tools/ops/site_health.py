@@ -195,6 +195,19 @@ def verdict(report: dict) -> dict:
                   "پاسخ ۸۰ «Default Web Site Page» سی‌پنل است و ۴۴۳ گواهی ندارد.",
         }
     if http.get("error") and tls.get("error"):
+        # اگر هر دو لایه «بی‌صدا» بسته شوند (بدون هیچ پاسخ HTTP و بدون هشدار TLS)،
+        # احتمال زیاد مسیر شبکه بسته است، نه سایت. سرور سالم همیشه یا پاسخ می‌دهد
+        # یا هشدار TLS می‌فرستد؛ قطعِ کاملِ هر دو نشانهٔ فیلتر مسیر است.
+        silent = ("empty reply" in str(http.get("error", ""))
+                  and "closed" in str(tls.get("error", "")).lower())
+        if silent:
+            return {
+                "state": "network_blocked",
+                "fa": "هر دو لایه بی‌صدا بسته شدند (بدون پاسخ HTTP و بدون هشدار TLS)؛ "
+                      "این نشانهٔ بسته‌بودن مسیر شبکه از این محیط است، نه خرابی سایت. "
+                      "با یک شبکهٔ دیگر یا از مرورگر خودتان تأیید کنید: "
+                      f"https://{report.get('host')}/",
+            }
         return {
             "state": "down",
             "fa": "نه وب‌سرور روی ۸۰ پاسخ داد و نه TLS روی ۴۴۳ برقرار شد؛ "
@@ -242,8 +255,13 @@ def main(argv: list[str] | None = None) -> int:
     print(f"/wp-json/ → {wp.get('status') or wp.get('error')} "
           f"| rest={wp.get('looks_like_wp_rest', False)}")
     print(f"تشخیص: {report['verdict']['state']} — {report['verdict']['fa']}")
-    # کد خروج برای اتوماسیون: ۰ سالم، ۱ ناسالم
-    return 0 if report["verdict"]["state"] == "ok" else 1
+    if report["verdict"]["state"] == "network_blocked":
+        print("یادآوری: کد خروج ۲ = «از این شبکه قابل سنجش نیست»؛ سایت ممکن است سالم باشد.")
+    # کد خروج برای اتوماسیون: ۰ سالم، ۱ ناسالم، ۲ از این شبکه سنجش‌ناپذیر
+    state = report["verdict"]["state"]
+    if state == "ok":
+        return 0
+    return 2 if state == "network_blocked" else 1
 
 
 if __name__ == "__main__":
