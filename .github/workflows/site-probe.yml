@@ -1,0 +1,61 @@
+name: Site probe (read-only URL check from the runner)
+
+# چرا این گردش‌کار: سندباکس توسعه به IPهای ایرانی دسترسی ندارد و خطای واقعی
+# (500 / 403 / 404 / تغییرمسیر) را نمی‌بیند. این گردش‌کار فقط GET می‌زند،
+# هیچ رمزی ندارد، هیچ چیزی را تغییر نمی‌دهد و خروجی را در Summary می‌گذارد.
+#
+# اجرا: دستی (workflow_dispatch) یا با برچسب `site-probe` روی push.
+
+on:
+  workflow_dispatch:
+    inputs:
+      base:
+        description: 'نشانی پایه برای کاوش'
+        required: false
+        default: 'https://sarzaminaryan.ir'
+  push:
+    branches:
+      - main
+      - "arena/**"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    # روی هر push اجرا نشود؛ فقط اجرای دستی یا وقتی فایل probe تغییر کند.
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-22.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Probe public URLs (no writes, no secrets)
+        env:
+          BASE: ${{ inputs.base }}
+        run: |
+          set -euo pipefail
+          python3 tools/ops/probe_urls.py --annotations --base "${BASE:-https://sarzaminaryan.ir}" | tee probe.txt
+
+      - name: Upload probe output as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-probe
+          path: probe.txt
+          retention-days: 3
+          if-no-files-found: ignore
+
+      - name: Write result into the job summary
+        if: always()
+        run: |
+          {
+            echo '## نتیجهٔ کاوش آدرس‌ها'
+            echo '```'
+            cat probe.txt 2>/dev/null || echo 'خروجی تولید نشد'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
