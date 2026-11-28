@@ -4076,5 +4076,155 @@
   ],
   "file": "docs/live-site/attraction-drafts/live-replacements/semnan/rig-e-jenn-desert.md",
   "name": "کویر ریگ جن (دشت کویر).md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "کشتی یونانی کیش"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/greek-ship-kish.md",
+  "name": "کشتی یونانی کیش.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "شهر زیرزمینی کاریز"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/kariz-underground-city-kish.md",
+  "name": "شهر زیرزمینی کاریز.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "جزیره هندورابی"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/hendurabi-island.md",
+  "name": "جزیره هندورابی.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "پارک دلفین‌ها و باغ پرندگان کیش"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/kish-dolphin-park-bird-garden.md",
+  "name": "پارک دلفین‌ها و باغ پرندگان کیش.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "اسکله تفریحی کیش"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/kish-recreational-pier.md",
+  "name": "اسکله تفریحی کیش.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "شهر باستانی حریره"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/harireh-ancient-city.md",
+  "name": "شهر باستانی حریره.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان بندرعباس",
+   "معبد هندوها"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/hindu-temple-bandar-abbas.md",
+  "name": "معبد هندوها.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان بندرعباس",
+   "حمام گله‌داری"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/galehdari-bathhouse.md",
+  "name": "حمام گله‌داری.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان بندرعباس",
+   "اسکله شهید حقانی و ساحل سورو"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/shahid-haqqani-pier-surro-beach.md",
+  "name": "اسکله شهید حقانی و ساحل سورو.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "دره ستارگان قشم"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/qeshm-star-valley.md",
+  "name": "دره ستارگان قشم.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "جنگل حرا قشم"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/hara-forest-qeshm.md",
+  "name": "جنگل حرا قشم.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "جزیره هنگام (تماشای دلفین‌ها)"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/hengam-island.md",
+  "name": "جزیره هنگام (تماشای دلفین‌ها).md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "تنگه چاهکوه"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/chahkooh-gorge.md",
+  "name": "تنگه چاهکوه.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "جزایر ناز قشم"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/naaz-islands-qeshm.md",
+  "name": "جزایر ناز قشم.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "قلعه پرتغالی‌ها"
+  ],
+  "file": "docs/live-site/attraction-drafts/hormozgan/portuguese-castle-qeshm.md",
+  "name": "قلعه پرتغالی‌ها.md"
  }
 ]
