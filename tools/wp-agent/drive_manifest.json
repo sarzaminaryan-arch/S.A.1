@@ -1,0 +1,4080 @@
+[
+ {
+  "type": "province",
+  "path": [
+   "استان تهران"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "برج میلاد تهران"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "کاخ گلستان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "کاخ سعدآباد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "پل طبیعت و پارک آب و آتش"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "دربند و درکه تهران"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "بازار بزرگ تهران"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "برج آزادی"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان تهران",
+   "دریاچه چیتگر (شهدای خلیج فارس)"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان تهران",
+   "شهرستان شهریار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان شهریار",
+   "تپه جوقین و باغ‌های شهریار"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان تهران",
+   "شهرستان ورامین"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان ورامین",
+   "مسجد جامع ورامین"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان تهران",
+   "شهرستان دماوند"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان دماوند",
+   "دریاچه تار و هویر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان دماوند",
+   "پیست اسکی آبعلی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان تهران",
+   "شهرستان فیروزکوه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان فیروزکوه",
+   "تنگه واشی فیروزکوه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان فیروزکوه",
+   "پل ورسک (در مسیر سوادکوه/فیروزکوه)"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان تهران",
+   "شهرستان شمیرانات"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان شمیرانات",
+   "پیست اسکی توچال"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان شمیرانات",
+   "پیست اسکی دیزین"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان شمیرانات",
+   "پیست اسکی شمشک"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان تهران",
+   "شهرستان شمیرانات",
+   "روستای افجه و دشت هویج (لواسان)"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان خراسان رضوی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد",
+   "حرم مطهر امام رضا (ع)"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد",
+   "آرامگاه فردوسی (توس)"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد",
+   "پارک کوهسنگی مشهد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد",
+   "ییلاق طرقبه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد",
+   "ییلاق شاندیز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد",
+   "سرزمین موج‌های آبی"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان مشهد",
+   "پارک طبیعی هفت‌حوض"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان نیشابور"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان نیشابور",
+   "آرامگاه خیام نیشابوری"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان نیشابور",
+   "آرامگاه عطار نیشابوری"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان نیشابور",
+   "دهکده چوبین نیشابور"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان تربت جام"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان تربت جام",
+   "آرامگاه شاه قاسم انوار"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خراسان رضوی",
+   "شهرستان تربت جام",
+   "آرامگاه شاه قاسم انوار"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/razavi-khorasan/qasem-anvar-shrine.md",
+  "name": "آرامگاه شاه قاسم انوار.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان اصفهان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "میدان نقش جهان اصفهان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "میدان نقش جهان اصفهان"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/naqsh-e-jahan-square-isfahan.md",
+  "name": "میدان نقش جهان اصفهان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "سی‌وسه‌پل و پل خواجو"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "سی‌وسه‌پل و پل خواجو"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/khaju-bridge.md",
+  "name": "پل خواجو.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "سی‌وسه‌پل و پل خواجو"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/si-o-se-pol.md",
+  "name": "سی‌وسه‌پل.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "کاخ عالی‌قاپو"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "کاخ عالی‌قاپو"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/ali-qapu-palace-isfahan.md",
+  "name": "کاخ عالی‌قاپو.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "کاخ چهلستون"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "کاخ چهلستون"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/chehel-sotoon-palace-isfahan.md",
+  "name": "کاخ چهلستون.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "کلیسای وانک و محله جلفا"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "کلیسای وانک و محله جلفا"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/vank-cathedral.md",
+  "name": "کلیسای وانک و محله جلفا.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "منارجنبان اصفهان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "منارجنبان اصفهان"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/menar-jonban-isfahan.md",
+  "name": "منارجنبان اصفهان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "باغ پرندگان و آکواریوم ناژوان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان اصفهان",
+   "باغ پرندگان و آکواریوم ناژوان"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/najvan-bird-garden-aquarium-isfahan.md",
+  "name": "باغ پرندگان و آکواریوم ناژوان.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "باغ فین کاشان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "باغ فین کاشان"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/fin-garden.md",
+  "name": "باغ فین کاشان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "کویر مرنجاب"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "کویر مرنجاب"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/maranjab-desert-kashan.md",
+  "name": "کویر مرنجاب.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "خانه بروجردی‌ها"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "خانه بروجردی‌ها"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/boroujerdi-house-kashan.md",
+  "name": "خانه بروجردی‌ها.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "خانه طباطبایی‌ها"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "خانه طباطبایی‌ها"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/tabatabaei-house-kashan.md",
+  "name": "خانه طباطبایی‌ها.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "تپه‌های سیلک کاشان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان کاشان",
+   "تپه‌های سیلک کاشان"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/tepe-sialk-kashan.md",
+  "name": "تپه‌های سیلک کاشان.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان اصفهان",
+   "شهرستان نجف‌آباد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان نجف‌آباد",
+   "ارگ شیخ بهایی"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان نجف‌آباد",
+   "ارگ شیخ بهایی"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/arg-e-sheikh-bahaei-najafabad.md",
+  "name": "ارگ شیخ بهایی.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان اصفهان",
+   "شهرستان نطنز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان نطنز",
+   "روستای سرخ ابیانه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان نطنز",
+   "روستای سرخ ابیانه"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/abyaneh-red-village-natanz.md",
+  "name": "روستای سرخ ابیانه.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان اصفهان",
+   "شهرستان خوانسار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اصفهان",
+   "شهرستان خوانسار",
+   "چشمه مرزنگو و دشت لاله‌های واژگون خوانسار"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اصفهان",
+   "شهرستان خوانسار",
+   "چشمه مرزنگو و دشت لاله‌های واژگون خوانسار"
+  ],
+  "file": "docs/live-site/attraction-drafts/isfahan/khansar-springs-fritillary-plain.md",
+  "name": "چشمه مرزنگو و دشت لاله‌های واژگون خوانسار.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان البرز"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "جاده چالوس و سد کرج"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "جاده چالوس و سد کرج"
+  ],
+  "file": "docs/live-site/attraction-drafts/alborz/chaloos-road-karaj-dam.md",
+  "name": "جاده چالوس و سد کرج.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "باغ فاتح و جهان‌شهر"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "باغ فاتح و جهان‌شهر"
+  ],
+  "file": "docs/live-site/attraction-drafts/alborz/jahanshahr-fath-garden-karaj.md",
+  "name": "باغ فاتح و جهان‌شهر.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "کاخ مروارید مهرشهر"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "کاخ مروارید مهرشهر"
+  ],
+  "file": "docs/live-site/attraction-drafts/alborz/mehrshahr-morvarid-palace-karaj.md",
+  "name": "کاخ مروارید مهرشهر.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "روستای برغان کرج"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان البرز",
+   "شهرستان کرج",
+   "روستای برغان کرج"
+  ],
+  "file": "docs/live-site/attraction-drafts/alborz/baraghan-village-karaj.md",
+  "name": "روستای برغان کرج.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان فارس"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "حافظیه شیراز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "حافظیه شیراز"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/hafezieh-shiraz.md",
+  "name": "حافظیه شیراز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "سعدیه شیراز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "سعدیه شیراز"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/saadiyeh-shiraz.md",
+  "name": "سعدیه شیراز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "باغ ارم شیراز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "باغ ارم شیراز"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/eram-garden.md",
+  "name": "باغ ارم شیراز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "مسجد نصیرالملک (مسجد صورتی)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "مسجد نصیرالملک (مسجد صورتی)"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/nasir-ol-molk-mosque-shiraz.md",
+  "name": "مسجد نصیرالملک (مسجد صورتی).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "ارگ کریم‌خان و بازار وکیل"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "ارگ کریم‌خان و بازار وکیل"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/vakil-complex.md",
+  "name": "ارگ کریم‌خان و بازار وکیل.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "دروازه قرآن شیراز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "دروازه قرآن شیراز"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/darvaze-quran-shiraz.md",
+  "name": "دروازه قرآن شیراز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "باغ عفیف‌آباد"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "باغ عفیف‌آباد"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/afif-abad-garden-shiraz.md",
+  "name": "باغ عفیف‌آباد.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "حرم شاه‌چراغ"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان شیراز",
+   "حرم شاه‌چراغ"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/shah-cheragh.md",
+  "name": "حرم شاه‌چراغ.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان فارس",
+   "شهرستان مرودشت"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان مرودشت",
+   "تخت جمشید (پرسپولیس)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان مرودشت",
+   "تخت جمشید (پرسپولیس)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/persepolis-takht-jamshid.md",
+  "name": "تخت جمشید (پرسپولیس).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان مرودشت",
+   "نقش رستم"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان مرودشت",
+   "نقش رستم"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/naqsh-e-rostam.md",
+  "name": "نقش رستم.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان مرودشت",
+   "تنگ بستانک (بهشت گمشده)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان مرودشت",
+   "تنگ بستانک (بهشت گمشده)"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/tang-e-bostanak-marvdasht.md",
+  "name": "تنگ بستانک (بهشت گمشده).md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان فارس",
+   "شهرستان کازرون"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان کازرون",
+   "شهر باستانی بیشاپور"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان کازرون",
+   "شهر باستانی بیشاپور"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/bishapur.md",
+  "name": "شهر باستانی بیشاپور.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان کازرون",
+   "تنگ چوگان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان کازرون",
+   "تنگ چوگان"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/tang-e-chogan-kazerun.md",
+  "name": "تنگ چوگان.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان فارس",
+   "شهرستان جهرم"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان جهرم",
+   "غار سنگ‌شکنان جهرم"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان جهرم",
+   "غار سنگ‌شکنان جهرم"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/sang-shekanan-cave-jahrom.md",
+  "name": "غار سنگ‌شکنان جهرم.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان فارس",
+   "شهرستان لارستان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان لارستان",
+   "بازار قیصریه لار"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان لارستان",
+   "بازار قیصریه لار"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/qeysarieh-bazaar-lar.md",
+  "name": "بازار قیصریه لار.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان فارس",
+   "شهرستان سپیدان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان سپیدان",
+   "آبشار مارگون"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان سپیدان",
+   "آبشار مارگون"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/margoon-falls.md",
+  "name": "آبشار مارگون.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان سپیدان",
+   "پیست اسکی پولادکف"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان سپیدان",
+   "پیست اسکی پولادکف"
+  ],
+  "file": "docs/live-site/attraction-drafts/fars/poladkaf-ski-slope-sepidan.md",
+  "name": "پیست اسکی پولادکف.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان فارس",
+   "شهرستان پاسارگاد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان فارس",
+   "شهرستان پاسارگاد",
+   "پاسارگاد"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان فارس",
+   "شهرستان پاسارگاد",
+   "پاسارگاد"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/fars/pasargadae.md",
+  "name": "پاسارگاد.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان آذربایجان شرقی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "پارک ائل‌گلی تبریز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "پارک ائل‌گلی تبریز"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/el-goli-park-tabriz.md",
+  "name": "پارک ائل‌گلی تبریز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "بازار بزرگ تبریز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "بازار بزرگ تبریز"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/tabriz-grand-bazaar.md",
+  "name": "بازار بزرگ تبریز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "کندوان (روستای صخره‌ای نزدیک تبریز)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "کندوان (روستای صخره‌ای نزدیک تبریز)"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/kandovan-rock-village-tabriz.md",
+  "name": "کندوان (روستای صخره‌ای نزدیک تبریز).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "مسجد کبود تبریز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "مسجد کبود تبریز"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/kaboud-mosque-tabriz.md",
+  "name": "مسجد کبود تبریز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "ارگ علیشاه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان تبریز",
+   "ارگ علیشاه"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/alishah-arg-tabriz.md",
+  "name": "ارگ علیشاه.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان مراغه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان مراغه",
+   "رصدخانه مراغه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان مراغه",
+   "رصدخانه مراغه"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/maragheh-observatory.md",
+  "name": "رصدخانه مراغه.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان مرند"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان مرند",
+   "کاروانسرای پیام مرند"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان مرند",
+   "کاروانسرای پیام مرند"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/payam-caravanserai-marand.md",
+  "name": "کاروانسرای پیام مرند.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان جلفا"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان جلفا",
+   "کلیسای سنت استپانوس"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان جلفا",
+   "کلیسای سنت استپانوس"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/st-stepanos-church-jolfa.md",
+  "name": "کلیسای سنت استپانوس.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان جلفا",
+   "آبشار آسیاب خرابه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان آذربایجان شرقی",
+   "شهرستان جلفا",
+   "آبشار آسیاب خرابه"
+  ],
+  "file": "docs/live-site/attraction-drafts/east-azerbaijan/asiab-kharabe-waterfall-jolfa.md",
+  "name": "آبشار آسیاب خرابه.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان قم"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان قم",
+   "شهرستان قم"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان قم",
+   "شهرستان قم",
+   "حرم حضرت معصومه (س)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان قم",
+   "شهرستان قم",
+   "حرم حضرت معصومه (س)"
+  ],
+  "file": "docs/live-site/attraction-drafts/qom/haram-e-masoumeh-qom.md",
+  "name": "حرم حضرت معصومه (س).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان قم",
+   "شهرستان قم",
+   "مسجد مقدس جمکران"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان قم",
+   "شهرستان قم",
+   "مسجد مقدس جمکران"
+  ],
+  "file": "docs/live-site/attraction-drafts/qom/jamkaran-mosque-qom.md",
+  "name": "مسجد مقدس جمکران.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان قم",
+   "شهرستان قم",
+   "کاروانسرای دیر گچین"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان قم",
+   "شهرستان قم",
+   "کاروانسرای دیر گچین"
+  ],
+  "file": "docs/live-site/attraction-drafts/qom/deyr-gachin-caravansary-qom.md",
+  "name": "کاروانسرای دیر گچین.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان خوزستان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خوزستان",
+   "شهرستان اهواز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان اهواز",
+   "پل سفید و پل سیاه اهواز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان اهواز",
+   "پل سفید و پل سیاه اهواز"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/ahvaz-sefid-siah-bridges.md",
+  "name": "پل سفید و پل سیاه اهواز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان اهواز",
+   "رودخانه کارون و ساحلی اهواز"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان اهواز",
+   "رودخانه کارون و ساحلی اهواز"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/ahvaz-karun-riverfront.md",
+  "name": "رودخانه کارون و ساحلی اهواز.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان اهواز",
+   "بازار عبدالحمید و لشکرآباد"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان اهواز",
+   "بازار عبدالحمید و لشکرآباد"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/ahvaz-abdulhamid-market.md",
+  "name": "بازار عبدالحمید و لشکرآباد.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خوزستان",
+   "شهرستان آبادان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان آبادان",
+   "بازار ته لنجی آبادان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان آبادان",
+   "بازار ته لنجی آبادان"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/abadan-tah-lenji-market.md",
+  "name": "بازار ته لنجی آبادان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان آبادان",
+   "کلیسای سورت گاراپت و اروندرود"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان آبادان",
+   "کلیسای سورت گاراپت و اروندرود"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/abadan-surt-garapt-church.md",
+  "name": "کلیسای سورت گاراپت و اروندرود.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "دره توبیرون دزفول"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "دره توبیرون دزفول"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/dezful-towbiroun-valley.md",
+  "name": "دره توبیرون دزفول.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "پل قدیم دزفول"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "پل قدیم دزفول"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/dezful-old-bridge.md",
+  "name": "پل قدیم دزفول.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "چال کندی دزفول"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "چال کندی دزفول"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/dezful-chall-kandi.md",
+  "name": "چال کندی دزفول.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "آبشار شوی (تله زنگ)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان دزفول",
+   "آبشار شوی (تله زنگ)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/khuzestan/shevi-waterfall-tele-zang.md",
+  "name": "آبشار شوی (تله زنگ).md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خوزستان",
+   "شهرستان خرمشهر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان خرمشهر",
+   "مرز شلمچه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان خرمشهر",
+   "مرز شلمچه"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/khorramshahr-shalamcheh-border.md",
+  "name": "مرز شلمچه.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان خرمشهر",
+   "موزه جنگ خرمشهر"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان خرمشهر",
+   "موزه جنگ خرمشهر"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/khorramshahr-war-museum.md",
+  "name": "موزه جنگ خرمشهر.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خوزستان",
+   "شهرستان ماهشهر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان ماهشهر",
+   "خور موسی و دریاچه نمک ماهشهر"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان ماهشهر",
+   "خور موسی و دریاچه نمک ماهشهر"
+  ],
+  "file": "docs/live-site/attraction-drafts/khuzestan/mahshahr-khor-musa-salt-lake.md",
+  "name": "خور موسی و دریاچه نمک ماهشهر.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خوزستان",
+   "شهرستان شوشتر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خوزستان",
+   "شهرستان شوشتر",
+   "سازه‌های آبی تاریخی شوشتر"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خوزستان",
+   "شهرستان شوشتر",
+   "سازه‌های آبی تاریخی شوشتر"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/khuzestan/shushtar-historical-hydraulic-system.md",
+  "name": "سازه‌های آبی تاریخی شوشتر.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان گیلان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "میدان شهرداری رشت"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "میدان شهرداری رشت"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/rasht-municipality-square.md",
+  "name": "میدان شهرداری رشت.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "پارک جنگلی سراوان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "پارک جنگلی سراوان"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/saravan-forest-park-rasht.md",
+  "name": "پارک جنگلی سراوان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "دریاچه سقالکسار"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "دریاچه سقالکسار"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/saqalaksar-lake-rasht.md",
+  "name": "دریاچه سقالکسار.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "بازار بزرگ رشت"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان رشت",
+   "بازار بزرگ رشت"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/rasht-grand-bazaar.md",
+  "name": "بازار بزرگ رشت.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی",
+   "تالاب انزلی"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی",
+   "تالاب انزلی"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/anzali-wetland-gilan.md",
+  "name": "تالاب انزلی.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی",
+   "تالاب انزلی"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/gilan/anzali-international-wetland-guide.md",
+  "name": "تالاب انزلی.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی",
+   "آکواریوم انزلی"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی",
+   "آکواریوم انزلی"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/anzali-aquarium.md",
+  "name": "آکواریوم انزلی.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی",
+   "کاخ موزه میان‌پشته و موج‌شکن انزلی"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان بندر انزلی",
+   "کاخ موزه میان‌پشته و موج‌شکن انزلی"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/anzali-palace-military-museum.md",
+  "name": "کاخ موزه میان‌پشته و موج‌شکن انزلی.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان لاهیجان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان لاهیجان",
+   "شیطان‌کوه و آبشار لاهیجان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان لاهیجان",
+   "شیطان‌کوه و آبشار لاهیجان"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/sheytan-kooh-lahijan.md",
+  "name": "شیطان‌کوه و آبشار لاهیجان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان لاهیجان",
+   "استخر لاهیجان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان لاهیجان",
+   "استخر لاهیجان"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/lahijan-estakhr.md",
+  "name": "استخر لاهیجان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان لاهیجان",
+   "تله‌کابین احرار لاهیجان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان لاهیجان",
+   "تله‌کابین احرار لاهیجان"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/lahijan-ahrar-cable-car.md",
+  "name": "تله‌کابین احرار لاهیجان.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان ماسال"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان ماسال",
+   "ییلاق اولسبلنگاه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان ماسال",
+   "ییلاق اولسبلنگاه"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/olsablangah-masal.md",
+  "name": "ییلاق اولسبلنگاه.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان ماسال",
+   "غار آویشو ماسال"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان ماسال",
+   "غار آویشو ماسال"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/avishu-cave-masal.md",
+  "name": "غار آویشو ماسال.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان آستارا"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان آستارا",
+   "گردنه حیران آستارا"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان آستارا",
+   "گردنه حیران آستارا"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/heyran-pass-astara.md",
+  "name": "گردنه حیران آستارا.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان آستارا",
+   "آبشار لاتون"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان آستارا",
+   "آبشار لاتون"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/laton-waterfall-astara.md",
+  "name": "آبشار لاتون.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان فومن"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان فومن",
+   "روستای تاریخی ماسوله"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان فومن",
+   "روستای تاریخی ماسوله"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/masouleh-historic-village.md",
+  "name": "روستای تاریخی ماسوله.md"
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان فومن",
+   "روستای تاریخی ماسوله"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/gilan/masouleh.md",
+  "name": "روستای تاریخی ماسوله.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان فومن",
+   "قلعه رودخان فومن"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان فومن",
+   "قلعه رودخان فومن"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/rudkhan-castle-fuman.md",
+  "name": "قلعه رودخان فومن.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان تالش"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان تالش",
+   "ییلاق سوباتان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان تالش",
+   "ییلاق سوباتان"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/subatan-talesh.md",
+  "name": "ییلاق سوباتان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان تالش",
+   "ساحل و جنگل گیسوم"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان تالش",
+   "ساحل و جنگل گیسوم"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/gisoum-beach-talesh.md",
+  "name": "ساحل و جنگل گیسوم.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان تالش",
+   "سورتمه ریلی تالش"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان تالش",
+   "سورتمه ریلی تالش"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/talesh-rail-sled.md",
+  "name": "سورتمه ریلی تالش.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گیلان",
+   "شهرستان رودبار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان رودبار",
+   "روستای داماش (سوسن چلچراغ)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان رودبار",
+   "روستای داماش (سوسن چلچراغ)"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/damash-rudbar.md",
+  "name": "روستای داماش (سوسن چلچراغ).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گیلان",
+   "شهرستان رودبار",
+   "دریاچه ویستان بره‌سر"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گیلان",
+   "شهرستان رودبار",
+   "دریاچه ویستان بره‌سر"
+  ],
+  "file": "docs/live-site/attraction-drafts/gilan/vistan-lake-rudbar.md",
+  "name": "دریاچه ویستان بره‌سر.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان هرمزگان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "کشتی یونانی کیش"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "شهر زیرزمینی کاریز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "جزیره هندورابی"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "پارک دلفین‌ها و باغ پرندگان کیش"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "اسکله تفریحی کیش"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان کیش",
+   "شهر باستانی حریره"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان بندرعباس"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان بندرعباس",
+   "معبد هندوها"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان بندرعباس",
+   "حمام گله‌داری"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان بندرعباس",
+   "اسکله شهید حقانی و ساحل سورو"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "دره ستارگان قشم"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "دره ستارگان قشم"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/hormozgan/qeshm-stars-valley-geopark.md",
+  "name": "دره ستارگان قشم.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "جنگل حرا قشم"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "جزیره هنگام (تماشای دلفین‌ها)"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "تنگه چاهکوه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "جزایر ناز قشم"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان هرمزگان",
+   "شهرستان قشم",
+   "قلعه پرتغالی‌ها"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان کرمانشاه"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کرمانشاه",
+   "شهرستان کرمانشاه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمانشاه",
+   "شهرستان کرمانشاه",
+   "طاق‌بستان کرمانشاه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمانشاه",
+   "شهرستان کرمانشاه",
+   "کتیبه و مجموعه بیستون"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمانشاه",
+   "شهرستان کرمانشاه",
+   "غار قوری‌قلعه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمانشاه",
+   "شهرستان کرمانشاه",
+   "تکیه معاون‌الملک"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کرمانشاه",
+   "شهرستان پاوه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمانشاه",
+   "شهرستان پاوه",
+   "روستای هجیج پاوه"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان آذربایجان غربی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان ارومیه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان ارومیه",
+   "دریاچه ارومیه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان ارومیه",
+   "کلیسای ننه مریم"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان ارومیه",
+   "دریاچه مارمیشو"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان خوی"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان خوی",
+   "آرامگاه شمس تبریزی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان ماکو"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان ماکو",
+   "کاخ باغچه‌جوق"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان مهاباد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان آذربایجان غربی",
+   "شهرستان مهاباد",
+   "غار سهولان مهاباد"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان یزد"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان یزد",
+   "شهرستان یزد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان یزد",
+   "شهرستان یزد",
+   "میدان و مجموعه امیرچخماق"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان یزد",
+   "شهرستان یزد",
+   "باغ دولت‌آباد یزد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان یزد",
+   "شهرستان یزد",
+   "آتشکده زرتشتیان یزد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان یزد",
+   "شهرستان یزد",
+   "محله فهادان و بافت تاریخی"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان یزد",
+   "شهرستان یزد",
+   "دخمه زرتشتیان یزد"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان یزد",
+   "شهرستان میبد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان یزد",
+   "شهرستان میبد",
+   "نارین‌قلعه میبد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان یزد",
+   "شهرستان میبد",
+   "کاروانسرای شاه‌عباسی میبد"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان همدان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان همدان",
+   "شهرستان همدان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان همدان",
+   "شهرستان همدان",
+   "غار علیصدر همدان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان همدان",
+   "شهرستان همدان",
+   "غار علیصدر همدان"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/hamadan/ali-sadr-cave-hamedan-guide.md",
+  "name": "غار علیصدر همدان.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان همدان",
+   "شهرستان همدان",
+   "آرامگاه بوعلی‌سینا"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان همدان",
+   "شهرستان همدان",
+   "کتیبه‌ها و آبشار گنج‌نامه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان همدان",
+   "شهرستان همدان",
+   "آرامگاه باباطاهر"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان کرمان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کرمان",
+   "شهرستان کرمان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان کرمان",
+   "کلوت‌های شهداد (کویر لوت)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان کرمان",
+   "شهرستان کرمان",
+   "کلوت‌های شهداد (کویر لوت)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/kerman/shahdad-kaluts-lut-desert.md",
+  "name": "کلوت‌های شهداد (کویر لوت).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان کرمان",
+   "باغ شازده ماهان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان کرمان",
+   "مجموعه گنجعلی‌خان کرمان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان کرمان",
+   "ارگ راین"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کرمان",
+   "شهرستان سیرجان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان سیرجان",
+   "باغ سنگی سیرجان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کرمان",
+   "شهرستان رفسنجان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان رفسنجان",
+   "خانه حاج‌آقا علی"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان رفسنجان",
+   "دره راگه رفسنجان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کرمان",
+   "شهرستان بم"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کرمان",
+   "شهرستان بم",
+   "ارگ تاریخی بم"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان اردبیل"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان اردبیل",
+   "شهرستان اردبیل"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اردبیل",
+   "شهرستان اردبیل",
+   "بقعه شیخ صفی‌الدین اردبیلی"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اردبیل",
+   "شهرستان اردبیل",
+   "بقعه شیخ صفی‌الدین اردبیلی"
+  ],
+  "file": "docs/live-site/attraction-drafts/ardabil/sheikh-safi-ardabil.md",
+  "name": "بقعه شیخ صفی‌الدین اردبیلی.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اردبیل",
+   "شهرستان اردبیل",
+   "دریاچه شورابیل"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اردبیل",
+   "شهرستان اردبیل",
+   "دریاچه شورابیل"
+  ],
+  "file": "docs/live-site/attraction-drafts/ardabil/shorabil-lake-ardabil.md",
+  "name": "دریاچه شورابیل.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اردبیل",
+   "شهرستان اردبیل",
+   "جنگل فندقلو (گردنه حیران)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اردبیل",
+   "شهرستان اردبیل",
+   "جنگل فندقلو (گردنه حیران)"
+  ],
+  "file": "docs/live-site/attraction-drafts/ardabil/fandoqlu-forest-ardabil.md",
+  "name": "جنگل فندقلو (گردنه حیران).md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان اردبیل",
+   "شهرستان سرعین"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اردبیل",
+   "شهرستان سرعین",
+   "چشمه‌های آب‌گرم سرعین"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اردبیل",
+   "شهرستان سرعین",
+   "چشمه‌های آب‌گرم سرعین"
+  ],
+  "file": "docs/live-site/attraction-drafts/ardabil/sareyn-hot-springs.md",
+  "name": "چشمه‌های آب‌گرم سرعین.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان اردبیل",
+   "شهرستان سرعین",
+   "پیست اسکی آلوارس"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان اردبیل",
+   "شهرستان سرعین",
+   "پیست اسکی آلوارس"
+  ],
+  "file": "docs/live-site/attraction-drafts/ardabil/alvarez-ski-resort-sareyn.md",
+  "name": "پیست اسکی آلوارس.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان سیستان و بلوچستان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان سیستان و بلوچستان",
+   "شهرستان زاهدان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سیستان و بلوچستان",
+   "شهرستان زاهدان",
+   "بازار مشترک و چهارراه رسولی زاهدان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان سیستان و بلوچستان",
+   "شهرستان چابهار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سیستان و بلوچستان",
+   "شهرستان چابهار",
+   "کوه‌های مریخی چابهار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سیستان و بلوچستان",
+   "شهرستان چابهار",
+   "تالاب صورتی لیپار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سیستان و بلوچستان",
+   "شهرستان چابهار",
+   "ساحل درک (تلاقی کویر و دریا)"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سیستان و بلوچستان",
+   "شهرستان چابهار",
+   "اسکله بریس"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان مرکزی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مرکزی",
+   "شهرستان اراک"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مرکزی",
+   "شهرستان اراک",
+   "بازار تاریخی اراک"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مرکزی",
+   "شهرستان اراک",
+   "تالاب میقان اراک"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مرکزی",
+   "شهرستان ساوه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مرکزی",
+   "شهرستان ساوه",
+   "مسجد جامع ساوه"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان مازندران"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان ساری"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان ساری",
+   "دریاچه چورت (میانشه)"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان ساری",
+   "سد سلیمان‌تنگه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان ساری",
+   "پناهگاه حیات‌وحش میانکاله و ساحل فرح‌آباد"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان چالوس"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان چالوس",
+   "شهرک توریستی نمک‌آبرود"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان چالوس",
+   "دریاچه ولشت"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان چالوس",
+   "کاخ چایخوران چالوس"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان رامسر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان رامسر",
+   "تله‌کابین رامسر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان رامسر",
+   "روستای جواهرده"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان رامسر",
+   "کاخ مرمر رامسر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان رامسر",
+   "جنگل دالخانی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان بابل"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان بابل",
+   "جنگل لفور (سوادکوه و بابل)"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان بابل",
+   "آبشار درازکش"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان آمل"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان آمل",
+   "قله دماوند"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان مازندران",
+   "شهرستان آمل",
+   "قله دماوند"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/mazandaran/mount-damavand-guide.md",
+  "name": "قله دماوند.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان آمل",
+   "جنگل الیمستان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان آمل",
+   "پارک جنگلی میرزا کوچک‌خان (هراز)"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان نوشهر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان نوشهر",
+   "پارک جنگلی سی‌سنگان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان نوشهر",
+   "دریاچه ارواح نوشهر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان نوشهر",
+   "تنگ دار نوشهر"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان قائم‌شهر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان قائم‌شهر",
+   "دریاچه سد زمزم"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان بابلسر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان بابلسر",
+   "پل معلق بابلسر و منطقه توریستی میرود"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان محمودآباد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان محمودآباد",
+   "پارک جنگلی تشبندان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان نور"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان نور",
+   "پارک جنگلی نور"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان نور",
+   "آبشار آب‌پری"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان کلاردشت"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان کلاردشت",
+   "جنگل عباس‌آباد کلاردشت"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان کلاردشت",
+   "علم‌کوه کلاردشت"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان مازندران",
+   "شهرستان تنکابن"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان تنکابن",
+   "جنگل دوهزار و سه‌هزار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان مازندران",
+   "شهرستان تنکابن",
+   "غار دانیال"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان گلستان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گلستان",
+   "شهرستان گرگان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گلستان",
+   "شهرستان گرگان",
+   "پارک جنگلی ناهارخوران"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گلستان",
+   "شهرستان گرگان",
+   "پارک جنگلی النگدره"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گلستان",
+   "شهرستان گرگان",
+   "روستای زیارت گرگان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گلستان",
+   "شهرستان گنبد کاووس"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گلستان",
+   "شهرستان گنبد کاووس",
+   "برج قابوس (بلندترین برج آجری جهان)"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گلستان",
+   "شهرستان بندر ترکمن"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گلستان",
+   "شهرستان بندر ترکمن",
+   "جزیره آشوراده"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گلستان",
+   "شهرستان علی‌آباد کتول"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گلستان",
+   "شهرستان علی‌آباد کتول",
+   "آبشار کبودوال"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان گلستان",
+   "شهرستان گالیکش"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان گلستان",
+   "شهرستان گالیکش",
+   "پارک ملی گلستان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان گلستان",
+   "شهرستان گالیکش",
+   "پارک ملی گلستان"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/golestan/golestan-national-park-guide.md",
+  "name": "پارک ملی گلستان.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان قزوین"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان قزوین",
+   "شهرستان قزوین"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان قزوین",
+   "شهرستان قزوین",
+   "قلعه الموت قزوین"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان قزوین",
+   "شهرستان قزوین",
+   "کاروانسرای سعدالسلطنه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان قزوین",
+   "شهرستان قزوین",
+   "دریاچه اوان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان قزوین",
+   "شهرستان قزوین",
+   "کلیسای کانتور"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان زنجان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان زنجان",
+   "شهرستان زنجان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان زنجان",
+   "شهرستان زنجان",
+   "گنبد سلطانیه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان زنجان",
+   "شهرستان زنجان",
+   "غار کتله‌خور"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان زنجان",
+   "شهرستان زنجان",
+   "رختشوی‌خانه زنجان"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان کردستان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کردستان",
+   "شهرستان سنندج"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کردستان",
+   "شهرستان سنندج",
+   "عمارت خسروآباد سنندج"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کردستان",
+   "شهرستان سنندج",
+   "پارک آبیدر سنندج"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کردستان",
+   "شهرستان بانه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کردستان",
+   "شهرستان بانه",
+   "بازارهای تجاری بانه"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کردستان",
+   "شهرستان مریوان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کردستان",
+   "شهرستان مریوان",
+   "دریاچه زریوار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کردستان",
+   "شهرستان مریوان",
+   "اورامان تخت (هورامان)"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان لرستان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان لرستان",
+   "شهرستان خرم‌آباد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان خرم‌آباد",
+   "قلعه فلک‌الافلاک"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان خرم‌آباد",
+   "قلعه فلک‌الافلاک"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/falak-ol-aflak-castle-khorramabad.md",
+  "name": "قلعه فلک‌الافلاک.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان خرم‌آباد",
+   "آبشار بیشه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان خرم‌آباد",
+   "دریاچه کیو خرم‌آباد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان خرم‌آباد",
+   "آبشار نوژیان"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان خرم‌آباد",
+   "آبشار نوژیان"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/nozhian-waterfall-khorramabad.md",
+  "name": "آبشار نوژیان.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان لرستان",
+   "شهرستان بروجرد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان بروجرد",
+   "تپه چغا بروجرد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان بروجرد",
+   "روستای ونایی بروجرد"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "دریاچه گهر دورود"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "دریاچه گهر دورود"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/gahar-lake-dorud.md",
+  "name": "دریاچه گهر دورود.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "آبشار بیشه (مشترک با خرم‌آباد)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "آبشار بیشه (مشترک با خرم‌آباد)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/bisheh-waterfall-dorud.md",
+  "name": "آبشار بیشه (مشترک با خرم‌آباد).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "تالاب ازگن (قارون)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "تالاب ازگن (قارون)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/azgan-wetland-dorud.md",
+  "name": "تالاب ازگن (قارون).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "آبشار ازنادر (دره اسپر)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "آبشار ازنادر (دره اسپر)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/aznadar-waterfall-doroud.md",
+  "name": "آبشار ازنادر (دره اسپر).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "تفرجگاه باباهور (بام دورود)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "تفرجگاه باباهور (بام دورود)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/babahur-forest-park-dorud.md",
+  "name": "تفرجگاه باباهور (بام دورود).md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "درهٔ نیگاه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "درهٔ نیگاه"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/nigah-valley-dorud.md",
+  "name": "درهٔ نیگاه.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "تنگهٔ لی لی"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان لرستان",
+   "شهرستان دورود",
+   "تنگهٔ لی لی"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/lorestan/tangeh-lili-gorge-doroud.md",
+  "name": "تنگهٔ لی لی.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان لرستان",
+   "شهرستان الیگودرز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان الیگودرز",
+   "دشت لاله‌های واژگون الیگودرز"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان لرستان",
+   "شهرستان الیگودرز",
+   "آبشار آب سفید"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان بوشهر"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان بوشهر",
+   "شهرستان بوشهر"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان بوشهر",
+   "شهرستان بوشهر",
+   "بافت تاریخی بوشهر و عمارت امیریه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان بوشهر",
+   "شهرستان بوشهر",
+   "ساحل ریشهر"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان بوشهر",
+   "شهرستان عسلویه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان بوشهر",
+   "شهرستان عسلویه",
+   "ساحل بنود عسلویه"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان ایلام"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان ایلام",
+   "شهرستان ایلام"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان ایلام",
+   "شهرستان ایلام",
+   "تنگه کافرین"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان ایلام",
+   "شهرستان ایلام",
+   "تنگه بهرام چوبین"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان خراسان شمالی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خراسان شمالی",
+   "شهرستان بجنورد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان شمالی",
+   "شهرستان بجنورد",
+   "آبشار باباامان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان شمالی",
+   "شهرستان بجنورد",
+   "عمارت مفخم بجنورد"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان خراسان جنوبی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان بیرجند"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان بیرجند",
+   "باغ اکبریه بیرجند"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان بیرجند",
+   "ارگ کلاه فرنگی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان طبس"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان طبس",
+   "کال جنی طبس"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان طبس",
+   "باغ گلشن طبس"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان طبس",
+   "باغ گلشن طبس"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/south-khorasan/bagh-golshan-tabas.md",
+  "name": "باغ گلشن طبس.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان طبس",
+   "روستای نایبند طبس"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان طبس",
+   "جاهای دیدنی طبس"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان طبس",
+   "جاهای دیدنی طبس"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/south-khorasan/tabas-attractions.md",
+  "name": "جاهای دیدنی طبس.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان بشرویه"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان بشرویه",
+   "قلعهٔ دختر بشرویه"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان خراسان جنوبی",
+   "شهرستان بشرویه",
+   "قلعهٔ دختر بشرویه"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/south-khorasan/ghaleh-dokhtar-boshruyeh.md",
+  "name": "قلعهٔ دختر بشرویه.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان چهارمحال و بختیاری"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان شهرکرد"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان شهرکرد",
+   "تالاب چغاخور"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان شهرکرد",
+   "چشمه دیمه و کوهرنگ"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان شهرکرد",
+   "چشمه دیمه و کوهرنگ"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/chaharmahal-bakhtiari/kuhrang-fritillaria-plain-guide.md",
+  "name": "چشمه دیمه و کوهرنگ.md"
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان شهرکرد",
+   "پارک ملی تنگ صیاد"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان شهرکرد",
+   "پارک ملی تنگ صیاد"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/chaharmahal-bakhtiari/tang-e-sayad-national-park.md",
+  "name": "پارک ملی تنگ صیاد.md"
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان کوهرنگ"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان کوهرنگ",
+   "روستای سرآقا سید"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان چهارمحال و بختیاری",
+   "شهرستان کوهرنگ",
+   "روستای سرآقا سید"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/chaharmahal-bakhtiari/sar-agha-seyed-village.md",
+  "name": "روستای سرآقا سید.md"
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان کهگیلویه و بویراحمد"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان کهگیلویه و بویراحمد",
+   "شهرستان یاسوج"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کهگیلویه و بویراحمد",
+   "شهرستان یاسوج",
+   "آبشار یاسوج"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان کهگیلویه و بویراحمد",
+   "شهرستان یاسوج",
+   "تنگه مهریان"
+  ]
+ },
+ {
+  "type": "province",
+  "path": [
+   "استان سمنان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان سمنان",
+   "شهرستان سمنان"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سمنان",
+   "شهرستان سمنان",
+   "دروازه ارگ سمنان"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان سمنان",
+   "شهرستان شاهرود"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سمنان",
+   "شهرستان شاهرود",
+   "جنگل ابر شاهرود"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سمنان",
+   "شهرستان شاهرود",
+   "مجموعه تاریخی بسطام"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سمنان",
+   "شهرستان شاهرود",
+   "آرامگاه شیخ ابوالحسن خرقانی"
+  ]
+ },
+ {
+  "type": "city",
+  "path": [
+   "استان سمنان",
+   "شهرستان گرمسار"
+  ]
+ },
+ {
+  "type": "attr",
+  "path": [
+   "استان سمنان",
+   "شهرستان گرمسار",
+   "کویر ریگ جن (دشت کویر)"
+  ]
+ },
+ {
+  "type": "upload",
+  "path": [
+   "استان سمنان",
+   "شهرستان گرمسار",
+   "کویر ریگ جن (دشت کویر)"
+  ],
+  "file": "docs/live-site/attraction-drafts/live-replacements/semnan/rig-e-jenn-desert.md",
+  "name": "کویر ریگ جن (دشت کویر).md"
+ }
+]
