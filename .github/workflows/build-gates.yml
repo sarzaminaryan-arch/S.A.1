@@ -71,6 +71,7 @@ jobs:
         run: |
           php wp-content/themes/sarzaminaryan-child/tests/test-county-profile.php
           php wp-content/themes/sarzaminaryan-child/tests/test-province-county-links.php
+          php wp-content/themes/sarzaminaryan-child/tests/test-rewrite-heal.php
           python3 tools/live-site/test_relation_html.py
           python3 tools/live-site/render_contract_fixture.py --all
 

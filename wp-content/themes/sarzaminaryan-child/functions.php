@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SA_CHILD_VERSION', '2.24.22' );
+define( 'SA_CHILD_VERSION', '2.24.23' );
 define( 'SA_CHILD_DIR', trailingslashit( get_stylesheet_directory() ) );
 define( 'SA_CHILD_URI', trailingslashit( get_stylesheet_directory_uri() ) );
 define( 'SA_MODEL_VERSION', '1.3' );
@@ -84,6 +84,7 @@ $sa_child_includes = array(
 	'inc/guide-hub.php', // v2.23.4: بخش «آموزش سفر» — مسیر /travel-guide/ به‌جای ۴۰۴ + فهرست به سبک ۱۴۰۵
 	'inc/guide-migrate.php', // v2.24.0: مهاجرت ۶۷ نوشته به نوع «راهنمای سفر» — پشتیبان اجباری + بازگشت
 	'inc/activation.php',
+	'inc/rewrite-heal.php', // v2.24.23: خودترمیمیِ قاعده‌های بازنویسی — پایان ۴۰۴ شدن صفحات استان/شهرستان/جاذبه پس از تغییر دامنه
 );
 
 foreach ( $sa_child_includes as $sa_child_file ) {
