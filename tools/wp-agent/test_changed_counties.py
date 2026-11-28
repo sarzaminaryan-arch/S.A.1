@@ -31,8 +31,11 @@ class ChangesTest(unittest.TestCase):
                 head = git('rev-parse', 'HEAD')
                 self.assertEqual(changed('push', base, head, ''), ['one', 'two'])
                 self.assertEqual(changed('pull_request', '', head, base), ['one', 'two'])
-                with self.assertRaises(subprocess.CalledProcessError):
-                    changed('push', 'not-a-sha', head, '')
+                # force-push / شاخهٔ نو: کامیت مبنا دیگر وجود ندارد. نباید خطا بدهد
+                # (قبلاً کل گام build را قرمز می‌کرد). با نبود `origin/main`، والدِ
+                # خودِ head مبنا می‌شود؛ پس فقط آخرین کامیت دیده می‌شود.
+                self.assertEqual(changed('push', 'not-a-sha', head, ''), ['two'])
+                self.assertEqual(changed('push', '0' * 40, head, ''), ['two'])
                 (folder / 'bad name.json').write_text('{}')
                 git('add', '.')
                 git('commit', '-qm', 'bad')
