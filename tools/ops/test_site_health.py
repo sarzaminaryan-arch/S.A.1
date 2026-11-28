@@ -61,3 +61,40 @@ class VerdictTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+# --- ۲۰۲۶-۱۱-۲۷: تمایز «مسیر شبکه بسته» از «سایت خراب» ---------------------
+# درس حادثه: در سندباکسی که اتصال به IPهای ایرانی بسته است، هر دو لایه بی‌صدا
+# بسته می‌شوند و ابزار «down» می‌گفت؛ در حالی که سایت سالم بود.
+
+def test_silent_double_failure_is_network_blocked_not_down():
+    report = {
+        "host": "example.test",
+        "http80": {"error": "empty reply (پاسخی نیامد)"},
+        "tls443": {"error": "SSLError: TLS/SSL connection has been closed (EOF)"},
+        "https_wpjson": {"error": "TLS/SSL connection has been closed (EOF)"},
+    }
+    out = site_health.verdict(report)
+    assert out["state"] == "network_blocked", out
+    assert "مسیر شبکه" in out["fa"]
+
+
+def test_connection_refused_still_counts_as_down():
+    """وقتی سرور صریحاً رد می‌کند، هنوز خرابی واقعی است."""
+    report = {
+        "host": "example.test",
+        "http80": {"error": "ConnectionRefusedError"},
+        "tls443": {"error": "ConnectionRefusedError"},
+        "https_wpjson": {"error": "ConnectionRefusedError"},
+    }
+    assert site_health.verdict(report)["state"] == "down"
+
+
+def test_healthy_site_wins_over_anything_else():
+    report = {
+        "host": "example.test",
+        "http80": {"status_line": "HTTP/1.1 200 OK"},
+        "tls443": {"ok": True},
+        "https_wpjson": {"looks_like_wp_rest": True},
+    }
+    assert site_health.verdict(report)["state"] == "ok"
